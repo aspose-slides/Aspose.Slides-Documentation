@@ -7,38 +7,38 @@ url: /th/cpp/shape-formatting/
 keywords:
 - จัดรูปแบบรูปร่าง
 - จัดรูปแบบเส้น
-- เอฟเฟกต์สเก็ตช์
+- เอฟเฟ็กต์สเก็ตช์
 - เส้นรูปร่างสเก็ตช์
 - จัดรูปแบบสไตล์การเชื่อมต่อ
-- การเติมไล่สี
+- การเติมสีไล่ระดับ
 - การเติมลวดลาย
 - การเติมรูปภาพ
 - การเติมพื้นผิว
 - การเติมสีทึบ
 - ความโปร่งแสงของรูปร่าง
-- การเรนเดอร์รูปร่างสีขาวดำ
-- การเรนเดอร์รูปร่างสีเทา
+- การเรนเดอร์รูปร่างขาว-ดำ
+- การเรนเดอร์รูปร่างระดับสีเทา
 - หมุนรูปร่าง
-- เอฟเฟกต์บีเวล 3 มิติ
-- เอฟเฟกต์การหมุน 3 มิติ
+- เอฟเฟ็กต์เบเวล 3D
+- เอฟเฟ็กต์การหมุน 3D
 - รีเซ็ตการจัดรูปแบบ
 - PowerPoint
 - งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดรูปแบบรูปร่าง PowerPoint ใน C++ ด้วย Aspose.Slides—ตั้งค่าสไตล์การเติม, เส้น, และเอฟเฟกต์สำหรับไฟล์ PPT และ PPTX ด้วยความแม่นยำและการควบคุมเต็มที่"
+description: "เรียนรู้วิธีจัดรูปแบบรูปร่าง PowerPoint ใน C++ ด้วย Aspose.Slides—ตั้งค่าการเติม, เส้น, และสไตล์เอฟเฟ็กต์สำหรับไฟล์ PPT และ PPTX ด้วยความแม่นยำและการควบคุมเต็มรูปแบบ."
 ---
 ## **บทนำ**
 
-จัดรูปแบบรูปร่างใน PowerPoint โดยปรับเส้นขอบ การเติมสี และเอฟเฟกต์ต่างๆ Aspose.Slides for C++ ให้คุณควบคุมการตั้งค่าเหล่านี้ด้วยโปรแกรม รวมถึงความโปร่งแสง การหมุน และการจัดรูปแบบ 3 มิติ
+จัดรูปแบบรูปร่างใน PowerPoint โดยการปรับเส้นขอบ, การเติมสี, และเอฟเฟ็กต์ต่างๆ Aspose.Slides for C++ ช่วยให้คุณควบคุมการตั้งค่าเหล่านี้ด้วยโปรแกรม, รวมถึงความโปร่งใส, การหมุน, และการจัดรูปแบบ 3D
 
 ![ตัวเลือกการจัดรูปแบบรูปร่างใน PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for C++ มีอินเทอร์เฟซและเมธอดที่ให้คุณจัดรูปแบบรูปร่างโดยใช้ตัวเลือกเดียวกับที่มีใน PowerPoint
+Aspose.Slides for C++ ให้ส่วนติดต่อและเมธอดที่ทำให้คุณสามารถจัดรูปแบบรูปร่างได้โดยใช้ตัวเลือกเดียวกับที่มีใน PowerPoint
 
 ## **จัดรูปแบบเส้น**
 
-ใช้ [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) เพื่อควบคุมเส้นขอบของรูปร่าง ตัวอย่างนี้สร้างสี่เหลี่ยมผืนผ้าไม่มีการเติมสีที่มีเส้นขอบสีน้ำเงินแบบประจาย [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) เลือกเส้นแบบผสมหนา‑บาง ในขณะที่ [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) กำหนดความกว้างเป็น 7 จุด และ [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) เลือกรูปแบบเส้นประ
+ใช้ [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) เพื่อควบคุมเส้นขอบของรูปร่าง ตัวอย่างนี้สร้างสี่เหลี่ยมผืนผ้าไม่มีการเติมสีที่มีเส้นขอบสีน้ำเงินเป็นเส้นประ   [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) เลือกเส้นสไตล์หนา-บางแบบผสม, ในขณะที่ [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) ตั้งความกว้างเป็น 7 จุดและ [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) เลือกรูปแบบเส้นประ
 
 ```cpp
 #include <DOM/FillType.h>
@@ -81,13 +81,13 @@ presentation->Dispose();
 
 ![เส้นที่จัดรูปแบบในงานนำเสนอ](formatted-lines.png)
 
-### **ตั้งค่าแพทเทิร์นเส้นประแบบกำหนดเอง**
+### **ตั้งค่ารูปแบบเส้นประแบบกำหนดเอง**
 
-ใช้ [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) เมื่อสไตล์เส้นที่กำหนดไว้ล่วงหน้าไม่ให้ความยาวและช่องว่างของเส้นประที่คุณต้องการ เช่น สำหรับเส้นขอบแบรนด์หรือแผนภาพเทคนิค การกำหนดแพทเทิร์นจะเปลี่ยนสไตล์เส้นประเป็นอัตโนมัติเป็น [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/)
+ใช้ [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) เมื่อสไตล์เส้นที่กำหนดไว้ล่วงหน้าไม่ให้ความยาวและช่องว่างที่ต้องการ, เช่นสำหรับเส้นขอบแบรนด์หรือแผนภาพเทคนิค การกำหนดรูปแบบจะเปลี่ยนสไตล์เส้นเป็น [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/)
 
-รายการในอาเรย์สลับระหว่างความยาวของเส้นประและช่องว่าง โดยเริ่มจากเส้นประ ค่าต่าง ๆ เป็นหลายเท่าของความกว้างของเส้น: `{ 4, 2 }` ที่ความกว้าง 3 จุด จะให้เส้นประ 12 จุดตามด้วยช่องว่าง 6 จุด ใช้คู่ของค่าที่จำกัด ไม่เป็นลบเพื่อกำหนดส่วนเต็มของเส้นประ‑ช่องว่าง ตัวอย่างใช้ค่าบวกเพื่อให้เส้นประและช่องว่างทั้งหมดมองเห็นได้
+ค่าที่อยู่ในอาร์เรย์สลับระหว่างความยาวของเส้นและช่องว่าง เริ่มจากเส้น ความยาวแต่ละค่าเป็นหลายเท่าของความกว้างเส้น: `{ 4, 2 }` ที่ความกว้าง 3 จุดจะให้เส้น 12 จุดตามด้วยช่องว่าง 6 จุด ใช้คู่ค่าที่เป็นจำนวนจริง, ไม่เป็นลบเพื่อกำหนดส่วนเส้นและช่องว่างอย่างสมบูรณ์ ตัวอย่างใช้ค่าเป็นบวกเพื่อให้ทุกเส้นและช่องว่างมองเห็นได้
 
-ตัวอย่างนี้สร้างเส้นสีน้ำเงิน 5 เส้นที่มีความยาวและหัวเส้นแบบแบนเท่ากัน 3 เส้นแรกเปรียบเทียบแพทเทิร์นที่ความกว้าง 3 จุด เส้นที่สี่ทำซ้ำแพทเทิร์นแรกโดยเพิ่มความกว้างเป็นสองเท่า ทำให้ความยาวของเส้นประและช่องว่างเพิ่มขึ้นสองเท่า เส้นที่ห้าเปลี่ยนจากแพทเทิร์นกำหนดเองเป็นเส้นทึบ
+ตัวอย่างนี้สร้างเส้นสีน้ำเงิน 5 เส้นที่มีความยาวเท่าเดิมและปลายเส้นแบบแบน 3 เส้นแรกเปรียบเทียบรูปแบบที่ความกว้าง 3 จุด เส้นที่สี่ทำซ้ำรูปแบบแรกโดยเพิ่มความกว้างเป็นสองเท่า ทำให้เส้นและช่องว่างยาวสองเท่า เส้นที่ห้าสลับจากรูปแบบกำหนดเองเป็นเส้นทึบ
 
 ```cpp
 #include <DOM/FillType.h>
@@ -140,31 +140,33 @@ for (auto i = 0; i < patterns.size(); i++)
     line->get_LineFormat()->set_CustomDashPattern(patterns[i]);
 }
 
-// เปลี่ยนเส้นสุดท้ายให้เป็นสไตล์เส้นทึบ.
+// Return the last line to a solid style.
 slide->get_Shape(4)->get_LineFormat()->set_DashStyle(LineDashStyle::Solid);
 
 presentation->Save(u"custom_dash_patterns.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-เพื่อกลับไปใช้สไตล์เส้นประที่กำหนดไว้ล่วงหน้า ให้ส่งค่า [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) ไปยัง [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) สไตล์ที่เลือกจะควบคุมลักษณะของเส้น
+หากต้องการกลับไปใช้สไตล์เส้นประที่กำหนดไว้ล่วงหน้า ให้ส่ง [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) ไปยัง [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) สไตล์ที่เลือกจะควบคุมลักษณะของเส้น
 
-ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; และ **Solid, 3 pt**.
+ผลลัพธ์ใน PowerPoint ตั้งแต่บนลงล่าง: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; และ **Solid, 3 pt**
 
-![สามแพทเทิร์นเส้นประแบบกำหนดเอง เส้นกว้างกว่าที่ใช้แพทเทิร์นแรก และเส้นทึบใน PowerPoint](custom-dash-patterns.png)
+![สามรูปแบบเส้นประกำหนดเอง, เส้นกว้างกว่าโดยใช้รูปแบบแรก, และเส้นทึบใน PowerPoint](custom-dash-patterns.png)
 
 
-### **ตั้งค่าหัวเส้น**
+### **ตั้งค่าปลายเส้น**
 
-ใช้ [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) เพื่อกำหนดหัวของเส้นเปิด การนับประเภท [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) มีสามสไตล์หัวเส้นที่ชัดเจน:
+ใช้ [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) เพื่อกำหนดปลายของเส้นเปิด  [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) มีสามสไตล์ปลายที่ชัดเจน:
 
-- `Flat`: เส้นหยุดที่จุดสิ้นสุด
-- `Round`: หัวเส้นแบบกึ่งวงกลมต่อออกจากจุดสิ้นสุดเป็นครึ่งความกว้างของเส้น
-- `Square`: หัวเส้นสี่เหลี่ยมต่อออกจากจุดสิ้นสุดเป็นครึ่งความกว้างของเส้น
+- `Flat`: ฝุ่นหยุดที่จุดสิ้นสุด
+- `Round`: ปลายรูปครึ่งวงกลมยืดออกเกินจุดสิ้นสุดครึ่งความกว้างเส้น
+- `Square`: ปลายสี่เหลี่ยมยืดออกเกินจุดสิ้นสุดครึ่งความกว้างเส้น
 
-ค่านิยมยังรวม `NotDefined` ซึ่งหมายถึงไม่มีการกำหนดสไตล์หัวเส้นอย่างชัดเจน
+นอกจากนี้ยังมี `NotDefined` ที่หมายความว่าไม่มีการกำหนดสไตล์ปลายอย่างชัดเจน
 
-หัวเส้นต่างจากหัวลูกศรที่เพิ่มสัญลักษณ์ที่ปลายเส้น และต่างจากการเชื่อมต่อที่ควบคุมมุมระหว่างส่วนของเส้น ตัวอย่างนี้ปิดการใช้หัวลูกศรผ่าน [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) และ [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) เพื่อให้เปรียบเทียบเฉพาะรูปทรงหัวเส้น
+ปลายเส้นต่างจากหัวศูลที่เพิ่มสัญลักษณ์ที่ปลายเส้นและการเชื่อมต่อที่ควบคุมมุมระหว่างส่วนเส้น ตัวอย่างนี้ปิดหัวศูลด้วย [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) และ [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) เพื่อให้เปรียบเทียบเฉพาะรูปแบบปลาย
+
+ตัวอย่างต่อไปนี้สร้างเส้นแนวนอนสามเส้นที่เหมือนกัน, ความกว้าง 20 จุด ตั้งแต่บนลงล่างใช้ปลาย Flat, Round, และ Square ตามลำดับ จุดสิ้นสุดของเส้นแต่ละเส้นมีพิกัดแนวนอนเดียวกัน; ปลาย Round และ Square ยืดออกเกิน 10 จุดจากแต่ละจุดสิ้นสุด
 
 ```cpp
 #include <DOM/FillType.h>
@@ -214,15 +216,15 @@ presentation->Save(u"line_caps.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **Flat**, **Round**, และ **Square**.
+ผลลัพธ์ใน PowerPoint ตั้งแต่บนลงล่าง: **Flat**, **Round**, และ **Square**
 
-![หัวเส้นแบน, โค้ง, และสี่เหลี่ยมบนเส้นหนาแบบเดียวกันใน PowerPoint](line-caps.png)
+![ปลาย Flat, Round, และ Square บนเส้นหนาเดียวกันใน PowerPoint](line-caps.png)
 
-## **ใช้เอฟเฟกต์สเก็ตช์กับเส้นของรูปร่าง**
+## **ใช้เอฟเฟ็กต์สเก็ตช์กับเส้นรูปร่าง**
 
-เอฟเฟกต์สเก็ตช์ทำให้เส้นของรูปร่างดูเหมือนวาดด้วยมือ ใช้ [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) เพื่อเข้าถึงการตั้งค่าเส้น, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) เพื่อเลือกค่าจากการนับประเภท [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/)
+เอฟเฟ็กต์สเก็ตช์ทำให้เส้นรูปร่างดูเหมือนถูกวาดด้วยมือ ใช้ [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) เพื่อเข้าถึงการตั้งค่าเส้น, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) เพื่อเลือกค่าจาก enumeration [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/)
 
-โค้ด C++ ต่อไปนี้แสดงวิธีใช้เอฟเฟกต์ [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) อ่านค่าที่กำหนดอย่างชัดเจน และลบเอฟเฟกต์ด้วย [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
+โค้ด C++ ต่อไปนี้แสดงการใช้เอฟเฟ็กต์ [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) อ่านค่าที่กำหนดโดยชัดเจน, และลบเอฟเฟ็กต์ด้วย [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -253,7 +255,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-ค่าที่คืนจาก [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) แสดงการตั้งค่าที่กำหนดโดยตรงให้กับรูปร่าง หากการจัดรูปแบบเส้นสามารถสืบทอดจากธีม, มาสเตอร์สไลด์, หรือเลย์เอาต์สไลด์ ให้ใช้ [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), เข้าถึง [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), และอ่านค่า [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/) ค่าที่มีประสิทธิผลจะสะท้อนการจัดรูปแบบที่ใช้จริงหลังจากการสืบทอดถูกแก้ไข ตัวอย่างนี้ต้องมีงานนำเสนอที่มีอย่างน้อยหนึ่งรูปร่างบนสไลด์แรกและพิมพ์ค่าทั้งสอง:
+ค่าที่คืนจาก [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) แสดงการตั้งค่าที่กำหนดโดยตรงให้กับรูปร่าง หากการจัดรูปแบบเส้นอาจสืบทอดจากธีม, สไลด์แม่, หรือสไลด์เค้าโครง, ใช้ [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), เข้าถึง [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), แล้วอ่าน [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/) ค่าที่มีผลจะแสดงการจัดรูปแบบที่ถูกนำไปใช้จริงหลังจากการสืบทอดเสร็จ ตัวอย่างนี้ต้องการงานนำเสนอที่มีอย่างน้อยหนึ่งรูปร่างบนสไลด์แรกและพิมพ์ค่าทั้งสอง:
 
 ```cpp
 #include <DOM/ILineFormat.h>
@@ -285,17 +287,17 @@ presentation->Dispose();
 
 ## **จัดรูปแบบสไตล์การเชื่อมต่อ**
 
-นี่คือสามตัวเลือกประเภทการเชื่อมต่อ:
+ตัวเลือกสไตล์การเชื่อมต่อสามแบบ:
 
 * Round
 * Miter
 * Bevel
 
-สไตล์การเชื่อมต่อกำหนดว่าตัวแบ่งของเส้นสองส่วนมาบรรจบกันอย่างไรที่มุม ใช้ **Round** สำหรับมุมโค้ง, **Miter** สำหรับมุมคม, หรือ **Bevel** สำหรับมุมเรียบ
+สไตล์การเชื่อมต่อควบคุมการต่อกันของสองส่วนขอบที่มุม ใช้ **Round** สำหรับมุมโค้ง, **Miter** สำหรับมุมคม, หรือ **Bevel** สำหรับมุมเรียบ
 
 ![สไตล์การเชื่อมต่อในงานนำเสนอ](join-style-powerpoint.png)
 
-ตัวอย่างนี้สร้างสี่เหลี่ยมสีดำ 3 รูปที่มีเส้นขอบสีน้ำเงินกว้าง 15 จุด โดยตั้งค่า [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) ให้เป็นค่า miter, bevel, และ round ของ [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) ตามลำดับ เพื่อเปรียบเทียบการวาดมุม
+ตัวอย่างนี้สร้างสี่เหลี่ยมสีดำ 3 รูปที่มีเส้นขอบสีน้ำเงินกว้าง 15 จุด ตั้งค่า [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) เป็นค่า miter, bevel, และ round ของ [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) เพื่อตรวจสอบวิธีที่มุมถูกวาด
 
 ```cpp
 #include <DOM/FillType.h>
@@ -356,13 +358,13 @@ presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **จำกัดการเชื่อมต่อแบบ Miter ที่มุมแหลม**
+### **จำกัด Miter ที่มุมคม**
 
-ใช้ [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) ร่วมกับ [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) ที่ตั้งเป็น [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) เพื่อจำกัดระยะที่มุมแหลมสามารถขยายได้
+ใช้ [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) พร้อมกับ [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) ตั้งเป็น [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) เพื่อจำกัดระยะที่มุมคมสามารถยืดออกได้
 
-ขีดจำกัดเป็นอัตราส่วนของระยะห่างระหว่างมุมในและนอกของการเชื่อมต่อต่อความกว้างของเส้น ตัวอย่างเช่น ค่า `8` อนุญาตให้ความยาวของมิตเตอร์สูงสุดได้ถึงแปดเท่าของความกว้างเส้น; ไม่ได้เป็นหน่วยจุด หากมุมเกินขีดจำกัด PowerPoint จะใช้การเชื่อมต่อแบบ bevel ที่มุมนั้น ขีดจำกัดที่ใหญ่ขึ้นจะทำให้จุดคมขึ้น การตั้งค่านี้มีผลต่อการเชื่อมต่อแบบ miter เท่านั้น และการเปลี่ยนแปลงจะไม่มีผลต่อมุมที่ยังอยู่ภายในขีดจำกัดทั้งสอง
+ค่าจำกัดเป็นอัตราส่วนของระยะห่างระหว่างมุมในและนอกของการเชื่อมต่อต่อความกว้างเส้น ตัวอย่างเช่น ค่า `8` อนุญาตให้ความยาวมิตเตอร์ยาวได้ถึงแปดเท่าของความกว้างเส้น; ไม่ได้เป็นหน่วยจุด หากมุมเกินขีดจำกัด PowerPoint จะใช้การเชื่อมต่อแบบ bevel ที่มุมนั้น ขีดจำกัดที่ใหญ่ขึ้นทำให้จุดคมมากขึ้น การตั้งค่านี้มีผลต่อการเชื่อมต่อแบบ miter เท่านั้น, การเปลี่ยนแปลงไม่มีผลต่อการแสดงผลเมื่อมุมยังอยู่ในขอบเขตของทั้งสองขีดจำกัด
 
-ตัวอย่างนี้สร้างสองสามเหลี่ยมไม่มีการเติมสีที่มีเส้นขอบกว้าง 20 จุด สามเหลี่ยมซ้ายใช้ขีดจำกัด `2` และสามเหลี่ยมขวาใช้ `8` แต่ละสามเหลี่ยมกว้าง 80 จุด สูง 160 จุด ทำให้มุมบนมีอัตราส่วนความยาวมิตเตอร์ต่อความกว้างเส้นประมาณ `4.12` ดังนั้น PowerPoint จะ bevel จุดยอดซ้ายและคงจุดยอดขวาไว้
+ตัวอย่างนี้สร้างสามเหลี่ยมไม่มีการเติมสีสองรูปที่เหมือนกัน, เส้นขอบกว้าง 20 จุด สามเหลี่ยมซ้ายใช้ขีดจำกัด `2`, ขวาใช้ `8` แต่ละสามเหลี่ยมกว้าง 80 จุด สูง 160 จุด ทำให้อัตราส่วนความยาวมิตเตอร์ต่อความกว้างเส้นของมุมบนประมาณ `4.12` ผลลัพธ์ PowerPoint: มิตเตอร์ลิมิต 2 ทางซ้ายและมิตเตอร์ลิมิต 8 ทางขวา
 
 ```cpp
 #include <DOM/FillType.h>
@@ -409,13 +411,13 @@ presentation->Save(u"miter_limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ผลลัพธ์ใน PowerPoint: **Miter limit 2** ทางซ้ายและ **miter limit 8** ทางขวา.
+ผลลัพธ์ใน PowerPoint: **Miter limit 2** ทางซ้ายและ **miter limit 8** ทางขวา
 
-![จุดยอด bevel ที่มี miter limit 2 และจุดยอดคมที่มี miter limit 8 ใน PowerPoint](miter-limits.png)
+![ยอด bevel ด้วยมิตเตอร์ลิมิต 2 และยอดแหลมด้วยมิตเตอร์ลิมิต 8 ใน PowerPoint](miter-limits.png)
 
-## **การเติมไล่สี**
+## **เติมสีไล่ระดับ (Gradient Fill)**
 
-การเติมไล่สีผสมสีทั่วทั้งรูปร่าง ตัวอย่างนี้เติมวงรีด้วยไล่สีเชิงเส้นที่มุม 45° จากสีแดงไปสีม่วงโดยใช้ [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). เมธอด [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) วางจุดหยุดสีที่ 0 และ 1 ซึ่งเป็นจุดเริ่มและจบของไล่สี การล้างจุดหยุดเดิมทำให้ใช้เฉพาะสองสีนี้
+การเติมสีไล่ระดับผสานสีทั่วรูปร่าง ตัวอย่างนี้เติมรูปวงรีด้วยไล่สีเชิงเส้นที่มุม 45 องศาจากสีแดงไปสีม่วงโดยใช้ [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/)  วิธี [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) จะใส่จุดหยุดสีที่ 0 และ 1, จุดเริ่มต้นและจบของไล่สี การลบจุดหยุดเดิมทำให้ใช้สีสองสีนี้เท่านั้น
 
 ```cpp
 #include <DOM/FillType.h>
@@ -458,13 +460,13 @@ presentation->Dispose();
 
 ![วงรีที่เติมไล่สี](gradient-fill.png)
 
-หากไล่สีแสดงผลต่างกันในภาพที่ส่งออกเทียบกับ PowerPoint ให้ดูที่ [Choose a Gradient Rendering Style](/slides/th/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) คุณสามารถเลือกสไตล์การเรนเดอร์โดยไม่ต้องเปลี่ยนการเติมไล่สีที่บันทึกไว้ในงานนำเสนอ
+หากไล่สีแสดงผลต่างกันในภาพที่ส่งออกเมื่อเทียบกับ PowerPoint, ดูที่ [Choose a Gradient Rendering Style](/slides/th/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) คุณสามารถเลือกสไตล์การเรนเดอร์โดยไม่ต้องเปลี่ยนไล่สีที่เก็บในงานนำเสนอ
 
-### **ตั้งค่าองศาไล่สีเชิงเส้น**
+### **ตั้งค่ามุมไล่สีเชิงเส้น**
 
-ใช้ [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) เพื่อควบคุมการวางแนวของการเติม [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) องศาวัดเป็นระดับและเพิ่มตามเข็มนานาเข็ม: `0` จากซ้ายไปขวา, `90` จากบนลงล่าง, `180` จากขวาไปซ้าย, `270` จากล่างขึ้นบน. รองรับองศาเศษส่วน องศาที่อยู่นอกช่วง `[0, 360)` จะถูกทำให้เป็นหนึ่งรอบ; ตัวอย่างเช่น `-45` จะเป็น `315` และ `360` จะเป็น `0`
+ใช้ [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) เพื่อควบคุมทิศทางของการเติม [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) มุมวัดเป็นองศาและเพิ่มตามเข็มนาฬิกา: `0` จากซ้ายไปขวา, `90` จากบนลงล่าง, `180` จากขวาไปซ้าย, `270` จากล่างขึ้นบน มุมที่เป็นเศษส่วนก็รองรับ มุมที่อยู่นอกช่วง `[0, 360)` จะทำให้เป็นมุมรอบหนึ่งครบ เช่น `-45` กลายเป็น `315` และ `360` กลายเป็น `0`
 
-ตัวอย่างนี้สร้างสี่เหลี่ยม 6 รูปที่มีจุดหยุดสีแดง, เขียว, น้ำเงินเดียวกันที่ตำแหน่ง `0`, `0.5`, และ `1`. ปิดการสเกลเพื่อให้เปรียบเทียบองศาโดยไม่ขึ้นกับสัดส่วนของสี่เหลี่ยม องศาตั้งแต่ซ้ายไปขวาในแถวแรกคือ `0`, `45`, `90` และในแถวที่สองคือ `135`, `180`, `270`
+ตัวอย่างนี้สร้างสี่เหลี่ยม 6 รูปที่มีจุดหยุดสีแดง, เขียว, น้ำเงินที่ตำแหน่ง `0`, `0.5`, และ `1` เท่ากัน การสเกลถูกปิดเพื่อให้เปรียบเทียบมุมโดยไม่พิจารณาอัตราส่วนของสี่เหลี่ยม มุมจากซ้ายไปขวาในแถวแรกคือ `0`, `45`, `90`; แถวที่สองคือ `135`, `180`, `270`
 
 ```cpp
 #include <DOM/FillType.h>
@@ -523,13 +525,13 @@ presentation->Dispose();
 
 ผลลัพธ์ใน PowerPoint:
 
-![ไล่สีเชิงเส้นที่ 0°, 45°, 90° ในแถวบน, และ 135°, 180°, 270° ในแถวล่าง](linear-gradient-angles.png)
+![ไล่สีเชิงเส้นที่มุม 0, 45, 90 องศาในแถวบนและ 135, 180, 270 องศาในแถวล่าง](linear-gradient-angles.png)
 
-### **ปรับขนาดไล่สีเชิงเส้นตามรูปร่าง**
+### **สเกลไล่สีเชิงเส้นตามรูปร่าง**
 
-[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) รับค่า [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) กำหนดเป็น `False` อย่างชัดเจนเพื่อคงองศาไล่สีเชิงทรงเรขาคณิตเมื่อรูปร่างเปลี่ยนสัดส่วน, หรือกำหนดเป็น `True` เพื่อสเกลไล่สีตามความกว้างและความสูงของรูปร่าง เมื่อเปิดสเกลแล้วองศาที่มองเห็นอาจแตกต่างจากองศาที่กำหนดบนรูปร่างที่ไม่เป็นสี่เหลี่ยมจัตุรัส
+[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) รับค่า [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) ตั้งเป็น `False` เพื่อคงมุมไล่สีเชิงเรขาคณิตเมื่อรูปร่างเปลี่ยนสัดส่วน, หรือ `True` เพื่อสเกลไล่สีตามความกว้างและความสูงของรูปร่าง เมื่อเปิดสเกล มุมที่มองเห็นอาจต่างจากมุมที่กำหนดบนรูปร่างที่ไม่เป็นสี่เหลี่ยมจัตุรัส
 
-ตัวอย่างต่อไปนี้ใช้มุม `45`° และจุดหยุดสีเดียวกันกับการเปรียบเทียบองศา คอลัมน์ซ้ายใช้ `False`; คอลัมน์ขวาใช้ `True`. แต่ละคอลัมน์มีสี่เหลี่ยมกว้างด้านบนและสี่เหลี่ยมสูงด้านล่าง ทั้งสองเริ่มด้วยขนาดกว้างเดียวกัน; การเปลี่ยนความกว้างและความสูงของสี่เหลี่ยมที่สองแสดงให้เห็นว่าการเติมตอบสนองอย่างไรต่อการปรับขนาดโดยไม่ต้องเปลี่ยนการตั้งค่าไล่สี
+ตัวอย่างต่อไปนี้ใช้มุม `45` องศาและจุดหยุดสีเดียวกันกับการเปรียบเทียบมุม คอลัมน์ซ้ายตั้งค่า `False`; คอลัมน์ขวาตั้งค่า `True` แต่ละคอลัมน์มีสี่เหลี่ยมกว้างด้านบนและสี่เหลี่ยมสูงด้านล่าง ทั้งสองเริ่มจากขนาดกว้างเท่าเดิม; การเปลี่ยนความกว้างและความสูงของสี่เหลี่ยมที่สองแสดงว่าการเติมสีตอบสนองต่อการปรับขนาดโดยไม่เปลี่ยนค่าการไล่สี
 
 ```cpp
 #include <DOM/FillType.h>
@@ -595,19 +597,19 @@ presentation->Save(u"linear_gradient_scaling.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ผลลัพธ์ใน PowerPoint, โดยซ้ายไม่มีสเกลและขวามีสเกล:
+ผลลัพธ์ใน PowerPoint, ปิดสเกลทางซ้ายและเปิดสเกลทางขวา:
 
-![สี่เหลี่ยมกว้างและสี่เหลี่ยมสูงที่มีไล่สี 45°, เปรียบเทียบ LinearGradientScaled False ด้ายกับ True ขวา](linear-gradient-scaling.png)
+![สี่เหลี่ยมกว้างและสูงที่มีไล่สี 45 องศา, เปรียบเทียบ LinearGradientScaled False ด้านซ้ายกับ True ด้านขวา](linear-gradient-scaling.png)
 
-เมื่อปิดสเกล แถบสีทแยงมุมคงทิศทางเดียวกันในทั้งสองสี่เหลี่ยม เมื่อเปิดสเกล แถบสีจะยืดตามสัดส่วนของรูปร่าง สิ่งนี้ช่วยให้ทำสำเนาไล่สีของเทมเพลตเมื่อปรับรูปร่างให้มีขนาดต่างกัน บนสี่เหลี่ยมจัตุรัส การเปิดสเกลไม่เปลี่ยนลักษณะของไล่สี `45`° นี้
+เมื่อสเกลปิด, แถบสีทแยงมุมคงทิศทางเดียวกันในทั้งสองสี่เหลี่ยม เมื่อสเกลเปิด, แถบสียืดตามสัดส่วนของรูปร่าง ช่วยให้คัดลอกไล่สีของแม่แบบเมื่อต้องปรับรูปร่างให้มีขนาดต่างกัน บนสี่เหลี่ยมจัตุรัส การเปิดสเกลจะไม่เปลี่ยนลักษณะของไล่สี `45` องศานี้
 
-ทั้งองศาและการตั้งค่าสเกลใช้กับไล่สีเชิงเส้นเท่านั้น ไม่ควบคุมการเติม [GradientShape::Radial or GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/)
+ทั้งมุมและการสเกลใช้กับไล่สีเชิงเส้น ไม่ควบคุมการเติม [GradientShape::Radial หรือ GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/)
 
-### **รวมองศากับทิศทางไล่สี**
+### **ผสานมุมกับทิศทางไล่สี**
 
-[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) เลือกสไตล์ไล่สีจากการนับประเภท [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/) ซึ่งไม่ใช่การแทนที่ด้วยองศาตัวเลข สำหรับไล่สีเชิงเส้น ทิศทางมุมสามารถเปลี่ยนพื้นที่ที่สีกระจายโดยไม่เปลี่ยนองศาที่กำหนดผ่าน [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) ให้คงทิศทางไว้เมื่อเปรียบเทียบองศาหรือสเกล
+[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) เลือกสไตล์ไล่สีจาก enumeration [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/) ไม่ใช่การแทนที่มุมเชิงตัวเลข สำหรับไล่สีเชิงเส้น, สไตล์มุมอาจเปลี่ยนพื้นที่การกระจายสีโดยไม่เปลี่ยนมุมที่ตั้งผ่าน [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) ให้คงทิศทางเมื่อเปรียบเทียบมุมหรือสเกล
 
-ตัวอย่างต่อไปนี้ใช้การตั้งค่าเดียวกันแต่เรียงลำดับต่างกัน สี่เหลี่ยมสองรูปจะมีลักษณะเดียวกัน: การกำหนดทิศทางก่อนหรือหลังการกำหนดองศาจะไม่เปลี่ยนผลลัพธ์
+ตัวอย่างต่อไปนี้ใช้การตั้งค่าเดียวกันแต่สลับลำดับ สี่เหลี่ยมสองรูปมีลักษณะเดียวกัน: การกำหนดทิศทางก่อนหรือหลังมุมไม่ทำให้ผลลัพธ์เปลี่ยน
 
 ```cpp
 #include <DOM/FillType.h>
@@ -666,9 +668,9 @@ presentation->Save(u"linear_gradient_direction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **การเติมด้วยลวดลาย**
+## **การเติมลวดลาย (Pattern Fill)**
 
-การเติมด้วยลวดลายใช้การออกแบบสองสี เช่น จุด, เส้น, หรือช่องสี ตัวอย่างนี้ใช้ [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) เพื่อเลือกลวดลาย trellis. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) กำหนดพื้นหลังสีเทอ่อน, และ [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) กำหนดสีเหลืองสำหรับลวดลาย
+การเติมลวดลายใช้การออกแบบสองสี เช่น จุด, แถบ, หรือตาราง ตัวอย่างนี้ใช้ [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) เพื่อเลือกลวดลาย trellis  [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) ตั้งพื้นหลังสีเทาอ่อน, และ [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) ตั้งสีเหลืองให้ลวดลาย
 
 ```cpp
 #include <DOM/FillType.h>
@@ -705,13 +707,13 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![สี่เหลี่ยมที่เติมด้วยลวดลาย](pattern-fill.png)
+![สี่เหลี่ยมที่เติมลวดลาย](pattern-fill.png)
 
-## **การเติมด้วยรูปภาพ**
+## **การเติมรูปภาพ (Picture Fill)**
 
-การเติมด้วยรูปภาพใช้รูปภาพภายในรูปร่าง ตัวอย่างนี้ต้องการรูปภาพในเครื่องและใช้ [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) เพื่อโหลดเข้าสู่คอลเลคชันรูปภาพของงานนำเสนอ ตั้งค่า [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) เป็นโหมด tiled เพื่อทำซ้ำรูปภาพภายในสี่เหลี่ยม ภาพต้นฉบับที่ใช้แสดงด้านล่าง:
+การเติมรูปภาพใช้ภาพภายในรูปร่าง ตัวอย่างนี้ต้องการภาพในเครื่องและใช้ [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) เพื่อโหลดเข้าสู่คอลเลกชันภาพของงานนำเสนอ การตั้งค่า [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) เป็นโหมด tiled ทำให้ภาพซ้ำภายในสี่เหลี่ยม ภาพต้นฉบับที่ใช้แสดงด้านล่าง:
 
-![รูปดอกบัว](lotus.png)
+![รูปภาพดอกบัว](lotus.png)
 
 ```cpp
 #include <DOM/FillType.h>
@@ -752,21 +754,21 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![รูปร่างที่เติมด้วยรูปภาพ](picture-fill.png)
+![รูปร่างที่เติมรูปภาพ](picture-fill.png)
 
-### **ทำรูปภาพเป็นลายกระเบื้องเป็นพื้นผิว**
+### **ตั้งค่าการปูภาพเป็นพื้นผิว (Tile Picture As Texture)**
 
-หากต้องการตั้งรูปภาพเป็นลายกระเบื้องเป็นพื้นผิวและปรับพฤติกรรมการกระเบื้อง คุณสามารถใช้เมธอดต่อไปนี้ของอินเทอร์เฟซ [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) และคลาส [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/):
+หากต้องการตั้งค่าภาพแบบ tiled เป็นพื้นผิวและปรับพฤติกรรมการปู, สามารถใช้เมธอดต่อไปนี้ของส่วนติดต่อ [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) และคลาส [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) :
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): ตั้งโหมดการเติมรูปภาพ—หรือ `Tile` หรือ `Stretch`.
-- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): กำหนดการจัดตำแหน่งของกระเบื้องภายในรูปร่าง.
-- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): ควบคุมว่ากระเบื้องจะแปลงแนวนอน แนวตั้ง หรือทั้งสองอย่าง.
-- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): ตั้งค่าการเยื้องแนวนอนของกระเบื้อง (หน่วยเป็นจุด) จากจุดกำเนิดของรูปร่าง.
-- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): ตั้งค่าการเยื้องแนวตั้งของกระเบื้อง (หน่วยเป็นจุด) จากจุดกำเนิดของรูปร่าง.
-- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): กำหนดสเกลแนวนอนของกระเบื้องเป็นเปอร์เซ็นต์.
-- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): กำหนดสเกลแนวตั้งของกระเบื้องเป็นเปอร์เซ็นต์.
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): ตั้งโหมดการเติมภาพ—`Tile` หรือ `Stretch`
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): กำหนดการจัดตำแหน่งของแผ่นภาพภายในรูปร่าง
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): ควบคุมการพลิกภาพแนวนอน, แนวตั้ง, หรือทั้งสองอย่าง
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): ตั้งค่าการชี้ออฟเซ็ตแนวนอนของแผ่นภาพ (หน่วยจุด) จากจุดกำเนิดของรูปร่าง
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): ตั้งค่าการชี้ออฟเซ็ตแนวตั้งของแผ่นภาพ (หน่วยจุด) จากจุดกำเนิดของรูปร่าง
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): นิยามสเกลแนวนอนของแผ่นภาพเป็นเปอร์เซ็นต์
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): นิยามสเกลแนวตั้งของแผ่นภาพเป็นเปอร์เซ็นต์
 
-ตัวอย่างนี้ต้องการรูปภาพในเครื่องและกำหนดให้ [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) ทำซ้ำที่ขนาด 50% ของขนาดดั้งเดิม การเยื้อง −32 จุดทำให้กระเบื้องเลื่อนแนวนอนและแนวตั้ง; การจัดตำแหน่ง bottom‑right และการพลิกทั้งสองทิศทางกำหนดวิธีการจัดเรียงลายกระเบื้องที่ทำซ้ำ
+ตัวอย่างนี้ต้องการภาพในเครื่องและกำหนดค่า [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) ให้ซ้ำที่ 50% ของขนาดเดิม การชี้ออฟเซ็ต `−32` จุดทำให้แผ่นภาพเคลื่อนที่แนวนอนและแนวตั้ง; การจัดตำแหน่งด้านล่างขวาและการพลิกทั้งสองทิศทางกำหนดวิธีจัดเรียงพื้นผิวที่ซ้ำ
 
 ```cpp
 #include <DOM/FillType.h>
@@ -817,11 +819,11 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![ตัวเลือกการกระเบื้อง](tile-options.png)
+![ตัวเลือกการปูภาพ](tile-options.png)
 
-## **การเติมสีทึบ**
+## **การเติมสีทึบ (Solid Color Fill)**
 
-การเติมสีทึบให้รูปร่างสีเดียวที่สม่ำเสมอ ตัวอย่างนี้ตั้งค่า [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) ให้เป็นโหมดเติมสีทึบและกำหนดสีเหลืองผ่าน [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), แล้วบันทึกสี่เหลี่ยมในงานนำเสนอ
+การเติมสีทึบให้รูปร่างเป็นสีเดียวแบบสม่ำเสมอ ตัวอย่างนี้ตั้งค่า [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) เป็นโหมดสีทึบและกำหนดสีเหลืองผ่าน [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), แล้วบันทึกสี่เหลี่ยมในงานนำเสนอ
 
 ```cpp
 #include <DOM/FillType.h>
@@ -856,13 +858,102 @@ presentation->Dispose();
 
 ![รูปร่างที่เติมสีทึบ](solid-color-fill.png)
 
-## **ใช้พื้นหลังสไลด์เป็นการเติมของรูปร่าง**
+### **คัดลอกสีโดยคงการอ้างอิงธีม**
 
-ใช้ [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) เมื่อรูปร่างควรตรงกับพื้นหลังสไลด์ เช่น ในเทมเพลตงานนำเสนอ ตั้งค่า [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) เป็น [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) ก่อนเพื่อเอาการเติมที่กำหนดไว้ล่วงหน้าออก ด้วยการผสมนี้รูปร่างจะใช้พื้นหลังสไลด์แทนการเติมสไตล์ของมันเอง การเปิดใช้แฟลกเพียงอย่างเดียวจะไม่ลบการเติมที่กำหนดไว้แล้ว
+ใช้ [IColorFormat::CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/copyfrom/) เพื่อคัดลอกการกำหนดค่าสีรวมถึงประเภทสี, การอ้างอิงธีม, และการแปลงต่างๆ นี้มีประโยชน์เมื่อโอนสีเติมระหว่างรูปร่างที่ควรยังคงตามธีมของงานนำเสนอ วิธีนี้คัดลอกเฉพาะสี ไม่คัดลอกประเภทการเติม, ขอบ, หรือการจัดรูปแบบรูปร่างอื่นๆ ตั้งค่าประเภทการเติมของปลายทางอย่างชัดเจนด้วย [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/)
 
-ส่วนนี้แตกต่างจาก [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/): การเติมพื้นหลังจะคลุมวัตถุที่อยู่หลังรูปร่างด้วยพื้นที่ของพื้นหลังสไลด์, ในขณะที่ NoFill ทำให้วัตถุเหล่านั้นมองเห็นได้ การไล่สียังคงจัดแนวกับสไลด์แทนที่จะเริ่มใหม่ภายในแต่ละรูปร่าง
+ตัวอย่างนี้สร้างสี่เหลี่ยมสามรูปจากซ้ายไปขวา: ต้นฉบับ, คัดลอกที่คำนึงถึงธีม, และคัดลอกเป็น RGB คงที่ ต้นฉบับใช้ [IColorFormat::set_SchemeColor](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_schemecolor/) เพื่ออ้างอิงสีสำเร็จแรกและเพิ่ม tint ผ่าน [IColorOperationCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icoloroperationcollection/add/) คัดลอก RGB ใช้สีเติมที่มีผลของต้นฉบับทำให้ทั้งสามดูเหมือนกันในตอนแรก การเรียก [IColorFormat::set_Color](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_color/) ตั้งค่ารหัส RGB คงที่และลบการแปลงสีที่มีอยู่
 
-ตัวอย่างต่อไปนี้สร้างพื้นหลังมาสเตอร์ที่สไลด์สืบทอดและวางแถบสีม่วงด้านหลังสามสี่เหลี่ยม สี่เหลี่ยมซ้ายใช้พื้นหลัง, สี่เหลี่ยมกลางไม่มีการเติม, และสี่เหลี่ยมขวาเปลี่ยนจากการเติมพื้นหลังเป็นการเติมสีส้มที่กำหนดอย่างชัดเจน
+```cpp
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(660, 220, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_RoyalBlue());
+
+auto source = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+auto themeCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+auto rgbCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+for (auto shape : { source, themeCopy, rgbCopy })
+{
+    shape->get_FillFormat()->set_FillType(FillType::Solid);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+}
+
+auto sourceColor = source->get_FillFormat()->get_SolidFillColor();
+sourceColor->set_SchemeColor(SchemeColor::Accent1);
+sourceColor->get_ColorTransform()->Add(ColorTransformOperation::Tint, 0.75f);
+
+themeCopy->get_FillFormat()->get_SolidFillColor()->CopyFrom(sourceColor);
+auto effectiveFill = source->get_FillFormat()->GetEffective();
+rgbCopy->get_FillFormat()->get_SolidFillColor()->set_Color(effectiveFill->get_SolidFillColor());
+
+auto before = slide->GetImage(1.0f, 1.0f);
+before->Save(u"color-copy-before.png", ImageFormat::Png);
+before->Dispose();
+
+// Theme references follow the new accent color; the fixed RGB value does not.
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_OrangeRed());
+
+auto after = slide->GetImage(1.0f, 1.0f);
+after->Save(u"color-copy-after.png", ImageFormat::Png);
+after->Dispose();
+presentation->Save(u"copied_colors.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+ก่อนเปลี่ยนธีม, การเติมทั้งสามตรงกัน:
+
+![ต้นฉบับ, ปลายทาง CopyFrom, และปลายทาง RGB คงที่ที่มีสีเติมสีน้ำเงินเหมือนกัน](color-copy-before.png)
+
+หลังจากเปลี่ยนธีม, ต้นฉบับและคัดลอกที่คำนึงถึงธีมตามสีสำเร็จใหม่และคง tint ส่วนคัดลอก RGB คงที่ยังคงเป็นสีน้ำเงิน:
+
+![ต้นฉบับและปลายทาง CopyFrom ที่เติมสีส้ม, ส่วนปลายทาง RGB คงที่ยังคงสีน้ำเงิน](color-copy-after.png)
+
+การกำหนดที่คัดลอกเป็นอิสระจากต้นฉบับ การเปลี่ยนแปลงอ้างอิงธีมของต้นฉบับ, การกำหนดสีใหม่, หรือการเพิ่ม/ลบการแปลงจะไม่กระทบต่อปลายทาง การเปลี่ยนธีมยังคงมีผลต่อรูปร่างทั้งสองเนื่องจากแต่ละรูปอ้างอิงสีธีมเดียวกัน
+
+การบันทึกและเปิดไฟล์ PPTX อีกครั้งจะคงประเภทสีที่คัดลอกไว้, สามารถดูได้ผ่าน [IColorFormat::get_ColorType](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortype/), การอ้างอิงธีม, และคอลเลกชันการแปลงที่คืนจาก [IColorFormat::get_ColorTransform](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortransform/) มิได้แปลงเป็น RGB
+
+เมื่อคัดลอกจากบริบทธีมต่างกัน, เช่นงานนำเสนอที่ใช้พาเลตสำเร็จต่างกัน, การอ้างอิงที่คัดลอกจะอิงตามธีมของปลายทาง ดังนั้นการอ้างอิงและการแปลงเดียวกันอาจให้สีที่มองเห็นต่างกัน ดูรายละเอียดเพิ่มเติมที่ [Presentation Theme](/slides/th/cpp/presentation-theme/) เพื่อเรียนรู้การกำหนดสีธีม
+
+## **ใช้พื้นหลังสไลด์เป็นการเติมสีของรูปร่าง**
+
+ใช้ [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) เมื่อรูปร่างควรตรงกับพื้นหลังสไลด์, ตัวอย่างเช่นในแม่แบบงานนำเสนอ ตั้งค่า [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) เป็น [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) ก่อนเพื่อเอาการเติมแบบชัดเจนออก ด้วยการผสมนี้รูปร่างจะใช้พื้นหลังสไลด์แทนการเติมแบบสไตล์ของตัวเอง การเปิดแฟล็กนี้อย่างเดียวไม่ลบการเติมที่ชัดเจนอยู่แล้ว
+
+ต่างจาก [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/): การเติมพื้นหลังครอบคลุมวัตถุที่อยู่ด้านหลังรูปร่างด้วยส่วนพื้นหลังสไลด์ที่สอดคล้องกัน, ในขณะที่ NoFill ทำให้วัตถุเหล่านั้นมองเห็นได้ การไล่สียังคงจัดแนวกับสไลด์แทนการเริ่มใหม่ภายในแต่ละรูปร่าง
+
+ตัวอย่างต่อไปนี้สร้างพื้นหลังแม่แบบที่สืบทอดโดยสไลด์และวางแถบสีชมพูหลังสี่เหลี่ยมสามรูป สี่เหลี่ยมซ้ายใช้พื้นหลัง, กลางไม่มีการเติม, ขวาสลับจากพื้นหลังเป็นการเติมสีส้มชัดเจน
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -910,7 +1001,7 @@ gradient->get_GradientStops()->Clear();
 gradient->get_GradientStops()->Add(0, Color::get_DarkBlue());
 gradient->get_GradientStops()->Add(1, Color::get_LightSkyBlue());
 
-// เพิ่มอ็อบเจกต์นี้ก่อนเพื่อให้แสดงด้านหลังสี่เหลี่ยม.
+// เพิ่มวัตถุนี้เป็นอันดับแรกเพื่อให้ปรากฏอยู่ด้านหลังสี่เหลี่ยม.
 auto band = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 25, 150, 670, 100);
 band->get_FillFormat()->set_FillType(FillType::Solid);
 band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Magenta());
@@ -927,7 +1018,7 @@ auto explicitShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 510
 explicitShape->get_FillFormat()->set_FillType(FillType::NotDefined);
 explicitShape->set_UseBackgroundFill(true);
 
-// ปิดการเติมพื้นหลังก่อนใช้การเติมแบบกำหนดเอง.
+// ปิดการเติมพื้นหลังก่อนใช้การเติมแบบชัดเจน.
 explicitShape->set_UseBackgroundFill(false);
 explicitShape->get_FillFormat()->set_FillType(FillType::Solid);
 explicitShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
@@ -936,15 +1027,15 @@ presentation->Save(u"background_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ผลลัพธ์จากซ้ายไปขวา: **background fill**, **no fill**, และ **explicit fill**. แถบสีม่วงถูกซ่อนโดยสี่เหลี่ยมซ้ายและขวาแต่ยังคงมองเห็นผ่านสี่เหลี่ยมกลาง
+ผลลัพธ์จากซ้ายไปขวา: **การเติมพื้นหลัง**, **ไม่มีการเติม**, และ **การเติมชัดเจน** แถบสีชมพูถูกซ่อนโดยสี่เหลี่ยมซ้ายและขวาแต่ยังมองเห็นผ่านสี่เหลี่ยมกลาง
 
-![การเติมพื้นหลัง, ไม่มีการเติม, และการเติมสีส้มอย่างชัดเจนเหนือแถบสีม่วง](background-fill.png)
+![การเติมพื้นหลัง, ไม่มีการเติม, และการเติมสีส้มชัดเจนบนแถบสีชมพู](background-fill.png)
 
-พฤติกรรมเดียวกันใช้กับพื้นหลังที่กำหนดโดยตรงบนสไลด์หรือสืบทอดจากเลย์เอาต์ รูปร่างจะใช้พื้นหลังที่แก้ไขแล้วของสไลด์; ตัวอย่างนี้ทิ้งให้ทั้งพื้นหลังสไลด์และเลย์เอาต์ไม่ได้กำหนดเพื่อให้มาสเตอร์เป็นแหล่งที่มา
+พฤติกรรมเดียวกันใช้กับพื้นหลังที่กำหนดโดยตรงบนสไลด์หรือสืบทอดจากเลย์เอาต์ รูปร่างใช้พื้นหลังที่แก้ไขแล้วของสไลด์; ตัวอย่างนี้ทำให้พื้นหลังของสไลด์และเลย์เอาต์ไม่มีการกำหนดเพื่อให้แม่แบบเป็นผู้จัดหา
 
 ## **ตั้งค่าความโปร่งแสง**
 
-สำหรับการเติมสีทึบ ส่วนประกอบอัลฟ่า (alpha) ของสีควบคุมความทึบ: 0 เป็นโปร่งแสงเต็ม, 255 เป็นทึบเต็ม ตัวอย่างนี้ใช้ค่าอัลฟ่า 128 สำหรับสี่เหลี่ยมสีเหลือง ทำให้เป็นโปร่งแสงประมาณ 50% เพื่อให้สี่เหลี่ยมด้านล่างมองเห็นได้ สีถูกกำหนดผ่าน [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/)
+สำหรับการเติมสีทึบ, ส่วนอัลฟาของสีควบคุมความทึบ: 0 คือโปร่งแสงทั้งหมด, 255 คือทึบเต็ม ตัวอย่างนี้ใช้ค่าอัลฟา 128 สำหรับสี่เหลี่ยมสีเหลือง ทำให้โปร่งแสงประมาณ 50% เพื่อให้สี่เหลี่ยมด้านล่างยังมองเห็นได้ สีถูกกำหนดผ่าน [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/)
 
 ```cpp
 #include <DOM/FillType.h>
@@ -985,7 +1076,7 @@ presentation->Dispose();
 
 ## **หมุนรูปร่าง**
 
-ใช้ [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) เพื่อหมุนรูปร่างบนระนาบสไลด์ องศาวัดเป็นระดับ; ตัวอย่างนี้หมุนสี่เหลี่ยม 5° ตามเข็มนานาเข็มและบันทึกงานนำเสนอ
+ใช้ [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) เพื่อหมุนรูปร่างในระนาบสไลด์ มุมวัดเป็นองศา; ตัวอย่างนี้หมุนสี่เหลี่ยม 5 องศาตามเข็มนาฬิกาและบันทึกงานนำเสนอ
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1014,9 +1105,9 @@ presentation->Dispose();
 
 ![การหมุนรูปร่าง](shape-rotation.png)
 
-## **เพิ่มเอฟเฟกต์บีเวล 3 มิติ**
+## **เพิ่มเอฟเฟ็กต์เบเวล 3D**
 
-ใช้ [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) เพื่อให้รูปร่างมีความลึกและขอบบีเวล ตัวอย่างนี้สร้างวงรีสีเขียวที่มีเส้นขอบสีส้ม ตั้งค่า [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) เป็น 4 จุด และใช้บีเวลด้านบนแบบวงกลมที่กว้างและสูง 6 จุดผ่าน [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/) กล้องออร์โธกราฟิกหน้าและการให้แสงแบบสามจุดทำให้บีเวลมองเห็นได้
+ใช้ [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) เพื่อให้รูปร่างมีความลึกและขอบเบเวล ตัวอย่างนี้สร้างวงรีสีเขียวที่มีเส้นขอบสีส้ม, ตั้งค่า [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) เป็น 4 จุด, และใช้เบเวลด้านบนแบบวงกลมที่มีความกว้างและความสูง 6 จุดผ่าน [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/) กล้องแบบออร์โทกราฟิกที่หันหน้าและแสงสามจุดทำให้เบเวลมองเห็นได้
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -1069,11 +1160,11 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![เอฟเฟกต์บีเวล 3 มิติ](3D-bevel-effect.png)
+![เอฟเฟ็กต์เบเวล 3D](3D-bevel-effect.png)
 
-## **เพิ่มเอฟเฟกต์การหมุน 3 มิติ**
+## **เพิ่มเอฟเฟ็กต์การหมุน 3D**
 
-มุมมอง 3 มิติของรูปร่างควบคุมโดยการตั้งค่ากล้อง ตัวอย่างนี้ใช้ [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) กับค่า latitude, longitude, และ revolution ที่ 40°, 35°, และ 20° ตามลำดับ เลือกกล้องอิซอเมตริกผ่าน [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) และแสงแบบสมดุลผ่าน [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) แล้วบันทึกสี่เหลี่ยมที่จัดรูปแบบ
+มุมมอง 3D ของรูปร่างควบคุมโดยการตั้งค่ากล้อง ตัวอย่างนี้ใช้ [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) ด้วยมุมละติจูด, ลองจิจูด, และรอบการหมุน 40°, 35°, และ 20° ตามลำดับ เลือกกล้องแบบอิซอเมตริกผ่าน [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) และแสงแบบสมดุลผ่าน [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) แล้วบันทึกสี่เหลี่ยมที่จัดรูปแบบ
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -1109,15 +1200,15 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![เอฟเฟกต์การหมุน 3 มิติ](3D-rotation-effect.png)
+![เอฟเฟ็กต์การหมุน 3D](3D-rotation-effect.png)
 
-## **ควบคุมการแสดงผลสีขาว‑ดำสำหรับรูปร่าง**
+## **ควบคุมการแสดงผลขาว-ดำสำหรับรูปร่าง**
 
-เมธอด [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) ระบุว่ารูปร่างแต่ละอันจะเรนเดอร์อย่างไรเมื่อดูหรือประมวลผลงานนำเสนอในโหมดสีขาว‑ดำ มันไม่ได้เปิดใช้งานการแสดงผลสีขาว‑ดำโดยอัตโนมัติและไม่เปลี่ยนการเติม, เส้น, หรือการจัดรูปแบบอื่น ๆ ของรูปร่างในโหมดสีปกติ
+เมธอด [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) ระบุวิธีการเรนเดอร์รูปร่างเดี่ยวเมื่อดูหรือประมวลผลงานนำเสนอในโหมดขาว-ดำ ไม่ได้เปิดใช้งานการแสดงผลขาว-ดำโดยอัตโนมัติและไม่ได้เปลี่ยนการเติม, เส้น, หรือการจัดรูปแบบอื่นในโหมดสีปกติ
 
-ใช้ค่าจากการนับประเภท [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ ตัวอย่างเช่น `Automatic` ให้แอปพลิเคชันเลือกการแปลง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้เฉพาะสีดำและสีขาว, `Black` และ `White` บังคับให้เป็นสีเดียว, `Color` รักษาสีปกติ, `Hidden` ไม่แสดงรูปร่างในโหมดสีขาว‑ดำ, `NotDefined` หมายถึงไม่มีการกำหนดโหมดระดับรูปร่าง
+ใช้ค่าจาก enumeration [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ ตัวอย่างเช่น `Automatic` ให้แอปพลิเคชันเลือกการแปลง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้สีดำและขาวเท่านั้น, `Black` และ `White` บังคับสีเดียว, `Color` คงสีปกติ, `Hidden` ลบรูปร่างในโหมดขาว-ดำ, `NotDefined` หมายความว่าไม่ได้กำหนดโหมดระดับรูปร่าง
 
-ตัวอย่างนี้สร้างสี่เหลี่ยมสีส้มและตั้งค่า [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) เป็นสีเทา รูปร่างที่บันทึกจะคงการเติมสีส้มสำหรับการแสดงผลสีปกติและขอให้แอปพลิเคชันใช้สีเทาเมื่อแสดงผลในโหมดสีขาว‑ดำ
+ตัวอย่างนี้สร้างสี่เหลี่ยมสีส้มและตั้งค่า [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) เป็นสีเทา รูปที่บันทึกยังคงสีส้มสำหรับการแสดงผลสีปกติและขอให้แอปพลิเคชันที่รองรับโหมดขาว-ดำแสดงเป็นสีเทา:
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -1150,11 +1241,11 @@ presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ในโหมดสีปกติ สี่เหลี่ยมคงสีส้มไว้ ในขั้นตอนการแสดงผลสีขาว‑ดำ มันจะใช้สีเทาเพราะโหมดตั้งเป็น `Gray` สิ่งนี้ช่วยให้คุณคงสไลด์สีเต็มเมือกำหนดลักษณะเฉพาะสำหรับการพิมพ์, ดูตัวอย่าง, หรือกระบวนการอื่น ๆ ที่เคารพการตั้งค่าแสดงผลสีขาว‑ดำของงานนำเสนอ
+ในโหมดสีปกติ, สี่เหลี่ยมยังคงสีส้ม ในกระบวนการแสดงผลขาว-ดำ, มันใช้สีเทาเพราะตั้งค่าเป็น `Gray` สิ่งนี้ช่วยให้คุณคงสไลด์สีเต็มในขณะที่กำหนดลักษณะต่างหากสำหรับการพิมพ์, การพรีวิว, หรือกระบวนการอื่นที่เคารพการตั้งค่าแสดงผลขาว-ดำของงานนำเสนอ
 
 ## **รีเซ็ตการจัดรูปแบบ**
 
-ใช้ [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) เพื่อคืนค่าตำแหน่ง, ขนาด, และการจัดรูปแบบของส่วนเติมเต็มในสไลด์จากส่วนเติมเต็มในเลย์เอาต์ที่สอดคล้องกัน ตัวอย่างนี้ต้องมีงานนำเสนอที่มีส่วนเติมเต็มเชื่อมโยงกับเลย์เอาต์และรีเซ็ตทุกสไลด์ก่อนบันทึก รูปร่างที่ไม่มีส่วนเติมเต็มที่สอดคล้องกันในเลย์เอาต์จะไม่ถูกรีเซ็ต
+ใช้ [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) เพื่อคืนตำแหน่ง, ขนาด, และการจัดรูปแบบของตัวตำแหน่งแบบจับภาพจากเลย์เอาต์ที่สอดคล้องกัน ตัวอย่างนี้ต้องการงานนำเสนอที่มีตัวตำแหน่งเชื่อมโยงกับเลย์เอาต์และรีเซ็ตทุกสไลด์ก่อนบันทึก รูปร่างที่ไม่มีตัวตำแหน่งในเลย์เอาต์จะไม่ถูกรีเซ็ต
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -1178,16 +1269,16 @@ presentation->Save(u"reset_formatting.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **คำถามที่พบบ่อย**
+## **คำถามที่พบบ่อย (FAQ)**
 
-**การจัดรูปแบบรูปร่างมีผลต่อขนาดไฟล์งานนำเสนอสุดท้ายหรือไม่?**
+**การจัดรูปแบบรูปร่างส่งผลต่อขนาดไฟล์งานนำเสนอสุดท้ายหรือไม่?**
 
-สี, สไตล์เส้น, และการตั้งค่าเอฟเฟกต์ทั่วไปเพิ่มข้อมูลเพียงเล็กน้อยเมื่อเปรียบเทียบกับรูปภาพและสื่อที่ฝังอยู่ การเติมรูปภาพอาจเพิ่มขนาดไฟล์เนื่องจากรูปภาพถูกเก็บไว้ในงานนำเสนอ
+สี, สไตล์เส้น, และการตั้งค่าเอฟเฟ็กต์โดยทั่วไปเพิ่มข้อมูลเพียงเล็กน้อยเมื่อเทียบกับภาพและสื่อที่ฝังไว้ การเติมรูปภาพอาจเพิ่มขนาดไฟล์เนื่องจากภาพถูกเก็บในงานนำเสนอ
 
-**ฉันจะตรวจจับรูปร่างบนสไลด์ที่มีการจัดรูปแบบเดียวกันเพื่อจะรวมกลุ่มได้อย่างไร?**
+**ฉันจะตรวจจับรูปร่างบนสไลด์ที่มีการจัดรูปแบบเดียวกันเพื่อจัดกลุ่มได้อย่างไร?**
 
-เปรียบเทียบคุณสมบัติการจัดรูปแบบหลักของแต่ละรูปร่าง—การเติม, เส้น, และการตั้งค่าเอฟเฟกต์ หากค่าทุกค่าตรงกัน ให้ถือว่าสไตล์เดียวกันและจัดกลุ่มรูปร่างเหล่านั้นอย่างมีตรรกะ ซึ่งจะทำให้การจัดการสไตล์ในภายหลังง่ายขึ้น
+เปรียบเทียบคุณสมบัติกุญแจการจัดรูปแบบของแต่ละรูปร่าง—การเติม, เส้น, และการตั้งค่าเอฟเฟ็กต์ หากค่าตรงกันทั้งหมด ให้ถือว่ารูปร่างมีสไตล์เดียวกันและจัดกลุ่มเชิงตรรกะ ซึ่งช่วยลดความซับซ้อนในการจัดการสไตล์ในภายหลัง
 
-**ฉันสามารถบันทึกชุดสไตล์รูปร่างแบบกำหนดเองไว้ในไฟล์แยกเพื่อใช้ซ้ำในงานนำเสนออื่นได้หรือไม่?**
+**ฉันสามารถบันทึกชุดสไตล์รูปร่างที่กำหนดเองเป็นไฟล์แยกเพื่อใช้ใหม่ในงานนำเสนออื่นได้หรือไม่?**
 
-ได้. เก็บรูปร่างตัวอย่างที่มีสไตล์ที่ต้องการในเทมเพลตสไลด์หรือไฟล์เทมเพลต .POTX. เมื่อสร้างงานนำเสนอใหม่ ให้เปิดเทมเพลต, คัดลอกรูปร่างที่สไตล์ไว้ที่ต้องการ, แล้วนำไปใช้ใหม่ตามที่ต้องการ
+ได้. เก็บรูปร่างตัวอย่างที่มีสไตล์ที่ต้องการในสไลด์เทมเพลตหรือไฟล์เทมเพลต .POTX เมื่อสร้างงานนำเสนอใหม่, เปิดเทมเพลต, คัดลอกรูปร่างที่สไตล์ต้องการ, แล้วนำการจัดรูปแบบไปใช้ตามต้องการ.

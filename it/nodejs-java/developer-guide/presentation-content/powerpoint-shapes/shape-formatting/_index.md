@@ -1,6 +1,6 @@
 ---
-title: Formattare le forme PowerPoint in JavaScript
-linktitle: Formattazione forma
+title: Formattare forme PowerPoint in JavaScript
+linktitle: Formattazione forme
 type: docs
 weight: 20
 url: /it/nodejs-java/shape-formatting/
@@ -8,16 +8,16 @@ keywords:
 - formattare forma
 - formattare linea
 - effetto schizzo
-- linea forma schizzo
-- formattare stile unione
+- linea schizzo forma
+- stile di giunzione
 - riempimento gradiente
-- riempimento a trama
+- riempimento a motivo
 - riempimento immagine
 - riempimento texture
 - riempimento a colore solido
 - trasparenza forma
-- rendering forma in bianco e nero
-- rendering forma in scala di grigi
+- rendering forma bianco e nero
+- rendering forma scala di grigi
 - ruotare forma
 - effetto smusso 3D
 - effetto rotazione 3D
@@ -27,19 +27,19 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Scopri come formattare le forme PowerPoint in JavaScript usando Aspose.Slides - imposta stili di riempimento, linea ed effetto per file PPT e PPTX con precisione e pieno controllo."
+description: "Scopri come formattare le forme PowerPoint in JavaScript usando Aspose.Slides—imposta stili di riempimento, linea ed effetto per file PPT e PPTX con precisione e pieno controllo."
 ---
 ## **Introduzione**
 
-Formatta le forme in PowerPoint regolando i loro contorni, i riempimenti e gli effetti. Aspose.Slides per Node.js tramite Java consente di controllare queste impostazioni in modo programmatico, inclusi trasparenza, rotazione e formattazione 3D.
+Formatta le forme in PowerPoint regolando i contorni, i riempimenti e gli effetti. Aspose.Slides for Node.js via Java ti consente di controllare queste impostazioni in modo programmatico, inclusi trasparenza, rotazione e formattazione 3D.
 
 ![Opzioni di formattazione delle forme in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides per Node.js tramite Java fornisce classi e metodi che permettono di formattare le forme utilizzando le stesse opzioni disponibili in PowerPoint.
+Aspose.Slides for Node.js via Java fornisce classi e metodi che permettono di formattare le forme usando le stesse opzioni disponibili in PowerPoint.
 
 ## **Formattare le linee**
 
-Utilizza [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) per controllare il contorno di una forma. Questo esempio crea un rettangolo non riempito con un contorno blu tratteggiato. [LineFormat.setStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setStyle) seleziona una linea composta spessa‑sottile, mentre [LineFormat.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setWidth) imposta la larghezza a 7 punti e [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) seleziona il modello di tratteggio.
+Usa [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) per controllare il contorno di una forma. Questo esempio crea un rettangolo non riempito con un contorno blu tratteggiato. [LineFormat.setStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setStyle) seleziona una linea composta spessa-sottile, mentre [LineFormat.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setWidth) imposta la larghezza a 7 punti e [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) seleziona il modello di tratteggio.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -67,13 +67,13 @@ Il risultato:
 
 ![Le linee formattate nella presentazione](formatted-lines.png)
 
-### **Imposta modelli di tratteggio personalizzati per le linee**
+### **Impostare modelli di tratto personalizzati**
 
-Utilizza [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCustomDashPattern) quando gli stili di linea predefiniti non forniscono le lunghezze di tratto e di interruzione necessarie, ad esempio per contorni a marchio o diagrammi tecnici. L’assegnazione di un modello cambia automaticamente lo stile di tratteggio della linea in [LineDashStyle.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/).
+Usa [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCustomDashPattern) quando gli stili di linea predefiniti non forniscono le lunghezze di tratto e di spazio necessarie, ad esempio per contorni aziendali o diagrammi tecnici. Assegnare un modello cambia automaticamente lo stile di tratto a [LineDashStyle.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/).
 
-Gli elementi dell’array alternano lunghezze di tratto e di interruzione, iniziando con un tratto. Ogni valore è un multiplo della larghezza della linea: `[4, 2]` a una larghezza di 3 punti produce un tratto di 12 punti seguito da un’interruzione di 6 punti. Usa coppie di valori finiti e non negativi per definire segmenti completi di tratto‑interruzione. L’esempio utilizza valori positivi per mantenere visibili tutti i tratti e le interruzioni.
+Le voci dell'array alternano lunghezze di tratto e di spazio, iniziando con un tratto. Ogni valore è un multiplo della larghezza della linea: `[4, 2]` con una larghezza di 3 punti produce un tratto di 12 punti seguito da uno spazio di 6 punti. Usa coppie di valori finiti e non negativi per definire segmenti completi di tratto e spazio. L'esempio utilizza valori positivi per mantenere visibili tutti i tratti e gli spazi.
 
-Questo esempio crea cinque linee blu della stessa lunghezza e con cap piatti. Le prime tre confrontano i modelli a una larghezza di 3 punti. La quarta ripete il primo modello a doppia larghezza, raddoppiando sia le lunghezze dei tratti sia delle interruzioni. La quinta passa da un modello personalizzato a una linea solida.
+Questo esempio crea cinque linee blu con la stessa lunghezza e estremità piatte. Le prime tre confrontano i modelli con una larghezza di 3 punti. La quarta ripete il primo modello al doppio della larghezza, raddoppiando sia le lunghezze di tratto sia di spazio. La quinta passa da un modello personalizzato a una linea continua.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -113,25 +113,25 @@ try {
 }
 ```
 
-Per tornare a uno stile tratteggiato predefinito, passa [LineDashStyle.Dash](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) a [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle). Lo stile selezionato controlla l’aspetto della linea.
+Per tornare a uno stile di tratto predefinito, passa [LineDashStyle.Dash](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) a [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle). Lo stile selezionato controlla l'aspetto della linea.
 
-Il risultato in PowerPoint, dall’alto verso il basso: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; e **Solid, 3 pt**.
+Il risultato in PowerPoint, dall'alto verso il basso: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; e **Solid, 3 pt**.
 
-![Tre modelli di tratteggio personalizzati, una linea più larga che usa il primo modello e una linea solida in PowerPoint](custom-dash-patterns.png)
+![Tre modelli di tratto personalizzati, una linea più larga con il primo modello e una linea continua in PowerPoint](custom-dash-patterns.png)
 
-### **Imposta i Cap estremi della linea**
+### **Impostare gli estremi della linea**
 
-Utilizza [LineFormat.setCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCapStyle) per impostare le estremità di una linea aperta. La classe [LineCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linecapstyle/) fornisce tre stili di cap espliciti:
+Usa [LineFormat.setCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCapStyle) per impostare le estremità di una linea aperta. La classe [LineCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linecapstyle/) fornisce tre stili di estremità espliciti:
 
 - `Flat`: il tratto si ferma al punto finale.
-- `Round`: un cappuccio semicircolare si estende oltre il punto finale di metà larghezza della linea.
-- `Square`: un cappuccio quadrato si estende oltre il punto finale di metà larghezza della linea.
+- `Round`: un'estremità semicircolare si estende oltre il punto finale di metà larghezza della linea.
+- `Square`: un'estremità quadrata si estende oltre il punto finale di metà larghezza della linea.
 
-La classe comprende anche `NotDefined`, che indica che non è stato assegnato esplicitamente alcun stile di cap.
+La classe include anche `NotDefined`, che indica che nessuno stile di estremità è stato assegnato esplicitamente.
 
-I cap sono diversi dalle punte freccia, che aggiungono simboli alle estremità della linea, e dalle giunzioni, che controllano gli angoli tra i segmenti della linea. Questo esempio disabilita le punte freccia tramite [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setBeginArrowheadStyle) e [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setEndArrowheadStyle) in modo che vengano confrontate solo le forme dei cap.
+Le estremità sono diverse dalle punte delle frecce, che aggiungono simboli alle estremità della linea, e dalle giunzioni, che controllano gli angoli tra i segmenti di linea. Questo esempio disabilita le punte delle frecce tramite [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setBeginArrowheadStyle) e [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setEndArrowheadStyle) in modo che vengano confrontate solo le forme delle estremità.
 
-L’esempio seguente crea tre linee orizzontali altrimenti identiche, larghe 20 punti. Dall’alto verso il basso, usano rispettivamente cap piatti, rotondi e quadrati. Le loro estremità hanno le stesse coordinate orizzontali; i cap rotondi e quadrati si estendono di 10 punti oltre ciascuna estremità.
+L'esempio seguente crea tre linee orizzontali altrimenti identiche, larghe 20 punti. Dall'alto verso il basso, usano estremità flat, round e square. Le loro estremità hanno le stesse coordinate orizzontali; le estremità round e square si estendono di 10 punti oltre ciascuna estremità.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -161,15 +161,15 @@ try {
 }
 ```
 
-Il risultato in PowerPoint, dall’alto verso il basso: **Flat**, **Round**, e **Square**.
+Il risultato in PowerPoint, dall'alto verso il basso: **Flat**, **Round** e **Square**.
 
-![Cap piatti, rotondi e quadrati su linee spesse identiche in PowerPoint](line-caps.png)
+![Estremità flat, round e square su linee spesse identiche in PowerPoint](line-caps.png)
 
-## **Applicare effetti di schizzo alle linee della forma**
+## **Applicare effetti schizzo alle linee della forma**
 
-Un effetto di schizzo rende una linea della forma simile a una mano libera. Utilizza [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) per accedere alle impostazioni della linea, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getSketchFormat) per accedere alle impostazioni di schizzo e [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#setSketchType) per selezionare un valore dalla classe [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/).
+Un effetto schizzo rende una linea della forma simile a un disegno a mano. Usa [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) per accedere alle impostazioni della linea, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getSketchFormat) per accedere alle impostazioni dello schizzo e [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#setSketchType) per selezionare un valore dalla classe [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/).
 
-Il codice JavaScript seguente mostra come applicare l’effetto [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/), leggere il valore assegnato esplicitamente e rimuovere l’effetto con [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
+Il codice JavaScript seguente mostra come applicare un effetto [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/), leggere il valore assegnato esplicitamente e rimuovere l'effetto con [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -190,7 +190,7 @@ try {
 }
 ```
 
-Il valore restituito da [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#getSketchType) rappresenta l’impostazione assegnata direttamente alla forma. Se la formattazione della linea può essere ereditata da un tema, da una diapositiva master o da una diapositiva layout, utilizza [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective), chiama `getSketchFormat` sull’oggetto restituito e quindi chiama il suo metodo `getSketchType`. Il valore effettivo riflette la formattazione effettivamente applicata dopo la risoluzione dell’eredità. Questo esempio richiede una presentazione esistente con almeno una forma nella prima diapositiva e stampa entrambi i valori:
+Il valore restituito da [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#getSketchType) rappresenta l'impostazione assegnata direttamente alla forma. Se la formattazione della linea può essere ereditata da un tema, da una master slide o da una slide layout, usa [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective), chiama `getSketchFormat` sull'oggetto restituito e poi chiama il suo metodo `getSketchType`. Il valore effettivo riflette la formattazione realmente applicata dopo la risoluzione dell'ereditarietà. Questo esempio richiede una presentazione esistente con almeno una forma nella sua prima slide e stampa entrambi i valori:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -211,19 +211,19 @@ try {
 }
 ```
 
-## **Formattare gli stili di unione**
+## **Formattare gli stili di giunzione**
 
-Ecco le tre opzioni di tipo di unione:
+Ecco le tre opzioni di tipo di giunzione:
 
 * Round
 * Miter
 * Bevel
 
-Lo stile di unione controlla come due segmenti di contorno si incontrano in un angolo. Usa **Round** per angoli arrotondati, **Miter** per angoli appuntiti o **Bevel** per angoli smussati.
+Lo stile di giunzione controlla come due segmenti di contorno si incontrano in un angolo. Usa **Round** per angoli arrotondati, **Miter** per angoli appuntiti o **Bevel** per angoli smussati.
 
-![Lo stile di unione nella presentazione](join-style-powerpoint.png)
+![Lo stile di giunzione nella presentazione](join-style-powerpoint.png)
 
-Questo esempio crea tre rettangoli neri con contorni blu larghi 15 punti. Utilizza [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) per applicare rispettivamente i valori miter, bevel e round di [LineJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/), al fine di confrontare come vengono disegnati gli angoli.
+Questo esempio crea tre rettangoli neri con contorni blu larghi 15 punti. Usa [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) per applicare i valori miter, bevel e round della classe [LineJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/), rispettivamente, per confrontare come vengono disegnati gli angoli.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -269,13 +269,13 @@ try {
 }
 ```
 
-### **Limita le unioni a cuneo negli angoli affilati**
+### **Limitare le giunzioni miter negli angoli appuntiti**
 
-Utilizza [LineFormat.setMiterLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setMiterLimit) con [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) impostato su [LineJoinStyle.Miter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) per limitare quanto un angolo affilato possa estendersi.
+Usa [LineFormat.setMiterLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setMiterLimit) con [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) impostato su [LineJoinStyle.Miter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) per limitare quanto può estendersi un angolo appuntito.
 
-Il limite è un rapporto tra la distanza tra gli angoli interno ed esterno dell’unione e la larghezza della linea. Ad esempio, un valore di `8` consente una lunghezza della cuneo fino a otto volte la larghezza della linea; non è una misura in punti. Se l’angolo dovesse superare il limite, PowerPoint utilizza un’unione smussata in quell’angolo. Un limite più grande permette punte più acute. L’impostazione influisce solo sulle unioni a cuneo e non ha alcun effetto visibile quando l’angolo rimane entro entrambi i limiti.
+Il limite è un rapporto tra la distanza tra gli angoli interno ed esterno della giunzione e la larghezza della linea. Ad esempio, un valore di `8` consente una lunghezza di miter fino a otto volte la larghezza della linea; non è una misura in punti. Se l'angolo supera il limite, PowerPoint utilizza una giunzione smussata in quel punto. Un limite più grande permette punte più appuntite. L'impostazione influisce solo sulle giunzioni miter e non ha effetto visibile quando l'angolo rimane entro entrambi i limiti.
 
-Questo esempio crea due triangoli non riempiti identici con contorni larghi 20 punti. Il triangolo sinistro usa un limite di `2`, quello destro di `8`. Ogni triangolo è largo 80 punti e alto 160 punti, dando al suo angolo superiore un rapporto lunghezza‑cuneo‑larghezza‑linea di circa `4.12`. Di conseguenza, PowerPoint smussa l’apice sinistro e conserva quello destro.
+Questo esempio crea due triangoli non riempiti identici con contorni larghi 20 punti. Il triangolo sinistro usa un limite di `2`, quello destro di `8`. Ogni triangolo è largo 80 punti e alto 160 punti, dando al suo angolo superiore un rapporto lunghezza-miter/larghezza linea di circa `4,12`. Di conseguenza, PowerPoint smussa l'apice sinistro e preserva l'apice destro.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -304,13 +304,13 @@ try {
 }
 ```
 
-Il risultato in PowerPoint: **Miter limit 2** a sinistra e **miter limit 8** a destra.
+Il risultato in PowerPoint: **Limite miter 2** a sinistra e **limite miter 8** a destra.
 
-![Un apice smussato con limite cuneo 2 e un apice appuntito con limite cuneo 8 in PowerPoint](miter-limits.png)
+![Un apice smussato con limite miter 2 e un apice appuntito con limite miter 8 in PowerPoint](miter-limits.png)
 
 ## **Riempimento sfumato**
 
-Un riempimento sfumato sfuma i colori su una forma. Questo esempio riempie un'ellisse con una sfumatura lineare a 45 gradi dal rosso al viola usando [FillFormat.getGradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getGradientFormat). Il metodo [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientstopcollection/#addPresetColor) posiziona le fermate di colore a 0 e 1, l’inizio e la fine della sfumatura. Cancellare le fermate esistenti garantisce che vengano usati solo questi due colori.
+Un riempimento sfumato sfuma i colori su una forma. Questo esempio riempie un'ellisse con una sfumatura lineare a 45 gradi da rosso a viola usando [FillFormat.getGradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getGradientFormat). Il metodo [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientstopcollection/#addPresetColor) posiziona le fermate colore a 0 e 1, l'inizio e la fine della sfumatura. Cancellare le fermate esistenti assicura che vengano usati solo questi due colori.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -338,13 +338,13 @@ Il risultato:
 
 ![L'ellisse con riempimento sfumato](gradient-fill.png)
 
-Se una sfumatura appare diversa in un’immagine esportata rispetto a PowerPoint, consulta [Choose a Gradient Rendering Style](/slides/it/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Puoi selezionare uno stile di rendering senza modificare la sfumatura memorizzata nella presentazione.
+Se una sfumatura appare diversa in un'immagine esportata rispetto a PowerPoint, vedi [Choose a Gradient Rendering Style](/slides/it/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Puoi selezionare uno stile di rendering senza modificare la sfumatura memorizzata nella presentazione.
 
-### **Imposta l’angolo della sfumatura lineare**
+### **Impostare l'angolo della sfumatura lineare**
 
-Utilizza [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) per controllare l’orientamento di un riempimento [GradientShape.Linear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/). L’angolo è misurato in gradi e aumenta in senso orario: `0` va da sinistra a destra, `90` dall’alto al basso, `180` da destra a sinistra e `270` dal basso all’alto. Sono supportati angoli frazionari. Angoli finiti al di fuori di `[0, 360)` vengono normalizzati a una rivoluzione; per esempio, `-45` diventa `315` e `360` diventa `0`.
+Usa [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) per controllare l'orientamento di un riempimento [GradientShape.Linear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/). L'angolo è misurato in gradi e aumenta in senso orario: `0` va da sinistra a destra, `90` dall'alto verso il basso, `180` da destra a sinistra e `270` dal basso verso l'alto. Sono supportati angoli frazionari. Angoli finiti al di fuori di `[0, 360)` sono normalizzati a una rivoluzione; per esempio, `-45` diventa `315` e `360` diventa `0`.
 
-Questo esempio crea sei rettangoli con fermate rosse, verdi e blu identiche nelle posizioni `0`, `0.5` e `1`. La scala è disabilitata così l’angolo può essere confrontato indipendentemente dalle proporzioni dei rettangoli. Gli angoli, da sinistra a destra, sono `0`, `45` e `90` nella prima riga, e `135`, `180` e `270` nella seconda riga.
+Questo esempio crea sei rettangoli con fermate rosse, verdi e blu identiche nelle posizioni `0`, `0.5` e `1`. La scala è disabilitata così l'angolo può essere confrontato indipendentemente dalle proporzioni dei rettangoli. Gli angoli, da sinistra a destra, sono `0`, `45` e `90` nella prima riga, e `135`, `180` e `270` nella seconda riga.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -383,13 +383,13 @@ try {
 
 Il risultato in PowerPoint:
 
-![Sfumature lineari a 0, 45 e 90 gradi nella riga superiore, e a 135, 180 e 270 gradi nella riga inferiore](linear-gradient-angles.png)
+![Sfumature lineari a 0, 45 e 90 gradi nella riga superiore, e 135, 180 e 270 gradi nella riga inferiore](linear-gradient-angles.png)
 
-### **Scala una sfumatura lineare con la forma**
+### **Scalare una sfumatura lineare con la forma**
 
-[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientScaled) accetta un valore [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/). Impostalo esplicitamente su `False` per mantenere l’angolo geometrico della sfumatura mentre le proporzioni della forma cambiano, o su `True` per scalare la sfumatura con larghezza e altezza della forma. Con la scala abilitata, l’angolo visibile può differire dall’angolo assegnato su una forma non quadrata.
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientScaled) accetta un valore [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/). Impostalo esplicitamente a `False` per mantenere l'angolo geometrico della sfumatura mentre le proporzioni della forma cambiano, o a `True` per scalare la sfumatura con larghezza e altezza della forma. Con la scala abilitata, l'angolo visibile può differire dall'angolo assegnato su una forma non quadrata.
 
-L’esempio seguente utilizza un angolo di `45` gradi e le stesse fermate di colore dell’esempio di confronto angolo. La colonna sinistra usa `False`; la colonna destra usa `True`. Ogni colonna contiene un rettangolo largo sopra un rettangolo alto. Entrambe iniziano con le stesse dimensioni larghe; la modifica di larghezza e altezza del secondo rettangolo dimostra come il riempimento risponde al ridimensionamento senza cambiare le impostazioni della sfumatura.
+L'esempio seguente usa un angolo di `45` gradi e le stesse fermate colore dell'esempio di confronto angoli. La colonna sinistra usa `False`; la colonna destra usa `True`. Ogni colonna contiene un rettangolo largo sopra un rettangolo alto. Entrambi partono dalle stesse dimensioni larghe; la modifica di larghezza e altezza del secondo rettangolo dimostra come il riempimento risponde al ridimensionamento senza cambiare le impostazioni della sfumatura.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -433,19 +433,19 @@ try {
 }
 ```
 
-Il risultato in PowerPoint, con scala disabilitata a sinistra e abilitata a destra:
+Il risultato in PowerPoint, con la scala disattivata a sinistra e attivata a destra:
 
 ![Rettangoli larghi e alti con sfumatura a 45 gradi, confronto LinearGradientScaled False a sinistra e True a destra](linear-gradient-scaling.png)
 
-Con la scala disabilitata, le bande di colore diagonali mantengono la stessa orientazione in entrambi i rettangoli. Con la scala abilitata, le bande si allungano con le proporzioni della forma. Questo aiuta a riprodurre la sfumatura di un modello quando si adatta una forma a dimensioni diverse. Su un quadrato, l’attivazione della scala non modifica l’aspetto di questa sfumatura a `45` gradi.
+Con la scala disattivata, le bande diagonali mantengono la stessa orientazione in entrambi i rettangoli. Con la scala attivata, le bande si allungano con le proporzioni della forma. Ciò aiuta a riprodurre la sfumatura di un modello quando si adatta una forma a una dimensione diversa. Su una forma quadrata, l'abilitazione della scala non modifica l'aspetto di questa sfumatura a `45` gradi.
 
-Entrambi i parametri di angolo e scala si applicano alle sfumature lineari. Non controllano i riempimenti [GradientShape.Radial o GradientShape.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/).
+Sia l'angolo sia le impostazioni di scala si applicano alle sfumature lineari. Non controllano i riempimenti [GradientShape.Radial o GradientShape.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/).
 
-### **Combina l’angolo con la direzione della sfumatura**
+### **Combinare l'angolo con la direzione della sfumatura**
 
-[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setGradientDirection) seleziona uno stile di sfumatura dalla classe [GradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientdirection/); non è un sostituto di un angolo numerico. Per una sfumatura lineare, gli stili d’angolo possono modificare l’area su cui i colori sono distribuiti senza cambiare l’angolo assegnato tramite [setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle). Mantieni la direzione invariata quando confronti angoli o scala.
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setGradientDirection) seleziona uno stile di sfumatura dalla classe [GradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientdirection/); non è un sostituto di un angolo numerico. Per una sfumatura lineare, gli stili di angolo possono cambiare l'area su cui i colori sono distribuiti senza modificare l'angolo assegnato tramite [setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle). Mantieni la direzione invariata quando confronti angoli o scale.
 
-L’esempio seguente applica le stesse impostazioni in ordine opposto. I due rettangoli hanno lo stesso aspetto: assegnare la direzione prima o dopo l’angolo non cambia il risultato.
+L'esempio seguente applica le stesse impostazioni in ordine opposto. I due rettangoli hanno lo stesso aspetto: assegnare la direzione prima o dopo l'angolo non cambia il risultato.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -483,9 +483,9 @@ try {
 }
 ```
 
-## **Riempimento a trama**
+## **Riempimento a motivo**
 
-Un riempimento a trama applica un disegno a due colori, come punti, strisce o scacchi. Questo esempio utilizza [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#setPatternStyle) per selezionare un motivo a graticcia. [PatternFormat.getBackColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor) fornisce lo sfondo grigio chiaro, e [PatternFormat.getForeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor) fornisce il colore giallo del motivo.
+Un riempimento a motivo applica un disegno bicolore, come punti, strisce o quadretti. Questo esempio usa [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#setPatternStyle) per selezionare un motivo a griglia. [PatternFormat.getBackColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor) fornisce lo sfondo grigio chiaro, e [PatternFormat.getForeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor) fornisce il colore giallo del motivo.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -509,13 +509,13 @@ try {
 
 Il risultato:
 
-![Il rettangolo con riempimento a trama](pattern-fill.png)
+![Il rettangolo con riempimento a motivo](pattern-fill.png)
 
 ## **Riempimento immagine**
 
-Un riempimento immagine utilizza un’immagine all’interno di una forma. Questo esempio richiede un’immagine locale e utilizza [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) per caricarla nella collezione di immagini della presentazione. Impostare [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode) sulla modalità a piastrelle ripete l’immagine all’interno del rettangolo. L’immagine di origine utilizzata è mostrata di seguito:
+Un riempimento immagine utilizza un'immagine all'interno di una forma. Questo esempio richiede un'immagine locale e usa [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) per caricarla nella collezione di immagini della presentazione. Impostare [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode) sulla modalità tassellata ripete l'immagine all'interno del rettangolo. L'immagine di origine usata qui è mostrata sotto:
 
-![L’immagine del loto](lotus.png)
+![L'immagine del loto](lotus.png)
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -548,19 +548,19 @@ Il risultato:
 
 ![La forma con riempimento immagine](picture-fill.png)
 
-### **Affianca immagine come texture**
+### **Tassellare l'immagine come texture**
 
-Se desideri impostare un’immagine a piastrelle come texture e personalizzare il comportamento di piastrellatura, puoi utilizzare i seguenti metodi della classe [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/):
+Se desideri impostare un'immagine tassellata come texture e personalizzare il comportamento della tessellazione, puoi usare i seguenti metodi della classe [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Imposta la modalità di riempimento immagine — `Tile` o `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Specifica l’allineamento delle piastrelle all’interno della forma.
-- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Controlla se la piastrella è ribaltata orizzontalmente, verticalmente o in entrambe le direzioni.
-- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Imposta lo scostamento orizzontale della piastrella (in punti) dall’origine della forma.
-- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Imposta lo scostamento verticale della piastrella (in punti) dall’origine della forma.
-- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Definisce la scala orizzontale della piastrella in percentuale.
-- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Definisce la scala verticale della piastrella in percentuale.
+- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Imposta la modalità di riempimento immagine—`Tile` o `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Specifica l'allineamento delle tessere all'interno della forma.
+- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Controlla se la tessera è capovolta orizzontalmente, verticalmente o in entrambe le direzioni.
+- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Imposta lo spostamento orizzontale della tessera (in punti) dall'origine della forma.
+- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Imposta lo spostamento verticale della tessera (in punti) dall'origine della forma.
+- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Definisce la scala orizzontale della tessera come percentuale.
+- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Definisce la scala verticale della tessera come percentuale.
 
-Questo esempio richiede un’immagine locale e configura [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) per ripeterla al 50 % della sua dimensione originale. Gli offset di −32 punti spostano le piastrelle orizzontalmente e verticalmente; l’allineamento in basso‑destra e il ribaltamento in entrambe le direzioni determinano come viene disposta la texture ripetuta.
+Questo esempio richiede un'immagine locale e configura [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) per ripeterla al 50 % della sua dimensione originale. Spostamenti di −32 punti spostano le tessere orizzontalmente e verticalmente; l'allineamento in basso a destra e il capovolgimento in entrambe le direzioni determinano come la texture ripetuta è disposta.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -599,11 +599,11 @@ try {
 
 Il risultato:
 
-![Le opzioni di piastrellatura](tile-options.png)
+![Le opzioni di tessellazione](tile-options.png)
 
 ## **Riempimento a colore solido**
 
-Un riempimento solido assegna alla forma un unico colore uniforme. Questo esempio utilizza [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) per selezionare la modalità di riempimento solido e assegna il giallo tramite [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor), quindi salva il rettangolo in una presentazione.
+Un riempimento solido assegna a una forma un unico colore uniforme. Questo esempio usa [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) per selezionare la modalità di riempimento solido e assegna il giallo tramite [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor), quindi salva il rettangolo in una presentazione.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -627,13 +627,82 @@ Il risultato:
 
 ![La forma con riempimento a colore solido](solid-color-fill.png)
 
-## **Usare lo sfondo della diapositiva come riempimento della forma**
+### **Copiare i colori preservando i riferimenti al tema**
 
-Utilizza [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#setUseBackgroundFill) quando una forma deve corrispondere allo sfondo della diapositiva, ad esempio in un modello di presentazione. Usa [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) per selezionare prima [FillType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) e rimuovere eventuali riempimenti espliciti. Con questa combinazione, la forma utilizza lo sfondo della diapositiva invece del suo riempimento di stile. Abilitare il flag da solo non rimuove un riempimento esplicito esistente.
+Usa [ColorFormat.copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#copyFrom) per copiare una definizione di colore, includendo il tipo di colore, il riferimento al tema e le trasformazioni. Questo è utile quando si trasferisce un colore di riempimento tra forme che devono continuare a seguire il tema della presentazione. Il metodo copia solo il colore: non copia il tipo di riempimento, il contorno o altra formattazione della forma. Imposta esplicitamente il tipo di riempimento della destinazione con [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType).
 
-Ciò differisce da [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/): il riempimento di sfondo copre gli oggetti dietro la forma con l’area corrispondente dello sfondo della diapositiva, mentre nessun riempimento lascia visibili quegli oggetti. Una sfumatura rimane allineata con la diapositiva anziché ricominciare all’interno di ogni forma.
+Questo esempio crea tre rettangoli, da sinistra a destra: la sorgente, una copia consapevole del tema e una copia RGB fissa. La sorgente usa [ColorFormat.setSchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#setSchemeColor) per riferirsi al primo colore di accento e aggiunge una tinta tramite [ColorOperationCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/coloroperationcollection/#add). La copia RGB usa il colore di riempimento effettivo della sorgente, così tutti e tre appaiono inizialmente identici. Chiamare [ColorFormat.setColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#setColor) imposta un valore RGB fisso e cancella eventuali trasformazioni di colore esistenti.
 
-L’esempio seguente crea uno sfondo master ereditato dalla diapositiva e posiziona una banda magenta dietro tre rettangoli. Il rettangolo sinistro usa lo sfondo, il rettangolo centrale non ha riempimento e quello destro passa da uno sfondo a un riempimento arancione esplicito.
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(java.newInstanceSync("java.awt.Color", 65, 105, 225));
+
+    let source = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 40, 180, 140);
+    let themeCopy = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 240, 40, 180, 140);
+    let rgbCopy = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (let shape of [source, themeCopy, rgbCopy]) {
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    }
+
+    let sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(aspose.slides.SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(aspose.slides.ColorTransformOperation.Tint, java.newFloat(0.75));
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    let before = slide.getImage(1, 1);
+    try {
+        before.save("color-copy-before.png", aspose.slides.ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // I riferimenti al tema seguono il nuovo colore di accento; il valore RGB fisso no.
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(java.newInstanceSync("java.awt.Color", 255, 69, 0));
+
+    let after = slide.getImage(1, 1);
+    try {
+        after.save("color-copy-after.png", aspose.slides.ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Prima della modifica del tema, tutti e tre i riempimenti corrispondono:
+
+![Sorgente, destinazione copyFrom e destinazione RGB fissa con riempimenti blu identici](color-copy-before.png)
+
+Dopo la modifica del tema, la sorgente e la copia consapevole del tema seguono il nuovo colore di accento e mantengono la loro tinta. La copia RGB fissa rimane blu:
+
+![Sorgente e destinazione copyFrom con riempimenti arancioni, mentre la destinazione RGB fissa rimane blu](color-copy-after.png)
+
+La definizione copiata è indipendente dalla sorgente. Modificare successivamente il riferimento al tema della sorgente, assegnare un altro colore o aggiungere/rimuovere le sue trasformazioni non cambia la destinazione. Una modifica al tema influisce comunque su entrambe le forme perché ciascuna fa riferimento autonomamente allo stesso colore del tema.
+
+Salvare e riaprire il PPTX preserva il tipo di colore copiato restituito da [ColorFormat.getColorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#getColorType), il riferimento al tema e la collezione di trasformazioni restituita da [ColorFormat.getColorTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#getColorTransform); non appiattisce la definizione in RGB.
+
+Quando si copia tra contesti tematici diversi, come presentazioni con palette di accento diverse, il riferimento copiato viene risolto rispetto al tema della destinazione. Lo stesso riferimento e le stesse trasformazioni possono quindi produrre un colore visivo diverso. Vedi [Presentation Theme](/slides/it/nodejs-java/presentation-theme/) per ulteriori informazioni sulla configurazione dei colori del tema.
+
+## **Usare lo sfondo della slide come riempimento della forma**
+
+Usa [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#setUseBackgroundFill) quando una forma deve corrispondere allo sfondo della slide, ad esempio in un modello di presentazione. Imposta il tipo di riempimento con [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) su [FillType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) per rimuovere qualsiasi riempimento esplicito. Con questa combinazione, la forma utilizza lo sfondo della slide al posto del suo riempimento di stile. Abilitare il flag da solo non rimuove un riempimento esplicito esistente.
+
+Questo differisce da [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/): il riempimento di sfondo copre gli oggetti dietro la forma con l'area corrispondente dello sfondo della slide, mentre nessun riempimento lascia visibili quegli oggetti. Una sfumatura rimane allineata con la slide anziché ripartire all'interno di ogni forma.
+
+L'esempio seguente crea uno sfondo master ereditato dalla slide e posiziona una banda magenta dietro tre rettangoli. Il rettangolo sinistro usa lo sfondo, il rettangolo centrale non ha riempimento e il rettangolo destro passa da riempimento di sfondo a un riempimento arancione esplicito.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -685,15 +754,15 @@ try {
 }
 ```
 
-Il risultato, da sinistra a destra: **background fill**, **no fill**, e **explicit fill**. La banda magenta è nascosta dai rettangoli sinistro e destro ma rimane visibile attraverso quello centrale.
+Il risultato, da sinistra a destra: **riempimento di sfondo**, **nessun riempimento** e **riempimento esplicito**. La banda magenta è nascosta dai rettangoli sinistro e destro ma rimane visibile attraverso il rettangolo centrale.
 
 ![Riempimento di sfondo, nessun riempimento e riempimento arancione esplicito sopra una banda magenta](background-fill.png)
 
-Lo stesso comportamento si applica a uno sfondo definito direttamente sulla diapositiva o ereditato da un layout. La forma utilizza lo sfondo risolto della diapositiva; l’esempio lascia sia lo sfondo della diapositiva sia quello del layout non definiti affinché il master lo fornisca.
+Lo stesso comportamento si applica a uno sfondo definito direttamente sulla slide o ereditato da un layout. La forma utilizza lo sfondo risolto della slide; l'esempio lascia sia lo sfondo della slide sia quello del layout non definiti così che il master li fornisca.
 
 ## **Impostare la trasparenza**
 
-Per un riempimento solido, il componente alfa del colore controlla l’opacità: 0 è completamente trasparente e 255 è completamente opaco. Questo esempio utilizza un valore alfa di 128 per un rettangolo giallo, rendendolo circa 50 % trasparente così il rettangolo sottostante rimane visibile. Il colore è assegnato tramite [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor).
+Per un riempimento solido, il componente alfa del colore controlla l'opacità: 0 è completamente trasparente e 255 è completamente opaco. Questo esempio usa un valore alfa di 128 per un rettangolo giallo, rendendolo circa 50 % trasparente così il rettangolo sottostante rimane visibile. Il colore è assegnato tramite [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -721,7 +790,7 @@ Il risultato:
 
 ## **Ruotare le forme**
 
-Utilizza [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) per ruotare una forma nel piano della diapositiva. L’angolo è misurato in gradi; questo esempio ruota un rettangolo di 5 gradi in senso orario e salva la presentazione.
+Usa [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) per ruotare una forma nel piano della slide. L'angolo è misurato in gradi; questo esempio ruota un rettangolo di 5 gradi in senso orario e salva la presentazione.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -745,7 +814,7 @@ Il risultato:
 
 ## **Aggiungere effetti di smusso 3D**
 
-Utilizza [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) per dare profondità e bordi smussati a una forma. Questo esempio crea un’ellisse verde con un contorno arancione, utilizza [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) per impostare la profondità a 4 punti e applica uno smusso superiore circolare con larghezza e altezza di 6 punti tramite [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop). Una telecamera ortografica frontale e un'illuminazione a tre punti rendono visibile lo smusso.
+Usa [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) per dare a una forma profondità e spigoli smussati. Questo esempio crea un'ellisse verde con contorno arancione, usa [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) per impostare la profondità a 4 punti e applica uno smusso superiore circolare con larghezza e altezza di 6 punti tramite [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop). Una telecamera ortografica frontale e un'illuminazione a tre punti rendono visibile lo smusso.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -777,11 +846,11 @@ try {
 
 Il risultato:
 
-![L’effetto di smusso 3D](3D-bevel-effect.png)
+![L'effetto di smusso 3D](3D-bevel-effect.png)
 
 ## **Aggiungere effetti di rotazione 3D**
 
-La vista 3D di una forma è controllata dalle impostazioni della telecamera. Questo esempio utilizza [Camera.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) con angoli di latitudine, longitudine e rivoluzione di 40, 35 e 20 gradi, rispettivamente. Seleziona una telecamera isometrica tramite [Camera.setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) e un’illuminazione bilanciata tramite [LightRig.setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType), quindi salva il rettangolo formattato.
+La vista 3D di una forma è controllata dalle impostazioni della telecamera. Questo esempio usa [Camera.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) con angoli di latitudine, longitudine e rivoluzione di 40, 35 e 20 gradi, rispettivamente. Seleziona una telecamera isometrica tramite [Camera.setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) e un'illuminazione bilanciata tramite [LightRig.setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType), poi salva il rettangolo formattato.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -804,15 +873,15 @@ try {
 
 Il risultato:
 
-![L’effetto di rotazione 3D](3D-rotation-effect.png)
+![L'effetto di rotazione 3D](3D-rotation-effect.png)
 
-## **Controllare il rendering in bianco e nero per le forme**
+## **Controllare la resa in bianco e nero per le forme**
 
-Il metodo [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) specifica come una singola forma viene renderizzata quando una presentazione è visualizzata o elaborata in modalità bianco e nero. Non abilita la visualizzazione in bianco e nero da solo e non modifica il riempimento, la linea o altra formattazione della forma in modalità colore normale.
+Il metodo [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) specifica come una singola forma viene resa quando una presentazione è visualizzata o elaborata in modalità bianco e nero. Non abilita la visualizzazione in bianco e nero di per sé, e non cambia il riempimento, il contorno o altra formattazione della forma in modalità colore normale.
 
-Usa un valore della classe [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) per selezionare il comportamento desiderato. Per esempio, `Automatic` lascia all’applicazione di rendering la scelta della conversione, `Gray` e `LightGray` usano una colorazione grigia, `BlackWhite` utilizza solo nero e bianco, `Black` e `White` forzano un colore unico, `Color` conserva la colorazione normale, e `Hidden` omette la forma in modalità bianco e nero. `NotDefined` significa che non è stato assegnato alcun modo a livello di forma.
+Usa un valore della classe [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) per selezionare il comportamento desiderato. Ad esempio, `Automatic` lascia all'applicazione di rendering la scelta della conversione, `Gray` e `LightGray` usano una colorazione grigia, `BlackWhite` usa solo nero e bianco, `Black` e `White` forzano un unico colore, `Color` preserva la colorazione normale, e `Hidden` omette la forma in modalità bianco e nero. `NotDefined` indica che nessuna modalità a livello di forma è assegnata.
 
-Questo esempio crea un rettangolo arancione e utilizza [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) per selezionare la colorazione grigia. La forma salvata mantiene il riempimento arancione per la visualizzazione a colori normale e richiede la colorazione grigia alle applicazioni che rispettano le impostazioni di visualizzazione in bianco e nero:
+Questo esempio crea un rettangolo arancione e usa [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) per selezionare la colorazione grigia. La forma salvata mantiene il riempimento arancione per la visualizzazione a colori normale e richiede la colorazione grigia alle applicazioni che rispettano le impostazioni di visualizzazione in bianco e nero:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -833,11 +902,11 @@ try {
 }
 ```
 
-In modalità colore normale, il rettangolo mantiene il riempimento arancione. In un flusso di lavoro a visualizzazione in bianco e nero, utilizza la colorazione grigia perché il suo modo è impostato su `Gray`. Questo consente di preservare una diapositiva a colori completa definendo al contempo un aspetto distinto per la stampa, l’anteprima o altri flussi di lavoro che rispettano le impostazioni di visualizzazione in bianco e nero della presentazione.
+In modalità colore normale, il rettangolo mantiene il riempimento arancione. In un flusso di lavoro di visualizzazione in bianco e nero, usa la colorazione grigia perché la sua modalità è impostata su `Gray`. Questo consente di conservare una slide a colori completa definendo al contempo un aspetto distinto per la stampa, l'anteprima o altri flussi di lavoro che rispettano le impostazioni di visualizzazione in bianco e nero della presentazione.
 
 ## **Ripristinare la formattazione**
 
-Utilizza [Slide.reset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#reset) per ripristinare la posizione, le dimensioni e la formattazione dei segnaposto della diapositiva dai corrispondenti segnaposto del layout. Questo esempio richiede una presentazione esistente con segnaposto collegati al layout e ripristina ogni diapositiva prima di salvare. Le forme senza segnaposto corrispondente nel layout non vengono ripristinate.
+Usa [Slide.reset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#reset) per ripristinare posizione, dimensioni e formattazione dei segnaposto delle slide dai loro corrispondenti segnaposto del layout. Questo esempio richiede una presentazione esistente con segnaposto collegati al layout e ripristina ogni slide prima di salvare. Le forme senza segnaposto corrispondente nel layout non vengono ripristinate.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -857,14 +926,14 @@ try {
 
 ## **FAQ**
 
-**La formattazione delle forme influisce sulla dimensione finale del file della presentazione?**
+**La formattazione della forma influenza la dimensione finale del file della presentazione?**
 
-Colori, stili di linea e impostazioni degli effetti aggiungono generalmente pochi dati rispetto a immagini e media incorporati. I riempimenti immagine possono aumentare la dimensione del file poiché le loro immagini sono memorizzate nella presentazione.
+Colori, stili di linea e impostazioni degli effetti aggiungono generalmente pochi dati rispetto a immagini e media incorporati. I riempimenti immagine possono aumentare la dimensione del file perché le loro immagini sono memorizzate nella presentazione.
 
-**Come posso individuare forme su una diapositiva che condividono una formattazione identica per raggrupparle?**
+**Come posso rilevare le forme su una slide che condividono la stessa formattazione per raggrupparle?**
 
-Confronta le proprietà chiave di formattazione di ciascuna forma — riempimento, linea e impostazioni degli effetti. Se tutti i valori corrispondono, tratta i loro stili come identici e raggruppa logicamente quelle forme, semplificando la gestione successiva degli stili.
+Confronta le proprietà chiave di formattazione di ogni forma—riempimento, linea e impostazioni degli effetti. Se tutti i valori corrispondono, tratta i loro stili come identici e raggruppa logicamente quelle forme, semplificando la gestione successiva degli stili.
 
 **Posso salvare un set di stili di forma personalizzati in un file separato per riutilizzarlo in altre presentazioni?**
 
-Sì. Memorizza forme di esempio con gli stili desiderati in un modello di diapositiva o in un file modello .POTX. Quando crei una nuova presentazione, apri il modello, clona le forme stilizzate necessarie e riapplica la loro formattazione dove richiesto.
+Sì. Conserva le forme di esempio con gli stili desiderati in una presentazione modello o in un file modello .POTX. Quando crei una nuova presentazione, apri il modello, clona le forme formattate di cui hai bisogno e riapplica la loro formattazione dove necessario.

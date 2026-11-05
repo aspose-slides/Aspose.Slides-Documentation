@@ -1,44 +1,44 @@
 ---
-title: "จัดรูปแบบรูปทรง PowerPoint ใน PHP"
-linktitle: "การจัดรูปแบบรูปทรง"
+title: จัดรูปแบบรูปร่าง PowerPoint ใน PHP
+linktitle: การจัดรูปแบบรูปร่าง
 type: docs
 weight: 20
 url: /th/php-java/shape-formatting/
 keywords:
-- "จัดรูปแบบรูปทรง"
-- "จัดรูปแบบเส้น"
-- "เอฟเฟกต์สเก็ตช์"
-- "เส้นรูปทรงสเก็ตช์"
-- "จัดรูปแบบสไตล์การเชื่อมต่อ"
-- "การเติมสีไล่ระดับ"
-- "การเติมแบบลาย"
-- "การเติมภาพ"
-- "การเติมเท็กซ์เจอร์"
-- "การเติมสีทึบ"
-- "ความโปร่งใสของรูปทรง"
-- "การเรนเดอร์รูปทรงสีขาว‑ดำ"
-- "การเรนเดอร์รูปทรงระดับสีเทา"
-- "หมุนรูปทรง"
-- "เอฟเฟกต์ Bevel 3 มิติ"
-- "เอฟเฟกต์การหมุน 3 มิติ"
-- "รีเซ็ตการจัดรูปแบบ"
-- "PowerPoint"
-- "การนำเสนอ"
-- "PHP"
-- "Aspose.Slides"
-description: "เรียนรู้วิธีจัดรูปแบบรูปทรง PowerPoint ใน PHP ด้วย Aspose.Slides—ตั้งค่าการเติม, เส้น, และสไตล์เอฟเฟกต์สำหรับไฟล์ PPT และ PPTX อย่างแม่นยำและควบคุมเต็มที่"
+- จัดรูปแบบรูปร่าง
+- จัดรูปแบบเส้น
+- เอฟเฟกต์สเก็ตช์
+- เส้นรูปร่างสเก็ตช์
+- จัดรูปแบบสไตล์การเชื่อมต่อ
+- การเติมไล่ระดับ
+- การเติมลวดลาย
+- การเติมรูปภาพ
+- การเติมพื้นผิว
+- การเติมสีทึบ
+- ความโปร่งใสของรูปร่าง
+- การเรนเดอร์รูปร่างขาว-ดำ
+- การเรนเดอร์รูปร่างระดับสีเทา
+- การหมุนรูปร่าง
+- เอฟเฟกต์ bevel 3 มิติ
+- เอฟเฟกต์การหมุน 3 มิติ
+- รีเซ็ตการจัดรูปแบบ
+- PowerPoint
+- การนำเสนอ
+- PHP
+- Aspose.Slides
+description: "เรียนรู้วิธีจัดรูปแบบรูปร่าง PowerPoint ใน PHP ด้วย Aspose.Slides—กำหนดสไตล์การเติม, เส้น, และเอฟเฟกต์สำหรับไฟล์ PPT และ PPTX อย่างแม่นยำและควบคุมเต็มที่"
 ---
 ## **บทนำ**
 
-จัดรูปแบบรูปทรงใน PowerPoint โดยปรับแต่งเส้นขอบ การเติมสี และเอฟเฟกต์ Aspose.Slides สำหรับ PHP ผ่าน Java ช่วยให้คุณควบคุมการตั้งค่าเหล่านี้ด้วยโปรแกรม รวมถึงความโปร่งใส การหมุน และการจัดรูปแบบ 3 มิติ
+จัดรูปแบบรูปร่างใน PowerPoint ด้วยการปรับเส้นขอบ การเติมสี และเอฟเฟกต์ Aspose.Slides for PHP via Java ช่วยให้คุณควบคุมการตั้งค่าเหล่านี้ด้วยโค้ด โปรแกรมได้ รวมถึงความโปร่งแสง การหมุน และการจัดรูปแบบ 3 มิติ
 
-![ตัวเลือกการจัดรูปแบบรูปทรงใน PowerPoint](format-shape-powerpoint.png)
+![ตัวเลือกการจัดรูปแบบรูปร่างใน PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides สำหรับ PHP ผ่าน Java มีคลาสและเมธอดที่ให้คุณจัดรูปแบบรูปทรงโดยใช้ตัวเลือกเดียวกับที่มีใน PowerPoint
+Aspose.Slides for PHP via Java มีคลาสและเมธอดที่ให้คุณจัดรูปแบบรูปร่างโดยใช้ตัวเลือกเดียวกับที่มีใน PowerPoint
 
 ## **จัดรูปแบบเส้น**
 
-ใช้ [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) เพื่อควบคุมเส้นขอบของรูปทรง ตัวอย่างนี้สร้างสี่เหลี่ยมไม่มีการเติมสีที่มีเส้นขอบสีน้ำเงินแบบเส้นประ [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) เลือกเส้นผสมหนา-บาง, ขณะที่ [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) ตั้งความกว้างเป็น 7 พอยต์และ [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) เลือกรูปแบบเส้นประ
+ใช้ [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) เพื่อควบคุมเส้นขอบของรูปร่าง ตัวอย่างนี้สร้างสี่เหลี่ยมที่ไม่มีการเติมสีโดยมีเส้นขอบสีฟ้าทำเป็นจุดขาด [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) เพื่อเลือกเส้นแบบ compound หนา-บาง ในขณะที่ [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) ตั้งความกว้างเป็น 7 pt และ [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) เลือกรูปแบบการขีดเส้น
 
 ```php
 use aspose\slides\FillType;
@@ -70,13 +70,13 @@ try {
 
 ![เส้นที่จัดรูปแบบในงานนำเสนอ](formatted-lines.png)
 
-### **ตั้งค่ารูปแบบเส้นประแบบกำหนดเอง**
+### **กำหนดรูปแบบการขีดเส้นแบบกำหนดเอง**
 
-ใช้ [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern) เมื่อลักษณะเส้นที่กำหนดไว้ล่วงหน้าไม่ให้ความยาวและช่องว่างของเส้นประที่คุณต้องการ เช่น สำหรับเส้นขอบแบรนด์หรือภาพแผนผังเชิงเทคนิค การกำหนดลวดลายจะเปลี่ยนสไตล์เส้นประโดยอัตโนมัติเป็น [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/)
+ใช้ [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern) เมื่อสไตล์เส้นที่กำหนดไว้ล่วงหน้าไม่ตรงกับความยาวและช่องว่างที่ต้องการ เช่น สำหรับเส้นขอบแบรนด์หรือแผนผังเทคนิค การกำหนดรูปแบบจะทำให้สไตล์การขีดเส้นเปลี่ยนเป็น [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/)
 
-รายการในอาร์เรย์สลับระหว่างความยาวของเส้นประและช่องว่างโดยเริ่มจากเส้นประ แต่ละค่าเป็นหลายเท่าของความกว้างของเส้น: `[4, 2]` ที่ความกว้าง 3 พอยต์จะให้เส้นประ 12 พอยต์ตามด้วยช่องว่าง 6 พอยต์ ใช้คู่ของค่าจำนวนเต็มที่ไม่เป็นลบเพื่อกำหนดส่วนของเส้นประและช่องว่างอย่างครบถ้วน ตัวอย่างใช้ค่าบวกเพื่อให้เส้นประและช่องว่างทั้งหมดมองเห็นได้
+ค่าตัวอาเรย์สลับระหว่างความยาวของเส้นและช่องว่าง เริ่มจากเส้นแต่ละค่าคูณด้วยความกว้างของเส้น: `[4, 2]` ที่ความกว้าง 3 pt จะได้เส้น 12 pt ตามด้วยช่องว่าง 6 pt ใช้คู่ของค่าที่เป็นจำนวนเต็มไม่เป็นลบเพื่อกำหนดส่วนของเส้นและช่องว่าง ตัวอย่างนี้ใช้ค่าบวกเพื่อให้เส้นและช่องว่างทั้งหมดมองเห็นได้
 
-ตัวอย่างนี้สร้างเส้นสีน้ำเงิน 5 เส้นที่มีความยาวเท่ากันและปลายเส้นแบบแบน เส้นสามแรกเปรียบเทียบลวดลายที่ความกว้าง 3 พอยต์ เส้นที่สี่ทำซ้ำลวดลายแรกที่ความกว้างสองเท่า เพิ่มความยาวของเส้นประและช่องว่างเป็นสองเท่า เส้นที่ห้าสลับจากลวดลายกำหนดเองเป็นเส้นทึบ
+ตัวอย่างนี้สร้างเส้นสีฟ้า 5 เส้นที่มีความยาวเท่ากันและหัวเส้นแบน เส้นสามแรกเปรียบเทียบรูปแบบที่ความกว้าง 3 pt เส้นที่สี่ทำซ้ำรูปแบบแรกที่ความกว้างสองเท่า ทำให้เส้นและช่องว่างยาวสองเท่า เส้นที่ห้าสลับจากรูปแบบกำหนดเองเป็นเส้นทsolid
 
 ```php
 use aspose\slides\FillType;
@@ -113,7 +113,7 @@ try {
         $line->getLineFormat()->setCustomDashPattern($patterns[$i]);
     }
 
-    // คืนเส้นสุดท้ายเป็นสไตล์เส้นทึบ.
+    // คืนเส้นสุดท้ายให้เป็นสไตล์เส้นแบบ Solid.
     $slide->getShapes()->get_Item(4)->getLineFormat()->setDashStyle(LineDashStyle::Solid);
 
     $presentation->save("custom_dash_patterns.pptx", SaveFormat::Pptx);
@@ -122,25 +122,25 @@ try {
 }
 ```
 
-หากต้องการกลับไปใช้สไตล์เส้นประที่กำหนดไว้ล่วงหน้า ให้ส่ง [LineDashStyle::Dash](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) ไปยัง [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) สไตล์ที่เลือกจะควบคุมลักษณะของเส้น
+หากต้องการกลับไปใช้สไตล์เส้นประที่กำหนดไว้ล่วงหน้า ให้ส่งค่า [LineDashStyle::Dash](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) ไปยัง [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) สไตล์ที่เลือกจะกำหนดลักษณะการแสดงของเส้น
 
-ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; และ **Solid, 3 pt**.
+ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; และ **Solid, 3 pt**
 
-![สามรูปแบบเส้นประกำหนดเอง, เส้นที่กว้างกว่าโดยใช้รูปแบบแรก, และเส้นทึบใน PowerPoint](custom-dash-patterns.png)
+![สามรูปแบบการขีดเส้นกำหนดเอง เส้นกว้างกว่าใช้รูปแบบแรก และเส้นทsolid ใน PowerPoint](custom-dash-patterns.png)
 
-### **ตั้งค่าปลายเส้น**
+### **กำหนดหัวเส้น**
 
-ใช้ [LineFormat::setCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCapStyle) เพื่อตั้งค่าปลายของเส้นเปิด คลาส [LineCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linecapstyle/) มีสไตล์ปลายเส้นที่ชัดเจนสามแบบ:
+ใช้ [LineFormat::setCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCapStyle) เพื่อกำหนดส่วนปลายของเส้นเปิด คลาส [LineCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linecapstyle/) มีสามสไตล์หัวเส้นที่ชัดเจน:
 
-- `Flat`: เส้นหยุดที่จุดสิ้นสุด.
-- `Round`: ปลายเส้นกึ่งวงกลมยืดออกนอกจุดสิ้นสุดครึ่งความกว้างของเส้น.
-- `Square`: ปลายเส้นสี่เหลี่ยมจัตุรัสยืดออกนอกจุดสิ้นสุดครึ่งความกว้างของเส้น.
+- `Flat`: เส้นหยุดที่จุดสิ้นสุด
+- `Round`: หัวเส้นกึ่งวงกลมยืดออกไปนอกจุดสิ้นสุดเท่ากับครึ่งความกว้างของเส้น
+- `Square`: หัวเส้นสี่เหลี่ยมยืดออกไปนอกจุดสิ้นสุดเท่ากับครึ่งความกว้างของเส้น
 
-คลาสนี้ยังรวม `NotDefined` ซึ่งหมายความว่าไม่ได้กำหนดสไตล์ปลายเส้นอย่างชัดเจน
+คลาสยังมี `NotDefined` ซึ่งหมายความว่าไม่มีการกำหนดหัวเส้นแบบชัดเจน
 
-ปลายเส้นแตกต่างจากหัวลูกศรที่เพิ่มสัญลักษณ์ที่ปลายเส้นและการเชื่อมต่อที่ควบคุมมุมระหว่างส่วนของเส้น ตัวอย่างนี้ปิดการทำงานของหัวลูกศรโดยใช้ [LineFormat::setBeginArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setBeginArrowheadStyle) และ [LineFormat::setEndArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setEndArrowheadStyle) เพื่อให้เปรียบเทียบเฉพาะรูปแบบของปลายเส้น
+หัวเส้นจะแตกต่างจากลูกศรซึ่งเพิ่มสัญลักษณ์ที่ปลายเส้น และการเชื่อมต่อ (joins) ซึ่งควบคุมมุมที่เส้นต่อกัน ตัวอย่างนี้ปิดการใช้งานลูกศรด้วย [LineFormat::setBeginArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setBeginArrowheadStyle) และ [LineFormat::setEndArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setEndArrowheadStyle) เพื่อให้เปรียบเทียบเฉพาะรูปหัวเส้น
 
-ตัวอย่างต่อไปนี้สร้างเส้นแนวนอนสามเส้นที่เหมือนกันโดยมีความกว้าง 20 พอยต์ จากบนลงล่าง ใช้ปลายเส้นแบบ flat, round, และ square จุดสิ้นสุดของเส้นมีพิกัดแนวนอนเท่ากัน; ปลายเส้นแบบ round และ square ยืดออกนอกแต่ละจุดสิ้นสุด 10 พอยต์
+ตัวอย่างต่อไปสร้างเส้นแนวนอนสามเส้นที่เหมือนกัน ความกว้าง 20 pt จากบนลงล่างใช้หัวเส้น Flat, Round, และ Square ตามลำดับ จุดสิ้นสุดของเส้นมีพิกัดแนวนอนเท่ากัน แต่หัว Round และ Square ยืดออกไปนอกจุดสิ้นสุด 10 pt
 
 ```php
 use aspose\slides\FillType;
@@ -177,15 +177,15 @@ try {
 }
 ```
 
-ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **Flat**, **Round**, และ **Square**.
+ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **Flat**, **Round**, และ **Square**
 
-![ปลายเส้นแบบ Flat, Round, และ Square บนเส้นหนาที่เหมือนกันใน PowerPoint](line-caps.png)
+![หัวเส้น Flat, Round, และ Square บนเส้นหนาเดียวกันใน PowerPoint](line-caps.png)
 
-## **ใช้เอฟเฟกต์สเก็ตช์กับเส้นรูปทรง**
+## **ใช้เอฟเฟกต์สเก็ตช์บนเส้นของรูปร่าง**
 
-เอฟเฟกต์สเก็ตช์ทำให้เส้นของรูปทรงดูเหมือนวาดด้วยมือ ใช้ [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) เพื่อเข้าถึงการตั้งค่าเส้น, [LineFormat::getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getSketchFormat) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [SketchFormat::setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#setSketchType) เพื่อเลือกค่าจากคลาส [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/)
+เอฟเฟกต์สเก็ตช์ทำให้เส้นของรูปร่างดูเหมือนวาดด้วยมือ ใช้ [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) เพื่อเข้าถึงการตั้งค่าเส้น, [LineFormat::getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getSketchFormat) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [SketchFormat::setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#setSketchType) เพื่อเลือกค่าจากคลาส [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/)
 
-โค้ด PHP ต่อไปนี้แสดงวิธีการใช้เอฟเฟกต์ [LineSketchType::Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) , อ่านค่าที่กำหนดอย่างชัดเจน, และลบเอฟเฟกต์ด้วย [LineSketchType::None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
+โค้ด PHP ด้านล่างแสดงวิธีใช้เอฟเฟกต์ [LineSketchType::Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) อ่านค่าที่กำหนดไว้โดยตรง และลบเอฟเฟกต์ด้วย [LineSketchType::None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/)
 
 ```php
 use aspose\slides\LineSketchType;
@@ -208,7 +208,7 @@ try {
 }
 ```
 
-ค่าที่คืนจาก [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType) แสดงการตั้งค่าที่กำหนดโดยตรงให้กับรูปทรง หากการจัดรูปแบบเส้นสามารถสืบทอดจากธีม, สไลด์หลัก, หรือสไลด์เลย์เอาต์ได้ ให้ใช้ [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective) เข้าถึงเมธอด `getSketchFormat` ของอ็อบเจกต์ที่คืนค่าและอ่านค่าของ `getSketchType` ค่าที่มีประสิทธิภาพสะท้อนการจัดรูปแบบที่ถูกนำไปใช้จริงหลังจากการสืบทอดแก้ไข ตัวอย่างนี้ต้องใช้งานนำเสนอที่มีอย่างน้อยหนึ่งรูปทรงบนสไลด์แรกและพิมพ์ค่าทั้งสอง:
+ค่าที่คืนมาจาก [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType) แสดงการตั้งค่าที่กำหนดโดยตรงกับรูปร่าง หากการจัดรูปแบบเส้นถูกสืบทอดจากธีม สไลด์มาสเตอร์ หรือสไลด์เลเอาต์ ให้ใช้ [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective) แล้วเข้าถึงเมธอด `getSketchFormat` ของออบเจกต์ที่คืนค่าและอ่านค่าของ `getSketchType` ค่าที่ได้จะแสดงการจัดรูปแบบที่ใช้งานจริงหลังจากการสืบทอดถูกประมวลผล ตัวอย่างนี้ต้องการงานนำเสนอที่มีรูปร่างอย่างน้อยหนึ่งรูปร่างบนสไลด์แรกและพิมพ์ค่าทั้งสอง
 
 ```php
 use aspose\slides\Presentation;
@@ -229,19 +229,19 @@ try {
 }
 ```
 
-## **จัดรูปแบบสไตล์การเชื่อมต่อ**
+## **จัดรูปแบบสไตล์การเชื่อมต่อ (Join Styles)**
 
-ต่อไปนี้คือตัวเลือกสามแบบของการเชื่อมต่อ:
+นี่คือสามตัวเลือกชนิดการเชื่อมต่อ:
 
 * Round
 * Miter
 * Bevel
 
-สไตล์การเชื่อมต่อกำหนดว่าเส้นขอบสองส่วนมาพบกันที่มุมอย่างไร ใช้ **Round** สำหรับมุมโค้ง, **Miter** สำหรับมุมแหลม, หรือ **Bevel** สำหรับมุมแบน
+สไตล์การเชื่อมต่อควบคุมว่าตำแหน่งขอบสองส่วนมาบรรจบกันอย่างไร ที่มุมใช้ **Round** สำหรับมุมโค้ง, **Miter** สำหรับมุมแหลม, หรือ **Bevel** สำหรับมุมแบน
 
 ![สไตล์การเชื่อมต่อในงานนำเสนอ](join-style-powerpoint.png)
 
-ตัวอย่างนี้สร้างสี่เหลี่ยมสีดำสามรูปที่มีเส้นขอบสีน้ำเงินความกว้าง 15 พอยต์ โดยตั้งค่า [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) เป็นค่า miter, bevel, และ round ของ [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) ตามลำดับ เพื่อเปรียบเทียบการวาดมุม
+ตัวอย่างนี้สร้างสี่เหลี่ยมสีดำสามรูปโดยมีเส้นขอบสีน้ำเงินกว้าง 15 pt ตั้งค่า [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) เป็นค่า miter, bevel, และ round ของ [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) ตามลำดับ เพื่อเปรียบเทียบการวาดมุม
 
 ```php
 use aspose\slides\FillType;
@@ -290,13 +290,13 @@ try {
 }
 ```
 
-### **จำกัดการเชื่อมต่อแบบ Miter ที่มุมแหลม**
+### **จำกัดมิตเตอร์ที่มุมแหลม**
 
-ใช้ [LineFormat::setMiterLimit](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setMiterLimit) ร่วมกับ [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) ที่ตั้งเป็น [LineJoinStyle::Miter](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) เพื่อจำกัดระยะที่มุมแหลมจะยืดออก
+ใช้ [LineFormat::setMiterLimit](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setMiterLimit) ร่วมกับ [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) ที่ตั้งเป็น [LineJoinStyle::Miter](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) เพื่อจำกัดความยาวของมิตเตอร์
 
-ขีดจำกัดเป็นอัตราส่วนของระยะระหว่างมุมในและนอกของการเชื่อมต่อต่อความกว้างของเส้น ตัวอย่างเช่น ค่าที่เป็น `8` อนุญาตให้ความยาวของ miter ได้สูงสุดเป็นแปดเท่าของความกว้างของเส้น; ไม่ได้เป็นหน่วยพอยต์ หากมุมเกินขีดจำกัด PowerPoint จะใช้การเชื่อมต่อแบบ bevel ที่มุมนั้น ขีดจำกัดที่สูงกว่าให้จุดที่แหลมขึ้น การตั้งค่านี้ส่งผลต่อการเชื่อมต่อแบบ miter เท่านั้น และการเปลี่ยนแปลงจะไม่มีผลที่มองเห็นได้เมื่อมุมยังคงอยู่ภายในขีดจำกัดทั้งสอง
+ค่าจำกัดเป็นอัตราส่วนของระยะห่างระหว่างมุมในและนอกของการเชื่อมต่อต่อความกว้างของเส้น ตัวอย่างเช่น ค่า `8` อนุญาตให้ความยาวมิตเตอร์สูงสุดเจ็ดเท่าของความกว้างของเส้น; ค่านี้ไม่ใช่หน่วยจุด หากมุมเกินขีดจำกัด PowerPoint จะใช้การเชื่อมต่อแบบ bevel ที่มุมนั้น ขีดจำกัดที่ใหญ่กว่าอนุญาตให้จุดแหลมมากขึ้น การตั้งค่านี้มีผลเฉพาะกับการเชื่อมต่อแบบมิตเตอร์เท่านั้น และการเปลี่ยนแปลงจะไม่ปรากฏหากมุมยังคงอยู่ในขอบเขตทั้งสอง
 
-ตัวอย่างนี้สร้างสามเหลี่ยมไม่มีการเติมสีที่เหมือนกันโดยมีเส้นขอบความกว้าง 20 พอยต์ สามเหลี่ยมด้านซ้ายใช้ขีดจำกัด `2` ส่วนด้านขวาใช้ `8` แต่ละสามเหลี่ยมกว้าง 80 พอยต์และสูง 160 พอยต์ ให้มุมบนอัตราส่วนความยาวของ miter ต่อความกว้างของเส้นประมาณ `4.12` ดังนั้น PowerPoint จะทำ bevel ที่ยอดซ้ายและรักษายอดขวาไว้
+ตัวอย่างนี้สร้างสามเหลี่ยมที่ไม่มีการเติมสีสองรูปที่เหมือนกัน เส้นขอบกว้าง 20 pt สามเหลี่ยมซ้ายใช้ขีดจำกัด `2` และขวาใช้ `8` แต่ละสามเหลี่ยมกว้าง 80 pt สูง 160 pt ทำให้สัดส่วนความยาวมิตเตอร์ต่อความกว้างของเส้นประมาณ `4.12` ส่งผลให้ PowerPoint ทำ bevel ที่ยอดซ้ายและคงสภาพมิตเตอร์ที่ยอดขวา
 
 ```php
 use aspose\slides\FillType;
@@ -330,13 +330,13 @@ try {
 }
 ```
 
-ผลลัพธ์ใน PowerPoint: **Miter limit 2** ด้านซ้ายและ **miter limit 8** ด้านขวา.
+ผลลัพธ์ใน PowerPoint: **Miter limit 2** ทางซ้ายและ **miter limit 8** ทางขวา
 
-![ยอดมุมแบนด้วย miter limit 2 และยอดมุมแหลมด้วย miter limit 8 ใน PowerPoint](miter-limits.png)
+![ยอดที่ bevel ด้วยมิตเตอร์ลิมิต 2 และยอดที่แหลมด้วยมิตเตอร์ลิมิต 8 ใน PowerPoint](miter-limits.png)
 
-## **การเติมสีไล่ระดับ**
+## **การเติมสีไล่ระดับ (Gradient Fill)**
 
-การเติมสีไล่ระดับผสมสีทั่วรูปทรง ตัวอย่างนี้เติมสีในรูปวงรีด้วยไล่สีเชิงเส้นที่มุม 45 องศาจากสีแดงไปสีม่วงโดยใช้ [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat) เมธอด [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) วางจุดสีที่ตำแหน่ง 0 และ 1 คือจุดเริ่มต้นและสิ้นสุดของไล่สี การล้างจุดสีที่มีอยู่ทำให้ใช้สีเพียงสองสีนี้เท่านั้น
+การเติมสีไล่ระดับผสมสีทั่วทั้งรูปร่าง ตัวอย่างนี้เติมรูปวงรีด้วยไล่ระดับเชิงเส้นที่มุม 45 องศา จากสีแดงไปสีม่วงโดยใช้ [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat) วิธี [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) จะวางจุดหยุดสีที่ 0 และ 1 (จุดเริ่มและจุดสิ้นของไล่ระดับ) การล้างจุดหยุดที่มีอยู่ทำให้ใช้สีเพียงสองสีนี้เท่านั้น
 
 ```php
 use aspose\slides\FillType;
@@ -366,15 +366,15 @@ try {
 
 ผลลัพธ์:
 
-![วงรีที่มีการเติมสีไล่ระดับ](gradient-fill.png)
+![วงรีที่เติมสีไล่ระดับ](gradient-fill.png)
 
-หากไล่สีดูแตกต่างในภาพที่ส่งออกเมื่อเทียบกับใน PowerPoint ให้ดูที่ [Choose a Gradient Rendering Style](/slides/th/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) คุณสามารถเลือกสไตล์การเรนเดอร์โดยไม่ต้องเปลี่ยนไล่สีที่จัดเก็บในงานนำเสนอ
+หากไล่ระดับดูต่างกันในภาพที่ส่งออกกับใน PowerPoint ดูที่ [Choose a Gradient Rendering Style](/slides/th/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) คุณสามารถเลือกสไตล์การเรนเดอร์โดยไม่ต้องเปลี่ยนไล่ระดับที่เก็บไว้ในงานนำเสนอ
 
-### **ตั้งค่ามุมของ Gradient เชิงเส้น**
+### **ตั้งมุมไล่ระดับเชิงเส้น**
 
-ใช้ [GradientFormat::setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) เพื่อควบคุมการวางแนวของการเติม [GradientShape::Linear](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/) มุมวัดเป็นองศาและเพิ่มตามเข็มนาฬิกา: `0` ไหลจากซ้ายไปขวา, `90` จากบนลงล่าง, `180` จากขวาไปซ้าย, และ `270` จากล่างขึ้นบน รองรับมุมเศษส่วน มุมที่อยู่นอกช่วง `[0, 360)` จะถูกทำให้เป็นหนึ่งรอบเต็ม; ตัวอย่างเช่น `-45` จะกลายเป็น `315` และ `360` จะเป็น `0`
+ใช้ [GradientFormat::setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) เพื่อควบคุมทิศทางของการเติม [GradientShape::Linear](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/) มุมวัดเป็นองศาและเพิ่มตามเข็มนาฬิกา: `0` จากซ้ายไปขวา, `90` จากบนลงล่าง, `180` จากขวาไปซ้าย, `270` จากล่างขึ้นบน มุมที่เป็นเศษส่วนก็รองรับ มุมที่อยู่นอกช่วง `[0, 360)` จะถูกปรับให้เป็นการหมุนหนึ่งรอบ เช่น `-45` จะกลายเป็น `315` และ `360` จะเป็น `0`
 
-ตัวอย่างนี้สร้างสี่เหลี่ยมหกรูปที่มีจุดสีแดง, เขียว, น้ำเงินเดียวกันที่ตำแหน่ง `0`, `0.5`, และ `1` ปิดการสเกลเพื่อให้เปรียบเทียบมุมได้โดยไม่สนอัตราส่วนของสี่เหลี่ยม มุมจากซ้ายไปขวาในแถวแรกคือ `0`, `45`, และ `90` และในแถวที่สองคือ `135`, `180`, และ `270`
+ตัวอย่างนี้สร้างสี่เหลี่ยมหกรูปที่มีจุดสีแดง เขียว น้ำเงินเดียวกันที่ตำแหน่ง `0`, `0.5`, และ `1` ปิดการสเกลเพื่อให้มุมเปรียบเทียบได้โดยไม่ขึ้นกับสัดส่วนของสี่เหลี่ยม มุมจากซ้ายไปขวาในแถวแรกคือ `0`, `45`, `90` และในแถวที่สองคือ `135`, `180`, `270`
 
 ```php
 use aspose\slides\FillType;
@@ -418,13 +418,13 @@ try {
 
 ผลลัพธ์ใน PowerPoint:
 
-![ไล่สีเชิงเส้นที่ 0, 45, และ 90 องศาในแถวบน, และ 135, 180, และ 270 องศาในแถวล่าง](linear-gradient-angles.png)
+![ไล่ระดับเชิงเส้นที่ 0°, 45°, 90° ในแถวบนและ 135°, 180°, 270° ในแถวล่าง](linear-gradient-angles.png)
 
-### **ปรับขนาด Gradient เชิงเส้นตามรูปทรง**
+### **สเกลไล่ระดับเชิงเส้นตามรูปร่าง**
 
-[GradientFormat::setLinearGradientScaled](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientScaled) รับค่า [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) ตั้งค่าเป็น `False` ชัดเจนเพื่อรักษามุมของไล่สีเชิงเรขาคณิตเมื่อสัดส่วนของรูปทรงเปลี่ยน, หรือเป็น `True` เพื่อสเกลไล่สีตามความกว้างและความสูงของรูปทรง เมื่อเปิดสเกลมุมที่มองเห็นอาจแตกต่างจากมุมที่กำหนดบนรูปทรงที่ไม่เป็นสี่เหลี่ยมจัตุรัส
+[GradientFormat::setLinearGradientScaled](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientScaled) รับค่า [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) ตั้งค่าเป็น `False` เพื่อคงมุมไล่ระดับเชิงเรขาคณิตขณะรูปร่างเปลี่ยนสัดส่วน หรือตั้งเป็น `True` เพื่อสเกลไล่ระดับตามความกว้างและความสูงของรูปร่าง เมื่อสเกลเปิดใช้งาน มุมที่มองเห็นอาจต่างจากมุมที่กำหนดไว้บนรูปร่างที่ไม่เป็นสี่เหลี่ยมจัตุรัส
 
-ตัวอย่างต่อไปนี้ใช้มุม `45` องศาและจุดสีเดียวกับการเปรียบเทียบมุม คอลัมน์ซ้ายใช้ `False` คอลัมน์ขวาใช้ `True` แต่ละคอลัมน์มีสี่เหลี่ยมกว้างอยู่ด้านบนและสี่เหลี่ยมสูงอยู่ด้านล่าง ทั้งสองเริ่มด้วยขนาดกว้างเดียวกัน; การเปลี่ยนความกว้างและความสูงของสี่เหลี่ยมที่สองแสดงว่าการเติมสีตอบสนองต่อการปรับขนาดอย่างไรโดยไม่ต้องเปลี่ยนการตั้งค่าไล่สี
+ตัวอย่างต่อไปใช้มุม `45` องศาและจุดสีเดียวกับการเปรียบเทียบมุม คอลัมน์ซ้ายตั้งเป็น `False` คอลัมน์ขวาตั้งเป็น `True` แต่ละคอลัมน์มีสี่เหลี่ยมกว้างอยู่ด้านบนและสี่เหลี่ยมสูงอยู่ด้านล่าง ทั้งสองเริ่มด้วยขนาดกว้างเท่ากัน; การเปลี่ยนความกว้างและความสูงของสี่เหลี่ยมที่สองแสดงว่าการเติมสีตอบสนองต่อการปรับขนาดอย่างไรโดยไม่เปลี่ยนการตั้งค่าไล่ระดับ
 
 ```php
 use aspose\slides\FillType;
@@ -473,19 +473,19 @@ try {
 }
 ```
 
-ผลลัพธ์ใน PowerPoint, โดยปิดการปรับสเกลด้านซ้ายและเปิดการปรับสเกลด้านขวา:
+ผลลัพธ์ใน PowerPoint โดยซ้ายสเกลปิดและขวาเปิด:
 
-![สี่เหลี่ยมกว้างและสูงที่มี Gradient 45 องศา, เปรียบเทียบ LinearGradientScaled False ด้านซ้ายกับ True ด้านขวา](linear-gradient-scaling.png)
+![สี่เหลี่ยมกว้างและสูงที่มีไล่ระดับ 45° เปรียบเทียบ LinearGradientScaled False ด้านซ้ายกับ True ด้านขวา](linear-gradient-scaling.png)
 
-เมื่อปิดการสเกล แถบสีทแยงมุมคงการวางแนวเดียวกันในทั้งสองสี่เหลี่ยม เมื่อเปิดการสเกล แถบสีจะยืดตามอัตราส่วนของรูปทรง ซึ่งช่วยทำซ้ำไล่สีของต้นแบบเมื่อปรับรูปทรงให้มีขนาดต่างกัน ในสี่เหลี่ยมจัตุรัส การเปิดสเกลจะไม่เปลี่ยนลักษณะของไล่สี `45` องศานี้
+เมื่อสเกลปิดแถบสีแนวทแยงมุมคงทิศทางเดียวกันในทั้งสองสี่เหลี่ยม เมื่อสเกลเปิดแถบสีจะยืดตามสัดส่วนของรูปร่าง นี้ช่วยให้คัดลอกไล่ระดับของเทมเพลตเมื่อปรับขนาดรูปร่างให้ต่างกัน หากเป็นสี่เหลี่ยมจัตุรัส การเปิดสเกลจะไม่เปลี่ยนลักษณะของไล่ระดับ `45` องศานี้
 
-การตั้งค่ามุมและการสเกลใช้กับไล่สีเชิงเส้นเท่านั้น ไม่ใช้กับการเติม [GradientShape::Radial or GradientShape::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/)
+ค่ามุมและสเกลทั้งสองใช้กับไล่ระดับเชิงเส้นและไม่ได้ควบคุมการเติมสี [GradientShape::Radial หรือ GradientShape::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/)
 
-### **รวมมุมกับทิศทาง Gradient**
+### **ผสานมุมกับทิศทางไล่ระดับ**
 
-[GradientFormat::setGradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setGradientDirection) เลือกสไตล์ไล่สีจากคลาส [GradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientdirection/) ซึ่งไม่ใช่ตัวแทนของมุมเชิงตัวเลข สำหรับไล่สีเชิงเส้น สไตล์มุมสามารถเปลี่ยนพื้นที่ที่สีกระจายโดยไม่ต้องเปลี่ยนมุมที่กำหนดผ่าน [setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) ให้คงทิศทางไว้เมื่อเปรียบเทียบมุมหรือสเกล
+[GradientFormat::setGradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setGradientDirection) เลือกสไตล์ไล่ระดับจากคลาส [GradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientdirection/) ซึ่งไม่ใช่การทดแทนมุมเชิงตัวเลข สำหรับไล่ระดับเชิงเส้น ทิศทางมุมสามารถเปลี่ยนพื้นที่ที่สีกระจายโดยไม่ต้องเปลี่ยนมุมที่กำหนดผ่าน [setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) ให้คงทิศทางเดิมเมื่อเปรียบเทียบมุมหรือสเกล
 
-ตัวอย่างต่อไปนี้ใช้การตั้งค่าเดียวกันแต่สลับลำดับสองสี่เหลี่ยมมีลักษณะเดียวกัน: การกำหนดทิศทางก่อนหรือหลังมุมไม่ทำให้ผลลัพธ์เปลี่ยนแปลง
+ตัวอย่างต่อไปใช้การตั้งค่าเดียวกันแต่สั่งเรียงลำดับตรงกันข้าม สี่เหลี่ยมสองรูปจะแสดงผลเหมือนกัน: การกำหนดทิศทางก่อนหรือหลังมุมไม่ทำให้ผลลัพธ์เปลี่ยน
 
 ```php
 use aspose\slides\FillType;
@@ -528,9 +528,9 @@ try {
 }
 ```
 
-## **การเติมแบบลาย**
+## **การเติมลวดลาย (Pattern Fill)**
 
-การเติมแบบลายใช้การออกแบบสองสี เช่น จุด, แถบ, หรือตรวจสอบ ตัวอย่างนี้ใช้ [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) เพื่อเลือกลายตาข่าย [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) ให้พื้นหลังสีเทาอ่อน, และ [PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) ให้สีเหลืองเป็นสีลาย
+การเติมลวดลายใช้การออกแบบสองสี เช่น จุด, ลายเส้น, หรือเช็ค ตัวอย่างนี้ใช้ [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) เพื่อเลือกลายตาข่าย [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) ให้พื้นหลังสีเทาอ่อน และ [PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) ให้สีเหลืองของลาย
 
 ```php
 use aspose\slides\FillType;
@@ -557,13 +557,13 @@ try {
 
 ผลลัพธ์:
 
-![สี่เหลี่ยมที่มีการเติมแบบลาย](pattern-fill.png)
+![สี่เหลี่ยมที่เติมลวดลาย](pattern-fill.png)
 
-## **การเติมรูปภาพ**
+## **การเติมรูปภาพ (Picture Fill)**
 
-การเติมรูปภาพใช้ภาพภายในรูปทรง ตัวอย่างนี้ต้องมีภาพในเครื่องและใช้ [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) เพื่อโหลดเข้าสู่คอลเลกชันภาพของงานนำเสนอ การตั้งค่า [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) เป็นโหมดต่อกันทำให้ภาพซ้ำภายในสี่เหลี่ยม ภาพต้นฉบับที่ใช้แสดงด้านล่าง:
+การเติมรูปภาพใช้ภาพภายในรูปร่าง ตัวอย่างนี้ต้องการภาพจากไฟล์ท้องถิ่นและใช้ [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) เพื่อโหลดเข้าไปในคอลเลกชันภาพของงานนำเสนอ การตั้งค่า [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) เป็นโหมด tiled จะทำให้ภาพซ้ำภายในสี่เหลี่ยม ภาพต้นฉบับที่ใช้แสดงด้านล่าง:
 
-![รูปดอกบัว](lotus.png)
+![รูปภาพดอกบัว](lotus.png)
 
 ```php
 use aspose\slides\FillType;
@@ -597,21 +597,21 @@ try {
 
 ผลลัพธ์:
 
-![รูปทรงที่มีการเติมรูปภาพ](picture-fill.png)
+![รูปร่างที่เติมรูปภาพ](picture-fill.png)
 
-### **วางภาพเป็นเท็กซ์เจอร์แบบต่อกัน**
+### **ตั้งภาพต่อ (Tile) เป็นพื้นผิว (Texture)**
 
-หากคุณต้องการตั้งภาพต่อกันเป็นเท็กซ์เจอร์และปรับพฤติกรรมการต่อ สามารถใช้เมธอดต่อไปนี้ของคลาส [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) :
+หากต้องการตั้งภาพต่อเป็นพื้นผิวและกำหนดพฤติกรรมการต่อ สามารถใช้เมธอดต่อไปของคลาส [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) :
 
-- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): ตั้งโหมดการเติมภาพ—either `Tile` or `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): ระบุการจัดตำแหน่งของไทล์ภายในรูปทรง.
-- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): ควบคุมว่าไทล์จะถูกพลิกแนวนอน แนวตั้ง หรือทั้งสองอย่าง.
-- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): ตั้งค่า offset แนวนอนของไทล์ (หน่วยพอยต์) จากจุดเริ่มต้นของรูปทรง.
-- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): ตั้งค่า offset แนวตั้งของไทล์ (หน่วยพอยต์) จากจุดเริ่มต้นของรูปทรง.
-- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): กำหนดสเกลแนวนอนของไทล์เป็นเปอร์เซ็นต์.
-- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): กำหนดสเกลแนวตั้งของไทล์เป็นเปอร์เซ็นต์.
+- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): กำหนดโหมดการเติมภาพ — `Tile` หรือ `Stretch`
+- [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): ระบุตำแหน่งการจัดวางแผ่นต่อภายในรูปร่าง
+- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): ควบคุมว่าภาพต่อจะพลิกแนวนอน แนวตั้ง หรือทั้งสอง
+- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): กำหนดการเยื้องแนวนอนของแผ่นต่อ (เป็น pt) จากจุดเริ่มต้นของรูปร่าง
+- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): กำหนดการเยื้องแนวตั้งของแผ่นต่อ (เป็น pt) จากจุดเริ่มต้นของรูปร่าง
+- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): กำหนดสเกลแนวนอนของแผ่นต่อเป็นเปอร์เซ็นต์
+- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): กำหนดสเกลแนวตั้งของแผ่นต่อเป็นเปอร์เซ็นต์
 
-ตัวอย่างนี้ต้องมีภาพในเครื่องและกำหนดค่า [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) ให้ซ้ำที่ 50% ของขนาดต้นฉบับ การกำหนด offset ที่ −32 พอยต์ทำให้ไทล์เลื่อนแนวนอนและแนวตั้ง; การจัดตำแหน่งที่ด้านล่าง‑ขวาและการพลิกในทั้งสองทิศทางกำหนดการจัดเรียงเท็กซ์เจอร์ที่ซ้ำ
+ตัวอย่างนี้ต้องการภาพจากไฟล์ท้องถิ่นและกำหนดให้ [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) ทำซ้ำที่ขนาด 50% ของขนาดดั้งเดิม การเยื้อง `-32` pt จะย้ายแผ่นต่อแนวนอนและแนวตั้ง; การจัดตำแหน่งด้านล่าง‑ขวาและการพลิกทั้งสองทิศกำหนดวิธีการจัดเรียงพื้นผิวที่ทำซ้ำ
 
 ```php
 use aspose\slides\FillType;
@@ -655,11 +655,11 @@ try {
 
 ผลลัพธ์:
 
-![ตัวเลือกการต่อไทล์](tile-options.png)
+![ตัวเลือกการต่อภาพ](tile-options.png)
 
-## **การเติมสีทึบ**
+## **การเติมสีทึบ (Solid Color Fill)**
 
-การเติมสีทึบทำให้รูปทรงมีสีเดียวที่สม่ำเสมอ ตัวอย่างนี้ตั้งค่า [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) เป็นโหมดเติมสีทึบและกำหนดสีเหลืองผ่าน [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor) จากนั้นบันทึกสี่เหลี่ยมในงานนำเสนอ
+การเติมสีทึบทำให้รูปร่างมีสีเดียวที่สม่ำเสมอ ตัวอย่างนี้ตั้งค่า [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) เป็นโหมดเติมสีทึบและกำหนดสีเหลืองผ่าน [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor) แล้วบันทึกสี่เหลี่ยมลงในงานนำเสนอ
 
 ```php
 use aspose\slides\FillType;
@@ -683,15 +683,92 @@ try {
 
 ผลลัพธ์:
 
-![รูปทรงที่มีการเติมสีทึบ](solid-color-fill.png)
+![รูปร่างที่เติมสีทึบ](solid-color-fill.png)
 
-## **ใช้พื้นหลังสไลด์เป็นการเติมรูปทรง**
+### **คัดลอกสีพร้อมคงอ้างอิงธีม**
 
-ใช้ [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill) เมื่อรูปทรงควรตรงกับพื้นหลังสไลด์ เช่น ในแม่แบบงานนำเสนอ ตั้งค่า [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) เป็น [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) ก่อนเพื่อลบการเติมที่กำหนดไว้โดยเฉพาะ ด้วยการผสมนี้รูปทรงจะใช้พื้นหลังสไลด์แทนการเติมสไตล์ของมันเอง การเปิดใช้งานฟล็ากนี้เพียงอย่างเดียวไม่ลบการเติมที่กำหนดไว้ก่อนหน้า
+ใช้ [ColorFormat::copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#copyFrom) เพื่อคัดลอกค่าสีรวมถึงชนิดสี, การอ้างอิงธีม, และการแปลงค่า ซึ่งมีประโยชน์เมื่อต้องถ่ายโอนสีเติมระหว่างรูปร่างที่ควรยังคงตามธีมของงานนำเสนอ เมธอดจะคัดลอกเฉพาะสีไม่รวมประเภทการเติม, เส้นขอบ หรือการจัดรูปแบบอื่น ๆ ตั้งค่าชนิดการเติมของปลายทางโดยใช้ [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) อย่างชัดเจน
 
-สิ่งนี้แตกต่างจาก [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) : การเติมพื้นหลังจะครอบวัตถุที่อยู่ข้างหลังรูปทรงด้วยพื้นที่ของพื้นหลังสไลด์ที่สอดคล้องกัน, ในขณะที่ไม่มีการเติมทำให้วัตถุนั้นมองเห็นได้ Gradient จะยังคงจัดแนวกับสไลด์แทนการเริ่มใหม่ภายในแต่ละรูปทรง
+ตัวอย่างนี้สร้างสี่เหลี่ยมสามรูปจากซ้ายไปขวา: แหล่งที่มา, คัดลอกที่คำนึงถึงธีม, และคัดลอกเป็น RGB คงที่ แหล่งที่ใช้ [ColorFormat::setSchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setSchemeColor) เพื่ออ้างอิงสี Accent แรกและเพิ่ม tint ด้วย [ColorOperationCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/coloroperationcollection/#add) คัดลอกเป็น RGB ใช้สีเติมที่มีผลจริงของแหล่งที่มา ทำให้สามรูปแรกดูเหมือนกันทั้งหมด การเรียก [ColorFormat::setColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setColor) จะตั้งค่า RGB คงที่และเคลียร์การแปลงสีใด ๆ ที่มีอยู่
 
-ตัวอย่างต่อไปนี้สร้างพื้นหลังแม่แบบที่สไลด์สืบทอดและวางแถบสีชมพูเมจันต์ไว้ด้านหลังสี่เหลี่ยมสามรูป สี่เหลี่ยมซ้ายใช้พื้นหลัง, สี่เหลี่ยมกลางไม่มีการเติม, สี่เหลี่ยมขวาสลับจากการเติมพื้นหลังเป็นการเติมสีส้มอย่างชัดเจน
+```php
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FillType;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SchemeColor;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(660, 220, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $initialAccent = new Java("java.awt.Color", 65, 105, 225);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent1()->setColor($initialAccent);
+
+    $source = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+    $themeCopy = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+    $rgbCopy = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+    foreach ([$source, $themeCopy, $rgbCopy] as $shape) {
+        $shape->getFillFormat()->setFillType(FillType::Solid);
+        $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+    }
+
+    $sourceColor = $source->getFillFormat()->getSolidFillColor();
+    $sourceColor->setSchemeColor(SchemeColor::Accent1);
+    $sourceColor->getColorTransform()->add(ColorTransformOperation::Tint, 0.75);
+
+    $themeCopy->getFillFormat()->getSolidFillColor()->copyFrom($sourceColor);
+    $rgbCopy->getFillFormat()->getSolidFillColor()->setColor($source->getFillFormat()->getEffective()->getSolidFillColor());
+
+    $before = $slide->getImage(1.0, 1.0);
+    try {
+        $before->save("color-copy-before.png", ImageFormat::Png);
+    } finally {
+        $before->dispose();
+    }
+
+    // การอ้างอิงธีมตามสี Accent ใหม่; ค่ RGB คงที่ไม่ตาม.
+    $updatedAccent = new Java("java.awt.Color", 255, 69, 0);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent1()->setColor($updatedAccent);
+
+    $after = $slide->getImage(1.0, 1.0);
+    try {
+        $after->save("color-copy-after.png", ImageFormat::Png);
+    } finally {
+        $after->dispose();
+    }
+    $presentation->save("copied_colors.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+ก่อนเปลี่ยนธีม ทั้งสามการเติมสีจะตรงกัน:
+
+![แหล่งที่มา, ปลายทาง copyFrom, และปลายทาง RGB คงที่ที่มีสีสีน้ำเงินเหมือนกัน](color-copy-before.png)
+
+หลังเปลี่ยนธีม แหล่งที่มาและคัดลอกที่คำนึงถึงธีมจะตามสี Accent ใหม่และคง tint ไว้ ส่วนคัดลอก RGB คงที่ยังคงเป็นสีน้ำเงิน:
+
+![แหล่งที่มาและ copyFrom ที่มีสีส้ม ส่วน RGB คงที่ยังคงเป็นสีน้ำเงิน](color-copy-after.png)
+
+คำนิยามที่คัดลอกเป็นอิสระจากแหล่งที่มา การเปลี่ยนแปลงธีมของแหล่งที่มา การกำหนดสีใหม่ หรือการเพิ่ม/ลบการแปลงจะไม่ส่งผลต่อปลายทาง ธีมที่เปลี่ยนยังคงส่งผลต่อทั้งสองรูปร่างเพราะแต่ละอันอ้างอิงสีธีมเดียวกัน
+
+การบันทึกและเปิดไฟล์ PPTX อีกครั้งจะคงชนิดสีที่คัดลอกโดย [ColorFormat::getColorType](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#getColorType), การอ้างอิงธีม, และคอลเลกชันการแปลงที่คืนจาก [ColorFormat::getColorTransform](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#getColorTransform) ไม่ได้แปลงเป็น RGB
+
+เมื่อคัดลอกจากบริบทธีมที่ต่างกัน เช่น งานนำเสนอที่มีพาเล็ตต์ Accent ต่างกัน การอ้างอิงที่คัดลอกจะอ้างอิงตามธีมของปลายทาง ดังนั้นอาจทำให้สีที่มองเห็นต่างกัน ดูที่ [Presentation Theme](/slides/th/php-java/presentation-theme/) เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับการกำหนดธีมสี
+
+## **ใช้พื้นหลังสไลด์เป็นการเติมสีของรูปร่าง**
+
+ใช้ [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill) เมื่อรูปร่างควรตรงกับพื้นหลังสไลด์ เช่น ในเทมเพลตงานนำเสนอ ตั้งค่าชนิดการเติมด้วย [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) ไปเป็น [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) ก่อนเพื่อเอาการเติมที่กำหนดโดยตรงออก ด้วยการผสมผสานนี้รูปร่างจะใช้พื้นหลังสไลด์แทนการเติมที่กำหนดเอง การเปิดใช้งานฟล็ากนี้อย่างเดียวไม่ลบการเติมที่มีอยู่
+
+ซึ่งต่างจาก [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) : การเติมพื้นหลังจะครอบออบเจกต์ที่อยู่ด้านหลังรูปร่างด้วยพื้นหลังสไลด์ในพื้นที่ที่สอดคล้องในขณะที่ NoFill ทำให้วัตถุเหล่านั้นมองเห็นได้ การไล่ระดับจะยังคงจัดแนวตามสไลด์แทนการเริ่มใหม่ภายในแต่ละรูปร่าง
+
+ตัวอย่างต่อไปสร้างพื้นหลังมาสเตอร์ที่สืบทอดโดยสไลด์และวางแถบสีมะโกมอยู่ด้านหลังสี่เหลี่ยมสามรูป สี่เหลี่ยมซ้ายใช้พื้นหลัง, กลางไม่มีการเติม, ขวาเปลี่ยนจากพื้นหลังเป็นการเติมสีส้มโดยชัดเจน
 
 ```php
 use aspose\slides\BackgroundType;
@@ -707,7 +784,7 @@ try {
     $presentation->getSlideSize()->setSize(720, 400, SlideSizeScaleType::DoNotScale);
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // สืบทอดไล่สีจากมาสเตอร์.
+    // สืบทอดไล่ระดับจากมาสเตอร์.
     $slide->getBackground()->setType(BackgroundType::NotDefined);
     $slide->getLayoutSlide()->getBackground()->setType(BackgroundType::NotDefined);
     $background = $slide->getLayoutSlide()->getMasterSlide()->getBackground();
@@ -722,7 +799,7 @@ try {
     $endColor = new Java("java.awt.Color", 135, 206, 250);
     $gradient->getGradientStops()->add(1, $endColor);
 
-    // เพิ่มวัตถุนี้ก่อนเพื่อให้แสดงอยู่ด้านหลังสี่เหลี่ยม.
+    // เพิ่มวัตถุนี้ก่อนเพื่อให้ปรากฏอยู่ด้านหลังสี่เหลี่ยม.
     $band = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 25, 150, 670, 100);
     $band->getFillFormat()->setFillType(FillType::Solid);
     $band->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->MAGENTA);
@@ -739,7 +816,7 @@ try {
     $explicitShape->getFillFormat()->setFillType(FillType::NotDefined);
     $explicitShape->setUseBackgroundFill(true);
 
-    // ปิดการเติมพื้นหลังก่อนที่จะกำหนดการเติมแบบชัดเจน.
+    // ปิดการเติมพื้นหลังก่อนกำหนดการเติมแบบชัดเจน.
     $explicitShape->setUseBackgroundFill(false);
     $explicitShape->getFillFormat()->setFillType(FillType::Solid);
     $fillColor = new Java("java.awt.Color", 255, 165, 0);
@@ -751,15 +828,15 @@ try {
 }
 ```
 
-ผลลัพธ์จากซ้ายไปขวา: **background fill**, **no fill**, และ **explicit fill**. แถบสีชมพูเมจันต์ถูกซ่อนโดยสี่เหลี่ยมซ้ายและขวาแต่ยังมองเห็นได้ผ่านสี่เหลี่ยมกลาง
+ผลลัพธ์จากซ้ายไปขวา: **การเติมพื้นหลัง**, **ไม่มีการเติม**, และ **การเติมแบบชัดเจน** แถบสีมะโกมถูกซ่อนโดยสี่เหลี่ยมซ้ายและขวาแต่ยังมองเห็นผ่านสี่เหลี่ยมกลาง
 
-![พื้นหลังเติม, ไม่มีการเติม, และการเติมสีส้มอย่างชัดเจนบนแถบสีชมพูเมจันต์](background-fill.png)
+![การเติมพื้นหลัง, ไม่มีการเติม, และการเติมสีส้มชัดเจนบนแถบสีมะโกม](background-fill.png)
 
-พฤติกรรมเดียวกันใช้กับพื้นหลังที่กำหนดโดยตรงบนสไลด์หรือสืบทอดจากเลย์เอาต์ รูปทรงจะใช้พื้นหลังที่แก้ไขของสไลด์; ตัวอย่างนี้ปล่อยให้พื้นหลังของสไลด์และเลย์เอาต์ไม่กำหนดเพื่อให้แม่แบบจัดหาให้
+พฤติกรรมเดียวกันใช้กับพื้นหลังที่กำหนดโดยตรงบนสไลด์หรือสืบทอดจากเลเอาต์ รูปร่างจะใช้พื้นหลังที่ได้รับการคำนวณของสไลด์; ตัวอย่างนี้ไม่ได้กำหนดพื้นหลังของสไลด์และเลเอาต์เพื่อให้มาสเตอร์จัดหามา
 
-## **ตั้งค่าความโปร่งใส**
+## **ตั้งค่าความโปร่งแสง**
 
-สำหรับการเติมสีทึบ ส่วน alpha ของสีควบคุมความทึบแสง: 0 หมายถึงโปร่งใสเต็มที่และ 255 หมายถึงทึบเต็มที่ ตัวอย่างนี้ใช้ค่า alpha 128 สำหรับสี่เหลี่ยมสีเหลือง ทำให้โปร่งใสประมาณ 50% เพื่อให้สี่เหลี่ยมด้านล่างยังมองเห็นได้ สีถูกกำหนดผ่าน [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor)
+สำหรับการเติมสีทึบ ค่าคอมโพเนนต์ alpha ของสีกำหนดความทึบ: 0 = โปร่งใสเต็ม, 255 = ทึบเต็ม ตัวอย่างนี้ใช้ค่า alpha 128 สำหรับสี่เหลี่ยมสีเหลือง ทำให้โปร่งใสประมาณ 50% เพื่อให้สี่เหลี่ยมใต้เห็นได้ สีถูกกำหนดผ่าน [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor)
 
 ```php
 use aspose\slides\FillType;
@@ -786,11 +863,11 @@ try {
 
 ผลลัพธ์:
 
-![รูปทรงที่โปร่งใส](shape-transparency.png)
+![รูปร่างที่โปร่งใส](shape-transparency.png)
 
-## **หมุนรูปทรง**
+## **หมุนรูปร่าง**
 
-ใช้ [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) เพื่อหมุนรูปทรงในระนาบสไลด์ มุมวัดเป็นองศา; ตัวอย่างนี้หมุนสี่เหลี่ยม 5 องศาตามเข็มนาฬิกาและบันทึกงานนำเสนอ
+ใช้ [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) เพื่อหมุนรูปร่างในแนวระนาบของสไลด์ มุมวัดเป็นองศา; ตัวอย่างนี้หมุนสี่เหลี่ยม 5 องศาตามเข็มนาฬิกาและบันทึกงานนำเสนอ
 
 ```php
 use aspose\slides\Presentation;
@@ -812,11 +889,11 @@ try {
 
 ผลลัพธ์:
 
-![การหมุนรูปทรง](shape-rotation.png)
+![การหมุนรูปร่าง](shape-rotation.png)
 
 ## **เพิ่มเอฟเฟกต์ Bevel 3 มิติ**
 
-ใช้ [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) เพื่อให้รูปทรงมีความลึกและขอบ bevel ตัวอย่างนี้สร้างวงรีสีเขียวที่มีเส้นขอบสีส้ม ตั้งค่า [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) เป็น 4 พอยต์ และใช้ bevel ด้านบนแบบวงกลมที่กว้างและสูง 6 พอยต์ผ่าน [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop) กล้องแบบออร์โธกราฟิกที่หน้าโดยตรงและแสงสามจุดทำให้ bevel มองเห็นได้
+ใช้ [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) เพื่อให้รูปร่างมีความลึกและขอบ bevel ตัวอย่างนี้สร้างวงรีสีเขียวกับเส้นขอบสีส้ม ตั้งค่า [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) เป็น 4 pt และใช้ bevel ด้านบนแบบวงกลมที่กว้างและสูง 6 pt ผ่าน [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop) กล้องมุมมองออร์โธกราฟิกหน้าตรงและแสงสามจุดทำให้ bevel มองเห็นได้
 
 ```php
 use aspose\slides\BevelPresetType;
@@ -856,11 +933,11 @@ try {
 
 ผลลัพธ์:
 
-![เอฟเฟกต์ Bevel 3 มิติ](3D-bevel-effect.png)
+![เอฟเฟกต์ 3D bevel](3D-bevel-effect.png)
 
 ## **เพิ่มเอฟเฟกต์การหมุน 3 มิติ**
 
-มุมมอง 3 มิติของรูปทรงถูกควบคุมโดยการตั้งค่ากล้อง ตัวอย่างนี้ใช้ [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) พร้อมมุมละติจูด, ลองจิจูด, และรอบการหมุนที่ 40°, 35°, และ 20° ตามลำดับ เลือกกล้องไอโซเมตริกผ่าน [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) และแสงสมดุลผ่าน [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType) จากนั้นบันทึกสี่เหลี่ยมที่จัดรูปแบบ
+มุมมอง 3 มิติของรูปร่างควบคุมด้วยการตั้งค่ากล้อง ตัวอย่างนี้ใช้ [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) โดยตั้งค่ามุม latitude, longitude, และ revolution เป็น 40°, 35°, และ 20° ตามลำดับ เลือกกล้องแบบ isometric ด้วย [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) และแสงแบบ balanced ด้วย [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType) แล้วบันทึกสี่เหลี่ยมที่จัดรูปแบบ
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -887,15 +964,15 @@ try {
 
 ผลลัพธ์:
 
-![เอฟเฟกต์การหมุน 3 มิติ](3D-rotation-effect.png)
+![เอฟเฟกต์การหมุน 3D](3D-rotation-effect.png)
 
-## **ควบคุมการเรนเดอร์สีขาว-ดำสำหรับรูปทรง**
+## **ควบคุมการเรนเดอร์ขาว‑ดำสำหรับรูปร่าง**
 
-เมธอด [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) ระบุว่ารูปทรงแต่ละอันจะเรนเดอร์อย่างไรเมื่อดูหรือประมวลผลงานนำเสนอในโหมดสีขาว‑ดำ เมธอดนี้ไม่ได้เปิดการแสดงผลสีขาว‑ดำเองและไม่ได้เปลี่ยนการเติม, เส้น หรือการจัดรูปแบบอื่นของรูปทรงในโหมดสีปกติ
+เมธอด [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) ระบุว่ารูปร่างแต่ละอันจะแสดงผลอย่างไรเมื่อดูหรือประมวลผลงานนำเสนอในโหมดขาว‑ดำ ไม่ได้เปิดการแสดงผลขาว‑ดำเองและไม่ได้เปลี่ยนการเติม, เส้น, หรือการจัดรูปแบบอื่น ๆ ในโหมดสีปกติ
 
-ใช้ค่าจากคลาส [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ เช่น `Automatic` ให้แอปพลิเคชันเรนเดอร์เลือกการแปลง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้เฉพาะสีดำและสีขาว, `Black` และ `White` บังคับให้เป็นสีเดียว, `Color` คงสีปกติ, และ `Hidden` ไม่แสดงรูปทรงในโหมดสีขาว‑ดำ `NotDefined` หมายถึงไม่มีการกำหนดโหมดระดับรูปทรง
+ใช้ค่าจากคลาส [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ เช่น `Automatic` ให้แอปพลิเคชันเลือกการแปลง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้เฉพาะสีดำและขาว, `Black` และ `White` บังคับเป็นสีเดียว, `Color` คงสีปกติ, `Hidden` ไม่แสดงรูปร่างในโหมดขาว‑ดำ, `NotDefined` หมายความว่าไม่ได้กำหนดโหมดระดับรูปร่าง
 
-ตัวอย่างนี้สร้างสี่เหลี่ยมสีส้มและตั้งค่า [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) เป็นสีเทา รูปร่างที่บันทึกจะคงการเติมสีส้มสำหรับการแสดงผลสีปกติและขอให้แอปที่เคารพการตั้งค่าสีขาว‑ดำใช้สีเทา:
+ตัวอย่างนี้สร้างสี่เหลี่ยมสีส้มและตั้งค่า [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) เป็น `Gray` สี่เหลี่ยมที่บันทึกจะคงสีส้มสำหรับการแสดงสีปกติและขอสีเทาเมื่อแอปพลิเคชันเคารพการตั้งค่าแสดงผลขาว‑ดำ
 
 ```php
 use aspose\slides\BlackWhiteMode;
@@ -920,11 +997,11 @@ try {
 }
 ```
 
-ในโหมดสีปกติ สี่เหลี่ยมคงการเติมสีส้มไว้ ในกระบวนการแสดงผลสีขาว‑ดำ จะใช้สีเทาเพราะโหมดถูกตั้งเป็น `Gray` สิ่งนี้ช่วยให้คุณรักษาสไลด์สีเต็มขณะกำหนดลักษณะที่แตกต่างสำหรับการพิมพ์, การพรีวิว หรือกระบวนการอื่นที่เคารพการตั้งค่าสีขาว‑ดำของงานนำเสนอ
+ในโหมดสีปกติสี่เหลี่ยมคงสีส้มไว้ ในเวิร์กโฟลว์แสดงผลขาว‑ดำจะใช้สีเทาเนื่องจากโหมดตั้งเป็น `Gray` นี้ช่วยให้คุณเก็บสไลด์สีเต็มในขณะที่กำหนดลักษณะเฉพาะสำหรับการพิมพ์, พรีวิว หรือเวิร์กโฟลว์อื่น ๆ ที่เคารพการตั้งค่าแสดงผลขาว‑ดำของงานนำเสนอ
 
 ## **รีเซ็ตการจัดรูปแบบ**
 
-ใช้ [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset) เพื่อเรียกคืนตำแหน่ง, ขนาด, และการจัดรูปแบบของตัวตำแหน่งในสไลด์จากตัวตำแหน่งในเลย์เอาต์ที่สอดคล้องกัน ตัวอย่างนี้ต้องมีงานนำเสนอที่มีตัวตำแหน่งเชื่อมโยงกับเลย์เอาต์และรีเซ็ตทุกสไลด์ก่อนบันทึก รูปทรงที่ไม่มีตัวตำแหน่งในเลย์เอาต์ที่สอดคล้องกันจะไม่ถูกรีเซ็ต
+ใช้ [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset) เพื่อคืนค่าตำแหน่ง, ขนาด, และการจัดรูปแบบของตัวยึดตำแหน่งบนสไลด์จากตัวยึดตำแหน่งของเลเอาต์ที่สอดคล้อง ตัวอย่างนี้ต้องการงานนำเสนอที่มีตัวยึดตำแหน่งเชื่อมโยงกับเลเอาต์และรีเซ็ตทุกสไลด์ก่อนบันทึก รูปร่างที่ไม่มีตัวยึดตำแหน่งในเลเอาต์จะไม่ถูกรีเซ็ต
 
 ```php
 use aspose\slides\Presentation;
@@ -943,16 +1020,16 @@ try {
 }
 ```
 
-## **คำถามที่พบบ่อย (FAQ)**
+## **คำถามที่พบบ่อย**
 
-**การจัดรูปแบบรูปทรงมีผลต่อขนาดไฟล์ของงานนำเสนอสุดท้ายหรือไม่?**
+**การจัดรูปแบบรูปร่างมีผลต่อขนาดไฟล์งานนำเสนอสุดท้ายหรือไม่?**
 
-สี, สไตล์เส้น, และการตั้งค่าเอฟเฟกต์ทั่วไปเพิ่มข้อมูลเพียงเล็กน้อยเมื่อเทียบกับภาพและสื่อที่ฝังไว้ การเติมรูปภาพอาจทำให้ไฟล์ใหญ่ขึ้นเพราะภาพถูกจัดเก็บในงานนำเสนอ
+สี, สไตล์เส้น, และการตั้งค่าเอฟเฟกต์โดยทั่วไปเพิ่มข้อมูลเพียงเล็กน้อยเมื่อเทียบกับภาพและสื่อที่ฝังไว้ การเติมรูปภาพอาจเพิ่มขนาดไฟล์เนื่องจากภาพถูกเก็บในงานนำเสนอ
 
-**ฉันจะตรวจจับรูปทรงในสไลด์ที่มีรูปแบบเดียวกันเพื่อให้สามารถจัดกลุ่มได้อย่างไร?**
+**ฉันจะตรวจจับรูปร่างบนสไลด์ที่มีการจัดรูปแบบเหมือนกันเพื่อจะจัดกลุ่มได้อย่างไร?**
 
-เปรียบเทียบคุณสมบัติการจัดรูปแบบหลักของแต่ละรูปทรง—การเติม, เส้น, และการตั้งค่าเอฟเฟกต์ หากค่าที่สอดคล้องกันทั้งหมดตรงกัน ให้ถือว่ารูปแบบเหมือนกันและจัดกลุ่มรูปทรงเหล่านั้นอย่างเป็นตรรกะ ซึ่งจะอำนวยความสะดวกในการจัดการสไตล์ในภายหลัง
+เปรียบเทียบคุณสมบัติการจัดรูปแบบหลักของแต่ละรูปร่าง — การเติม, เส้น, และการตั้งค่าเอฟเฟกต์ หากค่าที่สอดคล้องกันทั้งหมดตรงกัน ให้ถือว่ารูปร่างมีสไตล์เหมือนกันและจัดกลุ่มเชิงตรรกะ ซึ่งช่วยลดความซับซ้อนในการจัดการสไตล์ในภายหลัง
 
-**ฉันสามารถบันทึกชุดสไตล์รูปทรงกำหนดเองเป็นไฟล์แยกเพื่อใช้ซ้ำในงานนำเสนออื่นได้หรือไม่?**
+**ฉันสามารถบันทึกชุดสไตล์รูปร่างที่กำหนดเองเป็นไฟล์แยกเพื่อใช้ซ้ำในงานนำเสนออื่นได้หรือไม่?**
 
-ได้. เก็บรูปทรงตัวอย่างที่มีสไตล์ที่ต้องการในชุดสไลด์แม่แบบหรือไฟล์เท็มเพลต .POTX เมื่อสร้างงานนำเสนอใหม่ ให้เปิดเท็มเพลต, คัดลอกรูปทรงที่สไตล์ต้องการและนำการจัดรูปแบบของมันไปใช้ที่ต้องการทั่วงานนำเสนอ.
+ได้. เก็บรูปร่างตัวอย่างที่มีสไตล์ที่ต้องการในเทมเพลตสไลด์หรือไฟล์ .POTX จากนั้นเมื่อต้องสร้างงานนำเสนอใหม่ เปิดเทมเพลต, คัดลอกรูปร่างที่ต้องการ, และนำการจัดรูปแบบไปใช้ใหม่ตามต้องการ

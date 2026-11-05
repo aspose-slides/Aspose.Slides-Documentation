@@ -1,24 +1,24 @@
 ---
-title: 在 .NET 中格式化 PowerPoint 形狀
-linktitle: 形狀格式化
+title: 在 .NET 中格式化 PowerPoint 圖形
+linktitle: 圖形格式化
 type: docs
 weight: 20
 url: /zh-hant/net/shape-formatting/
 keywords:
-- 格式化形狀
+- 格式化圖形
 - 格式化線條
-- 草圖效果
-- 形狀線條草圖
+- 手繪效果
+- 手繪圖形線條
 - 格式化接合樣式
 - 漸層填色
 - 圖案填色
 - 圖片填色
 - 紋理填色
 - 純色填色
-- 形狀透明度
-- 黑白形狀渲染
-- 灰階形狀渲染
-- 旋轉形狀
+- 圖形透明度
+- 黑白圖形呈現
+- 灰階圖形呈現
+- 旋轉圖形
 - 3D 倒角效果
 - 3D 旋轉效果
 - 重設格式
@@ -27,19 +27,19 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何在 C# 中使用 Aspose.Slides 格式化 PowerPoint 形狀——精確且完整控制 PPT 與 PPTX 檔案的填色、線條與效果樣式。"
+description: "學習如何在 C# 中使用 Aspose.Slides 格式化 PowerPoint 圖形——精確且完整地設定 PPT 與 PPTX 檔案的填色、線條與效果樣式。"
 ---
 ## **簡介**
 
-格式化 PowerPoint 中的形狀，透過調整輪廓、填色和效果。Aspose.Slides for .NET 讓您以程式方式控制這些設定，包括透明度、旋轉和 3D 格式設定。
+在 PowerPoint 中調整圖案的輪廓、填色與效果。Aspose.Slides for .NET 讓您能以程式方式控制這些設定，包括透明度、旋轉與 3D 格式設定。
 
-![PowerPoint 中的形狀格式化選項](format-shape-powerpoint.png)
+![PowerPoint 中的圖案格式選項](format-shape-powerpoint.png)
 
-Aspose.Slides for .NET 提供介面和屬性，讓您使用 PowerPoint 中相同的選項來格式化形狀。
+Aspose.Slides for .NET 提供介面與屬性，讓您使用 PowerPoint 中相同的選項來格式化圖案。
 
-## **格式化線條**
+## **格式線條**
 
-使用 [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) 來控制形狀的輪廓。此範例建立一個未填充的矩形，藍色、虛線輪廓。 [ILineFormat.Style](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/style/) 選取粗細複合線， while [ILineFormat.Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) 設定寬度為 7 點，且 [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) 選擇虛線樣式。
+使用[IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) 來控制圖案的輪廓。此範例建立一個未填充、藍色虛線輪廓的矩形。[ILineFormat.Style](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/style/) 會選取粗細交替的複合線，而[ILineFormat.Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) 將寬度設定為 7 點，且[ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) 會選擇虛線樣式。
 
 ```csharp
 using System.Drawing;
@@ -62,15 +62,15 @@ presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
 
 結果：
 
-![投影片中格式化的線條](formatted-lines.png)
+![簡報中已格式化的線條](formatted-lines.png)
 
-### **設定自訂線條虛線模式**
+### **設定自訂虛線模式**
 
-當預先定義的線條樣式無法提供所需的虛線長度與間隙時，使用 [ILineFormat.CustomDashPattern](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/customdashpattern/)。例如品牌輪廓或技術圖表。指派圖案會自動將 [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) 設為 [LineDashStyle.Custom](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/)。
+當預先定義的線條樣式無法提供所需的虛線長度與間隔時，可使用[ILineFormat.CustomDashPattern](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/customdashpattern/)，例如品牌輪廓或技術圖表。指定模式會自動將[ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) 設為[LineDashStyle.Custom](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/)。
 
-陣列項目在虛線與間隙長度之間交替，從虛線開始。每個值都是線寬的倍數：`{ 4, 2 }` 在寬度 3 點時產生 12 點虛線，接著 6 點間隙。使用成對的有限、非負值來定義完整的虛線‑間隙區段。範例使用正值，以確保每段虛線與間隙均可見。
+陣列項目交替為虛線與間隔長度，從虛線開始。每個數值都是線寬的倍數：在寬度為 3 點時，`{ 4, 2 }` 產生 12 點的虛線，接著 6 點的間隔。使用成對的有限、非負值來定義完整的虛線-間隔段落。範例使用正值以確保每段虛線與間隔皆可見。
 
-此範例建立五條相同長度且端點為平頭的藍色線條。前三條在寬度 3 點時比較不同圖案；第四條以兩倍寬度重複第一個圖案，將虛線與間隙長度皆加倍；第五條則從自訂圖案切換為實線。
+此範例建立五條相同長度且端點為平坦的藍線。前三條在寬度 3 點時比較不同模式。第四條以兩倍寬度重複第一種模式，從而將虛線與間隔長度同時加倍。第五條則從自訂模式切換為實線。
 
 ```csharp
 using System.Drawing;
@@ -108,26 +108,26 @@ slide.Shapes[4].LineFormat.DashStyle = LineDashStyle.Solid;
 presentation.Save("custom_dash_patterns.pptx", SaveFormat.Pptx);
 ```
 
-若要改回預先定義的虛線樣式，將 [LineDashStyle.Dash](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) 指派給 [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/)。所選樣式控制線條的外觀。
+若要改回預先定義的虛線樣式，請將[LineDashStyle.Dash](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) 指派給[ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/)。選取的樣式會控制線條的外觀。
 
 PowerPoint 中由上至下的結果：**{4, 2}, 3 pt**；**{1, 2}, 3 pt**；**{6, 2, 1, 2}, 3 pt**；**{4, 2}, 6 pt**；以及 **Solid, 3 pt**。
 
-![三種自訂虛線圖案、使用第一種圖案的較寬線條，以及 PowerPoint 中的實線](custom-dash-patterns.png)
+![三種自訂虛線模式、使用第一種模式的較寬線條，以及 PowerPoint 中的實線](custom-dash-patterns.png)
 
 
 ### **設定線條端點樣式**
 
-使用 [ILineFormat.CapStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/capstyle/) 來設定開放線條的兩端。 [LineCapStyle](https://reference.aspose.com/slides/net/aspose.slides/linecapstyle/) 列舉提供三種明確的端點樣式：
+使用[ILineFormat.CapStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/capstyle/) 來設定開放線條的兩端。[LineCapStyle](https://reference.aspose.com/slides/net/aspose.slides/linecapstyle/) 列舉提供三種明確的端點樣式：
 
-- `Flat`：筆畫在端點停止。
-- `Round`：半圓形端點延伸超過端點半個線寬。
-- `Square`：方形端點延伸超過端點半個線寬。
+- `Flat`：筆畫在端點處停止。
+- `Round`：半圓形端點延伸至端點之外，長度為線寬的一半。
+- `Square`：方形端點延伸至端點之外，長度為線寬的一半。
 
-列舉同時包含 `NotDefined`，表示未明確指定端點樣式。
+列舉同時包含 `NotDefined`，表示未明確指派端點樣式。
 
-端點樣式不同於箭頭（會在端點加入符號）與接合方式（控制線段之間的角落）。此範例透過 [ILineFormat.BeginArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/beginarrowheadstyle/) 與 [ILineFormat.EndArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/endarrowheadstyle/) 停用箭頭，以便僅比較端點形狀。
+端點樣式不同於箭頭（在端點加入符號）以及接合樣式（控制線段之間的拐角）。此範例透過[ILineFormat.BeginArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/beginarrowheadstyle/) 與[ILineFormat.EndArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/endarrowheadstyle/) 停用箭頭，以便僅比較端點形狀。
 
-以下範例建立三條在其他屬性上相同的水平線，寬度為 20 點。從上到下分別使用平頭、圓頭與方頭。它們的端點具有相同的水平座標；圓頭與方頭各在端點之外延伸 10 點。
+以下範例建立三條在其他屬性完全相同的水平線，寬度為 20 點。由上至下分別使用平坦、圓形與方形端點。它們的端點水平座標相同；圓形與方形端點會在每端延伸 10 點。
 
 ```csharp
 using System.Drawing;
@@ -157,13 +157,13 @@ presentation.Save("line_caps.pptx", SaveFormat.Pptx);
 
 PowerPoint 中由上至下的結果：**Flat**、**Round** 與 **Square**。
 
-![PowerPoint 中相同粗線的平頭、圓頭與方頭端點](line-caps.png)
+![PowerPoint 中相同粗線的平坦、圓形與方形端點](line-caps.png)
 
-## **將草圖效果套用到形狀線條**
+## **對圖案線條套用手繪效果**
 
-草圖效果讓形狀線條看起來手繪。使用 [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) 取得線條設定，使用 [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) 取得草圖設定，並使用 [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) 從 [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) 列舉中選擇值。
+手繪效果會讓圖案線條看起來像手繪。使用[IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) 取得線條設定，使用[ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) 取得手繪設定，並使用[ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) 從[LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) 列舉中選取值。
 
-以下 C# 程式碼示範如何套用 [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) 效果、讀取明確指派的值，以及使用 [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) 移除效果：
+以下 C# 程式碼示範如何套用[LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) 效果、讀取明確指派的值，並以[LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) 移除效果：
 
 ```csharp
 using System;
@@ -181,7 +181,7 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-由 [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) 回傳的值代表直接指派給形狀的設定。如果線條格式可以從佈景主題、母片或版面投影片繼承，請使用 [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/)，取得 [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/)，並讀取 [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/)。有效值反映繼承解析後實際套用的格式。此範例需要一個已有投影片且第一張投影片上至少有一個形狀的簡報，並輸出兩個值：
+由[ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) 回傳的值代表直接指派給圖案的設定。如果線條格式可能從佈景主題、母片或版面投影繼承，請使用[ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/)，存取[ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/)，並讀取[ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/)。有效值會反映在繼承解析後實際套用的格式。此範例需要一個已有的簡報，且其第一張投影片上至少有一個圖案，會同時輸出兩個值：
 
 ```csharp
 using System;
@@ -199,7 +199,7 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 ```
 
-## **格式化接合樣式**
+## **格式接合樣式**
 
 以下是三種接合類型選項：
 
@@ -207,11 +207,11 @@ Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 * Miter
 * Bevel
 
-接合樣式決定兩段輪廓在拐角處的相遇方式。使用 **Round** 取得圓角，**Miter** 取得尖角，或 **Bevel** 取得平緩角。
+接合樣式控制兩條輪廓線在拐角處的相遇方式。使用 **Round** 取得圓角，使用 **Miter** 取得尖角，使用 **Bevel** 取得平坦角。
 
-![投影片中的接合樣式](join-style-powerpoint.png)
+![簡報中的接合樣式](join-style-powerpoint.png)
 
-此範例建立三個黑色矩形，藍色輪廓寬度 15 點。分別將 [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) 設為 [LineJoinStyle](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) 的 miter、bevel 與 round 值，以比較角落的繪製方式。
+此範例建立三個藍色輪廓、寬度 15 點的黑色矩形，分別將[ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) 設為[LineJoinStyle](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) 的斜角、斜面與圓形值，以比較角落的繪製方式。
 
 ```csharp
 using System.Drawing;
@@ -254,13 +254,13 @@ roundShape.TextFrame.Text = "Round Join Style";
 presentation.Save("join_styles.pptx", SaveFormat.Pptx);
 ```
 
-### **在尖銳拐角限制斜接**
+### **在銳利拐角處限制斜角接合**
 
-使用 [ILineFormat.MiterLimit](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/miterlimit/) 搭配將 [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) 設為 [LineJoinStyle.Miter](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) 以限制尖銳拐角的延伸距離。
+使用[ILineFormat.MiterLimit](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/miterlimit/) 搭配將[ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) 設為[LineJoinStyle.Miter](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) 以限制尖角可延伸的程度。
 
-此限制是內外拐角距離與線寬的比例。例如，數值 `8` 允許斜接長度最高為線寬的八倍；它不是以點數作為測量單位。如果拐角超過此限制，PowerPoint 會在該拐角使用斜接。較大的限制會產生更尖銳的點。此設定僅影響斜接，當拐角未超過限制時，變更不會產生可見效果。
+此限制是接合內外角之間距離與線寬的比例。例如，值為 `8` 時允許斜角長度最多為線寬的八倍；它不是以點為單位的測量。如果拐角超過此限制，PowerPoint 會在該拐角使用斜面接合。較大的限制允許更銳利的尖端。此設定僅影響斜角接合，當拐角仍在兩個限制之內時，變更不會產生可見效果。
 
-此範例建立兩個相同、未填充的三角形，輪廓寬度 20 點。左側三角形使用限制 `2`，右側使用 `8`。每個三角形寬 80 點、高 160 點，使其頂部拐角的斜接長度與線寬比例約為 `4.12`。因此，PowerPoint 會將左側頂點斜接，右側則保留尖銳頂點。
+此範例建立兩個相同、未填充的三角形，輪廓寬度為 20 點。左側三角形使用限制 `2`，右側使用 `8`。每個三角形寬 80 點、高 160 點，使其頂端拐角的斜角長度與線寬比例約為 `4.12`。因此，PowerPoint 會將左側的頂點斜面化，而保留右側的尖銳頂點。
 
 ```csharp
 using System.Drawing;
@@ -287,13 +287,13 @@ for (var i = 0; i < miterLimits.Length; i++)
 presentation.Save("miter_limits.pptx", SaveFormat.Pptx);
 ```
 
-PowerPoint 中的結果：左側 **Miter limit 2**，右側 **miter limit 8**。
+PowerPoint 中的結果：左側為 **Miter limit 2**，右側為 **miter limit 8**。
 
-![PowerPoint 中斜接限制 2 的斜角與斜接限制 8 的尖角](miter-limits.png)
+![PowerPoint 中斜角限制 2 的斜面頂點與斜角限制 8 的尖銳頂點](miter-limits.png)
 
 ## **漸層填色**
 
-漸層填色在形狀內混合顏色。此範例使用 [IFillFormat.GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/gradientformat/) 以 45 度角將橢圓由紅色漸變為紫色的線性漸層。透過 [IGradientStopCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/igradientstopcollection/add/) 方法將顏色停點放在 0 與 1（漸層的起點與終點）。清除現有的停點可確保僅使用這兩種顏色。
+漸層填色會在圖形內混合顏色。此範例使用[IFillFormat.GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/gradientformat/) 以 45 度角從紅色到紫色的線性漸層填滿橢圓。透過[IGradientStopCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/igradientstopcollection/add/) 方法將顏色定位點放置於 0 與 1，分別代表漸層的開始與結束。清除現有的定位點可確保僅使用這兩種顏色。
 
 ```csharp
 using Aspose.Slides;
@@ -315,15 +315,15 @@ presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
 
 結果：
 
-![使用漸層填色的橢圓](gradient-fill.png)
+![具有漸層填色的橢圓](gradient-fill.png)
 
-如果匯出影像時的漸層與 PowerPoint 中顯示不同，請參閱 [Choose a Gradient Rendering Style](/slides/zh-hant/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style)。您可以在不更改投影片中儲存的漸層填色的情況下選擇渲染樣式。
+如果匯出的影像與 PowerPoint 中的漸層外觀不同，請參考 [Choose a Gradient Rendering Style](/slides/zh-hant/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style)。您可以在不變更簡報中儲存的漸層填色的情況下，選擇不同的渲染樣式。
 
 ### **設定線性漸層角度**
 
-使用 [IGradientFormat.LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) 來控制 [GradientShape.Linear](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/) 填色的方向。角度以度為單位，順時針遞增：`0` 從左到右，`90` 從上到下，`180` 從右到左，`270` 從下到上。支援小數角度。超出 `[0, 360)` 的有限角度會正規化為一圈，例如 `-45` 轉為 `315`，`360` 轉為 `0`。
+使用[IGradientFormat.LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) 來控制[GradientShape.Linear](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/) 填色的方向。角度以度為單位，時計方向遞增：`0` 從左至右，`90` 從上至下，`180` 從右至左，`270` 從下至上。支援小數角度。超出 `[0, 360)` 的有限角度會正規化為一個完整旋轉；例如 `-45` 變為 `315`，`360` 變為 `0`。
 
-此範例建立六個矩形，紅、綠、藍三種停點皆位於位置 `0`、`0.5`、`1`。關閉縮放，使角度比較不受矩形比例影響。左至右的角度分別為第一行的 `0`、`45`、`90`，第二行的 `135`、`180`、`270`。
+此範例建立六個矩形，均使用相同的紅、綠、藍三個定位點，分別位於 `0`、`0.5`、`1`。停用比例縮放，使得角度可在不受矩形比例影響的情況下比較。左到右的角度分別為第一列的 `0`、`45`、`90`，第二列的 `135`、`180`、`270`。
 
 ```csharp
 using System.Drawing;
@@ -360,13 +360,13 @@ presentation.Save("linear_gradient_angles.pptx", SaveFormat.Pptx);
 
 PowerPoint 中的結果：
 
-![上排 0、45、90 度線性漸層，下排 135、180、270 度線性漸層](linear-gradient-angles.png)
+![上排 0、45、90 度的線性漸層，下排 135、180、270 度的線性漸層](linear-gradient-angles.png)
 
-### **以形狀縮放線性漸層**
+### **以圖形縮放線性漸層**
 
-[IGradientFormat.LinearGradientScaled](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientscaled/) 接受 [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) 值。明確設定為 `False` 可在形狀比例變化時保持幾何漸層角度不變，設定為 `True` 則會隨形狀寬高縮放漸層。啟用縮放時，非正方形形狀的可見角度可能與指派的角度不同。
+[IGradientFormat.LinearGradientScaled](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientscaled/) 接受[NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) 值。將其明確設為 `False` 可在圖形比例變動時保持幾何漸層角度不變，或設為 `True` 使漸層隨圖形寬高縮放。啟用縮放時，非正方形圖形的可見角度可能與指派的角度不同。
 
-以下範例使用 `45` 度角度與與角度比較相同的顏色停點。左欄使用 `False`，右欄使用 `True`。每欄包含一個寬矩形上方與一個高矩形下方。兩者起始皆為相同的寬尺寸；改變第二個矩形的寬高即可示範在不變更漸層設定的情況下，填色如何回應大小調整。
+以下範例使用 `45` 度角度與與角度比較相同的顏色定位點。左欄使用 `False`；右欄使用 `True`。每欄包含一個寬矩形上方與一個高矩形下方。兩者起始寬度相同；變更第二個矩形的寬高可示範在不改變漸層設定的情況下，填色如何因重新調整大小而回應。
 
 ```csharp
 using System.Drawing;
@@ -410,19 +410,19 @@ for (var column = 0; column < scalingOptions.Length; column++)
 presentation.Save("linear_gradient_scaling.pptx", SaveFormat.Pptx);
 ```
 
-PowerPoint 中的結果，左側縮放停用、右側縮放啟用：
+PowerPoint 中的結果：左側縮放停用，右側縮放啟用：
 
-![左側 LinearGradientScaled 為 False、右側為 True 的寬高矩形比較圖](linear-gradient-scaling.png)
+![寬與高矩形的 45 度漸層，左側 LinearGradientScaled 為 False，右側為 True](linear-gradient-scaling.png)
 
-縮放停用時，對角色帶在兩個矩形中保持相同方向。啟用縮放時，色帶會隨形狀比例伸展。這有助於在將形狀調整為不同尺寸時，重新製作範本的漸層。於正方形上，啟用縮放不會改變此 `45` 度漸層的外觀。
+停用縮放時，對角色帶在兩個矩形中保持相同方向。啟用縮放時，色帶會隨圖形比例伸展。這有助於在將圖形調整至不同大小時，仍能重現模板的漸層。在正方形上啟用縮放不會改變此 `45` 度漸層的外觀。
 
-角度與縮放設定皆套用於線性漸層，並不控制 [GradientShape.Radial] 或 [GradientShape.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/) 填色。
+角度與縮放設定皆適用於線性漸層，對 [GradientShape.Radial] 或 [GradientShape.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/) 填色無效。
 
-### **將角度與漸層方向結合**
+### **結合角度與漸層方向**
 
-[IGradientFormat.GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/gradientdirection/) 從 [GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/gradientdirection/) 列舉中選取漸層樣式；它並非數值角度的替代品。對於線性漸層，角落樣式可在不變更 [LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) 的情況下改變顏色分佈區域。比較角度或縮放時請保持方向不變。
+[IGradientFormat.GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/gradientdirection/) 會從[GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/gradientdirection/) 列舉中選取漸層樣式；它並非數值角度的替代品。對於線性漸層，角落樣式可在不變更[LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) 的情況下，改變顏色分佈的區域。比較角度或縮放時，請保持方向不變。
 
-以下範例以相反順序套用相同設定。兩個矩形的外觀相同：先設定方向再設定角度或相反順序皆不會改變結果。
+以下範例以相反順序套用相同設定。兩個矩形的外觀相同：先設定方向再設定角度或相反均不會改變結果。
 
 ```csharp
 using System.Drawing;
@@ -463,7 +463,7 @@ presentation.Save("linear_gradient_direction.pptx", SaveFormat.Pptx);
 
 ## **圖案填色**
 
-圖案填色套用兩色設計，例如點、條紋或格子。此範例使用 [IPatternFormat.PatternStyle](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/patternstyle/) 選取格子圖案。 [IPatternFormat.BackColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) 提供淡灰色背景， [IPatternFormat.ForeColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) 提供黃色圖案顏色。
+圖案填色會套用雙色設計，例如點狀、條紋或格子。此範例使用[IPatternFormat.PatternStyle](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/patternstyle/) 來選取格柵圖案。[IPatternFormat.BackColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) 提供淡灰色背景，而[IPatternFormat.ForeColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) 提供黃色圖案色。
 
 ```csharp
 using System.Drawing;
@@ -484,13 +484,13 @@ presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
 
 結果：
 
-![使用圖案填色的矩形](pattern-fill.png)
+![具有圖案填色的矩形](pattern-fill.png)
 
 ## **圖片填色**
 
-圖片填色在形狀內使用圖像。此範例需要本機圖片，並使用 [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) 將其載入簡報的影像集合。將 [IPictureFillFormat.PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) 設為平鋪模式，可在矩形內重複圖像。以下顯示本範例使用的來源圖像：
+圖片填色會在圖形內使用圖像。此範例需要本機圖像，並使用[Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) 將其載入簡報的圖像集合。將[IPictureFillFormat.PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) 設為平鋪模式，可在矩形內重複圖像。以下顯示使用的來源圖像：
 
-![蓮花圖案](lotus.png)
+![蓮花圖片](lotus.png)
 
 ```csharp
 using Aspose.Slides;
@@ -512,21 +512,21 @@ presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
 
 結果：
 
-![使用圖片填色的形狀](picture-fill.png)
+![具有圖片填色的圖形](picture-fill.png)
 
-### **將圖片作為紋理平鋪**
+### **將圖片平鋪為紋理**
 
-若要將平鋪圖片設定為紋理並自訂平鋪行為，可使用下列 [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) 介面與 [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) 類別的屬性：
+如果要將平鋪圖片設為紋理並自訂平鋪行為，可使用[IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) 介面與[PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) 類別的以下屬性：
 
 - [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/)：設定圖片填色模式—`Tile` 或 `Stretch`。
-- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/)：指定平鋪在形狀內的對齊方式。
-- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/)：控制平鋪是否水平、垂直或同時翻轉。
-- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/)：設定平鋪相對於形狀原點的水平位移（點）。
-- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/)：設定平鋪相對於形狀原點的垂直位移（點）。
-- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/)：以百分比定義水平縮放。
-- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/)：以百分比定義垂直縮放。
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/)：指定平鋪在圖形內的對齊方式。
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/)：控制平鋪是否水平、垂直或雙向翻轉。
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/)：設定平鋪相對於圖形原點的水平偏移（單位：點）。
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/)：設定平鋪相對於圖形原點的垂直偏移（單位：點）。
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/)：定義平鋪的水平縮放百分比。
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/)：定義平鋪的垂直縮放百分比。
 
-此範例需要本機圖片，並將 [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) 設定為以原始大小 50% 重複平鋪。將 X 與 Y 偏移設定為 -32 點，使平鋪在水平與垂直方向上移動；右下對齊且同時翻轉，決定重複紋理的排列方式。
+此範例需要本機圖像，並將[IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) 設定為以原始大小 50% 重複。將 X 與 Y 偏移設為 −32 點，使平鋪在水平與垂直方向上平移；底部右側對齊且雙向翻轉決定了重複紋理的排列方式。
 
 ```csharp
 using Aspose.Slides;
@@ -560,7 +560,7 @@ presentation.Save("tile.pptx", SaveFormat.Pptx);
 
 ## **純色填色**
 
-純色填色為形狀賦予單一均勻的顏色。此範例將 [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) 設為純色填色模式，並透過 [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) 指派黃色，最後將矩形儲存於簡報中。
+純色填色會為圖形套用單一均勻的顏色。此範例將[IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) 設為純色模式，並透過[IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) 指派黃色，最後將矩形存入簡報。
 
 ```csharp
 using System.Drawing;
@@ -579,15 +579,74 @@ presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
 
 結果：
 
-![使用純色填色的形狀](solid-color-fill.png)
+![具有純色填色的圖形](solid-color-fill.png)
 
-## **使用投影片背景作為形狀填色**
+### **在保留佈景主題參照的情況下複製顏色**
 
-當形狀應與投影片背景相同（例如在投影片範本中）時，使用 [IAutoShape.UseBackgroundFill](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/usebackgroundfill/)。先將 [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) 設為 [FillType.NotDefined](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 以移除任何明確的填色。此組合會讓形狀使用投影片背景而非其樣式填色。僅啟用此旗標不會移除已存在的明確填色。
+使用[IColorFormat.CopyFrom](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/copyfrom/) 可複製顏色定義，包含其顏色類型、佈景主題參照與轉換。此功能在將填色在應保持簡報主題的圖形之間轉移時特別有用。此方法僅複製顏色本身：不會複製填充類型、輪廓或其他圖形格式。請明確設定目標的[IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/)。
 
-此行為不同於 [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/)：背景填色會以投影片背景的相應區域覆蓋形狀後面的物件，而無填色則會讓這些物件保持可見。漸層會與投影片對齊，而不會在每個形狀內重新開始。
+此範例建立三個矩形，從左至右分別為來源、具佈景感知的副本，以及固定 RGB 的副本。來源使用[IColorFormat.SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/schemecolor/) 參照第一個強調色，並透過[IColorOperationCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/icoloroperationcollection/add/) 加上色調。RGB 副本使用來源的有效填色，使得三者最初看起來相同。將[IColorFormat.Color](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/color/) 指派為固定的 RGB 值，會清除任何既有的顏色轉換。
 
-以下範例建立一個由母片繼承的背景，並在三個矩形後放置品紅色帶。左側矩形使用背景，中間矩形無填色，右側矩形則從背景填色切換為明確的橙色填色。
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(660, 220, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+presentation.MasterTheme.ColorScheme.Accent1.Color = Color.RoyalBlue;
+
+var source = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+var themeCopy = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+var rgbCopy = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+foreach (var shape in new[] { source, themeCopy, rgbCopy })
+{
+    shape.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+}
+
+var sourceColor = source.FillFormat.SolidFillColor;
+sourceColor.SchemeColor = SchemeColor.Accent1;
+sourceColor.ColorTransform.Add(ColorTransformOperation.Tint, 0.75f);
+
+themeCopy.FillFormat.SolidFillColor.CopyFrom(sourceColor);
+rgbCopy.FillFormat.SolidFillColor.Color = source.FillFormat.GetEffective().SolidFillColor;
+
+using var before = slide.GetImage(1f, 1f);
+before.Save("color-copy-before.png", ImageFormat.Png);
+
+// 主題參照會遵循新的強調色；固定的 RGB 值則不會。
+presentation.MasterTheme.ColorScheme.Accent1.Color = Color.OrangeRed;
+
+using var after = slide.GetImage(1f, 1f);
+after.Save("color-copy-after.png", ImageFormat.Png);
+presentation.Save("copied_colors.pptx", SaveFormat.Pptx);
+```
+
+在主題變更前，三個填色皆相同：
+
+![來源、CopyFrom 目的地與固定 RGB 目的地的相同藍色填色](color-copy-before.png)
+
+主題變更後，來源與具佈景感知的副本會遵循新的強調色並保留其色調，固定 RGB 副本仍保持藍色：
+
+![來源與 CopyFrom 目的地為橙色填色，固定 RGB 目的地仍為藍色](color-copy-after.png)
+
+被複製的定義與來源獨立。之後變更來源的佈景參照、指派其他顏色，或新增/移除其轉換，都不會影響目的地。佈景變更仍會影響兩個圖形，因為它們各自獨立參照相同的佈景色。
+
+儲存並重新開啟 PPTX 會保留複製顏色的[IColorFormat.ColorType](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/colortype/)、佈景參照與[IColorFormat.ColorTransform](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/colortransform/) 集合；不會將定義展平為 RGB。
+
+在不同佈景主題環境（例如使用不同強調調色板的簡報）之間複製時，複製的參照會以目的地的佈景主題解析。因此，同一參照與轉換在不同目的地可能產生不同的可見顏色。更多關於設定佈景顏色的資訊，請參閱[Presentation Theme](/slides/zh-hant/net/presentation-theme/)。
+
+## **將投影片背景作為圖形填色**
+
+當圖形應與投影片背景相同（例如在投影片範本中）時，可使用[IAutoShape.UseBackgroundFill](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/usebackgroundfill/)。首先將[IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) 設為[FillType.NotDefined](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 以移除任何明確的填色。使用此組合時，圖形會改用投影片背景，而非其樣式填色。僅啟用此旗標不會移除已存在的明確填色。
+
+此行為不同於[FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/)：背景填色會覆蓋圖形背後的物件，使其以投影片背景的對應區域顯示；而無填色則會讓那些物件保持可見。梯度仍會相對於投影片對齊，而不會在每個圖形內重新開始。
+
+以下範例建立一個被投影片繼承的母片背景，並在三個矩形後方放置一條品紅色條帶。左側矩形使用背景填色，中央矩形無填色，右側矩形則由背景填色切換為明確的橙色填色。
 
 ```csharp
 using System.Drawing;
@@ -611,7 +670,7 @@ gradient.GradientStops.Clear();
 gradient.GradientStops.Add(0, Color.DarkBlue);
 gradient.GradientStops.Add(1, Color.LightSkyBlue);
 
-// 先加入此物件，使其位於矩形後方。
+// 先加入此物件，使它顯示在矩形的後面。
 var band = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
 band.FillFormat.FillType = FillType.Solid;
 band.FillFormat.SolidFillColor.Color = Color.Magenta;
@@ -628,7 +687,7 @@ var explicitShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 510, 100, 160
 explicitShape.FillFormat.FillType = FillType.NotDefined;
 explicitShape.UseBackgroundFill = true;
 
-// 在套用明確填色之前停用背景填色。
+// 在套用明確填色之前先停用背景填色。
 explicitShape.UseBackgroundFill = false;
 explicitShape.FillFormat.FillType = FillType.Solid;
 explicitShape.FillFormat.SolidFillColor.Color = Color.Orange;
@@ -636,15 +695,15 @@ explicitShape.FillFormat.SolidFillColor.Color = Color.Orange;
 presentation.Save("background_fill.pptx", SaveFormat.Pptx);
 ```
 
-結果由左到右：**背景填色**、**無填色**、**明確填色**。品紅色帶在左、右矩形後方被遮蔽，但在中間矩形仍可見。
+結果，從左至右分別為 **背景填色**、**無填色**、**明確填色**。品紅條帶被左、右矩形遮蔽，但仍透過中間矩形可見。
 
-![背景填色、無填色與明確橙色填色覆蓋在品紅色帶之上](background-fill.png)
+![背景填色、無填色與明確橙色填色覆蓋在品紅條帶上](background-fill.png)
 
-相同的行為也適用於直接定義於投影片或從版面繼承的背景。形狀使用解析後的投影片背景；本範例未在投影片與版面上設定背景，因此由母片提供。
+相同的行為亦適用於直接在投影片上定義的背景或從版面繼承的背景。圖形會使用投影片解析後的背景；此範例讓投影片與版面背景皆未設定，讓母片提供背景。
 
 ## **設定透明度**
 
-對於純色填色，顏色的 alpha 成分控制不透明度：0 為完全透明，255 為完全不透明。此範例將 alpha 值設定為 128，為黃色矩形設定大約 50% 透明度，使底層矩形仍可見。顏色透過 [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) 指派。
+對於純色填色，顏色的 alpha 分量控制不透明度：0 為完全透明，255 為完全不透明。此範例將 alpha 值設為 128，為黃色矩形提供約 50% 的透明度，使底下的矩形仍可見。顏色透過[IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) 指派。
 
 ```csharp
 using System.Drawing;
@@ -667,11 +726,11 @@ presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
 
 結果：
 
-![透明的形狀](shape-transparency.png)
+![具有透明度的圖形](shape-transparency.png)
 
-## **旋轉形狀**
+## **旋轉圖形**
 
-使用 [IShape.Rotation](https://reference.aspose.com/slides/net/aspose.slides/ishape/rotation/) 以度為單位在投影片平面上旋轉形狀。此範例將矩形順時針旋轉 5 度，並儲存簡報。
+使用[IShape.Rotation](https://reference.aspose.com/slides/net/aspose.slides/ishape/rotation/) 以在投影片平面上旋轉圖形。角度以度為單位；此範例將矩形順時針旋轉 5 度，並儲存簡報。
 
 ```csharp
 using Aspose.Slides;
@@ -688,11 +747,11 @@ presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
 
 結果：
 
-![形狀旋轉效果](shape-rotation.png)
+![圖形旋轉效果](shape-rotation.png)
 
-## **加入 3D 倒角效果**
+## **新增 3D 倒角效果**
 
-使用 [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/threedformat/) 為形狀賦予深度與倒角。此範例建立綠色橢圓、橙色輪廓，將 [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/depth/) 設為 4 點，並透過 [IThreeDFormat.BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/beveltop/) 套用寬度與高度皆為 6 點的圓形上倒角。前視正投影相機與三點照明讓倒角可見。
+使用[IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/threedformat/) 為圖形賦予深度與倒角邊緣。此範例建立一個綠色橢圓，橙色輪廓，將[IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/depth/) 設為 4 點，並透過[IThreeDFormat.BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/beveltop/) 以寬度與高度各 6 點的圓形上倒角。前視正投影相機與三點光源使倒角可見。
 
 ```csharp
 using System.Drawing;
@@ -721,11 +780,11 @@ presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 
 結果：
 
-![3D 倒角效果示意圖](3D-bevel-effect.png)
+![3D 倒角效果圖](3D-bevel-effect.png)
 
-## **加入 3D 旋轉效果**
+## **新增 3D 旋轉效果**
 
-形狀的 3D 觀察方式由相機設定控制。此範例使用 [ICamera.SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/) 設定緯度、經度與旋轉角度分別為 40、35、20 度。透過 [ICamera.CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) 選擇等角相機，並使用 [ILightRig.LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) 設定平衡光源，最後儲存格式化後的矩形。
+圖形的 3D 觀感受相機設定控制。此範例使用[ICamera.SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/)，將緯度、經度與旋轉角分別設為 40、35 與 20 度。接著透過[ICamera.CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) 選擇等軸相機，並以[ILightRig.LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) 設定平衡光源，最後儲存已格式化的矩形。
 
 ```csharp
 using Aspose.Slides;
@@ -745,15 +804,15 @@ presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 
 結果：
 
-![3D 旋轉效果示意圖](3D-rotation-effect.png)
+![3D 旋轉效果圖](3D-rotation-effect.png)
 
-## **控制形狀的黑白渲染模式**
+## **控制圖形的黑白顯示模式**
 
-[IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) 屬性指定在以黑白模式檢視或處理簡報時，個別形狀的渲染方式。它本身不會啟動黑白顯示，也不會在正常彩色模式下更改形狀的填色、線條或其他格式設定。
+[IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) 屬性指定在以黑白模式檢視或處理簡報時，單一圖形的呈現方式。它本身不會啟用黑白顯示，也不會在一般彩色模式下改變圖形的填色、線條或其他格式。
 
-使用來自 [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) 列舉的值來選擇所需行為。例如，`Automatic` 讓渲染應用程式自行決定轉換方式，`Gray` 與 `LightGray` 使用灰階顏色，`BlackWhite` 只使用黑白，`Black` 與 `White` 強制單一顏色，`Color` 保持正常彩色，`Hidden` 在黑白模式下省略形狀。`NotDefined` 表示未指派形狀層級模式。
+使用[BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) 列舉中的值來選取所需行為。例如，`Automatic` 讓渲染應用程式自行決定轉換方式，`Gray` 與 `LightGray` 使用灰階，`BlackWhite` 僅使用黑白，`Black` 與 `White` 強制單色，`Color` 保持正常彩色，`Hidden` 在黑白模式下省略圖形，`NotDefined` 表示未指派圖形層級模式。
 
-此範例建立橙色矩形，將 [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) 設為 `Gray`。儲存的形狀在正常彩色顯示時保留橙色填色，並在支援黑白顯示設定的應用程式中要求以灰階顯示：
+此範例建立一個橙色矩形，將[IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) 設為灰色。儲存的圖形在一般彩色顯示時仍保留橙色填色，並在支援黑白顯示設定的應用程式中請求灰階顯示：
 
 ```csharp
 using System.Drawing;
@@ -771,11 +830,11 @@ shape.BlackWhiteMode = BlackWhiteMode.Gray;
 presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
 ```
 
-在正常彩色模式下，矩形保留橙色填色。於黑白顯示工作流程中，因模式設定為 `Gray`，它會以灰階顏色呈現。這讓您在保留全彩投影片的同時，為列印、預覽或其他遵循簡報黑白顯示設定的工作流程定義不同外觀。
+在一般彩色模式下，矩形保留橙色填色。於黑白顯示工作流程中，因其模式設為 `Gray`，所以會使用灰階顏色。這讓您在保留完整彩色投影片的同時，為列印、預覽或其他尊重簡報黑白顯示設定的工作流程定義不同的外觀。
 
-## **重設格式化**
+## **重設格式**
 
-使用 [ISlide.Reset](https://reference.aspose.com/slides/net/aspose.slides/islide/reset/) 從對應的版面佔位符還原投影片佔位符的位置、大小與格式。此範例需要一個已存在且版面連結佔位符的簡報，並在儲存前重設每張投影片。沒有對應版面佔位符的形狀不會被重設。
+使用[ISlide.Reset](https://reference.aspose.com/slides/net/aspose.slides/islide/reset/) 以從對應的版面占位元復原投影片占位元的位置、大小與格式。此範例需要一個已存在、且占位元與版面連結的簡報，並在儲存前重設每張投影片。未對應版面占位元的圖形不會被重設。
 
 ```csharp
 using Aspose.Slides;
@@ -792,14 +851,14 @@ presentation.Save("reset_formatting.pptx", SaveFormat.Pptx);
 
 ## **常見問題集**
 
-**形狀格式化會影響最終簡報檔案大小嗎？**
+**圖形格式化會影響最終簡報檔案大小嗎？**
 
-顏色、線條樣式與效果設定相較於嵌入的影像與媒體通常只會增加極少資料。圖片填色可能因圖像儲存於簡報中而增加檔案大小。
+顏色、線條樣式與效果設定相較於嵌入的圖像與媒體，通常只會增加極少的資料。圖片填色可能會因圖像儲存在簡報中而增加檔案大小。
 
-**如何偵測投影片上具有相同格式的形狀，以便將它們分組？**
+**我要如何偵測投影片上具有相同格式的圖形，以便將它們分組？**
 
-比較每個形狀的關鍵格式屬性——填色、線條與效果設定。若所有對應值相符，便可將它們視為相同樣式，並在邏輯上將這些形狀分組，這樣可簡化之後的樣式管理。
+比較每個圖形的關鍵格式屬性——填色、線條與效果設定。如果所有對應值皆相同，則可視為樣式相同，並在邏輯上將這些圖形分組，這樣可簡化之後的樣式管理。
 
-**我可以將一組自訂形狀樣式儲存為單獨檔案，以便在其他簡報中重複使用嗎？**
+**我可以將自訂的圖形樣式集合另存為檔案，以在其他簡報中重複使用嗎？**
 
-可以。將帶有所需樣式的範本形狀存放於範本投影片或 .POTX 範本檔案中。建立新簡報時，開啟該範本，複製所需的樣式形狀，並在需要的地方重新套用其格式。
+可以。將帶有所需樣式的樣本圖形存於範本投影片或 .POTX 範本檔。建立新簡報時，開啟該範本，複製需要的樣式圖形，並在需要的地方重新套用其格式。

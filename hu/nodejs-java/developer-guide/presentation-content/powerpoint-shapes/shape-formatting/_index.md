@@ -1,6 +1,6 @@
 ---
 title: PowerPoint alakzatok formázása JavaScript-ben
-linktitle: Alakzat formázása
+linktitle: Alakzatformázás
 type: docs
 weight: 20
 url: /hu/nodejs-java/shape-formatting/
@@ -8,14 +8,14 @@ keywords:
 - alakzat formázása
 - vonal formázása
 - vázlat hatás
-- alakzatvonal vázlat
+- vázlat alakzati vonal
 - csatlakozási stílus formázása
-- színátmenetes kitöltés
-- mintás kitöltés
+- átmenetes kitöltés
+- minta kitöltés
 - kép kitöltés
 - textúra kitöltés
-- egyetlen színű kitöltés
-- alakzat átlátszósága
+- szilárd színű kitöltés
+- alakzat átlátszóság
 - fekete-fehér alakzat megjelenítés
 - szürkeárnyalatos alakzat megjelenítés
 - alakzat forgatása
@@ -27,58 +27,36 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "PowerPoint alakzatok formázása JavaScript-ben az Aspose.Slides segítségével—precíz és teljes irányítással állítson be kitöltési, vonal- és hatásstílusokat PPT, PPTX és ODP fájlokhoz."
+description: "Ismerje meg, hogyan lehet JavaScript-ben formázni a PowerPoint alakzatokat az Aspose.Slides segítségével—állítsa be a kitöltés, vonal és hatás stílusait PPT és PPTX fájlokhoz pontossággal és teljes irányítással."
 ---
 ## **Bevezetés**
 
-A PowerPointban alakzatokat adhatsz a diákhoz. Mivel az alakzatok vonalakból állnak, a körvonalukat formázhatod a vonalak módosításával vagy hatások alkalmazásával. Továbbá alakzatok formázhatók olyan beállítások megadásával, amelyek szabályozzák, hogyan töltik ki a belsejüket.
+Formázza a PowerPoint alakzatokat a körvonalak, kitöltések és hatások módosításával. Az Aspose.Slides for Node.js via Java lehetővé teszi ezen beállítások programozott vezérlését, beleértve az átlátszóságot, forgást és a 3D formázást.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![Alakzatformázási lehetőségek a PowerPointban](format-shape-powerpoint.png)
 
-Az Aspose.Slides for Node.js via Java osztályokat és metódusokat biztosít, amelyek lehetővé teszik, hogy az alakzatokat a PowerPointban elérhető ugyanazokkal az opciókkal formázd.
+Az Aspose.Slides for Node.js via Java osztályokat és metódusokat biztosít, amelyek lehetővé teszik az alakzatok formázását a PowerPointban elérhető ugyanazokkal az opciókkal.
 
-## **Vonalak formázása**
+## **Formázza a vonalakat**
 
-Az Aspose.Slides használatával egyedi vonalstílust adhatunk meg egy alakzathoz. Az alábbi lépések vázolják a folyamatot:
+Use [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) to control a shape’s outline. Ez a példa egy kitöltés nélküli téglalapot hoz létre kék, szaggatott körvonallal. [LineFormat.setStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setStyle) selects a thick-thin compound line, while [LineFormat.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setWidth) sets its width to 7 points and [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) selects the dash pattern.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) objektumot a diához.
-1. Állítsa be az alakzat [line style](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/linestyle/) értékét.
-1. Állítsa be a vonal szélességét.
-1. Állítsa be a vonal [dash style](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/linedashstyle/) értékét.
-1. Állítsa be az alakzat vonalszínét.
-1. Mentse el a módosított prezentációt PPTX fájlként.
-
-Az alábbi kód bemutatja, hogyan formázható egy téglalap `AutoShape`:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Létrehozza a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Lekéri az első diát.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Hozzáad egy automatikus alakzatot Téglalap típusban.
-    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
-
-    // Eltávolítja a kitöltést a téglalap alakzatról.
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-
-    // Formázást alkalmaz a téglalap vonalaira.
     shape.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickThin));
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
-
-    // Beállítja a téglalap vonalának színét.
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // Elmenti a PPTX fájlt a lemezre.
     presentation.save("formatted_lines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -87,51 +65,141 @@ try {
 
 Az eredmény:
 
-![A formázott vonalak a prezentációban](formatted-lines.png)
+![A formázott vonalak a bemutatóban](formatted-lines.png)
 
-## **Vázlat-hatások alkalmazása az alakzat vonalaira**
+### **Egyéni vonal szaggatási minták beállítása**
 
-A vázlat hatás úgy teszi, hogy az alakzat vonala kézzel rajzoltnek tűnik. Használja a [Shape.getLineFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/) metódust a vonal beállítások eléréséhez, a [LineFormat.getSketchFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/lineformat/) metódust a vázlat beállításokhoz, és a [SketchFormat.setSketchType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sketchformat/) metódust a [LineSketchType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/linesketchtype/) felsorolásból egy érték kiválasztásához.
+Use [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCustomDashPattern) when predefined line styles do not provide the dash lengths and gaps you need, for example for branded outlines or technical diagrams. Assigning a pattern automatically changes the line dash style to [LineDashStyle.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/).
 
-Az alábbi JavaScript kód megmutatja, hogyan alkalmazzon egy [LineSketchType.Curved](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/linesketchtype/) hatást, hogyan olvassa ki a kifejezetten hozzárendelt értéket, és hogyan távolítsa el a hatást a [LineSketchType.None](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/linesketchtype/) használatával:
+A tömb elemei váltakoznak a vonal- és a hézaghossz között, a vonallal kezdve. Minden érték a vonalvastagság többszöröse: `[4, 2]` 3 pont szélességnél 12 pont hosszú vonalat és 6 pont hézagot eredményez. Használjon véges, nemnegatív értékpárokat a teljes vonal‑hézag szegmensek definiálásához. A példa pozitív értékeket használ, hogy minden vonal és hézag látható legyen.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+Ez a példa öt kék vonalat hoz létre azonos hosszúsággal és lapos végekkel. Az első három a mintákat 3 pont szélességnél hasonlítja össze. A negyedik duplázza az első mintát a szélesség kétszeresére, így a vonal‑ és hézaghosszak is duplázódnak. Az ötödik a saját mintáról szilárd vonalra vált.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(600, 300, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let patterns = [
+        [4, 2],
+        [1, 2],
+        [6, 2, 1, 2],
+        [4, 2],
+        [4, 2]
+    ];
+
+    for (let i = 0; i < patterns.length; i++) {
+        let line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 50 + i * 50, 500, 0);
+        line.getLineFormat().setWidth(i == 3 ? 6 : 3);
+        line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        line.getLineFormat().setCapStyle(java.newByte(aspose.slides.LineCapStyle.Flat));
+        line.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        line.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        let pattern = java.newArray("float", patterns[i]);
+        line.getLineFormat().setCustomDashPattern(pattern);
+    }
+
+    // Visszaállítja az utolsó vonalat szilárd stílusra.
+    slide.getShapes().get_Item(4).getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
+
+    presentation.save("custom_dash_patterns.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ahelyett, hogy előre meghatározott szaggatott stílusra térne vissza, adja meg a [LineDashStyle.Dash](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) értéket a [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) metódusnak. A kiválasztott stílus szabályozza a vonal megjelenését.
+
+Az eredmény a PowerPointban, felülről lefelé: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; és **Solid, 3 pt**.
+
+![Három egyéni szaggatási minta, egy szélesebb vonal az első mintával, és egy szilárd vonal a PowerPointban](custom-dash-patterns.png)
+
+### **Vonalvégek beállítása**
+
+Use [LineFormat.setCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCapStyle) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linecapstyle/) class provides three explicit cap styles:
+
+- `Flat`: A vonal a végpontnál megáll.
+- `Round`: Egy félkörívű vége a végponton túlnyúlik a vonal szélességének felével.
+- `Square`: Egy négyzetes vége a végponton túlnyúlik a vonal szélességének felével.
+
+A class also includes `NotDefined`, which means that no cap style is explicitly assigned.
+
+Caps are different from arrowheads, which add symbols to line ends, and joins, which control corners between line segments. This example disables arrowheads through [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setBeginArrowheadStyle) and [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setEndArrowheadStyle) so that only the cap shapes are compared.
+
+The following example creates three otherwise identical horizontal lines, 20 points wide. From top to bottom, they use flat, round, and square caps. Their endpoints have the same horizontal coordinates; the round and square caps extend 10 points beyond each endpoint.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 240, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let capStyles = [aspose.slides.LineCapStyle.Flat, aspose.slides.LineCapStyle.Round, aspose.slides.LineCapStyle.Square];
+
+    for (let i = 0; i < capStyles.length; i++) {
+        let line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 100, 50 + i * 70, 300, 0);
+        line.getLineFormat().setWidth(20);
+        line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        line.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
+        line.getLineFormat().setCapStyle(java.newByte(capStyles[i]));
+        line.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        line.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+    }
+
+    presentation.save("line_caps.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az eredmény a PowerPointban, felülről lefelé: **Flat**, **Round**, és **Square**.
+
+![Lapos, kör és négyzet végek az azonos vastag vonalakon a PowerPointban](line-caps.png)
+
+## **Vázlat hatások alkalmazása alakzati vonalakra**
+
+A vázlat hatás egy alakzat vonalát kézzel rajzoltá teszi. Use [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) to access the line settings, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getSketchFormat) to access the sketch settings, and [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#setSketchType) to select a value from the [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) class.
+
+The following JavaScript code shows how to apply a [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
+
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // A forma vonalformátumához és vázlatformátumához fér hozzá.
     let sketchFormat = shape.getLineFormat().getSketchFormat();
-
-    // Vázlat hatást alkalmaz.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
-
-    // A forma közvetlenül hozzárendelt vázlat hatását olvassa.
     let explicitSketchType = sketchFormat.getSketchType();
     console.log("Explicit sketch type: " + explicitSketchType);
-
-    // Eltávolítja a vázlat hatást.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-A [SketchFormat.getSketchType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sketchformat/) által visszaadott érték a közvetlenül az alakzatra beállított konfigurációt képviseli. Ha a vonal formázása örökölhető egy témából, mester- vagy elrendezési diáról, használja a [LineFormat.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/lineformat/) metódust, hívja meg a visszakapott objektumon a `getSketchFormat` metódust, majd a `getSketchType` metódust. A hatékony érték a ténylegesen alkalmazott formázást tükrözi az öröklődés feloldása után:
+The value returned by [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#getSketchType) represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective), call `getSketchFormat` on the returned object, and then call its `getSketchType` method. The effective value reflects the formatting that is actually applied after inheritance is resolved. This example requires an existing presentation with at least one shape on its first slide and prints both values:
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    let lineFormat = shape.getLineFormat();
 
+    let lineFormat = shape.getLineFormat();
     let explicitSketchType = lineFormat.getSketchFormat().getSketchType();
     let effectiveLineFormat = lineFormat.getEffective();
     let effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
@@ -145,113 +213,121 @@ try {
 
 ## **Csatlakozási stílusok formázása**
 
-A három csatlakozási típus opció:
+Here are the three join type options:
 
 * Round
 * Miter
 * Bevel
 
-Alapértelmezés szerint, amikor a PowerPoint két vonalat szögnél (például egy alakzat sarkán) összekapcsol, a **Round** beállítást használja. Ha azonban éles szögekkel rendelkező alakzatot rajzol, előnyben részesítheti a **Miter** opciót.
+The join style controls how two outline segments meet at a corner. Use **Round** for rounded corners, **Miter** for sharp corners, or **Bevel** for flattened corners.
 
 ![A csatlakozási stílus a prezentációban](join-style-powerpoint.png)
 
-Az alábbi JavaScript kód megmutatja, hogyan lett három téglalap (az előző képen látható) létrehozva a Miter, Bevel és Round csatlakozási típus beállításokkal:
+This example creates three black rectangles with blue outlines 15 points wide. It uses [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) to apply the miter, bevel, and round values of [LineJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/), respectively, to compare how the corners are drawn.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Példányosítja a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Lekéri az első diát.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Hozzáad három automatikus alakzatot Téglalap típusban.
-    let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
-    let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
-    let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
+    let miterShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
+    let bevelShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
+    let roundShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Beállítja a kitöltőszínt minden téglalap alakzathoz.
-    shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    miterShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    miterShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    bevelShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    bevelShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    roundShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    roundShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
 
-    // Beállítja a vonalvastagságot.
-    shape1.getLineFormat().setWidth(15);
-    shape2.getLineFormat().setWidth(15);
-    shape3.getLineFormat().setWidth(15);
+    miterShape.getLineFormat().setWidth(15);
+    bevelShape.getLineFormat().setWidth(15);
+    roundShape.getLineFormat().setWidth(15);
 
-    // Beállítja a vonal színét minden téglalaphoz.
-    shape1.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape3.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    miterShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    miterShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    bevelShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    bevelShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    roundShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    roundShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // Beállítja a csatlakozási stílust.
-    shape1.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
-    shape2.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
-    shape3.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
+    miterShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+    bevelShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
+    roundShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
 
-    // Szöveget ad minden téglalaphoz.
-    shape1.getTextFrame().setText("Miter Join Style");
-    shape2.getTextFrame().setText("Bevel Join Style");
-    shape3.getTextFrame().setText("Round Join Style");
+    miterShape.getTextFrame().setText("Miter Join Style");
+    bevelShape.getTextFrame().setText("Bevel Join Style");
+    roundShape.getTextFrame().setText("Round Join Style");
 
-    // Elmenti a PPTX fájlt a lemezre.
     presentation.save("join_styles.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Színátmenetes kitöltés**
+### **Miter csatlakozások korlátozása éles sarkoknál**
 
-A PowerPointban a Színátmenetes kitöltés egy formázási lehetőség, amely lehetővé teszi, hogy folyamatos színátmenetet alkalmazz egy alakzatra. Például két vagy több színt használhatsz úgy, hogy az egyik fokozatosan elhalványul a másikba.
+Use [LineFormat.setMiterLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setMiterLimit) with [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) set to [LineJoinStyle.Miter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) to limit how far a sharp corner can extend.
 
-Így alkalmazhatod a színátmenetes kitöltést egy alakzatra az Aspose.Slides segítségével:
+The limit is a ratio of the distance between the inner and outer corners of the join to the line width. For example, a value of `8` permits a miter length of up to eight times the line width; it is not a measurement in points. If the corner would exceed the limit, PowerPoint uses a beveled join at that corner. A larger limit allows sharper points. The setting affects miter joins only, and changing it has no visible effect when the corner remains within both limits.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) objektumot a diához.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/filltype/) értékét `Gradient`-re.
-1. Adja meg a két kívánt színt a meghatározott pozíciókkal a [GradientFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/gradientformat/) által biztosított gradient stop gyűjtemény `add` metódusainak segítségével.
-1. Mentse el a módosított prezentációt PPTX fájlként.
+This example creates two identical, unfilled triangles with outlines 20 points wide. The left triangle uses a limit of `2`, and the right uses `8`. Each triangle is 80 points wide and 160 points high, giving its top corner a miter-length-to-line-width ratio of approximately `4.12`. Consequently, PowerPoint bevels the left apex and preserves the right apex.
 
-Az alábbi JavaScript kód bemutatja, hogyan alkalmazz színátmenetes kitöltést egy ellipszisre:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Létrehozza a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Lekéri az első diát.
+    presentation.getSlideSize().setSize(500, 320, aspose.slides.SlideSizeScaleType.DoNotScale);
     let slide = presentation.getSlides().get_Item(0);
 
-    // Hozzáad egy automatikus alakzatot Ellipszis típusban.
-    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
+    let miterLimits = [2, 8];
 
-    // Alkalmaz színátmenetes formázást az ellipszisre.
+    for (let i = 0; i < miterLimits.length; i++) {
+        let triangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+        triangle.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        triangle.getLineFormat().setWidth(20);
+        triangle.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        triangle.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        triangle.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+        triangle.getLineFormat().setMiterLimit(java.newFloat(miterLimits[i]));
+    }
+
+    presentation.save("miter_limits.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az eredmény a PowerPointban: **Miter limit 2** bal oldalon és **miter limit 8** jobb oldalon.
+
+![A levágott csúcs miter limit 2‑vel és a hegyes csúcs miter limit 8‑cal a PowerPointban](miter-limits.png)
+
+## **Áttűnéses kitöltés**
+
+A gradient fill blends colors across a shape. This example fills an ellipse with a linear gradient at a 45-degree angle from red to purple using [FillFormat.getGradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getGradientFormat). The [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientstopcollection/#addPresetColor) method places the color stops at 0 and 1, the beginning and end of the gradient. Clearing the existing stops ensures that only these two colors are used.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
-
-    // Beállítja a színátmenet irányát.
-    shape.getFillFormat().getGradientFormat().setGradientDirection(aspose.slides.GradientDirection.FromCorner2);
-
-    // Hozzáad két színátmeneti állomást.
+    shape.getFillFormat().getGradientFormat().setLinearGradientAngle(45);
+    shape.getFillFormat().getGradientFormat().getGradientStops().clear();
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, aspose.slides.PresetColor.Purple);
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0, aspose.slides.PresetColor.Red);
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0, aspose.slides.PresetColor.Red);
 
-    // Elmenti a PPTX fájlt a lemezre.
     presentation.save("gradient_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -260,52 +336,171 @@ try {
 
 Az eredmény:
 
-![Az ellipszis színátmenetes kitöltéssel](gradient-fill.png)
+![Az ellipszis áttűnéses kitöltéssel](gradient-fill.png)
+
+If a gradient looks different in an exported image than it does in PowerPoint, see [Choose a Gradient Rendering Style](/slides/hu/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). You can select a rendering style without changing the gradient fill stored in the presentation.
+
+### **Lineáris átmeneti szög beállítása**
+
+Use [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) to control the orientation of a [GradientShape.Linear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/) fill. The angle is measured in degrees and increases clockwise: `0` runs from left to right, `90` from top to bottom, `180` from right to left, and `270` from bottom to top. Fractional angles are supported. Finite angles outside `[0, 360)` are normalized to one revolution; for example, `-45` becomes `315` and `360` becomes `0`.
+
+This example creates six rectangles with identical red, green, and blue stops at positions `0`, `0.5`, and `1`. Scaling is disabled so that the angle can be compared independently of the rectangles' proportions. The angles, from left to right, are `0`, `45`, and `90` in the first row, and `135`, `180`, and `270` in the second row.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 400, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let angles = [0, 45, 90, 135, 180, 270];
+
+    for (let i = 0; i < angles.length; i++) {
+        let x = 30 + (i % 3) * 230;
+        let y = 30 + Math.floor(i / 3) * 190;
+
+        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 200, 150);
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+        let gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+        gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+        gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        gradient.setLinearGradientScaled(java.newByte(aspose.slides.NullableBool.False));
+        gradient.setLinearGradientAngle(angles[i]);
+    }
+
+    presentation.save("linear_gradient_angles.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az eredmény a PowerPointban:
+
+![Lineáris átmenetek 0, 45 és 90 fokon az első sorban, valamint 135, 180 és 270 fokon a második sorban](linear-gradient-angles.png)
+
+### **Lineáris átmenet méretezése az alakzattal**
+
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientScaled) accepts a [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) value. Set it explicitly to `False` to keep the geometric gradient angle as the shape's proportions change, or to `True` to scale the gradient with the shape's width and height. With scaling enabled, the visible angle can differ from the assigned angle on a non-square shape.
+
+The following example uses a `45`-degree angle and the same color stops as the angle comparison. The left column uses `False`; the right column uses `True`. Each column contains a wide rectangle above a tall rectangle. Both start with the same wide dimensions; changing the second rectangle's width and height demonstrates how the fill responds to resizing without changing its gradient settings.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 460, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let scalingOptions = [aspose.slides.NullableBool.False, aspose.slides.NullableBool.True];
+
+    for (let column = 0; column < scalingOptions.length; column++) {
+        for (let row = 0; row < 2; row++) {
+            let x = 30 + column * 360;
+            let y = row == 0 ? 30 : 150;
+
+            let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 300, 90);
+            shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+            let gradient = shape.getFillFormat().getGradientFormat();
+            gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+            gradient.getGradientStops().clear();
+            gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+            gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+            gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+            gradient.setLinearGradientAngle(45);
+            gradient.setLinearGradientScaled(java.newByte(scalingOptions[column]));
+
+            if (row == 1) {
+                shape.setWidth(90);
+                shape.setHeight(280);
+            }
+        }
+    }
+
+    presentation.save("linear_gradient_scaling.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az eredmény a PowerPointban, baloldalon a méretezés letiltva, jobboldalon engedélyezve:
+
+![Széles és magas téglalapok 45 fokos átmenettel, baloldalon a LinearGradientScaled False, jobboldalon True](linear-gradient-scaling.png)
+
+With scaling disabled, the diagonal color bands keep the same orientation in both rectangles. With scaling enabled, the bands stretch with the shape's proportions. This helps reproduce a template's gradient when adapting a shape to a different size. On a square, enabling scaling does not change the appearance of this `45`-degree gradient.
+
+Both the angle and scaling settings apply to linear gradients. They do not control [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/) fills.
+
+### **A szög kombinálása a gradient irányával**
+
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setGradientDirection) selects a gradient style from the [GradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientdirection/) class; it is not a substitute for a numeric angle. For a linear gradient, the corner styles can change the area over which the colors are distributed without changing the angle assigned through [setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle). Keep the direction unchanged when comparing angles or scaling.
+
+The following example applies the same settings in opposite orders. The two rectangles have the same appearance: assigning the direction before or after the angle does not change the result.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < 2; i++) {
+        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+        let gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+        gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+        gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        gradient.setLinearGradientScaled(java.newByte(aspose.slides.NullableBool.True));
+
+        if (i == 0) {
+            gradient.setGradientDirection(aspose.slides.GradientDirection.FromCorner1);
+            gradient.setLinearGradientAngle(30);
+        } else {
+            gradient.setLinearGradientAngle(30);
+            gradient.setGradientDirection(aspose.slides.GradientDirection.FromCorner1);
+        }
+    }
+
+    presentation.save("linear_gradient_direction.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Minta kitöltés**
 
-A PowerPointban a Minta kitöltés egy formázási lehetőség, amely lehetővé teszi, hogy két színű mintát – például pontokat, csíkokat, keresztmintát vagy négyzetrácsot – alkalmazz egy alakzatra. A minta előtér- és háttérszínét testre szabhatod.
+A pattern fill applies a two-color design, such as dots, stripes, or checks. This example uses [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#setPatternStyle) to select a trellis pattern. [PatternFormat.getBackColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor) supplies the light gray background, and [PatternFormat.getForeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor) supplies the yellow pattern color.
 
-Az Aspose.Slides több mint 45 előre definiált mintastílust kínál, amelyeket alakzatokra alkalmazhatsz a prezentációk vizuális vonzerejének növelése érdekében. Még előre definiált minta kiválasztása után is megadhatod a pontos színeket, amelyeket használni kell.
-
-Így alkalmazhatod a minta kitöltést egy alakzatra az Aspose.Slides segítségével:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) objektumot a diához.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/filltype/) értékét `Pattern`-re.
-1. Válasszon egy mintastílust az előre definiált lehetőségek közül.
-1. Állítsa be a minta [Background Color](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/patternformat/#getBackColor--) értékét.
-1. Állítsa be a minta [Foreground Color](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/patternformat/#getForeColor--) értékét.
-1. Mentse el a módosított prezentációt PPTX fájlként.
-
-Az alábbi JavaScript kód bemutatja, hogyan alkalmazz minta kitöltést egy téglalapra:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Létrehozza a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Lekéri az első diát.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Hozzáad egy automatikus alakzatot Téglalap típusban.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Beállítja a kitöltés típusát Mintára.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-
-    // Beállítja a mintastílust.
     shape.getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.Trellis));
-
-    // Beállítja a minta háttér- és előtérszíneit.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // Elmenti a PPTX fájlt a lemezre.
     presentation.save("pattern_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -314,56 +509,35 @@ try {
 
 Az eredmény:
 
-![A téglalap minta kitöltéssel](pattern-fill.png)
+![A téglalap mintás kitöltéssel](pattern-fill.png)
 
-## **Képpel kitöltés**
+## **Kép kitöltés**
 
-A PowerPointban a Képpel kitöltés egy formázási lehetőség, amely lehetővé teszi, hogy egy képet helyezz el egy alakzaton belül – gyakorlatilag a képet az alakzat háttérként használva.
+A picture fill uses an image inside a shape. This example requires a local image and uses [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) to load it into the presentation’s image collection. Setting [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode) to the tiled mode repeats the image within the rectangle. The source image used here is shown below:
 
-Így használhatod az Aspose.Slides-t a képpel kitöltéshez egy alakzaton:
+![A lótusz képe](lotus.png)
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) objektumot a diához.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/filltype/) értékét `Picture`-ra.
-1. Állítsa be a kép kitöltési módját `Tile`-ra (vagy egy másik kívánt módra).
-1. Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ppimage/) objektumot a használni kívánt képből.
-1. Adja át a képet az `ISlidesPicture.setImage` metódusnak.
-1. Mentse el a módosított prezentációt PPTX fájlként.
-
-![A lótusz kép](lotus.png)
-
-Az alábbi JavaScript kód bemutatja, hogyan töltsd ki egy alakzatot a képpel:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Példányosítja a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Lekéri az első diát.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Hozzáad egy automatikus alakzatot Téglalap típusban.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
-    
-    // Beállítja a kitöltés típusát Képre.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-
-    // Beállítja a kép kitöltési módot.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Tile);
 
-    // Betölti a képet és hozzáadja a prezentáció erőforrásaihoz.
     let image = aspose.slides.Images.fromFile("lotus.png");
-    let picture = presentation.getImages().addImage(image);
-    image.dispose();
-
-    // Beállítja a képet.
+    let picture;
+    try {
+        picture = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Elmenti a PPTX fájlt a lemezre.
     presentation.save("picture_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -372,49 +546,43 @@ try {
 
 Az eredmény:
 
-![Az alakzat képpel kitöltve](picture-fill.png)
+![Az alakzat kép kitöltéssel](picture-fill.png)
 
 ### **Kép csempézése textúraként**
 
-Ha egy csempézett képet szeretnél textúraként beállítani, és testre szabni a csempézés viselkedését, a [PictureFillFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/) osztály következő metódusait használhatod:
+If you want to set a tiled picture as a texture and customize the tiling behavior, you can use the following methods of the [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) class:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Beállítja a kép kitöltési módját—`Tile` vagy `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Megadja a csempék igazítását az alakzaton belül.
-- [setTileFlip](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Szabályozza, hogy a csempe vízszintesen, függőlegesen vagy mindkettő szerint legyen tükrözve.
-- [setTileOffsetX](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Beállítja a csempe vízszintes eltolását (pontokban) az alakzat eredetétől.
-- [setTileOffsetY](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Beállítja a csempe függőleges eltolását (pontokban) az alakzat eredetétől.
-- [setTileScaleX](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Megadja a csempe vízszintes méretezését százalékban.
-- [setTileScaleY](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Megadja a csempe függőleges méretezését százalékban.
+- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Beállítja a képkitöltés módját – `Tile` vagy `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Meghatározza a csempék igazítását az alakzaton belül.
+- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Szabályozza, hogy a csempe vízszintesen, függőlegesen vagy mindkettővel legyen tükrözve.
+- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Beállítja a csempe vízszintes eltolását (pontban) az alakzat kiindulási pontjától.
+- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Beállítja a csempe függőleges eltolását (pontban) az alakzat kiindulási pontjától.
+- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Meghatározza a csempe vízszintes méretezését százalékban.
+- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Meghatározza a csempe függőleges méretezését százalékban.
 
-Az alábbi kódrészlet megmutatja, hogyan adj hozzá egy téglalap alakzatot csempézett képkitöltéssel és konfiguráld a csempe beállításait:
+This example requires a local image and configures [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) to repeat it at 50% of its original size. Offsets of −32 points shift the tiles horizontally and vertically; bottom-right alignment and flipping in both directions determine how the repeated texture is arranged.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Példányosítja a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Lekéri az első diát.
     let firstSlide = presentation.getSlides().get_Item(0);
 
-    // Hozzáad egy téglalap automatikus alakzatot.
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
-
-    // Beállítja az alakzat kitöltés típusát Képre.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
-    // Betölti a képet és hozzáadja a prezentáció erőforrásaihoz.
     let sourceImage = aspose.slides.Images.fromFile("lotus.png");
-    let presentationImage = presentation.getImages().addImage(sourceImage);
-    sourceImage.dispose();
+    let presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
 
-    // Hozzáadja a képet az alakzathoz.
     let pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
-
-    // Konfigurálja a kép kitöltési módot és a csempézési tulajdonságokat.
     pictureFillFormat.setPictureFillMode(aspose.slides.PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -423,7 +591,6 @@ try {
     pictureFillFormat.setTileAlignment(java.newByte(aspose.slides.RectangleAlignment.BottomRight));
     pictureFillFormat.setTileFlip(aspose.slides.TileFlip.FlipBoth);
 
-    // Elmenti a PPTX fájlt a lemezre.
     presentation.save("tile.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -432,44 +599,24 @@ try {
 
 Az eredmény:
 
-![A csempe beállításai](tile-options.png)
+![A csempe beállítások](tile-options.png)
 
-## **Egyetlen színű kitöltés**
+## **Tömör színű kitöltés**
 
-A PowerPointban az Egyetlen színű kitöltés egy formázási lehetőség, amely egyetlen, egységes színnel tölti ki az alakzatot. Ez az egyszerű háttérszín gradiensek, textúrák vagy minták nélkül kerül alkalmazásra.
+A solid fill gives a shape a single, uniform color. This example uses [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) to select the solid fill mode and assigns yellow through [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor), then saves the rectangle in a presentation.
 
-Az egyetlen színű kitöltés alkalmazásához az Aspose.Slides segítségével kövesd az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) objektumot a diához.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/filltype/) értékét `Solid`-ra.
-1. Adja meg a kívánt kitöltőszínt az alakzatnak.
-1. Mentse el a módosított prezentációt PPTX fájlként.
-
-Az alábbi JavaScript kód bemutatja, hogyan alkalmazz egyetlen színű kitöltést egy téglalapra egy PowerPoint dián:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Példányosítja a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Lekéri az első diát.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Hozzáad egy automatikus alakzatot Téglalap típusban.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Beállítja a kitöltés típusát Egyszínűre.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-
-    // Beállítja a kitöltőszínt.
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // Elmenti a PPTX fájlt a lemezre.
     presentation.save("solid_color_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -478,43 +625,159 @@ try {
 
 Az eredmény:
 
-![Az alakzat egyetlen színű kitöltéssel](solid-color-fill.png)
+![Az alakzat tömör színű kitöltéssel](solid-color-fill.png)
+
+### **Színek másolása a téma hivatkozások megőrzésével**
+
+Use [ColorFormat.copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#copyFrom) to copy a color definition, including its color type, theme reference, and transformations. This is useful when transferring a fill color between shapes that should continue to follow the presentation theme. The method copies only the color: it does not copy the fill type, outline, or other shape formatting. Set the destination's fill type explicitly with [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType).
+
+This example creates three rectangles, from left to right: the source, a theme-aware copy, and a fixed RGB copy. The source uses [ColorFormat.setSchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#setSchemeColor) to reference the first accent color and adds a tint through [ColorOperationCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/coloroperationcollection/#add). The RGB copy uses the source's effective fill color so all three initially look identical. Calling [ColorFormat.setColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#setColor) sets a fixed RGB value and clears any existing color transformations.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(java.newInstanceSync("java.awt.Color", 65, 105, 225));
+
+    let source = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 40, 180, 140);
+    let themeCopy = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 240, 40, 180, 140);
+    let rgbCopy = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (let shape of [source, themeCopy, rgbCopy]) {
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    }
+
+    let sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(aspose.slides.SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(aspose.slides.ColorTransformOperation.Tint, java.newFloat(0.75));
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    let before = slide.getImage(1, 1);
+    try {
+        before.save("color-copy-before.png", aspose.slides.ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // A téma hivatkozások követik az új hangsúlyszínt; a fix RGB érték nem.
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(java.newInstanceSync("java.awt.Color", 255, 69, 0));
+
+    let after = slide.getImage(1, 1);
+    try {
+        after.save("color-copy-after.png", aspose.slides.ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A téma változtatása előtt mindhárom kitöltés egyezett:
+
+![Forrás, copyFrom cél és fix RGB cél azonos kék kitöltésekkel](color-copy-before.png)
+
+A téma változtatása után a forrás és a téma‑tudatos másolat az új hangsúlyszínt követi, és megtartja a színárnyalatot. A fix RGB másolat továbbra is kék marad:
+
+![Forrás és copyFrom cél narancssárga kitöltéssel, míg a fix RGB cél kék marad](color-copy-after.png)
+
+A másolt definíció független a forrástól. A forrás téma‑hivatkozásának, egy másik színnek vagy a transzformációk hozzáadásának/eltávolításának későbbi módosítása nem változtatja meg a célt. A téma‑változás mindkét alakzatot érinti, mert mindkettő önállóan a ugyanarra a téma‑színre hivatkozik.
+
+Saving and reopening the PPTX preserves the copied color's type returned by [ColorFormat.getColorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#getColorType), theme reference, and transformation collection returned by [ColorFormat.getColorTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#getColorTransform); it does not flatten the definition to RGB.
+
+When copying between different theme contexts, such as presentations with different accent palettes, the copied reference resolves against the destination's theme. The same reference and transformations can therefore produce a different visible color. See [Presentation Theme](/slides/hu/nodejs-java/presentation-theme/) for more about configuring theme colors.
+
+## **A dia háttér használata alakzat kitöltésként**
+
+Use [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#setUseBackgroundFill) when a shape should match the slide background, for example in a presentation template. Set the fill type with [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) to [FillType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) first to remove any explicit fill. With this combination, the shape uses the slide background instead of its style fill. Enabling the flag alone does not remove an existing explicit fill.
+
+This differs from [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/): background fill covers objects behind the shape with the corresponding area of the slide background, while no fill leaves those objects visible. A gradient remains aligned with the slide rather than restarting inside each shape.
+
+The following example creates a master background inherited by the slide and places a magenta band behind three rectangles. The left rectangle uses the background, the middle rectangle has no fill, and the right rectangle switches from background fill to an explicit orange fill.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 400, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    // Örökölje a gradientet a masterből.
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.NotDefined));
+    slide.getLayoutSlide().getBackground().setType(java.newByte(aspose.slides.BackgroundType.NotDefined));
+    let background = slide.getLayoutSlide().getMasterSlide().getBackground();
+    background.setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    background.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+    let gradient = background.getFillFormat().getGradientFormat();
+    gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+    gradient.setLinearGradientAngle(0);
+    gradient.getGradientStops().clear();
+    gradient.getGradientStops().add(0, java.newInstanceSync("java.awt.Color", 0, 0, 139));
+    gradient.getGradientStops().add(1, java.newInstanceSync("java.awt.Color", 135, 206, 250));
+
+    // Adja hozzá ezt az objektumot először, hogy a téglalapok mögé kerüljön.
+    let band = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 25, 150, 670, 100);
+    band.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    band.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
+    band.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    let backgroundShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 100, 160, 200);
+    backgroundShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
+    backgroundShape.setUseBackgroundFill(true);
+
+    let noFillShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 280, 100, 160, 200);
+    noFillShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    let explicitShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 510, 100, 160, 200);
+    explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
+    explicitShape.setUseBackgroundFill(true);
+
+    // Tiltsa le a háttérkitöltést, mielőtt explicit kitöltést alkalmazna.
+    explicitShape.setUseBackgroundFill(false);
+    explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    explicitShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
+
+    presentation.save("background_fill.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az eredmény, balról jobbra: **background fill**, **no fill**, és **explicit fill**. A magenta sáv a bal és jobb téglalap mögött rejtve van, de a középsőn keresztül látható marad.
+
+![Háttér kitöltés, nincs kitöltés és explicit narancssárga kitöltés egy magenta sáv felett](background-fill.png)
+
+The same behavior applies to a background defined directly on the slide or inherited from a layout. The shape uses the slide's resolved background; the example leaves both the slide and layout backgrounds undefined so the master supplies it.
 
 ## **Átlátszóság beállítása**
 
-A PowerPointban, amikor egy alakzatra egyetlen színt, színátmenetet, képet vagy textúrát alkalmazunk, a kitöltés átlátszósági szintjét is beállíthatjuk, ezáltal szabályozva a kitöltés átlátszóságát. Magasabb átlátszósági érték esetén az alakzat áttetszőbb lesz, és a háttér vagy az alatta lévő objektumok részben láthatóvá válnak.
+For a solid fill, the color’s alpha component controls opacity: 0 is fully transparent and 255 is fully opaque. This example uses an alpha value of 128 for a yellow rectangle, making it approximately 50% transparent so the rectangle underneath remains visible. The color is assigned through [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor).
 
-Az Aspose.Slides lehetővé teszi az átlátszóság szintjének beállítását a kitöltéshez használt szín alfa komponensének módosításával. Így teheted:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) objektumot a diához.
-1. Állítsa be a [FillType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/filltype/) értékét `Solid`-ra.
-1. Használja a `Color` objektumot egy átlátszó szín definiálásához (az `alpha` komponens szabályozza az átlátszóságot).
-1. Mentse el a prezentációt.
-
-Az alábbi JavaScript kód bemutatja, hogyan alkalmazz átlátszó kitöltőszínt egy téglalapra:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Példányosítja a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Lekéri az első diát.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Hozzáad egy szilárd téglalap automatikus alakzatot.
     let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Hozzáad egy átlátszó téglalap automatikus alakzatot a szilárd alakzat fölé.
     let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
+    transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 128));
 
-    // Elmenti a PPTX fájlt a lemezre.
     presentation.save("shape_transparency.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -527,35 +790,18 @@ Az eredmény:
 
 ## **Alakzatok forgatása**
 
-Az Aspose.Slides lehetővé teszi alakzatok forgatását PowerPoint prezentációkban. Ez hasznos lehet, ha vizuális elemeket speciális elrendezéssel vagy dizájn követelményekkel kell elhelyezni.
+Use [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) to rotate a shape in the slide plane. The angle is measured in degrees; this example rotates a rectangle 5 degrees clockwise and saves the presentation.
 
-Alakzat forgatásához egy dián kövesd az alábbi lépéseket:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) objektumot a diához.
-1. Állítsa be az alakzat forgatási tulajdonságát a kívánt szögre.
-1. Mentse el a prezentációt.
-
-Az alábbi JavaScript kód bemutatja, hogyan forgassunk egy alakzatot 5 fokkal:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-// Létrehozza a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Lekéri az első diát.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Hozzáad egy automatikus alakzatot Téglalap típusban.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Forgatja az alakzatot 5 fokkal.
     shape.setRotation(5);
 
-    // Elmenti a PPTX fájlt a lemezre.
     presentation.save("shape_rotation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -568,37 +814,22 @@ Az eredmény:
 
 ## **3D lekerekítési hatások hozzáadása**
 
-Az Aspose.Slides lehetővé teszi 3D lekerekítési hatások alkalmazását alakzatokra a [ThreeDFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/threedformat/) tulajdonságainak konfigurálásával.
+Use [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) to give a shape depth and beveled edges. This example creates a green ellipse with an orange outline, uses [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) to set the depth to 4 points, and applies a circular top bevel with a width and height of 6 points through [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop). A front-facing orthographic camera and three-point lighting make the bevel visible.
 
-3D lekerekítési hatások hozzáadásához egy alakzathoz kövesd az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) objektumot a diához.
-1. Konfigurálja az alakzat [ThreeDFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/threedformat/) beállításait a lekerekítési paraméterek meghatározásához.
-1. Mentse el a prezentációt.
-
-Az alábbi JavaScript kód megmutatja, hogyan alkalmazz 3D lekerekítési hatásokat egy alakzatra:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Létrehozza a Presentation osztály egy példányát.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
-    // Hozzáad egy alakzatot a diára.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    shape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
     shape.getLineFormat().setWidth(2.0);
-
-    // Beállítja az alakzat ThreeDFormat tulajdonságait.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -607,7 +838,6 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
 
-    // Mentse a prezentációt PPTX fájlként.
     presentation.save("3D_bevel_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -620,36 +850,21 @@ Az eredmény:
 
 ## **3D forgatási hatások hozzáadása**
 
-Az Aspose.Slides lehetővé teszi 3D forgatási hatások alkalmazását alakzatokra a [ThreeDFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/threedformat/) tulajdonságainak konfigurálásával.
+A shape’s 3D view is controlled by its camera settings. This example uses [Camera.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) with latitude, longitude, and revolution angles of 40, 35, and 20 degrees, respectively. It selects an isometric camera through [Camera.setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) and balanced lighting through [LightRig.setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType), then saves the formatted rectangle.
 
-3D forgatás alkalmazásához egy alakzatra:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen referenciát egy diára az indexe alapján.
-1. Adjon hozzá egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) objektumot a diához.
-1. Használja a [setCameraType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/camera/#setCameraType) és a [setLightType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/lightrig/#setLightType) metódusokat a 3D forgatás definiálásához.
-1. Mentse el a prezentációt.
-
-Az alábbi JavaScript kód bemutatja, hogyan alkalmazz 3D forgatási hatásokat egy alakzatra:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-// Létrehozza a Presentation osztály egy példányát.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
     let autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
     autoShape.getTextFrame().setText("Hello, Aspose!");
-
-    autoShape.getThreeDFormat().setDepth(6);
-    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.IsometricLeftUp);
+    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
 
-    // Mentse a prezentációt PPTX fájlként.
     presentation.save("3D_rotation_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -660,17 +875,16 @@ Az eredmény:
 
 ![A 3D forgatási hatás](3D-rotation-effect.png)
 
-## **Fekete-fehér megjelenítés szabályozása alakzatoknál**
+## **Fekete-fehér megjelenítés vezérlése alakzatokhoz**
 
-A [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) metódus megadja, hogyan jelenik meg egy egyedi alakzat, amikor a prezentációt fekete-fehér módban tekintik vagy dolgozzák fel. Nem engedélyezi magát a fekete-fehér megjelenítést, és nem változtatja meg az alakzat kitöltését, vonalát vagy egyéb formázását normál szín módban.
+The [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) method specifies how an individual shape is rendered when a presentation is viewed or processed in black-and-white mode. It does not enable black-and-white display by itself, and it does not change the shape's fill, line, or other formatting in normal color mode.
 
-Használjon egy értéket a [BlackWhiteMode](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/blackwhitemode/) felsorolásból a kívánt viselkedés kiválasztásához. Például az `Automatic` hagyja, hogy a renderelő alkalmazás válasszon konverziót, a `Gray` és `LightGray` szürke színezést alkalmaz, a `BlackWhite` csak fekete‑fehér színeket használ, a `Black` és `White` egyetlen színt kényszerítenek, a `Color` megőrzi a normál színezést, a `Hidden` elrejti az alakzatot fekete‑fehér módban, a `NotDefined` pedig azt jelenti, hogy nincs alakzatszintű mód beállítva.
+Use a value from the [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) class to select the desired behavior. For example, `Automatic` lets the rendering application choose the conversion, `Gray` and `LightGray` use gray coloring, `BlackWhite` uses only black and white, `Black` and `White` force a single color, `Color` preserves normal coloring, and `Hidden` omits the shape in black-and-white mode. `NotDefined` means that no shape-level mode is assigned.
 
-Az alábbi JavaScript kód egy színes alakzatot hoz létre, és fekete‑fehér megjelenítési módban szürkének jeleníti meg:
+This example creates an orange rectangle and uses [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) to select gray coloring. The saved shape retains its orange fill for normal color display and requests gray coloring from applications that honor black-and-white display settings:
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 let presentation = new aspose.slides.Presentation();
@@ -679,9 +893,7 @@ try {
 
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-
-    // A narancssárga kitöltést szín módban tartja, de a alakzatot szürke színnel jeleníti meg fekete-fehér módban.
+    shape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
     shape.setBlackWhiteMode(java.newByte(aspose.slides.BlackWhiteMode.Gray));
 
     presentation.save("shape_black_white_mode.pptx", aspose.slides.SaveFormat.Pptx);
@@ -690,23 +902,22 @@ try {
 }
 ```
 
-Normál szín módban a téglalap megtartja narancssárga kitöltését. Fekete‑fehér megjelenítési munkafolyamat során szürke színezést használ, mert a mód `Gray`‑ra van állítva. Ez lehetővé teszi, hogy egy teljes színes diát őrizz, miközben egyedi megjelenést definiálsz nyomtatáshoz, előnézethez vagy egyéb munkafolyamatokhoz, amelyek figyelembe veszik a prezentáció fekete‑fehér megjelenítési beállításait.
+Normál színmódban a téglalap megtartja narancssárga kitöltését. Fekete‑fehér megjelenítési munkafolyamatban szürke színt használ, mert módja `Gray`‑re van állítva. Ez lehetővé teszi a teljes színű dia megőrzését, miközben különböző megjelenést definiál nyomtatáshoz, előnézethez vagy egyéb, a prezentáció fekete‑fehér beállításait figyelembe vevő munkafolyamatokhoz.
 
 ## **Formázás visszaállítása**
 
-Az alábbi JavaScript kód megmutatja, hogyan állítsd vissza egy dia formázását, és hogyan állítsd vissza az összes alakzat, valamint a helyőrzőkkel rendelkező alakzat pozícióját, méretét és formázását a [LayoutSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslide/) alapértelmezett beállításaira:
+Use [Slide.reset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#reset) to restore the position, size, and formatting of slide placeholders from their corresponding layout placeholders. This example requires an existing presentation with layout-linked placeholders and resets every slide before saving. Shapes without corresponding layout placeholders are not reset.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // Állítsa vissza a dián minden olyan alakzatot, amelynek helyőrzője van az elrendezésben.
         slide.reset();
     }
+
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -715,14 +926,11 @@ try {
 
 ## **GYIK**
 
-**A alakzat formázása befolyásolja a végleges prezentáció fájlméretét?**
+**A formázott alakzatok befolyásolják a végleges prezentáció fájlméretét?**  
+A színek, vonalstílusok és hatásbeállítások általában kevesebb adatot adnak hozzá, mint a beágyazott képek és média. A kép‑kitöltések növelhetik a fájlméretet, mivel a képek a prezentációban tárolódnak.
 
-Csak minimálisan. A beágyazott képek és médiafájlok foglalják a fájl legnagyobb részét, míg az alakzatok paraméterei (színek, hatások, színátmenetek) metaadatként vannak tárolva, és gyakorlatilag nem növelik a méretet.
+**Hogyan tudom azonos formázású alakzatokat észlelni egy dián, hogy csoportosíthassam őket?**  
+Használja össze az egyes alakzatok kulcsfontosságú formázási tulajdonságait – kitöltés, vonal és hatásbeállítások. Ha minden érték megegyezik, a stílusokat azonosnak tekintheti, és logikusan csoportosíthatja az alakzatokat, ami egyszerűsíti a későbbi stíluskezelést.
 
-**Hogyan tudom felismerni a dián azonos formázású alakzatokat, hogy csoportosíthassam őket?**
-
-Hasonlítsa össze az egyes alakzatok kulcsfontosságú formázási tulajdonságait – kitöltés, vonal és hatás beállításait. Ha minden megfelelő érték megegyezik, tekintse a stílusokat azonosnak, és logikailag csoportosítsa az alakzatokat, ami egyszerűsíti a későbbi stíluskezelést.
-
-**Menthetek-e egyedi alakzatstílusok készletét egy külön fájlba, hogy más prezentációkban is felhasználjam?**
-
-Igen. Tároljon minta alakzatokat a kívánt stílusokkal egy sablon diakészletben vagy egy .POTX sablonfájlban. Új prezentáció létrehozásakor nyissa meg a sablont, klónozza a szükséges stílusú alakzatokat, és alkalmazza újra a formázásukat a kívánt helyeken.
+**Menthetek egy egyéni alakzatstílus készletet egy külön fájlba, hogy más prezentációkban újrahasználjam?**  
+Igen. Tároljon mintaalakzatokat a kívánt stílusokkal egy sablon‑diakönyvben vagy .POTX sablonfájlban. Új prezentáció létrehozásakor nyissa meg a sablont, klónozza a szükséges stílusú alakzatokat, és alkalmazza a formázásukat a megfelelő helyeken.

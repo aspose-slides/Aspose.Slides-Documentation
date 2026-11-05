@@ -1,5 +1,5 @@
 ---
-title: Định dạng các hình dạng PowerPoint trong Python
+title: Định dạng các hình PowerPoint trong Python
 linktitle: Định dạng Hình
 type: docs
 weight: 20
@@ -7,38 +7,38 @@ url: /vi/python-net/shape-formatting/
 keywords:
 - định dạng hình
 - định dạng đường
-- hiệu ứng vẽ tay
-- đường vẽ tay của hình
+- hiệu ứng phác thảo
+- đường hình phác thảo
 - định dạng kiểu nối
 - đổ màu gradient
-- đổ màu mẫu
-- đổ màu ảnh
-- đổ màu texture
-- đổ màu đồng nhất
-- độ trong suốt hình
-- hiển thị hình đen-trắng
+- đổ màu họa tiết
+- đổ màu hình ảnh
+- đổ màu kết cấu
+- đổ màu đơn
+- độ trong suốt hình dạng
+- hiển thị hình đen‑trắng
 - hiển thị hình xám
 - xoay hình
-- hiệu ứng bevel 3D
+- hiệu ứng bờ nổi 3D
 - hiệu ứng xoay 3D
 - đặt lại định dạng
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Tìm hiểu cách định dạng các hình dạng PowerPoint trong Python bằng Aspose.Slides—đặt kiểu đổ màu, đường viền và hiệu ứng cho các tệp PPT, PPTX và ODP một cách chính xác và kiểm soát toàn diện."
+description: "Tìm hiểu cách định dạng các hình PowerPoint trong Python bằng Aspose.Slides—đặt các kiểu đổ màu, đường viền và hiệu ứng cho tệp PPT, PPTX và ODP một cách chính xác và kiểm soát toàn diện."
 ---
 ## **Giới thiệu**
 
-Định dạng các hình dạng trong PowerPoint bằng cách điều chỉnh viền, nền và hiệu ứng của chúng. Aspose.Slides for Python qua .NET cho phép bạn kiểm soát các cài đặt này bằng lập trình, bao gồm độ trong suốt, xoay và định dạng 3D.
+Định dạng các hình dạng trong PowerPoint bằng cách điều chỉnh viền, màu nền và hiệu ứng. Aspose.Slides cho Python thông qua .NET cho phép bạn kiểm soát các thiết lập này bằng mã, bao gồm độ trong suốt, xoay và định dạng 3D.
 
 ![Các tùy chọn định dạng hình dạng trong PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Python qua .NET cung cấp các lớp và thuộc tính cho phép bạn định dạng hình dạng bằng các tùy chọn giống như trong PowerPoint.
+Aspose.Slides cho Python thông qua .NET cung cấp các lớp và thuộc tính cho phép bạn định dạng hình dạng bằng các tùy chọn có sẵn trong PowerPoint.
 
-## **Định dạng Đường**
+## **Định dạng Đường viền**
 
-Use [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) to control a shape’s outline. This example creates an unfilled rectangle with a blue, dashed outline. [LineFormat.style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/style/) selects a thick-thin compound line, while [LineFormat.width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) sets its width to 7 points and [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) selects the dash pattern.
+Use [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) để kiểm soát viền của một hình dạng. Ví dụ này tạo một hình chữ nhật không nền với viền xanh, dạng gạch đứt. [LineFormat.style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/style/) chọn một đường hợp chất dày‑mỏng, trong khi [LineFormat.width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) đặt độ rộng của nó là 7 điểm và [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) chọn mẫu gạch.
 
 ```python
 import aspose.slides as slides
@@ -60,15 +60,15 @@ with slides.Presentation() as presentation:
 
 Kết quả:
 
-![Các đường viền đã định dạng trong bản trình bày](formatted-lines.png)
+![Các đường viền đã định dạng trong bản trình chiếu](formatted-lines.png)
 
-### **Thiết lập mẫu gạch tùy chỉnh cho Đường**
+### **Đặt Mẫu Gạch Đường Tùy Chỉnh**
 
-Use [LineFormat.custom_dash_pattern](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/custom_dash_pattern/) when predefined line styles do not provide the dash lengths and gaps you need, for example for branded outlines or technical diagrams. Assigning a pattern automatically sets [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) to [LineDashStyle.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/).
+Use [LineFormat.custom_dash_pattern](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/custom_dash_pattern/) khi các kiểu đường dựng sẵn không cung cấp độ dài gạch và khoảng trống bạn cần, ví dụ cho các viền thương hiệu hoặc sơ đồ kỹ thuật. Gán một mẫu tự động đặt [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) thành [LineDashStyle.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/).
 
-Các mục trong danh sách xen kẽ giữa độ dài gạch và khoảng trống, bắt đầu bằng một gạch. Mỗi giá trị là bội số của độ rộng đường. `[4, 2]` ở độ rộng 3 điểm tạo ra một gạch dài 12 điểm tiếp theo là một khoảng trống 6 điểm. Sử dụng các cặp giá trị hữu hạn, không âm để định nghĩa các đoạn gạch‑khoảng trống hoàn chỉnh. Ví dụ sử dụng các giá trị dương để giữ cho mọi gạch và khoảng trống đều hiển thị.
+Các mục danh sách xen kẽ giữa độ dài gạch và khoảng trống, bắt đầu bằng một gạch. Mỗi giá trị là bội số của độ rộng đường: `[4, 2]` với độ rộng 3 điểm tạo ra một gạch 12 điểm tiếp theo là khoảng trống 6 điểm. Sử dụng các cặp giá trị hữu hạn, không âm để định nghĩa các đoạn gạch‑khoảng trống hoàn chỉnh. Ví dụ sử dụng các giá trị dương để mọi gạch và khoảng trống đều nhìn thấy.
 
-Ví dụ này tạo ra năm đường màu xanh dài bằng nhau và có đầu phẳng. Ba đường đầu tiên so sánh các mẫu ở độ rộng 3 điểm. Đường thứ tư lặp lại mẫu đầu tiên ở độ rộng gấp đôi, nhân đôi cả độ dài gạch và khoảng trống. Đường thứ năm chuyển từ mẫu tùy chỉnh sang đường liền.
+Ví dụ này tạo năm đường xanh có độ dài bằng nhau và đầu phẳng. Ba đường đầu tiên so sánh các mẫu với độ rộng 3 điểm. Đường thứ tư lặp lại mẫu đầu tiên với độ rộng gấp đôi, nhân đôi cả độ dài gạch và khoảng trống. Đường thứ năm chuyển từ mẫu tùy chỉnh sang đường liền.
 
 ```python
 import aspose.slides as slides
@@ -95,31 +95,31 @@ with slides.Presentation() as presentation:
         line.line_format.end_arrowhead_style = slides.LineArrowheadStyle.NONE
         line.line_format.custom_dash_pattern = pattern
 
-    # Đặt đường cuối cùng thành kiểu liền.
+    # Trả về đường cuối cùng thành kiểu liền.
     slide.shapes[4].line_format.dash_style = slides.LineDashStyle.SOLID
 
     presentation.save("custom_dash_patterns.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Để quay lại kiểu gạch định sẵn, gán [LineDashStyle.DASH](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) cho [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/). Kiểu đã chọn kiểm soát diện mạo của đường.
+Để quay lại kiểu gạch dựng sẵn, gán [LineDashStyle.DASH](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) cho [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/). Kiểu đã chọn điều khiển hiển thị của đường.
 
 Kết quả trong PowerPoint, từ trên xuống dưới: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; và **Solid, 3 pt**.
 
 ![Ba mẫu gạch tùy chỉnh, một đường rộng hơn sử dụng mẫu đầu tiên, và một đường liền trong PowerPoint](custom-dash-patterns.png)
 
-### **Thiết lập đầu Đường**
+### **Đặt Đầu Đường**
 
-Use [LineFormat.cap_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/cap_style/) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linecapstyle/) enumeration provides three explicit cap styles:
+Use [LineFormat.cap_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/cap_style/) để đặt các đầu của một đường mở. Phân loại [LineCapStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linecapstyle/) cung cấp ba kiểu đầu rõ ràng:
 
 - `FLAT`: Đường nét dừng lại tại điểm cuối.
-- `ROUND`: Một đầu cung tròn mở rộng ra ngoài điểm cuối nửa độ rộng đường.
-- `SQUARE`: Một đầu vuông mở rộng ra ngoài điểm cuối nửa độ rộng đường.
+- `ROUND`: Đầu vòng bán tròn mở rộng ra ngoài điểm cuối một nửa độ rộng của đường.
+- `SQUARE`: Đầu vuông mở rộng ra ngoài điểm cuối một nửa độ rộng của đường.
 
-The enumeration also includes `NOT_DEFINED`, which means that no cap style is explicitly assigned.
+Phân loại cũng bao gồm `NOT_DEFINED`, có nghĩa là không có kiểu đầu nào được chỉ định rõ ràng.
 
-Caps are different from arrowheads, which add symbols to line ends, and joins, which control corners between line segments. This example disables arrowheads through [LineFormat.begin_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/begin_arrowhead_style/) and [LineFormat.end_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/end_arrowhead_style/) so that only the cap shapes are compared.
+Đầu khác với mũi tên, vốn thêm ký hiệu vào đầu đường, và các nối, vốn điều khiển các góc giữa các đoạn đường. Ví dụ này vô hiệu hoá mũi tên thông qua [LineFormat.begin_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/begin_arrowhead_style/) và [LineFormat.end_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/end_arrowhead_style/) để chỉ so sánh các hình dạng đầu.
 
-The following example creates three otherwise identical horizontal lines, 20 points wide. From top to bottom, they use flat, round, and square caps. Their endpoints have the same horizontal coordinates; the round and square caps extend 10 points beyond each endpoint.
+Ví dụ sau tạo ba đường ngang hầu hết giống nhau, rộng 20 điểm. Từ trên xuống dưới, chúng dùng đầu phẳng, tròn và vuông. Các điểm cuối có cùng tọa độ ngang; đầu tròn và vuông mở rộng 10 điểm ra ngoài mỗi đầu.
 
 ```python
 import aspose.slides as slides
@@ -143,15 +143,15 @@ with slides.Presentation() as presentation:
     presentation.save("line_caps.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kết quả trong PowerPoint, từ trên xuống dưới: **Flat**, **Round**, and **Square**.
+Kết quả trong PowerPoint, từ trên xuống dưới: **Flat**, **Round**, và **Square**.
 
 ![Đầu phẳng, tròn và vuông trên các đường dày giống nhau trong PowerPoint](line-caps.png)
 
-## **Áp dụng hiệu ứng vẽ tay cho Đường của Hình**
+## **Áp dụng Hiệu Ứng Phác Thảo cho Đường Hình**
 
-A sketch effect makes a shape line look hand-drawn. Use [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) to access the line settings, [LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) to access the sketch settings, and [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) to select a value from the [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) enumeration.
+Hiệu ứng phác thảo làm cho đường của hình trông như được vẽ tay. Dùng [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) để truy cập cài đặt đường, [LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) để truy cập cài đặt phác thảo, và [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) để chọn giá trị từ phân loại [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/).
 
-The following Python code shows how to apply a [LineSketchType.CURVED](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/):
+Mã Python sau cho thấy cách áp dụng hiệu ứng [LineSketchType.CURVED](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/), đọc giá trị đã gán rõ ràng, và loại bỏ hiệu ứng bằng [LineSketchType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/):
 
 ```python
 import aspose.slides as slides
@@ -168,7 +168,7 @@ with slides.Presentation() as presentation:
     sketch_format.sketch_type = slides.LineSketchType.NONE
 ```
 
-The value returned by [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/), access [ILineFormatEffectiveData.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/sketch_format/), and read [ISketchFormatEffectiveData.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/isketchformateffectivedata/sketch_type/). The effective value reflects the formatting that is actually applied after inheritance is resolved. This example requires an existing presentation with at least one shape on its first slide and prints both values:
+Giá trị trả về bởi [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) đại diện cho cài đặt được gán trực tiếp cho hình. Nếu định dạng đường có thể được kế thừa từ chủ đề, slide master hoặc slide layout, dùng [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/), truy cập [ILineFormatEffectiveData.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/sketch_format/), và đọc [ISketchFormatEffectiveData.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/isketchformateffectivedata/sketch_type/). Giá trị hiệu quả phản ánh định dạng thực tế được áp dụng sau khi kế thừa được giải quyết. Ví dụ này yêu cầu một bản trình chiếu hiện có với ít nhất một hình trên slide đầu và in ra cả hai giá trị:
 
 ```python
 import aspose.slides as slides
@@ -187,17 +187,17 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Định dạng Kiểu Nối**
 
-Here are the three join type options:
+Đây là ba tùy chọn kiểu nối:
 
 * Round
 * Miter
 * Bevel
 
-The join style controls how two outline segments meet at a corner. Use **Round** for rounded corners, **Miter** for sharp corners, or **Bevel** for flattened corners.
+Kiểu nối điều khiển cách hai đoạn viền gặp nhau ở góc. Sử dụng **Round** cho các góc tròn, **Miter** cho các góc nhọn, hoặc **Bevel** cho các góc phẳng.
 
-![Kiểu nối trong bản trình bày](join-style-powerpoint.png)
+![Kiểu nối trong bản trình chiếu](join-style-powerpoint.png)
 
-This example creates three black rectangles with blue outlines 15 points wide. It sets [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) to the miter, bevel, and round values of [LineJoinStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/), respectively, to compare how the corners are drawn.
+Ví dụ này tạo ba hình chữ nhật đen với viền xanh rộng 15 điểm. Nó đặt [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) thành các giá trị miter, bevel và round của [LineJoinStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) tương ứng, để so sánh cách vẽ các góc.
 
 ```python
 import aspose.slides as slides
@@ -239,13 +239,13 @@ with slides.Presentation() as presentation:
     presentation.save("join_styles.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Giới hạn Nối Miter ở các góc nhọn**
+### **Giới hạn Nối Miter ở Các Góc Nhọn**
 
-Use [LineFormat.miter_limit](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/miter_limit/) with [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) set to [LineJoinStyle.MITER](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) to limit how far a sharp corner can extend.
+Use [LineFormat.miter_limit](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/miter_limit/) với [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) được đặt thành [LineJoinStyle.MITER](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) để giới hạn độ dài góc nhọn.
 
-The limit is a ratio of the distance between the inner and outer corners of the join to the line width. For example, a value of `8` permits a miter length of up to eight times the line width; it is not a measurement in points. If the corner would exceed the limit, PowerPoint uses a beveled join at that corner. A larger limit allows sharper points. The setting affects miter joins only, and changing it has no visible effect when the corner remains within both limits.
+Giới hạn là tỉ lệ giữa khoảng cách giữa góc trong và góc ngoài của nối so với độ rộng đường. Ví dụ, giá trị `8` cho phép độ dài miter lên tới tám lần độ rộng đường; nó không phải là đo bằng điểm. Nếu góc vượt quá giới hạn, PowerPoint sẽ dùng nối bevel ở góc đó. Giới hạn lớn hơn cho phép các điểm nhọn hơn. Cài đặt chỉ ảnh hưởng đến nối miter và không gây ảnh hưởng khi góc vẫn nằm trong giới hạn.
 
-This example creates two identical, unfilled triangles with outlines 20 points wide. The left triangle uses a limit of `2`, and the right uses `8`. Each triangle is 80 points wide and 160 points high, giving its top corner a miter-length-to-line-width ratio of approximately `4.12`. Consequently, PowerPoint bevels the left apex and preserves the right apex.
+Ví dụ này tạo hai tam giác không nền, viền rộng 20 điểm. Tam giác trái dùng giới hạn `2`, còn bên phải dùng `8`. Mỗi tam giác rộng 80 điểm và cao 160 điểm, cho tỉ lệ độ dài miter‑độ rộng đường khoảng `4.12`. Do đó PowerPoint bevel góc trái và giữ nguyên góc phải.
 
 ```python
 import aspose.slides as slides
@@ -268,13 +268,13 @@ with slides.Presentation() as presentation:
     presentation.save("miter_limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kết quả trong PowerPoint: **Miter limit 2** on the left and **miter limit 8** on the right.
+Kết quả trong PowerPoint: **Miter limit 2** ở phía trái và **miter limit 8** ở phía phải.
 
-![Một đỉnh bị bevel với miter limit 2 và một đỉnh nhọn với miter limit 8 trong PowerPoint](miter-limits.png)
+![Đỉnh bị cắt mặt phẳng với giới hạn miter 2 và đỉnh nhọn với giới hạn miter 8 trong PowerPoint](miter-limits.png)
 
-## **Đổ màu gradient**
+## **Đổ màu Gradient**
 
-A gradient fill blends colors across a shape. This example fills an ellipse with a linear gradient at a 45-degree angle from red to purple using [FillFormat.gradient_format](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/gradient_format/). The [GradientStopCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/gradientstopcollection/add/) method places the color stops at 0 and 1, the beginning and end of the gradient. Clearing the existing stops ensures that only these two colors are used.
+Gradient blend màu qua một hình. Ví dụ này đổ màu gradient tuyến tính cho một hình ellipse với góc 45 độ từ đỏ sang tím bằng [FillFormat.gradient_format](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/gradient_format/). Phương thức [GradientStopCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/gradientstopcollection/add/) đặt các điểm dừng màu ở 0 và 1, đầu và cuối gradient. Xóa các điểm dừng hiện có đảm bảo chỉ hai màu này được dùng.
 
 ```python
 import aspose.slides as slides
@@ -295,15 +295,15 @@ with slides.Presentation() as presentation:
 
 Kết quả:
 
-![Ellipse với đổ màu gradient](gradient-fill.png)
+![Hình elip với màu gradient](gradient-fill.png)
 
-If a gradient looks different in an exported image than it does in PowerPoint, see [Choose a Gradient Rendering Style](/slides/vi/python-net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). You can select a rendering style without changing the gradient fill stored in the presentation.
+Nếu gradient trông khác trong ảnh xuất khẩu so với trong PowerPoint, xem [Choose a Gradient Rendering Style](/slides/vi/python-net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Bạn có thể chọn kiểu kết xuất mà không thay đổi gradient được lưu trong bản trình chiếu.
 
-### **Đặt góc Gradient tuyến tính**
+### **Đặt Góc Gradient Tuyến Tính**
 
-Use [GradientFormat.linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/) to control the orientation of a [GradientShape.LINEAR](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/) fill. The angle is measured in degrees and increases clockwise: `0` runs from left to right, `90` from top to bottom, `180` from right to left, and `270` from bottom to top. Fractional angles are supported. Finite angles outside `[0, 360)` are normalized to one revolution; for example, `-45` becomes `315` and `360` becomes `0`.
+Use [GradientFormat.linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/) để điều khiển hướng của một màu [GradientShape.LINEAR](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/) . Góc tính bằng độ và tăng theo chiều kim đồng hồ: `0` chạy từ trái sang phải, `90` từ trên xuống dưới, `180` từ phải sang trái, và `270` từ dưới lên trên. Hỗ trợ góc thập phân. Các góc ngoài khoảng `[0, 360)` được chuẩn hoá thành một vòng quay; ví dụ, `-45` trở thành `315` và `360` trở thành `0`.
 
-This example creates six rectangles with identical red, green, and blue stops at positions `0`, `0.5`, and `1`. Scaling is disabled so that the angle can be compared independently of the rectangles' proportions. The angles, from left to right, are `0`, `45`, and `90` in the first row, and `135`, `180`, and `270` in the second row.
+Ví dụ này tạo sáu hình chữ nhật với các điểm dừng màu đỏ, xanh lá và xanh dương giống nhau ở các vị trí `0`, `0.5`, và `1`. Tỷ lệ bị tắt để góc có thể so sánh độc lập với tỉ lệ hình chữ nhật. Các góc, từ trái sang phải, là `0`, `45`, và `90` ở hàng đầu, và `135`, `180`, và `270` ở hàng thứ hai.
 
 ```python
 import aspose.slides as slides
@@ -336,13 +336,13 @@ with slides.Presentation() as presentation:
 
 Kết quả trong PowerPoint:
 
-![Gradient tuyến tính ở các góc 0, 45, 90 độ ở hàng trên và 135, 180, 270 độ ở hàng dưới](linear-gradient-angles.png)
+![Gradient tuyến tính ở các góc 0, 45 và 90 độ ở hàng trên, và 135, 180 và 270 độ ở hàng dưới](linear-gradient-angles.png)
 
-### **Phóng đại Gradient tuyến tính cùng Hình**
+### **Tỷ lệ Gradient Tuyến Tính với Hình**
 
-[GradientFormat.linear_gradient_scaled](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_scaled/) accepts a [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) value. Set it explicitly to `FALSE` to keep the geometric gradient angle as the shape's proportions change, or to `TRUE` to scale the gradient with the shape's width and height. With scaling enabled, the visible angle can differ from the assigned angle on a non-square shape.
+[GradientFormat.linear_gradient_scaled](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_scaled/) nhận một giá trị [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/). Đặt thành `FALSE` để giữ góc gradient hình học khi tỷ lệ hình thay đổi, hoặc `TRUE` để tỷ lệ gradient cùng với chiều rộng và chiều cao của hình. Khi bật tỷ lệ, góc hiển thị có thể khác góc đã chỉ định trên hình không vuông.
 
-The following example uses a `45`-degree angle and the same color stops as the angle comparison. The left column uses `FALSE`; the right column uses `TRUE`. Each column contains a wide rectangle above a tall rectangle. Both start with the same wide dimensions; changing the second rectangle's width and height demonstrates how the fill responds to resizing without changing its gradient settings.
+Ví dụ sau dùng góc `45` độ và các điểm dừng màu giống như so sánh góc. Cột trái dùng `FALSE`; cột phải dùng `TRUE`. Mỗi cột chứa một hình chữ nhật rộng trên một hình chữ nhật cao. Cả hai bắt đầu với cùng kích thước rộng; việc thay đổi chiều rộng và chiều cao của hình chữ nhật thứ hai cho thấy cách màu nền phản hồi khi thay đổi kích thước mà không thay đổi cài đặt gradient.
 
 ```python
 import aspose.slides as slides
@@ -378,19 +378,19 @@ with slides.Presentation() as presentation:
     presentation.save("linear_gradient_scaling.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kết quả trong PowerPoint, với phóng đại tắt ở phía trái và bật ở phía phải:
+Kết quả trong PowerPoint, với tỷ lệ tắt ở bên trái và bật ở bên phải:
 
-![Các hình chữ nhật rộng và cao với gradient 45 độ, so sánh linear_gradient_scaled FALSE bên trái và TRUE bên phải](linear-gradient-scaling.png)
+![Các hình chữ nhật rộng và cao với gradient góc 45 độ, so sánh linear_gradient_scaled FALSE ở bên trái với TRUE ở bên phải](linear-gradient-scaling.png)
 
-Với phóng đại tắt, các dải màu chéo giữ cùng hướng trong cả hai hình chữ nhật. Với phóng đại bật, các dải màu kéo dài theo tỷ lệ của hình. Điều này giúp tái tạo gradient của mẫu khi điều chỉnh kích thước hình. Trên một hình vuông, bật phóng đại không thay đổi ngoại hình của gradient 45 độ này.
+Với tỷ lệ tắt, các dải màu chéo giữ cùng hướng trong cả hai hình. Với tỷ lệ bật, các dải kéo dài theo tỉ lệ hình. Điều này giúp tái tạo gradient của một mẫu khi điều chỉnh hình sang kích thước khác. Trên hình vuông, bật tỷ lệ không thay đổi giao diện của gradient `45` độ.
 
-Both the angle and scaling settings apply to linear gradients. They do not control [GradientShape.RADIAL or GradientShape.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/) fills.
+Cả góc và cài đặt tỷ lệ đều áp dụng cho gradient tuyến tính. Chúng không điều khiển các màu [GradientShape.RADIAL hoặc GradientShape.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/).
 
-### **Kết hợp góc với hướng Gradient**
+### **Kết hợp Góc với Hướng Gradient**
 
-[GradientFormat.gradient_direction](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/gradient_direction/) selects a gradient style from the [GradientDirection](https://reference.aspose.com/slides/python-net/aspose.slides/gradientdirection/) enumeration; it is not a substitute for a numeric angle. For a linear gradient, the corner styles can change the area over which the colors are distributed without changing [linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/). Keep the direction unchanged when comparing angles or scaling.
+[GradientFormat.gradient_direction](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/gradient_direction/) chọn kiểu gradient từ phân loại [GradientDirection](https://reference.aspose.com/slides/python-net/aspose.slides/gradientdirection/); nó không phải là thay thế cho góc số. Đối với gradient tuyến tính, các kiểu góc có thể thay đổi khu vực phân phối màu mà không thay đổi [linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/). Giữ hướng không đổi khi so sánh góc hoặc tỷ lệ.
 
-The following example applies the same settings in opposite orders. The two rectangles have the same appearance: assigning the direction before or after the angle does not change the result.
+Ví dụ sau áp dụng cùng cài đặt nhưng theo thứ tự ngược nhau. Hai hình chữ nhật cho cùng kết quả: đặt hướng trước hoặc sau góc không thay đổi kết quả.
 
 ```python
 import aspose.slides as slides
@@ -421,9 +421,9 @@ with slides.Presentation() as presentation:
     presentation.save("linear_gradient_direction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Đổ màu mẫu**
+## **Đổ màu Họa Tiết**
 
-A pattern fill applies a two-color design, such as dots, stripes, or checks. This example uses [PatternFormat.pattern_style](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/pattern_style/) to select a trellis pattern. [PatternFormat.back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) supplies the light gray background, and [PatternFormat.fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) supplies the yellow pattern color.
+Đổ màu họa tiết áp dụng thiết kế hai màu, chẳng hạn chấm, sọc hoặc ô. Ví dụ này dùng [PatternFormat.pattern_style](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/pattern_style/) để chọn mẫu trellis. [PatternFormat.back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) cung cấp nền xám nhạt, và [PatternFormat.fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) cung cấp màu vàng cho mẫu.
 
 ```python
 import aspose.slides as slides
@@ -443,13 +443,13 @@ with slides.Presentation() as presentation:
 
 Kết quả:
 
-![Hình chữ nhật với đổ màu mẫu](pattern-fill.png)
+![Hình chữ nhật với họa tiết](pattern-fill.png)
 
-## **Đổ màu hình ảnh**
+## **Đổ màu Hình Ảnh**
 
-A picture fill uses an image inside a shape. This example requires a local image and uses [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) to load it into the presentation’s image collection. Setting [PictureFillFormat.picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) to the tiled mode repeats the image within the rectangle. The source image used here is shown below:
+Đổ màu hình ảnh sử dụng một ảnh bên trong hình. Ví dụ này yêu cầu một ảnh cục bộ và dùng [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) để tải vào bộ sưu tập ảnh của bản trình chiếu. Đặt [PictureFillFormat.picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) thành chế độ lát sẽ lặp lại ảnh trong hình chữ nhật. Ảnh nguồn được dùng ở đây được hiển thị bên dưới:
 
-![Bức ảnh sen](lotus.png)
+![Hình ảnh hoa sen](lotus.png)
 
 ```python
 import aspose.slides as slides
@@ -472,19 +472,19 @@ Kết quả:
 
 ![Hình dạng với đổ màu hình ảnh](picture-fill.png)
 
-### **Lát ảnh làm texture**
+### **Lát Hình ảnh Thành Kết Cấu**
 
-If you want to set a tiled picture as a texture and customize the tiling behavior, you can use the following properties of the [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) class:
+Nếu bạn muốn đặt một ảnh lát làm kết cấu và tùy chỉnh hành vi lát, có thể sử dụng các thuộc tính sau của lớp [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) :
 
-- [picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/): Đặt chế độ đổ màu hình ảnh—hoặc `TILE` hoặc `STRETCH`.
-- [tile_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_alignment/): Xác định cách các ô ảnh căn chỉnh trong hình.
-- [tile_flip](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_flip/): Kiểm soát việc lật ảnh theo chiều ngang, dọc hoặc cả hai.
-- [tile_offset_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_x/): Đặt độ dịch chuyển ngang của ô ảnh (đơn vị điểm) so với gốc của hình.
-- [tile_offset_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_y/): Đặt độ dịch chuyển dọc của ô ảnh (đơn vị điểm) so với gốc của hình.
-- [tile_scale_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_x/): Xác định tỷ lệ phóng to/thu nhỏ theo chiều ngang của ô ảnh dưới dạng phần trăm.
-- [tile_scale_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_y/): Xác định tỷ lệ phóng to/thu nhỏ theo chiều dọc của ô ảnh dưới dạng phần trăm.
+- [picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/): Đặt chế độ đổ ảnh—hoặc `TILE` hoặc `STRETCH`.
+- [tile_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_alignment/): Xác định căn chỉnh các ô trong hình.
+- [tile_flip](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_flip/): Kiểm soát việc lật ô theo chiều ngang, chiều dọc hoặc cả hai.
+- [tile_offset_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_x/): Đặt độ lệch ngang của ô (điểm) từ gốc hình.
+- [tile_offset_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_y/): Đặt độ lệch dọc của ô (điểm) từ gốc hình.
+- [tile_scale_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_x/): Xác định tỷ lệ ngang của ô dưới dạng phần trăm.
+- [tile_scale_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_y/): Xác định tỷ lệ dọc của ô dưới dạng phần trăm.
 
-This example requires a local image and configures [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) to repeat it at 50% of its original size. Offsets of −32 points shift the tiles horizontally and vertically; bottom-right alignment and flipping in both directions determine how the repeated texture is arranged.
+Ví dụ này yêu cầu một ảnh cục bộ và cấu hình [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) để lặp lại nó ở 50% kích thước gốc. Độ lệch `−32` điểm dịch các ô ngang và dọc; căn chỉnh góc dưới‑phải và lật cả hai hướng quyết định cách kết cấu lặp lại được sắp xếp.
 
 ```python
 import aspose.slides as slides
@@ -513,11 +513,11 @@ with slides.Presentation() as presentation:
 
 Kết quả:
 
-![Các tùy chọn lát ảnh](tile-options.png)
+![Các tùy chọn lát](tile-options.png)
 
-## **Đổ màu đồng nhất**
+## **Đổ màu Đơn**
 
-A solid fill gives a shape a single, uniform color. This example sets [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) to the solid fill mode and assigns yellow through [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/), then saves the rectangle in a presentation.
+Đổ màu đơn cung cấp cho hình một màu duy nhất, đồng nhất. Ví dụ này đặt [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) thành chế độ đổ màu đơn và gán màu vàng qua [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/), sau đó lưu hình chữ nhật trong bản trình chiếu.
 
 ```python
 import aspose.slides as slides
@@ -535,15 +535,71 @@ with slides.Presentation() as presentation:
 
 Kết quả:
 
-![Hình dạng với đổ màu đồng nhất](solid-color-fill.png)
+![Hình dạng với đổ màu đơn](solid-color-fill.png)
 
-## **Sử dụng nền slide làm nền cho hình**
+### **Sao chép Màu trong Khi Giữ Tham chiếu Chủ đề**
 
-Use [AutoShape.use_background_fill](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/use_background_fill/) when a shape should match the slide background, for example in a presentation template. Set [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) to [FillType.NOT_DEFINED](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) first to remove any explicit fill. With this combination, the shape uses the slide background instead of its style fill. Enabling the flag alone does not remove an existing explicit fill.
+Use [ColorFormat.copy_from](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/copy_from/) để sao chép định nghĩa màu, bao gồm loại màu, tham chiếu chủ đề và các biến đổi. Điều này hữu ích khi chuyển màu đổ giữa các hình mà vẫn muốn chúng tiếp tục theo chủ đề của bản trình chiếu. Phương thức chỉ sao chép màu: không sao chép kiểu đổ, viền hoặc các định dạng hình khác. Đặt [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) của đích một cách rõ ràng.
 
-This differs from [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/): background fill covers objects behind the shape with the corresponding area of the slide background, while no fill leaves those objects visible. A gradient remains aligned with the slide rather than restarting inside each shape.
+Ví dụ này tạo ba hình chữ nhật, từ trái sang phải: nguồn, bản sao nhận thức chủ đề, và bản sao RGB cố định. Nguồn dùng [ColorFormat.scheme_color](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/scheme_color/) để tham chiếu màu nhấn đầu tiên và thêm một độ sáng qua [ColorOperationCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/coloroperationcollection/add/). Bản sao RGB dùng màu đổ hiệu quả của nguồn nên ba hình ban đầu trông giống nhau. Gán [ColorFormat.color](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color/) đặt giá trị RGB cố định và xóa mọi biến đổi màu hiện có.
 
-The following example creates a master background inherited by the slide and places a magenta band behind three rectangles. The left rectangle uses the background, the middle rectangle has no fill, and the right rectangle switches from background fill to an explicit orange fill.
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(660, 220, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    presentation.master_theme.color_scheme.accent1.color = draw.Color.royal_blue
+
+    source = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 40, 180, 140)
+    theme_copy = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 240, 40, 180, 140)
+    rgb_copy = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 450, 40, 180, 140)
+
+    for shape in (source, theme_copy, rgb_copy):
+        shape.fill_format.fill_type = slides.FillType.SOLID
+        shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    source_color = source.fill_format.solid_fill_color
+    source_color.scheme_color = slides.SchemeColor.ACCENT1
+    source_color.color_transform.add(slides.ColorTransformOperation.TINT, 0.75)
+
+    theme_copy.fill_format.solid_fill_color.copy_from(source_color)
+    rgb_copy.fill_format.solid_fill_color.color = source.fill_format.get_effective().solid_fill_color
+
+    with slide.get_image(1.0, 1.0) as before:
+        before.save("color-copy-before.png", slides.ImageFormat.PNG)
+
+    # Các tham chiếu chủ đề sẽ theo màu nhấn mới; giá trị RGB cố định thì không.
+    presentation.master_theme.color_scheme.accent1.color = draw.Color.orange_red
+
+    with slide.get_image(1.0, 1.0) as after:
+        after.save("color-copy-after.png", slides.ImageFormat.PNG)
+    presentation.save("copied_colors.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Trước khi thay đổi chủ đề, ba màu nền đều khớp:
+
+![Nguồn, đích copy_from và đích RGB cố định với màu nền xanh giống nhau](color-copy-before.png)
+
+Sau khi thay đổi chủ đề, nguồn và bản sao nhận thức chủ đề sẽ theo màu nhấn mới và giữ độ sáng. Bản sao RGB cố định vẫn giữ màu xanh:
+
+![Nguồn và đích copy_from với màu cam, trong khi đích RGB cố định vẫn màu xanh](color-copy-after.png)
+
+Định nghĩa đã sao chép độc lập với nguồn. Thay đổi tham chiếu chủ đề, gán màu khác, hoặc thêm/bớt biến đổi của nguồn sau này sẽ không ảnh hưởng tới đích. Thay đổi chủ đề vẫn ảnh hưởng tới cả hai hình vì mỗi hình đều tham chiếu riêng vào cùng một màu chủ đề.
+
+Lưu và mở lại PPTX giữ nguyên [ColorFormat.color_type](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color_type/), tham chiếu chủ đề và bộ sưu tập [ColorFormat.color_transform](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color_transform/) ; không làm phẳng định nghĩa thành RGB.
+
+Khi sao chép giữa các ngữ cảnh chủ đề khác nhau, chẳng hạn các bản trình chiếu có bảng màu nhấn khác nhau, tham chiếu đã sao chép sẽ được giải quyết dựa trên chủ đề của đích. Vì vậy cùng một tham chiếu và biến đổi có thể tạo ra màu hiển thị khác nhau. Xem [Presentation Theme](/slides/vi/python-net/presentation-theme/) để biết thêm về cấu hình màu chủ đề.
+
+## **Sử dụng Nền Slide làm Đổ màu cho Hình dạng**
+
+Dùng [AutoShape.use_background_fill](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/use_background_fill/) khi một hình dạng cần khớp với nền slide, ví dụ trong mẫu bản trình chiếu. Đặt [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) thành [FillType.NOT_DEFINED](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) trước để loại bỏ bất kỳ đổ màu nào được chỉ định. Với sự kết hợp này, hình dạng sẽ sử dụng nền slide thay vì đổ màu theo kiểu. Bật cờ này một mình không loại bỏ đổ màu được chỉ định sẵn.
+
+Điều này khác với [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/): đổ nền bao phủ các đối tượng phía sau hình dạng bằng khu vực nền slide tương ứng, trong khi không đổ để các đối tượng đó vẫn hiển thị. Gradient vẫn căn chỉnh với slide thay vì khởi động lại bên trong mỗi hình.
+
+Ví dụ sau tạo một nền master được kế thừa bởi slide và đặt một dải màu hồng phía sau ba hình chữ nhật. Hình chữ nhật trái dùng nền, hình giữa không có đổ, và hình bên phải chuyển từ đổ nền sang đổ màu cam rõ ràng.
 
 ```python
 import aspose.slides as slides
@@ -566,7 +622,7 @@ with slides.Presentation() as presentation:
     gradient.gradient_stops.add(0, draw.Color.dark_blue)
     gradient.gradient_stops.add(1, draw.Color.light_sky_blue)
 
-    # Thêm đối tượng này trước để nó xuất hiện phía sau các hình chữ nhật.
+    # Thêm đối tượng này đầu tiên để nó xuất hiện phía sau các hình chữ nhật.
     band = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 25, 150, 670, 100)
     band.fill_format.fill_type = slides.FillType.SOLID
     band.fill_format.solid_fill_color.color = draw.Color.magenta
@@ -583,7 +639,7 @@ with slides.Presentation() as presentation:
     explicit_shape.fill_format.fill_type = slides.FillType.NOT_DEFINED
     explicit_shape.use_background_fill = True
 
-    # Vô hiệu hoá màu nền trước khi áp dụng màu đổ cụ thể.
+    # Tắt nền slide trước khi áp dụng màu đổ cụ thể.
     explicit_shape.use_background_fill = False
     explicit_shape.fill_format.fill_type = slides.FillType.SOLID
     explicit_shape.fill_format.solid_fill_color.color = draw.Color.orange
@@ -591,15 +647,15 @@ with slides.Presentation() as presentation:
     presentation.save("background_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kết quả, từ trái sang phải: **background fill**, **no fill**, và **explicit fill**. Dải màu hồng nhạt bị ẩn phía sau các hình chữ nhật bên trái và bên phải nhưng vẫn hiện ra qua hình chữ nhật ở giữa.
+Kết quả, từ trái sang phải: **background fill**, **no fill**, và **explicit fill**. Dải màu hồng bị ẩn bởi hình trái và phải nhưng vẫn hiện ra qua hình giữa.
 
-![Nền, không nền và nền màu cam trên dải màu hồng nhạt](background-fill.png)
+![Đổ nền, không đổ, và đổ màu cam rõ ràng trên dải màu hồng](background-fill.png)
 
-The same behavior applies to a background defined directly on the slide or inherited from a layout. The shape uses the slide's resolved background; the example leaves both the slide and layout backgrounds undefined so the master supplies it.
+Hành vi này cũng áp dụng cho nền được định nghĩa trực tiếp trên slide hoặc được kế thừa từ layout. Hình dạng sử dụng nền đã được giải quyết của slide; ví dụ này để cả nền slide và layout không xác định để master cung cấp.
 
-## **Đặt độ trong suốt**
+## **Đặt Độ trong Suốt**
 
-For a solid fill, the color’s alpha component controls opacity: 0 is fully transparent and 255 is fully opaque. This example uses an alpha value of 128 for a yellow rectangle, making it approximately 50% transparent so the rectangle underneath remains visible. The color is assigned through [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/).
+Đối với đổ màu đơn, thành phần alpha của màu kiểm soát độ mờ: 0 là hoàn toàn trong suốt và 255 là hoàn toàn không trong suốt. Ví dụ này dùng giá trị alpha 128 cho một hình chữ nhật màu vàng, làm cho nó gần 50% trong suốt để hình phía dưới vẫn nhìn thấy. Màu được gán qua [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/).
 
 ```python
 import aspose.slides as slides
@@ -623,9 +679,9 @@ Kết quả:
 
 ![Hình dạng trong suốt](shape-transparency.png)
 
-## **Xoay Hình**
+## **Xoay Hình dạng**
 
-Use [Shape.rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) to rotate a shape in the slide plane. The angle is measured in degrees; this example rotates a rectangle 5 degrees clockwise and saves the presentation.
+Dùng [Shape.rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) để xoay một hình trong mặt phẳng slide. Góc tính bằng độ; ví dụ này xoay một hình chữ nhật 5 độ theo chiều kim đồng hồ và lưu bản trình chiếu.
 
 ```python
 import aspose.slides as slides
@@ -641,11 +697,11 @@ with slides.Presentation() as presentation:
 
 Kết quả:
 
-![Xoay hình](shape-rotation.png)
+![Xoay hình dạng](shape-rotation.png)
 
-## **Thêm hiệu ứng bevel 3D**
+## **Thêm Hiệu Ứng Bờ Nổi 3D**
 
-Use [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) to give a shape depth and beveled edges. This example creates a green ellipse with an orange outline, sets [ThreeDFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) to 4 points, and applies a circular top bevel with a width and height of 6 points through [ThreeDFormat.bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/). A front-facing orthographic camera and three-point lighting make the bevel visible.
+Dùng [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) để cho hình có độ sâu và các cạnh bờ nổi. Ví dụ này tạo một ellipse xanh lá với viền orange, đặt [ThreeDFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) thành 4 điểm, và áp dụng bờ trên tròn với độ rộng và chiều cao 6 điểm qua [ThreeDFormat.bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/). Camera trực giao phía trước và ánh sáng ba‑điểm làm cho bờ nổi rõ ràng.
 
 ```python
 import aspose.slides as slides
@@ -673,11 +729,11 @@ with slides.Presentation() as presentation:
 
 Kết quả:
 
-![Hiệu ứng bevel 3D](3D-bevel-effect.png)
+![Hiệu ứng bờ nổi 3D](3D-bevel-effect.png)
 
-## **Thêm hiệu ứng xoay 3D**
+## **Thêm Hiệu Ứng Xoay 3D**
 
-A shape’s 3D view is controlled by its camera settings. This example uses [Camera.set_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/set_rotation/) with latitude, longitude, and revolution angles of 40, 35, and 20 degrees, respectively. It selects an isometric camera through [Camera.camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) and balanced lighting through [LightRig.light_type](https://reference.aspose.com/slides/python-net/aspose.slides/lightrig/light_type/), then saves the formatted rectangle.
+Góc nhìn 3D của một hình được kiểm soát bởi cài đặt camera. Ví dụ này dùng [Camera.set_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/set_rotation/) với góc vĩ độ, kinh độ và vòng quay lần lượt là 40, 35 và 20 độ. Nó chọn một camera isometric qua [Camera.camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) và ánh sáng cân bằng qua [LightRig.light_type](https://reference.aspose.com/slides/python-net/aspose.slides/lightrig/light_type/), sau đó lưu hình chữ nhật đã định dạng.
 
 ```python
 import aspose.slides as slides
@@ -698,13 +754,13 @@ Kết quả:
 
 ![Hiệu ứng xoay 3D](3D-rotation-effect.png)
 
-## **Kiểm soát hiển thị Đen-Trắng cho Hình**
+## **Kiểm soát Định dạng Đen‑Trắng cho Hình dạng**
 
-The [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) property specifies how an individual shape is rendered when a presentation is viewed or processed in black-and-white mode. It does not enable black-and-white display by itself, and it does not change the shape's fill, line, or other formatting in normal color mode.
+Thuộc tính [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) chỉ định cách một hình riêng lẻ được render khi bản trình chiếu được xem hoặc xử lý ở chế độ đen‑trắng. Nó không tự động bật chế độ hiển thị đen‑trắng và không thay đổi màu nền, đường viền hoặc các định dạng khác trong chế độ màu bình thường.
 
-Use a value from the [BlackWhiteMode](https://reference.aspose.com/slides/python-net/aspose.slides/blackwhitemode/) enumeration to select the desired behavior. For example, `AUTOMATIC` lets the rendering application choose the conversion, `GRAY` and `LIGHT_GRAY` use gray coloring, `BLACK_WHITE` uses only black and white, `BLACK` and `WHITE` force a single color, `COLOR` preserves normal coloring, and `HIDDEN` omits the shape in black-and-white mode. `NOT_DEFINED` means that no shape-level mode is assigned.
+Dùng một giá trị từ phân loại [BlackWhiteMode](https://reference.aspose.com/slides/python-net/aspose.slides/blackwhitemode/) để chọn hành vi mong muốn. Ví dụ, `AUTOMATIC` để ứng dụng render chọn cách chuyển đổi, `GRAY` và `LIGHT_GRAY` dùng màu xám, `BLACK_WHITE` chỉ dùng màu đen và trắng, `BLACK` và `WHITE` buộc một màu duy nhất, `COLOR` giữ màu bình thường, và `HIDDEN` bỏ qua hình trong chế độ đen‑trắng. `NOT_DEFINED` nghĩa là không có chế độ cấp riêng cho hình.
 
-This example creates an orange rectangle and sets [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) to gray. The saved shape retains its orange fill for normal color display and requests gray coloring from applications that honor black-and-white display settings:
+Ví dụ này tạo một hình chữ nhật orange và đặt [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) thành `GRAY`. Hình đã lưu vẫn giữ màu orange ở chế độ màu bình thường và yêu cầu màu xám từ các ứng dụng tôn trọng thiết lập hiển thị đen‑trắng.
 
 ```python
 import aspose.slides as slides
@@ -721,11 +777,11 @@ with slides.Presentation() as presentation:
     presentation.save("shape_black_white_mode.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-In normal color mode, the rectangle retains its orange fill. In a black-and-white display workflow, it uses gray coloring because its mode is set to `GRAY`. This lets you preserve a full-color slide while defining a distinct appearance for printing, previewing, or other workflows that honor the presentation's black-and-white display settings.
+Trong chế độ màu bình thường, hình chữ nhật giữ màu orange. Trong quy trình hiển thị đen‑trắng, nó dùng màu xám vì chế độ được đặt thành `GRAY`. Điều này cho phép bạn giữ slide đầy màu trong khi định nghĩa một giao diện riêng cho in ấn, xem trước hoặc các quy trình khác tôn trọng thiết lập hiển thị đen‑trắng của bản trình chiếu.
 
-## **Đặt lại định dạng**
+## **Đặt lại Định dạng**
 
-Use [Slide.reset](https://reference.aspose.com/slides/python-net/aspose.slides/slide/reset/) to restore the position, size, and formatting of slide placeholders from their corresponding layout placeholders. This example requires an existing presentation with layout-linked placeholders and resets every slide before saving. Shapes without corresponding layout placeholders are not reset.
+Dùng [Slide.reset](https://reference.aspose.com/slides/python-net/aspose.slides/slide/reset/) để khôi phục vị trí, kích thước và định dạng của các placeholder slide từ các placeholder layout tương ứng. Ví dụ này yêu cầu một bản trình chiếu hiện có với các placeholder liên kết layout và đặt lại mọi slide trước khi lưu. Các hình không có placeholder layout tương ứng sẽ không được đặt lại.
 
 ```python
 import aspose.slides as slides
@@ -737,16 +793,16 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("reset_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Does shape formatting affect the final presentation file size?**
+**Định dạng hình dạng có ảnh hưởng đến kích thước cuối cùng của tệp bản trình chiếu không?**
 
-Colors, line styles, and effect settings generally add little data compared with embedded images and media. Picture fills can increase the file size because their images are stored in the presentation.
+Màu, kiểu đường và cài đặt hiệu ứng thường chỉ thêm một lượng dữ liệu nhỏ so với ảnh và phương tiện nhúng. Đổ màu hình ảnh có thể làm tăng kích thước tệp vì ảnh của chúng được lưu trong bản trình chiếu.
 
-**How can I detect shapes on a slide that share identical formatting so I can group them?**
+**Làm sao tôi có thể phát hiện các hình dạng trên một slide có cùng định dạng để tôi có thể nhóm chúng?**
 
-Compare each shape’s key formatting properties—fill, line, and effect settings. If all corresponding values match, treat their styles as identical and logically group those shapes, which simplifies later style management.
+So sánh các thuộc tính định dạng chính của mỗi hình — màu nền, đường viền và cài đặt hiệu ứng. Nếu tất cả các giá trị tương ứng trùng khớp, coi chúng là cùng một kiểu và nhóm logic các hình đó, giúp quản lý kiểu sau này dễ dàng hơn.
 
-**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
+**Tôi có thể lưu một bộ các kiểu hình dạng tùy chỉnh vào một tệp riêng để tái sử dụng trong các bản trình chiếu khác không?**
 
-Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and reapply their formatting wherever required.
+Có. Lưu các hình mẫu với kiểu mong muốn trong một slide mẫu hoặc tệp .POTX. Khi tạo bản trình chiếu mới, mở mẫu, sao chép các hình đã định dạng bạn cần và áp dụng lại định dạng của chúng ở nơi cần.

@@ -1,5 +1,5 @@
 ---
-title: قالب‌بندی اشکال پاورپوینت در C++
+title: قالب‌بندی اشکال PowerPoint در C++
 linktitle: قالب‌بندی شکل
 type: docs
 weight: 20
@@ -7,38 +7,38 @@ url: /fa/cpp/shape-formatting/
 keywords:
 - قالب‌بندی شکل
 - قالب‌بندی خط
-- اثر اسکچ
+- افکت اسکچ
 - خط اسکچ شکل
 - قالب‌بندی سبک اتصال
-- پر کردن گرادیان
-- پر کردن الگو
-- پر کردن تصویر
-- پر کردن بافت
-- پر کردن رنگ ثابت
+- پرکردن گرادیان
+- پرکردن الگو
+- پرکردن تصویر
+- پرکردن بافت
+- پرکردن رنگ یکدست
 - شفافیت شکل
-- رندرینگ سیاه‌سفید شکل
-- رندرینگ خاکستری شکل
+- رندرینگ شکل سیاه‑سفید
+- رندرینگ شکل خاکستری
 - چرخاندن شکل
-- اثر برجستگی سه‌بعدی
-- اثر چرخش سه‌بعدی
+- افکت برجسته‌سازی سه‌بعدی
+- افکت چرخش سه‌بعدی
 - بازنشانی قالب‌بندی
-- PowerPoint
+- پاورپوینت
 - ارائه
 - C++
 - Aspose.Slides
-description: "یاد بگیرید چگونه اشکال پاورپوینت را در C++ با استفاده از Aspose.Slides—پر کردن، خط و سبک‌های اثر را برای فایل‌های PPT و PPTX با دقت و کنترل کامل تنظیم کنید."
+description: "یاد بگیرید چگونه اشکال PowerPoint را در C++ با استفاده از Aspose.Slides قالب‌بندی کنید—قالب‌های پرکردن، خط و افکت را برای فایل‌های PPT و PPTX با دقت و کنترل کامل تنظیم کنید."
 ---
 ## **مقدمه**
 
-شکل‌ها را در پاورپوینت با تنظیم خطوط پیرامون، پرکردن‌ها و اثرات قالب‌بندی کنید. Aspose.Slides for C++ به شما امکان می‌دهد این تنظیمات را به‌صورت برنامه‌نویسی کنترل کنید، از جمله شفافیت، چرخش و قالب‌بندی سه‌بعدی.
+شکل‌ها را در PowerPoint با تنظیم خطوط حاشیه، پرکردن‌ها و افکت‌ها قالب‌بندی کنید. Aspose.Slides for C++ به شما امکان می‌دهد این تنظیمات را به‌صورت برنامه‌نویسی کنترل کنید، از جمله شفافیت، چرخش و قالب‌بندی سه‌بعدی.
 
-![گزینه‌های قالب‌بندی شکل در پاورپوینت](format-shape-powerpoint.png)
+![گزینه‌های قالب‌بندی شکل در PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for C++ رابط‌ها و متدهایی را فراهم می‌کند که به شما امکان می‌دهد شکل‌ها را با استفاده از همان گزینه‌های موجود در PowerPoint قالب‌بندی کنید.
+Aspose.Slides for C++ رابط‌ها و متدهایی را فراهم می‌کند که به شما اجازه می‌دهد شکل‌ها را با استفاده از همان گزینه‌های موجود در PowerPoint قالب‌بندی کنید.
 
 ## **قالب‌بندی خطوط**
 
-از [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) برای کنترل خطوط پیرامون یک شکل استفاده کنید. این مثال یک مستطیل بدون پرکردن با یک خط دورن آبی تولید می‌کند. [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) یک خط ترکیبی ضخیم‑نازک را انتخاب می‌کند، در حالی که [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) عرض آن را به ۷ پوینت تنظیم می‌کند و [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) الگوی خط تیره را انتخاب می‌کند.
+از [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) برای کنترل حاشیه یک شکل استفاده کنید. این مثال یک مستطیل بدون پرکردن با حاشیه آبی خط‌چین ایجاد می‌کند. [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) یک خط ترکیبی ضخیم‑نازک را انتخاب می‌کند، در حالی که [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) عرض آن را به ۷ پوینت تنظیم می‌کند و [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) الگوی خط‌چین را انتخاب می‌کند.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -79,15 +79,15 @@ presentation->Dispose();
 
 نتیجه:
 
-![خطوط قالب‌بندی‌شده در ارائه](formatted-lines.png)
+![خطوط قالب‌بندی شده در ارائه](formatted-lines.png)
 
-### **تنظیم الگوهای سفارشی خط تیره**
+### **تنظیم الگوهای خط‌چین سفارشی**
 
-از [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) وقتی سبک‌های پیش‌تعریف‌شده خطLengths یا فواصل مورد نیاز شما را ارائه نمی‌دهند، برای مثال برای خطوط برند یا نمودارهای فنی، استفاده کنید. اختصاص یک الگو به‌صورت خودکار سبک خط را به [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) تغییر می‌دهد.
+از [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) زمانی که سبک‌های پیش‌فرض خط طول‌ها و فواصل مورد نیاز شما را فراهم نمی‌کنند، مثلاً برای خطوط برند یا نمودارهای فنی، استفاده کنید. اختصاص یک الگو به‌صورت خودکار سبک خط را به [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) تغییر می‌دهد.
 
-ورودی‌های آرایه به صورت متناوب بین طول خط تیره و فاصله جفت می‌شوند، با یک خط تیره شروع می‌شود. هر مقدار مضرب عرض خط است: `{ 4, 2 }` در عرض ۳ پوینت یک خط تیره ۱۲ پوینتی سپس فاصله ۶ پوینتی تولید می‌کند. از جفت‌های مقدار متناهی و غیرمنفی برای تعریف بخش‌های کامل خط تیره‑فاصله استفاده کنید. این مثال از مقادیر مثبت برای نمایش واضح هر خط تیره و فاصله استفاده می‌کند.
+مقادیر آرایه به‌صورت متناوب بین طول خط و فاصله جابجا می‌شوند و با یک خط شروع می‌شوند. هر مقدار مضربی از عرض خط است: `{ 4, 2 }` با عرض ۳ پوینت یک خط ۱۲ پوینتی سپس یک فاصله ۶ پوینتی تولید می‌کند. برای تعریف بخش‌های کامل خط‑و‑فاصله از جفت‌های مقادیر محدود، غیرمنفی استفاده کنید. مثال از مقادیر مثبت برای مشاهده واضح هر خط و فاصله استفاده می‌کند.
 
-این مثال پنج خط آبی با طول یکسان و سرهای صاف ایجاد می‌کند. سه خط اول الگوها را در عرض ۳ پوینت مقایسه می‌کنند. خط چهارم الگوی اول را در دو برابر عرض تکرار می‌کند و طول خط تیره و فاصله را نیز دو برابر می‌کند. خط پنجم از الگوی سفارشی به خط صلحی سوئیچ می‌کند.
+این مثال پنج خط آبی با همان طول و سرهای صاف ایجاد می‌کند. سه خط اول الگوها را با عرض ۳ پوینت مقایسه می‌کنند. خط چهارم همان الگو را با دو برابر عرض تکرار می‌کند و طول خط و فاصله را دو برابر می‌کند. خط پنجم از الگوی سفارشی به خط یکدست تغییر می‌یابد.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -147,25 +147,26 @@ presentation->Save(u"custom_dash_patterns.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-برای بازگشت به یک سبک پیش‌تعریف‌شده خط تیره، به‌جای آن [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) را به [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) پاس بدهید. سبک انتخاب‌شده ظاهر خط را کنترل می‌کند.
+برای بازگشت به یک سبک خط‌چین پیش‌فرض، به‌جای آن [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) را به [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) پاس بدهید. سبک انتخابی ظاهر خط را کنترل می‌کند.
 
-نتیجه در PowerPoint، از بالا به پایین: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; و **Solid, 3 pt**.
+نتیجه در PowerPoint، از بالا به پایین: **{4, 2}, 3 pt**؛ **{1, 2}, 3 pt**؛ **{6, 2, 1, 2}, 3 pt**؛ **{4, 2}, 6 pt**؛ و **Solid, 3 pt**.
 
-![سه الگوی سفارشی خط تیره، یک خط ضخیم‌تر با استفاده از اولین الگو، و یک خط پیوسته در PowerPoint](custom-dash-patterns.png)
+![سه الگو خط‌چین سفارشی، خطی پهن‌تر با اولین الگو، و خط یکدست در PowerPoint](custom-dash-patterns.png)
+
 
 ### **تنظیم سرهای خط**
 
-از [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) برای تنظیم انتهای یک خط باز استفاده کنید. شمارش [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) سه سبک سر صریح را فراهم می‌کند:
+از [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) برای تنظیم سرهای یک خط باز استفاده کنید. شمارش [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) سه سبک صریح سر را ارائه می‌دهد:
 
 - `Flat`: خط در نقطه انتها متوقف می‌شود.
-- `Round`: یک سر نیم‌دایره‌ای تا نصف عرض خط جلوتر از نقطه انتها ادامه دارد.
-- `Square`: یک سر مربعی تا نصف عرض خط جلوتر از نقطه انتها ادامه دارد.
+- `Round`: یک سر نیم‌دایره‌ای به اندازه نصف عرض خط فراسوی نقطه انتها گسترش می‌یابد.
+- `Square`: یک سر مربعی به اندازه نصف عرض خط فراسوی نقطه انتها گسترش می‌یابد.
 
-این شمارش همچنین شامل `NotDefined` است که به این معنی است که هیچ سبک سر صریحی تخصیص داده نشده است.
+این شمارش همچنین `NotDefined` را شامل می‌شود که به این معنی است که هیچ سبک سر صریحی اختصاص داده نشده است.
 
-سرها با سرهای فلش متفاوت هستند؛ سرهای فلش نمادهایی را به انتهای خط اضافه می‌کنند و اتصالات گوشه‌های بین بخش‌های خط را کنترل می‌کنند. این مثال سرهای فلش را از طریق [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) و [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) غیرفعال می‌کند تا فقط شکل سرها مقایسه شوند.
+سرها متفاوت از سرهای پیکان هستند که نمادهایی به انتهای خط اضافه می‌کنند، و از اتصالات که گوشه‌های بین بخش‌های خط را کنترل می‌کنند. این مثال سرهای پیکان را از طریق [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) و [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) غیرفعال می‌کند تا فقط اشکال سر مقایسه شوند.
 
-مثال زیر سه خط افقی تقریباً یکسان با عرض ۲۰ پوینت ایجاد می‌کند. از بالا به پایین، آن‌ها به ترتیب از سرهای flat، round و square استفاده می‌کنند. نقاط انتهایی آن‌ها همان مختصات افقی را دارند؛ سرهای round و square ۱۰ پوینت جلوتر از هر انتها ادامه می‌یابند.
+مثال زیر سه خط افقی تقریباً یکسان با عرض ۲۰ پوینت ایجاد می‌کند. از بالا به پایین، سرهای صاف، گرد و مربعی استفاده می‌شوند. نقاط انتهایی آن‌ها هم مختصات افقی یکسان دارند؛ سرهای گرد و مربعی ۱۰ پوینت بیش از هر انتها گسترش می‌یابند.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -215,15 +216,15 @@ presentation->Save(u"line_caps.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-نتیجه در PowerPoint، از بالا به پایین: **Flat**, **Round**, and **Square**.
+نتیجه در PowerPoint، از بالا به پایین: **Flat**, **Round**, و **Square**.
 
-![سرهای Flat، Round و Square روی خطوط ضخیم یکسان در PowerPoint](line-caps.png)
+![سرهای صاف، گرد و مربعی بر روی خطوط ضخیم یکسان در PowerPoint](line-caps.png)
 
-## **اعمال اثرات Sketch به خطوط شکل**
+## **اعمال افکت‌های اسکچ به خطوط شکل‌ها**
 
-یک اثر Sketch باعث می‌شود خط شکل شبیه به دست‌کشیده باشد. از [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) برای دسترسی به تنظیمات خط، از [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) برای دسترسی به تنظیمات Sketch و از [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) برای انتخاب مقداری از شمارش [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) استفاده کنید.
+یک افکت اسکچ باعث می‌شود خط شکل دست‌نویس به‌نظر برسد. از [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) برای دسترسی به تنظیمات خط، از [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) برای دسترسی به تنظیمات اسکچ، و از [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) برای انتخاب مقداری از شمارش [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) استفاده کنید.
 
-کد C++ زیر نشان می‌دهد چگونه اثر [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) را اعمال کنید، مقدار اختصاص‌یافته صریحاً بخوانید و اثر را با [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) حذف کنید:
+کد C++ زیر نشان می‌دهد چگونه افکت [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) را اعمال کنید، مقدار اختصاص داده شده را بخوانید، و با [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) افکت را حذف کنید:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -254,7 +255,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-مقداری که توسط [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) برگردانده می‌شود، تنظیمی است که مستقیماً به شکل اختصاص یافته است. اگر قالب‌بندی خط بتواند از تم، اسلاید اصلی یا اسلاید طرح‌بندی به ارث برده شود، از [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/) استفاده کنید، به [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) دسترسی پیدا کنید و [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/) را بخوانید. مقدار مؤثر بازتاب‌دهندهٔ قالب‌بندی است که پس از حل ارث‌بری واقعاً اعمال می‌شود. این مثال به ارائه‌ای موجود با حداقل یک شکل در اسلاید اول نیاز دارد و هر دو مقدار را چاپ می‌کند:
+مقداری که توسط [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) برگردانده می‌شود، تنظیمی است که مستقیم به شکل اختصاص یافته است. اگر قالب‌بندی خط می‌تواند از یک تم، اسلاید اصلی یا اسلاید چیدمان به ارث برده شود، از [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/) استفاده کنید، به [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) دسترسی پیدا کنید، و مقدار [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/) را بخوانید. مقدار مؤثر نشان‌دهنده قالب‌بندی است که پس از حل ارث‌بری واقعاً اعمال می‌شود. این مثال به یک ارائه موجود با حداقل یک شکل در اسلاید اول نیاز دارد و هر دو مقدار را چاپ می‌کند:
 
 ```cpp
 #include <DOM/ILineFormat.h>
@@ -286,17 +287,17 @@ presentation->Dispose();
 
 ## **قالب‌بندی سبک‌های اتصال**
 
-در اینجا سه گزینه نوع اتصال موجود است:
+سه گزینه نوع اتصال عبارتند از:
 
 * Round
 * Miter
 * Bevel
 
-سبک اتصال تعیین می‌کند دو بخش پیرامون چگونه در گوشه به‌یکدیگر می‌پیوندند. برای گوشه‌های گرد از **Round**، برای گوشه‌های تیز از **Miter** و برای گوشه‌های مسطوح از **Bevel** استفاده کنید.
+سبک اتصال نحوهٔ اتصال دو بخش حاشیه را در گوشه کنترل می‌کند. برای گوشه‌های گرد از **Round**، برای گوشه‌های تیز از **Miter**، یا برای گوشه‌های مسطح از **Bevel** استفاده کنید.
 
 ![سبک اتصال در ارائه](join-style-powerpoint.png)
 
-این مثال سه مستطیل سیاه با خطوط دورن آبی به عرض ۱۵ پوینت ایجاد می‌کند. با استفاده از [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) مقادیر miter، bevel و round شمارش [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) را به ترتیب تنظیم می‌کند تا نحوهٔ رسم گوشه‌ها مقایسه شود.
+این مثال سه مستطیل سیاه با خطوط حاشیه آبی به عرض ۱۵ پوینت ایجاد می‌کند. با استفاده از [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) به ترتیب مقدارهای مایتر، بویل و راند از شمارش [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) تنظیم می‌شود تا مشاهده شود گوشه‌ها چگونه رسم می‌شوند.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -359,11 +360,11 @@ presentation->Dispose();
 
 ### **محدود کردن اتصالات مایتر در گوشه‌های تیز**
 
-از [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) همراه با [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) که به [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) تنظیم شده است، برای محدود کردن میزان گسترش یک گوشهٔ تیز استفاده کنید.
+از [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) همراه با [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) تنظیم‌شده به [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) برای محدود کردن میزان گسترش یک گوشه تیز استفاده کنید.
 
-محدودیت نسبتی است از فاصلهٔ بین گوشه‌های داخلی و خارجی اتصال به عرض خط. برای مثال، مقدار `8` اجازه می‌دهد طول مایتر تا هشت برابر عرض خط باشد؛ این یک اندازه‌گیری به پوینت نیست. اگر گوشه از محدودیت عبور کند، PowerPoint در آن گوشه از اتصال bevel استفاده می‌کند. محدودیت بزرگ‌تر نقاط تیزتر ایجاد می‌کند. این تنظیم فقط بر اتصالات مایتر تأثیر می‌گذارد و تغییر آن وقتی گوشه در هر دو محدودیت باقی بماند، تأثیری قابل مشاهده ندارد.
+محدودیت نسبتی از فاصله بین گوشه داخلی و خارجی اتصال به عرض خط است. به‌عنوان مثال، مقدار `8` اجازه می‌دهد طول مایتر تا هشت برابر عرض خط باشد؛ این یک اندازه در پوینت نیست. اگر گوشه از این حد فراتر رود، PowerPoint در آن گوشه از اتصال بویل استفاده می‌کند. مقدار بزرگ‌تر نقاط تیزتر را امکان‌پذیر می‌کند. این تنظیم فقط بر اتصالات مایتر تأثیر دارد و تغییر آن اثری روی نمایش ندارد وقتی گوشه در هر دو حد محدود باقی می‌ماند.
 
-این مثال دو مثلث بدون پرکردن یکسان با خطوط دورن به عرض ۲۰ پوینت ایجاد می‌کند. مثلث چپ از محدودیت `2` و مثلث راست از `8` استفاده می‌کند. هر مثلث به عرض ۸۰ پوینت و ارتفاع ۱۶۰ پوینت است که نسبت طول مایتر به عرض خط در بالای آن حدود `4.12` است. بنابراین PowerPoint رأس چپ را bevel می‌کند و رأس راست را حفظ می‌کند.
+این مثال دو مثلث بدون پرکردن یکسان با خطوط حاشیه به عرض ۲۰ پوینت ایجاد می‌کند. مثلث چپ از حد `2` استفاده می‌کند و راست از `8`. هر مثلث به عرض ۸۰ پوینت و ارتفاع ۱۶۰ پوینت است که نسبت طول مایتر به عرض خط گوشهٔ بالایی تقریباً `4.12` است. بنابراین PowerPoint گوشهٔ چپ را بویل می‌کند و گوشهٔ راست را حفظ می‌کند.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -412,11 +413,11 @@ presentation->Dispose();
 
 نتیجه در PowerPoint: **Miter limit 2** در سمت چپ و **miter limit 8** در سمت راست.
 
-![یک رأس برش‌خورده با محدودیت مایتر 2 و یک رأس نوک‌دار با محدودیت مایتر 8 در PowerPoint](miter-limits.png)
+![یک نقطه بویل با حد مایتر ۲ و یک نقطه نوک‌دار با حد مایتر ۸ در PowerPoint](miter-limits.png)
 
-## **پر کردن گرادیان**
+## **پرکردن گرادیان**
 
-یک پر کردن گرادیان رنگ‌ها را در طول یک شکل ترکیب می‌کند. این مثال یک بیضی را با یک گرادیان خطی به زاویهٔ ۴۵ درجه از قرمز به بنفش پر می‌کند با استفاده از [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). متد [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) نقاط توقف رنگ را در ۰ و ۱، یعنی آغاز و پایان گرادیان قرار می‌دهد. پاک‌سازی نقاط توقف موجود اطمینان می‌دهد فقط این دو رنگ استفاده شوند.
+پر کردن گرادیان رنگ‌ها را در یک شکل ترکیب می‌کند. این مثال یک بیضی را با گرادیان خطی به زاویهٔ ۴۵ درجه از قرمز به بنفش پر می‌کند با استفاده از [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). متد [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) نقاط رنگ را در ۰ و ۱، آغاز و انتهای گرادیان قرار می‌دهد. پاک کردن نقاط توقف موجود تضمین می‌کند که فقط این دو رنگ استفاده شوند.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -457,15 +458,15 @@ presentation->Dispose();
 
 نتیجه:
 
-![بیضی با پر کردن گرادیان](gradient-fill.png)
+![بیضی با پرکردن گرادیان](gradient-fill.png)
 
-اگر یک گرادیان در تصویر صادرشده نسبت به همان‌گونه در PowerPoint متفاوت به‌نظر می‌رسد، به [انتخاب سبک رندرینگ گرادیان](/slides/fa/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) مراجعه کنید. می‌توانید یک سبک رندرینگ را بدون تغییر گرادیان ذخیره‌شده در ارائه انتخاب کنید.
+اگر یک گرادیان در تصویر صادراتی نسبت به PowerPoint متفاوت به‌نظر برسد، به [Choose a Gradient Rendering Style](/slides/fa/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) مراجعه کنید. می‌توانید سبک رندرینگ را بدون تغییر گرادیان ذخیره‌شده در ارائه انتخاب کنید.
 
-### **تنظیم زاویه گرادیان خطی**
+### **تنظیم زاویهٔ گرادیان خطی**
 
-از [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) برای کنترل جهت یک پر کردن [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) استفاده کنید. زاویه به درجه اندازه‌گیری می‌شود و ساعت‌گرد افزایشی است: `0` از چپ به راست، `90` از بالا به پایین، `180` از راست به چپ و `270` از پایین به بالا. زاویه‌های کسری پشتیبانی می‌شوند. زاویه‌های متناهی خارج از `[0, 360)` به یک دور نرمال‌سازی می‌شوند؛ برای مثال `-45` تبدیل به `315` و `360` تبدیل به `0` می‌شود.
+از [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) برای کنترل جهت یک پرکردن [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) استفاده کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود و به‌صورت ساعتگرد افزایش می‌یابد: `0` از چپ به راست، `90` از بالا به پایین، `180` از راست به چپ، و `270` از پایین به بالا. زوایای کسری نیز پشتیبانی می‌شوند. زوایای محدودی خارج از `[0, 360)` به یک دور کامل نرمال می‌شوند؛ برای مثال `-45` تبدیل به `315` و `360` تبدیل به `0` می‌شود.
 
-این مثال شش مستطیل با نقاط توقف قرمز، سبز و آبی یکسان در موقعیت‌های `0`، `0.5` و `1` ایجاد می‌کند. مقیاس‌سازی غیرفعال شده تا زاویه بتواند به‌طور مستقل از نسبت‌های مستطیل‌ها مقایسه شود. زاویه‌ها، از چپ به راست، در ردیف اول `0`، `45` و `90` و در ردیف دوم `135`، `180` و `270` هستند.
+این مثال شش مستطیل با نقاط توقف قرمز، سبز و آبی یکسان در موقعیت‌های `0`، `0.5` و `1` ایجاد می‌کند. مقیاس‌گذاری غیرفعال شده تا زاویه بتواند مستقل از نسبت‌های مستطیل‌ها مقایسه شود. زوایا، از چپ به راست، در ردیف اول `0`، `45` و `90` و در ردیف دوم `135`، `180` و `270` هستند.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -524,13 +525,13 @@ presentation->Dispose();
 
 نتیجه در PowerPoint:
 
-![گرادیان‌های خطی در 0، 45 و 90 درجه در ردیف بالا، و 135، 180 و 270 درجه در ردیف پایین](linear-gradient-angles.png)
+![گرادیان‌های خطی با زاویهٔ ۰، ۴۵ و ۹۰ درجه در ردیف بالا، و ۱۳۵، ۱۸۰ و ۲۷۰ درجه در ردیف پایین](linear-gradient-angles.png)
 
-### **مقیاس‌بندی یک گرادیان خطی با شکل**
+### **مقیاس‌گذاری گرادیان خطی با شکل**
 
-[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) یک مقدار [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) می‌گیرد. به‌صورت صریح `False` تنظیم کنید تا زاویهٔ هندسی گرادیان هنگام تغییر نسبت‌های شکل ثابت بماند، یا `True` تا گرادیان با عرض و ارتفاع شکل مقیاس‌بندی شود. با فعال شدن مقیاس‌بندی، زاویهٔ قابل مشاهده ممکن است در یک شکل غیرمربع متفاوت از زاویهٔ اختصاصی باشد.
+[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) یک مقدار [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) می‌پذیرد. آن را به‌طور صریح به `False` تنظیم کنید تا زاویهٔ هندسی گرادیان همانند تغییر نسبت‌های شکل حفظ شود، یا به `True` تا گرادیان با عرض و ارتفاع شکل مقیاس‌گذاری شود. با فعال‌سازی مقیاس‌گذاری، زاویهٔ قابل‌مشاهده می‌تواند با زاویهٔ اختصاص‌یافته در یک شکل غیر مربعی متفاوت باشد.
 
-مثال زیر از زاویهٔ `45` درجه و همان نقاط توقف رنگی که در مقایسهٔ زاویه استفاده شد، استفاده می‌کند. ستون چپ `False` و ستون راست `True` دارد. هر ستون شامل یک مستطیل عریض بالا و یک مستطیل بلند پایین است. هر دو با همان ابعاد عریض شروع می‌شوند؛ تغییر عرض و ارتفاع مستطیل دوم نشان می‌دهد چگونه پرکردن به تغییر اندازه پاسخ می‌دهد بدون آنکه تنظیمات گرادیان تغییر کنند.
+مثال زیر از زاویهٔ `45` درجه و همان نقاط رنگی که در مقایسهٔ زاویه استفاده شد، استفاده می‌کند. ستون چپ `False` و ستون راست `True` را دارد. هر ستون شامل یک مستطیل پهن بالای یک مستطیل بلند است. هر دو با ابعاد پهن یکسان شروع می‌شوند؛ تغییر عرض و ارتفاع مستطیل دوم نشان می‌دهد پرکردن چگونه بدون تغییر تنظیمات گرادیان به تغییر اندازه واکنش می‌دهد.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -596,19 +597,19 @@ presentation->Save(u"linear_gradient_scaling.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-نتیجه در PowerPoint، با مقیاس‌سازی غیرفعال در چپ و فعال در راست:
+نتیجه در PowerPoint، با مقیاس‌گذاری غیرفعال در چپ و فعال در راست:
 
-![مستطیل‌های عریض و بلند با گرادیان 45 درجه، مقایسه LinearGradientScaled False در سمت چپ با True در سمت راست](linear-gradient-scaling.png)
+![مستطیل‌های پهن و بلند با گرادیان ۴۵ درجه، مقایسه LinearGradientScaled False در چپ با True در راست](linear-gradient-scaling.png)
 
-با غیرفعال کردن مقیاس‌سازی، نوارهای رنگی قطری همان جهت را در هر دو مستطیل حفظ می‌کنند. با فعال شدن مقیاس‌سازی، نوارها با نسبت‌های شکل کشیده می‌شوند. این کمک می‌کند تا گرادیان یک الگو را هنگام تطبیق شکل به اندازهٔ متفاوت بازتولید کنید. در یک مربع، فعال شدن مقیاس‌سازی ظاهر این گرادیان `45` درجه را تغییر نمی‌دهد.
+با غیرفعال بودن مقیاس‌گذاری، نوارهای رنگی اریب در هر دو مستطیل همان جهت را حفظ می‌کنند. با فعال بودن مقیاس‌گذاری، نوارها با نسبت‌های شکل کشیده می‌شوند. این کار به بازتولید گرادیان یک الگو هنگام تغییر اندازهٔ شکل کمک می‌کند. در یک مربع، فعال‌کردن مقیاس‌گذاری ظاهر این گرادیان `45` درجه را تغییر نمی‌دهد.
 
-هر دو تنظیم زاویه و مقیاس برای گرادیان‌های خطی اعمال می‌شوند. آن‌ها بر پر کردن‌های [GradientShape::Radial یا GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) تأثیری ندارند.
+هر دو تنظیم زاویه و مقیاس‌گذاری فقط برای گرادیان‌های خطی اعمال می‌شوند. آن‌ها بر پرکردن‌های [GradientShape::Radial یا GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) تأثیری ندارند.
 
 ### **ترکیب زاویه با جهت گرادیان**
 
-[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) یک سبک گرادیان را از شمارش [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/) انتخاب می‌کند؛ این جایگزین یک زاویه عددی نیست. برای یک گرادیان خطی، سبک‌های گوشه می‌توانند ناحیهٔ توزیع رنگ‌ها را بدون تغییر زاویه‌ای که از طریق [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) تنظیم شده است، تغییر دهند. جهت را در زمان مقایسهٔ زوایا یا مقیاس ثابت نگه دارید.
+[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) یک سبک گرادیان را از شمارش [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/) انتخاب می‌کند؛ این جایگزینی برای زاویهٔ عددی نیست. برای یک گرادیان خطی، سبک‌های گوشه می‌توانند ناحیه‌ای که رنگ‌ها توزیع می‌شوند را بدون تغییر زاویه‌ای که از طریق [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) اختصاص داده شده است، تغییر دهند. هنگام مقایسهٔ زاویه یا مقیاس‌گذاری، جهت را بدون تغییر نگه دارید.
 
-مثال زیر همان تنظیمات را به ترتیب مخالف اعمال می‌کند. دو مستطیل ظاهر یکسانی دارند: اختصاص جهت قبل یا بعد از زاویه نتیجه را تغییر نمی‌دهد.
+مثال زیر تنظیمات یکسان را به ترتیب مخالف اعمال می‌کند. دو مستطیل ظاهری مشابه دارند: اختصاص جهت قبل یا بعد از زاویه تغییری در نتیجه ایجاد نمی‌کند.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -667,9 +668,9 @@ presentation->Save(u"linear_gradient_direction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **پر کردن الگو**
+## **پرکردن الگو**
 
-یک پر کردن الگو یک طرح دو‌رنگ مانند نقطه‌ها، خط‌خط‌ها یا شطرنجی‌ها را اعمال می‌کند. این مثال از [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) برای انتخاب الگوی trellis استفاده می‌کند. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) پس‌زمینهٔ خاکستری روشن را فراهم می‌کند و [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) رنگ زرد الگو را فراهم می‌کند.
+پر کردن الگو یک طرح دو‌رنگ مانند نقطه‌ها، خط‌ها یا 체크‌ها اعمال می‌کند. این مثال با استفاده از [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) یک الگوی trellis را انتخاب می‌کند. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) پس‌زمینهٔ خاکستری روشن را فراهم می‌کند و [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) رنگ زرد الگو را می‌دهد.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -706,13 +707,13 @@ presentation->Dispose();
 
 نتیجه:
 
-![مستطیل با پر کردن الگو](pattern-fill.png)
+![مستطیل با پرکردن الگو](pattern-fill.png)
 
-## **پر کردن تصویر**
+## **پرکردن تصویر**
 
-یک پر کردن تصویر از یک عکس داخل یک شکل استفاده می‌کند. این مثال نیاز به یک تصویر محلی دارد و از [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) برای بارگذاری آن در مجموعهٔ تصاویر ارائه استفاده می‌کند. تنظیم [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) به حالت tiled تصویر را داخل مستطیل تکرار می‌کند. تصویر منبع استفاده‌شده در زیر نشان داده شده است:
+پرکردن تصویر از یک تصویر داخل یک شکل استفاده می‌کند. این مثال به یک تصویر محلی نیاز دارد و از [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) برای بارگذاری آن در مجموعهٔ تصاویر ارائه استفاده می‌کند. تنظیم [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) به حالت کاشی‌شده تصویر را داخل مستطیل تکرار می‌کند. تصویر منبع استفاده‌شده در زیر نمایش داده شده است:
 
-![عکس نیلوفرآبی](lotus.png)
+![عکس لوتوس](lotus.png)
 
 ```cpp
 #include <DOM/FillType.h>
@@ -753,21 +754,21 @@ presentation->Dispose();
 
 نتیجه:
 
-![شکل با پر کردن تصویر](picture-fill.png)
+![شکل با پرکردن تصویر](picture-fill.png)
 
-### **کاشی‌گذاری تصویر به‌عنوان بافت**
+### **کاشی کردن تصویر به عنوان بافت**
 
-اگر می‌خواهید تصویر تایل‌شده را به‌عنوان بافت تنظیم کرده و رفتار تایلینگ را سفارشی کنید، می‌توانید از روش‌های زیر رابط [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) و کلاس [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) استفاده کنید:
+اگر می‌خواهید یک تصویر کاشی‌شده را به‌عنوان بافت تنظیم کنید و رفتار کاشی‌بندی را سفارشی کنید، می‌توانید از متدهای زیر رابط [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) و کلاس [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) استفاده کنید:
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): حالت پر کردن تصویر را تنظیم می‌کند—یا `Tile` یا `Stretch`.
-- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): تراز کاشی‌ها را داخل شکل مشخص می‌کند.
-- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): تعیین می‌کند آیا کاشی به صورت افقی، عمودی یا هر دو وارونه شود.
-- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): افست افقی کاشی (به پوینت) از مبدأ شکل را تنظیم می‌کند.
-- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): افست عمودی کاشی (به پوینت) از مبدأ شکل را تنظیم می‌کند.
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): حالت پرکردن تصویر را تنظیم می‌کند — یا `Tile` یا `Stretch`.
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): تراز کاشی‌ها داخل شکل را مشخص می‌کند.
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): تعیین می‌کند که کاشی به‌صورت افقی، عمودی یا هر دو معکوس شود.
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): افست افقی کاشی (به پوینت) را از مبدأ شکل تنظیم می‌کند.
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): افست عمودی کاشی (به پوینت) را از مبدأ شکل تنظیم می‌کند.
 - [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): مقیاس افقی کاشی را به‌صورت درصد تعریف می‌کند.
 - [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): مقیاس عمودی کاشی را به‌صورت درصد تعریف می‌کند.
 
-این مثال نیاز به یک تصویر محلی دارد و [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) را طوری تنظیم می‌کند که تصویر را با ۵۰٪ از اندازهٔ اصلی خود تکرار کند. افست‌های −۳۲ پوینت کاشی‌ها را به صورت افقی و عمودی جابجا می‌کند؛ تراز پایین‑راست و وارونه شدن در هر دو جهت تعیین می‌کند که بافت تکرار شده چگونه چینش شود.
+این مثال به یک تصویر محلی نیاز دارد و [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) را طوری تنظیم می‌کند که آن را با ۵۰٪ اندازهٔ اصلی تکرار کند. افست‌های −۳۲ پوینت کاشی را به‌صورت افقی و عمودی جابجا می‌کند؛ تراز راست‑پایین و معکوس‌سازی در هر دو جهت نحوهٔ چیدمان بافت تکراری را تعیین می‌کند.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -820,9 +821,9 @@ presentation->Dispose();
 
 ![گزینه‌های کاشی](tile-options.png)
 
-## **پر کردن رنگ ثابت**
+## **پرکردن رنگ یکدست**
 
-یک پر کردن ثابت به شکل یک رنگ واحد و یکنواخت می‌دهد. این مثال [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) را به حالت پر کردن ثابت تنظیم می‌کند و با استفاده از [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) رنگ زرد را اختصاص می‌دهد، سپس مستطیل را در یک ارائه ذخیره می‌کند.
+پرکردن یکدست به شکل یک رنگ یکنواخت می‌دهد. این مثال [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) را به حالت پرکردن یکدست تنظیم می‌کند و با استفاده از [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) رنگ زرد را اختصاص می‌دهد، سپس مستطیل را در یک ارائه ذخیره می‌کند.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -855,15 +856,104 @@ presentation->Dispose();
 
 نتیجه:
 
-![شکل با پر کردن رنگ ثابت](solid-color-fill.png)
+![شکل با پرکردن رنگ یکدست](solid-color-fill.png)
 
-## **استفاده از پس‌زمینه اسلاید به‌عنوان پر کردن شکل**
+### **کپی رنگ‌ها در حالی که مراجع تم حفظ می‌شود**
 
-از [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) زمانی استفاده کنید که یک شکل باید با پس‌زمینهٔ اسلاید مطابقت داشته باشد، برای مثال در یک قالب ارائه. ابتدا [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) را به [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) تنظیم کنید تا هر پر کردن صریحی حذف شود. با این ترکیب، شکل از پس‌زمینهٔ اسلاید به‌جای سبک پرکردن خود استفاده می‌کند. فعال‌سازی تنها این پرچم، پر کردن صریح موجود را حذف نمی‌کند.
+از [IColorFormat::CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/copyfrom/) برای کپی‌کردن تعریف رنگ، شامل نوع رنگ، مرجع تم و تبدیلات استفاده کنید. این کار زمانی مفید است که بخواهید رنگ پرکردن را بین شکل‌هایی که باید به تم ارائه ادامه دهند، انتقال دهید. این متد فقط رنگ را کپی می‌کند: نوع پرکردن، حاشیه یا دیگر قالب‌بندی‌های شکل را کپی نمی‌کند. نوع پرکردن مقصد را به‌صورت صریح با [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) تنظیم کنید.
 
-این رفتار با [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) متفاوت است: پر کردن پس‌زمینه اشیای پشت شکل را با ناحیهٔ متناظر پس‌زمینه اسلاید می‌پوشاند، در حالی که بدون پر کردن آن اشیاء را قابل مشاهده می‌گذارد. یک گرادیان همچنان نسبت به اسلاید هم‌راستا می‌ماند و داخل هر شکل دوباره شروع نمی‌شود.
+این مثال سه مستطیل ایجاد می‌کند؛ از چپ به راست: منبع، کپی آگاهی از تم، و کپی RGB ثابت. منبع با استفاده از [IColorFormat::set_SchemeColor](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_schemecolor/) به اولین رنگ تأکیدی ارجاع می‌دهد و با [IColorOperationCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icoloroperationcollection/add/) یک تیرگی اضافه می‌کند. کپی RGB از رنگ پرکردن مؤثر منبع استفاده می‌کند به طوری که هر سه در ابتدا یکسان به‌نظر می‌رسند. فراخوانی [IColorFormat::set_Color](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_color/) مقدار RGB ثابت را تنظیم و هر تبدیل رنگ موجود را پاک می‌کند.
 
-مثال زیر یک پس‌زمینهٔ اصلی که توسط اسلاید به ارث برده می‌شود ایجاد می‌کند و یک نوار سرخی پشت سه مستطیل قرار می‌دهد. مستطیل چپ از پس‌زمینه استفاده می‌کند، مستطیل وسط بدون پر کردن است و مستطیل راست از پر کردن پس‌زمینه به یک پر کردن صریح نارنجی سوئیچ می‌کند.
+```cpp
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(660, 220, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_RoyalBlue());
+
+auto source = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+auto themeCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+auto rgbCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+for (auto shape : { source, themeCopy, rgbCopy })
+{
+    shape->get_FillFormat()->set_FillType(FillType::Solid);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+}
+
+auto sourceColor = source->get_FillFormat()->get_SolidFillColor();
+sourceColor->set_SchemeColor(SchemeColor::Accent1);
+sourceColor->get_ColorTransform()->Add(ColorTransformOperation::Tint, 0.75f);
+
+themeCopy->get_FillFormat()->get_SolidFillColor()->CopyFrom(sourceColor);
+auto effectiveFill = source->get_FillFormat()->GetEffective();
+rgbCopy->get_FillFormat()->get_SolidFillColor()->set_Color(effectiveFill->get_SolidFillColor());
+
+auto before = slide->GetImage(1.0f, 1.0f);
+before->Save(u"color-copy-before.png", ImageFormat::Png);
+before->Dispose();
+
+// مراجع تم پس از رنگ تأکیدی جدید به‌روز می‌شوند؛ مقدار ثابت RGB تغییر نمی‌کند.
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_OrangeRed());
+
+auto after = slide->GetImage(1.0f, 1.0f);
+after->Save(u"color-copy-after.png", ImageFormat::Png);
+after->Dispose();
+presentation->Save(u"copied_colors.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+قبل از تغییر تم، هر سه پرکردن یکسان هستند:
+
+![منبع، مقصد CopyFrom و مقصد RGB ثابت با پرکردن‌های آبی یکسان](color-copy-before.png)
+
+پس از تغییر تم، منبع و کپی آگاهی از تم به رنگ تأکیدی جدید پیروی می‌کنند و تیرگی خود را حفظ می‌کنند. کپی RGB ثابت آبی می‌ماند:
+
+![منبع و مقصد CopyFrom با پرکردن‌های نارنجی، در حالی که مقصد RGB ثابت آبی می‌ماند](color-copy-after.png)
+
+تعریف کپی‌شده مستقل از منبع است. تغییر بعدی مرجع تم منبع، اختصاص رنگ دیگری، یا افزودن یا حذف تبدیلات آن، مقصد را تغییر نمی‌دهد. تغییر تم هنوز بر هر دو شکل اثر می‌گذارد زیرا هر کدام به طور مستقل به همان رنگ تم ارجاع می‌دهند.
+
+ذخیره و بازکردن مجدد PPTX نوع رنگ کپی‌شده را حفظ می‌کند، که از طریق [IColorFormat::get_ColorType](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortype/) در دسترس است، مرجع تم آن و مجموعهٔ تبدیلات رنگی که توسط [IColorFormat::get_ColorTransform](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortransform/) برگردانده می‌شود؛ این تعریف به RGB مسطح نمی‌شود.
+
+هنگام کپی بین زمینه‌های تم متفاوت، مانند ارائه‌هایی با پالت‌های تأکیدی مختلف، مرجع کپی‌شده نسبت به تم مقصد حل می‌شود. بنابراین همان مرجع و تبدیلات می‌توانند رنگ قابل‌مشاهده متفاوتی تولید کنند. برای پیکربندی رنگ‌های تم به [Presentation Theme](/slides/fa/cpp/presentation-theme/) مراجعه کنید.
+
+## **استفاده از پس‌زمینهٔ اسلاید به‌عنوان پرکردن شکل**
+
+از [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) زمانی که شکل باید با پس‌زمینهٔ اسلاید مطابقت داشته باشد، مثلاً در یک قالب ارائه، استفاده کنید. ابتدا [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) را به [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) تنظیم کنید تا هر پرکردن صریحی حذف شود. با این ترکیب، شکل از پس‌زمینهٔ اسلاید به‌جای پرکردن سبک خود استفاده می‌کند. تنها فعال‌سازی پرچم، پرکردن صریح موجود را حذف نمی‌کند.
+
+این رفتار متفاوت از [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) است: پرکردن پس‌زمینه اشیاء پشت شکل را با ناحیهٔ متناظر پس‌زمینهٔ اسلاید پوشش می‌دهد، در حالی که بدون پرکردن این اشیا قابل مشاهده می‌مانند. یک گرادیان نیز به اسلاید هم‌راستا می‌ماند به‌جای اینکه در هر شکل دوباره شروع شود.
+
+مثال زیر یک پس‌زمینهٔ مادر که توسط اسلاید به ارث می‌رسد ایجاد می‌کند و یک نوار سرخ‌کرم پشت سه مستطیل قرار می‌دهد. مستطیل چپ از پس‌زمینه استفاده می‌کند، مستطیل میانی بدون پرکردن است و مستطیل راست از پس‌زمینه به پرکردن صریح نارنجی سوئیچ می‌کند.
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -898,7 +988,7 @@ auto presentation = MakeObject<Presentation>();
 presentation->get_SlideSize()->SetSize(720, 400, SlideSizeScaleType::DoNotScale);
 auto slide = presentation->get_Slide(0);
 
-// گرادیان را از مستر به ارث ببرید.
+// به ارث بردن گرادیان از مستر.
 slide->get_Background()->set_Type(BackgroundType::NotDefined);
 slide->get_LayoutSlide()->get_Background()->set_Type(BackgroundType::NotDefined);
 auto background = slide->get_LayoutSlide()->get_MasterSlide()->get_Background();
@@ -911,7 +1001,7 @@ gradient->get_GradientStops()->Clear();
 gradient->get_GradientStops()->Add(0, Color::get_DarkBlue());
 gradient->get_GradientStops()->Add(1, Color::get_LightSkyBlue());
 
-// این شی را ابتدا اضافه کنید تا پشت مستطیل‌ها ظاهر شود.
+// این شیء را ابتدا اضافه کنید تا پشت مستطیل‌ها ظاهر شود.
 auto band = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 25, 150, 670, 100);
 band->get_FillFormat()->set_FillType(FillType::Solid);
 band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Magenta());
@@ -928,7 +1018,7 @@ auto explicitShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 510
 explicitShape->get_FillFormat()->set_FillType(FillType::NotDefined);
 explicitShape->set_UseBackgroundFill(true);
 
-// قبل از اعمال پر کردن صریح، پر کردن پس‌زمینه را غیرفعال کنید.
+// قبل از اعمال پرکردن صریح، پرکردن پس‌زمینه را غیرفعال کنید.
 explicitShape->set_UseBackgroundFill(false);
 explicitShape->get_FillFormat()->set_FillType(FillType::Solid);
 explicitShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
@@ -937,15 +1027,15 @@ presentation->Save(u"background_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-نتیجه، از چپ به راست: **background fill**, **no fill**, and **explicit fill**. نوار سرخی توسط مستطیل‌های چپ و راست پنهان می‌شود اما از طریق مستطیل وسط قابل مشاهده است.
+نتیجه، از چپ به راست: **پرکردن پس‌زمینه**، **بدون پرکردن**، و **پرکردن صریح**. نوار سرخ‌کرم توسط مستطیل‌های چپ و راست مخفی می‌شود اما از طریق مستطیل میانی قابل مشاهده است.
 
-![پر کردن پس‌زمینه، بدون پر کردن، و پر کردن نارنجی صریح روی نوار صورتی](background-fill.png)
+![پرکردن پس‌زمینه، بدون پرکردن، و پرکردن صریح نارنجی روی نوار سرخ‌کرم](background-fill.png)
 
-رفتار مشابهی برای پس‌زمینه‌ای که مستقیماً روی اسلاید تعریف شده یا از یک طرح‌بندی ارث برده می‌شود اعمال می‌شود. شکل از پس‌زمینهٔ حل‌شدهٔ اسلاید استفاده می‌کند؛ در این مثال هم پس‌زمینهٔ اسلاید و هم پس‌زمینهٔ طرح‌بندی تعریف نشده‌اند تا پیش‌زمینه آن را فراهم کند.
+همین رفتار برای پس‌زمینه‌ای که مستقیماً بر روی اسلاید تعریف شده یا از یک لایه به ارث می‌رود، اعمال می‌شود. شکل از پس‌زمینهٔ حل‌شدهٔ اسلاید استفاده می‌کند؛ مثال هر دو پس‌زمینهٔ اسلاید و لایه را Undefined می‌گذارد تا مادر آن را فراهم کند.
 
 ## **تنظیم شفافیت**
 
-برای یک پر کردن ثابت، مؤلفهٔ آلفای رنگ کنترل‌کنندهٔ شفافیت است: ۰ کاملاً شفاف و ۲۵۵ کاملاً مات است. این مثال از مقدار آلفا ۱۲۸ برای یک مستطیل زرد استفاده می‌کند، به‌طوری که تقریباً ۵۰٪ شفاف باشد تا مستطیل زیرین قابل مشاهده بماند. رنگ از طریق [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) اختصاص داده می‌شود.
+برای یک پرکردن یکدست، جزء آلفای رنگ کنترل‌کنندهٔ کدری است: ۰ کاملاً شفاف و ۲۵۵ کاملاً مات. این مثال از مقدار آلفا ۱۲۸ برای یک مستطیل زرد استفاده می‌کند تا تقریباً ۵۰٪ شفاف باشد و مستطیل زیرین قابل رؤیت بماند. رنگ از طریق [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) اختصاص می‌یابد.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -986,10 +1076,10 @@ presentation->Dispose();
 
 ## **چرخاندن شکل‌ها**
 
-از [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) برای چرخاندن یک شکل در صفحهٔ اسلاید استفاده کنید. زاویه به درجه اندازه‌گیری می‌شود؛ این مثال یک مستطیل را ۵ درجه ساعت‌گرد می‌چرخاند و ارائه را ذخیره می‌کند.
+از [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) برای چرخاندن یک شکل در صفحهٔ اسلاید استفاده کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود؛ این مثال یک مستطیل را ۵ درجه ساعتگرد می‌چرخاند و ارائه را ذخیره می‌کند.
 
 ```cpp
-#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShape>/
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
@@ -1001,23 +1091,17 @@ using namespace Aspose::Slides;
 using namespace System;
 using namespace Aspose::Slides::Export;
 
-auto presentation = MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
+auto 
 
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
-shape->set_Rotation(5);
-
-presentation->Save(u"shape_rotation.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
 نتیجه:
 
 ![چرخش شکل](shape-rotation.png)
 
-## **افزودن افکت‌های برجستگی سه‌بعدی**
+## **افزودن افکت‌های برجستهٔ سه‌بعدی**
 
-از [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) برای افزودن عمق و لبه‌های برجسته به یک شکل استفاده کنید. این مثال یک بیضی سبز با خط دورن نارنجی ایجاد می‌کند، [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) را به ۴ پوینت تنظیم می‌کند و یک برجستگی بالائی دایره‌ای با عرض و ارتفاع ۶ پوینت از طریق [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/) اعمال می‌کند. یک دوربین ارتوگرافیک جلو و نورپردازی سه‑نقطه‌ای برجستگی را نشان می‌دهد.
+از [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) برای اضافه کردن عمق و لبه‌های برجسته به یک شکل استفاده کنید. این مثال یک بیضی سبز با حاشیهٔ نارنجی ایجاد می‌کند، [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) را به ۴ پوینت تنظیم می‌کند و یک برجستهٔ بالای دایره‌ای با عرض و ارتفاع ۶ پوینت از طریق [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/) اعمال می‌کند. یک دوربین ارتوگرافیک جلویی و نوردهی سه‌نقطه‌ای برجسته را قابل مشاهده می‌کند.
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -1070,11 +1154,11 @@ presentation->Dispose();
 
 نتیجه:
 
-![افکت برجستگی 3D](3D-bevel-effect.png)
+![افکت برجستهٔ سه‌بعدی](3D-bevel-effect.png)
 
 ## **افزودن افکت‌های چرخش سه‌بعدی**
 
-نمایش سه‌بعدی یک شکل توسط تنظیمات دوربین آن کنترل می‌شود. این مثال از [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) با زاویه‌های عرضی، طولی و دوران به ترتیب ۴۰، ۳۵ و ۲۰ درجه استفاده می‌کند. یک دوربین ایزومتریک را از طریق [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) انتخاب می‌کند و نورپردازی متعادل را از طریق [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) تنظیم می‌کند، سپس مستطیل قالب‌بندی‌شده را ذخیره می‌کند.
+نمایش سه‌بعدی یک شکل توسط تنظیمات دوربین کنترل می‌شود. این مثال از [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) با زاویه‌های عرض، طول و انقلاب به ترتیب ۴۰، ۳۵ و ۲۰ درجه استفاده می‌کند. یک دوربین ایزومتریک از طریق [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) و نوردهی متعادل از طریق [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) انتخاب می‌شود، سپس مستطیل قالب‌بندی‌شده ذخیره می‌شود.
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -1110,15 +1194,15 @@ presentation->Dispose();
 
 نتیجه:
 
-![افکت چرخش 3D](3D-rotation-effect.png)
+![افکت چرخش سه‌بعدی](3D-rotation-effect.png)
 
-## **کنترل رندر کردن سیاه‌سفید برای شکل‌ها**
+## **کنترل رندرینگ سیاه‑سفید برای شکل‌ها**
 
-متد [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) مشخص می‌کند یک شکل به‌تنهایی هنگام مشاهده یا پردازش ارائه در حالت سیاه‌سفید چگونه رندر شود. این متد به‌تنهایی نمایش سیاه‌سفید را فعال نمی‌کند و رنگ، پرکردن یا قالب‌بندی دیگر شکل را در حالت رنگ عادی تغییر نمی‌دهد.
+متد [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) مشخص می‌کند یک شکل به‌تنهایی چگونه در هنگام مشاهده یا پردازش ارائه در حالت سیاه‑سفید رندر می‌شود. این متد به‌تنهایی حالت نمایش سیاه‑سفید را فعال نمی‌کند و قالب‌بندی پرکردن، خط یا دیگر ویژگی‌های شکل را در حالت رنگ عادی تغییر نمی‌دهد.
 
-از مقداری از شمارش [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) برای انتخاب رفتار مطلوب استفاده کنید. برای مثال، `Automatic` اجازه می‌دهد برنامه رندرینگ تصمیم‌گیری کند، `Gray` و `LightGray` رنگ خاکستری استفاده می‌کنند، `BlackWhite` فقط سیاه و سفید، `Black` و `White` یک رنگ واحد اعمال می‌کنند، `Color` رنگ عادی را حفظ می‌کند و `Hidden` شکل را در حالت سیاه‌سفید حذف می‌کند. `NotDefined` به این معناست که هیچ حالت سطح شکل اختصاص داده نشده است.
+از یک مقدار شمارش [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) برای انتخاب رفتار موردنظر استفاده کنید. به‌عنوان مثال، `Automatic` به برنامهٔ رندر اجازه می‌دهد تبدیل را انتخاب کند، `Gray` و `LightGray` از رنگ خاکستری استفاده می‌کنند، `BlackWhite` فقط سیاه و سفید، `Black` و `White` یک رنگ ثابت اعمال می‌کنند، `Color` رنگ عادی را حفظ می‌کند و `Hidden` شکل را در حالت سیاه‑سفید حذف می‌کند. `NotDefined` به این معنی است که هیچ حالت سطح‑شکلی اختصاص داده نشده است.
 
-این مثال یک مستطیل نارنجی ایجاد می‌کند و [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) را روی `Gray` تنظیم می‌کند. شکل ذخیره‌شده پرکردن نارنجی خود را برای نمایش رنگ عادی حفظ می‌کند و برای برنامه‌هایی که تنظیمات نمایش سیاه‌سفید را رعایت می‌کنند، درخواست رنگ خاکستری می‌کند:
+این مثال یک مستطیل نارنجی ایجاد می‌کند و [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) را به `Gray` تنظیم می‌کند. شکل ذخیره‌شده پرکردن نارنجی خود را برای نمایش رنگ عادی حفظ می‌کند و درخواست رنگ خاکستری را از برنامه‌هایی که تنظیمات نمایش سیاه‑سفید را رعایت می‌کنند، می‌کند:
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -1151,11 +1235,11 @@ presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-در حالت رنگ عادی، مستطیل پرکردن نارنجی خود را حفظ می‌کند. در یک گردش کار نمایش سیاه‌سفید، به دلیل تنظیم روی `Gray` رنگ خاکستری استفاده می‌شود. این امکان را می‌دهد تا اسلاید رنگ کامل را حفظ کنید در حالی که برای چاپ، پیش‌نمایش یا سایر گردش‌های کاری که تنظیمات نمایش سیاه‌سفید ارائه را رعایت می‌کنند، ظاهر متمایزی تعریف کنید.
+در حالت رنگ عادی، مستطیل پرکردن نارنجی خود را حفظ می‌کند. در یک جریان کاری نمایش سیاه‑سفید، از رنگ خاکستری استفاده می‌کند چون حالت آن روی `Gray` تنظیم شده است. این امکان را می‌دهد تا اسلاید رنگی کامل را حفظ کنید و ظاهر متفاوتی برای چاپ، پیش‌نمایش یا سایر جریان‌های کاری که تنظیمات نمایش سیاه‑سفید ارائه را رعایت می‌کنند، تعریف کنید.
 
 ## **بازنشانی قالب‌بندی**
 
-از [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) برای بازیابی موقعیت، اندازه و قالب‌بندی مکان‌دارهای اسلاید از مکان‌دارهای متناظر طرح‌بندی آنها استفاده کنید. این مثال به یک ارائه موجود با مکان‌دارهای مرتبط به طرح‌بندی نیاز دارد و قبل از ذخیره هر اسلاید را بازنشانی می‌کند. شکل‌هایی که مکان‌دار متناظر در طرح‌بندی ندارند بازنشانی نمی‌شوند.
+از [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) برای بازگرداندن موقعیت، اندازه و قالب‌بندی فضاهای نگه‌دارندهٔ اسلاید از فضاهای نگه‌دارندهٔ لایهٔ مرتبط استفاده کنید. این مثال به یک ارائه موجود با فضاهای نگه‌دارندهٔ مرتبط با لایه نیاز دارد و قبل از ذخیره کردن هر اسلاید را بازنشانی می‌کند. شکل‌هایی که فضاهای نگه‌دارندهٔ مرتبط ندارند بازنشانی نمی‌شوند.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -1179,16 +1263,16 @@ presentation->Save(u"reset_formatting.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**آیا قالب‌بندی شکل بر اندازه نهایی فایل ارائه تأثیر می‌گذارد؟**
+**آیا قالب‌بندی شکل بر اندازهٔ نهایی فایل ارائه تأثیر می‌گذارد؟**
 
-رنگ‌ها، سبک‌های خط و تنظیمات اثر معمولاً داده کمی اضافه می‌کنند نسبت به تصاویر و رسانه‌های جاسازی‌شده. پر کردن‌های تصویری می‌توانند حجم فایل را افزایش دهند زیرا تصاویرشان در ارائه ذخیره می‌شود.
+رنگ‌ها، سبک‌های خط و تنظیمات افکت معمولاً دادهٔ کمی اضافه می‌کنند نسبت به تصاویر و رسانه‌های تعبیه‌شده. پرکردن‌های تصویر می‌توانند اندازهٔ فایل را افزایش دهند زیرا تصاویرشان در ارائه ذخیره می‌شود.
 
-**چگونه می‌توانم شکل‌هایی را در یک اسلاید که قالب‌بندی یکسان دارند شناسایی کنم تا آن‌ها را گروه‌بندی کنم؟**
+**چگونه می‌توانم شکل‌های یک اسلاید که قالب‌بندی یکسان دارند را شناسایی کنم تا آنها را گروه‌بندی کنم؟**
 
-ویژگی‌های کلیدی قالب‌بندی هر شکل—پرکردن، خط و تنظیمات اثر—را مقایسه کنید. اگر تمام مقادیر متناظر هم‌خوانی داشته باشند، سبک آن‌ها را یکسان در نظر بگیرید و منطقی آن‌ها را گروه‌بندی کنید؛ این کار مدیریت سبک‌ها را در ادامه ساده می‌کند.
+هر یک از ویژگی‌های کلیدی قالب‌بندی شکل‌ها — پرکردن، خط و تنظیمات افکت — را مقایسه کنید. اگر تمام مقادیر متناظر برابر باشند، سبک‌های آنها را یکسان در نظر بگیرید و منطقی آن شکل‌ها را گروه‌بندی کنید؛ این کار مدیریت سبک‌های بعدی را ساده می‌کند.
 
-**آیا می‌توانم مجموعه‌ای از سبک‌های سفارشی شکل را در یک فایل جداگانه ذخیره کنم تا در ارائه‌های دیگر استفاده کنم؟**
+**آیا می‌توانم یک مجموعهٔ سفارشی از سبک‌های شکل را در فایلی جداگانه ذخیره کنم تا در ارائه‌های دیگر استفاده کنم؟**
 
-بله. شکل‌های نمونه با سبک‌های موردنظر را در یک اسلاید الگو یا فایل قالب .POTX ذخیره کنید. هنگام ایجاد یک ارائهٔ جدید، قالب را باز کنید، شکل‌های سبک‌دار موردنیاز را کلون کنید و قالب‌بندی آن‌ها را در هر جایی که لازم است اعمال کنید.
+بله. شکل‌های نمونه با سبک‌های دلخواه را در یک مجموعهٔ اسلاید قالب یا فایل قالب .POTX ذخیره کنید. هنگام ایجاد یک ارائهٔ جدید، قالب را باز کنید، شکل‌های سبک‌دار موردنیاز را شبیه‌سازی (clone) کنید و قالب‌بندی آنها را در هر جایی که لازم است دوباره اعمال کنید.

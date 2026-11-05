@@ -9,36 +9,36 @@ keywords:
 - تنسيق الخط
 - تأثير الرسم التخطيطي
 - خط شكل تخطيطي
-- تنسيق نمط الوصل
+- تنسيق نمط الانضمام
 - تعبئة تدرج لوني
-- تعبئة نمطية
+- تعبئة بنمط
 - تعبئة صورة
-- تعبئة قوام
+- تعبئة نسيج
 - تعبئة لون صلب
 - شفافية الشكل
 - عرض الشكل بالأبيض والأسود
-- عرض الشكل بدرجات الرمادي
-- دوران الشكل
+- عرض الشكل بتدرج الرمادي
+- تدوير الشكل
 - تأثير حافة ثلاثية الأبعاد
 - تأثير دوران ثلاثي الأبعاد
-- إعادة تعيين التنسيق
+- إعادة ضبط التنسيق
 - PowerPoint
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعلم كيفية تنسيق أشكال PowerPoint في Python باستخدام Aspose.Slides—ضبط أنماط التعبئة، الخط، والتأثير لملفات PPT و PPTX و ODP بدقة وتحكم كامل."
+description: "تعلم كيفية تنسيق أشكال PowerPoint في Python باستخدام Aspose.Slides — حدد تعبئة الخطوط وأنماط التأثير لملفات PPT و PPTX و ODP بدقة وتحكم كامل."
 ---
-## **المقدمة**
+## **مقدمة**
 
-قُم بتنسيق الأشكال في PowerPoint عن طريق تعديل حدودها، تعبئاتها، وتأثيراتها. Aspose.Slides for Python via .NET يتيح لك التحكم في هذه الإعدادات برمجيًا، بما في ذلك الشفافية، الدوران، وتنسيق ثلاثي الأبعاد.
+قم بتنسيق الأشكال في PowerPoint عن طريق تعديل حدودها وتعبئتها وتأثيراتها. Aspose.Slides for Python عبر .NET يتيح لك التحكم في هذه الإعدادات برمجيًا، بما في ذلك الشفافية، والدوران، وتنسيق ثلاثي الأبعاد.
 
 ![خيارات تنسيق الشكل في PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Python via .NET يوفر فئات وخصائص تتيح لك تنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
+Aspose.Slides for Python عبر .NET يوفر فئات وخصائص تتيح لك تنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
 
 ## **تنسيق الخطوط**
 
-استخدم [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) للتحكم في حدود الشكل. هذا المثال ينشئ مستطيلًا غير مملوء بحد أزرق متقطع. [LineFormat.style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/style/) يختار خطًا مركبًا سميك‑رفيع، بينما [LineFormat.width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) يعيّن عرضه إلى 7 نقاط و[LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) يختار نمط الشرط.
+استخدم [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) للتحكم في حدود الشكل. يخلق هذا المثال مستطيلًا غير مملوء بحد أزرق متقطع. [LineFormat.style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/style/) يحدد خطًا مركبًا سميكًا-رقيقًا، بينما [LineFormat.width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) يضبط عرضه إلى 7 نقاط و[LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) يختار نمط الخط المتقطع.
 
 ```python
 import aspose.slides as slides
@@ -62,13 +62,13 @@ with slides.Presentation() as presentation:
 
 ![الخطوط المنسقة في العرض التقديمي](formatted-lines.png)
 
-### **تعيين أنماط الشرط المخصصة للخط**
+### **تعيين أنماط خطوط مخصصة**
 
-استخدم [LineFormat.custom_dash_pattern](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/custom_dash_pattern/) عندما لا توفر الأنماط الخطية المحددة مسبقًا أطوال الشرط والفجوات التي تحتاجها، على سبيل المثال للحدود ذات العلامة التجارية أو المخططات التقنية. تعيين نمط يضبط تلقائيًا [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) إلى [LineDashStyle.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/).
+استخدم [LineFormat.custom_dash_pattern](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/custom_dash_pattern/) عندما لا توفر الأنماط المحددة مسبقًا أطوال الفواصل والفجوات التي تحتاجها، على سبيل المثال للحدود ذات العلامة التجارية أو المخططات التقنية. تعيين نمط تلقائيًا يضبط [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) إلى [LineDashStyle.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/).
 
-تتبادل إدخالات القائمة بين أطوال الشرط والفجوة، بدءًا بشرط. كل قيمة هي مضاعف عرض الخط: `[4, 2]` بعرض 3 نقاط ينتج شرطًا بطول 12 نقطة يليه فجوة بطول 6 نقاط. استخدم أزواجًا من القيم المحدودة وغير السالبة لتعريف أقسام الشرط والفجوة الكاملة. المثال يستخدم قيمًا موجبة للحفاظ على رؤية كل شرط وفجوة.
+تتبادل إدخالات القائمة بين أطوال الفواصل والفجوات، بدءًا بفاصل. كل قيمة هي مضاعف لعرض الخط: `[4, 2]` بعرض 3 نقاط ينتج فاصل بطول 12 نقطة يليه فجوة بطول 6 نقاط. استخدم أزواجًا من القيم المحدودة غير السالبة لتحديد أقسام الفاصل والكفافة بالكامل. يستخدم المثال قيمًا موجبة للحفاظ على رؤية كل فاصل وفجوة.
 
-هذا المثال ينشئ خمسة خطوط زرقاء ذات نفس الطول ونهايات مسطحة. الثلاثة الأولى تقارن الأنماط بعرض 3 نقاط. الرابع يكرر النمط الأول بعرض مضاعف، مضاعفًا كلًا من طول الشرط والفجوة. الخامس ينتقل من نمط مخصص إلى خط صلب.
+ينشئ هذا المثال خمس خطوط زرقاء بنفس الطول والنهايات المسطحة. المقاطع الثلاثة الأولى تقارن الأنماط بعرض 3 نقاط. يكرر الرابع النمط الأول بعرض مضاعف، مع مضاعفة أطوال الفواصل والفجوات. يتحول الخامس من نمط مخصص إلى خط صلب.
 
 ```python
 import aspose.slides as slides
@@ -95,31 +95,31 @@ with slides.Presentation() as presentation:
         line.line_format.end_arrowhead_style = slides.LineArrowheadStyle.NONE
         line.line_format.custom_dash_pattern = pattern
 
-    # إرجاع الخط الأخير إلى نمط صلب.
+    # إعادة الخط الأخير إلى نمط صلب.
     slide.shapes[4].line_format.dash_style = slides.LineDashStyle.SOLID
 
     presentation.save("custom_dash_patterns.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-للتبديل إلى نمط متقطع محدد مسبقًا، عيّن [LineDashStyle.DASH](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) إلى [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/). النمط المحدد يتحكم في مظهر الخط.
+للعودة إلى نمط متقطع محدد مسبقًا بدلاً من ذلك، عين [LineDashStyle.DASH](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) إلى [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/). النمط المحدد يتحكم في مظهر الخط.
 
-النتيجة في PowerPoint من الأعلى إلى الأسفل: **{4, 2}, 3 pt**؛ **{1, 2}, 3 pt**؛ **{6, 2, 1, 2}, 3 pt**؛ **{4, 2}, 6 pt**؛ و **Solid, 3 pt**.
+النتيجة في PowerPoint من الأعلى إلى الأسفل: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; و **Solid, 3 pt**.
 
-![ثلاثة أنماط شرط مخصصة، خط أعرض يستخدم النمط الأول، وخط صلب في PowerPoint](custom-dash-patterns.png)
+![ثلاثة أنماط خطوط مخصصة، خط أوسع يستخدم النمط الأول، وخط صلب في PowerPoint](custom-dash-patterns.png)
 
 ### **تعيين نهايات الخط**
 
-استخدم [LineFormat.cap_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/cap_style/) لتعيين نهايات خط مفتوح. تعداد [LineCapStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linecapstyle/) يوفر ثلاث أنماط واضحة للنهاية:
+استخدم [LineFormat.cap_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/cap_style/) لتعيين نهايات الخط المفتوح. توفر تعداد [LineCapStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linecapstyle/) ثلاثة أنماط واضحة للنهايات:
 
-- `FLAT`: يتوقف الخط عند النهاية.
-- `ROUND`: نهاية نصف دائرية تمتد خارج النهاية بنصف عرض الخط.
-- `SQUARE`: نهاية مربعة تمتد خارج النهاية بنصف عرض الخط.
+- `FLAT`: يتوقف الخط عند نقطة النهاية.
+- `ROUND`: يمتد ختم نصف دائري إلى ما بعد نقطة النهاية بنصف عرض الخط.
+- `SQUARE`: يمتد ختم مربع إلى ما بعد نقطة النهاية بنصف عرض الخط.
 
-التعداد أيضًا يشمل `NOT_DEFINED`، مما يعني عدم تعيين نمط نهاية صريح.
+يتضمن التعدد أيضًا `NOT_DEFINED`، مما يعني أنه لم يتم تعيين نمط نهية بشكل صريح.
 
-النهايات تختلف عن رؤوس السهام التي تضيف رموزًا إلى نهايات الخط، وعن الوصلات التي تتحكم في الزوايا بين قطاعات الخط. هذا المثال يعطل رؤوس السهام عبر [LineFormat.begin_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/begin_arrowhead_style/) و[LineFormat.end_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/end_arrowhead_style/) بحيث تُقارن فقط أشكال النهايات.
+النهايات تختلف عن رؤوس الأسهم التي تضيف رموزًا إلى نهايات الخط، والجوانب التي تتحكم في الزوايا بين أقسام الخط. يلغى هذا المثال رؤوس الأسهم عبر [LineFormat.begin_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/begin_arrowhead_style/) و[LineFormat.end_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/end_arrowhead_style/) بحيث يتم مقارنة أشكال النهايات فقط.
 
-المثال التالي ينشئ ثلاثة خطوط أفقية متطابقة عرضها 20 نقطة. من الأعلى إلى الأسفل، تستخدم نهايات مسطحة، مستديرة، ومربعة. إحداثيات نهاياتها أفقية متساوية؛ النهايتان المستديرة والمربعة تمتدان 10 نقاط خارج كل نهاية.
+ينشئ المثال التالي ثلاثة خطوط أفقيّة متطابقة تقريبًا، بعرض 20 نقطة. من الأعلى إلى الأسفل، يستخدمون نهايات مسطحة، مستديرة، ومربعة. نقاط نهاياتهم لها نفس الإحداثيات الأفقية؛ النهايات المستديرة والمربعة تمتد 10 نقاط خارج كل نقطة نهاية.
 
 ```python
 import aspose.slides as slides
@@ -143,15 +143,15 @@ with slides.Presentation() as presentation:
     presentation.save("line_caps.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة في PowerPoint من الأعلى إلى الأسفل: **Flat**, **Round**, و**Square**.
+النتيجة في PowerPoint من الأعلى إلى الأسفل: **Flat**, **Round**, و **Square**.
 
-![نهايات مسطحة، ومستديرة، ومربعة على خطوط سميكة متطابقة في PowerPoint](line-caps.png)
+![نهايات مسطحة، مستديرة، ومربعة على خطوط سميكة متطابقة في PowerPoint](line-caps.png)
 
 ## **تطبيق تأثيرات الرسم التخطيطي على خطوط الشكل**
 
-تجعل تأثيرات الرسم التخطيطي خط الشكل يبدو كأنه مرسم يدويًا. استخدم [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) للوصول إلى إعدادات الخط، [LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) للوصول إلى إعدادات الرسم التخطيطي، و[SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) لاختيار قيمة من تعداد [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/).
+يجعل تأثير الرسم التخطيطي خط الشكل يبدو كأنه مرسوم يدويًا. استخدم [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) للوصول إلى إعدادات الخط، و[LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) للوصول إلى إعدادات الرسم التخطيطي، و[SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) لاختيار قيمة من تعداد [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/).
 
-الكود التالي يوضح كيفية تطبيق تأثير [LineSketchType.CURVED](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) وقراءة القيم المعينة صراحةً، وإزالة التأثير باستخدام [LineSketchType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/):
+يعرض كود Python التالي كيفية تطبيق تأثير [LineSketchType.CURVED](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) ، قراءة القيمة المعينة صراحةً، وإزالة التأثير باستخدام [LineSketchType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/):
 
 ```python
 import aspose.slides as slides
@@ -168,7 +168,7 @@ with slides.Presentation() as presentation:
     sketch_format.sketch_type = slides.LineSketchType.NONE
 ```
 
-القيمة التي تُرجعها [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) تمثل الإعداد المعين مباشرةً إلى الشكل. إذا كان يمكن وراثة تنسيق الخط من سمة أو شريحة رئيسية أو شريحة تخطيط، استخدم [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/)، وصولًا إلى [ILineFormatEffectiveData.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/sketch_format/)، وقراءة [ISketchFormatEffectiveData.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/isketchformateffectivedata/sketch_type/). القيمة الفعّالة تعكس التنسيق الذي يُطبق فعليًا بعد حل الوراثة. يتطلب هذا المثال عرضًا تقديميًا موجودًا يحتوي على شكل واحد على الأقل في شريحته الأولى ويطبع القيمتين:
+القيمة التي تُرجعها [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) تمثل الإعداد المعين مباشرةً إلى الشكل. إذا كان يمكن وراثة تنسيق الخط من سمة أو شريحة رئيسية أو شريحة تخطيط، استخدم [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/)، وصولًا إلى [ILineFormatEffectiveData.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/sketch_format/)، وقراءة [ISketchFormatEffectiveData.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/isketchformateffectivedata/sketch_type/). القيمة الفعلية تعكس التنسيق الذي يطبق فعليًا بعد حل الوراثة. يتطلب هذا المثال عرض تقديمي موجود يحتوي على شكل واحد على الأقل في الشريحة الأولى ويطبع القيمتين:
 
 ```python
 import aspose.slides as slides
@@ -185,18 +185,19 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(f"Effective sketch type: {effective_sketch_type}")
 ```
 
-## **تنسيق أنماط الوصل**
+## **تنسيق أنماط الانضمام**
 
-فيما يلي الخيارات الثلاثة لأنواع الوصل:
-* مستدير
-* ميتّر
-* مشطوف
+إليك ثلاثة خيارات لأنواع الانضمام:
 
-نمط الوصل يتحكم في كيفية اتصال قطعتين من الحدود عند الزاوية. استخدم **Round** للزوايا المستديرة، **Miter** للزوايا الحادة، أو **Bevel** للزوايا المشطوفة.
+* Round
+* Miter
+* Bevel
 
-![نمط الوصل في العرض التقديمي](join-style-powerpoint.png)
+يتحكم نمط الانضمام في طريقة التقاء مقطعي الحد عند الزاوية. استخدم **Round** للزوايا المستديرة، **Miter** للزوايا الحادة، أو **Bevel** للزوايا المسطحة.
 
-هذا المثال ينشئ ثلاثة مستطيلات سوداء بحدود زرقاء عرضها 15 نقطة. يعيّن [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) إلى قيم الميتّر، المشطوف، والمستدير من تعداد [LineJoinStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) على التوالي، لمقارنة طريقة رسم الزوايا.
+![نمط الانضمام في العرض التقديمي](join-style-powerpoint.png)
+
+ينشئ هذا المثال ثلاثة مستطيلات سوداء بحدود زرقاء بعرض 15 نقطة. يضبط [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) على قيم الميتر، والبيفل، والدائري من تعداد [LineJoinStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) على التوالي، لمقارنة كيفية رسم الزوايا.
 
 ```python
 import aspose.slides as slides
@@ -238,13 +239,13 @@ with slides.Presentation() as presentation:
     presentation.save("join_styles.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **تحديد وصلات الميتّر عند الزوايا الحادة**
+### **تقييد الانضمام الميتر عند الزوايا الحادة**
 
-استخدم [LineFormat.miter_limit](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/miter_limit/) مع [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) مضبوطة على [LineJoinStyle.MITER](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) لتحديد الحد الأقصى لامتداد الزاوية الحادة.
+استخدم [LineFormat.miter_limit](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/miter_limit/) مع تعيين [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) إلى [LineJoinStyle.MITER](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) لتقييد مدى امتداد الزاوية الحادة.
 
-الحد هو نسبة المسافة بين الزاويتين الداخلية والخارجية للوصلة إلى عرض الخط. على سبيل المثال، القيمة `8` تسمح بطول ميتّر يصل إلى ثماني مرات عرض الخط؛ لا تُقاس بالنقاط. إذا تجاوزت الزاوية الحد، يستخدم PowerPoint وصلة مشطوفة في تلك الزاوية. زيادة الحد تسمح بنقاط أكثر حدة. الإعداد يؤثر فقط على وصلات الميتّر، ولا يظهر أي أثر مرئي عند بقاء الزاوية ضمن الحدين.
+الحد هو نسبة المسافة بين الزوايا الداخلية والخارجية للانضمام إلى عرض الخط. على سبيل المثال، القيمة `8` تسمح بطول ميتر يصل إلى ثماني مضاعفات عرض الخط؛ ليست قياسًا بالنقاط. إذا تجاوزت الزاوية الحد، يستخدم PowerPoint انضمامًا مِفلًّا في تلك الزاوية. يتيح الحد الأكبر نقاطًا أكثر حدة. يؤثر هذا الإعداد فقط على انضمامات الميتر، ولا يُظهر أي تأثير مرئي عند بقاء الزاوية ضمن الحدين.
 
-هذا المثال ينشئ مثلثين غير مملئين متطابقين بحدود عرضها 20 نقطة. يستخدم المثلث الأيسر حدًا بقيمة `2`، والمثلث الأيمن حدًا بقيمة `8`. كل مثلث عرضه 80 نقطة وارتفاعه 160 نقطة، ما يعطي زواياه العلوية نسبة تقريبية `4.12` بين طول الميتّر وعرض الخط. نتيجةً لذلك، يُشطب PowerPoint قمة المثلث الأيسر ويحتفظ بقمة المثلث الأيمن.
+ينشئ هذا المثال مثلثين متطابقين غير مملوءين بحدود عرضها 20 نقطة. يستخدم المثلث الأيسر حدًا بقيمة `2`؛ ويستخدم الأيمن `8`. كل مثلث عرضه 80 نقطة وارتفاعه 160 نقطة، مما يعطي زاوية القمة العلوية نسبة طول ميتر إلى عرض الخط تقريبًا `4.12`. وبالتالي، يقوم PowerPoint بملف الحافة في القمة اليسرى ويحافظ على القمة اليمنى.
 
 ```python
 import aspose.slides as slides
@@ -267,13 +268,13 @@ with slides.Presentation() as presentation:
     presentation.save("miter_limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة في PowerPoint: **Miter limit 2** على اليسار و**miter limit 8** على اليمين.
+النتيجة في PowerPoint: **Miter limit 2** على اليسار و **miter limit 8** على اليمين.
 
-![قمة مشطوفة بحد miter 2 وقمة حادة بحد miter 8 في PowerPoint](miter-limits.png)
+![قمة مِفلّة بحد ميتر 2 وقمة حادة بحد ميتر 8 في PowerPoint](miter-limits.png)
 
 ## **تعبئة تدرج لوني**
 
-تدمج تعبئة التدرج الألوان عبر الشكل. يملأ هذا المثال إهليلجًا بتدرج خطي بزاوية 45 درجة من الأحمر إلى البنفسجي باستخدام [FillFormat.gradient_format](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/gradient_format/). تضع طريقة [GradientStopCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/gradientstopcollection/add/) نقاط التوقف اللونية عند 0 و1، بداية ونهاية التدرج. مسح نقاط التوقف الحالية يضمن استخدام هذين اللونين فقط.
+تدمج تعبئة التدرج الألوان عبر الشكل. يملأ هذا المثال إهليلجًا بتدرج خطي بزاوية 45 درجة من الأحمر إلى الأرجواني باستخدام [FillFormat.gradient_format](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/gradient_format/). تضع طريقة [GradientStopCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/gradientstopcollection/add/) نقاط التوقف اللونية عند 0 و 1، بداية ونهاية التدرج. يضمن مسح نقاط التوقف الموجودة استخدام هذين اللونين فقط.
 
 ```python
 import aspose.slides as slides
@@ -294,15 +295,15 @@ with slides.Presentation() as presentation:
 
 النتيجة:
 
-![الإهليلج مع تعبئة تدرج لوني](gradient-fill.png)
+![الإهليلج بتعبئة تدرج لوني](gradient-fill.png)
 
-إذا بدا التدرج مختلفًا في صورة مُصدَّرة مقارنةً بما هو في PowerPoint، راجع [Choose a Gradient Rendering Style](/slides/ar/python-net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). يمكنك اختيار نمط العرض دون تغيير تعبئة التدرج المخزنة في العرض.
+إذا كان التدرج يبدو مختلفًا في صورة مُصدَّرة مقارنةً بما هو عليه في PowerPoint، راجع [Choose a Gradient Rendering Style](/slides/ar/python-net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). يمكنك اختيار نمط العرض دون تغيير تعبئة التدرج المخزنة في العرض التقديمي.
 
 ### **تعيين زاوية التدرج الخطي**
 
-استخدم [GradientFormat.linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/) للتحكم في اتجاه تعبئة [GradientShape.LINEAR](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/). تُقاس الزاوية بالدرجات وتزداد باتجاه عقارب الساعة: `0` من اليسار إلى اليمين، `90` من الأعلى إلى الأسفل، `180` من اليمين إلى اليسار، و`270` من الأسفل إلى الأعلى. تُدعم الزوايا الكسرية. تُطبع الزوايا الخارجة عن النطاق `[0, 360)` إلى دورة واحدة؛ على سبيل المثال، `-45` تصبح `315` و`360` تصبح `0`.
+استخدم [GradientFormat.linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/) للتحكم في اتجاه تعبئة [GradientShape.LINEAR](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/). تُقاس الزاوية بالدرجات وتزداد باتجاه عقارب الساعة: `0` من اليسار إلى اليمين، `90` من الأعلى إلى الأسفل، `180` من اليمين إلى اليسار، و`270` من الأسفل إلى الأعلى. تدعم الزوايا الكسرية. تُعَدَّل الزوايا المحدودة خارج النطاق `[0, 360)` إلى دورة واحدة؛ على سبيل المثال، `-45` يصبح `315` و`360` يصبح `0`.
 
-هذا المثال ينشئ ستة مستطيلات بنقاط توقف حمراء وخضراء وزرقاء متطابقة عند المواقع `0`، `0.5`، و`1`. تم تعطيل التحجيم حتى يمكن مقارنة الزاوية بصورة مستقلة عن أبعاد المستطيلات. الزوايا من اليسار إلى اليمين هي `0`، `45`، و`90` في الصف الأول، و`135`، `180`، و`270` في الصف الثاني.
+ينشئ هذا المثال ستة مستطيلات بنقاط توقف حمراء، خضراء، وزرقاء متطابقة في المواضع `0`، `0.5`، و`1`. تم إيقاف التحجيم بحيث يمكن مقارنة الزاوية بشكل مستقل عن نسب المستطيلات. الزوايا، من اليسار إلى اليمين، هي `0`، `45`، و`90` في الصف الأول، و`135`، `180`، و`270` في الصف الثاني.
 
 ```python
 import aspose.slides as slides
@@ -337,11 +338,11 @@ with slides.Presentation() as presentation:
 
 ![تدرجات خطية بزاوية 0، 45، و90 درجة في الصف العلوي، و135، 180، و270 درجة في الصف السفلي](linear-gradient-angles.png)
 
-### **تحجيم تدرج خطي مع الشكل**
+### **تحجيم التدرج الخطي مع الشكل**
 
-[GradientFormat.linear_gradient_scaled](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_scaled/) تقبل قيمة [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/). عيّنها صراحةً إلى `FALSE` للحفاظ على زاوية التدرج الهندسية مع تغير أبعاد الشكل، أو إلى `TRUE` لتحجيم التدرج مع عرض وارتفاع الشكل. عند تمكين التحجيم، قد تختلف الزاوية المرئية عن الزاوية المعينة على شكل غير مربع.
+يقبل [GradientFormat.linear_gradient_scaled](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_scaled/) قيمة من نوع [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/). اضبطه صراحةً إلى `FALSE` للحفاظ على زاوية التدرج الهندسية عند تغير أبعاد الشكل، أو إلى `TRUE` لتحجيم التدرج مع عرض وارتفاع الشكل. عند تمكين التحجيم، قد تختلف الزاوية الظاهرة عن الزاوية المعينة عند شكل غير مربع.
 
-المثال التالي يستخدم زاوية `45` درجة ونقاط توقف ألوان مماثلة لتلك المستخدمة في مقارنة الزوايا. العمود الأيسر يستخدم `FALSE`؛ العمود الأيمن يستخدم `TRUE`. كل عمود يحتوي على مستطيل عريض فوق مستطيل طويل. يبدأ كليهما بنفس الأبعاد العريضة؛ تعديل عرض وارتفاع المستطيل الثاني يوضح كيف يستجيب التعبئة لإعادة التحجيم دون تغيير إعدادات التدرج.
+يستخدم المثال التالي زاوية `45` درجة ونقاط التوقف اللونية نفسها كما في مقارنة الزوايا. العمود الأيسر يستخدم `FALSE`؛ العمود الأيمن يستخدم `TRUE`. يحتوي كل عمود على مستطيل عريض فوق مستطيل طويل. يبدأ كلاهما بنفس الأبعاد العريضة؛ يوضح تعديل عرض وارتفاع المستطيل الثاني كيف يستجيب التعبئة لإعادة التحجيم دون تغيير إعدادات التدرج.
 
 ```python
 import aspose.slides as slides
@@ -377,19 +378,19 @@ with slides.Presentation() as presentation:
     presentation.save("linear_gradient_scaling.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة في PowerPoint، مع تعطيل التحجيم على اليسار وتفعيل التحجيم على اليمين:
+النتيجة في PowerPoint، مع إيقاف التحجيم على اليسار وتمكينه على اليمين:
 
-![مستطيلات عريضة وطويلة مع تدرج بزاوية 45 درجة، مقارنة linear_gradient_scaled FALSE على اليسار مع TRUE على اليمين](linear-gradient-scaling.png)
+![مستطيلات عريضة وطويلة بتدرج بزاوية 45 درجة، مقارنة linear_gradient_scaled FALSE على اليسار مع TRUE على اليمين](linear-gradient-scaling.png)
 
-مع تعطيل التحجيم، تبقى أشرطة اللون القطرية ذات الاتجاه نفسه في كلا المستطيلين. مع تمكين التحجيم، تمتد الأشرطة مع أبعاد الشكل. يساعد ذلك على إعادة إنتاج تدرج القالب عند تعديل حجم الشكل. على شكل مربع، لا يغيّر تمكين التحجيم مظهر هذا التدرج بزاوية `45` درجة.
+عند إيقاف التحجيم، تحتفظ أشرطة اللون المائلة بنفس الاتجاه في كلا المستطيلين. عند تمكين التحجيم، تمتد الأشرطة مع نسب الشكل. يساعد هذا في إعادة إنتاج تدرج القالب عند تعديل شكل إلى حجم مختلف. في الشكل المربع، لا يغيّر تمكين التحجيم مظهر هذا التدرج بزاوية `45` درجة.
 
-كلا الإعدادين—الزاوية والتحجيم—ينطبقان على التدرجات الخطية. لا يتحكمان في تعبئة [GradientShape.RADIAL أو GradientShape.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/).
+تنطبق إعدادات الزاوية والتحجيم على التدرجات الخطية. لا تتحكم في تعبئات [GradientShape.RADIAL or GradientShape.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/).
 
 ### **دمج الزاوية مع اتجاه التدرج**
 
-[GradientFormat.gradient_direction](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/gradient_direction/) يختار نمط تدرج من تعداد [GradientDirection](https://reference.aspose.com/slides/python-net/aspose.slides/gradientdirection/)، وليس بديلاً عن الزاوية الرقمية. بالنسبة للتدرج الخطّي، يمكن لأنماط الزوايا تغيير المنطقة التي تُوزع فيها الألوان دون تعديل [linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/). أبق الاتجاه ثابتًا عند مقارنة الزوايا أو التحجيم.
+يختار [GradientFormat.gradient_direction](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/gradient_direction/) نمطًا من التدرج من تعداد [GradientDirection](https://reference.aspose.com/slides/python-net/aspose.slides/gradientdirection/). ليس بديلاً عن زاوية رقمية. بالنسبة لتدرج خطي، يمكن لأنماط الزوايا تغيير المنطقة التي توزع فيها الألوان دون تغيير [linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/). احتفظ بالاتجاه ثابتًا عند مقارنة الزوايا أو التحجيم.
 
-التطبيق التالي يطبّق الإعدادات نفسها بترتيب عكسي. المستطيلان يظهرا نفس المظهر: تعيين الاتجاه قبل أو بعد الزاوية لا يغيّر النتيجة.
+يطبق المثال التالي نفس الإعدادات بترتيب عكسي. يمتلك المستطيلان نفس المظهر: تعيين الاتجاه قبل أو بعد الزاوية لا يغيّر النتيجة.
 
 ```python
 import aspose.slides as slides
@@ -420,9 +421,9 @@ with slides.Presentation() as presentation:
     presentation.save("linear_gradient_direction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تعبئة نمطية**
+## **تعبئة نمط**
 
-تطبق تعبئة النمط تصميمًا بلونين، مثل النقاط أو الخطوط أو المربعات. يستخدم هذا المثال [PatternFormat.pattern_style](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/pattern_style/) لاختيار نمط شبكة. يوفر [PatternFormat.back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) خلفية رمادية فاتحة، و[PatternFormat.fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) لون النمط الأصفر.
+تطبق تعبئة النمط تصميمًا من لونين، مثل النقاط أو الخطوط أو المربعات. يستخدم هذا المثال [PatternFormat.pattern_style](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/pattern_style/) لاختيار نمط "trellis". يوفر [PatternFormat.back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) خلفية بالرمادي الفاتح، و[PatternFormat.fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) اللون الأصفر للنمط.
 
 ```python
 import aspose.slides as slides
@@ -440,13 +441,11 @@ with slides.Presentation() as presentation:
     presentation.save("pattern_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة:
-
 ![المستطيل مع تعبئة نمطية](pattern-fill.png)
 
 ## **تعبئة صورة**
 
-تستخدم تعبئة الصورة صورةً داخل الشكل. يتطلب هذا المثال صورة محلية ويستخدم [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) لتحميلها إلى مجموعة صور العرض التقديمي. ضبط [PictureFillFormat.picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) على وضع التكرار يعيد الصورة داخل المستطيل. الصورة المصدر المستخدمة هنا موضحة أدناه:
+تستخدم تعبئة الصورة صورة داخل الشكل. يتطلب هذا المثال صورة محلية ويستخدم [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) لتحميلها إلى مجموعة صور العرض التقديمي. يضبط [PictureFillFormat.picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) إلى وضع القالب لتكرار الصورة داخل المستطيل. الصورة المصدر المستخدمة هنا معروضة أدناه:
 
 ![صورة اللوتس](lotus.png)
 
@@ -467,23 +466,21 @@ with slides.Presentation() as presentation:
     presentation.save("picture_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة:
-
 ![الشكل مع تعبئة صورة](picture-fill.png)
 
 ### **تكرار الصورة كقوام**
 
-إذا رغبت في ضبط صورة مكررة كقوام وتخصيص سلوك التكرار، يمكنك استخدام الخصائص التالية من فئة [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/):
+إذا كنت تريد ضبط صورة مكررة كقوام وتخصيص سلوك التكرار، يمكنك استخدام الخصائص التالية من فئة [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/):
 
-- [picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/): تعيين وضع تعبئة الصورة — إما `TILE` أو `STRETCH`.
-- [tile_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_alignment/): تحديد محاذاة البلاط داخل الشكل.
-- [tile_flip](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_flip/): التحكم فيما إذا كان البلاط يُقلب أفقياً أو رأسياً أو كلاهما.
-- [tile_offset_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_x/): تعيين الإزاحة الأفقية للبلاط (بالنقاط) من أصل الشكل.
-- [tile_offset_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_y/): تعيين الإزاحة الرأسية للبلاط (بالنقاط) من أصل الشكل.
-- [tile_scale_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_x/): تحديد مقياس البلاط الأفقي كنسبة مئوية.
-- [tile_scale_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_y/): تحديد مقياس البلاط الرأسي كنسبة مئوية.
+- [picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/): يضبط وضع تعبئة الصورة — إما `TILE` أو `STRETCH`.
+- [tile_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_alignment/): يحدد محاذاة القوالب داخل الشكل.
+- [tile_flip](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_flip/): يتحكم فيما إذا كان القالب يُقلب أفقياً أو عمودياً أو كليهما.
+- [tile_offset_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_x/): يضبط الإزاحة الأفقية للقالب (بالنقاط) من أصل الشكل.
+- [tile_offset_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_y/): يضبط الإزاحة العمودية للقالب (بالنقاط) من أصل الشكل.
+- [tile_scale_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_x/): يحدد مقياس القالب الأفقي كنسبة مئوية.
+- [tile_scale_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_y/): يحدد مقياس القالب العمودي كنسبة مئوية.
 
-يتطلب هذا المثال صورة محلية ويُعدّ [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) لتكرارها بنسبة 50 % من حجمها الأصلي. إزاحات `−32` نقطة تُحرك البلاط أفقياً ورأسياً؛ المحاذاة أسفل‑يمين والقلب في الاتجاهين يحددان كيفية ترتيب القوام المتكرر.
+يتطلب هذا المثال صورة محلية ويُكوّن [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) لتكرارها بنسبة 50% من حجمها الأصلي. تؤدي الإزاحات بمقدار −32 نقطة إلى إزاحة القوالب أفقياً وعمودياً؛ يحدد المحاذاة سفلية-اليمنى والقلب في كلا الاتجاهين كيفية ترتيب القوام المتكرر.
 
 ```python
 import aspose.slides as slides
@@ -510,13 +507,11 @@ with slides.Presentation() as presentation:
     presentation.save("tile.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة:
-
-![خيارات البلاط](tile-options.png)
+![خيارات القوالب](tile-options.png)
 
 ## **تعبئة لون صلب**
 
-توفر التعبئة الصلبة لونًا موحّدًا للشكل. يعين هذا المثال [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) إلى وضع التعبئة الصلبة ويُعطي اللون الأصفر عبر [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/)، ثم يحفظ المستطيل في عرض تقديمي.
+تمنح التعبئة الصلبة الشكل لونًا واحدًا ومتجانسًا. يضبط هذا المثال [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) إلى وضع التعبئة الصلبة ويعيّن الأصفر عبر [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/)، ثم يحفظ المستطيل في عرض تقديمي.
 
 ```python
 import aspose.slides as slides
@@ -532,17 +527,71 @@ with slides.Presentation() as presentation:
     presentation.save("solid_color_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة:
+![الشكل مع تعبئة لون صلبة](solid-color-fill.png)
 
-![الشكل مع تعبئة لون صلب](solid-color-fill.png)
+### **نسخ الألوان مع الحفاظ على مراجع السمة**
 
-## **استخدام خلفية الشريحة كتعبئة للشكل**
+استخدم [ColorFormat.copy_from](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/copy_from/) لنسخ تعريف اللون، بما في ذلك نوع اللون، مرجع السمة، والتحويلات. هذا مفيد عند نقل لون تعبئة بين أشكال يجب أن تستمر في اتباع سمة العرض التقديمي. ينسخ الأسلوب اللون فقط: لا ينسخ نوع التعبئة أو الحدود أو تنسيقات الشكل الأخرى. اضبط صراحةً [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) للوجهة.
 
-استخدم [AutoShape.use_background_fill](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/use_background_fill/) عندما يجب أن يتطابق الشكل مع خلفية الشريحة، على سبيل المثال في قالب عرض تقديمي. اضبط [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) إلى [FillType.NOT_DEFINED](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) أولاً لإزالة أي تعبئة صريحة. بهذه المجموعة، يستخدم الشكل خلفية الشريحة بدلاً من تعبئة النمط الخاصة به. تمكين العلامة وحده لا يزيل تعبئة صريحة موجودة.
+ينشئ هذا المثال ثلاثة مستطيلات، من اليسار إلى اليمين: المصدر، نسخة حساسة للسمة، ونسخة RGB ثابتة. يستخدم المصدر [ColorFormat.scheme_color](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/scheme_color/) للإشارة إلى اللون الأساسي الأول ويضيف تدرجًا عبر [ColorOperationCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/coloroperationcollection/add/). تستخدم نسخة RGB لون التعبئة الفعّال للمصدر بحيث تبدو الثلاثة متماثلة في البداية. تعيين [ColorFormat.color](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color/) يحدد قيمة RGB ثابتة ويزيل أي تحويلات لون موجودة.
 
-يختلف هذا عن [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/): تعبئة الخلفية تغطي الكائنات خلف الشكل بالمنطقة المقابلة من خلفية الشريحة، بينما لا تعبئة تُظهر تلك الكائنات. يبقى التدرج محاذيًا مع الشريحة بدلاً من البدء داخل كل شكل.
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-المثال التالي ينشئ خلفية رئيسية تُورّثها الشريحة ويضع شريطًا أرجوانيًا خلف ثلاثة مستطيلات. يستخدم المستطيل الأيسر الخلفية، والمستطيل الأوسط لا يحتوي على تعبئة، والمستطيل الأيمن يتحول من تعبئة الخلفية إلى تعبئة برتقالية صريحة.
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(660, 220, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    presentation.master_theme.color_scheme.accent1.color = draw.Color.royal_blue
+
+    source = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 40, 180, 140)
+    theme_copy = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 240, 40, 180, 140)
+    rgb_copy = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 450, 40, 180, 140)
+
+    for shape in (source, theme_copy, rgb_copy):
+        shape.fill_format.fill_type = slides.FillType.SOLID
+        shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    source_color = source.fill_format.solid_fill_color
+    source_color.scheme_color = slides.SchemeColor.ACCENT1
+    source_color.color_transform.add(slides.ColorTransformOperation.TINT, 0.75)
+
+    theme_copy.fill_format.solid_fill_color.copy_from(source_color)
+    rgb_copy.fill_format.solid_fill_color.color = source.fill_format.get_effective().solid_fill_color
+
+    with slide.get_image(1.0, 1.0) as before:
+        before.save("color-copy-before.png", slides.ImageFormat.PNG)
+
+    # مراجع السمة تتبع اللون الأساسي الجديد؛ القيمة الثابتة RGB لا تفعل ذلك.
+    presentation.master_theme.color_scheme.accent1.color = draw.Color.orange_red
+
+    with slide.get_image(1.0, 1.0) as after:
+        after.save("color-copy-after.png", slides.ImageFormat.PNG)
+    presentation.save("copied_colors.pptx", slides.export.SaveFormat.PPTX)
+```
+
+قبل تغيير السمة، تتطابق جميع التعبئات الثلاث:
+
+![المصدر، نسخة copy_from، ونسخة RGB ثابتة بتعبئات زرقاء متطابقة](color-copy-before.png)
+
+بعد تغيير السمة، يتبع المصدر والنسخة الحساسة للسمة اللون الأساسي الجديد وتحتفظان بتدرجهما. تظل نسخة RGB الثابتة زرقاء:
+
+![المصدر ونسخة copy_from بتعبئات برتقالية، بينما تبقى نسخة RGB الثابتة زرقاء](color-copy-after.png)
+
+التعريف المنسوخ مستقل عن المصدر. لاحقًا، تغيير مرجع سمة المصدر، تعيين لون آخر، أو إضافة أو إزالة تحويلاته لا يغيّر الوجهة. لا يزال تغيير السمة يؤثر على كلا الشكلين لأن كلًا منهما يشير بشكل مستقل إلى نفس لون السمة.
+
+يحفظ فتح وإعادة حفظ ملف PPTX مرجع اللون المنسوخ [ColorFormat.color_type](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color_type/)، مرجع السمة، ومجموعة [ColorFormat.color_transform](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color_transform/)، ولا يُحوِّل التعريف إلى RGB.
+
+عند النسخ بين سياقات سمة مختلفة، مثل عروض تقديمية ذات لوحات ألوان أساسية مختلفة، يُحل المرجع المنسوخ وفق سمة الوجهة. يمكن أن ينتج عن نفس المرجع والتحويلات لون مرئي مختلف. راجع [Presentation Theme](/slides/ar/python-net/presentation-theme/) للمزيد حول تكوين ألوان السمة.
+
+## **استخدام خلفية الشريحة كملء للشكل**
+
+استخدم [AutoShape.use_background_fill](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/use_background_fill/) عندما يجب أن يتطابق الشكل مع خلفية الشريحة، على سبيل المثال في قالب عرض تقديمي. اضبط [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) إلى [FillType.NOT_DEFINED](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) أولاً لإزالة أي تعبئة صريحة. مع هذا الجمع، يستخدم الشكل خلفية الشريحة بدلاً من تعبئة نمطه. تمكين العلامة وحدها لا يزيل أي تعبئة صريحة موجودة.
+
+هذا يختلف عن [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/): تعبئة الخلفية تغطي الكائنات خلف الشكل بالمنطقة المقابلة من خلفية الشريحة، بينما لا تعبئة تترك تلك الكائنات مرئية. يبقى التدرج متوافقًا مع الشريحة بدلاً من البدء داخل كل شكل.
+
+ينشئ المثال التالي خلفية رئيسية يتم وراثتها من قبل الشريحة ويضع شريطًا بنفسجيًا خلف ثلاثة مستطيلات. يستخدم المستطيل الأيسر الخلفية، والمستطيل الأوسط لا يحتوي على تعبئة، والمستطيل الأيمن يتحول من تعبئة الخلفية إلى تعبئة برتقالية صريحة.
 
 ```python
 import aspose.slides as slides
@@ -552,7 +601,7 @@ with slides.Presentation() as presentation:
     presentation.slide_size.set_size(720, 400, slides.SlideSizeScaleType.DO_NOT_SCALE)
     slide = presentation.slides[0]
 
-    # ورث التدرج من القالب الرئيسي.
+    # وراثة التدرج من القالب الرئيسي.
     slide.background.type = slides.BackgroundType.NOT_DEFINED
     slide.layout_slide.background.type = slides.BackgroundType.NOT_DEFINED
     background = slide.layout_slide.master_slide.background
@@ -590,15 +639,15 @@ with slides.Presentation() as presentation:
     presentation.save("background_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة، من اليسار إلى اليمين: **background fill**, **no fill**, و**explicit fill**. الشريط الأرجواني مخفي خلف المستطيلين الأيسر والأيمن لكنه يبقى مرئيًا عبر المستطيل الأوسط.
+النتيجة، من اليسار إلى اليمين: **background fill**, **no fill**, و **explicit fill**. يتم إخفاء الشريط البنفسجي بواسطة المستطيلين الأيسر والأيمن لكنه يظل مرئيًا عبر المستطيل الأوسط.
 
-![تعبئة خلفية، لا تعبئة، وتعبئة برتقالية صريحة فوق شريط أرجواني](background-fill.png)
+![تعبئة الخلفية، لا تعبئة، وتعبئة برتقالية صريحة فوق شريط بنفسجي](background-fill.png)
 
-السلوك نفسه ينطبق على خلفية مُعرفة مباشرةً على الشريحة أو مُورّثة من تخطيط. يستخدم الشكل الخلفية التي تم حلها للشرائح؛ يترك المثال كلًا من خلفيات الشريحة والتخطيط غير معرفة بحيث يتولى الماستر توفيرها.
+ينطبق نفس السلوك على خلفية مُحددة مباشرةً على الشريحة أو مُورثة من تخطيط. يستخدم الشكل الخلفية المُحَلَّة للشريحة؛ يترك المثال خلفيات كل من الشريحة والتخطيط غير معرّفة ليقوم الرئيس بتوفيرها.
 
 ## **تعيين الشفافية**
 
-في التعبئة الصلبة، يتحكم مكوّن ألفا للون في التعتيم: 0 يعني شفاف بالكامل و255 يعني غير شفاف بالكامل. يستخدم هذا المثال قيمة ألفا `128` لمستطيل أصفر، مما يجعله شفافًا تقريبًا بنسبة 50 % بحيث يظل المستطيل الموجود تحته مرئيًا. يُعيّن اللون عبر [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/).
+في تعبئة صلبة، يتحكم مكون ألفا للون في الشفافية: 0 يعني شفافية كاملة و255 يعني تعتمة كاملة. يستخدم هذا المثال قيمة ألفا 128 لمستطيل أصفر، مما يجعله شفافًا بنحو 50٪ بحيث يظل المستطيل الموجود تحته مرئيًا. يُعيّن اللون عبر [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/).
 
 ```python
 import aspose.slides as slides
@@ -618,13 +667,11 @@ with slides.Presentation() as presentation:
     presentation.save("shape_transparency.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة:
-
 ![الشكل الشفاف](shape-transparency.png)
 
-## **دوران الأشكال**
+## **تدوير الأشكال**
 
-استخدم [Shape.rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) لدوران الشكل في مستوى الشريحة. تُقاس الزاوية بالدرجات؛ يدور هذا المثال مستطيلًا بزاوية 5 درجات باتجاه عقارب الساعة ويحفظ العرض التقديمي.
+استخدم [Shape.rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) لتدوير شكل في مستوى الشريحة. تُقاس الزاوية بالدرجات؛ يدور هذا المثال مستطيلًا 5 درجات باتجاه عقارب الساعة ويحفظ العرض التقديمي.
 
 ```python
 import aspose.slides as slides
@@ -638,13 +685,11 @@ with slides.Presentation() as presentation:
     presentation.save("shape_rotation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة:
+![تدوير الشكل](shape-rotation.png)
 
-![دوران الشكل](shape-rotation.png)
+## **إضافة تأثيرات الحافة ثلاثية الأبعاد**
 
-## **إضافة تأثيرات حافة ثلاثية الأبعاد**
-
-استخدم [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) لإعطاء الشكل عمقًا وحوافًا مائلّة. ينشئ هذا المثال إهليلجًا أخضر بحد برتقالي، يعيّن [ThreeDFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) إلى 4 نقاط، ويطبق حافة علوية دائرية بعرض وارتفاع 6 نقاط عبر [ThreeDFormat.bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/). تجعل الكاميرا الإسقاطية الأمامية والإضاءة الثلاثية النقاط الحافة مرئية.
+استخدم [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) لإعطاء الشكل عمقًا وحوافًا مائلة. ينشئ هذا المثال إهليلجًا أخضر بحواف برتقالية، يضبط [ThreeDFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) إلى 4 نقاط، ويطبق حافة علوية دائرية بعرض وارتفاع 6 نقاط عبر [ThreeDFormat.bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/). تجعل كاميرا أرثوغرافية تواجه الأمام وإضاءة ثلاثية النقاط الحافة مرئية.
 
 ```python
 import aspose.slides as slides
@@ -670,13 +715,11 @@ with slides.Presentation() as presentation:
     presentation.save("3D_bevel_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة:
-
 ![تأثير الحافة ثلاثية الأبعاد](3D-bevel-effect.png)
 
-## **إضافة تأثيرات دوران ثلاثية الأبعاد**
+## **إضافة تأثيرات التدوير ثلاثية الأبعاد**
 
-تُتحكم إعدادات الكاميرا في عرض الشكل ثلاثي الأبعاد. يستخدم هذا المثال [Camera.set_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/set_rotation/) بزاوية خط العرض، خط الطول، وثورة 40، 35، و20 درجة على التوالي. يختار كاميرا إيزومترية عبر [Camera.camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) وإضاءة متوازنة عبر [LightRig.light_type](https://reference.aspose.com/slides/python-net/aspose.slides/lightrig/light_type/)، ثم يحفظ المستطيل المنسق.
+يتم التحكم في عرض الشكل ثلاثي الأبعاد بإعدادات الكاميرا. يستخدم هذا المثال [Camera.set_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/set_rotation/) بزاويات خط العرض، خط الطول، والدوران بمقدار 40، 35، و20 درجة على التوالي. يختار كاميرا إسومترية عبر [Camera.camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) وإضاءة متوازنة عبر [LightRig.light_type](https://reference.aspose.com/slides/python-net/aspose.slides/lightrig/light_type/)، ثم يحفظ المستطيل المنسق.
 
 ```python
 import aspose.slides as slides
@@ -693,17 +736,15 @@ with slides.Presentation() as presentation:
     presentation.save("3D_rotation_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة:
-
-![تأثير دوران ثلاثي الأبعاد](3D-rotation-effect.png)
+![تأثير التدوير ثلاثي الأبعاد](3D-rotation-effect.png)
 
 ## **التحكم في العرض بالأبيض والأسود للأشكال**
 
-تحدد خاصية [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) كيفية عرض الشكل الفردي عندما يُعرض أو يُعالج العرض التقديمي في وضع أبيض‑أسود. لا تُفعِّل وضع العرض بالأبيض والأسود بحد ذاتها، ولا تُغيِّر تعبئة الشكل أو خطه أو تنسيقه في وضع اللون العادي.
+تحدد خاصية [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) كيفية عرض شكل منفرد عندما يُشاهد العرض التقديمي أو يُعالج في وضع أبيض وأسود. لا تُفعّل العرض بالأبيض والأسود بحد ذاتها، ولا تغير تعبئة الشكل أو حدوده أو تنسيقه الآخر في وضع اللون الطبيعي.
 
-استخدم قيمة من تعداد [BlackWhiteMode](https://reference.aspose.com/slides/python-net/aspose.slides/blackwhitemode/) لتحديد السلوك المطلوب. على سبيل المثال، `AUTOMATIC` يترك تطبيق العرض يختار التحويل، `GRAY` و`LIGHT_GRAY` يستخدمان تلوينًا رماديًا، `BLACK_WHITE` يستخدم الأسود والأبيض فقط، `BLACK` و`WHITE` يفرضان لونًا واحدًا، `COLOR` يحافظ على التلوين العادي، و`HIDDEN` يحذف الشكل في وضع أبيض‑أسود. `NOT_DEFINED` يعني عدم تعيين وضع على مستوى الشكل.
+استخدم قيمة من تعداد [BlackWhiteMode](https://reference.aspose.com/slides/python-net/aspose.slides/blackwhitemode/) لتحديد السلوك المطلوب. على سبيل المثال، `AUTOMATIC` يتيح لتطبيق العرض اختيار التحويل، `GRAY` و`LIGHT_GRAY` تستخدم تلوينًا رماديًا، `BLACK_WHITE` يستخدم فقط الأسود والأبيض، `BLACK` و`WHITE` يفرضان لونًا واحدًا، `COLOR` يحافظ على التلوين الطبيعي، و`HIDDEN` يحذف الشكل في وضع أبيض وأسود. `NOT_DEFINED` يعني عدم تعيين وضع على مستوى الشكل.
 
-ينشئ هذا المثال مستطيلًا برتقاليًا ويعيّن [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) إلى رمادي. يحافظ الشكل المُحفظ على تعبئته البرتقالية للعرض العادي ويطلب تلوينًا رماديًا من التطبيقات التي تحترم إعدادات العرض بالأبيض والأسود:
+ينشئ هذا المثال مستطيلًا برتقاليًا ويضبط [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) إلى رمادي. يحتفظ الشكل المحفوظ بتعبئته البرتقالية للعرض بالألوان الطبيعية ويطلب تلوينًا رماديًا من التطبيقات التي تحترم إعدادات العرض بالأبيض والأسود:
 
 ```python
 import aspose.slides as slides
@@ -720,11 +761,11 @@ with slides.Presentation() as presentation:
     presentation.save("shape_black_white_mode.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-في وضع اللون العادي، يحتفظ المستطيل بتعبئته البرتقالية. في سير عمل عرض أبيض‑أسود، يستخدم تلوينًا رماديًا لأن وضعه مضبوط على `GRAY`. يتيح لك ذلك الحفاظ على شريحة ملونة بالكامل مع تعريف مظهر مميز للطباعة أو المعاينة أو أي سير عمل آخر يحترم إعدادات العرض بالأبيض والأسود للعرض التقديمي.
+في وضع اللون الطبيعي، يحتفظ المستطيل بتعبئته البرتقالية. في سير عمل عرض بالأبيض والأسود، يستخدم تلوينًا رماديًا لأن وضعه مضبوط على `GRAY`. يتيح لك ذلك الحفاظ على شريحة بألوان كاملة مع تعريف مظهر مميز للطباعة أو المعاينة أو أي سير عمل آخر يحترم إعدادات العرض بالأبيض والأسود للعرض التقديمي.
 
 ## **إعادة تعيين التنسيق**
 
-استخدم [Slide.reset](https://reference.aspose.com/slides/python-net/aspose.slides/slide/reset/) لاستعادة موضع وحجم وتنسيق عناصر النائب في الشريحة من عناصر النائب المقابلة في التخطيط. يتطلب هذا المثال عرضًا تقديميًا موجودًا به عناصر نائب مرتبطة بالتخطيط ويعيد ضبط كل شريحة قبل الحفظ. لا تُعاد ضبط الأشكال التي لا تقابلها عناصر نائب في التخطيط.
+استخدم [Slide.reset](https://reference.aspose.com/slides/python-net/aspose.slides/slide/reset/) لاستعادة موضع وحجم وتنسيق نائيات الشريحة من نائيات التخطيط المقابلة. يتطلب هذا المثال عرضًا تقديميًا موجودًا يحتوي على نائيات مرتبطة بالتخطيط ويعيد ضبط كل شريحة قبل الحفظ. لا يتم إعادة تعيين الأشكال التي لا تمتلك نائيات تخطيط مقابلة.
 
 ```python
 import aspose.slides as slides
@@ -736,16 +777,16 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("reset_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يؤثر تنسيق الشكل على حجم ملف العرض النهائي؟**
+**هل يؤثر تنسيق الشكل على حجم ملف العرض التقديمي النهائي؟**
 
-عادةً ما تضيف الألوان وأنماط الخط وإعدادات التأثيرات بيانات قليلة مقارنةً بالصور والوسائط المضمَّنة. قد تزيد تعبئة الصور من حجم الملف لأن صورها تُخزن في العرض.
+عمومًا، الألوان وأنماط الخط والإعدادات التأثيرية تضيف بيانات قليلة مقارنةً بالصور والوسائط المدمجة. قد تزيد تعبئات الصور من حجم الملف لأن صورها تُخزن في العرض التقديمي.
 
-**كيف يمكنني اكتشاف الأشكال في شريحة تشترك في تنسيق متماثل حتى أتمكن من تجميعها؟**
+**كيف يمكنني اكتشاف الأشكال في شريحة تشارك تنسيق متطابق لأتمكن من تجميعها؟**
 
-قارن الخصائص التنسيقية الرئيسية لكل شكل—التعبئة، الخط، وإعدادات التأثير. إذا طابقت جميع القيم المقابلة، اعتبر أن أنماطها متماثلة وجمّع تلك الأشكال منطقيًا، ما يبسط إدارة الأنماط لاحقًا.
+قارن خصائص التنسيق الرئيسة لكل شكل — التعبئة، الخط، وإعدادات التأثير. إذا تطابقت جميع القيم المقابلة، اعتبر أن أنماطها متطابقة وقم بتجميع تلك الأشكال منطقيًا، مما يبسط إدارة الأنماط لاحقًا.
 
 **هل يمكنني حفظ مجموعة من أنماط الشكل المخصصة في ملف منفصل لإعادة استخدامها في عروض تقديمية أخرى؟**
 
-نعم. احفظ الأشكال النموذجية ذات الأنماط المطلوبة في مجموعة شرائح قالب أو ملف قالب .POTX. عند إنشاء عرض تقديمي جديد، افتح القالب، استنسخ الأشكال المصممة التي تحتاجها، وأعد تطبيق تنسيقها حيثما دعت الحاجة.
+نعم. احفظ أشكالًا نموذجية بالأنماط المطلوبة في مجموعة شرائح قالب أو ملف قالب .POTX. عند إنشاء عرض تقديمي جديد، افتح القالب، استنسخ الأشكال ذات الأنماط التي تحتاجها، وأعد تطبيق تنسيقها حيثما كان ذلك مطلوبًا.

@@ -1,6 +1,6 @@
 ---
-title: Formato delle forme PowerPoint in Python
-linktitle: Formattazione della forma
+title: Formattare le forme PowerPoint in Python
+linktitle: Formattazione delle forme
 type: docs
 weight: 20
 url: /it/python-net/shape-formatting/
@@ -9,19 +9,19 @@ keywords:
 - formattazione linea
 - effetto schizzo
 - linea forma schizzo
-- formattazione stile giunzione
+- stile di giunzione
 - riempimento gradiente
 - riempimento a motivo
 - riempimento immagine
 - riempimento texture
-- riempimento a tinta unita
+- riempimento a colore solido
 - trasparenza forma
 - rendering forma in bianco e nero
 - rendering forma in scala di grigi
-- rotazione forma
-- effetto smusso 3D
+- ruotare forma
+- effetto smussatura 3D
 - effetto rotazione 3D
-- reimposta formattazione
+- ripristinare formattazione
 - PowerPoint
 - presentazione
 - Python
@@ -30,15 +30,15 @@ description: "Scopri come formattare le forme PowerPoint in Python usando Aspose
 ---
 ## **Introduzione**
 
-Formato le forme in PowerPoint regolando i loro contorni, riempimenti ed effetti. Aspose.Slides per Python via .NET ti consente di controllare queste impostazioni programmaticamente, inclusi trasparenza, rotazione e formattazione 3D.
+Formatta le forme in PowerPoint regolando i loro contorni, riempimenti e effetti. Aspose.Slides per Python tramite .NET consente di controllare queste impostazioni programmaticamente, inclusi trasparenza, rotazione e formattazione 3D.
 
 ![Opzioni di formattazione delle forme in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides per Python via .NET fornisce classi e proprietà che ti permettono di formattare le forme usando le stesse opzioni disponibili in PowerPoint.
+Aspose.Slides per Python tramite .NET fornisce classi e proprietà che consentono di formattare le forme utilizzando le stesse opzioni disponibili in PowerPoint.
 
 ## **Formattare le linee**
 
-Usa [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) per controllare il contorno di una forma. Questo esempio crea un rettangolo non riempito con un contorno blu a tratti. [LineFormat.style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/style/) seleziona una linea composta spessa‑sottile, mentre [LineFormat.width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) imposta la sua larghezza a 7 punti e [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) seleziona il modello a tratti.
+Usa [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) per controllare il contorno di una forma. Questo esempio crea un rettangolo senza riempimento con un contorno blu tratteggiato. [LineFormat.style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/style/) seleziona una linea composta spessa-sottile, mentre [LineFormat.width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) imposta la sua larghezza a 7 punti e [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) seleziona il modello di tratteggio.
 
 ```python
 import aspose.slides as slides
@@ -62,13 +62,13 @@ Il risultato:
 
 ![Le linee formattate nella presentazione](formatted-lines.png)
 
-### **Imposta modelli di tratteggio personalizzati per le linee**
+### **Impostare modelli di tratteggio delle linee personalizzati**
 
-Usa [LineFormat.custom_dash_pattern](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/custom_dash_pattern/) quando gli stili di linea predefiniti non forniscono le lunghezze di tratto e gli spazi di cui hai bisogno, ad esempio per contorni a marchio o diagrammi tecnici. Assegnare un modello imposta automaticamente [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) a [LineDashStyle.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/).
+Usa [LineFormat.custom_dash_pattern](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/custom_dash_pattern/) quando gli stili di linea predefiniti non offrono le lunghezze di tratto e gli spazi necessari, ad esempio per contorni aziendali o diagrammi tecnici. L'assegnazione di un modello imposta automaticamente [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) su [LineDashStyle.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/).
 
-Le voci dell'elenco alternano lunghezze di tratto e di spazio, iniziando con un tratto. Ogni valore è un multiplo della larghezza della linea: `[4, 2]` a una larghezza di 3 punti produce un tratto di 12 punti seguito da uno spazio di 6 punti. Usa coppie di valori finiti e non negativi per definire segmenti completi di tratto e spazio. L'esempio utilizza valori positivi per mantenere visibili tutti i tratti e gli spazi.
+Le voci dell'elenco alternano lunghezze di tratto e spazi, iniziando con un tratto. Ogni valore è un multiplo della larghezza della linea: `[4, 2]` a una larghezza di 3 punti produce un tratto di 12 punti seguito da uno spazio di 6 punti. Usa coppie di valori finiti e non negativi per definire segmenti completi di tratto e spazio. L'esempio utilizza valori positivi per mantenere visibili tutti i tratti e gli spazi.
 
-Questo esempio crea cinque linee blu con la stessa lunghezza e estremità piatte. Le prime tre confrontano i modelli a una larghezza di 3 punti. La quarta ripete il primo modello a doppia larghezza, raddoppiando sia le lunghezze dei tratti che degli spazi. La quinta passa da un modello personalizzato a una linea continua.
+Questo esempio crea cinque linee blu con la stessa lunghezza e estremità piatte. Le prime tre confrontano i modelli a una larghezza di 3 punti. La quarta ripete il primo modello al doppio della larghezza, raddoppiando sia le lunghezze dei tratti che degli spazi. La quinta passa da un modello personalizzato a una linea solida.
 
 ```python
 import aspose.slides as slides
@@ -95,29 +95,29 @@ with slides.Presentation() as presentation:
         line.line_format.end_arrowhead_style = slides.LineArrowheadStyle.NONE
         line.line_format.custom_dash_pattern = pattern
 
-    # Restituisci l'ultima linea a uno stile solido.
+    # Riporta l'ultima linea a uno stile solido.
     slide.shapes[4].line_format.dash_style = slides.LineDashStyle.SOLID
 
     presentation.save("custom_dash_patterns.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Per tornare a uno stile tratteggiato predefinito, assegna [LineDashStyle.DASH](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) a [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/). Lo stile selezionato controlla l'aspetto della linea.
+Per tornare invece a uno stile tratteggiato predefinito, assegna [LineDashStyle.DASH](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) a [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/). Lo stile selezionato controlla l'aspetto della linea.
 
-Il risultato in PowerPoint, dall'alto verso il basso: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; e **Solid, 3 pt**.
+Il risultato in PowerPoint, da alto a basso: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; e **Solid, 3 pt**.
 
-![Tre modelli di tratto personalizzati, una linea più larga usando il primo modello, e una linea continua in PowerPoint](custom-dash-patterns.png)
+![Tre modelli di tratteggio personalizzati, una linea più larga che utilizza il primo modello e una linea solida in PowerPoint](custom-dash-patterns.png)
 
-### **Imposta le estremità della linea**
+### **Impostare le estremità della linea**
 
 Usa [LineFormat.cap_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/cap_style/) per impostare le estremità di una linea aperta. L'enumerazione [LineCapStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linecapstyle/) fornisce tre stili di estremità espliciti:
 
-- `FLAT`: Il tratto si ferma al punto finale.
-- `ROUND`: Un'estremità semicircolare si estende oltre il punto finale di metà larghezza della linea.
-- `SQUARE`: Un'estremità quadrata si estende oltre il punto finale di metà larghezza della linea.
+- `FLAT`: The stroke stops at the endpoint.
+- `ROUND`: A semicircular cap extends beyond the endpoint by half the line width.
+- `SQUARE`: A square cap extends beyond the endpoint by half the line width.
 
-L'enumerazione include anche `NOT_DEFINED`, che indica che nessuna estremità è stata assegnata esplicitamente.
+L'enumerazione include anche `NOT_DEFINED`, che significa che nessuno stile di estremità è assegnato esplicitamente.
 
-Le estremità sono diverse dalle punte delle frecce, che aggiungono simboli alle estremità della linea, e dalle giunzioni, che controllano gli angoli tra i segmenti di linea. Questo esempio disattiva le punte delle frecce tramite [LineFormat.begin_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/begin_arrowhead_style/) e [LineFormat.end_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/end_arrowhead_style/) in modo da confrontare solo le forme delle estremità.
+Le estremità sono diverse dalle punte delle frecce, che aggiungono simboli alle estremità della linea, e dalle giunzioni, che controllano gli angoli tra i segmenti di linea. Questo esempio disabilita le punte delle frecce tramite [LineFormat.begin_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/begin_arrowhead_style/) e [LineFormat.end_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/end_arrowhead_style/) così che vengano confrontate solo le forme delle estremità.
 
 ```python
 import aspose.slides as slides
@@ -141,15 +141,15 @@ with slides.Presentation() as presentation:
     presentation.save("line_caps.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Il risultato in PowerPoint, dall'alto verso il basso: **Flat**, **Round** e **Square**.
+Il risultato in PowerPoint, da alto a basso: **Flat**, **Round**, e **Square**.
 
-![Estremità piatte, rotonde e quadrate su linee spesse identiche in PowerPoint](line-caps.png)
+![Estremità piatte, arrotondate e quadrate su linee spesse identiche in PowerPoint](line-caps.png)
 
-## **Applica effetti schizzo alle linee della forma**
+## **Applicare effetti di schizzo alle linee delle forme**
 
-Un effetto schizzo rende la linea di una forma simile a un disegno a mano libera. Usa [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) per accedere alle impostazioni della linea, [LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) per accedere alle impostazioni dello schizzo e [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) per selezionare un valore dall'enumerazione [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/).
+Un effetto di schizzo fa apparire una linea di forma come disegnata a mano. Usa [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) per accedere alle impostazioni della linea, [LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) per accedere alle impostazioni dello schizzo e [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) per selezionare un valore dall'enumerazione [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/).
 
-Il codice Python seguente mostra come applicare un effetto [LineSketchType.CURVED](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/), leggere il valore assegnato esplicitamente e rimuovere l'effetto con [LineSketchType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/):
+La seguente codice Python mostra come applicare un effetto [LineSketchType.CURVED](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/), leggere il valore assegnato esplicitamente e rimuovere l'effetto con [LineSketchType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/):
 
 ```python
 import aspose.slides as slides
@@ -166,7 +166,7 @@ with slides.Presentation() as presentation:
     sketch_format.sketch_type = slides.LineSketchType.NONE
 ```
 
-Il valore restituito da [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) rappresenta l'impostazione assegnata direttamente alla forma. Se la formattazione della linea può essere ereditata da un tema, da un master slide o da un layout slide, usa [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/), accedi a [ILineFormatEffectiveData.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/sketch_format/) e leggi [ISketchFormatEffectiveData.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/isketchformateffectivedata/sketch_type/). Il valore efficace riflette la formattazione effettivamente applicata dopo la risoluzione dell'ereditarietà. Questo esempio richiede una presentazione esistente con almeno una forma nella prima diapositiva e stampa entrambi i valori:
+Il valore restituito da [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) rappresenta l'impostazione assegnata direttamente alla forma. Se la formattazione della linea può essere ereditata da un tema, da una diapositiva master o da una diapositiva layout, usa [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/), accedi a [ILineFormatEffectiveData.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/sketch_format/) e leggi [ISketchFormatEffectiveData.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/isketchformateffectivedata/sketch_type/). Il valore effettivo riflette la formattazione realmente applicata dopo la risoluzione dell'eredità. Questo esempio richiede una presentazione esistente con almeno una forma nella prima diapositiva e stampa entrambi i valori:
 
 ```python
 import aspose.slides as slides
@@ -191,11 +191,11 @@ Ecco le tre opzioni di tipo di giunzione:
 * Miter
 * Bevel
 
-Lo stile di giunzione controlla come due segmenti di contorno si incontrano in un angolo. Usa **Round** per angoli arrotondati, **Miter** per angoli appuntiti, o **Bevel** per angoli smussati.
+La giunzione controlla come due segmenti di contorno si incontrano in un angolo. Usa **Round** per angoli arrotondati, **Miter** per angoli appuntiti o **Bevel** per angoli appiattiti.
 
 ![Lo stile di giunzione nella presentazione](join-style-powerpoint.png)
 
-Questo esempio crea tre rettangoli neri con contorni blu di 15 punti. Imposta [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) rispettivamente ai valori miter, bevel e round di [LineJoinStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) per confrontare come vengono disegnati gli angoli.
+Questo esempio crea tre rettangoli neri con contorni blu spessi 15 punti. Imposta [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) sui valori miter, bevel e round di [LineJoinStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/), rispettivamente, per confrontare come vengono disegnati gli angoli.
 
 ```python
 import aspose.slides as slides
@@ -237,13 +237,13 @@ with slides.Presentation() as presentation:
     presentation.save("join_styles.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Limita le giunzioni Miter negli angoli appuntiti**
+### **Limitare le giunzioni a mitra negli angoli appuntiti**
 
-Usa [LineFormat.miter_limit](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/miter_limit/) con [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) impostato a [LineJoinStyle.MITER](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) per limitare quanto un angolo appuntito può estendersi.
+Usa [LineFormat.miter_limit](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/miter_limit/) con [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) impostato su [LineJoinStyle.MITER](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) per limitare quanto può estendersi un angolo appuntito.
 
-Il limite è un rapporto tra la distanza tra l'angolo interno e quello esterno della giunzione e la larghezza della linea. Ad esempio, un valore di `8` permette una lunghezza di spillo fino a otto volte la larghezza della linea; non è una misura in punti. Se l'angolo superasse il limite, PowerPoint usa una giunzione smussata in quel punto. Un limite più grande consente punte più affilate. L'impostazione influisce solo sulle giunzioni Miter e non ha effetto visibile quando l'angolo rimane entro entrambi i limiti.
+Il limite è un rapporto tra la distanza tra gli angoli interno ed esterno della giunzione e la larghezza della linea. Ad esempio, un valore di `8` consente una lunghezza di mitra fino a otto volte la larghezza della linea; non è una misura in punti. Se l'angolo superasse il limite, PowerPoint utilizza una giunzione smussata in quel punto. Un limite più grande consente punte più acute. L'impostazione influisce solo sulle giunzioni a mitra e non ha effetto visibile quando l'angolo rimane entro entrambi i limiti.
 
-Questo esempio crea due triangoli non riempiti identici con contorni di 20 punti. Il triangolo sinistro usa un limite di `2`, quello destro `8`. Ogni triangolo è largo 80 punti e alto 160 punti, dando al suo angolo superiore un rapporto lunghezza‑spillo‑larghezza‑linea di circa `4.12`. Di conseguenza, PowerPoint smussa l'apice sinistro e conserva quello destro.
+Questo esempio crea due triangoli identici non riempiti con contorni spessi 20 punti. Il triangolo sinistro utilizza un limite di `2`, e quello destro `8`. Ogni triangolo è largo 80 punti e alto 160 punti, dando al suo angolo superiore un rapporto lunghezza-mitra/larghezza linea di circa `4.12`. Di conseguenza, PowerPoint smussa l'apice sinistro e mantiene l'apice destro.
 
 ```python
 import aspose.slides as slides
@@ -266,13 +266,13 @@ with slides.Presentation() as presentation:
     presentation.save("miter_limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Il risultato in PowerPoint: **Miter limit 2** a sinistra e **miter limit 8** a destra.
+Il risultato in PowerPoint: **Limite mitra 2** a sinistra e **limite mitra 8** a destra.
 
-![Un vertice smussato con limite Miter 2 e un vertice appuntito con limite Miter 8 in PowerPoint](miter-limits.png)
+![Un apice smussato con limite mitra 2 e un apice appuntito con limite mitra 8 in PowerPoint](miter-limits.png)
 
-## **Riempimento sfumato**
+## **Riempimento a gradiente**
 
-Un riempimento sfumato sfuma i colori su una forma. Questo esempio riempie un'ellisse con un gradiente lineare a 45 gradi dal rosso al viola usando [FillFormat.gradient_format](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/gradient_format/). Il metodo [GradientStopCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/gradientstopcollection/add/) inserisce le fermate di colore a 0 e 1, l'inizio e la fine del gradiente. Cancellare le fermate esistenti assicura che vengano usati solo questi due colori.
+Un riempimento a gradiente mescola i colori su una forma. Questo esempio riempie un'ellisse con un gradiente lineare a 45 gradi da rosso a viola usando [FillFormat.gradient_format](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/gradient_format/). Il metodo [GradientStopCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/gradientstopcollection/add/) posiziona le fermate di colore a 0 e 1, l'inizio e la fine del gradiente. Cancellare le fermate esistenti garantisce che vengano usati solo questi due colori.
 
 ```python
 import aspose.slides as slides
@@ -293,15 +293,15 @@ with slides.Presentation() as presentation:
 
 Il risultato:
 
-![L'ellisse con riempimento sfumato](gradient-fill.png)
+![L'ellisse con riempimento a gradiente](gradient-fill.png)
 
-Se un gradiente appare diverso in un'immagine esportata rispetto a PowerPoint, vedi [Choose a Gradient Rendering Style](/slides/it/python-net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Puoi selezionare uno stile di rendering senza modificare il gradiente memorizzato nella presentazione.
+Se un gradiente appare diverso in un'immagine esportata rispetto a PowerPoint, vedi [Choose a Gradient Rendering Style](/slides/it/python-net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Puoi selezionare uno stile di rendering senza modificare il riempimento a gradiente memorizzato nella presentazione.
 
-### **Imposta l'angolo del gradiente lineare**
+### **Impostare l'angolo del gradiente lineare**
 
-Usa [GradientFormat.linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/) per controllare l'orientamento di un riempimento [GradientShape.LINEAR](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/). L'angolo è misurato in gradi e aumenta in senso orario: `0` va da sinistra a destra, `90` dall'alto al basso, `180` da destra a sinistra e `270` dal basso al alto. Sono supportati angoli frazionari. Angoli finiti al di fuori di `[0, 360)` sono normalizzati a una rivoluzione; ad esempio, `-45` diventa `315` e `360` diventa `0`.
+Usa [GradientFormat.linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/) per controllare l'orientamento di un riempimento [GradientShape.LINEAR](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/). L'angolo è misurato in gradi e aumenta in senso orario: `0` va da sinistra a destra, `90` dall'alto verso il basso, `180` da destra a sinistra e `270` dal basso verso l'alto. Sono supportati angoli frazionari. Angoli finiti al di fuori di `[0, 360)` vengono normalizzati a una rotazione completa; ad esempio, `-45` diventa `315` e `360` diventa `0`.
 
-Questo esempio crea sei rettangoli con fermate rosse, verdi e blu identiche alle posizioni `0`, `0.5` e `1`. La scalatura è disabilitata così che l'angolo possa essere confrontato indipendentemente dalle proporzioni dei rettangoli. Gli angoli, da sinistra a destra, sono `0`, `45` e `90` nella prima riga, e `135`, `180` e `270` nella seconda riga.
+Questo esempio crea sei rettangoli con fermate di colore rosso, verde e blu identiche nelle posizioni `0`, `0.5` e `1`. La scala è disabilitata in modo che l'angolo possa essere confrontato indipendentemente dalle proporzioni dei rettangoli. Gli angoli, da sinistra a destra, sono `0`, `45` e `90` nella prima riga, e `135`, `180` e `270` nella seconda riga.
 
 ```python
 import aspose.slides as slides
@@ -336,11 +336,11 @@ Il risultato in PowerPoint:
 
 ![Gradienti lineari a 0, 45 e 90 gradi nella riga superiore, e 135, 180 e 270 gradi nella riga inferiore](linear-gradient-angles.png)
 
-### **Scala un gradiente lineare con la forma**
+### **Ridimensionare un gradiente lineare con la forma**
 
-[GradientFormat.linear_gradient_scaled](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_scaled/) accetta un valore [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/). Impostalo esplicitamente a `FALSE` per mantenere l'angolo geometrico del gradiente quando le proporzioni della forma cambiano, o a `TRUE` per scalare il gradiente con la larghezza e l'altezza della forma. Con la scalatura abilitata, l'angolo visibile può differire dall'angolo assegnato su una forma non quadrata.
+[GradientFormat.linear_gradient_scaled](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_scaled/) accetta un valore [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/). Impostalo esplicitamente su `FALSE` per mantenere l'angolo geometrico del gradiente mentre le proporzioni della forma cambiano, o su `TRUE` per ridimensionare il gradiente con la larghezza e l'altezza della forma. Con il ridimensionamento abilitato, l'angolo visibile può differire dall'angolo assegnato su una forma non quadrata.
 
-L'esempio seguente usa un angolo di `45` gradi e le stesse fermate di colore dell'esempio di confronto angolo. La colonna sinistra usa `FALSE`; la colonna destra usa `TRUE`. Ogni colonna contiene un rettangolo largo sopra un rettangolo alto. Entrambe partono dalle stesse dimensioni larghe; modificare la larghezza e l'altezza del secondo rettangolo dimostra come il riempimento risponde al ridimensionamento senza cambiare le impostazioni del gradiente.
+L'esempio seguente utilizza un angolo di `45` gradi e le stesse fermate di colore della comparazione degli angoli. La colonna sinistra usa `FALSE`; la colonna destra usa `TRUE`. Ogni colonna contiene un rettangolo largo sopra un rettangolo alto. Entrambi iniziano con le stesse dimensioni larghe; modificare larghezza e altezza del secondo rettangolo dimostra come il riempimento risponde al ridimensionamento senza cambiare le impostazioni del gradiente.
 
 ```python
 import aspose.slides as slides
@@ -376,17 +376,17 @@ with slides.Presentation() as presentation:
     presentation.save("linear_gradient_scaling.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Il risultato in PowerPoint, con scalatura disabilitata a sinistra e abilitata a destra:
+Il risultato in PowerPoint, con il ridimensionamento disabilitato a sinistra e abilitato a destra:
 
-![Rettangoli larghi e alti con un gradiente a 45 gradi, confronto linear_gradient_scaled FALSE a sinistra con TRUE a destra](linear-gradient-scaling.png)
+![Rettangoli larghi e alti con un gradiente a 45 gradi, confrontando linear_gradient_scaled FALSE a sinistra con TRUE a destra](linear-gradient-scaling.png)
 
-Con la scalatura disabilitata, le bande di colore diagonali mantengono la stessa orientazione in entrambi i rettangoli. Con la scalatura abilitata, le bande si allungano con le proporzioni della forma. Questo aiuta a riprodurre il gradiente di un modello quando si adatta una forma a dimensioni diverse. Su una forma quadrata, abilitare la scalatura non cambia l'aspetto di questo gradiente a `45` gradi.
+Con il ridimensionamento disabilitato, le bande di colore diagonali mantengono la stessa orientazione in entrambi i rettangoli. Con il ridimensionamento abilitato, le bande si allungano con le proporzioni della forma. Questo aiuta a riprodurre il gradiente di un modello quando si adatta una forma a una dimensione diversa. Su una forma quadrata, abilitare il ridimensionamento non cambia l'aspetto di questo gradiente a `45` gradi.
 
-Sia l'angolo che le impostazioni di scalatura si applicano ai gradienti lineari. Non controllano i riempimenti [GradientShape.RADIAL o GradientShape.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/).
+Sia l'angolo che le impostazioni di ridimensionamento si applicano ai gradienti lineari. Non controllano i riempimenti [GradientShape.RADIAL or GradientShape.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/).
 
-### **Combina l'angolo con la direzione del gradiente**
+### **Combinare l'angolo con la direzione del gradiente**
 
-[GradientFormat.gradient_direction](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/gradient_direction/) seleziona uno stile di gradiente dall'enumerazione [GradientDirection](https://reference.aspose.com/slides/python-net/aspose.slides/gradientdirection/); non è un sostituto per un angolo numerico. Per un gradiente lineare, gli stili di angolo possono cambiare l'area su cui i colori sono distribuiti senza modificare [linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/). Mantieni la direzione invariata quando confronti angoli o scalatura.
+[GradientFormat.gradient_direction](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/gradient_direction/) seleziona uno stile di gradiente dall'enumerazione [GradientDirection](https://reference.aspose.com/slides/python-net/aspose.slides/gradientdirection/); non è un sostituto di un angolo numerico. Per un gradiente lineare, gli stili degli angoli possono modificare l'area su cui i colori sono distribuiti senza cambiare [linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/). Mantieni la direzione invariata quando confronti angoli o ridimensionamento.
 
 L'esempio seguente applica le stesse impostazioni in ordine inverso. I due rettangoli hanno lo stesso aspetto: assegnare la direzione prima o dopo l'angolo non cambia il risultato.
 
@@ -421,7 +421,7 @@ with slides.Presentation() as presentation:
 
 ## **Riempimento a motivo**
 
-Un riempimento a motivo applica un disegno a due colori, come punti, strisce o scacchi. Questo esempio usa [PatternFormat.pattern_style](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/pattern_style/) per selezionare un motivo a treccia. [PatternFormat.back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) fornisce lo sfondo grigio chiaro, e [PatternFormat.fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) fornisce il colore giallo del motivo.
+Un riempimento a motivo applica un disegno bicolore, come punti, strisce o scacchi. Questo esempio usa [PatternFormat.pattern_style](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/pattern_style/) per selezionare un motivo a rete. [PatternFormat.back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) fornisce lo sfondo grigio chiaro, e [PatternFormat.fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) fornisce il colore giallo del motivo.
 
 ```python
 import aspose.slides as slides
@@ -445,7 +445,7 @@ Il risultato:
 
 ## **Riempimento immagine**
 
-Un riempimento immagine utilizza un'immagine all'interno di una forma. Questo esempio richiede un'immagine locale e usa [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) per caricarla nella collezione di immagini della presentazione. Impostare [PictureFillFormat.picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) sulla modalità piastrellata ripete l'immagine all'interno del rettangolo. L'immagine di origine usata qui è mostrata sotto:
+Un riempimento immagine utilizza un'immagine all'interno di una forma. Questo esempio richiede un'immagine locale e usa [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) per caricarla nella collezione di immagini della presentazione. Impostare [PictureFillFormat.picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) sulla modalità affiancata ripete l'immagine all'interno del rettangolo. L'immagine sorgente usata qui è mostrata sotto:
 
 ![L'immagine del loto](lotus.png)
 
@@ -470,19 +470,19 @@ Il risultato:
 
 ![La forma con riempimento immagine](picture-fill.png)
 
-### **Usa l'immagine a tasselli come texture**
+### **Affiancare immagine come texture**
 
-Se desideri impostare un'immagine a tasselli come texture e personalizzare il comportamento della tassellatura, puoi usare le seguenti proprietà della classe [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/):
+Se desideri impostare un'immagine affiancata come texture e personalizzare il comportamento dell'affiancamento, puoi utilizzare le seguenti proprietà della classe [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/):
 
 - [picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/): Imposta la modalità di riempimento dell'immagine — `TILE` o `STRETCH`.
 - [tile_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_alignment/): Specifica l'allineamento delle piastrelle all'interno della forma.
-- [tile_flip](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_flip/): Controlla se la piastrella è capovolta orizzontalmente, verticalmente o in entrambe le direzioni.
+- [tile_flip](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_flip/): Controlla se la piastrella è capovolta orizzontalmente, verticalmente o in entrambi i modi.
 - [tile_offset_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_x/): Imposta lo spostamento orizzontale della piastrella (in punti) dall'origine della forma.
 - [tile_offset_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_y/): Imposta lo spostamento verticale della piastrella (in punti) dall'origine della forma.
 - [tile_scale_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_x/): Definisce la scala orizzontale della piastrella in percentuale.
 - [tile_scale_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_y/): Definisce la scala verticale della piastrella in percentuale.
 
-Questo esempio richiede un'immagine locale e configura [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) per ripeterla al 50 % della sua dimensione originale. Uno spostamento di −32 punti sposta le piastrelle orizzontalmente e verticalmente; l'allineamento in basso a destra e l'inversione in entrambe le direzioni determinano come la texture ripetuta è disposta.
+Questo esempio richiede un'immagine locale e configura [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) per ripeterla al 50% della sua dimensione originale. Gli offset di −32 punti spostano le piastrelle orizzontalmente e verticalmente; l'allineamento in basso a destra e il capovolgimento in entrambe le direzioni determinano come viene disposto il pattern ripetuto.
 
 ```python
 import aspose.slides as slides
@@ -511,11 +511,11 @@ with slides.Presentation() as presentation:
 
 Il risultato:
 
-![Le opzioni di tassellatura](tile-options.png)
+![Le opzioni di piastrellatura](tile-options.png)
 
-## **Riempimento a tinta unita**
+## **Riempimento a colore solido**
 
-Un riempimento a tinta unita assegna alla forma un solo colore uniforme. Questo esempio imposta [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) sul tipo di riempimento solido e assegna il giallo tramite [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/), quindi salva il rettangolo in una presentazione.
+Un riempimento a colore solido conferisce a una forma un unico colore uniforme. Questo esempio imposta [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) sulla modalità di riempimento solido e assegna il giallo tramite [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/), quindi salva il rettangolo in una presentazione.
 
 ```python
 import aspose.slides as slides
@@ -533,15 +533,71 @@ with slides.Presentation() as presentation:
 
 Il risultato:
 
-![La forma con riempimento a tinta unita](solid-color-fill.png)
+![La forma con riempimento a colore solido](solid-color-fill.png)
 
-## **Usa lo sfondo della diapositiva come riempimento della forma**
+### **Copiare i colori mantenendo i riferimenti al tema**
 
-Usa [AutoShape.use_background_fill](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/use_background_fill/) quando una forma deve corrispondere allo sfondo della diapositiva, ad esempio in un modello di presentazione. Imposta prima [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) su [FillType.NOT_DEFINED](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) per rimuovere qualsiasi riempimento esplicito. Con questa combinazione, la forma utilizza lo sfondo della diapositiva invece del suo riempimento di stile. L'attivazione della bandiera da sola non rimuove un riempimento esplicito esistente.
+Usa [ColorFormat.copy_from](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/copy_from/) per copiare una definizione di colore, incluso il suo tipo di colore, il riferimento al tema e le trasformazioni. Questo è utile quando si trasferisce un colore di riempimento tra forme che dovrebbero continuare a seguire il tema della presentazione. Il metodo copia solo il colore: non copia il tipo di riempimento, il contorno o altre formattazioni della forma. Imposta esplicitamente il [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) della destinazione.
 
-Questo differisce da [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/): il riempimento di sfondo copre gli oggetti dietro la forma con l'area corrispondente dello sfondo della diapositiva, mentre nessun riempimento lascia questi oggetti visibili. Un gradiente rimane allineato con la diapositiva anziché ricominciare dentro ogni forma.
+Questo esempio crea tre rettangoli, da sinistra a destra: la sorgente, una copia consapevole del tema e una copia RGB fissa. La sorgente utilizza [ColorFormat.scheme_color](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/scheme_color/) per riferire il primo colore di accento e aggiunge una tinta tramite [ColorOperationCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/coloroperationcollection/add/). La copia RGB utilizza il colore di riempimento effettivo della sorgente, così tutti e tre inizialmente appaiono identici. Assegnare [ColorFormat.color](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color/) imposta un valore RGB fisso e cancella eventuali trasformazioni di colore esistenti.
 
-L'esempio seguente crea uno sfondo master ereditato dalla diapositiva e posiziona una banda magenta dietro tre rettangoli. Il rettangolo sinistro usa lo sfondo, il rettangolo centrale non ha riempimento, e il rettangolo destro passa dal riempimento di sfondo a un riempimento arancione esplicito.
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(660, 220, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    presentation.master_theme.color_scheme.accent1.color = draw.Color.royal_blue
+
+    source = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 40, 180, 140)
+    theme_copy = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 240, 40, 180, 140)
+    rgb_copy = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 450, 40, 180, 140)
+
+    for shape in (source, theme_copy, rgb_copy):
+        shape.fill_format.fill_type = slides.FillType.SOLID
+        shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    source_color = source.fill_format.solid_fill_color
+    source_color.scheme_color = slides.SchemeColor.ACCENT1
+    source_color.color_transform.add(slides.ColorTransformOperation.TINT, 0.75)
+
+    theme_copy.fill_format.solid_fill_color.copy_from(source_color)
+    rgb_copy.fill_format.solid_fill_color.color = source.fill_format.get_effective().solid_fill_color
+
+    with slide.get_image(1.0, 1.0) as before:
+        before.save("color-copy-before.png", slides.ImageFormat.PNG)
+
+    # I riferimenti al tema seguono il nuovo colore di accento; il valore RGB fisso no.
+    presentation.master_theme.color_scheme.accent1.color = draw.Color.orange_red
+
+    with slide.get_image(1.0, 1.0) as after:
+        after.save("color-copy-after.png", slides.ImageFormat.PNG)
+    presentation.save("copied_colors.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Prima della modifica del tema, tutti e tre i riempimenti corrispondono:
+
+![Sorgente, destinazione copy_from e destinazione RGB fissa con riempimenti blu identici](color-copy-before.png)
+
+Dopo la modifica del tema, la sorgente e la copia consapevole del tema seguono il nuovo colore di accento e mantengono la loro tinta. La copia RGB fissa rimane blu:
+
+![Sorgente e destinazione copy_from con riempimenti arancioni, mentre la destinazione RGB fissa rimane blu](color-copy-after.png)
+
+La definizione copiata è indipendente dalla sorgente. Modificare successivamente il riferimento al tema della sorgente, assegnare un altro colore o aggiungere o rimuovere le sue trasformazioni non modifica la destinazione. Una modifica al tema influisce ancora su entrambe le forme perché ciascuna fa riferimento in modo indipendente allo stesso colore del tema.
+
+Salvare e riaprire il PPTX preserva il [ColorFormat.color_type](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color_type/), il riferimento al tema e la collezione [ColorFormat.color_transform](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color_transform/) del colore copiato; non appiattisce la definizione in RGB.
+
+Quando si copia tra diversi contesti tematici, come presentazioni con palette di accenti differenti, il riferimento copiato viene risolto rispetto al tema della destinazione. Lo stesso riferimento e le stesse trasformazioni possono quindi produrre un colore visibile diverso. Vedi [Presentation Theme](/slides/it/python-net/presentation-theme/) per ulteriori informazioni sulla configurazione dei colori del tema.
+
+## **Usare lo sfondo della diapositiva come riempimento della forma**
+
+Usa [AutoShape.use_background_fill](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/use_background_fill/) quando una forma deve corrispondere allo sfondo della diapositiva, ad esempio in un modello di presentazione. Imposta [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) su [FillType.NOT_DEFINED](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) per rimuovere qualsiasi riempimento esplicito. Con questa combinazione, la forma utilizza lo sfondo della diapositiva invece del riempimento di stile. Abilitare il flag da solo non rimuove un riempimento esplicito esistente.
+
+Ciò differisce da [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/): il riempimento di sfondo copre gli oggetti dietro la forma con l'area corrispondente dello sfondo della diapositiva, mentre nessun riempimento lascia visibili quegli oggetti. Un gradiente rimane allineato con la diapositiva invece di ricominciare all'interno di ogni forma.
+
+L'esempio seguente crea uno sfondo master ereditato dalla diapositiva e posiziona una banda magenta dietro tre rettangoli. Il rettangolo sinistro usa lo sfondo, il rettangolo centrale non ha riempimento e il rettangolo destro passa dal riempimento di sfondo a un riempimento arancione esplicito.
 
 ```python
 import aspose.slides as slides
@@ -564,7 +620,7 @@ with slides.Presentation() as presentation:
     gradient.gradient_stops.add(0, draw.Color.dark_blue)
     gradient.gradient_stops.add(1, draw.Color.light_sky_blue)
 
-    # Aggiungi questo oggetto per primo in modo che appaia dietro i rettangoli.
+    # Aggiungi prima questo oggetto così appare dietro i rettangoli.
     band = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 25, 150, 670, 100)
     band.fill_format.fill_type = slides.FillType.SOLID
     band.fill_format.solid_fill_color.color = draw.Color.magenta
@@ -581,7 +637,7 @@ with slides.Presentation() as presentation:
     explicit_shape.fill_format.fill_type = slides.FillType.NOT_DEFINED
     explicit_shape.use_background_fill = True
 
-    # Disabilita il riempimento di sfondo prima di applicare un riempimento esplicito.
+    # Disattiva il riempimento di sfondo prima di applicare un riempimento esplicito.
     explicit_shape.use_background_fill = False
     explicit_shape.fill_format.fill_type = slides.FillType.SOLID
     explicit_shape.fill_format.solid_fill_color.color = draw.Color.orange
@@ -589,15 +645,15 @@ with slides.Presentation() as presentation:
     presentation.save("background_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Il risultato, da sinistra a destra: **background fill**, **no fill**, e **explicit fill**. La banda magenta è nascosta dai rettangoli sinistro e destro ma rimane visibile attraverso quello centrale.
+Il risultante, da sinistra a destra: **riempimento di sfondo**, **nessun riempimento** e **riempimento esplicito**. La banda magenta è nascosta dai rettangoli sinistro e destro ma rimane visibile attraverso il rettangolo centrale.
 
 ![Riempimento di sfondo, nessun riempimento e riempimento arancione esplicito sopra una banda magenta](background-fill.png)
 
-Lo stesso comportamento si applica a uno sfondo definito direttamente sulla diapositiva o ereditato da un layout. La forma utilizza lo sfondo risolto della diapositiva; l'esempio lascia sia lo sfondo della diapositiva che quello del layout indefiniti così che il master lo fornisca.
+Lo stesso comportamento si applica a uno sfondo definito direttamente sulla diapositiva o ereditato da un layout. La forma utilizza lo sfondo risolto della diapositiva; l'esempio lascia indefiniti sia lo sfondo della diapositiva sia quello del layout in modo che il master lo fornisca.
 
-## **Imposta la trasparenza**
+## **Impostare la trasparenza**
 
-Per un riempimento a tinta unita, il componente alfa del colore controlla l'opacità: 0 è completamente trasparente e 255 è completamente opaco. Questo esempio usa un valore alfa di 128 per un rettangolo giallo, rendendolo approssimativamente 50 % trasparente in modo che il rettangolo sottostante rimanga visibile. Il colore è assegnato tramite [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/).
+Per un riempimento solido, il componente alfa del colore controlla l'opacità: 0 è completamente trasparente e 255 è completamente opaco. Questo esempio utilizza un valore alfa di 128 per un rettangolo giallo, rendendolo circa il 50% trasparente così che il rettangolo sottostante rimanga visibile. Il colore è assegnato tramite [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/).
 
 ```python
 import aspose.slides as slides
@@ -621,7 +677,7 @@ Il risultato:
 
 ![La forma trasparente](shape-transparency.png)
 
-## **Ruota le forme**
+## **Ruotare le forme**
 
 Usa [Shape.rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) per ruotare una forma nel piano della diapositiva. L'angolo è misurato in gradi; questo esempio ruota un rettangolo di 5 gradi in senso orario e salva la presentazione.
 
@@ -637,13 +693,11 @@ with slides.Presentation() as presentation:
     presentation.save("shape_rotation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Il risultato:
-
 ![Rotazione della forma](shape-rotation.png)
 
-## **Aggiungi effetti di smusso 3D**
+## **Aggiungere effetti di smussatura 3D**
 
-Usa [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) per dare a una forma profondità e bordi smussati. Questo esempio crea un'ellisse verde con un contorno arancione, imposta [ThreeDFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) a 4 punti e applica uno smusso superiore circolare con larghezza e altezza di 6 punti tramite [ThreeDFormat.bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/). Una telecamera ortografica frontale e un'illuminazione a tre punti rendono visibile lo smusso.
+Usa [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) per dare a una forma profondità e bordi smussati. Questo esempio crea un'ellisse verde con un contorno arancione, imposta [ThreeDFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) a 4 punti e applica una smussatura superiore circolare con larghezza e altezza di 6 punti tramite [ThreeDFormat.bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/). Una fotocamera ortografica frontale e un'illuminazione a tre punti rendono la smussatura visibile.
 
 ```python
 import aspose.slides as slides
@@ -669,13 +723,11 @@ with slides.Presentation() as presentation:
     presentation.save("3D_bevel_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Il risultato:
+![L'effetto di smussatura 3D](3D-bevel-effect.png)
 
-![L'effetto di smusso 3D](3D-bevel-effect.png)
+## **Aggiungere effetti di rotazione 3D**
 
-## **Aggiungi effetti di rotazione 3D**
-
-La visualizzazione 3D di una forma è controllata dalle impostazioni della telecamera. Questo esempio usa [Camera.set_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/set_rotation/) con latitudine, longitudine e angoli di rivoluzione di 40, 35 e 20 gradi rispettivamente. Seleziona una telecamera isometrica tramite [Camera.camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) e un'illuminazione bilanciata tramite [LightRig.light_type](https://reference.aspose.com/slides/python-net/aspose.slides/lightrig/light_type/), poi salva il rettangolo formattato.
+La vista 3D di una forma è controllata dalle impostazioni della sua fotocamera. Questo esempio usa [Camera.set_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/set_rotation/) con angoli di latitudine, longitudine e rivoluzione di 40, 35 e 20 gradi, rispettivamente. Seleziona una fotocamera isometrica tramite [Camera.camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) e un'illuminazione bilanciata tramite [LightRig.light_type](https://reference.aspose.com/slides/python-net/aspose.slides/lightrig/light_type/), quindi salva il rettangolo formattato.
 
 ```python
 import aspose.slides as slides
@@ -692,17 +744,15 @@ with slides.Presentation() as presentation:
     presentation.save("3D_rotation_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Il risultato:
-
 ![L'effetto di rotazione 3D](3D-rotation-effect.png)
 
-## **Controlla il rendering in bianco e nero per le forme**
+## **Controllare la resa in bianco e nero per le forme**
 
-La proprietà [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) specifica come una singola forma viene renderizzata quando una presentazione viene visualizzata o elaborata in modalità bianco e nero. Non abilita la visualizzazione in bianco e nero da sola e non cambia il riempimento, il contorno o altre formattazioni della forma in modalità colore normale.
+La proprietà [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) specifica come una singola forma viene resa quando una presentazione è visualizzata o elaborata in modalità bianco e nero. Non abilita la visualizzazione in bianco e nero da sola e non modifica il riempimento, la linea o altre formattazioni della forma in modalità colore normale.
 
-Usa un valore dell'enumerazione [BlackWhiteMode](https://reference.aspose.com/slides/python-net/aspose.slides/blackwhitemode/) per selezionare il comportamento desiderato. Ad esempio, `AUTOMATIC` lascia all'applicazione di rendering scegliere la conversione, `GRAY` e `LIGHT_GRAY` usano la colorazione in scala di grigi, `BLACK_WHITE` usa solo nero e bianco, `BLACK` e `WHITE` forzano un colore unico, `COLOR` preserva la colorazione normale e `HIDDEN` omette la forma in modalità bianco e nero. `NOT_DEFINED` significa che non è stato assegnato alcun modo a livello di forma.
+Usa un valore dell'enumerazione [BlackWhiteMode](https://reference.aspose.com/slides/python-net/aspose.slides/blackwhitemode/) per selezionare il comportamento desiderato. Ad esempio, `AUTOMATIC` consente all'applicazione di rendering di scegliere la conversione, `GRAY` e `LIGHT_GRAY` usano la colorazione in grigio, `BLACK_WHITE` usa solo nero e bianco, `BLACK` e `WHITE` forzano un colore unico, `COLOR` preserva la colorazione normale e `HIDDEN` omette la forma in modalità bianco e nero. `NOT_DEFINED` indica che non è stato assegnato alcun modo a livello di forma.
 
-Questo esempio crea un rettangolo arancione e imposta [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) su grigio. La forma salvata conserva il riempimento arancione per la visualizzazione a colori normali e richiede la colorazione grigia dalle applicazioni che rispettano le impostazioni di visualizzazione in bianco e nero:
+Questo esempio crea un rettangolo arancione e imposta [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) su gray. La forma salvata conserva il riempimento arancione per la visualizzazione a colori normale e richiede la colorazione grigia dalle applicazioni che rispettano le impostazioni di visualizzazione in bianco e nero:
 
 ```python
 import aspose.slides as slides
@@ -719,11 +769,11 @@ with slides.Presentation() as presentation:
     presentation.save("shape_black_white_mode.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-In modalità colore normale, il rettangolo conserva il riempimento arancione. In un flusso di lavoro di visualizzazione in bianco e nero, utilizza la colorazione grigia perché il suo modo è impostato su `GRAY`. Questo ti consente di preservare una diapositiva a colori completi definendo un aspetto distinto per la stampa, l'anteprima o altri flussi di lavoro che rispettano le impostazioni di visualizzazione in bianco e nero della presentazione.
+In modalità colore normale, il rettangolo mantiene il riempimento arancione. In un flusso di lavoro di visualizzazione in bianco e nero, utilizza la colorazione grigia perché il suo modo è impostato su `GRAY`. Questo consente di preservare una diapositiva a colori completa definendo un aspetto distinto per la stampa, l'anteprima o altri flussi di lavoro che rispettano le impostazioni di visualizzazione in bianco e nero della presentazione.
 
-## **Reimposta la formattazione**
+## **Ripristinare la formattazione**
 
-Usa [Slide.reset](https://reference.aspose.com/slides/python-net/aspose.slides/slide/reset/) per ripristinare la posizione, le dimensioni e la formattazione dei segnaposto della diapositiva dai corrispondenti segnaposto del layout. Questo esempio richiede una presentazione esistente con segnaposto collegati al layout e ripristina ogni diapositiva prima di salvare. Le forme senza segnaposto corrispondente nel layout non vengono ripristinate.
+Usa [Slide.reset](https://reference.aspose.com/slides/python-net/aspose.slides/slide/reset/) per ripristinare la posizione, le dimensioni e la formattazione dei segnaposto della diapositiva dai loro corrispondenti segnaposto del layout. Questo esempio richiede una presentazione esistente con segnaposto collegati al layout e ripristina ogni diapositiva prima di salvare. Le forme senza segnaposto corrispondente nel layout non vengono ripristinate.
 
 ```python
 import aspose.slides as slides
@@ -735,16 +785,16 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("reset_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Domande frequenti**
+## **FAQ**
 
-**La formattazione delle forme influisce sulle dimensioni finali del file della presentazione?**
+**La formattazione delle forme influisce sulla dimensione finale del file della presentazione?**
 
-I colori, gli stili di linea e le impostazioni degli effetti aggiungono generalmente pochi dati rispetto a immagini e media incorporati. I riempimenti immagine possono aumentare le dimensioni del file perché le loro immagini vengono memorizzate nella presentazione.
+I colori, gli stili di linea e le impostazioni degli effetti aggiungono generalmente pochi dati rispetto a immagini e media incorporati. I riempimenti immagine possono aumentare la dimensione del file poiché le loro immagini sono memorizzate nella presentazione.
 
-**Come posso rilevare forme in una diapositiva che condividono una formattazione identica così da poterle raggruppare?**
+**Come posso rilevare le forme su una diapositiva che condividono una formattazione identica per poterle raggruppare?**
 
-Confronta le proprietà chiave di formattazione di ciascuna forma — riempimento, linea e impostazioni degli effetti. Se tutti i valori corrispondenti coincidono, tratta i loro stili come identici e raggruppa logicamente quelle forme, semplificando la gestione successiva degli stili.
+Confronta le principali proprietà di formattazione di ogni forma — riempimento, linea e impostazioni degli effetti. Se tutti i valori corrispondenti coincidono, considera i loro stili identici e raggruppa logicamente quelle forme, semplificando la gestione degli stili successiva.
 
-**Posso salvare un set di stili di forma personalizzati in un file separato per riutilizzarlo in altre presentazioni?**
+**Posso salvare un insieme di stili di forme personalizzati in un file separato per riutilizzarli in altre presentazioni?**
 
-Sì. Salva le forme di esempio con gli stili desiderati in una presentazione modello o in un file .POTX. Quando crei una nuova presentazione, apri il modello, clona le forme stilizzate di cui hai bisogno e riapplica la loro formattazione dove necessario.
+Sì. Memorizza le forme di esempio con gli stili desiderati in un mazzo di diapositive modello o in un file modello .POTX. Quando crei una nuova presentazione, apri il modello, clona le forme formattate di cui hai bisogno e riapplica la loro formattazione dove necessario.

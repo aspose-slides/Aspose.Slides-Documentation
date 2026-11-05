@@ -1,5 +1,5 @@
 ---
-title: C++'ta PowerPoint Şekillerini Biçimlendirme
+title: PowerPoint Şekillerini C++ ile Biçimlendirme
 linktitle: Şekil Biçimlendirme
 type: docs
 weight: 20
@@ -9,8 +9,8 @@ keywords:
 - çizgi biçimlendirme
 - eskiz efekti
 - eskiz şekil çizgisi
-- birleştirme stili biçimlendirme
-- gradyan doldurma
+- bağlantı stili biçimlendirme
+- degrade doldurma
 - desen doldurma
 - resim doldurma
 - doku doldurma
@@ -19,26 +19,26 @@ keywords:
 - siyah-beyaz şekil renderleme
 - gri ölçekli şekil renderleme
 - şekil döndürme
-- 3B keskinleştirme efekti
+- 3B köşe efekti
 - 3B döndürme efekti
-- biçimlendirmeyi sıfırlama
+- biçimlendirmeyi sıfırla
 - PowerPoint
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides kullanarak C++'ta PowerPoint şekillerini nasıl biçimlendireceğinizi öğrenin—PPT ve PPTX dosyaları için doldurma, çizgi ve efekt stillerini hassasiyetle ve tam kontrolle ayarlayın."
+description: "Aspose.Slides kullanarak C++'ta PowerPoint şekillerini nasıl biçimlendireceğinizi öğrenin—PPT ve PPTX dosyaları için doldurma, çizgi ve efekt stillerini hassas ve tam kontrol ile ayarlayın."
 ---
 ## **Giriş**
 
-PowerPoint’te şekilleri kenarlıklarını, doldurmalarını ve efektlerini ayarlayarak biçimlendirin. Aspose.Slides for C++ bu ayarları programlı olarak kontrol etmenizi sağlar; şeffaflık, dönüş ve 3B biçimlendirme dahil.
+PowerPoint’te şekilleri kenarlıklarını, dolgu ve efektlerini ayarlayarak biçimlendirin. Aspose.Slides for C++ bu ayarları programlı olarak kontrol etmenizi sağlar; şeffaflık, döndürme ve 3B biçimlendirme dahil.
 
-![PowerPoint’te Şekil Biçimlendirme Seçenekleri](format-shape-powerpoint.png)
+![PowerPoint'te Şekil Biçimlendirme Seçenekleri](format-shape-powerpoint.png)
 
-Aspose.Slides for C++ aynı seçenekleri PowerPoint’te bulunan biçimlendirme seçeneklerini kullanarak şekil biçimlendirmenize olanak tanıyan arabirimler ve yöntemler sağlar.
+Aspose.Slides for C++ şekilleri PowerPoint’te mevcut aynı seçeneklerle biçimlendirmenizi sağlayan arayüzler ve yöntemler sunar.
 
 ## **Çizgi Biçimlendirme**
 
-[IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) kullanarak bir şeklin kenarlığını kontrol edin. Bu örnek doldurulmamış bir dikdörtgeni mavi, kesikli bir kenarlıkla oluşturur. [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) kalın-ince bileşik bir çizgi seçerken, [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) genişliğini 7 puan olarak ayarlar ve [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) çizgi desenini seçer.
+Use [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) to control a shape’s outline. This example creates an unfilled rectangle with a blue, dashed outline. [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) selects a thick‑thin compound line, while [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) sets its width to 7 points and [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) selects the dash pattern.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -77,17 +77,17 @@ presentation->Save(u"formatted_lines.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Sonuç:
+**Sonuç:**
 
-![Sunumda biçimlendirilmiş çizgiler](formatted-lines.png)
+![Sunumdaki biçimlendirilmiş çizgiler](formatted-lines.png)
 
-### **Özel Çizgi Çizim Desenlerini Ayarlama**
+### **Özel Çizgi Çizgi Desenlerini Ayarlama**
 
-Önceden tanımlı çizgi stilleri gerekli çizgi uzunlukları ve boşluklarını sunmuyorsa, örneğin marka kenarlıkları veya teknik diyagramlar için, [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) kullanın. Bir desen atanması, çizgi stilini otomatik olarak [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) olarak değiştirir.
+Use [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) when predefined line styles do not provide the dash lengths and gaps you need, for example for branded outlines or technical diagrams. Assigning a pattern automatically changes the dash style to [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/).
 
-Dizi girdileri çizgi ve boşluk uzunlukları arasında değişir ve bir çizgiyle başlar. Her değer, çizgi genişliğinin bir katıdır: `{ 4, 2 }` genişliği 3 puan olan bir çizgide 12 puanlık bir çizgi ve ardından 6 puanlık bir boşluk üretir. Tam çizgi‑boşluk segmentleri tanımlamak için sonlu, negatif olmayan değer çiftleri kullanın. Örnek, her çizgi ve boşluğun görünür olmasını sağlamak için pozitif değerler kullanır.
+Array entries alternate between dash and gap lengths, starting with a dash. Each value is a multiple of the line width: `{ 4, 2 }` at a width of 3 points produces a 12‑point dash followed by a 6‑point gap. Use pairs of finite, nonnegative values to define complete dash‑and‑gap segments. The example uses positive values to keep every dash and gap visible.
 
-Bu örnek aynı uzunlukta ve düz uçlu beş mavi çizgi oluşturur. İlk üç çizgi desenini 3 puan genişlikte karşılaştırır. Dördüncüsü ilk deseni iki kat genişlikte (çizgi ve boşluk uzunlukları iki kat) tekrarlar. Beşincisi özel deseni katı bir çizgiye değiştirir.
+This example creates five blue lines with the same length and flat caps. The first three compare patterns at a width of 3 points. The fourth repeats the first pattern at twice the width, doubling both the dash and gap lengths. The fifth switches from a custom pattern to a solid line.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -147,26 +147,26 @@ presentation->Save(u"custom_dash_patterns.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Önceden tanımlı kesikli bir stile geri dönmek için, [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) yöntemine [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) parametresini geçirin. Seçilen stil çizginin görünümünü kontrol eder.
+To return to a predefined dashed style instead, pass [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) to [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/). The selected style controls the line's appearance.
 
-PowerPoint’te üstten alta doğru sonuç: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; ve **Solid, 3 pt**.
+**PowerPoint’te sonuç (üstten alta):** **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; ve **Solid, 3 pt**.
 
-![Üç özel çizgi deseni, ilk deseni kullanan daha geniş bir çizgi ve PowerPoint’te katı bir çizgi](custom-dash-patterns.png)
+![Üç özel çizgi deseni, ilk desenle daha geniş bir çizgi ve bir katı çizgi PowerPoint’te](custom-dash-patterns.png)
 
 
 ### **Çizgi Uçlarını Ayarlama**
 
-[ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) kullanarak açık bir çizginin uçlarını ayarlayın. [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) enumarasyonu üç açık uç stilini sağlar:
+Use [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) enumeration provides three explicit cap styles:
 
-- `Flat`: Çizim uç noktasında durur.
-- `Round`: Yarıçapı çizgi genişliğinin yarısı kadar olan yarım daire şekli uç noktasının ötesine uzanır.
-- `Square`: Kare uç, çizgi genişliğinin yarısı kadar uç noktasının ötesine uzanır.
+- `Flat`: The stroke stops at the endpoint.
+- `Round`: A semicircular cap extends beyond the endpoint by half the line width.
+- `Square`: A square cap extends beyond the endpoint by half the line width.
 
-Enumarasyon ayrıca `NotDefined` değerini içerir; bu, herhangi bir uç stilinin açıkça atanmadığını gösterir.
+The enumeration also includes `NotDefined`, which means that no cap style is explicitly assigned.
 
-Uçlar, çizgi uçlarına sembol ekleyen ok başlarından ve çizgi segmentleri arasındaki köşeleri kontrol eden birleşimlerden farklıdır. Bu örnek, sadece uç şekillerinin karşılaştırılmasını sağlamak için [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) ve [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) üzerinden ok başlarını devre dışı bırakır.
+Caps are different from arrowheads, which add symbols to line ends, and joins, which control corners between line segments. This example disables arrowheads through [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) and [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) so that only the cap shapes are compared.
 
-Aşağıdaki örnek, 20 puan genişliğinde, aksi takdirde aynı olan üç yatay çizgi oluşturur. Üstten alta doğru, düz, yuvarlak ve kare uçlar kullanılır. Uç noktalarının yatay koordinatları aynıdır; yuvarlak ve kare uçlar her uç noktasının 10 puan ötesine uzanır.
+The following example creates three otherwise identical horizontal lines, 20 points wide. From top to bottom, they use flat, round, and square caps. Their endpoints have the same horizontal coordinates; the round and square caps extend 10 points beyond each endpoint.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -216,15 +216,15 @@ presentation->Save(u"line_caps.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-PowerPoint’te üstten alta doğru sonuç: **Flat**, **Round** ve **Square**.
+**PowerPoint’te sonuç (üstten alta):** **Düz**, **Yuvarlak**, ve **Kare**.
 
-![PowerPoint’te aynı kalınlıktaki çizgilerde düz, yuvarlak ve kare uçlar](line-caps.png)
+![PowerPoint’te aynı kalınlıktaki düz, yuvarlak ve kare uçlu çizgiler](line-caps.png)
 
 ## **Şekil Çizgilerine Eskiz Efektleri Uygulama**
 
-Eskiz efekti, bir şekil çizgisinin el çizimi gibi görünmesini sağlar. [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) ile çizgi ayarlarına, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) ile eskiz ayarlarına ve [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) ile [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) enumarasyonundan bir değer seçin.
+A sketch effect makes a shape line look hand‑drawn. Use [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) to access the line settings, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) to access the sketch settings, and [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) to select a value from the [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) enumeration.
 
-Aşağıdaki C++ kodu, [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) etkisini nasıl uygulayacağınızı, açıkça atanmış değeri nasıl okuyacağınızı ve [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) ile efekti nasıl kaldıracağınızı gösterir:
+The following C++ code shows how to apply a [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -255,7 +255,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-[ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) tarafından döndürülen değer, doğrudan şekle atanan ayarı temsil eder. Çizgi biçimlendirmesi bir temadan, ana slayttan veya yerleşim slaytından devralınabiliyorsa, [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/) kullanın, [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) ile erişin ve [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/) değerini okuyun. Etkili değer, devralma çözüldükten sonra gerçekten uygulanan biçimlendirmeyi yansıtır. Bu örnek, ilk slaytında en az bir şekil bulunan mevcut bir sunumu gerektirir ve her iki değeri de yazdırır:
+The value returned by [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), access [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), and read [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). The effective value reflects the formatting that is actually applied after inheritance is resolved. This example requires an existing presentation with at least one shape on its first slide and prints both values:
 
 ```cpp
 #include <DOM/ILineFormat.h>
@@ -285,19 +285,19 @@ Console::WriteLine(u"Effective sketch type: {0}", effectiveSketchType);
 presentation->Dispose();
 ```
 
-## **Birleştirme Stillerini Biçimlendirme**
+## **Bağlantı (Join) Stillerini Biçimlendirme**
 
-Aşağıda üç birleştirme tipi seçeneği bulunur:
+Here are the three join type options:
 
 * Round
 * Miter
 * Bevel
 
-Birleştirme stili, iki kenarlık segmentinin bir köşede nasıl buluştuğunu kontrol eder. Yuvarlatılmış köşeler için **Round**, keskin köşeler için **Miter**, düzleştirilmiş köşeler için **Bevel** kullanın.
+The join style controls how two outline segments meet at a corner. Use **Round** for rounded corners, **Miter** for sharp corners, or **Bevel** for flattened corners.
 
-![Sunumda birleştirme stili](join-style-powerpoint.png)
+![Sunumda birleşim stili](join-style-powerpoint.png)
 
-Bu örnek, 15 puan genişliğinde mavi kenarlıklı üç siyah dikdörtgen oluşturur. [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) yöntemi sırasıyla [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) enumarasyonunun miter, bevel ve round değerlerine ayarlanır; böylece köşelerin nasıl çizildiği karşılaştırılır.
+This example creates three black rectangles with blue outlines 15 points wide. It sets [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) to the miter, bevel, and round values of [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/), respectively, to compare how the corners are drawn.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -358,13 +358,13 @@ presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Keskin Köşelerde Miter Birleştirmelerini Sınırlandırma**
+### **Keskin Köşelerde Miter Bağlantısını Sınırlama**
 
-[ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) ve [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) yöntemini [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) ile birlikte kullanarak keskin bir köşenin ne kadar uzayabileceğini sınırlayın.
+Use [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) with [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) set to [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) to limit how far a sharp corner can extend.
 
-Limit, birleştirme iç ve dış köşeleri arasındaki mesafenin çizgi genişliğine oranıdır. Örneğin, `8` değeri, miter uzunluğunun çizgi genişliğinin sekiz katına kadar izin verir; bu bir puan ölçüsü değildir. Köşe limitin üstüne çıkarsa, PowerPoint o köşede bir keskinleştirilmiş (beveled) birleştirme kullanır. Daha büyük bir limit daha keskin noktalar sağlar. Ayar yalnızca miter birleştirmelerini etkiler ve köşe her iki limit içinde kalıyorsa görünür bir etkisi yoktur.
+The limit is a ratio of the distance between the inner and outer corners of the join to the line width. For example, a value of `8` permits a miter length of up to eight times the line width; it is not a measurement in points. If the corner would exceed the limit, PowerPoint uses a beveled join at that corner. A larger limit allows sharper points. The setting affects miter joins only, and changing it has no visible effect when the corner remains within both limits.
 
-Bu örnek, 20 puan genişliğinde kenarlıklı iki aynı doldurulmamış üçgen oluşturur. Sol üçgen `2` limitini, sağ üçgen `8` limitini kullanır. Her üçgen 80 puan genişliğinde ve 160 puan yüksekliğindedir; üst köşesinin miter‑length‑to‑line‑width oranı yaklaşık `4.12` olur. Sonuç olarak, PowerPoint sol ucu keskinleştirir ve sağ ucunu korur.
+This example creates two identical, unfilled triangles with outlines 20 points wide. The left triangle uses a limit of `2`, and the right uses `8`. Each triangle is 80 points wide and 160 points high, giving its top corner a miter‑length‑to‑line‑width ratio of approximately `4.12`. Consequently, PowerPoint bevels the left apex and preserves the right apex.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -411,13 +411,13 @@ presentation->Save(u"miter_limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-PowerPoint’te sonuç: **Miter limit 2** solda ve **miter limit 8** sağda.
+**PowerPoint’te sonuç:** **Miter sınırı 2** solda ve **miter sınırı 8** sağda.
 
-![PowerPoint’te 2 limitli keskinleştirilmiş bir uç ve 8 limitli sivri bir uç](miter-limits.png)
+![PowerPoint’te miter sınırı 2 ile keskin uç ve miter sınırı 8 ile keskin uçlu bir tepe](miter-limits.png)
 
-## **Gradyan Doldurma**
+## **Degrade Doldurma**
 
-Gradyan doldurma, bir şekil boyunca renkleri karıştırır. Bu örnek, bir elipsi kırmızıdan mor renge 45 derece açısıyla lineer gradyanla doldurur; bunun için [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/) kullanılır. [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) yöntemi renk duraklarını gradyanın başlangıcı (0) ve sonu (1) olarak yerleştirir. Mevcut durakların temizlenmesi, sadece bu iki rengin kullanılmasını sağlar.
+A gradient fill blends colors across a shape. This example fills an ellipse with a linear gradient at a 45‑degree angle from red to purple using [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). The [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) method places the color stops at 0 and 1, the beginning and end of the gradient. Clearing the existing stops ensures that only these two colors are used.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -456,17 +456,17 @@ presentation->Save(u"gradient_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Sonuç:
+**Sonuç:**
 
-![Gradyan dolu elips](gradient-fill.png)
+![Degrade dolgu ile elips](gradient-fill.png)
 
-Eğer bir gradyan dışa aktarılan bir görüntüde PowerPoint’te farklı görünüyorsa, [Choose a Gradient Rendering Style](/slides/tr/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) bölümüne bakın. Gradyan doldurmasını sunumda değişmeden bir render stili seçebilirsiniz.
+If a gradient looks different in an exported image than it does in PowerPoint, see [Choose a Gradient Rendering Style](/slides/tr/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). You can select a rendering style without changing the gradient fill stored in the presentation.
 
-### **Lineer Gradyan Açısını Ayarlama**
+### **Doğrusal Degrade Açısını Ayarlama**
 
-[IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) ile bir [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) doldurmanın yönünü kontrol edin. Açıyı derece cinsinden ölçer ve saat yönünde artar: `0` soldan sağa, `90` üstten alta, `180` sağdan sola, `270` alttan üste. Kesirli açılar desteklenir. `[0, 360)` aralığı dışındaki sonlu açılar bir tura normalize edilir; örneğin `-45` → `315`, `360` → `0`.
+Use [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) to control the orientation of a [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) fill. The angle is measured in degrees and increases clockwise: `0` runs from left to right, `90` from top to bottom, `180` from right to left, and `270` from bottom to top. Fractional angles are supported. Finite angles outside `[0, 360)` are normalized to one revolution; for example, `-45` becomes `315` and `360` becomes `0`.
 
-Bu örnek, aynı kırmızı, yeşil ve mavi durakları `0`, `0.5` ve `1` konumlarında oluşturan altı dikdörtgen oluşturur. Ölçekleme devre dışı bırakılır, böylece açı dikdörtgenlerin oranlarından bağımsız olarak karşılaştırılabilir. Açılar soldan sağa doğru: ilk satırda `0`, `45`, `90`; ikinci satırda `135`, `180`, `270`.
+This example creates six rectangles with identical red, green, and blue stops at positions `0`, `0.5`, and `1`. Scaling is disabled so that the angle can be compared independently of the rectangles' proportions. The angles, from left to right, are `0`, `45`, and `90` in the first row, and `135`, `180`, and `270` in the second row.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -523,15 +523,15 @@ presentation->Save(u"linear_gradient_angles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-PowerPoint’te sonuç:
+**PowerPoint’te sonuç:**
 
-![Üst satırda 0, 45 ve 90 derece, alt satırda 135, 180 ve 270 derece lineer gradyanlar](linear-gradient-angles.png)
+![Üst satırda 0, 45 ve 90 derece, alt satırda 135, 180 ve 270 derece doğrusal degradeler](linear-gradient-angles.png)
 
-### **Şekille Lineer Gradyanı Ölçekleme**
+### **Şekil ile Doğrusal Degradeyi Ölçekleme**
 
-[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) bir [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) değeri kabul eder. `False` olarak ayarlarsanız, şeklin oranları değişse bile geometrik gradyan açısı sabit kalır; `True` olarak ayarlarsanız, gradyan şeklin genişliği ve yüksekliğiyle ölçeklenir. Ölçekleme etkinleştirildiğinde, kare olmayan bir şekilde görülen açı atanmış açıdan farklı olabilir.
+[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) accepts a [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) value. Set it explicitly to `False` to keep the geometric gradient angle as the shape's proportions change, or to `True` to scale the gradient with the shape's width and height. With scaling enabled, the visible angle can differ from the assigned angle on a non‑square shape.
 
-Aşağıdaki örnek, açı karşılaştırmasında kullanılan aynı renk duraklarıyla `45` derece açı kullanır. Sol sütun `False`; sağ sütun `True`. Her sütun geniş bir dikdörtgenin üstünde yüksek bir dikdörtgen içerir. İkincinin genişliği ve yüksekliği değiştirilerek, doldurmanın yeniden boyutlandırmaya nasıl yanıt verdiği gösterilir.
+The following example uses a `45`‑degree angle and the same color stops as the angle comparison. The left column uses `False`; the right column uses `True`. Each column contains a wide rectangle above a tall rectangle. Both start with the same wide dimensions; changing the second rectangle's width and height demonstrates how the fill responds to resizing without changing its gradient settings.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -597,19 +597,19 @@ presentation->Save(u"linear_gradient_scaling.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-PowerPoint’te sonuç, sol tarafta ölçekleme devre dışı, sağ tarafta etkin:
+**PowerPoint’te sonuç, solda ölçekleme devre dışı ve sağda etkin:**
 
-![Sol tarafta LinearGradientScaled False, sağ tarafta True olan geniş ve yüksek dikdörtgenler](linear-gradient-scaling.png)
+![Geniş ve uzun dikdörtgenlerde 45 derece degradeli, solda LinearGradientScaled False, sağda True](linear-gradient-scaling.png)
 
-Ölçekleme devre dışı bırakıldığında, diyagonal renk bantları her iki dikdörtgende aynı yönü korur. Ölçekleme etkinleştirildiğinde, bantlar şeklin oranlarıyla uzar. Bu, bir şablonun gradyanını farklı bir boyuta uyarlarken yeniden üretmeye yardımcı olur. Kare bir şekilde, ölçekleme etkinleştirilmesi bu `45` derece gradyanın görünümünü değiştirmez.
+With scaling disabled, the diagonal color bands keep the same orientation in both rectangles. With scaling enabled, the bands stretch with the shape's proportions. This helps reproduce a template's gradient when adapting a shape to a different size. On a square, enabling scaling does not change the appearance of this `45`‑degree gradient.
 
-Hem açı hem de ölçekleme ayarları lineer gradyanlar için geçerlidir. [GradientShape::Radial] veya [GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) doldurmalarını kontrol etmezler.
+Both the angle and scaling settings apply to linear gradients. They do not control [GradientShape::Radial or GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) fills.
 
-### **Açıyı Gradyan Yönüyle Birleştirme**
+### **Açıyı Gradient Yönüyle Birleştirme**
 
-[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) bir gradyan stilini [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/) enumarasyonundan seçer; bu sayısal bir açı için bir alternatif değildir. Lineer bir gradyan için, köşe stilleri, [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) ile atanmış açıyı değiştirmeden renklerin dağıtıldığı alanı değiştirebilir. Açıyı veya ölçeklemeyi karşılaştırırken yönü aynı tutun.
+[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) selects a gradient style from the [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/) enumeration; it is not a substitute for a numeric angle. For a linear gradient, the corner styles can change the area over which the colors are distributed without changing the angle assigned through [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/). Keep the direction unchanged when comparing angles or scaling.
 
-Aşağıdaki örnek, aynı ayarları ters sırayla uygular. İki dikdörtgen aynı görünümü üretir: yönü açıdan önce veya sonra atamak sonucu etkilemez.
+The following example applies the same settings in opposite orders. The two rectangles have the same appearance: assigning the direction before or after the angle does not change the result.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -670,7 +670,7 @@ presentation->Dispose();
 
 ## **Desen Doldurma**
 
-Desen doldurma, iki renkli bir tasarım (nokta, şerit veya dama gibi) uygular. Bu örnek, [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) ile bir ızgara deseni seçer. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) açık gri arka planı, [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) ise sarı desen rengini sağlar.
+A pattern fill applies a two‑color design, such as dots, stripes, or checks. This example uses [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) to select a trellis pattern. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) supplies the light gray background, and [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) supplies the yellow pattern color.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -705,13 +705,13 @@ presentation->Save(u"pattern_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Sonuç:
+**Sonuç:**
 
-![Desen doldurulmuş dikdörtgen](pattern-fill.png)
+![Desen doldurmalı dikdörtgen](pattern-fill.png)
 
 ## **Resim Doldurma**
 
-Resim doldurma, bir şeklin içinde bir görüntü kullanır. Bu örnek yerel bir görüntü gerektirir ve [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) ile sunumun görüntü koleksiyonuna yükler. [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) özelliği döşeme (tile) moduna ayarlandığında görüntü dikdörtgen içinde tekrarlanır. Aşağıda kullanılan kaynak görüntü gösterilmiştir:
+A picture fill uses an image inside a shape. This example requires a local image and uses [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) to load it into the presentation’s image collection. Setting [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) to the tiled mode repeats the image within the rectangle. The source image used here is shown below:
 
 ![Lotus resmi](lotus.png)
 
@@ -752,23 +752,23 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-Sonuç:
+**Sonuç:**
 
 ![Resim doldurulmuş şekil](picture-fill.png)
 
-### **Doku Olarak Döşeme Resmi Kullanma**
+### **Desen Olarak Döşeme Resmi**
 
-Döşeme bir resmi doku olarak ayarlamak ve döşeme davranışını özelleştirmek isterseniz, aşağıdaki [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) arabirimi ve [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) sınıfı yöntemlerini kullanabilirsiniz:
+If you want to set a tiled picture as a texture and customize the tiling behavior, you can use the following methods of the [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) interface and [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) class:
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Resim doldurma modunu `Tile` ya da `Stretch` olarak ayarlar.
-- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Döşemelerin şekil içinde hizalanmasını belirler.
-- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Döşemenin yatay, dikey ya da iki yönde ters çevrilip çevrilmeyeceğini kontrol eder.
-- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Döşemenin yatay ofsetini (puan cinsinden) şeklin orijinalinden ayarlar.
-- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Döşemenin dikey ofsetini (puan cinsinden) şeklin orijinalinden ayarlar.
-- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Döşemenin yatay ölçeğini yüzde olarak tanımlar.
-- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Döşemenin dikey ölçeğini yüzde olarak tanımlar.
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Sets the picture fill mode—either `Tile` or `Stretch`.
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Specifies the alignment of the tiles within the shape.
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Controls whether the tile is flipped horizontally, vertically, or both.
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Sets the horizontal offset of the tile (in points) from the shape’s origin.
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Sets the vertical offset of the tile (in points) from the shape’s origin.
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Defines the horizontal scale of the tile as a percentage.
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Defines the vertical scale of the tile as a percentage.
 
-Bu örnek yerel bir görüntü gerektirir ve [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) aracılığıyla orijinal boyutunun %50’si kadar tekrarlanacak şekilde ayarlar. `‑32` puan ofsetleri döşemeleri yatay ve dikey olarak kaydırır; sağ‑alt hizalama ve her iki yönde ters çevirme, tekrarlanan dokunun düzenlenişini belirler.
+This example requires a local image and configures [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) to repeat it at 50% of its original size. Offsets of −32 points shift the tiles horizontally and vertically; bottom‑right alignment and flipping in both directions determine how the repeated texture is arranged.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -817,13 +817,13 @@ sourceImage->Dispose();
 presentation->Dispose();
 ```
 
-Sonuç:
+**Sonuç:**
 
 ![Döşeme seçenekleri](tile-options.png)
 
 ## **Katı Renk Doldurma**
 
-Katı doldurma, bir şekle tek ve tekdüze bir renk verir. Bu örnek, [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) yöntemini katı doldurma moduna ayarlar ve [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) aracılığıyla sarı rengi atar; ardından dikdörtgeni bir sunuma kaydeder.
+A solid fill gives a shape a single, uniform color. This example sets [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) to the solid fill mode and assigns yellow through [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), then saves the rectangle in a presentation.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -854,17 +854,106 @@ presentation->Save(u"solid_color_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Sonuç:
+**Sonuç:**
 
 ![Katı renk doldurulmuş şekil](solid-color-fill.png)
 
-## **Slayt Arka Planını Şekil Doldurması Olarak Kullanma**
+### **Tema Referanslarını Koruyarak Renkleri Kopyalama**
 
-Bir şeklin slayt arka planıyla eşleşmesi gerektiğinde, örneğin bir sunum şablonunda, [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) kullanın. Öncelikle [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) metodunu [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) olarak ayarlayarak mevcut bir doldurmayı kaldırın. Bu kombinasyonla şekil, stil doldurması yerine slayt arka planını kullanır. Bayrağı yalnızca etkinleştirmek varolan bir doldurmayı kaldırmaz.
+Use [IColorFormat::CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/copyfrom/) to copy a color definition, including its color type, theme reference, and transformations. This is useful when transferring a fill color between shapes that should continue to follow the presentation theme. The method copies only the color: it does not copy the fill type, outline, or other shape formatting. Set the destination's fill type explicitly with [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/).
 
-Bu, [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) seçeneğinden farklıdır: arka plan doldurması, şeklin arkasındaki nesneleri slayt arka planının karşılık gelen alanıyla kapatır, ancak dolgu olmaması bu nesneleri görünür bırakır. Bir gradyan, her şeklin içinde yeniden başlamaz; slaytla hizalanmış kalır.
+This example creates three rectangles, from left to right: the source, a theme‑aware copy, and a fixed RGB copy. The source uses [IColorFormat::set_SchemeColor](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_schemecolor/) to reference the first accent color and adds a tint through [IColorOperationCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icoloroperationcollection/add/). The RGB copy uses the source's effective fill color so all three initially look identical. Calling [IColorFormat::set_Color](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_color/) sets a fixed RGB value and clears any existing color transformations.
 
-Aşağıdaki örnek, slayt tarafından miras alınan bir ana arka plan oluşturur ve üç dikdörtgenin arkasına bir macenta şeridi yerleştirir. Sol dikdörtgen arka planı kullanır, orta dikdörtgen doldurmasızdır ve sağ dikdörtgen arka plan doldurmasından açık turuncu bir doldurmaya geçer.
+```cpp
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(660, 220, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_RoyalBlue());
+
+auto source = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+auto themeCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+auto rgbCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+for (auto shape : { source, themeCopy, rgbCopy })
+{
+    shape->get_FillFormat()->set_FillType(FillType::Solid);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+}
+
+auto sourceColor = source->get_FillFormat()->get_SolidFillColor();
+sourceColor->set_SchemeColor(SchemeColor::Accent1);
+sourceColor->get_ColorTransform()->Add(ColorTransformOperation::Tint, 0.75f);
+
+themeCopy->get_FillFormat()->get_SolidFillColor()->CopyFrom(sourceColor);
+auto effectiveFill = source->get_FillFormat()->GetEffective();
+rgbCopy->get_FillFormat()->get_SolidFillColor()->set_Color(effectiveFill->get_SolidFillColor());
+
+auto before = slide->GetImage(1.0f, 1.0f);
+before->Save(u"color-copy-before.png", ImageFormat::Png);
+before->Dispose();
+
+// Theme references follow the new accent color; the fixed RGB value does not.
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_OrangeRed());
+
+auto after = slide->GetImage(1.0f, 1.0f);
+after->Save(u"color-copy-after.png", ImageFormat::Png);
+after->Dispose();
+presentation->Save(u"copied_colors.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+**Tema değişiminden önce, üç doldurma da aynı:** 
+
+![Kaynak, CopyFrom hedef ve aynı mavi doldurmaları olan sabit RGB hedef](color-copy-before.png)
+
+After the theme change, the source and the theme-aware copy follow the new accent color and retain their tint. The fixed RGB copy remains blue:
+
+![Kaynak ve CopyFrom hedef turuncu doldurmalar, sabit RGB hedef mavi kalır](color-copy-after.png)
+
+The copied definition is independent of the source. Subsequently changing the source's theme reference, assigning another color, or adding or removing its transformations does not change the destination. A theme change still affects both shapes because each independently refers to the same theme color.
+
+Saving and reopening the PPTX preserves the copied color's type, available through [IColorFormat::get_ColorType](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortype/), its theme reference, and the transformation collection returned by [IColorFormat::get_ColorTransform](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortransform/); it does not flatten the definition to RGB.
+
+When copying between different theme contexts, such as presentations with different accent palettes, the copied reference resolves against the destination's theme. The same reference and transformations can therefore produce a different visible color. See [Presentation Theme](/slides/tr/cpp/presentation-theme/) for more about configuring theme colors.
+
+## **Şeklin Doldurulması İçin Slayt Arka Planını Kullanma**
+
+Use [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) when a shape should match the slide background, for example in a presentation template. Set [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) to [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) first to remove any explicit fill. With this combination, the shape uses the slide background instead of its style fill. Enabling the flag alone does not remove an existing explicit fill.
+
+This differs from [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/): background fill covers objects behind the shape with the corresponding area of the slide background, while no fill leaves those objects visible. A gradient remains aligned with the slide rather than restarting inside each shape.
+
+The following example creates a master background inherited by the slide and places a magenta band behind three rectangles. The left rectangle uses the background, the middle rectangle has no fill, and the right rectangle switches from background fill to an explicit orange fill.
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -899,7 +988,7 @@ auto presentation = MakeObject<Presentation>();
 presentation->get_SlideSize()->SetSize(720, 400, SlideSizeScaleType::DoNotScale);
 auto slide = presentation->get_Slide(0);
 
-// Gradyanı master slayttan devral.
+// Degradeyi ana slayttan devral.
 slide->get_Background()->set_Type(BackgroundType::NotDefined);
 slide->get_LayoutSlide()->get_Background()->set_Type(BackgroundType::NotDefined);
 auto background = slide->get_LayoutSlide()->get_MasterSlide()->get_Background();
@@ -912,7 +1001,7 @@ gradient->get_GradientStops()->Clear();
 gradient->get_GradientStops()->Add(0, Color::get_DarkBlue());
 gradient->get_GradientStops()->Add(1, Color::get_LightSkyBlue());
 
-// Bu nesneyi ilk ekleyin, böylece dikdörtgelerin arkasında görünür.
+// Bu nesneyi önce ekle, böylece dikdörtgenlerin arkasında görünür.
 auto band = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 25, 150, 670, 100);
 band->get_FillFormat()->set_FillType(FillType::Solid);
 band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Magenta());
@@ -929,7 +1018,7 @@ auto explicitShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 510
 explicitShape->get_FillFormat()->set_FillType(FillType::NotDefined);
 explicitShape->set_UseBackgroundFill(true);
 
-// Arka plan doldurmasını devre dışı bırak, ardından açık bir doldurma uygula.
+// Açık bir dolgu uygulamadan önce arka plan dolgusunu devre dışı bırak.
 explicitShape->set_UseBackgroundFill(false);
 explicitShape->get_FillFormat()->set_FillType(FillType::Solid);
 explicitShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
@@ -938,15 +1027,15 @@ presentation->Save(u"background_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Sonuç, soldan sağa: **arka plan doldurması**, **doldurma yok** ve **açık doldurma**. Macenta şerit, sol ve sağ dikdörtgenler tarafından gizlenir ancak orta dikdörtgen aracılığıyla görünür kalır.
+**Sonuç (soldan sağa):** **arka plan doldurması**, **doldurma yok**, ve **açık turuncu doldurma**. Magenta şerit sol ve sağ dikdörtgenler tarafından gizlenir ancak orta dikdörtgen üzerinden görünür.
 
-![Arka plan doldurması, doldurma yok ve açık turuncu doldurma üzerinde bir macenta şerit](background-fill.png)
+![Arka plan doldurması, doldurma yok ve magenta şerit üzerine açık turuncu doldurma](background-fill.png)
 
-Aynı davranış doğrudan slaytta tanımlanan veya bir yerleşimden miras alınan arka plan için de geçerlidir. Şekil, slaydın çözümlenmiş arka planını kullanır; örnek her iki slayt ve yerleşim arka planını tanımsız bırakır, böylece ana (master) sağlayıcı olur.
+The same behavior applies to a background defined directly on the slide or inherited from a layout. The shape uses the slide's resolved background; the example leaves both the slide and layout backgrounds undefined so the master supplies it.
 
 ## **Şeffaflığı Ayarlama**
 
-Katı bir doldurma için, rengin alfa bileşeni opaklığı kontrol eder: 0 tamamen şeffaf, 255 tamamen opaktır. Bu örnek, sarı bir dikdörtgene 128 alfa değeri verir; bu da yaklaşık %50 şeffaflık sağlar ve altındaki dikdörtgenin görünür kalmasını sağlar. Renk, [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) aracılığıyla atanır.
+For a solid fill, the color’s alpha component controls opacity: 0 is fully transparent and 255 is fully opaque. This example uses an alpha value of 128 for a yellow rectangle, making it approximately 50% transparent so the rectangle underneath remains visible. The color is assigned through [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/).
 
 ```cpp
 #include <DOM/FillType.h>
@@ -981,13 +1070,13 @@ presentation->Save(u"shape_transparency.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Sonuç:
+**Sonuç:**
 
 ![Şeffaf şekil](shape-transparency.png)
 
 ## **Şekilleri Döndürme**
 
-[IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) kullanarak bir şekli slayt düzleminde döndürün. Açı derece cinsinden ölçülür; bu örnek bir dikdörtgeni saat yönünde 5 derece döndürür ve sunumu kaydeder.
+Use [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) to rotate a shape in the slide plane. The angle is measured in degrees; this example rotates a rectangle 5 degrees clockwise and saves the presentation.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1012,13 +1101,13 @@ presentation->Save(u"shape_rotation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Sonuç:
+**Sonuç:**
 
-![Şekil döndürme](shape-rotation.png)
+![Şekil döndürmesi](shape-rotation.png)
 
-## **3B Keskinleştirme Efektleri Ekleme**
+## **3B Kiriş Efektleri Ekleme**
 
-[IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) kullanarak bir şekle derinlik ve keskin kenarlar verin. Bu örnek, yeşil bir elipsi turuncu bir kenarlıkla oluşturur, [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) değerini 4 puan olarak ayarlar ve [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/) aracılığıyla 6 puan genişlik ve yükseklikte dairesel bir üst keskinleştirme uygular. Ön yüze bakan ortografik kamera ve üç noktalı aydınlatma keskinleştirmenin görünmesini sağlar.
+Use [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) to give a shape depth and beveled edges. This example creates a green ellipse with an orange outline, sets [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) to 4 points, and applies a circular top bevel with a width and height of 6 points through [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/). A front‑facing orthographic camera and three‑point lighting make the bevel visible.
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -1069,13 +1158,13 @@ presentation->Save(u"3D_bevel_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Sonuç:
+**Sonuç:**
 
-![3B keskinleştirme efekti](3D-bevel-effect.png)
+![3B kiriş efekti](3D-bevel-effect.png)
 
 ## **3B Döndürme Efektleri Ekleme**
 
-Bir şeklin 3B görünümü kamera ayarlarıyla kontrol edilir. Bu örnek, [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) yöntemini enlemi, boylamı ve devrim açılarını sırasıyla 40, 35 ve 20 derece olarak ayarlar. [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) ile izometrik bir kamera, [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) ile dengeli aydınlatma seçilir ve biçimlendirilmiş dikdörtgen kaydedilir.
+A shape’s 3D view is controlled by its camera settings. This example uses [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) with latitude, longitude, and revolution angles of 40, 35, and 20 degrees, respectively. It selects an isometric camera through [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) and balanced lighting through [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/), then saves the formatted rectangle.
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -1109,17 +1198,17 @@ presentation->Save(u"3D_rotation_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Sonuç:
+**Sonuç:**
 
 ![3B döndürme efekti](3D-rotation-effect.png)
 
-## **Şekiller İçin Siyah‑Beyaz Renderlamayı Kontrol Etme**
+## **Şekiller İçin Siyah‑Beyaz İşleme Kontrolü**
 
-[IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) yöntemi, bir sunum siyah‑beyaz modunda görüntülendiğinde veya işlendiğinde bireysel bir şeklin nasıl renderlanacağını belirtir. Bu, yalnızca kendiliğinden siyah‑beyaz görüntülemeyi etkinleştirmez ve normal renk modunda şeklin doldurmasını, çizgisini veya diğer biçimlendirmesini değiştirmez.
+The [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) method specifies how an individual shape is rendered when a presentation is viewed or processed in black‑and‑white mode. It does not enable black‑and‑white display by itself, and it does not change the shape's fill, line, or other formatting in normal color mode.
 
-[BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) enumarasyonundan bir değer seçerek istenen davranışı belirleyin. Örneğin, `Automatic` uygulamanın dönüşümü seçmesine izin verir, `Gray` ve `LightGray` gri tonlamayı, `BlackWhite` sadece siyah ve beyazı, `Black` ve `White` tek bir rengi, `Color` normal renklemeyi korur, `Hidden` ise siyah‑beyaz modunda şekli atar. `NotDefined` şekil‑düzeyinde bir mod atanmadığını gösterir.
+Use a value from the [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) enumeration to select the desired behavior. For example, `Automatic` lets the rendering application choose the conversion, `Gray` and `LightGray` use gray coloring, `BlackWhite` uses only black and white, `Black` and `White` force a single color, `Color` preserves normal coloring, and `Hidden` omits the shape in black‑and‑white mode. `NotDefined` means that no shape‑level mode is assigned.
 
-Bu örnek turuncu bir dikdörtgen oluşturur ve [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) yöntemini griye ayarlar. Kaydedilen şekil normal renkli görüntüde turuncu dolgusunu korur ve siyah‑beyaz görüntüleme ayarlarını kullanan uygulamalardan gri renklemeyi talep eder:
+This example creates an orange rectangle and sets [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) to gray. The saved shape retains its orange fill for normal color display and requests gray coloring from applications that honor black‑and‑white display settings:
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -1152,11 +1241,11 @@ presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Normal renk modunda dikdörtgen turuncu dolgusunu korur. Siyah‑beyaz görüntüleme iş akışında, modu `Gray` olduğundan gri renkleme kullanılır. Bu, tam renkli bir slaytı korurken baskı, ön izleme veya siyah‑beyaz görüntüleme ayarlarını onaylayan iş akışları için ayrı bir görünüm tanımlamanıza olanak verir.
+In normal color mode, the rectangle retains its orange fill. In a black‑and‑white display workflow, it uses gray coloring because its mode is set to `Gray`. This lets you preserve a full‑color slide while defining a distinct appearance for printing, previewing, or other workflows that honor the presentation's black‑and‑white display settings.
 
 ## **Biçimlendirmeyi Sıfırlama**
 
-[ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) kullanarak slayt yerleşimi yer tutucularının konum, boyut ve biçimlendirmesini, ilgili yerleşim yer tutucularından restore edin. Bu örnek, yerleşim‑bağlantılı yer tutucular içeren mevcut bir sunum gerektirir ve kaydetmeden önce her slaytı sıfırlar. Yerleşim yer tutucusu olmayan şekiller sıfırlanmaz.
+Use [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) to restore the position, size, and formatting of slide placeholders from their corresponding layout placeholders. This example requires an existing presentation with layout‑linked placeholders and resets every slide before saving. Shapes without corresponding layout placeholders are not reset.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -1184,12 +1273,12 @@ presentation->Dispose();
 
 **Şekil biçimlendirmesi nihai sunum dosya boyutunu etkiler mi?**
 
-Renkler, çizgi stilleri ve efekt ayarları, gömülü görüntüler ve medyaya göre çok az veri ekler. Resim doldurmaları, görüntüler sunumda depolandığı için dosya boyutunu artırabilir.
+Renkler, çizgi stilleri ve efekt ayarları genellikle gömülü resim ve medya ile karşılaştırıldığında çok az veri ekler. Resim doldurmalar dosya boyutunu artırabilir çünkü resimler sunum içinde depolanır.
 
 **Aynı biçimlendirmeye sahip şekilleri bir slaytta nasıl tespit edip gruplayabilirim?**
 
-Her şeklin temel biçimlendirme özelliklerini (doldurma, çizgi, efekt ayarları) karşılaştırın. Tüm karşılık gelen değerler eşleşiyorsa, stilleri aynı olarak kabul edin ve bu şekilleri mantıksal olarak gruplayın; bu, sonraki stil yönetimini basitleştirir.
+Her şeklin temel biçimlendirme özelliklerini—dolgu, çizgi ve efekt ayarlarını—karşılaştırın. Tüm ilgili değerler eşleşiyorsa stilleri aynı olarak kabul edin ve bu şekilleri mantıksal olarak gruplayın; bu, sonraki stil yönetimini basitleştirir.
 
-**Özel şekil stillerini başka sunumlarda yeniden kullanmak üzere ayrı bir dosyada kaydedebilir miyim?**
+**Özel şekil stillerini ayrı bir dosyada saklayıp diğer sunumlarda yeniden kullanabilir miyim?**
 
-Evet. İstediğiniz stillere sahip örnek şekilleri bir şablon slayt destesine veya bir .POTX şablon dosyasına kaydedin. Yeni bir sunum oluştururken şablonu açın, ihtiyacınız olan stillendirilmiş şekilleri kopyalayın ve gerektiği yerde biçimlendirmeyi yeniden uygulayın.
+Evet. İstediğiniz stillere sahip örnek şekilleri bir şablon slayt destesine veya .POTX şablon dosyasına kaydedin. Yeni bir sunum oluştururken şablonu açın, ihtiyacınız olan stilli şekilleri klonlayın ve isterken biçimlendirmeyi yeniden uygulayın.

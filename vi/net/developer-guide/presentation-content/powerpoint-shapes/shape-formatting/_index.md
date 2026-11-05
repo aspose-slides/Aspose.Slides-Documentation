@@ -1,45 +1,45 @@
 ---
-title: Định dạng các hình dạng PowerPoint trong .NET
-linktitle: Định dạng Hình
+title: Định dạng các hình PowerPoint trong .NET
+linktitle: Định dạng hình
 type: docs
 weight: 20
 url: /vi/net/shape-formatting/
 keywords:
 - định dạng hình
 - định dạng đường
-- hiệu ứng vẽ nháp
-- đường hình vẽ nháp
+- hiệu ứng vẽ tay
+- đường vẽ tay hình dạng
 - định dạng kiểu nối
-- đổ gradient
-- đổ mẫu
-- đổ hình ảnh
-- đổ kết cấu
-- đổ màu đơn
+- đổ màu gradient
+- đổ màu mẫu
+- đổ màu ảnh
+- đổ màu texture
+- đổ màu đồng nhất
 - độ trong suốt hình
-- kết xuất hình đen‑trắng
-- kết xuất hình xám
+- hiển thị hình đen‑trắng
+- hiển thị hình xám
 - xoay hình
-- hiệu ứng vát 3D
+- hiệu ứng bevel 3D
 - hiệu ứng xoay 3D
 - đặt lại định dạng
 - PowerPoint
-- bài thuyết trình
+- bản trình bày
 - .NET
 - C#
 - Aspose.Slides
-description: "Tìm hiểu cách định dạng các hình dạng PowerPoint trong C# bằng Aspose.Slides—đặt màu nền, đường viền và kiểu hiệu ứng cho tệp PPT và PPTX một cách chính xác và kiểm soát đầy đủ."
+description: "Tìm hiểu cách định dạng các hình PowerPoint trong C# bằng Aspose.Slides—đặt kiểu đổ màu, đường viền và hiệu ứng cho tệp PPT và PPTX một cách chính xác và kiểm soát đầy đủ."
 ---
 ## **Giới thiệu**
 
-Định dạng các hình dạng trong PowerPoint bằng cách điều chỉnh viền, nền và hiệu ứng của chúng. Aspose.Slides for .NET cho phép bạn kiểm soát các cài đặt này bằng mã, bao gồm độ trong suốt, xoay và định dạng 3D.
+Định dạng các hình dạng trong PowerPoint bằng cách điều chỉnh viền, tô màu và hiệu ứng của chúng. Aspose.Slides cho .NET cho phép bạn kiểm soát các cài đặt này bằng chương trình, bao gồm độ trong suốt, xoay và định dạng 3D.
 
-![Các tùy chọn định dạng hình dạng trong PowerPoint](format-shape-powerpoint.png)
+![Các tùy chọn định dạng hình trong PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for .NET cung cấp các giao diện và thuộc tính cho phép bạn định dạng hình dạng bằng cùng các tùy chọn có trong PowerPoint.
+Aspose.Slides cho .NET cung cấp các giao diện và thuộc tính cho phép bạn định dạng hình dạng bằng các tùy chọn có sẵn trong PowerPoint.
 
-## **Định dạng Đường viền**
+## **Định dạng đường viền**
 
-Use [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) to control a shape’s outline. This example creates an unfilled rectangle with a blue, dashed outline. [ILineFormat.Style](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/style/) selects a thick-thin compound line, while [ILineFormat.Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) sets its width to 7 points and [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) selects the dash pattern.
+Sử dụng [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) để kiểm soát viền của một hình. Ví dụ này tạo một hình chữ nhật không tô màu với viền màu xanh da trời dạng gạch đứt. [ILineFormat.Style](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/style/) chọn một đường ghép dày‑mỏng, trong khi [ILineFormat.Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) đặt độ rộng của nó là 7 điểm và [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) chọn mẫu gạch.
 
 ```csharp
 using System.Drawing;
@@ -62,15 +62,15 @@ presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Các đường đã định dạng trong bài thuyết trình](formatted-lines.png)
+![Các đường viền đã định dạng trong bản trình bày](formatted-lines.png)
 
-### **Đặt Mẫu Gạch Đường Tùy Chỉnh**
+### **Đặt mẫu gạch tùy chỉnh cho đường viền**
 
-Use [ILineFormat.CustomDashPattern](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/customdashpattern/) when predefined line styles do not provide the dash lengths and gaps you need, for example for branded outlines or technical diagrams. Assigning a pattern automatically sets [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) to [LineDashStyle.Custom](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/).
+Sử dụng [ILineFormat.CustomDashPattern](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/customdashpattern/) khi các kiểu đường viền có sẵn không cung cấp độ dài gạch và khoảng trống bạn cần, ví dụ cho viền thương hiệu hoặc sơ đồ kỹ thuật. Gán một mẫu sẽ tự động đặt [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) thành [LineDashStyle.Custom](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/).
 
-Các mục trong mảng luân phiên giữa độ dài gạch và khoảng trống, bắt đầu bằng gạch. Mỗi giá trị là bội số của độ rộng đường: `{ 4, 2 }` ở độ rộng 3 điểm tạo ra một gạch 12 điểm theo sau là khoảng trống 6 điểm. Sử dụng các cặp giá trị hữu hạn, không âm để định nghĩa các đoạn gạch‑khoảng trống hoàn chỉnh. Ví dụ sử dụng các giá trị dương để mọi gạch và khoảng trống đều hiển thị.
+Các mục trong mảng xen kẽ giữa độ dài gạch và khoảng trống, bắt đầu bằng gạch. Mỗi giá trị là một bội số của độ rộng đường viền: `{ 4, 2 }` ở độ rộng 3 điểm tạo ra một đoạn gạch 12 điểm theo sau là một khoảng trống 6 điểm. Sử dụng các cặp giá trị hữu hạn, không âm để định nghĩa các đoạn gạch‑khoảng trống đầy đủ. Ví dụ sử dụng các giá trị dương để giữ cho mọi gạch và khoảng trống đều nhìn thấy.
 
-Ví dụ này tạo năm đường màu xanh có cùng độ dài và đầu phẳng. Ba đường đầu tiên so sánh các mẫu ở độ rộng 3 điểm. Đường thứ tư lặp lại mẫu đầu tiên với độ rộng gấp đôi, làm gấp đôi cả độ dài gạch và khoảng trống. Đường thứ năm chuyển từ mẫu tùy chỉnh sang đường liền.
+Ví dụ này tạo năm đường màu xanh có cùng độ dài và đầu thẳng. Ba đường đầu tiên so sánh các mẫu ở độ rộng 3 điểm. Đường thứ tư lặp lại mẫu đầu tiên với độ rộng gấp đôi, làm đôi cả độ dài gạch và khoảng trống. Đường thứ năm chuyển từ mẫu tùy chỉnh sang đường liền.
 
 ```csharp
 using System.Drawing;
@@ -108,26 +108,26 @@ slide.Shapes[4].LineFormat.DashStyle = LineDashStyle.Solid;
 presentation.Save("custom_dash_patterns.pptx", SaveFormat.Pptx);
 ```
 
-Để quay lại một kiểu gạch có sẵn, gán [LineDashStyle.Dash](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) cho [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/). Kiểu đã chọn kiểm soát cách hiển thị của đường.
+Để quay lại kiểu gạch có sẵn, gán [LineDashStyle.Dash](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) cho [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/). Kiểu đã chọn sẽ kiểm soát cách hiển thị của đường viền.
 
 Kết quả trong PowerPoint, từ trên xuống dưới: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; và **Solid, 3 pt**.
 
-![Ba mẫu gạch tùy chỉnh, một đường rộng hơn sử dụng mẫu đầu tiên, và một đường liền trong PowerPoint](custom-dash-patterns.png)
+![Ba mẫu gạch tùy chỉnh, một đường rộng hơn dùng mẫu đầu tiên, và một đường liền trong PowerPoint](custom-dash-patterns.png)
 
 
-### **Đặt Đầu Đường**
+### **Đặt kiểu đầu mút cho đường viền**
 
-Use [ILineFormat.CapStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/capstyle/) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/net/aspose.slides/linecapstyle/) enumeration provides three explicit cap styles:
+Sử dụng [ILineFormat.CapStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/capstyle/) để đặt đầu mút của một đường mở. Phân loại [LineCapStyle](https://reference.aspose.com/slides/net/aspose.slides/linecapstyle/) cung cấp ba kiểu đầu mút rõ ràng:
 
-- `Flat`: The stroke stops at the endpoint.
-- `Round`: A semicircular cap extends beyond the endpoint by half the line width.
-- `Square`: A square cap extends beyond the endpoint by half the line width.
+- `Flat`: Đường dừng lại ở điểm cuối.
+- `Round`: Đầu mút bán vòng mở rộng ra ngoài điểm cuối bằng một nửa độ rộng đường viền.
+- `Square`: Đầu mút vuông mở rộng ra ngoài điểm cuối bằng một nửa độ rộng đường viền.
 
-The enumeration also includes `NotDefined`, which means that no cap style is explicitly assigned.
+Phân loại cũng bao gồm `NotDefined`, nghĩa là không có kiểu đầu mút nào được chỉ định rõ ràng.
 
-Caps are different from arrowheads, which add symbols to line ends, and joins, which control corners between line segments. This example disables arrowheads through [ILineFormat.BeginArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/beginarrowheadstyle/) and [ILineFormat.EndArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/endarrowheadstyle/) so that only the cap shapes are compared.
+Đầu mút khác với mũi tên, chúng thêm ký hiệu vào đầu đường, và các nối, chúng kiểm soát các góc giữa các đoạn đường. Ví dụ này tắt mũi tên bằng [ILineFormat.BeginArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/beginarrowheadstyle/) và [ILineFormat.EndArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/endarrowheadstyle/) để chỉ so sánh các hình dạng đầu mút.
 
-The following example creates three otherwise identical horizontal lines, 20 points wide. From top to bottom, they use flat, round, and square caps. Their endpoints have the same horizontal coordinates; the round and square caps extend 10 points beyond each endpoint.
+Ví dụ sau tạo ba đường ngang gần như giống hệt nhau, mỗi đường rộng 20 điểm. Từ trên xuống dưới, chúng sử dụng đầu mút flat, round và square. Các điểm cuối có cùng tọa độ ngang; các đầu mút round và square mở rộng 10 điểm ra ngoài mỗi đầu.
 
 ```csharp
 using System.Drawing;
@@ -157,13 +157,13 @@ presentation.Save("line_caps.pptx", SaveFormat.Pptx);
 
 Kết quả trong PowerPoint, từ trên xuống dưới: **Flat**, **Round**, và **Square**.
 
-![Đầu phẳng, tròn và vuông trên các đường dày giống nhau trong PowerPoint](line-caps.png)
+![Đầu mút flat, round và square trên các đường dày giống hệt trong PowerPoint](line-caps.png)
 
-## **Áp dụng Hiệu Ứng Vẽ Nháp cho Đường Hình**
+## **Áp dụng hiệu ứng vẽ tay cho đường viền hình dạng**
 
-A sketch effect makes a shape line look hand-drawn. Use [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) to access the line settings, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) to access the sketch settings, and [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) to select a value from the [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) enumeration.
+Hiệu ứng vẽ tay làm cho đường viền của một hình trông như được vẽ bằng tay. Sử dụng [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) để truy cập cài đặt đường, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) để truy cập cài đặt vẽ tay, và [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) để chọn một giá trị từ phân loại [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/).
 
-The following C# code shows how to apply a [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
+Mã C# dưới đây cho thấy cách áp dụng hiệu ứng [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) , đọc giá trị đã gán một cách rõ ràng, và loại bỏ hiệu ứng bằng [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
 
 ```csharp
 using System;
@@ -181,7 +181,7 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-Giá trị trả về bởi [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) đại diện cho cài đặt được gán trực tiếp cho hình. Nếu định dạng đường có thể được kế thừa từ một theme, master slide, hoặc layout slide, hãy dùng [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), truy cập [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/), và đọc [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). Giá trị effective phản ánh định dạng thực tế được áp dụng sau khi kế thừa được giải quyết. Ví dụ này yêu cầu một bài thuyết trình hiện có với ít nhất một hình trên slide đầu tiên và in cả hai giá trị:
+Giá trị trả về bởi [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) đại diện cho cài đặt được gán trực tiếp cho hình. Nếu định dạng đường có thể được kế thừa từ một chủ đề, slide chủ, hoặc slide bố cục, sử dụng [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), truy cập [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/), và đọc [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). Giá trị hiệu quả phản ánh định dạng thực sự được áp dụng sau khi kế thừa được giải quyết. Ví dụ này yêu cầu một bản trình bày hiện có có ít nhất một hình trên slide đầu tiên và in cả hai giá trị:
 
 ```csharp
 using System;
@@ -199,19 +199,19 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 ```
 
-## **Định dạng Kiểu Nối**
+## **Định dạng kiểu nối**
 
-Here are the three join type options:
+Dưới đây là ba tùy chọn kiểu nối:
 
 * Round
 * Miter
 * Bevel
 
-The join style controls how two outline segments meet at a corner. Use **Round** for rounded corners, **Miter** for sharp corners, or **Bevel** for flattened corners.
+Kiểu nối kiểm soát cách hai đoạn viền gặp nhau tại một góc. Sử dụng **Round** cho các góc tròn, **Miter** cho các góc nhọn, hoặc **Bevel** cho các góc phẳng.
 
-![Kiểu nối trong bài thuyết trình](join-style-powerpoint.png)
+![Kiểu nối trong bản trình bày](join-style-powerpoint.png)
 
-This example creates three black rectangles with blue outlines 15 points wide. It sets [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) to the miter, bevel, and round values of [LineJoinStyle](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/), respectively, to compare how the corners are drawn.
+Ví dụ này tạo ba hình chữ nhật màu đen với viền màu xanh rộng 15 điểm. Nó đặt [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) thành các giá trị miter, bevel và round của [LineJoinStyle](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/), tương ứng, để so sánh cách các góc được vẽ.
 
 ```csharp
 using System.Drawing;
@@ -254,13 +254,13 @@ roundShape.TextFrame.Text = "Round Join Style";
 presentation.Save("join_styles.pptx", SaveFormat.Pptx);
 ```
 
-### **Giới Hạn Nối Miter ở Các Góc Nhọn**
+### **Giới hạn miter tại các góc nhọn**
 
-Use [ILineFormat.MiterLimit](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/miterlimit/) with [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) set to [LineJoinStyle.Miter](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) to limit how far a sharp corner can extend.
+Sử dụng [ILineFormat.MiterLimit](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/miterlimit/) cùng với [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) được đặt thành [LineJoinStyle.Miter](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) để giới hạn mức độ mà một góc nhọn có thể mở rộng.
 
-The limit is a ratio of the distance between the inner and outer corners of the join to the line width. For example, a value of `8` permits a miter length of up to eight times the line width; it is not a measurement in points. If the corner would exceed the limit, PowerPoint uses a beveled join at that corner. A larger limit allows sharper points. The setting affects miter joins only, and changing it has no visible effect when the corner remains within both limits.
+Giới hạn là tỉ lệ giữa khoảng cách giữa góc trong và góc ngoài của nối so với độ rộng đường viền. Ví dụ, giá trị `8` cho phép độ dài miter lên tới tám lần độ rộng đường viền; đây không phải là một đo lường bằng điểm. Nếu góc vượt quá giới hạn, PowerPoint sẽ sử dụng nối bevel tại góc đó. Giới hạn lớn hơn cho phép các điểm nhọn hơn. Cài đặt này chỉ ảnh hưởng đến các nối miter và không có hiệu quả hiển thị khi góc vẫn nằm trong cả hai giới hạn.
 
-This example creates two identical, unfilled triangles with outlines 20 points wide. The left triangle uses a limit of `2`, and the right uses `8`. Each triangle is 80 points wide and 160 points high, giving its top corner a miter-length-to-line-width ratio of approximately `4.12`. Consequently, PowerPoint bevels the left apex and preserves the right apex.
+Ví dụ này tạo hai tam giác không tô màu, mỗi tam giác có viền rộng 20 điểm. Tam giác bên trái sử dụng giới hạn `2`, còn bên phải sử dụng `8`. Mỗi tam giác rộng 80 điểm và cao 160 điểm, đưa tỉ lệ độ dài miter‑so‑với‑độ‑rộng‑đường‑viền của góc trên khoảng `4.12`. Do đó, PowerPoint bevel góc phía trái và giữ nguyên góc phía phải.
 
 ```csharp
 using System.Drawing;
@@ -289,11 +289,11 @@ presentation.Save("miter_limits.pptx", SaveFormat.Pptx);
 
 Kết quả trong PowerPoint: **Miter limit 2** ở bên trái và **miter limit 8** ở bên phải.
 
-![Một đỉnh bị vát với miter limit 2 và một đỉnh nhọn với miter limit 8 trong PowerPoint](miter-limits.png)
+![Một đỉnh bevel với miter limit 2 và một đỉnh nhọn với miter limit 8 trong PowerPoint](miter-limits.png)
 
-## **Đổ Gradient**
+## **Đổ màu dần**
 
-A gradient fill blends colors across a shape. This example fills an ellipse with a linear gradient at a 45-degree angle from red to purple using [IFillFormat.GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/gradientformat/). The [IGradientStopCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/igradientstopcollection/add/) method places the color stops at 0 and 1, the beginning and end of the gradient. Clearing the existing stops ensures that only these two colors are used.
+Đổ màu dần pha trộn các màu qua một hình dạng. Ví dụ này đổ màu cho một hình ellipse bằng gradient tuyến tính 45 độ từ đỏ sang tím sử dụng [IFillFormat.GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/gradientformat/). Phương thức [IGradientStopCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/igradientstopcollection/add/) đặt các điểm dừng màu ở 0 và 1, tương ứng với đầu và cuối gradient. Xóa các điểm dừng hiện có đảm bảo chỉ hai màu này được sử dụng.
 
 ```csharp
 using Aspose.Slides;
@@ -315,15 +315,15 @@ presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Hình ellipse với đổ gradient](gradient-fill.png)
+![Ellipse với đổ màu dần](gradient-fill.png)
 
-If a gradient looks different in an exported image than it does in PowerPoint, see [Choose a Gradient Rendering Style](/slides/vi/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). You can select a rendering style without changing the gradient fill stored in the presentation.
+Nếu một gradient trông khác nhau trong ảnh xuất khẩu so với trong PowerPoint, xem [Choose a Gradient Rendering Style](/slides/vi/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Bạn có thể chọn kiểu hiển thị mà không thay đổi gradient lưu trong bản trình bày.
 
-### **Đặt Góc Gradient Tuyến Tính**
+### **Đặt góc gradient tuyến tính**
 
-Use [IGradientFormat.LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) to control the orientation of a [GradientShape.Linear](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/) fill. The angle is measured in degrees and increases clockwise: `0` runs from left to right, `90` from top to bottom, `180` from right to left, and `270` from bottom to top. Fractional angles are supported. Finite angles outside `[0, 360)` are normalized to one revolution; for example, `-45` becomes `315` and `360` becomes `0`.
+Sử dụng [IGradientFormat.LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) để kiểm soát hướng của một bộ đổ màu [GradientShape.Linear](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/). Góc được đo bằng độ và tăng theo chiều kim đồng hồ: `0` chạy từ trái sang phải, `90` từ trên xuống dưới, `180` từ phải sang trái, và `270` từ dưới lên trên. Các góc thập phân được hỗ trợ. Các góc hữu hạn nằm ngoài `[0, 360)` được chuẩn hoá thành một vòng quay; ví dụ, `-45` trở thành `315` và `360` trở thành `0`.
 
-This example creates six rectangles with identical red, green, and blue stops at positions `0`, `0.5`, and `1`. Scaling is disabled so that the angle can be compared independently of the rectangles' proportions. The angles, from left to right, are `0`, `45`, and `90` in the first row, and `135`, `180`, and `270` in the second row.
+Ví dụ này tạo sáu hình chữ nhật với các điểm dừng màu đỏ, xanh lá và xanh dương giống nhau tại vị trí `0`, `0.5`, và `1`. Thuộc tính scaling bị tắt để có thể so sánh góc độc lập với tỷ lệ các hình chữ nhật. Các góc, từ trái sang phải, là `0`, `45`, và `90` ở hàng đầu, và `135`, `180`, và `270` ở hàng dưới.
 
 ```csharp
 using System.Drawing;
@@ -362,11 +362,11 @@ Kết quả trong PowerPoint:
 
 ![Gradient tuyến tính ở các góc 0, 45, và 90 độ ở hàng trên, và 135, 180, và 270 độ ở hàng dưới](linear-gradient-angles.png)
 
-### **Phóng To/Thu Nhỏ Gradient Tuyến Tính với Hình**
+### **Scale một gradient tuyến tính với hình dạng**
 
-[IGradientFormat.LinearGradientScaled](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientscaled/) accepts a [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) value. Set it explicitly to `False` to keep the geometric gradient angle as the shape's proportions change, or to `True` to scale the gradient with the shape's width and height. With scaling enabled, the visible angle can differ from the assigned angle on a non-square shape.
+[IGradientFormat.LinearGradientScaled](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientscaled/) nhận một giá trị [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/). Đặt nó thành `False` để giữ góc gradient hình học khi tỷ lệ hình thay đổi, hoặc `True` để scale gradient cùng với chiều rộng và chiều cao của hình. Khi scaling được bật, góc hiển thị có thể khác với góc đã gán trên một hình không phải hình vuông.
 
-The following example uses a `45`-degree angle and the same color stops as the angle comparison. The left column uses `False`; the right column uses `True`. Each column contains a wide rectangle above a tall rectangle. Both start with the same wide dimensions; changing the second rectangle's width and height demonstrates how the fill responds to resizing without changing its gradient settings.
+Ví dụ sau sử dụng góc `45` độ và các điểm dừng màu giống như so sánh góc. Cột trái dùng `False`; cột phải dùng `True`. Mỗi cột chứa một hình chữ nhật rộng ở trên và một hình chữ nhật cao ở dưới. Cả hai bắt đầu với cùng kích thước rộng; việc thay đổi chiều rộng và chiều cao của hình chữ nhật thứ hai cho thấy cách tô màu phản hồi khi thay đổi kích thước mà không thay đổi cài đặt gradient.
 
 ```csharp
 using System.Drawing;
@@ -410,19 +410,19 @@ for (var column = 0; column < scalingOptions.Length; column++)
 presentation.Save("linear_gradient_scaling.pptx", SaveFormat.Pptx);
 ```
 
-Kết quả trong PowerPoint, với scaling bị tắt ở bên trái và bật ở bên phải:
+Kết quả trong PowerPoint, với scaling tắt ở bên trái và bật ở bên phải:
 
-![Các hình chữ nhật rộng và cao với gradient 45 độ, so sánh LinearGradientScaled False bên trái và True bên phải](linear-gradient-scaling.png)
+![Các hình chữ nhật rộng và cao với gradient 45 độ, so sánh LinearGradientScaled False bên trái với True bên phải](linear-gradient-scaling.png)
 
-With scaling disabled, the diagonal color bands keep the same orientation in both rectangles. With scaling enabled, the bands stretch with the shape's proportions. This helps reproduce a template's gradient when adapting a shape to a different size. On a square, enabling scaling does not change the appearance of this `45`-degree gradient.
+Với scaling tắt, các dải màu chéo giữ cùng hướng trong cả hai hình. Với scaling bật, các dải kéo dài theo tỷ lệ hình. Điều này giúp tái tạo gradient của mẫu khi điều chỉnh hình sang kích thước khác. Trên một hình vuông, bật scaling không thay đổi vẻ ngoài của gradient `45` độ này.
 
-Both the angle and scaling settings apply to linear gradients. They do not control [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/) fills.
+Cả góc và cài đặt scaling đều áp dụng cho gradient tuyến tính. Chúng không kiểm soát các bộ đổ màu [GradientShape.Radial hoặc GradientShape.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/).
 
-### **Kết hợp Góc với Hướng Gradient**
+### **Kết hợp góc với hướng gradient**
 
-[IGradientFormat.GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/gradientdirection/) selects a gradient style from the [GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/gradientdirection/) enumeration; it is not a substitute for a numeric angle. For a linear gradient, the corner styles can change the area over which the colors are distributed without changing [LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/). Keep the direction unchanged when comparing angles or scaling.
+[IGradientFormat.GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/gradientdirection/) chọn một kiểu gradient từ phân loại [GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/gradientdirection/); nó không phải là một thay thế cho góc số. Đối với gradient tuyến tính, các kiểu góc có thể thay đổi khu vực mà màu được phân bố mà không thay đổi [LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/). Giữ hướng không đổi khi so sánh góc hoặc scaling.
 
-The following example applies the same settings in opposite orders. The two rectangles have the same appearance: assigning the direction before or after the angle does not change the result.
+Ví dụ sau áp dụng cùng một cài đặt nhưng theo thứ tự ngược nhau. Hai hình chữ nhật có cùng ngoại hình: gán hướng trước hoặc sau góc không làm thay đổi kết quả.
 
 ```csharp
 using System.Drawing;
@@ -461,9 +461,9 @@ for (var i = 0; i < 2; i++)
 presentation.Save("linear_gradient_direction.pptx", SaveFormat.Pptx);
 ```
 
-## **Đổ Mẫu**
+## **Đổ màu mẫu**
 
-A pattern fill applies a two-color design, such as dots, stripes, or checks. This example uses [IPatternFormat.PatternStyle](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/patternstyle/) to select a trellis pattern. [IPatternFormat.BackColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) supplies the light gray background, and [IPatternFormat.ForeColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) supplies the yellow pattern color.
+Đổ màu mẫu áp dụng một thiết kế hai màu, chẳng hạn chấm, sọc, hoặc ô vuông. Ví dụ này sử dụng [IPatternFormat.PatternStyle](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/patternstyle/) để chọn mẫu dạng trellis. [IPatternFormat.BackColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) cung cấp nền màu xám nhạt, và [IPatternFormat.ForeColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) cung cấp màu vàng cho mẫu.
 
 ```csharp
 using System.Drawing;
@@ -484,13 +484,13 @@ presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Hình chữ nhật với đổ mẫu](pattern-fill.png)
+![Hình chữ nhật với đổ màu mẫu](pattern-fill.png)
 
-## **Đổ Hình Ảnh**
+## **Đổ màu ảnh**
 
-A picture fill uses an image inside a shape. This example requires a local image and uses [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) to load it into the presentation’s image collection. Setting [IPictureFillFormat.PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) to the tiled mode repeats the image within the rectangle. The source image used here is shown below:
+Đổ màu ảnh sử dụng một hình ảnh bên trong một hình dạng. Ví dụ này yêu cầu một ảnh cục bộ và sử dụng [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) để tải nó vào bộ sưu tập ảnh của bản trình bày. Đặt [IPictureFillFormat.PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) thành chế độ ghép lặp sẽ lặp lại ảnh trong hình chữ nhật. Ảnh nguồn được sử dụng ở đây được hiển thị bên dưới:
 
-![Hình bông sen](lotus.png)
+![Ảnh bông sen](lotus.png)
 
 ```csharp
 using Aspose.Slides;
@@ -512,21 +512,21 @@ presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Hình dạng với đổ hình ảnh](picture-fill.png)
+![Hình dạng với đổ màu ảnh](picture-fill.png)
 
-### **Lát Hình Ảnh Như Kết Cấu**
+### **Ghép ảnh thành texture dạng lặp**
 
-If you want to set a tiled picture as a texture and customize the tiling behavior, you can use the following properties of the [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) interface and [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) class:
+Nếu bạn muốn đặt một ảnh lặp làm texture và tùy chỉnh hành vi lặp, có thể sử dụng các thuộc tính sau của giao diện [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) và lớp [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/):
 
-- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Đặt chế độ lấp đầy hình ảnh — either `Tile` or `Stretch`.
-- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Xác định căn chỉnh của các ô lặp trong hình dạng.
-- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Kiểm soát việc lật ô theo chiều ngang, chiều dọc, hoặc cả hai.
-- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Đặt độ dịch chuyển ngang của ô (theo điểm) từ gốc của hình dạng.
-- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Đặt độ dịch chuyển dọc của ô (theo điểm) từ gốc của hình dạng.
-- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Xác định tỷ lệ ngang của ô dưới dạng phần trăm.
-- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Xác định tỷ lệ dọc của ô dưới dạng phần trăm.
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Đặt chế độ đổ ảnh — `Tile` hoặc `Stretch`.
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Xác định căn chỉnh các ô lặp trong hình dạng.
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Kiểm soát việc lật ô lặp ngang, dọc hoặc cả hai.
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Đặt độ lệch ngang của ô lặp (điểm) so với gốc của hình.
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Đặt độ lệch dọc của ô lặp (điểm) so với gốc của hình.
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Xác định tỷ lệ ngang của ô lặp dưới dạng phần trăm.
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Xác định tỷ lệ dọc của ô lặp dưới dạng phần trăm.
 
-This example requires a local image and configures [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) to repeat it at 50% of its original size. Offsets of −32 points shift the tiles horizontally and vertically; bottom-right alignment and flipping in both directions determine how the repeated texture is arranged.
+Ví dụ này yêu cầu một ảnh cục bộ và cấu hình [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) để lặp lại nó ở 50% kích thước gốc. Độ lệch `−32` điểm dịch các ô lặp ngang và dọc; căn chỉnh góc dưới‑phải và lật cả hai hướng quyết định cách texture lặp được sắp xếp.
 
 ```csharp
 using Aspose.Slides;
@@ -556,11 +556,11 @@ presentation.Save("tile.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Các tùy chọn lát ảnh](tile-options.png)
+![Các tùy chọn ghép lặp](tile-options.png)
 
-## **Đổ Màu Đơn**
+## **Đổ màu đậm (solid color fill)**
 
-A solid fill gives a shape a single, uniform color. This example sets [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) to the solid fill mode and assigns yellow through [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/), then saves the rectangle in a presentation.
+Đổ màu đậm cung cấp cho một hình một màu duy nhất, đồng nhất. Ví dụ này đặt [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) thành chế độ đổ màu đậm và gán màu vàng thông qua [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/), sau đó lưu hình chữ nhật vào bản trình bày.
 
 ```csharp
 using System.Drawing;
@@ -579,15 +579,74 @@ presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Hình dạng với đổ màu đơn](solid-color-fill.png)
+![Hình dạng với đổ màu đậm](solid-color-fill.png)
 
-## **Sử Dụng Nền Slide làm Đổ Hình**
+### **Sao chép màu trong khi giữ tham chiếu chủ đề**
 
-Use [IAutoShape.UseBackgroundFill](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/usebackgroundfill/) when a shape should match the slide background, for example in a presentation template. Set [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) to [FillType.NotDefined](https://reference.aspose.com/slides/net/aspose.slides/filltype/) first to remove any explicit fill. With this combination, the shape uses the slide background instead of its style fill. Enabling the flag alone does not remove an existing explicit fill.
+Sử dụng [IColorFormat.CopyFrom](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/copyfrom/) để sao chép định nghĩa màu, bao gồm loại màu, tham chiếu chủ đề và các biến đổi. Điều này hữu ích khi chuyển màu đổ giữa các hình mà vẫn muốn chúng tiếp tục tuân theo chủ đề của bản trình bày. Phương thức chỉ sao chép màu: nó không sao chép kiểu đổ, viền, hoặc các định dạng khác của hình. Đặt [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) của đối tượng đích một cách rõ ràng.
 
-This differs from [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/): background fill covers objects behind the shape with the corresponding area of the slide background, while no fill leaves those objects visible. A gradient remains aligned with the slide rather than restarting inside each shape.
+Ví dụ này tạo ba hình chữ nhật, từ trái qua phải: nguồn, bản sao có nhận thức chủ đề, và bản sao RGB cố định. Nguồn sử dụng [IColorFormat.SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/schemecolor/) để tham chiếu màu accent đầu tiên và thêm một tint thông qua [IColorOperationCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/icoloroperationcollection/add/). Bản sao RGB sử dụng màu đổ hiệu quả của nguồn nên ba hình ban đầu trông giống nhau. Gán [IColorFormat.Color](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/color/) đặt một giá trị RGB cố định và xóa mọi biến đổi màu hiện có.
 
-The following example creates a master background inherited by the slide and places a magenta band behind three rectangles. The left rectangle uses the background, the middle rectangle has no fill, and the right rectangle switches from background fill to an explicit orange fill.
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(660, 220, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+presentation.MasterTheme.ColorScheme.Accent1.Color = Color.RoyalBlue;
+
+var source = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+var themeCopy = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+var rgbCopy = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+foreach (var shape in new[] { source, themeCopy, rgbCopy })
+{
+    shape.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+}
+
+var sourceColor = source.FillFormat.SolidFillColor;
+sourceColor.SchemeColor = SchemeColor.Accent1;
+sourceColor.ColorTransform.Add(ColorTransformOperation.Tint, 0.75f);
+
+themeCopy.FillFormat.SolidFillColor.CopyFrom(sourceColor);
+rgbCopy.FillFormat.SolidFillColor.Color = source.FillFormat.GetEffective().SolidFillColor;
+
+using var before = slide.GetImage(1f, 1f);
+before.Save("color-copy-before.png", ImageFormat.Png);
+
+// Theme references follow the new accent color; the fixed RGB value does not.
+presentation.MasterTheme.ColorScheme.Accent1.Color = Color.OrangeRed;
+
+using var after = slide.GetImage(1f, 1f);
+after.Save("color-copy-after.png", ImageFormat.Png);
+presentation.Save("copied_colors.pptx", SaveFormat.Pptx);
+```
+
+Trước khi thay đổi chủ đề, ba màu đổ đều giống nhau:
+
+![Nguồn, đích CopyFrom, và đích RGB cố định với các màu đổ xanh giống nhau](color-copy-before.png)
+
+Sau khi thay đổi chủ đề, nguồn và bản sao có nhận thức chủ đề sẽ theo màu accent mới và giữ tint. Bản sao RGB cố định vẫn giữ màu xanh:
+
+![Nguồn và đích CopyFrom với màu cam, trong khi đích RGB cố định vẫn màu xanh](color-copy-after.png)
+
+Định nghĩa đã sao chép độc lập với nguồn. Việc thay đổi tham chiếu chủ đề của nguồn, gán màu khác, hoặc thêm/bớt các biến đổi sẽ không ảnh hưởng đến đối tượng đích. Thay đổi chủ đề vẫn ảnh hưởng đến cả hai hình vì mỗi hình vẫn tham chiếu riêng vào cùng một màu chủ đề.
+
+Lưu và mở lại file PPTX sẽ giữ nguyên [IColorFormat.ColorType](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/colortype/), tham chiếu chủ đề và bộ [IColorFormat.ColorTransform](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/colortransform/) của màu đã sao chép; nó không làm phẳng định nghĩa thành RGB.
+
+Khi sao chép giữa các ngữ cảnh chủ đề khác nhau, chẳng hạn các bản trình bày có bảng màu accent khác nhau, tham chiếu đã sao chép sẽ được giải quyết dựa trên chủ đề của đích. Do đó cùng một tham chiếu và các biến đổi có thể tạo ra màu hiển thị khác nhau. Xem [Presentation Theme](/slides/vi/net/presentation-theme/) để biết thêm về cấu hình màu chủ đề.
+
+## **Sử dụng nền slide làm màu đổ cho hình dạng**
+
+Sử dụng [IAutoShape.UseBackgroundFill](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/usebackgroundfill/) khi một hình dạng nên khớp với nền slide, ví dụ trong một mẫu bản trình bày. Đặt [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) thành [FillType.NotDefined](https://reference.aspose.com/slides/net/aspose.slides/filltype/) trước để xóa bất kỳ màu đổ rõ ràng nào. Với sự kết hợp này, hình dạng sẽ sử dụng nền slide thay vì màu đổ kiểu của nó. Bật cờ này một mình không xóa một màu đổ rõ ràng đã tồn tại.
+
+Điều này khác với [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/): màu đổ nền phủ các đối tượng phía sau hình dạng với khu vực tương ứng của nền slide, trong khi NoFill để các đối tượng đó vẫn hiển thị. Một gradient vẫn được căn chỉnh với slide thay vì khởi động lại bên trong mỗi hình.
+
+Ví dụ sau tạo một nền master được kế thừa bởi slide và đặt một dải màu hồng lụa phía sau ba hình chữ nhật. Hình chữ nhật bên trái sử dụng nền, hình giữa không có màu đổ, và hình bên phải chuyển từ nền sang màu đổ cam rõ ràng.
 
 ```csharp
 using System.Drawing;
@@ -611,7 +670,7 @@ gradient.GradientStops.Clear();
 gradient.GradientStops.Add(0, Color.DarkBlue);
 gradient.GradientStops.Add(1, Color.LightSkyBlue);
 
-// Thêm đối tượng này trước để nó xuất hiện phía sau các hình chữ nhật.
+// Thêm đối tượng này đầu tiên để nó xuất hiện phía sau các hình chữ nhật.
 var band = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
 band.FillFormat.FillType = FillType.Solid;
 band.FillFormat.SolidFillColor.Color = Color.Magenta;
@@ -628,7 +687,7 @@ var explicitShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 510, 100, 160
 explicitShape.FillFormat.FillType = FillType.NotDefined;
 explicitShape.UseBackgroundFill = true;
 
-// Tắt việc đổ nền trước khi áp dụng đổ màu rõ ràng.
+// Tắt việc đổ màu nền trước khi áp dụng một màu đổ rõ ràng.
 explicitShape.UseBackgroundFill = false;
 explicitShape.FillFormat.FillType = FillType.Solid;
 explicitShape.FillFormat.SolidFillColor.Color = Color.Orange;
@@ -636,16 +695,15 @@ explicitShape.FillFormat.SolidFillColor.Color = Color.Orange;
 presentation.Save("background_fill.pptx", SaveFormat.Pptx);
 ```
 
-Kết quả, từ trái sang phải: **đổ nền**, **không đổ**, và **đổ rõ ràng**. Dải màu magenta bị ẩn phía sau các hình chữ nhật bên trái và bên phải nhưng vẫn hiển thị qua hình chữ nhật ở giữa.
+Kết quả, từ trái qua phải: **đổ màu nền**, **không đổ**, và **đổ màu rõ ràng**. Dải màu hồng lụa bị ẩn bởi các hình trái và phải nhưng vẫn hiển thị qua hình giữa.
 
-![Đổ nền, không đổ, và đổ màu cam rõ ràng trên dải màu magenta](background-fill.png)
+![Đổ màu nền, không đổ, và đổ màu cam rõ ràng trên dải hồng lụa](background-fill.png)
 
-The same behavior applies to a background defined directly on the slide or inherited from a layout. The shape uses the slide's resolved background; the example leaves both the slide and layout backgrounds undefined so the master supplies it.
+Hành vi tương tự áp dụng cho nền được định nghĩa trực tiếp trên slide hoặc kế thừa từ layout. Hình dạng sử dụng nền đã được giải quyết của slide; ví dụ này để cả nền slide và layout không được định nghĩa để master cung cấp.
 
+## **Đặt độ trong suốt**
 
-## **Đặt Độ Trong Suốt**
-
-For a solid fill, the color’s alpha component controls opacity: 0 is fully transparent and 255 is fully opaque. This example uses an alpha value of 128 for a yellow rectangle, making it approximately 50% transparent so the rectangle underneath remains visible. The color is assigned through [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/).
+Đối với một đổ màu đậm, thành phần alpha của màu kiểm soát độ mờ: 0 là hoàn toàn trong suốt và 255 là hoàn toàn đục. Ví dụ này sử dụng giá trị alpha 128 cho một hình chữ nhật màu vàng, làm cho nó khoảng 50% trong suốt để hình dưới vẫn nhìn thấy. Màu được gán thông qua [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/).
 
 ```csharp
 using System.Drawing;
@@ -670,9 +728,9 @@ Kết quả:
 
 ![Hình dạng trong suốt](shape-transparency.png)
 
-## **Xoay Hình**
+## **Xoay hình dạng**
 
-Use [IShape.Rotation](https://reference.aspose.com/slides/net/aspose.slides/ishape/rotation/) to rotate a shape in the slide plane. The angle is measured in degrees; this example rotates a rectangle 5 degrees clockwise and saves the presentation.
+Sử dụng [IShape.Rotation](https://reference.aspose.com/slides/net/aspose.slides/ishape/rotation/) để xoay một hình trong mặt phẳng slide. Góc được đo bằng độ; ví dụ này xoay một hình chữ nhật 5 độ theo chiều kim đồng hồ và lưu bản trình bày.
 
 ```csharp
 using Aspose.Slides;
@@ -691,9 +749,9 @@ Kết quả:
 
 ![Xoay hình dạng](shape-rotation.png)
 
-## **Thêm Hiệu Ứng Vát 3D**
+## **Thêm hiệu ứng bevel 3D**
 
-Use [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/threedformat/) to give a shape depth and beveled edges. This example creates a green ellipse with an orange outline, sets [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/depth/) to 4 points, and applies a circular top bevel with a width and height of 6 points through [IThreeDFormat.BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/beveltop/). A front-facing orthographic camera and three-point lighting make the bevel visible.
+Sử dụng [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/threedformat/) để cho một hình độ sâu và các cạnh bevel. Ví dụ này tạo một ellipse màu xanh lá cây với viền màu cam, đặt [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/depth/) thành 4 điểm, và áp dụng bevel trên cùng dạng tròn với độ rộng và chiều cao 6 điểm qua [IThreeDFormat.BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/beveltop/). Một camera trực giao nhìn từ phía trước và ánh sáng ba‑điểm làm cho bevel hiển thị.
 
 ```csharp
 using System.Drawing;
@@ -722,11 +780,11 @@ presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Hiệu ứng vát 3D](3D-bevel-effect.png)
+![Hiệu ứng bevel 3D](3D-bevel-effect.png)
 
-## **Thêm Hiệu Ứng Xoay 3D**
+## **Thêm hiệu ứng xoay 3D**
 
-A shape’s 3D view is controlled by its camera settings. This example uses [ICamera.SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/) with latitude, longitude, and revolution angles of 40, 35, and 20 degrees, respectively. It selects an isometric camera through [ICamera.CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) and balanced lighting through [ILightRig.LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/), then saves the formatted rectangle.
+Góc nhìn 3D của một hình được điều khiển bởi các cài đặt camera. Ví dụ này sử dụng [ICamera.SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/) với các góc vĩ độ, kinh độ và vòng quay là 40, 35 và 20 độ tương ứng. Nó chọn một camera isometric qua [ICamera.CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) và ánh sáng cân bằng qua [ILightRig.LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/), sau đó lưu hình chữ nhật đã định dạng.
 
 ```csharp
 using Aspose.Slides;
@@ -748,13 +806,13 @@ Kết quả:
 
 ![Hiệu ứng xoay 3D](3D-rotation-effect.png)
 
-## **Kiểm Soát Kết Xuất Đen‑Trắng cho Hình**
+## **Kiểm soát hiển thị đen‑trắng cho hình dạng**
 
-The [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) property specifies how an individual shape is rendered when a presentation is viewed or processed in black-and-white mode. It does not enable black-and-white display by itself, and it does not change the shape's fill, line, or other formatting in normal color mode.
+Thuộc tính [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) chỉ định cách một hình riêng lẻ được hiển thị khi một bản trình bày được xem hoặc xử lý ở chế độ đen‑trắng. Thuộc tính này không tự động bật chế độ đen‑trắng và không thay đổi màu đổ, đường viền, hoặc các định dạng khác của hình trong chế độ màu bình thường.
 
-Use a value from the [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) enumeration to select the desired behavior. For example, `Automatic` lets the rendering application choose the conversion, `Gray` and `LightGray` use gray coloring, `BlackWhite` uses only black and white, `Black` and `White` force a single color, `Color` preserves normal coloring, and `Hidden` omits the shape in black-and-white mode. `NotDefined` means that no shape-level mode is assigned.
+Sử dụng một giá trị từ phân loại [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) để chọn hành vi mong muốn. Ví dụ, `Automatic` để ứng dụng hiển thị chọn cách chuyển đổi, `Gray` và `LightGray` dùng màu xám, `BlackWhite` chỉ dùng đen và trắng, `Black` và `White` buộc một màu duy nhất, `Color` giữ nguyên màu bình thường, và `Hidden` bỏ qua hình trong chế độ đen‑trắng. `NotDefined` nghĩa là không có chế độ ở mức hình được gán.
 
-This example creates an orange rectangle and sets [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) to gray. The saved shape retains its orange fill for normal color display and requests gray coloring from applications that honor black-and-white display settings:
+Ví dụ này tạo một hình chữ nhật màu cam và đặt [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) thành gray. Hình đã lưu giữ màu đổ cam cho hiển thị màu bình thường và yêu cầu màu xám từ các ứng dụng tôn trọng cài đặt hiển thị đen‑trắng.
 
 ```csharp
 using System.Drawing;
@@ -772,11 +830,11 @@ shape.BlackWhiteMode = BlackWhiteMode.Gray;
 presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
 ```
 
-Trong chế độ màu bình thường, hình chữ nhật giữ nguyên màu nền cam. Khi xử lý ở chế độ đen‑trắng, nó sử dụng màu xám vì chế độ được đặt thành `Gray`. Điều này cho phép bạn giữ slide màu đầy đủ trong khi định nghĩa một giao diện riêng cho việc in, xem trước, hoặc các quy trình khác tôn trọng cài đặt hiển thị đen‑trắng của bài thuyết trình.
+Trong chế độ màu bình thường, hình chữ nhật vẫn giữ màu đổ cam. Trong quy trình làm việc hiển thị đen‑trắng, nó sử dụng màu xám vì chế độ được đặt thành `Gray`. Điều này cho phép bạn giữ nguyên slide màu đầy đủ trong khi định nghĩa một diện mạo riêng cho việc in ấn, xem trước, hoặc các quy trình khác tôn trọng cài đặt hiển thị đen‑trắng của bản trình bày.
 
-## **Đặt Lại Định Dạng**
+## **Đặt lại định dạng**
 
-Use [ISlide.Reset](https://reference.aspose.com/slides/net/aspose.slides/islide/reset/) to restore the position, size, and formatting of slide placeholders from their corresponding layout placeholders. This example requires an existing presentation with layout-linked placeholders and resets every slide before saving. Shapes without corresponding layout placeholders are not reset.
+Sử dụng [ISlide.Reset](https://reference.aspose.com/slides/net/aspose.slides/islide/reset/) để khôi phục vị trí, kích thước và định dạng của các placeholder slide từ các placeholder bố cục tương ứng. Ví dụ này yêu cầu một bản trình bày hiện có có các placeholder liên kết bố cục và đặt lại mọi slide trước khi lưu. Các hình không có placeholder bố cục tương ứng sẽ không được đặt lại.
 
 ```csharp
 using Aspose.Slides;
@@ -791,16 +849,16 @@ foreach (var slide in presentation.Slides)
 presentation.Save("reset_formatting.pptx", SaveFormat.Pptx);
 ```
 
-## **Câu Hỏi Thường Gặp**
+## **FAQ**
 
-**Định dạng hình ảnh có ảnh hưởng đến kích thước cuối cùng của file bài thuyết trình không?**
+**Định dạng hình ảnh có ảnh hưởng đến kích thước cuối cùng của file bản trình bày không?**
 
-Màu sắc, kiểu đường và cài đặt hiệu ứng thường chỉ thêm một lượng dữ liệu nhỏ so với hình ảnh và phương tiện được nhúng. Đổ hình ảnh có thể làm tăng kích thước file vì hình ảnh được lưu trữ trong bài thuyết trình.
+Màu sắc, kiểu đường viền và cài đặt hiệu ứng thường chỉ thêm ít dữ liệu so với ảnh và phương tiện nhúng. Đổ màu ảnh có thể tăng kích thước file vì ảnh của chúng được lưu trong bản trình bày.
 
-**Làm sao tôi có thể phát hiện các hình trên một slide có cùng định dạng để có thể nhóm chúng?**
+**Làm thế nào để phát hiện các hình trên một slide có cùng định dạng để có thể nhóm chúng lại?**
 
-So sánh các thuộc tính định dạng chính của mỗi hình — fill, line và effect. Nếu tất cả các giá trị tương ứng khớp nhau, coi chúng là cùng một kiểu và nhóm logic các hình đó, giúp việc quản lý kiểu sau này dễ dàng hơn.
+So sánh các thuộc tính định dạng chính của mỗi hình — màu đổ, đường viền và cài đặt hiệu ứng. Nếu tất cả các giá trị tương ứng khớp nhau, coi các kiểu của chúng là giống hệt và nhóm logic các hình này, giúp việc quản lý kiểu sau này đơn giản hơn.
 
-**Tôi có thể lưu một tập hợp các kiểu hình tùy chỉnh vào một file riêng để tái sử dụng trong các bài thuyết trình khác không?**
+**Có thể lưu một bộ các kiểu hình tùy chỉnh vào một file riêng để tái sử dụng trong các bản trình bày khác không?**
 
-Có. Lưu các hình mẫu với các kiểu mong muốn trong một slide mẫu hoặc file mẫu .POTX. Khi tạo bài thuyết trình mới, mở mẫu, sao chép các hình đã định dạng cần thiết và áp dụng lại định dạng của chúng ở nơi cần.
+Có. Lưu các hình mẫu với các kiểu mong muốn trong một slide deck mẫu hoặc file .POTX. Khi tạo một bản trình bày mới, mở mẫu, sao chép các hình đã định dạng bạn cần và áp dụng lại định dạng của chúng ở nơi cần.

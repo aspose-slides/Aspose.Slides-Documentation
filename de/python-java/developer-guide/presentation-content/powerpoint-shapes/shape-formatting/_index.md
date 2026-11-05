@@ -1,45 +1,45 @@
 ---
-title: PowerPoint-Formen in Python via Java formatieren
-linktitle: Formformatierung
+title: "PowerPoint-Formen in Python über Java formatieren"
+linktitle: "Formformatierung"
 type: docs
 weight: 20
 url: /de/python-java/shape-formatting/
 keywords:
-- Form formatieren
-- Linie formatieren
-- Skizzeneffekt
-- Skizzenformenlinie
-- Verbindungsstil formatieren
-- Verlaufsfüllung
-- Musterfüllung
-- Bildfüllung
-- Texturfüllung
-- Einfarbige Füllung
-- Formtransparenz
-- Schwarz‑Weiß‑Darstellung von Formen
-- Graustufen‑Darstellung von Formen
-- Form drehen
-- 3D‑Kehl‑Effekt
-- 3D‑Dreh‑Effekt
-- Formatierung zurücksetzen
-- PowerPoint
-- Präsentation
-- Python
-- Java
-- Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint-Formen in Python via Java mit Aspose.Slides formatieren — Füll‑, Linien‑ und Effekt‑Stile für PPT‑ und PPTX‑Dateien präzise und vollständig steuern."
+- "Form formatieren"
+- "Linie formatieren"
+- "Skizzen‑Effekt"
+- "Skizzenformlinie"
+- "Verbindungsstil formatieren"
+- "Verlaufsfüllung"
+- "Musterfüllung"
+- "Bildfüllung"
+- "Texturfüllung"
+- "Einfarbige Füllung"
+- "Formtransparenz"
+- "Schwarz‑Weiß‑Darstellung von Formen"
+- "Graustufen‑Darstellung von Formen"
+- "Form drehen"
+- "3D‑Stufen‑Effekt"
+- "3D‑Rotations‑Effekt"
+- "Formatierung zurücksetzen"
+- "PowerPoint"
+- "Präsentation"
+- "Python"
+- "Java"
+- "Aspose.Slides"
+description: "Erfahren Sie, wie Sie PowerPoint‑Formen in Python über Java mit Aspose.Slides formatieren – füllen, Linien und Effektstile für PPT‑ und PPTX‑Dateien präzise und vollständig steuern."
 ---
 ## **Einführung**
 
-Formatiere Formen in PowerPoint, indem du deren Konturen, Füllungen und Effekte anpasst. Aspose.Slides für Python via Java ermöglicht die programmgesteuerte Kontrolle dieser Einstellungen, einschließlich Transparenz, Drehung und 3D-Formatierung.
+Formatiere Formen in PowerPoint, indem du ihre Konturen, Füllungen und Effekte anpasst. Aspose.Slides für Python via Java ermöglicht die programmgesteuerte Steuerung dieser Einstellungen, einschließlich Transparenz, Drehung und 3D-Formatierung.
 
-![Formatiervorgänge für Formen in PowerPoint](format-shape-powerpoint.png)
+![Formatiermöglichkeiten für Formen in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides für Python via Java stellt Klassen und Methoden bereit, mit denen du Formen mit denselben Optionen formatieren kannst, die in PowerPoint verfügbar sind.
+Aspose.Slides für Python via Java bietet Klassen und Methoden, mit denen du Formen formatieren kannst, indem du dieselben Optionen wie in PowerPoint nutzt.
 
 ## **Linien formatieren**
 
-Verwende [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat), um die Kontur einer Form zu steuern. Dieses Beispiel erstellt ein nicht ausgefülltes Rechteck mit einer blauen, gestrichelten Kontur. [LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) wählt eine dick‑dünn zusammengesetzte Linie, während [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) die Breite auf 7 Punkte setzt und [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) das Strichmuster auswählt.
+Verwende [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) um die Kontur einer Form zu steuern. Dieses Beispiel erzeugt ein nicht gefülltes Rechteck mit einer blauen, gestrichelten Kontur. [LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) wählt eine dick-dünn Verbundlinie, während [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) die Breite auf 7 Punkte festlegt und [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) das Strichmuster auswählt.
 
 ```python
 import jpype
@@ -72,13 +72,13 @@ Das Ergebnis:
 
 ![Die formatierten Linien in der Präsentation](formatted-lines.png)
 
-### **Benutzerdefinierte Linienstrichmuster festlegen**
+### **Benutzerdefinierte Linienmuster festlegen**
 
-Verwende [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern), wenn vordefinierte Linienstile die benötigten Strich‑ und Lückenlängen nicht bieten, zum Beispiel für markenspezifische Konturen oder technische Diagramme. Das Zuweisen eines Musters ändert den Linienstrichstil automatisch zu [LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/).
+Verwende [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern), wenn vordefinierte Linienstile nicht die benötigten Strichlängen und Lücken bieten, zum Beispiel für Marken‑Konturen oder technische Diagramme. Das Zuweisen eines Musters ändert den Strichstil der Linie automatisch zu [LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/).
 
-Array‑Einträge wechseln zwischen Strich‑ und Lückenlängen und beginnen mit einem Strich. Jeder Wert ist ein Vielfaches der Linienbreite: `[4, 2]` bei einer Breite von 3 Punkten erzeugt einen 12‑Punkte‑Strich gefolgt von einer 6‑Punkte‑Lücke. Verwende Paare aus endlichen, nichtnegativen Werten, um vollständige Strich‑und‑Lücken‑Segmente zu definieren. Das Beispiel verwendet positive Werte, damit jeder Strich und jede Lücke sichtbar bleibt.
+Array‑Einträge wechseln zwischen Strich‑ und Lückenlängen, beginnend mit einem Strich. Jeder Wert ist ein Vielfaches der Linienbreite: `[4, 2]` bei einer Breite von 3 Punkten erzeugt einen 12‑Punkt‑Strich, gefolgt von einer 6‑Punkt‑Lücke. Verwende Paare aus endlichen, nicht‑negativen Werten, um vollständige Strich‑und‑Lücken‑Segmente zu definieren. Das Beispiel verwendet positive Werte, damit jeder Strich und jede Lücke sichtbar bleibt.
 
-Dieses Beispiel erstellt fünf blaue Linien mit gleicher Länge und flachen Enden. Die ersten drei vergleichen Muster bei einer Breite von 3 Punkten. Die vierte wiederholt das erste Muster bei doppelter Breite, wodurch sowohl Strich‑ als auch Lückenlänge verdoppelt werden. Die fünfte wechselt von einem benutzerdefinierten Muster zu einer durchgezogenen Linie.
+Dieses Beispiel erstellt fünf blaue Linien mit gleicher Länge und flachen Enden. Die ersten drei vergleichen Muster bei einer Breite von 3 Punkten. Die vierte wiederholt das erste Muster bei doppelter Breite und verdoppelt dabei sowohl die Strich‑ als auch die Lückenlängen. Die fünfte wechselt von einem benutzerdefinierten Muster zu einer durchgezogenen Linie.
 
 ```python
 import jpype
@@ -114,7 +114,7 @@ try:
         line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None_)
         line.getLineFormat().setCustomDashPattern(jpype.JArray(jpype.JFloat)(pattern))
 
-    # Setze die letzte Linie auf einen durchgezogenen Stil zurück.
+    # Setze die letzte Linie auf einen durchgezogenen Stil.
     slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid)
 
     presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx)
@@ -124,23 +124,23 @@ finally:
 
 Um stattdessen zu einem vordefinierten gestrichelten Stil zurückzukehren, übergebe [LineDashStyle.Dash](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) an [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle). Der ausgewählte Stil steuert das Aussehen der Linie.
 
-Das Ergebnis in PowerPoint, von oben nach unten: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; und **Solid, 3 pt**.
+Das Ergebnis in PowerPoint von oben nach unten: **{4, 2}, 3 Pt**; **{1, 2}, 3 Pt**; **{6, 2, 1, 2}, 3 Pt**; **{4, 2}, 6 Pt**; und **Solid, 3 Pt**.
 
 ![Drei benutzerdefinierte Strichmuster, eine breitere Linie mit dem ersten Muster und eine durchgezogene Linie in PowerPoint](custom-dash-patterns.png)
 
 ### **Linienenden festlegen**
 
-Verwende [LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle), um die Enden einer offenen Linie zu setzen. Die Klasse [LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/) bietet drei explizite Endstil‑Optionen:
+Verwende [LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle), um die Enden einer offenen Linie festzulegen. Die Klasse [LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/) bietet drei explizite Endstil‑arten:
 
 - `Flat`: Der Strich endet am Endpunkt.
-- `Round`: Ein halbkreisförmiges Ende ragt halb so weit über den Endpunkt hinaus wie die Linienbreite.
-- `Square`: Ein quadratisches Ende ragt halb so weit über den Endpunkt hinaus wie die Linienbreite.
+- `Round`: Eine halbrunde Endung reicht über den Endpunkt hinaus um die halbe Linienbreite.
+- `Square`: Eine quadratische Endung reicht über den Endpunkt hinaus um die halbe Linienbreite.
 
 Die Klasse enthält außerdem `NotDefined`, was bedeutet, dass kein Endstil explizit zugewiesen ist.
 
-Enden unterscheiden sich von Pfeilspitzen, die Symbole an Linienenden hinzufügen, und von Verbindungen, die Ecken zwischen Linienstücken steuern. Dieses Beispiel deaktiviert Pfeilspitzen über [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setBeginArrowheadStyle) und [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setEndArrowheadStyle), sodass nur die Endformen verglichen werden.
+Enden unterscheiden sich von Pfeilspitzen, die Symbole an Linienenden hinzufügen, und von Verbindungen, die Ecken zwischen Linienelementen steuern. Dieses Beispiel deaktiviert Pfeilspitzen über [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setBeginArrowheadStyle) und [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setEndArrowheadStyle), sodass nur die Endformen verglichen werden.
 
-Das folgende Beispiel erstellt drei sonst identische horizontale Linien, 20 Punkte breit. Von oben nach unten verwenden sie flache, runde bzw. quadratische Enden. Ihre Endpunkte haben dieselben horizontalen Koordinaten; die runden und quadratischen Enden ragen jeweils 10 Punkte über jeden Endpunkt hinaus.
+Das folgende Beispiel erzeugt drei ansonsten identische horizontale Linien, 20 Punkte breit. Von oben nach unten verwenden sie flache, runde und quadratische Enden. Ihre Endpunkte haben dieselben Horizontal‑Koordinaten; die runden und quadratischen Enden reichen 10 Punkte über jeden Endpunkt hinaus.
 
 ```python
 import jpype
@@ -175,15 +175,15 @@ finally:
     presentation.dispose()
 ```
 
-Das Ergebnis in PowerPoint, von oben nach unten: **Flat**, **Round** und **Square**.
+Das Ergebnis in PowerPoint von oben nach unten: **Flat**, **Round** und **Square**.
 
-![Flache, runde und quadratische Enden an identischen dicken Linien in PowerPoint](line-caps.png)
+![Flache, runde und quadratische Enden bei identischen dicken Linien in PowerPoint](line-caps.png)
 
-## **Skizzeeffekte auf Formlinien anwenden**
+## **Skizze‑Effekte auf Formlinien anwenden**
 
-Ein Skizzeeffekt lässt eine Formlinie handgezeichnet wirken. Verwende [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat), um die Linieneinstellungen zu erhalten, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat), um die Skizzeneinstellungen zu erhalten, und [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType), um einen Wert aus der Klasse [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) auszuwählen.
+Ein Skizzen‑Effekt lässt eine Formlinie handgezeichnet wirken. Verwende [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat), um die Linieneinstellungen zu erhalten, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat), um die Skizzen‑Einstellungen zu erhalten, und [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType), um einen Wert aus der Klasse [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) auszuwählen.
 
-Der folgende Python‑Code zeigt, wie ein [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/)-Effekt angewendet, der explizit zugewiesene Wert gelesen und der Effekt mit [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) entfernt wird:
+Der folgende Python‑Code zeigt, wie man einen [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/)‑Effekt anwendet, den explizit zugewiesenen Wert ausliest und den Effekt mit [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) entfernt:
 
 ```python
 import jpype
@@ -209,7 +209,7 @@ finally:
     presentation.dispose()
 ```
 
-Der von [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) zurückgegebene Wert repräsentiert die direkt der Form zugewiesene Einstellung. Wenn die Linienformatierung von einem Theme, einer Master‑Folien‑ oder Layout‑Folien‑Vorlage geerbt werden kann, verwende [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) und lese den Skizzen‑Typ aus der zurückgegebenen effektiven Linienformatierung, wie unten gezeigt. Der effektive Wert spiegelt die tatsächlich angewendete Formatierung wider, nachdem die Vererbung aufgelöst wurde. Dieses Beispiel benötigt eine vorhandene Präsentation mit mindestens einer Form auf der ersten Folie und gibt beide Werte aus:
+Der von [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) zurückgegebene Wert repräsentiert die direkt an die Form zugewiesene Einstellung. Wenn die Linienformatierung von einem Thema, einer Master‑Folie oder einer Layout‑Folie vererbt werden kann, verwende [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) und lies den Skizzentyp aus der zurückgegebenen effektiven Linienformatierung, wie unten gezeigt. Der effektive Wert spiegelt die tatsächlich angewandte Formatierung wider, nachdem die Vererbung aufgelöst wurde. Dieses Beispiel erfordert eine vorhandene Präsentation mit mindestens einer Form auf der ersten Folie und gibt beide Werte aus:
 
 ```python
 import jpype
@@ -235,19 +235,19 @@ finally:
     presentation.dispose()
 ```
 
-## **Verbindungs‑Stile formatieren**
+## **Verbindungs­stile formatieren**
 
-Hier sind die drei Optionen für den Verbindungs‑Typ:
+Hier sind die drei Optionen für Verbindungs‑typen:
 
 * Round
 * Miter
 * Bevel
 
-Der Verbindungs‑Stil steuert, wie zwei Kontursegmente an einer Ecke zusammentreffen. Verwende **Round** für abgerundete Ecken, **Miter** für spitze Ecken oder **Bevel** für abgeflachte Ecken.
+Der Verbindungsstil bestimmt, wie zwei Kontursegmente an einer Ecke zusammenstoßen. Verwende **Round** für abgerundete Ecken, **Miter** für spitze Ecken oder **Bevel** für abgeflachte Ecken.
 
-![Der Verbindungs‑Stil in der Präsentation](join-style-powerpoint.png)
+![Der Verbindungsstil in der Präsentation](join-style-powerpoint.png)
 
-Dieses Beispiel erstellt drei schwarze Rechtecke mit blauen Konturen von 15 Punkten Breite. Es verwendet [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle), um die Werte `Miter`, `Bevel` und `Round` der Klasse [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) zu setzen und zu vergleichen, wie die Ecken gezeichnet werden.
+Dieses Beispiel erstellt drei schwarze Rechtecke mit blauen Konturen von 15 Punkten Breite. Es verwendet [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle), um die miter, bevel und round Werte von [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) jeweils zu setzen, um zu vergleichen, wie die Ecken gezeichnet werden.
 
 ```python
 import jpype
@@ -298,13 +298,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Miter‑Verbindungen bei scharfen Ecken begrenzen**
+### **Miter‑Verbindungen an spitzen Ecken begrenzen**
 
-Verwende [LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit) zusammen mit [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) auf [LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/), um zu begrenzen, wie weit eine scharfe Ecke ausstoßen darf.
+Verwende [LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit) zusammen mit [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle), das auf [LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) gesetzt ist, um zu begrenzen, wie weit eine spitze Ecke ausdehnen kann.
 
-Der Grenzwert ist das Verhältnis des Abstands zwischen innerer und äußerer Ecke der Verbindung zur Linienbreite. Ein Wert von `8` erlaubt beispielsweise eine Miter‑Länge von bis zu achtmal der Linienbreite; er ist keine Messung in Punkten. Überschreitet die Ecke den Grenzwert, verwendet PowerPoint an dieser Stelle eine abgeschrägte Verbindung. Ein größerer Grenzwert ermöglicht spitzere Punkte. Die Einstellung wirkt sich nur auf Miter‑Verbindungen aus und hat keinen sichtbaren Effekt, solange die Ecke innerhalb beider Grenzwerte bleibt.
+Das Limit ist ein Verhältnis des Abstands zwischen den inneren und äußeren Ecken der Verbindung zur Linienbreite. Zum Beispiel erlaubt ein Wert von `8` eine Miter‑Länge von bis zu achtfacher Linienbreite; es ist keine Messgröße in Punkten. Wenn die Ecke das Limit überschreiten würde, verwendet PowerPoint an dieser Ecke eine abgeschrägte Verbindung. Ein größeres Limit erlaubt schärfere Spitzen. Die Einstellung wirkt sich nur auf Miter‑Verbindungen aus, und eine Änderung hat keine sichtbare Auswirkung, solange die Ecke innerhalb beider Limits bleibt.
 
-Dieses Beispiel erstellt zwei identische, nicht ausgefüllte Dreiecke mit Konturen von 20 Punkten Breite. Das linke Dreieck verwendet einen Grenzwert von `2`, das rechte von `8`. Jedes Dreieck ist 80 Punkte breit und 160 Punkte hoch, sodass das Verhältnis von Miter‑Länge zu Linienbreite am oberen Winkel etwa `4,12` beträgt. Folglich fährt PowerPoint die linke Spitze ab und behält die rechte Spitze bei.
+Dieses Beispiel erstellt zwei identische, nicht gefüllte Dreiecke mit Konturen von 20 Punkten Breite. Das linke Dreieck verwendet ein Limit von `2`, das rechte von `8`. Jedes Dreieck ist 80 Punkte breit und 160 Punkte hoch, was seinem oberen Eck ein Miter‑Längen‑zu‑Linienbreite‑Verhältnis von etwa `4.12` verleiht. Folglich schlägt PowerPoint die linke Spitze ab und behält die rechte Spitze bei.
 
 ```python
 import jpype
@@ -340,11 +340,11 @@ finally:
 
 Das Ergebnis in PowerPoint: **Miter limit 2** links und **miter limit 8** rechts.
 
-![Eine abgeschrägte Spitze mit Miter‑Grenzwert 2 und eine spitze Spitze mit Miter‑Grenzwert 8 in PowerPoint](miter-limits.png)
+![Ein abgeflachter Scheitel mit Miter‑Limit 2 und ein spitzer Scheitel mit Miter‑Limit 8 in PowerPoint](miter-limits.png)
 
 ## **Verlaufsfüllung**
 
-Eine Verlauffüllung mischt Farben über eine Form hinweg. Dieses Beispiel füllt eine Ellipse mit einem linearen Verlauf in einem 45‑Grad‑Winkel von Rot nach Violett über [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat). Die Methode [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) legt die Farb‑Stops bei 0 und 1, dem Anfang bzw. Ende des Verlaufs, fest. Das Löschen der vorhandenen Stops stellt sicher, dass nur diese beiden Farben verwendet werden.
+Eine Verlaufsfüllung mischt Farben über eine Form hinweg. Dieses Beispiel füllt eine Ellipse mit einem linearen Verlauf im 45‑Grad‑Winkel von Rot nach Violett unter Verwendung von [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat). Die Methode [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) platziert die Farb‑Stops bei 0 und 1, dem Beginn bzw. Ende des Verlaufs. Das Löschen der vorhandenen Stops stellt sicher, dass nur diese beiden Farben verwendet werden.
 
 ```python
 import jpype
@@ -375,15 +375,15 @@ finally:
 
 Das Ergebnis:
 
-![Die Ellipse mit Verlauffüllung](gradient-fill.png)
+![Die Ellipse mit Verlaufsfüllung](gradient-fill.png)
 
-Falls ein Verlauf in einem exportierten Bild anders aussieht als in PowerPoint, siehe [Choose a Gradient Rendering Style](/slides/de/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Du kannst einen Render‑Stil auswählen, ohne die in der Präsentation gespeicherte Verlauffüllung zu ändern.
+Wenn ein Verlauf in einem exportierten Bild anders aussieht als in PowerPoint, siehe [Choose a Gradient Rendering Style](/slides/de/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Du kannst einen Render‑Stil auswählen, ohne die im Dokument gespeicherte Verlaufsfüllung zu ändern.
 
-### **Winkel des linearen Verlaufs festlegen**
+### **Linear‑Verlauf‑Winkel festlegen**
 
-Verwende [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle), um die Ausrichtung einer [GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/)-Füllung zu steuern. Der Winkel wird in Grad gemessen und nimmt im Uhrzeigersinn zu: `0` verläuft von links nach rechts, `90` von oben nach unten, `180` von rechts nach links und `270` von unten nach oben. Bruchteile von Grad werden unterstützt. Endliche Winkel außerhalb des Intervalls `[0, 360)` werden zu einer Umdrehung normalisiert; zum Beispiel wird `-45` zu `315` und `360` zu `0`.
+Verwende [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle), um die Ausrichtung einer [GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/)‑Füllung zu steuern. Der Winkel wird in Grad gemessen und nimmt im Uhrzeigersinn zu: `0` verläuft von links nach rechts, `90` von oben nach unten, `180` von rechts nach links und `270` von unten nach oben. Bruch‑Winkel werden unterstützt. Endliche Winkel außerhalb `[0, 360)` werden auf eine Umdrehung normalisiert; zum Beispiel wird `-45` zu `315` und `360` zu `0`.
 
-Dieses Beispiel erstellt sechs Rechtecke mit identischen roten, grünen und blauen Stops an den Positionen `0`, `0.5` und `1`. Das Skalieren ist deaktiviert, sodass der Winkel unabhängig von den Proportionen der Rechtecke verglichen werden kann. Die Winkel von links nach rechts sind `0`, `45` und `90` in der ersten Reihe sowie `135`, `180` und `270` in der zweiten Reihe.
+Dieses Beispiel erstellt sechs Rechtecke mit identischen Rot‑, Grün‑ und Blau‑Stops an den Positionen `0`, `0.5` und `1`. Skalierung ist deaktiviert, damit der Winkel unabhängig von den Proportionen der Rechtecke verglichen werden kann. Die Winkel von links nach rechts sind in der ersten Reihe `0`, `45` und `90` und in der zweiten Reihe `135`, `180` und `270`.
 
 ```python
 import jpype
@@ -426,13 +426,13 @@ finally:
 
 Das Ergebnis in PowerPoint:
 
-![Lineare Verläufe bei 0°, 45° und 90° in der oberen Reihe sowie 135°, 180° und 270° in der unteren Reihe](linear-gradient-angles.png)
+![Lineare Verläufe bei 0°, 45° und 90° in der oberen Reihe und 135°, 180° und 270° in der unteren Reihe](linear-gradient-angles.png)
 
 ### **Linearen Verlauf mit der Form skalieren**
 
-[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled) akzeptiert einen [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/)-Wert. Setze ihn explizit auf `False_`, um den geometrischen Verlaufswinkel beizubehalten, wenn sich die Proportionen der Form ändern, oder auf `True_`, um den Verlauf mit Breite und Höhe der Form zu skalieren. Bei aktivierter Skalierung kann der sichtbare Winkel von dem zugewiesenen Winkel einer nicht quadratischen Form abweichen.
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled) akzeptiert einen [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/). Setze ihn explizit auf `False_`, um den geometrischen Verlaufswinkel beizubehalten, wenn sich die Proportionen der Form ändern, oder auf `True_`, um den Verlauf mit Breite und Höhe der Form zu skalieren. Bei aktivierter Skalierung kann sich der sichtbare Winkel vom zugewiesenen Winkel bei einer nicht‑quadratischen Form unterscheiden.
 
-Das folgende Beispiel verwendet einen Winkel von `45` Grad und dieselben Farb‑Stops wie im Winkel‑Vergleich. Die linke Spalte verwendet `False_`; die rechte Spalte verwendet `True_`. Jede Spalte enthält ein breites Rechteck über einem hohen Rechteck. Beide beginnen mit denselben Breiten‑Abmessungen; das Ändern von Breite und Höhe des zweiten Rechtecks zeigt, wie die Füllung auf Größenskalierung reagiert, ohne die Verlaufseinstellungen zu ändern.
+Das folgende Beispiel verwendet einen `45`‑Grad‑Winkel und dieselben Farb‑Stops wie beim Winkel‑Vergleich. Die linke Spalte verwendet `False_`; die rechte Spalte verwendet `True_`. Jede Spalte enthält ein breites Rechteck über einem hohen Rechteck. Beide beginnen mit denselben breiten Abmessungen; das Ändern von Breite und Höhe des zweiten Rechtecks zeigt, wie die Füllung auf Größenänderungen reagiert, ohne die Verlaufseinstellungen zu ändern.
 
 ```python
 import jpype
@@ -482,15 +482,15 @@ Das Ergebnis in PowerPoint, links ohne Skalierung und rechts mit Skalierung:
 
 ![Breite und hohe Rechtecke mit einem 45‑Grad‑Verlauf, Vergleich LinearGradientScaled False links und True rechts](linear-gradient-scaling.png)
 
-Bei deaktivierter Skalierung behalten die diagonalen Farbstreifen in beiden Rechtecken dieselbe Orientierung. Bei aktivierter Skalierung dehnen sich die Streifen mit den Proportionen der Form. Das hilft, den Verlauf einer Vorlage beizubehalten, wenn eine Form an eine andere Größe angepasst wird. Auf einem Quadrat ändert das Aktivieren der Skalierung das Erscheinungsbild dieses `45`‑Grad‑Verlaufs nicht.
+Bei deaktivierter Skalierung behalten die diagonalen Farbbänder in beiden Rechtecken die gleiche Ausrichtung. Bei aktivierter Skalierung strecken sich die Bänder gemäß den Proportionen der Form. Dies hilft, den Verlauf einer Vorlage wiederzugeben, wenn eine Form an eine andere Größe angepasst wird. Auf einem Quadrat ändert das Aktivieren der Skalierung das Aussehen dieses `45`‑Grad‑Verlaufs nicht.
 
-Sowohl Winkel‑ als auch Skalierungseinstellungen gelten für lineare Verläufe. Sie steuern nicht die Füllungen [GradientShape.Radial] oder [GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/).
+Sowohl Winkel‑ als auch Skalierungseinstellungen gelten für lineare Verläufe. Sie steuern keine [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/)‑Füllungen.
 
-### **Winkel mit Verlaufsrichtung kombinieren**
+### **Winkel mit Verlauf‑Richtung kombinieren**
 
-[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection) wählt einen Verlaufsstil aus der Klasse [GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/) aus; er ersetzt keinen numerischen Winkel. Für einen linearen Verlauf können die Eck‑Stile den Bereich, über den die Farben verteilt werden, ändern, ohne den über [setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) zugewiesenen Winkel zu ändern. Lass die Richtung unverändert, wenn du Winkel oder Skalierung vergleichst.
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection) wählt einen Verlauf‑Stil aus der Klasse [GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/) aus; er ersetzt keinen numerischen Winkel. Für einen linearen Verlauf können die Eck‑Stile den Bereich verändern, über den die Farben verteilt werden, ohne den über [setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) zugewiesenen Winkel zu ändern. Behalte die Richtung unverändert, wenn du Winkel oder Skalierung vergleichst.
 
-Das folgende Beispiel wendet dieselben Einstellungen in umgekehrter Reihenfolge an. Die beiden Rechtecke sehen identisch aus: Das Zuweisen der Richtung vor oder nach dem Winkel ändert das Ergebnis nicht.
+Das folgende Beispiel wendet dieselben Einstellungen in unterschiedlicher Reihenfolge an. Die beiden Rechtecke sehen identisch aus: Das Zuweisen der Richtung vor oder nach dem Winkel ändert das Ergebnis nicht.
 
 ```python
 import jpype
@@ -533,7 +533,7 @@ finally:
 
 ## **Musterfüllung**
 
-Eine Musterfüllung wendet ein zweifarbiges Design wie Punkte, Streifen oder Karos an. Dieses Beispiel verwendet [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle), um ein Gittermuster auszuwählen. [PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) liefert den hellgrauen Hintergrund, und [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) liefert die gelbe Musterfarbe.
+Eine Musterfüllung wendet ein zweifarbiges Design wie Punkte, Streifen oder Karos an. Dieses Beispiel verwendet [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle), um ein Gitter‑Muster auszuwählen. [PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) liefert den hellgrauen Hintergrund, und [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) liefert die gelbe Musterfarbe.
 
 ```python
 import jpype
@@ -566,7 +566,7 @@ Das Ergebnis:
 
 ## **Bildfüllung**
 
-Eine Bildfüllung verwendet ein Bild innerhalb einer Form. Dieses Beispiel benötigt ein lokales Bild und verwendet [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile), um es in die Bildsammlung der Präsentation zu laden. Das Setzen von [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) auf den Kachel‑Modus wiederholt das Bild innerhalb des Rechtecks. Das hier verwendete Quellbild ist unten zu sehen:
+Eine Bildfüllung verwendet ein Bild innerhalb einer Form. Dieses Beispiel erfordert ein lokales Bild und nutzt [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile), um es in die Bild‑Sammlung der Präsentation zu laden. Das Setzen von [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) auf den gekachelten Modus wiederholt das Bild innerhalb des Rechtecks. Das hier verwendete Quellbild ist unten zu sehen:
 
 ![Das Lotus‑Bild](lotus.png)
 
@@ -603,19 +603,19 @@ Das Ergebnis:
 
 ![Die Form mit Bildfüllung](picture-fill.png)
 
-### **Bild als Textur kacheln**
+### **Bild kacheln als Textur**
 
-Wenn du ein gekacheltes Bild als Textur festlegen und das Kacheln‑Verhalten anpassen möchtest, kannst du die folgenden Methoden der Klasse [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) verwenden:
+Wenn du ein gekacheltes Bild als Textur festlegen und das Kachel‑Verhalten anpassen möchtest, kannst du die folgenden Methoden der Klasse [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) verwenden:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): Setzt den Bildfüll‑Modus – entweder `Tile` oder `Stretch`.
+- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): Legt den Bildfüllmodus fest – entweder `Tile` oder `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): Gibt die Ausrichtung der Kacheln innerhalb der Form an.
-- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): Steuert, ob die Kachel horizontal, vertikal oder in beide Richtungen gespiegelt wird.
+- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): Steuert, ob die Kachel horizontal, vertikal oder beides gespiegelt wird.
 - [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): Setzt den horizontalen Versatz der Kachel (in Punkten) vom Ursprung der Form.
 - [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): Setzt den vertikalen Versatz der Kachel (in Punkten) vom Ursprung der Form.
 - [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): Definiert die horizontale Skalierung der Kachel als Prozentsatz.
 - [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): Definiert die vertikale Skalierung der Kachel als Prozentsatz.
 
-Dieses Beispiel benötigt ein lokales Bild und konfiguriert [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/), um es mit 50 % seiner Originalgröße zu wiederholen. Offsets von −32 Punkten verschieben die Kacheln horizontal und vertikal; die Ausrichtung unten‑rechts und das Spiegeln in beiden Richtungen bestimmen, wie die wiederholte Textur angeordnet wird.
+Dieses Beispiel erfordert ein lokales Bild und konfiguriert [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) so, dass es bei 50 % seiner Originalgröße wiederholt wird. Offsets von −32 Punkten verschieben die Kacheln horizontal und vertikal; die Ausrichtung unten‑rechts und das Flippen in beide Richtungen bestimmen, wie die wiederholte Textur angeordnet wird.
 
 ```python
 import jpype
@@ -660,7 +660,7 @@ Das Ergebnis:
 
 ## **Einfarbige Füllung**
 
-Eine einfarbige Füllung verleiht einer Form eine einzelne, gleichmäßige Farbe. Dieses Beispiel verwendet [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType), um den einfarbigen Füllmodus zu setzen, und weist Gelb über [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) zu, bevor das Rechteck in einer Präsentation gespeichert wird.
+Eine einfarbige Füllung verleiht einer Form eine einheitliche Farbe. Dieses Beispiel verwendet [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType), um den einschichtigen Füllmodus zu setzen, und weist Gelb über [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) zu, dann speichert das Rechteck in einer Präsentation.
 
 ```python
 import jpype
@@ -689,13 +689,86 @@ Das Ergebnis:
 
 ![Die Form mit einfarbiger Füllung](solid-color-fill.png)
 
+### **Farben kopieren und dabei Themen‑Referenzen beibehalten**
+
+Verwende [ColorFormat.copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#copyFrom), um eine Farbangabe zu kopieren, einschließlich ihres Farbtyps, Themen‑Referenz und Transformationen. Das ist nützlich, wenn du eine Füllfarbe zwischen Formen überträgst, die weiterhin dem Präsentationsthema folgen sollen. Die Methode kopiert nur die Farbe: Sie kopiert weder den Fülltyp, die Kontur noch andere Form‑Formatierungen. Setze den Fülltyp des Ziels explizit mit [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType).
+
+Dieses Beispiel erstellt drei Rechtecke von links nach rechts: die Quelle, eine themen‑bewusste Kopie und eine feste RGB‑Kopie. Die Quelle verwendet [ColorFormat.setSchemeColor](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#setSchemeColor), um die erste Akzentfarbe zu referenzieren und fügt über [ColorOperationCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/coloroperationcollection/#add) einen Farbton hinzu. Die RGB‑Kopie verwendet die effektive Füllfarbe der Quelle, sodass alle drei zunächst identisch aussehen. Das Aufrufen von [ColorFormat.setColor](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#setColor) setzt einen festen RGB‑Wert und löscht vorhandene Farb‑Transformationen.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ColorTransformOperation, FillType, ImageFormat, Presentation, SaveFormat, SchemeColor, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    accent_color = Color(65, 105, 225)
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(accent_color)
+
+    source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140)
+    theme_copy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140)
+    rgb_copy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140)
+
+    for shape in (source, theme_copy, rgb_copy):
+        shape.getFillFormat().setFillType(FillType.Solid)
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    source_color = source.getFillFormat().getSolidFillColor()
+    source_color.setSchemeColor(SchemeColor.Accent1)
+    source_color.getColorTransform().add(ColorTransformOperation.Tint, 0.75)
+
+    theme_copy.getFillFormat().getSolidFillColor().copyFrom(source_color)
+    rgb_copy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor())
+
+    before = slide.getImage(1.0, 1.0)
+    try:
+        before.save("color-copy-before.png", ImageFormat.Png)
+    finally:
+        before.dispose()
+
+    # Themenreferenzen folgen der neuen Akzentfarbe; der feste RGB-Wert nicht.
+    accent_color = Color(255, 69, 0)
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(accent_color)
+
+    after = slide.getImage(1.0, 1.0)
+    try:
+        after.save("color-copy-after.png", ImageFormat.Png)
+    finally:
+        after.dispose()
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Vor der Themenänderung stimmen alle drei Füllungen überein:
+
+![Quelle, copyFrom‑Ziel und feste RGB‑Ziel mit identischen blauen Füllungen](color-copy-before.png)
+
+Nach der Themenänderung folgen die Quelle und die themen‑bewusste Kopie der neuen Akzentfarbe und behalten ihren Farbton bei. Die feste RGB‑Kopie bleibt blau:
+
+![Quelle und copyFrom‑Ziel mit orangefarbenen Füllungen, während das feste RGB‑Ziel blau bleibt](color-copy-after.png)
+
+Die kopierte Definition ist unabhäng­ig von der Quelle. Ein späteres Ändern der Themen‑Referenz der Quelle, das Zuweisen einer anderen Farbe oder das Hinzufügen bzw. Entfernen ihrer Transformationen ändert das Ziel nicht. Eine Themen‑Änderung wirkt sich weiterhin auf beide Formen aus, weil jede unabhängig auf dieselbe Themen‑Farbe verweist.
+
+Das Speichern und erneute Öffnen der PPTX bewahrt den Typ der kopierten Farbe, der über [ColorFormat.getColorType](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#getColorType) zurückgegeben wird, die Themen‑Referenz und die Transformations‑Sammlung, die über [ColorFormat.getColorTransform](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#getColorTransform) zurückgegeben wird; sie wird nicht in RGB flachgelegt.
+
+Beim Kopieren zwischen verschiedenen Themen‑Kontexten, wie Präsentationen mit unterschiedlichen Akzent‑Paletten, wird die kopierte Referenz gegen das Thema des Ziels aufgelöst. Die gleiche Referenz und Transformationen können daher eine andere sichtbare Farbe erzeugen. Siehe [Presentation Theme](/slides/de/python-java/presentation-theme/) für weitere Informationen zur Konfiguration von Themen‑Farben.
+
 ## **Folienhintergrund als Formfüllung verwenden**
 
-Verwende [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill), wenn eine Form dem Folienhintergrund entsprechen soll, zum Beispiel in einer Präsentationsvorlage. Setze zuerst [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) auf [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/), um eine explizite Füllung zu entfernen. Mit dieser Kombination verwendet die Form den Folienhintergrund anstelle ihrer Stil‑Füllung. Das Aktivieren des Schalters allein entfernt keine bereits vorhandene explizite Füllung.
+Verwende [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill), wenn eine Form dem Folienhintergrund entsprechen soll, zum Beispiel in einer Präsentationsvorlage. Setze den Fülltyp mit [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) zuerst auf [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/), um eine explizite Füllung zu entfernen. Mit dieser Kombination verwendet die Form den Folienhintergrund anstelle ihrer Stil‑Füllung. Das Setzen des Flags allein entfernt keine vorhandene explizite Füllung.
 
-Dies unterscheidet sich von [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/): Hintergrundfüllung deckt Objekte hinter der Form mit dem entsprechenden Bereich des Folienhintergrunds ab, während NoFill diese Objekte sichtbar lässt. Ein Verlauf bleibt an die Folie ausgerichtet, anstatt innerhalb jeder Form neu zu starten.
+Dies unterscheidet sich von [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/): Die Hintergrund‑Füllung deckt Objekte hinter der Form mit dem entsprechenden Bereich des Folienhintergrunds ab, während keine Füllung diese Objekte sichtbar lässt. Ein Verlauf bleibt an der Folie ausgerichtet, anstatt in jeder Form neu zu starten.
 
-Das folgende Beispiel erstellt einen Master‑Hintergrund, der von der Folie geerbt wird, und platziert ein magentafarbenes Band hinter drei Rechtecken. Das linke Rechteck verwendet den Hintergrund, das mittlere Rechteck hat keine Füllung, und das rechte Rechteck wechselt von Hintergrundfüllung zu einer expliziten orangefarbenen Füllung.
+Das folgende Beispiel erzeugt einen Master‑Hintergrund, der von der Folie geerbt wird, und platziert ein magentafarbenes Band hinter drei Rechtecken. Das linke Rechteck verwendet den Hintergrund, das mittlere hat keine Füllung, und das rechte wechselt von Hintergrund‑Füllung zu einer expliziten orangen Füllung.
 
 ```python
 import jpype
@@ -712,7 +785,7 @@ try:
     presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale)
     slide = presentation.getSlides().get_Item(0)
 
-    # Vererbe den Verlauf vom Master.
+    # Den Farbverlauf vom Master übernehmen.
     slide.getBackground().setType(BackgroundType.NotDefined)
     slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined)
     background = slide.getLayoutSlide().getMasterSlide().getBackground()
@@ -727,7 +800,7 @@ try:
     color = Color(135, 206, 250)
     gradient.getGradientStops().add(1, color)
 
-    # Füge dieses Objekt zuerst hinzu, damit es hinter den Rechtecken erscheint.
+    # Dieses Objekt zuerst hinzufügen, damit es hinter den Rechtecken erscheint.
     band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100)
     band.getFillFormat().setFillType(FillType.Solid)
     band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA)
@@ -744,7 +817,7 @@ try:
     explicit_shape.getFillFormat().setFillType(FillType.NotDefined)
     explicit_shape.setUseBackgroundFill(True)
 
-    # Deaktiviere Hintergrundfüllung, bevor eine explizite Füllung angewendet wird.
+    # Hintergrundfüllung deaktivieren, bevor eine explizite Füllung angewendet wird.
     explicit_shape.setUseBackgroundFill(False)
     explicit_shape.getFillFormat().setFillType(FillType.Solid)
     color = Color(255, 165, 0)
@@ -755,15 +828,15 @@ finally:
     presentation.dispose()
 ```
 
-Das Ergebnis von links nach rechts: **background fill**, **no fill** und **explicit fill**. Das magentafarbene Band wird von den linken und rechten Rechtecken verdeckt, bleibt aber durch das mittlere Rechteck sichtbar.
+Das Ergebnis, von links nach rechts: **background fill**, **no fill**, und **explicit fill**. Das magentafarbene Band wird von den linken und rechten Rechtecken verdeckt, bleibt aber durch das mittlere Rechteck sichtbar.
 
 ![Hintergrundfüllung, keine Füllung und explizite orange Füllung über einem magentafarbenen Band](background-fill.png)
 
-Das gleiche Verhalten gilt für einen direkt auf der Folie definierten Hintergrund oder einen von einem Layout geerbten Hintergrund. Die Form verwendet den aufgelösten Folienhintergrund; das Beispiel lässt sowohl den Folien‑ als auch den Layout‑Hintergrund undefiniert, sodass der Master ihn bereitstellt.
+Das gleiche Verhalten gilt für einen direkt auf der Folie definierten oder aus einem Layout geerbten Hintergrund. Die Form verwendet den aufgelösten Folienhintergrund; das Beispiel lässt sowohl den Folien‑ als auch den Layout‑Hintergrund undefiniert, sodass der Master ihn bereitstellt.
 
-## **Transparenz setzen**
+## **Transparenz festlegen**
 
-Bei einer einfarbigen Füllung steuert die Alpha‑Komponente der Farbe die Deckkraft: 0 ist vollständig transparent und 255 vollständig undurchsichtig. Dieses Beispiel verwendet einen Alpha‑Wert von 128 für ein gelbes Rechteck, wodurch es etwa zu 50 % transparent ist, sodass das darunterliegende Rechteck sichtbar bleibt. Die Farbe wird über [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) zugewiesen.
+Für eine einfarbige Füllung steuert die Alpha‑Komponente der Farbe die Deckkraft: 0 ist vollständig transparent und 255 völlig undurchsichtig. Dieses Beispiel verwendet einen Alpha‑Wert von 128 für ein gelbes Rechteck, wodurch es etwa zu 50 % transparent wird, sodass das darunterliegende Rechteck sichtbar bleibt. Die Farbe wird über [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) zugewiesen.
 
 ```python
 import jpype
@@ -797,7 +870,7 @@ Das Ergebnis:
 
 ## **Formen drehen**
 
-Verwende [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation), um eine Form in der Folienebene zu drehen. Der Winkel wird in Grad gemessen; dieses Beispiel dreht ein Rechteck um 5 Grad im Uhrzeigersinn und speichert die Präsentation.
+Verwende [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation), um eine Form in der Folien‑Ebene zu drehen. Der Winkel wird in Grad gemessen; dieses Beispiel dreht ein Rechteck um 5 Grad im Uhrzeigersinn und speichert die Präsentation.
 
 ```python
 import jpype
@@ -822,11 +895,11 @@ finally:
 
 Das Ergebnis:
 
-![Die Drehung der Form](shape-rotation.png)
+![Die Formdrehung](shape-rotation.png)
 
-## **3D‑Kehl‑Effekte hinzufügen**
+## **3D‑Stufen‑Effekte hinzufügen**
 
-Verwende [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat), um einer Form Tiefe und abgeflachte Kanten zu verleihen. Dieses Beispiel erstellt eine grüne Ellipse mit einer orangefarbenen Kontur, verwendet [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth), um die Tiefe auf 4 Punkte zu setzen, und wendet über [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop) einen kreisförmigen oberen Kehl mit einer Breite und Höhe von 6 Punkten an. Eine frontale orthografische Kamera und dreipunktige Beleuchtung lassen den Kehl sichtbar werden.
+Verwende [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat), um einer Form Tiefe und abgeschrägte Kanten zu geben. Dieses Beispiel erstellt eine grüne Ellipse mit einer orangenen Kontur, setzt die Tiefe mit [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) auf 4 Punkte und wendet über [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop) eine kreisförmige obere Abschrägung mit Breite und Höhe von 6 Punkten an. Eine frontale orthografische Kamera und Drei‑Punkt‑Beleuchtung machen die Abschrägung sichtbar.
 
 ```python
 import jpype
@@ -865,11 +938,11 @@ finally:
 
 Das Ergebnis:
 
-![Der 3D‑Kehl‑Effekt](3D-bevel-effect.png)
+![Der 3D‑Stufeneffekt](3D-bevel-effect.png)
 
-## **3D‑Dreh‑Effekte hinzufügen**
+## **3D‑Rotations‑Effekte hinzufügen**
 
-Die 3D‑Ansicht einer Form wird durch die Kameraeinstellungen gesteuert. Dieses Beispiel verwendet [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) mit Längen‑, Breitengrad‑ und Revolutions‑Winkeln von jeweils 40, 35 und 20 Grad. Es wählt über [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) eine isometrische Kamera und über [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType) eine ausgewogene Beleuchtung, bevor das formatierte Rechteck gespeichert wird.
+Die 3D‑Ansicht einer Form wird durch ihre Kamera‑Einstellungen gesteuert. Dieses Beispiel verwendet [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) mit Breitengrad‑, Längengrad‑ und Rotations‑Winkeln von 40, 35 bzw. 20 Grad. Es wählt über [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) eine isometrische Kamera und über [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType) eine ausgewogene Beleuchtung, dann speichert das formatierte Rechteck.
 
 ```python
 import jpype
@@ -897,15 +970,15 @@ finally:
 
 Das Ergebnis:
 
-![Der 3D‑Dreh‑Effekt](3D-rotation-effect.png)
+![Der 3D‑Rotations‑Effekt](3D-rotation-effect.png)
 
 ## **Schwarz‑Weiß‑Darstellung für Formen steuern**
 
-Die Methode [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) legt fest, wie eine einzelne Form gerendert wird, wenn eine Präsentation im Schwarz‑Weiß‑Modus angezeigt oder verarbeitet wird. Sie aktiviert die Schwarz‑Weiß‑Anzeige nicht selbst und ändert die Füll‑, Linien‑ oder andere Formatierungen der Form im normalen Farbmodus nicht.
+Die Methode [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) gibt an, wie eine einzelne Form gerendert wird, wenn eine Präsentation in Schwarz‑Weiß‑Modus angezeigt oder verarbeitet wird. Sie aktiviert die Schwarz‑Weiß‑Anzeige nicht selbst und ändert die Füll‑, Linien‑ oder andere Formatierung der Form im normalen Farb‑Modus nicht.
 
-Verwende einen Wert aus der Klasse [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/), um das gewünschte Verhalten auszuwählen. Beispielsweise lässt `Automatic` die rendender Anwendung die Konvertierung wählen, `Gray` und `LightGray` verwenden Graufärbung, `BlackWhite` nur Schwarz und Weiß, `Black` und `White` erzwingen eine einzige Farbe, `Color` bewahrt die normale Farbgebung, und `Hidden` lässt die Form im Schwarz‑Weiß‑Modus wegfallen. `NotDefined` bedeutet, dass kein modellspezifischer Modus zugewiesen ist.
+Verwende einen Wert aus der Klasse [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/), um das gewünschte Verhalten auszuwählen. Zum Beispiel lässt `Automatic` die Rendering‑Anwendung die Konvertierung wählen, `Gray` und `LightGray` verwenden Graustufen, `BlackWhite` nutzt nur Schwarz und Weiß, `Black` und `White` erzwingen eine einfarbige Darstellung, `Color` erhält die normale Färbung und `Hidden` lässt die Form im Schwarz‑Weiß‑Modus wegfallen. `NotDefined` bedeutet, dass kein Form‑Ebene‑Modus zugewiesen ist.
 
-Dieses Beispiel erstellt ein oranges Rechteck und verwendet [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode), um den Modus auf Grau zu setzen. Die gespeicherte Form behält ihre orange Füllung für die normale Farbanzeige bei und fordert Graufärbung von Anwendungen an, die die Schwarz‑Weiß‑Anzeigeeinstellungen honorieren:
+Dieses Beispiel erstellt ein orangefarbenes Rechteck und verwendet [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode), um den Modus auf grau zu setzen. Die gespeicherte Form behält ihre orangefüllung für die normale Farbanzeige bei und fordert graue Färbung von Anwendungen an, die Schwarz‑Weiß‑Anzeigeeinstellungen honorieren:
 
 ```python
 import jpype
@@ -932,11 +1005,11 @@ finally:
     presentation.dispose()
 ```
 
-Im normalen Farbmodus behält das Rechteck seine orange Füllung bei. In einem Schwarz‑Weiß‑Anzeige‑Workflow verwendet es Graufärbung, weil sein Modus auf `Gray` gesetzt ist. Das ermöglicht, eine vollfarbige Folie zu erhalten und gleichzeitig ein unterschiedliches Aussehen für Druck, Vorschau oder andere Workflows zu definieren, die die Schwarz‑Weiß‑Anzeigeeinstellungen der Präsentation berücksichtigen.
+Im normalen Farb‑Modus behält das Rechteck seine orangefüllung. In einem Schwarz‑Weiß‑Workflow verwendet es graue Färbung, weil sein Modus auf `Gray` gesetzt ist. So kannst du eine Voll‑Farb‑Folien erhalten und gleichzeitig ein separates Aussehen für Druck, Vorschau oder andere Workflows definieren, die die Schwarz‑Weiß‑Anzeige‑Einstellungen der Präsentation beachten.
 
 ## **Formatierung zurücksetzen**
 
-Verwende [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset), um die Position, Größe und Formatierung von Platzhaltern einer Folie aus den entsprechenden Layout‑Platzhaltern wiederherzustellen. Dieses Beispiel erfordert eine vorhandene Präsentation mit layout‑verknüpften Platzhaltern und setzt jede Folie zurück, bevor sie gespeichert wird. Formen ohne entsprechende Layout‑Platzhalter werden nicht zurückgesetzt.
+Verwende [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset), um Position, Größe und Formatierung von Folien‑Platzhaltern aus den entsprechenden Layout‑Platzhaltern wiederherzustellen. Dieses Beispiel erfordert eine vorhandene Präsentation mit layout‑verknüpften Platzhaltern und setzt jede Folie vor dem Speichern zurück. Formen ohne entsprechenden Layout‑Platzhalter werden nicht zurückgesetzt.
 
 ```python
 import jpype
@@ -959,14 +1032,14 @@ finally:
 
 ## **FAQ**
 
-**Beeinflusst die Formatierung von Formen die endgültige Dateigröße der Präsentation?**
+**Beeinflusst die Formformatierung die endgültige Dateigröße der Präsentation?**
 
-Farben, Linienstile und Effekt‑Einstellungen fügen im Vergleich zu eingebetteten Bildern und Medien nur wenig Daten hinzu. Bildfüllungen können die Dateigröße erhöhen, weil ihre Bilder in der Präsentation gespeichert werden.
+Farben, Linienstile und Effekt‑Einstellungen fügen im Allgemeinen wenig Daten im Vergleich zu eingebetteten Bildern und Medien hinzu. Bild‑Füllungen können die Dateigröße erhöhen, weil ihre Bilder in der Präsentation gespeichert werden.
 
 **Wie kann ich Formen auf einer Folie erkennen, die identische Formatierung besitzen, um sie zu gruppieren?**
 
-Vergleiche die wichtigsten Formatierungseigenschaften jeder Form – Füllung, Linie und Effekt‑Einstellungen. Stimmen alle entsprechenden Werte überein, betrachte ihre Stile als identisch und gruppiere diese Formen logisch, was die spätere Stilverwaltung vereinfacht.
+Vergleiche die wichtigsten Formatierungs‑Eigenschaften jeder Form – Füllung, Linie und Effekt‑Einstellungen. Stimmen alle entsprechenden Werte überein, betrachte die Stile als identisch und gruppiere die Formen logisch, was die spätere Stil‑Verwaltung vereinfacht.
 
-**Kann ich ein Set benutzerdefinierter Form‑Stile in einer separaten Datei speichern, um es in anderen Präsentationen wiederzuverwenden?**
+**Kann ich ein Set benutzerdefinierter Formstile in einer separaten Datei speichern, um sie in anderen Präsentationen wiederzuverwenden?**
 
-Ja. Speichere Beispiel­formen mit den gewünschten Stilen in einer Vorlagen‑Präsentation oder einer .POTX‑Vorlagendatei. Beim Erstellen einer neuen Präsentation öffne die Vorlage, klone die benötigten gestylten Formen und wende deren Formatierung dort an, wo sie benötigt wird.
+Ja. Speichere Beispiel‑Formen mit den gewünschten Stilen in einem Vorlagen‑Slide‑Deck oder einer .POTX‑Vorlagendatei. Beim Erstellen einer neuen Präsentation öffne die Vorlage, klone die benötigten gestylten Formen und wende deren Formatierung dort an, wo sie gebraucht wird.

@@ -1,5 +1,5 @@
 ---
-title: قالب‌بندی اشکال PowerPoint در جاوا
+title: قالب‌بندی اشکال پاورپوینت در جاوا
 linktitle: قالب‌بندی شکل
 type: docs
 weight: 20
@@ -7,38 +7,38 @@ url: /fa/java/shape-formatting/
 keywords:
 - قالب‌بندی شکل
 - قالب‌بندی خط
-- اثر طرح‌خطی
-- خط طرح‌خطی شکل
-- قالب‌بندی سبک اتصال
-- پرکنندهٔ گرادیان
-- پرکنندهٔ الگو
-- پرکنندهٔ تصویر
-- پرکنندهٔ بافت
-- پرکنندهٔ رنگ ثابت
+- اثر اسکچ
+- خط شکل اسکچ
+- قالب‌بندی سبک جوین
+- پرکردن گرادیان
+- پرکردن الگو
+- پرکردن تصویر
+- پرکردن بافت
+- پرکردن رنگ جامد
 - شفافیت شکل
-- رندر سیاه‑سفید شکل
-- رندر خاکستری شکل
+- رندرینگ شکل سیاه‑سفید
+- رندرینگ شکل مقیاس خاکستری
 - چرخاندن شکل
-- افکت برآمدگی 3D
-- افکت چرخش 3D
+- اثر بویل سه‌بعدی
+- اثر چرخش سه‌بعدی
 - بازنشانی قالب‌بندی
 - PowerPoint
 - ارائه
 - Java
 - Aspose.Slides
-description: "یاد بگیرید چگونه در جاوا با استفاده از Aspose.Slides اشکال PowerPoint را قالب‌بندی کنید — پرکننده، خط و سبک‌های افکت را برای فایل‌های PPT و PPTX با دقت و کنترل کامل تنظیم کنید."
+description: "یاد بگیرید چگونه در Java با استفاده از Aspose.Slides اشکال PowerPoint را قالب‌بندی کنید—پر، خط و سبک‌های اثر را برای فایل‌های PPT و PPTX با دقت و کنترل کامل تنظیم کنید."
 ---
-## **معرفی**
+## **مقدمه**
 
-شکل‌ها را در PowerPoint با تنظیم خطوط مرزی، پرکننده‌ها و افکت‌ها قالب‌بندی کنید. Aspose.Slides for Java به شما امکان می‌دهد این تنظیمات را به صورت برنامه‌نویسی کنترل کنید، از جمله شفافیت، چرخش و قالب‌بندی 3D.
+با تنظیم خطوط مرزی، پرکردن‌ها و اثرات، اشکال در PowerPoint را قالب‌بندی کنید. Aspose.Slides for Java به شما امکان می‌دهد این تنظیمات را به‌صورت برنامه‌نویسی کنترل کنید، از جمله شفافیت، چرخش و قالب‌بندی سه‌بعدی.
 
 ![گزینه‌های قالب‌بندی شکل در PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Java رابط‌ها و متدهایی را فراهم می‌کند که به شما اجازه می‌دهد شکل‌ها را با استفاده از همان گزینه‌های موجود در PowerPoint قالب‌بندی کنید.
+Aspose.Slides for Java رابط‌ها و متدهایی ارائه می‌دهد که به شما اجازه می‌دهد اشکال را با همان گزینه‌های موجود در PowerPoint قالب‌بندی کنید.
 
 ## **قالب‌بندی خطوط**
 
-از [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) برای کنترل خطوط مرزی یک شکل استفاده کنید. این مثال یک مستطیل بدون پرکننده با یک خطوط مرزی آبی و نقطه‌دار ایجاد می‌کند. [ILineFormat.setStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setStyle-byte-) یک خط ترکیبی ضخیم‑نازک را انتخاب می‌کند، در حالی که [ILineFormat.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) عرض آن را به ۷ پوینت تنظیم می‌کند و [ILineFormat.setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) الگوی نقطه‌دار را انتخاب می‌کند.
+از [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) برای کنترل خط مرزی یک شکل استفاده کنید. این مثال یک مستطیل بدون پرکردن با یک خط آبی، خط‌چین ایجاد می‌کند. [ILineFormat.setStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setStyle-byte-) خط ترکیبی ضخیم-نازک را انتخاب می‌کند، در حالی که [ILineFormat.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) عرض آن را به ۷ پوینت تنظیم می‌کند و [ILineFormat.setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) الگوی خط‌چین را انتخاب می‌نماید.
 
 ```java
 import com.aspose.slides.*;
@@ -64,15 +64,15 @@ try {
 
 نتیجه:
 
-![خطوط قالب‌بندی شده در ارائه](formatted-lines.png)
+![خطوط قالب‌بندی‌شده در ارائه](formatted-lines.png)
 
-### **تنظیم الگوهای خط نقطه‌دار سفارشی**
+### **تنظیم الگوهای خط‌چین سفارشی**
 
-از [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCustomDashPattern-float:A-) وقتی سبک‌های پیش‌تعریف‌شده طول‌ها و فواصل نقطه‌دار مورد نیاز شما را فراهم نمی‌کنند، برای مثال برای خطوط برند یا نمودارهای فنی، استفاده کنید. اختصاص یک الگو به طور خودکار سبک نقطه‌دار خط را به [LineDashStyle.Custom](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) تغییر می‌دهد.
+زمانی که سبک‌های پیش‌تعریف‌شده خطوط طول‌ها و فواصل مورد نیاز شما را فراهم نمی‌کنند، از [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) استفاده کنید، برای مثال برای خطوط برند یا نمودارهای فنی. اختصاص یک الگو به‌صورت خودکار سبک خط‌چین را به [LineDashStyle.Custom](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) تغییر می‌دهد.
 
-ورودی‌های آرایه به طور متناوب بین طول نقطه و فاصله جفت می‌شوند، از یک نقطه شروع می‌شود. هر مقدار مضربی از عرض خط است: `{ 4, 2 }` با عرض ۳ پوینت یک نقطه ۱۲ پوینتی و سپس یک فاصله ۶ پوینتی تولید می‌کند. برای تعریف بخش‌های کامل نقطه‑و‑فاصله از جفت‌های مقدارهای محدود و غیرمنفی استفاده کنید. این مثال از مقادیر مثبت استفاده می‌کند تا هر نقطه و فاصله قابل رؤیت باشد.
+مقادیر آرایه به‌صورت متناوب بین طول خط و فاصله جفت می‌شوند، با یک خط آغاز می‌شود. هر مقدار چندبرابر عرض خط است: `{ 4, 2 }` با عرض ۳ پوینت یک خط ۱۲ پوینتی سپس فاصله ۶ پوینتی تولید می‌کند. از جفت مقادیر محدود، غیرمنفی برای تعریف بخش‌های کامل خط و فاصله استفاده کنید. این مثال از مقادیر مثبت استفاده می‌کند تا هر خط و فاصله دیده شوند.
 
-این مثال پنج خط آبی با طول مساوی و سرهای صاف ایجاد می‌کند. سه خط اول الگوها را در عرض ۳ پوینت مقایسه می‌کنند. خط چهارم همان الگو را با دو برابر عرض تکرار می‌کند و هر دو طول نقطه و فاصله را دو برابر می‌سازد. خط پنجم از الگوی سفارشی به خط یک‌دسته‌ای تغییر می‌دهد.
+این مثال پنج خط آبی با طول یکسان و نوک صاف ایجاد می‌کند. سه خط اول الگوها را با عرض ۳ پوینت مقایسه می‌کنند. چهارم الگوی اول را با دو برابر عرض تکرار می‌کند و هر دو طول خط و فاصله را دو برابر می‌کند. پنجم از الگوی سفارشی به خط یک‌دانه سوئیچ می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -102,7 +102,7 @@ try {
         line.getLineFormat().setCustomDashPattern(patterns[i]);
     }
 
-    // آخرین خط را به سبک یک‌دسته‌ای بازگردانید.
+    // خط آخر را به سبک یکدست برمی‌گردانیم.
     slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid);
 
     presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx);
@@ -111,25 +111,25 @@ try {
 }
 ```
 
-برای بازگشت به یک سبک نقطه‌دار پیش‌تعریف‌شده، به جای آن [LineDashStyle.Dash](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) را به [ILineFormat.setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) پاس بدهید. سبک انتخاب‌شده ظاهر خط را کنترل می‌کند.
+برای بازگشت به یک سبک خط‌چین پیش‌تعریف‌شده، به‌جای آن [LineDashStyle.Dash](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) را به [ILineFormat.setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) منتقل کنید. سبک انتخاب‌شده ظاهر خط را کنترل می‌کند.
 
 نتیجه در PowerPoint، از بالا به پایین: **{4, 2}, 3 pt**؛ **{1, 2}, 3 pt**؛ **{6, 2, 1, 2}, 3 pt**؛ **{4, 2}, 6 pt**؛ و **Solid, 3 pt**.
 
-![سه الگوی نقطه‌دار سفارشی، خطی گسترده‌تر با استفاده از الگوی اول، و یک خط یک‌دسته‌ای در PowerPoint](custom-dash-patterns.png)
+![سه الگوی خط‌چین سفارشی، یک خط گسترده‌تر با الگوی اول، و یک خط یک‌دانه در PowerPoint](custom-dash-patterns.png)
 
-### **تنظیم سرهای خط**
+### **تنظیم نوک خط**
 
-از [ILineFormat.setCapStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCapStyle-byte-) برای تنظیم انتهای یک خط باز استفاده کنید. کلاس [LineCapStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linecapstyle/) سه سبک صریح سر را فراهم می‌کند:
+از [ILineFormat.setCapStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCapStyle-byte-) برای تنظیم انتهای یک خط باز استفاده کنید. کلاس [LineCapStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linecapstyle/) سه سبک صریح نوک را ارائه می‌دهد:
 
-- `Flat`: ضربه در نقطهٔ انتهایی متوقف می‌شود.
-- `Round`: یک سر نیم‌دایره‌ای به اندازهٔ نیمی از عرض خط از نقطهٔ انتهایی فراتر می‌رود.
-- `Square`: یک سر مربع‌مانند به اندازهٔ نیمی از عرض خط از نقطهٔ انتهایی فراتر می‌رود.
+- `Flat`: خط در نقطه انتها متوقف می‌شود.
+- `Round`: یک نوک نیم‌دایره‌ای نصف عرض خط فراتر از نقطه انتها گسترش می‌یابد.
+- `Square`: یک نوک مربعی نصف عرض خط فراتر از نقطه انتها گسترش می‌یابد.
 
-این کلاس همچنین شامل `NotDefined` است که به این معنی است که هیچ سبک سر صریحی اختصاص داده نشده است.
+این کلاس همچنین `NotDefined` را شامل می‌شود که به این معنی است که هیچ نوک صریحی اختصاص داده نشده است.
 
-سرها متفاوت از سرهای فلشی هستند که نمادهایی به انتهای خط اضافه می‌کنند، و از مفاصلی که گوشه‌های بین قطعات خط را کنترل می‌کنند. این مثال سرهای فلشی را از طریق [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) و [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) غیرفعال می‌کند تا فقط اشکال سرها مقایسه شوند.
+نوک‌ها متفاوت از سرهای پیکانی هستند که نمادهایی به انتهای خط اضافه می‌کنند و از جوین‌ها که گوشه‌های بین بخش‌های خط را کنترل می‌کنند. این مثال با استفاده از [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) و [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) سرهای پیکانی را غیرفعال می‌کند تا فقط شکل‌های نوک مقایسه شوند.
 
-مثال زیر سه خط افقی تقریباً یکسان با عرض ۲۰ پوینت ایجاد می‌کند. از بالا به پایین، سرهای صاف، گرد و مربع استفاده می‌شوند. نقاط انتهایی آن‌ها همان مختصات افقی را دارند؛ سرهای گرد و مربع ۱۰ پوینت بیش از هر نقطهٔ انتهایی امتداد می‌یابند.
+مثال زیر سه خط افقی تقریباً одинаковی، با عرض ۲۰ پوینت، ایجاد می‌کند. از بالا به پایین، نوک‌های flat، round و square استفاده می‌شود. نقاط انتهایی آن‌ها مختصات افقی یکسانی دارند؛ نوک‌های round و square ۱۰ پوینت بیش از هر انتها گسترش می‌یابند.
 
 ```java
 import com.aspose.slides.*;
@@ -161,13 +161,13 @@ try {
 
 نتیجه در PowerPoint، از بالا به پایین: **Flat**, **Round**, و **Square**.
 
-![سرهای صاف، گرد و مربع روی خطوط ضخیم یکسان در PowerPoint](line-caps.png)
+![نوک‌های flat، round و square روی خطوط ضخیم یکسان در PowerPoint](line-caps.png)
 
-## **اعمال افکت‌های طرح‌خطی بر خطوط شکل‌ها**
+## **اعمال اثرات Sketch به خطوط شکل**
 
-یک افکت طرح‌خطی باعث می‌شود خط شکل مثل دست‌نویس به نظر برسد. از [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) برای دسترسی به تنظیمات خط، از [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getSketchFormat--) برای دسترسی به تنظیمات طرح‌خطی، و از [ISketchFormat.setSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/#setSketchType-int-) برای انتخاب یک مقدار از کلاس [LineSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) استفاده کنید.
+یک اثر sketch ظاهر خط شکل را شبیه‌سازی می‌کند که به‌صورت دستی کشیده شده است. از [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) برای دسترسی به تنظیمات خط، [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getSketchFormat--) برای دسترسی به تنظیمات sketch، و [ISketchFormat.setSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/#setSketchType-int-) برای انتخاب مقدار از کلاس [LineSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) استفاده کنید.
 
-کد جاوا زیر نشان می‌دهد چگونه یک افکت [LineSketchType.Curved](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) اعمال شده، مقدار صریحاً اختصاص داده‌شده را بخوانید و افکت را با [LineSketchType.None](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) حذف کنید:
+کد Java زیر نشان می‌دهد چگونه یک اثر [LineSketchType.Curved](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) اعمال شود، مقدار اختصاصی خوانده شود و اثر با [LineSketchType.None](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) حذف گردد:
 
 ```java
 import com.aspose.slides.*;
@@ -188,7 +188,7 @@ try {
 }
 ```
 
-مقداری که توسط [ISketchFormat.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/#getSketchType--) برگردانده می‌شود، تنظیمی را نشان می‌دهد که مستقیماً به شکل اختصاص داده شده است. اگر قالب‌بندی خط بتواند از یک تم، اسلاید مادر یا اسلاید چیدمان به ارث برده شود، از [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--) استفاده کنید، به [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--) دسترسی پیدا کنید، و [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformateffectivedata/#getSketchType--) را بخوانید. مقدار مؤثر نمایانگر قالب‌بندی است که پس از حل وراثت واقعاً اعمال می‌شود. این مثال نیاز به یک ارائه موجود دارد که حداقل یک شکل در اولین اسلاید آن باشد و هر دو مقدار را چاپ می‌کند:
+مقداری که توسط [ISketchFormat.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/#getSketchType--) بازگردانده می‌شود، تنظیمی است که مستقیماً به شکل اختصاص یافته است. اگر قالب‌بندی خط بتواند از یک تم، اسلاید اصلی یا اسلاید چیدمان به ارث برسد، از [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--)، دسترسی به [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--) و خواندن [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformateffectivedata/#getSketchType--) استفاده کنید. مقدار موثر نشان‌دهنده قالب‌بندی است که پس از حل ارث‌بری واقعاً اعمال می‌شود. این مثال نیاز به یک ارائه موجود دارد که حداقل یک شکل در اولین اسلاید داشته باشد و هر دو مقدار را چاپ می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -209,19 +209,19 @@ try {
 }
 ```
 
-## **قالب‌بندی سبک‌های اتصال**
+## **قالب‌بندی سبک‌های جوین**
 
-در اینجا سه گزینهٔ نوع اتصال آورده شده است:
+در اینجا سه گزینه نوع جوین موجود است:
 
 * Round
 * Miter
 * Bevel
 
-سبک اتصال کنترل می‌کند دو بخش خط مرزی چگونه در یک گوشه به هم می‌رسند. از **Round** برای گوشه‌های گرد، **Miter** برای گوشه‌های تیز، یا **Bevel** برای گوشه‌های مسطح استفاده کنید.
+سبک جوین تعیین می‌کند دو بخش مرزی چگونه در گوشه به هم می‌پیوندند. برای گوشه‌های گرد، **Round** را، برای گوشه‌های تیز **Miter** را و برای گوشه‌های صاف **Bevel** را استفاده کنید.
 
-![سبک اتصال در ارائه](join-style-powerpoint.png)
+![سبک جوین در ارائه](join-style-powerpoint.png)
 
-این مثال سه مستطیل سیاه با خطوط مرزی آبی به عرض ۱۵ پوینت ایجاد می‌کند. از [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) برای تنظیم مقادیر miter، bevel و round کلاس [LineJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/) به ترتیب استفاده می‌کند تا مقایسه کند گوشه‌ها چگونه رسم می‌شوند.
+این مثال سه مستطیل سیاه با خطوط مرزی آبی ۱۵ پوینت ایجاد می‌کند. از [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) برای تنظیم مقادیر miter، bevel و round در [LineJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/) به ترتیب استفاده می‌شود تا نحوه کشیده شدن گوشه‌ها مقایسه شود.
 
 ```java
 import com.aspose.slides.*;
@@ -267,13 +267,13 @@ try {
 }
 ```
 
-### **محدود کردن اتصال‌های Miter در گوشه‌های تیز**
+### **محدود کردن جوین‌های Miter در گوشه‌های تیز**
 
-از [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setMiterLimit-float-) همراه با [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) که به [LineJoinStyle.Miter](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/) تنظیم شده است، برای محدود کردن میزان امتداد یک گوشهٔ تیز استفاده کنید.
+از [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setMiterLimit-float-) همراه با [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) تنظیم‌شده به [LineJoinStyle.Miter](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/) برای محدود کردن میزان گسترش یک گوشه تیز استفاده کنید.
 
-محدودیت نسبت فاصله بین گوشه‌های داخلی و خارجی اتصال به عرض خط است. برای مثال، مقدار `8` اجازه می‌دهد طول miter تا هشت برابر عرض خط باشد؛ این یک اندازه‌گیری به پوینت نیست. اگر گوشه از این حد فراتر رود، PowerPoint به جای آن از یک اتصال bevel استفاده می‌کند. محدودیت بزرگ‌تر نقطه‌های تیزتر را امکان‌پذیر می‌سازد. این تنظیم فقط بر اتصال‌های miter تأثیر دارد و تغییر آن در زمانی که گوشه در هر دو حد باقی بماند، اثر قابل مشاهده‌ای ندارد.
+محدودیت نسبت فاصله داخلی و خارجی جوین به عرض خط است. برای مثال، مقدار `8` اجازه می‌دهد طول miter تا هشت برابر عرض خط باشد؛ این یک اندازه بر حسب پوینت نیست. اگر گوشه از این حد عبور کند، PowerPoint یک جوین bevel شده در آن گوشه استفاده می‌کند. حد بزرگ‌تر نقاط تیزتر را امکان می‌دهد. این تنظیم فقط بر جوین‌های miter تأثیر می‌گذارد و تغییر آن زمانی که گوشه در هر دو حد باقی بماند، تأثیر دیده‌پذیری ندارد.
 
-این مثال دو مثلث یکسان بدون پرکننده با خطوط مرزی به عرض ۲۰ پوینت ایجاد می‌کند. مثلث چپ از محدودیت `2` استفاده می‌کند و مثلث راست از `8`. هر مثلث ۸۰ پوینت عرض و ۱۶۰ پوینت ارتفاع دارد که نسبت طول miter به عرض خط در گوشهٔ بالایی آن تقریباً `4.12` است. بنابراین PowerPoint گوشهٔ چپ را bevel می‌کند و گوشهٔ راست را همان‌طور که است حفظ می‌کند.
+این مثال دو مثلث بدون پرکردن یکسان با خطوط مرزی ۲۰ پوینت ایجاد می‌کند. مثلث سمت چپ حد `2` و سمت راست حد `8` دارد. هر مثلث ۸۰ پوینت عرض و ۱۶۰ پوینت ارتفاع دارد که نسبت طول miter به عرض خط آن تقریباً `4.12` است. در نتیجه PowerPoint نوک چپ را bevel می‌کند و نوک راست را حفظ می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -302,13 +302,13 @@ try {
 }
 ```
 
-نتیجه در PowerPoint: **Miter limit 2** در سمت چپ و **miter limit 8** در سمت راست.
+نتیجه در PowerPoint: **Miter limit 2** در چپ و **miter limit 8** در راست.
 
-![یک نوک bevel با محدودیت miter 2 و یک نوک تیز با محدودیت miter 8 در PowerPoint](miter-limits.png)
+![یک نوک bevel شده با حد miter 2 و یک نوک نوک‌دار با حد miter 8 در PowerPoint](miter-limits.png)
 
-## **پرکنندهٔ گرادیان**
+## **پرکردن گرادیان**
 
-یک پرکنندهٔ گرادیان رنگ‌ها را در سراسر شکل ترکیب می‌کند. این مثال یک بیضی را با یک گرادیان خطی به زاویهٔ ۴۵ درجه از قرمز به بنفش پر می‌کند با استفاده از [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getGradientFormat--). متد [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/java/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) رنگ‌های توقف را در ۰ و ۱، یعنی آغاز و پایان گرادیان قرار می‌دهد. پاک‌سازی توقف‌های موجود تضمین می‌کند تنها این دو رنگ استفاده شوند.
+پرکردن گرادیان رنگ‌ها را در یک شکل ترکیب می‌کند. این مثال یک بیضی را با گرادیان خطی با زاویه ۴۵ درجه از قرمز به بنفش با استفاده از [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getGradientFormat--) پر می‌کند. متد [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/java/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) رنگ توقف‌ها را در ۰ و ۱، یعنی ابتدای و انتهای گرادیان، قرار می‌دهد. پاک کردن توقف‌های موجود تضمین می‌کند فقط این دو رنگ استفاده شوند.
 
 ```java
 import com.aspose.slides.*;
@@ -333,15 +333,15 @@ try {
 
 نتیجه:
 
-![بیضی با پرکنندهٔ گرادیان](gradient-fill.png)
+![بیضی با پرکردن گرادیان](gradient-fill.png)
 
-اگر یک گرادیان در تصویر صادر شده نسبت به آنچه در PowerPoint دیده می‌شود متفاوت باشد، به [Choose a Gradient Rendering Style](/slides/fa/java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) مراجعه کنید. می‌توانید یک سبک رندرینگ انتخاب کنید بدون آنکه پرکنندهٔ گرادیان ذخیره‌شده در ارائه تغییر کند.
+اگر یک گرادیان در تصویر استخراج‌شده ظاهری متفاوت نسبت به PowerPoint داشته باشد، به بخش [Choose a Gradient Rendering Style](/slides/fa/java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) مراجعه کنید. می‌توانید یک سبک رندرینگ را بدون تغییر پرکردن گرادیان ذخیره‌شده در ارائه انتخاب کنید.
 
-### **تنظیم زاویهٔ گرادیان خطی**
+### **تنظیم زاویه گرادیان خطی**
 
-از [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) برای کنترل جهت یک پرکنندهٔ [GradientShape.Linear](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/) استفاده کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود و ساعتگرد افزایش می‌یابد: `0` از چپ به راست، `90` از بالا به پایین، `180` از راست به چپ و `270` از پایین به بالا. زاویه‌های کسری نیز پشتیبانی می‌شوند. زاویه‌های متناهی خارج از بازهٔ `[0, 360)` به یک چرخش کامل نرمال می‌شوند؛ برای مثال `-45` به `315` و `360` به `0` تبدیل می‌شود.
+از [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) برای کنترل جهت یک پرکردن [GradientShape.Linear](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/) استفاده کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود و ساعتگرد افزایشی دارد: `0` از چپ به راست، `90` از بالا به پایین، `180` از راست به چپ، و `270` از پایین به بالا. زوایای کسری نیز پشتیبانی می‌شوند. زوایای متناهی خارج از بازه `[0, 360)` به یک دور کامل عادی می‌شوند؛ برای مثال `-45` به `315` و `360` به `0` تبدیل می‌شود.
 
-این مثال شش مستطیل با توقف‌های رنگ قرمز، سبز و آبی یکسان در موقعیت‌های `0`، `0.5` و `1` ایجاد می‌کند. مقیاس‌گذاری غیرفعال است تا زاویه به‌صورت مستقل از نسبت‌های مستطیل‌ها مقایسه شود. زاویه‌ها از چپ به راست، در ردیف اول `0`، `45` و `90` و در ردیف دوم `135`، `180` و `270` هستند.
+این مثال شش مستطیل با توقف‌های قرمز، سبز و آبی یکسان در موقعیت‌های `0`، `0.5` و `1` ایجاد می‌کند. مقیاس‌گذاری غیرفعال است تا زاویه مستقل از نسبت‌های مستطیل‌ها مقایسه شود. زوایا، از چپ به راست، در ردیف اول `0`، `45` و `90` و در ردیف دوم `135`، `180` و `270` هستند.
 
 ```java
 import com.aspose.slides.*;
@@ -380,13 +380,13 @@ try {
 
 نتیجه در PowerPoint:
 
-![گرادیان‌های خطی با زاویه‌های 0، 45 و 90 درجه در ردیف بالا، و 135، 180 و 270 درجه در ردیف پایین](linear-gradient-angles.png)
+![گرادیان‌های خطی با زوایای 0، 45 و 90 درجه در ردیف بالا، و 135، 180 و 270 درجه در ردیف پایین](linear-gradient-angles.png)
 
-### **مقیاس‌گذاری یک گرادیان خطی با شکل**
+### **مقیاس‌گذاری گرادیان خطی با شکل**
 
-[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) یک مقدار [NullableBool](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/) می‌گیرد. آن را صریحاً به `False` تنظیم کنید تا زاویهٔ ژئومتریک گرادیان هنگام تغییر نسبت‌های شکل ثابت بماند، یا به `True` تا گرادیان با عرض و ارتفاع شکل مقیاس‌گذاری شود. با فعال بودن مقیاس‌گذاری، زاویهٔ قابل مشاهده می‌تواند در یک شکل غیر مربع متفاوت از زاویهٔ اختصاصی باشد.
+[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) یک مقدار [NullableBool](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/) می‌پذیرد. به‌صورت صریح به `False` تنظیم کنید تا زاویه هندسی گرادیان با تغییر نسبت‌های شکل ثابت بماند، یا به `True` تا گرادیان با عرض و ارتفاع شکل مقیاس‌بندی شود. با فعال‌سازی مقیاس‌بندی، زاویه قابل مشاهده می‌تواند در یک شکل غیرمربع متفاوت از زاویه تعیین‌شده باشد.
 
-مثال زیر از زاویهٔ `45` درجه و همان توقف‌های رنگی که برای مقایسه زاویه استفاده شده‌اند، استفاده می‌کند. ستون چپ از `False`، و ستون راست از `True` استفاده می‌کند. هر ستون شامل یک مستطیل عریض بالای یک مستطیل بلند است. هر دو با همان اندازه عریض شروع می‌شوند؛ تغییر عرض و ارتفاع مستطیل دوم نشان می‌دهد پرکننده چگونه بدون تغییر تنظیمات گرادیان به تغییر اندازه واکنش نشان می‌دهد.
+مثال زیر از زاویه `45` درجه و همان توقف‌های رنگی که در مقایسه زاویه استفاده شد، استفاده می‌کند. ستون چپ `False` و ستون راست `True` است. هر ستون شامل یک مستطیل گسترده در بالا و یک مستطیل بلند در پایین است. هر دو با همان ابعاد گسترده شروع می‌شوند؛ تغییر عرض و ارتفاع مستطیل دوم نشان می‌دهد پرکردن چگونه بدون تغییر تنظیمات گرادیان به اندازه‌گیری مجدد پاسخ می‌دهد.
 
 ```java
 import com.aspose.slides.*;
@@ -430,19 +430,19 @@ try {
 }
 ```
 
-نتیجه در PowerPoint، با مقیاس‌گذاری غیرفعال در سمت چپ و فعال در سمت راست:
+نتیجه در PowerPoint، با مقیاس‌گذاری غیرفعال در چپ و فعال در راست:
 
-![مستطیل‌های عریض و بلند با گرادیان 45 درجه، مقایسه LinearGradientScaled False در چپ با True در راست](linear-gradient-scaling.png)
+![مستطیل‌های پهن و بلند با یک گرادیان 45 درجه، مقایسه LinearGradientScaled False در چپ با True در راست](linear-gradient-scaling.png)
 
-با غیرفعال بودن مقیاس‌گذاری، نوارهای رنگی قطری همان جهت را در هر دو مستطیل حفظ می‌کنند. با فعال بودن مقیاس‌گذاری، نوارها با نسبت‌های شکل کشیده می‌شوند. این کمک می‌کند تا گرادیان یک قالب را هنگام تطبیق شکل با اندازهٔ متفاوت بازتولید کنید. در یک مربع، فعال کردن مقیاس‌گذاری ظاهر این گرادیان 45 درجه را تغییر نمی‌دهد.
+با مقیاس‌گذاری غیرفعال، نوارهای رنگی قطری در هر دو مستطیل همان جهت را حفظ می‌کنند. با مقیاس‌گذاری فعال، نوارها با نسبت‌های شکل کشیده می‌شوند. این به بازتولید گرادیان یک قالب هنگام تطبیق شکل با اندازه متفاوت کمک می‌کند. در یک مربع، فعال‌سازی مقیاس‌گذاری ظاهر این گرادیان `45` درجه را تغییر نمی‌دهد.
 
-هر دو تنظیم زاویه و مقیاس‌گذاری برای گرادیان‌های خطی اعمال می‌شوند. آن‌ها بر پرکننده‌های [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/) تأثیر ندارند.
+هر دو تنظیم زاویه و مقیاس‌گذاری بر گرادیان‌های خطی اعمال می‌شوند. آنها بر پرکردن‌های [GradientShape.Radial یا GradientShape.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/) تأثیری ندارند.
 
 ### **ترکیب زاویه با جهت گرادیان**
 
-[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setGradientDirection-int-) یک سبک گرادیان را از کلاس [GradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/gradientdirection/) انتخاب می‌کند؛ این جایگزین یک زاویهٔ عددی نیست. برای یک گرادیان خطی، سبک‌های گوشه می‌توانند ناحیه‌ای که رنگ‌ها در آن توزیع می‌شوند را بدون تغییر زاویه‌ای که از طریق [setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) اختصاص داده شده است، تغییر دهند. هنگام مقایسه زاویه‌ها یا مقیاس‌گذاری، جهت را بدون تغییر نگه دارید.
+[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setGradientDirection-int-) یک سبک گرادیان را از کلاس [GradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/gradientdirection/) انتخاب می‌کند؛ این جایگزین زاویه عددی نیست. برای یک گرادیان خطی، سبک‌های گوشه می‌توانند ناحیه توزیع رنگ‌ها را بدون تغییر زاویه تعیین‌شده توسط [setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) تغییر دهند. هنگام مقایسه زوایا یا مقیاس‌گذاری، جهت را ثابت نگه دارید.
 
-مثال زیر همان تنظیمات را به ترتیب مخالف اعمال می‌کند. دو مستطیل ظاهر یکسانی دارند: اختصاص جهت قبل یا بعد از زاویه نتیجه را تغییر نمی‌دهد.
+مثال زیر همان تنظیمات را در ترتیب‌های مخالف اعمال می‌کند. دو مستطیل ظاهر یکسانی دارند: اختصاص جهت قبل یا بعد از زاویه نتیجه را تغییر نمی‌دهد.
 
 ```java
 import com.aspose.slides.*;
@@ -480,9 +480,9 @@ try {
 }
 ```
 
-## **پرکنندهٔ الگو**
+## **پر کردن الگو**
 
-یک پرکنندهٔ الگو یک طرح دو رنگی مانند نقطه‌ها، نوارها یا چهارخانه‌ها را اعمال می‌کند. این مثال از [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) برای انتخاب یک الگوی trellis استفاده می‌کند. [IPatternFormat.getBackColor](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#getBackColor--) پس‌زمینهٔ خاکستری روشن را فراهم می‌کند و [IPatternFormat.getForeColor](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#getForeColor--) رنگ الگوی زرد را فراهم می‌کند.
+یک پرکردن الگو یک طرح دو رنگی مانند نقطه‌ها، نوارها یا شطرنج‌ها را اعمال می‌کند. این مثال از [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) برای انتخاب یک الگوی trellis استفاده می‌کند. [IPatternFormat.getBackColor](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#getBackColor--) پس‌زمینه خاکستری روشن را فراهم می‌کند و [IPatternFormat.getForeColor](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#getForeColor--) رنگ زرد الگو را فراهم می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -506,11 +506,11 @@ try {
 
 نتیجه:
 
-![مستطیل با پرکنندهٔ الگو](pattern-fill.png)
+![مستطیل با پرکردن الگو](pattern-fill.png)
 
-## **پرکنندهٔ تصویر**
+## **پر کردن تصویر**
 
-یک پرکنندهٔ تصویر از یک تصویر داخل شکل استفاده می‌کند. این مثال به یک تصویر محلی نیاز دارد و از [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) برای بارگذاری آن در مجموعهٔ تصاویر ارائه استفاده می‌کند. تنظیم [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) به حالت tiled تصویر را در داخل مستطیل تکرار می‌کند. تصویر منبع استفاده‌شده در زیر نشان داده شده است:
+یک پرکردن تصویر یک تصویر را داخل یک شکل استفاده می‌کند. این مثال به یک تصویر محلی نیاز دارد و از [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) برای بارگذاری آن به مجموعه تصویر ارائه استفاده می‌کند. تنظیم [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) به حالت tiled تصویر را داخل مستطیل تکرار می‌کند. تصویر منبع استفاده‌شده در زیر نشان داده شده است:
 
 ![تصویر لوتوس](lotus.png)
 
@@ -542,21 +542,21 @@ try {
 
 نتیجه:
 
-![شکل با پرکنندهٔ تصویر](picture-fill.png)
+![شکل با پرکردن تصویر](picture-fill.png)
 
-### **تایل کردن تصویر به‌عنوان بافت**
+### ** tiled کردن تصویر به عنوان بافت**
 
-اگر می‌خواهید یک تصویر تایل‌شده را به‌عنوان بافت تنظیم کنید و رفتار تایل را سفارشی کنید، می‌توانید از روش‌های زیر اینترفیس [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) و کلاس [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/) استفاده کنید:
+اگر می‌خواهید یک تصویر tiled را به‌عنوان بافت تنظیم کنید و رفتار تایلینگ را سفارشی کنید، می‌توانید از روش‌های زیر اینترفیس [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) و کلاس [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/) استفاده کنید:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): حالت پرکنندهٔ تصویر را تنظیم می‌کند — یا `Tile` یا `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): هم‌راستایی کاشی‌ها در داخل شکل را مشخص می‌کند.
-- [setTileFlip](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): کنترل می‌کند آیا کاشی افقی، عمودی یا هر دو معكوس شود.
-- [setTileOffsetX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): افست افقی کاشی (بر حسب پوینت) از مبدأ شکل را تنظیم می‌کند.
-- [setTileOffsetY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): افست عمودی کاشی (بر حسب پوینت) از مبدأ شکل را تنظیم می‌کند.
-- [setTileScaleX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): مقیاس افقی کاشی را به‌عنوان درصد تعریف می‌کند.
-- [setTileScaleY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): مقیاس عمودی کاشی را به‌عنوان درصد تعریف می‌کند.
+- [setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): حالت پرکردن تصویر را تنظیم می‌کند — `Tile` یا `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): تراز تایل‌ها داخل شکل را مشخص می‌کند.
+- [setTileFlip](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): تعیین می‌کند تایل به‌صورت افقی، عمودی یا هر دو وارونه شود.
+- [setTileOffsetX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): افست افقی تایل (به پوینت) از مبدأ شکل را تنظیم می‌کند.
+- [setTileOffsetY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): افست عمودی تایل (به پوینت) از مبدأ شکل را تنظیم می‌کند.
+- [setTileScaleX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): مقیاس افقی تایل را به درصد تعریف می‌کند.
+- [setTileScaleY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): مقیاس عمودی تایل را به درصد تعریف می‌کند.
 
-این مثال به یک تصویر محلی نیاز دارد و [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) را طوری تنظیم می‌کند که آن را با ۵۰٪ اندازهٔ اصلی تکرار کند. افست‌های −32 پوینت کاشی‌ها را به صورت افقی و عمودی جابه‌جا می‌کند؛ هم‌راستایی پایین‑راست و معکوس کردن در هر دو جهت تعیین می‌کند که بافت تکراری چگونه چیده شود.
+این مثال به یک تصویر محلی نیاز دارد و [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) را تنظیم می‌کند تا آن را با ۵۰٪ اندازه اصلی تکرار کند. افست‌های ‑32 پوینت تایل‌ها را به‌صورت افقی و عمودی جابجا می‌کند؛ تراز پایین‑راست و وارون شدن در هر دو جهت نحوهٔ چینش بافت تکرار شده را تعیین می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -596,9 +596,9 @@ try {
 
 ![گزینه‌های تایل](tile-options.png)
 
-## **پرکنندهٔ رنگ ثابت**
+## **پر کردن رنگ جامد**
 
-یک پرکنندهٔ ثابت یک شکل را به یک رنگ یکنواخت می‌دهد. این مثال از [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) برای تنظیم حالت پرکنندهٔ ثابت استفاده می‌کند و رنگ زرد را از طریق [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) اختصاص می‌دهد، سپس مستطیل را در یک ارائه ذخیره می‌کند.
+یک پرکردن جامد یک شکل را با یک رنگ یکنواخت می‌دهد. این مثال از [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) برای تنظیم حالت پرکردن جامد استفاده می‌کند و رنگ زرد را از طریق [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) اختصاص می‌دهد، سپس مستطیل را در یک ارائه ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -620,15 +620,84 @@ try {
 
 نتیجه:
 
-![شکل با پرکنندهٔ رنگ ثابت](solid-color-fill.png)
+![شکل با پرکردن رنگ جامد](solid-color-fill.png)
 
-## **استفاده از پس‌زمینهٔ اسلاید به‌عنوان پرکنندهٔ شکل**
+### **کپی کردن رنگ‌ها با حفظ ارجاعات تم**
 
-از [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) زمانی که یک شکل باید با پس‌زمینهٔ اسلاید مطابقت داشته باشد، مثلا در یک قالب ارائه، استفاده کنید. ابتدا از [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) برای تنظیم به [FillType.NotDefined](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) استفاده کنید تا هر پرکنندهٔ صریحی حذف شود. با این ترکیب، شکل به جای استفاده از پرکنندهٔ سبک خود، از پس‌زمینهٔ اسلاید استفاده می‌کند. فعال کردن پرچم به‌تنهایی پرکنندهٔ صریح موجود را حذف نمی‌کند.
+از [IColorFormat.copyFrom](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#copyFrom-com.aspose.slides.IColorFormat-) برای کپی کردن تعریف رنگ، شامل نوع رنگ، ارجاع به تم و تبدیل‌ها استفاده کنید. این برای انتقال رنگ پرکردن بین شکل‌هایی که باید ادامه دهند تم ارائه را دنبال کنند مفید است. متد فقط رنگ را کپی می‌کند: نوع پرکردن، خط مرزی یا دیگر قالب‌بندی‌های شکل را کپی نمی‌کند. نوع پرکردن مقصد را به‌صورت صریح با [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) تنظیم کنید.
 
-این متفاوت از [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) است: پرکنندهٔ پس‌زمینه اشیاء پشت شکل را با ناحیهٔ متناظر پس‌زمینه اسلاید می‌پوشاند، در حالی که هیچ پرکننده‌ای آن اشیاء را قابل مشاهده می‌گذارد. یک گرادیان با اسلاید هم‌راستاست نه اینکه در هر شکل از نو شروع شود.
+این مثال سه مستطیل، از چپ به راست: منبع، کپی آگاه به تم و کپی RGB ثابت ایجاد می‌کند. منبع با استفاده از [IColorFormat.setSchemeColor](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#setSchemeColor-int-) به اولین رنگ accent ارجاع می‌دهد و از طریق [IColorOperationCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/icoloroperationcollection/#add-int-float-) یک سایه اضافه می‌کند. کپی RGB از رنگ پرکردن موثر منبع استفاده می‌کند به‌طوری‌که هر سه در ابتدا یک‌سان به نظر برسند. فراخوانی [IColorFormat.setColor](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#setColor-java.awt.Color-) مقدار RGB ثابت تنظیم می‌کند و هر تبدیل رنگ موجود را پاک می‌کند.
 
-مثال زیر یک پس‌زمینهٔ مادر که توسط اسلاید ارث‌بری می‌شود ایجاد می‌کند و یک نوار ماژنتا را پشت سه مستطیل قرار می‌دهد. مستطیل چپ از پس‌زمینه استفاده می‌کند، مستطیل میانی بدون پرکننده است و مستطیل راست از پس‌زمینه به یک پرکنندهٔ نارنجی صریح تغییر می‌یابد.
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(new Color(65, 105, 225));
+
+    IAutoShape source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+    IAutoShape themeCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+    IAutoShape rgbCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (IAutoShape shape : new IAutoShape[] { source, themeCopy, rgbCopy }) {
+        shape.getFillFormat().setFillType(FillType.Solid);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    }
+
+    IColorFormat sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(ColorTransformOperation.Tint, 0.75f);
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    IImage before = slide.getImage(1f, 1f);
+    try {
+        before.save("color-copy-before.png", ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // ارجاعات تم پس از رنگ accent جدید دنبال می‌شوند؛ مقدار RGB ثابت این‌گونه نیست.
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(new Color(255, 69, 0));
+
+    IImage after = slide.getImage(1f, 1f);
+    try {
+        after.save("color-copy-after.png", ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+قبل از تغییر تم، هر سه پرکردن یکسان هستند:
+
+![منبع، مقصد copyFrom و مقصد RGB ثابت با پرکردن آبی یکسان](color-copy-before.png)
+
+بعد از تغییر تم، منبع و کپی آگاه به تم رنگ accent جدید را دنبال می‌کنند و سایه خود را حفظ می‌کنند. کپی RGB ثابت آبی می‌ماند:
+
+![منبع و مقصد copyFrom با پرکردن نارنجی، در حالی که مقصد RGB ثابت آبی می‌ماند](color-copy-after.png)
+
+تعریف کپی‌شده مستقل از منبع است. تغییر بعدی ارجاع تم منبع، اختصاص رنگ دیگر یا افزودن/حذف تبدیل‌ها، مقصد را تغییر نمی‌دهد. تغییر تم همچنان هر دو شکل را تحت تأثیر قرار می‌دهد زیرا هر یک به‌صورت مستقل به همان رنگ تم ارجاع می‌دهند.
+
+ذخیره و باز کردن مجدد PPTX نوع رنگ کپی‌شده بازگردانده‌شده توسط [IColorFormat.getColorType](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#getColorType--)، ارجاع تم و مجموعه تبدیل‌های بازگردانده‌شده توسط [IColorFormat.getColorTransform](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#getColorTransform--) را حفظ می‌کند؛ این تعریف را به RGB صاف نمی‌کند.
+
+هنگام کپی بین زمینه‌های تم مختلف، مانند ارائه‌هایی با پالت‌های accent متفاوت، ارجاع کپی‌شده در مقابل تم مقصد حل می‌شود. بنابراین همان ارجاع و تبدیل‌ها می‌توانند رنگ قابل مشاهده متفاوتی تولید کنند. به بخش [Presentation Theme](/slides/fa/java/presentation-theme/) برای اطلاعات بیشتر درباره پیکربندی رنگ‌های تم مراجعه کنید.
+
+## **استفاده از پس‌زمینه اسلاید به‌عنوان پرکردن شکل**
+
+از [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) وقتی که یک شکل باید با پس‌زمینه اسلاید مطابقت داشته باشد، مثلاً در یک قالب ارائه، استفاده کنید. ابتدا نوع پرکردن را با [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) به [FillType.NotDefined](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) تنظیم کنید تا هر پرکردن صریحی حذف شود. با این ترکیب، شکل به‌جای پرکردن سبک خود از پس‌زمینه اسلاید استفاده می‌کند. فعال‌سازی این پرچم به‌تنهایی پرکردن صریح موجود را حذف نمی‌کند.
+
+این متفاوت از [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) است: پرکردن پس‌زمینه اشیائی پشت شکل را با ناحیه متناظر پس‌زمینه اسلاید پوشش می‌دهد، در حالی که NoFill آن اشیا را قابل مشاهده می‌گذارد. یک گرادیان همچنان با اسلاید هم‌راستا می‌ماند نه اینکه داخل هر شکل دوباره شروع شود.
+
+مثال زیر یک پس‌زمینه مستر که توسط اسلاید به ارث می‌رسد ایجاد می‌کند و یک نوار مژنتا را پشت سه مستطیل قرار می‌دهد. مستطیل چپ از پس‌زمینه استفاده می‌کند، مستطیل میانی هیچ پرکردنی ندارد، و مستطیل راست از پرکردن پس‌زمینه به یک پرکردن نارنجی صریح سوئیچ می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -639,7 +708,7 @@ try {
     presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // گرادیان را از مستر ارث‌بری کنید.
+    // گرادیان را از مستر به ارث ببرید.
     slide.getBackground().setType(BackgroundType.NotDefined);
     slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined);
     IBackground background = slide.getLayoutSlide().getMasterSlide().getBackground();
@@ -652,7 +721,7 @@ try {
     gradient.getGradientStops().add(0, new Color(0, 0, 139));
     gradient.getGradientStops().add(1, new Color(135, 206, 250));
 
-    // این شیء را ابتدا اضافه کنید تا پشت مستطیل‌ها ظاهر شود.
+    // این آبجکت را ابتدا اضافه کنید تا پشت مستطیل‌ها ظاهر شود.
     IAutoShape band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
     band.getFillFormat().setFillType(FillType.Solid);
     band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
@@ -669,7 +738,7 @@ try {
     explicitShape.getFillFormat().setFillType(FillType.NotDefined);
     explicitShape.setUseBackgroundFill(true);
 
-    // پرکنندهٔ پس‌زمینه را قبل از اعمال پرکنندهٔ صریح غیرفعال کنید.
+    // غیرفعال کردن پرکردن پس‌زمینه قبل از اعمال یک پرکردن صریح.
     explicitShape.setUseBackgroundFill(false);
     explicitShape.getFillFormat().setFillType(FillType.Solid);
     explicitShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 165, 0));
@@ -680,15 +749,15 @@ try {
 }
 ```
 
-نتیجه، از چپ به راست: **پرکنندهٔ پس‌زمینه**، **بدون پرکننده** و **پرکنندهٔ صریح**. نوار ماژنتا توسط مستطیل‌های چپ و راست مخفی می‌شود اما از طریق مستطیل میانی قابل مشاهده باقی می‌ماند.
+نتیجه، از چپ به راست: **پرکردن پس‌زمینه**، **بدون پرکردن** و **پرکردن صریح**. نوار مژنتا توسط مستطیل‌های چپ و راست مخفی می‌شود اما از طریق مستطیل میانی قابل رؤیت است.
 
-![پرکنندهٔ پس‌زمینه، بدون پرکننده، و پرکنندهٔ نارنجی صریح بر روی یک نوار ماژنتا](background-fill.png)
+![پرکردن پس‌زمینه، بدون پرکردن و پرکردن صریح نارنجی روی نوار مژنتا](background-fill.png)
 
-رفتار یکسانی برای پس‌زمینه‌ای که مستقیماً بر روی اسلاید تعریف شده یا از یک چیدمان ارث‌بری می‌شود نیز اعمال می‌شود. شکل از پس‌زمینهٔ حل‌شدهٔ اسلاید استفاده می‌کند؛ مثال هر دو پس‌زمینهٔ اسلاید و چیدمان را بدون تعریف می‌گذارد تا مادر آن را فراهم کند.
+رفتار یکسانی برای پس‌زمینه‌ای که مستقیماً روی اسلاید تعریف شده یا از یک Layout به ارث رسیده، اعمال می‌شود. شکل از پس‌زمینه حل‌شده اسلاید استفاده می‌کند؛ مثال هر دو پس‌زمینه اسلاید و Layout را تعریف‌نشده می‌گذارد تا مستر آن را فراهم کند.
 
 ## **تنظیم شفافیت**
 
-برای یک پرکنندهٔ ثابت، مولفهٔ آلفای رنگ شدت شفافیت را کنترل می‌کند: ۰ کاملاً شفاف و ۲۵۵ کاملاً مات است. این مثال از مقدار آلفای ۱۲۸ برای یک مستطیل زرد استفاده می‌کند، که تقریباً ۵۰٪ شفاف است تا مستطیل زیرین قابل رؤیت بماند. رنگ از طریق [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) اختصاص داده می‌شود.
+برای یک پرکردن جامد، مؤلفه آلفا رنگ، شفافیت را کنترل می‌کند: ۰ کاملاً شفاف و ۲۵۵ کاملاً مات است. این مثال از مقدار آلفا ۱۲۸ برای یک مستطیل زرد استفاده می‌کند که تقریباً ۵۰٪ شفاف است، بنابراین مستطیل زیرین قابل رؤیت می‌ماند. رنگ از طریق [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) اختصاص داده می‌شود.
 
 ```java
 import com.aspose.slides.*;
@@ -714,9 +783,9 @@ try {
 
 ![شکل شفاف](shape-transparency.png)
 
-## **چرخاندن شکل‌ها**
+## **چرخاندن اشکال**
 
-از [IShape.setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setRotation-float-) برای چرخاندن یک شکل در صفحهٔ اسلاید استفاده کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود؛ این مثال یک مستطیل را ۵ درجه ساعتگرد می‌چرخاند و ارائه را ذخیره می‌کند.
+از [IShape.setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setRotation-float-) برای چرخاندن یک شکل در صفحه اسلاید استفاده کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود؛ این مثال یک مستطیل را ۵ درجه ساعتگرد می‌چرخاند و ارائه را ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -738,9 +807,9 @@ try {
 
 ![چرخش شکل](shape-rotation.png)
 
-## **افزودن افکت‌های برآمدگی 3D**
+## **اضافه‌کردن اثرات Bevel سه‌بعدی**
 
-از [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) برای دادن عمق و لبه‌های برآمدگی به یک شکل استفاده کنید. این مثال یک بیضی سبز با خطوط مرزی نارنجی ایجاد می‌کند، از [IThreeDFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-) برای تنظیم عمق به ۴ پوینت استفاده می‌کند و یک برآمدگی بالایی دایره‌ای با عرض و ارتفاع ۶ پوینت از طریق [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelTop--) اعمال می‌کند. یک دوربین ارتوگرافیک رو به جلو و نورپردازی سه نقطه‌ای برآمدگی را قابل مشاهده می‌کند.
+از [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) برای افزودن عمق و لبه‌های برجسته به یک شکل استفاده کنید. این مثال یک بیضی سبز با خط مرزی نارنجی ایجاد می‌کند، از [IThreeDFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-) برای تنظیم عمق به ۴ پوینت استفاده می‌کند و یک bevel بالایی دایره‌ای با عرض و ارتفاع ۶ پوینت از طریق [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelTop--) اعمال می‌نماید. یک دوربین ارتوگرافیک روبه‌رو و نورپردازی سه‌نقطه‌ای باعث مشاهده واضح bevel می‌شود.
 
 ```java
 import com.aspose.slides.*;
@@ -772,11 +841,11 @@ try {
 
 نتیجه:
 
-![افکت برآمدگی 3D](3D-bevel-effect.png)
+![اثر Bevel سه‌بعدی](3D-bevel-effect.png)
 
-## **افزودن افکت‌های چرخش 3D**
+## **اضافه‌کردن اثرات چرخش سه‌بعدی**
 
-دید 3D یک شکل توسط تنظیمات دوربین آن کنترل می‌شود. این مثال از [ICamera.setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setRotation-float-float-float-) با زاویه‌های latitude، longitude و revolution به ترتیب ۴۰، ۳۵ و ۲۰ درجه استفاده می‌کند. با استفاده از [ICamera.setCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setCameraType-int-) یک دوربین ایزومتریک انتخاب می‌شود و با [ILightRig.setLightType](https://reference.aspose.com/slides/java/com.aspose.slides/ilightrig/#setLightType-int-) نورپردازی متعادل تنظیم می‌شود، سپس مستطیل قالب‌بندی‌شده ذخیره می‌شود.
+نمایش سه‌بعدی یک شکل توسط تنظیمات دوربین آن کنترل می‌شود. این مثال از [ICamera.setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setRotation-float-float-float-) با زوایای عرض، طول و انقلاب به ترتیب ۴۰، ۳۵ و ۲۰ درجه استفاده می‌کند. یک دوربین ایزومتریک از طریق [ICamera.setCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setCameraType-int-) و نورپردازی متعادل از طریق [ILightRig.setLightType](https://reference.aspose.com/slides/java/com.aspose.slides/ilightrig/#setLightType-int-) انتخاب می‌شود، سپس مستطیل قالب‌بندی‌شده ذخیره می‌شود.
 
 ```java
 import com.aspose.slides.*;
@@ -799,15 +868,15 @@ try {
 
 نتیجه:
 
-![افکت چرخش 3D](3D-rotation-effect.png)
+![اثر چرخش سه‌بعدی](3D-rotation-effect.png)
 
-## **کنترل رندرینگ سیاه‑سفید برای شکل‌ها**
+## **کنترل رندرینگ سیاه‌سفید برای اشکال**
 
-متد [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) مشخص می‌کند یک شکل به‌تنهایی هنگام نمایش یا پردازش ارائه در حالت سیاه‑سفید چگونه رندر شود. این متد به تنهایی حالت سیاه‑سفید را فعال نمی‌کند و پرکننده، خط یا قالب‌بندی دیگر شکل را در حالت رنگ عادی تغییر نمی‌دهد.
+متد [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) تعیین می‌کند یک شکل به‌تنهایی هنگام نمایش یا پردازش ارائه در حالت سیاه‌سفید چگونه رندر شود. این خود به‌تنهایی حالت سیاه‌سفید را فعال نمی‌کند و قالب‌بندی پر، خط یا دیگر تنظیمات رنگی شکل را در حالت رنگ عادی تغییر نمی‌دهد.
 
-از یک مقدار کلاس [BlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/blackwhitemode/) برای انتخاب رفتار مورد نظر استفاده کنید. برای مثال، `Automatic` به برنامه رندر اجازه می‌دهد تبدیل را انتخاب کند، `Gray` و `LightGray` از رنگ خاکستری استفاده می‌کنند، `BlackWhite` فقط سیاه و سفید، `Black` و `White` یک رنگ ثابت، `Color` رنگ عادی را حفظ می‌کند و `Hidden` شکل را در حالت سیاه‑سفید حذف می‌کند. `NotDefined` به این معنی است که هیچ حالت سطح‑شکل تعیین نشده است.
+از مقداری از کلاس [BlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/blackwhitemode/) برای انتخاب رفتار موردنظر استفاده کنید. برای مثال، `Automatic` اجازه می‌دهد برنامه رندرینگ تبدیل را انتخاب کند، `Gray` و `LightGray` رنگ‌گذاری خاکستری را استفاده می‌کنند، `BlackWhite` فقط سیاه و سفید را به کار می‌برد، `Black` و `White` یک رنگ ثابت را اعمال می‌کنند، `Color` رنگ عادی را حفظ می‌کند و `Hidden` شکل را در حالت سیاه‌سفید حذف می‌کند. `NotDefined` به این معنی است که هیچ حالت سطح‑شکل اختصاص داده نشده است.
 
-این مثال یک مستطیل نارنجی ایجاد می‌کند و از [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) برای تنظیم حالت به خاکستری استفاده می‌کند. شکل ذخیره‌شده پرکنندهٔ نارنجی خود را برای نمایش رنگ عادی حفظ می‌کند و برای برنامه‌هایی که تنظیمات نمایش سیاه‑سفید را رعایت می‌کنند، درخواست رنگ خاکستری می‌دهد:
+این مثال یک مستطیل نارنجی ایجاد می‌کند و از [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) برای تنظیم حالت به gray استفاده می‌کند. شکل ذخیره‌شده پرکردن نارنجی خود را برای نمایش رنگ عادی حفظ می‌کند و برای برنامه‌هایی که تنظیمات نمایش سیاه‌سفید را رعایت می‌کنند، درخواست رنگ‌گذاری خاکستری می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -828,11 +897,11 @@ try {
 }
 ```
 
-در حالت رنگ عادی، مستطیل پرکنندهٔ نارنجی خود را حفظ می‌کند. در یک جریان کاری نمایش سیاه‑سفید، از رنگ خاکستری استفاده می‌کند زیرا حالت آن روی `Gray` تنظیم شده است. این به شما امکان می‌دهد یک اسلاید تمام‑رنگ را حفظ کنید و ظاهر متفاوتی برای چاپ، پیش‌نمایش یا سایر جریان‌های کاری که تنظیمات نمایش سیاه‑سفید ارائه را رعایت می‌کنند، تعریف کنید.
+در حالت رنگ عادی، مستطیل پرکردن نارنجی خود را حفظ می‌کند. در یک جریان کاری نمایش سیاه‌سفید، از رنگ‌گذاری خاکستری استفاده می‌کند زیرا حالت آن به `Gray` تنظیم شده است. این امکان را می‌دهد که اسلاید رنگ کامل را حفظ کنید و ظاهر متفاوتی برای چاپ، پیش‌نمایش یا سایر جریان‌های کاری که تنظیمات نمایش سیاه‌سفید ارائه را رعایت می‌کنند، تعریف کنید.
 
 ## **بازنشانی قالب‌بندی**
 
-از [ISlide.reset](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#reset--) برای بازگرداندن موقعیت، اندازه و قالب‌بندی نگهدارنده‌های اسلاید از نگهدارنده‌های متناظر در چیدمان استفاده کنید. این مثال به یک ارائه موجود با نگهدارنده‌های مرتبط با چیدمان نیاز دارد و قبل از ذخیره‌سازی هر اسلاید را بازنشانی می‌کند. شکل‌هایی که نگهدارندهٔ متناظر در چیدمان ندارند بازنشانی نمی‌شوند.
+از [ISlide.reset](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#reset--) برای بازگرداندن موقعیت، اندازه و قالب‌بندی موارد نگه‌دارنده اسلاید از موارد متناظر در چیدمان استفاده کنید. این مثال به یک ارائه موجود با موارد نگه‌دارنده مرتبط به چیدمان نیاز دارد و قبل از ذخیره همه اسلایدها را بازنشانی می‌کند. اشکالی که مورد نگه‌دارنده متناظر در چیدمان ندارند، بازنشانی نمی‌شوند.
 
 ```java
 import com.aspose.slides.*;
@@ -849,16 +918,16 @@ try {
 }
 ```
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**آیا قالب‌بندی شکل بر اندازهٔ نهایی فایل ارائه تأثیر می‌گذارد؟**
+**آیا قالب‌بندی شکل بر حجم نهایی فایل ارائه تأثیر می‌گذارد؟**
 
-رنگ‌ها، سبک‌های خط و تنظیمات افکت معمولاً دادهٔ کمی اضافه می‌کنند در مقایسه با تصاویر و رسانه‌های جاسازی‌شده. پرکننده‌های تصویری می‌توانند اندازهٔ فایل را افزایش دهند زیرا تصاویر آن‌ها در ارائه ذخیره می‌شوند.
+رنگ‌ها، سبک‌های خط و تنظیمات اثر معمولاً داده کمی نسبت به تصاویر و رسانه‌های جاسازی‌شده اضافه می‌کنند. پرکردن‌های تصویری می‌توانند حجم فایل را افزایش دهند زیرا تصاویر آن‌ها در ارائه ذخیره می‌شوند.
 
-**چگونه می‌توانم شکل‌هایی روی یک اسلاید که قالب‌بندی یکسان دارند شناسایی کنم تا بتوانم آن‌ها را گروه‌بندی کنم؟**
+**چگونه می‌توانم اشکالی را که در یک اسلاید قالب‌بندی یکسان دارند شناسایی کنم تا بتوانم آن‌ها را گروه‌بندی کنم؟**
 
-هر یک از ویژگی‌های کلیدی قالب‌بندی شکل — پرکننده، خط و تنظیمات افکت — را مقایسه کنید. اگر تمام مقادیر مربوطه مطابقت داشته باشند، سبک‌های آن‌ها را یکسان در نظر بگیرید و منطقی آن شکل‌ها را گروه‌بندی کنید؛ این کار مدیریت سبک‌ها را در مراحل بعدی ساده می‌کند.
+هر ویژگی کلیدی قالب‌بندی شکل را—پرکردن، خط و تنظیمات اثر—مقایسه کنید. اگر تمام مقادیر متناظر مطابق باشند، سبک‌های آن‌ها را یکسان در نظر بگیرید و به‌طور منطقی آن اشکال را گروه‌بندی کنید، که مدیریت سبک بعدی را ساده می‌کند.
 
-**آیا می‌توانم مجموعه‌ای از سبک‌های سفارشی شکل را در یک فایل جداگانه ذخیره کنم تا در ارائه‌های دیگر استفاده کنم؟**
+**آیا می‌توانم یک مجموعهٔ سفارشی از سبک‌های شکل را در فایلی جداگانه ذخیره کنم تا در ارائه‌های دیگر دوباره استفاده کنم؟**
 
-بله. شکل‌های نمونه با سبک‌های موردنظر را در یک اسلاید قالب یا فایل قالب .POTX ذخیره کنید. هنگام ایجاد یک ارائه جدید، قالب را باز کنید، شکل‌های سبک‌دار موردنیاز را کلون کنید و قالب‌بندی آن‌ها را هرجا که لازم باشد اعمال کنید.
+بله. اشکال نمونه با سبک‌های دلخواه را در یک اسلاید قالب یا فایل قالب .POTX ذخیره کنید. هنگام ایجاد یک ارائه جدید، قالب را باز کنید، اشکال سبک‌دار موردنیاز را کلون کنید و قالب‌بندی آن‌ها را هرجا که نیاز باشد مجدداً اعمال کنید.

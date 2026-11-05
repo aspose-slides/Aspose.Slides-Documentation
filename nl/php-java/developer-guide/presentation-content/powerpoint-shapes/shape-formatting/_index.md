@@ -1,5 +1,5 @@
 ---
-title: PowerPoint‑vormen opmaken in PHP
+title: PowerPoint-vormen formatteren in PHP
 linktitle: Vormopmaak
 type: docs
 weight: 20
@@ -7,38 +7,38 @@ url: /nl/php-java/shape-formatting/
 keywords:
 - vorm opmaken
 - lijn opmaken
-- schets‑effect
-- schets vormlijn
-- aansluitstijl opmaken
+- schets-effect
+- schetsvormlijn
+- verbindingstijl opmaken
 - verloopvulling
 - patroonvulling
 - afbeeldingsvulling
 - textuurvulling
 - effen kleurvulling
 - vormtransparantie
-- zwart‑wit weergave van vorm
-- grijswaarden weergave van vorm
+- zwart-wit vormweergave
+- grijstinten vormweergave
 - vorm roteren
-- 3D‑bisel‑effect
-- 3D‑rotatie‑effect
+- 3D-schuineffect
+- 3D-rotatie-effect
 - opmaak resetten
 - PowerPoint
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Leer hoe u PowerPoint‑vormen kunt opmaken in PHP met Aspose.Slides—stel vullings‑, lijn‑ en effectstijlen in voor PPT‑ en PPTX‑bestanden met precisie en volledige controle."
+description: "Leer hoe u PowerPoint‑vormen kunt opmaken in PHP met Aspose.Slides — stel vul-, lijn- en effectstijlen in voor PPT‑ en PPTX‑bestanden met precisie en volledige controle."
 ---
 ## **Introductie**
 
-Formateer vormen in PowerPoint door hun contouren, vullingen en effecten aan te passen. Aspose.Slides for PHP via Java stelt u in staat deze instellingen programmeermatig te beheren, inclusief transparantie, rotatie en 3D‑formattering.
+Formateer vormen in PowerPoint door hun randen, opvullingen en effecten aan te passen. Aspose.Slides voor PHP via Java stelt je in staat deze instellingen programmatisch te beheren, inclusief transparantie, rotatie en 3D‑formattering.
 
 ![Vormopmaakopties in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for PHP via Java biedt klassen en methoden die u in staat stellen vormen op te maken met dezelfde opties die beschikbaar zijn in PowerPoint.
+Aspose.Slides voor PHP via Java biedt klassen en methoden die je in staat stellen vormen te formatteren met dezelfde opties die beschikbaar zijn in PowerPoint.
 
 ## **Lijnen opmaken**
 
-Gebruik [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) om de contour van een vorm te controleren. Dit voorbeeld maakt een niet‑ingevuld rechthoek met een blauwe, gestreepte contour. [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) selecteert een dikke‑dunne samengestelde lijn, terwijl [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) de breedte op 7 punten zet en [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) het stippatroon selecteert.
+Gebruik [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) om de omtrek van een vorm te beheren. Dit voorbeeld maakt een niet‑ingevulde rechthoek met een blauwe, gestippelde omtrek. [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) selecteert een dikke‑dunne samengestelde lijn, terwijl [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) de breedte op 7 punten zet en [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) het streeppatroon selecteert.
 
 ```php
 use aspose\slides\FillType;
@@ -70,13 +70,13 @@ Het resultaat:
 
 ![De opgemaakte lijnen in de presentatie](formatted-lines.png)
 
-### **Aangepaste lijnstippatronen instellen**
+### **Aangepaste lijnstreeppatronen instellen**
 
-Gebruik [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern) wanneer vooraf gedefinieerde lijnstijlen niet de gewenste stipp‑lengte en tussenruimtes bieden, bijvoorbeeld voor merkmaden of technische diagrammen. Het toewijzen van een patroon wijzigt automatisch de lijnstippstijl naar [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/).
+Gebruik [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern) wanneer vooraf gedefinieerde lijntypen niet de gewenste streep‑ en tussenpooslengtes bieden, bijvoorbeeld voor merkende omtrekken of technische diagrammen. Het toewijzen van een patroon verandert automatisch de lijnstreepstijl naar [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/).
 
-Array‑items wisselen af tussen stipp‑ en tussenruimtelengtes, beginnend met een stipp. Elke waarde is een veelvoud van de lijndikte: `[4, 2]` bij een breedte van 3 punten produceert een 12‑punt stipp gevolgd door een 6‑punt gat. Gebruik paren van eindige, niet‑negatieve waarden om volledige stipp‑en‑gatsegmenten te definiëren. Het voorbeeld gebruikt positieve waarden om elke stipp en elk gat zichtbaar te houden.
+Array‑items wisselen af tussen streep‑ en tussenpooslengtes, beginnend met een streep. Elke waarde is een veelvoud van de lijndikte: `[4, 2]` bij een breedte van 3 punten levert een streep van 12 punten gevolgd door een tussenruimte van 6 punten op. Gebruik paren van eindige, niet‑negatieve waarden om volledige streep‑en‑tussen‑segmenten te definiëren. Het voorbeeld gebruikt positieve waarden zodat elke streep en tussenruimte zichtbaar blijft.
 
-Dit voorbeeld maakt vijf blauwe lijnen met dezelfde lengte en platte uiteinden. De eerste drie vergelijken patronen bij een breedte van 3 punten. De vierde herhaalt het eerste patroon met dubbel de breedte, waardoor zowel de stipp‑ als de gatlengtes verdubbelen. De vijfde schakelt van een aangepast patroon naar een doorgetrokken lijn.
+Dit voorbeeld creëert vijf blauwe lijnen met dezelfde lengte en platte uiteinden. De eerste drie vergelijken patronen bij een breedte van 3 punten. De vierde herhaalt het eerste patroon met dubbele breedte, waardoor zowel de streep‑ als de tussenpooslengtes verdubbelen. De vijfde schakelt van een aangepast patroon naar een doorlopende lijn.
 
 ```php
 use aspose\slides\FillType;
@@ -113,7 +113,7 @@ try {
         $line->getLineFormat()->setCustomDashPattern($patterns[$i]);
     }
 
-    // Zet de laatste lijn terug naar een doorgetrokken stijl.
+    // Zet de laatste lijn terug naar een doorlopende stijl.
     $slide->getShapes()->get_Item(4)->getLineFormat()->setDashStyle(LineDashStyle::Solid);
 
     $presentation->save("custom_dash_patterns.pptx", SaveFormat::Pptx);
@@ -122,25 +122,25 @@ try {
 }
 ```
 
-Om in plaats daarvan terug te keren naar een vooraf gedefinieerde gestreepte stijl, geef [LineDashStyle::Dash](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) door aan [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle). De geselecteerde stijl bepaalt het uiterlijk van de lijn.
+Om terug te keren naar een vooraf gedefinieerde gestippelde stijl, geef [LineDashStyle::Dash](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) door aan [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle). De geselecteerde stijl bepaalt het uiterlijk van de lijn.
 
 Het resultaat in PowerPoint, van boven naar beneden: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; en **Solid, 3 pt**.
 
-![Drie aangepaste stippatronen, een bredere lijn die het eerste patroon gebruikt, en een doorgetrokken lijn in PowerPoint](custom-dash-patterns.png)
+![Drie aangepaste streeppatronen, een bredere lijn met het eerste patroon, en een doorlopende lijn in PowerPoint](custom-dash-patterns.png)
 
-### **Lijneindpunten instellen**
+### **Lijnuiteinden instellen**
 
-Gebruik [LineFormat::setCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCapStyle) om de uiteinden van een open lijn in te stellen. De [LineCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linecapstyle/) klasse biedt drie expliciete eindstijlen:
+Gebruik [LineFormat::setCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCapStyle) om de uiteinden van een open lijn in te stellen. De [LineCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linecapstyle/)‑klasse biedt drie expliciete kapstijlen:
 
 - `Flat`: De lijn stopt bij het eindpunt.
-- `Round`: Een halve cirkelvormige eindpunt strekt zich half de lijndikte buiten het eindpunt uit.
-- `Square`: Een vierkant eindpunt strekt zich half de lijndikte buiten het eindpunt uit.
+- `Round`: Een halve cirkelvormige kap strekt zich uit voorbij het eindpunt met een halve lijndikte.
+- `Square`: Een vierkante kap strekt zich uit voorbij het eindpunt met een halve lijndikte.
 
-De klasse bevat ook `NotDefined`, wat betekent dat er geen eindstijl expliciet is toegewezen.
+De klasse bevat bovendien `NotDefined`, wat betekent dat er geen kapstijl expliciet is toegewezen.
 
-Eindstijlen verschillen van pijlpunten, die symbolen aan lijnuiteinden toevoegen, en van verbindingen, die hoeken tussen lijnsegmenten regelen. Dit voorbeeld schakelt pijlpunten uit via [LineFormat::setBeginArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setBeginArrowheadStyle) en [LineFormat::setEndArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setEndArrowheadStyle) zodat alleen de cap‑vormen worden vergeleken.
+Uiteinden verschillen van pijlpuntstijlen, die symbolen aan de lijnuiteinden toevoegen, en van verbindingen, die hoeken tussen lijnsegmenten regelen. Dit voorbeeld schakelt pijlpuntstijlen uit via [LineFormat::setBeginArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setBeginArrowheadStyle) en [LineFormat::setEndArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setEndArrowheadStyle) zodat alleen de kapvormen worden vergeleken.
 
-Het volgende voorbeeld maakt drie verder identieke horizontale lijnen, 20 punten breed. Van boven naar beneden gebruiken ze platte, ronde en vierkante eindpunten. Hun eindpunten hebben dezelfde horizontale coördinaten; de ronde en vierkante eindpunten strekken zich 10 punten buiten elk eindpunt uit.
+Het volgende voorbeeld maakt drie verder identieke horizontale lijnen van 20 punten breed. Van boven naar beneden gebruiken ze platte, ronde en vierkante uiteinden. Hun eindpunten hebben dezelfde horizontale coördinaten; de ronde en vierkante uiteinden steken 10 punten buiten elk eindpunt.
 
 ```php
 use aspose\slides\FillType;
@@ -179,13 +179,13 @@ try {
 
 Het resultaat in PowerPoint, van boven naar beneden: **Flat**, **Round**, en **Square**.
 
-![Platte, ronde en vierkante eindpunten op identieke dikke lijnen in PowerPoint](line-caps.png)
+![Platte, ronde en vierkante uiteinden op identieke dikke lijnen in PowerPoint](line-caps.png)
 
 ## **Schets‑effecten toepassen op vormlijnen**
 
-Een schets‑effect maakt een vormlijn handgetekend. Gebruik [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) om de lijninstellingen te benaderen, [LineFormat::getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getSketchFormat) om de schetsinstellingen te benaderen, en [SketchFormat::setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#setSketchType) om een waarde uit de [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) klasse te selecteren.
+Een schets‑effect laat een vormlijn handgetekend lijken. Gebruik [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) om de lijninstellingen te benaderen, [LineFormat::getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getSketchFormat) om de schetsinstellingen te benaderen, en [SketchFormat::setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#setSketchType) om een waarde uit de [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/)‑klasse te selecteren.
 
-De volgende PHP‑code toont hoe een [LineSketchType::Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) effect toe te passen, de expliciet toegewezen waarde uit te lezen, en het effect te verwijderen met [LineSketchType::None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
+De volgende PHP‑code laat zien hoe een [LineSketchType::Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/)‑effect wordt toegepast, de expliciet toegewezen waarde wordt gelezen, en het effect wordt verwijderd met [LineSketchType::None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
 
 ```php
 use aspose\slides\LineSketchType;
@@ -208,7 +208,7 @@ try {
 }
 ```
 
-De waarde die wordt geretourneerd door [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType) vertegenwoordigt de instelling die direct aan de vorm is toegewezen. Als de lijnopmaak kan worden geërfd van een thema, master‑dia of lay‑dia, gebruik dan [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective), benader de geretourneerde object‑methode `getSketchFormat`, en lees de `getSketchType`‑waarde. De effectieve waarde weerspiegelt de opmaak die daadwerkelijk wordt toegepast nadat de overerving is opgelost. Dit voorbeeld vereist een bestaande presentatie met minimaal één vorm op de eerste dia en geeft beide waarden weer:
+De waarde die wordt geretourneerd door [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType) vertegenwoordigt de instelling die rechtstreeks aan de vorm is toegewezen. Als de lijnopmaak kan worden geërfd van een thema, masterdia of lay-outdia, gebruik dan [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective), benader de `getSketchFormat`‑methode van het geretourneerde object en lees de `getSketchType`‑waarde. De effectieve waarde weerspiegelt de opmaak die daadwerkelijk wordt toegepast nadat erfelijkheid is opgelost. Dit voorbeeld vereist een bestaande presentatie met minstens één vorm op de eerste dia en geeft beide waarden weer:
 
 ```php
 use aspose\slides\Presentation;
@@ -229,19 +229,19 @@ try {
 }
 ```
 
-## **Aansluit‑stijlen formatteren**
+## **Knoopstijlen opmaken**
 
-Hier zijn de drie opties voor aansluittype:
+Hier zijn de drie opties voor het type verbinding:
 
-* Round
-* Miter
-* Bevel
+* Rond
+* Scherp
+* Afgeschuind
 
-De aansluitstijl bepaalt hoe twee contoursegmenten bij een hoek samenkomen. Gebruik **Round** voor afgeronde hoeken, **Miter** voor scherpe hoeken, of **Bevel** voor afgevlakte hoeken.
+De verbindingsstijl bepaalt hoe twee omtreksegmenten bij een hoek samenkomen. Gebruik **Rond** voor afgeronde hoeken, **Scherp** voor scherpe hoeken, of **Afgeschuind** voor afgevlakte hoeken.
 
-![De aansluitstijl in de presentatie](join-style-powerpoint.png)
+![De kruisingstijl in de presentatie](join-style-powerpoint.png)
 
-Dit voorbeeld maakt drie zwarte rechthoeken met blauwe contouren van 15 punten breed. Het zet [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) naar respectievelijk de miter‑, bevel‑ en round‑waarden van [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) om te vergelijken hoe de hoeken worden getekend.
+Dit voorbeeld maakt drie zwarte rechthoeken met blauwe omtrekken van 15 punten breed. Het stelt [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) in op respectievelijk de scherp‑, afgeschuind‑ en ronde waarden van [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) om te vergelijken hoe de hoeken getekend worden.
 
 ```php
 use aspose\slides\FillType;
@@ -290,13 +290,13 @@ try {
 }
 ```
 
-### **Miter‑verbindingen beperken bij scherpe hoeken**
+### **Beperk Miter‑verbindingen bij scherpe hoeken**
 
 Gebruik [LineFormat::setMiterLimit](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setMiterLimit) met [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) ingesteld op [LineJoinStyle::Miter](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) om te beperken hoe ver een scherpe hoek mag uitsteken.
 
-De limiet is een verhouding van de afstand tussen de binnen‑ en buitenhoeken van de verbinding ten opzichte van de lijndikte. Een waarde van `8` staat een miter‑lengte toe tot acht keer de lijndikte; het is geen maat in punten. Als de hoek de limiet zou overschrijden, gebruikt PowerPoint een afgevlakte verbinding op die hoek. Een grotere limiet maakt scherpere punten mogelijk. De instelling beïnvloedt alleen miter‑verbindingen en heeft geen zichtbaar effect wanneer de hoek binnen beide limieten blijft.
+De limiet is een verhouding tussen de afstand van de binnen‑ en buitenhoek van de verbinding en de lijndikte. Een waarde van `8` staat een schuine lengte toe tot acht keer de lijndikte; het is geen meting in punten. Als de hoek de limiet zou overschrijden, gebruikt PowerPoint een afgevlakte verbinding op die hoek. Een grotere limiet maakt scherpere punten mogelijk. Deze instelling beïnvloedt alleen schuine verbindingen, en wijzigen heeft geen zichtbaar effect wanneer de hoek binnen beide limieten blijft.
 
-Dit voorbeeld maakt twee identieke, niet‑ingevulde driehoeken met contouren van 20 punten breed. De linker driehoek gebruikt een limiet van `2`, de rechter een limiet van `8`. Elke driehoek is 80 punten breed en 160 punten hoog, waardoor de bovenhoek een miter‑lengte‑tot‑lijndikte‑verhouding van ongeveer `4.12` heeft. Daardoor vlakt PowerPoint de linker top af en behoudt de rechter top.
+Dit voorbeeld maakt twee identieke, niet‑ingevulde driehoeken met omtrekken van 20 punten breed. De linkse driehoek gebruikt een limiet van `2`, de rechtse `8`. Elke driehoek is 80 punten breed en 160 punten hoog, waardoor de bovenste hoek een verhouding heeft van ongeveer `4,12`. Daardoor vlakt PowerPoint de linkse top af en behoudt de rechtse top.
 
 ```php
 use aspose\slides\FillType;
@@ -334,9 +334,9 @@ Het resultaat in PowerPoint: **Miter limit 2** links en **miter limit 8** rechts
 
 ![Een afgevlakte top met miter‑limiet 2 en een puntige top met miter‑limiet 8 in PowerPoint](miter-limits.png)
 
-## **Verloop‑vulling**
+## **Verloopvulling**
 
-Een verloop‑vulling mengt kleuren over een vorm. Dit voorbeeld vult een ellips met een lineair verloop onder een hoek van 45 graden van rood naar paars met behulp van [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat). De [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) methode plaatst de kleurenstops op 0 en 1, het begin en einde van het verloop. Het wissen van de bestaande stops zorgt ervoor dat alleen deze twee kleuren worden gebruikt.
+Een verloopvulling mengt kleuren over een vorm. Dit voorbeeld vult een ellips met een lineair verloop onder een hoek van 45 graden van rood naar paars met behulp van [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat). De methode [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) plaatst de kleurstops op 0 en 1, het begin en einde van het verloop. Het wissen van de bestaande stops zorgt ervoor dat alleen deze twee kleuren worden gebruikt.
 
 ```php
 use aspose\slides\FillType;
@@ -368,13 +368,13 @@ Het resultaat:
 
 ![De ellips met verloopvulling](gradient-fill.png)
 
-Als een verloop er anders uitziet in een geëxporteerde afbeelding dan in PowerPoint, zie [Choose a Gradient Rendering Style](/slides/nl/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). U kunt een weergavestijl selecteren zonder de verloopvulling in de presentatie te wijzigen.
+Als een verloop er anders uitziet in een geëxporteerde afbeelding dan in PowerPoint, zie dan [Choose a Gradient Rendering Style](/slides/nl/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Je kunt een renderingsstijl selecteren zonder de verloopvulling in de presentatie te wijzigen.
 
-### **Hoek van lineair verloop instellen**
+### **De lineaire verloophoek instellen**
 
-Gebruik [GradientFormat::setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) om de oriëntatie van een [GradientShape::Linear](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/) vulling te regelen. De hoek wordt gemeten in graden en neemt met de klok mee toe: `0` loopt van links naar rechts, `90` van boven naar beneden, `180` van rechts naar links, en `270` van onder naar boven. Gedeeltelijke hoeken worden ondersteund. Hoeken buiten `[0, 360)` worden genormaliseerd naar één omwenteling; bijvoorbeeld `-45` wordt `315` en `360` wordt `0`.
+Gebruik [GradientFormat::setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) om de oriëntatie van een [GradientShape::Linear](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/)‑vulling te regelen. De hoek wordt gemeten in graden en neemt met de klok mee toe: `0` loopt van links naar rechts, `90` van boven naar beneden, `180` van rechts naar links, en `270` van onder naar boven. Gedeeltelijke hoeken worden ondersteund. Eindige hoeken buiten `[0, 360)` worden genormaliseerd tot één omwenteling; bijvoorbeeld, `-45` wordt `315` en `360` wordt `0`.
 
-Dit voorbeeld maakt zes rechthoeken met identieke rode, groene en blauwe stops op posities `0`, `0.5` en `1`. Schalen is uitgeschakeld zodat de hoek onafhankelijk van de verhoudingen van de rechthoeken vergeleken kan worden. De hoeken, van links naar rechts, zijn `0`, `45` en `90` in de eerste rij, en `135`, `180` en `270` in de tweede rij.
+Dit voorbeeld maakt zes rechthoeken met identieke rode, groene en blauwe stops op posities `0`, `0.5` en `1`. Schalen is uitgeschakeld zodat de hoek onafhankelijk van de verhoudingen van de rechthoeken kan worden vergeleken. De hoeken, van links naar rechts, zijn `0`, `45` en `90` in de eerste rij, en `135`, `180` en `270` in de tweede rij.
 
 ```php
 use aspose\slides\FillType;
@@ -420,11 +420,11 @@ Het resultaat in PowerPoint:
 
 ![Lineaire verlopen op 0, 45 en 90 graden in de bovenste rij, en 135, 180 en 270 graden in de onderste rij](linear-gradient-angles.png)
 
-### **Lineair verloop schalen met de vorm**
+### **Een lineair verloop schalen met de vorm**
 
-[GradientFormat::setLinearGradientScaled](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientScaled) accepteert een [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) waarde. Zet deze expliciet op `False` om de geometrische verloop‑hoek te behouden wanneer de verhoudingen van de vorm veranderen, of op `True` om het verloop te schalen met de breedte en hoogte van de vorm. Met schalen ingeschakeld kan de zichtbare hoek afwijken van de toegewezen hoek bij een niet‑vierkante vorm.
+[GradientFormat::setLinearGradientScaled](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientScaled) accepteert een [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) waarde. Stel deze expliciet in op `False` om de geometrische verloophoek te behouden wanneer de proporties van de vorm veranderen, of op `True` om het verloop te schalen met de breedte en hoogte van de vorm. Met schalen ingeschakeld kan de zichtbare hoek afwijken van de toegewezen hoek bij een niet‑vierkante vorm.
 
-Het volgende voorbeeld gebruikt een hoek van `45` graden en dezelfde kleurenstops als de hoeksvergelijking. De linkerkolom gebruikt `False`; de rechterkolom gebruikt `True`. Elke kolom bevat een brede rechthoek boven een hoge rechthoek. Beide beginnen met dezelfde brede afmetingen; het aanpassen van de breedte en hoogte van de tweede rechthoek toont hoe de vulling reageert op grootteverandering zonder de verloopinstellingen te wijzigen.
+Het volgende voorbeeld gebruikt een hoek van `45` graden en dezelfde kleurstops als de hoeksvergelijking. De linkerkolom gebruikt `False`; de rechterkolom gebruikt `True`. Elke kolom bevat een brede rechthoek boven een hoge rechthoek. Beide beginnen met dezelfde brede afmetingen; het wijzigen van de breedte en hoogte van de tweede rechthoek toont hoe de vulling reageert op het wijzigen van de grootte zonder de verloopinstellingen te veranderen.
 
 ```php
 use aspose\slides\FillType;
@@ -475,17 +475,17 @@ try {
 
 Het resultaat in PowerPoint, met schalen uitgeschakeld links en ingeschakeld rechts:
 
-![Brede en hoge rechthoeken met een 45‑graden verloop, vergelijking LinearGradientScaled False links met True rechts](linear-gradient-scaling.png)
+![Brede en hoge rechthoeken met een 45‑graden verloop, waarbij LinearGradientScaled False links en True rechts wordt vergeleken](linear-gradient-scaling.png)
 
-Met schalen uitgeschakeld behouden de diagonale kleurbanden dezelfde oriëntatie in beide rechthoeken. Met schalen ingeschakeld strekken de banden zich uit met de verhoudingen van de vorm. Dit helpt een sjabloon‑verloop te reproduceren bij het aanpassen van een vorm naar een andere grootte. Op een vierkant verandert het inschakelen van schalen de 45‑graden verloop‑uitstraling niet.
+Met schalen uitgeschakeld blijven de diagonale kleurbanden in beide rechthoeken in dezelfde oriëntatie. Met schalen ingeschakeld rekken de banden zich uit volgens de proporties van de vorm. Dit helpt een sjabloon‑verloop te reproduceren wanneer een vorm naar een andere grootte wordt aangepast. Op een vierkant verandert het uiterlijk van dit `45`‑graden verloop niet wanneer schalen wordt ingeschakeld.
 
-Zowel de hoek‑ als de schaala​instellingen gelden voor lineaire verlopen. Ze regelen geen [GradientShape::Radial of GradientShape::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/) vullingen.
+Zowel de hoek‑ als de schaalinstellingen gelden voor lineaire verlopen. Ze regelen geen [GradientShape::Radial of GradientShape::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/)‑vullingen.
 
-### **Hoek combineren met verlooprichting**
+### **De hoek combineren met verlooprichting**
 
-[GradientFormat::setGradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setGradientDirection) selecteert een verloopstijl uit de [GradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientdirection/) klasse; het is geen vervanging voor een numerieke hoek. Voor een lineair verloop kunnen de hoekstijlen het gebied wijzigen waarover de kleuren worden verdeeld zonder de hoek die via [setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) is toegewezen, te veranderen. Houd de richting ongewijzigd bij het vergelijken van hoeken of schalen.
+[GradientFormat::setGradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setGradientDirection) selecteert een verloopstijl uit de [GradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientdirection/)‑klasse; het is geen vervanging voor een numerieke hoek. Voor een lineair verloop kunnen de hoekstijlen het gebied wijzigen waarover de kleuren worden verdeeld zonder de via [setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) toegewezen hoek te wijzigen. Houd de richting ongewijzigd bij het vergelijken van hoeken of schalen.
 
-Het volgende voorbeeld past dezelfde instellingen toe in omgekeerde volgorde. De twee rechthoeken zien er identiek uit: de richting vóór of na de hoek toewijzen verandert het resultaat niet.
+Het volgende voorbeeld past dezelfde instellingen toe in omgekeerde volgorde. De twee rechthoeken hebben hetzelfde uiterlijk: de richting eerst of na de hoek toewijzen verandert het resultaat niet.
 
 ```php
 use aspose\slides\FillType;
@@ -530,7 +530,7 @@ try {
 
 ## **Patroonvulling**
 
-Een patroonvulling brengt een tweekleurig ontwerp aan, zoals stippen, strepen of geruite patronen. Dit voorbeeld gebruikt [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) om een rasterpatroon te selecteren. [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) levert de lichtgrijze achtergrond, en [PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) levert de gele patroonkleur.
+Een patroonvulling past een tweekleurig ontwerp toe, zoals stippen, strepen of ruiten. Dit voorbeeld gebruikt [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) om een rasterpatroon te selecteren. [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) levert de lichtgrijze achtergrond, en [PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) levert de gele patroonkleur.
 
 ```php
 use aspose\slides\FillType;
@@ -561,7 +561,7 @@ Het resultaat:
 
 ## **Afbeeldingsvulling**
 
-Een afbeeldingvulling gebruikt een afbeelding binnen een vorm. Dit voorbeeld vereist een lokale afbeelding en gebruikt [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) om deze in de afbeeldingscollectie van de presentatie te laden. Het instellen van [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) op de tegelmodus herhaalt de afbeelding binnen de rechthoek. De gebruikte bronafbeelding staat hieronder:
+Een afbeeldingsvulling gebruikt een afbeelding binnen een vorm. Dit voorbeeld vereist een lokale afbeelding en gebruikt [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) om deze te laden in de afbeeldingsverzameling van de presentatie. Het instellen van [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) op de tegelmodus herhaalt de afbeelding binnen de rechthoek. De gebruikte bronafbeelding staat hieronder weergegeven:
 
 ![De lotusafbeelding](lotus.png)
 
@@ -597,21 +597,21 @@ try {
 
 Het resultaat:
 
-![De vorm met afbeeldingvulling](picture-fill.png)
+![De vorm met afbeeldingsvulling](picture-fill.png)
 
-### **Afbeelding tegel als textuur**
+### **Afbeelding tegelen als textuur**
 
-Als u een getegelde afbeelding als textuur wilt instellen en het tegelgedrag wilt aanpassen, kunt u de volgende methoden van de [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) klasse gebruiken:
+Wil je een getegelde afbeelding als textuur instellen en het tegelgedrag aanpassen, dan kun je de volgende methoden van de [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/)‑klasse gebruiken:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Stelt de beeldvullingsmodus in — of `Tile` of `Stretch`.
+- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Stelt de afbeeldingsvullingsmodus in — of `Tile` of `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): Specificeert de uitlijning van de tegels binnen de vorm.
-- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): Bepaalt of de tegel horizontaal, verticaal of beide keren wordt gedraaid.
-- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Stelt de horizontale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm in.
-- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Stelt de verticale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm in.
-- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): Definieert de horizontale schaal van de tegel als percentage.
-- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): Definieert de verticale schaal van de tegel als percentage.
+- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): Beheert of de tegel horizontaal, verticaal of beide keren wordt gedraaid.
+- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Stelt de horizontale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm.
+- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Stelt de verticale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm.
+- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): Definieert de horizontale schaal van de tegel als een percentage.
+- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): Definieert de verticale schaal van de tegel als een percentage.
 
-Dit voorbeeld vereist een lokale afbeelding en configureert [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) om deze te herhalen op 50 % van de originele grootte. Offsets van −32 punten verplaatsen de tegels horizontaal en verticaal; uitlijning rechtsonder en draaien in beide richtingen bepalen hoe de herhaalde textuur wordt gerangschikt.
+Dit voorbeeld vereist een lokale afbeelding en configureert [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) om deze op 50 % van de oorspronkelijke grootte te herhalen. Offsets van −32 punten verplaatsen de tegels horizontaal en verticaal; uitlijning rechtsonder en draaien in beide richtingen bepalen hoe de herhaalde textuur wordt gerangschikt.
 
 ```php
 use aspose\slides\FillType;
@@ -659,7 +659,7 @@ Het resultaat:
 
 ## **Effen kleurvulling**
 
-Een effen vulling geeft een vorm één enkele, uniforme kleur. Dit voorbeeld zet [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) op de effen vullingsmodus en kent geel toe via [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor), waarna de rechthoek in een presentatie wordt opgeslagen.
+Een effen vulling geeft een vorm een enkele, uniforme kleur. Dit voorbeeld stelt [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) in op de effen vullingsmodus en kent geel toe via [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor), vervolgens wordt de rechthoek opgeslagen in een presentatie.
 
 ```php
 use aspose\slides\FillType;
@@ -685,13 +685,90 @@ Het resultaat:
 
 ![De vorm met effen kleurvulling](solid-color-fill.png)
 
-## **Achtergrond van de dia gebruiken als vormvulling**
+### **Kleuren kopiëren met behoud van themareferenties**
 
-Gebruik [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill) wanneer een vorm moet overeenkomen met de dia‑achtergrond, bijvoorbeeld in een sjabloon. Stel eerst [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) in op [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) om eventuele expliciete vulling te verwijderen. Met deze combinatie gebruikt de vorm de dia‑achtergrond in plaats van zijn stijl‑vulling. Het alleen inschakelen van de vlag verwijdert geen bestaande expliciete vulling.
+Gebruik [ColorFormat::copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#copyFrom) om een kleurdefinitie te kopiëren, inclusief het kleurtype, de themareferentie en transformaties. Dit is nuttig bij het overdragen van een vulkleur tussen vormen die het presentatie‑thema moeten blijven volgen. De methode kopieert alleen de kleur: ze kopieert niet het vultype, de omtrek of andere vormopmaak. Stel het vultype van de bestemming expliciet in met [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType).
 
-Dit verschilt van [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/): een achtergrondvulling dekt objecten achter de vorm met het overeenkomstige gebied van de dia‑achtergrond, terwijl geen vulling die objecten zichtbaar laat. Een verloop blijft uitgelijnd met de dia in plaats van binnen elke vorm opnieuw te beginnen.
+Dit voorbeeld maakt drie rechthoeken, van links naar rechts: de bron, een themabewuste kopie en een vaste RGB‑kopie. De bron gebruikt [ColorFormat::setSchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setSchemeColor) om te verwijzen naar de eerste accentkleur en voegt een tint toe via [ColorOperationCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/coloroperationcollection/#add). De RGB‑kopie gebruikt de effectieve vulkleur van de bron zodat alle drie aanvankelijk identiek lijken. Het aanroepen van [ColorFormat::setColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setColor) stelt een vaste RGB‑waarde in en wist eventuele bestaande kleuropties.
 
-Het volgende voorbeeld maakt een master‑achtergrond die door de dia wordt geërfd en plaatst een magenta band achter drie rechthoeken. De linkse rechthoek gebruikt de achtergrond, de middelste rechthoek heeft geen vulling, en de rechtrechthoek schakelt van achtergrond‑vulling naar een expliciete oranje vulling.
+```php
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FillType;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SchemeColor;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(660, 220, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $initialAccent = new Java("java.awt.Color", 65, 105, 225);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent1()->setColor($initialAccent);
+
+    $source = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+    $themeCopy = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+    $rgbCopy = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+    foreach ([$source, $themeCopy, $rgbCopy] as $shape) {
+        $shape->getFillFormat()->setFillType(FillType::Solid);
+        $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+    }
+
+    $sourceColor = $source->getFillFormat()->getSolidFillColor();
+    $sourceColor->setSchemeColor(SchemeColor::Accent1);
+    $sourceColor->getColorTransform()->add(ColorTransformOperation::Tint, 0.75);
+
+    $themeCopy->getFillFormat()->getSolidFillColor()->copyFrom($sourceColor);
+    $rgbCopy->getFillFormat()->getSolidFillColor()->setColor($source->getFillFormat()->getEffective()->getSolidFillColor());
+
+    $before = $slide->getImage(1.0, 1.0);
+    try {
+        $before->save("color-copy-before.png", ImageFormat::Png);
+    } finally {
+        $before->dispose();
+    }
+
+    // Thema-referenties volgen de nieuwe accentkleur; de vaste RGB-waarde niet.
+    $updatedAccent = new Java("java.awt.Color", 255, 69, 0);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent1()->setColor($updatedAccent);
+
+    $after = $slide->getImage(1.0, 1.0);
+    try {
+        $after->save("color-copy-after.png", ImageFormat::Png);
+    } finally {
+        $after->dispose();
+    }
+    $presentation->save("copied_colors.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Voor de thema‑wijziging komen alle drie de vullingen overeen:
+
+![Bron, copyFrom‑doel en vaste RGB‑doel met identieke blauwe vullingen](color-copy-before.png)
+
+Na de thema‑wijziging volgen de bron en de themabewuste kopie de nieuwe accentkleur en behouden hun tint. De vaste RGB‑kopie blijft blauw:
+
+![Bron en copyFrom‑doel met oranje vullingen, terwijl de vaste RGB‑doel blauw blijft](color-copy-after.png)
+
+De gekopieerde definitie is onafhankelijk van de bron. Het later wijzigen van de themareferentie van de bron, een andere kleur toewijzen, of transformaties toevoegen of verwijderen, verandert de bestemming niet. Een thema‑wijziging beïnvloedt beide vormen nog steeds omdat elke vorm onafhankelijk naar dezelfde themakleur verwijst.
+
+Opslaan en opnieuw openen van de PPTX behoudt het gekopieerde kleurt type dat wordt geretourneerd door [ColorFormat::getColorType](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#getColorType), de themareferentie en de transformatiecollectie die wordt geretourneerd door [ColorFormat::getColorTransform](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#getColorTransform); het wordt niet omgezet naar RGB.
+
+Bij het kopiëren tussen verschillende themacontexten, zoals presentaties met verschillende accentpaletten, wordt de gekopieerde referentie opgelost ten opzichte van het thema van de bestemming. Dezelfde referentie en transformaties kunnen daardoor een andere zichtbare kleur produceren. Zie [Presentation Theme](/slides/nl/php-java/presentation-theme/) voor meer informatie over het configureren van themakleuren.
+
+## **Gebruik de dia‑achtergrond als vormvulling**
+
+Gebruik [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill) wanneer een vorm overeen moet komen met de dia‑achtergrond, bijvoorbeeld in een presentatiesjabloon. Stel het vultype in met [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) eerst in op [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) om eventuele expliciete vulling te verwijderen. Met deze combinatie gebruikt de vorm de dia‑achtergrond in plaats van de stijlvulling. Alleen het inschakelen van de vlag verwijdert geen bestaande expliciete vulling.
+
+Dit verschilt van [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/): een achtergrondvulling dekt objecten achter de vorm met het overeenkomstige gebied van de dia‑achtergrond, terwijl geen vulling die objecten zichtbaar laat. Een verloop blijft uitgelijnd met de dia in plaats van opnieuw te beginnen binnen elke vorm.
+
+Het volgende voorbeeld maakt een master‑achtergrond die door de dia wordt geërfd en plaatst een magenta‑band achter drie rechthoeken. De linkse rechthoek gebruikt de achtergrond, de middelste heeft geen vulling, en de rechtse schakelt van achtergrondvulling naar een expliciete oranje vulling.
 
 ```php
 use aspose\slides\BackgroundType;
@@ -707,7 +784,7 @@ try {
     $presentation->getSlideSize()->setSize(720, 400, SlideSizeScaleType::DoNotScale);
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Erf de gradient van de master.
+    // Erf het verloop van de master.
     $slide->getBackground()->setType(BackgroundType::NotDefined);
     $slide->getLayoutSlide()->getBackground()->setType(BackgroundType::NotDefined);
     $background = $slide->getLayoutSlide()->getMasterSlide()->getBackground();
@@ -751,15 +828,15 @@ try {
 }
 ```
 
-Het resultaat, van links naar rechts: **background fill**, **no fill**, en **explicit fill**. De magenta band wordt verborgen door de linker‑ en rechterrechthoeken maar blijft zichtbaar via de middelste rechthoek.
+Het resultaat, van links naar rechts: **background fill**, **no fill**, en **explicit fill**. De magenta‑band wordt verborgen door de linkse en rechtse rechthoeken maar blijft zichtbaar door de middelste rechthoek.
 
-![Achtergrondvulling, geen vulling en expliciete oranje vulling over een magenta band](background-fill.png)
+![Achtergrondvulling, geen vulling, en expliciete oranje vulling over een magenta‑band](background-fill.png)
 
-Hetzelfde gedrag geldt voor een achtergrond die direct op de dia wordt gedefinieerd of van een lay‑dia wordt geërfd. De vorm gebruikt de uiteindelijk bepaalde dia‑achtergrond; het voorbeeld laat zowel de dia‑ als de lay‑achtergronden ongedefinieerd zodat de master deze levert.
+Hetzelfde gedrag geldt voor een achtergrond die rechtstreeks op de dia is gedefinieerd of geërfd van een lay‑out. De vorm gebruikt de door de dia opgehelderde achtergrond; het voorbeeld laat zowel de dia‑ als de lay‑out‑achtergronden ongedefinieerd zodat de master deze levert.
 
 ## **Transparantie instellen**
 
-Voor een effen vulling controleert de alfa‑component van de kleur de dekking: 0 is volledig transparant en 255 volledig ondoorzichtig. Dit voorbeeld gebruikt een alfa‑waarde van 128 voor een gele rechthoek, waardoor deze ongeveer 50 % transparant is zodat de onderliggende rechthoek zichtbaar blijft. De kleur wordt toegewezen via [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor).
+Voor een effen vulling bepaalt de alfa‑component van de kleur de opaciteit: 0 is volledig transparant en 255 volledig ondoorzichtig. Dit voorbeeld gebruikt een alfa‑waarde van 128 voor een gele rechthoek, waardoor deze ongeveer 50 % transparant is zodat de onderliggende rechthoek zichtbaar blijft. De kleur wordt toegewezen via [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```php
 use aspose\slides\FillType;
@@ -790,7 +867,7 @@ Het resultaat:
 
 ## **Vormen roteren**
 
-Gebruik [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) om een vorm in het dia‑vlak te roteren. De hoek wordt gemeten in graden; dit voorbeeld draait een rechthoek 5 graden met de klok mee en slaat de presentatie op.
+Gebruik [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) om een vorm in het dia‑vlak te roteren. De hoek wordt gemeten in graden; dit voorbeeld roteert een rechthoek 5 graden met de klok mee en slaat de presentatie op.
 
 ```php
 use aspose\slides\Presentation;
@@ -812,11 +889,11 @@ try {
 
 Het resultaat:
 
-![De vormrotatie](shape-rotation.png)
+![De rotatie van de vorm](shape-rotation.png)
 
-## **3D‑bisel‑effecten toevoegen**
+## **3D‑schuineffecten toevoegen**
 
-Gebruik [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) om een vorm diepte en gefaseerde randen te geven. Dit voorbeeld creëert een groene ellips met een oranje contour, zet [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) op 4 punten, en past een cirkelvormig boven‑bisel toe met een breedte en hoogte van 6 punten via [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop). Een front‑facing orthografische camera en drie‑punt verlichting maken het bisel zichtbaar.
+Gebruik [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) om een vorm diepte en schuine randen te geven. Dit voorbeeld maakt een groene ellips met een oranje omtrek, stelt [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) in op 4 punten, en past een ronde bovenste schuine rand toe met een breedte en hoogte van 6 punten via [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop). Een front‑facing orthografische camera en drie‑punt verlichting maken de schuine rand zichtbaar.
 
 ```php
 use aspose\slides\BevelPresetType;
@@ -856,11 +933,11 @@ try {
 
 Het resultaat:
 
-![Het 3D‑bisel‑effect](3D-bevel-effect.png)
+![Het 3D‑schuineffect](3D-bevel-effect.png)
 
 ## **3D‑rotatie‑effecten toevoegen**
 
-Een vorm‑3D‑weergave wordt bestuurd door de camera‑instellingen. Dit voorbeeld gebruikt [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) met breedte‑graad, lengte‑graad en revolutie‑hoeken van respectievelijk 40, 35 en 20 graden. Het selecteert een isometrische camera via [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) en een evenwichtige verlichting via [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType), waarna de opgemaakte rechthoek wordt opgeslagen.
+Het 3D‑beeld van een vorm wordt geregeld door de camera‑instellingen. Dit voorbeeld gebruikt [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) met breedte‑graad, lengte‑graad en revolutiegraad van respectievelijk 40, 35 en 20 graden. Het selecteert een isometrische camera via [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) en evenwichtige verlichting via [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType), waarna de geformatteerde rechthoek wordt opgeslagen.
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -889,13 +966,13 @@ Het resultaat:
 
 ![Het 3D‑rotatie‑effect](3D-rotation-effect.png)
 
-## **Zwart-wit weergave voor vormen beheren**
+## **Zwart‑wit weergave voor vormen beheersen**
 
-De methode [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) bepaalt hoe een individuele vorm wordt weergegeven wanneer een presentatie wordt bekeken of verwerkt in zwart‑wit‑modus. Het schakelt niet zelf zwart‑wit‑weergave in en wijzigt de vulling, lijn of andere opmaak van de vorm niet in de normale kleuren‑modus.
+De [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode)‑methode specificeert hoe een individuele vorm wordt weergegeven wanneer een presentatie in zwart‑wit‑modus wordt bekeken of verwerkt. De methode activeert de zwart‑wit‑weergave niet zelf en wijzigt de vulling, lijn of andere opmaak van de vorm niet in de normale kleurenmodus.
 
-Gebruik een waarde uit de [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) klasse om het gewenste gedrag te selecteren. Bijvoorbeeld, `Automatic` laat de weergave‑applicatie de conversie kiezen, `Gray` en `LightGray` gebruiken grijze kleuring, `BlackWhite` gebruikt alleen zwart en wit, `Black` en `White` dwingen één kleur, `Color` behoudt normale kleuring, en `Hidden` laat de vorm weg in zwart‑wit‑modus. `NotDefined` betekent dat er geen vorm‑specifieke modus is toegewezen.
+Gebruik een waarde uit de [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/)‑klasse om het gewenste gedrag te selecteren. Bijvoorbeeld, `Automatic` laat de renderingsapplicatie de conversie kiezen, `Gray` en `LightGray` gebruiken grijze kleuren, `BlackWhite` gebruikt alleen zwart en wit, `Black` en `White` forceren een enkele kleur, `Color` behoudt de normale kleuring, en `Hidden` laat de vorm weg in zwart‑wit‑modus. `NotDefined` betekent dat er geen vorm‑specifieke modus is toegewezen.
 
-Dit voorbeeld maakt een oranje rechthoek en zet [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) op grijs. De opgeslagen vorm behoudt zijn oranje vulling voor normale kleurweergave en vraagt grijze kleuring aan toepassingen die zwart‑wit‑weergave respecteren:
+Dit voorbeeld maakt een oranje rechthoek en stelt [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) in op grijs. De opgeslagen vorm behoudt zijn oranje vulling voor normale weergave en vraagt grijze kleuring aan applicaties die zwart‑wit‑instellingen respecteren:
 
 ```php
 use aspose\slides\BlackWhiteMode;
@@ -920,11 +997,11 @@ try {
 }
 ```
 
-In de normale kleuren‑modus behoudt de rechthoek zijn oranje vulling. In een zwart‑wit‑workflow gebruikt hij grijze kleuring omdat de modus is ingesteld op `Gray`. Hiermee kunt u een volledig‑kleur dia behouden en toch een andere weergave definiëren voor afdrukken, voorbeeldweergave of andere workflows die de zwart‑wit‑weergaveinstellingen van de presentatie respecteren.
+In de normale kleurenmodus behoudt de rechthoek zijn oranje vulling. In een zwart‑wit‑workflow gebruikt hij grijze kleuring omdat de modus is ingesteld op `Gray`. Hiermee kun je een volledig‑kleur dia behouden terwijl je een aparte weergave definieert voor afdrukken, preview of andere workflows die de zwart‑wit‑instellingen van de presentatie respecteren.
 
 ## **Opmaak resetten**
 
-Gebruik [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset) om de positie, grootte en opmaak van dia‑plaatsvervangers te herstellen vanuit de bijbehorende lay‑plaatsvervangers. Dit voorbeeld vereist een bestaande presentatie met lay‑gekoppelde plaatsvervangers en reset elke dia voordat deze wordt opgeslagen. Vormen zonder bijbehorende lay‑plaatsvervangers worden niet gereset.
+Gebruik [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset) om de positie, grootte en opmaak van dia‑plaatsaanduidingen te herstellen vanuit de bijbehorende lay‑out‑plaatsaanduidingen. Dit voorbeeld vereist een bestaande presentatie met lay‑out‑gekoppelde plaatsaanduidingen en reset elke dia vóór het opslaan. Vormen zonder overeenkomstige lay‑out‑plaatsaanduidingen worden niet gereset.
 
 ```php
 use aspose\slides\Presentation;
@@ -947,12 +1024,12 @@ try {
 
 **Heeft vormopmaak invloed op de uiteindelijke bestandsgrootte van de presentatie?**
 
-Kleuren, lijnstijlen en effectinstellingen voegen over het algemeen weinig data toe vergeleken met ingesloten afbeeldingen en media. Afbeeldingsvullingen kunnen de bestandsgrootte vergroten omdat hun afbeeldingen in de presentatie worden opgeslagen.
+Kleuren, lijnstijlen en effectinstellingen voegen over het algemeen weinig data toe in vergelijking met ingesloten afbeeldingen en media. Afbeeldingsvullingen kunnen de bestandsgrootte verhogen omdat hun afbeeldingen in de presentatie worden opgeslagen.
 
-**Hoe kan ik vormen op een dia detecteren die identieke opmaak delen zodat ik ze kan groeperen?**
+**Hoe kan ik vormen op een dia detecteren die identieke opmaak delen, zodat ik ze kan groeperen?**
 
-Vergelijk de belangrijkste opmaak‑eigenschappen van elke vorm — vulling, lijn en effectinstellingen. Als alle overeenkomstige waarden overeenkomen, beschouw dan hun stijlen als identiek en groepeer die vormen logisch, wat later stijlenbeheer vereenvoudigt.
+Vergelijk de belangrijkste opmaak‑eigenschappen van elke vorm — vul, lijn en effectinstellingen. Als alle overeenkomstige waarden gelijk zijn, behandel dan hun stijlen als identiek en groepeer de vormen logisch, wat later stijlbeheer vereenvoudigt.
 
-**Kan ik een set aangepaste vormstijlen opslaan in een apart bestand voor hergebruik in andere presentaties?**
+**Kan ik een set aangepaste vormstijlen opslaan in een apart bestand om te hergebruiken in andere presentaties?**
 
-Ja. Sla voorbeeldvormen met de gewenste stijlen op in een sjabloon‑diapresentatie of een .POTX‑sjabloonbestand. Bij het maken van een nieuwe presentatie opent u het sjabloon, kloont u de benodigde gestileerde vormen, en past u hun opmaak toe waar nodig.
+Ja. Sla voorbeeldvormen met de gewenste stijlen op in een sjabloon‑presentatie of een .POTX‑sjabloonbestand. Bij het maken van een nieuwe presentatie open je de sjabloon, kloont de benodigde gestylede vormen, en pas je hun opmaak toe waar nodig.

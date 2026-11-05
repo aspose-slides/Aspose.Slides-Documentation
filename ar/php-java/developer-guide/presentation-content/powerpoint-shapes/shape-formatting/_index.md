@@ -1,6 +1,6 @@
 ---
 title: تنسيق أشكال PowerPoint في PHP
-linktitle: تنسيق الشكل
+linktitle: تنسيق الأشكال
 type: docs
 weight: 20
 url: /ar/php-java/shape-formatting/
@@ -8,37 +8,37 @@ keywords:
 - تنسيق الشكل
 - تنسيق الخط
 - تأثير الرسم التخطيطي
-- خط الشكل التخطيطي
+- خط الشكل بالرسم التخطيطي
 - تنسيق نمط الوصل
-- تعبئة تدرج لوني
+- تعبئة بالتدرج
 - تعبئة بنمط
-- تعبئة بصورة
-- تعبئة قوام
-- تعبئة لون صلب
+- تعبئة بالصورة
+- تعبئة بالقوام
+- تعبئة بلون صلب
 - شفافية الشكل
 - عرض الشكل بالأبيض والأسود
 - عرض الشكل بدرجات الرمادي
 - تدوير الشكل
-- تأثير تقويس ثلاثي الأبعاد
-- تأثير دوران ثلاثي الأبعاد
-- إعادة ضبط التنسيق
+- تأثير الحافة ثلاثية الأبعاد
+- تأثير الدوران ثلاثي الأبعاد
+- إعادة تعيين التنسيق
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعرف على كيفية تنسيق أشكال PowerPoint في PHP باستخدام Aspose.Slides—قم بتعيين أنماط التعبئة والخط والمؤثرات لملفات PPT و PPTX بدقة وتحكم كامل."
+description: "تعلم كيفية تنسيق أشكال PowerPoint في PHP باستخدام Aspose.Slides—حدد أنماط التعبئة، الخط، والتأثير لملفات PPT و PPTX بدقة وتحكم كامل."
 ---
-## **مقدمة**
+## **المقدمة**
 
-قم بتنسيق الأشكال في PowerPoint عن طريق تعديل حدودها، وتعبئتها، وتأثيراتها. يتيح Aspose.Slides for PHP عبر Java التحكم في هذه الإعدادات برمجيًا، بما في ذلك الشفافية، والدوران، وتنسيق ثلاثي الأبعاد.
+تنسيق الأشكال في PowerPoint عن طريق تعديل حدودها وتعبئتها وتأثيراتها. Aspose.Slides for PHP عبر Java يتيح لك التحكم في هذه الإعدادات برمجياً، بما في ذلك الشفافية، والدوران، وتنسيق ثلاثي الأبعاد.
 
-![خيارات تنسيق الأشكال في PowerPoint](format-shape-powerpoint.png)
+![خيارات تنسيق الشكل في PowerPoint](format-shape-powerpoint.png)
 
-يوفر Aspose.Slides for PHP عبر Java الفئات والطرق التي تسمح لك بتنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
+Aspose.Slides for PHP عبر Java يوفر الفئات والطرق التي تتيح لك تنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
 
 ## **تنسيق الخطوط**
 
-استخدم [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) للتحكم في حدود الشكل. تنشئ هذه المثال مستطيلًا غير مملوء بحد أزرق متقطع. يختار [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) خطًا مركبًا سميكًا-رفيعًا، بينما يحدد [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) عرضه إلى 7 نقاط و[LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) النمط المتقطع.
+استخدم [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) للتحكم في حدود الشكل. هذا المثال ينشئ مستطيلًا غير مملوء بحد أزرق متقطع. [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) يختار خطًا مركبًا سميك-رفيع، بينما [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) يحدد عرضه إلى 7 نقاط و[LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) يختار نمط الشرط.
 
 ```php
 use aspose\slides\FillType;
@@ -67,16 +67,15 @@ try {
 ```
 
 النتيجة:
-
 ![الخطوط المنسقة في العرض التقديمي](formatted-lines.png)
 
-### **تعيين أنماط متقطعة مخصصة للخط**
+### **تعيين أنماط الشرط المخصصة للخط**
 
-استخدم [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern) عندما لا توفر الأنماط المسبقة للخطوط أطوال الفواصل والفواصل التي تحتاجها، على سبيل المثال لحدود ذات علامة تجارية أو مخططات تقنية. يؤدي تعيين نمط إلى تغيير نمط المتقطع تلقائيًا إلى [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/).
+استخدم [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern) عندما لا توفر الأنماط المسبقة للخطوط الطول والفجوات التي تحتاجها، على سبيل المثال للحدود ذات العلامة التجارية أو المخططات التقنية. تعيين نمط يغيّر تلقائيًا نمط الشرط إلى [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/).
 
-تتناوب إدخالات المصفوفة بين أطوال الفواصل والفواصل، بدءًا بفاصل. كل قيمة هي مضاعف لعرض الخط: ينتج `[4, 2]` بعرض 3 نقاط فاصلًا بطول 12 نقطة يليه فجوة بطول 6 نقاط. استخدم أزواجًا من القيم النهائية غير السالبة لتعريف مقاطع فاصل-فجوة مكتملة. يستخدم المثال قيمًا موجبة لإبقاء كل فاصل وفجوة مرئية.
+تتبادل قيم المصفوفة بين طول الشرط والفجوة، بدءًا بشرط. كل قيمة هي مضاعف لعرض الخط: `[4, 2]` عند عرض 3 نقاط ينتج شرطًا بطول 12 نقطة ثم فجوة بطول 6 نقاط. استخدم أزواجًا من القيم المحدودة وغير السالبة لتحديد أقسام الشرط والفجوة الكاملة. المثال يستخدم قيمًا موجبة للحفاظ على ظهور كل شرط وفجوة.
 
-ينشئ هذا المثال خمسة خطوط زرقاء بنفس الطول وقمصان مسطحة. المقارنة بين الأنماط في الثلاثة الأولى تتم بعرض 3 نقاط. يكرر الرابع النمط الأول بضعف العرض، مما يضاعف كل من أطوال الفواصل والفجوات. يتحول الخامس من نمط مخصص إلى خط صلب.
+هذا المثال ينشئ خمسة خطوط زرقاء بنفس الطول والحدود المسطحة. الثلاثة الأولى تقارن الأنماط عند عرض 3 نقاط. الرابع يكرر النمط الأول بعرض مضاعف، مما يضاعف أطوال الشرط والفجوة. الخامس يتحول من نمط مخصص إلى خط صلب.
 
 ```php
 use aspose\slides\FillType;
@@ -122,25 +121,25 @@ try {
 }
 ```
 
-للعودة إلى نمط متقطع مسبقًا بدلاً من ذلك، مرّر [LineDashStyle::Dash](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) إلى [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle). يتحكم النمط المحدد في مظهر الخط.
+للعودة إلى نمط متقطع مسبقًا بدلاً من ذلك، مرر [LineDashStyle::Dash](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) إلى [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle). النمط المحدد يتحكم في مظهر الخط.
 
-النتيجة في PowerPoint من الأعلى إلى الأسفل: **{4, 2}, 3 pt**؛ **{1, 2}, 3 pt**؛ **{6, 2, 1, 2}, 3 pt**؛ **{4, 2}, 6 pt**؛ و**Solid, 3 pt**.
+النتيجة في PowerPoint، من أعلى إلى أسفل: **{4, 2}, 3 pt**؛ **{1, 2}, 3 pt**؛ **{6, 2, 1, 2}, 3 pt**؛ **{4, 2}, 6 pt**؛ و **Solid, 3 pt**.
 
-![ثلاثة أنماط متقطعة مخصصة، خط أوسع باستخدام النمط الأول، وخط صلب في PowerPoint](custom-dash-patterns.png)
+![ثلاثة أنماط شرط مخصصة، خط أعرض يستخدم النمط الأول، وخط صلب في PowerPoint](custom-dash-patterns.png)
 
-### **تعيين أنماط قمة الخط**
+### **تعيين نهايات الخط**
 
-استخدم [LineFormat::setCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCapStyle) لتحديد نهايات الخط المفتوح. توفر الفئة [LineCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linecapstyle/) ثلاثة أنماط قمة صريحة:
+استخدم [LineFormat::setCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCapStyle) لتعيين نهايات الخط المفتوح. توفر فئة [LineCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linecapstyle/) ثلاث أنماط نهائية صريحة:
 
-- `Flat`: يتوقف الرسم عند نقطة النهاية.
-- `Round`: قمة نصف دائرية تمتد إلى ما بعد نقطة النهاية بنصف عرض الخط.
-- `Square`: قمة مربعة تمتد إلى ما بعد نقطة النهاية بنصف عرض الخط.
+- `Flat`: يتوقف الخط عند نقطة النهاية.
+- `Round`: يمتد طرف نصف دائري إلى ما بعد نقطة النهاية بمقدار نصف عرض الخط.
+- `Square`: يمتد طرف مربع إلى ما بعد نقطة النهاية بمقدار نصف عرض الخط.
 
-تتضمن الفئة أيضًا `NotDefined`، والذي يعني عدم تعيين نمط قمة صريح.
+تتضمن الفئة أيضًا `NotDefined`، مما يعني أنه لم يتم تعيين نمط نهائي صراحة.
 
-القمم تختلف عن رؤوس السهام، التي تضيف رموزًا إلى نهايات الخط، وعن الوصلات التي تتحكم في الزوايا بين مقاطع الخط. يزيل هذا المثال رؤوس السهام عبر [LineFormat::setBeginArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setBeginArrowheadStyle) و[LineFormat::setEndArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setEndArrowheadStyle) بحيث تتم مقارنة أشكال القمة فقط.
+النهايات مختلفة عن رؤوس السهام التي تضيف رموزًا إلى نهايات الخط، وعن الوصلات التي تتحكم في الزوايا بين قطاعات الخط. هذا المثال يعطل رؤوس السهام عبر [LineFormat::setBeginArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setBeginArrowheadStyle) و[LineFormat::setEndArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setEndArrowheadStyle) بحيث تتم مقارنة أشكال النهايات فقط.
 
-ينشئ المثال التالي ثلاثة خطوط أفقية متطابقة أخرى، عرضها 20 نقطة. من الأعلى إلى الأسفل، تستخدم قمم مسطحة، مستديرة، ومربعة. تتساوى إحداثيات نقاط النهاية أفقياً؛ القمم المستديرة والمربعة تمتد 10 نقاط إلى ما بعد كل نقطة نهاية.
+المثال التالي ينشئ ثلاثة خطوط أفقية متطابقة أخرى، بعرض 20 نقطة. من أعلى إلى أسفل، يستخدمون نهايات مسطحة، مستديرة، ومربعة. نقاط النهاية لها نفس الإحداثيات الأفقية؛ النهايات المستديرة والمربعة تمتد 10 نقاط خارج كل نقطة نهاية.
 
 ```php
 use aspose\slides\FillType;
@@ -177,15 +176,15 @@ try {
 }
 ```
 
-النتيجة في PowerPoint من الأعلى إلى الأسفل: **Flat**، **Round**، و**Square**.
+النتيجة في PowerPoint، من أعلى إلى أسفل: **Flat**، **Round**، و**Square**.
 
-![قُمم مسطحة، مستديرة، ومربعة على خطوط سميكة متطابقة في PowerPoint](line-caps.png)
+![نهايات مسطحة، مستديرة، ومربعة على خطوط سميكة متطابقة في PowerPoint](line-caps.png)
 
 ## **تطبيق تأثيرات الرسم التخطيطي على خطوط الشكل**
 
-يُضفي تأثير الرسم التخطيطي مظهرًا يدويًا على خط الشكل. استخدم [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) للوصول إلى إعدادات الخط، و[LineFormat::getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getSketchFormat) للوصول إلى إعدادات الرسم التخطيطي، و[SketchFormat::setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#setSketchType) لتحديد قيمة من فئة [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/).
+يُعيد تأثير الرسم التخطيطي مظهر خط الشكل كأنه مرسوم يدويًا. استخدم [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) للوصول إلى إعدادات الخط، [LineFormat::getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getSketchFormat) للوصول إلى إعدادات الرسم التخطيطي، و[SketchFormat::setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#setSketchType) لاختيار قيمة من فئة [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/).
 
-يعرض الكود PHP التالي كيفية تطبيق تأثير [LineSketchType::Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) وقراءة القيمة المعينة صراحةً، وإزالة التأثير باستخدام [LineSketchType::None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
+يظهر الكود PHP التالي كيفية تطبيق تأثير [LineSketchType::Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/)، قراءة القيمة المعينة صراحةً، وإزالة التأثير باستخدام [LineSketchType::None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
 
 ```php
 use aspose\slides\LineSketchType;
@@ -208,7 +207,7 @@ try {
 }
 ```
 
-القيمة التي تُرجعها [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType) تمثل الإعداد المعين مباشرةً للشكل. إذا كان يمكن وراثة تنسيق الخط من سمة أو شريحة رئيسية أو شريحة تخطيط، استخدم [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective)، وادخل إلى طريقة `getSketchFormat` للكائن المرتجع، واقرأ قيمتها `getSketchType`. تمثل القيمة الفعلية التنسيق المطبق فعليًا بعد حل الوراثة. يتطلب هذا المثال عرضًا تقديميًا موجودًا يحتوي على شكل واحد على الأقل في شريحته الأولى ويطبع القيمتين:
+القيمة التي تُرجعها [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType) تمثل الإعداد المعين مباشرةً إلى الشكل. إذا كان يمكن وراثة تنسيق الخط من سمة أو شريحة رئيسية أو شريحة تخطيط، استخدم [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective)، وصل إلى طريقة `getSketchFormat` للعنصر المرتجع، واقرأ قيمة `getSketchType` الخاصة بها. القيمة الفعلية تعكس التنسيق المطبق فعليًا بعد حل الوراثة. هذا المثال يتطلب عرضًا تقديميًا موجودًا يحتوي على شكل واحد على الأقل في شريحته الأولى ويطبع القيمتين:
 
 ```php
 use aspose\slides\Presentation;
@@ -231,17 +230,16 @@ try {
 
 ## **تنسيق أنماط الوصل**
 
-فيما يلي خيارات ثلاثة لأنواع الوصل:
-
+إليك ثلاثة خيارات لأنواع الوصل:
 * Round
 * Miter
 * Bevel
 
-يُتحكم نمط الوصل في كيفية اجتماع مقطعي الحد عند زاوية. استخدم **Round** للزوايا المستديرة، **Miter** للزوايا الحادة، أو **Bevel** للزوايا المسطحة.
+تتحكم نمط الوصل في كيفية اجتماع قطعتين من الحد عند الزاوية. استخدم **Round** للزوايا المستديرة، **Miter** للزوايا الحادة، أو **Bevel** للزوايا المسطحة.
 
 ![نمط الوصل في العرض التقديمي](join-style-powerpoint.png)
 
-ينشئ هذا المثال ثلاثة مستطيلات سوداء بحدود زرقاء عرضها 15 نقطة. يضبط [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) إلى قيم الميتير، البيفيل، والرند للـ [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) على التوالي، لمقارنة كيفية رسم الزوايا.
+هذا المثال ينشئ ثلاثة مستطيلات سوداء بحدود زرقاء بعرض 15 نقطة. يضبط [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) على قيم miter و bevel و round من فئة [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) على التوالي، لمقارنة كيفية رسم الزوايا.
 
 ```php
 use aspose\slides\FillType;
@@ -290,13 +288,13 @@ try {
 }
 ```
 
-### **تحديد حدود الميتير عند الزوايا الحادة**
+### **تحديد وصلات Miter عند الزوايا الحادة**
 
-استخدم [LineFormat::setMiterLimit](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setMiterLimit) مع [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) مضبوطًا على [LineJoinStyle::Miter](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) لتحديد أقصى مدى يمكن أن تمتد فيه زاوية حادة.
+استخدم [LineFormat::setMiterLimit](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setMiterLimit) مع ضبط [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) إلى [LineJoinStyle::Miter](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) لتحديد مدى امتداد الزاوية الحادة.
 
-الحد هو نسبة المسافة بين الزوايا الداخلية والخارجية للوصلة إلى عرض الخط. على سبيل المثال، تسمح القيمة `8` بطول ميتر يصل إلى ثمان مرات عرض الخط؛ ليست قياسًا بالنقاط. إذا تجاوزت الزاوية الحد، يستخدم PowerPoint وصلة مبيفة عند تلك الزاوية. يتيح الحد الأكبر نقاطًا أكثر حدة. يؤثر الإعداد على وصلات الميتير فقط، ولا يحدث أي تأثير مرئي عند بقاء الزاوية ضمن الحدود.
+الحد هو نسبة بين المسافة بين الزاوية الداخلية والخارجية للوصل وعرض الخط. على سبيل المثال، قيمة `8` تسمح بطول Miter يصل حتى ثماني أضعاف عرض الخط؛ وهي ليست قياسًا بالنقاط. إذا تجاوزت الزاوية الحد، يستخدم PowerPoint وصلًا مسطحًا عند تلك الزاوية. الحد الأكبر يسمح بنقاط أكثر حدة. الإعداد يؤثر فقط على وصلات Miter، وتغييره لا يؤثر مرئيًا عندما تبقى الزاوية ضمن كلا الحدين.
 
-ينشئ هذا المثال مثلثين غير مملوئين متطابقين بحدود عرضها 20 نقطة. يستخدم المثلث الأيسر حدًا `2`، واليمين حدًا `8`. كل مثلث عرضه 80 نقطة وارتفاعه 160 نقطة، ما يعطي نسبة طول الميتير إلى عرض الخط تقريبًا `4.12`. وبالتالي، يقوم PowerPoint ببيفِة القمة اليسرى ويحافظ على حدة القمة اليمنى.
+هذا المثال ينشئ مثلثين غير مملوءين متطابقين بحدود بعرض 20 نقطة. المثلث الأيسر يستخدم حدًا بقيمة `2`، واليمين يستخدم `8`. كل مثلث بعرض 80 نقطة وارتفاع 160 نقطة، مما يعطي نسبة طول Miter إلى عرض الخط تقريبًا `4.12`. وبالتالي، يقوم PowerPoint بعمل وصل مسطح للقمة اليسرى ويحافظ على القمة اليمنى حادة.
 
 ```php
 use aspose\slides\FillType;
@@ -332,11 +330,11 @@ try {
 
 النتيجة في PowerPoint: **Miter limit 2** على اليسار و**miter limit 8** على اليمين.
 
-![قمة مبيفة بحد ميتير 2 وقمة حادة بحد ميتير 8 في PowerPoint](miter-limits.png)
+![قمة مسطحة بحد Miter 2 وقمة حادة بحد Miter 8 في PowerPoint](miter-limits.png)
 
-## **تعبئة تدرج لوني**
+## **تعبئة بالتدرج**
 
-يُمزج تعبئة التدرج الألوان عبر الشكل. يملأ هذا المثال قطعًا إهليلجية بتدرج خطي بزاوية 45 درجة من الأحمر إلى الأرجواني باستخدام [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat). تُضيف الطريقة [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) نقاط التوقف اللونية عند 0 و1، بداية ونهاية التدرج. يضمن مسح نقاط التوقف الحالية استخدام هذين اللونين فقط.
+تعبئة التدرج تمزج الألوان عبر الشكل. هذا المثال يملأ بيضاويًا بتدرج خطي بزاوية 45 درجة من الأحمر إلى الأرجواني باستخدام [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat). طريقة [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) تضع نقاط اللون عند 0 و 1، بداية ونهاية التدرج. مسح النقاط الموجودة يضمن استخدام هذين اللونين فقط.
 
 ```php
 use aspose\slides\FillType;
@@ -365,16 +363,15 @@ try {
 ```
 
 النتيجة:
+![البيضاوي بتعبئة بالتدرج](gradient-fill.png)
 
-![القطع الإهليلجي مع تعبئة تدرج لوني](gradient-fill.png)
-
-إذا بدا التدرج مختلفًا في الصورة المصدرة مقارنةً بما هو عليه في PowerPoint، راجع [Choose a Gradient Rendering Style](/slides/ar/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). يمكنك اختيار نمط العرض دون تغيير تعبئة التدرج المخزنة في العرض التقديمي.
+إذا ظهر التدرج بصورة مختلفة في صورة مُصدَّرة مقارنةً بـ PowerPoint، انظر [Choose a Gradient Rendering Style](/slides/ar/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). يمكنك اختيار نمط عرض دون تغيير تعبئة التدرج المخزنة في العرض التقديمي.
 
 ### **تعيين زاوية التدرج الخطي**
 
-استخدم [GradientFormat::setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) للتحكم في اتجاه تعبئة [GradientShape::Linear](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/). تُقاس الزاوية بالدرجات وتزداد في اتجاه عقارب الساعة: `0` من اليسار إلى اليمين، `90` من الأعلى إلى الأسفل، `180` من اليمين إلى اليسار، و`270` من الأسفل إلى الأعلى. تدعم الزوايا الكسرية. تُطبع الزوايا النهائية خارج النطاق `[0, 360)` إلى دورة واحدة؛ على سبيل المثال، يصبح `-45` إلى `315` و`360` إلى `0`.
+استخدم [GradientFormat::setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) للتحكم في اتجاه تعبئة [GradientShape::Linear](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/). تُقاس الزاوية بالدرجات وتزداد باتجاه عقارب الساعة: `0` من اليسار إلى اليمين، `90` من الأعلى إلى الأسفل، `180` من اليمين إلى اليسار، و`270` من الأسفل إلى الأعلى. تدعم الزوايا الكسرية. الزوايا النهائية خارج `[0, 360)` تُطبع إلى دورة واحدة؛ على سبيل المثال، `-45` يصبح `315` و`360` يصبح `0`.
 
-ينشئ هذا المثال ستة مستطيلات بنقاط توقف حمراء، خضراء، وزرقاء متطابقة عند المواضع `0`، `0.5`، و`1`. تم تعطيل المقياس حتى يمكن مقارنة الزاوية بشكل مستقل عن نسب أبعاد المستطيلات. الزوايا من اليسار إلى اليمين هي `0`، `45`، و`90` في الصف الأول، و`135`، `180`، و`270` في الصف الثاني.
+هذا المثال ينشئ ستة مستطيلات بنقاط توقف اللون الأحمر، الأخضر، والأزرق المتطابقة عند المواضع `0`، `0.5`، و`1`. تم تعطيل التحجيم بحيث يمكن مقارنة الزاوية بشكل مستقل عن نسب أبعاد المستطيلات. الزوايا من اليسار إلى اليمين هي `0`، `45`، و`90` في الصف الأول، و`135`، `180`، و`270` في الصف الثاني.
 
 ```php
 use aspose\slides\FillType;
@@ -417,14 +414,13 @@ try {
 ```
 
 النتيجة في PowerPoint:
+![تدرجات خطية بزاوية 0، 45، و90 درجة في الصف العلوي، و135، 180، و270 درجة في الصف السفلي](linear-gradient-angles.png)
 
-![تدرجات خطية عند 0، 45، و90 درجة في الصف العلوي، و135، 180، و270 درجة في الصف السفلي](linear-gradient-angles.png)
+### **تحجيم التدرج الخطي مع الشكل**
 
-### **مقاس التدرج الخطي مع الشكل**
+يقبل [GradientFormat::setLinearGradientScaled](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientScaled) قيمة من نوع [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/). اضبطها صراحةً إلى `False` للحفاظ على زاوية التدرج الهندسية مع تغير أبعاد الشكل، أو إلى `True` لتحجيم التدرج مع عرض وارتفاع الشكل. عند تمكين التحجيم، قد تختلف الزاوية المرئية عن الزاوية المعينة على شكل غير مربع.
 
-تقبل [GradientFormat::setLinearGradientScaled](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientScaled) قيمة من نوع [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/). اضبطها صراحةً إلى `False` للحفاظ على زاوية التدرج الهندسية عند تغير أبعاد الشكل، أو إلى `True` لمقاس التدرج مع عرض وارتفاع الشكل. مع تمكين المقياس، قد تختلف الزاوية الظاهرة عن الزاوية المعينة على شكل غير مربع.
-
-يستخدم المثال التالي زاوية `45` درجة ونقاط توقف اللون نفسها كما في مقارنة الزوايا. يستخدم العمود الأيسر `False`؛ والعمود الأيمن `True`. يحتوي كل عمود على مستطيل عريض فوق مستطيل مرتفع. يبدأ كلاهما بأبعاد عريضة متماثلة؛ يُظهر تعديل عرض وارتفاع المستطيل الثاني كيفية استجابة التعبئة لإعادة الحجم دون تغيير إعدادات التدرج.
+يستخدم المثال التالي زاوية `45` درجة ونقاط توقف اللون نفسها كما في مقارنة الزوايا. العمود الأيسر يستخدم `False`؛ العمود الأيمن يستخدم `True`. كل عمود يحتوي على مستطيل عريض فوق مستطيل طويل. يبدأ كلاهما بالأبعاد العريضة نفسها؛ تغيير عرض وارتفاع المستطيل الثاني يُظهر كيف يستجيب التعبئة لإعادة الحجم دون تغيير إعدادات التدرج.
 
 ```php
 use aspose\slides\FillType;
@@ -473,19 +469,18 @@ try {
 }
 ```
 
-النتيجة في PowerPoint مع تعطيل المقياس على اليسار وتمكينه على اليمين:
+النتيجة في PowerPoint، مع تعطيل التحجيم على اليسار وتمكينه على اليمين:
+![مستطيلات عريضة وطويلة بتدرج بزاوية 45 درجة، مقارنة LinearGradientScaled False على اليسار مع True على اليمين](linear-gradient-scaling.png)
 
-![مستطيلات عريضة ومرتفعة بتدرج 45 درجة، مقارنة LinearGradientScaled False على اليسار مع True على اليمين](linear-gradient-scaling.png)
+مع تعطيل التحجيم، تبقى أشرطة اللون المائلة بنفس الاتجاه في كلا المستطيلين. مع تمكين التحجيم، تتمدد الأشرطة مع نسب أبعاد الشكل. يساعد هذا في إعادة إنتاج تدرج القالب عند تعديل الشكل إلى حجم مختلف. على شكل مربع، لا يغيّر تمكين التحجيم مظهر هذا التدرج بزاوية `45` درجة.
 
-مع تعطيل المقياس، تبقى أشرطة اللون المائلة ذات الاتجاه نفسه في كلتا المستطيلين. مع تمكين المقياس، تمتد الأشرطة مع نسب الشكل. يساعد ذلك على إعادة إنتاج تدرج القالب عند تعديل الشكل إلى حجم مختلف. في الشكل المربع، لا يغيّر تمكين المقياس مظهر هذا التدرج بزاوية `45` درجة.
-
-تنطبق إعدادات الزاوية والمقياس على التدرجات الخطية. لا تتحكم في تعبئات [GradientShape::Radial أو GradientShape::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/).
+كلا إعدادَي الزاوية والتحجيم ينطبقان على التدرجات الخطية. لا يتحكمان في تعبئات [GradientShape::Radial أو GradientShape::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/).
 
 ### **دمج الزاوية مع اتجاه التدرج**
 
-تُحدد [GradientFormat::setGradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setGradientDirection) نمط التدرج من فئة [GradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientdirection/); وهو ليس بديلاً عن الزاوية الرقمية. بالنسبة لتدرج خطي، يمكن أن تغير أنماط الزوايا المنطقة التي تُوزع فيها الألوان دون تغيير الزاوية المحددة عبر [setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle). حافظ على الاتجاه ثابتًا عند مقارنة الزوايا أو المقياس.
+[GradientFormat::setGradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setGradientDirection) يختار نمط تدرج من فئة [GradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientdirection/); ليس بديلاً عن زاوية رقمية. بالنسبة لتدرج خطي، يمكن لأنماط الزوايا تغيير المنطقة التي توزع فيها الألوان دون تغيير الزاوية المعينة عبر [setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle). احتفظ بالاتجاه ثابتًا عند مقارنة الزوايا أو التحجيم.
 
-يطبق المثال التالي الإعدادات نفسها بترتيب عكسي. المستطيلان لهما المظهر نفسه: تعيين الاتجاه قبل أو بعد الزاوية لا يغيّر النتيجة.
+التطبيق التالي يطبق نفس الإعدادات بترتيب عكسي. المستطيلان لهما المظهر نفسه: تعيين الاتجاه قبل أو بعد الزاوية لا يغيّر النتيجة.
 
 ```php
 use aspose\slides\FillType;
@@ -530,7 +525,7 @@ try {
 
 ## **تعبئة بنمط**
 
-تُطبق تعبئة النمط تصميمًا ذا لونين، مثل النقاط أو الخطوط أو المربعات. يستخدم هذا المثال [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) لاختيار نمط "trellis". يزود [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) الخلفية باللون الرمادي الفاتح، و[PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) لون النمط الأصفر.
+تعبئة بنمط تطبق تصميمًا ثنائي اللون مثل النقاط أو الخطوط أو المربعات. هذا المثال يستخدم [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) لاختيار نمط شَبكة. [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) يزود الخلفية باللون الرمادي الفاتح، و[PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) يزود لون النمط الأصفر.
 
 ```php
 use aspose\slides\FillType;
@@ -556,12 +551,11 @@ try {
 ```
 
 النتيجة:
+![المستطيل بتعبئة بنمط](pattern-fill.png)
 
-![المستطيل مع تعبئة بنمط](pattern-fill.png)
+## **تعبئة بالصورة**
 
-## **تعبئة بصورة**
-
-تستخدم تعبئة الصورة صورة داخل الشكل. يتطلب هذا المثال صورة محلية ويستخدم [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) لتحميلها إلى مجموعة صور العرض التقديمي. ضبط [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) على وضع التكرار يكرر الصورة داخل المستطيل. الصورة المصدر المستخدمة هنا موضحة أدناه:
+تعبئة بالصورة تستخدم صورة داخل شكل. هذا المثال يتطلب صورة محلية ويستخدم [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) لتحميلها إلى مجموعة صور العرض التقديمي. ضبط [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) إلى وضع التكرار يعيد تكرار الصورة داخل المستطيل. الصورة المصدر المستخدمة هنا موضحة أدناه:
 
 ![صورة اللوتس](lotus.png)
 
@@ -596,22 +590,21 @@ try {
 ```
 
 النتيجة:
+![الشكل بتعبئة بالصورة](picture-fill.png)
 
-![الشكل مع تعبئة صورة](picture-fill.png)
+### **تكرار الصورة كنقش**
 
-### **تكرار الصورة كقشرة**
+إذا رغبت في تعيين صورة مكررة كنقش وتخصيص سلوك التكرار، يمكنك استخدام الطرق التالية من فئة [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/):
 
-إذا رغبت في تعيين صورة مكررة كقشرة وتخصيص سلوك التكرار، يمكنك استخدام الطرق التالية من فئة [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/):
+- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): يضبط وضع تعبئة الصورة—إما `Tile` أو `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): يحدد محاذاة البلاطات داخل الشكل.
+- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): يتحكم فيما إذا كانت البلاطة مقلوبة أفقياً أو رأسياً أو كليهما.
+- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): يضبط الإزاحة الأفقية للبلاطة (بالنقاط) من أصل الشكل.
+- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): يضبط الإزاحة الرأسية للبلاطة (بالنقاط) من أصل الشكل.
+- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): يحدد مقياس البلاطة الأفقي كنسبة مئوية.
+- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): يحدد مقياس البلاطة الرأسي كنسبة مئوية.
 
-- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): يحدد وضع تعبئة الصورة — إما `Tile` أو `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): يحدد محاذاة القوالب داخل الشكل.
-- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): يتحكم فيما إذا كانت القوالب مقلوبة أفقياً أو رأسياً أو كليًا.
-- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): يحدد الإزاحة الأفقية للقالب (بنقاط) من أصل الشكل.
-- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): يحدد الإزاحة الرأسية للقالب (بنقاط) من أصل الشكل.
-- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): يعرّف مقياس القالب الأفقي كنسبة مئوية.
-- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): يعرّف مقياس القالب الرأسي كنسبة مئوية.
-
-يتطلب هذا المثال صورة محلية ويضبط [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) لتكرارها بنسبة 50% من حجمه الأصلي. تُحوِّل الإزاحات بـ −32 نقطة القوالب أفقياً ورأسياً؛ تحدد محاذاة الزاوية السفلية اليمنى والقلب في كلا الاتجاهين كيفية ترتيب القشرة المكررة.
+هذا المثال يتطلب صورة محلية ويضبط [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) لتكرارها بنسبة 50٪ من حجمها الأصلي. إزاحات −32 نقطة تحرك البلاطات أفقياً ورأسياً؛ محاذاة أسفل-يمين والانعكاس في كلا الاتجاهين يحددان كيفية ترتيب النقش المتكرر.
 
 ```php
 use aspose\slides\FillType;
@@ -654,12 +647,11 @@ try {
 ```
 
 النتيجة:
+![خيارات التكرار](tile-options.png)
 
-![خيارات القالب](tile-options.png)
+## **تعبئة بلون صلب**
 
-## **تعبئة لون صلب**
-
-توفر التعبئة الصلبة للشكل لونًا موحدًا واحدًا. يضبط هذا المثال [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) إلى وضع التعبئة الصلبة ويُعيّن اللون الأصفر عبر [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor)، ثم يحفظ المستطيل في عرض تقديمي.
+تعبئة صلبة تعطي الشكل لونًا واحدًا ومتجانسًا. هذا المثال يضبط [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) إلى وضع التعبئة الصلبة ويعيّن الأصفر عبر [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor)، ثم يحفظ المستطيل في عرض تقديمي.
 
 ```php
 use aspose\slides\FillType;
@@ -682,16 +674,90 @@ try {
 ```
 
 النتيجة:
+![الشكل بتعبئة بلون صلب](solid-color-fill.png)
 
-![الشكل مع تعبئة لون صلب](solid-color-fill.png)
+### **نسخ الألوان مع الحفاظ على مراجع السمة**
+
+استخدم [ColorFormat::copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#copyFrom) لنسخ تعريف اللون، بما في ذلك نوع اللون، مرجع السمة، والتحويلات. هذا مفيد عند نقل لون تعبئة بين أشكال يجب أن تظل تتبع سمة العرض التقديمي. الطريقة تنسخ اللون فقط: لا تنسخ نوع التعبئة أو الحد أو تنسيقات الشكل الأخرى. اضبط نوع تعبئة الوجهة صراحةً باستخدام [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType).
+
+هذا المثال ينشئ ثلاثة مستطيلات، من اليسار إلى اليمين: المصدر، نسخة تتبع السمة، ونسخة RGB ثابتة. يستخدم المصدر [ColorFormat::setSchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setSchemeColor) للإشارة إلى أول لون لهجة ويضيف تدرجًا عبر [ColorOperationCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/coloroperationcollection/#add). النسخة RGB تستخدم اللون الفعلي للملء للمصدر بحيث تبدو الثلاثة في البداية متطابقة. استدعاء [ColorFormat::setColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setColor) يضبط قيمة RGB ثابتة ويزيل أي تحويلات لون موجودة.
+
+```php
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FillType;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SchemeColor;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(660, 220, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $initialAccent = new Java("java.awt.Color", 65, 105, 225);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent1()->setColor($initialAccent);
+
+    $source = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+    $themeCopy = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+    $rgbCopy = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+    foreach ([$source, $themeCopy, $rgbCopy] as $shape) {
+        $shape->getFillFormat()->setFillType(FillType::Solid);
+        $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+    }
+
+    $sourceColor = $source->getFillFormat()->getSolidFillColor();
+    $sourceColor->setSchemeColor(SchemeColor::Accent1);
+    $sourceColor->getColorTransform()->add(ColorTransformOperation::Tint, 0.75);
+
+    $themeCopy->getFillFormat()->getSolidFillColor()->copyFrom($sourceColor);
+    $rgbCopy->getFillFormat()->getSolidFillColor()->setColor($source->getFillFormat()->getEffective()->getSolidFillColor());
+
+    $before = $slide->getImage(1.0, 1.0);
+    try {
+        $before->save("color-copy-before.png", ImageFormat::Png);
+    } finally {
+        $before->dispose();
+    }
+
+    // مراجع السمة تتبع اللون المميز الجديد؛ قيمة RGB الثابتة لا تفعل ذلك.
+    $updatedAccent = new Java("java.awt.Color", 255, 69, 0);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent1()->setColor($updatedAccent);
+
+    $after = $slide->getImage(1.0, 1.0);
+    try {
+        $after->save("color-copy-after.png", ImageFormat::Png);
+    } finally {
+        $after->dispose();
+    }
+    $presentation->save("copied_colors.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+قبل تغيير السمة، جميع التعبئات الثلاثة متطابقة:
+![المصدر، نسخة الوجهة باستخدام copyFrom، والنسخة RGB الثابتة بتعبئات زرقاء متطابقة](color-copy-before.png)
+
+بعد تغيير السمة، المصدر والنسخة المتابعة للسمة تتبعا اللون المميز الجديد وتحتفظان بالتدرج. النسخة RGB الثابتة تظل زرقاء:
+![المصدر ونسخة الوجهة باستخدام copyFrom بتعبئات برتقالية، بينما تظل النسخة RGB الثابتة زرقاء](color-copy-after.png)
+
+التعريف المنسوخ مستقل عن المصدر. تعديل مرجع السمة للمصدر لاحقًا، أو تعيين لون آخر، أو إضافة أو إزالة تحويلاته لا يؤثر على الوجهة. تغيير السمة لا يزال يؤثر على الشكلين لأن كلًا منهما يشير بشكل مستقل إلى نفس لون السمة.
+
+حفظ وإعادة فتح ملف PPTX يحتفظ بنوع اللون المنسوخ الذي تُرجعه [ColorFormat::getColorType](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#getColorType)، مرجع السمة، ومجموعة التحويلات التي تُرجعها [ColorFormat::getColorTransform](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#getColorTransform)؛ لا يقوم بتحويل التعريف إلى RGB.
+
+عند النسخ بين سياقات سمة مختلفة، مثل عروض تقديمية ذات لوحات ألوان مميزة مختلفة، يتم حل المرجع المنسوخ وفقًا لسمة الوجهة. يمكن أن ينتج عن نفس المرجع والتحويلات لونًا مرئيًا مختلفًا. راجع [Presentation Theme](/slides/ar/php-java/presentation-theme/) لمزيد من المعلومات حول ضبط ألوان السمة.
 
 ## **استخدام خلفية الشريحة كملء للشكل**
 
-استخدم [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill) عندما يجب أن يتطابق الشكل مع خلفية الشريحة، على سبيل المثال في قالب عرض تقديمي. اضبط [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) إلى [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) أولاً لإزالة أي تعبئة صريحة. مع هذا الجمع، يستخدم الشكل خلفية الشريحة بدلاً من تعبئة النمط الخاصة به. تمكين العلم وحده لا يزيل تعبئة صريحة موجودة.
+استخدم [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill) عندما يجب أن يتطابق الشكل مع خلفية الشريحة، على سبيل المثال في قالب عرض تقديمي. اضبط نوع التعبئة عبر [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) إلى [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) أولاً لإزالة أي تعبئة صريحة. بهذا الجمع، يستخدم الشكل خلفية الشريحة بدلًا من تعبئته النمطية. تمكين العلامة وحده لا يزيل تعبئة صريحة موجودة.
 
-يختلف هذا عن [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/): تعبئة الخلفية تغطي الكائنات خلف الشكل بمنطقة خلفية الشريحة المقابلة، بينما ترك عدم التعبئة تلك الكائنات مرئية. يظل التدرج محاذيًا مع الشريحة بدلاً من أن يبدأ داخل كل شكل.
+هذا يختلف عن [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/): تعبئة الخلفية تغطي الكائنات خلف الشكل بالمنطقة المقابلة من خلفية الشريحة، بينما لا تعبئة يترك تلك الكائنات مرئية. يظل التدرج محاذيًا مع الشريحة بدلاً من البدء داخل كل شكل.
 
-إنشاء المثال التالي خلفية رئيسية يرثها الشريحة ويضع شريطًا أرجوانيًا خلف ثلاثة مستطيلات. يستخدم المستطيل الأيسر الخلفية، والمستطيل الأوسط لا تعبئة، والمستطيل الأيمن ينتقل من تعبئة الخلفية إلى تعبئة برتقالية صريحة.
+المثال التالي ينشئ خلفية رئيسية يرثها الشريحة ويضع شريطًا أرجوانيًا خلف ثلاث مستطيلات. المستطيل الأيسر يستخدم الخلفية، المستطيل الأوسط بلا تعبئة، والمستطيل الأيمن ينتقل من تعبئة الخلفية إلى تعبئة برتقالية صريحة.
 
 ```php
 use aspose\slides\BackgroundType;
@@ -707,7 +773,7 @@ try {
     $presentation->getSlideSize()->setSize(720, 400, SlideSizeScaleType::DoNotScale);
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // وراثة التدرج من القالب الرئيسي.
+    // ورث التدرج من القالب الرئيسي.
     $slide->getBackground()->setType(BackgroundType::NotDefined);
     $slide->getLayoutSlide()->getBackground()->setType(BackgroundType::NotDefined);
     $background = $slide->getLayoutSlide()->getMasterSlide()->getBackground();
@@ -722,7 +788,7 @@ try {
     $endColor = new Java("java.awt.Color", 135, 206, 250);
     $gradient->getGradientStops()->add(1, $endColor);
 
-    // أضف هذا الكائن أولاً حتى يظهر خلف المستطيلات.
+    // أضف هذا الكائن أولاً بحيث يظهر خلف المستطيلات.
     $band = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 25, 150, 670, 100);
     $band->getFillFormat()->setFillType(FillType::Solid);
     $band->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->MAGENTA);
@@ -751,15 +817,15 @@ try {
 }
 ```
 
-النتيجة من اليسار إلى اليمين: **تعبئة خلفية**، **بدون تعبئة**، و**تعبئة صريحة**. يُخفي الشريط الأرجواني المستطيلين الأيسر والأيمن لكنه يبقى مرئيًا من خلال المستطيل الأوسط.
+النتيجة، من اليسار إلى اليمين: **background fill**، **no fill**، و**explicit fill**. الشريط الأرجواني مخفي خلف المستطيلين الأيسر والأيمن لكنه يبقى مرئيًا من خلال المستطيل الأوسط.
 
-![تعبئة خلفية، بدون تعبئة، وتعبئة برتقالية صريحة فوق شريط أرجواني](background-fill.png)
+![تعبئة خلفية، لا تعبئة، وتعبئة برتقالية صريحة فوق شريط أرجواني](background-fill.png)
 
-ينطبق السلوك نفسه على خلفية معينة مباشرةً على الشريحة أو موروثة من تخطيط. يستخدم الشكل خلفية الشريحة المحلولة؛ يترك المثال كلًا من خلفية الشريحة والتخطيط غير معرفةً حتى يزودها الرئيس.
+السلوك نفسه ينطبق على خلفية محددة مباشرةً على الشريحة أو موروثة من تخطيط. يستخدم الشكل خلفية الشريحة المحسوبة؛ المثال يترك خلفيات كلٍّ من الشريحة والتخطيط غير معرفة بحيث يزودها الرئيسي.
 
 ## **تعيين الشفافية**
 
-في تعبئة صلبة، يتحكم مكوّن ألفا للون في التعتيم: 0 يعني شفافية كاملة و255 يعني تعتيم كامل. يستخدم هذا المثال قيمة ألفا 128 لمستطيل أصفر، مما يجعله شفافًا تقريبًا بنسبة 50% بحيث يظل المستطيل الموجود تحته مرئيًا. يُعيّن اللون عبر [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor).
+في التعبئة الصلبة، يتحكم مكون ألفا للون في الشفافية: 0 يعني شفاف بالكامل و255 يعني غير شفاف بالكامل. يستخدم هذا المثال قيمة ألفا 128 لمستطيل أصفر، مما يجعله شفافًا بنحو 50٪ بحيث يظل المستطيل الموجود تحته مرئيًا. يتم تعيين اللون عبر [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```php
 use aspose\slides\FillType;
@@ -785,12 +851,11 @@ try {
 ```
 
 النتيجة:
-
 ![الشكل الشفاف](shape-transparency.png)
 
 ## **تدوير الأشكال**
 
-استخدم [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) لتدوير الشكل في مستوى الشريحة. تُقاس الزاوية بالدرجات؛ يدور هذا المثال المستطيل 5 درجات باتجاه عقارب الساعة ويحفظ العرض التقديمي.
+استخدم [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) لتدوير شكل في سطح الشريحة. تُقاس الزاوية بالدرجات؛ هذا المثال يدور مستطيلًا 5 درجات باتجاه عقارب الساعة ويحفظ العرض التقديمي.
 
 ```php
 use aspose\slides\Presentation;
@@ -811,12 +876,11 @@ try {
 ```
 
 النتيجة:
-
 ![تدوير الشكل](shape-rotation.png)
 
-## **إضافة تأثيرات تقويس ثلاثي الأبعاد**
+## **إضافة تأثيرات الحافة ثلاثية الأبعاد**
 
-استخدم [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) لإعطاء الشكل عمقًا وحوافًا مقوّسة. ينشئ هذا المثال قطعًا إهليلجية خضراء بحد برتقالي، ويضبط [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) إلى 4 نقاط، ويطبق تقويسًا علويًا دائريًا بعرض وارتفاع 6 نقاط عبر [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop). تجعل كاميرا أورثوغرافية أمامية وإضاءة ثلاثية نقاط التقويس مرئيًا.
+استخدم [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) لإضفاء عمق وحواف مشطوفة على الشكل. هذا المثال ينشئ بيضاويًا أخضرًا بحد برتقالي، يضبط [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) إلى 4 نقاط، ويطبق حافة علوية دائرية بعرض وارتفاع 6 نقاط عبر [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop). تجعل كاميرا أورثوجرافية موجهة للأمام وإضاءة ثلاثية النقاط الحافة مرئية.
 
 ```php
 use aspose\slides\BevelPresetType;
@@ -855,12 +919,11 @@ try {
 ```
 
 النتيجة:
+![تأثير الحافة ثلاثية الأبعاد](3D-bevel-effect.png)
 
-![تأثير التقويس ثلاثي الأبعاد](3D-bevel-effect.png)
+## **إضافة تأثيرات الدوران ثلاثي الأبعاد**
 
-## **إضافة تأثيرات دوران ثلاثي الأبعاد**
-
-تُتحكم إعدادات كاميرا العرض الثلاثي الأبعاد في طريقة عرض الشكل. يستخدم هذا المثال [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) بزاوية خطوط العرض، الطول، والثورة 40، 35، و20 درجة على التوالي. يختار كاميرا إسومترية عبر [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) وإضاءة متوازنة عبر [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType)، ثم يحفظ المستطيل المنسق.
+يتم التحكم في عرض الشكل ثلاثي الأبعاد عبر إعدادات الكاميرا الخاصة به. يستخدم هذا المثال [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) بزاوية خطوط العرض والطول والزوايا الدوارة 40، 35، و20 درجة على التوالي. يختار كاميرا إسومترية عبر [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) وإضاءة متوازنة عبر [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType)، ثم يحفظ المستطيل المنسق.
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -886,16 +949,15 @@ try {
 ```
 
 النتيجة:
-
 ![تأثير الدوران ثلاثي الأبعاد](3D-rotation-effect.png)
 
 ## **التحكم في العرض بالأبيض والأسود للأشكال**
 
-تحدّد طريقة [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) كيف يُعرَض شكل فردي عندما يُعرض العرض التقديمي أو يُعالج بوضع الأبيض والأسود. لا تمكّن العرض بالأبيض والأسود بحد ذاته، ولا تغير تعبئة الشكل أو حدوده أو تنسيقه الآخر في وضع اللون العادي.
+طريقة [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) تحدد كيف يُعرض شكل فردي عندما يُعرض أو يُعالج العرض التقديمي في وضع الأسود والأبيض. لا تمكّن عرضًا بالأبيض والأسود بحد ذاتها، ولا تغير تعبئة الشكل أو خطه أو تنسيقه الآخر في وضع اللون العادي.
 
-استخدم قيمة من فئة [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) لتحديد السلوك المطلوب. على سبيل المثال، يسمح `Automatic` لتطبيق العرض باختيار التحويل، ويستخدم `Gray` و`LightGray` الألوان الرمادية، و`BlackWhite` فقط اللونين الأسود والأبيض، و`Black` و`White` لونًا واحدًا، و`Color` يحافظ على الألوان العادية، و`Hidden` يحذف الشكل في وضع الأبيض والأسود. تعني `NotDefined` عدم تعيين وضع على مستوى الشكل.
+استخدم قيمة من فئة [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) لاختيار السلوك المطلوب. على سبيل المثال، `Automatic` يترك تطبيق العرض يختار التحويل، `Gray` و`LightGray` يستخدمان اللون الرمادي، `BlackWhite` يستخدم فقط الأسود والأبيض، `Black` و`White` يفرضان لونًا واحدًا، `Color` يحافظ على اللون الطبيعي، و`Hidden` يزيل الشكل في وضع الأسود والأبيض. `NotDefined` يعني عدم تعيين وضع على مستوى الشكل.
 
-ينشئ هذا المثال مستطيلًا برتقاليًا ويضبط [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) إلى الرمادي. يحتفظ الشكل المحفوظ بتعبئته البرتقالية للعرض بالألوان العادية ويطلب تلوينًا رماديًا من التطبيقات التي تحترم إعدادات العرض بالأبيض والأسود:
+هذا المثال ينشئ مستطيلًا برتقاليًا ويضبط [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) إلى رمادي. يحتفظ الشكل المحفوظ بتعبئته البرتقالية للعرض بالألوان العادية ويطلب تلوينًا رماديًا من التطبيقات التي تحترم إعدادات العرض بالأبيض والأسود:
 
 ```php
 use aspose\slides\BlackWhiteMode;
@@ -920,11 +982,11 @@ try {
 }
 ```
 
-في وضع اللون العادي، يحتفظ المستطيل بتعبئته البرتقالية. في سير عمل عرض أبيض وأسود، يستخدم تلوينًا رماديًا لأن وضعه محدد إلى `Gray`. يتيح لك ذلك حفظ شريحة ملونة بالكامل مع تحديد مظهر مميز للطباعة أو المعاينة أو غيرها من سير العمل التي تحترم إعدادات العرض بالأبيض والأسود للعرض التقديمي.
+في وضع اللون العادي، يحتفظ المستطيل بتعبئته البرتقالية. في سير عمل عرض بالأبيض والأسود، يستخدم تلوينًا رماديًا لأن وضعه مضبوط على `Gray`. يتيح لك ذلك الحفاظ على شريحة ملونة بالكامل مع تعريف مظهر مميز للطباعة أو المعاينة أو غيرها من سير العمل التي تحترم إعدادات العرض بالأبيض والأسود للعرض التقديمي.
 
-## **إعادة ضبط التنسيق**
+## **إعادة تعيين التنسيق**
 
-استخدم [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset) لاستعادة موضع، حجم، وتنسيق العناصر النائبة في الشريحة من العناصر النائبة المقابلة في التخطيط. يتطلب هذا المثال عرضًا تقديميًا موجودًا يحتوي على عناصر نائبة مرتبطة بالتخطيط ويعيد ضبط كل شريحة قبل الحفظ. لا يتم إعادة ضبط الأشكال التي لا يوجد لها عناصر نائبة مقابلة في التخطيط.
+استخدم [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset) لاستعادة موضع وحجم وتنسيق نواقل الشريحة من نواقل التخطيط المقابلة. يتطلب هذا المثال عرضًا تقديميًا موجودًا يحتوي على نواقل مرتبطة بالتخطيط ويعيد ضبط كل شريحة قبل الحفظ. الأشكال التي لا تمتلك نواقل تخطيط مقابلة لا يتم إعادة تعيينها.
 
 ```php
 use aspose\slides\Presentation;
@@ -945,14 +1007,11 @@ try {
 
 ## **الأسئلة الشائعة**
 
-**هل يؤثر تنسيق الشكل على حجم ملف العرض النهائي؟**
+**هل يؤثر تنسيق الشكل على حجم ملف العرض التقديمي النهائي؟**  
+الألوان وأنماط الخطوط وإعدادات التأثيرات عادةً ما تضيف بيانات قليلة مقارنةً بالصور والوسائط المضمنة. تعبئة الصور يمكن أن تزيد من حجم الملف لأن صورها تُخزن في العرض التقديمي.
 
-الألوان، أنماط الخطوط، وإعدادات التأثيرات عادةً ما تضيف بيانات قليلة مقارنةً بالصور والوسائط المدمجة. يمكن أن تزيد تعبئات الصور من حجم الملف لأن صورها تُخزّن في العرض.
+**كيف يمكنني اكتشاف الأشكال في الشريحة التي تشترك في تنسيق متطابق بحيث يمكنني تجميعها؟**  
+قارن خصائص التنسيق الرئيسية لكل شكل — التعبئة، الخط، وإعدادات التأثير. إذا تطابقت جميع القيم المقابلة، اعتبر أن أنماطها متطابقة وقم بتجميع تلك الأشكال منطقيًا، مما يبسط إدارة الأنماط لاحقًا.
 
-**كيف يمكنني اكتشاف الأشكال في شريحة تشترك في تنسيق متطابق لأتمكن من تجميعها؟**
-
-قارن خصائص التنسيق الرئيسية لكل شكل — التعبئة، الخط، وإعدادات التأثير. إذا تطابقت جميع القيم المقابلة، اعتبر أن أنماطها متطابقة وقم بتجميع تلك الأشكال منطقياً، ما يُبسّط إدارة الأنماط لاحقًا.
-
-**هل يمكنني حفظ مجموعة من أنماط الشكل المخصصة إلى ملف منفصل لإعادة استخدامها في عروض تقديمية أخرى؟**
-
-نعم. احفظ الأشكال النموذجية ذات الأنماط المطلوبة في شريحة نمط أو ملف قالب .POTX. عند إنشاء عرض تقديمي جديد، افتح القالب، استنسخ الأشكال المنسقة التي تحتاجها، وطبق تنسيقها حيثما يلزم.
+**هل يمكنني حفظ مجموعة من أنماط الشكل المخصصة في ملف منفصل لإعادة استخدامها في عروض تقديمية أخرى؟**  
+نعم. احفظ أشكالًا نموذجية مع الأنماط المطلوبة في مجموعة شرائح قالب أو ملف قالب .POTX. عند إنشاء عرض تقديمي جديد، افتح القالب، استنسخ الأشكال المنسقة التي تحتاجها، وأعد تطبيق تنسيقها حيثما يلزم.

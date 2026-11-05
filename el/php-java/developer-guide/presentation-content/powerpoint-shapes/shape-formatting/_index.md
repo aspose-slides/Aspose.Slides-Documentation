@@ -1,44 +1,44 @@
 ---
-title: ΔΙΑΜΟΡΦΩΣΗ ΣΧΗΜΑΤΩΝ POWERPOINT ΣΕ PHP
-linktitle: ΔΙΑΜΟΡΦΩΣΗ ΣΧΗΜΑΤΩΝ
+title: Διαμόρφωση Σχημάτων PowerPoint σε PHP
+linktitle: Διαμόρφωση Σχήματος
 type: docs
 weight: 20
 url: /el/php-java/shape-formatting/
 keywords:
-- διαμόρφωση σχήματος
-- διαμόρφωση γραμμής
-- εφέ σκίτσο
-- γραμμή σχήματος σκίτσο
-- διαμόρφωση στυλ σύνδεσης
-- διαβαθμισμένο γέμισμα
+- μορφοποίηση σχήματος
+- μορφοποίηση γραμμής
+- εφέ σχεδίου
+- γραμμή σχήματος σχεδίου
+- μορφοποίηση στυλ σύνδεσης
+- γέμισμα διαβάθμισης
 - γέμισμα μοτίβου
 - γέμισμα εικόνας
 - γέμισμα υφής
-- συμπαγές γέμισμα χρώματος
+- γέμισμα μονής χρώματος
 - διαφάνεια σχήματος
-- ασπρόμαυρη απόδοση σχήματος
-- απόδοση σχήματος σε γκρι αποχρώσεις
+- απεικόνιση σχήματος ασπρόμαυρο
+- απεικόνιση σχήματος σε γκρι κλίμακα
 - περιστροφή σχήματος
-- τρισδιάστατο εφέ λεπίδας
-- τρισδιάστατο εφέ περιστροφής
+- εφέ λοξόκολου 3Δ
+- εφέ περιστροφής 3Δ
 - επαναφορά μορφοποίησης
 - PowerPoint
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Μάθετε πώς να διαμορφώνετε σχήματα PowerPoint σε PHP χρησιμοποιώντας το Aspose.Slides—ορίστε στυλ γέμισης, γραμμής και εφέ για αρχεία PPT και PPTX με ακρίβεια και πλήρη έλεγχο."
+description: "Μάθετε πώς να μορφοποιείτε σχήματα PowerPoint σε PHP χρησιμοποιώντας το Aspose.Slides—ορίστε γέμισμα, γραμμή και στυλ εφέ για αρχεία PPT και PPTX με ακρίβεια και πλήρη έλεγχο."
 ---
 ## **Εισαγωγή**
 
-Διαμορφώστε σχήματα στο PowerPoint προσαρμόζοντας τα περιγράμματα, τις γεμίσεις και τα εφέ. Το Aspose.Slides for PHP via Java σας επιτρέπει να ελέγχετε αυτές τις ρυθμίσεις προγραμματιστικά, συμπεριλαμβανομένης της διαφάνειας, της περιστροφής και της 3D διαμόρφωσης.
+Διαμορφώστε σχήματα στο PowerPoint τροποποιώντας τα περιγράμματά τους, τις γεμίσεις και τα εφέ. Το Aspose.Slides for PHP μέσω Java σας επιτρέπει να ελέγχετε αυτές τις ρυθμίσεις προγραμματιστικά, συμπεριλαμβανομένης της διαφάνειας, της περιστροφής και της τρισδιάστατης μορφοποίησης.
 
-![Επιλογές διαμόρφωσης σχήματος στο PowerPoint](format-shape-powerpoint.png)
+![Επιλογές μορφοποίησης σχήματος στο PowerPoint](format-shape-powerpoint.png)
 
-Το Aspose.Slides for PHP via Java παρέχει κλάσεις και μεθόδους που σας επιτρέπουν να διαμορφώνετε σχήματα χρησιμοποιώντας τις ίδιες επιλογές που διατίθενται στο PowerPoint.
+Το Aspose.Slides for PHP μέσω Java παρέχει κλάσεις και μεθόδους που σας επιτρέπουν να μορφοποιείτε σχήματα χρησιμοποιώντας τις ίδιες επιλογές που διατίθενται στο PowerPoint.
 
-## **Διαμόρφωση Γραμμών**
+## **Μορφοποίηση Γραμμών**
 
-Χρησιμοποιήστε [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) για να ελέγξετε το περίγραμμα ενός σχήματος. Αυτό το παράδειγμα δημιουργεί ένα μη γεμάτο ορθογώνιο με μπλε, διακεκομμένο περίγραμμα. Το [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) επιλέγει μια σύνθετη γραμμή παχιά-λεπτή, ενώ το [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) ορίζει το πλάτος της στα 7 σημεία και το [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) επιλέγει το μοτίβο διακενού.
+Χρησιμοποιήστε [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) για να ελέγξετε το περίγραμμα ενός σχήματος. Αυτό το παράδειγμα δημιουργεί ένα άκυκλο ορθογώνιο με μπλε, διακεκομμένο περίγραμμα. [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) επιλέγει ένα σύνθετο γραμμή παχύ‑λέπια, ενώ [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) ορίζει το πλάτος του σε 7 μονάδες και [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) επιλέγει το μοτίβο γραμμής.
 
 ```php
 use aspose\slides\FillType;
@@ -70,13 +70,13 @@ try {
 
 ![Οι μορφοποιημένες γραμμές στην παρουσίαση](formatted-lines.png)
 
-### **Ορίστε Προσαρμοσμένα Σχέδια Διακενού Γραμμής**
+### **Ορισμός Προσαρμοσμένων Μοτίβων Διακεκομμένων Γραμμών**
 
-Χρησιμοποιήστε [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern) όταν τα προεπιλεγμένα στυλ γραμμής δεν παρέχουν τα μήκη διακενού και κενών που χρειάζεστε, π.χ. για εταιρικά περιγράμματα ή τεχνικά διαγράμματα. Η ανάθεση ενός μοτίβου αλλάζει αυτόματα το στυλ διακενού σε [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/).
+Χρησιμοποιήστε [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern) όταν οι προεπιλεγμένα στυλ γραμμής δεν παρέχουν τα μήκη και τα κενά που χρειάζεστε, για παράδειγμα για εμπορικά περιγράμματα ή τεχνικά διαγράμματα. Η ανάθεση ενός μοτίβου αλλάζει αυτόματα το στυλ διακεκομμένης γραμμής σε [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/).
 
-Οι καταχωρίσεις στον πίνακα εναλλάσσονται μεταξύ μήκους διακενού και κενό, ξεκινώντας με διακενο. Κάθε τιμή είναι πολλαπλάσιο του πλάτους της γραμμής: `[4, 2]` σε πλάτος 3 σημεία παράγει ένα διακενο 12 σημείων ακολουθούμενο από κενό 6 σημείων. Χρησιμοποιήστε ζευγάρια πεπερασμένων, μη αρνητικών τιμών για να ορίσετε πλήρη τμήματα διακενού-κενό. Το παράδειγμα χρησιμοποιεί θετικές τιμές ώστε κάθε διακενο και κενό να είναι ορατά.
+Οι καταχωρίσεις του πίνακα εναλλάσσονται μεταξύ μήκους γραμμής και κενών, ξεκινώντας με γραμμή. Κάθε τιμή είναι πολλαπλάσιο του πλάτους της γραμμής: `[4, 2]` σε πλάτος 3 μονάδων παράγει γραμμή 12 μονάδων ακολουθούμενη από κενό 6 μονάδων. Χρησιμοποιήστε ζεύγη πεπερασμένων, μη αρνητικών τιμών για να ορίσετε πλήρη τμήματα γραμμής‑κενό. Το παράδειγμα χρησιμοποιεί θετικές τιμές ώστε κάθε γραμμή και κενό να είναι ορατά.
 
-Αυτό το παράδειγμα δημιουργεί πέντε μπλε γραμμές ίδιου μήκους και επίπεδων ακίδων. Οι τρεις πρώτες συγκρίνουν μοτίβα με πλάτος 3 σημεία. Η τέταρτη επαναλαμβάνει το πρώτο μοτίβο με διπλάσιο πλάτος, διπλασιάζοντας τόσο το διακενο όσο και το κενό. Η πέμπτη αλλάζει από προσαρμοσμένο μοτίβο σε συμπαγή γραμμή.
+Αυτό το παράδειγμα δημιουργεί πέντε μπλε γραμμές με το ίδιο μήκος και επίπεδα άκρα. Οι πρώτες τρεις συγκρίνουν μοτίβα σε πλάτος 3 μονάδων. Η τέταρτη επαναλαμβάνει το πρώτο μοτίβο στο διπλάσιο του πλάτους, διπλασιάζοντας τόσο το μήκος της γραμμής όσο και του κενού. Η πέμπτη μεταβαίνει από προσαρμοσμένο μοτίβο σε στερεή γραμμή.
 
 ```php
 use aspose\slides\FillType;
@@ -113,7 +113,7 @@ try {
         $line->getLineFormat()->setCustomDashPattern($patterns[$i]);
     }
 
-    // Επιστρέψτε την τελευταία γραμμή σε συμπαγές στυλ.
+    // Επιστρέψτε την τελευταία γραμμή σε στερεό στυλ.
     $slide->getShapes()->get_Item(4)->getLineFormat()->setDashStyle(LineDashStyle::Solid);
 
     $presentation->save("custom_dash_patterns.pptx", SaveFormat::Pptx);
@@ -122,25 +122,25 @@ try {
 }
 ```
 
-Για να επιστρέψετε σε προεπιλεγμένο στυλ διακενού, περάστε το [LineDashStyle::Dash](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) στο [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle). Το επιλεγμένο στυλ ελέγχει την εμφάνιση της γραμμής.
+Για να επιστρέψετε σε προεπιλεγμένο στυλ διακεκομμένης γραμμής, περάστε το [LineDashStyle::Dash](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) στη [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle). Το επιλεγμένο στυλ ελέγχει την εμφάνιση της γραμμής.
 
-Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **{4, 2}, 3 pt**· **{1, 2}, 3 pt**· **{6, 2, 1, 2}, 3 pt**· **{4, 2}, 6 pt**· και **Solid, 3 pt**.
+Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; και **Solid, 3 pt**.
 
-![Τρία προσαρμοσμένα σχέδια διακενού, μια πιο πλατιά γραμμή χρησιμοποιώντας το πρώτο μοτίβο, και μια συμπαγή γραμμή στο PowerPoint](custom-dash-patterns.png)
+![Τρία προσαρμοσμένα μοτίβα διακεκομμένων, μια πιο πλατιά γραμμή που χρησιμοποιεί το πρώτο μοτίβο, και μια στερεή γραμμή στο PowerPoint](custom-dash-patterns.png)
 
-### **Ορίστε Ακίδες Γραμμής**
+### **Ορισμός Άκρων Γραμμής**
 
-Χρησιμοποιήστε [LineFormat::setCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCapStyle) για να ορίσετε τα άκρα μιας ανοικτής γραμμής. Η κλάση [LineCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linecapstyle/) παρέχει τρία σαφή στυλ ακίδας:
+Χρησιμοποιήστε [LineFormat::setCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCapStyle) για να ορίσετε τα άκρα μιας ανοιχτής γραμμής. Η κλάση [LineCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linecapstyle/) παρέχει τρία ρητά στυλ άκρων:
 
 - `Flat`: Η γραμμή σταματά στο άκρο.
-- `Round`: Μια ημικυκλική άκρη εκτείνεται πέρα από το άκρο κατά το ήμισυ του πλάτους της γραμμής.
-- `Square`: Μια τετράγωνη άκρη εκτείνεται πέρα από το άκρο κατά το ήμισυ του πλάτους της γραμμής.
+- `Round`: Ένα ημικυκλικό άκρο εκτείνεται πέρα από το άκρο κατά το ήμισε του πλάτους της γραμμής.
+- `Square`: Ένα τετράγωνο άκρο εκτείνεται πέρα από το άκρο κατά το ήμισε του πλάτους της γραμμής.
 
-Η κλάση περιλαμβάνει επίσης το `NotDefined`, που σημαίνει ότι δεν έχει οριστεί ρητά στυλ ακίδας.
+Η κλάση περιλαμβάνει επίσης το `NotDefined`, που σημαίνει ότι δεν έχει οριστεί ρητά κάποιο στυλ άκρου.
 
-Οι ακίδες διαφέρουν από τις κεφαλές βελών, οι οποίες προσθέτουν σύμβολα στα άκρα της γραμμής, και από τις ενώσεις, που ελέγχουν τις γωνίες μεταξύ τμημάτων γραμμής. Αυτό το παράδειγμα απενεργοποιεί τις κεφαλές βελών μέσω των [LineFormat::setBeginArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setBeginArrowheadStyle) και [LineFormat::setEndArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setEndArrowheadStyle) ώστε να συγκριθούν μόνο τα σχήματα των ακίδων.
+Τα άκρα διαφέρουν από τα βέλη, που προσθέτουν σύμβολα στα άκρα της γραμμής, και από τις ενώσεις, που ελέγχουν τις γωνίες μεταξύ τμημάτων γραμμής. Αυτό το παράδειγμα απενεργοποιεί τα βελάκια μέσω των [LineFormat::setBeginArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setBeginArrowheadStyle) και [LineFormat::setEndArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setEndArrowheadStyle) ώστε να συγκριθούν μόνο τα σχήματα άκρων.
 
-Το παρακάτω παράδειγμα δημιουργεί τρεις οριζόντιες γραμμές με ίδιο σχήμα, 20 σημεία πλάτος. Από πάνω προς τα κάτω, χρησιμοποιούν επίπεδες, στρογγιστές και τετράγωνες ακίδες. Τα άκρα τους έχουν τις ίδιες οριζόντιες συντεταγμένες· οι στρογγιστές και τετράγωνες ακίδες εκτείνονται 10 σημεία πέρα από κάθε άκρο.
+Το ακόλουθο παράδειγμα δημιουργεί τρεις παρόμοιες οριζόντιες γραμμές, 20 μονάδες πλάτος. Από πάνω προς τα κάτω, χρησιμοποιούν επίπεδα, στρογγυλεμένα και τετράγωνα άκρα. Τα άκρα τους έχουν τις ίδιες οριζόντιες συντεταγμένες· τα στρογγυλεμένα και τετράγωνα άκρα εκτείνεται 10 μονάδες πέρα από κάθε άκρο.
 
 ```php
 use aspose\slides\FillType;
@@ -179,13 +179,13 @@ try {
 
 Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **Flat**, **Round**, και **Square**.
 
-![Επίπεδες, στρογγιστές και τετράγωνες ακίδες σε ίσες παχιές γραμμές στο PowerPoint](line-caps.png)
+![Flat, round, and square caps on identical thick lines in PowerPoint](line-caps.png)
 
-## **Εφαρμογή Εφέ Σκέτς στις Γραμμές Σχήματος**
+## **Εφαρμογή Εφέ Σχεδίου σε Γραμμές Σχήματος**
 
-Ένα εφέ σκέτς κάνει τη γραμμή ενός σχήματος να φαίνεται σχεδιασμένη με το χέρι. Χρησιμοποιήστε [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) για πρόσβαση στις ρυθμίσεις γραμμής, [LineFormat::getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getSketchFormat) για πρόσβαση στις ρυθμίσεις σκέτς και [SketchFormat::setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#setSketchType) για επιλογή τιμής από την κλάση [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/).
+Ένα εφέ σχεδίου κάνει τη γραμμή σχήματος να φαίνεται χειροποίητη. Χρησιμοποιήστε [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) για να αποκτήσετε πρόσβαση στις ρυθμίσεις γραμμής, [LineFormat::getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getSketchFormat) για τις ρυθμίσεις σχεδίου, και [SketchFormat::setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#setSketchType) για να επιλέξετε μια τιμή από την κλάση [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/).
 
-Ο ακόλουθος κώδικας PHP δείχνει πώς να εφαρμόσετε το εφέ [LineSketchType::Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/), να διαβάσετε τη ρητά εκχωρημένη τιμή και να αφαιρέσετε το εφέ με το [LineSketchType::None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
+Ο παρακάτω κώδικας PHP δείχνει πώς να εφαρμόσετε το εφέ [LineSketchType::Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/), να διαβάσετε τη ρητά ανατεθειμένη τιμή και να αφαιρέσετε το εφέ με το [LineSketchType::None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
 
 ```php
 use aspose\slides\LineSketchType;
@@ -208,7 +208,7 @@ try {
 }
 ```
 
-Η τιμή που επιστρέφεται από το [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType) αντιπροσωπεύει τη ρύθμιση που έχει οριστεί άμεσα στο σχήμα. Εάν η μορφοποίηση της γραμμής μπορεί να κληρονομηθεί από θέμα, κύρια διαφάνεια ή διάταξη, χρησιμοποιήστε το [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective), προσπελάστε τη μέθοδο `getSketchFormat` του επιστρεφόμενου αντικειμένου και διαβάστε την τιμή `getSketchType`. Η αποτελεσματική τιμή αντανακλά τη μορφοποίηση που εφαρμόζεται πραγματικά μετά την επίλυση της κληρονομικότητας. Το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με τουλάχιστον ένα σχήμα στην πρώτη διαφάνεια και εκτυπώνει και τις δύο τιμές:
+Η τιμή που επιστρέφει το [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType) αντιπροσωπεύει τη ρύθμιση που έχει ανατεθεί άμεσα στο σχήμα. Εάν η μορφοποίηση γραμμής μπορεί να κληθεί από θέμα, κύρια διαφάνεια ή διάταξη, χρησιμοποιήστε το [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective), αποκτήστε το αντικείμενο `getSketchFormat` και διαβάστε τη τιμή `getSketchType`. Η αποτελεσματική τιμή αντικατοπτρίζει τη μορφοποίηση που εφαρμόζεται μετά την επίλυση της κληρονομικότητας. Το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με τουλάχιστον ένα σχήμα στην πρώτη διαφάνεια και εκτυπώνει και τις δύο τιμές:
 
 ```php
 use aspose\slides\Presentation;
@@ -229,7 +229,7 @@ try {
 }
 ```
 
-## **Διαμόρφωση Στυλ Σύνδεσης**
+## **Μορφοποίηση Στυλ Συνδέσεων**
 
 Αυτές είναι οι τρεις επιλογές τύπου σύνδεσης:
 
@@ -237,11 +237,11 @@ try {
 * Miter
 * Bevel
 
-Το στυλ σύνδεσης ελέγχει πώς δύο τμήματα περιγράμματος συναντούνται σε γωνία. Χρησιμοποιήστε **Round** για στρογγυλεμένες γωνίες, **Miter** για οξείες γωνίες ή **Bevel** για επίπεδες γωνίες.
+Το στυλ σύνδεσης ελέγχει πώς δύο τμήματα περιγράμματος συναντώνται σε μια γωνία. Χρησιμοποιήστε **Round** για στρογγυλεμένες γωνίες, **Miter** για οξείες γωνίες ή **Bevel** για επίπεδες γωνίες.
 
 ![Το στυλ σύνδεσης στην παρουσίαση](join-style-powerpoint.png)
 
-Αυτό το παράδειγμα δημιουργεί τρία μαύρα ορθογώνια με μπλε περιγράμματα 15 σημεία πλάτος. Ορίζει το [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) στα μιτερ, μπεζ και στρογγυλό στυλ της κλάσης [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/), αντίστοιχα, για σύγκριση του τρόπου σχεδίασης των γωνιών.
+Το παράδειγμα δημιουργεί τρία μαύρα ορθογώνια με μπλε περιγράμματα 15 μονάδων πλάτος. Ορίζει το [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) στις τιμές miter, bevel και round της κλάσης [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/), αντίστοιχα, για να συγκρίνει πώς σχεδιάζονται οι γωνίες.
 
 ```php
 use aspose\slides\FillType;
@@ -290,13 +290,13 @@ try {
 }
 ```
 
-### **Περιορισμός Μιτερ Σύνδεσεων σε Οξείες Γωνίες**
+### **Περιορισμός Συνδέσεων Miter σε Οξέες Γωνίες**
 
 Χρησιμοποιήστε το [LineFormat::setMiterLimit](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setMiterLimit) μαζί με το [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) ορισμένο σε [LineJoinStyle::Miter](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) για να περιορίσετε το πόσο πολύ μπορεί να εκτείνεται μια οξεία γωνία.
 
-Το όριο είναι ένας λόγος της απόστασης μεταξύ των εσωτερικών και εξωτερικών γωνιών της σύνδεσης προς το πλάτος της γραμμής. Για παράδειγμα, τιμή `8` επιτρέπει μήκος μιτερ έως οκτώ φορές το πλάτος της γραμμής· δεν είναι μέτρηση σε σημεία. Εάν η γωνία υπερβεί το όριο, το PowerPoint χρησιμοποιεί μπεζ σύνδεση σε εκείνη τη γωνία. Μεγαλύτερο όριο επιτρέπει πιο οξείς σημεία. Η ρύθμιση επηρεάζει μόνο τις μιτερ συνδέσεις και δεν έχει οπτική επίδραση όταν η γωνία παραμένει εντός των ορίων.
+Το όριο είναι ένας λόγος της απόστασης μεταξύ των εσωτερικών και εξωτερικών γωνιών της σύνδεσης προς το πλάτος της γραμμής. Για παράδειγμα, τιμή `8` επιτρέπει μήκος miter μέχρι οκτώ φορές το πλάτος της γραμμής· δεν είναι μέτρηση σε μονάδες. Εάν η γωνία υπερβαίνει το όριο, το PowerPoint χρησιμοποιεί λοξόκολο στην εν λόγω γωνία. Μεγαλύτερο όριο δίνει πιο οξείς άκρες. Η ρύθμιση επηρεάζει μόνο τις συνδέσεις miter και δεν έχει ορατό αποτέλεσμα όταν η γωνία παραμένει εντός των ορίων.
 
-Αυτό το παράδειγμα δημιουργεί δύο ίσα μη γεμισμένα τρίγωνα με περιγράμματα 20 σημεία πλάτος. Το αριστερό τρίγωνο χρησιμοποιεί όριο `2`, ενώ το δεξιό `8`. Κάθε τρίγωνο έχει πλάτος 80 σημεία και ύψος 160 σημεία, δίνοντας στην κορυφή του λόγο μιτερ-πλάτος περίπου `4.12`. Συνεπώς, το PowerPoint μιζέ (bevel) το αριστερό άκρο και διατηρεί το δεξιό.
+Το παράδειγμα δημιουργεί δύο ταυτόσημα, άκυκλα τρίγωνα με περιγράμματα 20 μονάδων πλάτος. Το αριστερό τρίγωνο χρησιμοποιεί όριο `2`, το δεξί `8`. Κάθε τρίγωνο έχει πλάτος 80 μονάδες και ύψος 160 μονάδων, δίνοντας στην άνω γωνία λόγο περίπου `4.12`. Συνεπώς, το PowerPoint λοξοκοπεί το αριστερό άκρο και διατηρεί το δεξί.
 
 ```php
 use aspose\slides\FillType;
@@ -330,13 +330,13 @@ try {
 }
 ```
 
-Το αποτέλεσμα στο PowerPoint: **Όριο μιτερ 2** στα αριστερά και **Όριο μιτερ 8** στα δεξιά.
+Το αποτέλεσμα στο PowerPoint: **Miter limit 2** στα αριστερά και **miter limit 8** στα δεξιά.
 
-![Μιζέ άκρη με όριο μιτερ 2 και αιχμηρή άκρη με όριο μιτερ 8 στο PowerPoint](miter-limits.png)
+![A beveled apex with miter limit 2 and a pointed apex with miter limit 8 in PowerPoint](miter-limits.png)
 
-## **Γεμίσεις Διαβάθμισης**
+## **Γέμισμα Διαβάθμισης**
 
-Μια γεμιστική διαβάθμιση αναμειγνύει χρώματα σε ένα σχήμα. Αυτό το παράδειγμα γεμίζει μια έλλειψη με γραμμική διαβάθμιση υπό γωνία 45 βαθμών από κόκκινο σε μωβ χρησιμοποιώντας το [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat). Η μέθοδος [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) τοποθετεί τα χρώματα στα 0 και 1, την αρχή και το τέλος της διαβάθμισης. Η εκκαθάριση των υπαρχόντων σημείων εξασφαλίζει ότι χρησιμοποιούνται μόνο αυτά τα δύο χρώματα.
+Ένα γέμισμα διαβάθμισης αναμειγνύει χρώματα σε όλο το σχήμα. Αυτό το παράδειγμα γεμίζει ένα έλλειψη με γραμμική διαβάθμιση 45 μοιρών από το κόκκινο στο μωβ χρησιμοποιώντας το [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat). Η μέθοδος [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) τοποθετεί τα χρώματα στα 0 και 1, την αρχή και το τέλος της διαβάθμισης. Η εκκαθάριση των υπαρχουσών στάσεων εξασφαλίζει ότι χρησιμοποιούνται μόνο αυτά τα δύο χρώματα.
 
 ```php
 use aspose\slides\FillType;
@@ -366,15 +366,15 @@ try {
 
 Το αποτέλεσμα:
 
-![Η έλλειψη με γεμιστική διαβάθμιση](gradient-fill.png)
+![Το έλλειψη με γέμισμα διαβάθμισης](gradient-fill.png)
 
-Εάν μια διαβάθμιση φαίνεται διαφορετική σε εξαγόμενο εικόνα από ό,τι στο PowerPoint, δείτε [Choose a Gradient Rendering Style](/slides/el/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Μπορείτε να επιλέξετε στυλ απόδοσης χωρίς να αλλάξετε τη διαβάθμιση που αποθηκεύεται στην παρουσίαση.
+Εάν μια διαβάθμιση φαίνεται διαφορετική σε εξαγόμενο εικόνα από ό,τι στο PowerPoint, δείτε [Choose a Gradient Rendering Style](/slides/el/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Μπορείτε να επιλέξετε στυλ απόδοσης χωρίς να αλλάξετε τη διαβάθμιση αποθηκευμένη στην παρουσίαση.
 
-### **Ορίστε τη Γωνία Γραμμικής Διαβάθμισης**
+### **Ορισμός Γωνίας Γραμμικού Διαβάθμισης**
 
-Χρησιμοποιήστε το [GradientFormat::setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) για να ελέγξετε τον προσανατολισμό μιας γεμίσματος [GradientShape::Linear](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/). Η γωνία μετράται σε μοίρες και αυξάνεται δεξιόστροφα: `0` τρέχει από αριστερά προς δεξιά, `90` από πάνω προς τα κάτω, `180` από δεξιά προς αριστερά, και `270` από κάτω προς τα πάνω. Υποστηρίζονται κλασματικές γωνίες. Οι πεπερασμένες γωνίες εκτός του `[0, 360)` κανονικοποιούνται σε μία πλήρη στροφή· π.χ., `-45` γίνεται `315` και `360` γίνεται `0`.
+Χρησιμοποιήστε [GradientFormat::setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) για να ελέγξετε τον προσανατολισμό μιας γέμισης [GradientShape::Linear](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/). Η γωνία μετράται σε μοίρες και αυξάνεται δεξιόστροφα: `0` τρέχει από αριστερά προς δεξιά, `90` από πάνω προς τα κάτω, `180` από δεξιά προς αριστερά, και `270` από κάτω προς πάνω. Υποστηρίζονται κλασματικές γωνίες. Οι γωνίες εκτός του εύρος `[0, 360)` κανονικοποιούνται σε μία πλήρη περιστροφή· για παράδειγμα, `-45` γίνεται `315` και `360` γίνεται `0`.
 
-Αυτό το παράδειγμα δημιουργεί έξι ορθογώνια με ίδιες κόκκινες, πράσινες και μπλε στάσεις σε θέσεις `0`, `0.5` και `1`. Η κλιμάκωση είναι απενεργοποιημένη ώστε η γωνία να συγκρίνεται ανεξάρτητα από τις διαστάσεις των ορθογωνίων. Οι γωνίες, από αριστερά προς δεξιά, είναι `0`, `45` και `90` στη πρώτη σειρά, και `135`, `180` και `270` στη δεύτερη σειρά.
+Το παράδειγμα δημιουργεί έξι ορθογώνια με τα ίδια κόκκινα, πράσινα και μπλε στάσεις στις θέσεις `0`, `0.5`, και `1`. Η κλιμάκωση είναι απενεργοποιημένη ώστε η γωνία να συγκρίνεται ανεξάρτητα από τις propor tions των ορθογωνίων. Οι γωνίες, από αριστερά προς δεξιά, είναι `0`, `45`, και `90` στην πρώτη σειρά, και `135`, `180`, και `270` στη δεύτερη σειρά.
 
 ```php
 use aspose\slides\FillType;
@@ -418,13 +418,13 @@ try {
 
 Το αποτέλεσμα στο PowerPoint:
 
-![Γραμμικές διαβάθμιση σε 0, 45 και 90 μοίρες στην επάνω σειρά, και 135, 180 και 270 μοίρες στην κάτω σειρά](linear-gradient-angles.png)
+![Linear gradients at 0, 45, and 90 degrees in the top row, and 135, 180, and 270 degrees in the bottom row](linear-gradient-angles.png)
 
 ### **Κλιμάκωση Γραμμικής Διαβάθμισης με το Σχήμα**
 
-Το [GradientFormat::setLinearGradientScaled](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientScaled) δέχεται μια τιμή [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/). Ορίστε την ρητά σε `False` για να διατηρηθεί η γεωμετρική γωνία της διαβάθμισης όταν αλλάζουν οι δια proportions του σχήματος, ή σε `True` για να κλιμακωθεί η διαβάθμιση μαζί με το πλάτος και το ύψος του σχήματος. Με ενεργοποιημένη κλιμάκωση, η ορατή γωνία μπορεί να διαφέρει από την καθορισμένη γωνία σε μη τετράγωνο σχήμα.
+[GradientFormat::setLinearGradientScaled](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientScaled) δέχεται μια τιμή [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/). Ορίστε την ρητά σε `False` για να διατηρήσετε τη γεωμετρική γωνία διαβάθμισης όταν οι αναλογίες του σχήματος αλλάζουν, ή σε `True` για να κλιμακώσετε τη διαβάθμιση με το πλάτος και το ύψος του σχήματος. Με την κλιμάκωση ενεργοποιημένη, η ορατή γωνία μπορεί να διαφέρει από την ανατεθειμένη γωνία σε σχήμα που δεν είναι τετράγωνο.
 
-Το επόμενο παράδειγμα χρησιμοποιεί γωνία `45` βαθμών και τις ίδιες στάσεις χρώματος όπως στην σύγκριση γωνιών. Η αριστερή στήλη χρησιμοποιεί `False`; η δεξιά `True`. Κάθε στήλη περιέχει ένα πλατύ ορθογώνιο πάνω από ένα υψηλό. Και οι δύο ξεκινούν με τις ίδιες πλατιές διαστάσεις· η αλλαγή του πλάτους και του ύψους του δεύτερου ορθογωνίου δείχνει πώς η γεμιστική ανταποκρίνεται στην αλλαγή μεγέθους χωρίς να αλλάζει τις ρυθμίσεις της διαβάθμισης.
+Το παρακάτω παράδειγμα χρησιμοποιεί γωνία `45` μοιρών και τις ίδιες στάσεις χρώματος όπως στην σύγκριση γωνιών. Η αριστερή στήλη χρησιμοποιεί `False`; η δεξιά `True`. Κάθε στήλη περιλαμβάνει ένα πλατύ ορθογώνιο πάνω από ένα ψηλό ορθογώνιο. Και οι δύο ξεκινούν με τις ίδιες πλατιές διαστάσεις· η αλλαγή του πλάτους και του ύψους του δεύτερου ορθογωνίου δείχνει πώς η γέμιση αντιδρά στην αλλαγή μεγέθους χωρίς να αλλάζει τις ρυθμίσεις διαβάθμισης.
 
 ```php
 use aspose\slides\FillType;
@@ -473,19 +473,19 @@ try {
 }
 ```
 
-Το αποτέλεσμα στο PowerPoint, με απενεργοποιημένη κλιμάκωση στα αριστερά και ενεργοποιημένη στα δεξιά:
+Το αποτέλεσμα στο PowerPoint, με την κλιμάκωση απενεργοποιημένη στα αριστερά και ενεργοποιημένη στα δεξιά:
 
-![Πλατιά και ψηλά ορθογώνια με διαβάθμιση 45 βαθμών, σύγκριση LinearGradientScaled False αριστερά με True δεξιά](linear-gradient-scaling.png)
+![Wide and tall rectangles with a 45-degree gradient, comparing LinearGradientScaled False on the left with True on the right](linear-gradient-scaling.png)
 
-Με απενεργοποιημένη κλιμάκωση, οι διαγώνιες λωρίδες χρώματος διατηρούν την ίδια προσανατολισμό και στα δύο ορθογώνια. Με ενεργοποιημένη κλιμάκωση, οι λωρίδες τεντώνονται με τις δια proportions του σχήματος. Αυτό βοηθά στην αποδόμηση μιας διαβάθμισης προτύπου όταν προσαρμόζετε ένα σχήμα σε διαφορετικό μέγεθος. Σε τετράγωνο, η ενεργοποίηση της κλιμάκωσης δεν αλλάζει την εμφάνιση αυτής της διαβάθμισης `45` βαθμών.
+Με την κλιμάκωση απενεργοποιημένη, οι διαγώνιες λωρίδες χρώματος διατηρούν τον ίδιο προσανατολισμό και στα δύο ορθογώνια. Με την κλιμάκωση ενεργοποιημένη, οι λωρίδες τεντώνονται με τις αναλογίες του σχήματος. Αυτό βοηθά στην αναπαραγωγή μιας διαβάθμισης προτύπου όταν προσαρμόζουμε το σχήμα σε διαφορετικό μέγεθος. Σε τετράγωνο σχήμα, η ενεργοποίηση της κλιμάκωσης δεν αλλάζει την εμφάνιση της διαβάθμισης `45` μοιρών.
 
-Τanto η γωνία όσο και η κλιμάκωση ισχύουν μόνο για γραμμικές διαβάθμιση. Δεν ελέγχουν τις γεμίσεις [GradientShape::Radial or GradientShape::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/).
+Τanto η γωνία όσο και η κλιμάκωση ισχύουν για γραμμικές διαβάθμισες. Δεν ελέγχουν τις γέμισης [GradientShape::Radial or GradientShape::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/).
 
-### **Συνδυάστε τη Γωνία με Κατεύθυνση Διαβάθμισης**
+### **Συνδυασμός Γωνίας με Κατεύθυνση Διαβάθμισης**
 
-Το [GradientFormat::setGradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setGradientDirection) επιλέγει στυλ διαβάθμισης από την κλάση [GradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientdirection/); δεν αντικαθιστά αριθμητική γωνία. Για γραμμική διαβάθμιση, τα στυλ γωνίας μπορούν να αλλάξουν την περιοχή διανομής χρωμάτων χωρίς αλλαγή της γωνίας που έχει οριστεί μέσω του [setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle). Διατηρήστε την κατεύθυνση αμετάβλητη όταν συγκρίνετε γωνίες ή κλιμάκωση.
+[GradientFormat::setGradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setGradientDirection) επιλέγει στυλ διαβάθμισης από την κλάση [GradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientdirection/); δεν αντικαθιστά μια αριθμητική γωνία. Για μια γραμμική διαβάθμιση, τα στυλ γωνίας μπορούν να αλλάξουν την περιοχή όπου διανέμονται τα χρώματα χωρίς να αλλάζουν τη γωνία που έχει οριστεί μέσω του [setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle). Κρατήστε την κατεύθυνση αμετάβλητη όταν συγκρίνετε γωνίες ή κλιμάκωση.
 
-Το παρακάτω παράδειγμα εφαρμόζει τις ίδιες ρυθμίσεις με αντίθετη σειρά. Τα δύο ορθογώνια έχουν την ίδια εμφάνιση: η ανάθεση της κατεύθυνσης πριν ή μετά τη γωνία δεν αλλάζει το αποτέλεσμα.
+Το παρακάτω παράδειγμα εφαρμόζει τις ίδιες ρυθμίσεις με αντίστροφη σειρά. Τα δύο ορθογώνια έχουν την ίδια εμφάνιση: η ανάθεση της κατεύθυνσης πριν ή μετά τη γωνία δεν αλλάζει το αποτέλεσμα.
 
 ```php
 use aspose\slides\FillType;
@@ -528,9 +528,9 @@ try {
 }
 ```
 
-## **Γέμισμα Σχεδίου**
+## **Γέμισμα Μοτίβου**
 
-Ένα γέμισμα σχεδίου εφαρμόζει σχεδίαση δύο χρωμάτων, όπως σημεία, λωρίδες ή καρό. Αυτό το παράδειγμα χρησιμοποιεί το [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) για να επιλέξει σχέδιο πλέγματος. Το [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) παρέχει το ανοιχτό γκρι φόντο, και το [PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) παρέχει το κίτρινο χρώμα του σχεδίου.
+Ένα γέμισμα μοτίβου εφαρμόζει ένα σχέδιο δύο χρωμάτων, όπως κουκίδες, λωρίδες ή σκαλοπάτια. Αυτό το παράδειγμα χρησιμοποιεί το [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) για να επιλέξει ένα μοτίβο πλέγματος. Το [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) παρέχει το ανοιχτό γκρι φόντο, και το [PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) παρέχει το κίτρινο χρώμα του μοτίβου.
 
 ```php
 use aspose\slides\FillType;
@@ -557,11 +557,11 @@ try {
 
 Το αποτέλεσμα:
 
-![Το ορθογώνιο με γέμισμα σχεδίου](pattern-fill.png)
+![Το ορθογώνιο με γέμισμα μοτίβου](pattern-fill.png)
 
 ## **Γέμισμα Εικόνας**
 
-Ένα γέμισμα εικόνας χρησιμοποιεί μια εικόνα μέσα σε σχήμα. Αυτό το παράδειγμα απαιτεί μια τοπική εικόνα και χρησιμοποιεί το [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) για να τη φορτώσει στη συλλογή εικόνων της παρουσίασης. Ορίζοντας το [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) σε λειτουργία επαναλαμβανόμενης (tiled) εικόνας, η εικόνα επαναλαμβάνεται μέσα στο ορθογώνιο. Η πηγαία εικόνα που χρησιμοποιείται φαίνεται παρακάτω:
+Ένα γέμισμα εικόνας χρησιμοποιεί μια εικόνα μέσα σε σχήμα. Αυτό το παράδειγμα απαιτεί τοπική εικόνα και χρησιμοποιεί το [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) για να τη φορτώσει στη συλλογή εικόνων της παρουσίασης. Ορίζοντας το [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) στη λειτουργία πλακίδων, η εικόνα επαναλαμβάνεται μέσα στο ορθογώνιο. Η πηγή εικόνας που χρησιμοποιείται παρακάτω φαίνεται παρακάτω:
 
 ![Η εικόνα λωτού](lotus.png)
 
@@ -599,19 +599,19 @@ try {
 
 ![Το σχήμα με γέμισμα εικόνας](picture-fill.png)
 
-### **Επανάληψη Εικόνας ως Υφή**
+### **Τοποθέτηση Εικόνας σε Υφή Πλακίδιων**
 
-Αν θέλετε να ορίσετε μια επαναλαμβανόμενη εικόνα ως υφή και να προσαρμόσετε τη συμπεριφορά επανάληψης, μπορείτε να χρησιμοποιήσετε τις ακόλουθες μεθόδους της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/):
+Εάν θέλετε να ορίσετε μια εικόνα σε υφή πλακίδων και να προσαρμόσετε τη συμπεριφορά της επικάλυψης, μπορείτε να χρησιμοποιήσετε τις παρακάτω μεθόδους της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Ορίζει τη λειτουργία γέμισης εικόνας — `Tile` ή `Stretch`.
+- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Ορίζει τη λειτουργία γέμισματος εικόνας — είτε `Tile` είτε `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): Καθορίζει την ευθυγράμμιση των πλακιδίων μέσα στο σχήμα.
-- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): Ελέγχει εάν το πλακίδιο αναποδογυρίζεται οριζόντια, κάθετα ή και τα δύο.
-- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Ορίζει την οριζόντια μετατόπιση του πλακιδίου (σε σημεία) από το αρχικό σημείο του σχήματος.
-- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Ορίζει την κάθετη μετατόπιση του πλακιδίου (σε σημεία) από το αρχικό σημείο του σχήματος.
-- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): Καθορίζει την οριζόντια κλίμακα του πλακιδίου ως ποσοστό.
-- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): Καθορίζει την κάθετη κλίμακα του πλακιδίου ως ποσοστό.
+- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): Ελέγχει εάν το πλακίδιο θα αναστραφεί οριζόντια, κάθετα ή και τα δύο.
+- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Ορίζει την οριζόντια μετατόπιση του πλακιδίου (σε μονάδες) από το σημείο αναφοράς του σχήματος.
+- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Ορίζει την κάθετη μετατόπιση του πλακιδίου (σε μονάδες) από το σημείο αναφοράς του σχήματος.
+- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): Ορίζει την οριζόντια κλίμακα του πλακιδίου ως ποσοστό.
+- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): Ορίζει την κάθετη κλίμακα του πλακιδίου ως ποσοστό.
 
-Αυτό το παράδειγμα απαιτεί μια τοπική εικόνα και ρυθμίζει το [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) να την επαναλαμβάνει στο 50 % του αρχικού του μεγέθους. Οι μετατοπίσεις `−32` σημεία μετακινούν τα πλακίδια οριζόντια και κάθετα· η ευθυγράμμιση κάτω δεξιά και το ανάποδο σε δύο κατευθύνσεις καθορίζουν πώς διευθετείται η επαναλαμβανόμενη υφή.
+Αυτό το παράδειγμα απαιτεί τοπική εικόνα και ρυθμίζει το [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) ώστε να την επαναλάβει στο 50 % του αρχικού μεγέθους. Μετατοπίσεις `−32` μονάδων μετατοπίζουν τα πλακίδια οριζόντια και κάθετα· η στοίχιση κάτω‑δεξιά και η αναστροφή και στις δύο κατευθύνσεις καθορίζουν πώς θα διαταχθεί η επαναλαμβανόμενη υφή.
 
 ```php
 use aspose\slides\FillType;
@@ -657,9 +657,9 @@ try {
 
 ![Οι επιλογές πλακιδίων](tile-options.png)
 
-## **Συμπαγής Χρώματος Γέμισμα**
+## **Γέμισμα Μονής Χρώματος**
 
-Ένα συμπαγές γέμισμα δίνει στο σχήμα ένα ενιαίο χρώμα. Αυτό το παράδειγμα ορίζει το [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) στη λειτουργία συμπαγούς γέμισματος και εκχωρεί κίτρινο χρώμα μέσω του [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor), στη συνέχεια αποθηκεύει το ορθογώνιο στην παρουσίαση.
+Ένα γέμισμα μονής χρώματος δίνει στο σχήμα ένα ενιαίο, ομοιόμορφο χρώμα. Αυτό το παράδειγμα ορίζει το [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) στη λειτουργία γεμίσματος μονής χρώματος και αντιστοιχίζει το κίτρινο μέσω του [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor), μετά αποθηκεύει το ορθογώνιο στην παρουσίαση.
 
 ```php
 use aspose\slides\FillType;
@@ -683,15 +683,92 @@ try {
 
 Το αποτέλεσμα:
 
-![Το σχήμα με συμπαγές γέμισμα χρώματος](solid-color-fill.png)
+![Το σχήμα με γέμισμα μονής χρώματος](solid-color-fill.png)
 
-## **Χρησιμοποιήστε το Παρασκήνιο Διαφάνειας ως Γέμισμα Σχήματος**
+### **Αντιγραφή Χρωμάτων Διατηρώντας Αναφορές Θέματος**
 
-Χρησιμοποιήστε το [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill) όταν ένα σχήμα πρέπει να ταιριάζει με το παρασκήνιο της διαφάνειας, π.χ. σε πρότυπο παρουσίασης. Ορίστε πρώτα το [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) σε [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) για να αφαιρέσετε τυχόν ρητό γέμισμα. Με αυτόν τον συνδυασμό, το σχήμα χρησιμοποιεί το παρασκήνιο της διαφάνειας αντί για το δικό του στυλ γέμισματος. Η ενεργοποίηση της σημαίας μόνη της δεν αφαιρεί υπάρχον ρητό γέμισμα.
+Χρησιμοποιήστε το [ColorFormat::copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#copyFrom) για να αντιγράψετε έναν ορισμό χρώματος, συμπεριλαμβανομένου του τύπου χρώματος, της αναφοράς θέματος και των μετασχηματισμών. Αυτό είναι χρήσιμο όταν μεταφέρετε ένα χρώμα γεμίσματος μεταξύ σχημάτων που πρέπει να συνεχίσουν να ακολουθούν το θέμα της παρουσίασης. Η μέθοδος αντιγράφει μόνο το χρώμα: δεν αντιγράφει τον τύπο γεμίσματος, το περίγραμμα ή άλλες μορφοποιήσεις σχήματος. Ορίστε ρητά τον τύπο γεμίσματος του προορισμού με το [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType).
 
-Αυτό διαφέρει από το [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/): το γέμισμα παρασκηνίου καλύπτει αντικείμενα πίσω από το σχήμα με την αντίστοιχη περιοχή του παρασκηνίου της διαφάνειας, ενώ το «χωρίς γέμισμα» αφήνει αυτά τα αντικείμενα ορατά. Μια διαβάθμιση παραμένει ευθυγραμμισμένη με τη διαφάνεια αντί να επανεκκινεί μέσα σε κάθε σχήμα.
+Το παράδειγμα δημιουργεί τρία ορθογώνια, από αριστερά προς δεξιά: την πηγή, ένα αντίγραφο που λαμβάνει υπόψη το θέμα, και ένα σταθερό αντίγραφο RGB. Η πηγή χρησιμοποιεί το [ColorFormat::setSchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setSchemeColor) για να αναφερθεί στο πρώτο χρώμα έμφασης και προσθέτει απόχρωση μέσω του [ColorOperationCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/coloroperationcollection/#add). Το αντίγραφο RGB χρησιμοποιεί το αποτελεσματικό χρώμα γεμίσματος της πηγής ώστε τα τρία αρχικά να φαίνονται τα ίδια. Καλώντας το [ColorFormat::setColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setColor) ορίζεται μια σταθερή τιμή RGB και αφαιρούνται τυχόν υπάρχουσες μετατροπές χρώματος.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα κύριο παρασκήνιο που κληρονομείται από τη διαφάνεια και τοποθετεί μια μαγέτσα λωτόμπερου πίσω από τρία ορθογώνια. Το αριστερό ορθογώνιο χρησιμοποιεί το παρασκήνιο, το μεσαίο δεν έχει γέμισμα, και το δεξιό εναλλάσσει από γέμισμα παρασκηνίου σε ρητό πορτοκαλί γέμισμα.
+```php
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FillType;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SchemeColor;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(660, 220, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $initialAccent = new Java("java.awt.Color", 65, 105, 225);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent1()->setColor($initialAccent);
+
+    $source = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+    $themeCopy = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+    $rgbCopy = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+    foreach ([$source, $themeCopy, $rgbCopy] as $shape) {
+        $shape->getFillFormat()->setFillType(FillType::Solid);
+        $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+    }
+
+    $sourceColor = $source->getFillFormat()->getSolidFillColor();
+    $sourceColor->setSchemeColor(SchemeColor::Accent1);
+    $sourceColor->getColorTransform()->add(ColorTransformOperation::Tint, 0.75);
+
+    $themeCopy->getFillFormat()->getSolidFillColor()->copyFrom($sourceColor);
+    $rgbCopy->getFillFormat()->getSolidFillColor()->setColor($source->getFillFormat()->getEffective()->getSolidFillColor());
+
+    $before = $slide->getImage(1.0, 1.0);
+    try {
+        $before->save("color-copy-before.png", ImageFormat::Png);
+    } finally {
+        $before->dispose();
+    }
+
+    // Οι αναφορές θέματος ακολουθούν το νέο χρώμα έμφασης· η σταθερή τιμή RGB δεν το κάνει.
+    $updatedAccent = new Java("java.awt.Color", 255, 69, 0);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent1()->setColor($updatedAccent);
+
+    $after = $slide->getImage(1.0, 1.0);
+    try {
+        $after->save("color-copy-after.png", ImageFormat::Png);
+    } finally {
+        $after->dispose();
+    }
+    $presentation->save("copied_colors.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Πριν την αλλαγή θέματος, όλα τα τρία γέμισματα ταιριάζουν:
+
+![Πηγή, copyFrom προορισμός, και σταθερός RGB προορισμός με ταυτοτικά μπλε γέμισματα](color-copy-before.png)
+
+Μετά την αλλαγή θέματος, η πηγή και το αντίγραφο που λαμβάνει υπόψη το θέμα ακολουθούν το νέο χρώμα έμφασης και διατηρούν την απόχρωση τους. Το σταθερό αντίγραφο RGB παραμένει μπλε:
+
+![Πηγή και copyFrom προορισμός με πορτοκαλί γέμισμα, ενώ ο σταθερός RGB προορισμός παραμένει μπλε](color-copy-after.png)
+
+Ο αντίγραφος ορισμός είναι ανεξάρτητος από την πηγή. Η επακόλουθη αλλαγή της αναφοράς θέματος της πηγής, η ανάθεση άλλου χρώματος ή η προσθήκη/αφαίρεση των μετασχηματισμών δεν αλλάζει τον προορισμό. Μια αλλαγή θέματος εξακολουθεί να επηρεάζει και τα δύο σχήματα επειδή κάθε ένα αναφέρεται ανεξάρτητα στο ίδιο χρώμα θέματος.
+
+Η αποθήκευση και επανέναρξη του PPTX διατηρεί τον τύπο του αντιγραμμένου χρώματος που επιστρέφεται από το [ColorFormat::getColorType](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#getColorType), την αναφορά θέματος και τη συλλογή μετασχηματισμών που επιστρέφεται από το [ColorFormat::getColorTransform](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#getColorTransform); δεν επίπεδωση το ορισμό σε RGB.
+
+Κατά την αντιγραφή μεταξύ διαφορετικών πλαισίων θέματος, όπως παρουσιάσεις με διαφορετικές παλέτες έμφασης, η αντιγραμμένη αναφορά επιλύεται έναντι του θέματος του προορισμού. Η ίδια αναφορά και οι μετασχηματισμοί μπορούν επομένως να παράγουν διαφορετικό ορατό χρώμα. Δείτε την [Θέμα Παρουσίασης](/slides/el/php-java/presentation-theme/) για περισσότερα σχετικά με τη ρύθμιση χρωμάτων θέματος.
+
+## **Χρήση Φόντου Διαφάνειας της Διαφάνειας ως Γέμισμα Σχήματος**
+
+Χρησιμοποιήστε το [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill) όταν ένα σχήμα πρέπει να ταιριάζει με το φόντο της διαφάνειας, για παράδειγμα σε πρότυπο παρουσίασης. Ορίστε τον τύπο γεμίσματος με το [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) στο [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) πρώτα για να αφαιρέσετε τυχόν ρητό γέμισμα. Με αυτόν τον συνδυασμό, το σχήμα χρησιμοποιεί το φόντο της διαφάνειας αντί για το δικό του γέμισμα. Η ενεργοποίηση του σημαδιού από μόνη της δεν αφαιρεί υπάρχον ρητό γέμισμα.
+
+Αυτό διαφέρει από το [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/): το γέμισμα φόντου καλύπτει αντικείμενα πίσω από το σχήμα με την αντίστοιχη περιοχή του φόντου της διαφάνειας, ενώ το NoFill αφήνει αυτά τα αντικείμενα ορατά. Μια διαβάθμιση παραμένει ευθυγραμμισμένη με τη διαφάνεια αντί να επανεκκινείται μέσα σε κάθε σχήμα.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα κύριο φόντο που κληρονομείται από τη διαφάνεια και τοποθετεί μια ματζέντα λωρίδα πίσω από τρία ορθογώνια. Το αριστερό ορθογώνιο χρησιμοποιεί το φόντο, το μεσαίο δεν έχει γέμισμα, και το δεξιό εναλλάσσει από γέμισμα φόντου σε ρητό πορτοκαλί γέμισμα.
 
 ```php
 use aspose\slides\BackgroundType;
@@ -707,7 +784,7 @@ try {
     $presentation->getSlideSize()->setSize(720, 400, SlideSizeScaleType::DoNotScale);
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Κληρονομήστε τη διαβάθμιση από το master.
+    // Κληρονόμηση της διαβάθμισης από το master.
     $slide->getBackground()->setType(BackgroundType::NotDefined);
     $slide->getLayoutSlide()->getBackground()->setType(BackgroundType::NotDefined);
     $background = $slide->getLayoutSlide()->getMasterSlide()->getBackground();
@@ -722,7 +799,7 @@ try {
     $endColor = new Java("java.awt.Color", 135, 206, 250);
     $gradient->getGradientStops()->add(1, $endColor);
 
-    // Προσθέστε αυτό το αντικείμενο πρώτα ώστε να εμφανίζεται πίσω από τα ορθογώνια.
+    // Προσθέστε αυτό το αντικείμενο πρώτο ώστε να εμφανίζεται πίσω από τα ορθογώνια.
     $band = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 25, 150, 670, 100);
     $band->getFillFormat()->setFillType(FillType::Solid);
     $band->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->MAGENTA);
@@ -739,7 +816,7 @@ try {
     $explicitShape->getFillFormat()->setFillType(FillType::NotDefined);
     $explicitShape->setUseBackgroundFill(true);
 
-    // Απενεργοποιήστε το γέμισμα παρασκηνίου πριν εφαρμόσετε ένα ρητό γέμισμα.
+    // Απενεργοποιήστε το γέμισμα φόντου πριν εφαρμόσετε ένα ρητό γέμισμα.
     $explicitShape->setUseBackgroundFill(false);
     $explicitShape->getFillFormat()->setFillType(FillType::Solid);
     $fillColor = new Java("java.awt.Color", 255, 165, 0);
@@ -751,15 +828,15 @@ try {
 }
 ```
 
-Το αποτέλεσμα, από αριστερά προς δεξιά: **γέμισμα παρασκηνίου**, **χωρίς γέμισμα**, και **ρητό γέμισμα**. Η μαγέτσα λωτόμπερου κρύβεται από το αριστερό και το δεξιό ορθογώνιο αλλά παραμένει ορατή μέσω του μεσαίου.
+Το αποτέλεσμα, από αριστερά προς δεξιά: **background fill**, **no fill**, και **explicit fill**. Η ματζέντα λωρίδα κρύβεται από τα αριστερά και δεξιά ορθογώνια αλλά παραμένει ορατή μέσω του μεσαίου ορθογωνίου.
 
-![Γέμισμα παρασκηνίου, χωρίς γέμισμα και ρητό πορτοκαλί γέμισμα πάνω από μια μαγέτσα λωτόμπερου](background-fill.png)
+![Background fill, no fill, and explicit orange fill over a magenta band](background-fill.png)
 
-Η ίδια συμπεριφορά ισχύει για παρασκήνιο ορισμένο άμεσα στη διαφάνεια ή κληρονομικό από διάταξη. Το σχήμα χρησιμοποιεί το επιλυμένο παρασκήνιο της διαφάνειας· το παράδειγμα αφήνει τόσο τη διαφάνεια όσο και τη διάταξη ακαθόριστες ώστε το κύριο να τις παρέχει.
+Η ίδια συμπεριφορά ισχύει για φόντο που ορίζεται απευθείας στη διαφάνεια ή κληρονομείται από διάταξη. Το σχήμα χρησιμοποιεί το επιλυμένο φόντο της διαφάνειας· το παράδειγμα αφήνει τα φόντα της διαφάνειας και της διάταξης αορισμένα ώστε το κύριο να το παρέχει.
 
-## **Ορίστε Διαφάνεια**
+## **Ορισμός Διαφάνειας**
 
-Για ένα συμπαγές γέμισμα, το συστατικό άλφα του χρώματος ελέγχει την αδιαφάνεια: 0 είναι πλήρως διαφανές και 255 πλήρως αδιαφανές. Αυτό το παράδειγμα χρησιμοποιεί τιμή άλφα 128 για ένα κίτρινο ορθογώνιο, κάνοντάς το περίπου 50 % διαφανές ώστε το ορθογώνιο από κάτω να παραμένει ορατό. Το χρώμα εκχωρείται μέσω του [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor).
+Για ένα στερεό γέμισμα, το συστατικό άλφα του χρώματος ελέγχει την αδιαφάνεια: 0 είναι πλήρως διαφανές και 255 πλήρως αδιαφανές. Αυτό το παράδειγμα χρησιμοποιεί τιμή άλφα 128 για ένα κίτρινο ορθογώνιο, καθιστώντας το περίπου 50 % διαφανές ώστε το ορθογώνιο από κάτω να παραμένει ορατό. Το χρώμα ανατίθεται μέσω του [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```php
 use aspose\slides\FillType;
@@ -814,9 +891,9 @@ try {
 
 ![Η περιστροφή του σχήματος](shape-rotation.png)
 
-## **Προσθήκη Εφέ Τριδιάστατης Λεπίδας**
+## **Προσθήκη Εφέ Λοξόκολου 3Δ**
 
-Χρησιμοποιήστε το [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) για να δώσετε σε σχήμα βάθος και λεπίδες. Αυτό το παράδειγμα δημιουργεί μια πράσινη έλλειψη με πορτοκαλί περίγραμμα, ορίζει το [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) σε 4 σημεία και εφαρμόζει μια κυκλική άνω λεπίδα με πλάτος και ύψος 6 σημεία μέσω του [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop). Μια ορθογώνια προοπτική κάμερα και τριών σημείων φωτισμός κάνουν τη λεπίδα ορατή.
+Χρησιμοποιήστε το [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) για να δώσετε βάθος και λοξόκολες ακμές σε σχήμα. Αυτό το παράδειγμα δημιουργεί μια πράσινη έλλειψη με πορτοκαλί περίγραμμα, ορίζει το [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) σε 4 μονάδες και εφαρμόζει λοξόκολο πάνω με πλάτος και ύψος 6 μονάδες μέσω του [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop). Μια κάμερα ορθογραφική που κοιτάζει προς τα εμπρός και φωτισμός τριών σημείων κάνουν το λοξόκολο ορατό.
 
 ```php
 use aspose\slides\BevelPresetType;
@@ -856,11 +933,11 @@ try {
 
 Το αποτέλεσμα:
 
-![Το εφέ τριδιάστατης λεπίδας](3D-bevel-effect.png)
+![The 3D bevel effect](3D-bevel-effect.png)
 
-## **Προσθήκη Εφέ Τριδιάστατης Περιστροφής**
+## **Προσθήκη Εφέ 3Δ Περιστροφής**
 
-Η τρισδιάστατη προβολή ενός σχήματος ελέγχεται από τις ρυθμίσεις της κάμερας. Αυτό το παράδειγμα χρησιμοποιεί το [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) με γωνίες πλάτους, μήκους και επανάληψης 40, 35 και 20 μοίρες αντίστοιχα. Επιλέγει ισομετρική κάμερα μέσω του [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) και ισορροπημένο φωτισμό μέσω του [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType), στη συνέχεια αποθηκεύει το μορφοποιημένο ορθογώνιο.
+Η 3Δ άποψη ενός σχήματος ελέγχεται από τις ρυθμίσεις κάμερας. Αυτό το παράδειγμα χρησιμοποιεί το [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) με γωνίες γεωγραφικού πλάτους, μήκους και επανάληψης 40, 35 και 20 μοιρών αντίστοιχα. Επιλέγει ισομετρική κάμερα μέσω του [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) και ισορροπημένο φωτισμό μέσω του [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType), μετά αποθηκεύει το μορφοποιημένο ορθογώνιο.
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -887,15 +964,15 @@ try {
 
 Το αποτέλεσμα:
 
-![Το εφέ τριδιάστατης περιστροφής](3D-rotation-effect.png)
+![The 3D rotation effect](3D-rotation-effect.png)
 
-## **Έλεγχος Ασπρόμαυρης Απόδοσης για Σχήματα**
+## **Έλεγχος Μετατροπής Μαύρο‑Άσπρο για Σχήματα**
 
-Η μέθοδος [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) καθορίζει πώς αποδίδεται ένα μεμονωμένο σχήμα όταν μια παρουσίαση προβάλλεται ή επεξεργάζεται σε ασπρόμαυρη λειτουργία. Δεν ενεργοποιεί την ασπρόμαυρη προβολή από μόνη της και δεν αλλάζει το γέμισμα, τη γραμμή ή άλλες μορφοποιήσεις του σχήματος σε κανονική έγχρωμη λειτουργία.
+Η μέθοδος [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) καθορίζει πώς ένα μεμονωμένο σχήμα αποδίδεται όταν μια παρουσίαση προβλέπεται ή υποβάλλεται σε λειτουργία μαύρο‑ασπρό. Δεν ενεργοποιεί από μόνη της την εμφάνιση μαύρο‑ασπρό και δεν αλλάζει το γέμισμα, το περίγραμμα ή άλλες μορφοποιήσεις σε κανονική χρωματική λειτουργία.
 
-Χρησιμοποιήστε μια τιμή από την κλάση [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) για να επιλέξετε την επιθυμητή συμπεριφορά. Για παράδειγμα, `Automatic` αφήνει την εφαρμογή απόδοσης να επιλέξει τη μετατροπή, `Gray` και `LightGray` χρησιμοποιούν γκρι χρωματισμό, `BlackWhite` χρησιμοποιεί μόνο μαύρο και λευκό, `Black` και `White` επιβάλλουν ένα χρώμα, `Color` διατηρεί το κανονικό χρώμα, και `Hidden` παραλείπει το σχήμα σε ασπρόμαυρη λειτουργία. Το `NotDefined` σημαίνει ότι δεν έχει οριστεί λειτουργία σε επίπεδο σχήματος.
+Χρησιμοποιήστε μια τιμή από την κλάση [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) για να επιλέξετε την επιθυμητή συμπεριφορά. Για παράδειγμα, `Automatic` αφήνει την εφαρμογή απόφασης μετατροπής, `Gray` και `LightGray` χρησιμοποιούν γκρι χρώματα, `BlackWhite` χρησιμοποιεί μόνο μαύρο και λευκό, `Black` και `White` εξαναγκάζουν ένα χρώμα, `Color` διατηρεί το κανονικό χρώμα, και `Hidden` παραλείπει το σχήμα σε λειτουργία μαύρο‑ασπρό. `NotDefined` σημαίνει ότι δεν έχει οριστεί λειτουργία σε επίπεδο σχήματος.
 
-Αυτό το παράδειγμα δημιουργεί ένα πορτοκαλί ορθογώνιο και ορίζει το [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) σε γκρι. Το αποθηκευμένο σχήμα διατηρεί το πορτοκαλί γέμισμα για κανονική προβολή χρώματος και ζητά γκρι χρώμα από εφαρμογές που σέβονται τις ρυθμίσεις ασπρόμαυρης προβολής.
+Αυτό το παράδειγμα δημιουργεί ένα πορτοκαλί ορθογώνιο και ορίζει το [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) σε γκρι. Το αποθηκευμένο σχήμα διατηρεί το πορτοκαλί γέμισμα στην κανονική χρωματική προβολή και ζητά γκρι χρώμα από εφαρμογές που σέβονται τις ρυθμίσεις εμφάνισης μαύρο‑ασπρό.
 
 ```php
 use aspose\slides\BlackWhiteMode;
@@ -920,11 +997,11 @@ try {
 }
 ```
 
-Σε κανονική λειτουργία χρώματος, το ορθογώνιο διατηρεί το πορτοκαλί γέμισμα. Σε ροή εργασίας ασπρόμαυρης προβολής, χρησιμοποιεί γκρι χρωματισμό επειδή η λειτουργία του είναι ορισμένη σε `Gray`. Αυτό σας επιτρέπει να διατηρήσετε μια πλήρως έγχρωμη διαφάνεια ενώ ορίζετε διαφορετική εμφάνιση για εκτύπωση, προεπισκόπηση ή άλλες ροές εργασίας που σέβονται τις ρυθμίσεις ασπρόμαυρης προβολής της παρουσίασης.
+Σε κανονική χρωματική λειτουργία, το ορθογώνιο διατηρεί το πορτοκαλί γέμισμα. Σε ροή εργασίας με εμφάνιση μαύρο‑ασπρό, χρησιμοποιεί γκρι χρώμα επειδή η λειτουργία του έχει οριστεί σε `Gray`. Αυτό σας επιτρέπει να διατηρήσετε μια πλήρως χρωματιστή διαφάνεια ενώ ορίζετε διαφορετική εμφάνιση για εκτύπωση, προεπισκόπηση ή άλλες ροές εργασίας που σέβονται τις ρυθμίσεις εμφάνισης μαύρο‑ασπρό της παρουσίασης.
 
 ## **Επαναφορά Μορφοποίησης**
 
-Χρησιμοποιήστε το [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset) για να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση των εικονοδοχείων της διαφάνειας από τα αντίστοιχα εικονοδοχεία της διάταξης. Αυτό το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με εικονοδοχεία συνδεδεμένα σε διάταξη και επαναφέρει κάθε διαφάνεια πριν την αποθήκευση. Τα σχήματα χωρίς αντίστοιχο εικονοδοχείο διάταξης δεν επαναφέρονται.
+Χρησιμοποιήστε το [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset) για να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση των δεσμευτικών σημειωμάτων διαφάνειας από τα αντίστοιχα δεσμευτικά σημειώματα διάταξης. Αυτό το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με δεσμευτικά σημειώματα που συνδέονται με διάταξη και επαναφέρει κάθε διαφάνεια πριν την αποθήκευση. Τα σχήματα χωρίς αντίστοιχο δεσμευτικό σημείωμα διάταξης δεν επαναφέρονται.
 
 ```php
 use aspose\slides\Presentation;
@@ -943,16 +1020,16 @@ try {
 }
 ```
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ (FAQ)**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
 **Επηρεάζει η μορφοποίηση σχήματος το τελικό μέγεθος του αρχείου παρουσίασης;**
 
-Τα χρώματα, τα στυλ γραμμών και οι ρυθμίσεις εφέ προσθέτουν γενικά μικρή ποσότητα δεδομένων σε σύγκριση με ενσωματωμένες εικόνες και πολυμέσα. Τα γέμισμα εικόνας μπορούν να αυξήσουν το μέγεθος του αρχείου καθώς οι εικόνες αποθηκεύονται στην παρουσίαση.
+Τα χρώματα, τα στυλ γραμμής και οι ρυθμίσεις εφέ προσθέτουν γενικά λίγα δεδομένα σε σχέση με τις ενσωματωμένες εικόνες και τα πολυμέσα. Τα γέμισματα εικόνας μπορούν να αυξήσουν το μέγεθος του αρχείου επειδή οι εικόνες τους αποθηκεύονται στην παρουσίαση.
 
-**Πώς μπορώ να εντοπίσω σχήματα σε μια διαφάνεια που μοιράζονται ταυτόσημη μορφοποίηση ώστε να τα ομαδοποιήσω;**
+**Πώς μπορώ να εντοπίσω σχήματα σε μια διαφάνεια που μοιράζονται την ίδια μορφοποίηση ώστε να τα ομαδοποιήσω;**
 
-Συγκρίνετε τις βασικές ιδιότητες μορφοποίησης κάθε σχήματος — γέμισμα, γραμμή και ρυθμίσεις εφέ. Εάν όλες οι αντίστοιχες τιμές ταιριάζουν, θεωρήστε τα στυλ ως ταυτόσημα και ομαδοποιήστε λογικά αυτά τα σχήματα, κάτι που απλοποιεί τη μετέπειτα διαχείριση στυλ.
+Συγκρίνετε τις βασικές ιδιότητες μορφοποίησης κάθε σχήματος — γέμισμα, γραμμή και ρυθμίσεις εφέ. Εάν όλες οι αντίστοιχες τιμές ταιριάζουν, θεωρήστε τα στυλ τους ως ίδια και ομαδοποιήστε λογικά αυτά τα σχήματα, κάτι που απλοποιεί τη μετέπειτα διαχείριση στυλ.
 
-**Μπορώ να αποθηκεύσω ένα σύνολο προσαρμοσμένων στυλ σχήματος σε ξεχωριστό αρχείο για επαναχρησιμοποίηση σε άλλες παρουσιάσεις;**
+**Μπορώ να αποθηκεύσω ένα σύνολο προσαρμοσμένων στυλ σχήματος σε ξεχωριστό αρχείο για χρήση σε άλλες παρουσιάσεις;**
 
-Ναι. Αποθηκεύστε δείγμα σ shapes με τα επιθυμητά στυλ σε ένα προτύπιο παρουσίασης ή αρχείο .POTX. Κατά τη δημιουργία νέας παρουσίασης, ανοίξτε το πρότυπο, κλωνοποιήστε τα σχήματα με τα στυλ που χρειάζεστε και εφαρμόστε ξανά τη μορφοποίηση όπου απαιτείται.
+Ναι. Αποθηκεύστε δείγμα σχήματος με τα επιθυμητά στυλ σε ένα σύνολο διαφανειών προτύπου ή σε αρχείο προτύπου .POTX. Κατά τη δημιουργία νέας παρουσίασης, ανοίξτε το πρότυπο, κλωνοποιήστε τα σχήματα που χρειάζεστε και εφαρμόστε ξανά τη μορφοποίησή τους όπου απαιτείται.

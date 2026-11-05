@@ -1,45 +1,45 @@
 ---
-title: "Форматирование фигур PowerPoint в JavaScript"
-linktitle: "Форматирование фигур"
+title: Форматирование фигур PowerPoint на JavaScript
+linktitle: Форматирование фигур
 type: docs
 weight: 20
 url: /ru/nodejs-java/shape-formatting/
 keywords:
-- "форматировать фигуру"
-- "форматировать линию"
-- "эффект эскиза"
-- "линия фигуры в стиле эскиза"
-- "форматировать стиль соединения"
-- "градиентная заливка"
-- "шаблонная заливка"
-- "заливка картинкой"
-- "текстурная заливка"
-- "сплошная заливка цветом"
-- "прозрачность фигуры"
-- "чёрно-белое отображение фигуры"
-- "отображение фигуры в градациях серого"
-- "повернуть фигуру"
-- "3D‑эффект фаски"
-- "3D‑вращение"
-- "сбросить форматирование"
-- "PowerPoint"
-- "презентация"
-- "Node.js"
-- "JavaScript"
-- "Aspose.Slides"
-description: "Узнайте, как форматировать фигуры PowerPoint в JavaScript с помощью Aspose.Slides — задавайте стили заливки, линий и эффектов для файлов PPT и PPTX с точностью и полным контролем."
+- форматирование фигуры
+- форматирование линии
+- эффект наброска
+- набросок линии фигуры
+- форматирование стиля соединения
+- градиентная заливка
+- заполнение узором
+- заполнение изображением
+- заполнение текстурой
+- заливка сплошным цветом
+- прозрачность фигуры
+- чёрно‑белая отрисовка фигуры
+- отображение фигуры в градациях серого
+- повернуть фигуру
+- 3D‑эффект фаски
+- 3D‑эффект вращения
+- сброс форматирования
+- PowerPoint
+- презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Узнайте, как форматировать фигуры PowerPoint на JavaScript с помощью Aspose.Slides — задавайте стили заливки, линий и эффектов для файлов PPT и PPTX с точностью и полным контролем."
 ---
 ## **Введение**
 
-Форматируйте фигуры в PowerPoint, регулируя их контуры, заливки и эффекты. Aspose.Slides for Node.js via Java позволяет программно управлять этими настройками, включая прозрачность, вращение и 3D‑форматирование.
+Форматируйте фигуры в PowerPoint, регулируя их контура, заливки и эффекты. Aspose.Slides for Node.js via Java позволяет программно управлять этими настройками, включая прозрачность, вращение и 3D‑форматирование.
 
 ![Варианты форматирования фигур в PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Node.js via Java предоставляет классы и методы, которые позволяют форматировать фигуры, используя те же параметры, что доступны в PowerPoint.
+Aspose.Slides for Node.js via Java предоставляет классы и методы, позволяющие форматировать фигуры с использованием тех же параметров, что доступны в PowerPoint.
 
 ## **Форматирование линий**
 
-Используйте [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) для управления контуром фигуры. Этот пример создает неврезаный прямоугольник с синей пунктирной окантовкой. [LineFormat.setStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setStyle) выбирает составную линию «толстая‑тонкая», тогда как [LineFormat.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setWidth) задает её ширину 7 пунктов, а [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) выбирает тип штриха.
+Используйте [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) для управления контуром фигуры. Этот пример создает незаполненный прямоугольник с синей пунктирной линией. [LineFormat.setStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setStyle) выбирает составную линию «толстый‑тонкий», а [LineFormat.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setWidth) устанавливает её ширину в 7 пунктов, и [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) выбирает шаблон пунктиров.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -67,13 +67,13 @@ try {
 
 ![Отформатированные линии в презентации](formatted-lines.png)
 
-### **Установка пользовательских шаблонов штрихов линии**
+### **Установка пользовательских шаблонов пунктиров линии**
 
-Используйте [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCustomDashPattern), когда предопределенные стили линий не предоставляют нужных длин штрихов и промежутков, например, для фирменных контуров или технических схем. Присвоение шаблона автоматически изменяет стиль штриха линии на [LineDashStyle.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/).
+Используйте [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCustomDashPattern), когда предопределённые стили линий не предоставляют нужных длин пунктиров и промежутков, например для фирменных контуров или технических схем. Назначение шаблона автоматически меняет стиль пунктировки линии на [LineDashStyle.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/).
 
-Элементы массива чередуются между длинами штрихов и промежутков, начиная со штриха. Каждое значение — кратное ширине линии: `[4, 2]` при ширине 3 пункта дает штрих длиной 12 пунктов и промежуток 6 пунктов. Используйте пары конечных неотрицательных значений для определения полных сегментов штрих‑промежуток. В примере используются положительные значения, чтобы каждый штрих и промежуток были видимы.
+Элементы массива чередуются между длинами пунктиров и промежутков, начиная с пунктирного сегмента. Каждое значение является кратным ширине линии: `[4, 2]` при ширине 3 пункта дает пунктир длиной 12 пунктов, за которым следует промежуток 6 пунктов. Используйте пары конечных неотрицательных значений для определения полных сегментов пунктир‑промежуток. В примере используются положительные значения, чтобы каждый пунктир и промежуток были видимы.
 
-Этот пример создает пять синих линий одинаковой длины с плоскими концами. Первые три сравнивают шаблоны при ширине 3 пункта. Четвертая повторяет первый шаблон при двойной ширине, удваивая как штрих, так и промежуток. Пятая переключается с пользовательского шаблона на сплошную линию.
+Этот пример создаёт пять синих линий одинаковой длины и с плоскими концами. Первые три сравнивают шаблоны при ширине 3 пункта. Четвёртая повторяет первый шаблон при двойной ширине, удваивая как длину пунктиров, так и промежутков. Пятая переключается от пользовательского шаблона к сплошной линии.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -113,25 +113,25 @@ try {
 }
 ```
 
-Чтобы вернуться к предопределенному пунктирному стилю, передайте [LineDashStyle.Dash](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) в [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle). Выбранный стиль управляет внешним видом линии.
+Чтобы вернуться к предопределённому пунктирному стилю, передайте [LineDashStyle.Dash](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) в [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle). Выбранный стиль управляет внешним видом линии.
 
 Результат в PowerPoint сверху вниз: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; и **Solid, 3 pt**.
 
-![Три пользовательских шаблона штрихов, более широкая линия с первым шаблоном и сплошная линия в PowerPoint](custom-dash-patterns.png)
+![Три пользовательских шаблона пунктиров, более широкая линия с первым шаблоном и сплошная линия в PowerPoint](custom-dash-patterns.png)
 
-### **Установка стилей концов линии**
+### **Установка концов линии**
 
-Используйте [LineFormat.setCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCapStyle) для задания окончаний открытой линии. Класс [LineCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linecapstyle/) предоставляет три явных стиля концов:
+Используйте [LineFormat.setCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCapStyle) для установки концов открытой линии. Класс [LineCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linecapstyle/) предоставляет три явных стиля концов:
 
-- `Flat`: The stroke stops at the endpoint.
-- `Round`: A semicircular cap extends beyond the endpoint by half the line width.
-- `Square`: A square cap extends beyond the endpoint by half the line width.
+- `Flat`: Линия заканчивается в конечной точке.
+- `Round`: Полукруглый конец выступает за пределы конечной точки на половину ширины линии.
+- `Square`: Квадратный конец выступает за пределы конечной точки на половину ширины линии.
 
-Класс также включает `NotDefined`, что означает отсутствие явно заданного стиля конца.
+Класс также включает `NotDefined`, что означает, что стиль конца явно не задан.
 
-Концы отличаются от стрелок, которые добавляют символы к концам линии, и соединений, которые управляют углами между сегментами линии. Этот пример отключает стрелки через [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setBeginArrowheadStyle) и [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setEndArrowheadStyle), чтобы сравнить только формы концов.
+Концы отличаются от стрелок, которые добавляют символы к концам линии, и соединений, которые управляют углами между сегментами линии. Этот пример отключает стрелки через [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setBeginArrowheadStyle) и [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setEndArrowheadStyle), чтобы сравнивались только формы концов.
 
-Следующий пример создает три визуально одинаковые горизонтальные линии шириной 20 пунктов. Сверху вниз они используют плоские, круглые и квадратные концы. Их конечные точки имеют одинаковые горизонтальные координаты; круглые и квадратные концы выступают на 10 пунктов за каждую конечную точку.
+Следующий пример создает три практически одинаковые горизонтальные линии шириной 20 пунктов. Сверху вниз они используют плоские, круглые и квадратные концы. Их конечные точки имеют одинаковые горизонтальные координаты; круглые и квадратные концы выступают на 10 пунктов за каждую конечную точку.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -163,13 +163,13 @@ try {
 
 Результат в PowerPoint сверху вниз: **Flat**, **Round**, и **Square**.
 
-![Плоские, круглые и квадратные концы на одинаково толстых линиях в PowerPoint](line-caps.png)
+![Плоские, круглые и квадратные концы на одинаковых толстых линиях в PowerPoint](line-caps.png)
 
-## **Применение эффекта «Эскиз» к линиям фигур**
+## **Применение эффектов наброска к линиям фигур**
 
-Эффект «Эскиз» делает линию фигуры выглядящей нарисованной от руки. Используйте [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) для доступа к настройкам линии, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getSketchFormat) для доступа к настройкам эскиза и [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#setSketchType) для выбора значения из класса [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/).
+Эффект наброска делает линию фигуры выглядящей нарисованной от руки. Используйте [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) для доступа к настройкам линии, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getSketchFormat) для доступа к настройкам наброска и [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#setSketchType) для выбора значения из класса [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/).
 
-Ниже приведен код JavaScript, демонстрирующий применение эффекта [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/), чтение явно назначенного значения и удаление эффекта с помощью [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
+Следующий код JavaScript показывает, как применить эффект [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/), прочитать явно назначенное значение и удалить эффект с помощью [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -190,7 +190,7 @@ try {
 }
 ```
 
-Значение, возвращаемое [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#getSketchType), представляет настройку, напрямую присвоенную фигуре. Если форматирование линии может наследоваться от темы, мастера слайда или макета, используйте [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective), вызовите `getSketchFormat` у возвращённого объекта и затем вызовите его метод `getSketchType`. Эффективное значение отражает фактическое форматирование после разрешения наследования. Этот пример требует существующей презентации с хотя бы одной фигурой на первом слайде и выводит оба значения:
+Значение, возвращаемое [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#getSketchType), представляет настройку, назначенную непосредственно фигуре. Если форматирование линии может наследоваться из темы, главного слайда или макета, используйте [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective), вызовите `getSketchFormat` у полученного объекта, а затем вызовите его метод `getSketchType`. Эффективное значение отражает фактическое применяемое форматирование после разрешения наследования. Этот пример требует существующей презентации с хотя бы одной фигурой на первом слайде и выводит оба значения:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -213,17 +213,17 @@ try {
 
 ## **Форматирование стилей соединений**
 
-Вот три варианта типа соединения:
+Здесь три варианта типа соединения:
 
 * Round
 * Miter
 * Bevel
 
-Стиль соединения определяет, как две контурные сегменты соединяются в углу. Используйте **Round** для скруглённых углов, **Miter** для острых углов или **Bevel** для сглаженных углов.
+Стиль соединения управляет тем, как два контура встречаются в углу. Используйте **Round** для скруглённых углов, **Miter** для острых углов или **Bevel** для локализованных углов.
 
 ![Стиль соединения в презентации](join-style-powerpoint.png)
 
-Этот пример создает три чёрных прямоугольника с синими контурами шириной 15 пунктов. Он использует [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) для применения значений miter, bevel и round из [LineJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) соответственно, чтобы сравнить, как рисуются углы.
+Этот пример создаёт три чёрных прямоугольника с синими контурами шириной 15 пунктов. Он использует [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) для применения значений miter, bevel и round из [LineJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/), соответственно, чтобы сравнить, как рисуются углы.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -269,13 +269,13 @@ try {
 }
 ```
 
-### **Ограничение соединений miter на острых углах**
+### **Ограничение соединений Miter на острых углах**
 
 Используйте [LineFormat.setMiterLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setMiterLimit) вместе с [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle), установленным в [LineJoinStyle.Miter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/), чтобы ограничить, насколько далеко может выступать острый угол.
 
-Ограничение — это отношение расстояния между внутренними и внешними углами соединения к ширине линии. Например, значение `8` позволяет длине miter достигать до восьми ширин линии; это не измерение в пунктах. Если угол превышает ограничение, PowerPoint использует скруглённое соединение в этом месте. Большее ограничение позволяет создавать более острые точки. Эта настройка влияет только на соединения miter и не проявляет видимого эффекта, когда угол остаётся в пределах обоих ограничений.
+Ограничение — это отношение расстояния между внутренним и внешним углами соединения к ширине линии. Например, значение `8` допускает длину среза до восьми ширин линии; это не измерение в пунктах. Если угол превышает ограничение, PowerPoint использует фаску в этом месте. Большее ограничение позволяет более острые точки. Настройка влияет только на соединения Miter и не оказывает видимого эффекта, когда угол остаётся в пределах обоих ограничений.
 
-Этот пример создает два одинаковых незаполненных треугольника с контурами шириной 20 пунктов. Левый треугольник использует ограничение `2`, правый — `8`. Каждый треугольник имеет ширину 80 пунктов и высоту 160 пунктов, что даёт отношение длины miter к ширине линии примерно `4.12`. В результате PowerPoint скругляет левый верхний угол и сохраняет правый.
+Этот пример создаёт два одинаковых незаполненных треугольника с контурами шириной 20 пунктов. Левый треугольник использует ограничение `2`, правый — `8`. Каждый треугольник шириной 80 пунктов и высотой 160 пунктов, что даёт верхнему углу отношение длины среза к ширине линии примерно `4.12`. В результате PowerPoint делает фаску у левого вершины и сохраняет острую вершину у правого.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -306,11 +306,11 @@ try {
 
 Результат в PowerPoint: **Miter limit 2** слева и **miter limit 8** справа.
 
-![Скруглённый верхний угол при ограничении miter 2 и заострённый при ограничении miter 8 в PowerPoint](miter-limits.png)
+![Срезанный верхний угол с ограничением Miter 2 и заострённый верхний угол с ограничением Miter 8 в PowerPoint](miter-limits.png)
 
 ## **Градиентная заливка**
 
-Градиентная заливка плавно переходит между цветами внутри фигуры. Этот пример заполняет эллипс линейным градиентом под углом 45° от красного к фиолетовому с помощью [FillFormat.getGradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getGradientFormat). Метод [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientstopcollection/#addPresetColor) задаёт точки остановки цветов в позициях 0 и 1, в начале и в конце градиента. Очистка существующих остановок гарантирует, что будут использованы только эти два цвета.
+Градиентная заливка смешивает цвета по фигуре. Этот пример заполняет эллипс линейным градиентом под углом 45° от красного к пурпурному с помощью [FillFormat.getGradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getGradientFormat). Метод [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientstopcollection/#addPresetColor) размещает цветовые стопы в 0 и 1, в начале и конце градиента. Очистка существующих стопов гарантирует, что будут использованы только эти два цвета.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -338,13 +338,13 @@ try {
 
 ![Эллипс с градиентной заливкой](gradient-fill.png)
 
-Если градиент выглядит иначе в экспортированном изображении, чем в PowerPoint, см. [Choose a Gradient Rendering Style](/slides/ru/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Вы можете выбрать стиль рендеринга без изменения градиента, хранящегося в презентации.
+Если градиент выглядит иначе в экспортированном изображении, чем в PowerPoint, см. [Выберите стиль визуализации градиента](/slides/ru/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Вы можете выбрать стиль визуализации без изменения градиентной заливки, сохранённой в презентации.
 
 ### **Установка угла линейного градиента**
 
-Используйте [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) для управления ориентацией заливки [GradientShape.Linear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/). Угол измеряется в градусах и увеличивается по часовой стрелке: `0` — слева направо, `90` — сверху вниз, `180` — справа налево, `270` — снизу вверх. Поддерживаются дробные углы. Углы за пределами `[0, 360)` нормализуются к одному обороту; например, `-45` становится `315`, а `360` — `0`.
+Используйте [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) для управления ориентацией заливки [GradientShape.Linear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/). Угол измеряется в градусах и увеличивается по часовой стрелке: `0` — слева направо, `90` — сверху вниз, `180` — справа налево, `270` — снизу вверх. Поддерживаются дробные углы. Углы вне диапазона `[0, 360)` нормализуются к одному обороту; например, `-45` становится `315`, а `360` — `0`.
 
-Этот пример создаёт шесть прямоугольников с одинаковыми цветовыми остановками красного, зелёного и синего в позициях `0`, `0.5` и `1`. Масштабирование отключено, чтобы угол можно было сравнивать независимо от пропорций прямоугольников. Углы слева направо: `0`, `45`, `90` в первой строке и `135`, `180`, `270` во второй строке.
+Этот пример создаёт шесть прямоугольников с одинаковыми стопами красного, зелёного и синего цветов в позициях `0`, `0.5` и `1`. Масштабирование отключено, чтобы угол можно было сравнивать независимо от пропорций прямоугольников. Углы слева направо: `0`, `45` и `90` в первой строке, а `135`, `180` и `270` во второй строке.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -383,13 +383,13 @@ try {
 
 Результат в PowerPoint:
 
-![Линейные градиенты при 0, 45 и 90 градусах в верхней строке и при 135, 180 и 270 градусах во второй строке](linear-gradient-angles.png)
+![Линейные градиенты при 0, 45 и 90 градусах в верхнем ряду и 135, 180 и 270 градусах в нижнем ряду](linear-gradient-angles.png)
 
-### **Масштабирование линейного градиента вместе с фигурой**
+### **Масштабирование линейного градиента фигурой**
 
-[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientScaled) принимает значение [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/). Установите его явно в `False`, чтобы сохранять геометрический угол градиента при изменении пропорций фигуры, или в `True`, чтобы масштабировать градиент вместе с шириной и высотой фигуры. При включённом масштабировании видимый угол может отличаться от заданного на несquare фигуре.
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientScaled) принимает значение [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/). Установите его явно в `False`, чтобы геометрический угол градиента сохранялся при изменении пропорций фигуры, или в `True`, чтобы градиент масштабировался вместе с шириной и высотой фигуры. При включённом масштабировании видимый угол может отличаться от заданного угла у несоразмерной фигуры.
 
-Следующий пример использует угол `45` градусов и те же цветовые остановки, что и в сравнении углов. В левой колонке используется `False`; в правой — `True`. Каждая колонка содержит широкий прямоугольник над высоким прямоугольником. Оба начинаются с одинаковых широких размеров; изменение ширины и высоты второго прямоугольника демонстрирует, как заливка реагирует на изменение размера без изменения настроек градиента.
+Следующий пример использует угол `45`° и те же цветовые стопы, что и при сравнении углов. В левом столбце используется `False`; в правом — `True`. Каждый столбец содержит широкий прямоугольник над высоким. Оба начинаются с одинаковых широких размеров; изменение ширины и высоты второго прямоугольника демонстрирует, как заливка реагирует на изменение размеров без изменения настроек градиента.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -433,17 +433,17 @@ try {
 }
 ```
 
-Результат в PowerPoint, с масштабированием отключённым слева и включённым справа:
+Результат в PowerPoint, с отключённым масштабированием слева и включённым справа:
 
-![Широкие и высокие прямоугольники с 45‑градусным градиентом, сравнение LinearGradientScaled False слева и True справа](linear-gradient-scaling.png)
+![Широкие и высокие прямоугольники с градиентом 45°, сравнение LinearGradientScaled False слева и True справа](linear-gradient-scaling.png)
 
-При отключённом масштабировании диагональные цветовые полосы сохраняют одинаковую ориентацию в обоих прямоугольниках. При включённом масштабировании полосы растягиваются пропорционально фигуре. Это помогает воспроизводить шаблонный градиент при адаптации фигуры к другому размеру. На квадрате включение масштабирования не меняет внешний вид 45‑градусного градиента.
+При отключённом масштабировании диагональные цветовые полосы сохраняют одинаковую ориентацию в обоих прямоугольниках. При включённом масштабировании полосы растягиваются вместе с пропорциями фигуры. Это помогает воспроизводить градиент шаблона при адаптации фигуры к другому размеру. На квадрате включение масштабирования не меняет внешний вид этого градиента `45`°.
 
-Оба параметра — угол и масштабирование — применимы к линейным градиентам. Они не управляют заливками [GradientShape.Radial] или [GradientShape.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/).
+Оба параметра — угол и масштабирование — применяются к линейным градиентам. Они не управляют заливками [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/).
 
 ### **Комбинация угла с направлением градиента**
 
-[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setGradientDirection) выбирает стиль градиента из класса [GradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientdirection/); это не заменяет числовой угол. Для линейного градиента стили углов могут менять область распределения цветов без изменения угла, задаваемого через [setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle). Сохраняйте направление неизменным при сравнении углов или масштабирования.
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setGradientDirection) выбирает стиль градиента из класса [GradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientdirection/); это не заменяет числовой угол. Для линейного градиента стили углов могут менять область распределения цветов без изменения угла, заданного через [setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle). Сохраняйте направление неизменным при сравнении углов или масштабирования.
 
 Следующий пример применяет одинаковые настройки в обратном порядке. Два прямоугольника выглядят одинаково: назначение направления до или после угла не меняет результат.
 
@@ -483,9 +483,9 @@ try {
 }
 ```
 
-## **Шаблонная заливка**
+## **Заливка узором**
 
-Шаблонная заливка применяет двухцветный рисунок, например точки, полосы или клетку. Этот пример использует [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#setPatternStyle) для выбора шаблона решетки. [PatternFormat.getBackColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor) задаёт светло-серый фон, а [PatternFormat.getForeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor) задаёт желтый цвет узора.
+Заливка узором применяет двухцветный рисунок, например точки, полосы или шахматы. Этот пример использует [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#setPatternStyle) для выбора узора «решётка». [PatternFormat.getBackColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor) задаёт светло-серый фон, а [PatternFormat.getForeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor) задаёт жёлтый цвет узора.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -509,11 +509,11 @@ try {
 
 Результат:
 
-![Прямоугольник с шаблонной заливкой](pattern-fill.png)
+![Прямоугольник с заливкой узором](pattern-fill.png)
 
-## **Заливка картинкой**
+## **Заливка изображением**
 
-Заливка картинкой использует изображение внутри фигуры. Этот пример требует локального изображения и использует [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) для загрузки его в коллекцию изображений презентации. Установка [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode) в режим мозаики повторяет изображение внутри прямоугольника. Исходное изображение показано ниже:
+Заливка изображением использует картинку внутри фигуры. Этот пример требует локального изображения и использует [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) для загрузки его в коллекцию изображений презентации. Установка [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode) в режим «Tile» повторяет изображение внутри прямоугольника. Исходное изображение, используемое здесь, показано ниже:
 
 ![Изображение лотоса](lotus.png)
 
@@ -546,21 +546,21 @@ try {
 
 Результат:
 
-![Фигура с заливкой картинкой](picture-fill.png)
+![Фигура с заливкой изображением](picture-fill.png)
 
-### **Мозаика изображения как текстура**
+### **Повторить изображение как текстуру**
 
-Если нужно задать мозаичное изображение как текстуру и настроить поведение мозаики, можно использовать следующие методы класса [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/):
+Если вы хотите задать повторяющуюся картинку как текстуру и настроить поведение повторения, можете использовать следующие методы класса [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): задаёт режим заливки картинкой — `Tile` или `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): задаёт выравнивание плиток внутри фигуры.
-- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): управляет зеркальным отражением плитки по горизонтали, вертикали или обоим направлениям.
-- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): задаёт горизонтальное смещение плитки (в пунктах) от начала фигуры.
-- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): задаёт вертикальное смещение плитки (в пунктах) от начала фигуры.
-- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): определяет горизонтальный масштаб плитки в процентах.
-- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): определяет вертикальный масштаб плитки в процентах.
+- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Устанавливает режим заливки изображения — `Tile` (повтор) или `Stretch` (растягивание).
+- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Задает выравнивание плиток внутри фигуры.
+- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Определяет, будет ли плитка отражена по горизонтали, вертикали или обоим направлениям.
+- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Устанавливает горизонтальное смещение плитки (в пунктах) от начала фигуры.
+- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Устанавливает вертикальное смещение плитки (в пунктах) от начала фигуры.
+- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Определяет горизонтальный масштаб плитки в процентах.
+- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Определяет вертикальный масштаб плитки в процентах.
 
-Этот пример требует локального изображения и настраивает [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) на повторение его с размером 50 % от оригинала. Смещения `−32` пункта сдвигают плитки по горизонтали и вертикали; выравнивание в правом нижнем углу и отражение в обоих направлениях определяют расположение повторяющейся текстуры.
+Этот пример требует локального изображения и настраивает [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) на повтор с 50 % от оригинального размера. Смещения −32 пункта сдвигают плитки горизонтально и вертикально; выравнивание «bottom‑right» и отражение в обоих направлениях определяют порядок расположения повторяющейся текстуры.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -599,11 +599,11 @@ try {
 
 Результат:
 
-![Параметры мозаики](tile-options.png)
+![Параметры плитки](tile-options.png)
 
-## **Сплошная заливка цветом**
+## **Заливка сплошным цветом**
 
-Сплошная заливка задаёт фигуре один единый цвет. Этот пример использует [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) для выбора режима сплошной заливки и задаёт жёлтый цвет через [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor), затем сохраняет прямоугольник в презентацию.
+Сплошная заливка задаёт фигуре один единственный однородный цвет. Этот пример использует [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) для выбора режима сплошной заливки и назначает жёлтый цвет через [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor), после чего сохраняет прямоугольник в презентации.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -625,15 +625,84 @@ try {
 
 Результат:
 
-![Фигура со сплошной заливкой цветом](solid-color-fill.png)
+![Фигура со сплошной заливкой](solid-color-fill.png)
+
+### **Копировать цвета, сохраняя ссылки на тему**
+
+Используйте [ColorFormat.copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#copyFrom) для копирования определения цвета, включая его тип, ссылку на тему и преобразования. Это полезно при передаче цвета заливки между фигурами, которые должны продолжать следовать теме презентации. Метод копирует только цвет: он не копирует тип заливки, контур или другое форматирование фигуры. Явно задайте тип заливки назначения с помощью [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType).
+
+Этот пример создаёт три прямоугольника слева направо: исходный, копию, учитывающую тему, и фиксированную RGB‑копию. Исходный использует [ColorFormat.setSchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#setSchemeColor) для ссылки на первый акцентный цвет и добавляет оттенок через [ColorOperationCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/coloroperationcollection/#add). RGB‑копия использует эффективный цвет заливки исходного, так что все три первоначально выглядят одинаково. Вызов [ColorFormat.setColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#setColor) задаёт фиксированное RGB‑значение и очищает любые существующие преобразования цвета.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(java.newInstanceSync("java.awt.Color", 65, 105, 225));
+
+    let source = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 40, 180, 140);
+    let themeCopy = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 240, 40, 180, 140);
+    let rgbCopy = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (let shape of [source, themeCopy, rgbCopy]) {
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    }
+
+    let sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(aspose.slides.SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(aspose.slides.ColorTransformOperation.Tint, java.newFloat(0.75));
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    let before = slide.getImage(1, 1);
+    try {
+        before.save("color-copy-before.png", aspose.slides.ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // Ссылки на тему следуют новому цвету акцента; фиксированное RGB‑значение не меняется.
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(java.newInstanceSync("java.awt.Color", 255, 69, 0));
+
+    let after = slide.getImage(1, 1);
+    try {
+        after.save("color-copy-after.png", aspose.slides.ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Перед изменением темы все три заливки совпадают:
+
+![Исходный, копия copyFrom и фиксированная RGB цель с одинаковой синий заливкой](color-copy-before.png)
+
+После изменения темы исходный и копия, учитывающая тему, переходят к новому акцентному цвету и сохраняют свой оттенок. Фиксированная RGB‑копия остаётся синей:
+
+![Исходный и копия copyFrom с оранжевыми заливками, в то время как фиксированная RGB цель остаётся синей](color-copy-after.png)
+
+Скопированное определение независимо от исходного. Последующее изменение ссылки темы у исходного, назначение другого цвета или добавление/удаление его преобразований не меняет назначение. Изменение темы всё равно влияет на обе фигуры, потому что каждая независимо ссылается на один и тот же цвет темы.
+
+Сохранение и повторное открытие PPTX сохраняет тип скопированного цвета, возвращаемый [ColorFormat.getColorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#getColorType), ссылку на тему и коллекцию преобразований, возвращаемую [ColorFormat.getColorTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#getColorTransform); они не преобразуются в RGB.
+
+При копировании между различными темами, например между презентациями с разными палитрами акцентов, скопированная ссылка разрешается относительно темы назначения. Та же ссылка и преобразования могут поэтому давать иной видимый цвет. См. [Тема презентации](/slides/ru/nodejs-java/presentation-theme/) для получения дополнительной информации о настройке цветов темы.
 
 ## **Использовать фон слайда как заливку фигуры**
 
-Используйте [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#setUseBackgroundFill), когда фигура должна соответствовать фону слайда, например в шаблоне презентации. Сначала примените [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) к [FillType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), чтобы убрать любую явную заливку. При таком сочетании фигура использует фон слайда вместо своей заливки. Включение флага отдельно не удаляет существующую явную заливку.
+Используйте [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#setUseBackgroundFill), когда фигура должна соответствовать фону слайда, например в шаблоне презентации. Сначала задайте тип заливки через [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) в [FillType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), чтобы удалить любую явную заливку. При этом комбинация заставит фигуру использовать фон слайда вместо собственного стиля заливки. Включение флага само по себе не удаляет существующую явную заливку.
 
-Это отличается от [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/): заливка фоном покрывает объекты за фигурой соответствующей областью фонового изображения слайда, тогда как отсутствие заливки оставляет эти объекты видимыми. Градиент остаётся привязанным к слайду, а не начинается внутри каждой фигуры.
+Это отличается от [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/): заливка фоном покрывает объекты за фигурой соответствующей областью фонового изображения слайда, тогда как отсутствие заливки оставляет эти объекты видимыми. Градиент остаётся привязанным к слайду, а не перезапускается внутри каждой фигуры.
 
-Следующий пример создаёт фон мастера, наследуемый слайдом, и помещает магентовую полосу за тремя прямоугольниками. Левый прямоугольник использует фон, средний — без заливки, правый — переключается с фоновой заливки на явную оранжевую заливку.
+Следующий пример создаёт мастер‑фон, наследуемый слайдом, и размещает пурпурную полосу позади трёх прямоугольников. Левый прямоугольник использует фон, средний — без заливки, правый — переключается с фоновой заливки на явную оранжевую.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -674,7 +743,7 @@ try {
     explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
     explicitShape.setUseBackgroundFill(true);
 
-    // Отключите фон перед применением явной заливки.
+    // Отключите заливку фоном перед применением явной заливки.
     explicitShape.setUseBackgroundFill(false);
     explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     explicitShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
@@ -685,15 +754,15 @@ try {
 }
 ```
 
-Результат слева направо: **background fill**, **no fill**, и **explicit fill**. Магентовая полоса скрыта левым и правым прямоугольниками, но остаётся видимой через средний прямоугольник.
+Результат слева направо: **background fill**, **no fill**, и **explicit fill**. Пурпурная полоса скрыта левым и правым прямоугольниками, но остаётся видимой через средний.
 
-![Фоновая заливка, отсутствие заливки и явная оранжевая заливка поверх магентовой полосы](background-fill.png)
+![Фоновая заливка, отсутствие заливки и явная оранжевая заливка поверх пурпурной полосы](background-fill.png)
 
-То же поведение применимо к фону, определённому непосредственно на слайде, или унаследованному от макета. Фигура использует разрешённый фон слайда; в примере оба фона слайда и макета оставлены неопределёнными, чтобы мастер их обеспечил.
+То же поведение применяется к фону, определённому непосредственно на слайде или унаследованному из макета. Фигура использует разрешённый фон слайда; пример оставляет фоны слайда и макета неопределёнными, чтобы их обеспечивал мастер.
 
 ## **Установка прозрачности**
 
-Для сплошной заливки альфа‑компонент цвета управляет непрозрачностью: 0 — полностью прозрачно, 255 — полностью непрозрачно. Этот пример использует альфа‑значение 128 для жёлтого прямоугольника, делая его примерно на 50 % прозрачным, чтобы нижний прямоугольник оставался видимым. Цвет задаётся через [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor).
+Для сплошной заливки альфа‑компонента цвета управляет непрозрачностью: `0` — полностью прозрачно, `255` — полностью непрозрачно. Этот пример использует альфа‑значение `128` для жёлтого прямоугольника, делая его примерно на 50 % прозрачным, чтобы нижний прямоугольник оставался видимым. Цвет задаётся через [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -743,9 +812,9 @@ try {
 
 ![Вращение фигуры](shape-rotation.png)
 
-## **Добавление 3D‑эффекта фаски**
+## **Добавление 3D‑эффектов фаски**
 
-Используйте [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) для придания фигуре глубины и фаски. Этот пример создает зелёный эллипс с оранжевой окантовкой, использует [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) для установки глубины в 4 пункта и применяет круглую верхнюю фаску шириной и высотой по 6 пунктов через [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop). Передняя орфографическая камера и трёхточечное освещение делают фаску видимой.
+Используйте [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat), чтобы придать фигуре глубину и фаску. Этот пример создаёт зелёный эллипс с оранжевым контуром, задаёт глубину 4 пункта через [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) и применяет круглую верхнюю фаску шириной и высотой 6 пунктов через [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop). Фронтальная ортографическая камера и трёхточечное освещение делают фаску видимой.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -777,11 +846,11 @@ try {
 
 Результат:
 
-![3D‑эффект фаски](3D-bevel-effect.png)
+![Эффект 3D‑фаски](3D-bevel-effect.png)
 
 ## **Добавление 3D‑вращения**
 
-3D‑вид фигуры управляется настройками её камеры. Этот пример использует [Camera.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) с углами широты, долготы и разворота 40, 35 и 20 градусов соответственно. Он выбирает изометрическую камеру через [Camera.setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) и сбалансированное освещение через [LightRig.setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType), затем сохраняет отформатированный прямоугольник.
+3D‑вид фигуры управляется настройками её камеры. Этот пример использует [Camera.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) с углами широты 40°, долготы 35° и оборота 20°. Он выбирает изометрическую камеру через [Camera.setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) и сбалансированное освещение через [LightRig.setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType), затем сохраняет отформатированный прямоугольник.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -804,15 +873,15 @@ try {
 
 Результат:
 
-![3D‑эффект вращения](3D-rotation-effect.png)
+![Эффект 3D‑вращения](3D-rotation-effect.png)
 
-## **Управление черно‑белым отображением фигур**
+## **Управление черно‑белой визуализацией фигур**
 
-Метод [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) задаёт, как отдельная фигура отображается при просмотре или обработке презентации в режиме черно‑белого отображения. Он не включает режим черно‑белого отображения сам по себе и не меняет заливку, контур или другие параметры фигуры в обычном цветном режиме.
+Метод [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) задаёт, как отдельная фигура будет отрисовываться, когда презентация просматривается или обрабатывается в чёрно‑белом режиме. Он не включает чёрно‑белый режим сам по себе и не меняет заливку, контур или другое форматирование фигуры в обычном цветном режиме.
 
-Используйте значение из класса [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) для выбора нужного поведения. Например, `Automatic` позволяет приложению‑отображателю выбрать способ преобразования, `Gray` и `LightGray` используют оттенки серого, `BlackWhite` использует только чёрный и белый, `Black` и `White` принудительно задают один цвет, `Color` сохраняет обычные цвета, а `Hidden` исключает фигуру в черно‑белом режиме. `NotDefined` означает, что режим на уровне фигуры не задан.
+Используйте значение из класса [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) для выбора желаемого поведения. Например, `Automatic` позволяет приложению‑визуализатору выбирать преобразование, `Gray` и `LightGray` используют серый цвет, `BlackWhite` — только чёрный и белый, `Black` и `White` — принудительно один цвет, `Color` сохраняет обычные цвета, а `Hidden` — исключает фигуру в чёрно‑белом режиме. `NotDefined` означает, что режим для фигуры не задан.
 
-Этот пример создаёт оранжевый прямоугольник и использует [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) для выбора серой заливки. Сохранённая фигура сохраняет оранжевую заливку для обычного цветного отображения и запрашивает серую заливку у приложений, поддерживающих настройки черно‑белого отображения:
+Этот пример создаёт оранжевый прямоугольник и использует [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) для выбора серой окраски. Сохранённая фигура сохраняет оранжную заливку для обычного цветного отображения и запрашивает серую окраску у приложений, учитывающих чёрно‑белые настройки отображения:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -833,11 +902,11 @@ try {
 }
 ```
 
-В обычном цветном режиме прямоугольник сохраняет оранжевую заливку. При работе в черно‑белом режиме он отображается серым, поскольку его режим установлен в `Gray`. Это позволяет сохранить полноцветный слайд, определив при этом отдельный вид для печати, предварительного просмотра или других процессов, учитывающих настройки черно‑белого отображения презентации.
+В обычном цветном режиме прямоугольник сохраняет оранжную заливку. При рабочем процессе чёрно‑белого отображения он использует серую окраску, потому что его режим установлен в `Gray`. Это позволяет сохранять полноцветный слайд, определяя отдельный вид для печати, предварительного просмотра или других процессов, которые учитывают чёрно‑белые настройки презентации.
 
 ## **Сброс форматирования**
 
-Используйте [Slide.reset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#reset) для восстановления положения, размеров и форматирования заполнителей слайдов из соответствующих заполнителей макета. Этот пример требует существующей презентации с заполнителями, связанными с макетом, и сбрасывает каждый слайд перед сохранением. Фигуры без соответствующих заполнителей макета не сбрасываются.
+Используйте [Slide.reset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#reset) для восстановления позиции, размеров и форматирования заполнителей слайда из соответствующих заполнителей макета. Этот пример требует существующей презентации с заполнителями, связанными с макетом, и сбрасывает каждый слайд перед сохранением. Фигуры без соответствующих заполнителей макета не сбрасываются.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -857,14 +926,11 @@ try {
 
 ## **FAQ**
 
-**Влияет ли форматирование фигур на конечный размер файла презентации?**
+**Влияет ли форматирование фигур на конечный размер файла презентации?**  
+Цвета, стили линий и настройки эффектов обычно добавляют мало данных по сравнению с встроенными изображениями и медиа. Заливка изображениями может увеличить размер файла, так как их изображения хранятся в презентации.
 
-Цвета, стили линий и параметры эффектов обычно добавляют мало данных по сравнению со встроенными изображениями и медиа. Заливки картинкой могут увеличить размер файла, поскольку их изображения хранятся в презентации.
+**Как определить фигуры на слайде, имеющие идентичное форматирование, чтобы сгруппировать их?**  
+Сравните ключевые свойства форматирования каждой фигуры — заливку, контур и настройки эффектов. Если все соответствующие значения совпадают, считается, что их стили одинаковы, и такие фигуры можно логически сгруппировать, что упрощает последующее управление стилями.
 
-**Как обнаружить фигуры на слайде с одинаковым форматированием, чтобы сгруппировать их?**
-
-Сравните ключевые свойства форматирования каждой фигуры — заливку, контур и настройки эффектов. Если все соответствующие значения совпадают, рассматривайте их стили как одинаковые и логически группируйте такие фигуры, что упрощает дальнейшее управление стилями.
-
-**Можно ли сохранить набор пользовательских стилей фигур в отдельный файл для повторного использования в других презентациях?**
-
-Да. Сохраните образцы фигур с требуемыми стилями в шаблоне презентации или файле шаблона .POTX. При создании новой презентации откройте шаблон, клонируйте необходимые стилизованные фигуры и повторно примените их форматирование там, где это требуется.
+**Можно ли сохранить набор пользовательских стилей фигур в отдельный файл для повторного использования в других презентациях?**  
+Да. Сохраните образцы фигур с нужными стилями в шаблонном наборе слайдов или файле шаблона *.POTX*. При создании новой презентации откройте шаблон, клонируйте необходимые стилизованные фигуры и повторно примените их форматирование там, где это требуется.

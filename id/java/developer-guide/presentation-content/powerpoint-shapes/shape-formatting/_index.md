@@ -1,5 +1,5 @@
 ---
-title: Format Bentuk PowerPoint dalam Java
+title: Format Bentuk PowerPoint di Java
 linktitle: Pemformatan Bentuk
 type: docs
 weight: 20
@@ -10,14 +10,14 @@ keywords:
 - efek sketsa
 - garis bentuk sketsa
 - format gaya sambungan
-- isian gradien
+- isian gradasi
 - isian pola
 - isian gambar
 - isian tekstur
 - isian warna solid
 - transparansi bentuk
 - rendering bentuk hitam-putih
-- rendering bentuk skala abu
+- rendering bentuk skala abu-abu
 - putar bentuk
 - efek bevel 3D
 - efek rotasi 3D
@@ -26,19 +26,19 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Pelajari cara memformat bentuk PowerPoint dalam Java menggunakan Aspose.Slides—atur gaya isian, garis, dan efek untuk file PPT dan PPTX dengan presisi dan kontrol penuh."
+description: "Pelajari cara memformat bentuk PowerPoint di Java menggunakan Aspose.Slides—atur gaya isian, garis, dan efek untuk file PPT dan PPTX dengan presisi dan kontrol penuh."
 ---
-## **Pendahuluan**
+## **Pengantar**
 
-Format bentuk di PowerPoint dengan menyesuaikan garis luar, isian, dan efeknya. Aspose.Slides for Java memungkinkan Anda mengontrol pengaturan ini secara programatik, termasuk transparansi, rotasi, dan pemformatan 3D.
+Format bentuk di PowerPoint dengan menyesuaikan garis tepi, isian, dan efeknya. Aspose.Slides for Java memungkinkan Anda mengontrol pengaturan ini secara programatik, termasuk transparansi, rotasi, dan pemformatan 3D.
 
-![Opsi pemformatan bentuk di PowerPoint](format-shape-powerpoint.png)
+![Shape formatting options in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Java menyediakan antarmuka dan metode yang memungkinkan Anda memformat bentuk menggunakan opsi yang sama seperti yang tersedia di PowerPoint.
+Aspose.Slides for Java menyediakan antarmuka dan metode yang memungkinkan Anda memformat bentuk menggunakan opsi yang sama tersedia di PowerPoint.
 
 ## **Format Garis**
 
-Gunakan [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) untuk mengontrol garis luar sebuah bentuk. Contoh ini membuat persegi panjang tanpa isi dengan garis luar biru yang dipotong titik. [ILineFormat.setStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setStyle-byte-) memilih garis gabungan tebal‑tipis, sementara [ILineFormat.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) mengatur lebarnya menjadi 7 poin dan [ILineFormat.setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) memilih pola dash.
+Gunakan [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) untuk mengontrol garis tepi bentuk. Contoh ini membuat persegi panjang tanpa isi dengan garis tepi biru bergaris putus-putus. [ILineFormat.setStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setStyle-byte-) memilih garis gabungan tebal‑tipis, sementara [ILineFormat.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) menetapkan lebarnya menjadi 7 poin dan [ILineFormat.setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) memilih pola dash.
 
 ```java
 import com.aspose.slides.*;
@@ -62,17 +62,17 @@ try {
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![Garis yang diformat dalam presentasi](formatted-lines.png)
+![The formatted lines in the presentation](formatted-lines.png)
 
 ### **Atur Pola Dash Garis Kustom**
 
-Gunakan [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCustomDashPattern-float:A-) ketika gaya garis yang telah ditentukan tidak menyediakan panjang dash dan celah yang Anda butuhkan, misalnya untuk garis luar merek atau diagram teknis. Menetapkan pola secara otomatis mengubah gaya dash garis menjadi [LineDashStyle.Custom](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/).
+Gunakan [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) ketika style garis yang telah ditentukan tidak menyediakan panjang dash dan celah yang Anda butuhkan, misalnya untuk garis tepi bermerek atau diagram teknis. Menetapkan pola secara otomatis mengubah gaya dash garis menjadi [LineDashStyle.Custom](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/).
 
-Entri dalam array bergantian antara panjang dash dan celah, dimulai dengan dash. Setiap nilai merupakan kelipatan lebar garis: `{ 4, 2 }` pada lebar 3 poin menghasilkan dash 12 poin diikuti celah 6 poin. Gunakan pasangan nilai berhingga dan non‑negatif untuk mendefinisikan segmen dash‑dan‑celah lengkap. Contoh ini menggunakan nilai positif agar setiap dash dan celah terlihat.
+Entri array bergantian antara panjang dash dan celah, dimulai dengan dash. Setiap nilai merupakan kelipatan lebar garis: `{ 4, 2 }` dengan lebar 3 poin menghasilkan dash sebesar 12 poin diikuti celah 6 poin. Gunakan pasangan nilai hingga, tidak negatif untuk mendefinisikan segmen dash‑dan‑celah lengkap. Contoh ini menggunakan nilai positif agar setiap dash dan celah terlihat.
 
-Contoh ini membuat lima garis biru dengan panjang yang sama dan cap datar. Tiga pertama membandingkan pola pada lebar 3 poin. Yang keempat mengulangi pola pertama dengan lebar dua kali lipat, menggandakan panjang dash dan celah. Yang kelima beralih dari pola kustom ke garis solid.
+Contoh ini membuat lima garis biru dengan panjang yang sama dan ujung datar. Tiga pertama membandingkan pola pada lebar 3 poin. Yang keempat mengulangi pola pertama dengan lebar dua kali lipat, menggandakan panjang dash dan celah. Yang kelima beralih dari pola kustom ke garis padat.
 
 ```java
 import com.aspose.slides.*;
@@ -113,23 +113,23 @@ try {
 
 Untuk kembali ke gaya dash yang telah ditentukan, berikan [LineDashStyle.Dash](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) ke [ILineFormat.setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-). Gaya yang dipilih mengontrol tampilan garis.
 
-Hasilnya di PowerPoint, dari atas ke bawah: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; dan **Solid, 3 pt**.
+Hasil di PowerPoint, dari atas ke bawah: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; dan **Solid, 3 pt**.
 
-![Tiga pola dash kustom, garis lebih lebar menggunakan pola pertama, dan garis solid di PowerPoint](custom-dash-patterns.png)
+![Three custom dash patterns, a wider line using the first pattern, and a solid line in PowerPoint](custom-dash-patterns.png)
 
-### **Atur Cap Garis**
+### **Atur Ujung Garis**
 
-Gunakan [ILineFormat.setCapStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCapStyle-byte-) untuk mengatur ujung garis terbuka. Kelas [LineCapStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linecapstyle/) menyediakan tiga gaya cap eksplisit:
+Gunakan [ILineFormat.setCapStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCapStyle-byte-) untuk mengatur ujung garis terbuka. Kelas [LineCapStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linecapstyle/) menyediakan tiga gaya ujung eksplisit:
 
-- `Flat`: Garis berhenti pada titik akhir.
-- `Round`: Cap setengah lingkaran meluas melampaui titik akhir sebanyak setengah lebar garis.
-- `Square`: Cap persegi meluas melampaui titik akhir sebanyak setengah lebar garis.
+- `Flat`: Coretan berhenti pada titik akhir.
+- `Round`: Ujung setengah lingkaran meluas melebihi titik akhir sebesar setengah lebar garis.
+- `Square`: Ujung berbentuk kotak meluas melebihi titik akhir sebesar setengah lebar garis.
 
-Kelas tersebut juga mencakup `NotDefined`, yang berarti tidak ada gaya cap yang ditetapkan secara eksplisit.
+Kelas ini juga mencakup `NotDefined`, yang berarti tidak ada gaya ujung yang ditetapkan secara eksplisit.
 
-Cap berbeda dari kepala panah, yang menambahkan simbol ke ujung garis, dan sambungan, yang mengontrol sudut antara segmen garis. Contoh ini menonaktifkan kepala panah melalui [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) dan [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) sehingga hanya bentuk cap yang dibandingkan.
+Ujung berbeda dari kepala panah, yang menambahkan simbol pada ujung garis, dan sambungan, yang mengontrol sudut antara segmen garis. Contoh ini menonaktifkan kepala panah melalui [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) dan [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) sehingga hanya bentuk ujung yang dibandingkan.
 
-Contoh berikut membuat tiga garis horizontal yang pada dasarnya identik, lebar 20 poin. Dari atas ke bawah, mereka memakai cap flat, round, dan square. Titik akhir mereka memiliki koordinat horizontal yang sama; cap round dan square meluas 10 poin di luar setiap titik akhir.
+Contoh berikut membuat tiga garis horizontal yang pada dasarnya identik, lebar 20 poin. Dari atas ke bawah, mereka menggunakan ujung flat, round, dan square. Titik akhir mereka memiliki koordinat horizontal yang sama; ujung round dan square meluas 10 poin di luar setiap titik akhir.
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +159,15 @@ try {
 }
 ```
 
-Hasilnya di PowerPoint, dari atas ke bawah: **Flat**, **Round**, dan **Square**.
+Hasil di PowerPoint, dari atas ke bawah: **Flat**, **Round**, dan **Square**.
 
-![Cap flat, round, dan square pada garis tebal yang identik di PowerPoint](line-caps.png)
+![Flat, round, and square caps on identical thick lines in PowerPoint](line-caps.png)
 
 ## **Terapkan Efek Sketsa pada Garis Bentuk**
 
-Efek sketsa membuat garis bentuk tampak seperti digambar tangan. Gunakan [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) untuk mengakses pengaturan garis, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getSketchFormat--) untuk mengakses pengaturan sketsa, dan [ISketchFormat.setSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/#setSketchType-int-) untuk memilih nilai dari kelas [LineSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/).
+Efek sketsa membuat garis bentuk terlihat seperti digambar tangan. Gunakan [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) untuk mengakses pengaturan garis, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getSketchFormat--) untuk mengakses pengaturan sketsa, dan [ISketchFormat.setSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/#setSketchType-int-) untuk memilih nilai dari kelas [LineSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/).
 
-Kode Java berikut menunjukkan cara menerapkan efek [LineSketchType.Curved](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/), membaca nilai yang ditetapkan secara eksplisit, dan menghapus efek dengan [LineSketchType.None](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/):
+Kode Java berikut menunjukkan cara menerapkan efek [LineSketchType.Curved](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/) , membaca nilai yang ditetapkan secara eksplisit, dan menghapus efek dengan [LineSketchType.None](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/):
 
 ```java
 import com.aspose.slides.*;
@@ -188,7 +188,7 @@ try {
 }
 ```
 
-Nilai yang dikembalikan oleh [ISketchFormat.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/#getSketchType--) mewakili pengaturan yang ditetapkan langsung pada bentuk. Jika pemformatan garis dapat diwarisi dari tema, master slide, atau layout slide, gunakan [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--), akses [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--), dan baca [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformateffectivedata/#getSketchType--). Nilai efektif mencerminkan pemformatan yang sebenarnya diterapkan setelah pewarisan diselesaikan. Contoh ini memerlukan presentasi yang sudah ada dengan setidaknya satu bentuk pada slide pertama dan mencetak kedua nilai:
+Nilai yang dikembalikan oleh [ISketchFormat.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/#getSketchType--) mewakili pengaturan yang ditetapkan langsung pada bentuk. Jika pemformatan garis dapat diwarisi dari tema, slide master, atau slide tata letak, gunakan [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--) , akses [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--) , dan baca [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformateffectivedata/#getSketchType--) . Nilai efektif mencerminkan pemformatan yang sebenarnya diterapkan setelah pewarisan diselesaikan. Contoh ini memerlukan presentasi yang ada dengan setidaknya satu bentuk pada slide pertama dan mencetak kedua nilai:
 
 ```java
 import com.aspose.slides.*;
@@ -217,11 +217,11 @@ Berikut tiga opsi tipe sambungan:
 * Miter
 * Bevel
 
-Gaya sambungan mengontrol bagaimana dua segmen garis bertemu pada sudut. Gunakan **Round** untuk sudut melengkung, **Miter** untuk sudut tajam, atau **Bevel** untuk sudut datar.
+Gaya sambungan mengontrol bagaimana dua segmen garis tepi bertemu pada sudut. Gunakan **Round** untuk sudut melengkung, **Miter** untuk sudut tajam, atau **Bevel** untuk sudut yang diratakan.
 
-![Gaya sambungan dalam presentasi](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
 
-Contoh ini membuat tiga persegi panjang hitam dengan garis luar biru lebar 15 poin. Ia menggunakan [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) untuk mengatur nilai miter, bevel, dan round pada [LineJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/), masing‑masing, untuk membandingkan bagaimana sudut digambar.
+Contoh ini membuat tiga persegi panjang hitam dengan garis tepi biru lebar 15 poin. Ini menggunakan [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) untuk menetapkan nilai miter, bevel, dan round dari [LineJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/) , masing‑masing, untuk membandingkan bagaimana sudut digambar.
 
 ```java
 import com.aspose.slides.*;
@@ -269,11 +269,11 @@ try {
 
 ### **Batasi Sambungan Miter pada Sudut Tajam**
 
-Gunakan [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setMiterLimit-float-) bersama [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) yang disetel ke [LineJoinStyle.Miter](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/) untuk membatasi seberapa jauh sudut tajam dapat meluas.
+Gunakan [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setMiterLimit-float-) bersama [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) yang diatur ke [LineJoinStyle.Miter](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/) untuk membatasi sejauh mana sudut tajam dapat meluas.
 
-Batas tersebut adalah rasio antara jarak antara sudut dalam dan luar sambungan terhadap lebar garis. Misalnya, nilai `8` memperbolehkan panjang miter hingga delapan kali lebar garis; ini bukan ukuran dalam poin. Jika sudut melebihi batas, PowerPoint menggunakan sambungan bevel pada sudut tersebut. Batas yang lebih besar memungkinkan titik yang lebih tajam. Pengaturan ini hanya memengaruhi sambungan miter, dan mengubahnya tidak berpengaruh bila sudut tetap berada dalam kedua batas.
+Batas tersebut adalah rasio antara jarak antara sudut dalam dan luar sambungan terhadap lebar garis. Misalnya, nilai `8` memperbolehkan panjang miter hingga delapan kali lebar garis; bukan ukuran dalam poin. Jika sudut melebihi batas, PowerPoint menggunakan sambungan bevel pada sudut tersebut. Batas yang lebih besar memungkinkan titik yang lebih tajam. Pengaturan ini hanya memengaruhi sambungan miter, dan mengubahnya tidak memberi efek terlihat bila sudut tetap berada dalam kedua batas.
 
-Contoh ini membuat dua segitiga tidak berisi yang identik dengan garis luar lebar 20 poin. Segitiga kiri menggunakan batas `2`, dan kanan menggunakan `8`. Setiap segitiga berukuran lebar 80 poin dan tinggi 160 poin, memberi rasio panjang miter‑terhadap‑lebar‑garis sekitar `4.12`. Akibatnya, PowerPoint membuat ujung kiri menjadi bevel dan mempertahankan ujung kanan tetap tajam.
+Contoh ini membuat dua segitiga identik tanpa isi, lebar garis 20 poin. Segitiga kiri menggunakan batas `2`, dan yang kanan menggunakan `8`. Setiap segitiga lebar 80 poin dan tinggi 160 poin, memberikan rasio panjang miter‑ke‑lebar garis sekitar `4.12` pada sudut atas. Akibatnya, PowerPoint memotong siku kiri dan mempertahankan siku kanan.
 
 ```java
 import com.aspose.slides.*;
@@ -302,13 +302,13 @@ try {
 }
 ```
 
-Hasilnya di PowerPoint: **Miter limit 2** di sebelah kiri dan **miter limit 8** di sebelah kanan.
+Hasil di PowerPoint: **Miter limit 2** di kiri dan **miter limit 8** di kanan.
 
-![Sisi yang dibentuk (beveled) dengan batas miter 2 dan sisi yang tajam dengan batas miter 8 di PowerPoint](miter-limits.png)
+![A beveled apex with miter limit 2 and a pointed apex with miter limit 8 in PowerPoint](miter-limits.png)
 
 ## **Isian Gradasi**
 
-Isian gradasi mencampur warna di seluruh bentuk. Contoh ini mengisi elips dengan gradasi linier pada sudut 45 derajat dari merah ke ungu menggunakan [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getGradientFormat--). Metode [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/java/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) menempatkan titik warna pada 0 dan 1, awal dan akhir gradasi. Menghapus titik warna yang ada memastikan hanya dua warna ini yang digunakan.
+Isian gradasi mencampur warna di seluruh bentuk. Contoh ini mengisi elips dengan gradasi linear pada sudut 45 derajat dari merah ke ungu menggunakan [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getGradientFormat--). Metode [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/java/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) menempatkan titik warna pada 0 dan 1, awal dan akhir gradasi. Menghapus titik yang ada memastikan hanya dua warna ini yang digunakan.
 
 ```java
 import com.aspose.slides.*;
@@ -331,17 +331,17 @@ try {
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![Elips dengan isian gradasi](gradient-fill.png)
+![The ellipse with gradient fill](gradient-fill.png)
 
-Jika gradasi terlihat berbeda pada gambar yang diekspor dibandingkan dengan di PowerPoint, lihat [Pilih Gaya Rendering Gradasi](/slides/id/java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Anda dapat memilih gaya rendering tanpa mengubah isian gradasi yang disimpan dalam presentasi.
+Jika gradasi terlihat berbeda dalam gambar yang diekspor dibandingkan di PowerPoint, lihat [Choose a Gradient Rendering Style](/slides/id/java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Anda dapat memilih gaya rendering tanpa mengubah isian gradasi yang disimpan dalam presentasi.
 
 ### **Atur Sudut Gradasi Linear**
 
-Gunakan [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) untuk mengontrol orientasi isian [GradientShape.Linear](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/). Sudut diukur dalam derajat dan meningkat searah jarum jam: `0` berjalan dari kiri ke kanan, `90` dari atas ke bawah, `180` dari kanan ke kiri, dan `270` dari bawah ke atas. Sudut pecahan didukung. Sudut berhingga di luar `[0, 360)` dinormalisasi menjadi satu revolusi; misalnya, `-45` menjadi `315` dan `360` menjadi `0`.
+Gunakan [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) untuk mengontrol orientasi isian [GradientShape.Linear](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/). Sudut diukur dalam derajat dan meningkat searah jarum jam: `0` berjalan dari kiri ke kanan, `90` dari atas ke bawah, `180` dari kanan ke kiri, dan `270` dari bawah ke atas. Sudut pecahan didukung. Sudut terbatas di luar `[0, 360)` dinormalisasi menjadi satu revolusi; misalnya, `-45` menjadi `315` dan `360` menjadi `0`.
 
-Contoh ini membuat enam persegi panjang dengan titik warna merah, hijau, dan biru yang identik pada posisi `0`, `0.5`, dan `1`. Skala dinonaktifkan agar sudut dapat dibandingkan terlepas dari proporsi persegi panjang. Sudut, dari kiri ke kanan, adalah `0`, `45`, dan `90` pada baris pertama, serta `135`, `180`, dan `270` pada baris kedua.
+Contoh ini membuat enam persegi panjang dengan titik warna merah, hijau, dan biru identik pada posisi `0`, `0.5`, dan `1`. Skala dinonaktifkan sehingga sudut dapat dibandingkan terlepas dari proporsi persegi panjang. Sudut, dari kiri ke kanan, adalah `0`, `45`, dan `90` pada baris pertama, serta `135`, `180`, dan `270` pada baris kedua.
 
 ```java
 import com.aspose.slides.*;
@@ -378,15 +378,15 @@ try {
 }
 ```
 
-Hasilnya di PowerPoint:
+Hasil di PowerPoint:
 
-![Gradasi linear pada 0, 45, dan 90 derajat di baris atas, serta 135, 180, dan 270 derajat di baris bawah](linear-gradient-angles.png)
+![Linear gradients at 0, 45, and 90 degrees in the top row, and 135, 180, and 270 degrees in the bottom row](linear-gradient-angles.png)
 
 ### **Skalakan Gradasi Linear dengan Bentuk**
 
-[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) menerima nilai [NullableBool](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/). Setel secara eksplisit ke `False` untuk mempertahankan sudut geometris gradasi saat proporsi bentuk berubah, atau ke `True` untuk menskalakan gradasi bersama lebar dan tinggi bentuk. Dengan skala diaktifkan, sudut yang terlihat dapat berbeda dari sudut yang ditetapkan pada bentuk yang tidak berbentuk kotak.
+[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) menerima nilai [NullableBool](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/). Atur secara eksplisit ke `False` untuk mempertahankan sudut geometris gradasi saat proporsi bentuk berubah, atau ke `True` untuk menyesuaikan gradasi dengan lebar dan tinggi bentuk. Dengan skala diaktifkan, sudut yang terlihat dapat berbeda dari sudut yang ditetapkan pada bentuk yang tidak berbentuk kotak.
 
-Contoh berikut menggunakan sudut `45` derajat dan titik warna yang sama seperti perbandingan sudut. Kolom kiri menggunakan `False`; kolom kanan menggunakan `True`. Setiap kolom berisi persegi panjang lebar di atas persegi panjang tinggi. Kedua persegi dimulai dengan dimensi lebar yang sama; mengubah lebar dan tinggi persegi kedua memperlihatkan bagaimana isian merespons perubahan ukuran tanpa mengubah pengaturan gradasinya.
+Contoh berikut menggunakan sudut `45` derajat dan titik warna yang sama seperti perbandingan sudut. Kolom kiri menggunakan `False`; kolom kanan menggunakan `True`. Setiap kolom berisi persegi panjang lebar di atas persegi panjang tinggi. Keduanya mulai dengan dimensi lebar yang sama; mengubah lebar dan tinggi persegi panjang kedua menunjukkan bagaimana isian merespons perubahan ukuran tanpa mengubah pengaturan gradasinya.
 
 ```java
 import com.aspose.slides.*;
@@ -430,19 +430,19 @@ try {
 }
 ```
 
-Hasilnya di PowerPoint, dengan skala dinonaktifkan di kiri dan diaktifkan di kanan:
+Hasil di PowerPoint, dengan skala dinonaktifkan di kiri dan diaktifkan di kanan:
 
-![Persegi panjang lebar dan tinggi dengan gradasi 45 derajat, membandingkan LinearGradientScaled False di kiri dengan True di kanan](linear-gradient-scaling.png)
+![Wide and tall rectangles with a 45-degree gradient, comparing LinearGradientScaled False on the left with True on the right](linear-gradient-scaling.png)
 
-Dengan skala dinonaktifkan, pita warna diagonal mempertahankan orientasi yang sama pada kedua persegi panjang. Dengan skala diaktifkan, pita tersebut meregang sesuai proporsi bentuk. Ini membantu mereproduksi gradasi templat saat menyesuaikan bentuk ke ukuran berbeda. Pada bentuk berbentuk kotak, mengaktifkan skala tidak mengubah tampilan gradasi `45` derajat ini.
+Dengan skala dinonaktifkan, pita warna diagonal mempertahankan orientasi yang sama pada kedua persegi panjang. Dengan skala diaktifkan, pita memanjang bersama proporsi bentuk. Ini membantu mereproduksi gradasi template saat menyesuaikan bentuk ke ukuran berbeda. Pada bentuk kotak, mengaktifkan skala tidak mengubah tampilan gradasi `45` derajat ini.
 
-Baik sudut maupun pengaturan skala berlaku untuk gradasi linier. Mereka tidak mengontrol isian [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/).
+Baik sudut maupun pengaturan skala berlaku untuk gradasi linear. Mereka tidak mengontrol isian [GradientShape.Radial atau GradientShape.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/).
 
 ### **Gabungkan Sudut dengan Arah Gradasi**
 
-[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setGradientDirection-int-) memilih gaya gradasi dari kelas [GradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/gradientdirection/); ini bukan pengganti sudut numerik. Untuk gradasi linier, gaya sudut dapat mengubah area distribusi warna tanpa mengubah sudut yang ditetapkan melalui [setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-). Pertahankan arah tidak berubah saat membandingkan sudut atau skala.
+[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setGradientDirection-int-) memilih gaya gradasi dari kelas [GradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/gradientdirection/) ; itu bukan pengganti sudut numerik. Untuk gradasi linear, gaya sudut dapat mengubah area distribusi warna tanpa mengubah sudut yang ditetapkan melalui [setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-). Jaga arah tetap tidak berubah saat membandingkan sudut atau skala.
 
-Contoh berikut menerapkan pengaturan yang sama dengan urutan yang berlawanan. Kedua persegi panjang memiliki tampilan yang sama: menetapkan arah sebelum atau sesudah sudut tidak mengubah hasil.
+Contoh berikut menerapkan pengaturan yang sama dengan urutan berlawanan. Kedua persegi panjang memiliki tampilan yang sama: menetapkan arah sebelum atau sesudah sudut tidak mengubah hasil.
 
 ```java
 import com.aspose.slides.*;
@@ -482,7 +482,7 @@ try {
 
 ## **Isian Pola**
 
-Isian pola menerapkan desain dua warna, seperti titik, garis, atau kotak-kotak. Contoh ini menggunakan [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) untuk memilih pola trellis. [IPatternFormat.getBackColor](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#getBackColor--) menyediakan latar belakang abu‑abu muda, dan [IPatternFormat.getForeColor](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#getForeColor--) menyediakan warna pola kuning.
+Isian pola menerapkan desain dua warna, seperti titik, garis, atau kotak-kotak. Contoh ini menggunakan [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) untuk memilih pola trellis. [IPatternFormat.getBackColor](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#getBackColor--) menyediakan latar belakang abu‑abu terang, dan [IPatternFormat.getForeColor](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#getForeColor--) menyediakan warna kuning untuk pola.
 
 ```java
 import com.aspose.slides.*;
@@ -504,15 +504,15 @@ try {
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![Persegi panjang dengan isian pola](pattern-fill.png)
+![The rectangle with pattern fill](pattern-fill.png)
 
 ## **Isian Gambar**
 
-Isian gambar menggunakan gambar di dalam bentuk. Contoh ini memerlukan gambar lokal dan menggunakan [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) untuk memuatnya ke dalam koleksi gambar presentasi. Menetapkan [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) ke mode ubin mengulang gambar di dalam persegi panjang. Gambar sumber yang digunakan ditampilkan di bawah:
+Isian gambar menggunakan gambar di dalam bentuk. Contoh ini memerlukan gambar lokal dan menggunakan [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) untuk memuatnya ke dalam koleksi gambar presentasi. Menetapkan [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) ke mode ubin mengulangi gambar di dalam persegi panjang. Gambar sumber yang digunakan ditampilkan di bawah:
 
-![Gambar lotus](lotus.png)
+![The lotus picture](lotus.png)
 
 ```java
 import com.aspose.slides.*;
@@ -540,23 +540,23 @@ try {
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![Bentuk dengan isian gambar](picture-fill.png)
+![The shape with picture fill](picture-fill.png)
 
-### **Ubin Gambar sebagai Tekstur**
+### **Utile Gambar sebagai Tekstur**
 
-Jika Anda ingin menetapkan gambar ubin sebagai tekstur dan menyesuaikan perilaku ubin, Anda dapat menggunakan metode berikut dari antarmuka [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) dan kelas [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/):
+Jika Anda ingin mengatur gambar ubin sebagai tekstur dan menyesuaikan perilaku ubin, Anda dapat menggunakan metode berikut dari antarmuka [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) dan kelas [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/):
 
 - [setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Mengatur mode isian gambar—baik `Tile` atau `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Menentukan perataan ubin di dalam bentuk.
 - [setTileFlip](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Mengontrol apakah ubin dibalik secara horizontal, vertikal, atau keduanya.
 - [setTileOffsetX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Mengatur offset horizontal ubin (dalam poin) dari asal bentuk.
 - [setTileOffsetY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Mengatur offset vertikal ubin (dalam poin) dari asal bentuk.
-- [setTileScaleX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Mendefinisikan skala horizontal ubin sebagai persentase.
-- [setTileScaleY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Mendefinisikan skala vertikal ubin sebagai persentase.
+- [setTileScaleX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Mendefinisikan skala horizontal ubin dalam persentase.
+- [setTileScaleY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Mendefinisikan skala vertikal ubin dalam persentase.
 
-Contoh ini memerlukan gambar lokal dan mengonfigurasi [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) untuk mengulangnya pada 50% ukuran aslinya. Offset −32 poin menggeser ubin secara horizontal dan vertikal; perataan kanan‑bawah dan pembalikan dua arah menentukan bagaimana tekstur yang diulang diatur.
+Contoh ini memerlukan gambar lokal dan mengkonfigurasi [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) untuk mengulangnya pada 50 % ukuran aslinya. Offset −32 poin menggeser ubin secara horizontal dan vertikal; perataan kanan‑bawah dan pembalikan di kedua arah menentukan susunan tekstur berulang.
 
 ```java
 import com.aspose.slides.*;
@@ -592,13 +592,13 @@ try {
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![Opsi ubin](tile-options.png)
+![The tile options](tile-options.png)
 
 ## **Isian Warna Solid**
 
-Isian solid memberi bentuk warna tunggal yang seragam. Contoh ini menggunakan [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) untuk mengatur mode isian solid dan menetapkan warna kuning melalui [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--), kemudian menyimpan persegi panjang dalam presentasi.
+Isian solid memberi bentuk satu warna seragam. Contoh ini menggunakan [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) untuk mengatur mode isian solid dan menetapkan kuning melalui [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--), lalu menyimpan persegi panjang dalam presentasi.
 
 ```java
 import com.aspose.slides.*;
@@ -618,17 +618,86 @@ try {
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![Bentuk dengan isian warna solid](solid-color-fill.png)
+![The shape with solid color fill](solid-color-fill.png)
 
-## **Gunakan Latar Slide sebagai Isian Bentuk**
+### **Salin Warna Sambil Mempertahankan Referensi Tema**
 
-Gunakan [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) ketika bentuk harus menyesuaikan latar slide, misalnya dalam templat presentasi. Gunakan [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) ke [FillType.NotDefined](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) terlebih dahulu untuk menghapus isian eksplisit apa pun. Dengan kombinasi ini, bentuk menggunakan latar slide alih-alih isian gaya sendiri. Mengaktifkan flag saja tidak menghapus isian eksplisit yang ada.
+Gunakan [IColorFormat.copyFrom](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#copyFrom-com.aspose.slides.IColorFormat-) untuk menyalin definisi warna, termasuk tipe warna, referensi tema, dan transformasi. Ini berguna saat memindahkan warna isian antara bentuk yang harus tetap mengikuti tema presentasi. Metode ini menyalin hanya warna: tidak menyalin tipe isian, garis tepi, atau pemformatan bentuk lainnya. Tetapkan tipe isian tujuan secara eksplisit dengan [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-).
 
-Ini berbeda dari [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/): isian latar menutupi objek di belakang bentuk dengan area latar slide yang bersesuaian, sementara tanpa isian membiarkan objek tersebut tetap terlihat. Gradasi tetap selaras dengan slide alih-alih memulai kembali di dalam tiap bentuk.
+Contoh ini membuat tiga persegi panjang, dari kiri ke kanan: sumber, salinan yang menyadari tema, dan salinan RGB tetap. Sumber menggunakan [IColorFormat.setSchemeColor](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#setSchemeColor-int-) untuk merujuk pada warna aksen pertama dan menambahkan tint melalui [IColorOperationCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/icoloroperationcollection/#add-int-float-). Salinan RGB menggunakan warna isian efektif sumber sehingga ketiganya awalnya tampak identik. Memanggil [IColorFormat.setColor](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#setColor-java.awt.Color-) menetapkan nilai RGB tetap dan menghapus semua transformasi warna yang ada.
 
-Contoh berikut membuat latar master yang diwarisi oleh slide dan menempatkan pita magenta di belakang tiga persegi panjang. Persegi kiri menggunakan latar, persegi tengah tidak memiliki isian, dan persegi kanan beralih dari isian latar ke isian oranye eksplisit.
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(new Color(65, 105, 225));
+
+    IAutoShape source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+    IAutoShape themeCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+    IAutoShape rgbCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (IAutoShape shape : new IAutoShape[] { source, themeCopy, rgbCopy }) {
+        shape.getFillFormat().setFillType(FillType.Solid);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    }
+
+    IColorFormat sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(ColorTransformOperation.Tint, 0.75f);
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    IImage before = slide.getImage(1f, 1f);
+    try {
+        before.save("color-copy-before.png", ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // Referensi tema mengikuti warna aksen baru; nilai RGB tetap tidak mengikutinya.
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(new Color(255, 69, 0));
+
+    IImage after = slide.getImage(1f, 1f);
+    try {
+        after.save("color-copy-after.png", ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sebelum perubahan tema, ketiga isian cocok:
+
+![Source, copyFrom destination, and fixed RGB destination with identical blue fills](color-copy-before.png)
+
+Setelah perubahan tema, sumber dan salinan yang menyadari tema mengikuti warna aksen baru dan mempertahankan tintnya. Salinan RGB tetap biru:
+
+![Source and copyFrom destination with orange fills, while the fixed RGB destination remains blue](color-copy-after.png)
+
+Definisi yang disalin bersifat independen dari sumber. Mengubah referensi tema sumber, menetapkan warna lain, atau menambah/menghapus transformasinya tidak mengubah tujuan. Perubahan tema tetap memengaruhi kedua bentuk karena masing‑masing merujuk secara independen ke warna tema yang sama.
+
+Menyimpan dan membuka kembali PPTX mempertahankan tipe warna yang disalin yang dikembalikan oleh [IColorFormat.getColorType](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#getColorType--) , referensi tema, dan koleksi transformasi yang dikembalikan oleh [IColorFormat.getColorTransform](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#getColorTransform--) ; tidak meratakan definisi ke RGB.
+
+Saat menyalin antar konteks tema yang berbeda, misalnya presentasi dengan palet aksen yang berbeda, referensi yang disalin akan diselesaikan terhadap tema tujuan. Referensi dan transformasi yang sama dapat menghasilkan warna tampak yang berbeda. Lihat [Presentation Theme](/slides/id/java/presentation-theme/) untuk lebih lanjut tentang mengonfigurasi warna tema.
+
+## **Gunakan Latar Belakang Slide sebagai Isian Bentuk**
+
+Gunakan [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) ketika bentuk harus cocok dengan latar belakang slide, misalnya dalam template presentasi. Tetapkan tipe isian dengan [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) ke [FillType.NotDefined](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) terlebih dahulu untuk menghapus isian eksplisit apa pun. Dengan kombinasi ini, bentuk menggunakan latar belakang slide alih‑alih isian gaya. Mengaktifkan flag saja tidak menghapus isian eksplisit yang ada.
+
+Ini berbeda dari [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) : isian latar belakang menutupi objek di belakang bentuk dengan area latar belakang slide yang sesuai, sementara NoFill membiarkan objek tersebut terlihat. Gradasi tetap selaras dengan slide alih‑alih memulai ulang di dalam setiap bentuk.
+
+Contoh berikut membuat latar belakang master yang diwarisi oleh slide dan menempatkan pita magenta di belakang tiga persegi panjang. Persegi panjang kiri menggunakan latar belakang, persegi panjang tengah tidak memiliki isian, dan persegi panjang kanan beralih dari isian latar belakang ke isian oranye eksplisit.
 
 ```java
 import com.aspose.slides.*;
@@ -639,7 +708,7 @@ try {
     presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Mewarisi gradien dari master.
+    // Warisi gradasi dari master.
     slide.getBackground().setType(BackgroundType.NotDefined);
     slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined);
     IBackground background = slide.getLayoutSlide().getMasterSlide().getBackground();
@@ -669,7 +738,7 @@ try {
     explicitShape.getFillFormat().setFillType(FillType.NotDefined);
     explicitShape.setUseBackgroundFill(true);
 
-    // Nonaktifkan isian latar sebelum menerapkan isian eksplisit.
+    // Nonaktifkan isian latar belakang sebelum menerapkan isian eksplisit.
     explicitShape.setUseBackgroundFill(false);
     explicitShape.getFillFormat().setFillType(FillType.Solid);
     explicitShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 165, 0));
@@ -680,15 +749,15 @@ try {
 }
 ```
 
-Hasilnya, dari kiri ke kanan: **isian latar**, **tanpa isian**, dan **isian eksplisit**. Pita magenta tersembunyi oleh persegi kiri dan kanan tetapi tetap terlihat melalui persegi tengah.
+Hasil, dari kiri ke kanan: **background fill**, **no fill**, dan **explicit fill**. Pita magenta tersembunyi oleh persegi panjang kiri dan kanan tetapi tetap terlihat melalui persegi panjang tengah.
 
-![Isian latar, tanpa isian, dan isian oranye eksplisit di atas pita magenta](background-fill.png)
+![Background fill, no fill, and explicit orange fill over a magenta band](background-fill.png)
 
-Perilaku yang sama berlaku untuk latar yang didefinisikan langsung pada slide atau diwarisi dari layout. Bentuk menggunakan latar yang telah diselesaikan pada slide; contoh ini membiarkan latar slide dan layout tidak ditetapkan sehingga master menyediakannya.
+Perilaku yang sama berlaku untuk latar belakang yang didefinisikan langsung pada slide atau diwarisi dari tata letak. Bentuk menggunakan latar belakang slide yang telah diselesaikan; contoh ini membiarkan latar belakang slide dan tata letak tidak ditetapkan sehingga master menyediakannya.
 
 ## **Atur Transparansi**
 
-Untuk isian solid, komponen alfa warna mengontrol opasitas: 0 sepenuhnya transparan dan 255 sepenuhnya opak. Contoh ini menggunakan nilai alfa 128 untuk persegi panjang kuning, membuatnya kira‑kira 50% transparan sehingga persegi di bawahnya tetap terlihat. Warna ditetapkan melalui [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--).
+Untuk isian solid, komponen alfa warna mengontrol opasitas: 0 sepenuhnya transparan dan 255 sepenuhnya tidak transparan. Contoh ini menggunakan nilai alfa 128 untuk persegi panjang kuning, membuatnya kira‑kira 50 % transparan sehingga persegi panjang di bawahnya tetap terlihat. Warna ditetapkan melalui [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--).
 
 ```java
 import com.aspose.slides.*;
@@ -710,9 +779,9 @@ try {
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![Bentuk transparan](shape-transparency.png)
+![The transparent shape](shape-transparency.png)
 
 ## **Putar Bentuk**
 
@@ -734,13 +803,13 @@ try {
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![Rotasi bentuk](shape-rotation.png)
+![The shape rotation](shape-rotation.png)
 
-## **Tambahkan Efek Bevel 3D**
+## **Tambah Efek Bevel 3D**
 
-Gunakan [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) untuk memberi bentuk kedalaman dan tepi bevel. Contoh ini membuat elips hijau dengan garis luar oranye, menggunakan [IThreeDFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-) untuk mengatur kedalaman menjadi 4 poin, dan menerapkan bevel atas melingkar dengan lebar dan tinggi 6 poin melalui [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelTop--). Kamera ortografik menghadap depan dan pencahayaan tiga titik membuat bevel terlihat.
+Gunakan [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) untuk memberi bentuk kedalaman dan tepi bevel. Contoh ini membuat elips hijau dengan garis tepi oranye, menggunakan [IThreeDFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-) untuk menetapkan kedalaman 4 poin, dan menerapkan bevel atas melingkar dengan lebar dan tinggi 6 poin melalui [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelTop--) . Kamera ortografik menghadap depan dan pencahayaan tiga titik membuat bevel terlihat.
 
 ```java
 import com.aspose.slides.*;
@@ -770,13 +839,13 @@ try {
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![Efek bevel 3D](3D-bevel-effect.png)
+![The 3D bevel effect](3D-bevel-effect.png)
 
-## **Tambahkan Efek Rotasi 3D**
+## **Tambah Efek Rotasi 3D**
 
-Tampilan 3D bentuk dikontrol oleh pengaturan kameranya. Contoh ini menggunakan [ICamera.setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setRotation-float-float-float-) dengan sudut latitude, longitude, dan revolusi masing‑masing 40, 35, dan 20 derajat. Ia memilih kamera isometrik melalui [ICamera.setCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setCameraType-int-) dan pencahayaan seimbang melalui [ILightRig.setLightType](https://reference.aspose.com/slides/java/com.aspose.slides/ilightrig/#setLightType-int-), lalu menyimpan persegi panjang yang telah diformat.
+Tampilan 3D bentuk dikendalikan oleh pengaturan kamera. Contoh ini menggunakan [ICamera.setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setRotation-float-float-float-) dengan sudut lintang, bujur, dan revolusi masing‑masing 40, 35, dan 20 derajat. Ini memilih kamera isometrik melalui [ICamera.setCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setCameraType-int-) dan pencahayaan seimbang melalui [ILightRig.setLightType](https://reference.aspose.com/slides/java/com.aspose.slides/ilightrig/#setLightType-int-), lalu menyimpan persegi panjang yang diformat.
 
 ```java
 import com.aspose.slides.*;
@@ -797,17 +866,17 @@ try {
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![Efek rotasi 3D](3D-rotation-effect.png)
+![The 3D rotation effect](3D-rotation-effect.png)
 
 ## **Kontrol Rendering Hitam‑Putih untuk Bentuk**
 
-Metode [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) menentukan cara sebuah bentuk dirender ketika presentasi ditampilkan atau diproses dalam mode hitam‑putih. Metode ini tidak mengaktifkan tampilan hitam‑putih sendiri, dan tidak mengubah isian, garis, atau pemformatan lain bentuk dalam mode warna normal.
+Metode [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) menentukan bagaimana bentuk individual dirender saat presentasi dilihat atau diproses dalam mode hitam‑putih. Metode ini tidak mengaktifkan tampilan hitam‑putih sendiri, dan tidak mengubah isian, garis, atau pemformatan lain bentuk dalam mode warna normal.
 
-Gunakan nilai dari kelas [BlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/blackwhitemode/) untuk memilih perilaku yang diinginkan. Misalnya, `Automatic` membiarkan aplikasi rendering memilih konversi, `Gray` dan `LightGray` menggunakan pewarnaan abu‑abu, `BlackWhite` hanya menggunakan hitam dan putih, `Black` dan `White` memaksa satu warna, `Color` mempertahankan pewarnaan normal, dan `Hidden` menghilangkan bentuk dalam mode hitam‑putih. `NotDefined` berarti tidak ada mode tingkat‑bentuk yang ditetapkan.
+Gunakan nilai dari kelas [BlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/blackwhitemode/) untuk memilih perilaku yang diinginkan. Misalnya, `Automatic` membiarkan aplikasi rendering memilih konversi, `Gray` dan `LightGray` menggunakan warna abu‑abu, `BlackWhite` menggunakan hanya hitam dan putih, `Black` dan `White` memaksa satu warna, `Color` mempertahankan warna normal, dan `Hidden` menghilangkan bentuk dalam mode hitam‑putih. `NotDefined` berarti tidak ada mode tingkat bentuk yang ditetapkan.
 
-Contoh ini membuat persegi panjang oranye dan menggunakan [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) untuk mengatur mode ke abu‑abu. Bentuk yang disimpan tetap berisi oranye untuk tampilan warna normal dan meminta pewarnaan abu‑abu dari aplikasi yang menghormati pengaturan tampilan hitam‑putih:
+Contoh ini membuat persegi panjang oranye dan menggunakan [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) untuk menetapkan mode ke abu‑abu. Bentuk yang disimpan tetap berisi oranye untuk tampilan warna normal dan meminta pewarnaan abu‑abu dari aplikasi yang menghormati pengaturan tampilan hitam‑putih:
 
 ```java
 import com.aspose.slides.*;
@@ -828,11 +897,11 @@ try {
 }
 ```
 
-Dalam mode warna normal, persegi tetap berisi oranye. Dalam alur kerja tampilan hitam‑putih, ia menggunakan pewarnaan abu‑abu karena mode diatur ke `Gray`. Ini memungkinkan Anda mempertahankan slide berwarna penuh sambil mendefinisikan tampilan berbeda untuk pencetakan, pratinjau, atau alur kerja lain yang menghormati pengaturan tampilan hitam‑putih presentasi.
+Dalam mode warna normal, persegi panjang tetap berisi oranye. Dalam alur kerja tampilan hitam‑putih, ia menggunakan pewarnaan abu‑abu karena berhasilannya diatur ke `Gray`. Ini memungkinkan Anda mempertahankan slide berwarna penuh sambil mendefinisikan tampilan berbeda untuk pencetakan, pratinjau, atau alur kerja lain yang menghormati pengaturan tampilan hitam‑putih presentasi.
 
-## **Reset Pemformatan**
+## **Setel Ulang Pemformatan**
 
-Gunakan [ISlide.reset](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#reset--) untuk mengembalikan posisi, ukuran, dan pemformatan placeholder slide dari placeholder tata letak yang bersesuaian. Contoh ini memerlukan presentasi yang sudah ada dengan placeholder yang terhubung ke tata letak dan mereset setiap slide sebelum menyimpan. Bentuk tanpa placeholder tata letak yang bersesuaian tidak di‑reset.
+Gunakan [ISlide.reset](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#reset--) untuk mengembalikan posisi, ukuran, dan pemformatan placeholder slide dari placeholder tata letak yang bersesuaian. Contoh ini memerlukan presentasi yang ada dengan placeholder yang ditautkan ke tata letak dan mereset setiap slide sebelum menyimpan. Bentuk tanpa placeholder tata letak yang bersesuaian tidak direset.
 
 ```java
 import com.aspose.slides.*;
@@ -851,14 +920,14 @@ try {
 
 ## **FAQ**
 
-**Apakah pemformatan bentuk mempengaruhi ukuran file presentasi akhir?**
+**Apakah pemformatan bentuk memengaruhi ukuran file presentasi akhir?**
 
-Warna, gaya garis, dan pengaturan efek biasanya menambah sedikit data dibandingkan dengan gambar dan media yang disematkan. Isian gambar dapat meningkatkan ukuran file karena gambar mereka disimpan dalam presentasi.
+Warna, style garis, dan pengaturan efek umumnya menambah sedikit data dibandingkan gambar dan media yang disematkan. Isian gambar dapat meningkatkan ukuran file karena gambarnya disimpan dalam presentasi.
 
 **Bagaimana saya dapat mendeteksi bentuk pada slide yang memiliki pemformatan identik sehingga saya dapat mengelompokkannya?**
 
-Bandingkan masing‑masing properti kunci pemformatan bentuk—isi, garis, dan pengaturan efek. Jika semua nilai yang bersesuaian cocok, perlakukan gaya mereka sebagai identik dan kelompokkan bentuk‑bentuk tersebut secara logis, yang menyederhanakan manajemen gaya di kemudian hari.
+Bandingkan setiap properti pemformatan kunci bentuk — isian, garis, dan pengaturan efek. Jika semua nilai yang bersesuaian cocok, perlakukan gaya mereka sebagai identik dan kelompokkan bentuk tersebut secara logis, yang mempermudah manajemen gaya kemudian.
 
-**Bisakah saya menyimpan satu set gaya bentuk kustom ke file terpisah untuk digunakan kembali di presentasi lain?**
+**Bisakah saya menyimpan sekumpulan gaya bentuk kustom ke file terpisah untuk digunakan kembali di presentasi lain?**
 
-Ya. Simpan contoh bentuk dengan gaya yang diinginkan dalam templat slide atau file .POTX. Saat membuat presentasi baru, buka templat tersebut, kloning bentuk bergaya yang diperlukan, dan terapkan kembali pemformatannya di mana pun diperlukan.
+Ya. Simpan contoh bentuk dengan gaya yang diinginkan dalam dek slide template atau file template .POTX. Saat membuat presentasi baru, buka template, kloning bentuk bergaya yang Anda perlukan, dan terapkan kembali pemformatannya di mana pun diperlukan.

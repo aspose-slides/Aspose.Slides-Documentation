@@ -8,7 +8,7 @@ keywords:
 - formatera form
 - formatera linje
 - skiss-effekt
-- skissformlinje
+- skissa formlinje
 - formatera fogstil
 - gradientfyllning
 - mönsterfyllning
@@ -16,30 +16,30 @@ keywords:
 - texturfyllning
 - enfärgsfyllning
 - formtransparens
-- svart-vit rendering av former
-- rendering av former i gråskala
+- svart‑vit rendering av former
+- gråskala rendering av former
 - rotera form
-- 3D-fasadeffekt
-- 3D-roterings-effekt
+- 3D‑fasadeffekt
+- 3D‑roteringseffekt
 - återställ formatering
 - PowerPoint
 - presentation
 - Python
 - Java
 - Aspose.Slides
-description: "Lär dig hur du formaterar PowerPoint-former i Python via Java med Aspose.Slides—ställ in fyllning, linje och effektstilar för PPT- och PPTX-filer med precision och full kontroll."
+description: "Lär dig hur du formaterar PowerPoint‑former i Python via Java med Aspose.Slides—ange fyllnings‑, linje‑ och effektsstilar för PPT‑ och PPTX‑filer med precision och full kontroll."
 ---
 ## **Introduktion**
 
-Formatera former i PowerPoint genom att justera deras konturer, fyllningar och effekter. Aspose.Slides för Python via Java låter dig styra dessa inställningar programmässigt, inklusive transparens, rotation och 3D-formatering.
+Formatera former i PowerPoint genom att justera deras konturer, fyllningar och effekter. Aspose.Slides för Python via Java låter dig kontrollera dessa inställningar programatiskt, inklusive transparens, rotation och 3D‑formatering.
 
 ![Formateringsalternativ för former i PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides för Python via Java tillhandahåller klasser och metoder som låter dig formatera former med samma alternativ som finns i PowerPoint.
+Aspose.Slides för Python via Java tillhandahåller klasser och metoder som gör att du kan formatera former med samma alternativ som finns i PowerPoint.
 
 ## **Formatera linjer**
 
-Använd [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) för att kontrollera en formes kontur. Detta exempel skapar en ofylld rektangel med en blå, streckad kontur. [LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) väljer en tjock‑tunn sammansatt linje, medan [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) sätter dess bredd till 7 punkter och [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) väljer dash‑mönstret.
+Använd [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) för att kontrollera en formats kontur. Detta exempel skapar en ofylld rektangel med en blå, streckad kontur. [LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) väljer en tjock‑tunn sammansatt linje, medan [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) sätter dess bredd till 7 punkter och [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) väljer dash‑mönstret.
 
 ```python
 import jpype
@@ -72,20 +72,20 @@ Resultatet:
 
 ![De formaterade linjerna i presentationen](formatted-lines.png)
 
-### **Ange anpassade linjestreckmönster**
+### **Ange anpassade linjedash‑mönster**
 
-Använd [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern) när fördefinierade linjestilar inte ger de dash‑längder och mellanrum du behöver, till exempel för varumärkeskonturer eller tekniska diagram. Att tilldela ett mönster ändrar automatiskt linjestreckstilen till [LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/).
+Använd [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern) när fördefinierade linjestilar inte ger de dash‑längder och mellanrum du behöver, till exempel för varumärkta konturer eller tekniska diagram. När ett mönster tilldelas ändras linjedash‑stilen automatiskt till [LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/).
 
-Array‑elementen växlar mellan streck‑ och mellanrumslängder, med början på ett streck. Varje värde är en multipel av linjebredden: `[4, 2]` vid en bredd på 3 punkter ger ett 12‑punktigt streck följt av ett 6‑punktigt mellanrum. Använd par av ändliga, icke‑negativa värden för att definiera kompletta streck‑och‑mellanrumsegment. Exemplet använder positiva värden för att hålla varje streck och mellanrum synliga.
+Array‑poster växlar mellan dash‑ och gap‑längder, med en dash först. Varje värde är en multipel av linjebredden: `[4, 2]` vid en bredd på 3 punkter ger ett 12‑punkts dash följt av ett 6‑punkts gap. Använd par av ändliga, icke‑negativa värden för att definiera kompletta dash‑och‑gap‑segment. Exemplet använder positiva värden för att hålla varje dash och gap synligt.
 
-Detta exempel skapar fem blå linjer med samma längd och platta ändar. De första tre jämför mönster vid en bredd på 3 punkter. Den fjärde upprepar det första mönstret med dubbelt så stor bredd, vilket fördubblar både streck‑ och mellanrumslängderna. Den femte byter från ett anpassat mönster till en solid linje.
+Detta exempel skapar fem blå linjer med samma längd och platta ändar. De första tre jämför mönster vid en bredd på 3 punkter. Den fjärde upprepar det första mönstret med dubbel bredd, vilket fördubblar både dash‑ och gap‑längderna. Den femte byter från ett anpassat mönster till en solid linje.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpase.startJVM()
 
 from asposeslides.api import FillType, LineArrowheadStyle, LineCapStyle, LineDashStyle, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
 from java.awt import Color
@@ -122,25 +122,25 @@ finally:
     presentation.dispose()
 ```
 
-För att återgå till en fördefinierad streckad stil istället, skicka [LineDashStyle.Dash](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) till [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle). Den valda stilen styr linjens utseende.
+För att återgå till en fördefinierad streckad stil, skicka [LineDashStyle.Dash](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) till [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle). Den valda stilen styr linjens utseende.
 
-Resultatet i PowerPoint, från topp till botten: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; och **Solid, 3 pt**.
+Resultatet i PowerPoint, uppifrån och ner: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; och **Solid, 3 pt**.
 
-![Tre anpassade dash‑mönster, en bredare linje som använder det första mönstret och en solid linje i PowerPoint](custom-dash-patterns.png)
+![Tre anpassade dash‑mönster, en bredare linje med första mönstret och en solid linje i PowerPoint](custom-dash-patterns.png)
 
-### **Ange linjeändar**
+### **Ange linjeändar (Caps)**
 
-Använd [LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle) för att ställa in ändarna på en öppen linje. Klassen [LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/) erbjuder tre explicita ände‑stilar:
+Använd [LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle) för att sätta ändarna på en öppen linje. Klassen [LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/) erbjuder tre explicita cap‑stilar:
 
-- `Flat`: Strokningen slutar vid ändpunkten.
-- `Round`: En halvcirkelformad ände sträcker sig bortom ändpunkten med halva linjebredden.
-- `Square`: En fyrkantig ände sträcker sig bortom ändpunkten med halva linjebredden.
+- `Flat`: Linjen slutar vid ändpunkten.
+- `Round`: En halvcirkelformad cap sträcker sig bortom ändpunkten med halva linjebredden.
+- `Square`: En fyrkantig cap sträcker sig bortom ändpunkten med halva linjebredden.
 
-Klassen innehåller också `NotDefined`, vilket betyder att ingen ände‑stil har tilldelats explicit.
+Klassen innehåller också `NotDefined`, vilket betyder att ingen cap‑stil är explicit tilldelad.
 
-Ändar är annorlunda än pilspetsar, som lägger till symboler i linjeändar, och fogar, som styr hörnen mellan linjesegment. Detta exempel inaktiverar pilspetsar via [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setBeginArrowheadStyle) och [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setEndArrowheadStyle) så att endast ände‑formerna jämförs.
+Caps skiljer sig från pilspetsar, som lägger till symboler i linjeändarna, och från fogar, som styr hörnen mellan linjesegment. Detta exempel inaktiverar pilspetsar via [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setBeginArrowheadStyle) och [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setEndArrowheadStyle) så att endast cap‑formerna jämförs.
 
-Följande exempel skapar tre annars identiska horisontella linjer, 20 punkter breda. Från topp till botten använder de platta, runda och fyrkantiga ändar. Deras ändpunkter har samma horisontella koordinater; de runda och fyrkantiga ändarna sträcker sig 10 punkter bortom varje ändpunkt.
+Följande exempel skapar tre annars identiska horisontella linjer, 20 punkter breda. Uppifrån och ner använder de platta, runda och fyrkantiga caps. Deras ändpunkter har samma horisontella koordinater; de runda och fyrkantiga caps sträcker sig 10 punkter bortom varje ändpunkt.
 
 ```python
 import jpype
@@ -175,15 +175,15 @@ finally:
     presentation.dispose()
 ```
 
-Resultatet i PowerPoint, från topp till botten: **Flat**, **Round**, och **Square**.
+Resultatet i PowerPoint, uppifrån och ner: **Flat**, **Round**, och **Square**.
 
-![Platta, runda och fyrkantiga ändar på identiska tjocka linjer i PowerPoint](line-caps.png)
+![Platta, runda och fyrkantiga caps på identiska tjocka linjer i PowerPoint](line-caps.png)
 
-## **Applicera skiss‑effekter på formernas linjer**
+## **Tillämpa skiss‑effekter på formlinjer**
 
-En skisseffekt får en formlinje att se handritad ut. Använd [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) för att komma åt linjeinställningarna, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) för att nå skissinställningarna, och [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) för att välja ett värde från klassen [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/).
+En skiss‑effekt får en formlinje att se handritad ut. Använd [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) för att komma åt linjeinställningarna, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) för att komma åt skiss‑inställningarna, och [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) för att välja ett värde från klassen [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/).
 
-Följande Python‑kod visar hur man applicerar en [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/)‑effekt, läser det explicit tilldelade värdet, och tar bort effekten med [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/):
+Följande Python‑kod visar hur du applicerar en [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/)‑effekt, läser det explicit tilldelade värdet och tar bort effekten med [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/):
 
 ```python
 import jpype
@@ -209,7 +209,7 @@ finally:
     presentation.dispose()
 ```
 
-Värdet som returneras av [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) representerar inställningen som tilldelats formen direkt. Om linjeformateringen kan ärvas från ett tema, en master‑bild eller en layout‑bild, använd [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) och läs skisstypen från den returnerade effektiva linjeformateringen, som visas nedan. Det effektiva värdet återspeglar den formatering som faktiskt tillämpas efter att arv har lösts. Detta exempel kräver en befintlig presentation med minst en form på den första bilden och skriver ut båda värdena:
+Värdet som returneras av [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) representerar inställningen som tilldelats direkt till formen. Om linjeformateringen kan ärvas från ett tema, huvud‑slide eller layout‑slide, använd [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) och läs skiss‑typen från den effektiva linjeformateringen, som visas nedan. Det effektiva värdet speglar den formatering som faktiskt tillämpas efter ärvning har lösts. Detta exempel kräver en befintlig presentation med minst en form på första sliden och skriver ut båda värdena:
 
 ```python
 import jpype
@@ -235,19 +235,19 @@ finally:
     presentation.dispose()
 ```
 
-## **Formatera fogstilar**
+## **Formatera fog‑stilar**
 
-Här är de tre alternativen för fogtyp:
+Här är de tre fog‑typ‑alternativen:
 
 * Round
 * Miter
 * Bevel
 
-Fogstilen styr hur två kontursegment möts i ett hörn. Använd **Round** för rundade hörn, **Miter** för skarpa hörn, eller **Bevel** för avfasade hörn.
+Fog‑stilen styr hur två kontursegment möts i ett hörn. Använd **Round** för rundade hörn, **Miter** för spetsiga hörn, eller **Bevel** för avfasade hörn.
 
-![Fogstilen i presentationen](join-style-powerpoint.png)
+![Fog‑stilen i presentationen](join-style-powerpoint.png)
 
-Detta exempel skapar tre svarta rektanglar med blå konturer 15 punkter breda. Det använder [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) för att sätta miter‑, bevel‑ och round‑värdena för [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) respektive, för att jämföra hur hörnen ritas.
+Detta exempel skapar tre svarta rektanglar med blå konturer 15 punkter breda. Det använder [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) för att sätta miter‑, bevel‑ och round‑värdena i [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/), respektive, för att jämföra hur hörnen ritas.
 
 ```python
 import jpype
@@ -298,13 +298,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Begränsa Miter‑fogar vid skarpa hörn**
+### **Begränsa miter‑fogar i spetsiga hörn**
 
-Använd [LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit) med [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) satt till [LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) för att begränsa hur långt ett spetsigt hörn kan sträcka sig.
+Använd [LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit) tillsammans med [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) satt till [LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) för att begränsa hur långt ett spetsigt hörn kan sträcka sig.
 
-Gränsen är ett förhållande mellan avståndet mellan den inre och yttre hörnan i foggen och linjebredden. Till exempel tillåter ett värde på `8` en miter‑längd på upp till åtta gånger linjebredden; det är ingen måttangivelse i punkter. Om hörnet skulle överskrida gränsen använder PowerPoint en avfasad fog på det hörnet. En större gräns möjliggör spetsigare punkter. Inställningen påverkar endast miter‑fogar, och att ändra den har ingen synlig effekt när hörnet förblir inom båda gränserna.
+Begränsningen är ett förhållande mellan avståndet mellan det inre och yttre hörnet på fogen och linjebredden. Till exempel tillåter ett värde på `8` en miter‑längd på upp till åtta gånger linjebredden; det är ingen mätning i punkter. Om hörnet skulle överstiga begränsningen använder PowerPoint en avfasad fog vid det hörnet. En större gräns ger skarpare punkter. Inställningen påverkar bara miter‑fogar, och att ändra den har ingen synlig effekt när hörnet förblir inom båda gränserna.
 
-Detta exempel skapar två identiska, ofyllda trianglar med konturer 20 punkter breda. Den vänstra triangeln använder en gräns på `2`, och den högra använder `8`. Varje triangel är 80 punkter bred och 160 punkter hög, vilket ger dess översta hörn ett miter‑längd‑till‑linjebredd‑förhållande på ungefär `4.12`. Följaktligen avfasar PowerPoint den vänstra spetsen och behåller den högra spetsen.
+Detta exempel skapar två identiska, ofyllda trianglar med konturer 20 punkter breda. Den vänstra triangeln använder en gräns på `2`, och den högra använder `8`. Varje triangel är 80 punkter bred och 160 punkter hög, vilket ger dess översta hörn ett miter‑längd‑till‑linjebredd‑förhållande på cirka `4.12`. Följaktligen avfasar PowerPoint den vänstra spetsen och bevarar den högra spetsen.
 
 ```python
 import jpype
@@ -344,7 +344,7 @@ Resultatet i PowerPoint: **Miter limit 2** till vänster och **miter limit 8** t
 
 ## **Gradientfyllning**
 
-En gradientfyllning blandar färger över en form. Detta exempel fyller en ellips med en linjär gradient i 45‑graders vinkel från röd till lila med hjälp av [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat). Metoden [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) placerar färgstopp vid 0 och 1, början och slutet på gradienten. Att rensa befintliga stopp säkerställer att endast dessa två färger används.
+En gradientfyllning blandar färger över en form. Detta exempel fyller en ellips med en linjär gradient i 45‑gradars vinkel från röd till lila med hjälp av [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat). Metoden [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) placerar färgstopp vid 0 och 1, början och slut på gradienten. Att rensa befintliga stopp säkerställer att endast dessa två färger används.
 
 ```python
 import jpype
@@ -379,11 +379,11 @@ Resultatet:
 
 Om en gradient ser annorlunda ut i en exporterad bild än i PowerPoint, se [Choose a Gradient Rendering Style](/slides/sv/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Du kan välja en renderingsstil utan att ändra gradientfyllningen som lagras i presentationen.
 
-### **Ange vinkeln för den linjära gradienten**
+### **Ange vinkel för linjär gradient**
 
-Använd [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) för att kontrollera orienteringen av en [GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/)‑fyllning. Vinkeln mäts i grader och ökar medurs: `0` går från vänster till höger, `90` från toppen till botten, `180` från höger till vänster och `270` från botten till toppen. Bråkvinklar stöds. Finitiva vinklar utanför `[0, 360)` normaliseras till en full rotation; till exempel blir `-45` till `315` och `360` till `0`.
+Använd [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) för att kontrollera orienteringen av en [GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/)‑fyllning. Vinkeln mäts i grader och ökar medurs: `0` går från vänster till höger, `90` från topp till botten, `180` från höger till vänster, och `270` från botten till topp. Bråktalsgrader stöds. Ändliga vinklar utanför `[0, 360)` normaliseras till en varv; exempelvis blir `-45` till `315` och `360` till `0`.
 
-Detta exempel skapar sex rektanglar med identiska röda, gröna och blå stopp vid positionerna `0`, `0.5` och `1`. Skalning är inaktiverad så att vinkeln kan jämföras oberoende av rektanglarnas proportioner. Vinklarna, från vänster till höger, är `0`, `45` och `90` i första raden, samt `135`, `180` och `270` i andra raden.
+Detta exempel skapar sex rektanglar med identiska röda, gröna och blå stopp på positionerna `0`, `0.5` och `1`. Skalning är inaktiverad så att vinkeln kan jämföras oberoende av rektanglarnas proportioner. Vinklarna, från vänster till höger, är `0`, `45` och `90` i första raden, och `135`, `180` och `270` i andra raden.
 
 ```python
 import jpype
@@ -426,13 +426,13 @@ finally:
 
 Resultatet i PowerPoint:
 
-![Linjär gradient vid 0, 45 och 90 grader i den övre raden, och 135, 180 och 270 grader i den nedre raden](linear-gradient-angles.png)
+![Linjär gradient vid 0, 45 och 90 grader i övre raden, samt 135, 180 och 270 grader i nedre raden](linear-gradient-angles.png)
 
 ### **Skala en linjär gradient med formen**
 
-[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled) accepterar ett [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/)‑värde. Sätt det explicit till `False_` för att behålla den geometriska gradientvinkeln när formens proportioner förändras, eller till `True_` för att skala gradienten med formens bredd och höjd. Med skalning aktiverad kan den synliga vinkeln skilja sig från den tilldelade vinkeln på en icke‑kvadratisk form.
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled) accepterar ett [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/)‑värde. Sätt det explicit till `False_` för att behålla den geometriska gradientvinkeln när formens proportioner ändras, eller till `True_` för att skala gradienten med formens bredd och höjd. Med skalning aktiverad kan den synliga vinkeln skilja sig från den tilldelade vinkeln på en icke‑kvadratisk form.
 
-Följande exempel använder en `45`‑graders vinkel och samma färgstopp som vinkeljämförelsen. Den vänstra kolumnen använder `False_`; den högra kolumnen använder `True_`. Varje kolumn innehåller en bred rektangel ovanför en hög rektangel. Båda startar med samma breda dimensioner; förändring av den andra rektangelns bredd och höjd demonstrerar hur fyllningen svarar på storleksändring utan att ändra gradientinställningarna.
+Följande exempel använder en `45`‑graders vinkel och samma färgstopp som vinkel‑jämförelsen. Den vänstra kolumnen använder `False_`; den högra kolumnen använder `True_`. Varje kolumn innehåller en bred rektangel ovanför en hög rektangel. Båda startar med samma breda dimensioner; ändringen av den andra rektangelns bredd och höjd demonstrerar hur fyllningen reagerar på storleksändring utan att ändra dess gradientinställningar.
 
 ```python
 import jpype
@@ -482,13 +482,15 @@ Resultatet i PowerPoint, med skalning inaktiverad till vänster och aktiverad ti
 
 ![Breda och höga rektanglar med en 45‑graders gradient, jämförelse av LinearGradientScaled False till vänster med True till höger](linear-gradient-scaling.png)
 
-Med skalning inaktiverad behåller de diagonala färgbanden samma orientering i båda rektanglarna. Med skalning aktiverad sträcks banden med formens proportioner. Detta hjälper till att reproducera en mall‑gradient när en form anpassas till en annan storlek. På en kvadrat ändrar inte aktivering av skalning utseendet på denna `45`‑graders gradient.
+Med skalning inaktiverad behåller de diagonala färgbanden samma orientering i båda rektanglarna. Med skalning aktiverad sträcks banden med formens proportioner. Detta hjälper till att reproducera en mallgradient när en form anpassas till en annan storlek. På en kvadrat ändrar inte aktivering av skalning utseendet på denna `45`‑graders gradient.
 
-Både vinkeln och skalningsinställningarna gäller för linjära gradienter. De styr inte [GradientShape.Radial eller GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/)‑fyllningar.
+Både vinkel‑ och skalningsinställningarna gäller linjära gradienter. De styr inte [GradientShape.Radial eller GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/)‑fyllningar.
 
-### **Kombinera vinkeln med gradientriktning**
+### **Kombinera vinkel med gradient‑riktning**
 
-[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection) väljer en gradientstil från klassen [GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/); det är ingen ersättning för en numerisk vinkel. För en linjär gradient kan hörnstilarna ändra området där färgerna fördelas utan att ändra vinkeln som tilldelats via [setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle). Behåll riktningen oförändrad när du jämför vinklar eller skalning.
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection) väljer en gradientstil från klassen [GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/); den är ingen ersättning för en numerisk vinkel. För en linjär gradient kan hörnstilarna ändra det område där färgerna fördelas utan att ändra vinkeln som tilldelats via [setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle). Behåll riktningen oförändrad när du jämför vinklar eller skalning.
+
+Följande exempel applicerar samma inställningar i omvänd ordning. De två rektanglarna har samma utseende: att ange riktningen före eller efter vinkeln ändrar inte resultatet.
 
 ```python
 import jpype
@@ -531,7 +533,7 @@ finally:
 
 ## **Mönsterfyllning**
 
-En mönsterfyllning applicerar en två‑färgsdesign, såsom prickar, ränder eller rutmönster. Detta exempel använder [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle) för att välja ett spalettmönster. [PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) levererar den ljusgrå bakgrunden, och [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) levererar den gula mönsterfärgen.
+En mönsterfyllning applicerar en två‑färgsdesign, såsom prickar, ränder eller schackrutor. Detta exempel använder [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle) för att välja ett galler‑mönster. [PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) anger den ljusgrå bakgrunden, och [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) anger den gula mönsterfärgen.
 
 ```python
 import jpype
@@ -564,7 +566,7 @@ Resultatet:
 
 ## **Bildfyllning**
 
-En bildfyllning använder en bild inuti en form. Detta exempel kräver en lokal bild och använder [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) för att ladda den i presentationens bildsamling. Genom att sätta [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) till det tile‑läge som upprepas bilden inom rektangeln. Källbilden som används här visas nedan:
+En bildfyllning använder en bild inuti en form. Detta exempel kräver en lokal bild och använder [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) för att ladda den i presentationens bildsamling. Att sätta [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) till tiled‑läget upprepar bilden inom rektangeln. Källbilden som används visas nedan:
 
 ![Lotus‑bilden](lotus.png)
 
@@ -601,19 +603,19 @@ Resultatet:
 
 ![Formen med bildfyllning](picture-fill.png)
 
-### **Kakelbild som textur**
+### **Tila bild som textur**
 
-Om du vill ställa in en kaklad bild som en textur och anpassa kakel‑beteendet kan du använda följande metoder i klassen [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/):
+Om du vill ange en tiled bild som en textur och anpassa tilningsbeteendet, kan du använda följande metoder i klassen [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): Ställer in bildfyllningsläget — antingen `Tile` eller `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): Anger justeringen av kakel inom formen.
-- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): Styr om kaklet speglas horisontellt, vertikalt eller båda.
-- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): Ställer in den horisontella förskjutningen av kaklet (i punkter) från formens ursprung.
-- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): Ställer in den vertikala förskjutningen av kaklet (i punkter) från formens ursprung.
-- [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): Definierar den horisontella skalan av kaklet i procent.
-- [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): Definierar den vertikala skalan av kaklet i procent.
+- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): Ställer in bildfyllningsläge — antingen `Tile` eller `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): Anger justeringen av tiles inom formen.
+- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): Styr om tile vänds horisontellt, vertikalt eller båda.
+- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): Ställer in den horisontella förskjutningen av tile (i punkter) från formens ursprung.
+- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): Ställer in den vertikala förskjutningen av tile (i punkter) från formens ursprung.
+- [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): Definierar horisontell skala för tile som en procentandel.
+- [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): Definierar vertikal skala för tile som en procentandel.
 
-Detta exempel kräver en lokal bild och konfigurerar [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) för att upprepa den på 50 % av dess originalstorlek. Förskjutningar på −32 punkter flyttar kaklen horisontellt och vertikalt; justering längst ner till höger och spegling i båda riktningarna bestämmer hur den upprepade texturen arrangeras.
+Detta exempel kräver en lokal bild och konfigurerar [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) för att upprepa den på 50 % av dess originalstorlek. Förskjutningar på −32 punkter flyttar tiles horisontellt och vertikalt; nederst‑höger‑justering och vändning i båda riktningarna bestämmer hur den upprepade texturen placeras.
 
 ```python
 import jpype
@@ -654,11 +656,11 @@ finally:
 
 Resultatet:
 
-![Kakelalternativen](tile-options.png)
+![Tile‑alternativen](tile-options.png)
 
-## **Enfärgsfyllning**
+## **Solid färgfyllning**
 
-En solid fyllning ger en form en enda, enhetlig färg. Detta exempel använder [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) för att ange solid fyllningsläge och tilldelar gult via [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor), för att sedan spara rektangeln i en presentation.
+En solid fyllning ger en form en enda, enhetlig färg. Detta exempel använder [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) för att sätta solid‑fyllningsläge och tilldelar gul via [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor), sedan sparar rektangeln i en presentation.
 
 ```python
 import jpype
@@ -685,15 +687,88 @@ finally:
 
 Resultatet:
 
-![Formen med enfärgsfyllning](solid-color-fill.png)
+![Formen med solid färgfyllning](solid-color-fill.png)
+
+### **Kopiera färger samtidigt som temareferenser bevaras**
+
+Använd [ColorFormat.copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#copyFrom) för att kopiera en färgdefinition, inklusive dess färgtyp, temareferens och transformationer. Detta är användbart när en fyllningsfärg ska överföras mellan former som bör fortsätta följa presentationens tema. Metoden kopierar endast färgen: den kopierar inte fyllningstyp, kontur eller annan formformatering. Sätt destinationens fyllningstyp explicit med [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType).
+
+Detta exempel skapar tre rektanglar, från vänster till höger: källan, en temamedveten kopia och en fast RGB‑kopia. Källan använder [ColorFormat.setSchemeColor](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#setSchemeColor) för att referera till den första accentfärgen och lägger till en nyans via [ColorOperationCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/coloroperationcollection/#add). RGB‑kopian använder källans effektiva fyllningsfärg så att alla tre initialt ser identiska ut. Att anropa [ColorFormat.setColor](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#setColor) sätter ett fast RGB‑värde och rensar eventuella befintliga färgtransformationer.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ColorTransformOperation, FillType, ImageFormat, Presentation, SaveFormat, SchemeColor, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    accent_color = Color(65, 105, 225)
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(accent_color)
+
+    source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140)
+    theme_copy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140)
+    rgb_copy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140)
+
+    for shape in (source, theme_copy, rgb_copy):
+        shape.getFillFormat().setFillType(FillType.Solid)
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    source_color = source.getFillFormat().getSolidFillColor()
+    source_color.setSchemeColor(SchemeColor.Accent1)
+    source_color.getColorTransform().add(ColorTransformOperation.Tint, 0.75)
+
+    theme_copy.getFillFormat().getSolidFillColor().copyFrom(source_color)
+    rgb_copy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor())
+
+    before = slide.getImage(1.0, 1.0)
+    try:
+        before.save("color-copy-before.png", ImageFormat.Png)
+    finally:
+        before.dispose()
+
+    # Temareferenser följer den nya accentfärgen; det fasta RGB‑värdet gör det inte.
+    accent_color = Color(255, 69, 0)
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(accent_color)
+
+    after = slide.getImage(1.0, 1.0)
+    try:
+        after.save("color-copy-after.png", ImageFormat.Png)
+    finally:
+        after.dispose()
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Före temaförändringen matchar alla tre fyllningar:
+
+![Källa, copyFrom‑destination och fast RGB‑destination med identiska blå fyllningar](color-copy-before.png)
+
+Efter temaförändringen följer källan och den temamedvetna kopian den nya accentfärgen och behåller sin nyans. Den fasta RGB‑kopian förblir blå:
+
+![Källa och copyFrom‑destination med orange fyllningar, medan den fasta RGB‑destinationen förblir blå](color-copy-after.png)
+
+Den kopierade definitionen är oberoende av källan. Att senare ändra källans temareferens, tilldela en annan färg eller lägga till/ta bort dess transformationer ändrar inte destinationen. En temaförändring påverkar båda formerna eftersom varje form refererar oberoende till samma temafärg.
+
+Att spara och öppna PPTX‑filen bevarar den kopierade färgens typ som returneras av [ColorFormat.getColorType](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#getColorType), temareferensen och transformationssamlingen som returneras av [ColorFormat.getColorTransform](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#getColorTransform); den plattar inte ner definitionen till RGB.
+
+När du kopierar mellan olika temakontexter, såsom presentationer med olika accentpaletter, löses den kopierade referensen mot destinationens tema. Samma referens och transformationer kan därför ge en annan synlig färg. Se [Presentation Theme](/slides/sv/python-java/presentation-theme/) för mer om konfiguration av temafärger.
 
 ## **Använd bildbakgrund som formfyllning**
 
-Använd [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill) när en form ska matcha bildbakgrunden, till exempel i en presentationsmall. Ställ först in [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) till [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) för att ta bort eventuell explicit fyllning. Med denna kombination använder formen bildbakgrunden istället för sin stilfyllning. Att bara aktivera flaggan tar inte bort en befintlig explicit fyllning.
+Använd [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill) när en form ska matcha bildbakgrunden, till exempel i en presentationsmall. Sätt fyllningstypen med [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) till [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) först för att ta bort eventuell explicit fyllning. Med denna kombination använder formen bildbakgrunden istället för sin egen stilfyllning. Att endast sätta flaggan tar inte bort en befintlig explicit fyllning.
 
-Detta skiljer sig från [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/): bakgrundsfyllning täcker objekt bakom formen med motsvarande område av bildbakgrunden, medan ingen fyllning lämnar dessa objekt synliga. En gradient förblir justerad med bilden snarare än att starta om i varje form.
+Detta skiljer sig från [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/): bakgrundsfyllning täcker objekt bakom formen med motsvarande område av bildbakgrunden, medan ingen fyllning låter dessa objekt vara synliga. En gradient förblir justerad mot bilden snarare än att starta om inuti varje form.
 
-Följande exempel skapar en huvudbakgrund som ärvs av bilden och placerar ett magentafarvet band bakom tre rektanglar. Den vänstra rektangeln använder bakgrunden, den mittersta har ingen fyllning, och den högra byter från bakgrundsfyllning till en explicit orange fyllning.
+Följande exempel skapar en huvud‑bakgrund som ärvs av sliden och placerar ett magentaband bakom tre rektanglar. Den vänstra rektangeln använder bakgrunden, den mellersta har ingen fyllning, och den högra växlar från bakgrundsfyllning till en explicit orange fyllning.
 
 ```python
 import jpype
@@ -753,15 +828,15 @@ finally:
     presentation.dispose()
 ```
 
-Resultatet, från vänster till höger: **background fill**, **no fill**, och **explicit fill**. Det magentafärgade bandet döljs av den vänstra och högra rektangeln men förblir synligt genom den mittersta rektangeln.
+Resultatet, från vänster till höger: **bakgrundsfyllning**, **ingen fyllning**, och **explicit fyllning**. Magentabandet är dolt av den vänstra och högra rektangeln men synligt genom den mellersta.
 
-![Bakgrundsfyllning, ingen fyllning och explicit orange fyllning över ett magentafarvat band](background-fill.png)
+![Bakgrundsfyllning, ingen fyllning och explicit orange fyllning över ett magentaband](background-fill.png)
 
-Samma beteende gäller för en bakgrund som definieras direkt på bilden eller ärvs från en layout. Formen använder bildens lösta bakgrund; exemplet lämnar både bild‑ och layoutbakgrunder odefinierade så att huvudbakgrunden levereras.
+Samma beteende gäller för en bakgrund som definieras direkt på sliden eller ärvs från en layout. Formen använder slidens lösta bakgrund; exemplet lämnar både slide‑ och layout‑bakgrunder odefinierade så att huvud‑bakgrunden levererar den.
 
-## **Ställ in transparens**
+## **Ange transparens**
 
-För en solid fyllning kontrollerar färgens alfakomponent opaciteten: 0 är helt transparent och 255 är helt ogenomskinlig. Detta exempel använder ett alfavärde på 128 för en gul rektangel, vilket gör den ungefär 50 % transparent så att rektangeln under förblir synlig. Färgen tilldelas via [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor).
+För en solid fyllning styr färgens alfakomponent opaciteten: 0 är helt genomskinlig och 255 är fullt opak. Detta exempel använder ett alfa‑värde på 128 för en gul rektangel, vilket gör den ungefär 50 % transparent så att rektangeln under förblir synlig. Färgen tilldelas via [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```python
 import jpype
@@ -795,7 +870,7 @@ Resultatet:
 
 ## **Rotera former**
 
-Använd [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) för att rotera en form i bildplanet. Vinkeln mäts i grader; detta exempel roterar en rektangel 5 grader medurs och sparar presentationen.
+Använd [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) för att rotera en form i slidens plan. Vinkeln mäts i grader; detta exempel roterar en rektangel 5 grader medurs och sparar presentationen.
 
 ```python
 import jpype
@@ -820,11 +895,11 @@ finally:
 
 Resultatet:
 
-![Formens rotation](shape-rotation.png)
+![Formroteringen](shape-rotation.png)
 
 ## **Lägg till 3D‑fasadeffekter**
 
-Använd [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) för att ge en form djup och fasade kanter. Detta exempel skapar en grön ellips med en orange kontur, använder [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) för att sätta djupet till 4 punkter, och applicerar en cirkulär top‑bevel med bredd och höjd på 6 punkter via [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop). En framåtriktad ortografisk kamera och tre‑punkt belysning gör fasaden synlig.
+Använd [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) för att ge en form djup och fasade kanter. Detta exempel skapar en grön ellips med orange kontur, använder [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) för att sätta djupet till 4 punkter, och applicerar en cirkulär top‑bevel med bredd och höjd på 6 punkter via [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop). En front‑facing ortografisk kamera och tre‑punkts belysning gör fasen synlig.
 
 ```python
 import jpype
@@ -865,9 +940,9 @@ Resultatet:
 
 ![3D‑fasadeffekten](3D-bevel-effect.png)
 
-## **Lägg till 3D‑rotations‑effekter**
+## **Lägg till 3D‑roterings‑effekter**
 
-En formes 3D‑vy styrs av dess kamerainställningar. Detta exempel använder [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) med latitud, longitud och rotationsvinklar på 40, 35 respektive 20 grader. Det väljer en isometrisk kamera via [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) och balanserad belysning via [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType), för att sedan spara den formaterade rektangeln.
+En forms 3D‑vy styrs av dess kamerainställningar. Detta exempel använder [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) med latitud, longitud och revolutionsvinklar på 40, 35 och 20 grader. Det väljer en isometrisk kamera genom [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) och balanserad belysning genom [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType), sedan sparas den formaterade rektangeln.
 
 ```python
 import jpype
@@ -899,11 +974,11 @@ Resultatet:
 
 ## **Styr svart‑vit rendering för former**
 
-Metoden [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) specificerar hur en enskild form renderas när en presentation visas eller bearbetas i svart‑vit läge. Den aktiverar inte svart‑vit visning i sig och ändrar inte formens fyllning, linje eller annan formatering i normalt färg‑läge.
+Metoden [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) anger hur en enskild form renderas när en presentation visas eller bearbetas i svart‑vit läge. Den aktiverar inte svart‑vit visning i sig, och den ändrar inte formens fyllning, linje eller annan formatering i normalt färgläge.
 
-Använd ett värde från klassen [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) för att välja önskat beteende. Till exempel låter `Automatic` renderings‑applikationen välja konvertering, `Gray` och `LightGray` använder grå färgning, `BlackWhite` använder endast svart och vitt, `Black` och `White` tvingar en enda färg, `Color` bevarar normal färgning, och `Hidden` utesluter formen i svart‑vit läge. `NotDefined` betyder att inget form‑nivå läge är tilldelat.
+Använd ett värde från klassen [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) för att välja önskat beteende. Till exempel låter `Automatic` renderingsprogrammet välja konverteringen, `Gray` och `LightGray` använder grå färgning, `BlackWhite` använder bara svart och vitt, `Black` och `White` tvingar en enda färg, `Color` bevarar normal färgning, och `Hidden` utesluter formen i svart‑vit modus. `NotDefined` betyder att inget form‑nivå läge är tilldelat.
 
-Detta exempel skapar en orange rektangel och använder [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) för att sätta läget till grått. Den sparade formen behåller sin orange fyllning för normal färgvisning och begär grå färgning från program som hedrar svart‑vit visningsinställningar:
+Detta exempel skapar en orange rektangel och använder [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) för att sätta läget till grå. Den sparade formen behåller sin orange fyllning för normalt färgvisning och begär grå färgning från program som hedrar svart‑vita visningsinställningar:
 
 ```python
 import jpype
@@ -930,11 +1005,11 @@ finally:
     presentation.dispose()
 ```
 
-I normalt färg‑läge behåller rektangeln sin orange fyllning. I ett svart‑vitt arbetsflöde använder den grå färgning eftersom dess läge är satt till `Gray`. Detta låter dig bevara en full‑färgs‑bild samtidigt som du definierar ett separat utseende för utskrift, förhandsgranskning eller andra arbetsflöden som hedrar presentationens svart‑vita visningsinställningar.
+I normalt färgläge behåller rektangeln sin orange fyllning. I ett arbetsflöde för svart‑vit visning använder den grå färgning eftersom dess läge är satt till `Gray`. Detta låter dig bevara en full‑färgs‑slide samtidigt som du definierar ett separat utseende för utskrift, förhandsgranskning eller andra arbetsflöden som respekterar presentationens svart‑vita visningsinställningar.
 
 ## **Återställ formatering**
 
-Använd [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset) för att återställa position, storlek och formatering av bild­platshållare från deras motsvarande layout‑platshållare. Detta exempel kräver en befintlig presentation med layout‑länkade platshållare och återställer varje bild innan den sparas. Former utan motsvarande layout‑platshållare återställs inte.
+Använd [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset) för att återställa position, storlek och formatering av platshållare på sliden från motsvarande layout‑platshållare. Detta exempel kräver en befintlig presentation med layout‑länkade platshållare och återställer varje slide innan den sparas. Former utan motsvarande layout‑platshållare återställs inte.
 
 ```python
 import jpype
@@ -961,10 +1036,10 @@ finally:
 
 Färger, linjestilar och effektinställningar lägger generellt till lite data jämfört med inbäddade bilder och media. Bildfyllningar kan öka filstorleken eftersom deras bilder lagras i presentationen.
 
-**Hur kan jag identifiera former på en bild som har identisk formatering så att jag kan gruppera dem?**
+**Hur kan jag upptäcka former på en slide som delar identisk formatering så att jag kan gruppera dem?**
 
-Jämför varje forms nyckelformaterings‑egenskaper — fyllning, linje och effekter. Om alla motsvarande värden matchar, behandla deras stilar som identiska och gruppera logiskt dessa former, vilket förenklar senare stilhantering.
+Jämför varje forms nyckelformaterings‑egenskaper — fyllning, linje och effektinställningar. Om alla motsvarande värden matchar behandlas deras stilar som identiska och formerna kan logiskt grupperas, vilket förenklar senare stilhantering.
 
-**Kan jag spara en uppsättning anpassade formstilar i en separat fil för återanvändning i andra presentationer?**
+**Kan jag spara en uppsättning anpassade formstilar till en separat fil för återanvändning i andra presentationer?**
 
-Ja. Förvara exempelformer med önskade stilar i en mall‑presentation eller en .POTX‑mallfil. När du skapar en ny presentation, öppna mallen, klona de stilade former du behöver, och återapplicera deras formatering där det behövs.
+Ja. Spara exempelformer med önskade stilar i en mall‑slide‑deck eller en .POTX‑mallfil. När du skapar en ny presentation, öppna mallen, klona de stilade formerna du behöver och applicera deras formatering där det krävs.

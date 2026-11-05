@@ -1,45 +1,45 @@
 ---
-title: จัดรูปแบบรูปทรง PowerPoint ใน Python ผ่าน Java
-linktitle: การจัดรูปแบบรูปทรง
+title: จัดรูปแบบรูปร่าง PowerPoint ใน Python ผ่าน Java
+linktitle: การจัดรูปแบบรูปร่าง
 type: docs
 weight: 20
 url: /th/python-java/shape-formatting/
 keywords:
-- จัดรูปแบบรูปทรง
+- จัดรูปแบบรูปร่าง
 - จัดรูปแบบเส้น
-- เอฟเฟกต์สเก็ตซ์
-- เส้นรูปทรงสเก็ตซ์
+- เอฟเฟ็กต์สเก็ตช์
+- เส้นรูปร่างสเก็ตช์
 - จัดรูปแบบสไตล์การเชื่อมต่อ
-- เติมแบบไล่สี
-- เติมแบบลาย
-- เติมรูปภาพ
-- เติมเท็กซ์เจอร์
-- เติมสีทึบ
-- ความโปร่งแสงของรูปทรง
-- การเรนเดอร์รูปทรงสีขาว‑ดำ
-- การเรนเดอร์รูปทรงระดับสีเทา
-- หมุนรูปทรง
-- เอฟเฟกต์เบเวล 3 มิติ
-- เอฟเฟกต์การหมุน 3 มิติ
+- การเติมไล่สี
+- การเติมลาย
+- การเติมภาพ
+- การเติมพื้นผิว
+- การเติมสีทึบ
+- ความโปร่งใสของรูปร่าง
+- การแสดงผลรูปร่างสีขาว‑ดำ
+- การแสดงผลรูปร่างระดับสีเทา
+- หมุนรูปร่าง
+- เอฟเฟ็กต์บีเวิล 3 มิติ
+- เอฟเฟ็กต์การหมุน 3 มิติ
 - รีเซ็ตการจัดรูปแบบ
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดรูปแบบรูปทรง PowerPoint ใน Python ผ่าน Java ด้วย Aspose.Slides—กำหนดสไตล์การเติม, เส้น, และเอฟเฟ็กต์สำหรับไฟล์ PPT และ PPTX อย่างแม่นยำและควบคุมเต็มที่"
+description: "เรียนรู้วิธีจัดรูปแบบรูปร่าง PowerPoint ใน Python ผ่าน Java ด้วย Aspose.Slides—ตั้งค่าการเติม, เส้น, และสไตล์เอฟเฟกต์สำหรับไฟล์ PPT และ PPTX อย่างแม่นยำและควบคุมเต็มที่"
 ---
 ## **บทนำ**
 
-จัดรูปแบบรูปทรงใน PowerPoint ด้วยการปรับเส้นขอบ การเติมสี และเอฟเฟกต์ Aspose.Slides for Python via Java ให้คุณควบคุมการตั้งค่าเหล่านี้โดยใช้โปรแกรม รวมถึงการใส่ความโปร่งใส การหมุน และการจัดรูปแบบ 3D
+จัดรูปแบบรูปร่างใน PowerPoint โดยปรับเส้นขอบ การเติมสีและเอฟเฟกต์ต่าง ๆ Aspose.Slides สำหรับ Python ผ่าน Java ทำให้คุณสามารถควบคุมการตั้งค่าเหล่านี้ด้วยโปรแกรม รวมถึงความโปร่งใส การหมุนและการจัดรูปแบบ 3 มิติ
 
-![ตัวเลือกการจัดรูปแบบรูปทรงใน PowerPoint](format-shape-powerpoint.png)
+![ตัวเลือกการจัดรูปแบบรูปร่างใน PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Python via Java ให้คลาสและเมธอดที่ทำให้คุณสามารถจัดรูปแบบรูปทรงโดยใช้ตัวเลือกเดียวกับที่มีใน PowerPoint
+Aspose.Slides สำหรับ Python ผ่าน Java ให้คลาสและเมธอดที่ช่วยให้คุณจัดรูปแบบรูปร่างโดยใช้ตัวเลือกเดียวกับที่มีใน PowerPoint
 
 ## **จัดรูปแบบเส้น**
 
-ใช้ [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) เพื่อควบคุมเส้นขอบของรูปทรง ตัวอย่างนี้สร้างสี่เหลี่ยมผืนผ้าที่ไม่มีการเติมสีพร้อมเส้นขอบสีน้ำเงินแบบจุดประหลาด [LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) เลือกเส้นแบบหนา‑บางแบบผสม ในขณะที่ [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) กำหนดความกว้างเป็น 7 จุดและ [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) เลือกรูปแบบการจุด
+ใช้ [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) เพื่อควบคุมเส้นขอบของรูปร่าง ตัวอย่างนี้สร้างสี่เหลี่ยมผืนผ้าไม่มีการเติมสีโดยมีเส้นขอบสีน้ำเงินแบบเส้นประ [LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) เลือกเส้นผสมหนา‑บางในขณะที่ [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) ตั้งความกว้างเป็น 7 จุดและ [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) เลือกรูปแบบเส้นประ
 
 ```python
 import jpype
@@ -72,19 +72,19 @@ finally:
 
 ![เส้นที่จัดรูปแบบในงานนำเสนอ](formatted-lines.png)
 
-### **กำหนดรูปแบบจุดประหลาดของเส้นแบบกำหนดเอง**
+### **ตั้งค่ารูปแบบเส้นประแบบกำหนดเอง**
 
-ใช้ [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern) เมื่อสไตล์เส้นที่กำหนดไว้ล่วงหน้าไม่ให้ความยาวและช่องว่างของจุดที่ต้องการ เช่น สำหรับเส้นขอบแบรนด์หรือแผนภาพทางเทคนิค การกำหนดรูปแบบจะเปลี่ยนสไตล์การจุดของเส้นเป็นอัตโนมัติเป็น [LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/)
+ใช้ [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern) เมื่อรูปแบบเส้นที่กำหนดไว้ล่วงหน้าไม่ให้ความยาวและช่องว่างของเส้นประที่คุณต้องการ เช่น สำหรับเส้นขอบแบรนด์หรือแผนภูมิเทคนิค การกำหนดรูปแบบจะเปลี่ยนสไตล์เส้นประโดยอัตโนมัติเป็น [LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/)
 
-รายการในอาร์เรย์สลับระหว่างความยาวของจุดและช่องว่าง เริ่มจากจุด แต่ละค่าคือหลายเท่าของความกว้างของเส้น: `[4, 2]` ที่ความกว้าง 3 จุดจะให้จุดที่ยาว 12 จุดตามด้วยช่องว่าง 6 จุด ใช้คู่ของค่าที่เป็นจำนวนจริงและไม่เป็นลบเพื่อกำหนดส่วนจุด‑ช่องว่างที่สมบูรณ์ ตัวอย่างใช้ค่าบวกเพื่อให้จุดและช่องว่างทั้งหมดมองเห็นได้
+รายการในอาร์เรย์สลับกันระหว่างความยาวของเส้นประและช่องว่าง เริ่มด้วยเส้นประ แต่ละค่าจะเป็นผลคูณของความกว้างของเส้น: `[4, 2]` ที่ความกว้าง 3 จุดจะสร้างเส้นประ 12 จุดตามด้วยช่องว่าง 6 จุด ใช้คู่ของค่าที่เป็นจำนวนเต็มบวกหรือศูนย์เพื่อกำหนดส่วนเต็มของเส้นประและช่องว่าง ตัวอย่างใช้ค่าบวกเพื่อให้เส้นประและช่องว่างทั้งหมดมองเห็นได้
 
-ตัวอย่างนี้สร้างเส้นสีน้ำเงิน 5 เส้นที่มีความยาวเท่ากันและปลายนิ้วเรียบ เส้นสามแรกเปรียบเทียบรูปแบบที่ความกว้าง 3 จุด เส้นที่สี่ทำซ้ำรูปแบบแรกโดยเพิ่มความกว้างเป็นสองเท่า ทำให้ความยาวของจุดและช่องว่างเพิ่มเป็นสองเท่า ส่วนเส้นที่ห้าสลับจากรูปแบบกำหนดเองเป็นเส้นทึบ
+ตัวอย่างนี้สร้างเส้นสีน้ำเงิน 5 เส้นที่มีความยาวและปลายเส้นแบบแบนเท่ากัน สามเส้นแรกเปรียบเทียบรูปแบบที่ความกว้าง 3 จุด เส้นที่สี่ทำซ้ำรูปแบบแรกที่สองเท่าของความกว้าง ทำให้ความยาวของเส้นประและช่องว่างเพิ่มเป็นสองเท่า เส้นที่ห้าสลับจากรูปแบบกำหนดเองเป็นเส้นทึบ
 
 ```python
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
+if not jpole.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import FillType, LineArrowheadStyle, LineCapStyle, LineDashStyle, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
@@ -122,25 +122,25 @@ finally:
     presentation.dispose()
 ```
 
-หากต้องการกลับไปใช้สไตล์จุดที่กำหนดไว้ล่วงหน้าให้ส่ง [LineDashStyle.Dash](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) ไปยัง [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) สไตล์ที่เลือกจะควบคุมลักษณะของเส้น
+หากต้องการกลับไปใช้สไตล์เส้นประที่กำหนดไว้ล่วงหน้า ให้ส่งค่า [LineDashStyle.Dash](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) ไปยัง [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) สไตล์ที่เลือกจะควบคุมลักษณะของเส้น
 
 ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; และ **Solid, 3 pt**
 
-![รูปแบบจุดประหลาดสามแบบ เส้นที่กว้างกว่าโดยใช้รูปแบบแรก และเส้นทึบใน PowerPoint](custom-dash-patterns.png)
+![สามรูปแบบเส้นประกำหนดเอง เส้นกว้างขึ้นโดยใช้รูปแบบแรก และเส้นทึบใน PowerPoint](custom-dash-patterns.png)
 
-### **กำหนดลักษณะปลายเส้น**
+### **ตั้งค่าปลายเส้น**
 
-ใช้ [LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle) เพื่อกำหนดปลายของเส้นเปิด คลาส [LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/) มีลักษณะปลายสามแบบชัดเจน:
+ใช้ [LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle) เพื่อกำหนดปลายของเส้นเปิด คลาส [LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/) มีสไตล์ปลายสามแบบชัดเจน:
 
-- `Flat`: เส้นหยุดที่จุดสุดท้าย
-- `Round`: ปลายครึ่งวงกลมขยายออกนอกจุดสุดท้ายครึ่งความกว้างของเส้น
-- `Square`: ปลายสี่เหลี่ยมขยายออกนอกจุดสุดท้ายครึ่งความกว้างของเส้น
+- `Flat`: เส้นสีหยุดที่จุดสุดท้าย
+- `Round`: ปลายครึ่งวงกลมต่อออกจากจุดสุดท้ายไปอีกครึ่งความกว้างของเส้น
+- `Square`: ปลายสี่เหลี่ยมต่อออกจากจุดสุดท้ายไปอีกครึ่งความกว้างของเส้น
 
-คลาสยังมี `NotDefined` ซึ่งหมายความว่าไม่มีการกำหนดลักษณะปลายอย่างชัดเจน
+คลาสนี้ยังมีค่า `NotDefined` ซึ่งหมายถึงไม่มีการกำหนดสไตล์ปลายอย่างชัดเจน
 
-ปลายต่างจากหัวลูกศรซึ่งเพิ่มสัญลักษณ์ที่ปลายเส้น และการเชื่อมต่อซึ่งควบคุมมุมที่เชื่อมระหว่างส่วนของเส้น ตัวอย่างนี้ปิดการใช้หัวลูกศรผ่าน [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setBeginArrowheadStyle) และ [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setEndArrowheadStyle) เพื่อให้เปรียบเทียบเฉพาะรูปแบบปลาย
+ปลายเส้นแตกต่างจากหัวศร ซึ่งจะเพิ่มสัญลักษณ์ที่ปลายเส้นและการเชื่อมต่อซึ่งควบคุมมุมระหว่างส่วนของเส้น ตัวอย่างนี้ปิดการใช้งานหัวศรผ่าน [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setBeginArrowheadStyle) และ [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setEndArrowheadStyle) เพื่อให้เปรียบเทียบเฉพาะรูปแบบปลายเส้น
 
-ตัวอย่างต่อไปนี้สร้างเส้นแนวนอนสามเส้นที่เหมือนกัน ความกว้าง 20 จุด จากบนลงล่างใช้ปลาย flat, round, และ square ตามลำดับ จุดสุดท้ายของเส้นมีพิกัดแนวนอนเดียวกัน; ปลาย round และ square จะขยายออกนอกจุดสุดท้าย 10 จุด
+ตัวอย่างต่อไปนี้สร้างเส้นแนวนอนสามเส้นที่เหมือนกันโดยมีความกว้าง 20 จุด ตั้งแต่บนลงล่างจะใช้ปลายเส้น Flat, Round, และ Square ตามลำดับ จุดสุดท้ายของเส้นมีพิกัดแนวนอนเดียวกัน; ปลายเส้นแบบ Round และ Square จะยืดออกไปอีก 10 จุดจากแต่ละจุดสุดท้าย
 
 ```python
 import jpype
@@ -177,13 +177,13 @@ finally:
 
 ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **Flat**, **Round**, และ **Square**
 
-![ปลาย flat, round และ square บนเส้นหนาแบบเดียวกันใน PowerPoint](line-caps.png)
+![ปลายเส้น flat, round, และ square บนเส้นหนาแบบเดียวกันใน PowerPoint](line-caps.png)
 
-## **ใช้เอฟเฟกต์สเก็ตซ์กับเส้นของรูปทรง**
+## **นำเอฟเฟกต์สเก็ตช์ไปใช้กับเส้นของรูปร่าง**
 
-เอฟเฟกต์สเก็ตซ์ทำให้เส้นของรูปทรงดูเหมือนเขียนด้วยมือ ใช้ [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) เพื่อเข้าถึงการตั้งค่าเส้น, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) เพื่อเข้าถึงการตั้งค่าสเก็ตซ์, และ [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) เพื่อเลือกค่าจากคลาส [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/)
+เอฟเฟกต์สเก็ตช์ทำให้เส้นของรูปร่างดูเหมือนวาดด้วยมือ ใช้ [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) เพื่อเข้าถึงการตั้งค่าเส้น, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) เพื่อเลือกค่าจากคลาส [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/)
 
-โค้ด Python ด้านล่างแสดงวิธีใช้เอฟเฟกต์ [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) อ่านค่าที่กำหนดโดยตรง, และลบเอฟเฟกต์ด้วย [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/)
+โค้ด Python ด้านล่างแสดงวิธีการใช้เอฟเฟกต์ [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) , อ่านค่าที่กำหนดอย่างชัดเจน, และลบเอฟเฟกต์ด้วย [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/):
 
 ```python
 import jpype
@@ -209,7 +209,7 @@ finally:
     presentation.dispose()
 ```
 
-ค่าที่ส่งคืนโดย [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) แสดงการตั้งค่าที่กำหนดโดยตรงกับรูปทรง ถ้าการจัดรูปแบบเส้นสามารถสืบทอดจากธีม มาสเตอร์สไลด์ หรือเลย์เอาต์สไลด์ ให้ใช้ [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) แล้วอ่านประเภทสเก็ตซ์จากการจัดรูปแบบเส้นที่มีผลลัพธ์ตามที่แสดงด้านล่าง ค่าที่มีผลแสดงการจัดรูปแบบที่ใช้จริงหลังจากการสืบทอดถูกแก้ไข ตัวอย่างนี้ต้องมีงานนำเสนอที่มีอย่างน้อยหนึ่งรูปทรงบนสไลด์แรกและพิมพ์ค่าทั้งสอง
+ค่าที่คืนจาก [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) แสดงการตั้งค่าที่กำหนดโดยตรงให้กับรูปร่าง หากการจัดรูปแบบเส้นสามารถสืบทอดจากธีม, มาสเตอร์สไลด์, หรือเลเอาต์สไลด์ ให้ใช้ [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) แล้วอ่านชนิดสเก็ตช์จากการจัดรูปแบบเส้นที่มีผลกลับมาดังที่แสดงด้านล่าง ค่าที่มีผลสะท้อนการจัดรูปแบบที่นำไปใช้จริงหลังจากการสืบทอดได้รับการแก้ไข ตัวอย่างนี้ต้องมีการนำเสนอที่มีรูปร่างอย่างน้อยหนึ่งรูปบนสไลด์แรกและพิมพ์ค่าทั้งสอง:
 
 ```python
 import jpype
@@ -237,17 +237,17 @@ finally:
 
 ## **จัดรูปแบบสไตล์การเชื่อมต่อ**
 
-ต่อไปนี้คือสามตัวเลือกประเภทการเชื่อมต่อ:
+นี่คือสามตัวเลือกประเภทการเชื่อมต่อ:
 
 * Round
 * Miter
 * Bevel
 
-สไตล์การเชื่อมต่อควบคุมว่าต้นส่วนของเส้นขอบสองส่วนมาบรรจบกันที่มุมอย่างไร ใช้ **Round** สำหรับมุมโค้ง, **Miter** สำหรับมุมแหลม, หรือ **Bevel** สำหรับมุมที่ทำให้เรียบ
+สไตล์การเชื่อมต่อควบคุมว่าตัวแบ่งเส้นสองเส้นมาบรรจบกันที่มุมอย่างไร ใช้ **Round** สำหรับมุมโค้ง, **Miter** สำหรับมุมแหลม, หรือ **Bevel** สำหรับมุมแบน
 
 ![สไตล์การเชื่อมต่อในงานนำเสนอ](join-style-powerpoint.png)
 
-ตัวอย่างนี้สร้างสี่เหลี่ยมสีดำ 3 รูปที่มีเส้นขอบสีน้ำเงินความกว้าง 15 จุด ใช้ [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) เพื่อกำหนดค่า miter, bevel, และ round ของ [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) ตามลำดับ เพื่อเปรียบเทียบว่ามุมถูกวาดอย่างไร
+ตัวอย่างนี้สร้างสี่เหลี่ยมสีดำสามรูปโดยมีเส้นขอบสีน้ำเงินความกว้าง 15 จุด ใช้ [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) เพื่อกำหนดค่า miter, bevel, และ round ของ [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) ตามลำดับเพื่อเปรียบเทียบว่ามุมถูกวาดอย่างไร
 
 ```python
 import jpype
@@ -298,13 +298,13 @@ finally:
     presentation.dispose()
 ```
 
-### **จำกัดการเชื่อมต่อแบบ Miter ที่มุมแหลม**
+### **จำกัดการเชื่อมต่อ Miter ที่มุมแหลม**
 
-ใช้ [LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit) ร่วมกับ [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) ที่ตั้งเป็น [LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) เพื่อจำกัดระยะที่มุมแหลมสามารถยื่นออกได้
+ใช้ [LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit) พร้อมกับ [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) ตั้งค่าเป็น [LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) เพื่อจำกัดระยะที่มุมแหลมสามารถขยายออกไปได้
 
-ขีดจำกัดคืออัตราส่วนของระยะห่างระหว่างมุมในและนอกของการเชื่อมต่อต่อความกว้างของเส้น ตัวอย่างเช่น ค่า `8` อนุญาตให้ความยาวของมิตเตอร์ได้สูงสุดถึงแปดเท่าของความกว้างของเส้น; ค่าดังกล่าวไม่ใช่หน่วยเป็นจุด หากมุมเกินขีดจำกัด PowerPoint จะใช้การเชื่อมต่อแบบ bevel ที่มุมนั้น ขีดจำกัดที่ใหญ่ขึ้นจะทำให้จุดแหลมขึ้น การตั้งค่านี้มีผลต่อการเชื่อมต่อแบบ miter เท่านั้น และการเปลี่ยนแปลงจะไม่มีผลตั้งแต่มุมยังคงอยู่ภายในขีดจำกัดทั้งสอง
+ค่าจำกัดเป็นอัตราส่วนของระยะห่างระหว่างมุมในและมุมนอกของการเชื่อมต่อต่อความกว้างของเส้น ตัวอย่างเช่น ค่า `8` อนุญาตให้ความยาวของมิตเทอร์สูงถึง 8 เท่าของความกว้างของเส้น; มันไม่ใช่การวัดเป็นจุด หากมุมเกินค่าจำกัด PowerPoint จะใช้การเชื่อมต่อแบบบีเวิลที่มุมนั้น ค่าจำกัดที่ใหญ่กว่าจะทำให้จุดคมขึ้น การตั้งค่านี้มีผลต่อการเชื่อมต่อแบบมิตเทอร์เท่านั้นและการเปลี่ยนแปลงจะไม่มีผลที่มองเห็นได้เมื่อมุมยังคงอยู่ภายในขีดจำกัดทั้งสอง
 
-ตัวอย่างนี้สร้างสามเหลี่ยมที่ไม่มีการเติมสีสองรูปที่มีเส้นขอบความกว้าง 20 จุด สามเหลี่ยมซ้ายใช้ขีดจำกัด `2` และด้านขวาใช้ `8` แต่ละสามเหลี่ยมกว้าง 80 จุด สูง 160 จุด ทำให้มุมบนมีอัตราส่วนความยาวมิตเตอร์ต่อความกว้างของเส้นประมาณ `4.12` ดังนั้น PowerPoint จะทำการ bevel ที่ยอดซ้ายและรักษายอดขวาไว้
+ตัวอย่างนี้สร้างสองสามเหลี่ยมที่เหมือนกันโดยไม่มีการเติมสีโดยมีเส้นขอบความกว้าง 20 จุด สามเหลี่ยมซ้ายใช้ค่าจำกัด `2` และด้านขวาใช้ `8` แต่ละสามเหลี่ยมกว้าง 80 จุด สูง 160 จุด ทำให้มุมบนมีอัตราส่วนความยาวมิตเทอร์ต่อความกว้างเส้นประมาณ `4.12` ดังนั้น PowerPoint จะบีเวิลยอดซ้ายและคงยอดขวาไว้
 
 ```python
 import jpype
@@ -340,11 +340,11 @@ finally:
 
 ผลลัพธ์ใน PowerPoint: **Miter limit 2** ทางซ้ายและ **miter limit 8** ทางขวา
 
-![ยอดที่ทำ bevel ด้วย miter limit 2 และยอดแหลมด้วย miter limit 8 ใน PowerPoint](miter-limits.png)
+![ยอดที่บีเวิลด้วย miter limit 2 และยอดแหลมด้วย miter limit 8 ใน PowerPoint](miter-limits.png)
 
-## **การเติมแบบไล่สี (Gradient Fill)**
+## **การไล่สี**
 
-การเติมไล่สีผสมสีภายในรูปทรง ตัวอย่างนี้เติมวงรีด้วยไล่สีเชิงเส้นที่มุม 45 องศาจากสีแดงไปสีม่วงโดยใช้ [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat) วิธี [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) จะวางจุดสีที่ตำแหน่ง 0 และ 1 ซึ่งเป็นจุดเริ่มต้นและสิ้นสุดของไล่สี การลบจุดสีที่มีอยู่เดิมทำให้ใช้เฉพาะสองสีนี้เท่านั้น
+การไล่สีผสมสีหลายสีทั่วรูปร่าง ตัวอย่างนี้เติมวงรีด้วยไล่สีเชิงเส้นที่มุม 45 องศาจากสีแดงไปสีม่วงโดยใช้ [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat) เมธอด [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) วางจุดสีที่ 0 และ 1 คือจุดเริ่มต้นและจุดสิ้นสุดของการไล่สี การล้างจุดสีที่มีอยู่เดิมทำให้ใช้เฉพาะสองสีนี้เท่านั้น
 
 ```python
 import jpype
@@ -375,15 +375,15 @@ finally:
 
 ผลลัพธ์:
 
-![วงรีที่มีการเติมไล่สี](gradient-fill.png)
+![วงรีที่มีการไล่สี](gradient-fill.png)
 
-หากไล่สีแสดงผลต่างกันในภาพที่ส่งออกเทียบกับ PowerPoint ดูที่ [Choose a Gradient Rendering Style](/slides/th/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) คุณสามารถเลือกสไตล์การเรนเดอร์โดยไม่ต้องเปลี่ยนการเติมไล่สีที่เก็บอยู่ในงานนำเสนอ
+หากการไล่สีดูแตกต่างกันในภาพที่ส่งออกกับใน PowerPoint ดูที่ [Choose a Gradient Rendering Style](/slides/th/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) คุณสามารถเลือกสไตล์การเรนเดอร์โดยไม่ต้องเปลี่ยนการไล่สีที่เก็บในงานนำเสนอ
 
-### **กำหนดมุมไล่สีเชิงเส้น**
+### **ตั้งมุมไล่สีเชิงเส้น**
 
-ใช้ [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) เพื่อควบคุมทิศทางของการเติม [GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/) มุมวัดเป็นองศาและเพิ่มตามเข็มนาฬิกา: `0` จากซ้ายไปขวา, `90` จากบนลงล่าง, `180` จากขวาไปซ้าย, `270` จากล่างขึ้นบน มุมที่เป็นเศษส่วนก็รองรับ มุมที่อยู่นอกช่วง `[0, 360)` จะถูกทำให้เป็นหนึ่งรอบ เช่น `-45` กลายเป็น `315` และ `360` กลายเป็น `0`
+ใช้ [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) เพื่อควบคุมทิศทางของการเติม [GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/) มุมวัดเป็นองศาและเพิ่มตามเข็มนาฬิกา: `0` วิ่งจากซ้ายไปขวา, `90` จากบนลงล่าง, `180` จากขวาไปซ้าย, และ `270` จากล่างขึ้นบน สามเหลี่ยมมุมอาจใช้ได้ มุมที่อยู่นอกช่วง `[0, 360)` จะปรับให้เป็นรอบหนึ่ง ตัวอย่างเช่น `-45` จะเป็น `315` และ `360` จะเป็น `0`
 
-ตัวอย่างนี้สร้างสี่เหลี่ยมหกรูปที่มีจุดสีแดง เขียว และน้ำเงินที่ตำแหน่ง `0`, `0.5`, และ `1` เหมือนกัน การสเกลถูกปิดเพื่อให้เปรียบเทียบมุมโดยไม่สนอัตราส่วนของสี่เหลี่ยม มุมจากซ้ายไปขวาในแถวแรกคือ `0`, `45`, `90` และในแถวที่สองคือ `135`, `180`, `270`
+ตัวอย่างนี้สร้างสี่เหลี่ยมสีหกรูปโดยมีจุดสีแดง เขียว และน้ำเงินที่ตำแหน่ง `0`, `0.5`, และ `1` เหมือนกัน การสเกลปิดเพื่อให้มุมเปรียบเทียบได้โดยอิสระจากสัดส่วนของสี่เหลี่ยม มุมจากซ้ายไปขวาในแถวแรกคือ `0`, `45`, และ `90` และในแถวล่างคือ `135`, `180`, และ `270`
 
 ```python
 import jpype
@@ -426,13 +426,13 @@ finally:
 
 ผลลัพธ์ใน PowerPoint:
 
-![ไล่สีเชิงเส้นที่มุม 0, 45, และ 90 องศาในแถวบน, และ 135, 180, และ 270 องศาในแถวล่าง](linear-gradient-angles.png)
+![ไล่สีเชิงเส้นที่ 0°, 45°, และ 90° ในแถวบน, และ 135°, 180°, และ 270° ในแถวล่าง](linear-gradient-angles.png)
 
-### **สเกลไล่สีเชิงเส้นตามรูปทรง**
+### **สเกลไล่สีเชิงเส้นกับรูปทรง**
 
-[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled) รับค่า [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) กำหนดเป็น `False_` เพื่อคงมุมไล่สีเชิงเรขาคณิตเมื่อตัวรูปทรงเปลี่ยนอัตราส่วน, หรือ `True_` เพื่อสเกลไล่สีตามความกว้างและความสูงของรูปทรง เมื่อเปิดการสเกล มุมที่มองเห็นอาจแตกต่างจากมุมที่กำหนดบนรูปทรงที่ไม่ใช่สี่เหลี่ยมจัตุรัส
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled) รับค่า [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) ตั้งค่าอย่างชัดเจนเป็น `False_` เพื่อคงมุมไล่สีเรขาคณิตเมื่อตัวรูปทรงเปลี่ยนสัดส่วน หรือเป็น `True_` เพื่อสเกลไล่สีตามความกว้างและสูงของรูปทรง เมื่อสเกลเปิดใช้งานมุมที่มองเห็นอาจต่างจากมุมที่กำหนดบนรูปทรงที่ไม่เป็นสี่เหลี่ยมจัตุรัส
 
-ตัวอย่างต่อไปนี้ใช้มุม `45` องศาและจุดสีเดียวกันกับการเปรียบเทียบมุม คอลัมน์ซ้ายใช้ `False_`; คอลัมน์ขวาใช้ `True_` แต่ละคอลัมน์มีสี่เหลี่ยมกว้างอยู่เหนือสี่เหลี่ยมสูง ทั้งสองเริ่มจากขนาดกว้างเดียวกัน; การเปลี่ยนความกว้างและความสูงของสี่เหลี่ยมที่สองแสดงว่าการเติมตอบสนองต่อการปรับขนาดโดยไม่เปลี่ยนการตั้งค่าไล่สี
+ตัวอย่างต่อไปนี้ใช้มุม `45` องศาและจุดสีเดียวกับการเปรียบเทียบมุม คอลัมน์ซ้ายใช้ `False_`; คอลัมน์ขวาใช้ `True_` แต่ละคอลัมน์มีสี่เหลี่ยมกว้างเหนือสี่เหลี่ยมสูง ทั้งสองเริ่มจากขนาดกว้างเดียวกัน; การเปลี่ยนความกว้างและสูงของสี่เหลี่ยมที่สองแสดงว่าการเติมสีตอบสนองต่อการปรับขนาดอย่างไรโดยไม่เปลี่ยนการตั้งค่าไล่สี
 
 ```python
 import jpype
@@ -478,19 +478,19 @@ finally:
     presentation.dispose()
 ```
 
-ผลลัพธ์ใน PowerPoint, โดยปิดการสเกลด้านซ้ายและเปิดการสเคลด้านขวา:
+ผลลัพธ์ใน PowerPoint, ปิดการสเกลทางซ้ายและเปิดบนทางขวา:
 
-![สี่เหลี่ยมกว้างและสูงที่มีไล่สี 45 องศา, เปรียบเทียบ LinearGradientScaled False ด้านซ้ายกับ True ด้านขวา](linear-gradient-scaling.png)
+![สี่เหลี่ยมกว้างและสูงที่มีไล่สี 45°, เปรียบเทียบ LinearGradientScaled False ทางซ้ายกับ True ทางขวา](linear-gradient-scaling.png)
 
-เมื่อปิดการสเกล แถบสีทแยงมุมคงทิศทางเดิมในทั้งสองสี่เหลี่ยม เมื่อเปิดการสเกล แถบสีจะยืดตามอัตราส่วนของรูปทรง ช่วยทำสำเนาไล่สีของเทมเพลตเมื่อปรับรูปทรงให้มีขนาดต่างกัน บนสี่เหลี่ยมจัตุรัส การเปิดสเกลจะไม่ทำให้ลักษณะของไล่สี `45` องศานี้เปลี่ยน
+เมื่อสเกลปิด การไล่สีทแยงมุมจะคงทิศทางเดียวกันในทั้งสองสี่เหลี่ยม เมื่อสเกลเปิด แถบสีจะยืดตามสัดส่วนของรูปทรง ซึ่งช่วยทำซ้ำไล่สีของเทมเพลตเมื่อปรับรูปทรงให้มีขนาดต่างกัน บนสี่เหลี่ยมจัตุรัส การเปิดสเกลไม่ทำให้ไล่สี `45`‑องศานี้เปลี่ยนรูปลักษณ์
 
-ทั้งมุมและการสเกลใช้กับไล่สีเชิงเส้น ไม่ใช้กับการเติม [GradientShape.Radial หรือ GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/)
+การตั้งค่ามุมและสเกลใช้ได้กับไล่สีเชิงเส้นเท่านั้น ไม่ควบคุมการเติม [GradientShape.Radial หรือ GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/)
 
-### **ผสานมุมกับทิศทางไล่สี**
+### **รวมมุมกับทิศทางของไล่สี**
 
-[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection) เลือกสไตล์ไล่สีจากคลาส [GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/) ไม่ใช่ตัวแทนของมุมเชิงตัวเลข สำหรับไล่สีเชิงเส้น รูปแบบมุมอาจเปลี่ยนพื้นที่ที่สีกระจายโดยไม่ต้องเปลี่ยนมุมที่กำหนดผ่าน [setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) ควรรักษาทิศทางไม่เปลี่ยนเมื่อเปรียบเทียบมุมหรือสเกล
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection) เลือกรูปแบบไล่สีจากคลาส [GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/) ซึ่งไม่เป็นตัวแทนของมุมเชิงตัวเลข สำหรับไล่สีเชิงเส้น สไตล์มุมอาจเปลี่ยนพื้นที่ที่สีกระจายโดยไม่ต้องเปลี่ยนมุมที่กำหนดผ่าน [setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) คงทิศทางเมื่อเปรียบเทียบมุมหรือสเกล
 
-ตัวอย่างต่อไปนี้ใช้การตั้งค่าเดียวกันในลำดับที่ตรงกันสลับกัน สี่เหลี่ยมสองรูปมีรูปลักษณ์เดียวกัน: การกำหนดทิศทางก่อนหรือหลังมุมไม่ทำให้ผลลัพธ์เปลี่ยน
+ตัวอย่างต่อไปนี้ใช้การตั้งค่าเดียวกันแต่สั่งลำดับตรงกันข้าม สี่เหลี่ยมทั้งสองมีลักษณะเดียวกัน: การกำหนดทิศทางก่อนหรือหลังมุมไม่ได้เปลี่ยนผลลัพธ์
 
 ```python
 import jpype
@@ -531,9 +531,9 @@ finally:
     presentation.dispose()
 ```
 
-## **การเติมแบบลาย (Pattern Fill)**
+## **การเติมลาย**
 
-การเติมแบบลายใช้การออกแบบสองสี เช่น จุด, แถบ, หรือตาราง ตัวอย่างนี้ใช้ [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle) เพื่อเลือกลาย trellis. [PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) ให้พื้นหลังสีเทอ่อน, และ [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) ให้สีเหลืองสำหรับลาย
+การเติมลายใช้การออกแบบสองสี เช่น จุด, เส้นแนวนอนหรือเชิงกริด ตัวอย่างนี้ใช้ [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle) เพื่อเลือกลาย trellis [PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) ให้พื้นหลังสีเทาอ่อน และ [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) ให้สีเหลืองสำหรับลาย
 
 ```python
 import jpype
@@ -564,11 +564,11 @@ finally:
 
 ![สี่เหลี่ยมที่มีการเติมลาย](pattern-fill.png)
 
-## **การเติมรูปภาพ (Picture Fill)**
+## **การเติมภาพ**
 
-การเติมรูปภาพใช้รูปภาพภายในรูปทรง ตัวอย่างนี้ต้องการรูปภาพ локал иใช้ [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) เพื่อโหลดเข้าคอลเลคชันรูปภาพของงานนำเสนอ การตั้งค่า [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) เป็นโหมดซ้ำจะทำให้รูปภาพปรากฏหลายครั้งภายในสี่เหลี่ยม รูปภาพต้นแบบที่ใช้แสดงด้านล่าง:
+การเติมภาพใช้รูปภาพภายในรูปร่าง ตัวอย่างนี้ต้องการรูปภาพแบบท้องถิ่นและใช้ [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) เพื่อโหลดเข้าคอลเลกชันภาพของงานนำเสนอ การตั้งค่า [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) เป็นโหมดกระเบื้องจะทำซ้ำรูปภาพภายในสี่เหลี่ยม รูปภาพต้นฉบับที่ใช้แสดงด้านล่าง:
 
-![รูปภาพบัว lotus](lotus.png)
+![รูปดอกบัว](lotus.png)
 
 ```python
 import jpype
@@ -601,21 +601,21 @@ finally:
 
 ผลลัพธ์:
 
-![รูปทรงที่มีการเติมรูปภาพ](picture-fill.png)
+![รูปร่างที่มีการเติมภาพ](picture-fill.png)
 
-### **ทำให้รูปภาพเป็นเท็กซ์เจอร์แบบซ้ำ**
+### **ทำภาพเป็นพื้นผิวแบบปูกระเบื้อง**
 
-หากต้องการตั้งค่ารูปภาพเป็นเท็กซ์เจอร์แบบซ้ำและปรับพฤติกรรมการซ้ำ สามารถใช้เมธอดต่อไปนี้ของคลาส [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/):
+หากต้องการตั้งรูปภาพเป็นพื้นผิวแบบกระเบื้องและปรับพฤติกรรมการปูกระเบื้อง คุณสามารถใช้เมธอดต่อไปนี้ของคลาส [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) :
 
-- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): กำหนดโหมดการเติมรูปภาพ—`Tile` หรือ `Stretch`
-- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): ระบุตำแหน่งการจัดแนวของเท็กซ์เจอร์ภายในรูปทรง
-- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): ควบคุมว่าการซ้ำจะพลิกแนวนอน แนวตั้ง หรือทั้งสองอย่าง
-- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): กำหนดการยกเลิกแนวนอนของเท็กซ์เจอร์ (หน่วยจุด) จากจุดกำเนิดของรูปทรง
-- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): กำหนดการยกเลิกแนวตั้งของเท็กซ์เจอร์ (หน่วยจุด) จากจุดกำเนิดของรูปทรง
-- [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): กำหนดสเกลแนวนอนของเท็กซ์เจอร์เป็นเปอร์เซ็นต์
-- [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): กำหนดสเกลแนวตั้งของเท็กซ์เจอร์เป็นเปอร์เซ็นต์
+- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): ตั้งโหมดการเติมภาพ — `Tile` หรือ `Stretch`
+- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): ระบุการจัดตำแหน่งของกระเบื้องภายในรูปร่าง
+- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): ควบคุมว่ากระเบื้องจะถูกพลิกแนวนอน แนวตั้ง หรือทั้งสองอย่าง
+- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): ตั้งค่าการเลื่อนแนวนอนของกระเบื้อง (เป็นจุด) จากต้นตอของรูปร่าง
+- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): ตั้งค่าการเลื่อนแนวตั้งของกระเบื้อง (เป็นจุด) จากต้นตอของรูปร่าง
+- [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): กำหนดสเกลแนวนอนของกระเบื้องเป็นเปอร์เซ็นต์
+- [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): กำหนดสเกลแนวตั้งของกระเบื้องเป็นเปอร์เซ็นต์
 
-ตัวอย่างนี้ต้องการรูปภาพ локал иกำหนดให้ [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) ซ้ำที่ 50% ของขนาดดั้งเดิม การยกเลิก `−32` จุดจะเลื่อนเท็กซ์เจอร์ทำให้ซ้อนได้ทั้งแนวนอนและแนวตั้ง; การจัดตำแหน่งด้านล่าง‑ขวาและการพลิกในทิศทางทั้งสองกำหนดวิธีการจัดเรียงเท็กซ์เจอร์ที่ซ้ำ
+ตัวอย่างนี้ต้องการรูปภาพแบบท้องถิ่นและกำหนดค่า [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) ให้ทำซ้ำที่ 50 % ของขนาดต้นฉบับ การเลื่อน `−32` จุดทำให้กระเบื้องย้ายแนวนอนและแนวตั้ง; การจัดตำแหน่งด้านล่าง‑ขวาและการพลิกทั้งสองทิศทางกำหนดวิธีการเรียงลำดับของพื้นผิวที่ทำซ้ำ
 
 ```python
 import jpype
@@ -656,11 +656,11 @@ finally:
 
 ผลลัพธ์:
 
-![ตัวเลือกการซ้ำเท็กซ์เจอร์](tile-options.png)
+![ตัวเลือกการปูกระเบื้อง](tile-options.png)
 
-## **การเติมสีทึบ (Solid Color Fill)**
+## **การเติมสีทึบ**
 
-การเติมสีทึบให้รูปทรงสีเดียวสม่ำเสมอ ตัวอย่างนี้ใช้ [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) เพื่อกำหนดโหมดเติมสีทึบและกำหนดสีเหลืองผ่าน [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) จากนั้นบันทึกสี่เหลี่ยมในงานนำเสนอ
+การเติมสีทึบให้รูปร่างเป็นสีเดียวเดียวที่สม่ำเสมอ ตัวอย่างนี้ใช้ [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) เพื่อกำหนดโหมดเติมสีทึบและกำหนดสีเหลืองผ่าน [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) แล้วบันทึกสี่เหลี่ยมในงานนำเสนอ
 
 ```python
 import jpype
@@ -687,15 +687,88 @@ finally:
 
 ผลลัพธ์:
 
-![รูปทรงที่เติมสีทึบ](solid-color-fill.png)
+![รูปร่างที่มีการเติมสีทึบ](solid-color-fill.png)
 
-## **ใช้พื้นหลังสไลด์เป็นการเติมรูปทรง**
+### **คัดลอกรสีขณะคงการอ้างอิงธีม**
 
-ใช้ [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill) เมื่อรูปทรงต้องการให้ตรงกับพื้นหลังสไลด์ เช่น ในเทมเพลตงานนำเสนอ ตั้งค่า [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) เป็น [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) ก่อนเพื่อเอาการเติมที่กำหนดไว้ออก ด้วยการผสมนี้ รูปทรงจะใช้พื้นหลังสไลด์แทนการเติมตามสไตล์ของมันเอง การเปิดฟลักนี้ตามลำพังไม่ได้ลบการเติมที่กำหนดไว้ก่อนหน้า
+ใช้ [ColorFormat.copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#copyFrom) เพื่อคัดลอกคำจำกัดความสีรวมถึงประเภทสี, การอ้างอิงธีมและการแปลง นี่เป็นประโยชน์เมื่อย้ายสีเติมระหว่างรูปร่างที่ควรยังคงตามธีมของงานนำเสนอเมธอดจะคัดลอกเฉพาะสี ไม่คัดลอกประเภทการเติม, เส้นขอบหรือการจัดรูปแบบอื่น ๆ ของรูปร่าง กำหนดประเภทการเติมของปลายทางอย่างชัดเจนด้วย [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType)
 
-นี่แตกต่างจาก [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) : การเติมพื้นหลังจะครอบวัตถุที่อยู่ด้านหลังรูปทรงด้วยพื้นที่พื้นหลังของสไลด์เดียวกัน, ส่วน NoFill จะทำให้วัตถุเหล่านั้นยังมองเห็นได้ ไร่กราดิเอนท์ยังคงจัดตำแหน่งตามสไลด์แทนที่จะเริ่มใหม่ภายในแต่ละรูปทรง
+ตัวอย่างนี้สร้างสี่เหลี่ยมสามรูปจากซ้ายไปขวา: ต้นฉบับ, สำเนาที่รับรู้ธีม, และสำเนา RGB คงที่ ต้นฉบับใช้ [ColorFormat.setSchemeColor](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#setSchemeColor) เพื่ออ้างอิงสีเน้นแรกและเพิ่มการเบลอด้วย [ColorOperationCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/coloroperationcollection/#add) สำเนา RGB ใช้สีเติมที่มีผลของต้นฉบับเพื่อให้ทั้งสามดูเหมือนกันในตอนแรก การเรียก [ColorFormat.setColor](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#setColor) จะตั้งค่า RGB คงที่และลบการแปลงสีที่มีอยู่
 
-ตัวอย่างต่อไปนี้สร้างพื้นหลังมาสเตอร์ที่สืบทอดโดยสไลด์และวางแถบสีม่วงด้านหลังสี่เหลี่ยมสามรูป สี่เหลี่ยมซ้ายใช้พื้นหลัง, สี่เหลี่ยมกลางไม่มีการเติม, และสี่เหลี่ยมขวาสลับจากการเติมพื้นหลังเป็นการเติมสีส้มที่กำหนดอย่างชัดเจน
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ColorTransformOperation, FillType, ImageFormat, Presentation, SaveFormat, SchemeColor, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    accent_color = Color(65, 105, 225)
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(accent_color)
+
+    source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140)
+    theme_copy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140)
+    rgb_copy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140)
+
+    for shape in (source, theme_copy, rgb_copy):
+        shape.getFillFormat().setFillType(FillType.Solid)
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    source_color = source.getFillFormat().getSolidFillColor()
+    source_color.setSchemeColor(SchemeColor.Accent1)
+    source_color.getColorTransform().add(ColorTransformOperation.Tint, 0.75)
+
+    theme_copy.getFillFormat().getSolidFillColor().copyFrom(source_color)
+    rgb_copy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor())
+
+    before = slide.getImage(1.0, 1.0)
+    try:
+        before.save("color-copy-before.png", ImageFormat.Png)
+    finally:
+        before.dispose()
+
+    # การอ้างอิงธีมจะตามสีเน้นใหม่; ค่ารหัส RGB คงที่จะไม่ทำเช่นนั้น.
+    accent_color = Color(255, 69, 0)
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(accent_color)
+
+    after = slide.getImage(1.0, 1.0)
+    try:
+        after.save("color-copy-after.png", ImageFormat.Png)
+    finally:
+        after.dispose()
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+ก่อนการเปลี่ยนธีม ทั้งสามการเติมสีตรงกัน:
+
+![แหล่งที่มา, ปลายทาง copyFrom, และปลายทาง RGB คงที่ที่มีการเติมสีน้ำเงินเดียวกัน](color-copy-before.png)
+
+หลังการเปลี่ยนธีม แหล่งที่มาและสำเนาที่รับรู้ธีมจะใช้สีเน้นใหม่และคงการผสมสีเดิมไว้ ส่วนสำเนา RGB คงที่ยังคงเป็นสีน้ำเงิน:
+
+![แหล่งที่มาและปลายทาง copyFrom ที่เติมด้วยสีส้ม ในขณะที่ปลายทาง RGB คงที่ยังคงเป็นสีน้ำเงิน](color-copy-after.png)
+
+การคัดลอกคำนิยามเป็นอิสระจากต้นฉบับ การเปลี่ยนการอ้างอิงธีมของต้นฉบับ, กำหนดสีอื่น หรือเพิ่ม/ลบการแปลงจะไม่ส่งผลต่อปลายทาง การเปลี่ยนธีมยังคงมีผลต่อรูปร่างทั้งสองเพราะแต่ละรูปร่างอ้างอิงสีธีมเดียวกัน
+
+การบันทึกและเปิดไฟล์ PPTX อีกครั้งจะคงประเภทสีที่คัดลอกได้จาก [ColorFormat.getColorType](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#getColorType), การอ้างอิงธีม และคอลเลกชันการแปลงจาก [ColorFormat.getColorTransform](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#getColorTransform) ; ไม่ได้แปลงเป็น RGB
+
+เมือคัดลอกระหว่างบริบทธีมที่ต่างกัน เช่น งานนำเสนอที่ใช้พาเลตต์สีเน้นต่างกัน การอ้างอิงที่คัดลอกจะอิงกับธีมของปลายทาง การอ้างอิงและการแปลงเดียวกันอาจให้สีที่มองเห็นแตกต่าง ดูที่ [Presentation Theme](/slides/th/python-java/presentation-theme/) เพื่อเรียนรู้การกำหนดสีธีม
+
+## **ใช้พื้นหลังสไลด์เป็นการเติมสีให้รูปร่าง**
+
+ใช้ [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill) เมื่อรูปร่างควรตรงกับพื้นหลังสไลด์ ตัวอย่างเช่น ในเทมเพลตงานนำเสนอ กำหนดประเภทการเติมด้วย [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) เป็น [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) ก่อนเพื่อลบการเติมที่กำหนดโดยชัดเจน ด้วยการผสมนี้รูปร่างจะใช้พื้นหลังสไลด์แทนการเติมสไตล์ของตน การเปิดใช้งานแฟลกเพียงอย่างเดียวไม่ได้ลบการเติมที่กำหนดไว้แล้ว
+
+สิ่งนี้แตกต่างจาก [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) : การเติมพื้นหลังจะครอบคลุมวัตถุที่อยู่ด้านหลังรูปร่างด้วยพื้นที่ของพื้นหลังสไลด์ที่สอดคล้องกัน ส่วน NoFill จะทำให้วัตถุเหล่านั้นมองเห็นได้ การไล่สียังคงจัดแนวกับสไลด์แทนที่จะแตกใหม่ภายในแต่ละรูปร่าง
+
+ตัวอย่างต่อไปนี้สร้างพื้นหลังมาสเตอร์ที่สืบทอดโดยสไลด์และวางแถบสีแมจนท์ไว้หลังสี่เหลี่ยมสามรูป สี่เหลี่ยมซ้ายใช้พื้นหลัง, สี่เหลี่ยมกลางไม่มีการเติม, และสี่เหลี่ยมขวาสลับจากการเติมพื้นหลังเป็นการเติมสีส้มชัดเจน
 
 ```python
 import jpype
@@ -712,7 +785,7 @@ try:
     presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale)
     slide = presentation.getSlides().get_Item(0)
 
-    # สืบทอดไล่สีจากมาสเตอร์.
+    # สืบทอดการไล่สีจากมาสเตอร์.
     slide.getBackground().setType(BackgroundType.NotDefined)
     slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined)
     background = slide.getLayoutSlide().getMasterSlide().getBackground()
@@ -727,7 +800,7 @@ try:
     color = Color(135, 206, 250)
     gradient.getGradientStops().add(1, color)
 
-    # เพิ่มอ็อบเจ็กต์นี้เป็นอันดับแรกเพื่อให้แสดงอยู่ด้านหลังสี่เหลี่ยม.
+    # เพิ่มวัตถุนี้ก่อนเพื่อให้แสดงด้านหลังสี่เหลี่ยม.
     band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100)
     band.getFillFormat().setFillType(FillType.Solid)
     band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA)
@@ -744,7 +817,7 @@ try:
     explicit_shape.getFillFormat().setFillType(FillType.NotDefined)
     explicit_shape.setUseBackgroundFill(True)
 
-    # ปิดการเติมพื้นหลังก่อนที่จะใช้การเติมแบบชัดเจน.
+    # ปิดการเติมพื้นหลังก่อนที่จะใช้การเติมที่กำหนดเอง.
     explicit_shape.setUseBackgroundFill(False)
     explicit_shape.getFillFormat().setFillType(FillType.Solid)
     color = Color(255, 165, 0)
@@ -755,15 +828,15 @@ finally:
     presentation.dispose()
 ```
 
-ผลลัพธ์จากซ้ายไปขวา: **การเติมพื้นหลัง**, **ไม่มีการเติม**, และ **การเติมที่กำหนดโดยชัดเจน** แถบสีม่วงซ่อนอยู่หลังสี่เหลี่ยมซ้ายและขวาแต่ยังมองเห็นได้ผ่านสี่เหลี่ยมกลาง
+ผลลัพธ์จากซ้ายไปขวา: **background fill**, **no fill**, และ **explicit fill**. แถบสีแมจนท์ถูกซ่อนโดยสี่เหลี่ยมซ้ายและขวาแต่ยังคงมองเห็นผ่านสี่เหลี่ยมกลาง
 
-![การเติมพื้นหลัง, ไม่มีการเติม, และการเติมสีส้มที่กำหนดบนแถบสีม่วง](background-fill.png)
+![การเติมพื้นหลัง, ไม่เติม, และการเติมสีส้มชัดเจนบนแถบสีม่วง](background-fill.png)
 
-พฤติกรรมเดียวกันใช้กับพื้นหลังที่กำหนดโดยตรงบนสไลด์หรือสืบทอดจากเลย์เอาต์ รูปทรงใช้พื้นหลังที่สไลด์กำหนดแล้ว; ตัวอย่างนี้ไม่ได้กำหนดพื้นหลังของสไลด์และเลย์เอาต์เพื่อให้มาสเตอร์จัดหาให้
+พฤติกรรมเดียวกันใช้กับพื้นหลังที่กำหนดโดยตรงบนสไลด์หรือสืบทอดจากเลเอาต์ รูปร่างใช้พื้นหลังที่แก้ไขแล้วของสไลด์; ตัวอย่างนี้ทำให้พื้นหลังของสไลด์และเลเอาต์เป็นค่าไม่กำหนดเพื่อให้มาสเตอร์จัดการให้
 
-## **กำหนดความโปร่งใส**
+## **ตั้งค่าความโปร่งใส**
 
-สำหรับการเติมสีทึบ ส่วนประกอบอัลฟาของสีควบคุมความทึบ: 0 คือโปร่งใสเต็มที่และ 255 คือทึบเต็มที่ ตัวอย่างนี้ใช้ค่าอัลฟา 128 สำหรับสี่เหลี่ยมสีเหลือง ทำให้โปร่งใสประมาณ 50% เพื่อให้สี่เหลี่ยมด้านล่างมองเห็นอยู่ สีถูกกำหนดผ่าน [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor)
+สำหรับการเติมสีทึบ ส่วนประกอบอัลฟาของสีควบคุมความทึบ: 0 คือโปร่งใสเต็มที่และ 255 คือทึบเต็มที่ ตัวอย่างนี้ใช้ค่าอัลฟา 128 สำหรับสี่เหลี่ยมสีเหลือง ทำให้โปร่งใสประมาณ 50 % เพื่อให้สี่เหลี่ยมด้านล่างมองเห็นได้ สีกำหนดผ่าน [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor)
 
 ```python
 import jpype
@@ -793,11 +866,11 @@ finally:
 
 ผลลัพธ์:
 
-![รูปทรงที่โปร่งใส](shape-transparency.png)
+![รูปร่างที่โปร่งใส](shape-transparency.png)
 
-## **หมุนรูปทรง**
+## **หมุนรูปร่าง**
 
-ใช้ [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) เพื่อหมุนรูปทรงในระนาบสไลด์ มุมวัดเป็นองศา; ตัวอย่างนี้หมุนสี่เหลี่ยม 5 องศาตามเข็มนาฬิกาและบันทึกงานนำเสนอ
+ใช้ [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) เพื่อหมุนรูปร่างในระนาบสไลด์ มุมวัดเป็นองศา ตัวอย่างนี้หมุนสี่เหลี่ยม 5 องศาตามเข็มนาฬิกาและบันทึกงานนำเสนอ
 
 ```python
 import jpype
@@ -822,11 +895,11 @@ finally:
 
 ผลลัพธ์:
 
-![การหมุนรูปทรง](shape-rotation.png)
+![การหมุนรูปร่าง](shape-rotation.png)
 
-## **เพิ่มเอฟเฟกต์เบเวล 3D**
+## **เพิ่มเอฟเฟกต์บีเวิล 3 มิติ**
 
-ใช้ [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) เพื่อให้รูปทรงมีความลึกและขอบเบเวล ตัวอย่างนี้สร้างวงรีสีเขียวกับเส้นขอบสีส้ม ใช้ [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) กำหนดความลึกเป็น 4 จุดและใช้ [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop) เพื่อใส่เบเวลด้านบนแบบวงกลมที่มีความกว้างและความสูง 6 จุด กล้องแบบออร์โธกราฟิกที่มองหน้าและแสงสามจุดทำให้เบเวลมองเห็นได้
+ใช้ [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) ให้รูปร่างมีความลึกและขอบบีเวิล ตัวอย่างนี้สร้างวงรีสีเขียวโดยมีเส้นขอบส้ม ใช้ [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) ตั้งความลึกเป็น 4 จุดและใช้ [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop) เพื่อสร้างบีเวิลบนแบบวงกลมที่กว้างและสูง 6 จุด กล้องออร์โธกราฟิกที่หันหน้าและแสงสามจุดทำให้บีเวิลมองเห็น
 
 ```python
 import jpype
@@ -865,11 +938,11 @@ finally:
 
 ผลลัพธ์:
 
-![เอฟเฟกต์เบเวล 3D](3D-bevel-effect.png)
+![เอฟเฟกต์บีเวิล 3 มิติ](3D-bevel-effect.png)
 
-## **เพิ่มเอฟเฟกต์การหมุน 3D**
+## **เพิ่มเอฟเฟกต์การหมุน 3 มิติ**
 
-มุมมอง 3D ของรูปทรงควบคุมโดยการตั้งค่ากล้อง ตัวอย่างนี้ใช้ [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) กับมุมละติจูด, ลองจิจูด, และรอบการหมุนที่ 40°, 35°, และ 20° ตามลำดับ เลือกกล้องแบบอิซอเมตริกผ่าน [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) และแสงสมดุลผ่าน [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType) จากนั้นบันทึกสี่เหลี่ยมที่จัดรูปแบบ
+มุมมอง 3 มิติของรูปร่างถูกควบคุมด้วยการตั้งค่ากล้อง ตัวอย่างนี้ใช้ [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) ตั้งมุมละติจูด, ลองจิจูดและการหมุนรอบที่ 40, 35, และ 20 องศาตามลำดับ เลือกกล้องไอโซเมตริกด้วย [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) และแสงสมดุลด้วย [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType) แล้วบันทึกสี่เหลี่ยมที่จัดรูปแบบ
 
 ```python
 import jpype
@@ -897,15 +970,15 @@ finally:
 
 ผลลัพธ์:
 
-![เอฟเฟกต์การหมุน 3D](3D-rotation-effect.png)
+![เอฟเฟกต์การหมุน 3 มิติ](3D-rotation-effect.png)
 
-## **ควบคุมการแสดงผลสีขาว‑ดำสำหรับรูปทรง**
+## **ควบคุมการแสดงผลขาว‑ดำสำหรับรูปร่าง**
 
-เมธอด [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) ระบุว่ารูปทรงแต่ละอันจะถูกเรนเดอร์อย่างไรเมื่อดูหรือประมวลผลงานนำเสนอในโหมดสีขาว‑ดำ ไม่ได้เปิดใช้งานการแสดงผลสีขาว‑ดำโดยอัตโนมัติและไม่เปลี่ยนการเติม, เส้น หรือการจัดรูปแบบอื่น ๆ ของรูปทรงในโหมดสีปกติ
+เมธอด [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) ระบุว่ารูปร่างแต่ละอันจะถูกแสดงอย่างไรเมื่อดูหรือประมวลผลงานนำเสนอในโหมดขาว‑ดำ มันไม่เปิดใช้งานการแสดงผลขาว‑ดำโดยอัตโนมัติและไม่เปลี่ยนการเติม, เส้น หรือการจัดรูปแบบอื่นของรูปร่างในโหมดสีปกติ
 
-ใช้ค่าจากคลาส [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ ตัวอย่างเช่น `Automatic` ให้แอปพลิเคชันเลือกการแปลง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้เฉพาะสีดำและสีขาว, `Black` และ `White` บังคับสีเดียว, `Color` รักษาสีปกติ, และ `Hidden` ไม่แสดงรูปทรงในโหมดสีขาว‑ดำ `NotDefined` หมายถึงไม่มีการกำหนดโหมดระดับรูปทรง
+ใช้ค่าจากคลาส [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ ตัวอย่างเช่น `Automatic` ให้แอพพลิเคชันเลือกการแปลง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้เฉพาะสีดำและขาว, `Black` และ `White` บังคับสีเดียว, `Color` คงสีปกติ, และ `Hidden` ลบรูปร่างในโหมดขาว‑ดำ `NotDefined` หมายถึงไม่ได้กำหนดโหมดระดับรูปร่าง
 
-ตัวอย่างนี้สร้างสี่เหลี่ยมสีส้มและใช้ [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) ตั้งค่าเป็นสีเทา รูปที่บันทึกจะคงสีส้มสำหรับการแสดงสีปกติและขอให้แอปพลิเคชันที่เคารพการตั้งค่าสีขาว‑ดำใช้สีเทา:
+ตัวอย่างนี้สร้างสี่เหลี่ยมส้มและใช้ [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) ตั้งโหมดเป็น `Gray` รูปร่างที่บันทึกยังคงเติมสีส้มสำหรับการแสดงสีปกติและขอให้แอพพลิเคชันที่เคารพการแสดงผลขาว‑ดำใช้สีเทา:
 
 ```python
 import jpype
@@ -932,11 +1005,11 @@ finally:
     presentation.dispose()
 ```
 
-ในโหมดสีปกติ สี่เหลี่ยมคงสีส้มไว้ ในเวิร์กโฟลว์การแสดงสีขาว‑ดำ จะใช้สีเทาเพราะโหมดตั้งเป็น `Gray` สิ่งนี้ทำให้คุณคงสไลด์สีเต็มในขณะที่กำหนดลักษณะเฉพาะสำหรับการพิมพ์, การพรีวิว, หรือเวิร์กโฟลว์อื่น ๆ ที่เคารพการตั้งค่าสีขาว‑ดำของงานนำเสนอ
+ในโหมดสีปกติ สี่เหลี่ยมยังคงเติมสีส้ม ในขั้นตอนแสดงผลขาว‑ดำ มันใช้สีเทาจากที่ตั้งค่าเป็น `Gray` สิ่งนี้ช่วยให้คุณคงสไลด์สีเต็มเมื่อกำหนดลักษณะเฉพาะสำหรับการพิมพ์, ดูตัวอย่างหรือขั้นตอนอื่นที่เคารพการตั้งค่าการแสดงผลขาว‑ดำของงานนำเสนอ
 
 ## **รีเซ็ตการจัดรูปแบบ**
 
-ใช้ [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset) เพื่อคืนค่าตำแหน่ง, ขนาด, และการจัดรูปแบบของ placeholder ในสไลด์จาก placeholder ที่สอดคล้องในเลย์เอาต์ ตัวอย่างนี้ต้องมีงานนำเสนอที่มี placeholder เชื่อมโยงกับเลย์เอาต์และรีเซ็ตทุกสไลด์ก่อนบันทึก รูปทรงที่ไม่มี placeholder ที่สอดคล้องในเลย์เอาต์จะไม่ถูกรีเซ็ต
+ใช้ [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset) เพื่อคืนตำแหน่ง, ขนาด และการจัดรูปแบบของตำแหน่งตัวยึดสไลด์จากตำแหน่งตัวยึดของเลเอาต์ที่สอดคล้อง ตัวอย่างนี้ต้องการงานนำเสนอที่มีตำแหน่งตัวยึดเชื่อมโยงกับเลเอาต์และรีเซ็ตทุกสไลด์ก่อนบันทึก รูปร่างที่ไม่มีตำแหน่งตัวยึดในเลเอาต์จะไม่ถูกรีเซ็ต
 
 ```python
 import jpype
@@ -959,14 +1032,14 @@ finally:
 
 ## **คำถามที่พบบ่อย**
 
-**การจัดรูปแบบรูปทรงมีผลต่อขนาดไฟล์งานนำเสนอสุดท้ายหรือไม่?**
+**การจัดรูปแบบรูปร่างมีผลต่อขนาดไฟล์งานนำเสนอสุดท้ายหรือไม่?**
 
-สี, สไตล์เส้น, และการตั้งค่าเอฟเฟกต์โดยทั่วไปเพิ่มข้อมูลเพียงเล็กน้อยเมื่อเทียบกับภาพและสื่อที่ฝังอยู่ การเติมรูปภาพอาจเพิ่มขนาดไฟล์เนื่องจากภาพถูกจัดเก็บในงานนำเสนอ
+สี, สไตล์เส้นและการตั้งค่าเอฟเฟกต์โดยทั่วไปเพิ่มข้อมูลเพียงเล็กน้อยเมื่อเทียบกับภาพและสื่อที่ฝังอยู่ การเติมภาพอาจเพิ่มขนาดไฟล์เพราะภาพถูกเก็บในงานนำเสนอ
 
-**ฉันจะตรวจจับรูปทรงบนสไลด์ที่มีการจัดรูปแบบเดียวกันเพื่อจัดกลุ่มได้อย่างไร?**
+**ฉันจะตรวจจับรูปร่างบนสไลด์ที่มีการจัดรูปแบบเดียวกันเพื่อที่จะจัดกลุ่มได้อย่างไร?**
 
-เปรียบเทียบคุณสมบัติการจัดรูปแบบหลักของแต่ละรูปทรง—การเติม, เส้น, และการตั้งค่าเอฟเฟกต์ หากค่าที่สCorresponding match ทั้งหมดตรงกัน ให้ถือว่ารูปแบบเป็นแบบเดียวกันและจัดกลุ่มรูปทรงเหล่านั้นเชิงตรรกะ ซึ่งทำให้การจัดการสไตล์ในภายหลังง่ายขึ้น
+เปรียบเทียบคุณสมบัติการจัดรูปแบบหลักของแต่ละรูปร่าง — การเติม, เส้นและการตั้งค่าเอฟเฟกต์ หากค่าตรงกันทั้งหมด ให้ถือว่าสไตล์เดียวกันและจัดกลุ่มรูปร่างเหล่านั้นเชิงตรรกะ ซึ่งช่วยลดความซับซ้อนในการจัดการสไตล์ในภายหลัง
 
-**ฉันสามารถบันทึกชุดสไตล์รูปทรงที่กำหนดเองเป็นไฟล์แยกเพื่อใช้ใหม่ในงานนำเสนออื่นได้หรือไม่?**
+**ฉันสามารถบันทึกชุดสไตล์รูปร่างแบบกำหนดเองเป็นไฟล์แยกเพื่อใช้ใหม่ในงานนำเสนออื่นได้หรือไม่?**
 
-ได้. เก็บรูปทรงตัวอย่างที่มีสไตล์ที่ต้องการในเทมเพลตสไลด์หรือไฟล์เทมเพลต .POTX เมื่อสร้างงานนำเสนอใหม่ ให้เปิดเทมเพลต, คัดลอกรูปทรงที่สไตล์ไว้ที่ต้องการ, และนำไปใช้ใหม่ตามที่ต้องการ.
+ได้. เก็บตัวอย่างรูปร่างที่มีสไตล์ที่ต้องการในเทมเพลตสไลด์หรือไฟล์เทมเพลต .POTX เมื่อสร้างงานนำเสนอใหม่ เปิดเทมเพลต, คัดลอกรูปร่างที่สไตล์ต้องการและนำการจัดรูปแบบไปใช้ใหม่ตามที่ต้องการ

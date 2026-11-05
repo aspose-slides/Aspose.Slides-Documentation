@@ -1,27 +1,27 @@
 ---
 title: Formátování tvarů PowerPointu v .NET
-linktitle: Formátování tvaru
+linktitle: Formátování tvarů
 type: docs
 weight: 20
 url: /cs/net/shape-formatting/
 keywords:
-- formátování tvaru
-- formátování čáry
+- formátovat tvar
+- formátovat čáru
 - skicový efekt
 - skicová čára tvaru
-- formátování stylu spoje
-- gradientní výplň
-- vzorová výplň
+- formátovat styl spoje
+- gradientová výplň
+- vzorková výplň
 - obrázková výplň
-- texturovaná výplň
-- plná barevná výplň
+- texturová výplň
+- jednobarevná výplň
 - průhlednost tvaru
-- černobílé vykreslení tvaru
-- vykreslení tvaru ve stupních šedi
-- otočení tvaru
-- 3D zkosený efekt
+- černobílé vykreslování tvaru
+- stupně šedi vykreslování tvaru
+- otočit tvar
+- 3D efekt zkosení
 - 3D rotační efekt
-- obnovení formátování
+- obnovit formátování
 - PowerPoint
 - prezentace
 - .NET
@@ -31,15 +31,15 @@ description: "Naučte se, jak formátovat tvary PowerPointu v C# pomocí Aspose.
 ---
 ## **Úvod**
 
-Formátujte tvary v PowerPointu úpravou jejich obrysů, výplní a efektů. Aspose.Slides for .NET vám umožňuje tyto nastavení řídit programově, včetně průhlednosti, otáčení a 3D formátování.
+Formátujte tvary v PowerPointu úpravou jejich obrysů, výplní a efektů. Aspose.Slides pro .NET vám umožňuje ovládat tato nastavení programově, včetně průhlednosti, otáčení a 3D formátování.
 
 ![Možnosti formátování tvaru v PowerPointu](format-shape-powerpoint.png)
 
-Aspose.Slides for .NET poskytuje rozhraní a vlastnosti, které vám umožňují formátovat tvary pomocí stejných možností, jaké jsou k dispozici v PowerPointu.
+Aspose.Slides pro .NET poskytuje rozhraní a vlastnosti, které vám umožní formátovat tvary pomocí stejných možností, jaké jsou k dispozici v PowerPointu.
 
 ## **Formátování čar**
 
-Použijte [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) k řízení obrysu tvaru. Tento příklad vytvoří nevyplněný obdélník s modrým, čárkovaným obrysem. [ILineFormat.Style](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/style/) vybírá spojenou čáru tlustá‑tenká, zatímco [ILineFormat.Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) nastavuje její šířku na 7 bodů a [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) vybírá vzor čáry.
+Použijte [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) k ovládání obrysu tvaru. Tento příklad vytvoří nevyplněný obdélník s modrým, čárkovaným obrysem. [ILineFormat.Style](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/style/) vybírá složenou čáru typu silná‑tenká, zatímco [ILineFormat.Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) nastaví její šířku na 7 bodů a [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) vybírá vzor čáry.
 
 ```csharp
 using System.Drawing;
@@ -66,11 +66,11 @@ Výsledek:
 
 ### **Nastavení vlastních vzorů čárek**
 
-Použijte [ILineFormat.CustomDashPattern](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/customdashpattern/) v situacích, kdy předdefinované styly čar neposkytují požadované délky čárek a mezer, například pro firemní obrysy nebo technické diagramy. Přiřazením vzoru se automaticky nastaví [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) na [LineDashStyle.Custom](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/).
+Použijte [ILineFormat.CustomDashPattern](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/customdashpattern/), když předdefinované styly čar neposkytují potřebnou délku čárek a mezer, například pro značkové obrysy nebo technické diagramy. Při přiřazení vzoru se automaticky nastaví [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) na [LineDashStyle.Custom](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/).
 
-Pole vstupů střídá délky čárek a mezer, začíná čárkou. Každá hodnota je násobkem šířky čáry: `{ 4, 2 }` při šířce 3 body vytvoří čáru dlouhou 12 bodů následovanou mezerou 6 bodů. Používejte páry konečných, nezáporných hodnot pro definování kompletních úseků čárek‑a‑mezer. Příklad používá kladné hodnoty, aby byly všechny čárky a mezery viditelné.
+Položky pole se střídají mezi délkou čárky a mezery, začínají čárkou. Každá hodnota je násobkem šířky čáry: `{ 4, 2 }` při šířce 3 body vytvoří čáru o délce 12 bodů následovanou mezerou 6 bodů. Používejte páry konečných, nezáporných hodnot k definování kompletních segmentů čára‑mezera. Příklad používá kladné hodnoty, aby byly všechny čárky a mezery viditelné.
 
-Tento příklad vytvoří pět modrých čar se stejnou délkou a plochými konci. První tři porovnávají vzory při šířce 3 body. Čtvrtá zopakuje první vzor při dvojnásobné šířce, čímž zdvojnásobí jak délku čáry, tak mezery. Pátá přepne z vlastního vzoru na plnou čáru.
+Tento příklad vytvoří pět modrých čar se stejnou délkou a plochými konci. První tři porovnávají vzory při šířce 3 body. Čtvrtá opakuje první vzor při dvojnásobné šířce, čímž zdvojnásobí jak délku čáry, tak mezery. Pátá přepíná z vlastního vzoru na plnou čáru.
 
 ```csharp
 using System.Drawing;
@@ -102,7 +102,7 @@ for (var i = 0; i < patterns.Length; i++)
     line.LineFormat.CustomDashPattern = patterns[i];
 }
 
-// Return the last line to a solid style.
+// Vrátit poslední čáru na plný styl.
 slide.Shapes[4].LineFormat.DashStyle = LineDashStyle.Solid;
 
 presentation.Save("custom_dash_patterns.pptx", SaveFormat.Pptx);
@@ -115,19 +115,19 @@ Výsledek v PowerPointu, shora dolů: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 
 ![Tři vlastní vzory čárek, širší čára používající první vzor a plná čára v PowerPointu](custom-dash-patterns.png)
 
 
-### **Nastavení koncových stylů čar**
+### **Nastavení koncových tvarů čáry**
 
-Použijte [ILineFormat.CapStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/capstyle/) pro nastavení konců otevřené čáry. Výčtová sada [LineCapStyle](https://reference.aspose.com/slides/net/aspose.slides/linecapstyle/) poskytuje tři explicitní styly konců:
+Použijte [ILineFormat.CapStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/capstyle/) k nastavení konců otevřené čáry. Výčtové typy [LineCapStyle](https://reference.aspose.com/slides/net/aspose.slides/linecapstyle/) poskytují tři explicitní styly konců:
 
-- `Flat`: Tah končí u koncového bodu.
+- `Flat`: Tah končí na koncovém bodě.
 - `Round`: Polokruhový konec přesahuje koncový bod o polovinu šířky čáry.
 - `Square`: Čtvercový konec přesahuje koncový bod o polovinu šířky čáry.
 
-Výčet také obsahuje `NotDefined`, což znamená, že žádný styl konce není explicitně přiřazen.
+Výčet také obsahuje `NotDefined`, což znamená, že není přiřazen žádný explicitní styl konce.
 
-Konce se liší od šipek, které přidávají symboly na konce čar, a od spojů, které řídí rohy mezi segmenty čar. Tento příklad zakáže šipky pomocí [ILineFormat.BeginArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/beginarrowheadstyle/) a [ILineFormat.EndArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/endarrowheadstyle/), aby byly porovnávány jen tvary konců.
+Konce se liší od šipek, které přidávají symboly na konce čáry, a od spojů, které řídí rohy mezi segmenty čáry. Tento příklad zakáže šipky pomocí [ILineFormat.BeginArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/beginarrowheadstyle/) a [ILineFormat.EndArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/endarrowheadstyle/), aby byly porovnávány pouze tvary konců.
 
-Následující příklad vytvoří tři jinak identické vodorovné čáry o šířce 20 bodů. Shora dolů používají ploché, kulaté a čtvercové konce. Jejich koncové body mají stejné vodorovné souřadnice; kulaté a čtvercové konce přesahují 10 bodů za každý koncový bod.
+Následující příklad vytvoří tři jinak identické vodorovné čáry, široké 20 bodů. Shora dolů používají ploché, kulaté a čtvercové konce. Jejich koncové body mají stejné vodorovné souřadnice; kulaté a čtvercové konce přesahují o 10 bodů za každý konec.
 
 ```csharp
 using System.Drawing;
@@ -161,9 +161,9 @@ Výsledek v PowerPointu, shora dolů: **Flat**, **Round** a **Square**.
 
 ## **Použití skicových efektů na čáry tvarů**
 
-Skicový efekt způsobí, že čára tvaru vypadá ručně kresleně. Použijte [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) pro přístup k nastavení čáry, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) pro přístup k nastavení skici a [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) pro výběr hodnoty z výčtu [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/).
+Skicový efekt způsobí, že čára tvaru vypadá ručně kresleně. Použijte [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) k přístupu k nastavením čáry, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) k přístupu k nastavením skicu a [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) k výběru hodnoty z výčtu [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/).
 
-Následující kód v C# ukazuje, jak použít efekt [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/), přečíst explicitně přiřazenou hodnotu a odstranit efekt pomocí [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
+Následující kód C# ukazuje, jak použít efekt [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) , přečíst explicitně přiřazenou hodnotu a odstranit efekt pomocí [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
 
 ```csharp
 using System;
@@ -181,7 +181,7 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-Hodnota vrácená [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) představuje nastavení přiřazené přímo tvaru. Pokud může být formátování čáry zděděno z motivu, hlavního snímku nebo rozvržení snímku, použijte [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), přistupte k [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/) a přečtěte [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). Efektivní hodnota odráží formátování, které je skutečně aplikováno po vyřešení dědičnosti. Tento příklad vyžaduje existující prezentaci s alespoň jedním tvarem na prvním snímku a vypíše obě hodnoty:
+Hodnota vrácená z [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) představuje nastavení přiřazené přímo tvaru. Pokud může být formátování čáry zděděno z motivu, hlavního snímku nebo rozvržení, použijte [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), přistupte k [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/) a přečtěte [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). Efektivní hodnota odráží formátování, které je skutečně aplikováno po vyřešení dědičnosti. Tento příklad vyžaduje existující prezentaci s alespoň jedním tvarem na prvním snímku a vypíše obě hodnoty:
 
 ```csharp
 using System;
@@ -199,9 +199,9 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 ```
 
-## **Formátování stylů spojů**
+## **Formátování stylů spojení**
 
-Zde jsou tři možnosti typu spoje:
+Zde jsou tři možnosti typů spojení:
 
 * Round
 * Miter
@@ -209,9 +209,9 @@ Zde jsou tři možnosti typu spoje:
 
 Styl spoje řídí, jak se dva úseky obrysu setkají v rohu. Použijte **Round** pro zaoblené rohy, **Miter** pro ostré rohy nebo **Bevel** pro zploštělé rohy.
 
-![Styl spoje v prezentaci](join-style-powerpoint.png)
+![Styl spojení v prezentaci](join-style-powerpoint.png)
 
-Tento příklad vytvoří tři černé obdélníky s modrými obrysy o šířce 15 bodů. Nastaví [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) na hodnoty miter, bevel a round z výčtu [LineJoinStyle](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/), aby porovnal, jak jsou rohy vykresleny.
+Tento příklad vytvoří tři černé obdélníky s modrými obrysy širokými 15 bodů. Nastaví [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) na miter, bevel a round hodnoty z [LineJoinStyle](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/), aby porovnal, jak jsou rohy vykresleny.
 
 ```csharp
 using System.Drawing;
@@ -256,11 +256,11 @@ presentation.Save("join_styles.pptx", SaveFormat.Pptx);
 
 ### **Omezení miterových spojů u ostrých rohů**
 
-Použijte [ILineFormat.MiterLimit](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/miterlimit/) spolu s [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) nastaveným na [LineJoinStyle.Miter](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) pro omezení, jak daleko může ostrý roh vystupovat.
+Použijte [ILineFormat.MiterLimit](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/miterlimit/) spolu s [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) nastaveným na [LineJoinStyle.Miter](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) k omezení, jak daleko může ostrý roh vystupovat.
 
-Limit je poměr vzdálenosti mezi vnitřním a vnějším rohem spoje k šířce čáry. Například hodnota `8` dovolí délku miteru až osminásobek šířky čáry; není to měření v bodech. Pokud by roh překročil limit, PowerPoint použije zploštělý spoj v tomto rohu. Větší limit umožňuje ostřejší špičky. Nastavení ovlivňuje jen miterové spoje a změna nemá viditelný efekt, když roh zůstane v obou limitech.
+Limit je poměr vzdálenosti mezi vnitřním a vnějším rohem spoje k šířce čáry. Například hodnota `8` povoluje délku miteru až osmnásobek šířky čáry; nejde o měření v bodech. Pokud by roh překročil limit, PowerPoint použije na tomto rohu zkosený spoj. Větší limit umožňuje ostřejší špičky. Nastavení ovlivňuje pouze miterové spoje a změna nemá viditelný dopad, pokud roh zůstane v obou limitech.
 
-Tento příklad vytvoří dva identické, nevyplněné trojúhelníky s obrysy o šířce 20 bodů. Levý trojúhelník používá limit `2` a pravý `8`. Každý trojúhelník má šířku 80 bodů a výšku 160 bodů, což dává jeho hornímu rohu poměr délka‑miteru k šířce čáry přibližně `4,12`. Výsledkem je, že PowerPoint zploští levý vrchol a zachová pravý.
+Tento příklad vytvoří dva identické nevyplněné trojúhelníky s obrysy širokými 20 bodů. Levý trojúhelník používá limit `2` a pravý `8`. Každý trojúhelník je široký 80 bodů a vysoký 160 bodů, což dává jeho hornímu rohu poměr délky miteru k šířce čáry přibližně `4.12`. V důsledku toho PowerPoint zkosení levého vrcholu zruší a pravý zachová.
 
 ```csharp
 using System.Drawing;
@@ -289,11 +289,11 @@ presentation.Save("miter_limits.pptx", SaveFormat.Pptx);
 
 Výsledek v PowerPointu: **Miter limit 2** vlevo a **miter limit 8** vpravo.
 
-![Zploštělý vrchol s limitem miter 2 a špičatý vrchol s limitem miter 8 v PowerPointu](miter-limits.png)
+![Zkosený vrchol s limitem miteru 2 a špičatý vrchol s limitem miteru 8 v PowerPointu](miter-limits.png)
 
-## **Gradientní výplň**
+## **Gradientová výplň**
 
-Gradientní výplň míchá barvy napříč tvarem. Tento příklad vyplní elipsu lineárním gradientem pod úhlem 45 stupňů od červené po fialovou pomocí [IFillFormat.GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/gradientformat/). Metoda [IGradientStopCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/igradientstopcollection/add/) umístí barevné zastávky na 0 a 1, na začátek a konec gradientu. Vymazání existujících zastávek zajistí, že budou použity jen tyto dvě barvy.
+Gradientová výplň míchá barvy napříč tvarem. Tento příklad vyplní elipsu lineárním gradientem pod úhlem 45 stupňů z červené do fialové pomocí [IFillFormat.GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/gradientformat/). Metoda [IGradientStopCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/igradientstopcollection/add/) umisťuje barevné zastávky na 0 a 1, na začátek a konec gradientu. Vymazání existujících zastávek zajišťuje, že jsou použity jen tyto dvě barvy.
 
 ```csharp
 using Aspose.Slides;
@@ -315,15 +315,15 @@ presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Elipsa s gradientní výplní](gradient-fill.png)
+![Elipsa s gradientovou výplní](gradient-fill.png)
 
-Pokud se gradient v exportovaném obrázku liší od toho v PowerPointu, podívejte se na [Choose a Gradient Rendering Style](/slides/cs/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Můžete vybrat styl vykreslování, aniž byste změnili gradientní výplň uloženou v prezentaci.
+Pokud gradient v exportovaném obrázku vypadá jinak než v PowerPointu, podívejte se na [Choose a Gradient Rendering Style](/slides/cs/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Můžete vybrat styl vykreslování bez změny gradientové výplně uložené v prezentaci.
 
 ### **Nastavení úhlu lineárního gradientu**
 
-Použijte [IGradientFormat.LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) pro řízení orientace výplně [GradientShape.Linear](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/). Úhel se měří ve stupních a zvyšuje se po směru hodinových ručiček: `0` běží zleva doprava, `90` shora dolů, `180` zprava doleva a `270` zdola nahoru. Zlomkové úhly jsou podporovány. Konečné úhly mimo rozsah `[0, 360)` se normalizují na jednu otáčku; například `-45` se stane `315` a `360` se stane `0`.
+Použijte [IGradientFormat.LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) k ovládání orientace lineární výplně [GradientShape.Linear](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/). Úhel se měří ve stupních a roste po směru hodinových ručiček: `0` běží zleva doprava, `90` shora dolů, `180` zprava doleva a `270` zdola nahoru. Podporovány jsou i zlomkové úhly. Konečné úhly mimo interval `[0, 360)` se normalizují na jednu otáčku; například `-45` se stane `315` a `360` se stane `0`.
 
-Tento příklad vytvoří šest obdélníků se stejnými červenými, zelenými a modrými zastávkami na pozicích `0`, `0.5` a `1`. Škálování je vypnuto, aby byl úhel srovnáván nezávisle na proporcích obdélníků. Úhly, zleva doprava, jsou `0`, `45` a `90` v první řadě a `135`, `180` a `270` ve druhé řadě.
+Tento příklad vytvoří šest obdélníků se stejnými červenými, zelenými a modrými zastávkami na pozicích `0`, `0.5` a `1`. Škálování je vypnuto, aby bylo možné porovnat úhel nezávisle na proporcích obdélníků. Úhly, zleva doprava, jsou `0`, `45` a `90` v první řadě a `135`, `180` a `270` ve druhé řadě.
 
 ```csharp
 using System.Drawing;
@@ -360,13 +360,13 @@ presentation.Save("linear_gradient_angles.pptx", SaveFormat.Pptx);
 
 Výsledek v PowerPointu:
 
-![Lineární gradienty při 0°, 45° a 90° v horní řadě a 135°, 180° a 270° ve spodní řadě](linear-gradient-angles.png)
+![Lineární gradienty při 0, 45 a 90 stupních v horním řádku, a 135, 180 a 270 stupních ve spodním řádku](linear-gradient-angles.png)
 
-### **Škálování lineárního gradientu s tvarem**
+### **Škálování lineárního gradientu podle tvaru**
 
-[IGradientFormat.LinearGradientScaled](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientscaled/) přijímá hodnotu [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/). Nastavte ji explicitně na `False`, aby se geometrický úhel gradientu zachoval při změně proporcí tvaru, nebo na `True`, aby se gradient škáloval spolu se šířkou a výškou tvaru. Při povoleném škálování se viditelný úhel může lišit od přiřazeného úhlu u nesčtvercového tvaru.
+[IGradientFormat.LinearGradientScaled](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientscaled/) přijímá hodnotu [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/). Nastavte ji explicitně na `False`, aby úhel gradientu zůstal geometricky stejný při změně proporcí tvaru, nebo na `True`, aby se gradient škáloval s šířkou a výškou tvaru. Při povoleném škálování se viditelný úhel může lišit od přiřazeného úhlu u netrvalých tvarů.
 
-Následující příklad používá úhel `45` stupňů a stejné barevné zastávky jako při porovnávání úhlů. Levý sloupec používá `False`; pravý sloupec používá `True`. Každý sloupec obsahuje široký obdélník nad vysokým obdélníkem. Oba začínají se stejnými širokými rozměry; změna šířky a výšky druhého obdélníku demonstruje, jak se výplň přizpůsobuje změně velikosti bez změny nastavení gradientu.
+Následující příklad používá úhel `45` stupňů a stejné barevné zastávky jako při porovnání úhlů. Levý sloupec používá `False`; pravý sloupec používá `True`. Každý sloupec obsahuje široký obdélník nad vysokým obdélníkem. Oba začínají se stejnými širokými rozměry; změna šířky a výšky druhého obdélníku ukazuje, jak se výplň chová při změně velikosti bez změny nastavení gradientu.
 
 ```csharp
 using System.Drawing;
@@ -410,19 +410,19 @@ for (var column = 0; column < scalingOptions.Length; column++)
 presentation.Save("linear_gradient_scaling.pptx", SaveFormat.Pptx);
 ```
 
-Výsledek v PowerPointu, s vypnutým škálováním vlevo a povoleným vpravo:
+Výsledek v PowerPointu, s vypnutým škálováním vlevo a zapnutým vpravo:
 
-![Široké a vysoké obdélníky s 45° gradientem, s LinearGradientScaled False vlevo a True vpravo](linear-gradient-scaling.png)
+![Široké a vysoké obdélníky s 45‑stupňovým gradientem, porovnání LinearGradientScaled False vlevo a True vpravo](linear-gradient-scaling.png)
 
-Při vypnutém škálování si šikmé barevné pásy uchovají stejnou orientaci v obou obdélnících. Při povoleném škálování se pásy natáhnou spolu s proporcemi tvaru. Toto pomáhá reprodukovat gradient šablony při adaptaci tvaru na jinou velikost. U čtverce povolení škálování nemění vzhled tohoto `45`‑stupňového gradientu.
+S vypnutým škálováním si šikmé barevné pásy zachovávají stejnou orientaci v obou obdélnících. S povoleným škálováním se pásy roztahují s proporcemi tvaru. To pomáhá reprodukovat gradient šablony při úpravě tvaru na jinou velikost. Na čtverci povolení škálování nemění vzhled tohoto 45‑stupňového gradientu.
 
-Oba nastavení – úhel i škálování – se vztahují jen na lineární gradienty. Nekontrolují výplně [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/).
+Obě nastavení úhlu i škálování se vztahují na lineární gradienty. Nepředstavují náhradu za [GradientShape.Radial nebo GradientShape.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/).
 
-### **Kombinace úhlu se směrem gradientu**
+### **Kombinování úhlu se směrem gradientu**
 
-[IGradientFormat.GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/gradientdirection/) vybírá styl gradientu z výčtu [GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/gradientdirection/); není to náhrada za číselný úhel. Pro lineární gradient mohou styly rohu změnit oblast, nad kterou jsou barvy rozloženy, aniž by změnily [LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/). Při porovnávání úhlů nebo škálování nechte směr beze změny.
+[IGradientFormat.GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/gradientdirection/) vybírá styl gradientu z výčtu [GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/gradientdirection/); není to náhrada za číselný úhel. Pro lineární gradient mohou styly rohu změnit oblast, na které jsou barvy rozloženy, aniž by se měnil [LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/). Při porovnávání úhlů nebo škálování nechte směr beze změny.
 
-Následující příklad aplikuje stejná nastavení v opačném pořadí. Oba obdélníky mají stejný vzhled: přiřazení směru před nebo po nastavení úhlu nemění výsledek.
+Následující příklad aplikuje stejná nastavení v opačném pořadí. Oba obdélníky mají stejný vzhled: přiřazení směru před nebo po úhlu nemění výsledek.
 
 ```csharp
 using System.Drawing;
@@ -461,9 +461,9 @@ for (var i = 0; i < 2; i++)
 presentation.Save("linear_gradient_direction.pptx", SaveFormat.Pptx);
 ```
 
-## **Pattern Fill**
+## **Vzorová výplň**
 
-Pattern fill applies a two‑color design, such as dots, stripes, or checks. This example uses [IPatternFormat.PatternStyle](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/patternstyle/) to select a trellis pattern. [IPatternFormat.BackColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) supplies the light gray background, and [IPatternFormat.ForeColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) supplies the yellow pattern color.
+Vzorová výplň aplikuje dvoubarevný návrh, například tečky, pruhy nebo šachovnici. Tento příklad používá [IPatternFormat.PatternStyle](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/patternstyle/) k výběru vzoru “trellis”. [IPatternFormat.BackColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) poskytuje světle šedé pozadí a [IPatternFormat.ForeColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) dodává žlutou barvu vzoru.
 
 ```csharp
 using System.Drawing;
@@ -484,13 +484,13 @@ presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Obdélník s pattern výplní](pattern-fill.png)
+![Obdélník s vzorovou výplní](pattern-fill.png)
 
-## **Picture Fill**
+## **Obrázková výplň**
 
-A picture fill uses an image inside a shape. This example requires a local image and uses [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) to load it into the presentation’s image collection. Setting [IPictureFillFormat.PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) to the tiled mode repeats the image within the rectangle. The source image used here is shown below:
+Obrázková výplň používá obrázek uvnitř tvaru. Tento příklad vyžaduje místní obrázek a používá [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) k jeho načtení do kolekce obrázků prezentace. Nastavením [IPictureFillFormat.PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) na režim dlaždic opakujete obrázek uvnitř obdélníku. Zdrojový obrázek použitý zde je zobrazen níže:
 
-![The lotus picture](lotus.png)
+![Obrázek lotosu](lotus.png)
 
 ```csharp
 using Aspose.Slides;
@@ -512,21 +512,21 @@ presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Tvar s picture výplní](picture-fill.png)
+![Tvar s obrázkovou výplní](picture-fill.png)
 
-### **Tile Picture As Texture**
+### **Dlaždicovat obrázek jako texturu**
 
-If you want to set a tiled picture as a texture and customize the tiling behavior, you can use the following properties of the [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) interface and [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) class:
+Pokud chcete nastavit dlaždicovaný obrázek jako texturu a přizpůsobit chování dlaždicování, můžete použít následující vlastnosti rozhraní [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) a třídy [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/):
 
-- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Sets the picture fill mode—either `Tile` or `Stretch`.
-- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Specifies the alignment of the tiles within the shape.
-- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Controls whether the tile is flipped horizontally, vertically, or both.
-- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Sets the horizontal offset of the tile (in points) from the shape’s origin.
-- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Sets the vertical offset of the tile (in points) from the shape’s origin.
-- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Defines the horizontal scale of the tile as a percentage.
-- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Defines the vertical scale of the tile as a percentage.
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Nastavuje režim obrázkové výplně — buď `Tile`, nebo `Stretch`.
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Určuje zarovnání dlaždic uvnitř tvaru.
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Ovládá, zda je dlaždice převrácena vodorovně, svisle nebo obojí.
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Nastavuje vodorovný posun dlaždice (v bodech) od počátku tvaru.
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Nastavuje svislý posun dlaždice (v bodech) od počátku tvaru.
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Definuje vodorovné měřítko dlaždice v procentech.
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Definuje svislé měřítko dlaždice v procentech.
 
-This example requires a local image and configures [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) to repeat it at 50% of its original size. Offsets of −32 points shift the tiles horizontally and vertically; bottom‑right alignment and flipping in both directions determine how the repeated texture is arranged.
+Tento příklad vyžaduje místní obrázek a konfiguruje [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) k jeho opakování na 50 % původní velikosti. Posuny −32 bodů posunou dlaždice vodorovně i svisle; zarovnání vpravo dole a převrácení v obou směrech určuje, jak je opakovaná textura uspořádána.
 
 ```csharp
 using Aspose.Slides;
@@ -556,11 +556,11 @@ presentation.Save("tile.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Možnosti tile](tile-options.png)
+![Možnosti dlaždicování](tile-options.png)
 
-## **Solid Color Fill**
+## **Jednobarevná výplň**
 
-A solid fill gives a shape a single, uniform color. This example sets [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) to the solid fill mode and assigns yellow through [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/), then saves the rectangle in a presentation.
+Jednobarevná výplň dává tvaru jednotnou barvu. Tento příklad nastaví [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) na režim jednobarevné výplně a přiřadí žlutou barvu pomocí [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/), poté uloží obdélník do prezentace.
 
 ```csharp
 using System.Drawing;
@@ -579,15 +579,74 @@ presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Tvar se solid color výplní](solid-color-fill.png)
+![Tvar s jednobarevnou výplní](solid-color-fill.png)
 
-## **Use the Slide Background as a Shape Fill**
+### **Kopírování barev při zachování odkazů na motiv**
 
-Use [IAutoShape.UseBackgroundFill](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/usebackgroundfill/) when a shape should match the slide background, for example in a presentation template. Set [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) to [FillType.NotDefined](https://reference.aspose.com/slides/net/aspose.slides/filltype/) first to remove any explicit fill. With this combination, the shape uses the slide background instead of its style fill. Enabling the flag alone does not remove an existing explicit fill.
+Použijte [IColorFormat.CopyFrom](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/copyfrom/) ke kopírování definice barvy, včetně typu barvy, odkazu na motiv a transformací. To je užitečné při přenosu barvy výplně mezi tvary, které by měly i nadále sledovat motiv prezentace. Metoda kopíruje pouze barvu: nekopíruje typ výplně, obrys ani jiné formátování tvaru. Nastavte cílové [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) explicitně.
 
-This differs from [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/): background fill covers objects behind the shape with the corresponding area of the slide background, while no fill leaves those objects visible. A gradient remains aligned with the slide rather than restarting inside each shape.
+Tento příklad vytvoří tři obdélníky, zleva doprava: zdroj, kopii citlivou na motiv a pevnou RGB kopii. Zdroj používá [IColorFormat.SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/schemecolor/) k odkazu na první akcentní barvu a přidává odstín pomocí [IColorOperationCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/icoloroperationcollection/add/). RGB kopie používá efektivní barvu výplně ze zdroje, takže všechny tři vypadají identicky. Přiřazením [IColorFormat.Color](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/color/) nastavíte pevnou RGB hodnotu a vymažete všechny existující transformace barvy.
 
-The following example creates a master background inherited by the slide and places a magenta band behind three rectangles. The left rectangle uses the background, the middle rectangle has no fill, and the right rectangle switches from background fill to an explicit orange fill.
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(660, 220, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+presentation.MasterTheme.ColorScheme.Accent1.Color = Color.RoyalBlue;
+
+var source = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+var themeCopy = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+var rgbCopy = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+foreach (var shape in new[] { source, themeCopy, rgbCopy })
+{
+    shape.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+}
+
+var sourceColor = source.FillFormat.SolidFillColor;
+sourceColor.SchemeColor = SchemeColor.Accent1;
+sourceColor.ColorTransform.Add(ColorTransformOperation.Tint, 0.75f);
+
+themeCopy.FillFormat.SolidFillColor.CopyFrom(sourceColor);
+rgbCopy.FillFormat.SolidFillColor.Color = source.FillFormat.GetEffective().SolidFillColor;
+
+using var before = slide.GetImage(1f, 1f);
+before.Save("color-copy-before.png", ImageFormat.Png);
+
+// Theme references follow the new accent color; the fixed RGB value does not.
+presentation.MasterTheme.ColorScheme.Accent1.Color = Color.OrangeRed;
+
+using var after = slide.GetImage(1f, 1f);
+after.Save("color-copy-after.png", ImageFormat.Png);
+presentation.Save("copied_colors.pptx", SaveFormat.Pptx);
+```
+
+Před změnou motivu všechny tři výplně odpovídají:
+
+![Zdroj, cíl CopyFrom a pevný RGB cíl s identickými modrými výplněmi](color-copy-before.png)
+
+Po změně motivu zdroj a kopie citlivá na motiv následují novou akcentní barvu a zachovají svůj odstín. Pevná RGB kopie zůstane modrá:
+
+![Zdroj a cíl CopyFrom s oranžovými výplněmi, zatímco pevný RGB cíl zůstává modrý](color-copy-after.png)
+
+Zkopírovaná definice je nezávislá na zdroji. Následná změna odkazu na motiv ve zdroji, přiřazení jiné barvy nebo úprava transformací neovlivní cíl. Změna motivu stále ovlivní oba tvary, protože každý samostatně odkazuje na stejnou barvu motivu.
+
+Uložení a opětovné otevření PPTX zachová [IColorFormat.ColorType](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/colortype/), odkaz na motiv a kolekci [IColorFormat.ColorTransform](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/colortransform/) v kopírované barvě; neprovádí se převod na RGB.
+
+Při kopírování mezi různými kontexty motivů, např. prezentacemi s různými akcentními paletami, se odkaz rozřeší vůči motivu cíle. Stejný odkaz a transformace tak mohou vést k jinému viditelnému výsledku. Viz [Presentation Theme](/slides/cs/net/presentation-theme/) pro více informací o konfiguraci barev motivu.
+
+## **Použití pozadí snímku jako výplně tvaru**
+
+Použijte [IAutoShape.UseBackgroundFill](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/usebackgroundfill/) když má tvar odpovídat pozadí snímku, například v šabloně prezentace. Nejprve nastavte [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) na [FillType.NotDefined](https://reference.aspose.com/slides/net/aspose.slides/filltype/), aby se odstranila jakákoli explicitní výplň. S touto kombinací tvar použije místo své výplně pozadí snímku. Pouze nastavení příznaku neodstraní existující explicitní výplň.
+
+To se liší od [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/): výplň pozadím zakrývá objekty za tvarem odpovídající oblastí pozadí snímku, zatímco žádná výplň ponechává tyto objekty viditelné. Gradient zůstává zarovnán k snímku, nikoli k jednotlivým tvarům.
+
+Následující příklad vytvoří hlavní pozadí, které dědí snímek, a umístí magentový pruh za tři obdélníky. Levý obdélník používá pozadí, prostřední nemá výplň a pravý přepíná z výplně pozadím na explicitní oranžovou výplň.
 
 ```csharp
 using System.Drawing;
@@ -598,7 +657,7 @@ using var presentation = new Presentation();
 presentation.SlideSize.SetSize(720, 400, SlideSizeScaleType.DoNotScale);
 var slide = presentation.Slides[0];
 
-// Zdědit gradient z hlavního snímku.
+// Zdědit gradient z hlavního motivu.
 slide.Background.Type = BackgroundType.NotDefined;
 slide.LayoutSlide.Background.Type = BackgroundType.NotDefined;
 var background = slide.LayoutSlide.MasterSlide.Background;
@@ -611,7 +670,7 @@ gradient.GradientStops.Clear();
 gradient.GradientStops.Add(0, Color.DarkBlue);
 gradient.GradientStops.Add(1, Color.LightSkyBlue);
 
-// Nejdříve přidejte tento objekt, aby se zobrazil za obdélníky.
+// Přidejte tento objekt jako první, aby byl za obdélníky.
 var band = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
 band.FillFormat.FillType = FillType.Solid;
 band.FillFormat.SolidFillColor.Color = Color.Magenta;
@@ -636,16 +695,15 @@ explicitShape.FillFormat.SolidFillColor.Color = Color.Orange;
 presentation.Save("background_fill.pptx", SaveFormat.Pptx);
 ```
 
-Výsledek, zleva doprava: **background fill**, **no fill**, and **explicit fill**. The magenta band is hidden by the left and right rectangles but remains visible through the middle rectangle.
+Výsledek, zleva doprava: **výplň pozadím**, **žádná výplň** a **explicitní výplň**. Magentový pruh je skryt levým a pravým obdélníkem, ale zůstává viditelný skrze prostřední obdélník.
 
-![Background fill, no fill, and explicit orange fill over a magenta band](background-fill.png)
+![Výplň pozadím, žádná výplň a explicitní oranžová výplň přes magentový pruh](background-fill.png)
 
-The same behavior applies to a background defined directly on the slide or inherited from a layout. The shape uses the slide's resolved background; the example leaves both the slide and layout backgrounds undefined so the master supplies it.
+Stejné chování platí pro pozadí definované přímo na snímku nebo zděděné z rozvržení. Tvar používá rozlišené pozadí snímku; v příkladu jsou pozadí snímku i rozvržení nedefinována, takže je poskytuje hlavní motiv.
 
+## **Nastavení průhlednosti**
 
-## **Set Transparency**
-
-For a solid fill, the color’s alpha component controls opacity: 0 is fully transparent and 255 is fully opaque. This example uses an alpha value of 128 for a yellow rectangle, making it approximately 50% transparent so the rectangle underneath remains visible. The color is assigned through [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/).
+U jednobarevné výplně řídí alfa komponenta barvy neprůhlednost: 0 je úplně průhledná a 255 úplně neprůhledná. Tento příklad používá alfa hodnotu 128 pro žlutý obdélník, což ho činí přibližně 50 % průhledným, takže pod ním ležící obdélník zůstává viditelný. Barva je přiřazena pomocí [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/).
 
 ```csharp
 using System.Drawing;
@@ -668,11 +726,11 @@ presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![The transparent shape](shape-transparency.png)
+![Průhledný tvar](shape-transparency.png)
 
-## **Rotate Shapes**
+## **Otáčení tvarů**
 
-Use [IShape.Rotation](https://reference.aspose.com/slides/net/aspose.slides/ishape/rotation/) to rotate a shape in the slide plane. The angle is measured in degrees; this example rotates a rectangle 5 degrees clockwise and saves the presentation.
+Použijte [IShape.Rotation](https://reference.aspose.com/slides/net/aspose.slides/ishape/rotation/) k otáčení tvaru v rovině snímku. Úhel se měří ve stupních; tento příklad otočí obdélník o 5 stupňů po směru hodinových ručiček a uloží prezentaci.
 
 ```csharp
 using Aspose.Slides;
@@ -689,11 +747,11 @@ presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![The shape rotation](shape-rotation.png)
+![Otáčení tvaru](shape-rotation.png)
 
-## **Add 3D Bevel Effects**
+## **Přidání 3D efektů zkosení**
 
-Use [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/threedformat/) to give a shape depth and beveled edges. This example creates a green ellipse with an orange outline, sets [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/depth/) to 4 points, and applies a circular top bevel with a width and height of 6 points through [IThreeDFormat.BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/beveltop/). A front‑facing orthographic camera and three‑point lighting make the bevel visible.
+Použijte [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/threedformat/) k přidání hloubky a zkosených okrajů tvaru. Tento příklad vytvoří zelenou elipsu s oranžovým obrysem, nastaví [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/depth/) na 4 body a aplikuje kruhový horní zkosení s šířkou a výškou 6 bodů pomocí [IThreeDFormat.BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/beveltop/). Přední ortografická kamera a trojibodové osvětlení zpřehlední zkosení.
 
 ```csharp
 using System.Drawing;
@@ -722,11 +780,11 @@ presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![The 3D bevel effect](3D-bevel-effect.png)
+![3D efekt zkosení](3D-bevel-effect.png)
 
-## **Add 3D Rotation Effects**
+## **Přidání 3D rotačních efektů**
 
-A shape’s 3D view is controlled by its camera settings. This example uses [ICamera.SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/) with latitude, longitude, and revolution angles of 40, 35, and 20 degrees, respectively. It selects an isometric camera through [ICamera.CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) and balanced lighting through [ILightRig.LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/), then saves the formatted rectangle.
+3D pohled tvaru je řízen nastavením kamery. Tento příklad používá [ICamera.SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/) s úhly šířky, délky a rotace 40, 35 a 20 stupňů. Vybere izometrickou kameru pomocí [ICamera.CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) a vyvážené osvětlení pomocí [ILightRig.LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/), poté uloží formátovaný obdélník.
 
 ```csharp
 using Aspose.Slides;
@@ -746,15 +804,15 @@ presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![The 3D rotation effect](3D-rotation-effect.png)
+![3D rotační efekt](3D-rotation-effect.png)
 
-## **Control Black-and-White Rendering for Shapes**
+## **Řízení černobílého vykreslování tvarů**
 
-The [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) property specifies how an individual shape is rendered when a presentation is viewed or processed in black‑and‑white mode. It does not enable black‑and‑white display by itself, and it does not change the shape's fill, line, or other formatting in normal color mode.
+Vlastnost [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) určuje, jak se jednotlivý tvar vykresluje, když je prezentace zobrazována nebo zpracovávána v černobílém režimu. Nepovoluje samotné zobrazení v černobílé, ani nemění výplň, obrys nebo jiné formátování tvaru v normálním barevném režimu.
 
-Use a value from the [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) enumeration to select the desired behavior. For example, `Automatic` lets the rendering application choose the conversion, `Gray` and `LightGray` use gray coloring, `BlackWhite` uses only black and white, `Black` and `White` force a single color, `Color` preserves normal coloring, and `Hidden` omits the shape in black‑and‑white mode. `NotDefined` means that no shape‑level mode is assigned.
+Použijte hodnotu z výčtu [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) k výběru požadovaného chování. Například `Automatic` nechá konverzi na rozhodnutí aplikace, `Gray` a `LightGray` používají šedé zabarvení, `BlackWhite` používá jen černou a bílou, `Black` a `White` vynutí jedinou barvu, `Color` zachová normální barvy a `Hidden` vynechá tvar v černobílém režimu. `NotDefined` znamená, že není přiřazen žádný režim na úrovni tvaru.
 
-This example creates an orange rectangle and sets [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) to gray. The saved shape retains its orange fill for normal color display and requests gray coloring from applications that honor black‑and‑white display settings:
+Tento příklad vytvoří oranžový obdélník a nastaví [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) na šedou. Uložený tvar si v normálním barevném režimu zachová oranžovou výplň a požádá aplikace, které respektují černobílé nastavení, o šedé zbarvení:
 
 ```csharp
 using System.Drawing;
@@ -772,11 +830,11 @@ shape.BlackWhiteMode = BlackWhiteMode.Gray;
 presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
 ```
 
-In normal color mode, the rectangle retains its orange fill. In a black‑and‑white display workflow, it uses gray coloring because its mode is set to `Gray`. This lets you preserve a full‑color slide while defining a distinct appearance for printing, previewing, or other workflows that honor the presentation's black‑and‑white display settings.
+V normálním barevném režimu obdélník zachovává oranžovou výplň. V pracovním postupu černobílého zobrazení používá šedé zbarvení, protože je nastaven na `Gray`. To vám umožní zachovat plnobarevný snímek a definovat odlišný vzhled pro tisk, náhled nebo jiné postupy, které respektují nastavení černobílého zobrazení prezentace.
 
-## **Reset Formatting**
+## **Obnovení formátování**
 
-Use [ISlide.Reset](https://reference.aspose.com/slides/net/aspose.slides/islide/reset/) to restore the position, size, and formatting of slide placeholders from their corresponding layout placeholders. This example requires an existing presentation with layout‑linked placeholders and resets every slide before saving. Shapes without corresponding layout placeholders are not reset.
+Použijte [ISlide.Reset](https://reference.aspose.com/slides/net/aspose.slides/islide/reset/) k obnovení pozice, velikosti a formátování zástupných objektů snímku z jejich odpovídajících zástupných objektů rozvržení. Tento příklad vyžaduje existující prezentaci s rozvržením‑spojenými zástupnými objekty a resetuje každý snímek před uložením. Tvary bez odpovídajících zástupných objektů rozvržení nejsou resetovány.
 
 ```csharp
 using Aspose.Slides;
@@ -791,16 +849,16 @@ foreach (var slide in presentation.Slides)
 presentation.Save("reset_formatting.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Does shape formatting affect the final presentation file size?**
+**Ovlivňuje formátování tvaru konečnou velikost souboru prezentace?**
 
-Colors, line styles, and effect settings generally add little data compared with embedded images and media. Picture fills can increase the file size because their images are stored in the presentation.
+Barvy, styly čar a nastavení efektů obecně přidávají málo dat ve srovnání s vloženými obrázky a médii. Obrázkové výplně mohou zvýšit velikost souboru, protože jejich obrázky jsou uloženy v prezentaci.
 
-**How can I detect shapes on a slide that share identical formatting so I can group them?**
+**Jak mohu detekovat tvary na snímku, které mají identické formátování, abych je mohl seskupit?**
 
-Compare each shape’s key formatting properties—fill, line, and effect settings. If all corresponding values match, treat their styles as identical and logically group those shapes, which simplifies later style management.
+Porovnejte klíčové vlastnosti formátování každého tvaru — výplň, čára a nastavení efektů. Pokud se všechny odpovídající hodnoty shodují, považujte jejich styly za identické a logicky je seskupte, což usnadní následnou správu stylů.
 
-**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
+**Mohu uložit sadu vlastních stylů tvarů do samostatného souboru pro opětovné použití v jiných prezentacích?**
 
-Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and reapply their formatting wherever required.
+Ano. Uložte ukázkové tvary s požadovanými styly do šablony snímků nebo souboru .POTX. Při vytváření nové prezentace otevřete šablonu, klonujte potřebné stylované tvary a znovu aplikujte jejich formátování tam, kde je to potřeba.

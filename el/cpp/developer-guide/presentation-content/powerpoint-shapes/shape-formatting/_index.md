@@ -1,44 +1,44 @@
 ---
-title: Μορφοποίηση Σχημάτων PowerPoint σε C++
-linktitle: Μορφοποίηση Σχήματος
+title: "Διαμόρφωση Σχημάτων PowerPoint σε C++"
+linktitle: "Μορφοποίηση Σχήματος"
 type: docs
 weight: 20
 url: /el/cpp/shape-formatting/
 keywords:
-- μορφοποίηση σχήματος
-- μορφοποίηση γραμμής
-- εφέ σκίτσου
-- γραμμή σχήματος σκίτσου
-- μορφοποίηση στυλ σύνδεσης
-- γέμιση διαβάθμισης
-- γέμιση μοτίβου
-- γέμιση εικόνας
-- γέμιση υφής
-- γέμιση συμπαγούς χρώματος
-- διαφάνεια σχήματος
-- απόδοση σχήματος σε ασπρόμαυρο
-- απόδοση σχήματος σε γκρι κλίμακα
-- περιστροφή σχήματος
-- 3Δ εφέ εγκοπής
-- 3Δ εφέ περιστροφής
-- επαναφορά μορφοποίησης
-- PowerPoint
-- παρουσίαση
-- C++
-- Aspose.Slides
-description: "Μάθετε πώς να μορφοποιείτε σχήματα PowerPoint σε C++ χρησιμοποιώντας το Aspose.Slides—ορίστε τα στυλ γεμίσματος, γραμμής και εφέ για αρχεία PPT και PPTX με ακρίβεια και πλήρη έλεγχο."
+- "μορφοποίηση σχήματος"
+- "μορφοποίηση γραμμής"
+- "εφέ σκίτσου"
+- "σχέδιο γραμμής σχήματος"
+- "μορφοποίηση στυλ σύνδεσης"
+- "γέμισμα διαβάθμισης"
+- "γέμισμα προτύπου"
+- "γέμισμα εικόνας"
+- "γέμισμα υφής"
+- "συμπαγές γέμισμα χρώματος"
+- "διαφάνεια σχήματος"
+- "απεικόνιση σχήματος ασπρόμαυρου"
+- "απεικόνιση σχήματος σε κλίμακα γκρι"
+- "περιστροφή σχήματος"
+- "εφέ 3Δ λοξής ακμής"
+- "εφέ 3Δ περιστροφής"
+- "επαναφορά μορφοποίησης"
+- "PowerPoint"
+- "παρουσίαση"
+- "C++"
+- "Aspose.Slides"
+description: "Μάθετε πώς να μορφοποιείτε σχήματα PowerPoint σε C++ χρησιμοποιώντας το Aspose.Slides—ορίστε στυλ γεμίσματος, γραμμής και εφέ για αρχεία PPT και PPTX με ακρίβεια και πλήρη έλεγχο."
 ---
 ## **Εισαγωγή**
 
-Διαμορφώστε σχήματα στο PowerPoint προσαρμόζοντας τα περιγράμματά τους, τα γεμίσματα και τα εφέ. Το Aspose.Slides for C++ σάς επιτρέπει να ελέγχετε αυτές τις ρυθμίσεις προγραμματιστικά, συμπεριλαμβανομένης της διαφάνειας, της περιστροφής και της 3Δ μορφοποίησης.
+Διαμορφώστε σχήματα στο PowerPoint προσαρμόζοντας τα περιγράμματά τους, τις γεμίσεις και τα εφέ. Το Aspose.Slides for C++ σας επιτρέπει να ελέγχετε αυτές τις ρυθμίσεις προγραμματιστικά, συμπεριλαμβανομένης της διαφάνειας, της περιστροφής και της 3Δ διαμόρφωσης.
 
 ![Επιλογές μορφοποίησης σχήματος στο PowerPoint](format-shape-powerpoint.png)
 
-Το Aspose.Slides for C++ παρέχει διεπαφές και μεθόδους που σας επιτρέπουν να μορφοποιήσετε σχήματα χρησιμοποιώντας τις ίδιες επιλογές που διατίθενται στο PowerPoint.
+Το Aspose.Slides for C++ παρέχει διεπαφές και μεθόδους που σας επιτρέπουν να μορφοποιείτε σχήματα χρησιμοποιώντας τις ίδιες επιλογές που διατίθενται στο PowerPoint.
 
 ## **Μορφοποίηση Γραμμών**
 
-Χρησιμοποιήστε [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) για να ελέγξετε το περίγραμμα ενός σχήματος. Αυτό το παράδειγμα δημιουργεί ένα μη γεμάτο ορθογώνιο με μπλε, διακεκομμένο περίγραμμα. Το [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) επιλέγει σύνθετη γραμμή πάχους-λεπτού, ενώ το [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) ορίζει το πλάτος της σε 7 σημεία και το [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) επιλέγει το μοτίβο παύλας.
+Χρησιμοποιήστε [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) για να ελέγξετε το περίγραμμα ενός σχήματος. Αυτό το παράδειγμα δημιουργεί ένα μη γεμισμένο ορθογώνιο με μπλε, διακεκομμένο περίγραμμα. Το [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) επιλέγει μια σύνθετη γραμμή παχιά-λεπτή, ενώ το [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) ορίζει το πλάτος της σε 7 σημεία και το [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) επιλέγει το μοτίβο διακεκομμένων.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -81,13 +81,13 @@ presentation->Dispose();
 
 ![Οι μορφοποιημένες γραμμές στην παρουσίαση](formatted-lines.png)
 
-### **Ορισμός Προσαρμοσμένων Μοτίβων Παύλας Γραμμής**
+### **Ορισμός Προσαρμοσμένων Μορφών Διακεκομμένων Γραμμών**
 
-Χρησιμοποιήστε [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) όταν τα προεγκατεστημένα στυλ γραμμής δεν παρέχουν τα μήκη παύλας και κενών που χρειάζεστε, π.χ. για επώνυμα περιγράμματα ή τεχνικά διαγράμματα. Η ανάθεση ενός μοτίβου αλλάζει αυτόματα το στυλ παύλας σε [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/).
+Χρησιμοποιήστε [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) όταν τα προεπιλεγμένα στυλ γραμμής δεν παρέχουν τα μήκη και τα κενά που χρειάζεστε, π.χ. για εμπορικά περιγράμματα ή τεχνικά διαγράμματα. Η ανάθεση ενός μοτίβου αλλάζει αυτόματα το στυλ διακεκομμένων σε [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/).
 
-Οι καταχωρήσεις του πίνακα εναλλάσσονται μεταξύ μηκών παύλας και κενών, ξεκινώντας με παύλα. Κάθε τιμή είναι πολλαπλάσιο του πλάτους γραμμής: `{ 4, 2 }` σε πλάτος 3 σημείων δημιουργεί παύλα 12 σημείων και κενό 6 σημείων. Χρησιμοποιήστε ζεύγη πεπερασμένων, μη‑αρνητικών τιμών για να ορίσετε πλήρη τμήματα παύλας‑και‑κενών. Το παράδειγμα χρησιμοποιεί θετικές τιμές ώστε κάθε παύλα και κενό να είναι ορατά.
+Οι καταχωρίσεις του πίνακα εναλλάσσονται μεταξύ μήκους γραμμής και κενό, ξεκινώντας με γραμμή. Κάθε τιμή είναι πολλαπλάσιο του πλάτους της γραμμής: `{ 4, 2 }` με πλάτος 3 σημείων παράγει μια γραμμή 12 σημείων ακολουθούμενη από κενό 6 σημείων. Χρησιμοποιήστε ζεύγη πεπερασμένων, μη αρνητικών τιμών για να ορίσετε πλήρη τμήματα γραμμής-κενού. Το παράδειγμα χρησιμοποιεί θετικές τιμές ώστε κάθε γραμμή και κενό να είναι ορατά.
 
-Αυτό το παράδειγμα δημιουργεί πέντε μπλε γραμμές με το ίδιο μήκος και επίπεδες άκρες. Οι πρώτες τρεις συγκρίνουν μοτίβα σε πλάτος 3 σημείων. Η τέταρτη επαναλαμβάνει το πρώτο μοτίβο σε διπλό πλάτος, διπλασιάζοντας τόσο το μήκος παύλας όσο και το κενό. Η πέμπτη αλλάζει από προσαρμοσμένο μοτίβο σε στερεή γραμμή.
+Αυτό το παράδειγμα δημιουργεί πέντε μπλε γραμμές με το ίδιο μήκος και επίπεδα άκρα. Οι πρώτες τρεις συγκρίνουν μοτίβα με πλάτος 3 σημείων. Η τέταρτη επαναλαμβάνει το πρώτο μοτίβο με διπλασιασμένο πλάτος, διπλασιάζοντας τόσο τα μήκη γραμμής όσο και τα κενά. Η πέμπτη μεταβαίνει από προσαρμοσμένο μοτίβο σε στερεή γραμμή.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -140,33 +140,32 @@ for (auto i = 0; i < patterns.size(); i++)
     line->get_LineFormat()->set_CustomDashPattern(patterns[i]);
 }
 
-// Return the last line to a solid style.
+// Επιστρέψτε την τελευταία γραμμή σε στερεό στυλ.
 slide->get_Shape(4)->get_LineFormat()->set_DashStyle(LineDashStyle::Solid);
 
 presentation->Save(u"custom_dash_patterns.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Για επιστροφή σε προεγκατεστημένο στυλ διακεκομμένης γραμμής, περάστε [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) στο [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/). Το επιλεγμένο στυλ ελέγχει την εμφάνιση της γραμμής.
+Για να επιστρέψετε σε προεπιλεγμένο στυλ διακεκομμένων, περάστε το [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) στο [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/). Το επιλεγμένο στυλ ελέγχει την εμφάνιση της γραμμής.
 
-Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **{4, 2}, 3 pt**· **{1, 2}, 3 pt**· **{6, 2, 1, 2}, 3 pt**· **{4, 2}, 6 pt**· και **Solid, 3 pt**.
+Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; και **Solid, 3 pt**.
 
-![Τρία προσαρμοσμένα μοτίβα παύλας, μια πιο φαρδιά γραμμή με το πρώτο μοτίβο και μια στερεή γραμμή στο PowerPoint](custom-dash-patterns.png)
-
+![Τρία προσαρμοσμένα μοτίβα διακεκομμένων, μια ευρύτερη γραμμή που χρησιμοποιεί το πρώτο μοτίβο, και μια στερεή γραμμή στο PowerPoint](custom-dash-patterns.png)
 
 ### **Ορισμός Άκρων Γραμμής**
 
 Χρησιμοποιήστε [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) για να ορίσετε τα άκρα μιας ανοιχτής γραμμής. Η απαρίθμηση [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) παρέχει τρία σαφή στυλ άκρων:
 
-- `Flat`: Η γραμμή σταματά στο άκρο.
+- `Flat`: Το στίγμα σταματά στο σημείο άκρου.
 - `Round`: Ένα ημικυκλικό άκρο εκτείνεται πέρα από το άκρο κατά το ήμισυ του πλάτους της γραμμής.
 - `Square`: Ένα τετράγωνο άκρο εκτείνεται πέρα από το άκρο κατά το ήμισυ του πλάτους της γραμμής.
 
-Η απαρίθμηση περιλαμβάνει επίσης το `NotDefined`, που σημαίνει ότι δεν έχει οριστεί συγκεκριμένο στυλ άκρου.
+Η απαρίθμηση περιλαμβάνει επίσης το `NotDefined`, που σημαίνει ότι δεν έχει ανατεθεί ρητά στυλ άκρου.
 
-Τα άκρα διαφέρουν από τα βέλη, που προσθέτουν σύμβολα στα άκρα της γραμμής, και τις ενώσεις, που ελέγχουν τις γωνίες μεταξύ τμημάτων γραμμής. Αυτό το παράδειγμα απενεργοποιεί τα βέλη μέσω του [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) και του [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) ώστε να συγκριθούν μόνο τα σχήματα άκρων.
+Τα άκρα διαφέρουν από τα βέλη, τα οποία προσθέτουν σύμβολα στα άκρα της γραμμής, και τις ενώσεις, που ελέγχουν τις γωνίες μεταξύ τμημάτων γραμμής. Αυτό το παράδειγμα απενεργοποιεί τα βέλη μέσω των [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) και [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) ώστε να συγκριθούν μόνο τα σχήματα άκρων.
 
-Το παρακάτω παράδειγμα δημιουργεί τρεις διαφορετικά οριζόντια γραμμές, 20 pt πλάτος. Από πάνω προς τα κάτω, χρησιμοποιούν επίπεδα, στρογγυλεμένα και τετράγωνα άκρα. Τα άκρα τους έχουν τις ίδιες οριζόντιες συντεταγμένες· τα στρογγυλεμένα και τετράγωνα άκρα εκτείνονται 10 pt πέρα από κάθε άκρο.
+Το παρακάτω παράδειγμα δημιουργεί τρεις οριζόντιες γραμμές, 20 σημείων πλάτος, που είναι κατά τα άλλα ίδια. Από πάνω προς τα κάτω, χρησιμοποιούν επίπεδα, στρογγυλά και τετράγωνα άκρα. Τα άκρα τους έχουν τις ίδιες οριζόντιες συντεταγμένες· τα στρογγυλά και τετράγωνα άκρα εκτείνονται 10 σημεία πέρα από κάθε άκρο.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -216,15 +215,15 @@ presentation->Save(u"line_caps.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **Flat**, **Round**, και **Square**.
+Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **Flat**, **Round**, and **Square**.
 
-![Επίπεδα, στρογγυλεμένα και τετράγωνα άκρα σε παρόμοιες παχιές γραμμές στο PowerPoint](line-caps.png)
+![Επίπεδα, στρογγυλά και τετράγωνα άκρα σε πανομοιότυπες παχιές γραμμές στο PowerPoint](line-caps.png)
 
-## **Εφαρμογή Σχεδιαστικών Εφέ σε Γραμμές Σχήματος**
+## **Εφαρμογή Σχέδιας Εφέ σε Γραμμές Σχήματος**
 
-Ένα σχεδιαστικό εφέ κάνει τη γραμμή ενός σχήματος να φαίνεται χειροποίητη. Χρησιμοποιήστε [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) για πρόσβαση στις ρυθμίσεις γραμμής, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) για πρόσβαση στις ρυθμίσεις σχεδίασης και [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) για επιλογή τιμής από την απαρίθμηση [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/).
+Ένα εφέ σκίτσου κάνει τη γραμμή ενός σχήματος να φαίνεται χειρόγραφη. Χρησιμοποιήστε [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) για να αποκτήσετε πρόσβαση στις ρυθμίσεις της γραμμής, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) για να αποκτήσετε πρόσβαση στις ρυθμίσεις σκίτσου, και [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) για να επιλέξετε μια τιμή από την απαρίθμηση [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/).
 
-Ο παρακάτω κώδικας C++ δείχνει πώς να εφαρμόσετε το εφέ [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/), να διαβάσετε την ρητά εκχωρημένη τιμή και να αφαιρέσετε το εφέ με [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
+Ο παρακάτω κώδικας C++ δείχνει πώς να εφαρμόσετε το εφέ [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/), να διαβάσετε τη ρητά ανατεθειμένη τιμή και να αφαιρέσετε το εφέ με το [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -255,7 +254,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-Η τιμή που επιστρέφεται από το [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) αντιπροσωπεύει τη ρύθμιση που έχει εκχωρηθεί άμεσα στο σχήμα. Εάν η μορφοποίηση της γραμμής μπορεί να κληρονομηθεί από ένα θέμα, τη μάστερ διαφάνεια ή τη διάταξη, χρησιμοποιήστε το [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), προσπελάστε το [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) και διαβάστε το [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Η αποτελεσματική τιμή αντανακλά τη μορφοποίηση που εφαρμόζεται πραγματικά μετά την επίλυση της κληρονόμησης. Αυτό το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με τουλάχιστον ένα σχήμα στην πρώτη διαφάνεια και εκτυπώνει και τις δύο τιμές:
+Η τιμή που επιστρέφεται από το [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) αντιπροσωπεύει τη ρύθμιση που έχει ανατεθεί άμεσα στο σχήμα. Εάν η μορφοποίηση της γραμμής μπορεί να κληρονομηθεί από ένα θέμα, μια κύρια διαφάνεια ή μια διάταξη διαφάνειας, χρησιμοποιήστε το [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), αποκτήστε πρόσβαση στο [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), και διαβάστε το [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Η αποτελεσματική τιμή αντικατοπτρίζει τη μορφοποίηση που εφαρμόζεται στην πραγματικότητα μετά την επίλυση της κληρονομικότητας. Αυτό το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με τουλάχιστον ένα σχήμα στην πρώτη διαφάνεια και εκτυπώνει και τις δύο τιμές:
 
 ```cpp
 #include <DOM/ILineFormat.h>
@@ -285,19 +284,19 @@ Console::WriteLine(u"Effective sketch type: {0}", effectiveSketchType);
 presentation->Dispose();
 ```
 
-## **Μορφοποίηση Στυλ Συμψησμών**
+## **Μορφοποίηση Στυλ Συνένωσης**
 
-Αυτές είναι οι τρεις επιλογές τύπου σύμψησης:
+Εδώ είναι οι τρεις επιλογές τύπου σύνδεσης:
 
 * Round
 * Miter
 * Bevel
 
-Το στυλ σύμψησης ελέγχει πώς δύο τμήματα περιγράμματος συναντώνται σε μια γωνία. Χρησιμοποιήστε **Round** για στρογγυλεμένες γωνίες, **Miter** για αιχμηρές γωνίες ή **Bevel** για επίπεδες γωνίες.
+Το στυλ σύνδεσης ελέγχει τον τρόπο με τον οποίο δύο τμήματα περιγράμματος συναντώνται σε μια γωνία. Χρησιμοποιήστε **Round** για στρογγυλεμένες γωνίες, **Miter** για οξές γωνίες ή **Bevel** για επίπεδες γωνίες.
 
-![Το στυλ σύμψησης στην παρουσίαση](join-style-powerpoint.png)
+![Το στυλ σύνδεσης στην παρουσίαση](join-style-powerpoint.png)
 
-Αυτό το παράδειγμα δημιουργεί τρία μαύρα ορθογώνια με μπλε περιγράμματα 15 pt πλάτος. Ορίζει το [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) στα miter, bevel και round της [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) για να συγκρίνει πώς σχεδιάζονται οι γωνίες.
+Αυτό το παράδειγμα δημιουργεί τρία μαύρα ορθογώνια με μπλε περιγράμματα 15 σημείων πλάτος. Ορίζει το [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) στις τιμές μιτερ, βαθμίδα και στρογγυλό της [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/), αντίστοιχα, για να συγκρίνει πώς σχεδιάζονται οι γωνίες.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -358,13 +357,13 @@ presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Περιορισμός Συμψησίων Miter σε Αιχμηρές Γωνίες**
+### **Περιορισμός Σημείων Μήτρας σε Κόχυνα Γωνία**
 
-Χρησιμοποιήστε [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) μαζί με το [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) ορισμένο στο [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) για να περιορίσετε το πόσο μακριά μπορεί να επεκταθεί μια αιχμηρή γωνία.
+Χρησιμοποιήστε το [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) μαζί με το [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) ορισμένο στο [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) για να περιορίσετε πόσο μακριά μπορεί να εκτείνεται μια οξεία γωνία.
 
-Το όριο είναι το ποσοστό της απόστασης μεταξύ των εσωτερικών και εξωτερικών γωνιών της σύμψησης προς το πλάτος της γραμμής. Για παράδειγμα, τιμή `8` επιτρέπει μήκος miter έως οκτώ φορές το πλάτος της γραμμής· δεν είναι μέτρηση σε σημεία. Εάν η γωνία υπερβαίνει το όριο, το PowerPoint χρησιμοποιεί μια επίπεδη σύμψηση σε εκείνη τη γωνία. Μεγαλύτερο όριο επιτρέπει πιο αιχμηρά σημεία. Η ρύθμιση επηρεάζει μόνο τις miter συσπάσεις και δεν έχει ορατό αποτέλεσμα όταν η γωνία παραμένει εντός των ορίων.
+Το όριο είναι ένας λόγος της απόστασης μεταξύ των εσωτερικών και εξωτερικών γωνιών της σύνδεσης προς το πλάτος της γραμμής. Για παράδειγμα, η τιμή `8` επιτρέπει μήκος σημείου μέχρι οκτώ φορές το πλάτος της γραμμής· δεν είναι μέτρηση σε σημεία. Εάν η γωνία υπερβεί το όριο, το PowerPoint χρησιμοποιεί μια λεπίδα στην εν λόγω γωνία. Ένα μεγαλύτερο όριο επιτρέπει πιο οξείς σημεία. Η ρύθμιση επηρεάζει μόνο τις συνδέσεις με μιτερ και δεν έχει ορατή επίδραση όταν η γωνία παραμένει εντός και των δύο ορίων.
 
-Αυτό το παράδειγμα δημιουργεί δύο ίσα, μη γεμάτα τρίγωνα με περιγράμματα 20 pt πλάτος. Το αριστερό τρίγωνα χρησιμοποιεί όριο `2`, το δεξιό `8`. Κάθε τρίγωνο έχει πλάτος 80 pt και ύψος 160 pt, δίνοντας στην κορυφή του λόγο miter‑length‑to‑line‑width περίπου `4.12`. Συνεπώς, το PowerPoint επίπεδωσε το αριστερό άκρο και διατήρησε το δεξί.
+Αυτό το παράδειγμα δημιουργεί δύο όμοια, μη γεμισμένα τρίγωνα με περιγράμματα 20 σημείων πλάτος. Το αριστερό τρίγωνο χρησιμοποιεί όριο `2`, ενώ το δεξί `8`. Κάθε τρίγωνο είναι 80 σημεία πλάτος και 160 σημεία ύψος, δίνοντας στην άνω γωνία του λόγο μήκους μιτερ προς πλάτος περίπου `4.12`. Συνεπώς, το PowerPoint λεία την αριστερή κορυφή και διατηρεί τη δεξιά.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -411,13 +410,13 @@ presentation->Save(u"miter_limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Το αποτέλεσμα στο PowerPoint: **Όριο miter 2** αριστερά και **Όριο miter 8** δεξιά.
+Το αποτέλεσμα στο PowerPoint: **Miter limit 2** στα αριστερά και **miter limit 8** στα δεξιά.
 
-![Ένα επίπεδο άκρο με όριο miter 2 και ένα αιχμηρό άκρο με όριο miter 8 στο PowerPoint](miter-limits.png)
+![Λεία κορυφή με όριο μιτερ 2 και αιχμηρή κορυφή με όριο μιτερ 8 στο PowerPoint](miter-limits.png)
 
-## **Γραμμική Γέμιση Με Διαβάθμιση**
+## **Γέμισμα Διαβάθμισης**
 
-Μια γραμμική γέμιση ενώνει χρώματα σε ένα σχήμα. Αυτό το παράδειγμα γεμίζει μια έλλειψη με γραμμική γέμιση υπό γωνία 45 μοίρες από το κόκκινο στο μωβ χρησιμοποιώντας το [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). Η μέθοδος [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) τοποθετεί τα χρώματα στα 0 και 1, την αρχή και το τέλος της διαβάθμισης. Η εκκαθάριση των υπαρχόντων σημείων εξασφαλίζει ότι χρησιμοποιούνται μόνο αυτά τα δύο χρώματα.
+Ένα γέμισμα διαβάθμισης αναμειγνύει χρώματα σε ένα σχήμα. Αυτό το παράδειγμα γεμίζει μια έλλειψη με γραμμική διαβάθμιση υπό γωνία 45 μοιρών από κόκκινο σε μωβ χρησιμοποιώντας το [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). Η μέθοδος [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) τοποθετεί τις στάσεις χρώματος στα 0 και 1, την αρχή και το τέλος της διαβάθμισης. Η εκκαθάριση των υπαρχουσών στάσεων εξασφαλίζει ότι χρησιμοποιούνται μόνο αυτά τα δύο χρώματα.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -458,15 +457,15 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Η έλλειψη με γέμιση διαβάθμισης](gradient-fill.png)
+![Η έλλειψη με γέμισμα διαβάθμισης](gradient-fill.png)
 
-Εάν μια διαβάθμιση φαίνεται διαφορετική σε εξαγόμενο εικόνα από ό,τι στο PowerPoint, δείτε την ενότητα [Choose a Gradient Rendering Style](/slides/el/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Μπορείτε να επιλέξετε στυλ απόδοσης χωρίς να αλλάξετε τη διαβάθμιση που είναι αποθηκευμένη στην παρουσίαση.
+Εάν μια διαβάθμιση φαίνεται διαφορετική σε μια εξαγόμενη εικόνα από ό,τι στο PowerPoint, δείτε [Επιλογή Στυλ Απόδοσης Διαβάθμισης](/slides/el/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Μπορείτε να επιλέξετε στυλ απόδοσης χωρίς να αλλάξετε τη διαβάθμιση που αποθηκεύεται στην παρουσίαση.
 
 ### **Ορισμός Γωνίας Γραμμικής Διαβάθμισης**
 
-Χρησιμοποιήστε το [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) για να ελέγξετε τον προσανατολισμό μιας γέμισης [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/). Η γωνία μετράται σε μοίρες και αυξάνεται δεξιόστροφα: `0` τρέχει από αριστερά προς δεξιά, `90` από πάνω προς τα κάτω, `180` από δεξιά προς αριστερά, και `270` από κάτω προς τα πάνω. Υποστηρίζονται κλασματικές γωνίες. Γωνίες εκτός του εύρους `[0, 360)` κανονικοποιούνται σε μία περιστροφή· για παράδειγμα, `-45` γίνεται `315` και `360` γίνεται `0`.
+Χρησιμοποιήστε το [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) για να ελέγξετε τον προσανατολισμό μιας γεμίσματος [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/). Η γωνία μετράται σε μοίρες και αυξάνεται δεξιόστροφα: `0` τρέχει από αριστερά προς δεξιά, `90` από πάνω προς τα κάτω, `180` από δεξιά προς αριστερά και `270` από κάτω προς πάνω. Υποστηρίζονται κλασματικές γωνίες. Οι πεπερασμένες γωνίες εκτός του `[0, 360)` κανονικοποιούνται σε μια πλήρη περιστροφή· για παράδειγμα, `-45` γίνεται `315` και `360` γίνεται `0`.
 
-Αυτό το παράδειγμα δημιουργεί έξι ορθογωνιά με τα ίδια κόκκινα, πράσινα και μπλε σημεία σε θέσεις `0`, `0.5` και `1`. Η κλιμάκωση είναι απενεργοποιημένη ώστε η γωνία να συγκρίνεται ανεξάρτητα από τις αναλογίες των ορθογωνίων. Οι γωνίες, από αριστερά προς δεξιά, είναι `0`, `45` και `90` στην πρώτη σειρά, και `135`, `180` και `270` στη δεύτερη σειρά.
+Αυτό το παράδειγμα δημιουργεί έξι ορθογώνια με τα ίδια κόκκινα, πράσινα και μπλε στάσεις στις θέσεις `0`, `0.5` και `1`. Η κλιμάκωση είναι απενεργοποιημένη ώστε η γωνία να συγκριθεί ανεξάρτητα από τις αναλογίες των ορθογωνίων. Οι γωνίες, από αριστερά προς δεξιά, είναι `0`, `45` και `90` στην πρώτη σειρά, και `135`, `180` και `270` στη δεύτερη σειρά.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -525,13 +524,13 @@ presentation->Dispose();
 
 Το αποτέλεσμα στο PowerPoint:
 
-![Γραμμικές διαβάθμιση στις 0, 45, και 90 μοίρες στην επάνω σειρά, και 135, 180, και 270 στο κάτω μέρος](linear-gradient-angles.png)
+![Γραμμικές διαβάθμιση στις 0, 45 και 90 μοίρες στην επάνω σειρά, και 135, 180 και 270 μοίρες στην κάτω σειρά](linear-gradient-angles.png)
 
-### **Κλιμάκωση Γραμμικής Διαβάθμισης με το Σχήμα**
+### **Κλίμακα Γραμμικής Διαβάθμισης με το Σχήμα**
 
-Το [IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) δέχεται τιμή [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/). Ορίστε την ρητά σε `False` για να διατηρήσετε τη γεωμετρική γωνία της διαβάθμισης όταν αλλάζει το σχήμα, ή σε `True` για να κλιμακώσετε τη διαβάθμιση με το πλάτος και το ύψος του σχήματος. Με ενεργοποιημένη κλιμάκωση, η ορατή γωνία μπορεί να διαφέρει από την εκχωρημένη γωνία σε μη‑τετράγωνο σχήμα.
+Το [IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) δέχεται μια τιμή [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/). Ορίστε την ρητά σε `False` για να διατηρήσετε τη γεωμετρική γωνία της διαβάθμισης όταν αλλάζουν οι αναλογίες του σχήματος, ή σε `True` για να κλιμακώσετε τη διαβάθμιση με το πλάτος και το ύψος του σχήματος. Με την κλιμάκωση ενεργοποιημένη, η ορατή γωνία μπορεί να διαφέρει από την ανάθετη γωνία σε μη τετράγωνο σχήμα.
 
-Το παρακάτω παράδειγμα χρησιμοποιεί γωνία `45` μοίρες και τα ίδια σημεία χρώματος όπως στη σύγκριση γωνιών. Η αριστερή στήλη χρησιμοποιεί `False`; η δεξιά `True`. Κάθε στήλη περιέχει ένα πλατύ ορθογώνιο πάνω από ένα ψηλό ορθογώνιο. Και τα δύο ξεκινούν με τις ίδιες διαστάσεις· η αλλαγή του πλάτους και του ύψους του δεύτερου ορθογωνίου δείχνει πώς η γέμιση ανταποκρίνεται στην αλλαγή μεγέθους χωρίς αλλαγή των ρυθμίσεων διαβάθμισης.
+Το παρακάτω παράδειγμα χρησιμοποιεί γωνία `45` μοιρών και τις ίδιες στάσεις χρώματος όπως στην σύγκριση γωνιών. Η αριστερή στήλη χρησιμοποιεί `False`; η δεξιά `True`. Κάθε στήλη περιλαμβάνει ένα πλατύ ορθογώνιο πάνω από ένα ψηλό ορθογώνιο. Και οι δύο αρχίζουν με τις ίδιες οριζόντιες διαστάσεις· η αλλαγή του πλάτους και του ύψους του δεύτερου ορθογωνίου δείχνει πώς το γέμισμα ανταποκρίνεται στην αλλαγή μεγέθους χωρίς αλλαγή των ρυθμίσεων διαβάθμισης.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -597,17 +596,17 @@ presentation->Save(u"linear_gradient_scaling.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Το αποτέλεσμα στο PowerPoint, με κλιμάκωση απενεργοποιημένη αριστερά και ενεργή δεξιά:
+Το αποτέλεσμα στο PowerPoint, με κλιμάκωση απενεργοποιημένη στα αριστερά και ενεργοποιημένη στα δεξιά:
 
-![Πλανά και ψηλά ορθογώνια με διαβάθμιση 45 μοίρες, συγκρίνοντας LinearGradientScaled False αριστερά με True δεξιά](linear-gradient-scaling.png)
+![Πλατιά και ψηλά ορθογώνια με διαβάθμιση 45 μοιρών, συγκρίνοντας LinearGradientScaled False στα αριστερά με True στα δεξιά](linear-gradient-scaling.png)
 
-Με κλιμάκωση απενεργοποιημένη, οι διαγώνιες λωρίδες χρώματος διατηρούν τον ίδιο προσανατολισμό και στα δύο ορθογώνια. Με κλιμάκωση ενεργή, οι λωρίδες τεντώνονται με τις αναλογίες του σχήματος. Αυτό βοηθά στην επαναδημιουργία μιας διαβάθμισης προτύπου όταν προσαρμόζετε ένα σχήμα σε διαφορετικό μέγεθος. Σε τετράγωνο σχήμα, η ενεργοποίηση της κλιμάκωσης δεν αλλάζει την εμφάνιση αυτής της διαβάθμισης 45 μοίρες.
+Με κλιμάκωση απενεργοποιημένη, οι διαγώνιες λωρίδες χρώματος διατηρούν τον ίδιο προσανατολισμό και στα δύο ορθογώνια. Με κλιμάκωση ενεργοποιημένη, οι λωρίδες τραβιούνται με τις αναλογίες του σχήματος. Αυτό βοηθά στην αναπαραγωγή μιας διαβάθμισης προτύπου όταν προσαρμόζεται ένα σχήμα σε διαφορετικό μέγεθος. Σε τετράγωνο σχήμα, η ενεργοποίηση της κλιμάκωσης δεν αλλάζει την εμφάνιση αυτής της διαβάθμισης 45 μοιρών.
 
-Τanto η γωνία όσο και η κλιμάκωση ισχύουν για γραμμικές διαβάθμιση. Δεν ελέγχουν τις γέμισεις [GradientShape::Radial ή GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/).
+Τanto η γωνία όσο και οι ρυθμίσεις κλιμάκωσης εφαρμόζονται σε γραμμικές διαβάθμιση. Δεν ελέγχουν γεμίσματα [GradientShape::Radial ή GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/).
 
 ### **Συνδυασμός Γωνίας με Κατεύθυνση Διαβάθμισης**
 
-Το [IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) επιλέγει στυλ διαβάθμισης από την απαρίθμηση [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/); δεν υποκαθιστά αριθμητική γωνία. Για γραμμική διαβάθμιση, τα στυλ γωνιών μπορούν να αλλάξουν την περιοχή κατανομής χρωμάτων χωρίς αλλαγή της γωνίας που έχει οριστεί μέσω του [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/). Διατηρήστε την κατεύθυνση αμετάβλητη όταν συγκρίνετε γωνίες ή κλιμάκωση.
+Το [IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) επιλέγει ένα στυλ διαβάθμισης από την απαρίθμηση [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/); δεν αντικαθιστά έναν αριθμητικό γωνιακό ορισμό. Για μια γραμμική διαβάθμιση, τα στυλ γωνιών μπορούν να αλλάξουν την περιοχή όπου διανέμονται τα χρώματα χωρίς να αλλάξουν τη γωνία που έχει οριστεί μέσω του [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/). Διατηρήστε την κατεύθυνση αμετάβλητη όταν συγκρίνετε γωνίες ή κλιμάκωση.
 
 Το παρακάτω παράδειγμα εφαρμόζει τις ίδιες ρυθμίσεις με αντίστροφη σειρά. Τα δύο ορθογώνια έχουν την ίδια εμφάνιση: η ανάθεση της κατεύθυνσης πριν ή μετά τη γωνία δεν αλλάζει το αποτέλεσμα.
 
@@ -668,9 +667,9 @@ presentation->Save(u"linear_gradient_direction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Γέμιση με Μοτίβο**
+## **Γέμισμα Προτύπου**
 
-Μια γέμιση με μοτίβο εφαρμόζει σχέδιο δύο χρωμάτων, όπως κουκίδες, λωρίδες ή τετραγωνίδια. Αυτό το παράδειγμα χρησιμοποιεί το [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) για επιλογή μοτίβου πλέγματος. Το [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) παρέχει το ανοιχτόγκρι φόντο, και το [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) παρέχει το κίτρινο χρώμα μοτίβου.
+Ένα γέμισμα προτύπου εφαρμόζει ένα σχεδιασμό δύο χρωμάτων, όπως κουκίδες, λωρίδες ή σκαλοπάτια. Αυτό το παράδειγμα χρησιμοποιεί το [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) για να επιλέξει ένα μοτίβο πλέγματος. Το [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) παρέχει το ανοιχτό γκρι φόντο, και το [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) παρέχει το κίτρινο χρώμα του μοτίβου.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -707,11 +706,11 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Το ορθογώνιο με γέμιση μοτίβου](pattern-fill.png)
+![Το ορθογώνιο με γέμισμα προτύπου](pattern-fill.png)
 
-## **Γέμιση με Εικόνα**
+## **Γέμισμα Εικόνας**
 
-Μια γέμιση με εικόνα χρησιμοποιεί μια εικόνα εντός ενός σχήματος. Αυτό το παράδειγμα απαιτεί τοπική εικόνα και χρησιμοποιεί το [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) για να τη φορτώσει στη συλλογή εικόνων της παρουσίασης. Ορίζοντας το [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) σε λειτουργία πλακιδίων (tile) επαναλαμβάνει την εικόνα μέσα στο ορθογώνιο. Η πηγή εικόνας που χρησιμοποιείται παρατίθεται παρακάτω:
+Ένα γέμισμα εικόνας χρησιμοποιεί μια εικόνα μέσα σε ένα σχήμα. Αυτό το παράδειγμα απαιτεί μια τοπική εικόνα και χρησιμοποιεί το [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) για να τη φορτώσει στη συλλογή εικόνων της παρουσίασης. Ορίζοντας το [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) σε λειτουργία πλακιδίων (tiled) επαναλαμβάνει την εικόνα μέσα στο ορθογώνιο. Η πηγαία εικόνα που χρησιμοποιείται παρακάτω φαίνεται παρακάτω:
 
 ![Η εικόνα λωτός](lotus.png)
 
@@ -754,21 +753,21 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Το σχήμα με γέμιση εικόνας](picture-fill.png)
+![Το σχήμα με γέμισμα εικόνας](picture-fill.png)
 
-### **Πλακίδια Εικόνας ως Υφή**
+### **Ταπing Εικόνας Ως Υφή**
 
-Εάν θέλετε να ορίσετε μια πλακιδική εικόνα ως υφή και να προσαρμόσετε τη συμπεριφορά του πλακιδίου, μπορείτε να χρησιμοποιήσετε τις ακόλουθες μεθόδους της διεπαφής [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) και της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/):
+Εάν θέλετε να ορίσετε μια επαναλαμβανόμενη εικόνα ως υφή και να προσαρμόσετε τη συμπεριφορά ταπισεία, μπορείτε να χρησιμοποιήσετε τις παρακάτω μεθόδους της διεπαφής [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) και της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/):
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Ορίζει τη λειτουργία γέμισης εικόνας—είτε `Tile` είτε `Stretch`.
-- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Καθορίζει την στοίχιση των πλακιδίων μέσα στο σχήμα.
-- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Ελέγχει εάν το πλακίδιο θα αντιστραφεί οριζόντια, κάθετα ή και τα δύο.
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Ορίζει τη λειτουργία γεμίσματος εικόνας — είτε `Tile` είτε `Stretch`.
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Καθορίζει την ευθυγράμμιση των πλακιδίων εντός του σχήματος.
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Ελέγχει εάν το πλακίδιο αντιστρέφεται οριζόντια, κάθετα ή και τα δύο.
 - [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Ορίζει την οριζόντια μετατόπιση του πλακιδίου (σε σημεία) από το σημείο προέλευσης του σχήματος.
 - [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Ορίζει την κάθετη μετατόπιση του πλακιδίου (σε σημεία) από το σημείο προέλευσης του σχήματος.
-- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Ορίζει την οριζόντια κλιμάκωση του πλακιδίου ως ποσοστό.
-- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Ορίζει την κάθετη κλιμάκωση του πλακιδίου ως ποσοστό.
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Ορίζει την οριζόντια κλίμακα του πλακιδίου ως ποσοστό.
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Ορίζει την κάθετη κλίμακα του πλακιδίου ως ποσοστό.
 
-Αυτό το παράδειγμα απαιτεί τοπική εικόνα και διαμορφώνει το [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) ώστε να την επαναλαμβάνει στο 50 % του αρχικού μεγέθους. Μετατοπίσεις −32 σημείων μετατοπίζουν τα πλακίδια οριζόντια και κάθετα· ευθυγράμμιση κάτω‑δεξιά και αντιστροφή και στις δύο κατευθύνσεις καθορίζουν πώς θα διατεθεί η επαναλαμβανόμενη υφή.
+Αυτό το παράδειγμα απαιτεί μια τοπική εικόνα και ρυθμίζει το [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) ώστε να την επαναλάβει στο 50 % του αρχικού μεγέθους. Μετατοπίσεις −32 σημείων μετατοπίζουν τα πλακίδια οριζόντια και κάθετα· η ευθυγράμμιση κάτω‑δεξιά και η αναστροφή και στις δύο κατευθύνσεις καθορίζουν πώς διατάσσεται η επαναλαμβανόμενη υφή.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -819,11 +818,11 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Οι επιλογές πλακιδίων](tile-options.png)
+![Οι επιλογές πλακιδίου](tile-options.png)
 
-## **Στερεό Γέμισμα Χρώματος**
+## **Γέμισμα Στερεού Χρώματος**
 
-Ένα στερεό γέμισμα δίνει στο σχήμα ένα ενιαίο, ομοιόμορφο χρώμα. Αυτό το παράδειγμα ορίζει το [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) σε λειτουργία στερεού γέμισματος και αναθέτει κίτρινο μέσω του [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), έπειτα αποθηκεύει το ορθογώνιο στην παρουσίαση.
+Ένα στερεό γέμισμα δίνει στο σχήμα ένα ενιαίο, ομοιόμορφο χρώμα. Αυτό το παράδειγμα ορίζει το [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) σε λειτουργία στερεού γέμισματος και αναθέτει κίτρινο μέσω του [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), στη συνέχεια αποθηκεύει το ορθογώνιο σε μια παρουσίαση.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -856,15 +855,104 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Το σχήμα με στερεό γέμισμα χρώματος](solid-color-fill.png)
+![Το σχήμα με στερεό χρωματικό γέμισμα](solid-color-fill.png)
+
+### **Αντιγραφή Χρωμάτων Με Διατήρηση Αναφορών Θέματος**
+
+Χρησιμοποιήστε το [IColorFormat::CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/copyfrom/) για να αντιγράψετε έναν ορισμό χρώματος, συμπεριλαμβανομένου του τύπου χρώματος, της αναφοράς θέματος και των μετασχηματισμών. Αυτό είναι χρήσιμο όταν μεταφέρετε ένα χρώμα γεμίσματος μεταξύ σχημάτων που πρέπει να συνεχίσουν να ακολουθούν το θέμα της παρουσίασης. Η μέθοδος αντιγράφει μόνο το χρώμα: δεν αντιγράφει τον τύπο γεμίσματος, το περίγραμμα ή άλλες μορφοποιήσεις του σχήματος. Ορίστε ρητά τον τύπο γεμίσματος προορισμού με το [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/).
+
+Αυτό το παράδειγμα δημιουργεί τρία ορθογώνια, από αριστερά προς τα δεξιά: η πηγή, ένα αντίγραφο που σέβεται το θέμα, και ένα σταθερό RGB αντίγραφο. Η πηγή χρησιμοποιεί το [IColorFormat::set_SchemeColor](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_schemecolor/) για να αναφερθεί στο πρώτο χρώμα έντονης απόχρωσης και προσθέτει αποχρώση μέσω του [IColorOperationCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icoloroperationcollection/add/). Το RGB αντίγραφο χρησιμοποιεί το αποτελεσματικό χρώμα γεμίσματος της πηγής ώστε και τα τρία αρχικά να φαίνονται πανομοιότυπα. Καλώντας το [IColorFormat::set_Color](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_color/) ορίζετε μια σταθερή τιμή RGB και διαγράφετε τυχόν υπάρχουσες μετασχηματίσεις χρώματος.
+
+```cpp
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(660, 220, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_RoyalBlue());
+
+auto source = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+auto themeCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+auto rgbCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+for (auto shape : { source, themeCopy, rgbCopy })
+{
+    shape->get_FillFormat()->set_FillType(FillType::Solid);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+}
+
+auto sourceColor = source->get_FillFormat()->get_SolidFillColor();
+sourceColor->set_SchemeColor(SchemeColor::Accent1);
+sourceColor->get_ColorTransform()->Add(ColorTransformOperation::Tint, 0.75f);
+
+themeCopy->get_FillFormat()->get_SolidFillColor()->CopyFrom(sourceColor);
+auto effectiveFill = source->get_FillFormat()->GetEffective();
+rgbCopy->get_FillFormat()->get_SolidFillColor()->set_Color(effectiveFill->get_SolidFillColor());
+
+auto before = slide->GetImage(1.0f, 1.0f);
+before->Save(u"color-copy-before.png", ImageFormat::Png);
+before->Dispose();
+
+// Οι αναφορές θέματος ακολουθούν το νέο χρώμα έντονης απόχρωσης· η σταθερή τιμή RGB δεν το ακολουθεί.
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_OrangeRed());
+
+auto after = slide->GetImage(1.0f, 1.0f);
+after->Save(u"color-copy-after.png", ImageFormat::Png);
+after->Dispose();
+presentation->Save(u"copied_colors.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Πριν από την αλλαγή θέματος, όλα τα τρία γεμίσματα ταιριάζουν:
+
+![Πηγή, προορισμός CopyFrom και σταθερός RGB προορισμός με πανομοιότυπες μπλε γεμίσεις](color-copy-before.png)
+
+Μετά την αλλαγή θέματος, η πηγή και το αντίγραφο που σέβεται το θέμα ακολουθούν το νέο χρώμα έντονης απόχρωσης και διατηρούν την αποχρώση τους. Το σταθερό RGB αντίγραφο παραμένει μπλε:
+
+![Πηγή και προορισμός CopyFrom με πορτοκαλί γεμίσεις, ενώ ο σταθερός RGB προορισμός παραμένει μπλε](color-copy-after.png)
+
+Ο αντίγραφος ορισμός είναι ανεξάρτητος από την πηγή. Η μεταγενέστερη αλλαγή της αναφοράς θέματος της πηγής, η ανάθεση άλλου χρώματος ή η προσθήκη/αφαίρεση των μετασχηματισμών της δεν επηρεάζει τον προορισμό. Μια αλλαγή θέματος εξακολουθεί να επηρεάζει και τα δύο σχήματα επειδή κάθε ένα αναφέρεται ανεξάρτητα στο ίδιο χρώμα θέματος.
+
+Η αποθήκευση και επαναφόρτωση του PPTX διατηρεί τον τύπο του αντιγραμμένου χρώματος, διαθέσιμο μέσω του [IColorFormat::get_ColorType](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortype/), την αναφορά θέματος και τη συλλογή μετασχηματισμών που επιστρέφει το [IColorFormat::get_ColorTransform](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortransform/); δεν μετατρέπει τον ορισμό σε RGB.
+
+Κατά την αντιγραφή μεταξύ διαφορετικών συμφραζομένων θέματος, όπως παρουσιάσεις με διαφορετικές παλέτες έντονων χρωμάτων, η αντιγραμμένη αναφορά επιλύεται βάσει του θέματος προορισμού. Η ίδια αναφορά και οι μετασχηματισμοί μπορούν έτσι να παράγουν διαφορετικό ορατό χρώμα. Δείτε το [Θέμα Παρουσίασης](/slides/el/cpp/presentation-theme/) για περισσότερα σχετικά με τη ρύθμιση χρωμάτων θέματος.
 
 ## **Χρήση Φόντου Διαφάνειας ως Γέμισμα Σχήματος**
 
-Χρησιμοποιήστε το [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) όταν ένα σχήμα πρέπει να ταιριάζει με το φόντο της διαφάνειας, π.χ. σε πρότυπο παρουσίασης. Ορίστε πρώτα το [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) στο [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) για να αφαιρέσετε τυχόν ρητό γέμισμα. Με αυτόν τον συνδυασμό, το σχήμα χρησιμοποιεί το φόντο της διαφάνειας αντί του δικού του στυλ γέμισης. Η ενεργοποίηση της σημαίας μόνη της δεν αφαιρεί υπάρχον ρητό γέμισμα.
+Χρησιμοποιήστε το [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) όταν ένα σχήμα πρέπει να ταιριάζει με το φόντο της διαφάνειας, π.χ. σε ένα πρότυπο παρουσίασης. Ορίστε το [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) σε [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) πρώτα για να αφαιρέσετε οποιοδήποτε ρητό γέμισμα. Με αυτόν τον συνδυασμό, το σχήμα χρησιμοποιεί το φόντο της διαφάνειας αντί για το στυλ γέμισμα του. Η ενεργοποίηση της σημαίας από μόνη της δεν αφαιρεί ένα υπάρχον ρητό γέμισμα.
 
-Αυτό διαφέρει από το [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/): το γέμισμα φόντου καλύπτει αντικείμενα πίσω από το σχήμα με την αντίστοιχη περιοχή του φόντου της διαφάνειας, ενώ το NoFill αφήνει αυτά τα αντικείμενα ορατά. Μια διαβάθμιση παραμένει ευθυγραμμισμένη με τη διαφάνεια αντί να επανεκκινείται μέσα σε κάθε σχήμα.
+Αυτό διαφέρει από το [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/): το φόντο γεμίζει τα αντικείμενα πίσω από το σχήμα με την αντίστοιχη περιοχή του φόντου της διαφάνειας, ενώ το χωρίς γέμισμα αφήνει αυτά τα αντικείμενα ορατά. Μια διαβάθμιση παραμένει ευθυγραμμισμένη με τη διαφάνεια αντί να ξεκινά ξανά μέσα σε κάθε σχήμα.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα φόντο μάστερ που κληρονομείται από τη διαφάνεια και τοποθετεί μια ματζέντα λωρίδα πίσω από τρία ορθογώνια. Το αριστερό ορθογώνιο χρησιμοποιεί το φόντο, το μεσαίο δεν έχει γέμισμα, και το δεξιό εναλλάσσει από γέμισμα φόντου σε ρητό πορτοκαλί γέμισμα.
+Το παρακάτω παράδειγμα δημιουργεί ένα κύριο φόντο που κληρονομείται από τη διαφάνεια και τοποθετεί μια ματζέντα λουρίδα πίσω από τρία ορθογώνια. Το αριστερό ορθογώνιο χρησιμοποιεί το φόντο, το μεσαίο δεν έχει γέμισμα, και το δεξί εναλλάσσει από γέμισμα φόντου σε ρητό πορτοκαλί γέμισμα.
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -899,7 +987,7 @@ auto presentation = MakeObject<Presentation>();
 presentation->get_SlideSize()->SetSize(720, 400, SlideSizeScaleType::DoNotScale);
 auto slide = presentation->get_Slide(0);
 
-// Κληρονομεί τη διαβάθμιση από το master.
+// Κληρονομεί τη διαβάθμιση από το κύριο πρότυπο.
 slide->get_Background()->set_Type(BackgroundType::NotDefined);
 slide->get_LayoutSlide()->get_Background()->set_Type(BackgroundType::NotDefined);
 auto background = slide->get_LayoutSlide()->get_MasterSlide()->get_Background();
@@ -929,7 +1017,7 @@ auto explicitShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 510
 explicitShape->get_FillFormat()->set_FillType(FillType::NotDefined);
 explicitShape->set_UseBackgroundFill(true);
 
-// Απενεργοποιεί το γέμισμα φόντου πριν εφαρμόσει ένα ρητό γέμισμα.
+// Απενεργοποιήστε τη συμπλήρωση φόντου πριν εφαρμόσετε μια ρητή συμπλήρωση.
 explicitShape->set_UseBackgroundFill(false);
 explicitShape->get_FillFormat()->set_FillType(FillType::Solid);
 explicitShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
@@ -938,15 +1026,15 @@ presentation->Save(u"background_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Το αποτέλεσμα, από αριστερά προς δεξιά: **γέμισμα φόντου**, **χωρίς γέμισμα**, και **ρητό γέμισμα**. Η ματζέντα λωρίδα κρύβεται από τα αριστερά και δεξιά ορθογώνια αλλά παραμένει ορατή μέσω του μεσαίου ορθογωνίου.
+Το αποτέλεσμα, από αριστερά προς τα δεξιά: **γέμισμα φόντου**, **χωρίς γέμισμα**, and **συγκεκριμένο γέμισμα**. Η λουρίδα ματζέντα κρύβεται από τα αριστερά και δεξιά ορθογώνια αλλά παραμένει ορατή μέσω του μεσαίου ορθογωνίου.
 
-![Γέμισμα φόντου, χωρίς γέμισμα και ρητό πορτοκαλί γέμισμα πάνω σε ματζέντα λωρίδα](background-fill.png)
+![Γέμισμα φόντου, χωρίς γέμισμα και ρητό πορτοκαλί γέμισμα πάνω από μια λουρίδα ματζέντα](background-fill.png)
 
-Η ίδια συμπεριφορά ισχύει για φόντο που ορίζεται άμεσα στη διαφάνεια ή κληρονομείται από διάταξη. Το σχήμα χρησιμοποιεί το επιλυμένο φόντο της διαφάνειας· το παράδειγμα αφήνει τόσο το φόντο της διαφάνειας όσο και του layout ακαθόριστα ώστε το μάστερ να το παρέχει.
+Η ίδια συμπεριφορά ισχύει για φόντο που ορίζεται άμεσα στη διαφάνεια ή κληρονομείται από μια διάταξη. Το σχήμα χρησιμοποιεί το επεξεργασμένο φόντο της διαφάνειας· το παράδειγμα αφήνει τόσο το φόντο της διαφάνειας όσο και της διάταξης ακαθόριστα ώστε ο κύριος να το παρέχει.
 
 ## **Ορισμός Διαφάνειας**
 
-Για στερεό γέμισμα, το συστατικό αλφα του χρώματος ελέγχει την αδιαφάνεια: 0 είναι πλήρως διαφανές και 255 πλήρως αδιαφανές. Αυτό το παράδειγμα χρησιμοποιεί τιμή αλφα 128 για ένα κίτρινο ορθογώνιο, κάνοντάς το περίπου 50 % διαφανές ώστε το ορθογώνιο από κάτω να παραμένει ορατό. Το χρώμα ανατίθεται μέσω του [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/).
+Για ένα στερεό γέμισμα, το αλφα-συστατικό του χρώματος ελέγχει την αδιαφάνεια: 0 είναι πλήρως διαφανές και 255 πλήρως αδιαφανές. Αυτό το παράδειγμα χρησιμοποιεί τιμή αλφα 128 για ένα κίτρινο ορθογώνιο, κάνοντάς το περίπου 50 % διαφανές ώστε το ορθογώνιο από κάτω να παραμένει ορατό. Το χρώμα ανατίθεται μέσω του [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/).
 
 ```cpp
 #include <DOM/FillType.h>
@@ -987,7 +1075,7 @@ presentation->Dispose();
 
 ## **Περιστροφή Σχημάτων**
 
-Χρησιμοποιήστε το [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) για να περιστρέψετε ένα σχήμα στο επίπεδο της διαφάνειας. Η γωνία μετράται σε μοίρες· αυτό το παράδειγμα περιστρέφει ένα ορθογώνιο 5 μοίρες δεξιόστροφα και αποθηκεύει την παρουσίαση.
+Χρησιμοποιήστε το [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) για να περιστρέψετε ένα σχήμα στο επίπεδο της διαφάνειας. Η γωνία μετράται σε μοίρες· αυτό το παράδειγμα περιστρέφει ένα ορθογώνιο κατά 5 μοίρες δεξιόστροφα και αποθηκεύει την παρουσίαση.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1005,7 +1093,9 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 5
+
+0, 150, 75);
 shape->set_Rotation(5);
 
 presentation->Save(u"shape_rotation.pptx", SaveFormat::Pptx);
@@ -1016,9 +1106,9 @@ presentation->Dispose();
 
 ![Η περιστροφή του σχήματος](shape-rotation.png)
 
-## **Προσθήκη 3Δ Εφέ Εγκοπής**
+## **Προσθήκη 3Δ Εφέ Πυραμίδας**
 
-Χρησιμοποιήστε το [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) για να δώσετε στο σχήμα βάθος και ακμές με εγκοπή. Αυτό το παράδειγμα δημιουργεί μια πράσινη έλλειψη με πορτοκαλί περίγραμμα, ορίζει το [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) σε 4 pt και εφαρμόζει κυκλική επάνω εγκοπή με πλάτος και ύψος 6 pt μέσω του [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/). Μια κατευθείαν ορθογώνια προοπτική κάμερα και τριπλή φωτιστική διάταξη καθιστούν την εγκοπή ορατή.
+Χρησιμοποιήστε το [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) για να δώσετε σε ένα σχήμα βάθος και ακμές με πίεση. Αυτό το παράδειγμα δημιουργεί μια πράσινη έλλειψη με πορτοκαλί περίγραμμα, ορίζει το [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) στα 4 σημεία και εφαρμόζει μία κυκλική επάν ω πεπίδα με πλάτος και ύψος 6 σημείων μέσω του [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/). Μια προμετωπική ορθογραφική κάμερα και τριών σημείων φωτισμός καθιστούν την πεπίδα ορατή.
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -1071,11 +1161,11 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Το εφέ 3Δ εγκοπής](3D-bevel-effect.png)
+![Το 3D εφέ πυραμίδας](3D-bevel-effect.png)
 
 ## **Προσθήκη 3Δ Εφέ Περιστροφής**
 
-Η 3Δ άποψη ενός σχήματος ελέγχεται από τις ρυθμίσεις της κάμερας. Αυτό το παράδειγμα χρησιμοποιεί το [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) με γωνίες latitude, longitude και revolution 40, 35 και 20 μοίρες αντίστοιχα. Επιλέγει ισομετρική κάμερα μέσω του [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) και ισορροπημένο φωτισμό μέσω του [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/), έπειτα αποθηκεύει το μορφοποιημένο ορθογώνιο.
+Η 3Δ προβολή ενός σχήματος ελέγχεται από τις ρυθμίσεις της κάμερας. Αυτό το παράδειγμα χρησιμοποιεί το [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) με γωνίες πλάτους, μήκους και επανάληψης 40, 35 και 20 μοιρών αντίστοιχα. Επιλέγει μια ισομετρική κάμερα μέσω του [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) και ισορροπημένο φωτισμό μέσω του [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/), στη συνέχεια αποθηκεύει το μορφοποιημένο ορθογώνιο.
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -1111,15 +1201,15 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Το εφέ 3Δ περιστροφής](3D-rotation-effect.png)
+![Το 3D εφέ περιστροφής](3D-rotation-effect.png)
 
-## **Έλεγχος Απόδοσης Μαύρο‑Άσπρο για Σχήματα**
+## **Έλεγχος Ασπρόμαυρης Απόδοσης για Σχήματα**
 
-Η μέθοδος [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) καθορίζει πώς θα αποδίδεται ένα μεμονωμένο σχήμα όταν η παρουσίαση προβάλλεται ή επεξεργάζεται σε λειτουργία μαύρο‑ασπρό. Δεν ενεργοποιεί την προβολή μαύρο‑ασπρό από μόνη της και δεν αλλάζει το γέμισμα, τη γραμμή ή άλλες μορφοποιήσεις του σχήματος σε κανονική έγχρωμη κατάσταση.
+Η μέθοδος [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) καθορίζει πώς αποδίδεται ένα μεμονωμένο σχήμα όταν μια παρουσίαση προβολίζεται ή επεξεργάζεται σε ασπρόμαυρη λειτουργία. Δεν ενεργοποιεί την ασπρόμαυρη προβολή από μόνη της και δεν αλλάζει το γέμισμα, τη γραμμή ή άλλες μορφοποιήσεις του σχήματος σε κανονική λειτουργία χρώματος.
 
-Χρησιμοποιήστε τιμή από την απαρίθμηση [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) για να επιλέξετε την επιθυμητή συμπεριφορά. Για παράδειγμα, `Automatic` αφήνει την εφαρμογή απόδοσης να επιλέξει τη μετατροπή, `Gray` και `LightGray` χρησιμοποιούν γκρι χρώματα, `BlackWhite` χρησιμοποιεί μόνο μαύρο και λευκό, `Black` και `White` επιβάλλουν ένα χρώμα, `Color` διατηρεί το κανονικό χρώμα, και `Hidden` παραβλέπει το σχήμα σε λειτουργία μαύρο‑ασπρό. `NotDefined` σημαίνει ότι δεν έχει εκχωρηθεί λειτουργία σε επίπεδο σχήματος.
+Χρησιμοποιήστε μια τιμή από την απαρίθμηση [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) για να επιλέξετε τη ζητούμενη συμπεριφορά. Για παράδειγμα, το `Automatic` επιτρέπει στην εφαρμογή απόδοσης να επιλέξει τη μετατροπή, τα `Gray` και `LightGray` χρησιμοποιούν γκρι χρώματα, το `BlackWhite` χρησιμοποιεί μόνο μαύρο και λευκό, τα `Black` και `White` επιβάλλουν ένα μόνο χρώμα, το `Color` διατηρεί το κανονικό χρώμα, και το `Hidden` παραλείπει το σχήμα σε ασπρόμαυρη λειτουργία. Το `NotDefined` σημαίνει ότι δεν έχει οριστεί λειτουργία σε επίπεδο σχήματος.
 
-Αυτό το παράδειγμα δημιουργεί ένα πορτοκαλί ορθογώνιο και ορίζει το [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) σε γκρι. Το αποθηκευμένο σχήμα διατηρεί το πορτοκαλί γέμισμα για κανονική χρωματική προβολή και ζητά γκρι χρώμα από εφαρμογές που σέβονται τις ρυθμίσεις μαύρο‑ασπρό.
+Αυτό το παράδειγμα δημιουργεί ένα πορτοκαλί ορθογώνιο και ορίζει το [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) σε γκρι. Το αποθηκευμένο σχήμα διατηρεί το πορτοκαλί γέμισμα για κανονική προβολή χρώματος και ζητά γκρι απόχρωση από εφαρμογές που σέβονται τις ρυθμίσεις ασπρόμαυρης προβολής:
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -1152,11 +1242,11 @@ presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Σε κανονική χρωματική λειτουργία, το ορθογώνιο διατηρεί το πορτοκαλί του γέμισμα. Σε ροή εργασίας μαύρο‑ασπρό, χρησιμοποιεί γκρι χρώμα επειδή η λειτουργία του είναι ορισμένη σε `Gray`. Αυτό σας επιτρέπει να διατηρήσετε μια πλήρως έγχρωμη διαφάνεια ενώ ορίζετε διαφορετική εμφάνιση για εκτύπωση, προεπισκόπηση ή άλλες ροές εργασίας που σέβονται τις ρυθμίσεις μαύρο‑ασπρό της παρουσίασης.
+Σε κανονική λειτουργία χρώματος, το ορθογώνιο διατηρεί το πορτοκαλί γέμισμα. Σε μια ροή εργασίας ασπρόμαυρης προβολής, χρησιμοποιεί γκρι χρώμα επειδή η λειτουργία του είναι ορισμένη σε `Gray`. Αυτό σας επιτρέπει να διατηρήσετε μια πλήρους χρώματος διαφάνεια ενώ ορίζετε διαφορετική εμφάνιση για εκτύπωση, προεπισκόπηση ή άλλες ροές εργασίας που σέβονται τις ρυθμίσεις ασπρόμαυρης προβολής της παρουσίασης.
 
 ## **Επαναφορά Μορφοποίησης**
 
-Χρησιμοποιήστε το [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) για να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση των δεσμευμένων θέσεων διαφάνειας από τις αντίστοιχες θέσεις διάταξης. Αυτό το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με δεσμευμένες θέσεις διάταξης και επαναφέρει κάθε διαφάνεια πριν την αποθήκευση. Σχήματα χωρίς αντίστοιχες θέσεις διάταξης δεν επαναφέρονται.
+Χρησιμοποιήστε το [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) για να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση των θέσεων κράτησης διαφάνειας από τις αντίστοιχες θέσεις κράτησης διάταξης. Αυτό το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με θέσεις κράτησης συνδεδεμένες με διάταξη και επαναφέρει κάθε διαφάνεια πριν την αποθήκευση. Τα σχήματα χωρίς αντίστοιχη θέση κράτησης διάταξης δεν επαναφέρονται.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -1184,12 +1274,12 @@ presentation->Dispose();
 
 **Επηρεάζει η μορφοποίηση σχήματος το τελικό μέγεθος του αρχείου παρουσίασης;**
 
-Τα χρώματα, τα στυλ γραμμής και οι ρυθμίσεις εφέ προσθέτουν συνήθως λίγα δεδομένα σε σύγκριση με ενσωματωμένες εικόνες και πολυμέσα. Οι γέμισμα εικόνας μπορούν να αυξήσουν το μέγεθος του αρχείου επειδή οι εικόνες τους αποθηκεύονται στην παρουσίαση.
+Τα χρώματα, τα στυλ γραμμής και οι ρυθμίσεις εφέ προσθέτουν γενικά λίγα δεδομένα σε σύγκριση με ενσωματωμένες εικόνες και πολυμέσα. Τα γεμίσματα εικόνας μπορούν να αυξήσουν το μέγεθος του αρχείου επειδή οι εικόνες τους αποθηκεύονται στην παρουσίαση.
 
 **Πώς μπορώ να εντοπίσω σχήματα σε μια διαφάνεια που μοιράζονται την ίδια μορφοποίηση ώστε να τα ομαδοποιήσω;**
 
-Συγκρίνετε τις βασικές ιδιότητες μορφοποίησης κάθε σχήματος—γέμισμα, γραμμή και ρυθμίσεις εφέ. Εάν όλες οι αντίστοιχες τιμές ταιριάζουν, θεωρήστε τα στυλ ως ταυτόσημα και λογικά ομαδοποιήστε τα σχήματα, κάτι που απλοποιεί τη μετέπειτα διαχείριση στυλ.
+Συγκρίνετε τις βασικές ιδιότητες μορφοποίησης κάθε σχήματος —γέμισμα, γραμμή και ρυθμίσεις εφέ. Εάν όλες οι αντίστοιχες τιμές ταιριάζουν, θεωρήστε τα στυλ τους ως πανομοιότυπα και ομαδοποιήστε λογικά αυτά τα σχήματα, κάτι που απλοποιεί τη διαχείριση στυλ αργότερα.
 
 **Μπορώ να αποθηκεύσω ένα σύνολο προσαρμοσμένων στυλ σχήματος σε ξεχωριστό αρχείο για επαναχρησιμοποίηση σε άλλες παρουσιάσεις;**
 
-Ναι. Αποθηκεύστε δείγμα σχήματος με τα επιθυμητά στυλ σε ένα πρότυπο παρουσίασης ή σε αρχείο .POTX. Κατά τη δημιουργία νέας παρουσίασης, ανοίξτε το πρότυπο, κλωνοποιήστε τα στυλ σχήματος που χρειάζεστε και εφαρμόστε ξανά τη μορφοποίηση όπου απαιτείται.
+Ναι. Αποθηκεύστε δείγματα σχημάτων με τα επιθυμητά στυλ σε ένα πρότυπο παρουσίασης ή σε αρχείο προτύπου .POTX. Όταν δημιουργείτε μια νέα παρουσίαση, ανοίξτε το πρότυπο, κλωνοποιήστε τα στυλσχημα που χρειάζεστε και επαναεφαρμόστε τη μορφοποίηση όπου απαιτείται.

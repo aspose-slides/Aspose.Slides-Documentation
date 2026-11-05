@@ -7,38 +7,38 @@ url: /ru/php-java/shape-formatting/
 keywords:
 - форматировать фигуру
 - форматировать линию
-- эффект наброска
-- набросок линии фигуры
+- эффект эскиза
+- линия фигуры в стиле эскиза
 - форматировать стиль соединения
 - градиентная заливка
-- заполнение шаблоном
+- шаблонная заливка
 - заполнение изображением
 - заполнение текстурой
-- сплошная заливка цветом
+- сплошная цветная заливка
 - прозрачность фигуры
-- чёрно-белая отрисовка фигур
-- оттеночная отрисовка фигур
+- черно-белый рендеринг фигуры
+- рендеринг фигуры в градациях серого
 - повернуть фигуру
-- 3D‑срезный эффект
-- 3D‑эффект вращения
+- 3D-скосовый эффект
+- эффект 3D-вращения
 - сброс форматирования
 - PowerPoint
 - презентация
 - PHP
 - Aspose.Slides
-description: "Узнайте, как форматировать фигуры PowerPoint в PHP с помощью Aspose.Slides — задавайте стили заливки, линии и эффектов для файлов PPT и PPTX с точностью и полным контролем."
+description: "Узнайте, как форматировать фигуры PowerPoint в PHP с помощью Aspose.Slides - задавайте стили заливки, линии и эффектов для файлов PPT и PPTX с точностью и полным контролем."
 ---
 ## **Введение**
 
-Форматируйте объекты в PowerPoint, изменяя их контуры, заливки и эффекты. Aspose.Slides for PHP via Java позволяет управлять этими параметрами программно, включая прозрачность, вращение и 3D‑форматирование.
+Форматируйте фигуры в PowerPoint, изменяя их контуры, заливки и эффекты. Aspose.Slides для PHP через Java позволяет управлять этими настройками программно, включая прозрачность, вращение и 3D‑форматирование.
 
 ![Варианты форматирования фигур в PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for PHP via Java предоставляет классы и методы, позволяющие форматировать фигуры с использованием тех же параметров, что доступны в PowerPoint.
+Aspose.Slides для PHP через Java предоставляет классы и методы, позволяющие форматировать фигуры с теми же параметрами, что доступны в PowerPoint.
 
 ## **Форматирование линий**
 
-Используйте [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) для управления контуром фигуры. В этом примере создаётся незаполненный прямоугольник с синей пунктирной обводкой. [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) выбирает составную линию «толстая‑тонкая», а [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) задаёт её ширину 7 пунктов, а [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) выбирает тип штриха.
+Используйте [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat), чтобы управлять контуром фигуры. Этот пример создаёт незаполненный прямоугольник с синей пунктирной обводкой. [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) выбирает составную линию «толстая‑тонкая», а [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) задаёт ширину 7 пунктов, а [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) выбирает тип штриховки.
 
 ```php
 use aspose\slides\FillType;
@@ -68,15 +68,15 @@ try {
 
 Результат:
 
-![Форматированные линии в презентации](formatted-lines.png)
+![Отформатированные линии в презентации](formatted-lines.png)
 
-### **Установка пользовательских шаблонов штриха линии**
+### **Установка пользовательских шаблонов штрихов линии**
 
-Используйте [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern), когда предопределённые стили линий не предоставляют требуемых длин штрихов и промежутков, например для фирменных контуров или технических схем. Присвоение шаблона автоматически изменяет стиль штриха линии на [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/).
+Используйте [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern), когда предопределённые стили линий не предоставляют нужных длин штрихов и промежутков, например для фирменных контуров или технических схем. Присваивание шаблона автоматически меняет стиль штриховки линии на [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/).
 
-Элементы массива чередуются между длинами штриха и промежутка, начиная со штриха. Каждое значение является кратным толщине линии: `[4, 2]` при ширине 3 пункта дает штрих длиной 12 пунктов и промежуток 6 пунктов. Используйте пары конечных неотрицательных значений для определения полных сегментов штрих‑пробел. В примере используются положительные значения, чтобы каждый штрих и промежуток были видимы.
+Элементы массива чередуются между длинами штриха и промежутка, начиная со штриха. Каждый параметр – кратный ширине линии: `[4, 2]` при ширине 3 пункта дают штрих 12 пунктов и промежуток 6 пунктов. Используйте пары конечных неотрицательных значений для определения полных сегментов штрих‑пробел. В примере используются положительные значения, чтобы каждый штрих и промежуток были видимы.
 
-В этом примере создаётся пять синих линий одинаковой длины с плоскими окончаниями. Первые три сравнивают шаблоны при ширине 3 пункта. Четвёртая повторяет первый шаблон при двойной ширине, удваивая длину как штриха, так и промежутка. Пятая переключается с пользовательского шаблона на сплошную линию.
+Этот пример создаёт пять синих линий одинаковой длины и с плоскими концами. Первые три сравнивают шаблоны при ширине 3 пункта. Четвёртая повторяет первый шаблон при удвоенной ширине, удваивая и длину штриха, и промежутка. Пятая переключается с пользовательского шаблона на сплошную линию.
 
 ```php
 use aspose\slides\FillType;
@@ -124,23 +124,23 @@ try {
 
 Чтобы вернуться к предопределённому пунктирному стилю, передайте [LineDashStyle::Dash](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) в [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle). Выбранный стиль управляет внешним видом линии.
 
-Результат в PowerPoint, сверху вниз: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; и **Solid, 3 pt**.
+Результат в PowerPoint сверху вниз: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; и **Solid, 3 pt**.
 
-![Три пользовательских шаблона штриха, более широкая линия с первым шаблоном и сплошная линия в PowerPoint](custom-dash-patterns.png)
+![Три пользовательских шаблона штрихов, более широкая линия с первым шаблоном и сплошная линия в PowerPoint](custom-dash-patterns.png)
 
-### **Установка окончаний линии**
+### **Установка стилей концов линий**
 
-Используйте [LineFormat::setCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCapStyle) для установки окончаний открытой линии. Класс [LineCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linecapstyle/) предоставляет три явных стиля окончаний:
+Используйте [LineFormat::setCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCapStyle), чтобы задать окончания открытой линии. Класс [LineCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linecapstyle/) предоставляет три явно заданных стиля:
 
-- `Flat`: Обводка останавливается у конечной точки.
-- `Round`: Полукруглое окончание выступает за конечную точку на половину ширины линии.
-- `Square`: Квадратное окончание выступает за конечную точку на половину ширины линии.
+- `Flat`: штрих обрывается в конечной точке.
+- `Round`: полукруглый конец выходит за пределы конечной точки на половину ширины линии.
+- `Square`: квадратный конец выходит за пределы конечной точки на половину ширины линии.
 
-Класс также включает `NotDefined`, что означает отсутствие явно заданного стиля окончания.
+Класс также включает `NotDefined`, что означает отсутствие явно заданного стиля конца.
 
-Окончания отличаются от наконечников стрелок, которые добавляют символы к концам линии, и соединений, управляющих углами между отрезками линии. В этом примере отключаются наконечники стрелок с помощью [LineFormat::setBeginArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setBeginArrowheadStyle) и [LineFormat::setEndArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setEndArrowheadStyle), чтобы сравнивались только формы окончаний.
+Концы отличаются от стрелок, которые добавляют символы к концам линии, и от соединений, которые управляют углами между сегментами линии. В этом примере стрелки отключаются через [LineFormat::setBeginArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setBeginArrowheadStyle) и [LineFormat::setEndArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setEndArrowheadStyle), чтобы сравнивались только формы концов.
 
-В следующем примере создаются три почти одинаковые горизонтальные линии шириной 20 пунктов. Сверху вниз они используют окончание flat, round и square. Их конечные точки имеют одинаковые горизонтальные координаты; округлые и квадратные окончания выступают на 10 пунктов за каждую конечную точку.
+Следующий пример создаёт три почти одинаковых горизонтальных линии шириной 20 пунктов. Сверху вниз они используют плоские, круглые и квадратные концы. Их конечные координаты одинаковы по горизонтали; круглые и квадратные концы выступают на 10 пунктов за каждую конечную точку.
 
 ```php
 use aspose\slides\FillType;
@@ -177,15 +177,15 @@ try {
 }
 ```
 
-Результат в PowerPoint, сверху вниз: **Flat**, **Round** и **Square**.
+Результат в PowerPoint сверху вниз: **Flat**, **Round**, **Square**.
 
-![Плоские, округлые и квадратные окончания на идентичных толстых линиях в PowerPoint](line-caps.png)
+![Плоские, круглые и квадратные концы на одинаковых толстых линиях в PowerPoint](line-caps.png)
 
-## **Применение эффектов наброска к линиям фигур**
+## **Применение эффектов «эскиз» к линиям фигур**
 
-Эффект наброска делает линию фигуры похожей на нарисованную вручную. Используйте [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) для доступа к настройкам линии, [LineFormat::getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getSketchFormat) для доступа к настройкам наброска и [SketchFormat::setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#setSketchType) для выбора значения из класса [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/).
+Эффект «эскиз» делает линию фигуры выглядящей нарисованной вручную. Используйте [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) для доступа к настройкам линии, [LineFormat::getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getSketchFormat) — к настройкам эскиза, и [SketchFormat::setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#setSketchType) для выбора значения из класса [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/).
 
-Следующий код PHP демонстрирует, как применить эффект [LineSketchType::Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) , прочитать явно назначенное значение и удалить эффект с помощью [LineSketchType::None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) :
+Следующий PHP‑код демонстрирует, как применить эффект [LineSketchType::Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/), прочитать явно заданное значение и удалить эффект, задав [LineSketchType::None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
 
 ```php
 use aspose\slides\LineSketchType;
@@ -208,7 +208,7 @@ try {
 }
 ```
 
-Значение, возвращаемое [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType), представляет настройку, назначенную непосредственно фигуре. Если формат линии может наследоваться от темы, шаблона слайдов или макета слайда, используйте [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective), обратитесь к методу `getSketchFormat` возвращённого объекта и прочитайте его значение `getSketchType`. Эффективное значение отражает фактическое применение форматирования после разрешения наследования. Этот пример требует существующей презентации с как минимум одной фигурой на первом слайде и выводит оба значения:
+Значение, возвращаемое [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType), представляет настройку, назначенную непосредственно фигуре. Если форматирование линии может наследоваться от темы, главного слайда или макета, используйте [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective), полученный объект‑метод `getSketchFormat` и прочитайте его значение `getSketchType`. Эффективное значение отражает реальное применённое форматирование после разрешения наследования. Этот пример требует существующей презентации с хотя бы одной фигурой на первом слайде и выводит оба значения:
 
 ```php
 use aspose\slides\Presentation;
@@ -231,17 +231,17 @@ try {
 
 ## **Форматирование стилей соединений**
 
-Вот три варианта типа соединения:
+Доступны три варианта типа соединения:
 
-* Округлённый
-* Скошенный
-* Срезанный
+* Round
+* Miter
+* Bevel
 
-Стиль соединения определяет, как два сегмента контура встречаются в угле. Используйте **Round** для закруглённых углов, **Miter** для острых углов или **Bevel** для сглаженных углов.
+Стиль соединения определяет, как два отрезка контура встречаются в углу. Используйте **Round** для закруглённых углов, **Miter** для острых углов или **Bevel** для снятых углов.
 
 ![Стиль соединения в презентации](join-style-powerpoint.png)
 
-В этом примере создаются три чёрных прямоугольника с синими контурами шириной 15 пунктов. Он устанавливает [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) в значения miter, bevel и round из [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) соответственно, чтобы сравнить, как рисуются углы.
+Этот пример создаёт три чёрных прямоугольника с синими контурами шириной 15 пунктов. Он устанавливает [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) в значения miter, bevel и round из [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) соответственно, чтобы сравнить, как рисуются углы.
 
 ```php
 use aspose\slides\FillType;
@@ -290,13 +290,13 @@ try {
 }
 ```
 
-### **Ограничение скошенных соединений на острых углах**
+### **Ограничение соединений‑митеров в острых углах**
 
-Используйте [LineFormat::setMiterLimit](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setMiterLimit) вместе с [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle), установленным в [LineJoinStyle::Miter](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/), чтобы ограничить насколько далеко может выступать острый угол.
+Используйте [LineFormat::setMiterLimit](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setMiterLimit) совместно с [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle), установленным в [LineJoinStyle::Miter](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/), чтобы ограничить, насколько далеко может выступать острый угол.
 
-Ограничение представляет собой отношение расстояния между внутренним и внешним углами соединения к толщине линии. Например, значение `8` позволяет длину скошенного соединения до восьми раз больше толщины линии; это не измерение в пунктах. Если угол превышает ограничение, PowerPoint использует срезанное соединение в этом месте. Большое ограничение позволяет более острые точки. Параметр влияет только на скошенные соединения, и изменение его не оказывает видимого эффекта, когда угол остаётся внутри ограничений.
+Лимит — это отношение расстояния между внутренним и внешним углами соединения к ширине линии. Например, значение `8` допускает длину митера до восьми ширин линии; это не измеряется в пунктах. Если угол превышает лимит, PowerPoint заменяет его на снятое соединение. Больший лимит позволяет более острые точки. Настройка влияет только на митер‑соединения и не имеет видимого эффекта, когда угол остаётся в пределах лимита.
 
-В этом примере создаются два идентичных незаполненных треугольника с контурами шириной 20 пунктов. Левый треугольник использует ограничение `2`, а правый — `8`. Каждый треугольник шириной 80 пунктов и высотой 160 пунктов, что даёт его верхнему углу отношение длины скошенного соединения к толщине линии примерно `4.12`. Поэтому PowerPoint делает срезанный левый верхний угол и сохраняет правый.
+Этот пример создаёт два одинаковых незаполненных треугольника с контурами шириной 20 пунктов. Левый треугольник использует лимит `2`, правый — `8`. Каждый треугольник шириной 80 пунктов и высотой 160 пунктов, что даёт отношение длины митера к ширине линии около `4.12`. Поэтому PowerPoint обрезает левый верхний угол и сохраняет правый.
 
 ```php
 use aspose\slides\FillType;
@@ -332,11 +332,11 @@ try {
 
 Результат в PowerPoint: **Miter limit 2** слева и **miter limit 8** справа.
 
-![Срезанный верхний угол с ограничением miter 2 и заостренный верхний угол с ограничением miter 8 в PowerPoint](miter-limits.png)
+![Снятый верхний угол при лимите митера 2 и острий угол при лимите 8 в PowerPoint](miter-limits.png)
 
 ## **Градиентная заливка**
 
-Градиентная заливка плавно смешивает цвета по фигуре. В этом примере эллипс заполняется линейным градиентом под углом 45 градусов от красного к фиолетовому с использованием [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat). Метод [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) размещает цветовые остановки на позициях 0 и 1, в начале и в конце градиента. Очистка существующих остановок гарантирует, что используются только эти два цвета.
+Градиентная заливка плавно переходит от одного цвета к другому внутри фигуры. Этот пример заполняет эллипс линейным градиентом под углом 45° от красного к пурпурному, используя [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat). Метод [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) размещает цветовые остановки в позициях 0 и 1, т.е. в начале и в конце градиента. Очистка существующих остановок обеспечивает использование только этих двух цветов.
 
 ```php
 use aspose\slides\FillType;
@@ -368,13 +368,13 @@ try {
 
 ![Эллипс с градиентной заливкой](gradient-fill.png)
 
-Если градиент выглядит иначе в экспортированном изображении, чем в PowerPoint, см. [Choose a Gradient Rendering Style](/slides/ru/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Вы можете выбрать стиль рендеринга без изменения градиентной заливки, сохранённой в презентации.
+Если градиент выглядит иначе в экспортированном изображении, чем в PowerPoint, см. [Choose a Gradient Rendering Style](/slides/ru/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Вы можете выбрать стиль рендеринга, не меняя сам градиент, хранящийся в презентации.
 
 ### **Установка угла линейного градиента**
 
-Используйте [GradientFormat::setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) для управления ориентацией заливки [GradientShape::Linear](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/). Угол измеряется в градусах и увеличивается по часовой стрелке: `0` — слева направо, `90` — сверху вниз, `180` — справа налево, `270` — снизу вверх. Поддерживаются дробные углы. Конечные углы за пределами `[0, 360)` нормализуются к одному обороту; например, `-45` становится `315`, а `360` — `0`.
+Используйте [GradientFormat::setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) для управления ориентацией заливки типа [GradientShape::Linear](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/). Угол измеряется в градусах и увеличивается по часовой стрелке: `0` — слева направо, `90` — сверху вниз, `180` — справа налево, `270` — снизу вверх. Поддерживаются дробные углы. Углы за пределами `[0, 360)` нормализуются к одному обороту; например, `-45` превращается в `315`, а `360` — в `0`.
 
-В этом примере создаются шесть прямоугольников с одинаковыми красными, зелёными и синими остановками на позициях `0`, `0.5` и `1`. Масштабирование отключено, чтобы угол можно было сравнивать независимо от пропорций прямоугольников. Углы слева направо: `0`, `45` и `90` в первой строке, и `135`, `180` и `270` во второй строке.
+Этот пример создаёт шесть прямоугольников с одинаковыми красными, зелёными и синими остановками в позициях `0`, `0.5` и `1`. Масштабирование отключено, чтобы угол сравнивался независимо от пропорций фигур. Углы слева направо: `0`, `45` и `90` в первой строке, и `135`, `180` и `270` во второй строке.
 
 ```php
 use aspose\slides\FillType;
@@ -418,13 +418,13 @@ try {
 
 Результат в PowerPoint:
 
-![Линейные градиенты при 0°, 45° и 90° в верхней строке, и 135°, 180° и 270° в нижней строке](linear-gradient-angles.png)
+![Линейные градиенты при углах 0, 45 и 90 градусов в верхнем ряду и 135, 180 и 270 градусов в нижнем ряду](linear-gradient-angles.png)
 
 ### **Масштабирование линейного градиента вместе с фигурой**
 
-[GradientFormat::setLinearGradientScaled](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientScaled) принимает значение [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/). Установите его явно в `False`, чтобы сохранить геометрический угол градиента при изменении пропорций фигуры, или в `True`, чтобы масштабировать градиент вместе с шириной и высотой фигуры. При включённом масштабировании видимый угол может отличаться от заданного угла у не квадратной фигуры.
+[GradientFormat::setLinearGradientScaled](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientScaled) принимает значение типа [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/). Установите его явно в `False`, чтобы сохранять геометрический угол градиента при изменении пропорций фигуры, или в `True`, чтобы масштабировать градиент вместе с шириной и высотой фигуры. При включённом масштабировании видимый угол может отличаться от заданного на несо-квадратной фигуре.
 
-В следующем примере используется угол `45` градусов и те же цветовые остановки, что и в сравнении углов. Левая колонка использует `False`; правая — `True`. Каждая колонка содержит широкий прямоугольник над высоким прямоугольником. Оба начинают с одинаковых ширин; изменение ширины и высоты второго прямоугольника демонстрирует, как заливка реагирует на изменение размеров без изменения настроек градиента.
+Следующий пример использует угол `45` градусов и те же цветовые остановки, что и в примере сравнения углов. В левом столбце установлено `False`; в правом — `True`. Каждый столбец содержит широкий прямоугольник над высоким прямоугольником. Оба начинают с одинаковых широких размеров; изменение ширины и высоты второго прямоугольника демонстрирует, как заливка реагирует на пере‑размеривание без изменения параметров градиента.
 
 ```php
 use aspose\slides\FillType;
@@ -473,19 +473,19 @@ try {
 }
 ```
 
-Результат в PowerPoint, при отключённом масштабировании слева и включённом справа:
+Результат в PowerPoint, с отключённым масштабированием слева и включённым справа:
 
 ![Широкие и высокие прямоугольники с градиентом 45°, сравнение LinearGradientScaled False слева и True справа](linear-gradient-scaling.png)
 
-При отключённом масштабировании диагональные цветовые полосы сохраняют одинаковую ориентацию в обоих прямоугольниках. При включённом масштабировании полосы растягиваются вместе с пропорциями фигуры. Это помогает воспроизвести градиент шаблона при адаптации фигуры к другому размеру. В квадрате включённое масштабирование не меняет внешний вид этого градиента `45` градусов.
+При отключённом масштабировании диагональные цветовые полосы сохраняют одинаковую ориентацию в обеих фигурах. При включённом масштабировании полосы растягиваются вместе с пропорциями фигуры. Это помогает воспроизвести градиент шаблона при адаптации фигуры к другому размеру. На квадрате включение масштабирования не меняет внешний вид градиента под 45°.
 
-Оба параметра — угол и масштабирование — применимы к линейным градиентам. Они не управляют заливками [GradientShape::Radial or GradientShape::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/) .
+Оба параметра — угол и масштабирование — применимы только к линейным градиентам. Они не управляют заливками [GradientShape::Radial] или [GradientShape::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/).
 
 ### **Комбинация угла с направлением градиента**
 
-[GradientFormat::setGradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setGradientDirection) выбирает стиль градиента из класса [GradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientdirection/); он не заменяет числовой угол. Для линейного градиента стили углов могут менять область распределения цветов без изменения угла, задаваемого через [setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle). Оставляйте направление неизменным при сравнении углов или масштабировании.
+[GradientFormat::setGradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setGradientDirection) выбирает стиль градиента из класса [GradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientdirection/); это не заменяет числовой угол. Для линейного градиента стиль угла может изменить область распределения цветов без изменения угла, задаваемого через [setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle). Оставляйте направление неизменным при сравнении углов или масштабирования.
 
-В следующем примере одинаковые настройки применяются в обратном порядке. Два прямоугольника выглядят одинаково: задание направления до или после угла не меняет результат.
+Следующий пример применяет одинаковые параметры в обратном порядке. Два прямоугольника выглядят одинаково: установка направления до или после угла не меняет результат.
 
 ```php
 use aspose\slides\FillType;
@@ -528,9 +528,9 @@ try {
 }
 ```
 
-## **Заполнение шаблоном**
+## **Шаблонная заливка**
 
-Заполнение шаблоном применяет двухцветный узор, например точки, полосы или шахматную сетку. В этом примере используется [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) для выбора шаблона решётки. [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) задаёт светло-серый фон, а [PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) задаёт желтый цвет узора.
+Шаблонная заливка применяет двухцветный узор, такой как точки, полосы или шахматы. Этот пример использует [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) для выбора узора «решётка». [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) задаёт светло‑серый фон, а [PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) — жёлтый цвет узора.
 
 ```php
 use aspose\slides\FillType;
@@ -557,11 +557,11 @@ try {
 
 Результат:
 
-![Прямоугольник с заполнением шаблоном](pattern-fill.png)
+![Прямоугольник с шаблонной заливкой](pattern-fill.png)
 
-## **Заполнение изображением**
+## **Заливка картинкой**
 
-Заполнение изображением использует картинку внутри фигуры. Этот пример требует локального изображения и использует [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) для загрузки его в коллекцию изображений презентации. Установка [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) в режим тайлов повторяет изображение внутри прямоугольника. Исходное изображение, использованное здесь, показано ниже:
+Заливка картинкой использует изображение внутри фигуры. Этот пример требует локального изображения и использует [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) для загрузки его в коллекцию изображений презентации. Установка [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) в режим «мозаика» повторяет изображение внутри прямоугольника. Исходное изображение показано ниже:
 
 ![Изображение лотоса](lotus.png)
 
@@ -597,21 +597,21 @@ try {
 
 Результат:
 
-![Фигура с заполнением изображением](picture-fill.png)
+![Фигура с заливкой картинкой](picture-fill.png)
 
-### **Повтор изображения как текстура**
+### **Повторять изображение как текстуру**
 
-Если вы хотите установить повторяющееся изображение в качестве текстуры и настроить поведение тайлинга, вы можете использовать следующие методы класса [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) :
+Если нужно установить повторяющуюся картинку как текстуру и настроить её повторение, используйте следующие методы класса [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Устанавливает режим заполнения изображением — `Tile` или `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): Задает выравнивание тайлов внутри фигуры.
-- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): Управляет тем, будет ли тайл отражён по горизонтали, вертикали или оба направления.
-- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Устанавливает горизонтальное смещение тайла (в пунктах) от начала фигуры.
-- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Устанавливает вертикальное смещение тайла (в пунктах) от начала фигуры.
-- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): Определяет горизонтальный масштаб тайла в процентах.
-- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): Определяет вертикальный масштаб тайла в процентах.
+- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): задаёт режим заливки — `Tile` или `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): определяет выравнивание плиток внутри фигуры.
+- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): управляет зеркальным отражением плитки по горизонтали, вертикали или обоим направлениям.
+- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): задаёт горизонтальное смещение плитки (в пунктах) от начала фигуры.
+- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): задаёт вертикальное смещение плитки (в пунктах) от начала фигуры.
+- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): определяет горизонтальный масштаб плитки в процентах.
+- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): определяет вертикальный масштаб плитки в процентах.
 
-Этот пример требует локального изображения и настраивает [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) для повторения его в 50 % от оригинального размера. Смещения ‑32 пункта сдвигают тайлы по горизонтали и вертикали; выравнивание снизу‑справа и отражение в обоих направлениях определяют расположение повторяющейся текстуры.
+Этот пример требует локального изображения и настраивает [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) на повторение его в размере 50 % от оригинала. Смещения `−32` пункта сдвигают плитки горизонтально и вертикально; выравнивание в правом нижнем углу и отражение в обеих направлениях определяют расположение повторяющейся текстуры.
 
 ```php
 use aspose\slides\FillType;
@@ -655,11 +655,11 @@ try {
 
 Результат:
 
-![Параметры тайлов](tile-options.png)
+![Параметры плитки](tile-options.png)
 
-## **Заливка сплошным цветом**
+## **Сплошная цветная заливка**
 
-Сплошная заливка придаёт фигуре один, однородный цвет. В этом примере [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) устанавливается в режим сплошной заливки, а желтый цвет задаётся через [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor), после чего прямоугольник сохраняется в презентацию.
+Сплошная заливка задаёт фигуре один единый цвет. Этот пример устанавливает [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) в режим сплошной заливки и задаёт жёлтый цвет через [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor), затем сохраняет прямоугольник в презентацию.
 
 ```php
 use aspose\slides\FillType;
@@ -683,15 +683,92 @@ try {
 
 Результат:
 
-![Фигура со сплошной заливкой](solid-color-fill.png)
+![Фигура со сплошной цветной заливкой](solid-color-fill.png)
+
+### **Копировать цвета, сохраняя ссылки на тему**
+
+Используйте [ColorFormat::copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#copyFrom) для копирования определения цвета, включая тип цвета, ссылку на тему и преобразования. Это полезно при передаче цвета заливки между фигурами, которые должны продолжать следовать теме презентации. Метод копирует только цвет: он не копирует тип заливки, контур или другое форматирование фигуры. Установите тип заливки назначения явно через [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType).
+
+Этот пример создаёт три прямоугольника слева направо: источник, копию с учётом темы и фиксированную RGB‑копию. Источник использует [ColorFormat::setSchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setSchemeColor) для ссылки на первый акцентный цвет и добавляет оттенок через [ColorOperationCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/coloroperationcollection/#add). RGB‑копия использует эффективный цвет заливки источника, поэтому все три изначально выглядят одинаково. Вызов [ColorFormat::setColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setColor) задаёт фиксированное RGB‑значение и очищает любые существующие преобразования цвета.
+
+```php
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FillType;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SchemeColor;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(660, 220, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $initialAccent = new Java("java.awt.Color", 65, 105, 225);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent1()->setColor($initialAccent);
+
+    $source = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+    $themeCopy = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+    $rgbCopy = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+    foreach ([$source, $themeCopy, $rgbCopy] as $shape) {
+        $shape->getFillFormat()->setFillType(FillType::Solid);
+        $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+    }
+
+    $sourceColor = $source->getFillFormat()->getSolidFillColor();
+    $sourceColor->setSchemeColor(SchemeColor::Accent1);
+    $sourceColor->getColorTransform()->add(ColorTransformOperation::Tint, 0.75);
+
+    $themeCopy->getFillFormat()->getSolidFillColor()->copyFrom($sourceColor);
+    $rgbCopy->getFillFormat()->getSolidFillColor()->setColor($source->getFillFormat()->getEffective()->getSolidFillColor());
+
+    $before = $slide->getImage(1.0, 1.0);
+    try {
+        $before->save("color-copy-before.png", ImageFormat::Png);
+    } finally {
+        $before->dispose();
+    }
+
+    // Ссылки на тему следуют новому акцентному цвету; фиксированное значение RGB не меняется.
+    $updatedAccent = new Java("java.awt.Color", 255, 69, 0);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent1()->setColor($updatedAccent);
+
+    $after = $slide->getImage(1.0, 1.0);
+    try {
+        $after->save("color-copy-after.png", ImageFormat::Png);
+    } finally {
+        $after->dispose();
+    }
+    $presentation->save("copied_colors.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+До изменения темы все три заливки совпадают:
+
+![Источник, копия‑destination и фиксированная RGB‑destination с одинаковыми синими заливками](color-copy-before.png)
+
+После изменения темы источник и копия, учитывающая тему, следуют новому акцентному цвету и сохраняют оттенок. Фиксированная RGB‑копия остаётся синей:
+
+![Источник и копия‑destination с оранжевыми заливками, фиксированная RGB‑destination остаётся синей](color-copy-after.png)
+
+Скопированное определение независимо от источника. Последующее изменение ссылки темы у источника, назначение другого цвета или добавление/удаление преобразований не меняет получателя. При изменении темы оба объекта меняются, потому что каждый независимо ссылается на один и тот же цвет темы.
+
+Сохранение и повторное открытие PPTX сохраняет тип скопированного цвета, возвращаемый [ColorFormat::getColorType](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#getColorType), ссылку на тему и коллекцию преобразований, возвращаемую [ColorFormat::getColorTransform](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#getColorTransform); они не преобразуют определение в RGB.
+
+При копировании между разными контекстами тем, например между презентациями с разными палитрами акцентов, скопированная ссылка разрешается относительно темы получателя. Та же ссылка и преобразования могут дать другой видимый цвет. См. [Presentation Theme](/slides/ru/php-java/presentation-theme/) для получения более подробной информации о настройке цветов темы.
 
 ## **Использовать фон слайда как заливку фигуры**
 
-Используйте [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill), когда фигура должна соответствовать фону слайда, например в шаблоне презентации. Сначала установите [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) в [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) , чтобы удалить любую явную заливку. При такой комбинации фигура использует фон слайда вместо своей заливки стиля. Включение флага само по себе не удаляет существующую явную заливку.
+Используйте [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill), когда фигура должна соответствовать фону слайда, например в шаблоне презентации. Сначала задайте тип заливки через [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) в значение [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/), чтобы убрать любую явную заливку. При такой комбинации фигура использует фон слайда вместо своей заливки. Включение только флага не удаляет уже существующую явную заливку.
 
-Это отличается от [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) : заливка фоном покрывает объекты за фигурой соответствующей областью фона слайда, тогда как отсутствие заливки оставляет эти объекты видимыми. Градиент остаётся выровненным по слайду, а не начинается внутри каждой фигуры.
+Это отличается от [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/): заливка фоном покрывает объекты за фигурой соответствующей областью фона слайда, тогда как отсутствие заливки оставляет эти объекты видимыми. Градиент остаётся привязанным к слайду, а не перезапускается внутри каждой фигуры.
 
-В следующем примере создаётся мастер‑фон, наследуемый слайдом, и размещается пурпурная полоса за тремя прямоугольниками. Левый прямоугольник использует фон, средний — без заливки, а правый переключается с фоновой заливки на явную оранжевую заливку.
+Следующий пример создаёт мастер‑фон, наследуемый слайдом, и размещает магентовую полосу за тремя прямоугольниками. Левый прямоугольник использует фон, средний — без заливки, правый переключается с фоновой заливки на явную оранжевую.
 
 ```php
 use aspose\slides\BackgroundType;
@@ -707,7 +784,7 @@ try {
     $presentation->getSlideSize()->setSize(720, 400, SlideSizeScaleType::DoNotScale);
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Унаследовать градиент из мастера.
+    // Наследовать градиент от мастера.
     $slide->getBackground()->setType(BackgroundType::NotDefined);
     $slide->getLayoutSlide()->getBackground()->setType(BackgroundType::NotDefined);
     $background = $slide->getLayoutSlide()->getMasterSlide()->getBackground();
@@ -722,7 +799,7 @@ try {
     $endColor = new Java("java.awt.Color", 135, 206, 250);
     $gradient->getGradientStops()->add(1, $endColor);
 
-    // Добавить этот объект первым, чтобы он оказался позади прямоугольников.
+    // Добавить этот объект первым, чтобы он отображался позади прямоугольников.
     $band = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 25, 150, 670, 100);
     $band->getFillFormat()->setFillType(FillType::Solid);
     $band->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->MAGENTA);
@@ -751,15 +828,15 @@ try {
 }
 ```
 
-Результат слева направо: **background fill**, **no fill**, и **explicit fill**. Пурпурная полоса скрыта левым и правым прямоугольниками, но остаётся видимой через средний прямоугольник.
+Результат слева направо: **фоновая заливка**, **без заливки**, **явная заливка**. Магентовая полоса скрыта левым и правым прямоугольниками, но остаётся видимой через средний.
 
-![Фоновая заливка, отсутствие заливки и явная оранжевая заливка над пурпурной полосой](background-fill.png)
+![Фоновая заливка, отсутствие заливки и явная оранжевая заливка поверх магентовой полосы](background-fill.png)
 
-То же поведение применяется к фону, определённому непосредственно на слайде или унаследованному от макета. Фигура использует разрешённый фон слайда; в примере оба фона слайда и макета оставлены неопределёнными, поэтому предоставляет их мастер.
+То же поведение применимо к фону, определённому непосредственно на слайде, или унаследованному от макета. Фигура использует разрешённый фон слайда; пример оставляет как слайд, так и фон макета неопределёнными, поэтому мастер их обеспечивает.
 
 ## **Установка прозрачности**
 
-Для сплошной заливки альфа‑компонента цвета контролирует непрозрачность: 0 — полностью прозрачный, 255 — полностью непрозрачный. В этом примере используется альфа‑значение 128 для жёлтого прямоугольника, делая его примерно на 50 % прозрачным, чтобы нижний прямоугольник оставался видимым. Цвет задаётся через [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor).
+Для сплошной заливки альфа‑компонент цвета управляет непрозрачностью: 0 — полностью прозрачно, 255 — полностью непрозрачно. Этот пример использует значение альфа = 128 для жёлтого прямоугольника, делая его примерно на 50 % прозрачным, чтобы нижний прямоугольник оставался видимым. Цвет задаётся через [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```php
 use aspose\slides\FillType;
@@ -788,9 +865,9 @@ try {
 
 ![Прозрачная фигура](shape-transparency.png)
 
-## **Поворот фигур**
+## **Вращение фигур**
 
-Используйте [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) для вращения фигуры в плоскости слайда. Угол измеряется в градусах; в этом примере прямоугольник вращается на 5 градусов по часовой стрелке и презентация сохраняется.
+Используйте [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) для поворота фигуры в плоскости слайда. Угол измеряется в градусах; в этом примере прямоугольник повёрнут на 5 градусов по часовой стрелке и сохраняется в презентацию.
 
 ```php
 use aspose\slides\Presentation;
@@ -814,9 +891,9 @@ try {
 
 ![Вращение фигуры](shape-rotation.png)
 
-## **Добавление 3D‑срезов**
+## **Добавление 3D‑эффектов скосов**
 
-Используйте [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) , чтобы придать фигуре глубину и срезанные кромки. В этом примере создаётся зелёный эллипс с оранжевой обводкой, устанавливается [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) в 4 пункта и применяется круговой верхний срез с шириной и высотой 6 пунктов через [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop). Фронтальная ортографическая камера и трёхточечное освещение делают срез видимым.
+Используйте [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat), чтобы придать фигуре глубину и скосы. Этот пример создаёт зелёный эллипс с оранжевой обводкой, задаёт [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) в 4 пункта и применяет круглый верхний скос шириной и высотой 6 пунктов через [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop). Передняя орфографическая камера и трёхточечное освещение делают скос видимым.
 
 ```php
 use aspose\slides\BevelPresetType;
@@ -856,11 +933,11 @@ try {
 
 Результат:
 
-![Эффект 3D‑среза](3D-bevel-effect.png)
+![Эффект 3D‑скоса](3D-bevel-effect.png)
 
 ## **Добавление 3D‑вращения**
 
-3D‑вид фигуры управляется настройками её камеры. В этом примере используется [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) с углами широты, долготы и оборота 40, 35 и 20 градусов соответственно. Выбирается изометрическая камера через [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) и сбалансированное освещение через [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType) , после чего сохраняется отформатированный прямоугольник.
+Вид 3D‑фигуры контролируется настройками её камеры. Этот пример использует [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) с углами широты, долготы и вращения — 40°, 35° и 20°. Выбирает изометрическую камеру через [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) и сбалансированное освещение через [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType), затем сохраняет отформатированный прямоугольник.
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -889,13 +966,13 @@ try {
 
 ![Эффект 3D‑вращения](3D-rotation-effect.png)
 
-## **Управление чёрно‑белой отрисовкой фигур**
+## **Управление черно‑белым отображением фигур**
 
-Метод [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) указывает, как отдельная фигура будет отрисовываться, когда презентация просматривается или обрабатывается в чёрно‑белом режиме. Он сам по себе не включает чёрно‑белый режим и не меняет заливку, линию или другое форматирование фигуры в обычном цветном режиме.
+Метод [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) задаёт, как отдельная фигура будет отображаться при просмотре или обработке презентации в черно‑белом режиме. Он не включает черно‑белый режим сам по себе и не меняет заливку, контур или другое форматирование фигуры в обычном цветовом режиме.
 
-Используйте значение из класса [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) , чтобы выбрать желаемое поведение. Например, `Automatic` позволяет приложению‑отображателю выбрать конвертацию, `Gray` и `LightGray` используют серую окраску, `BlackWhite` применяет только чёрный и белый, `Black` и `White` принудительно задают один цвет, `Color` сохраняет обычные цвета, а `Hidden` исключает фигуру в чёрно‑белом режиме. `NotDefined` означает, что уровень режима для фигуры не задан.
+Используйте значение из класса [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/), чтобы выбрать желаемое поведение. Например, `Automatic` позволяет приложению‑отображателю выбрать способ конвертации, `Gray` и `LightGray` используют оттенки серого, `BlackWhite` — только чёрный и белый, `Black` и `White` принудительно задают один цвет, `Color` сохраняет обычные цвета, а `Hidden` исключает фигуру в черно‑белом режиме. `NotDefined` означает, что режим на уровне фигуры не задан.
 
-В этом примере создаётся оранжевый прямоугольник и вызывается [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) со значением `Gray`. Сохранённая фигура сохраняет оранжевую заливку для обычного цветного отображения и запрашивает серую окраску у приложений, поддерживающих настройки чёрно‑белого отображения:
+Этот пример создаёт оранжевый прямоугольник и задаёт [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) в `Gray`. Сохранённая фигура сохраняет оранжевую заливку для обычного цветного отображения и запрашивает серое отображение у приложений, поддерживающих настройки чёрно‑белого режима:
 
 ```php
 use aspose\slides\BlackWhiteMode;
@@ -920,11 +997,11 @@ try {
 }
 ```
 
-В обычном цветном режиме прямоугольник сохраняет оранжевую заливку. В рабочем процессе чёрно‑белого отображения он использует серую окраску, потому что его режим установлен в `Gray`. Это позволяет сохранять полноцветный слайд, одновременно задавая отдельный вид для печати, предварительного просмотра или других процессов, учитывающих настройки чёрно‑белого отображения презентации.
+В обычном цветовом режиме прямоугольник сохраняет оранжевую заливку. В рабочем процессе чёрно‑белого отображения он будет отображаться серым, потому что его режим установлен в `Gray`. Это позволяет сохранять полноцветный слайд, определяя при этом отдельный вид для печати, предварительного просмотра или иных процессов, учитывающих чёрно‑белый режим.
 
 ## **Сброс форматирования**
 
-Используйте [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset) для восстановления позиции, размеров и форматирования заполнителей слайда из соответствующих заполнителей макета. Этот пример требует существующей презентации со связями заполнителей макета и сбрасывает каждый слайд перед сохранением. Фигуры без соответствующих заполнителей макета не сбрасываются.
+Используйте [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset), чтобы восстановить позицию, размеры и форматирование заполнителей слайда из соответствующих заполнителей макета. Этот пример требует существующей презентации с заполнителями, связанными с макетом, и сбрасывает каждый слайд перед сохранением. Фигуры без соответствующего заполнителя макета не сбрасываются.
 
 ```php
 use aspose\slides\Presentation;
@@ -947,12 +1024,12 @@ try {
 
 **Влияет ли форматирование фигур на конечный размер файла презентации?**
 
-Цвета, стили линий и параметры эффектов обычно добавляют немного данных по сравнению с встроенными изображениями и медиа. Заполнение изображениями может увеличить размер файла, поскольку их изображения хранятся в презентации.
+Цвета, стили линий и параметры эффектов обычно добавляют небольшое количество данных по сравнению с внедрёнными изображениями и мультимедиа. Заливка картинкой может увеличить размер файла, поскольку её изображения хранятся в презентации.
 
-**Как обнаружить фигуры на слайде с одинаковым форматированием, чтобы их можно было сгруппировать?**
+**Как обнаружить фигуры на слайде с идентичным форматированием, чтобы объединить их?**
 
-Сравните ключевые свойства форматирования каждой фигуры — заливка, линия и настройки эффектов. Если все соответствующие значения совпадают, считайте их стили идентичными и логически сгруппируйте такие фигуры, что упрощает дальнейшее управление стилями.
+Сравнивайте ключевые свойства форматирования каждой фигуры — заливку, линию и параметры эффектов. Если все соответствующие значения совпадают, считавайте их стили одинаковыми и логически группируйте такие фигуры, что упрощает дальнейшее управление стилями.
 
 **Можно ли сохранить набор пользовательских стилей фигур в отдельный файл для повторного использования в других презентациях?**
 
-Да. Сохраните образцы фигур с требуемыми стилями в шаблон набора слайдов или файл шаблона .POTX. При создании новой презентации откройте шаблон, клонируйте нужные стилизованные фигуры и повторно примените их форматирование где требуется.
+Да. Сохраните образцы фигур с нужными стилями в шаблонный набор слайдов или файл шаблона *.POTX*. При создании новой презентации откройте шаблон, клонируйте необходимые стилизованные фигуры и примените их форматирование где требуется.

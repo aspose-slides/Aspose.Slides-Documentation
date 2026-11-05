@@ -5,40 +5,40 @@ type: docs
 weight: 20
 url: /ru/cpp/shape-formatting/
 keywords:
-- форматирование фигуры
-- форматирование линии
+- формат фигуры
+- формат линии
 - эффект наброска
-- скетч линии фигуры
-- форматирование стиля соединения
+- линия в стиле наброска
+- форматировать стиль соединения
 - градиентная заливка
-- заполнение шаблоном
-- заполнение изображением
-- заполнение текстурой
-- сплошная заливка
+- узорная заливка
+- заливка изображением
+- текстурная заливка
+- сплошная заливка цветом
 - прозрачность фигуры
-- чёрно‑белое отображение фигуры
-- отображение фигуры в градациях серого
-- вращение фигуры
-- эффект 3D‑скругления
-- эффект 3D‑вращения
+- чёрно‑белая отрисовка фигуры
+- отрисовка фигуры в градациях серого
+- поворот фигуры
+- 3D‑скошенный эффект
+- 3D‑вращение
 - сброс форматирования
 - PowerPoint
 - презентация
 - C++
 - Aspose.Slides
-description: "Узнайте, как форматировать фигуры PowerPoint в C++ с помощью Aspose.Slides — задавайте стили заливки, линии и эффектов для файлов PPT и PPTX с точностью и полным контролем."
+description: "Узнайте, как форматировать фигуры PowerPoint в C++ с помощью Aspose.Slides — задавайте стили заливки, контура и эффектов для файлов PPT и PPTX с точностью и полным контролем."
 ---
 ## **Введение**
 
-Форматируйте фигуры в PowerPoint, регулируя их контуры, заливки и эффекты. Aspose.Slides for C++ позволяет управлять этими параметрами программно, включая прозрачность, вращение и 3D‑форматирование.
+Форматируйте фигуры в PowerPoint, изменяя их контуры, заливки и эффекты. Aspose.Slides for C++ позволяет программно управлять этими параметрами, включая прозрачность, вращение и 3D‑форматирование.
 
-![Варианты форматирования фигур в PowerPoint](format-shape-powerpoint.png)
+![Параметры форматирования фигур в PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for C++ предоставляет интерфейсы и методы, позволяющие форматировать фигуры, используя те же параметры, что доступны в PowerPoint.
+Aspose.Slides for C++ предоставляет интерфейсы и методы, позволяющие форматировать фигуры с использованием тех же параметров, что доступны в PowerPoint.
 
 ## **Форматирование линий**
 
-Используйте [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) для управления контуром фигуры. Этот пример создает незаполненный прямоугольник с синей пунктирной окантовкой. [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) выбирает составную линию «толстая‑тонкая», а [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) устанавливает её ширину в 7 пунктов и [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) выбирает тип штриха.
+Используйте [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) для управления контуром фигуры. Этот пример создает неполную (без заливки) прямоугольник с синей пунктирной обводкой. [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) выбирает составную линию «толстый‑тонкий», тогда как [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) задает её ширину 7 пунктов, а [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) выбирает тип штриха.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -78,16 +78,15 @@ presentation->Dispose();
 ```
 
 Результат:
+![Отформатированные линии в презентации](formatted-lines.png)
 
-![Форматированные линии в презентации](formatted-lines.png)
+### **Задать пользовательские шаблоны пунктиров линии**
 
-### **Установка пользовательских шаблонов штрихов линии**
+Используйте [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/), когда предопределённые стили линий не дают нужных длин штрихов и пробелов, например для фирменных контуров или технических схем. Присвоение шаблона автоматически меняет стиль штриха на [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/).
 
-Используйте [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/), когда предопределённые стили линий не обеспечивают нужных длин штрихов и промежутков, например для фирменных контуров или технических схем. Присвоение шаблона автоматически изменяет стиль штриха на [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/).
+Элементы массива чередуются между длинами штриха и пробела, начиная со штриха. Каждое значение является кратным ширине линии: `{ 4, 2 }` при ширине 3 пункта даёт штрих длиной 12 пунктов, за которым следует пробел длиной 6 пунктов. Используйте пары конечных, неотрицательных значений для определения полных сегментов штрих‑пробел. В примере используются положительные значения, чтобы каждый штрих и пробел были видимы.
 
-Элементы массива чередуются между длинами штриха и промежутка, начиная со штриха. Каждое значение является кратным ширине линии: `{ 4, 2 }` при ширине 3 пункта дает штрих длиной 12 пунктов и промежуток 6 пунктов. Используйте пары конечных неотрицательных значений для определения полных сегментов штрих‑промежуток. В примере использованы положительные значения, чтобы каждый штрих и промежуток были видимы.
-
-Этот пример создает пять синих линий одинаковой длины и плоских окончаний. Первые три сравнивают шаблоны при ширине 3 пункта. Четвертая повторяет первый шаблон при двойной ширине, удваивая как длину штриха, так и промежутка. Пятая переключается с пользовательского шаблона на сплошную линию.
+Этот пример создаёт пять синих линий одинаковой длины и плоских окончаний. Первые три сравнивают шаблоны при ширине 3 пункта. Четвёртая повторяет первый шаблон удвоенной ширины, удваивая как длину штриха, так и пробела. Пятая переходит от пользовательского шаблона к сплошной линии.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -147,25 +146,25 @@ presentation->Save(u"custom_dash_patterns.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Чтобы вернуться к предопределённому пунктирному стилю, передайте [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) в [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/). Выбранный стиль контролирует внешний вид линии.
+Чтобы вернуться к предопределённому пунктирному стилю, передайте [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) в [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/). Выбранный стиль управляет внешним видом линии.
 
-Результат в PowerPoint сверху вниз: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; и **Solid, 3 pt**.
+Результат в PowerPoint сверху вниз: **{4, 2}, 3 пт**; **{1, 2}, 3 пт**; **{6, 2, 1, 2}, 3 пт**; **{4, 2}, 6 пт**; и **Solid, 3 пт**.
 
-![Три пользовательских шаблона штрихов, более широкая линия, использующая первый шаблон, и сплошная линия в PowerPoint](custom-dash-patterns.png)
+![Три пользовательских шаблона пунктиров, более широкая линия с использованием первого шаблона и сплошная линия в PowerPoint](custom-dash-patterns.png)
 
-### **Установка окончаний линии**
+### **Задать окончания линии**
 
-Используйте [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) для установки окончаний открытой линии. Перечисление [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) предоставляет три явных стиля окончаний:
+Используйте [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) для задания окончаний открытой линии. Перечисление [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) предоставляет три явных стиля окончаний:
 
-- `Flat`: Линия заканчивается в конечной точке.
-- `Round`: Полукруглая насадка выступает за конечную точку на половину ширины линии.
-- `Square`: Квадратная насадка выступает за конечную точку на половину ширины линии.
+- `Flat`: Штрих останавливается на конечной точке.
+- `Round`: Полукруглое окончание выходит за пределы конечной точки на половину ширины линии.
+- `Square`: Квадратное окончание выходит за пределы конечной точки на половину ширины линии.
 
-Перечисление также включает `NotDefined`, что означает отсутствие явно назначенного стиля окончания.
+Перечисление также включает `NotDefined`, означающий, что стиль окончания явно не назначен.
 
-Окончания отличаются от стрелок, которые добавляют символы к концам линии, и соединений, которые управляют углами между сегментами линии. Этот пример отключает стрелки через [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) и [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/), чтобы сравнить только формы окончаний.
+Окончания отличаются от стрелок, которые добавляют символы к концам линий, и соединений, которые управляют углами между сегментами линии. В этом примере стрелки отключаются с помощью [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) и [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/), чтобы сравнивались только формы окончаний.
 
-Следующий пример создает три почти одинаковые горизонтальные линии шириной 20 пунктов. Сверху вниз они используют плоские, круглые и квадратные окончания. Их конечные точки имеют одинаковые горизонтальные координаты; круглые и квадратные окончания выступают на 10 пунктов за каждую конечную точку.
+В следующем примере создаются три в остальном одинаковые горизонтальные линии шириной 20 пунктов. Сверху вниз они используют окончания flat, round и square. Их конечные точки имеют одинаковые горизонтальные координаты; круглые и квадратные окончания выходят за каждую конечную точку на 10 пунктов.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -215,15 +214,15 @@ presentation->Save(u"line_caps.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Результат в PowerPoint сверху вниз: **Flat**, **Round**, и **Square**.
+Результат в PowerPoint сверху вниз: **Flat**, **Round** и **Square**.
 
-![Плоские, круглые и квадратные окончания на одинаковых толстых линиях в PowerPoint](line-caps.png)
+![Плоские, круглые и квадратные окончания одинаковых толстых линий в PowerPoint](line-caps.png)
 
-## **Применение эффектов наброска к линиям фигур**
+## **Применить эффекты наброска к линиям фигур**
 
-Эффект наброска делает линию фигуры похожей на нарисованную от руки. Используйте [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) для доступа к настройкам линии, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) для доступа к настройкам наброска и [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) для выбора значения из перечисления [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/).
+Эффект наброска делает линию фигуры выглядящей как нарисованную от руки. Используйте [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) для доступа к настройкам линии, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) для доступа к настройкам наброска и [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) чтобы выбрать значение из перечисления [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/).
 
-Следующий пример кода C++ показывает, как применить эффект [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/), прочитать явно заданное значение и удалить эффект с помощью [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
+Следующий код C++ показывает, как применить эффект [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/), прочитать явно заданное значение и удалить эффект с помощью [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -254,7 +253,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-Значение, возвращаемое [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/), представляет настройку, присвоенную непосредственно фигуре. Если форматирование линии может наследоваться из темы, макетного слайда или шаблона, используйте [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), доступ к [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), и чтение [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Эффективное значение отражает фактическое форматирование после разрешения наследования. Этот пример требует существующей презентации с хотя бы одной фигурой на первом слайде и выводит оба значения:
+Значение, возвращаемое [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/), представляет настройку, назначенную непосредственно фигуре. Если форматирование линии может наследоваться из темы, главного слайда или макета, используйте [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), получите [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), и прочитайте [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Эффективное значение отражает форматирование, действительно применённое после разрешения наследования. Этот пример требует существующей презентации с по крайней мере одной фигурой на первом слайде и выводит оба значения:
 
 ```cpp
 #include <DOM/ILineFormat.h>
@@ -284,19 +283,19 @@ Console::WriteLine(u"Effective sketch type: {0}", effectiveSketchType);
 presentation->Dispose();
 ```
 
-## **Форматирование стилей соединений**
+## **Форматировать стили соединений**
 
 Вот три варианта типа соединения:
 
-* Round — Скругленный
-* Miter — Острие
-* Bevel — Фаска
+* Round
+* Miter
+* Bevel
 
-Стиль соединения определяет, как две контурные части встречаются в угле. Используйте **Round** для скруглённых углов, **Miter** для острых углов или **Bevel** для обрезанных углов.
+Стиль соединения управляет тем, как два сегмента контура соединяются в углу. Используйте **Round** для закруглённых углов, **Miter** для острых углов или **Bevel** для сглаженных углов.
 
 ![Стиль соединения в презентации](join-style-powerpoint.png)
 
-Этот пример создает три чёрных прямоугольника с синим контуром шириной 15 пунктов. Он устанавливает [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) в значения `miter`, `bevel` и `round` из перечисления [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) соответственно, чтобы сравнить, как рисуются углы.
+В этом примере создаются три чёрных прямоугольника с синими контурами шириной 15 пунктов. Он задает [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) значения miter, bevel и round из [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) соответственно, чтобы сравнить, как рисуются углы.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -357,13 +356,13 @@ presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Ограничение острого соединения в резких углах**
+### **Ограничить соединения Miter на острых углах**
 
-Используйте [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) вместе с [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) установленным в [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) для ограничения того, насколько далеко может выступать острый угол.
+Используйте [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) вместе с [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) установленным в [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/), чтобы ограничить, насколько далеко может выступать острый угол.
 
-Ограничение – это отношение расстояния между внутренним и внешним углом соединения к ширине линии. Например, значение `8` позволяет длине острия достигать до восьми ширин линии; это не измеряется в пунктах. Если угол превысит ограничение, PowerPoint заменит его на фаску. Большое значение позволяет более острые точки. Настройка влияет только на острые соединения и не меняет внешний вид, когда угол остаётся внутри обоих ограничений.
+Ограничение представляет собой отношение расстояния между внутренним и внешним углами соединения к ширине линии. Например, значение `8` позволяет длине соединения miter достигать восьми ширин линии; это не измерение в пунктах. Если угол превысит ограничение, PowerPoint использует скос (bevel) в этом месте. Большое ограничение позволяет более острые точки. Параметр влияет только на соединения miter, и его изменение не имеет видимого эффекта, пока угол остаётся в пределах ограничения.
 
-Этот пример создаёт два одинаковых незаполненных треугольника с контурами шириной 20 пунктов. Левый треугольник использует ограничение `2`, правый – `8`. Каждый треугольник шириной 80 пунктов и высотой 160 пунктов, что даёт отношение длины острия к ширине линии примерно `4.12`. Поэтому PowerPoint фаскует левый верхний угол и сохраняет правый.
+В этом примере создаются два идентичных неполных треугольника с контурами шириной 20 пунктов. Левый треугольник использует ограничение `2`, правый — `8`. Каждый треугольник имеет ширину 80 пунктов и высоту 160 пунктов, что даёт верхнему углу отношение длины miter к ширине линии примерно `4.12`. В результате PowerPoint скосит левый верхний угол и оставит правый без изменений.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -412,11 +411,11 @@ presentation->Dispose();
 
 Результат в PowerPoint: **Miter limit 2** слева и **miter limit 8** справа.
 
-![Фаска вершины с ограничением острия 2 и острая вершина с ограничением острия 8 в PowerPoint](miter-limits.png)
+![Скошенный верхний угол с ограничением miter 2 и острый верхний угол с ограничением miter 8 в PowerPoint](miter-limits.png)
 
 ## **Градиентная заливка**
 
-Градиентная заливка плавно переходит от одного цвета к другому внутри фигуры. Этот пример заполняет эллипс линейным градиентом под углом 45° от красного к пурпурному с помощью [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). Метод [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) размещает цветовые остановки в позициях 0 и 1, в начале и в конце градиента. Очистка существующих остановок гарантирует, что используются только эти два цвета.
+Градиентная заливка смешивает цвета внутри фигуры. В этом примере эллипс заполняется линейным градиентом под углом 45 градусов от красного к фиолетовому с помощью [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). Метод [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) размещает цветовые остановки на позициях 0 и 1 — начале и конце градиента. Очистка существующих остановок гарантирует, что используются только эти два цвета.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -456,16 +455,15 @@ presentation->Dispose();
 ```
 
 Результат:
-
 ![Эллипс с градиентной заливкой](gradient-fill.png)
 
-Если градиент выглядит иначе в экспортированном изображении, чем в PowerPoint, см. [Choose a Gradient Rendering Style](/slides/ru/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Вы можете выбрать стиль рендеринга, не изменяя градиентную заливку, сохранённую в презентации.
+Если градиент выглядит иначе в экспортированном изображении, чем в PowerPoint, см. [Choose a Gradient Rendering Style](/slides/ru/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Вы можете выбрать стиль рендеринга, не меняя градиентную заливку, сохранённую в презентации.
 
-### **Установка угла линейного градиента**
+### **Задать угол линейного градиента**
 
-Используйте [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) для управления ориентацией заливки [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/). Угол измеряется в градусах и увеличивается по часовой стрелке: `0` — слева направо, `90` — сверху вниз, `180` — справа налево, `270` — снизу вверх. Поддерживаются дробные углы. Углы вне диапазона `[0, 360)` нормализуются к одному обороту; например, `-45` становится `315`, а `360` — `0`.
+Используйте [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) для управления ориентацией заливки [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/). Угол измеряется в градусах и увеличивается по часовой стрелке: `0` — слева направо, `90` — сверху вниз, `180` — справа налево, `270` — снизу вверх. Дробные углы поддерживаются. Конечные углы за пределами `[0, 360)` нормализуются к одному обороту; например, `-45` становится `315`, а `360` — `0`.
 
-В этом примере создаются шесть прямоугольников с одинаковыми остановками красного, зелёного и синего цветов в позициях `0`, `0.5` и `1`. Масштабирование отключено, чтобы угол можно было сравнивать независимо от пропорций фигур. Углы слева направо: `0`, `45`, `90` в первой строке и `135`, `180`, `270` во второй строке.
+В этом примере создаются шесть прямоугольников с одинаковыми красными, зелёными и синими остановками в позициях `0`, `0.5` и `1`. Масштабирование отключено, чтобы угол можно было сравнивать независимо от пропорций прямоугольников. Углы слева направо: `0`, `45` и `90` в первой строке и `135`, `180` и `270` во второй строке.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -523,14 +521,13 @@ presentation->Dispose();
 ```
 
 Результат в PowerPoint:
+![Линейные градиенты под углом 0, 45 и 90 градусов в верхней строке, и 135, 180 и 270 градусов в нижней строке](linear-gradient-angles.png)
 
-![Линейные градиенты при 0°, 45° и 90° в верхнем ряду, и 135°, 180° и 270° в нижнем ряду](linear-gradient-angles.png)
+### **Масштабировать линейный градиент вместе с фигурой**
 
-### **Масштабирование линейного градиента по фигуре**
+[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) принимает значение [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/). Установите его явно в `False`, чтобы сохранять геометрический угол градиента при изменении пропорций фигуры, или в `True`, чтобы масштабировать градиент вместе с шириной и высотой фигуры. При включённом масштабировании видимый угол может отличаться от заданного угла у нес квадратной фигуры.
 
-[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) принимает значение [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/). Установите его явно в `False`, чтобы угол градиента сохранялся при изменении пропорций фигуры, или в `True`, чтобы градиент масштабировался вместе с шириной и высотой фигуры. При включённом масштабировании видимый угол может отличаться от заданного на нес квадратной фигуре.
-
-В следующем примере используется угол `45`° и такие же цветовые остановки, как в сравнении углов. В левом столбце `False`, в правом — `True`. Каждый столбец содержит широкий прямоугольник над высоким прямоугольником. Оба стартуют с одинаковых ширин; изменение размеров второго прямоугольника показывает, как заливка реагирует на изменение размеров без изменения параметров градиента.
+В следующем примере используется угол `45` градусов и те же цветовые остановки, что и в сравнении углов. Левая колонка использует `False`; правая — `True`. Каждая колонка содержит широкий прямоугольник над высоким прямоугольником. Оба начинаются с одинаковых ширин; изменение ширины и высоты второго прямоугольника демонстрирует, как заливка реагирует на изменение размера без изменения параметров градиента.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -597,18 +594,17 @@ presentation->Dispose();
 ```
 
 Результат в PowerPoint, с отключённым масштабированием слева и включённым справа:
+![Широкие и высокие прямоугольники с градиентом 45 градусов, сравнение LinearGradientScaled False слева и True справа](linear-gradient-scaling.png)
 
-![Широкие и высокие прямоугольники с градиентом 45°, сравнение LinearGradientScaled False слева и True справа](linear-gradient-scaling.png)
+При отключённом масштабировании диагональные цветовые полосы сохраняют одинаковую ориентацию в обоих прямоугольниках. При включённом масштабировании полосы растягиваются вместе с пропорциями фигуры. Это помогает воссоздать градиент шаблона при адаптации фигуры к другому размеру. На квадрате включение масштабирования не меняет внешний вид этого градиента под углом `45` градусов.
 
-При отключённом масштабировании диагональные цветные полосы сохраняют одинаковую ориентацию в обеих фигурах. При включённом масштабировании полосы растягиваются вместе с пропорциями фигуры. Это помогает воспроизвести градиент шаблона при изменении размеров фигуры. На квадрате включение масштабирования не меняет внешний вид этого градиента `45`°.
+Оба параметра — угол и масштабирование — применяются к линейным градиентам. Они не управляют заливками [GradientShape::Radial or GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/).
 
-Оба параметра – угол и масштабирование – применяются только к линейным градиентам. Они не управляют заливками [GradientShape::Radial] или [GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/).
+### **Комбинировать угол с направлением градиента**
 
-### **Комбинация угла с направлением градиента**
+[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) выбирает стиль градиента из перечисления [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/); это не замена числовому углу. Для линейного градиента стили углов могут изменять область распределения цветов без изменения угла, заданного через [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/). Оставляйте направление неизменным при сравнении углов или масштабировании.
 
-[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) выбирает стиль градиента из перечисления [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/); это не заменяет числовой угол. Для линейного градиента стили углов могут менять область распределения цветов без изменения угла, заданного через [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/). Сохраняйте направление неизменным при сравнении углов или масштабировании.
-
-Следующий пример применяет те же настройки в обратном порядке. Два прямоугольника выглядят одинаково: задание направления до или после угла не меняет результат.
+В следующем примере те же настройки применяются в обратном порядке. Два прямоугольника выглядят одинаково: назначение направления до или после угла не меняет результат.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -667,9 +663,9 @@ presentation->Save(u"linear_gradient_direction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Заполнение шаблоном**
+## **Заливка узором**
 
-Заполнение шаблоном применяет двухцветный рисунок, например точки, полосы или шахматы. Этот пример использует [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) для выбора узора «решётка». [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) задаёт светло‑серый фон, а [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) задаёт желтый цвет узора.
+Заливка узором применяется двухцветный рисунок, например точки, полосы или клетки. В этом примере используется [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) для выбора узора сетки. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) задаёт светло‑серый фон, а [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) задаёт жёлтый цвет узора.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -705,12 +701,11 @@ presentation->Dispose();
 ```
 
 Результат:
+![Прямоугольник с узорной заливкой](pattern-fill.png)
 
-![Прямоугольник с заполнением шаблоном](pattern-fill.png)
+## **Заливка картинкой**
 
-## **Заполнение изображением**
-
-Заполнение изображением использует картинку внутри фигуры. Этот пример требует локального изображения и использует [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) для загрузки его в коллекцию изображений презентации. Установка [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) в режим «Tile» повторяет изображение внутри прямоугольника. Исходное изображение показано ниже:
+Заливка картинкой использует изображение внутри фигуры. Этот пример требует локального изображения и использует [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) для загрузки его в коллекцию изображений презентации. Установка [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) в режим плитки повторяет изображение внутри прямоугольника. Исходное изображение, используемое здесь, показано ниже:
 
 ![Изображение лотоса](lotus.png)
 
@@ -752,22 +747,21 @@ presentation->Dispose();
 ```
 
 Результат:
+![Фигура с заливкой картинкой](picture-fill.png)
 
-![Фигура с заполнением изображением](picture-fill.png)
+### **Тайлить изображение как текстуру**
 
-### **Повтор изображения как текстура**
+Если вы хотите установить тайлированное изображение в качестве текстуры и настроить поведение тайлинга, можете использовать следующие методы интерфейса [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) и класса [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/):
 
-Если нужно задать повтор изображения как текстуру и настроить поведение повторения, используйте следующие методы интерфейса [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) и класса [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/):
-
-- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Устанавливает режим заполнения изображением — `Tile` (повтор) или `Stretch` (растягивание).
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Устанавливает режим заливки изображением — `Tile` или `Stretch`.
 - [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Указывает выравнивание плиток внутри фигуры.
-- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Определяет, будет ли плитка отражена по горизонтали, вертикали или обоим направлениям.
-- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Устанавливает горизонтальное смещение плитки (в пунктах) от начала фигуры.
-- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Устанавливает вертикальное смещение плитки (в пунктах) от начала фигуры.
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Управляет тем, будет ли плитка отражена горизонтально, вертикально или обеими способами.
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Задает горизонтальное смещение плитки (в пунктах) от начала фигуры.
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Задает вертикальное смещение плитки (в пунктах) от начала фигуры.
 - [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Определяет горизонтальный масштаб плитки в процентах.
 - [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Определяет вертикальный масштаб плитки в процентах.
 
-Этот пример требует локального изображения и настраивает [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) для повторения его с масштабом 50 % от исходного размера. Смещения `−32` пункта сдвигают плитки горизонтально и вертикально; выравнивание «bottom‑right» и отражение в обоих направлениях определяют расположение повторяющейся текстуры.
+Этот пример требует локального изображения и настраивает [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) для повторения его с масштабом 50 % от оригинального размера. Смещения −32 пункта сдвигают плитки по горизонтали и вертикали; выравнивание в правом нижнем углу и отражение в обоих направлениях определяют расположение повторяющейся текстуры.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -817,12 +811,11 @@ presentation->Dispose();
 ```
 
 Результат:
+![Параметры тайлинга](tile-options.png)
 
-![Параметры повторения](tile-options.png)
+## **Сплошная заливка цветом**
 
-## **Заполнение сплошным цветом**
-
-Сплошная заливка задаёт фигуре один равномерный цвет. Этот пример устанавливает [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) в режим сплошной заливки и задаёт жёлтый цвет через [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), затем сохраняет прямоугольник в презентацию.
+Сплошная заливка придаёт фигуре один, однородный цвет. Этот пример задаёт [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) в режим сплошной заливки и назначает желтый цвет через [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), затем сохраняет прямоугольник в презентацию.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -854,16 +847,102 @@ presentation->Dispose();
 ```
 
 Результат:
+![Фигура со сплошной заливкой](solid-color-fill.png)
 
-![Фигура со сплошным цветом заливки](solid-color-fill.png)
+### **Копировать цвета, сохраняя ссылки на тему**
 
-## **Использовать фон слайда как заливку фигуры**
+Используйте [IColorFormat::CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/copyfrom/) для копирования определения цвета, включая его тип, ссылку на тему и трансформации. Это полезно при передаче цвета заливки между фигурами, которые должны продолжать использовать тему презентации. Метод копирует только цвет: он не копирует тип заливки, контур или другое форматирование фигуры. Явно задайте тип заливки назначения с помощью [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/).
 
-Используйте [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) когда фигура должна соответствовать фону слайда, например в шаблоне презентации. Сначала установите [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) в [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) чтобы удалить любую явную заливку. При такой комбинации фигура использует фон слайда вместо своей стилизованной заливки. Включение флага само по себе не удаляет уже существующую явную заливку.
+В этом примере создаются три прямоугольника слева направо: исходный, копия, учитывающая тему, и копия с фиксированным RGB. Исходный использует [IColorFormat::set_SchemeColor](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_schemecolor/) для ссылки на первый цвет акцента и добавляет оттенок через [IColorOperationCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icoloroperationcollection/add/). Копия RGB использует эффективный цвет заливки исходного, поэтому все три первоначально выглядят одинаково. Вызов [IColorFormat::set_Color](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_color/) задаёт фиксированное значение RGB и очищает любые существующие трансформации цвета.
+
+```cpp
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(660, 220, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_RoyalBlue());
+
+auto source = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+auto themeCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+auto rgbCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+for (auto shape : { source, themeCopy, rgbCopy })
+{
+    shape->get_FillFormat()->set_FillType(FillType::Solid);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+}
+
+auto sourceColor = source->get_FillFormat()->get_SolidFillColor();
+sourceColor->set_SchemeColor(SchemeColor::Accent1);
+sourceColor->get_ColorTransform()->Add(ColorTransformOperation::Tint, 0.75f);
+
+themeCopy->get_FillFormat()->get_SolidFillColor()->CopyFrom(sourceColor);
+auto effectiveFill = source->get_FillFormat()->GetEffective();
+rgbCopy->get_FillFormat()->get_SolidFillColor()->set_Color(effectiveFill->get_SolidFillColor());
+
+auto before = slide->GetImage(1.0f, 1.0f);
+before->Save(u"color-copy-before.png", ImageFormat::Png);
+before->Dispose();
+
+// Theme references follow the new accent color; the fixed RGB value does not.
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_OrangeRed());
+
+auto after = slide->GetImage(1.0f, 1.0f);
+after->Save(u"color-copy-after.png", ImageFormat::Png);
+after->Dispose();
+presentation->Save(u"copied_colors.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+До изменения темы все три заливки совпадают:
+![Исходный, назначение CopyFrom и фиксированный RGB‑назначение с одинаковой синей заливкой](color-copy-before.png)
+
+После изменения темы исходный и копия, учитывающая тему, следуют новому цвету акцента и сохраняют свой оттенок. Фиксированная RGB‑копия остаётся синей:
+![Исходный и назначение CopyFrom с оранжевой заливкой, в то время как фиксированный RGB‑назначение остаётся синим](color-copy-after.png)
+
+Скопированное определение независимо от источника. Последующее изменение ссылки темы у источника, назначение другого цвета или добавление/удаление его трансформаций не меняет назначение. Изменение темы всё равно влияет на обе фигуры, потому что каждая независимо ссылается на один и тот же цвет темы.
+
+Сохранение и повторное открытие PPTX сохраняет тип скопированного цвета, доступный через [IColorFormat::get_ColorType](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortype/), его ссылку на тему и коллекцию трансформаций, возвращаемую [IColorFormat::get_ColorTransform](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortransform/); он не преобразует определение в RGB.
+
+При копировании между разными контекстами тем, например презентациями с различными палитрами акцентов, скопированная ссылка разрешается относительно темы назначения. Та же ссылка и трансформации могут дать иной видимый цвет. Смотрите [Presentation Theme](/slides/ru/cpp/presentation-theme/) для получения дополнительной информации о настройке цветов темы.
+
+## **Использовать фон слайда в качестве заливки фигуры**
+
+Используйте [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) когда фигура должна соответствовать фону слайда, например в шаблоне презентации. Сначала задайте [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) значение [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/), чтобы удалить любую явную заливку. С такой комбинацией фигура использует фон слайда вместо собственной заливки. Включение флага само по себе не удаляет уже существующую явную заливку.
 
 Это отличается от [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/): заливка фоном покрывает объекты за фигурой соответствующей областью фона слайда, тогда как отсутствие заливки оставляет эти объекты видимыми. Градиент остаётся привязанным к слайду, а не перезапускается внутри каждой фигуры.
 
-Следующий пример создаёт фон мастера, наследуемый слайдом, и размещает пурпурную полосу за тремя прямоугольниками. Левый прямоугольник использует фон, средний — без заливки, правый переключается с фоновой заливки на явную оранжевую заливку.
+В следующем примере создаётся фон мастера, наследуемый слайдом, и за три прямоугольника размещается пурпурная полоса. Левый прямоугольник использует фон, средний — без заливки, правый переключается от фоновой заливки к явной оранжевой заливке.
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -898,7 +977,7 @@ auto presentation = MakeObject<Presentation>();
 presentation->get_SlideSize()->SetSize(720, 400, SlideSizeScaleType::DoNotScale);
 auto slide = presentation->get_Slide(0);
 
-// Наследовать градиент от мастер-слайда.
+// Унаследовать градиент от мастера.
 slide->get_Background()->set_Type(BackgroundType::NotDefined);
 slide->get_LayoutSlide()->get_Background()->set_Type(BackgroundType::NotDefined);
 auto background = slide->get_LayoutSlide()->get_MasterSlide()->get_Background();
@@ -911,7 +990,7 @@ gradient->get_GradientStops()->Clear();
 gradient->get_GradientStops()->Add(0, Color::get_DarkBlue());
 gradient->get_GradientStops()->Add(1, Color::get_LightSkyBlue());
 
-// Добавьте этот объект первым, чтобы он оказался позади прямоугольников.
+// Добавить этот объект первым, чтобы он оказался позади прямоугольников.
 auto band = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 25, 150, 670, 100);
 band->get_FillFormat()->set_FillType(FillType::Solid);
 band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Magenta());
@@ -928,7 +1007,7 @@ auto explicitShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 510
 explicitShape->get_FillFormat()->set_FillType(FillType::NotDefined);
 explicitShape->set_UseBackgroundFill(true);
 
-// Отключить заливку фоном перед применением явной заливки.
+// Отключить фон перед применением явной заливки.
 explicitShape->set_UseBackgroundFill(false);
 explicitShape->get_FillFormat()->set_FillType(FillType::Solid);
 explicitShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
@@ -937,15 +1016,14 @@ presentation->Save(u"background_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Результат слева направо: **фон заливки**, **без заливки**, и **явная оранжевая заливка**. Пурпурная полоса скрыта левым и правым прямоугольниками, но остаётся видимой через средний.
+Результат слева направо: **background fill**, **no fill** и **explicit fill**. Пурпурная полоса скрыта левым и правым прямоугольниками, но остаётся видимой через средний прямоугольник.
+![Фоновая заливка, отсутствие заливки и явная оранжевая заливка над пурпурной полосой](background-fill.png)
 
-![Фон заливки, без заливки и явная оранжевая заливка над пурпурной полосой](background-fill.png)
+То же поведение применяется к фону, определённому непосредственно на слайде или наследованному из макета. Фигура использует разрешённый фон слайда; в примере как фон слайда, так и макета не заданы, поэтому используется фон мастера.
 
-То же поведение применимо к фону, определённому непосредственно на слайде, или унаследованному из макета. Фигура использует разрешённый фон слайда; в примере оба фона слайда и макета оставлены неопределёнными, поэтому они берутся из мастера.
+## **Установить прозрачность**
 
-## **Установка прозрачности**
-
-Для сплошной заливки альфа‑компонент цвета контролирует непрозрачность: `0` — полностью прозрачно, `255` — полностью непрозрачно. Этот пример использует значение альфа `128` для жёлтого прямоугольника, делая его примерно на 50 % прозрачным, чтобы прямоугольник под ним оставался видимым. Цвет задаётся через [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/).
+Для сплошной заливки альфа‑компонент цвета управляет непрозрачностью: 0 — полностью прозрачный, 255 — полностью непрозрачный. В этом примере используется значение альфа 128 для жёлтого прямоугольника, делая его примерно на 50 % прозрачным, чтобы нижний прямоугольник оставался видимым. Цвет задаётся через [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/).
 
 ```cpp
 #include <DOM/FillType.h>
@@ -981,12 +1059,11 @@ presentation->Dispose();
 ```
 
 Результат:
-
 ![Прозрачная фигура](shape-transparency.png)
 
-## **Вращение фигур**
+## **Вращать фигуры**
 
-Используйте [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) для вращения фигуры в плоскости слайда. Угол измеряется в градусах; в этом примере прямоугольник вращается на 5 ° по часовой стрелке и сохраняется в презентацию.
+Используйте [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) для вращения фигуры в плоскости слайда. Угол измеряется в градусах; в этом примере прямоугольник вращается на 5 градусов по часовой стрелке и презентация сохраняется.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1012,12 +1089,11 @@ presentation->Dispose();
 ```
 
 Результат:
-
 ![Вращение фигуры](shape-rotation.png)
 
-## **Добавление 3D‑скругления (Bevel) эффектов**
+## **Добавить 3D‑скошенные эффекты**
 
-Используйте [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) чтобы придать фигуре глубину и скругленные края. Этот пример создаёт зелёный эллипс с оранжевым конуром, задаёт [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) = 4 пт и применяет круглое верхнее скругление шириной и высотой 6 пт через [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/). Передняя орфографическая камера и трёхточечное освещение делают скругление заметным.
+Используйте [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) чтобы придать фигуре глубину и скошенные кромки. В этом примере создаётся зелёный эллипс с оранжевым контуром, задаётся глубина [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) 4 пункта и применяется круглая верхняя скоска с шириной и высотой 6 пунктов через [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/). Передняя ортографическая камера и трёхточечное освещение делают скошенную кромку видимой.
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -1069,12 +1145,11 @@ presentation->Dispose();
 ```
 
 Результат:
+![Эффект 3D‑скошенности](3D-bevel-effect.png)
 
-![Эффект 3D‑скругления](3D-bevel-effect.png)
+## **Добавить 3D‑вращение**
 
-## **Добавление 3D‑вращения**
-
-3D‑вид фигуры управляется настройками камеры. Этот пример использует [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) с углами широты 40°, долготы 35° и оборота 20°. Он выбирает изометрическую камеру через [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) и сбалансированное освещение через [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/), затем сохраняет отформатированный прямоугольник.
+3D‑вид фигуры управляется параметрами её камеры. В этом примере используется [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) с углами широты, долготы и оборота 40, 35 и 20 градусов соответственно. Выбирается изометрическая камера через [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) и сбалансированное освещение через [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/), затем сохраняется отформатированный прямоугольник.
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -1109,16 +1184,15 @@ presentation->Dispose();
 ```
 
 Результат:
-
 ![Эффект 3D‑вращения](3D-rotation-effect.png)
 
-## **Управление черно‑белым отображением фигур**
+## **Управление черно‑белой отрисовкой фигур**
 
-Метод [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) определяет, как отдельная фигура отображается, когда презентация просматривается или обрабатывается в черно‑белом режиме. Он не включает черно‑белый вывод сам по себе и не меняет заливку, контур или другое форматирование фигуры в обычном цветном режиме.
+Метод [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) указывает, как отдельная фигура отрисовывается, когда презентация просматривается или обрабатывается в черно‑белом режиме. Он не включает черно‑белый режим сам по себе и не меняет заливку, контур или другое форматирование фигуры в обычном цветном режиме.
 
-Используйте значение из перечисления [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) для выбора требуемого поведения. Например, `Automatic` позволяет приложению выбора конвертации, `Gray` и `LightGray` используют серый цвет, `BlackWhite` использует только чёрный и белый, `Black` и `White` принудительно задают один цвет, `Color` сохраняет обычные цвета, а `Hidden` исключает фигуру в черно‑белом режиме. `NotDefined` означает, что режим не задан.
+Используйте значение из перечисления [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) для выбора требуемого поведения. Например, `Automatic` позволяет приложению‑рендереру выбрать преобразование, `Gray` и `LightGray` используют серый цвет, `BlackWhite` использует только чёрный и белый, `Black` и `White` принудительно задают один цвет, `Color` сохраняет обычные цвета, а `Hidden` исключает фигуру в черно‑белом режиме. `NotDefined` означает, что режим для фигуры не установлен.
 
-В этом примере создаётся оранжевый прямоугольник и ему задаётся [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) со значением `Gray`. Сохранённая фигура сохраняет оранжевую заливку для обычного цветного отображения и запрашивает серое отображение в приложениях, учитывающих настройки черно‑белого режима.
+В этом примере создаётся оранжевый прямоугольник и задаётся [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) со значением gray. Сохранённая фигура сохраняет оранжевую заливку для обычного цветного отображения и запрашивает серую заливку у приложений, которые учитывают настройки черно‑белого отображения:
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -1151,9 +1225,11 @@ presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Сброс форматирования**
+В обычном цветном режиме прямоугольник сохраняет оранжевую заливку. В черно‑белом рабочем процессе он использует серый цвет, поскольку его режим установлен в `Gray`. Это позволяет сохранять полноцветный слайд, одновременно задавая отдельный вид для печати, предпросмотра или других процессов, учитывающих черно‑белые настройки презентации.
 
-Используйте [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) для восстановления положения, размера и форматирования заполнителей слайдов из соответствующих заполнителей макета. Этот пример требует существующей презентации со связанными заполнителями макета и сбрасывает каждый слайд перед сохранением. Фигуры без соответствующих заполнителей макета не сбрасываются.
+## **Сбросить форматирование**
+
+Используйте [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) для восстановления позиции, размера и форматирования заполнительных объектов слайда из соответствующих заполнителей макета. Этот пример требует существующей презентации с заполнителями, связанными с макетом, и сбрасывает каждый слайд перед сохранением. Фигуры без соответствующих заполнителей макета не сбрасываются.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -1177,16 +1253,16 @@ presentation->Save(u"reset_formatting.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **FAQ**
+## **ЧаВо**
 
-**Влияет ли форматирование фигур на конечный размер файла презентации?**
+**Влияет ли форматирование фигур на итоговый размер файла презентации?**
 
-Цвета, стили линий и параметры эффектов обычно добавляют мало данных по сравнению с встраиваемыми изображениями и медиа. Заполнение изображениями может увеличить размер файла, так как их изображения хранятся в презентации.
+Цвета, стили линий и настройки эффектов обычно добавляют незначительное количество данных по сравнению со встроенными изображениями и медиафайлами. Заливки картинкой могут увеличить размер файла, поскольку их изображения хранятся в презентации.
 
-**Как определить фигуры на слайде, у которых одинаковое форматирование, чтобы их сгруппировать?**
+**Как обнаружить фигуры на слайде, у которых одинаковое форматирование, чтобы сгруппировать их?**
 
-Сравните ключевые свойства форматирования каждой фигуры — заливку, линию и параметры эффектов. Если все соответствующие значения совпадают, рассматривайте их стили как идентичные и логически группируйте такие фигуры, что упрощает дальнейшее управление стилями.
+Сравните ключевые свойства форматирования каждой фигуры — заливку, контур и настройки эффектов. Если все соответствующие значения совпадают, рассматривайте их стили как одинаковые и логически группируйте такие фигуры, что упрощает последующее управление стилями.
 
 **Могу ли я сохранить набор пользовательских стилей фигур в отдельный файл для повторного использования в других презентациях?**
 
-Да. Сохраните образцы фигур с нужными стилями в шаблонной презентации или файле шаблона . POTX. При создании новой презентации откройте шаблон, клонируйте нужные стилизованные фигуры и примените их форматирование там, где это требуется.
+Да. Сохраните образцы фигур с нужными стилями в шаблонный набор слайдов или файл шаблона .POTX. При создании новой презентации откройте шаблон, клонируйте нужные стилизованные фигуры и повторно примените их форматирование там, где это требуется.

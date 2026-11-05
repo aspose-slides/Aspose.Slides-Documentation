@@ -27,19 +27,19 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Pelajari cara memformat bentuk PowerPoint dalam Python via Java menggunakan Aspose.Slides—atur gaya isian, garis, dan efek untuk file PPT dan PPTX dengan presisi dan kontrol penuh."
+description: "Pelajari cara memformat bentuk PowerPoint dalam Python via Java menggunakan Aspose.Slides—tetapkan gaya isian, garis, dan efek untuk file PPT dan PPTX dengan presisi dan kontrol penuh."
 ---
 ## **Pendahuluan**
 
-Format bentuk di PowerPoint dengan menyesuaikan garis luar, isian, dan efeknya. Aspose.Slides for Python via Java memungkinkan Anda mengontrol pengaturan ini secara programatik, termasuk transparansi, rotasi, dan pemformatan 3D.
+Format bentuk di PowerPoint dengan menyesuaikan garis tepi, isi, dan efeknya. Aspose.Slides for Python via Java memungkinkan Anda mengontrol pengaturan ini secara programatis, termasuk transparansi, rotasi, dan pemformatan 3D.
 
 ![Opsi pemformatan bentuk di PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Python via Java menyediakan kelas dan metode yang memungkinkan Anda memformat bentuk menggunakan opsi yang sama tersedia di PowerPoint.
+Aspose.Slides for Python via Java menyediakan kelas dan metode yang memungkinkan Anda memformat bentuk menggunakan opsi yang sama dengan yang tersedia di PowerPoint.
 
 ## **Format Garis**
 
-Gunakan [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) untuk mengontrol garis luar sebuah bentuk. Contoh ini membuat persegi panjang tanpa isi dengan garis luar biru bergaris titik. [LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) memilih garis gabungan tebal-tipis, sementara [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) mengatur lebarnya menjadi 7 poin dan [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) memilih pola dash.
+Gunakan [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) untuk mengontrol garis tepi sebuah bentuk. Contoh ini membuat persegi panjang tanpa isi dengan garis tepi biru, bergaris putus-putus. [LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) memilih garis gabungan tebal-tipis, sementara [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) mengatur lebarnya menjadi 7 poin dan [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) memilih pola putus-putus.
 
 ```python
 import jpype
@@ -72,20 +72,20 @@ Hasilnya:
 
 ![Garis yang diformat dalam presentasi](formatted-lines.png)
 
-### **Atur Pola Dash Garis Kustom**
+### **Tetapkan Pola Garis Kustom**
 
-Gunakan [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern) ketika gaya garis yang telah ditentukan tidak menyediakan panjang dash dan celah yang Anda butuhkan, misalnya untuk garis luar merek atau diagram teknis. Menetapkan pola secara otomatis mengubah gaya dash garis menjadi [LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/).
+Gunakan [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern) saat gaya garis bawaan tidak menyediakan panjang dan celah yang Anda butuhkan, misalnya untuk garis tepi bermerek atau diagram teknis. Menetapkan pola secara otomatis mengubah gaya garis menjadi [LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/).
 
-Entri array bergantian antara panjang dash dan celah, dimulai dengan dash. Setiap nilai merupakan kelipatan lebar garis: `[4, 2]` pada lebar 3 poin menghasilkan dash 12 poin diikuti celah 6 poin. Gunakan pasang nilai terbatas dan tidak negatif untuk mendefinisikan segmen dash-dan-celah lengkap. Contoh ini menggunakan nilai positif agar setiap dash dan celah terlihat.
+Entri dalam array bergantian antara panjang dash dan celah, dimulai dengan dash. Setiap nilai merupakan kelipatan lebar garis: `[4, 2]` pada lebar 3 poin menghasilkan dash 12 poin diikuti celah 6 poin. Gunakan pasangan nilai hingga tak hingga, tidak negatif untuk mendefinisikan segmen dash‑dan‑celah lengkap. Contoh ini menggunakan nilai positif agar setiap dash dan celah terlihat.
 
-Contoh ini membuat lima garis biru dengan panjang yang sama dan ujung datar. Tiga pertama membandingkan pola pada lebar 3 poin. Yang keempat mengulang pola pertama dengan lebar dua kali lipat, menggandakan panjang dash dan celah. Yang kelima beralih dari pola khusus ke garis padat.
+Contoh ini membuat lima garis biru dengan panjang yang sama dan ujung datar. Tiga pertama membandingkan pola pada lebar 3 poin. Yang keempat mengulangi pola pertama dengan lebar dua kali, menggandakan panjang dash dan celah. Yang kelima beralih dari pola kustom ke garis solid.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpjpype.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import FillType, LineArrowheadStyle, LineCapStyle, LineDashStyle, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
 from java.awt import Color
@@ -122,25 +122,25 @@ finally:
     presentation.dispose()
 ```
 
-Untuk kembali ke gaya dash yang telah ditentukan, berikan [LineDashStyle.Dash](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) ke [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle). Gaya yang dipilih mengontrol tampilan garis.
+Untuk kembali ke gaya dash bawaan, berikan [LineDashStyle.Dash](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) ke [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle). Gaya yang dipilih mengontrol tampilan garis.
 
-Hasilnya di PowerPoint, dari atas ke bawah: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; dan **Solid, 3 pt**.
+Hasil di PowerPoint, dari atas ke bawah: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; dan **Solid, 3 pt**.
 
-![Tiga pola dash khusus, garis lebih lebar menggunakan pola pertama, dan garis padat di PowerPoint](custom-dash-patterns.png)
+![Tiga pola dash kustom, garis lebih lebar menggunakan pola pertama, dan garis solid di PowerPoint](custom-dash-patterns.png)
 
-### **Atur Ujung Garis**
+### **Tetapkan Ujung Garis**
 
-Gunakan [LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle) untuk mengatur ujung sebuah garis terbuka. Kelas [LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/) menyediakan tiga gaya ujung eksplisit:
+Gunakan [LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle) untuk mengatur ujung garis terbuka. Kelas [LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/) menyediakan tiga gaya ujung eksplisit:
 
-- `Flat`: Garis berhenti pada titik akhir.
-- `Round`: Ujung setengah lingkaran melampaui titik akhir sebesar setengah lebar garis.
-- `Square`: Ujung persegi melampaui titik akhir sebesar setengah lebar garis.
+- `Flat`: Coretan berhenti pada titik akhir.
+- `Round`: Ujung setengah lingkaran meluas melewati titik akhir sebesar setengah lebar garis.
+- `Square`: Ujung persegi meluas melewati titik akhir sebesar setengah lebar garis.
 
 Kelas ini juga mencakup `NotDefined`, yang berarti tidak ada gaya ujung yang ditetapkan secara eksplisit.
 
 Ujung berbeda dari kepala panah, yang menambahkan simbol pada ujung garis, dan sambungan, yang mengontrol sudut antara segmen garis. Contoh ini menonaktifkan kepala panah melalui [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setBeginArrowheadStyle) dan [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setEndArrowheadStyle) sehingga hanya bentuk ujung yang dibandingkan.
 
-Contoh berikut membuat tiga garis horizontal yang pada dasarnya identik, lebar 20 poin. Dari atas ke bawah, mereka menggunakan ujung Flat, Round, dan Square. Titik akhir mereka memiliki koordinat horizontal yang sama; ujung Round dan Square melampaui 10 poin di setiap titik akhir.
+Contoh berikut membuat tiga garis horizontal yang pada dasarnya identik, lebar 20 poin. Dari atas ke bawah, mereka menggunakan ujung flat, round, dan square. Titik akhir mereka memiliki koordinat horizontal yang sama; ujung round dan square meluas 10 poin di luar setiap titik akhir.
 
 ```python
 import jpype
@@ -175,15 +175,15 @@ finally:
     presentation.dispose()
 ```
 
-Hasilnya di PowerPoint, dari atas ke bawah: **Flat**, **Round**, dan **Square**.
+Hasil di PowerPoint, dari atas ke bawah: **Flat**, **Round**, dan **Square**.
 
-![Ujung flat, round, dan square pada garis tebal identik di PowerPoint](line-caps.png)
+![Ujung flat, round, dan square pada garis tebal yang identik di PowerPoint](line-caps.png)
 
 ## **Terapkan Efek Sketsa pada Garis Bentuk**
 
 Efek sketsa membuat garis bentuk terlihat seperti digambar tangan. Gunakan [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) untuk mengakses pengaturan garis, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) untuk mengakses pengaturan sketsa, dan [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) untuk memilih nilai dari kelas [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/).
 
-Kode Python berikut menunjukkan cara menerapkan efek [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) , membaca nilai yang ditetapkan secara eksplisit, dan menghapus efek dengan [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/):
+Kode Python berikut menunjukkan cara menerapkan efek [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/), membaca nilai yang ditetapkan secara eksplisit, dan menghapus efek dengan [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/):
 
 ```python
 import jpype
@@ -209,7 +209,7 @@ finally:
     presentation.dispose()
 ```
 
-Nilai yang dikembalikan oleh [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) mewakili pengaturan yang ditetapkan langsung ke bentuk. Jika pemformatan garis dapat diwarisi dari tema, slide master, atau slide tata letak, gunakan [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) dan baca tipe sketsa dari pemformatan garis efektif yang dikembalikan, seperti yang ditunjukkan di bawah. Nilai efektif mencerminkan pemformatan yang sebenarnya diterapkan setelah pewarisan diselesaikan. Contoh ini memerlukan presentasi yang sudah ada dengan setidaknya satu bentuk pada slide pertama dan mencetak kedua nilai:
+Nilai yang dikembalikan oleh [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) mewakili pengaturan yang langsung diterapkan pada bentuk. Jika pemformatan garis dapat diwarisi dari tema, master slide, atau layout slide, gunakan [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) dan baca jenis sketsa dari pemformatan garis efektif yang dikembalikan, seperti yang ditunjukkan di bawah. Nilai efektif mencerminkan pemformatan yang sebenarnya diterapkan setelah pewarisan diselesaikan. Contoh ini memerlukan presentasi yang sudah ada dengan setidaknya satu bentuk pada slide pertama dan mencetak kedua nilai:
 
 ```python
 import jpype
@@ -237,17 +237,17 @@ finally:
 
 ## **Format Gaya Sambungan**
 
-Berikut tiga opsi tipe sambungan:
+Berikut tiga pilihan tipe sambungan:
 
 * Round
 * Miter
 * Bevel
 
-Gaya sambungan mengontrol bagaimana dua segmen garis luar bertemu pada sudut. Gunakan **Round** untuk sudut melengkung, **Miter** untuk sudut tajam, atau **Bevel** untuk sudut datar.
+Gaya sambungan mengontrol bagaimana dua segmen garis bertemu di sudut. Gunakan **Round** untuk sudut melengkung, **Miter** untuk sudut tajam, atau **Bevel** untuk sudut rata.
 
 ![Gaya sambungan dalam presentasi](join-style-powerpoint.png)
 
-Contoh ini membuat tiga persegi panjang hitam dengan garis luar biru lebar 15 poin. Ia menggunakan [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) untuk mengatur nilai miter, bevel, dan round dari [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/), masing‑masing, untuk membandingkan bagaimana sudut-sudut digambar.
+Contoh ini membuat tiga persegi panjang hitam dengan garis tepi biru lebar 15 poin. Ia menggunakan [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) untuk mengatur nilai miter, bevel, dan round pada [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/), masing‑masing, untuk membandingkan bagaimana sudut digambar.
 
 ```python
 import jpype
@@ -300,11 +300,11 @@ finally:
 
 ### **Batasi Sambungan Miter pada Sudut Tajam**
 
-Gunakan [LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit) dengan [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) diatur ke [LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) untuk membatasi seberapa jauh sudut tajam dapat memperluas.
+Gunakan [LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit) bersama [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) yang diatur ke [LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) untuk membatasi seberapa jauh sudut tajam dapat meluas.
 
-Batas tersebut adalah rasio jarak antara sudut dalam dan sudut luar sambungan terhadap lebar garis. Misalnya, nilai `8` memungkinkan panjang miter hingga delapan kali lebar garis; itu bukan ukuran dalam poin. Jika sudut melebihi batas, PowerPoint menggunakan sambungan bevel pada sudut itu. Batas yang lebih besar memungkinkan titik yang lebih tajam. Pengaturan ini hanya memengaruhi sambungan miter, dan mengubahnya tidak memiliki efek terlihat ketika sudut tetap dalam kedua batas.
+Batasnya merupakan rasio antara jarak antara sudut dalam dan luar sambungan terhadap lebar garis. Misalnya, nilai `8` mengizinkan panjang miter hingga delapan kali lebar garis; ini bukan ukuran dalam poin. Jika sudut melebihi batas, PowerPoint memakai sambungan bevel pada sudut tersebut. Batas yang lebih besar memungkinkan titik yang lebih tajam. Pengaturan ini hanya memengaruhi sambungan miter, dan mengubahnya tidak menghasilkan efek terlihat ketika sudut tetap berada dalam kedua batas.
 
-Contoh ini membuat dua segitiga identik tanpa isi dengan garis luar lebar 20 poin. Segitiga kiri menggunakan batas `2`, dan yang kanan menggunakan `8`. Setiap segitiga berukuran 80 poin lebar dan 160 poin tinggi, memberikan sudut atasnya rasio panjang miter terhadap lebar garis sekitar `4.12`. Akibatnya, PowerPoint menambahkan bevel pada puncak kiri dan mempertahankan puncak kanan.
+Contoh ini membuat dua segitiga tidak berisi identik dengan garis tepi lebar 20 poin. Segitiga kiri menggunakan batas `2`, dan yang kanan `8`. Setiap segitiga lebar 80 poin dan tinggi 160 poin, memberikan rasio panjang miter‑ke‑lebar‑garis pada sudut atas kira‑kira `4.12`. Akibatnya, PowerPoint menambah bevel pada puncak kiri dan mempertahankan puncak kanan.
 
 ```python
 import jpype
@@ -338,13 +338,13 @@ finally:
     presentation.dispose()
 ```
 
-Hasil di PowerPoint: **Miter limit 2** di kiri dan **miter limit 8** di kanan.
+Hasil di PowerPoint: **Batas miter 2** di kiri dan **batas miter 8** di kanan.
 
-![Sebuah puncak bevel dengan batas miter 2 dan puncak runcing dengan batas miter 8 di PowerPoint](miter-limits.png)
+![Puncak bevel dengan batas miter 2 dan puncak runcing dengan batas miter 8 di PowerPoint](miter-limits.png)
 
 ## **Isian Gradien**
 
-Isian gradien mencampur warna di seluruh bentuk. Contoh ini mengisi elips dengan gradien linear pada sudut 45 derajat dari merah ke ungu menggunakan [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat). Metode [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) menempatkan titik warna pada 0 dan 1, awal dan akhir gradien. Menghapus titik warna yang ada memastikan hanya dua warna ini yang digunakan.
+Isian gradien mencampur warna di seluruh bentuk. Contoh ini mengisi elips dengan gradien linear pada sudut 45‑derajat dari merah ke ungu menggunakan [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat). Metode [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) menempatkan titik henti warna pada 0 dan 1, awal dan akhir gradien. Menghapus titik henti yang ada memastikan hanya dua warna ini yang digunakan.
 
 ```python
 import jpype
@@ -373,17 +373,17 @@ finally:
     presentation.dispose()
 ```
 
-Hasil:
+Hasilnya:
 
 ![Elips dengan isian gradien](gradient-fill.png)
 
-Jika gradien tampak berbeda dalam gambar yang diekspor dibandingkan dengan di PowerPoint, lihat [Pilih Gaya Rendering Gradien](/slides/id/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Anda dapat memilih gaya rendering tanpa mengubah isian gradien yang disimpan dalam presentasi.
+Jika gradien terlihat berbeda dalam gambar yang diekspor dibandingkan dengan di PowerPoint, lihat [Pilih Gaya Rendering Gradien](/slides/id/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Anda dapat memilih gaya rendering tanpa mengubah gradien yang disimpan dalam presentasi.
 
-### **Atur Sudut Gradien Linear**
+### **Tetapkan Sudut Gradien Linear**
 
-Gunakan [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) untuk mengontrol orientasi isian [GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/). Sudut diukur dalam derajat dan bertambah searah jarum jam: `0` berjalan dari kiri ke kanan, `90` dari atas ke bawah, `180` dari kanan ke kiri, dan `270` dari bawah ke atas. Sudut pecahan didukung. Sudut terbatas di luar `[0, 360)` dinormalisasi menjadi satu putaran; misalnya, `-45` menjadi `315` dan `360` menjadi `0`.
+Gunakan [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) untuk mengontrol orientasi isian [GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/). Sudut diukur dalam derajat dan bertambah searah jarum jam: `0` dari kiri ke kanan, `90` dari atas ke bawah, `180` dari kanan ke kiri, dan `270` dari bawah ke atas. Sudut pecahan didukung. Sudut di luar `[0, 360)` dinormalisasi menjadi satu putaran; misalnya, `-45` menjadi `315` dan `360` menjadi `0`.
 
-Contoh ini membuat enam persegi panjang dengan titik warna merah, hijau, dan biru yang identik pada posisi `0`, `0.5`, dan `1`. Skala dinonaktifkan sehingga sudut dapat dibandingkan secara independen dari proporsi persegi panjang. Sudut, dari kiri ke kanan, adalah `0`, `45`, dan `90` pada baris pertama, serta `135`, `180`, dan `270` pada baris kedua.
+Contoh ini membuat enam persegi panjang dengan titik henti merah, hijau, dan biru yang identik pada posisi `0`, `0.5`, dan `1`. Skala dinonaktifkan sehingga sudut dapat dibandingkan secara independen dari proporsi persegi panjang. Sudut‑nya, dari kiri ke kanan, adalah `0`, `45`, dan `90` pada baris pertama, serta `135`, `180`, dan `270` pada baris kedua.
 
 ```python
 import jpype
@@ -428,11 +428,11 @@ Hasil di PowerPoint:
 
 ![Gradien linear pada 0, 45, dan 90 derajat di baris atas, serta 135, 180, dan 270 derajat di baris bawah](linear-gradient-angles.png)
 
-### **Skala Gradien Linear dengan Bentuk**
+### **Skalakan Gradien Linear dengan Bentuk**
 
-[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled) menerima nilai [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/). Atur secara eksplisit ke `False_` untuk mempertahankan sudut gradien geometris saat proporsi bentuk berubah, atau ke `True_` untuk menskalakan gradien bersama lebar dan tinggi bentuk. Dengan skala diaktifkan, sudut yang terlihat dapat berbeda dari sudut yang ditetapkan pada bentuk yang tidak persegi.
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled) menerima nilai [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/). Tetapkan secara eksplisit ke `False_` untuk menjaga sudut gradien geometris saat proporsi bentuk berubah, atau ke `True_` untuk menskalakan gradien bersama lebar dan tinggi bentuk. Dengan skala diaktifkan, sudut yang terlihat dapat berbeda dari sudut yang ditetapkan pada bentuk yang tidak persegi.
 
-Contoh berikut menggunakan sudut `45` derajat dan titik warna yang sama seperti perbandingan sudut. Kolom kiri menggunakan `False_`; kolom kanan menggunakan `True_`. Setiap kolom berisi persegi panjang lebar di atas persegi panjang tinggi. Keduanya dimulai dengan dimensi lebar yang sama; mengubah lebar dan tinggi persegi panjang kedua menunjukkan bagaimana isian merespon perubahan ukuran tanpa mengubah pengaturan gradien.
+Contoh berikut menggunakan sudut `45`‑derajat dan titik henti warna yang sama seperti perbandingan sudut. Kolom kiri memakai `False_`; kolom kanan memakai `True_`. Setiap kolom berisi persegi panjang lebar di atas persegi panjang tinggi. Keduanya mulai dengan dimensi lebar yang sama; mengubah lebar dan tinggi persegi panjang kedua menunjukkan bagaimana isian merespons perubahan ukuran tanpa mengubah pengaturan gradien.
 
 ```python
 import jpype
@@ -480,17 +480,17 @@ finally:
 
 Hasil di PowerPoint, dengan skala dinonaktifkan di kiri dan diaktifkan di kanan:
 
-![Persegi panjang lebar dan tinggi dengan gradien 45 derajat, membandingkan LinearGradientScaled False di kiri dengan True di kanan](linear-gradient-scaling.png)
+![Persegi panjang lebar dan tinggi dengan gradien 45‑derajat, membandingkan LinearGradientScaled False di kiri dengan True di kanan](linear-gradient-scaling.png)
 
-Dengan skala dinonaktifkan, pita warna diagonal tetap memiliki orientasi yang sama di kedua persegi panjang. Dengan skala diaktifkan, pita-pita tersebut meregang sesuai proporsi bentuk. Ini membantu mereproduksi gradien templat saat menyesuaikan bentuk ke ukuran yang berbeda. Pada bentuk persegi, mengaktifkan skala tidak mengubah tampilan gradien `45` derajat ini.
+Dengan skala dinonaktifkan, pita warna diagonal mempertahankan orientasi yang sama pada kedua persegi panjang. Dengan skala diaktifkan, pita memanjang bersama proporsi bentuk. Ini membantu mereproduksi gradien templat saat menyesuaikan bentuk ke ukuran yang berbeda. Pada bentuk persegi, mengaktifkan skala tidak mengubah tampilan gradien `45`‑derajat ini.
 
-Baik pengaturan sudut maupun skala berlaku untuk gradien linear. Mereka tidak mengontrol isian [GradientShape.Radial atau GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/).
+Baik sudut maupun pengaturan skala berlaku untuk gradien linear. Mereka tidak mengontrol isian [GradientShape.Radial atau GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/).
 
 ### **Gabungkan Sudut dengan Arah Gradien**
 
-[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection) memilih gaya gradien dari kelas [GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/); itu bukan pengganti untuk sudut numerik. Untuk gradien linear, gaya sudut dapat mengubah area distribusi warna tanpa mengubah sudut yang ditetapkan melalui [setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle). Tetap pertahankan arah tidak berubah saat membandingkan sudut atau skala.
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection) memilih gaya gradien dari kelas [GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/); ini bukan pengganti sudut numerik. Untuk gradien linear, gaya sudut dapat mengubah area distribusi warna tanpa mengubah sudut yang ditetapkan melalui [setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle). Pertahankan arah tidak berubah saat membandingkan sudut atau skala.
 
-Contoh berikut menerapkan pengaturan yang sama dalam urutan yang berlawanan. Kedua persegi panjang memiliki tampilan yang sama: menetapkan arah sebelum atau setelah sudut tidak mengubah hasil.
+Contoh berikut menerapkan pengaturan yang sama dalam urutan yang berlawanan. Kedua persegi panjang memiliki tampilan yang sama: menetapkan arah sebelum atau sesudah sudut tidak mengubah hasil.
 
 ```python
 import jpype
@@ -533,7 +533,7 @@ finally:
 
 ## **Isian Pola**
 
-Isian pola menerapkan desain dua warna, seperti titik, garis, atau kotak‑kotak. Contoh ini menggunakan [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle) untuk memilih pola trellis. [PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) menyediakan latar belakang abu‑abu terang, dan [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) menyediakan warna pola kuning.
+Isian pola menerapkan desain dua warna, seperti titik, garis, atau cek. Contoh ini menggunakan [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle) untuk memilih pola trellis. [PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) menyediakan latar belakang abu‑abu terang, dan [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) menyediakan warna pola kuning.
 
 ```python
 import jpype
@@ -560,13 +560,13 @@ finally:
     presentation.dispose()
 ```
 
-Hasil:
+Hasilnya:
 
 ![Persegi panjang dengan isian pola](pattern-fill.png)
 
 ## **Isian Gambar**
 
-Isian gambar menggunakan gambar di dalam bentuk. Contoh ini memerlukan gambar lokal dan menggunakan [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) untuk memuatnya ke dalam koleksi gambar presentasi. Mengatur [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) ke mode ubin mengulangi gambar di dalam persegi panjang. Gambar sumber yang digunakan di sini ditampilkan di bawah:
+Isian gambar menggunakan gambar di dalam bentuk. Contoh ini memerlukan gambar lokal dan menggunakan [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) untuk memuatnya ke dalam koleksi gambar presentasi. Menetapkan [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) ke mode ubin mengulang gambar dalam persegi panjang. Gambar sumber yang digunakan ditampilkan di bawah:
 
 ![Gambar lotus](lotus.png)
 
@@ -599,23 +599,23 @@ finally:
     presentation.dispose()
 ```
 
-Hasil:
+Hasilnya:
 
 ![Bentuk dengan isian gambar](picture-fill.png)
 
-### **Ubin Gambar sebagai Tekstur**
+### **Ubin Gambar Sebagai Tekstur**
 
-Jika Anda ingin mengatur gambar ubin sebagai tekstur dan menyesuaikan perilaku ubin, Anda dapat menggunakan metode berikut dari kelas [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/):
+Jika Anda ingin menetapkan gambar ubin sebagai tekstur dan menyesuaikan perilaku ubin, Anda dapat menggunakan metode berikut dari kelas [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): Mengatur mode isian gambar—baik `Tile` atau `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): Menentukan perataan ubin di dalam bentuk.
+- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): Menetapkan mode isian gambar—`Tile` atau `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): Menentukan perataan ubin dalam bentuk.
 - [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): Mengontrol apakah ubin dibalik secara horizontal, vertikal, atau keduanya.
-- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): Mengatur offset horizontal ubin (dalam poin) dari asal bentuk.
-- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): Mengatur offset vertikal ubin (dalam poin) dari asal bentuk.
+- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): Menetapkan offset horizontal ubin (dalam poin) dari asal bentuk.
+- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): Menetapkan offset vertikal ubin (dalam poin) dari asal bentuk.
 - [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): Mendefinisikan skala horizontal ubin sebagai persentase.
 - [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): Mendefinisikan skala vertikal ubin sebagai persentase.
 
-Contoh ini memerlukan gambar lokal dan mengkonfigurasi [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) untuk mengulangnya pada 50% ukuran aslinya. Offset −32 poin menggeser ubin secara horizontal dan vertikal; perataan kanan‑bawah dan pembalikan di kedua arah menentukan bagaimana tekstur berulang diatur.
+Contoh ini memerlukan gambar lokal dan mengonfigurasi [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) untuk mengulangnya pada 50 % ukuran aslinya. Offset −32 poin menggeser ubin secara horizontal dan vertikal; perataan kanan‑bawah dan pembalikan di kedua arah menentukan bagaimana tekstur berulang diatur.
 
 ```python
 import jpype
@@ -654,13 +654,13 @@ finally:
     presentation.dispose()
 ```
 
-Hasil:
+Hasilnya:
 
 ![Opsi ubin](tile-options.png)
 
 ## **Isian Warna Solid**
 
-Isian solid memberikan bentuk satu warna seragam. Contoh ini menggunakan [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) untuk mengatur mode isian solid dan menetapkan warna kuning melalui [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor), kemudian menyimpan persegi panjang dalam presentasi.
+Isian solid memberikan bentuk warna tunggal yang seragam. Contoh ini menggunakan [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) untuk menetapkan mode isian solid dan menetapkan kuning melalui [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor), lalu menyimpan persegi panjang dalam presentasi.
 
 ```python
 import jpype
@@ -685,15 +685,88 @@ finally:
     presentation.dispose()
 ```
 
-Hasil:
+Hasilnya:
 
 ![Bentuk dengan isian warna solid](solid-color-fill.png)
 
+### **Salin Warna Sambil Mempertahankan Referensi Tema**
+
+Gunakan [ColorFormat.copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#copyFrom) untuk menyalin definisi warna, termasuk tipe warna, referensi tema, dan transformasi. Ini berguna saat memindahkan warna isian antar bentuk yang harus tetap mengikuti tema presentasi. Metode ini hanya menyalin warna: tidak menyalin tipe isian, garis tepi, atau pemformatan bentuk lainnya. Tetapkan tipe isian tujuan secara eksplisit dengan [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType).
+
+Contoh ini membuat tiga persegi panjang, dari kiri ke kanan: sumber, salinan yang sadar tema, dan salinan RGB tetap. Sumber menggunakan [ColorFormat.setSchemeColor](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#setSchemeColor) untuk merujuk ke warna aksen pertama dan menambahkan tint melalui [ColorOperationCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/coloroperationcollection/#add). Salinan RGB menggunakan warna isian efektif sumber sehingga ketiganya pada awalnya tampak identik. Memanggil [ColorFormat.setColor](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#setColor) menetapkan nilai RGB tetap dan menghapus transformasi warna yang ada.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ColorTransformOperation, FillType, ImageFormat, Presentation, SaveFormat, SchemeColor, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    accent_color = Color(65, 105, 225)
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(accent_color)
+
+    source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140)
+    theme_copy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140)
+    rgb_copy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140)
+
+    for shape in (source, theme_copy, rgb_copy):
+        shape.getFillFormat().setFillType(FillType.Solid)
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    source_color = source.getFillFormat().getSolidFillColor()
+    source_color.setSchemeColor(SchemeColor.Accent1)
+    source_color.getColorTransform().add(ColorTransformOperation.Tint, 0.75)
+
+    theme_copy.getFillFormat().getSolidFillColor().copyFrom(source_color)
+    rgb_copy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor())
+
+    before = slide.getImage(1.0, 1.0)
+    try:
+        before.save("color-copy-before.png", ImageFormat.Png)
+    finally:
+        before.dispose()
+
+    # Referensi tema mengikuti warna aksen baru; nilai RGB tetap tidak mengikutinya.
+    accent_color = Color(255, 69, 0)
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(accent_color)
+
+    after = slide.getImage(1.0, 1.0)
+    try:
+        after.save("color-copy-after.png", ImageFormat.Png)
+    finally:
+        after.dispose()
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Sebelum perubahan tema, ketiga isian cocok:
+
+![Sumber, tujuan copyFrom, dan tujuan RGB tetap dengan isian biru identik](color-copy-before.png)
+
+Setelah perubahan tema, sumber dan salinan yang sadar tema mengikuti warna aksen baru dan mempertahankan tintnya. Salinan RGB tetap tetap biru:
+
+![Sumber dan tujuan copyFrom dengan isian oranye, sementara tujuan RGB tetap biru](color-copy-after.png)
+
+Definisi yang disalin bersifat independen dari sumber. Mengubah referensi tema sumber, menetapkan warna lain, atau menambah atau menghapus transformasinya tidak mengubah tujuan. Perubahan tema tetap memengaruhi kedua bentuk karena masing‑masing merujuk secara independen ke warna tema yang sama.
+
+Menyimpan dan membuka kembali file PPTX mempertahankan tipe warna yang disalin yang dikembalikan oleh [ColorFormat.getColorType](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#getColorType), referensi tema, dan koleksi transformasi yang dikembalikan oleh [ColorFormat.getColorTransform](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#getColorTransform); tidak mengubah definisi menjadi RGB.
+
+Saat menyalin antar konteks tema yang berbeda, seperti presentasi dengan palet aksen yang berbeda, referensi yang disalin diselesaikan terhadap tema tujuan. Referensi dan transformasi yang sama dapat menghasilkan warna tampak yang berbeda. Lihat [Tema Presentasi](/slides/id/python-java/presentation-theme/) untuk informasi lebih lanjut tentang mengonfigurasi warna tema.
+
 ## **Gunakan Latar Belakang Slide sebagai Isian Bentuk**
 
-Gunakan [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill) ketika sebuah bentuk harus cocok dengan latar belakang slide, misalnya dalam templat presentasi. Atur [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) ke [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) terlebih dahulu untuk menghapus isian eksplisit apa pun. Dengan kombinasi ini, bentuk menggunakan latar belakang slide alih‑alih isian gaya‑nya. Mengaktifkan flag saja tidak menghapus isian eksplisit yang ada.
+Gunakan [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill) ketika sebuah bentuk harus menyesuaikan latar belakang slide, misalnya dalam templat presentasi. Tetapkan tipe isian dengan [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) ke [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) terlebih dahulu untuk menghapus isian eksplisit apa pun. Dengan kombinasi ini, bentuk menggunakan latar belakang slide alih‑alih isian gaya. Mengaktifkan flag saja tidak menghapus isian eksplisit yang sudah ada.
 
-Ini berbeda dari [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/): isian latar belakang menutupi objek di belakang bentuk dengan area latar belakang slide yang sesuai, sementara tanpa isian membiarkan objek tersebut terlihat. Gradien tetap selaras dengan slide alih‑alih memulai kembali di dalam setiap bentuk.
+Hal ini berbeda dari [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/): isian latar belakang menutupi objek di belakang bentuk dengan area latar belakang slide yang bersesuaian, sementara NoFill membuat objek tersebut tetap terlihat. Gradien tetap selaras dengan slide daripada memulai ulang di dalam setiap bentuk.
 
 Contoh berikut membuat latar belakang master yang diwarisi oleh slide dan menempatkan pita magenta di belakang tiga persegi panjang. Persegi panjang kiri menggunakan latar belakang, persegi panjang tengah tidak memiliki isian, dan persegi panjang kanan beralih dari isian latar belakang ke isian oranye eksplisit.
 
@@ -727,7 +800,7 @@ try:
     color = Color(135, 206, 250)
     gradient.getGradientStops().add(1, color)
 
-    # Tambahkan objek ini terlebih dahulu agar muncul di belakang persegi panjang.
+    # Tambahkan objek ini terlebih dahulu sehingga muncul di belakang persegi panjang.
     band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100)
     band.getFillFormat().setFillType(FillType.Solid)
     band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA)
@@ -755,15 +828,15 @@ finally:
     presentation.dispose()
 ```
 
-Hasilnya, dari kiri ke kanan: **background fill**, **no fill**, dan **explicit fill**. Pita magenta tersembunyi oleh persegi panjang kiri dan kanan tetapi tetap terlihat melalui persegi panjang tengah.
+Hasilnya, dari kiri ke kanan: **isian latar belakang**, **tanpa isian**, dan **isian eksplisit**. Pita magenta tersembunyi oleh persegi panjang kiri dan kanan tetapi tetap terlihat melalui persegi panjang tengah.
 
 ![Isian latar belakang, tanpa isian, dan isian oranye eksplisit di atas pita magenta](background-fill.png)
 
-Perilaku yang sama berlaku untuk latar belakang yang didefinisikan langsung pada slide atau diwarisi dari tata letak. Bentuk menggunakan latar belakang slide yang telah diselesaikan; contoh ini membiarkan latar belakang slide dan tata letak tidak ditentukan sehingga master menyediakannya.
+Perilaku yang sama berlaku untuk latar belakang yang didefinisikan langsung pada slide atau diwarisi dari layout. Bentuk menggunakan latar belakang slide yang telah diselesaikan; contoh ini membiarkan latar belakang slide dan layout tidak ditetapkan sehingga master yang menyediakannya.
 
-## **Atur Transparansi**
+## **Tetapkan Transparansi**
 
-Untuk isian solid, komponen alfa warna mengontrol opasitas: 0 sepenuhnya transparan dan 255 sepenuhnya opaque. Contoh ini menggunakan nilai alfa 128 untuk persegi panjang kuning, menjadikannya kira‑kira 50% transparan sehingga persegi panjang di bawahnya tetap terlihat. Warna ditetapkan melalui [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor).
+Untuk isian solid, komponen alfa warna mengontrol opasitas: 0 sepenuhnya transparan dan 255 sepenuhnya opaque. Contoh ini menggunakan nilai alfa 128 untuk persegi panjang kuning, menjadikannya kira‑kira 50 % transparan sehingga persegi panjang di bawahnya tetap terlihat. Warna ditetapkan melalui [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```python
 import jpype
@@ -791,13 +864,13 @@ finally:
     presentation.dispose()
 ```
 
-Hasil:
+Hasilnya:
 
 ![Bentuk transparan](shape-transparency.png)
 
 ## **Putar Bentuk**
 
-Gunakan [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) untuk memutar bentuk pada bidang slide. Sudut diukur dalam derajat; contoh ini memutar persegi panjang 5 derajat searah jarum jam dan menyimpan presentasi.
+Gunakan [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) untuk memutar bentuk dalam bidang slide. Sudut diukur dalam derajat; contoh ini memutar persegi panjang 5 derajat searah jarum jam dan menyimpan presentasi.
 
 ```python
 import jpype
@@ -820,13 +893,13 @@ finally:
     presentation.dispose()
 ```
 
-Hasil:
+Hasilnya:
 
 ![Rotasi bentuk](shape-rotation.png)
 
 ## **Tambahkan Efek Bevel 3D**
 
-Gunakan [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) untuk memberikan kedalaman dan tepi bevel pada bentuk. Contoh ini membuat elips hijau dengan garis luar oranye, menggunakan [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) untuk mengatur kedalaman menjadi 4 poin, dan menerapkan bevel atas melingkar dengan lebar dan tinggi 6 poin melalui [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop). Kamera ortografik menghadap depan dan pencahayaan tiga titik membuat bevel terlihat.
+Gunakan [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) untuk memberikan kedalaman dan tepi bevel pada bentuk. Contoh ini membuat elips hijau dengan garis tepi oranye, menggunakan [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) untuk menetapkan kedalaman 4 poin, dan menerapkan bevel atas melingkar dengan lebar dan tinggi 6 poin melalui [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop). Kamera ortografik menghadap depan dan pencahayaan tiga‑titik membuat bevel terlihat.
 
 ```python
 import jpype
@@ -863,13 +936,13 @@ finally:
     presentation.dispose()
 ```
 
-Hasil:
+Hasilnya:
 
 ![Efek bevel 3D](3D-bevel-effect.png)
 
 ## **Tambahkan Efek Rotasi 3D**
 
-Tampilan 3D sebuah bentuk dikontrol oleh pengaturan kamera. Contoh ini menggunakan [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) dengan sudut latitude, longitude, dan revolusi masing‑masing 40, 35, dan 20 derajat. Ia memilih kamera isometrik melalui [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) dan pencahayaan seimbang melalui [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType), kemudian menyimpan persegi panjang yang diformat.
+Tampilan 3D sebuah bentuk dikontrol oleh pengaturan kameranya. Contoh ini menggunakan [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) dengan sudut lintang, bujur, dan revolusi masing‑masing 40, 35, dan 20 derajat. Ia memilih kamera isometrik melalui [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) dan pencahayaan seimbang melalui [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType), lalu menyimpan persegi panjang yang diformat.
 
 ```python
 import jpype
@@ -895,17 +968,17 @@ finally:
     presentation.dispose()
 ```
 
-Hasil:
+Hasilnya:
 
 ![Efek rotasi 3D](3D-rotation-effect.png)
 
 ## **Kendalikan Rendering Hitam‑Putih untuk Bentuk**
 
-Metode [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) menentukan bagaimana sebuah bentuk individu dirender saat presentasi dilihat atau diproses dalam mode hitam‑putih. Metode ini tidak mengaktifkan tampilan hitam‑putih sendiri, dan tidak mengubah isian, garis, atau pemformatan lain bentuk dalam mode warna normal.
+Metode [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) menentukan bagaimana sebuah bentuk individual dirender ketika presentasi dilihat atau diproses dalam mode hitam‑putih. Metode ini tidak mengaktifkan tampilan hitam‑putih sendiri, dan tidak mengubah isian, garis, atau pemformatan bentuk lainnya dalam mode warna normal.
 
 Gunakan nilai dari kelas [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) untuk memilih perilaku yang diinginkan. Misalnya, `Automatic` membiarkan aplikasi rendering memilih konversi, `Gray` dan `LightGray` menggunakan warna abu‑abu, `BlackWhite` hanya menggunakan hitam dan putih, `Black` dan `White` memaksa satu warna, `Color` mempertahankan warna normal, dan `Hidden` menghilangkan bentuk dalam mode hitam‑putih. `NotDefined` berarti tidak ada mode tingkat bentuk yang ditetapkan.
 
-Contoh ini membuat persegi panjang oranye dan menggunakan [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) untuk mengatur mode ke gray. Bentuk yang disimpan mempertahankan isian oranye untuk tampilan warna normal dan meminta pewarnaan abu‑abu dari aplikasi yang menghormati pengaturan tampilan hitam‑putih:
+Contoh ini membuat persegi panjang oranye dan menggunakan [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) untuk menetapkan mode ke abu‑abu. Bentuk yang disimpan mempertahankan isian oranye untuk tampilan warna normal dan meminta pewarnaan abu‑abu dari aplikasi yang menghormati pengaturan tampilan hitam‑putih:
 
 ```python
 import jpype
@@ -932,11 +1005,11 @@ finally:
     presentation.dispose()
 ```
 
-Dalam mode warna normal, persegi panjang mempertahankan isian oranye. Dalam alur kerja tampilan hitam‑putih, ia menggunakan pewarnaan abu‑abu karena mode‑nya ditetapkan ke `Gray`. Ini memungkinkan Anda mempertahankan slide berwarna penuh sambil mendefinisikan tampilan berbeda untuk pencetakan, pratinjau, atau alur kerja lain yang menghormati pengaturan tampilan hitam‑putih presentasi.
+Dalam mode warna normal, persegi panjang tetap berisi oranye. Dalam alur kerja tampilan hitam‑putih, ia menggunakan pewarnaan abu‑abu karena mode disetel ke `Gray`. Ini memungkinkan Anda mempertahankan slide berwarna penuh sambil mendefinisikan tampilan berbeda untuk pencetakan, pratinjau, atau alur kerja lain yang menghormati pengaturan tampilan hitam‑putih presentasi.
 
-## **Atur Ulang Pemformatan**
+## **Setel Ulang Pemformatan**
 
-Gunakan [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset) untuk mengembalikan posisi, ukuran, dan pemformatan placeholder slide dari placeholder tata letak yang bersesuaian. Contoh ini memerlukan presentasi yang sudah ada dengan placeholder yang ditautkan ke tata letak dan mengatur ulang setiap slide sebelum menyimpan. Bentuk tanpa placeholder tata letak yang bersesuaian tidak diatur ulang.
+Gunakan [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset) untuk mengembalikan posisi, ukuran, dan pemformatan placeholder slide dari placeholder layout yang bersesuaian. Contoh ini memerlukan presentasi yang ada dengan placeholder yang ditautkan ke layout dan mereset setiap slide sebelum disimpan. Bentuk tanpa placeholder layout yang bersesuaian tidak direset.
 
 ```python
 import jpype
@@ -961,12 +1034,12 @@ finally:
 
 **Apakah pemformatan bentuk memengaruhi ukuran file presentasi akhir?**
 
-Warna, gaya garis, dan pengaturan efek umumnya menambah sedikit data dibandingkan dengan gambar dan media yang disematkan. Isian gambar dapat meningkatkan ukuran file karena gambar mereka disimpan dalam presentasi.
+Warna, gaya garis, dan pengaturan efek umumnya menambah sedikit data dibandingkan dengan gambar dan media yang disematkan. Isian gambar dapat meningkatkan ukuran file karena gambarnya disimpan dalam presentasi.
 
 **Bagaimana saya dapat mendeteksi bentuk pada slide yang memiliki pemformatan identik sehingga saya dapat mengelompokkannya?**
 
-Bandingkan masing‑masing properti pemformatan utama bentuk—isi, garis, dan pengaturan efek. Jika semua nilai yang bersesuaian cocok, perlakukan gaya mereka sebagai identik dan kelompokkan bentuk‑bentuk tersebut secara logis, yang menyederhanakan manajemen gaya selanjutnya.
+Bandingkan properti pemformatan utama setiap bentuk—isi, garis, dan pengaturan efek. Jika semua nilai yang bersesuaian cocok, perlakukan gaya mereka sebagai identik dan kelompokkan bentuk‑bentuk tersebut secara logis, yang menyederhanakan manajemen gaya selanjutnya.
 
-**Apakah saya dapat menyimpan sekumpulan gaya bentuk khusus ke file terpisah untuk digunakan kembali di presentasi lain?**
+**Bisakah saya menyimpan sekumpulan gaya bentuk kustom ke file terpisah untuk digunakan kembali di presentasi lain?**
 
-Ya. Simpan bentuk contoh dengan gaya yang diinginkan dalam deck slide templat atau file templat .POTX. Saat membuat presentasi baru, buka templat, kloning bentuk ber‑gaya yang Anda perlukan, dan terapkan kembali pemformatannya di mana pun diperlukan.
+Ya. Simpan contoh bentuk dengan gaya yang diinginkan dalam slide templat atau file .POTX. Saat membuat presentasi baru, buka templat, kloning bentuk bergaya yang diperlukan, dan terapkan kembali pemformatannya sesuai kebutuhan.

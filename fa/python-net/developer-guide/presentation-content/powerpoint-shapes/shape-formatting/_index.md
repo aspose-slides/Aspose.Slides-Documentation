@@ -7,38 +7,38 @@ url: /fa/python-net/shape-formatting/
 keywords:
 - قالب‌بندی شکل
 - قالب‌بندی خط
-- افکت طرح‌دستی
-- خط شکل طرح‌دستی
-- قالب‌بندی سبک جوین
-- پرکننده گرادیان
-- پرکننده الگو
-- پرکننده تصویر
-- پرکننده بافت
-- پرکننده رنگ ثابت
+- افکت طرح‌نویسی
+- خط طرح‌نویسی شکل
+- قالب‌بندی سبک اتصال
+- پر کردن گرادیان
+- پر کردن الگو
+- پر کردن تصویر
+- پر کردن بافت
+- پر کردن رنگ ثابت
 - شفافیت شکل
-- رندر سیاه‑سفید شکل
+- رندر سیاه‌سفید شکل
 - رندر خاکستری شکل
 - چرخش شکل
-- افکت Bevel سه‌بعدی
-- افکت چرخش سه‌بعدی
+- افکت برجسته 3 بعدی
+- افکت چرخش 3 بعدی
 - بازنشانی قالب‌بندی
 - PowerPoint
 - ارائه
 - Python
 - Aspose.Slides
-description: "بیاموزید چگونه اشکال PowerPoint را در Python با استفاده از Aspose.Slides قالب‌بندی کنید—پرکننده، خط و سبک‌های افکت را برای فایل‌های PPT، PPTX و ODP با دقت و کنترل کامل تنظیم کنید."
+description: "یاد بگیرید چگونه اشکال PowerPoint را در Python با استفاده از Aspose.Slides قالب‌بندی کنید—پرکننده، خط و سبک افکت‌ها را برای فایل‌های PPT، PPTX و ODP با دقت و کنترل کامل تنظیم کنید."
 ---
 ## **مقدمه**
 
-با تنظیم خطوط مرزی، پرکننده‌ها و افکت‌ها اشکال را در PowerPoint قالب‌بندی کنید. Aspose.Slides برای Python از طریق .NET به شما امکان کنترل این تنظیمات به‌صورت برنامه‌نویسی را می‌دهد، از جمله شفافیت، چرخش و قالب‌بندی سه‌بعدی.
+شکل‌ها را در PowerPoint با تنظیم خطوط بیرونی، پرکننده‌ها و افکت‌ها قالب‌بندی کنید. Aspose.Slides برای Python از طریق .NET به شما امکان می‌دهد این تنظیمات را به‌صورت برنامه‌نویسی کنترل کنید، از جمله شفافیت، چرخش و قالب‌بندی سه‌بعدی.
 
-![گزینه‌های قالب‌بندی اشکال در PowerPoint](format-shape-powerpoint.png)
+![گزینه‌های قالب‌بندی شکل در PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides برای Python از طریق .NET کلاس‌ها و ویژگی‌هایی فراهم می‌کند که به شما اجازه می‌دهد اشکال را با همان گزینه‌های موجود در PowerPoint قالب‌بندی کنید.
+Aspose.Slides برای Python از طریق .NET کلاس‌ها و خصوصیاتی را ارائه می‌دهد که به شما اجازه می‌دهند شکل‌ها را با استفاده از همان گزینه‌های موجود در PowerPoint قالب‌بندی کنید.
 
 ## **قالب‌بندی خطوط**
 
-از [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) برای کنترل خطوط مرزی یک شکل استفاده کنید. این مثال یک مستطیل بدون پر‌کننده با خط مرزی آبی نقطه‌دار ایجاد می‌کند. [LineFormat.style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/style/) یک خط ترکیبی ضخیم-نازک را انتخاب می‌کند، در حالی که [LineFormat.width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) عرض آن را به ۷ پوینت تنظیم می‌کند و [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) الگوی خط‌چین را برمی‌گزید.
+از [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) برای کنترل خطوط بیرونی یک شکل استفاده کنید. این مثال یک مستطیل بدون پرکننده با یک خط آبی و خط‌چین ایجاد می‌کند. [LineFormat.style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/style/) یک خط ترکیبی ضخیم‑نازک را انتخاب می‌کند، در حالی که [LineFormat.width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) عرض آن را روی ۷ پوینت تنظیم می‌کند و [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) الگوی خط‌چین را انتخاب می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -64,11 +64,11 @@ with slides.Presentation() as presentation:
 
 ### **تنظیم الگوهای سفارشی خط‌چین**
 
-زمانی که سبک‌های پیش‌تعریف‌شده طول و فاصله‌های خط‌چین مورد نیاز شما را فراهم نمی‌کنند، از [LineFormat.custom_dash_pattern](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/custom_dash_pattern/) استفاده کنید، مثلاً برای خطوط مرزی برند یا نمودارهای فنی. اختصاص یک الگو به‌صورت خودکار [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) را به [LineDashStyle.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) تنظیم می‌کند.
+از [LineFormat.custom_dash_pattern](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/custom_dash_pattern/) زمانی استفاده کنید که سبک‌های پیش‌تعریف‌شده طول خطوط و فاصله‌های مورد نیاز شما را فراهم نمی‌کنند، برای مثال برای خطوط برند یا نمودارهای فنی. اختصاص یک الگو به‌صورت خودکار [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) را به [LineDashStyle.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) تنظیم می‌کند.
 
-ورودی‌های فهرست به‌صورت متناوب بین طول خط و فاصله جابجا می‌شوند و با یک خط شروع می‌شوند. هر مقدار مضربی از عرض خط است: `[4, 2]` با عرض ۳ پوینت یک خط‌چین ۱۲ پوینتی و سپس فاصله ۶ پوینتی تولید می‌کند. برای تعریف بخش‌های کامل خط‌چین‑فاصله از جفت مقادیر محدود، غیرمنفی استفاده کنید. این مثال از مقادیر مثبت استفاده می‌کند تا هر خط‌چین و فاصله‌ای قابل مشاهده باشد.
+ورودی‌های لیست به‌صورت متناوب بین طول خط‌چین و فاصله تعویض می‌شوند، شروع با یک خط‌چین. هر مقدار چندین برابر عرض خط است: `[4, 2]` با عرض ۳ پوینت یک خط‌چین ۱۲ پوینتی سپس یک فاصله ۶ پوینتی تولید می‌کند. برای تعریف بخش‌های کامل خط‌چین‑فاصله از جفت مقادیر محدود، غیرمنفی استفاده کنید. مثال از مقادیر مثبت استفاده می‌کند تا هر خط‌چین و فاصله دیدنی باشد.
 
-این مثال پنج خط آبی با طول یکسان و سرهای صاف ایجاد می‌کند. سه خط اول الگوها را در عرض ۳ پوینت مقایسه می‌کنند. چهارم همان الگو را با دو برابر عرض تکرار می‌کند و هم طول خط‌چین و هم فاصله را دوبرابر می‌سازد. پنجم از الگوی سفارشی به خط صاف تغییر می‌دهد.
+این مثال پنج خط آبی با طول برابر و انتهای صاف ایجاد می‌کند. سه خط اول الگوها را با عرض ۳ پوینت مقایسه می‌کنند. خط چهارم الگوی اول را با دو برابر عرض تکرار می‌کند و طول هر دو خط‌چین و فاصله را دو برابر می‌کند. خط پنجم از یک الگوی سفارشی به خط صاف تغییر می‌دهد.
 
 ```python
 import aspose.slides as slides
@@ -95,31 +95,31 @@ with slides.Presentation() as presentation:
         line.line_format.end_arrowhead_style = slides.LineArrowheadStyle.NONE
         line.line_format.custom_dash_pattern = pattern
 
-    # بازگرداندن آخرین خط به یک سبک ثابت.
+    # خط آخر را به سبک ثابت برگردانید.
     slide.shapes[4].line_format.dash_style = slides.LineDashStyle.SOLID
 
     presentation.save("custom_dash_patterns.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-برای بازگشت به یک سبک پیش‌تعریف‌شده نقطه‌دار، مقدار [LineDashStyle.DASH](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) را به [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) اختصاص دهید. سبک انتخاب‌شده ظاهر خط را کنترل می‌کند.
+برای بازگشت به یک سبک خط‌چین پیش‌تعریف‌شده، [LineDashStyle.DASH](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) را به [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) اختصاص دهید. سبک انتخاب‌شده ظاهر خط را کنترل می‌کند.
 
 نتیجه در PowerPoint، از بالا به پایین: **{4, 2}, 3 pt**؛ **{1, 2}, 3 pt**؛ **{6, 2, 1, 2}, 3 pt**؛ **{4, 2}, 6 pt**؛ و **Solid, 3 pt**.
 
-![سه الگوی سفارشی خط‌چین، یک خط پهن‌تر با اولین الگو، و یک خط صاف در PowerPoint](custom-dash-patterns.png)
+![سه الگوی خط‌چین سفارشی، خطی پهن‌تر با استفاده از الگوی اول، و خط صاف در PowerPoint](custom-dash-patterns.png)
 
-### **تنظیم سرهای خط**
+### **تنظیم انتهای خطوط**
 
-از [LineFormat.cap_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/cap_style/) برای تنظیم انتهای یک خط باز استفاده کنید. شمارش [LineCapStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linecapstyle/) سه سبک سر صریح ارائه می‌دهد:
+از [LineFormat.cap_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/cap_style/) برای تنظیم انتهای یک خط باز استفاده کنید. شمارش [LineCapStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linecapstyle/) سه سبک صریح انتهای خط را فراهم می‌کند:
 
-- `FLAT`: خط در نقطه انتها متوقف می‌شود.
-- `ROUND`: یک سر نیم‌دایره‌ای از نقطه انتها به اندازه نصف عرض خط بیرون می‌زند.
-- `SQUARE`: یک سر مربع‌ شکل از نقطه انتها به اندازه نصف عرض خط بیرون می‌زند.
+- `FLAT`: خط در نقطه انتهایی متوقف می‌شود.
+- `ROUND`: یک انتهای نیم‌دایره‌ای نیم‌عرض خط فراتر از نقطه انتها گسترش می‌یابد.
+- `SQUARE`: یک انتهای مربع نیم‌عرض خط فراتر از نقطه انتها گسترش می‌یابد.
 
-این شمارش همچنین شامل `NOT_DEFINED` است که به معنای عدم اختصاص سبک سر به‌صورت صریح می‌باشد.
+شمارش همچنین شامل `NOT_DEFINED` است که به معنای عدم اختصاص صریح یک سبک انتها می‌باشد.
 
-سرها با سرپیک‌های پیکان متفاوت هستند؛ سرپیک‌ها نمادهایی را به انتهای خطوط اضافه می‌کنند و پیوندها (joins) گوشه‌های بین بخش‌های خط را کنترل می‌کنند. این مثال سرپیک‌ها را از طریق [LineFormat.begin_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/begin_arrowhead_style/) و [LineFormat.end_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/end_arrowhead_style/) غیرفعال می‌کند تا تنها شکل سرها مقایسه شوند.
+انتهای خطوط متفاوت از سرهای فلش هستند که نمادهایی به انتهای خط اضافه می‌کنند، و نقاط اتصال که گوشه‌های بین قطعات خط را کنترل می‌کنند. این مثال سرهای فلش را با استفاده از [LineFormat.begin_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/begin_arrowhead_style/) و [LineFormat.end_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/end_arrowhead_style/) غیرفعال می‌کند تا فقط شکل‌های انتهای خط مقایسه شوند.
 
-مثال زیر سه خط افقی تقریباً مشابه با عرض ۲۰ پوینت ایجاد می‌کند. از بالا به پایین، سرهای صاف، گرد و مربع استفاده می‌شوند. نقاط انتهایی آن‌ها دارای مختصات افقی یکسان هستند؛ سرهای گرد و مربع ۱۰ پوینت بیشتر از هر انتها امتداد می‌یابند.
+مثال زیر سه خط افقی تقریباً یکسان با عرض ۲۰ پوینت ایجاد می‌کند. از بالا به پایین، آن‌ها به ترتیب از انتهای صاف، گرد و مربع استفاده می‌کنند. نقاط انتهایی آن‌ها دارای مختصات افقی یکسان هستند؛ انتهای گرد و مربع ۱۰ پوینت بیشتر از هر نقطه انتها گسترش می‌یابند.
 
 ```python
 import aspose.slides as slides
@@ -145,13 +145,13 @@ with slides.Presentation() as presentation:
 
 نتیجه در PowerPoint، از بالا به پایین: **Flat**, **Round**, و **Square**.
 
-![سرهای صاف، گرد و مربعی بر روی خطوط ضخیم یکسان در PowerPoint](line-caps.png)
+![انتهای صاف، گرد، و مربع بر خطوط ضخیم یکسان در PowerPoint](line-caps.png)
 
-## **اعمال افکت‌های Sketch به خطوط شکل**
+## **اعمال افکت طرح‌خط بر خطوط شکل**
 
-یک افکت sketch باعث می‌شود خط شکل دست‌کشیده به نظر برسد. از [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) برای دسترسی به تنظیمات خط، [LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) برای دسترسی به تنظیمات sketch و [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) برای انتخاب یک مقدار از شمارش [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) استفاده کنید.
+یک افکت طرح‌خط باعث می‌شود خط یک شکل شبیه به دست‌نویس به‌نظر برسد. از [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) برای دسترسی به تنظیمات خط، از [LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) برای دسترسی به تنظیمات طرح‌خط، و از [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) برای انتخاب یک مقدار از شمارش [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) استفاده کنید.
 
-کد پایتون زیر نشان می‌دهد چگونه یک افکت [LineSketchType.CURVED](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) اعمال شود، مقدار صریحاً تعیین‌شده بخواند و افکت را با [LineSketchType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) حذف کند:
+کد پایتون زیر نشان می‌دهد چگونه افکت [LineSketchType.CURVED](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) را اعمال کنید، مقدار صریحاً اختصاص داده شده را بخوانید، و افکت را با [LineSketchType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) حذف کنید:
 
 ```python
 import aspose.slides as slides
@@ -168,7 +168,7 @@ with slides.Presentation() as presentation:
     sketch_format.sketch_type = slides.LineSketchType.NONE
 ```
 
-مقداری که توسط [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) برگردانده می‌شود، تنظیماتی است که مستقیماً به شکل اختصاص داده شده است. اگر قالب‌بندی خط می‌تواند از یک تم، اسلاید اصلی یا اسلاید طرح ارث‌بری شود، از [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/) استفاده کنید، به [ILineFormatEffectiveData.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/sketch_format/) دسترسی پیدا کنید و [ISketchFormatEffectiveData.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/isketchformateffectivedata/sketch_type/) را بخوانید. مقدار مؤثر، قالب‌بندی‌ای را نشان می‌دهد که پس از حل ارث‌بری واقعاً اعمال می‌شود. این مثال نیاز به یک ارائه موجود دارد که حداقل یک شکل در اولین اسلاید آن باشد و هر دو مقدار را چاپ می‌کند:
+مقداری که توسط [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) برگردانده می‌شود، تنظیمی است که مستقیم به شکل اختصاص یافته است. اگر قالب‌بندی خط می‌تواند از یک تم، اسلاید اصلی یا اسلاید چیدمان به‌ارث برده شود، از [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/) استفاده کنید، به [ILineFormatEffectiveData.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/sketch_format/) دسترسی پیدا کنید، و [ISketchFormatEffectiveData.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/isketchformateffectivedata/sketch_type/) را بخوانید. مقدار مؤثر، قالب‌بندی واقعی پس از حل ارث‌بری را نشان می‌دهد. این مثال به ارائه‌ای موجود که حداقل یک شکل در اسلاید اول دارد نیاز دارد و هر دو مقدار را چاپ می‌کند:
 
 ```python
 import aspose.slides as slides
@@ -185,19 +185,19 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(f"Effective sketch type: {effective_sketch_type}")
 ```
 
-## **قالب‌بندی سبک‌های Join**
+## **قالب‌بندی سبک‌های اتصال**
 
-سه گزینه نوع Join وجود دارد:
+در اینجا سه گزینه نوع اتصال آمده است:
 
 * Round
 * Miter
 * Bevel
 
-سبک Join کنترل می‌کند که دو بخش مرزی چگونه در یک گوشه به‌هم می‌رسند. برای گوشه‌های گرد از **Round**، برای گوشه‌های تیز از **Miter** و برای گوشه‌های صاف از **Bevel** استفاده کنید.
+سبک اتصال کنترل می‌کند که دو قطعه خط بیرونی چگونه در یک گوشه به هم می‌رسند. برای گوشه‌های گرد از **Round**، برای گوشه‌های تیز از **Miter** و برای گوشه‌های صاف از **Bevel** استفاده کنید.
 
-![سبک Join در ارائه](join-style-powerpoint.png)
+![سبک اتصال در ارائه](join-style-powerpoint.png)
 
-این مثال سه مستطیل سیاه با خطوط مرزی آبی به‌عرض ۱۵ پوینت ایجاد می‌کند. با استفاده از [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) مقدار miter، bevel و round از [LineJoinStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) به ترتیب تنظیم می‌شود تا مقایسه شود که گوشه‌ها چگونه ترسیم می‌شوند.
+این مثال سه مستطیل سیاه با خطوط بیرونی آبی به عرض ۱۵ پوینت ایجاد می‌کند. آن [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) را به مقادیر متر، بیول و گرد شمارش [LineJoinStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) به ترتیب تنظیم می‌کند تا نحوه ترسیم گوشه‌ها را مقایسه کند.
 
 ```python
 import aspose.slides as slides
@@ -239,13 +239,13 @@ with slides.Presentation() as presentation:
     presentation.save("join_styles.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **محدود کردن Join های Miter در گوشه‌های تیز**
+### **محدود کردن اتصالات شکم در گوشه‌های تیز**
 
-از [LineFormat.miter_limit](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/miter_limit/) همراه با [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) که روی [LineJoinStyle.MITER](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) تنظیم شده استفاده کنید تا محدوده‌ای که یک گوشهٔ تیز می‌تواند امتداد یابد محدود کنید.
+از [LineFormat.miter_limit](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/miter_limit/) همراه با [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) که روی [LineJoinStyle.MITER](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) تنظیم شده است، برای محدود کردن میزان گسترش یک گوشه تیز استفاده کنید.
 
-محدودیت نسبت فاصله بین گوشهٔ داخلی و خارجی Join به عرض خط است. به‌عنوان مثال مقدار `8` اجازه می‌دهد طول miter تا هشت برابر عرض خط باشد؛ این مقدار یک اندازه در پوینت نیست. اگر گوشه از این حد فراتر رود، PowerPoint در آن گوشه از Join با bevel استفاده می‌کند. حد بزرگتر نقاط تیزتر را امکان می‌دهد. این تنظیم فقط بر Joinهای miter تأثیر می‌گذارد و تغییر آن زمانی که گوشه در هر دو حد باقی بماند، اثر قابل‌مشاهده‌ای ندارد.
+محدودیت نسبت فاصله بین گوشه‌های داخلی و خارجی اتصال به عرض خط است. به‌عنوان مثال، مقدار `8` اجازه می‌دهد طول شکم تا هشت برابر عرض خط باشد؛ این یک واحد اندازه‌گیری در پوینت نیست. اگر گوشه از حد مجاز فراتر رود، PowerPoint در آن گوشه از اتصال بیول استفاده می‌کند. محدودیت بزرگ‌تر نقاط تیزتر را می‌سازد. این تنظیم فقط بر اتصالات شکم تاثیر می‌گذارد و تغییر آن زمانی اثر نمایان ندارد که گوشه در هر دو حد باقی بماند.
 
-این مثال دو مثلث بدون پر‌کنندهٔ یکسان با خطوط مرزی به‌عرض ۲۰ پوینت ایجاد می‌کند. مثلث چپ از حد `2` و مثلث راست از حد `8` استفاده می‌کند. هر مثلث عرض ۸۰ پوینت و ارتفاع ۱۶۰ پوینت دارد که نسبت طول miter به عرض خط در گوشه بالایی تقریباً `4.12` است. در نتیجه PowerPoint گوشهٔ چپ را bevel می‌کند و گوشهٔ راست را حفظ می‌کند.
+این مثال دو مثلث یکسان بدون پرکننده با خطوط بیرونی به عرض ۲۰ پوینت ایجاد می‌کند. مثلث چپ از حد `2` استفاده می‌کند و راست از `8`. هر مثلث به عرض ۸۰ پوینت و ارتفاع ۱۶۰ پوینت است که نسبت طول شکم به عرض خط در گوشه بالایی تقریباً `4.12` می‌شود. بنابراین PowerPoint رأس چپ را بیول می‌کند و رأس راست را حفظ می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -270,11 +270,11 @@ with slides.Presentation() as presentation:
 
 نتیجه در PowerPoint: **Miter limit 2** در سمت چپ و **miter limit 8** در سمت راست.
 
-![یک رأس bevel شده با محدودیت miter 2 و یک رأس تیز با محدودیت miter 8 در PowerPoint](miter-limits.png)
+![یک رأس بیول با محدودیت شکم ۲ و یک رأس تیز با محدودیت شکم ۸ در PowerPoint](miter-limits.png)
 
-## **پرکننده گرادیان**
+## **پر کردن گرادیان**
 
-یک پرکننده گرادیان رنگ‌ها را در طول یک شکل ترکیب می‌کند. این مثال یک بیضی را با یک گرادیان خطی با زاویه ۴۵ درجه از قرمز به بنفش با استفاده از [FillFormat.gradient_format](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/gradient_format/) پر می‌کند. متد [GradientStopCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/gradientstopcollection/add/) رنگ‌ها را در ۰ و ۱، شروع و پایان گرادیان، قرار می‌دهد. حذف توقف‌های موجود تضمین می‌کند که تنها این دو رنگ استفاده شوند.
+یک پر کردن گرادیان رنگ‌ها را در سراسر یک شکل ترکیب می‌کند. این مثال یک بیضی را با یک گرادیان خطی با زاویه ۴۵ درجه از قرمز به بنفش با استفاده از [FillFormat.gradient_format](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/gradient_format/) پر می‌کند. متد [GradientStopCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/gradientstopcollection/add/) نقاط توقف رنگ را در ۰ و ۱، یعنی آغاز و انتهای گرادیان قرار می‌دهد. پاک‌کردن نقاط توقف موجود تضمین می‌کند که فقط این دو رنگ استفاده شوند.
 
 ```python
 import aspose.slides as slides
@@ -295,15 +295,15 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![بیضی با پرکننده گرادیان](gradient-fill.png)
+![بیضی با پر کردن گرادیان](gradient-fill.png)
 
-اگر یک گرادیان در تصویر استخراج‌شده متفاوت از آنچه در PowerPoint دیده می‌شود باشد، به [Choose a Gradient Rendering Style](/slides/fa/python-net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) مراجعه کنید. می‌توانید یک سبک رندرینگ را بدون تغییر پرکنندهٔ گرادیان ذخیره‌شده در ارائه انتخاب کنید.
+اگر یک گرادیان در تصویر خروجی متفاوت از آنچه در PowerPoint به‌نظر می‌رسد باشد، به [Choose a Gradient Rendering Style](/slides/fa/python-net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) مراجعه کنید. می‌توانید سبک رندر را بدون تغییر گرادیان ذخیره‌شده در ارائه انتخاب کنید.
 
-### **تنظیم زاویهٔ گرادیان خطی**
+### **تنظیم زاویه گرادیان خطی**
 
-از [GradientFormat.linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/) برای کنترل جهت [GradientShape.LINEAR](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/) استفاده کنید. زاویه برحسب درجه اندازه‌گیری می‌شود و ساعت‌گرد افزایش می‌یابد: `0` از چپ به راست، `90` از بالا به پایین، `180` از راست به چپ و `270` از پایین به بالا. زوایای کسری هم پشتیبانی می‌شوند. زوایای محدودی خارج از `[0, 360)` به یک دور کامل نرمال می‌شوند؛ برای مثال `-45` تبدیل به `315` و `360` تبدیل به `0` می‌شود.
+از [GradientFormat.linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/) برای کنترل جهت یک پر کردن [GradientShape.LINEAR](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/) استفاده کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود و ساعت‌گرد افزایش می‌یابد: `0` از چپ به راست، `90` از بالا به پایین، `180` از راست به چپ، و `270` از پایین به بالا. زاویه‌های کسری نیز پشتیبانی می‌شوند. زاویه‌های محدود خارج از بازه `[0, 360)` به یک دور کامل نرمال‌سازی می‌شوند؛ به‌عنوان مثال `-45` به `315` و `360` به `0` تبدیل می‌شود.
 
-این مثال شش مستطیل با توقف‌های قرمز، سبز و آبی یکسان در موقعیت‌های `0`، `0.5` و `1` ایجاد می‌کند. مقیاس‌گذاری غیرفعال است تا زاویه بدون در نظر گرفتن نسبت‌های مستطیل‌ها مقایسه شود. زوایا، از چپ به راست، در ردیف اول `0`، `45` و `90` و در ردیف دوم `135`، `180` و `270` هستند.
+این مثال شش مستطیل با نقاط توقف قرمز، سبز و آبی یکسان در موقعیت‌های `0`، `0.5` و `1` ایجاد می‌کند. مقیاس‌سازی غیرفعال می‌شود تا زاویه بتواند مستقل از نسبت‌های مستطیل‌ها مقایسه شود. زاویه‌ها، از چپ به راست، در ردیف اول `0`، `45` و `90` و در ردیف دوم `135`، `180` و `270` هستند.
 
 ```python
 import aspose.slides as slides
@@ -336,13 +336,13 @@ with slides.Presentation() as presentation:
 
 نتیجه در PowerPoint:
 
-![گرادیان‌های خطی با زوایای 0، 45 و 90 درجه در ردیف بالا، و 135، 180 و 270 درجه در ردیف پایین](linear-gradient-angles.png)
+![گرادیان‌های خطی با زاویه‌های 0، 45 و 90 درجه در ردیف بالا، و 135، 180 و 270 درجه در ردیف پایین](linear-gradient-angles.png)
 
-### **مقیاس‌گذاری گرادیان خطی با شکل**
+### **مقیاس‌بندی یک گرادیان خطی با شکل**
 
-[GradientFormat.linear_gradient_scaled](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_scaled/) یک مقدار [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) می‌گیرد. به‌طور صریح به `FALSE` تنظیم کنید تا زاویهٔ هندسی گرادیان هنگام تغییر نسبت‌های شکل ثابت بماند، یا به `TRUE` تنظیم کنید تا گرادیان با عرض و ارتفاع شکل مقیاس بگیرد. با فعال شدن مقیاس‌گذاری، زاویهٔ قابل‌مشاهده می‌تواند در شکل غیرمربعی با زاویهٔ تعیین‌شده متفاوت باشد.
+[GradientFormat.linear_gradient_scaled](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_scaled/) یک مقدار [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) می‌پذیرد. به‌صورت صریح به `FALSE` تنظیم کنید تا زاویه هندسی گرادیان در هنگام تغییر نسبت‌های شکل ثابت بماند، یا به `TRUE` تا گرادیان با عرض و ارتفاع شکل مقیاس‌بندی شود. با فعال‌سازی مقیاس‌بندی، زاویه قابل مشاهده می‌تواند با زاویه اختصاص داده‌شده در یک شکل غیرمربعی فرق کند.
 
-مثال زیر از زاویهٔ `45` درجه و همان توقف‌های رنگی که در مقایسهٔ زوایا استفاده شد، استفاده می‌کند. ستون چپ از `FALSE` استفاده می‌کند؛ ستون راست از `TRUE`. هر ستون شامل یک مستطیل پهن بالا و یک مستطیل بلند زیر آن است. هر دو با ابعاد پهن یکسان شروع می‌شوند؛ تغییر عرض و ارتفاع مستطیل دوم نشان می‌دهد که پرکننده چگونه بدون تغییر تنظیمات گرادیان به تغییر اندازه واکنش نشان می‌دهد.
+مثال زیر از زاویه `45` درجه و همان نقاط توقف رنگی که در مقایسه زاویه استفاده شد، استفاده می‌کند. ستون چپ از `FALSE`، ستون راست از `TRUE` استفاده می‌کند. هر ستون شامل یک مستطیل پهن بالای یک مستطیل بلند است. هر دو با ابعاد پهن یکسان شروع می‌شوند؛ تغییر عرض و ارتفاع مستطیل دوم نحوه واکنش پر رنگ به تغییر اندازه را بدون تغییر تنظیمات گرادیان نشان می‌دهد.
 
 ```python
 import aspose.slides as slides
@@ -378,19 +378,19 @@ with slides.Presentation() as presentation:
     presentation.save("linear_gradient_scaling.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-نتیجه در PowerPoint، با مقیاس‌گذاری غیرفعال در سمت چپ و فعال در سمت راست:
+نتیجه در PowerPoint، با مقیاس‌سازی غیرفعال در سمت چپ و فعال در سمت راست:
 
-![مستطیل‌های پهن و بلند با گرادیان 45 درجه، مقایسهٔ linear_gradient_scaled FALSE در سمت چپ با TRUE در سمت راست](linear-gradient-scaling.png)
+![مستطیل‌های پهن و بلند با گرادیان 45 درجه، مقایسه linear_gradient_scaled FALSE در سمت چپ با TRUE در سمت راست](linear-gradient-scaling.png)
 
-با غیرفعال بودن مقیاس‌گذاری، نوارهای رنگی مورب جهت یکسانی را در هر دو مستطیل حفظ می‌کنند. با فعال شدن مقیاس‌گذاری، نوارها با نسبت‌های شکل کشیده می‌شوند. این به بازتولید گرادیان یک قالب هنگام تطبیق شکل به اندازهٔ متفاوت کمک می‌کند. در یک مربع، فعال‌سازی مقیاس‌گذاری ظاهر این گرادیان `45` درجه را تغییر نمی‌دهد.
+با مقیاس‌سازی غیرفعال، نوارهای رنگی قطری همان جهت را در هر دو مستطیل حفظ می‌کنند. با مقیاس‌سازی فعال، نوارها با نسبت‌های شکل کشیده می‌شوند. این کمک می‌کند تا وقتی یک قالب به اندازه متفاوتی تبدیل می‌شود، گرادیان آن را بازتولید کنید. در یک مربع، فعال‌سازی مقیاس‌سازی ظاهر این گرادیان `45` درجه را تغییر نمی‌دهد.
 
-هر دو تنظیم زاویه و مقیاس‌گذاری برای گرادیان‌های خطی اعمال می‌شوند. آنها برای پرکننده‌های [GradientShape.RADIAL یا GradientShape.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/) کنترل ندارند.
+هر دو تنظیم زاویه و مقیاس برای گرادیان‌های خطی اعمال می‌شود. آنها بر پر کردن‌های [GradientShape.RADIAL یا GradientShape.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/) تأثیری ندارند.
 
 ### **ترکیب زاویه با جهت گرادیان**
 
-[GradientFormat.gradient_direction](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/gradient_direction/) یک سبک گرادیان را از شمارش [GradientDirection](https://reference.aspose.com/slides/python-net/aspose.slides/gradientdirection/) انتخاب می‌کند؛ این جایگزینی برای زاویهٔ عددی نیست. برای یک گرادیان خطی، سبک‌های گوشه می‌توانند مساحتی که رنگ‌ها در آن توزیع می‌شوند را بدون تغییر [linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/) تغییر دهند. هنگام مقایسهٔ زوایا یا مقیاس‌گذاری، جهت را یکسان نگه دارید.
+[GradientFormat.gradient_direction](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/gradient_direction/) یک سبک گرادیان را از شمارش [GradientDirection](https://reference.aspose.com/slides/python-net/aspose.slides/gradientdirection/) انتخاب می‌کند؛ این جایگزینی برای زاویه عددی نیست. برای یک گرادیان خطی، سبک‌های جهت می‌توانند ناحیه توزیع رنگ‌ها را بدون تغییر [linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/) تغییر دهند. هنگام مقایسه زاویه‌ها یا مقیاس، جهت را ثابت نگه دارید.
 
-مثال زیر تنظیمات یکسان را به ترتیب معکوس اعمال می‌کند. دو مستطیل ظاهر یکسانی دارند: اختصاص جهت قبل یا بعد از زاویه نتیجه را تغییر نمی‌دهد.
+مثال زیر همان تنظیمات را به ترتیب معکوس اعمال می‌کند. دو مستطیل ظاهر یکسانی دارند: اختصاص جهت قبل یا بعد از زاویه نتیجه را تغییر نمی‌دهد.
 
 ```python
 import aspose.slides as slides
@@ -421,9 +421,9 @@ with slides.Presentation() as presentation:
     presentation.save("linear_gradient_direction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **پرکننده الگو**
+## **پر کردن الگوی**
 
-یک پرکنندهٔ الگو یک طرح دو‌رنگ مانند نقطه‌ها، خطوط یا شطرنجی‌ها را اعمال می‌کند. این مثال از [PatternFormat.pattern_style](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/pattern_style/) برای انتخاب الگوی trellis استفاده می‌کند. [PatternFormat.back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) پس‌زمینهٔ خاکستری روشن را فراهم می‌کند و [PatternFormat.fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) رنگ زرد الگو را تعیین می‌کند.
+یک پر کردن الگو یک طرح دو رنگی مانند نقطه‌ها، نوارها یا شطرنج‌ها را اعمال می‌کند. این مثال از [PatternFormat.pattern_style](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/pattern_style/) برای انتخاب الگوی trellis استفاده می‌کند. [PatternFormat.back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) پس‌زمینه خاکستری روشن را فراهم می‌کند و [PatternFormat.fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) رنگ زرد الگو را فراهم می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -443,13 +443,13 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![مستطیل با پرکنندهٔ الگو](pattern-fill.png)
+![مستطیل با پر کردن الگو](pattern-fill.png)
 
-## **پرکننده تصویر**
+## **پر کردن تصویر**
 
-یک پرکننده تصویر از یک تصویر داخل شکل استفاده می‌کند. این مثال به یک تصویر محلی نیاز دارد و از [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) برای بارگذاری آن به مجموعهٔ تصاویر ارائه استفاده می‌کند. تنظیم [PictureFillFormat.picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) به حالت tiled تصویر را درون مستطیل تکرار می‌کند. تصویر منبع استفاده‌شده در زیر نشان داده شده است:
+یک پر کردن تصویر از یک تصویر داخل یک شکل استفاده می‌کند. این مثال به یک تصویر محلی نیاز دارد و از [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) برای بارگذاری آن در مجموعه تصاویر ارائه استفاده می‌کند. تنظیم [PictureFillFormat.picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) به حالت tiled تصویر را درون مستطیل تکرار می‌کند. تصویر منبع استفاده‌شده در زیر نشان داده شده است:
 
-![عکس لوتوس](lotus.png)
+![تصویر لوتوس](lotus.png)
 
 ```python
 import aspose.slides as slides
@@ -470,21 +470,21 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![شکل با پرکنندهٔ تصویر](picture-fill.png)
+![شکل با پر کردن تصویر](picture-fill.png)
 
-### **کاشی‌کردن تصویر به‌صورت بافت**
+### **کاشی تصویر به عنوان بافت**
 
-اگر می‌خواهید یک تصویر کاشی‌شده را به‌عنوان بافت تنظیم کنید و رفتار کاشی‌سازی را سفارشی کنید، می‌توانید از ویژگی‌های زیر کلاس [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) استفاده کنید:
+اگر می‌خواهید یک تصویر کاشی‌شده را به‌عنوان بافت تنظیم کنید و رفتار کاشی‌بندی را سفارشی کنید، می‌توانید از خصوصیات زیر کلاس [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) استفاده کنید:
 
-- [picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/): حالت پرکنندهٔ تصویر را تنظیم می‌کند — یا `TILE` یا `STRETCH`.
-- [tile_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_alignment/): تراز کاشی‌ها درون شکل را مشخص می‌کند.
-- [tile_flip](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_flip/): تعیین می‌کند که کاشی به صورت افقی، عمودی یا هر دو وارونه شود.
+- [picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/): حالت پرکردن تصویر را تنظیم می‌کند—یا `TILE` یا `STRETCH`.
+- [tile_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_alignment/): تراز کاشی‌ها داخل شکل را مشخص می‌کند.
+- [tile_flip](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_flip/): کنترل می‌کند آیا کاشی به‌صورت افقی، عمودی یا هر دو وارونه شود.
 - [tile_offset_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_x/): افست افقی کاشی (به پوینت) از مبدأ شکل را تنظیم می‌کند.
 - [tile_offset_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_y/): افست عمودی کاشی (به پوینت) از مبدأ شکل را تنظیم می‌کند.
-- [tile_scale_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_x/): مقیاس افقی کاشی را به‌صورت درصد تعریف می‌کند.
-- [tile_scale_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_y/): مقیاس عمودی کاشی را به‌صورت درصد تعریف می‌کند.
+- [tile_scale_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_x/): مقیاس افقی کاشی به‌صورت درصد تعریف می‌شود.
+- [tile_scale_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_y/): مقیاس عمودی کاشی به‌صورت درصد تعریف می‌شود.
 
-این مثال به یک تصویر محلی نیاز دارد و [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) را طوری پیکربندی می‌کند که آن را با ۵۰٪ اندازهٔ اصلی خود تکرار کند. افست‌های ‑۳۲ پوینتی کاشی‌ها را به صورت افقی و عمودی حرکت می‌دهند؛ تراز راست‑پایین و وارونگی در هر دو جهت تعیین می‌کند که بافت تکراری چگونه چیده شود.
+این مثال به یک تصویر محلی نیاز دارد و [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) را طوری پیکربندی می‌کند که با اندازه ۵۰٪ از اندازه اصلی تکرار شود. افست‌های −32 پوینت کاشی‌ها را به صورت افقی و عمودی جابه‌جا می‌کند؛ تراز راست‑پایین و وارونگی در هر دو جهت نحوهٔ ترتیب بافت تکراری را تعیین می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -515,9 +515,9 @@ with slides.Presentation() as presentation:
 
 ![گزینه‌های کاشی](tile-options.png)
 
-## **پرکننده رنگ ثابت**
+## **پر کردن رنگ ثابت**
 
-یک پرکنندهٔ ثابت یک رنگ یگانه و یک‌دست به شکل می‌دهد. این مثال [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) را به حالت پرکنندهٔ ثابت تنظیم می‌کند و از طریق [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/) رنگ زرد را اختصاص می‌دهد، سپس مستطیل را در یک ارائه ذخیره می‌کند.
+یک پر کردن ثابت یک رنگ واحد، یکنواخت به شکل می‌دهد. این مثال [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) را به حالت پر کردن ثابت تنظیم می‌کند و با استفاده از [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/) رنگ زرد را اختصاص می‌دهد، سپس مستطیل را در یک ارائه ذخیره می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -535,15 +535,71 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![شکل با پرکنندهٔ رنگ ثابت](solid-color-fill.png)
+![شکل با پر کردن رنگ ثابت](solid-color-fill.png)
 
-## **استفاده از پس‌زمینهٔ اسلاید به‌عنوان پرکنندهٔ شکل**
+### **کپی رنگ‌ها در حالی که ارجاعات تم حفظ می‌شود**
 
-از [AutoShape.use_background_fill](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/use_background_fill/) زمانی که یک شکل باید با پس‌زمینهٔ اسلاید مطابقت داشته باشد، مثلاً در یک قالب ارائه، استفاده کنید. ابتدا [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) را به [FillType.NOT_DEFINED](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) تنظیم کنید تا هر پرکنندهٔ صریحی حذف شود. با این ترکیب، شکل به جای پرکنندهٔ سبک خود از پس‌زمینهٔ اسلاید استفاده می‌کند. فعال‌سازی تنها پرچم، پرکنندهٔ صریح موجود را حذف نمی‌کند.
+از [ColorFormat.copy_from](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/copy_from/) برای کپی یک تعریف رنگ، شامل نوع رنگ، ارجاع تم و تبدیلات استفاده کنید. این کار هنگام انتقال رنگ پرکردن بین شکل‌هایی که باید همچنان پیگیر تم ارائه باشند مفید است. این روش فقط رنگ را کپی می‌کند: نوع پرکردن، خط یا دیگر قالب‌بندی‌های شکل را کپی نمی‌کند. نوع پرکردن مقصد را به‌صورت صریح با [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) تنظیم کنید.
 
-این متفاوت از [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) است: پرکنندهٔ پس‌زمینه اشیائی را که پشت شکل قرار دارند با ناحیهٔ متناظر از پس‌زمینهٔ اسلاید می‌پوشاند، در حالی که بدون پرکننده آن اشیا قابل مشاهده می‌مانند. یک گرادیان در این حالت با اسلاید هم‌راستا می‌ماند و داخل هر شکل دوباره شروع نمی‌شود.
+این مثال سه مستطیل از چپ به راست ایجاد می‌کند: منبع، یک کپی آگاه به تم و یک کپی ثابت RGB. منبع از [ColorFormat.scheme_color](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/scheme_color/) برای ارجاع به اولین رنگ تأکید استفاده می‌کند و یک رنگ تیرگی را از طریق [ColorOperationCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/coloroperationcollection/add/) اضافه می‌کند. کپی RGB از رنگ پرکردن مؤثر منبع استفاده می‌کند، بنابراین سه شکل ابتدا یک‌دست به‌نظر می‌رسند. اختصاص [ColorFormat.color](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color/) یک مقدار ثابت RGB تنظیم می‌کند و هر تبدیلات رنگ موجود را پاک می‌کند.
 
-مثال زیر یک پس‌زمینهٔ اصلی که توسط اسلاید به ارث می‌رسد ایجاد می‌کند و یک نوار ماژنتا را در پشت سه مستطیل قرار می‌دهد. مستطیل چپ از پس‌زمینه استفاده می‌کند، مستطیل وسط بدون پرکننده است و مستطیل راست از پرکنندهٔ پس‌زمینه به یک پرکنندهٔ نارنجی صریح تغییر می‌کند.
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(660, 220, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    presentation.master_theme.color_scheme.accent1.color = draw.Color.royal_blue
+
+    source = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 40, 180, 140)
+    theme_copy = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 240, 40, 180, 140)
+    rgb_copy = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 450, 40, 180, 140)
+
+    for shape in (source, theme_copy, rgb_copy):
+        shape.fill_format.fill_type = slides.FillType.SOLID
+        shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    source_color = source.fill_format.solid_fill_color
+    source_color.scheme_color = slides.SchemeColor.ACCENT1
+    source_color.color_transform.add(slides.ColorTransformOperation.TINT, 0.75)
+
+    theme_copy.fill_format.solid_fill_color.copy_from(source_color)
+    rgb_copy.fill_format.solid_fill_color.color = source.fill_format.get_effective().solid_fill_color
+
+    with slide.get_image(1.0, 1.0) as before:
+        before.save("color-copy-before.png", slides.ImageFormat.PNG)
+
+    # ارجاعات تم رنگ تأکید جدید را دنبال می‌کند؛ مقدار ثابت RGB این کار را نمی‌کند.
+    presentation.master_theme.color_scheme.accent1.color = draw.Color.orange_red
+
+    with slide.get_image(1.0, 1.0) as after:
+        after.save("color-copy-after.png", slides.ImageFormat.PNG)
+    presentation.save("copied_colors.pptx", slides.export.SaveFormat.PPTX)
+```
+
+قبل از تغییر تم، تمام سه پرکردن یکسان هستند:
+
+![منبع، مقصد copy_from و مقصد ثابت RGB با پرکردن‌های آبی یکسان](color-copy-before.png)
+
+پس از تغییر تم، منبع و کپی آگاه به تم، رنگ تاکید جدید را دنبال می‌کنند و تیرگی خود را حفظ می‌کنند. کپی ثابت RGB همچنان آبی می‌ماند:
+
+![منبع و هدف copy_from با پرکردن‌های نارنجی، در حالی که مقصد ثابت RGB همچنان آبی است](color-copy-after.png)
+
+تعریف کپی شده مستقل از منبع است. تغییر بعدی ارجاع تم منبع، اختصاص رنگ دیگر یا افزودن/حذف تبدیلات آن، مقصد را تغییر نمی‌دهد. تغییر تم همچنان هر دو شکل را تحت تأثیر قرار می‌دهد چون هر یک به‌ طور مستقل به همان رنگ تم ارجاع می‌دهند.
+
+ذخیره و بازگشایی PPTX تعریف کپی شدهٔ [ColorFormat.color_type](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color_type/)، ارجاع تم و مجموعهٔ [ColorFormat.color_transform](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color_transform/) را حفظ می‌کند؛ آن را به RGB مسطح نمی‌کند.
+
+هنگام کپی بین زمینه‌های تم متفاوت، مانند ارائه‌هایی با پالت‌های تأکید متفاوت، ارجاع کپی‌شده نسبت به تم مقصد حل می‌شود. همان ارجاع و تبدیلات می‌توانند در نتیجه رنگ قابل مشاهده متفاوتی تولید کنند. برای اطلاعات بیشتر درباره پیکربندی رنگ‌های تم به [Presentation Theme](/slides/fa/python-net/presentation-theme/) مراجعه کنید.
+
+## **استفاده از پس‌زمینه اسلاید به عنوان پر کردن شکل**
+
+از [AutoShape.use_background_fill](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/use_background_fill/) وقتی که یک شکل باید با پس‌زمینه اسلاید مطابقت داشته باشد، مثلاً در یک قالب ارائه، استفاده کنید. ابتدا [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) را به [FillType.NOT_DEFINED](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) تنظیم کنید تا هر پر کردن صریحی حذف شود. با این ترکیب، شکل از پس‌زمینهٔ اسلاید به جای پرکردن سبک خود استفاده می‌کند. فعال‌سازی این پرچم به‌تنهایی پر کردن صریح موجود را حذف نمی‌کند.
+
+این با [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) متفاوت است: پرکردن پس‌زمینه اشیاء پشت شکل را با ناحیه متناظر پس‌زمینه اسلاید می‌پوشاند، در حالی که بدون پرکردن آن اشیاء را قابل مشاهده می‌گذارد. یک گرادیان بر روی اسلاید هم‌راستا می‌ماند و داخل هر شکل دوباره آغاز نمی‌شود.
+
+مثال زیر یک پس‌زمینهٔ اصلی که توسط اسلاید وارث شده است ایجاد می‌کند و یک نوار ماژنتا را پشت سه مستطیل قرار می‌دهد. مستطیل چپ از پس‌زمینه استفاده می‌کند، مستطیل میانی بدون پرکردن است، و مستطیل راست از پرکردن پس‌زمینه به پرکردن صریح نارنجی سوئیچ می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -553,7 +609,7 @@ with slides.Presentation() as presentation:
     presentation.slide_size.set_size(720, 400, slides.SlideSizeScaleType.DO_NOT_SCALE)
     slide = presentation.slides[0]
 
-    # گرادیان را از مستر به ارث بگیرید.
+    # گرادیان را از مستر به ارث می‌بریم.
     slide.background.type = slides.BackgroundType.NOT_DEFINED
     slide.layout_slide.background.type = slides.BackgroundType.NOT_DEFINED
     background = slide.layout_slide.master_slide.background
@@ -566,7 +622,7 @@ with slides.Presentation() as presentation:
     gradient.gradient_stops.add(0, draw.Color.dark_blue)
     gradient.gradient_stops.add(1, draw.Color.light_sky_blue)
 
-    # این شی را ابتدا اضافه کنید تا پشت مستطیل‌ها ظاهر شود.
+    # این شیء را ابتدا اضافه کنید تا پشت مستطیل‌ها ظاهر شود.
     band = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 25, 150, 670, 100)
     band.fill_format.fill_type = slides.FillType.SOLID
     band.fill_format.solid_fill_color.color = draw.Color.magenta
@@ -583,7 +639,7 @@ with slides.Presentation() as presentation:
     explicit_shape.fill_format.fill_type = slides.FillType.NOT_DEFINED
     explicit_shape.use_background_fill = True
 
-    # پرکنندهٔ پس‌زمینه را قبل از اعمال پرکنندهٔ صریح غیرفعال کنید.
+    # پیش از اعمال پر کردن صریح، پر کردن پس‌زمینه را غیرفعال کنید.
     explicit_shape.use_background_fill = False
     explicit_shape.fill_format.fill_type = slides.FillType.SOLID
     explicit_shape.fill_format.solid_fill_color.color = draw.Color.orange
@@ -591,15 +647,15 @@ with slides.Presentation() as presentation:
     presentation.save("background_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-نتیجه، از چپ به راست: **پرکنندهٔ پس‌زمینه**، **بدون پرکننده** و **پرکنندهٔ صریح**. نوار ماژنتا توسط مستطیل‌های چپ و راست پنهان می‌شود اما از طریق مستطیل وسط قابل مشاهده است.
+نتیجه، از چپ به راست: **background fill**، **no fill**، و **explicit fill**. نوار ماژنتا توسط مستطیل‌های چپ و راست مخفی می‌شود اما از طریق مستطیل میانی قابل مشاهده است.
 
-![پرکنندهٔ پس‌زمینه، بدون پرکننده و پرکنندهٔ نارنجی صریح بر روی نوار ماژنتا](background-fill.png)
+![پرکردن پس‌زمینه، بدون پرکردن، و پرکردن صریح نارنجی بر روی نوار ماژنتا](background-fill.png)
 
-رفتار مشابه برای پس‌زمینه‌ای که مستقیماً روی اسلاید تعریف شده یا از یک طرح ارث‌بری می‌شود، اعمال می‌شود. شکل از پس‌زمینهٔ حل‌شدهٔ اسلاید استفاده می‌کند؛ در این مثال هر دو پس‌زمینهٔ اسلاید و طرح تعریف نشده‌اند تا پیش‌زمینهٔ اصلی تأمین شود.
+رفتار مشابه برای پس‌زمینه‌ای که به‌صورت مستقیم روی اسلاید تعریف شده یا از یک چیدمان وارث می‌شود نیز اعمال می‌شود. شکل از پس‌زمینهٔ حل‌شدهٔ اسلاید استفاده می‌کند؛ مثال هر دو پس‌زمینهٔ اسلاید و چیدمان را تعریف‌نشده می‌گذارد تا اصلی آنها را تأمین کند.
 
 ## **تنظیم شفافیت**
 
-برای یک پرکنندهٔ ثابت، مؤلفهٔ آلفای رنگ، شفافیت را کنترل می‌کند: ۰ کاملاً شفاف و ۲۵۵ کاملاً مات است. این مثال از مقدار آلفا ۱۲۸ برای یک مستطیل زرد استفاده می‌کند، به‌طوری‌که تقریباً ۵۰٪ شفاف باشد و مستطیل زیرین قابل مشاهده بماند. رنگ از طریق [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/) اختصاص می‌یابد.
+برای یک پر کردن ثابت، مؤلفهٔ آلفای رنگ اپاسیتی را کنترل می‌کند: ۰ کاملاً شفاف و ۲۵۵ کاملاً مات است. این مثال از مقدار آلفای ۱۲۸ برای یک مستطیل زرد استفاده می‌کند، به‌طوری که تقریباً ۵۰٪ شفاف باشد تا مستطیل زیرین قابل مشاهده باقی بماند. رنگ از طریق [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/) اختصاص می‌یابد.
 
 ```python
 import aspose.slides as slides
@@ -623,9 +679,9 @@ with slides.Presentation() as presentation:
 
 ![شکل شفاف](shape-transparency.png)
 
-## **چرخاندن اشکال**
+## **چرخاندن شکل‌ها**
 
-از [Shape.rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) برای چرخاندن یک شکل در صفحه اسلاید استفاده کنید. زاویه برحسب درجه اندازه‌گیری می‌شود؛ این مثال یک مستطیل را ۵ درجه ساعت‌گرد می‌چرخاند و ارائه را ذخیره می‌کند.
+از [Shape.rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) برای چرخاندن یک شکل در صفحهٔ اسلاید استفاده کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود؛ این مثال یک مستطیل را ۵ درجه ساعت‌گرد می‌چرخاند و ارائه را ذخیره می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -643,9 +699,9 @@ with slides.Presentation() as presentation:
 
 ![چرخش شکل](shape-rotation.png)
 
-## **اضافه کردن افکت‌های Bevel سه‌بعدی**
+## **اضافه کردن افکت‌های برجسته 3 بعدی**
 
-از [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) برای افزودن عمق و لبه‌های برجسته به شکل استفاده کنید. این مثال یک بیضی سبز با خط مرزی نارنجی ایجاد می‌کند، [ThreeDFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) را به ۴ پوینت تنظیم می‌کند و یک bevel بالا دایره‌ای با عرض و ارتفاع ۶ پوینت از طریق [ThreeDFormat.bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/) اعمال می‌کند. یک دوربین ارتوگرافیک روبه‌رو و نورپردازی سه نقطه‌ای باعث می‌شود bevel قابل‌مشاهده باشد.
+از [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) برای افزودن عمق و لبه‌های برجسته به یک شکل استفاده کنید. این مثال یک بیضی سبز با خط بیرونی نارنجی ایجاد می‌کند، [ThreeDFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) را روی ۴ پوینت تنظیم می‌کند و یک برجستهٔ بالایی دایره‌ای با عرض و ارتفاع ۶ پوینت از طریق [ThreeDFormat.bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/) اعمال می‌کند. یک دوربین ارتوگرافیک روبه‌رو و روشنایی سه‌نقطه‌ای برجسته را قابل مشاهده می‌سازند.
 
 ```python
 import aspose.slides as slides
@@ -673,11 +729,11 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![افکت Bevel سه‌بعدی](3D-bevel-effect.png)
+![افکت برجستهٔ 3D](3D-bevel-effect.png)
 
-## **اضافه کردن افکت‌های چرخش سه‌بعدی**
+## **اضافه کردن افکت‌های چرخش 3 بعدی**
 
-نمایش سه‌بعدی یک شکل توسط تنظیمات دوربین آن کنترل می‌شود. این مثال از [Camera.set_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/set_rotation/) با زاویه‌های عرض، طول و چرخش به ترتیب ۴۰، ۳۵ و ۲۰ درجه استفاده می‌کند. یک دوربین ایزومتریک از طریق [Camera.camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) و نورپردازی متعادل از طریق [LightRig.light_type](https://reference.aspose.com/slides/python-net/aspose.slides/lightrig/light_type/) انتخاب می‌شود، سپس مستطیل قالب‌بندی‌شده ذخیره می‌شود.
+یک نمای 3D شکل توسط تنظیمات دوربین آن کنترل می‌شود. این مثال از [Camera.set_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/set_rotation/) با زاویه‌های عرض، طول و دوران به ترتیب ۴۰، ۳۵ و ۲۰ درجه استفاده می‌کند. یک دوربین ایزومتریک از طریق [Camera.camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) و روشنایی متعادل از طریق [LightRig.light_type](https://reference.aspose.com/slides/python-net/aspose.slides/lightrig/light_type/) انتخاب می‌شود، سپس مستطیل قالب‌بندی‌شده ذخیره می‌شود.
 
 ```python
 import aspose.slides as slides
@@ -696,15 +752,15 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![افکت چرخش سه‌بعدی](3D-rotation-effect.png)
+![افکت چرخش 3D](3D-rotation-effect.png)
 
-## **کنترل رندر سیاه‑سفید برای اشکال**
+## **کنترل رندر سیاه‑سفید برای شکل‌ها**
 
-ویژگی [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) مشخص می‌کند که یک شکل به‌صورت فردی چگونه در حالت نمایش یا پردازش سیاه‑سفید رندر شود. این ویژگی به‌تنهایی نمایش سیاه‑سفید را فعال نمی‌کند و رنگ، خط یا قالب‌بندی شکل را در حالت رنگ عادی تغییر نمی‌دهد.
+ویژگی [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) مشخص می‌کند که یک شکل فرد چگونه هنگام مشاهده یا پردازش ارائه در حالت سیاه‑سفید رندر شود. این ویژگی به‌تنهایی نمایش سیاه‑سفید را فعال نمی‌کند و قالب‌بندی‌های پر، خط یا دیگر ویژگی‌های شکل را در حالت رنگ عادی تغییر نمی‌دهد.
 
-از مقدارهای شمارش [BlackWhiteMode](https://reference.aspose.com/slides/python-net/aspose.slides/blackwhitemode/) برای انتخاب رفتار دلخواه استفاده کنید. برای مثال، `AUTOMATIC` اجازه می‌دهد برنامه رندر خودکار تبدیل را انجام دهد، `GRAY` و `LIGHT_GRAY` رنگ‌ خاکستری اعمال می‌کنند، `BLACK_WHITE` فقط سیاه و سفید استفاده می‌کند، `BLACK` و `WHITE` یک رنگ واحد را تحمیل می‌کنند، `COLOR` رنگ عادی را حفظ می‌کند و `HIDDEN` شکل را در حالت سیاه‑سفید حذف می‌کند. `NOT_DEFINED` به این معنی است که هیچ حالت سطح‑شکل تعیین نشده است.
+از یک مقدار شمارش [BlackWhiteMode](https://reference.aspose.com/slides/python-net/aspose.slides/blackwhitemode/) برای انتخاب رفتار موردنظر استفاده کنید. به‌عنوان مثال، `AUTOMATIC` به برنامهٔ رندر اجازه می‌دهد تبدیل را انتخاب کند، `GRAY` و `LIGHT_GRAY` از رنگ خاکستری استفاده می‌کنند، `BLACK_WHITE` فقط سیاه و سفید را به کار می‌برد، `BLACK` و `WHITE` یک رنگ تک را اعمال می‌کنند، `COLOR` رنگ عادی را حفظ می‌کند، و `HIDDEN` شکل را در حالت سیاه‑سفید حذف می‌کند. `NOT_DEFINED` به معنای عدم تخصیص حالت در سطح شکل است.
 
-این مثال یک مستطیل نارنجی ایجاد می‌کند و [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) را روی خاکستری تنظیم می‌کند. شکل ذخیره‌شده پرکنندهٔ نارنجی خود را برای نمایش رنگ عادی حفظ می‌کند و برای برنامه‌هایی که تنظیمات نمایش سیاه‑سفید را رعایت می‌کنند، درخواست رنگ خاکستری می‌کند:
+این مثال یک مستطیل نارنجی ایجاد می‌کند و [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) را روی خاکستری تنظیم می‌کند. شکل ذخیره‌شده پرکردن نارنجی خود را برای نمایش رنگ عادی حفظ می‌کند و برای برنامه‌هایی که تنظیمات نمایش سیاه‑سفید را رعایت می‌کنند، درخواست رنگ خاکستری می‌کند:
 
 ```python
 import aspose.slides as slides
@@ -721,11 +777,11 @@ with slides.Presentation() as presentation:
     presentation.save("shape_black_white_mode.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-در حالت رنگ عادی، مستطیل پرکنندهٔ نارنجی خود را حفظ می‌کند. در یک جریان کاری نمایش سیاه‑سفید، به دلیل تنظیم حالت بر `GRAY`، از رنگ خاکستری استفاده می‌کند. این به شما امکان می‌دهد اسلاید رنگی کامل را حفظ کنید در حالی که ظاهر متمایزی برای چاپ، پیش‑نمایش یا سایر جریان‌های کاری که تنظیمات نمایش سیاه‑سفید ارائه را رعایت می‌کنند، تعریف کنید.
+در حالت رنگ عادی، مستطیل پرکردن نارنجی خود را حفظ می‌کند. در یک گردش کاری نمایش سیاه‑سفید، به دلیل تنظیم حالت روی `GRAY` از رنگ خاکستری استفاده می‌کند. این به شما امکان می‌دهد یک اسلاید رنگی کامل را حفظ کنید در حالی که ظاهر متفاوتی برای چاپ، پیش‌نمایش یا سایر گردش‌های کاری که تنظیمات نمایش سیاه‑سفید ارائه را رعایت می‌کنند، تعریف کنید.
 
 ## **بازنشانی قالب‌بندی**
 
-از [Slide.reset](https://reference.aspose.com/slides/python-net/aspose.slides/slide/reset/) برای بازگرداندن موقعیت، اندازه و قالب‌بندی فضاهای نگهدارندهٔ اسلاید از فضاهای نگهدارندهٔ طرح‌بندی مربوطه استفاده کنید. این مثال به یک ارائه موجود با فضاهای نگهدارندهٔ مرتبط با طرح‌بندی نیاز دارد و قبل از ذخیره همه اسلایدها را بازنشانی می‌کند. اشکالی که فضاهای نگهدارندهٔ متقابل در طرح‌بندی ندارند، بازنشانی نمی‌شوند.
+از [Slide.reset](https://reference.aspose.com/slides/python-net/aspose.slides/slide/reset/) برای بازگرداندن موقعیت، اندازه و قالب‌بندی نگه‌دارهای اسلاید از نگه‌دارهای متناظر در چیدمان استفاده کنید. این مثال به یک ارائهٔ موجود با نگه‌دارهای پیوند‌شده به چیدمان نیاز دارد و قبل از ذخیره همهٔ اسلایدها را بازنشانی می‌کند. شکل‌هایی که نگه‌دار متناظر در چیدمان ندارند بازنشانی نمی‌شوند.
 
 ```python
 import aspose.slides as slides
@@ -737,16 +793,16 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("reset_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **پرسش‌های متداول**
 
-**آیا قالب‌بندی اشکال بر اندازهٔ نهایی فایل ارائه تأثیر می‌گذارد؟**
+**آیا قالب‌بندی شکل بر حجم نهایی فایل ارائه تاثیر می‌گذارد؟**
 
-رنگ‌ها، سبک‌های خط و تنظیمات افکت معمولاً داده کمی اضافه می‌کنند نسبت به تصاویر و رسانه‌های جاسازی‌شده. پرکننده‌های تصویری می‌توانند اندازهٔ فایل را افزایش دهند زیرا تصاویر آن‌ها در ارائه ذخیره می‌شوند.
+رنگ‌ها، سبک‌های خط و تنظیمات افکت عموماً داده کمی اضافه می‌کنند نسبت به تصاویر و رسانه‌های جاسازی‌شده. پر کردن‌های تصویری می‌توانند حجم فایل را افزایش دهند چون تصاویر آنها در ارائه ذخیره می‌شود.
 
-**چگونه می‌توانم اشکالی را در یک اسلاید شناسایی کنم که قالب‌بندی یکسانی دارند تا بتوانم آن‌ها را گروه‌بندی کنم؟**
+**چگونه می‌توانم شکل‌هایی را در یک اسلاید که قالب‌بندی یکسانی دارند شناسایی کنم تا بتوانم آن‌ها را گروه‌بندی کنم؟**
 
-هر یک از ویژگی‌های کلیدی قالب‌بندی شکل‌ها — پرکننده، خط و تنظیمات افکت — را مقایسه کنید. اگر همه مقادیر متناظر برابر باشند، سبک‌های آن‌ها را یکسان درنظر بگیرید و به‌صورت منطقی آن اشکال را گروه‌بندی کنید، که مدیریت سبک‌ها را در مراحل بعدی ساده می‌کند.
+هر ویژگی قالب‌بندی کلیدی یک شکل—پر کردن، خط و تنظیمات افکت—را مقایسه کنید. اگر تمام مقادیر متناظر یکسان باشند، سبک آن‌ها را یکسان در نظر بگیرید و منطقی گروه‌بندی کنید؛ این کار مدیریت سبک‌های بعدی را ساده می‌کند.
 
-**آیا می‌توانم مجموعه‌ای از سبک‌های سفارشی شکل را در یک فایل جداگانه ذخیره کنم تا در ارائه‌های دیگر استفاده مجدد کنم؟**
+**آیا می‌توانم مجموعه‌ای از سبک‌های سفارشی شکل را در یک فایل جداگانه ذخیره کنم تا در ارائه‌های دیگر استفاده مجدد شود؟**
 
-بله. اشکال نمونه با سبک‌های موردنظر را در یک اسلاید قالب یا یک فایل الگوی .POTX ذخیره کنید. هنگام ایجاد یک ارائه جدید، قالب را باز کنید، اشکال سبک‌دار موردنیاز را کلون کنید و قالب‌بندی آن‌ها را در هر جایی که نیاز است دوباره اعمال کنید.
+بله. نمونه شکل‌ها با سبک‌های دلخواه را در یک اسلاید قالب یا فایل .POTX ذخیره کنید. هنگام ایجاد ارائهٔ جدید، قالب را باز کنید، شکل‌های سبک‌دار موردنیاز را کلون کنید و قالب‌بندی‌شان را در هر مکانی که لازم است اعمال کنید.

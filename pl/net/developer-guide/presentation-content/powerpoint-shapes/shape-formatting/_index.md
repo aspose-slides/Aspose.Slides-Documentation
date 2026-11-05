@@ -8,38 +8,38 @@ keywords:
 - formatowanie kształtu
 - formatowanie linii
 - efekt szkicu
-- linia kształtu szkicowa
+- linia szkicu kształtu
 - formatowanie stylu połączenia
 - wypełnienie gradientem
 - wypełnienie wzorem
 - wypełnienie obrazem
 - wypełnienie teksturą
-- wypełnienie kolorem jednolitym
+- wypełnienie jednolitym kolorem
 - przezroczystość kształtu
-- renderowanie kształtu czarno-białe
+- renderowanie kształtu w czerni i bieli
 - renderowanie kształtu w odcieniach szarości
 - obracanie kształtu
 - efekt fazowania 3D
-- efekt obrotu 3D
+- efekt rotacji 3D
 - resetowanie formatowania
 - PowerPoint
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak formatować kształty PowerPoint w C# przy użyciu Aspose.Slides — ustawiaj wypełnienia, linie i style efektów dla plików PPT i PPTX z precyzją i pełną kontrolą."
+description: "Dowiedz się, jak formatować kształty PowerPoint w C# przy użyciu Aspose.Slides — ustawiaj style wypełnienia, linii i efektów dla plików PPT i PPTX z precyzją i pełną kontrolą."
 ---
 ## **Wprowadzenie**
 
-Formatuj kształty w programie PowerPoint, dostosowując ich kontury, wypełnienia i efekty. Aspose.Slides for .NET umożliwia programowe sterowanie tymi ustawieniami, w tym przezroczystością, obrotem i formatowaniem 3D.
+Formatuj kształty w programie PowerPoint, dostosowując ich kontury, wypełnienia i efekty. Aspose.Slides dla .NET pozwala kontrolować te ustawienia programowo, w tym przezroczystość, obrót i formatowanie 3D.
 
 ![Opcje formatowania kształtów w programie PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for .NET udostępnia interfejsy i właściwości, które pozwalają formatować kształty przy użyciu tych samych opcji dostępnych w programie PowerPoint.
+Aspose.Slides dla .NET udostępnia interfejsy i właściwości, które pozwalają formatować kształty przy użyciu tych samych opcji dostępnych w programie PowerPoint.
 
 ## **Formatowanie linii**
 
-Użyj [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) aby kontrolować obrys kształtu. Ten przykład tworzy prostokąt bez wypełnienia z niebieskim, przerywanym konturem. [ILineFormat.Style](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/style/) wybiera linię złożoną z grubego i cienkiego odcinka, natomiast [ILineFormat.Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) ustawia jej szerokość na 7 punktów, a [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) wybiera wzór kreski.
+Use [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) to control a shape’s outline. This example creates an unfilled rectangle with a blue, dashed outline. [ILineFormat.Style](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/style/) selects a thick‑thin compound line, while [ILineFormat.Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) sets its width to 7 points and [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) selects the dash pattern.
 
 ```csharp
 using System.Drawing;
@@ -64,13 +64,13 @@ Wynik:
 
 ![Sformatowane linie w prezentacji](formatted-lines.png)
 
-### **Ustaw niestandardowe wzory kresk linii**
+### **Ustaw własne wzory kresk linii**
 
-Użyj [ILineFormat.CustomDashPattern](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/customdashpattern/) gdy wstępnie zdefiniowane style linii nie zapewniają potrzebnych długości kresek i przerw, na przykład dla niestandardowych obrysów lub diagramów technicznych. Przypisanie wzoru automatycznie ustawia [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) na [LineDashStyle.Custom](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/).
+Use [ILineFormat.CustomDashPattern](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/customdashpattern/) when predefined line styles do not provide the dash lengths and gaps you need, for example for branded outlines or technical diagrams. Assigning a pattern automatically sets [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) to [LineDashStyle.Custom](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/).
 
-Elementy tablicy naprzemiennie określają długość kreski i przerwy, zaczynając od kreski. Każda wartość jest wielokrotnością szerokości linii: `{ 4, 2 }` przy szerokości 3 punktów daje kreskę 12‑punktową, po której następuje przerwa 6‑punktowa. Używaj par skończonych, nieujemnych wartości, aby zdefiniować pełne segmenty kreska‑przerwa. Przykład używa dodatnich wartości, aby każda kreska i przerwa były widoczne.
+Array entries alternate between dash and gap lengths, starting with a dash. Each value is a multiple of the line width: `{ 4, 2 }` at a width of 3 points produces a 12‑point dash followed by a 6‑point gap. Use pairs of finite, nonnegative values to define complete dash‑and‑gap segments. The example uses positive values to keep every dash and gap visible.
 
-Ten przykład tworzy pięć niebieskich linii o tej samej długości i płaskich zakończeniach. Pierwsze trzy porównują wzory przy szerokości 3 punktów. Czwarta powtarza pierwszy wzór przy podwojonej szerokości, podwajając zarówno długość kreski, jak i przerwy. Piąta przełącza się z niestandardowego wzoru na linię ciągłą.
+This example creates five blue lines with the same length and flat caps. The first three compare patterns at a width of 3 points. The fourth repeats the first pattern at twice the width, doubling both the dash and gap lengths. The fifth switches from a custom pattern to a solid line.
 
 ```csharp
 using System.Drawing;
@@ -102,32 +102,31 @@ for (var i = 0; i < patterns.Length; i++)
     line.LineFormat.CustomDashPattern = patterns[i];
 }
 
-// Return the last line to a solid style.
+// Ustaw ostatnią linię na styl ciągły.
 slide.Shapes[4].LineFormat.DashStyle = LineDashStyle.Solid;
 
 presentation.Save("custom_dash_patterns.pptx", SaveFormat.Pptx);
 ```
 
-Aby powrócić do wstępnie zdefiniowanego stylu przerywanego, przypisz [LineDashStyle.Dash](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) do [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/). Wybrany styl kontroluje wygląd linii.
+To return to a predefined dashed style instead, assign [LineDashStyle.Dash](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) to [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/). The selected style controls the line's appearance.
 
-Wynik w programie PowerPoint, od góry do dołu: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; oraz **Solid, 3 pt**.
+Wynik w PowerPoint, od góry do dołu: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; oraz **Solid, 3 pt**.
 
-![Trzy niestandardowe wzory kresk, szersza linia używająca pierwszego wzoru oraz linia ciągła w programie PowerPoint](custom-dash-patterns.png)
-
+![Trzy własne wzory kresk, szersza linia używająca pierwszego wzoru i linia ciągła w programie PowerPoint](custom-dash-patterns.png)
 
 ### **Ustaw zakończenia linii**
 
-Użyj [ILineFormat.CapStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/capstyle/) aby ustawić końce otwartej linii. Wyliczenie [LineCapStyle](https://reference.aspose.com/slides/net/aspose.slides/linecapstyle/) zapewnia trzy explicite style zakończeń:
+Use [ILineFormat.CapStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/capstyle/) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/net/aspose.slides/linecapstyle/) enumeration provides three explicit cap styles:
 
-- `Flat`: Pędzel zatrzymuje się na końcowym punkcie.
-- `Round`: Półokrągłe zakończenie wystaje poza punkt końcowy o połowę szerokości linii.
-- `Square`: Kwadratowe zakończenie wystaje poza punkt końcowy o połowę szerokości linii.
+- `Flat`: The stroke stops at the endpoint.
+- `Round`: A semicircular cap extends beyond the endpoint by half the line width.
+- `Square`: A square cap extends beyond the endpoint by half the line width.
 
-Wyliczenie zawiera również `NotDefined`, co oznacza, że żaden styl zakończenia nie jest explicite przypisany.
+The enumeration also includes `NotDefined`, which means that no cap style is explicitly assigned.
 
-Zakończenia różnią się od grotów strzałek, które dodają symbole do końcówek linii, oraz od połączeń, które kontrolują kąty między segmentami linii. Ten przykład wyłącza groty strzałek poprzez [ILineFormat.BeginArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/beginarrowheadstyle/) i [ILineFormat.EndArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/endarrowheadstyle/), tak aby porównywane były tylko kształty zakończeń.
+Caps are different from arrowheads, which add symbols to line ends, and joins, which control corners between line segments. This example disables arrowheads through [ILineFormat.BeginArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/beginarrowheadstyle/) and [ILineFormat.EndArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/endarrowheadstyle/) so that only the cap shapes are compared.
 
-Poniższy przykład tworzy trzy w przeciwnym razie identyczne poziome linie o szerokości 20 punktów. Od góry do dołu używają odpowiednio zakończeń płaskiego, okrągłego i kwadratowego. Ich końcowe punkty mają te same współrzędne poziome; zakończenia okrągłe i kwadratowe wystają o 10 punktów poza każdy punkt końcowy.
+The following example creates three otherwise identical horizontal lines, 20 points wide. From top to bottom, they use flat, round, and square caps. Their endpoints have the same horizontal coordinates; the round and square caps extend 10 points beyond each endpoint.
 
 ```csharp
 using System.Drawing;
@@ -155,15 +154,15 @@ for (var i = 0; i < capStyles.Length; i++)
 presentation.Save("line_caps.pptx", SaveFormat.Pptx);
 ```
 
-Wynik w programie PowerPoint, od góry do dołu: **Flat**, **Round** i **Square**.
+Wynik w PowerPoint, od góry do dołu: **Flat**, **Round**, i **Square**.
 
 ![Płaskie, okrągłe i kwadratowe zakończenia na identycznych grubych liniach w programie PowerPoint](line-caps.png)
 
 ## **Zastosuj efekty szkicu do linii kształtu**
 
-Efekt szkicu sprawia, że linia kształtu wygląda na odręczną. Użyj [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) aby uzyskać dostęp do ustawień linii, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) aby uzyskać dostęp do ustawień szkicu, oraz [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) aby wybrać wartość z wyliczenia [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/).
+A sketch effect makes a shape line look hand‑drawn. Use [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) to access the line settings, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) to access the sketch settings, and [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) to select a value from the [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) enumeration.
 
-Poniższy kod C# pokazuje, jak zastosować efekt [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) , odczytać explicite przypisaną wartość oraz usunąć efekt przy użyciu [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
+The following C# code shows how to apply a [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
 
 ```csharp
 using System;
@@ -181,7 +180,7 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-Wartość zwracana przez [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) reprezentuje ustawienie przypisane bezpośrednio do kształtu. Jeśli formatowanie linii może być dziedziczone z motywu, slajdu głównego lub slajdu układu, użyj [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), uzyskaj dostęp do [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/), i odczytaj [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). Wartość efektywna odzwierciedla formatowanie, które jest faktycznie zastosowane po rozwiązaniu dziedziczenia. Ten przykład wymaga istniejącej prezentacji z co najmniej jednym kształtem na pierwszym slajdzie i wypisuje obie wartości:
+The value returned by [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), access [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/), and read [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). The effective value reflects the formatting that is actually applied after inheritance is resolved. This example requires an existing presentation with at least one shape on its first slide and prints both values:
 
 ```csharp
 using System;
@@ -201,17 +200,17 @@ Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 
 ## **Formatowanie stylów połączeń**
 
-Oto trzy opcje typu połączenia:
+Here are the three join type options:
 
 * Round
 * Miter
 * Bevel
 
-Styl połączenia kontroluje, jak dwa segmenty obrysu łączą się w rogu. Użyj **Round** dla zaokrąglonych rogów, **Miter** dla ostrych rogów lub **Bevel** dla spłaszczonych rogów.
+The join style controls how two outline segments meet at a corner. Use **Round** for rounded corners, **Miter** for sharp corners, or **Bevel** for flattened corners.
 
 ![Styl połączenia w prezentacji](join-style-powerpoint.png)
 
-Ten przykład tworzy trzy czarne prostokąty z niebieskimi obrysami o szerokości 15 punktów. Ustawia [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) na wartości miter, bevel i round z [LineJoinStyle](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/), odpowiednio, aby porównać, jak rysowane są rogi.
+This example creates three black rectangles with blue outlines 15 points wide. It sets [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) to the miter, bevel, and round values of [LineJoinStyle](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/), respectively, to compare how the corners are drawn.
 
 ```csharp
 using System.Drawing;
@@ -254,13 +253,13 @@ roundShape.TextFrame.Text = "Round Join Style";
 presentation.Save("join_styles.pptx", SaveFormat.Pptx);
 ```
 
-### **Ogranicz połączenia Miter w ostrych rogach**
+### **Ogranicz łączenia Miter przy ostrych narożnikach**
 
-Użyj [ILineFormat.MiterLimit](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/miterlimit/) wraz z [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) ustawionym na [LineJoinStyle.Miter](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) , aby ograniczyć, jak daleko może wystawać ostry róg.
+Use [ILineFormat.MiterLimit](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/miterlimit/) with [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) set to [LineJoinStyle.Miter](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) to limit how far a sharp corner can extend.
 
-Limit jest stosunkiem odległości pomiędzy wewnętrznym i zewnętrznym rogiem połączenia do szerokości linii. Na przykład wartość `8` pozwala na długość miteru do ośmiu razy większą niż szerokość linii; nie jest to pomiar w punktach. Jeśli róg przekroczy limit, PowerPoint używa połączenia ukośnego w tym miejscu. Większy limit pozwala na ostrzejsze punkty. Ustawienie wpływa tylko na połączenia miter, a jego zmiana nie ma widocznego efektu, gdy róg pozostaje w granicach limitu.
+The limit is a ratio of the distance between the inner and outer corners of the join to the line width. For example, a value of `8` permits a miter length of up to eight times the line width; it is not a measurement in points. If the corner would exceed the limit, PowerPoint uses a beveled join at that corner. A larger limit allows sharper points. The setting affects miter joins only, and changing it has no visible effect when the corner remains within both limits.
 
-Ten przykład tworzy dwa identyczne, nie wypełnione trójkąty z obrysami o szerokości 20 punktów. Lewy trójkąt używa limitu `2`, a prawy `8`. Każdy trójkąt ma szerokość 80 punktów i wysokość 160 punktów, co daje stosunek długości miteru do szerokości linii w górnym rogu wynoszący około `4.12`. W konsekwencji PowerPoint spłaszcza lewy wierzchołek i zachowuje prawy wierzchołek.
+This example creates two identical, unfilled triangles with outlines 20 points wide. The left triangle uses a limit of `2`, and the right uses `8`. Each triangle is 80 points wide and 160 points high, giving its top corner a miter‑length‑to‑line‑width ratio of approximately `4.12`. Consequently, PowerPoint bevels the left apex and preserves the right apex.
 
 ```csharp
 using System.Drawing;
@@ -287,13 +286,13 @@ for (var i = 0; i < miterLimits.Length; i++)
 presentation.Save("miter_limits.pptx", SaveFormat.Pptx);
 ```
 
-Wynik w programie PowerPoint: **Miter limit 2** po lewej i **miter limit 8** po prawej.
+Wynik w PowerPoint: **Miter limit 2** po lewej i **miter limit 8** po prawej.
 
-![Spłaszczony wierzchołek z limitem miter 2 oraz spiczasty wierzchołek z limitem miter 8 w programie PowerPoint](miter-limits.png)
+![Wierzchołek przycięty (bevel) z limitem miter 2 oraz wierzchołek ostro zakończony z limitem miter 8 w programie PowerPoint](miter-limits.png)
 
 ## **Wypełnienie gradientem**
 
-Wypełnienie gradientem miesza kolory w obrębie kształtu. Ten przykład wypełnia elipsę gradientem liniowym pod kątem 45 stopni od czerwieni do fioletu przy użyciu [IFillFormat.GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/gradientformat/). Metoda [IGradientStopCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/igradientstopcollection/add/) umieszcza punkty zatrzymania koloru na 0 i 1, czyli na początku i końcu gradientu. Usunięcie istniejących punktów zapewnia użycie tylko tych dwóch kolorów.
+A gradient fill blends colors across a shape. This example fills an ellipse with a linear gradient at a 45‑degree angle from red to purple using [IFillFormat.GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/gradientformat/). The [IGradientStopCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/igradientstopcollection/add/) method places the color stops at 0 and 1, the beginning and end of the gradient. Clearing the existing stops ensures that only these two colors are used.
 
 ```csharp
 using Aspose.Slides;
@@ -317,13 +316,13 @@ Wynik:
 
 ![Elipsa z wypełnieniem gradientowym](gradient-fill.png)
 
-Jeśli gradient wygląda inaczej na wyeksportowanym obrazie niż w programie PowerPoint, zobacz [Choose a Gradient Rendering Style](/slides/pl/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Możesz wybrać styl renderowania bez zmiany gradientu zapisanego w prezentacji.
+If a gradient looks different in an exported image than it does in PowerPoint, see [Choose a Gradient Rendering Style](/slides/pl/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). You can select a rendering style without changing the gradient fill stored in the presentation.
 
 ### **Ustaw kąt gradientu liniowego**
 
-Użyj [IGradientFormat.LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) , aby kontrolować orientację wypełnienia [GradientShape.Linear](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/) . Kąt jest mierzony w stopniach i rośnie w kierunku zgodnym z ruchem wskazówek zegara: `0` biegnie od lewej do prawej, `90` od góry do dołu, `180` od prawej do lewej, a `270` od dołu do góry. Obsługiwane są kąty ułamkowe. Kąty skończone poza zakresem `[0, 360)` są normalizowane do jednego obrotu; na przykład `-45` staje się `315`, a `360` staje się `0`.
+Use [IGradientFormat.LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) to control the orientation of a [GradientShape.Linear](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/) fill. The angle is measured in degrees and increases clockwise: `0` runs from left to right, `90` from top to bottom, `180` from right to left, and `270` from bottom to top. Fractional angles are supported. Finite angles outside `[0, 360)` are normalized to one revolution; for example, `-45` becomes `315` and `360` becomes `0`.
 
-Ten przykład tworzy sześć prostokątów z identycznymi punktami zatrzymania czerwonego, zielonego i niebieskiego w pozycjach `0`, `0.5` i `1`. Skalowanie jest wyłączone, aby kąt można było porównać niezależnie od proporcji prostokątów. Kąty, od lewej do prawej, to `0`, `45` i `90` w pierwszym wierszu oraz `135`, `180` i `270` w drugim wierszu.
+This example creates six rectangles with identical red, green, and blue stops at positions `0`, `0.5`, and `1`. Scaling is disabled so that the angle can be compared independently of the rectangles' proportions. The angles, from left to right, are `0`, `45`, and `90` in the first row, and `135`, `180`, and `270` in the second row.
 
 ```csharp
 using System.Drawing;
@@ -358,15 +357,15 @@ for (var i = 0; i < angles.Length; i++)
 presentation.Save("linear_gradient_angles.pptx", SaveFormat.Pptx);
 ```
 
-Wynik w programie PowerPoint:
+Wynik w PowerPoint:
 
-![Gradienty liniowe pod kątem 0, 45 i 90 stopni w górnym wierszu oraz 135, 180 i 270 stopni w dolnym wierszu](linear-gradient-angles.png)
+![Gradienty liniowe pod kątem 0°, 45° i 90° w górnym wierszu oraz 135°, 180° i 270° w dolnym wierszu](linear-gradient-angles.png)
 
-### **Skaluj gradient liniowy razem z kształtem**
+### **Skaluj gradient liniowy wraz z kształtem**
 
-[IGradientFormat.LinearGradientScaled](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientscaled/) przyjmuje wartość [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/). Ustaw ją explicite na `False`, aby zachować geometryczny kąt gradientu przy zmianie proporcji kształtu, lub na `True`, aby skalować gradient wraz z szerokością i wysokością kształtu. Przy włączonym skalowaniu widoczny kąt może różnić się od przypisanego kąta w przypadku niekwadratowego kształtu.
+[IGradientFormat.LinearGradientScaled](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientscaled/) accepts a [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) value. Set it explicitly to `False` to keep the geometric gradient angle as the shape's proportions change, or to `True` to scale the gradient with the shape's width and height. With scaling enabled, the visible angle can differ from the assigned angle on a non‑square shape.
 
-Poniższy przykład używa kąta `45` stopni oraz tych samych punktów zatrzymania kolorów co porównanie kątów. Lewa kolumna używa `False`; prawa kolumna używa `True`. Każda kolumna zawiera szeroki prostokąt nad wysokim prostokątem. Oba zaczynają się od tych samych szerokich wymiarów; zmiana szerokości i wysokości drugiego prostokąta demonstruje, jak wypełnienie reaguje na zmianę rozmiaru bez zmiany ustawień gradientu.
+The following example uses a `45`‑degree angle and the same color stops as the angle comparison. The left column uses `False`; the right column uses `True`. Each column contains a wide rectangle above a tall rectangle. Both start with the same wide dimensions; changing the second rectangle's width and height demonstrates how the fill responds to resizing without changing its gradient settings.
 
 ```csharp
 using System.Drawing;
@@ -410,19 +409,19 @@ for (var column = 0; column < scalingOptions.Length; column++)
 presentation.Save("linear_gradient_scaling.pptx", SaveFormat.Pptx);
 ```
 
-Wynik w programie PowerPoint, przy wyłączonym skalowaniu po lewej i włączonym po prawej:
+Wynik w PowerPoint, przy wyłączonym skalowaniu po lewej i włączonym po prawej:
 
-![Szerokie i wysokie prostokąty z gradientem 45‑stopniowym, porównujące LinearGradientScaled False po lewej i True po prawej](linear-gradient-scaling.png)
+![Szeroki i wysoki prostokąt z gradientem 45°, porównujący LinearGradientScaled False po lewej i True po prawej](linear-gradient-scaling.png)
 
-Przy wyłączonym skalowaniu, ukośne pasma kolorów zachowują tę samą orientację w obu prostokątach. Przy włączonym skalowaniu pasma rozciągają się wraz z proporcjami kształtu. Pomaga to odtworzyć gradient szablonu przy dostosowywaniu kształtu do innego rozmiaru. W kwadracie włączenie skalowania nie zmienia wyglądu tego gradientu `45`‑stopniowego.
+With scaling disabled, the diagonal color bands keep the same orientation in both rectangles. With scaling enabled, the bands stretch with the shape's proportions. This helps reproduce a template's gradient when adapting a shape to a different size. On a square, enabling scaling does not change the appearance of this `45`‑degree gradient.
 
-Zarówno ustawienie kąta, jak i skalowanie mają zastosowanie do gradientów liniowych. Nie kontrolują one wypełnień [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/).
+Both the angle and scaling settings apply to linear gradients. They do not control [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/) fills.
 
-### **Połącz kąt z kierunkiem gradientu**
+### **Połącz kąt ze w kierunkiem gradientu**
 
-[IGradientFormat.GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/gradientdirection/) wybiera styl gradientu z wyliczenia [GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/gradientdirection/) . Nie jest to zamiennik kąta liczbowego. Dla gradientu liniowego style narożników mogą zmieniać obszar, na którym rozprowadzane są kolory, bez zmiany [LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/). Zachowaj niezmieniony kierunek przy porównywaniu kątów lub skalowaniu.
+[IGradientFormat.GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/gradientdirection/) selects a gradient style from the [GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/gradientdirection/) enumeration; it is not a substitute for a numeric angle. For a linear gradient, the corner styles can change the area over which the colors are distributed without changing [LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/). Keep the direction unchanged when comparing angles or scaling.
 
-Poniższy przykład stosuje te same ustawienia w odwrotnej kolejności. Dwa prostokąty mają taki sam wygląd: przypisanie kierunku przed lub po kącie nie zmienia wyniku.
+The following example applies the same settings in opposite orders. The two rectangles have the same appearance: assigning the direction before or after the angle does not change the result.
 
 ```csharp
 using System.Drawing;
@@ -463,7 +462,7 @@ presentation.Save("linear_gradient_direction.pptx", SaveFormat.Pptx);
 
 ## **Wypełnienie wzorem**
 
-Wypełnienie wzorem nakłada dwukolorowy wzór, taki jak kropki, paski lub kratkę. Ten przykład używa [IPatternFormat.PatternStyle](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/patternstyle/) , aby wybrać wzór kratki. [IPatternFormat.BackColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) dostarcza jasnoszare tło, a [IPatternFormat.ForeColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) dostarcza żółty kolor wzoru.
+A pattern fill applies a two‑color design, such as dots, stripes, or checks. This example uses [IPatternFormat.PatternStyle](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/patternstyle/) to select a trellis pattern. [IPatternFormat.BackColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) supplies the light gray background, and [IPatternFormat.ForeColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) supplies the yellow pattern color.
 
 ```csharp
 using System.Drawing;
@@ -488,7 +487,7 @@ Wynik:
 
 ## **Wypełnienie obrazem**
 
-Wypełnienie obrazem używa obrazu wewnątrz kształtu. Ten przykład wymaga lokalnego obrazu i używa [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) , aby załadować go do kolekcji obrazów prezentacji. Ustawienie [IPictureFillFormat.PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) na tryb kafelkowy powtarza obraz wewnątrz prostokąta. Źródłowy obraz użyty tutaj jest pokazany poniżej:
+A picture fill uses an image inside a shape. This example requires a local image and uses [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) to load it into the presentation’s image collection. Setting [IPictureFillFormat.PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) to the tiled mode repeats the image within the rectangle. The source image used here is shown below:
 
 ![Obraz lotosu](lotus.png)
 
@@ -516,17 +515,17 @@ Wynik:
 
 ### **Kafelkowanie obrazu jako tekstury**
 
-Jeśli chcesz ustawić obraz kafelkowany jako teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących właściwości interfejsu [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) i klasy [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) :
+If you want to set a tiled picture as a texture and customize the tiling behavior, you can use the following properties of the [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) interface and [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) class:
 
-- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Ustawia tryb wypełnienia obrazu — `Tile` lub `Stretch`.
-- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Określa wyrównanie kafelków wewnątrz kształtu.
-- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Kontroluje, czy kafelek jest odbity poziomo, pionowo, czy w obu kierunkach.
-- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Ustawia poziomy offset kafelka (w punktach) od początku kształtu.
-- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Ustawia pionowy offset kafelka (w punktach) od początku kształtu.
-- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Definiuje poziomą skalę kafelka jako procent.
-- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Definiuje pionową skalę kafelka jako procent.
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Sets the picture fill mode—either `Tile` or `Stretch`.
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Specifies the alignment of the tiles within the shape.
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Controls whether the tile is flipped horizontally, vertically, or both.
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Sets the horizontal offset of the tile (in points) from the shape’s origin.
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Sets the vertical offset of the tile (in points) from the shape’s origin.
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Defines the horizontal scale of the tile as a percentage.
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Defines the vertical scale of the tile as a percentage.
 
-Ten przykład wymaga lokalnego obrazu i konfiguruje [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) , aby powtarzał go w 50 % oryginalnego rozmiaru. Offsety −32 punktów przesuwają kafelki poziomo i pionowo; wyrównanie w prawym dolnym rogu oraz odbicie w obu kierunkach określają, jak powtarzana tekstura jest rozmieszczona.
+This example requires a local image and configures [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) to repeat it at 50% of its original size. Offsets of −32 points shift the tiles horizontally and vertically; bottom‑right alignment and flipping in both directions determine how the repeated texture is arranged.
 
 ```csharp
 using Aspose.Slides;
@@ -558,9 +557,9 @@ Wynik:
 
 ![Opcje kafelkowania](tile-options.png)
 
-## **Wypełnienie kolorem jednolitym**
+## **Jednolite wypełnienie kolorem**
 
-Wypełnienie jednolite nadaje kształtowi jeden, jednolity kolor. Ten przykład ustawia [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) na tryb wypełnienia jednolitego i przypisuje żółty kolor przez [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) , a następnie zapisuje prostokąt w prezentacji.
+A solid fill gives a shape a single, uniform color. This example sets [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) to the solid fill mode and assigns yellow through [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/), then saves the rectangle in a presentation.
 
 ```csharp
 using System.Drawing;
@@ -579,15 +578,74 @@ presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![Kształt z wypełnieniem kolorem jednolitym](solid-color-fill.png)
+![Kształt z jednolitym wypełnieniem koloru](solid-color-fill.png)
+
+### **Kopiuj kolory zachowując odniesienia do motywu**
+
+Use [IColorFormat.CopyFrom](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/copyfrom/) to copy a color definition, including its color type, theme reference, and transformations. This is useful when transferring a fill color between shapes that should continue to follow the presentation theme. The method copies only the color: it does not copy the fill type, outline, or other shape formatting. Set the destination's [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) explicitly.
+
+This example creates three rectangles, from left to right: the source, a theme‑aware copy, and a fixed RGB copy. The source uses [IColorFormat.SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/schemecolor/) to reference the first accent color and adds a tint through [IColorOperationCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/icoloroperationcollection/add/). The RGB copy uses the source's effective fill color so all three initially look identical. Assigning [IColorFormat.Color](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/color/) sets a fixed RGB value and clears any existing color transformations.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(660, 220, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+presentation.MasterTheme.ColorScheme.Accent1.Color = Color.RoyalBlue;
+
+var source = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+var themeCopy = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+var rgbCopy = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+foreach (var shape in new[] { source, themeCopy, rgbCopy })
+{
+    shape.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+}
+
+var sourceColor = source.FillFormat.SolidFillColor;
+sourceColor.SchemeColor = SchemeColor.Accent1;
+sourceColor.ColorTransform.Add(ColorTransformOperation.Tint, 0.75f);
+
+themeCopy.FillFormat.SolidFillColor.CopyFrom(sourceColor);
+rgbCopy.FillFormat.SolidFillColor.Color = source.FillFormat.GetEffective().SolidFillColor;
+
+using var before = slide.GetImage(1f, 1f);
+before.Save("color-copy-before.png", ImageFormat.Png);
+
+// Theme references follow the new accent color; the fixed RGB value does not.
+presentation.MasterTheme.ColorScheme.Accent1.Color = Color.OrangeRed;
+
+using var after = slide.GetImage(1f, 1f);
+after.Save("color-copy-after.png", ImageFormat.Png);
+presentation.Save("copied_colors.pptx", SaveFormat.Pptx);
+```
+
+Przed zmianą motywu wszystkie trzy wypełnienia są zgodne:
+
+![Źródło, docelowy CopyFrom i stały docelowy RGB z identycznym niebieskim wypełnieniem](color-copy-before.png)
+
+Po zmianie motywu, źródło i kopia świadoma motywu podążają za nowym kolorem akcentu i zachowują swój odcień. Stała kopia RGB pozostaje niebieska:
+
+![Źródło i docelowy CopyFrom z pomarańczowym wypełnieniem, podczas gdy stały docelowy RGB pozostaje niebieski](color-copy-after.png)
+
+The copied definition is independent of the source. Subsequently changing the source's theme reference, assigning another color, or adding or removing its transformations does not change the destination. A theme change still affects both shapes because each independently refers to the same theme color.
+
+Saving and reopening the PPTX preserves the copied color's [IColorFormat.ColorType](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/colortype/), theme reference, and [IColorFormat.ColorTransform](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/colortransform/) collection; it does not flatten the definition to RGB.
+
+When copying between different theme contexts, such as presentations with different accent palettes, the copied reference resolves against the destination's theme. The same reference and transformations can therefore produce a different visible color. See [Presentation Theme](/slides/pl/net/presentation-theme/) for more about configuring theme colors.
 
 ## **Użyj tła slajdu jako wypełnienia kształtu**
 
-Użyj [IAutoShape.UseBackgroundFill](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/usebackgroundfill/) , gdy kształt powinien pasować do tła slajdu, na przykład w szablonie prezentacji. Najpierw ustaw [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) na [FillType.NotDefined](https://reference.aspose.com/slides/net/aspose.slides/filltype/) , aby usunąć wszelkie explicite wypełnienie. Dzięki tej kombinacji kształt używa tła slajdu zamiast swojego stylowego wypełnienia. Włączenie samej flagi nie usuwa istniejącego explicite wypełnienia.
+Use [IAutoShape.UseBackgroundFill](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/usebackgroundfill/) when a shape should match the slide background, for example in a presentation template. Set [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) to [FillType.NotDefined](https://reference.aspose.com/slides/net/aspose.slides/filltype/) first to remove any explicit fill. With this combination, the shape uses the slide background instead of its style fill. Enabling the flag alone does not remove an existing explicit fill.
 
-Różni się to od [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/) : wypełnienie tłem pokrywa obiekty za kształtem odpowiednim obszarem tła slajdu, podczas gdy brak wypełnienia pozostawia te obiekty widoczne. Gradient pozostaje wyrównany do slajdu, a nie zaczyna się od nowa wewnątrz każdego kształtu.
+This differs from [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/): background fill covers objects behind the shape with the corresponding area of the slide background, while no fill leaves those objects visible. A gradient remains aligned with the slide rather than restarting inside each shape.
 
-Poniższy przykład tworzy tło nadrzędne dziedziczone przez slajd i umieszcza magentowy pasek za trzema prostokątami. Lewy prostokąt używa tła, środkowy nie ma wypełnienia, a prawy przełącza się z wypełnienia tłem na explicite pomarańczowe wypełnienie.
+The following example creates a master background inherited by the slide and places a magenta band behind three rectangles. The left rectangle uses the background, the middle rectangle has no fill, and the right rectangle switches from background fill to an explicit orange fill.
 
 ```csharp
 using System.Drawing;
@@ -598,7 +656,7 @@ using var presentation = new Presentation();
 presentation.SlideSize.SetSize(720, 400, SlideSizeScaleType.DoNotScale);
 var slide = presentation.Slides[0];
 
-// Dziedzicz gradient z szablonu głównego.
+// Dziedzicz gradient z mastera.
 slide.Background.Type = BackgroundType.NotDefined;
 slide.LayoutSlide.Background.Type = BackgroundType.NotDefined;
 var background = slide.LayoutSlide.MasterSlide.Background;
@@ -628,7 +686,7 @@ var explicitShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 510, 100, 160
 explicitShape.FillFormat.FillType = FillType.NotDefined;
 explicitShape.UseBackgroundFill = true;
 
-// Wyłącz wypełnienie tłem przed zastosowaniem explicitego wypełnienia.
+// Wyłącz wypełnienie tłem przed zastosowaniem wyraźnego wypełnienia.
 explicitShape.UseBackgroundFill = false;
 explicitShape.FillFormat.FillType = FillType.Solid;
 explicitShape.FillFormat.SolidFillColor.Color = Color.Orange;
@@ -636,15 +694,15 @@ explicitShape.FillFormat.SolidFillColor.Color = Color.Orange;
 presentation.Save("background_fill.pptx", SaveFormat.Pptx);
 ```
 
-Wynik, od lewej do prawej: **background fill**, **no fill** i **explicit fill**. Magentowy pasek jest ukryty przez lewy i prawy prostokąt, ale pozostaje widoczny przez środkowy prostokąt.
+Wynik, od lewej do prawej: **background fill**, **no fill** i **explicit fill**. Magentowy pas jest ukryty przez lewy i prawy prostokąt, ale pozostaje widoczny przez środkowy prostokąt.
 
-![Wypełnienie tłem, brak wypełnienia i explicite pomarańczowe wypełnienie nad magentowym pasem](background-fill.png)
+![Wypełnienie tłem, brak wypełnienia i wyraźne pomarańczowe wypełnienie na magentowym pasie](background-fill.png)
 
-To samo zachowanie dotyczy tła zdefiniowanego bezpośrednio na slajdzie lub dziedziczonego z układu. Kształt używa rozwiązania tła slajdu; przykład pozostawia tła slajdu i układu niezdefiniowane, więc dostarcza je nadrzędny szablon.
+The same behavior applies to a background defined directly on the slide or inherited from a layout. The shape uses the slide's resolved background; the example leaves both the slide and layout backgrounds undefined so the master supplies it.
 
 ## **Ustaw przezroczystość**
 
-Dla wypełnienia jednolitego składnik alfa koloru kontroluje nieprzezroczystość: 0 oznacza całkowitą przezroczystość, a 255 pełną nieprzezroczystość. Ten przykład używa wartości alfa 128 dla żółtego prostokąta, co sprawia, że jest on w przybliżeniu w 50 % przezroczysty, więc prostokąt pod nim pozostaje widoczny. Kolor jest przypisany przez [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) .
+For a solid fill, the color’s alpha component controls opacity: 0 is fully transparent and 255 is fully opaque. This example uses an alpha value of 128 for a yellow rectangle, making it approximately 50% transparent so the rectangle underneath remains visible. The color is assigned through [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/).
 
 ```csharp
 using System.Drawing;
@@ -667,11 +725,11 @@ presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![Transparentny kształt](shape-transparency.png)
+![Przezroczysty kształt](shape-transparency.png)
 
 ## **Obróć kształty**
 
-Użyj [IShape.Rotation](https://reference.aspose.com/slides/net/aspose.slides/ishape/rotation/) , aby obrócić kształt w płaszczyźnie slajdu. Kąt jest mierzony w stopniach; ten przykład obraca prostokąt o 5 stopni zgodnie z ruchem wskazówek zegara i zapisuje prezentację.
+Use [IShape.Rotation](https://reference.aspose.com/slides/net/aspose.slides/ishape/rotation/) to rotate a shape in the slide plane. The angle is measured in degrees; this example rotates a rectangle 5 degrees clockwise and saves the presentation.
 
 ```csharp
 using Aspose.Slides;
@@ -690,9 +748,9 @@ Wynik:
 
 ![Obrót kształtu](shape-rotation.png)
 
-## **Dodaj efekty fazowania 3D**
+## **Dodaj efekty 3D Bevel**
 
-Użyj [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/threedformat/) , aby nadać kształtowi głębokość i fazowane krawędzie. Ten przykład tworzy zieloną elipsę z pomarańczowym obrysem, ustawia [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/depth/) na 4 punkty i stosuje okrągłe fazowanie górne o szerokości i wysokości 6 punktów przez [IThreeDFormat.BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/beveltop/) . Kamera ortograficzna skierowana na przód oraz oświetlenie trójpunktowe sprawiają, że fazowanie jest widoczne.
+Use [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/threedformat/) to give a shape depth and beveled edges. This example creates a green ellipse with an orange outline, sets [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/depth/) to 4 points, and applies a circular top bevel with a width and height of 6 points through [IThreeDFormat.BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/beveltop/). A front‑facing orthographic camera and three‑point lighting make the bevel visible.
 
 ```csharp
 using System.Drawing;
@@ -721,11 +779,11 @@ presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![Efekt fazowania 3D](3D-bevel-effect.png)
+![Efekt 3D bevel](3D-bevel-effect.png)
 
-## **Dodaj efekty obrotu 3D**
+## **Dodaj efekty rotacji 3D**
 
-Widok 3D kształtu jest kontrolowany przez ustawienia kamery. Ten przykład używa [ICamera.SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/) z kątami szerokości, długości i obrotu wynoszącymi odpowiednio 40, 35 i 20 stopni. Wybiera kamerę izometryczną przez [ICamera.CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) oraz zrównoważone oświetlenie przez [ILightRig.LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) , a następnie zapisuje sformatowany prostokąt.
+A shape’s 3D view is controlled by its camera settings. This example uses [ICamera.SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/) with latitude, longitude, and revolution angles of 40, 35, and 20 degrees, respectively. It selects an isometric camera through [ICamera.CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) and balanced lighting through [ILightRig.LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/), then saves the formatted rectangle.
 
 ```csharp
 using Aspose.Slides;
@@ -745,15 +803,15 @@ presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![Efekt obrotu 3D](3D-rotation-effect.png)
+![Efekt rotacji 3D](3D-rotation-effect.png)
 
 ## **Kontroluj renderowanie czarno‑białe dla kształtów**
 
-Właściwość [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) określa, jak pojedynczy kształt jest renderowany, gdy prezentacja jest wyświetlana lub przetwarzana w trybie czarno‑białym. Nie włącza ona samej wyświetlania w czerni i bieli i nie zmienia wypełnienia, linii ani innych formatowań kształtu w normalnym trybie kolorowym.
+The [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) property specifies how an individual shape is rendered when a presentation is viewed or processed in black‑and‑white mode. It does not enable black‑and‑white display by itself, and it does not change the shape's fill, line, or other formatting in normal color mode.
 
-Użyj wartości z wyliczenia [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) , aby wybrać pożądane zachowanie. Na przykład `Automatic` pozwala aplikacji renderującej wybrać konwersję, `Gray` i `LightGray` używają szarego koloru, `BlackWhite` używa tylko czerni i bieli, `Black` i `White` wymuszają pojedynczy kolor, `Color` zachowuje normalne kolorowanie, a `Hidden` pomija kształt w trybie czarno‑białym. `NotDefined` oznacza, że nie przypisano trybu na poziomie kształtu.
+Use a value from the [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) enumeration to select the desired behavior. For example, `Automatic` lets the rendering application choose the conversion, `Gray` and `LightGray` use gray coloring, `BlackWhite` uses only black and white, `Black` and `White` force a single color, `Color` preserves normal coloring, and `Hidden` omits the shape in black‑and‑white mode. `NotDefined` means that no shape‑level mode is assigned.
 
-Ten przykład tworzy pomarańczowy prostokąt i ustawia [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) na szary. Zapisany kształt zachowuje pomarańczowe wypełnienie w zwykłym wyświetlaniu kolorowym i żąda szarego kolorowania od aplikacji, które respektują ustawienia wyświetlania czarno‑białego:
+This example creates an orange rectangle and sets [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) to gray. The saved shape retains its orange fill for normal color display and requests gray coloring from applications that honor black‑and‑white display settings:
 
 ```csharp
 using System.Drawing;
@@ -771,11 +829,11 @@ shape.BlackWhiteMode = BlackWhiteMode.Gray;
 presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
 ```
 
-W normalnym trybie kolorowym prostokąt zachowuje pomarańczowe wypełnienie. W przepływie pracy wyświetlania czarno‑białego używa szarego kolorowania, ponieważ jego tryb jest ustawiony na `Gray`. Pozwala to zachować pełnokolorowy slajd, jednocześnie definiując odrębny wygląd dla druku, podglądu lub innych przepływów pracy, które respektują ustawienia wyświetlania czarno‑białego prezentacji.
+In normal color mode, the rectangle retains its orange fill. In a black‑and‑white display workflow, it uses gray coloring because its mode is set to `Gray`. This lets you preserve a full‑color slide while defining a distinct appearance for printing, previewing, or other workflows that honor the presentation's black‑and‑white display settings.
 
 ## **Resetuj formatowanie**
 
-Użyj [ISlide.Reset](https://reference.aspose.com/slides/net/aspose.slides/islide/reset/) , aby przywrócić pozycję, rozmiar i formatowanie pól zastępczych slajdu z ich odpowiadającymi polami zastępczymi układu. Ten przykład wymaga istniejącej prezentacji z polami zastępczymi powiązanymi z układem i resetuje każdy slajd przed zapisaniem. Kształty bez odpowiadających pól zastępczych układu nie są resetowane.
+Use [ISlide.Reset](https://reference.aspose.com/slides/net/aspose.slides/islide/reset/) to restore the position, size, and formatting of slide placeholders from their corresponding layout placeholders. This example requires an existing presentation with layout‑linked placeholders and resets every slide before saving. Shapes without corresponding layout placeholders are not reset.
 
 ```csharp
 using Aspose.Slides;
@@ -792,14 +850,14 @@ presentation.Save("reset_formatting.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Czy formatowanie kształtu wpływa na ostateczny rozmiar pliku prezentacji?**
+**Czy formatowanie kształtów wpływa na ostateczny rozmiar pliku prezentacji?**
 
 Kolory, style linii i ustawienia efektów zazwyczaj dodają niewiele danych w porównaniu z osadzonymi obrazami i multimediami. Wypełnienia obrazem mogą zwiększyć rozmiar pliku, ponieważ ich obrazy są przechowywane w prezentacji.
 
-**Jak mogę wykryć kształty na slajdzie, które mają identyczne formatowanie, aby je pogrupować?**
+**Jak mogę wykryć kształty na slajdzie, które mają identyczne formatowanie, aby móc je grupować?**
 
-Porównaj kluczowe właściwości formatowania każdego kształtu — wypełnienie, linię i ustawienia efektów. Jeśli wszystkie odpowiadające wartości się zgadzają, traktuj ich style jako identyczne i logicznie grupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
+Porównaj kluczowe właściwości formatowania każdego kształtu — wypełnienie, linię i ustawienia efektów. Jeśli wszystkie odpowiadające wartości się zgadzają, uznaj ich style za identyczne i logicznie grupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
 
-**Czy mogę zapisać zestaw niestandardowych stylów kształtów do osobnego pliku w celu ponownego użycia w innych prezentacjach?**
+**Czy mogę zapisać zestaw własnych stylów kształtów do osobnego pliku w celu ponownego użycia w innych prezentacjach?**
 
-Tak. Przechowaj przykładowe kształty z pożądanymi stylami w zestawie slajdów szablonu lub pliku szablonu .POTX. Tworząc nową prezentację, otwórz szablon, sklonuj potrzebne stylowane kształty i ponownie zastosuj ich formatowanie w odpowiednich miejscach.
+Tak. Przechowuj przykładowe kształty z żądanymi stylami w zestawie slajdów szablonu lub pliku szablonu .POTX. Tworząc nową prezentację, otwórz szablon, sklonuj potrzebne stylowane kształty i ponownie zastosuj ich formatowanie tam, gdzie jest to wymagane.
