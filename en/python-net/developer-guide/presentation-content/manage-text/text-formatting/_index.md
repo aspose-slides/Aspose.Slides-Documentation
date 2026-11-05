@@ -361,6 +361,60 @@ The result:
 
 ![The font properties for text portions](font_properties_for_text_portions.png)
 
+## **Control Text Height Normalization**
+
+Use [BasePortionFormat.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/normalise_height/) when reproducing template typography or investigating differences in character height. In PowerPoint, enabling normalization stretches or compresses individual characters vertically to give them a uniform visible height within the text portion. It does not guarantee equal text heights across different fonts.
+
+Set the property to [NullableBool.TRUE or FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) to explicitly enable or disable normalization. `NullableBool.NOT_DEFINED` leaves the local setting unset so that the portion inherits its value, for example, from the paragraph's [default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/). It does not mean `False`. Use [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) and read [IBasePortionFormatEffectiveData.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseportionformateffectivedata/normalise_height/) to obtain the resolved Boolean value.
+
+The following self-contained example requires **Arial** to be installed. It creates two text blocks containing the same uppercase letters, lowercase letters, descenders, and accented characters at 54 points. Both paragraphs enable normalization by default. The top portion explicitly disables it; the bottom portion inherits it. The frame sizes, margins, and paragraph spacing are identical, with wrapping and autofit disabled to keep the comparison consistent. The example prints `FALSE: False` and `NOT_DEFINED: True`, then saves "text_height_normalization.pptx".
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    settings = [slides.NullableBool.FALSE, slides.NullableBool.NOT_DEFINED]
+
+    for i, setting in enumerate(settings):
+        shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 60 + i * 200, 660, 150)
+        shape.fill_format.fill_type = slides.FillType.NO_FILL
+        shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+        text_frame = shape.text_frame
+        text_frame.text = "Hxgjpq ÅÉ 0123"
+        text_frame.text_frame_format.autofit_type = slides.TextAutofitType.NONE
+        text_frame.text_frame_format.wrap_text = slides.NullableBool.FALSE
+        text_frame.text_frame_format.anchoring_type = slides.TextAnchorType.TOP
+        text_frame.text_frame_format.margin_top = 0
+        text_frame.text_frame_format.margin_left = 0
+
+        paragraph = text_frame.paragraphs[0]
+        paragraph.paragraph_format.alignment = slides.TextAlignment.LEFT
+        paragraph.paragraph_format.space_before = 0
+        paragraph.paragraph_format.space_after = 0
+        paragraph.paragraph_format.space_within = 100
+        paragraph.paragraph_format.default_portion_format.normalise_height = slides.NullableBool.TRUE
+
+        portion = paragraph.portions[0]
+        portion.portion_format.latin_font = slides.FontData("Arial")
+        portion.portion_format.font_height = 54
+        portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+        portion.portion_format.fill_format.solid_fill_color.color = "black"
+        portion.portion_format.normalise_height = setting
+
+        print(f"{setting.name}: {portion.portion_format.get_effective().normalise_height}")
+
+    presentation.save("text_height_normalization.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The comparison below was exported from the saved presentation. The top row has normalization disabled (`FALSE`); the bottom row inherits the enabled setting (`NOT_DEFINED` → `True`). Keep Arial installed to reproduce this appearance.
+
+![Arial 54-point text with normalization disabled above and inherited normalization enabled below](text_height_normalization.png)
+
+Normalization changes character height without changing the assigned [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) value, which specifies the font size in points. Paragraph [space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) controls line spacing, while text-frame [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) controls how text or its container adjusts to fit. These settings serve different purposes and can affect the overall layout independently. For more on paragraph formatting and inheritance, see [Manage Paragraph](/slides/python-net/manage-paragraph/).
+
 ## **Apply and Remove Strikethrough**
 
 Use [BasePortionFormat.strikethrough_type](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/strikethrough_type/) on a text portion to display corrections, cancelled terms, or previous prices without deleting the original text. Set it to [TextStrikethroughType.SINGLE or DOUBLE](https://reference.aspose.com/slides/python-net/aspose.slides/textstrikethroughtype/) for one or two lines through the text.

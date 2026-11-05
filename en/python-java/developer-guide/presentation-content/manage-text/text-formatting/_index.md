@@ -464,6 +464,72 @@ The result:
 
 ![The font properties for text portions](font_properties_for_text_portions.png)
 
+## **Control Text Height Normalization**
+
+Use [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setNormaliseHeight) when reproducing template typography or investigating differences in character height. In PowerPoint, enabling normalization stretches or compresses individual characters vertically to give them a uniform visible height within the text portion. It does not guarantee equal text heights across different fonts.
+
+Set the property to [NullableBool.True_ or False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) to explicitly enable or disable normalization. `NullableBool.NotDefined` leaves the local setting unset so that the portion inherits its value, for example, from the paragraph's [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat). It does not mean `False`. Use [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) and read `getNormaliseHeight` on the returned effective formatting to obtain the resolved Boolean value.
+
+The following self-contained example requires **Arial** to be installed. It creates two text blocks containing the same uppercase letters, lowercase letters, descenders, and accented characters at 54 points. Both paragraphs enable normalization by default. The top portion explicitly disables it; the bottom portion inherits it. The frame sizes, margins, and paragraph spacing are identical, with wrapping and autofit disabled to keep the comparison consistent. The example prints `False: False` and `NotDefined: True`, then saves "text_height_normalization.pptx".
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, NullableBool, Presentation, SaveFormat, ShapeType, TextAlignment, TextAnchorType, TextAutofitType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    settings = [NullableBool.False_, NullableBool.NotDefined]
+    setting_names = ["False", "NotDefined"]
+
+    for i, setting in enumerate(settings):
+        shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 60 + i * 200, 660, 150)
+        shape.getFillFormat().setFillType(FillType.NoFill)
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+        text_frame = shape.getTextFrame()
+        text_frame.setText("Hxgjpq ÅÉ 0123")
+        text_frame.getTextFrameFormat().setAutofitType(TextAutofitType.None_)
+        text_frame.getTextFrameFormat().setWrapText(NullableBool.False_)
+        text_frame.getTextFrameFormat().setAnchoringType(TextAnchorType.Top)
+        text_frame.getTextFrameFormat().setMarginTop(0)
+        text_frame.getTextFrameFormat().setMarginLeft(0)
+
+        paragraph = text_frame.getParagraphs().get_Item(0)
+        paragraph.getParagraphFormat().setAlignment(TextAlignment.Left)
+        paragraph.getParagraphFormat().setSpaceBefore(0)
+        paragraph.getParagraphFormat().setSpaceAfter(0)
+        paragraph.getParagraphFormat().setSpaceWithin(100)
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setNormaliseHeight(NullableBool.True_)
+
+        portion = paragraph.getPortions().get_Item(0)
+        font = FontData("Arial")
+        portion.getPortionFormat().setLatinFont(font)
+        portion.getPortionFormat().setFontHeight(54)
+        portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+        portion.getPortionFormat().setNormaliseHeight(setting)
+
+        print(f"{setting_names[i]}: {bool(portion.getPortionFormat().getEffective().getNormaliseHeight())}")
+
+    presentation.save("text_height_normalization.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+The comparison below was exported from the saved presentation. The top row has normalization disabled (`False`); the bottom row inherits the enabled setting (`NotDefined` → `True`). Keep Arial installed to reproduce this appearance.
+
+![Arial 54-point text with normalization disabled above and inherited normalization enabled below](text_height_normalization.png)
+
+Normalization changes character height without changing the assigned [getFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFontHeight) value, which specifies the font size in points. Paragraph [setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) controls line spacing, while text-frame [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) controls how text or its container adjusts to fit. These settings serve different purposes and can affect the overall layout independently. For more on paragraph formatting and inheritance, see [Manage Paragraph](/slides/python-java/manage-paragraph/).
+
 ## **Apply and Remove Strikethrough**
 
 Use [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setStrikethroughType) on a text portion to display corrections, cancelled terms, or previous prices without deleting the original text. Set it to [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/) for one or two lines through the text.

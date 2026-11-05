@@ -471,6 +471,77 @@ The result:
 
 ![The font properties for text portions](font_properties_for_text_portions.png)
 
+## **Control Text Height Normalization**
+
+Use [BasePortionFormat::setNormaliseHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setNormaliseHeight) when reproducing template typography or investigating differences in character height. In PowerPoint, enabling normalization stretches or compresses individual characters vertically to give them a uniform visible height within the text portion. It does not guarantee equal text heights across different fonts.
+
+Set the property to [NullableBool::True or False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) to explicitly enable or disable normalization. `NullableBool::NotDefined` leaves the local setting unset so that the portion inherits its value, for example, from the paragraph's [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat). It does not mean `False`. Use [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) and read `getNormaliseHeight` on the returned effective formatting data to obtain the resolved Boolean value.
+
+The following self-contained example requires **Arial** to be installed. It creates two text blocks containing the same uppercase letters, lowercase letters, descenders, and accented characters at 54 points. Both paragraphs enable normalization by default. The top portion explicitly disables it; the bottom portion inherits it. The frame sizes, margins, and paragraph spacing are identical, with wrapping and autofit disabled to keep the comparison consistent. The example prints `False: false` and `NotDefined: true`, then saves "text_height_normalization.pptx".
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextAnchorType;
+use aspose\slides\TextAutofitType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $settings = [NullableBool::False, NullableBool::NotDefined];
+    $settingNames = ["False", "NotDefined"];
+
+    for ($i = 0; $i < count($settings); $i++) {
+        $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 60 + $i * 200, 660, 150);
+        $shape->getFillFormat()->setFillType(FillType::NoFill);
+        $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+        $textFrame = $shape->getTextFrame();
+        $textFrame->setText("Hxgjpq ÅÉ 0123");
+        $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::None);
+        $textFrame->getTextFrameFormat()->setWrapText(NullableBool::False);
+        $textFrame->getTextFrameFormat()->setAnchoringType(TextAnchorType::Top);
+        $textFrame->getTextFrameFormat()->setMarginTop(0);
+        $textFrame->getTextFrameFormat()->setMarginLeft(0);
+
+        $paragraph = $textFrame->getParagraphs()->get_Item(0);
+        $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Left);
+        $paragraph->getParagraphFormat()->setSpaceBefore(0);
+        $paragraph->getParagraphFormat()->setSpaceAfter(0);
+        $paragraph->getParagraphFormat()->setSpaceWithin(100);
+        $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setNormaliseHeight(NullableBool::True);
+
+        $portion = $paragraph->getPortions()->get_Item(0);
+        $font = new FontData("Arial");
+        $portion->getPortionFormat()->setLatinFont($font);
+        $portion->getPortionFormat()->setFontHeight(54);
+        $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $black = java("java.awt.Color")->BLACK;
+        $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($black);
+        $portion->getPortionFormat()->setNormaliseHeight($settings[$i]);
+
+        $normaliseHeight = java_values($portion->getPortionFormat()->getEffective()->getNormaliseHeight());
+        echo $settingNames[$i], ": ", $normaliseHeight ? "true" : "false", PHP_EOL;
+    }
+
+    $presentation->save("text_height_normalization.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+The comparison below was exported from the saved presentation. The top row has normalization disabled (`False`); the bottom row inherits the enabled setting (`NotDefined` → `True`). Keep Arial installed to reproduce this appearance.
+
+![Arial 54-point text with normalization disabled above and inherited normalization enabled below](text_height_normalization.png)
+
+Normalization changes character height without changing the assigned [getFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFontHeight) value, which specifies the font size in points. Paragraph [setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) controls line spacing, while text-frame [setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) controls how text or its container adjusts to fit. These settings serve different purposes and can affect the overall layout independently. For more on paragraph formatting and inheritance, see [Manage Paragraph](/slides/php-java/manage-paragraph/).
+
 ## **Apply and Remove Strikethrough**
 
 Use [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) on a text portion to display corrections, cancelled terms, or previous prices without deleting the original text. Set it to [TextStrikethroughType::Single or Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) for one or two lines through the text.
