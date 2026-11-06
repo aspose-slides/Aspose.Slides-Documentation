@@ -46,7 +46,8 @@ Aspose.Slides for .NET provides the following APIs for working with comments:
 * The [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) class, which provides information about an author, including their name, initials, and associated comments.
 
 ## **Add Slide Comments**
-The following example shows how to add comments to slides in a PowerPoint presentation:
+
+The example creates two slides and registers a comment author with [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/). It uses [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) to place one comment on each slide, then retrieves the first slide's comments for that author with [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/). The console displays the first comment's text twice, demonstrating access through both the slide and the author, and the saved presentation contains both comments.
 
 ```csharp
 using System;
@@ -57,6 +58,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var firstSlide = presentation.Slides[0];
 var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
 var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 var position = new PointF(0.2f, 0.2f);
 var createdTime = DateTime.Now;
@@ -77,8 +79,44 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Find or Create a Comment Author**
+
+When an automated review processes the same presentation repeatedly, search its [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/) collection before adding an author. [FindByNameAndInitials](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbynameandinitials/) matches both the name and initials and returns an array of matching authors, or an empty array if no matches exist. In contrast, [FindByName](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbyname/) searches by name alone, regardless of initials. Calling [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) with a name and initials already present in the collection throws an exception.
+
+The example requires a presentation file with at least one slide. On each of two passes, it reuses the first matching author, or creates one only when the result is empty. If there are multiple matches, it selects the first array element without merging or removing the other authors. It then calls [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) for the selected author and saves the presentation. The second pass opens the first pass's output and repeats the operation.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string authorName = "Reviewer";
+const string authorInitials = "RV";
+
+var inputFile = "input.pptx";
+var position = new PointF(20, 20);
+
+for (var pass = 1; pass <= 2; pass++)
+{
+    using var presentation = new Presentation(inputFile);
+
+    var matches = presentation.CommentAuthors.FindByNameAndInitials(authorName, authorInitials);
+    
+    var author = matches.Length > 0 ? matches[0] : presentation.CommentAuthors.AddAuthor(authorName, authorInitials);
+    author.Comments.AddComment("Please review this slide.", presentation.Slides[0], position, DateTime.Now);
+
+    var outputFile = $"review_pass_{pass}.pptx";
+    presentation.Save(outputFile, SaveFormat.Pptx);
+    inputFile = outputFile;
+}
+```
+
+The second pass adds another comment without adding another author or removing existing comments. The final file, `review_pass_2.pptx`, contains both new comments alongside any original comments. Reusing an author does not deduplicate comments: to avoid repeatedly adding the same comment, implement separate duplicate detection before adding it.
+
 ## **Access Slide Comments**
-The following example shows how to access existing comments in a PowerPoint presentation:
+
+The example opens an existing presentation and reads its [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/) collection. For each author, it iterates through [Comments](https://reference.aspose.com/slides/net/aspose.slides/icommentauthor/comments/) and prints the slide number, comment text, author name, and creation time. The input presentation must contain comments to produce console output.
 
 ```csharp
 using System;
@@ -100,9 +138,10 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **Reply to Comments**
-A parent comment is the original comment at the top of a reply hierarchy. The [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) property of the [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) interface lets you get or set the parent of a comment.
 
-The following example shows how to add replies and inspect the resulting comment hierarchy:
+A parent comment is the original comment at the top of a reply hierarchy. The [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) property of the [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) interface lets you get or set the parent of a comment.
+
+The example creates comments from two authors and uses [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) to build replies, including a reply to another reply. Passing `null` to [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) retrieves comments from all authors; the console indents each entry according to its depth in the reply hierarchy. The example saves the complete discussion, calls [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) on the first root comment, and saves a second presentation with that comment and its replies removed.
 
 ```csharp
 using System;
@@ -112,27 +151,28 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var position = new PointF(10, 10);
 var createdTime = DateTime.Now;
 
-var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
-var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
+var originalAuthor = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var rootComment = originalAuthor.Comments.AddComment("comment 1", slide, position, createdTime);
 
-var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
-var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
-reply1.ParentComment = comment1;
+var reviewer = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var firstReply = reviewer.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+firstReply.ParentComment = rootComment;
 
-var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
-reply2.ParentComment = comment1;
+var secondReply = reviewer.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+secondReply.ParentComment = rootComment;
 
-var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
-subReply.ParentComment = reply2;
+var subReply = originalAuthor.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = secondReply;
 
-author2.Comments.AddComment("comment 2", slide, position, createdTime);
-var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+reviewer.Comments.AddComment("comment 2", slide, position, createdTime);
+var separateComment = reviewer.Comments.AddComment("comment 3", slide, position, createdTime);
 
-var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
-reply3.ParentComment = comment3;
+var separateReply = originalAuthor.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+separateReply.ParentComment = separateComment;
 
 var comments = slide.GetSlideComments(null);
 for (var i = 0; i < comments.Length; i++)
@@ -149,14 +189,14 @@ for (var i = 0; i < comments.Length; i++)
 
 presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
 
-comment1.Remove();
+rootComment.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="Attention" %}} 
+{{% alert color="warning" title="Warning" %}}
 
-* When the [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) method of the [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) interface is used to delete a comment, all replies to that comment are also deleted.
-* If the [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) property creates a circular reference, a [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) is thrown.
+* When the [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) method of the [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) interface is used to delete a comment, all replies to that comment are also deleted.
+* If the [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) property creates a circular reference, a [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) is thrown.
 
 {{% /alert %}}
 
@@ -168,7 +208,7 @@ When `null` is passed for the shape argument, the comment is a slide-level comme
 
 ### **Anchor a Modern Comment to a Shape**
 
-The following example creates both a slide-level modern comment and a modern comment anchored to a specific AutoShape. It then reads the associated shape from each comment.
+The example calls [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) twice: once with a `null` shape for a slide-level comment and once with a rectangle as the anchor. Reading [Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) prints `True` for the slide-level comment's null check and `Revenue title` for the anchored comment. Both comments are saved with the presentation.
 
 ```csharp
 using System;
@@ -178,7 +218,9 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
 shape.Name = "Revenue title";
 shape.TextFrame.Text = "Quarterly revenue";
@@ -199,7 +241,7 @@ presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 
 Any slide object that implements [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) can be used as a shape anchor. Common examples include [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/net/aspose.slides/iconnector/), and [IGraphicalObject](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobject/) instances such as charts.
 
-The following example creates several common shape types and associates a modern comment with each one.
+The example uses [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) to associate a comment with each of five shape types: an AutoShape, a picture frame, a group, a connector, and a chart. The picture uses embedded image data, so no external image is required. Each comment has its own marker position, and the saved presentation retains all five shape associations.
 
 ```csharp
 using System;
@@ -210,11 +252,13 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
 var createdTime = DateTime.Now;
 
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
 autoShape.TextFrame.Text = "AutoShape";
+
 var autoShapeCommentPosition = new PointF(30, 30);
 author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -253,7 +297,7 @@ The [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slide
 - `Resolved` — the comment has been resolved.
 - `Closed` — the comment is closed.
 
-The following example creates a shape-anchored modern comment, associates it with a text selection, marks it as resolved, saves the presentation, and verifies the values after reopening the file.
+The example anchors a modern comment to the words "quarterly revenue" in a rectangle's text. It calculates the zero-based [TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) from the text and sets [TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) to the number of selected characters. After setting [Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) to `Resolved`, it saves and reopens the presentation. The four console checks should each print `True`, confirming that the shape anchor, text range, and status were preserved.
 
 ```csharp
 using System;
@@ -268,6 +312,7 @@ var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Or
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
 shape.Name = "Forecast text";
 shape.TextFrame.Text = shapeText;
@@ -306,7 +351,7 @@ foreach (var reopenedComment in reopenedComments)
 
 ### **Inspect Existing Modern Comments**
 
-To inspect an existing presentation, check which comments implement [IModernComment](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/), then examine [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/), and [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/). A `null` shape indicates a slide-level comment. For an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) anchor, the text-selection properties identify the associated range in the shape's text frame.
+The example requires an existing presentation containing modern comments and prints their text, status, and anchor details. To inspect it, check which comments implement [IModernComment](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/), then examine [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/), and [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/). A `null` shape indicates a slide-level comment. For an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) anchor, the text-selection properties identify the associated range in the shape's text frame.
 
 ```csharp
 using System;
@@ -352,9 +397,11 @@ foreach (var slide in presentation.Slides)
 
 ## **Remove Comments**
 
+Aspose.Slides for .NET lets you remove all comments and their authors from a presentation or delete selected comments while keeping the rest. The following examples demonstrate both approaches and save the updated presentation.
+
 ### **Remove All Comments and Comment Authors**
 
-The following example shows how to remove all comments and comment authors from a presentation:
+The example opens an existing presentation and calls [ICommentCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/clear/) for each author, then calls [ICommentAuthorCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/clear/) to remove the authors themselves. The saved presentation contains neither comments nor comment authors. Use a presentation containing comments to observe the removal.
 
 ```csharp
 using Aspose.Slides;
@@ -368,12 +415,13 @@ foreach (var author in presentation.CommentAuthors)
 }
 
 presentation.CommentAuthors.Clear();
+
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
 ### **Remove Specific Comments**
 
-The following example shows how to remove specific comments from a slide:
+The example creates two comments on one slide and uses [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) to find comments by each author. It collects comments whose text equals "comment 1" before calling [ICommentCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/remove/), avoiding changes to the collection during selection. The saved presentation retains only "comment 2".
 
 ```csharp
 using System;
@@ -384,6 +432,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Author", "A");
 var createdTime = DateTime.Now;
 

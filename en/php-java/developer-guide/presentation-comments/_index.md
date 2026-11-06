@@ -46,7 +46,7 @@ Aspose.Slides for PHP via Java provides the following APIs for working with comm
 
 ## **Add Slide Comments**
 
-The following example shows how to add comments to slides in a PowerPoint presentation:
+The example creates two slides and registers a comment author with [addAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/addauthor/). It uses [addComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addcomment/) to place one comment on each slide, then retrieves the first slide's comments for that author with [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/). The console displays the first comment's text twice, demonstrating access through both the slide and the author, and the saved presentation contains both comments.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -57,6 +57,7 @@ $presentation = new Presentation();
 try {
     $firstSlide = $presentation->getSlides()->get_Item(0);
     $secondSlide = $presentation->getSlides()->addEmptySlide($presentation->getLayoutSlides()->get_Item(0));
+
     $author = $presentation->getCommentAuthors()->addAuthor("Jawad", "MF");
     $position = new Point2DFloat(0.2, 0.2);
     $createdTime = new Java("java.util.Date");
@@ -82,9 +83,48 @@ try {
 }
 ```
 
+## **Find or Create a Comment Author**
+
+When an automated review processes the same presentation repeatedly, search the collection returned by [getCommentAuthors](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getcommentauthors/) before adding an author. [findByNameAndInitials](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/findbynameandinitials/) matches both the name and initials and returns an array of matching authors, or an empty array if no matches exist. In contrast, [findByName](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/findbyname/) searches by name alone, regardless of initials. Calling [addAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/addauthor/) with a name and initials already present in the collection throws an exception.
+
+The example requires a presentation file with at least one slide. On each of two passes, it reuses the first matching author, or creates one only when the result is empty. If there are multiple matches, it selects the first array element without merging or removing the other authors. It then calls [addComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addcomment/) for the selected author and saves the presentation. The second pass opens the first pass's output and repeats the operation.
+
+```php
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$authorName = "Reviewer";
+$authorInitials = "RV";
+
+$inputFile = "input.pptx";
+$position = new Point2DFloat(20, 20);
+$arrayClass = new JavaClass("java.lang.reflect.Array");
+
+for ($pass = 1; $pass <= 2; $pass++) {
+    $presentation = new Presentation($inputFile);
+    try {
+        $matches = $presentation->getCommentAuthors()->findByNameAndInitials($authorName, $authorInitials);
+        $matchCount = java_values($arrayClass->getLength($matches));
+
+        $author = $matchCount > 0 ? $matches[0] : $presentation->getCommentAuthors()->addAuthor($authorName, $authorInitials);
+        $createdTime = new Java("java.util.Date");
+        $author->getComments()->addComment("Please review this slide.", $presentation->getSlides()->get_Item(0), $position, $createdTime);
+
+        $outputFile = "review_pass_" . $pass . ".pptx";
+        $presentation->save($outputFile, SaveFormat::Pptx);
+        $inputFile = $outputFile;
+    } finally {
+        $presentation->dispose();
+    }
+}
+```
+
+The second pass adds another comment without adding another author or removing existing comments. The final file, `review_pass_2.pptx`, contains both new comments alongside any original comments. Reusing an author does not deduplicate comments: to avoid repeatedly adding the same comment, implement separate duplicate detection before adding it.
+
 ## **Access Slide Comments**
 
-The following example shows how to access existing comments in a PowerPoint presentation:
+The example opens an existing presentation and reads the collection returned by [getCommentAuthors](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getcommentauthors/). For each author, it iterates through the collection returned by [getComments](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/getcomments/) and prints the slide number, comment text, author name, and creation time. The input presentation must contain comments to produce console output.
 
 ```php
 use aspose\slides\Presentation;
@@ -109,7 +149,7 @@ try {
 
 A parent comment is the original comment at the top of a reply hierarchy. The [Comment::getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) and [Comment::setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) methods let you get or set the parent of a comment.
 
-The following example shows how to add replies and inspect the resulting comment hierarchy:
+The example creates comments from two authors and uses [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) to build replies, including a reply to another reply. Passing `null` to [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/) retrieves comments from all authors; the console indents each entry according to its depth in the reply hierarchy. The example saves the complete discussion, calls [remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) on the first root comment, and saves a second presentation with that comment and its replies removed.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -119,6 +159,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $position = new Point2DFloat(10, 10);
     $createdTime = new Java("java.util.Date");
 
@@ -178,7 +219,7 @@ When `null` is passed for the shape argument, the comment is a slide-level comme
 
 ### **Anchor a Modern Comment to a Shape**
 
-The following example creates both a slide-level modern comment and a modern comment anchored to a specific AutoShape. It then reads the associated shape from each comment.
+The example calls [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) twice: once with a `null` shape for a slide-level comment and once with a rectangle as the anchor. Reading [getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/) prints `true` for the slide-level comment's null check and `Revenue title` for the anchored comment. Both comments are saved with the presentation.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -189,7 +230,9 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 300, 80);
     $shape->setName("Revenue title");
     $shape->getTextFrame()->setText("Quarterly revenue");
@@ -213,7 +256,7 @@ try {
 
 Any slide object represented by the [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) class can be used as a shape anchor. Common examples include [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/php-java/aspose.slides/connector/), and [GraphicalObject](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobject/) instances such as charts.
 
-The following example creates several common shape types and associates a modern comment with each one.
+The example uses [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) to associate a comment with each of five shape types: an AutoShape, a picture frame, a group, a connector, and a chart. The picture uses embedded image data, so no external image is required. Each comment has its own marker position, and the saved presentation retains all five shape associations.
 
 ```php
 use aspose\slides\ChartType;
@@ -225,11 +268,13 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
     $createdTime = new Java("java.util.Date");
 
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 180, 60);
     $autoShape->getTextFrame()->setText("AutoShape");
+
     $autoShapeCommentPosition = new Point2DFloat(30, 30);
     $author->getComments()->addModernComment("Comment on an AutoShape.", $slide, $autoShape, $autoShapeCommentPosition, $createdTime);
 
@@ -272,7 +317,7 @@ The [ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspo
 - `Resolved` — the comment has been resolved.
 - `Closed` — the comment is closed.
 
-The following example creates a shape-anchored modern comment, associates it with a text selection, marks it as resolved, saves the presentation, and verifies the values after reopening the file.
+The example anchors a modern comment to the words "quarterly revenue" in a rectangle's text. It calculates the zero-based selection start from the text and passes it to [setTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionstart/) and uses [setTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionlength/) to set the number of selected characters. After calling [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) with `Resolved`, it saves and reopens the presentation. The four console checks should each print `true`, confirming that the shape anchor, text range, and status were preserved.
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -289,6 +334,7 @@ $expectedSelectionStart = strpos($shapeText, $selectedText);
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
     $shape->setName("Forecast text");
     $shape->getTextFrame()->setText($shapeText);
@@ -334,7 +380,7 @@ try {
 
 ### **Inspect Existing Modern Comments**
 
-To inspect an existing presentation, check whether each comment is a [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/), then examine [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionlength/), and [ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/). A `null` shape indicates a slide-level comment. For an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) anchor, the text-selection methods identify the associated range in the shape's text frame.
+The example requires an existing presentation containing modern comments and prints their text, status, and anchor details. To inspect it, check whether each comment is a [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/), then examine [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionlength/), and [ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/). A `null` shape indicates a slide-level comment. For an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) anchor, the text-selection methods identify the associated range in the shape's text frame.
 
 ```php
 use aspose\slides\Presentation;
@@ -378,9 +424,11 @@ try {
 
 ## **Remove Comments**
 
+Aspose.Slides for PHP via Java lets you remove all comments and their authors from a presentation or delete selected comments while keeping the rest. The following examples demonstrate both approaches and save the updated presentation.
+
 ### **Remove All Comments and Comment Authors**
 
-The following example shows how to remove all comments and comment authors from a presentation:
+The example opens an existing presentation and calls [CommentCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/clear/) for each author, then calls [CommentAuthorCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/clear/) to remove the authors themselves. The saved presentation contains neither comments nor comment authors. Use a presentation containing comments to observe the removal.
 
 ```php
 use aspose\slides\Presentation;
@@ -393,6 +441,7 @@ try {
     }
 
     $presentation->getCommentAuthors()->clear();
+
     $presentation->save("example_out.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -401,7 +450,7 @@ try {
 
 ### **Remove Specific Comments**
 
-The following example shows how to remove specific comments from a slide:
+The example creates two comments on one slide and uses [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/) to find comments by each author. It collects comments whose text equals "comment 1" before calling [CommentCollection::remove](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/remove/), avoiding changes to the collection during selection. The saved presentation retains only "comment 2".
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -411,6 +460,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
     $createdTime = new Java("java.util.Date");
 

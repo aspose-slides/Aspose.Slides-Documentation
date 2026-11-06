@@ -47,7 +47,7 @@ Aspose.Slides for Python via Java provides the following APIs for working with c
 
 ## **Add Slide Comments**
 
-The following example shows how to add comments to slides in a PowerPoint presentation:
+The example creates two slides and registers a comment author with [addAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#addAuthor). It uses [addComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addComment) to place one comment on each slide, then retrieves the first slide's comments for that author with [getSlideComments](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideComments). The console displays the first comment's text twice, demonstrating access through both the slide and the author, and the saved presentation contains both comments.
 
 ```python
 import jpype
@@ -65,6 +65,7 @@ presentation = Presentation()
 try:
     first_slide = presentation.getSlides().get_Item(0)
     second_slide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0))
+
     author = presentation.getCommentAuthors().addAuthor("Jawad", "MF")
     position = Point2DFloat(0.2, 0.2)
     created_time = Date()
@@ -86,9 +87,51 @@ finally:
     presentation.dispose()
 ```
 
+## **Find or Create a Comment Author**
+
+When an automated review processes the same presentation repeatedly, search the collection returned by [getCommentAuthors](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getCommentAuthors) before adding an author. [findByNameAndInitials](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#findByNameAndInitials) matches both the name and initials and returns an array of matching authors, or an empty array if no matches exist. In contrast, [findByName](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#findByName) searches by name alone, regardless of initials. Calling [addAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#addAuthor) with a name and initials already present in the collection throws an exception.
+
+The example requires a presentation file with at least one slide. On each of two passes, it reuses the first matching author, or creates one only when the result is empty. If there are multiple matches, it selects the first array element without merging or removing the other authors. It then calls [addComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addComment) for the selected author and saves the presentation. The second pass opens the first pass's output and repeats the operation.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+Point2DFloat = jpype.JClass("java.awt.geom.Point2D$Float")
+Date = jpype.JClass("java.util.Date")
+
+author_name = "Reviewer"
+author_initials = "RV"
+
+input_file = "input.pptx"
+position = Point2DFloat(20, 20)
+
+for pass_number in range(1, 3):
+    presentation = Presentation(input_file)
+    try:
+        matches = presentation.getCommentAuthors().findByNameAndInitials(author_name, author_initials)
+
+        author = matches[0] if len(matches) > 0 else presentation.getCommentAuthors().addAuthor(author_name, author_initials)
+        created_time = Date()
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, created_time)
+
+        output_file = f"review_pass_{pass_number}.pptx"
+        presentation.save(output_file, SaveFormat.Pptx)
+        input_file = output_file
+    finally:
+        presentation.dispose()
+```
+
+The second pass adds another comment without adding another author or removing existing comments. The final file, `review_pass_2.pptx`, contains both new comments alongside any original comments. Reusing an author does not deduplicate comments: to avoid repeatedly adding the same comment, implement separate duplicate detection before adding it.
+
 ## **Access Slide Comments**
 
-The following example shows how to access existing comments in a PowerPoint presentation:
+The example opens an existing presentation and reads the collection returned by [getCommentAuthors](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getCommentAuthors). For each author, it iterates through the collection returned by [getComments](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthor/#getComments) and prints the slide number, comment text, author name, and creation time. The input presentation must contain comments to produce console output.
 
 ```python
 import jpype
@@ -116,7 +159,7 @@ finally:
 
 A parent comment is the original comment at the top of a reply hierarchy. The [Comment.getParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#getParentComment) and [Comment.setParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#setParentComment) methods let you get or set the parent of a comment.
 
-The following example shows how to add replies and inspect the resulting comment hierarchy:
+The example creates comments from two authors and uses [setParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#setParentComment) to build replies, including a reply to another reply. Passing `None` to [getSlideComments](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideComments) retrieves comments from all authors; the console indents each entry according to its depth in the reply hierarchy. The example saves the complete discussion, calls [remove](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#remove) on the first root comment, and saves a second presentation with that comment and its replies removed.
 
 ```python
 import jpype
@@ -133,6 +176,7 @@ Date = jpype.JClass("java.util.Date")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     position = Point2DFloat(10, 10)
     created_time = Date()
 
@@ -187,7 +231,7 @@ When `None` is passed for the shape argument, the comment is a slide-level comme
 
 ### **Anchor a Modern Comment to a Shape**
 
-The following example creates both a slide-level modern comment and a modern comment anchored to a specific [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/). It then reads the associated shape from each comment.
+The example calls [addModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addModernComment) twice: once with a `None` shape for a slide-level comment and once with a rectangle as the anchor. Reading [getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape) prints `True` for the slide-level comment's `None` check and `Revenue title` for the anchored comment. Both comments are saved with the presentation.
 
 ```python
 import jpype
@@ -204,7 +248,9 @@ Date = jpype.JClass("java.util.Date")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV")
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80)
     shape.setName("Revenue title")
     shape.getTextFrame().setText("Quarterly revenue")
@@ -227,7 +273,7 @@ finally:
 
 Any slide object that inherits from [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) can be used as a shape anchor. Common examples include [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/python-java/aspose.slides/connector/), and [GraphicalObject](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobject/) instances such as charts.
 
-The following example creates several common shape types and associates a modern comment with each one.
+The example uses [addModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addModernComment) to associate a comment with each of five shape types: an AutoShape, a picture frame, a group, a connector, and a chart. The picture uses embedded image data, so no external image is required. Each comment has its own marker position, and the saved presentation retains all five shape associations.
 
 ```python
 import jpype
@@ -245,11 +291,13 @@ Base64 = jpype.JClass("java.util.Base64")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV")
     created_time = Date()
 
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60)
     auto_shape.getTextFrame().setText("AutoShape")
+
     auto_shape_comment_position = Point2DFloat(30, 30)
     author.getComments().addModernComment("Comment on an AutoShape.", slide, auto_shape, auto_shape_comment_position, created_time)
 
@@ -290,7 +338,7 @@ The [ModernComment.getStatus](https://reference.aspose.com/slides/python-java/as
 - [Resolved](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#Resolved) — the comment has been resolved.
 - [Closed](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#Closed) — the comment is closed.
 
-The following example creates a shape-anchored modern comment, associates it with a text selection, marks it as resolved, saves the presentation, and verifies the values after reopening the file.
+The example anchors a modern comment to the words "quarterly revenue" in a rectangle's text. It calculates the zero-based selection start from the text and passes it to [setTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionStart) and uses [setTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionLength) to set the number of selected characters. After calling [setStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setStatus) with `Resolved`, it saves and reopens the presentation. The four console checks should each print `True`, confirming that the shape anchor, text range, and status were preserved.
 
 ```python
 import jpype
@@ -312,6 +360,7 @@ expected_selection_start = shape_text.find(selected_text)
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100)
     shape.setName("Forecast text")
     shape.getTextFrame().setText(shape_text)
@@ -353,7 +402,7 @@ finally:
 
 ### **Inspect Existing Modern Comments**
 
-To inspect an existing presentation, check which comments are instances of [ModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/), then examine [ModernComment.getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionLength), and [ModernComment.getStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getStatus). A `None` shape indicates a slide-level comment. For an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) anchor, the text-selection methods identify the associated range in the shape's text frame.
+The example requires an existing presentation containing modern comments and prints their text, status, and anchor details. To inspect it, check which comments are instances of [ModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/), then examine [ModernComment.getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionLength), and [ModernComment.getStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getStatus). A `None` shape indicates a slide-level comment. For an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) anchor, the text-selection methods identify the associated range in the shape's text frame.
 
 ```python
 import jpype
@@ -395,9 +444,11 @@ finally:
 
 ## **Remove Comments**
 
+Aspose.Slides for Python via Java lets you remove all comments and their authors from a presentation or delete selected comments while keeping the rest. The following examples demonstrate both approaches and save the updated presentation.
+
 ### **Remove All Comments and Comment Authors**
 
-The following example shows how to remove all comments and comment authors from a presentation:
+The example opens an existing presentation and calls [CommentCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#clear) for each author, then calls [CommentAuthorCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#clear) to remove the authors themselves. The saved presentation contains neither comments nor comment authors. Use a presentation containing comments to observe the removal.
 
 ```python
 import jpype
@@ -414,6 +465,7 @@ try:
         author.getComments().clear()
 
     presentation.getCommentAuthors().clear()
+
     presentation.save("example_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -421,7 +473,7 @@ finally:
 
 ### **Remove Specific Comments**
 
-The following example shows how to remove specific comments from a slide:
+The example creates two comments on one slide and uses [getSlideComments](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideComments) to find comments by each author. It collects comments whose text equals "comment 1" before calling [CommentCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#remove), avoiding changes to the collection during selection. The saved presentation retains only "comment 2".
 
 ```python
 import jpype
@@ -438,6 +490,7 @@ Date = jpype.JClass("java.util.Date")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     author = presentation.getCommentAuthors().addAuthor("Author", "A")
     created_time = Date()
 
