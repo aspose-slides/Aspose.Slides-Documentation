@@ -22,6 +22,54 @@ description: "Learn to add and format chart data labels in PowerPoint presentati
 
 Data labels display information about chart series and individual data points, helping readers identify values and understand the chart. This article explains how to format values, display percentages, read label text, control labels beyond the axis maximum, adjust category axis label spacing, and position pie chart labels.
 
+## **Count Visible Data Labels**
+
+Use [CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/) to check how many data labels are enabled for display before publishing a presentation. Unlike [Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/), which returns the total number of labels in the collection, it takes the series defaults and individual label settings into account.
+
+This example creates a column chart with one series and three data points. It accesses the series' [Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/) collection and prints the visible count as the settings change: **0, 3, 2, 3**. The total count remains **3**.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesCell = workbook.GetCell(0, 0, 1, "Values");
+var series = chart.ChartData.Series.Add(seriesCell, chart.Type);
+
+for (int i = 0; i < 3; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, $"Category {i + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(0, i + 1, 1, (i + 1) * 10);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+}
+
+var labels = series.Labels;
+Console.WriteLine($"Total: {labels.Count}; visible: {labels.CountOfVisibleDataLabels}"); // Total: 3; visible: 0
+
+labels.DefaultDataLabelFormat.ShowValue = true;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // Visible: 3
+
+labels[1].DataLabelFormat.ShowValue = false;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // Visible: 2
+
+labels[1].DataLabelFormat.ShowLegendKey = true;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // Visible: 3
+```
+
+The series' [DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/) supplies the default settings. Enabling [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) there displays values for all three labels. Setting it to `false` through one label's [DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/) overrides that setting for the selected label. Enabling [ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/) makes that label count as visible again, even though its value remains hidden.
+
+The visible count reflects visibility settings. It does not measure whether labels overlap, are clipped, or are readable in the rendered chart.
+
 ## **Set Data Precision in Chart Data Labels**
 
 Use [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
