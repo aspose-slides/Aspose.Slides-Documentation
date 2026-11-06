@@ -25,13 +25,13 @@ description: "Hantera presentationskommentarer med Aspose.Slides för .NET: läg
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du hanterar presentationskommentarer med Aspose.Slides för .NET. Den introducerar de viktigaste kommentarrelaterade typerna och demonstrerar hur du lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
+Den här artikeln förklarar hur man hanterar presentationskommentarer med Aspose.Slides för .NET. Den introducerar de viktigaste kommentarrelaterade typerna och visar hur man lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
 
-Exemplen täcker vanliga granskning‑ och samarbetsscenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartext och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
+Exemplen täcker vanliga gransknings‑ och samarbets scenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentarttext och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
 
-I PowerPoint visas kommentarer som anmärkningar på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
+I PowerPoint visas kommentarer som anteckningar på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
 
-För att begära att kommentarer ska visas eller döljas när en presentation öppnas utan att ändra själva kommentarerna, se [Visa eller dölj kommentarer när en presentation öppnas](/slides/sv/net/presentation-view-properties/).
+För att begära att kommentarer visas eller döljs när en presentation öppnas utan att ändra själva kommentarerna, se [Visa eller dölja kommentarer när en presentation öppnas](/slides/sv/net/presentation-view-properties/).
 
 ## **Varför lägga till kommentarer i presentationer?**
 
@@ -39,13 +39,14 @@ Du kan använda kommentarer för att ge feedback och samarbeta med kollegor när
 
 Aspose.Slides för .NET tillhandahåller följande API:er för att arbeta med kommentarer:
 
-* Klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation) som ger åtkomst till presentationens kommentar‑författare.
-* Gränssnittet [ICommentCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/icommentcollection) som representerar kommentarerna som är kopplade till en enskild författare.
-* Gränssnittet [IComment](https://reference.aspose.com/slides/sv/net/aspose.slides/icomment) som ger information om en kommentar, inklusive dess författare, skapningstid, position och text.
-* Klassen [CommentAuthor](https://reference.aspose.com/slides/sv/net/aspose.slides/commentauthor) som ger information om en författare, inklusive namn, initialer och associerade kommentarer.
+* The [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class, which provides access to the presentation's comment authors.
+* The [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) interface, which represents the comments associated with an individual author.
+* The [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) interface, which provides information about a comment, including its author, creation time, position, and text.
+* The [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) class, which provides information about an author, including their name, initials, and associated comments.
 
 ## **Lägg till bildkommentarer**
-Följande exempel visar hur du lägger till kommentarer på bilder i en PowerPoint-presentation:
+
+Exemplet skapar två bilder och registrerar en kommentarförfattare med [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/). Det använder [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) för att placera en kommentar på varje bild, hämtar sedan den första bildens kommentarer för den författaren med [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/). Konsolen visar den första kommentarens text två gånger, vilket demonstrerar åtkomst via både bilden och författaren, och den sparade presentationen innehåller båda kommentarerna.
 
 ```csharp
 using System;
@@ -56,6 +57,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var firstSlide = presentation.Slides[0];
 var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
 var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 var position = new PointF(0.2f, 0.2f);
 var createdTime = DateTime.Now;
@@ -76,8 +78,44 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Sök eller skapa en kommentarförfattare**
+
+När en automatiserad granskning bearbetar samma presentation upprepade gånger, sök i dess [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/)‑samling innan du lägger till en författare. [FindByNameAndInitials](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbynameandinitials/) matchar både namn och initialer och returnerar en array med matchande författare, eller en tom array om inga matchningar finns. I motsats till detta söker [FindByName](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbyname/) endast efter namn, oavsett initialer. Att anropa [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) med ett namn och initialer som redan finns i samlingen kastar ett undantag.
+
+Exemplet kräver en presentationsfil med minst en bild. På varje av två genomgångar återanvänder det den första matchande författaren, eller skapar en ny endast när resultatet är tomt. Om det finns flera matchningar väljer det det första array‑elementet utan att slå samman eller ta bort de andra författarna. Det anropar sedan [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) för den valda författaren och sparar presentationen. Den andra genomgången öppnar den första genomgångens utdata och upprepar operationen.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string authorName = "Reviewer";
+const string authorInitials = "RV";
+
+var inputFile = "input.pptx";
+var position = new PointF(20, 20);
+
+for (var pass = 1; pass <= 2; pass++)
+{
+    using var presentation = new Presentation(inputFile);
+
+    var matches = presentation.CommentAuthors.FindByNameAndInitials(authorName, authorInitials);
+    
+    var author = matches.Length > 0 ? matches[0] : presentation.CommentAuthors.AddAuthor(authorName, authorInitials);
+    author.Comments.AddComment("Please review this slide.", presentation.Slides[0], position, DateTime.Now);
+
+    var outputFile = $"review_pass_{pass}.pptx";
+    presentation.Save(outputFile, SaveFormat.Pptx);
+    inputFile = outputFile;
+}
+```
+
+Den andra genomgången lägger till ytterligare en kommentar utan att lägga till en ny författare eller ta bort befintliga kommentarer. Slutfilen, `review_pass_2.pptx`, innehåller båda nya kommentarerna tillsammans med eventuella ursprungliga kommentarer. Återanvändning av en författare deduplicerar inte kommentarer: för att undvika att upprepade gånger lägga till samma kommentar, implementera separat dupliceringsdetektion innan du lägger till den.
+
 ## **Åtkomst till bildkommentarer**
-Följande exempel visar hur du får åtkomst till befintliga kommentarer i en PowerPoint-presentation:
+
+Exemplet öppnar en befintlig presentation och läser dess [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/)‑samling. För varje författare itererar det genom [Comments](https://reference.aspose.com/slides/net/aspose.slides/icommentauthor/comments/) och skriver ut bildnummer, kommentartext, författarnamn och skapningstid. Inmatningspresentationen måste innehålla kommentarer för att producera konsolutdata.
 
 ```csharp
 using System;
@@ -99,9 +137,10 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **Svara på kommentarer**
-En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Egenskapen [ParentComment](https://reference.aspose.com/slides/sv/net/aspose.slides/icomment/properties/parentcomment) i gränssnittet [IComment](https://reference.aspose.com/slides/sv/net/aspose.slides/icomment) låter dig hämta eller ange föräldern till en kommentar.
 
-Följande exempel visar hur du lägger till svar och undersöker den resulterande kommentarhierarkin:
+En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/)-egenskapen i [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)-gränssnittet låter dig hämta eller ange föräldern för en kommentar.
+
+Exemplet skapar kommentarer från två författare och använder [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) för att bygga svar, inklusive ett svar på ett annat svar. Att skicka `null` till [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) hämtar kommentarer från alla författare; konsolen indenterar varje post enligt dess djup i svarshierarkin. Exemplet sparar den kompletta diskussionen, anropar [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) på den första rotkommentaren och sparar en andra presentation med den kommentaren och dess svar borttagna.
 
 ```csharp
 using System;
@@ -111,27 +150,28 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var position = new PointF(10, 10);
 var createdTime = DateTime.Now;
 
-var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
-var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
+var originalAuthor = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var rootComment = originalAuthor.Comments.AddComment("comment 1", slide, position, createdTime);
 
-var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
-var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
-reply1.ParentComment = comment1;
+var reviewer = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var firstReply = reviewer.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+firstReply.ParentComment = rootComment;
 
-var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
-reply2.ParentComment = comment1;
+var secondReply = reviewer.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+secondReply.ParentComment = rootComment;
 
-var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
-subReply.ParentComment = reply2;
+var subReply = originalAuthor.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = secondReply;
 
-author2.Comments.AddComment("comment 2", slide, position, createdTime);
-var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+reviewer.Comments.AddComment("comment 2", slide, position, createdTime);
+var separateComment = reviewer.Comments.AddComment("comment 3", slide, position, createdTime);
 
-var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
-reply3.ParentComment = comment3;
+var separateReply = originalAuthor.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+separateReply.ParentComment = separateComment;
 
 var comments = slide.GetSlideComments(null);
 for (var i = 0; i < comments.Length; i++)
@@ -148,25 +188,24 @@ for (var i = 0; i < comments.Length; i++)
 
 presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
 
-comment1.Remove();
+rootComment.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-* När [Remove](https://reference.aspose.com/slides/sv/net/aspose.slides/icomment/methods/remove)-metoden i gränssnittet [IComment](https://reference.aspose.com/slides/sv/net/aspose.slides/icomment) används för att ta bort en kommentar, tas även alla svar på den kommentaren bort.
-* Om egenskapen [ParentComment](https://reference.aspose.com/slides/sv/net/aspose.slides/icomment/properties/parentcomment) skapar en cirkulär referens, kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/net/aspose.slides/pptxeditexception).
-
+{{% alert color="warning" title="Warning" %}}
+* När metoden [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) i [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)-gränssnittet används för att radera en kommentar, tas alla svar på den kommentaren också bort.
+* Om [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/)‑egenskapen skapar en cirkulär referens, kastas ett [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception).
 {{% /alert %}}
 
 ## **Lägg till moderna kommentarer**
 
-Moderna kommentarer kan kopplas till själva bilden, till en specifik form eller till ett textområde i en AutoShape. Metoden [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/sv/net/aspose.slides/icommentcollection/addmoderncomment/) accepterar ett [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/)‑argument utöver bild‑ och kommentarmarkörkoordinaterna.
+Moderna kommentarer kan associeras med själva bilden, med en specifik form eller med ett textintervall i en AutoShape. Metoden [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) accepterar ett [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/)-argument utöver bilden och koordinaterna för kommentarmarkören.
 
-När `null` skickas för formaargumentet är kommentaren en bildnivå‑kommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte kopplad till någon specifik form, så [IModernComment.Shape](https://reference.aspose.com/slides/sv/net/aspose.slides/imoderncomment/shape/) returnerar `null`. När en [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/) tillhandahålls, förankras kommentaren på den formen. Koordinaterna definierar fortfarande positionen för kommentarmarkören på bilden, medan formkopplingen kan hämtas via [IModernComment.Shape](https://reference.aspose.com/slides/sv/net/aspose.slides/imoderncomment/shape/).
+När `null` skickas för shape‑argumentet blir kommentaren en bildnivå‑kommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte knuten till någon specifik form, så [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) returnerar `null`. När en [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) tillhandahålls, förankras kommentaren till den formen. Koordinaterna definierar fortfarande positionen för kommentarmarkören på bilden, medan form‑kopplingen kan hämtas via [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/).
 
-### **Fästa en modern kommentar på en form**
+### **Förankra en modern kommentar till en form**
 
-Följande exempel skapar både en bildnivå‑modern kommentar och en modern kommentar förankrad till en specifik AutoShape. Därefter läses den associerade formen från varje kommentar.
+Exemplet anropar [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) två gånger: en gång med en `null`‑form för en bildnivå‑kommentar och en gång med en rektangel som förankring. Att läsa [Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) skriver ut `True` för bildnivå‑kommentarens null‑kontroll och `Revenue title` för den förankrade kommentaren. Båda kommentarerna sparas med presentationen.
 
 ```csharp
 using System;
@@ -176,7 +215,9 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
 shape.Name = "Revenue title";
 shape.TextFrame.Text = "Quarterly revenue";
@@ -193,11 +234,11 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **Fäst kommentarer på olika formtyper**
+### **Förankra kommentarer till olika formtyper**
 
-Alla bildobjekt som implementerar [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/) kan användas som formankare. Vanliga exempel inkluderar [IAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/sv/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/sv/net/aspose.slides/iconnector/), och [IGraphicalObject](https://reference.aspose.com/slides/sv/net/aspose.slides/igraphicalobject/)-instanser som diagram.
+Alla bildobjekt som implementerar [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) kan användas som form‑förankring. Vanliga exempel inkluderar [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/net/aspose.slides/iconnector/) och [IGraphicalObject](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobject/)-instanser såsom diagram.
 
-Följande exempel skapar flera vanliga formtyper och associerar en modern kommentar med var och en.
+Exemplet använder [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) för att associera en kommentar med var och en av fem formtyper: en AutoShape, en bildram, en grupp, en koppling och ett diagram. Bilden använder inbäddad bilddata, så ingen extern bild behövs. Varje kommentar har sin egen markörposition, och den sparade presentationen behåller alla fem form‑associationer.
 
 ```csharp
 using System;
@@ -208,11 +249,13 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
 var createdTime = DateTime.Now;
 
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
 autoShape.TextFrame.Text = "AutoShape";
+
 var autoShapeCommentPosition = new PointF(30, 30);
 author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -240,18 +283,18 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **Fäst en kommentar på text och ange dess status**
+### **Förankra en kommentar till text och sätt dess status**
 
-För en modern kommentar som är kopplad till en [IAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape/), anger [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/sv/net/aspose.slides/imoderncomment/textselectionstart/) startpositionen för den markerade texten i formens textruta, medan [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/sv/net/aspose.slides/imoderncomment/textselectionlength/) anger längden på markeringen. Tillsammans associerar dessa egenskaper kommentaren med ett specifikt textområde i AutoShape.
+För en modern kommentar kopplad till en [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), specificerar [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) startpositionen för den valda texten i formens textram, medan [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) anger längden på urvalet. Tillsammans associerar dessa egenskaper kommentaren med ett specifikt textintervall i AutoShape.
 
-Egenskapen [IModernComment.Status](https://reference.aspose.com/slides/sv/net/aspose.slides/imoderncomment/status/) kan läsas eller uppdateras med ett värde från uppräkningen [ModernCommentStatus](https://reference.aspose.com/slides/sv/net/aspose.slides/moderncommentstatus/):
+[IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/)-egenskapen kan läsas eller uppdateras med ett värde från uppräkningen [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — ingen specifik modern‑kommentarstatus är definierad.
+- `NotDefined` — ingen specifik modern‑kommentarstatus definierad.
 - `Active` — kommentaren är aktiv.
-- `Resolved` — kommentaren har markerats som löst.
+- `Resolved` — kommentaren har lösts.
 - `Closed` — kommentaren är stängd.
 
-Följande exempel skapar en formförankrad modern kommentar, associerar den med en textmarkering, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
+Exemplet förankrar en modern kommentar till orden "quarterly revenue" i en rektangels text. Det beräknar den nollbaserade [TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) från texten och sätter [TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) till antalet valda tecken. Efter att ha satt [Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) till `Resolved` sparas och öppnas presentationen igen. De fyra konsollkontrollerna bör alla skriva ut `True`, vilket bekräftar att form‑förankring, textintervall och status bevarades.
 
 ```csharp
 using System;
@@ -266,6 +309,7 @@ var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Or
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
 shape.Name = "Forecast text";
 shape.TextFrame.Text = shapeText;
@@ -304,7 +348,7 @@ foreach (var reopenedComment in reopenedComments)
 
 ### **Inspektera befintliga moderna kommentarer**
 
-För att inspektera en befintlig presentation, kontrollera vilka kommentarer som implementerar [IModernComment](https://reference.aspose.com/slides/sv/net/aspose.slides/imoderncomment/), granska sedan [IModernComment.Shape](https://reference.aspose.com/slides/sv/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/sv/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/sv/net/aspose.slides/imoderncomment/textselectionlength/) och [IModernComment.Status](https://reference.aspose.com/slides/sv/net/aspose.slides/imoderncomment/status/). En `null`‑form indikerar en bildnivå‑kommentar. För en [IAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape/)‑ankare identifierar textmarkerings‑egenskaperna det associerade området i formens textruta.
+Exemplet kräver en befintlig presentation som innehåller moderna kommentarer och skriver ut deras text, status och förankringsdetaljer. För att inspektera den, kontrollera vilka kommentarer som implementerar [IModernComment](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/), granska sedan [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) och [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/). En `null`‑form indikerar en bildnivå‑kommentar. För en [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)-förankring identifierar text‑urvalsegenskaperna det associerade intervallet i formens textram.
 
 ```csharp
 using System;
@@ -350,9 +394,11 @@ foreach (var slide in presentation.Slides)
 
 ## **Ta bort kommentarer**
 
+Aspose.Slides för .NET låter dig ta bort alla kommentarer och deras författare från en presentation eller radera valda kommentarer samtidigt som resten behålls. Följande exempel demonstrerar båda tillvägagångssätten och sparar den uppdaterade presentationen.
+
 ### **Ta bort alla kommentarer och kommentarförfattare**
 
-Följande exempel visar hur du tar bort alla kommentarer och kommentarförfattare från en presentation:
+Exemplet öppnar en befintlig presentation och anropar [ICommentCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/clear/) för varje författare, därefter [ICommentAuthorCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/clear/) för att ta bort författarna själva. Den sparade presentationen innehåller varken kommentarer eller kommentarförfattare. Använd en presentation som innehåller kommentarer för att se borttagningen.
 
 ```csharp
 using Aspose.Slides;
@@ -366,12 +412,13 @@ foreach (var author in presentation.CommentAuthors)
 }
 
 presentation.CommentAuthors.Clear();
+
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
 ### **Ta bort specifika kommentarer**
 
-Följande exempel visar hur du tar bort specifika kommentarer från en bild:
+Exemplet skapar två kommentarer på en bild och använder [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) för att hitta kommentarer av varje författare. Det samlar kommentarer vars text är lika med "comment 1" innan det anropar [ICommentCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/remove/), för att undvika förändringar i samlingen under urvalet. Den sparade presentationen behåller endast "comment 2".
 
 ```csharp
 using System;
@@ -382,6 +429,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Author", "A");
 var createdTime = DateTime.Now;
 
@@ -414,14 +462,14 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Stöder Aspose.Slides ett löst‑status för moderna kommentarer?**
+**Stöder Aspose.Slides en löst status för moderna kommentarer?**
 
-Ja. [IModernComment.Status](https://reference.aspose.com/slides/sv/net/aspose.slides/imoderncomment/status/) kan läsas och sättas med ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/net/aspose.slides/moderncommentstatus/)-värde, inklusive `Resolved`. Statusen lagras i presentationen och kan läsas igen efter att filen har öppnats.
+Ja. [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) kan läsas och sättas med ett [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/)-värde, inklusive `Resolved`. Statusen lagras i presentationen och kan läsas igen när filen öppnas på nytt.
 
 **Stöds trådade diskussioner (svarskedjor), och finns det någon begränsning för nästling?**
 
-Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/net/aspose.slides/comment/parentcomment/), vilket möjliggör svarskedjor. API:et definierar ingen specifik begränsning för nästlingsdjup.
+Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/), vilket möjliggör svarskedjor. API‑et definierar ingen specifik gräns för nästlingsdjup.
 
 **I vilket koordinatsystem definieras en kommentarmarkörs position på en bild?**
 
-Markörens position definieras av flyttal‑koordinater i bildens koordinatsystem, vilket gör att du kan placera den exakt på bilden.
+Markörpositionen definieras av flyttal‑koordinater i bildens koordinatsystem, vilket låter dig placera den exakt på bilden.

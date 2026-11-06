@@ -1,51 +1,52 @@
 ---
 title: Zarządzanie komentarzami w prezentacji w .NET
-linktitle: Komentarze w prezentacji
+linktitle: Komentarze prezentacji
 type: docs
 weight: 100
 url: /pl/net/presentation-comments/
 keywords:
-- komentarz
-- nowoczesny komentarz
-- komentarze PowerPoint
-- komentarze w prezentacji
-- komentarze slajdu
-- dodaj komentarz
-- dostęp do komentarza
-- edytuj komentarz
-- odpowiedz na komentarz
-- usuń komentarz
-- skasuj komentarz
-- PowerPoint
-- prezentacja
-- .NET
-- C#
-- Aspose.Slides
-description: "Zarządzaj komentarzami w prezentacji przy użyciu Aspose.Slides dla .NET: dodawaj, czytaj, edytuj, odpowiadaj i usuwaj komentarze w prezentacjach PowerPoint szybko i łatwo."
+  - komentarz
+  - nowoczesny komentarz
+  - komentarze PowerPoint
+  - komentarze prezentacji
+  - komentarze slajdów
+  - dodaj komentarz
+  - dostęp do komentarza
+  - edytuj komentarz
+  - odpowiedź na komentarz
+  - usuń komentarz
+  - kasuj komentarz
+  - PowerPoint
+  - prezentacja
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Zarządzaj komentarzami w prezentacji za pomocą Aspose.Slides dla .NET: dodawaj, odczytuj, edytuj, odpowiadaj i usuwaj komentarze w prezentacjach PowerPoint szybko i łatwo."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak zarządzać komentarzami w prezentacji przy użyciu Aspose.Slides for .NET. Przedstawia główne typy związane z komentarzami oraz pokazuje, jak dodawać komentarze do slajdów, uzyskiwać dostęp do istniejących komentarzy, pracować z odpowiedziami i nowoczesnymi komentarzami oraz usuwać komentarze z prezentacji.
+Ten artykuł wyjaśnia, jak zarządzać komentarzami w prezentacji przy użyciu Aspose.Slides dla .NET. Przedstawia główne typy związane z komentarzami i demonstruje, jak dodawać komentarze do slajdów, uzyskiwać dostęp do istniejących komentarzy, pracować z odpowiedziami i nowoczesnymi komentarzami oraz usuwać komentarze z prezentacji.
 
-Przykłady obejmują typowe scenariusze recenzji i współpracy w PowerPoint, takie jak przypisywanie komentarzy do autorów, odczytywanie tekstu i metadanych komentarzy, budowanie łańcuchów odpowiedzi oraz usuwanie wybranych lub wszystkich komentarzy.
+Przykłady obejmują typowe scenariusze przeglądu i współpracy w programie PowerPoint, takie jak przypisywanie komentarzy do autorów, odczytywanie tekstu komentarza i metadanych, budowanie łańcuchów odpowiedzi oraz usuwanie wybranych komentarzy lub wszystkich komentarzy.
 
-W PowerPoint komentarze wyświetlane są jako adnotacje na slajdach. Wybranie komentarza wyświetla jego tekst oraz powiązaną dyskusję.
+W programie PowerPoint komentarze pojawiają się jako adnotacje na slajdach. Wybranie komentarza wyświetla jego tekst oraz powiązaną dyskusję.
 
-Aby żądać wyświetlenia lub ukrycia komentarzy przy otwieraniu prezentacji bez zmiany samych komentarzy, zobacz [Pokaż lub ukryj komentarze podczas otwierania prezentacji](/slides/pl/net/presentation-view-properties/).
+Aby żądać, aby komentarze były wyświetlane lub ukrywane podczas otwierania prezentacji bez zmiany samych komentarzy, zobacz [Pokaż lub ukryj komentarze podczas otwierania prezentacji](/slides/pl/net/presentation-view-properties/).
 
 ## **Dlaczego dodawać komentarze do prezentacji?**
 
-Możesz używać komentarzy do przekazywania informacji zwrotnej i współpracy z kolegami przy przeglądaniu prezentacji.
+Możesz używać komentarzy, aby udzielać informacji zwrotnej i współpracować z współpracownikami podczas przeglądania prezentacji.
 
-Aspose.Slides for .NET udostępnia następujące API do pracy z komentarzami:
+Aspose.Slides for .NET udostępnia następujące interfejsy API do pracy z komentarzami:
 
-* Klasa [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation), która zapewnia dostęp do autorów komentarzy w prezentacji.
-* Interfejs [ICommentCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/icommentcollection), który reprezentuje komentarze powiązane z konkretnym autorem.
-* Interfejs [IComment](https://reference.aspose.com/slides/pl/net/aspose.slides/icomment), który dostarcza informacji o komentarzu, w tym autora, czas utworzenia, pozycję i tekst.
-* Klasa [CommentAuthor](https://reference.aspose.com/slides/pl/net/aspose.slides/commentauthor), która dostarcza informacji o autorze, w tym imię, inicjały i powiązane komentarze.
+* Klasa [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) zapewnia dostęp do autorów komentarzy w prezentacji.
+* Interfejs [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) reprezentuje komentarze powiązane z pojedynczym autorem.
+* Interfejs [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) zapewnia informacje o komentarzu, w tym jego autora, czas utworzenia, pozycję i tekst.
+* Klasa [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) zapewnia informacje o autorze, w tym jego imię, inicjały i powiązane komentarze.
 
 ## **Dodawanie komentarzy do slajdów**
-Poniższy przykład pokazuje, jak dodać komentarze do slajdów w prezentacji PowerPoint:
+
+Przykład tworzy dwa slajdy i rejestruje autora komentarza przy użyciu [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/). Używa [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) aby umieścić jeden komentarz na każdym slajdzie, a następnie pobiera komentarze pierwszego slajdu dla tego autora przy pomocy [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/). Konsola wyświetla tekst pierwszego komentarza dwa razy, demonstrując dostęp zarówno poprzez slajd, jak i autora, a zapisowana prezentacja zawiera oba komentarze.
 
 ```csharp
 using System;
@@ -56,6 +57,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var firstSlide = presentation.Slides[0];
 var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
 var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 var position = new PointF(0.2f, 0.2f);
 var createdTime = DateTime.Now;
@@ -76,8 +78,44 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Dostęp do komentarzy na slajdach**
-Poniższy przykład pokazuje, jak uzyskać dostęp do istniejących komentarzy w prezentacji PowerPoint:
+## **Znajdź lub utwórz autora komentarza**
+
+Gdy automatyczny przegląd wielokrotnie przetwarza tę samą prezentację, przed dodaniem autora przeszukaj jej kolekcję [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/). [FindByNameAndInitials](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbynameandinitials/) dopasowuje zarówno nazwę, jak i inicjały i zwraca tablicę pasujących autorów lub pustą tablicę, jeśli brak dopasowań. Natomiast [FindByName](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbyname/) wyszukuje tylko po nazwie, niezależnie od inicjałów. Wywołanie [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) z nazwą i inicjałami już istniejącymi w kolekcji powoduje wyrzucenie wyjątku.
+
+Przykład wymaga pliku prezentacji z co najmniej jednym slajdem. W każdym z dwóch przebiegów ponownie używa pierwszego pasującego autora lub tworzy nowego tylko wtedy, gdy wynik jest pusty. Jeśli istnieje wiele dopasowań, wybiera pierwszy element tablicy bez łączenia lub usuwania pozostałych autorów. Następnie wywołuje [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) dla wybranego autora i zapisuje prezentację. Drugi przebieg otwiera wynik pierwszego przebiegu i powtarza operację.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string authorName = "Reviewer";
+const string authorInitials = "RV";
+
+var inputFile = "input.pptx";
+var position = new PointF(20, 20);
+
+for (var pass = 1; pass <= 2; pass++)
+{
+    using var presentation = new Presentation(inputFile);
+
+    var matches = presentation.CommentAuthors.FindByNameAndInitials(authorName, authorInitials);
+    
+    var author = matches.Length > 0 ? matches[0] : presentation.CommentAuthors.AddAuthor(authorName, authorInitials);
+    author.Comments.AddComment("Please review this slide.", presentation.Slides[0], position, DateTime.Now);
+
+    var outputFile = $"review_pass_{pass}.pptx";
+    presentation.Save(outputFile, SaveFormat.Pptx);
+    inputFile = outputFile;
+}
+```
+
+Drugi przebieg dodaje kolejny komentarz bez dodawania kolejnego autora ani usuwania istniejących komentarzy. Końcowy plik `review_pass_2.pptx` zawiera oba nowe komentarze wraz z wszelkimi oryginalnymi komentarzami. Ponowne użycie autora nie powoduje deduplikacji komentarzy: aby uniknąć wielokrotnego dodawania tego samego komentarza, przed jego dodaniem należy zaimplementować oddzielne wykrywanie duplikatów.
+
+## **Uzyskiwanie dostępu do komentarzy slajdów**
+
+Przykład otwiera istniejącą prezentację i odczytuje jej kolekcję [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/). Dla każdego autora iteruje po [Comments](https://reference.aspose.com/slides/net/aspose.slides/icommentauthor/comments/) i wypisuje numer slajdu, tekst komentarza, nazwę autora oraz czas utworzenia. Prezentacja wejściowa musi zawierać komentarze, aby wygenerować wyjście w konsoli.
 
 ```csharp
 using System;
@@ -98,10 +136,11 @@ foreach (var author in presentation.CommentAuthors)
 }
 ```
 
-## **Odpowiadanie na komentarze**
-Komentarz nadrzędny to oryginalny komentarz na szczycie hierarchii odpowiedzi. Właściwość [ParentComment](https://reference.aspose.com/slides/pl/net/aspose.slides/icomment/properties/parentcomment) interfejsu [IComment](https://reference.aspose.com/slides/pl/net/aspose.slides/icomment) pozwala odczytać lub ustawić rodzica komentarza.
+## **Odpowiedź na komentarze**
 
-Poniższy przykład pokazuje, jak dodać odpowiedzi i zbadać powstałą hierarchię komentarzy:
+Komentarz nadrzędny to oryginalny komentarz na szczycie hierarchii odpowiedzi. Właściwość [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) interfejsu [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) umożliwia pobranie lub ustawienie nadrzędnego komentarza.
+
+Przykład tworzy komentarze od dwóch autorów i używa [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) do budowania odpowiedzi, w tym odpowiedzi na inną odpowiedź. Przekazanie `null` do [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) pobiera komentarze od wszystkich autorów; konsola wcięci każdy wpis zgodnie z jego głębokością w hierarchii odpowiedzi. Przykład zapisuje pełną dyskusję, wywołuje [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) na pierwszym komentarzu głównym i zapisuje drugą prezentację z usuniętym tym komentarzem oraz jego odpowiedziami.
 
 ```csharp
 using System;
@@ -111,27 +150,28 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var position = new PointF(10, 10);
 var createdTime = DateTime.Now;
 
-var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
-var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
+var originalAuthor = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var rootComment = originalAuthor.Comments.AddComment("comment 1", slide, position, createdTime);
 
-var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
-var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
-reply1.ParentComment = comment1;
+var reviewer = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var firstReply = reviewer.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+firstReply.ParentComment = rootComment;
 
-var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
-reply2.ParentComment = comment1;
+var secondReply = reviewer.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+secondReply.ParentComment = rootComment;
 
-var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
-subReply.ParentComment = reply2;
+var subReply = originalAuthor.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = secondReply;
 
-author2.Comments.AddComment("comment 2", slide, position, createdTime);
-var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+reviewer.Comments.AddComment("comment 2", slide, position, createdTime);
+var separateComment = reviewer.Comments.AddComment("comment 3", slide, position, createdTime);
 
-var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
-reply3.ParentComment = comment3;
+var separateReply = originalAuthor.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+separateReply.ParentComment = separateComment;
 
 var comments = slide.GetSlideComments(null);
 for (var i = 0; i < comments.Length; i++)
@@ -148,26 +188,24 @@ for (var i = 0; i < comments.Length; i++)
 
 presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
 
-comment1.Remove();
+rootComment.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-
-* Gdy metoda [Remove](https://reference.aspose.com/slides/pl/net/aspose.slides/icomment/methods/remove) interfejsu [IComment](https://reference.aspose.com/slides/pl/net/aspose.slides/icomment) jest używana do usunięcia komentarza, wszystkie odpowiedzi do tego komentarza są również usuwane.
-* Jeśli właściwość [ParentComment](https://reference.aspose.com/slides/pl/net/aspose.slides/icomment/properties/parentcomment) tworzy odniesienie cykliczne, zostaje zgłoszony wyjątek [PptxEditException](https://reference.aspose.com/slides/pl/net/aspose.slides/pptxeditexception).
-
+{{% alert color="warning" title="Warning" %}}
+* Gdy metoda [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) interfejsu [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) jest używana do usunięcia komentarza, wszystkie odpowiedzi na ten komentarz są również usuwane.
+* Jeśli właściwość [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) tworzy referencję okrągłą, zostaje wyrzucony [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception).
 {{% /alert %}}
 
 ## **Dodawanie nowoczesnych komentarzy**
 
-Nowoczesne komentarze mogą być powiązane z samym slajdem, konkretnym kształtem lub zakresem tekstu wewnątrz AutoShape. Metoda [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/pl/net/aspose.slides/icommentcollection/addmoderncomment/) przyjmuje jako argument [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/) oprócz współrzędnych slajdu i znacznika komentarza.
+Nowoczesne komentarze mogą być powiązane ze slajdem, konkretnym kształtem lub zakresem tekstu wewnątrz AutoShape. Metoda [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) przyjmuje argument [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), oprócz slajdu i współrzędnych znacznika komentarza.
 
-Gdy dla argumentu shape przekazywany jest `null`, komentarz jest komentarzem na poziomie slajdu. Jego znacznik jest pozycjonowany przy użyciu podanych współrzędnych, ale nie jest powiązany z konkretnym kształtem, więc [IModernComment.Shape](https://reference.aspose.com/slides/pl/net/aspose.slides/imoderncomment/shape/) zwraca `null`. Gdy dostarczony zostaje [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/), komentarz jest zakotwiczony do tego kształtu. Współrzędne nadal definiują pozycję znacznika komentarza na slajdzie, a powiązanie z kształtem można odczytać przez [IModernComment.Shape](https://reference.aspose.com/slides/pl/net/aspose.slides/imoderncomment/shape/).
+Gdy `null` jest przekazywany jako argument shape, komentarz jest komentarzem na poziomie slajdu. Jego znacznik jest pozycjonowany według podanych współrzędnych, ale nie jest powiązany z konkretnym kształtem, więc [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) zwraca `null`. Gdy podany zostanie [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), komentarz jest zakotwiczony do tego kształtu. Współrzędne nadal określają pozycję znacznika komentarza na slajdzie, a powiązanie kształtu można odczytać przez [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/).
 
 ### **Przypięcie nowoczesnego komentarza do kształtu**
 
-Poniższy przykład tworzy zarówno komentarz nowoczesny na poziomie slajdu, jak i komentarz nowoczesny zakotwiczony do konkretnego AutoShape. Następnie odczytuje powiązany kształt z każdego komentarza.
+Przykład wywołuje [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) dwa razy: raz z `null` shape dla komentarza na poziomie slajdu i raz z prostokątem jako kotwicą. Odczyt [Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) wypisuje `True` dla sprawdzenia `null` w komentarzu na poziomie slajdu oraz `Revenue title` dla komentarza zakotwiczonego. Oba komentarze są zapisywane razem z prezentacją.
 
 ```csharp
 using System;
@@ -177,7 +215,9 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
 shape.Name = "Revenue title";
 shape.TextFrame.Text = "Quarterly revenue";
@@ -194,11 +234,11 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **Przypięcie komentarzy do różnych typów kształtów**
+### **Przypinanie komentarzy do różnych typów kształtów**
 
-Każdy obiekt slajdu implementujący [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/) może być użyty jako kotwica kształtu. Typowe przykłady to [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/pl/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/pl/net/aspose.slides/iconnector/) oraz instancje [IGraphicalObject](https://reference.aspose.com/slides/pl/net/aspose.slides/igraphicalobject/) takie jak wykresy.
+Każdy obiekt slajdu implementujący [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) może być użyty jako kotwica kształtu. Typowe przykłady obejmują [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/net/aspose.slides/iconnector/) oraz [IGraphicalObject](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobject/) takie jak wykresy.
 
-Poniższy przykład tworzy kilka powszechnych typów kształtów i powiązuje z każdym z nich nowoczesny komentarz.
+Przykład używa [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) do powiązania komentarza z pięcioma typami kształtów: AutoShape, ramką obrazu, grupą, łącznikiem i wykresem. Obraz jest osadzony w danych obrazu, więc nie wymaga zewnętrznego pliku. Każdy komentarz ma własną pozycję znacznika, a zapisana prezentacja zachowuje wszystkie pięć powiązań kształtów.
 
 ```csharp
 using System;
@@ -209,11 +249,13 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
 var createdTime = DateTime.Now;
 
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
 autoShape.TextFrame.Text = "AutoShape";
+
 var autoShapeCommentPosition = new PointF(30, 30);
 author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -243,16 +285,16 @@ presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 
 ### **Przypięcie komentarza do tekstu i ustawienie jego statusu**
 
-Dla nowoczesnego komentarza powiązanego z [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/), właściwość [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/pl/net/aspose.slides/imoderncomment/textselectionstart/) określa początkową pozycję zaznaczonego tekstu w ramce tekstowej kształtu, natomiast [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/pl/net/aspose.slides/imoderncomment/textselectionlength/) określa długość zaznaczenia. Razem te właściwości wiążą komentarz z określonym zakresem tekstu wewnątrz AutoShape.
+Dla nowoczesnego komentarza powiązanego z [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) określa początkową pozycję zaznaczonego tekstu w ramce tekstowej kształtu, a [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) określa długość zaznaczenia. Razem te właściwości powiązują komentarz z konkretnym zakresem tekstu wewnątrz AutoShape.
 
-Właściwość [IModernComment.Status](https://reference.aspose.com/slides/pl/net/aspose.slides/imoderncomment/status/) może być odczytana lub zaktualizowana przy użyciu wartości z wyliczenia [ModernCommentStatus](https://reference.aspose.com/slides/pl/net/aspose.slides/moderncommentstatus/):
+Właściwość [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) może być odczytana lub zaktualizowana wartością z wyliczenia [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/):
 
 - `NotDefined` — nie określono konkretnego statusu nowoczesnego komentarza.
 - `Active` — komentarz jest aktywny.
 - `Resolved` — komentarz został rozwiązany.
 - `Closed` — komentarz jest zamknięty.
 
-Poniższy przykład tworzy komentarz nowoczesny zakotwiczony do kształtu, powiązuje go z zaznaczeniem tekstu, oznacza jako rozwiązany, zapisuje prezentację i weryfikuje wartości po ponownym otwarciu pliku.
+Przykład zakotwicza nowoczesny komentarz do słów „quarterly revenue” w tekście prostokąta. Oblicza zerowo‑indeksowy [TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) z tekstu i ustawia [TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) na liczbę zaznaczonych znaków. Po ustawieniu [Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) na `Resolved` zapisuje i ponownie otwiera prezentację. Cztery sprawdzenia w konsoli powinny kolejno wypisać `True`, potwierdzając zachowanie kotwicy kształtu, zakresu tekstu i statusu.
 
 ```csharp
 using System;
@@ -267,6 +309,7 @@ var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Or
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
 shape.Name = "Forecast text";
 shape.TextFrame.Text = shapeText;
@@ -303,9 +346,9 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
-### **Sprawdzanie istniejących nowoczesnych komentarzy**
+### **Inspekcja istniejących nowoczesnych komentarzy**
 
-Aby przeanalizować istniejącą prezentację, sprawdź, które komentarze implementują [IModernComment](https://reference.aspose.com/slides/pl/net/aspose.slides/imoderncomment/), a następnie zbadaj [IModernComment.Shape](https://reference.aspose.com/slides/pl/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/pl/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/pl/net/aspose.slides/imoderncomment/textselectionlength/) oraz [IModernComment.Status](https://reference.aspose.com/slides/pl/net/aspose.slides/imoderncomment/status/). `null` kształt wskazuje na komentarz na poziomie slajdu. Dla kotwicy [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) właściwości zaznaczenia tekstu określają powiązany zakres w ramce tekstowej kształtu.
+Przykład wymaga istniejącej prezentacji zawierającej nowoczesne komentarze i wypisuje ich tekst, status oraz szczegóły kotwicy. Aby je zbadać, sprawdź, które komentarze implementują [IModernComment](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/), a następnie przeanalizuj [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) i [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/). `null` shape wskazuje na komentarz na poziomie slajdu. Dla kotwicy [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) właściwości wyboru tekstu identyfikują powiązany zakres w ramce tekstowej kształtu.
 
 ```csharp
 using System;
@@ -351,9 +394,11 @@ foreach (var slide in presentation.Slides)
 
 ## **Usuwanie komentarzy**
 
-### **Usuwanie wszystkich komentarzy i autorów komentarzy**
+Aspose.Slides for .NET pozwala usuwać wszystkie komentarze i ich autorów z prezentacji lub usuwać wybrane komentarze, pozostawiając resztę. Poniższe przykłady demonstrują oba podejścia i zapisują zaktualizowaną prezentację.
 
-Poniższy przykład pokazuje, jak usunąć wszystkie komentarze i autorów komentarzy z prezentacji:
+### **Usunięcie wszystkich komentarzy i autorów komentarzy**
+
+Przykład otwiera istniejącą prezentację i wywołuje [ICommentCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/clear/) dla każdego autora, a następnie wywołuje [ICommentAuthorCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/clear/) w celu usunięcia samych autorów. Zapisana prezentacja nie zawiera żadnych komentarzy ani ich autorów. Użyj prezentacji zawierającej komentarze, aby zobaczyć efekt usunięcia.
 
 ```csharp
 using Aspose.Slides;
@@ -367,12 +412,13 @@ foreach (var author in presentation.CommentAuthors)
 }
 
 presentation.CommentAuthors.Clear();
+
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
-### **Usuwanie wybranych komentarzy**
+### **Usunięcie konkretnych komentarzy**
 
-Poniższy przykład pokazuje, jak usunąć wybrane komentarze ze slajdu:
+Przykład tworzy dwa komentarze na jednym slajdzie i używa [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) aby znaleźć komentarze każdego autora. Zbiera komentarze, których tekst równa się "comment 1", zanim wywoła [ICommentCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/remove/), unikając modyfikacji kolekcji w trakcie wyboru. Zapisana prezentacja zachowuje tylko "comment 2".
 
 ```csharp
 using System;
@@ -383,6 +429,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Author", "A");
 var createdTime = DateTime.Now;
 
@@ -417,12 +464,12 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 **Czy Aspose.Slides obsługuje status rozwiązany dla nowoczesnych komentarzy?**
 
-Tak. [IModernComment.Status](https://reference.aspose.com/slides/pl/net/aspose.slides/imoderncomment/status/) może być odczytywany i ustawiany przy użyciu wartości z wyliczenia [ModernCommentStatus](https://reference.aspose.com/slides/pl/net/aspose.slides/moderncommentstatus/), w tym `Resolved`. Status jest przechowywany w prezentacji i może być odczytany ponownie po ponownym otwarciu pliku.
+Tak. [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) może być odczytany i ustawiony wartością z wyliczenia [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/), w tym `Resolved`. Status jest przechowywany w prezentacji i może być odczytany ponownie po ponownym otwarciu pliku.
 
-**Czy obsługiwane są dyskusje wątkowe (łańcuchy odpowiedzi) i czy istnieje limit zagłębienia?**
+**Czy wątki dyskusji (łańcuchy odpowiedzi) są obsługiwane i czy istnieje limit zagnieżdżenia?**
 
-Tak. Każdy komentarz może odwoływać się do swojego [parent comment](https://reference.aspose.com/slides/pl/net/aspose.slides/comment/parentcomment/), co umożliwia tworzenie łańcuchów odpowiedzi. API nie definiuje konkretnego limitu głębokości zagnieżdżenia.
+Tak. Każdy komentarz może odwoływać się do swojego [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/), umożliwiając łańcuchy odpowiedzi. API nie definiuje konkretnego limitu głębokości zagnieżdżenia.
 
-**W jakim układzie współrzędnych definiowana jest pozycja znacznika komentarza na slajdzie?**
+**W jakim systemie współrzędnych określona jest pozycja znacznika komentarza na slajdzie?**
 
-Pozycja znacznika jest definiowana przez współrzędne zmiennoprzecinkowe w układzie współrzędnych slajdu, co pozwala precyzyjnie umieścić go na slajdzie.
+Pozycja znacznika jest określana przez współrzędne zmiennoprzecinkowe w systemie współrzędnych slajdu, co pozwala precyzyjnie umieścić go na slajdzie.

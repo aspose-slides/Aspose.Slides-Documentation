@@ -1,5 +1,5 @@
 ---
-title: Управление комментариями презентации в Python через Java
+title: Управление комментариями презентаций в Python через Java
 linktitle: Комментарии к презентации
 type: docs
 weight: 100
@@ -8,12 +8,12 @@ keywords:
 - комментарий
 - современный комментарий
 - комментарии PowerPoint
-- комментарии презентации
-- комментарии слайда
+- комментарии к презентации
+- комментарии к слайду
 - добавить комментарий
 - доступ к комментариям
 - редактировать комментарий
-- отвечать на комментарий
+- ответить на комментарий
 - удалить комментарий
 - удалить комментарий
 - PowerPoint
@@ -21,32 +21,32 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Управляйте комментариями презентации с помощью Aspose.Slides for Python via Java: добавляйте, читайте, редактируйте, отвечайте и удаляйте комментарии в презентациях PowerPoint быстро и легко."
+description: "Управляйте комментариями презентаций с помощью Aspose.Slides для Python через Java: добавляйте, читайте, редактируйте, отвечайте и удаляйте комментарии в презентациях PowerPoint быстро и легко."
 ---
 ## **Обзор**
 
-В этой статье объясняется, как управлять комментариями презентации с помощью Aspose.Slides for Python via Java. Описываются основные типы, связанные с комментариями, и демонстрируется, как добавлять комментарии на слайды, получать доступ к существующим комментариям, работать с ответами и современными комментариями, а также удалять комментарии из презентации.
+В этой статье объясняется, как управлять комментариями презентаций с помощью Aspose.Slides for Python via Java. Представлены основные типы, связанные с комментариями, и демонстрируется, как добавлять комментарии на слайды, получать доступ к существующим комментариям, работать с ответами и современными комментариями, а также удалять комментарии из презентации.
 
-Примеры охватывают типичные сценарии рецензирования и совместной работы в PowerPoint, такие как назначение комментариев авторам, чтение текста комментариев и сопутствующих метаданных, построение цепочек ответов и удаление выбранных комментариев или всех комментариев.
+Примеры охватывают типичные сценарии рецензирования и совместной работы в PowerPoint, такие как присвоение комментариев авторам, чтение текста комментария и метаданных, построение цепочек ответов и удаление выбранных комментариев или всех комментариев.
 
-В PowerPoint комментарии отображаются как аннотации на слайдах. Выбор комментария показывает его текст и связанную дискуссию.
+В PowerPoint комментарии отображаются как аннотации на слайдах. Выбор комментария отображает его текст и связанную дискуссию.
 
 Чтобы запросить отображение или скрытие комментариев при открытии презентации без изменения самих комментариев, см. [Показать или скрыть комментарии при открытии презентации](/slides/ru/python-java/presentation-view-properties/).
 
-## **Зачем добавлять комментарии в презентации?**
+## **Зачем добавлять комментарии к презентациям?**
 
-Вы можете использовать комментарии для предоставления обратной связи и совместной работы с коллегами при просмотре презентаций.
+Вы можете использовать комментарии для предоставления обратной связи и совместной работы с коллегами при рецензировании презентаций.
 
 Aspose.Slides for Python via Java предоставляет следующие API для работы с комментариями:
 
-* Класс [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/), который предоставляет доступ к авторам комментариев презентации.
-* Класс [CommentCollection](https://reference.aspose.com/slides/ru/python-java/aspose.slides/commentcollection/), представляющий комментарии, связанные с отдельным автором.
-* Класс [Comment](https://reference.aspose.com/slides/ru/python-java/aspose.slides/comment/), который содержит информацию о комментарии, включая автора, время создания, позицию и текст.
-* Класс [CommentAuthor](https://reference.aspose.com/slides/ru/python-java/aspose.slides/commentauthor/), который предоставляет информацию об авторе, включая его имя, инициалы и связанные комментарии.
+* Класс [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), который предоставляет доступ к авторам комментариев презентации.
+* Класс [CommentCollection](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/), представляющий комментарии, связанные с отдельным автором.
+* Класс [Comment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/), предоставляющий информацию о комментарии, включая его автора, время создания, позицию и текст.
+* Класс [CommentAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthor/), предоставляющий информацию об авторе, включая его имя, инициалы и связанные комментарии.
 
-## **Добавление комментариев к слайдам**
+## **Добавление комментариев на слайд**
 
-Следующий пример показывает, как добавить комментарии к слайдам в презентации PowerPoint:
+Пример создает два слайда и регистрирует автора комментария с помощью [addAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#addAuthor). Он использует [addComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addComment) для размещения одного комментария на каждом слайде, затем получает комментарии первого слайда для этого автора через [getSlideComments](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideComments). Консоль выводит текст первого комментария дважды, демонстрируя доступ как через слайд, так и через автора, а сохраненная презентация содержит оба комментария.
 
 ```python
 import jpype
@@ -64,6 +64,7 @@ presentation = Presentation()
 try:
     first_slide = presentation.getSlides().get_Item(0)
     second_slide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0))
+
     author = presentation.getCommentAuthors().addAuthor("Jawad", "MF")
     position = Point2DFloat(0.2, 0.2)
     created_time = Date()
@@ -85,9 +86,51 @@ finally:
     presentation.dispose()
 ```
 
-## **Доступ к комментариям слайдов**
+## **Поиск или создание автора комментария**
 
-Следующий пример показывает, как получить доступ к существующим комментариям в презентации PowerPoint:
+Когда автоматический обзор обрабатывает одну и ту же презентацию неоднократно, перед добавлением автора следует искать в коллекции, возвращаемой [getCommentAuthors](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getCommentAuthors). Метод [findByNameAndInitials](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#findByNameAndInitials) сопоставляет как имя, так и инициалы и возвращает массив соответствующих авторов или пустой массив, если совпадений нет. В отличие от него, [findByName](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#findByName) ищет только по имени, независимо от инициалов. Вызов [addAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#addAuthor) с именем и инициалами, уже присутствующими в коллекции, генерирует исключение.
+
+Пример требует файл презентации как минимум с одним слайдом. На каждой из двух проходов он повторно использует первого найденного автора или создает нового только если результат пуст. Если найдено несколько соответствий, выбирается первый элемент массива без слияния или удаления остальных авторов. Затем вызывается [addComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addComment) для выбранного автора и сохраняется презентация. Второй проход открывает вывод первого прохода и повторяет операцию.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+Point2DFloat = jpype.JClass("java.awt.geom.Point2D$Float")
+Date = jpype.JClass("java.util.Date")
+
+author_name = "Reviewer"
+author_initials = "RV"
+
+input_file = "input.pptx"
+position = Point2DFloat(20, 20)
+
+for pass_number in range(1, 3):
+    presentation = Presentation(input_file)
+    try:
+        matches = presentation.getCommentAuthors().findByNameAndInitials(author_name, author_initials)
+
+        author = matches[0] if len(matches) > 0 else presentation.getCommentAuthors().addAuthor(author_name, author_initials)
+        created_time = Date()
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, created_time)
+
+        output_file = f"review_pass_{pass_number}.pptx"
+        presentation.save(output_file, SaveFormat.Pptx)
+        input_file = output_file
+    finally:
+        presentation.dispose()
+```
+
+Во втором проходе добавляется еще один комментарий без добавления нового автора и без удаления существующих комментариев. Финальный файл `review_pass_2.pptx` содержит оба новых комментария вместе с любыми оригинальными комментариями. Повторное использование автора не приводит к дедупликации комментариев: чтобы избежать многократного добавления одинакового комментария, реализуйте отдельное обнаружение дубликатов перед его добавлением.
+
+## **Доступ к комментариям слайда**
+
+Пример открывает существующую презентацию и читает коллекцию, возвращаемую [getCommentAuthors](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getCommentAuthors). Для каждого автора он перебирает коллекцию, возвращаемую [getComments](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthor/#getComments), и выводит номер слайда, текст комментария, имя автора и время создания. Входная презентация должна содержать комментарии, чтобы получить вывод в консоль.
 
 ```python
 import jpype
@@ -113,9 +156,9 @@ finally:
 
 ## **Ответы на комментарии**
 
-Родительский комментарий — это оригинальный комментарий в верхней части иерархии ответов. Методы [Comment.getParentComment](https://reference.aspose.com/slides/ru/python-java/aspose.slides/comment/#getParentComment) и [Comment.setParentComment](https://reference.aspose.com/slides/ru/python-java/aspose.slides/comment/#setParentComment) позволяют получить или задать родителя комментария.
+Родительский комментарий — это оригинальный комментарий в верхней части иерархии ответов. Методы [Comment.getParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#getParentComment) и [Comment.setParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#setParentComment) позволяют получить или установить родителя комментария.
 
-Следующий пример показывает, как добавить ответы и проанализировать получившуюся иерархию комментариев:
+Пример создает комментарии от двух авторов и использует [setParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#setParentComment) для построения ответов, включая ответ на другой ответ. Передача `None` в [getSlideComments](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideComments) получает комментарии от всех авторов; консоль отступает каждую запись в соответствии с её глубиной в иерархии ответов. Пример сохраняет полную дискуссию, вызывает [remove](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#remove) для первого корневого комментария и сохраняет вторую презентацию с этим комментарим и его ответами, удаленными.
 
 ```python
 import jpype
@@ -132,6 +175,7 @@ Date = jpype.JClass("java.util.Date")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     position = Point2DFloat(10, 10)
     created_time = Date()
 
@@ -172,19 +216,19 @@ finally:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* При использовании метода [Comment.remove](https://reference.aspose.com/slides/ru/python-java/aspose.slides/comment/#remove) для удаления комментария также удаляются все ответы на этот комментарий.
-* Если [Comment.setParentComment](https://reference.aspose.com/slides/ru/python-java/aspose.slides/comment/#setParentComment) создаёт циклическую ссылку, выбрасывается исключение [PptxEditException](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pptxeditexception/).
+* При использовании метода [Comment.remove](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#remove) для удаления комментария также удаляются все ответы на этот комментарий.
+* Если [Comment.setParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#setParentComment) создает кольцевую ссылку, генерируется [PptxEditException](https://reference.aspose.com/slides/python-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Добавление современных комментариев**
 
-Современные комментарии могут быть связаны непосредственно со слайдом, с конкретной фигурой или с диапазоном текста внутри [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/). Метод [CommentCollection.addModernComment](https://reference.aspose.com/slides/ru/python-java/aspose.slides/commentcollection/#addModernComment) принимает аргумент [Shape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/shape/) в дополнение к слайду и координатам маркера комментария.
+Современные комментарии могут быть связаны непосредственно со слайдом, с конкретной фигурой или с диапазоном текста внутри [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/). Метод [CommentCollection.addModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addModernComment) принимает аргумент [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) дополнительно к слайду и координатам маркера комментария.
 
-Когда в качестве аргумента shape передаётся `None`, комментарий считается уровнем слайда. Его маркер позиционируется по указанным координатам, но не связан с конкретной фигурой, поэтому [ModernComment.getShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#getShape) возвращает `None`. При передаче [Shape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/shape/) комментарий привязывается к этой фигуре. Координаты по‑прежнему определяют позицию маркера комментария на слайде, а связь с фигурой можно получить через [ModernComment.getShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#getShape).
+Когда в качестве аргумента shape передается `None`, комментарий является комментариев уровня слайда. Его маркер позиционируется по заданным координатам, но не привязан к конкретной фигуре, поэтому [ModernComment.getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape) возвращает `None`. Когда передается [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/), комментарий привязывается к этой фигуре. Координаты по‑прежнему определяют позицию маркера комментария на слайде, а ассоциацию с фигурой можно получить через [ModernComment.getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape).
 
 ### **Привязка современного комментария к фигуре**
 
-Следующий пример создаёт как комментарий уровня слайда, так и современный комментарий, привязанный к конкретному [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/). Затем он читает связанную фигуру из каждого комментария.
+Пример вызывает [addModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addModernComment) дважды: один раз с фигурой `None` для комментария уровня слайда и один раз с прямоугольником в качестве привязки. Чтение [getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape) выводит `True` для проверки `None` у комментария уровня слайда и `Revenue title` для привязанного комментария. Оба комментария сохраняются вместе с презентацией.
 
 ```python
 import jpype
@@ -201,7 +245,9 @@ Date = jpype.JClass("java.util.Date")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV")
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80)
     shape.setName("Revenue title")
     shape.getTextFrame().setText("Quarterly revenue")
@@ -220,11 +266,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Привязка комментариев к различным типам фигур**
+### **Привязка комментариев к разным типам фигур**
 
-Любой объект слайда, наследуемый от [Shape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/shape/), может использоваться в качестве привязки. Распространённые примеры включают [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/ru/python-java/aspose.slides/connector/) и объекты [GraphicalObject](https://reference.aspose.com/slides/ru/python-java/aspose.slides/graphicalobject/), такие как диаграммы.
+Любой объект слайда, наследующий от [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/), может использоваться в качестве привязки фигурой. Распространённые примеры включают [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/python-java/aspose.slides/connector/) и [GraphicalObject](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobject/) такие как диаграммы.
 
-Следующий пример создаёт несколько типичных фигур и привязывает к каждой современный комментарий.
+Пример использует [addModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addModernComment) для связывания комментария с каждым из пяти типов фигур: AutoShape, рамкой изображения, группой, соединителем и диаграммой. Изображение встроено в данные, поэтому внешнее изображение не требуется. Каждый комментарий имеет собственную позицию маркера, и сохранённая презентация сохраняет все пять привязок фигур.
 
 ```python
 import jpype
@@ -242,11 +288,13 @@ Base64 = jpype.JClass("java.util.Base64")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV")
     created_time = Date()
 
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60)
     auto_shape.getTextFrame().setText("AutoShape")
+
     auto_shape_comment_position = Point2DFloat(30, 30)
     author.getComments().addModernComment("Comment on an AutoShape.", slide, auto_shape, auto_shape_comment_position, created_time)
 
@@ -278,16 +326,16 @@ finally:
 
 ### **Привязка комментария к тексту и установка его статуса**
 
-Для современного комментария, связанного с [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/), методы [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#getTextSelectionStart) и [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#setTextSelectionStart) возвращают начальную позицию выбранного текста в текстовом кадре фигуры. Методы [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#getTextSelectionLength) и [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#setTextSelectionLength) возвращают длину выделения. Вместе эти значения связывают комментарий с определённым диапазоном текста внутри AutoShape.
+Для современного комментария, связанного с [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/), методы [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionStart) и [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionStart) получают начальную позицию выбранного текста в текстовом кадре фигуры. Методы [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionLength) и [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionLength) получают длину выделения. Вместе эти значения связывают комментарий с конкретным диапазоном текста внутри AutoShape.
 
-Методы [ModernComment.getStatus](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#getStatus) и [ModernComment.setStatus](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#setStatus) работают со значением из констант [ModernCommentStatus](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncommentstatus/):
+Методы [ModernComment.getStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getStatus) и [ModernComment.setStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setStatus) работают со значениями из констант [ModernCommentStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/):
 
-- [NotDefined](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncommentstatus/#NotDefined) — конкретный статус современного комментария не определён.
-- [Active](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncommentstatus/#Active) — комментарий активен.
-- [Resolved](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncommentstatus/#Resolved) — комментарий разрешён.
-- [Closed](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncommentstatus/#Closed) — комментарий закрыт.
+- [NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#NotDefined) — конкретный статус современного комментария не определён.
+- [Active](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#Active) — комментарий активен.
+- [Resolved](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#Resolved) — комментарий решён.
+- [Closed](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#Closed) — комментарий закрыт.
 
-Следующий пример создаёт комментарий, привязанный к фигуре, связывает его с выделением текста, помечает как разрешённый, сохраняет презентацию и проверяет значения после повторного открытия файла.
+Пример привязывает современный комментарий к словам «quarterly revenue» в тексте прямоугольника. Он вычисляет нулевой индекс начала выбора из текста и передаёт его в [setTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionStart), а затем использует [setTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionLength) для указания количества выбранных символов. После вызова [setStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setStatus) с `Resolved` презентация сохраняется и повторно открывается. Четыре проверки в консоли должны вывести `True`, подтверждая, что привязка к фигуре, диапазон текста и статус сохранены.
 
 ```python
 import jpype
@@ -309,6 +357,7 @@ expected_selection_start = shape_text.find(selected_text)
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100)
     shape.setName("Forecast text")
     shape.getTextFrame().setText(shape_text)
@@ -350,7 +399,7 @@ finally:
 
 ### **Просмотр существующих современных комментариев**
 
-Для анализа существующей презентации проверьте, какие комментарии являются экземплярами [ModernComment](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/), затем изучите [ModernComment.getShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#getTextSelectionLength) и [ModernComment.getStatus](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#getStatus). Фигура `None` указывает на комментарий уровня слайда. Для привязки к [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/) методы выбора текста определяют соответствующий диапазон в текстовом кадре фигуры.
+Пример требует существующую презентацию, содержащую современные комментарии, и выводит их текст, статус и детали привязки. Чтобы проанализировать её, проверьте, какие комментарии являются экземплярами [ModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/), затем исследуйте [ModernComment.getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionLength) и [ModernComment.getStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getStatus). `None` в качестве фигуры указывает на комментарий уровня слайда. Для привязки к [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) методы выбора текста определяют соответствующий диапазон в текстовом кадре фигуры.
 
 ```python
 import jpype
@@ -392,9 +441,11 @@ finally:
 
 ## **Удаление комментариев**
 
-### **Удалить все комментарии и их авторов**
+Aspose.Slides for Python via Java позволяет удалить все комментарии и их авторов из презентации или удалить выбранные комментарии, оставив остальные. Ниже приведены примеры, демонстрирующие оба подхода, и сохраняющие обновлённую презентацию.
 
-Следующий пример показывает, как удалить все комментарии и их авторов из презентации:
+### **Удаление всех комментариев и их авторов**
+
+Пример открывает существующую презентацию и вызывает [CommentCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#clear) для каждого автора, затем вызывает [CommentAuthorCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#clear) для удаления самих авторов. Сохранённая презентация не содержит ни комментариев, ни их авторов. Используйте презентацию с комментариями, чтобы увидеть удаление.
 
 ```python
 import jpype
@@ -411,14 +462,15 @@ try:
         author.getComments().clear()
 
     presentation.getCommentAuthors().clear()
+
     presentation.save("example_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Удалить конкретные комментарии**
+### **Удаление конкретных комментариев**
 
-Следующий пример показывает, как удалить определённые комментарии со слайда:
+Пример создает два комментария на одном слайде и использует [getSlideComments](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideComments) для поиска комментариев каждого автора. Он собирает комментарии, у которых текст равен «comment 1», перед вызовом [CommentCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#remove), избегая изменений в коллекции во время выбора. Сохранённая презентация сохраняет только «comment 2».
 
 ```python
 import jpype
@@ -435,6 +487,7 @@ Date = jpype.JClass("java.util.Date")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     author = presentation.getCommentAuthors().addAuthor("Author", "A")
     created_time = Date()
 
@@ -461,14 +514,14 @@ finally:
 
 ## **FAQ**
 
-**Поддерживает ли Aspose.Slides статус «разрешено» для современных комментариев?**
+**Поддерживает ли Aspose.Slides статус «решён» для современных комментариев?**
 
-Да. Методы [ModernComment.getStatus](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#getStatus) и [ModernComment.setStatus](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncomment/#setStatus) работают со значением из [ModernCommentStatus](https://reference.aspose.com/slides/ru/python-java/aspose.slides/moderncommentstatus/), включая `Resolved`. Статус сохраняется в презентации и может быть прочитан после повторного открытия файла.
+Да. Методы [ModernComment.getStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getStatus) и [ModernComment.setStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setStatus) работают со значением [ModernCommentStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/), включая `Resolved`. Статус сохраняется в презентации и может быть прочитан после повторного открытия файла.
 
 **Поддерживаются ли обсуждения в виде веток (цепочки ответов) и есть ли ограничение на вложенность?**
 
-Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/ru/python-java/aspose.slides/comment/#getParentComment), позволяя формировать цепочки ответов. API не задаёт конкретного ограничения глубины вложенности.
+Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#getParentComment), позволяя создавать цепочки ответов. API не определяет конкретного ограничения глубины вложения.
 
 **В какой системе координат определяется позиция маркера комментария на слайде?**
 
-Позиция маркера задаётся координатами с плавающей точкой в системе координат слайда, что позволяет точно размещать его на слайде.
+Позиция маркера задаётся координатами с плавающей запятой в системе координат слайда, что позволяет точно разместить его на слайде.

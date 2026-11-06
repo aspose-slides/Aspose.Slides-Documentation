@@ -1,56 +1,55 @@
 ---
-title: Beheer presentatie-opmerkingen in Java
-linktitle: Presentatie-opmerkingen
+title: Beheer presentatiecommentaren in Java
+linktitle: Presentatiecommentaren
 type: docs
 weight: 100
 url: /nl/java/presentation-comments/
 keywords:
-- opmerking
-- moderne opmerking
-- PowerPoint-opmerkingen
-- presentatie-opmerkingen
-- dia-opmerkingen
-- opmerking toevoegen
-- opmerking benaderen
-- opmerking bewerken
-- opmerking beantwoorden
-- opmerking verwijderen
-- opmerking wissen
+- commentaar
+- modern commentaar
+- PowerPoint-commentaren
+- presentatie-commentaren
+- dia-commentaren
+- commentaar toevoegen
+- commentaar benaderen
+- commentaar bewerken
+- commentaar beantwoorden
+- commentaar verwijderen
+- commentaar wissen
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Beheer presentatie-opmerkingen met Aspose.Slides for Java: voeg opmerkingen toe, lees, bewerk, beantwoord en verwijder ze snel en eenvoudig in PowerPoint-presentaties."
+description: "Beheer presentatie-commentaren met Aspose.Slides for Java: voeg commentaren toe, lees ze, bewerk ze, beantwoord ze en verwijder commentaren in PowerPoint-presentaties snel en eenvoudig."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je presentatieopmerkingen kunt beheren met Aspose.Slides for Java. Het introduceert de belangrijkste typen gerelateerd aan opmerkingen en toont hoe je opmerkingen aan dia's toevoegt, bestaande opmerkingen benadert, werkt met antwoorden en moderne opmerkingen, en opmerkingen uit een presentatie verwijdert.
+Dit artikel legt uit hoe u presentatie‑commentaren beheert met Aspose.Slides for Java. Het introduceert de belangrijkste commentaar‑gerelateerde types en laat zien hoe u commentaren aan dia's toevoegt, bestaande commentaren benadert, werkt met antwoorden en moderne commentaren, en commentaren uit een presentatie verwijdert.
 
-De voorbeelden behandelen veelvoorkomende review- en samenwerkingsscenario's in PowerPoint, zoals het toewijzen van opmerkingen aan auteurs, het lezen van opmerkingstekst en metadata, het opbouwen van antwoordketens, en het verwijderen van geselecteerde opmerkingen of alle opmerkingen.
+De voorbeelden behandelen veelvoorkomende beoordelings‑ en samenwerkingsscenario's in PowerPoint, zoals commentaren toewijzen aan auteurs, commentaartekst en metadata lezen, antwoordketens opbouwen, en geselecteerde commentaren of alle commentaren verwijderen.
 
-In PowerPoint verschijnen opmerkingen als annotaties op dia's. Het selecteren van een opmerking toont de tekst en de bijbehorende discussie.
+In PowerPoint verschijnen commentaren als annotaties op dia's. Het selecteren van een commentaar toont de tekst en de bijbehorende discussie.
 
-Om te vragen dat opmerkingen worden weergegeven of verborgen wanneer een presentatie wordt geopend zonder de opmerkingen zelf te wijzigen, zie [Opmerkingen weergeven of verbergen bij het openen van een presentatie](/slides/nl/java/presentation-view-properties/).
+Om commentaren weer te geven of te verbergen bij het openen van een presentatie zonder de commentaren zelf te wijzigen, zie [Commentaren weergeven of verbergen bij het openen van een presentatie](/slides/nl/java/presentation-view-properties/).
 
-## **Waarom opmerkingen aan presentaties toevoegen?**
+## **Waarom commentaren toevoegen aan presentaties?**
 
-Je kunt opmerkingen gebruiken om feedback te geven en samen te werken met collega's bij het beoordelen van presentaties.
+U kunt commentaren gebruiken om feedback te geven en samen te werken met collega's bij het beoordelen van presentaties.
 
-Aspose.Slides for Java biedt de volgende API's voor het werken met opmerkingen:
+Aspose.Slides for Java biedt de volgende API's voor het werken met commentaren:
 
-* De [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/) klasse, die toegang biedt tot de commentauteurs van de presentatie.
-* De [ICommentCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icommentcollection/) interface, die de opmerkingen vertegenwoordigt die aan een individuele auteur zijn gekoppeld.
-* De [IComment](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icomment/) interface, die informatie over een opmerking biedt, inclusief de auteur, aanmaakdatum, positie en tekst.
-* De [CommentAuthor](https://reference.aspose.com/slides/nl/java/com.aspose.slides/commentauthor/) klasse, die informatie over een auteur biedt, inclusief hun naam, initialen en bijbehorende opmerkingen.
+* De [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) klasse, die toegang biedt tot de commentaarauteurs van de presentatie.
+* De [ICommentCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/) interface, die de commentaren vertegenwoordigt die aan een individuele auteur zijn gekoppeld.
+* De [IComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/) interface, die informatie over een commentaar geeft, inclusief auteur, aanmaakdatum, positie en tekst.
+* De [CommentAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/commentauthor/) klasse, die informatie over een auteur geeft, inclusief naam, initialen en bijbehorende commentaren.
 
-## **Dia-opmerkingen toevoegen**
+## **Dia‑commentaren toevoegen**
 
-Het volgende voorbeeld laat zien hoe je opmerkingen aan dia's toevoegt in een PowerPoint-presentatie:
+Het voorbeeld maakt twee dia's en registreert een commentaarauteur met [addAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-). Het gebruikt [addComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-java.awt.geom.Point2D.Float-java.util.Date-) om één commentaar op elke dia te plaatsen, haalt daarna de commentaren van de eerste dia op voor die auteur met [getSlideComments](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-). De console toont de tekst van het eerste commentaar twee keer, waarmee toegang via zowel de dia als de auteur wordt gedemonstreerd, en de opgeslagen presentatie bevat beide commentaren.
 
 ```java
 import com.aspose.slides.IComment;
 import com.aspose.slides.ICommentAuthor;
-import com.aspose.slides.ICommentCollection;
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -61,6 +60,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
     ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     Point2D.Float position = new Point2D.Float(0.2f, 0.2f);
     Date createdTime = new Date();
@@ -73,8 +73,7 @@ try {
         IComment firstComment = comments[0];
         System.out.println(firstComment.getText());
 
-        ICommentCollection authorComments = firstComment.getAuthor().getComments();
-        String commentText = authorComments.get_Item(0).getText();
+        String commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         System.out.println(commentText);
     }
 
@@ -84,9 +83,47 @@ try {
 }
 ```
 
-## **Dia-opmerkingen benaderen**
+## **Zoek of maak een commentaarauteur**
 
-Het volgende voorbeeld laat zien hoe je bestaande opmerkingen in een PowerPoint-presentatie benadert:
+Wanneer een geautomatiseerde beoordeling dezelfde presentatie herhaaldelijk verwerkt, doorzoek dan de collectie die wordt geretourneerd door [getCommentAuthors](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getCommentAuthors--) voordat u een auteur toevoegt. [findByNameAndInitials](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#findByNameAndInitials-java.lang.String-java.lang.String-) komt zowel overeen met de naam als de initialen en retourneert een array met overeenkomende auteurs, of een lege array als er geen overeenkomsten zijn. In contrast zoekt [findByName](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#findByName-java.lang.String-) alleen op naam, ongeacht de initialen. Het aanroepen van [addAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) met een naam en initialen die reeds in de collectie aanwezig zijn, veroorzaakt een uitzondering.
+
+Het voorbeeld vereist een presentatie‑bestand met ten minste één dia. Op elk van twee doorlopen hergebruikt het de eerste overeenkomende auteur, of maakt er één aan wanneer het resultaat leeg is. Als er meerdere overeenkomsten zijn, kiest het het eerste array‑element zonder de andere auteurs samen te voegen of te verwijderen. Vervolgens wordt [addComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-java.awt.geom.Point2D.Float-java.util.Date-) aangeroepen voor de geselecteerde auteur en wordt de presentatie opgeslagen. De tweede doorloop opent de uitvoer van de eerste doorloop en herhaalt de bewerking.
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
+final String authorName = "Reviewer";
+final String authorInitials = "RV";
+
+String inputFile = "input.pptx";
+Point2D.Float position = new Point2D.Float(20, 20);
+
+for (int pass = 1; pass <= 2; pass++) {
+    Presentation presentation = new Presentation(inputFile);
+    try {
+        ICommentAuthor[] matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        ICommentAuthor author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, new Date());
+
+        String outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+De tweede doorloop voegt een extra commentaar toe zonder een extra auteur toe te voegen of bestaande commentaren te verwijderen. Het uiteindelijke bestand, `review_pass_2.pptx`, bevat beide nieuwe commentaren naast eventuele originele commentaren. Het hergebruiken van een auteur dedupliceert commentaren niet: om te voorkomen dat telkens hetzelfde commentaar wordt toegevoegd, implementeert u een aparte detectie van duplicaten vóór het toevoegen.
+
+## **Dia‑commentaren benaderen**
+
+Het voorbeeld opent een bestaande presentatie en leest de collectie die wordt geretourneerd door [getCommentAuthors](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getCommentAuthors--). Voor elke auteur itereren we door de collectie die wordt geretourneerd door [getComments](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthor/#getComments--) en printen we het dia‑nummer, de commentaartekst, de naam van de auteur en de aanmaaktijd. De invoerpresentatie moet commentaren bevatten om console‑output te produceren.
 
 ```java
 import com.aspose.slides.IComment;
@@ -109,11 +146,11 @@ try {
 }
 ```
 
-## **Beantwoorden van opmerkingen**
+## **Antwoorden op commentaren**
 
-Een bovenliggende opmerking is de originele opmerking bovenaan een antwoordhiërarchie. De [IComment.getParentComment](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icomment/#getParentComment--) en [IComment.setParentComment](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) methoden stellen je in staat om de bovenliggende opmerking van een opmerking op te halen of in te stellen.
+Een bovenliggend commentaar is het oorspronkelijke commentaar bovenaan een antwoordhiërarchie. De [IComment.getParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#getParentComment--) en [IComment.setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) methoden laten u het bovenliggende commentaar ophalen of instellen.
 
-Het volgende voorbeeld laat zien hoe je antwoorden toevoegt en de resulterende opmerkingenhiërarchie inspecteert:
+Het voorbeeld maakt commentaren aan van twee auteurs en gebruikt [setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) om antwoorden te bouwen, inclusief een antwoord op een ander antwoord. Het doorgeven van `null` aan [getSlideComments](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) haalt commentaren op van alle auteurs; de console vordert elke regel volgens de diepte in de antwoordhiërarchie. Het voorbeeld slaat de volledige discussie op, roept [remove](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#remove--) aan op het eerste wortel‑commentaar, en slaat een tweede presentatie op waarbij dat commentaar en de antwoorden zijn verwijderd.
 
 ```java
 import com.aspose.slides.IComment;
@@ -127,27 +164,28 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     Point2D.Float position = new Point2D.Float(10, 10);
     Date createdTime = new Date();
 
-    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    ICommentAuthor originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    ICommentAuthor reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    IComment secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    IComment subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    IComment separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     IComment[] comments = slide.getSlideComments(null);
     for (int i = 0; i < comments.length; i++) {
@@ -162,27 +200,27 @@ try {
 
     presentation.save("parent_comment.pptx", SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert color="warning" title="Waarschuwing" %}}
-* Wanneer de [IComment.remove](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icomment/#remove--) methode wordt gebruikt om een opmerking te verwijderen, worden alle antwoorden op die opmerking ook verwijderd.
-* Als [IComment.setParentComment](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) een circulaire verwijzing creëert, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pptxeditexception/) opgegooid.
+{{% alert color="warning" title="Warning" %}}
+* Wanneer de [IComment.remove](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#remove--) methode wordt gebruikt om een commentaar te verwijderen, worden ook alle antwoorden op dat commentaar verwijderd.
+* Als [IComment.setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) een circulaire referentie creëert, wordt een [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/) opgegooid.
 {{% /alert %}}
 
-## **Moderne opmerkingen toevoegen**
+## **Moderne commentaren toevoegen**
 
-Moderne opmerkingen kunnen worden gekoppeld aan de dia zelf, aan een specifieke vorm, of aan een tekstreeks binnen een AutoShape. De [ICommentCollection.addModernComment](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) methode accepteert een [IShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/) argument naast de dia- en opmerking-marker coördinaten.
+Moderne commentaren kunnen gekoppeld worden aan de dia zelf, aan een specifieke vorm, of aan een tekstreeks binnen een AutoShape. De [ICommentCollection.addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) methode accepteert een [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) argument naast de dia en de coördinaten van het commentaar‑marker.
 
-Wanneer `null` wordt doorgegeven voor het vormargument, is de opmerking een dia-niveau opmerking. De marker wordt gepositioneerd via de opgegeven coördinaten, maar is niet gekoppeld aan een specifieke vorm, dus [IModernComment.getShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#getShape--) retourneert `null`. Wanneer een [IShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/) wordt verstrekt, wordt de opmerking verankerd aan die vorm. De coördinaten bepalen nog steeds de positie van de opmerkingmarker op de dia, terwijl de vormkoppeling kan worden opgehaald via [IModernComment.getShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#getShape--).
+Wanneer `null` wordt doorgegeven voor het vorm‑argument, is het commentaar een dia‑niveau commentaar. De marker wordt gepositioneerd op basis van de opgegeven coördinaten, maar is niet gekoppeld aan een specifieke vorm, zodat [IModernComment.getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--) `null` retourneert. Wanneer een [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) wordt opgegeven, wordt het commentaar aan die vorm verankerd. De coördinaten bepalen nog steeds de positie van de marker op de dia, terwijl de vormkoppeling kan worden opgevraagd via [IModernComment.getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--).
 
-### **Een moderne opmerking aan een vorm ankeren**
+### **Een modern commentaar aan een vorm verankeren**
 
-Het volgende voorbeeld maakt zowel een moderne opmerking op dia-niveau als een moderne opmerking verankerd aan een specifieke AutoShape. Het leest vervolgens de gekoppelde vorm uit elke opmerking.
+Het voorbeeld roept [addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) twee keer aan: eenmaal met een `null` vorm voor een dia‑niveau commentaar en eenmaal met een rechthoek als anker. Het uitlezen van [getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--) print `true` voor de null‑controle van het dia‑niveau commentaar en `Revenue title` voor het verankerde commentaar. Beide commentaren worden opgeslagen met de presentatie.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -198,7 +236,9 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -218,11 +258,11 @@ try {
 }
 ```
 
-### **Opmerkingen ankeren aan verschillende vormtypen**
+### **Commentaren verankeren aan verschillende vormtypes**
 
-Elk dia-object dat [IShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/) implementeert, kan worden gebruikt als vormankerpunt. Veelvoorkomende voorbeelden zijn onder andere [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iconnector/), en [IGraphicalObject](https://reference.aspose.com/slides/nl/java/com.aspose.slides/igraphicalobject/) instanties zoals grafieken.
+Elk dia‑object dat [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) implementeert, kan worden gebruikt als anker. Veelvoorkomende voorbeelden zijn [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/java/com.aspose.slides/iconnector/), en [IGraphicalObject](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobject/) instanties zoals grafieken.
 
-Het volgende voorbeeld maakt verschillende veelvoorkomende vormtypen en koppelt een moderne opmerking aan elk van hen.
+Het voorbeeld gebruikt [addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) om een commentaar te koppelen aan elk van vijf vormtypes: een AutoShape, een afbeelding, een groep, een connector en een grafiek. De afbeelding gebruikt ingebedde afbeeldingsgegevens, dus er is geen externe afbeelding nodig. Elk commentaar heeft zijn eigen marker‑positie, en de opgeslagen presentatie behoudt alle vijf vormkoppelingen.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -244,11 +284,13 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     Date createdTime = new Date();
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     Point2D.Float autoShapeCommentPosition = new Point2D.Float(30, 30);
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -279,18 +321,18 @@ try {
 }
 ```
 
-### **Een opmerking aan tekst ankeren en de status instellen**
+### **Een commentaar aan tekst verankeren en de status instellen**
 
-Voor een moderne opmerking gekoppeld aan een [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iautoshape/), geven [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) en [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) de startpositie van de geselecteerde tekst in het tekstvak van de vorm weer. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) en [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) geven de lengte van de selectie weer. Samen koppelen deze waardes de opmerking aan een specifiek tekstreeks binnen de AutoShape.
+Voor een modern commentaar gekoppeld aan een [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/), geven [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) en [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) de startpositie van de geselecteerde tekst in het tekstvak van de vorm. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) en [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) geven de lengte van de selectie. Samen koppelen deze waarden het commentaar aan een specifiek tekstbereik binnen de AutoShape.
 
-De [IModernComment.getStatus](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#getStatus--) en [IModernComment.setStatus](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#setStatus-byte--) methoden halen een waarde op uit de [ModernCommentStatus](https://reference.aspose.com/slides/nl/java/com.aspose.slides/moderncommentstatus/) constanten:
+De [IModernComment.getStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getStatus--) en [IModernComment.setStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setStatus-byte-) methoden benaderen een waarde uit de [ModernCommentStatus](https://reference.aspose.com/slides/java/com.aspose.slides/moderncommentstatus/) constanten:
 
-- `NotDefined` — er is geen specifieke moderne-opmerkingstatus gedefinieerd.
-- `Active` — de opmerking is actief.
-- `Resolved` — de opmerking is opgelost.
-- `Closed` — de opmerking is gesloten.
+- `NotDefined` — er is geen specifieke moderne‑commentaarstatus gedefinieerd.
+- `Active` — het commentaar is actief.
+- `Resolved` — het commentaar is opgelost.
+- `Closed` — het commentaar is gesloten.
 
-Het volgende voorbeeld maakt een vorm-ankerde moderne opmerking, koppelt deze aan een tekstselectie, markeert deze als opgelost, slaat de presentatie op, en verifieert de waarden na het heropenen van het bestand.
+Het voorbeeld verankert een modern commentaar aan de woorden “quarterly revenue” in de tekst van een rechthoek. Het berekent de nul‑gebaseerde startpositie uit de tekst en geeft deze door aan [setTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) en gebruikt [setTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) om het aantal geselecteerde tekens in te stellen. Na het aanroepen van [setStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setStatus-byte-) met `Resolved` slaat het de presentatie op en opent deze opnieuw. De vier console‑controles moeten elk `true` afdrukken, waardoor wordt bevestigd dat het vorm‑anker, het tekstbereik en de status zijn behouden.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -313,12 +355,15 @@ int expectedSelectionStart = shapeText.indexOf(selectedText);
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
 
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
-    Point2D.Float commentPosition = new Point2D.Float(60, 60);
+    Point2F
+
+loat commentPosition = new Point2D.Float(60, 60);
     IModernComment comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, new Date());
     comment.setTextSelectionStart(expectedSelectionStart);
     comment.setTextSelectionLength(selectedText.length());
@@ -355,9 +400,9 @@ try {
 }
 ```
 
-### **Bestaande moderne opmerkingen inspecteren**
+### **Bestaande moderne commentaren inspecteren**
 
-Om een bestaande presentatie te inspecteren, controleer welke opmerkingen [IModernComment](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/) implementeren, en bekijk vervolgens [IModernComment.getShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), en [IModernComment.getStatus](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#getStatus--). Een `null` vorm geeft een dia-niveau opmerking aan. Voor een [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iautoshape/) anker identificeren de tekstselectiemethoden het bijbehorende bereik in het tekstvak van de vorm.
+Het voorbeeld vereist een bestaande presentatie met moderne commentaren en print hun tekst, status en anker‑details. Om dit te inspecteren, controleer welke commentaren [IModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/) implementeren, bekijk vervolgens [IModernComment.getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), en [IModernComment.getStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getStatus--). Een `null` vorm duidt op een dia‑niveau commentaar. Voor een [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) anker identificeren de tekst‑selectiemethoden het bijbehorende bereik in het tekstvak van de vorm.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -402,11 +447,13 @@ try {
 }
 ```
 
-## **Opmerkingen verwijderen**
+## **Commentaren verwijderen**
 
-### **Alle opmerkingen en opmerkingauteurs verwijderen**
+Aspose.Slides for Java stelt u in staat om alle commentaren en hun auteurs uit een presentatie te verwijderen of geselecteerde commentaren te verwijderen terwijl de rest behouden blijft. De volgende voorbeelden tonen beide benaderingen en slaan de bijgewerkte presentatie op.
 
-Het volgende voorbeeld laat zien hoe je alle opmerkingen en opmerkingauteurs uit een presentatie verwijdert:
+### **Alle commentaren en commentaarauteurs verwijderen**
+
+Het voorbeeld opent een bestaande presentatie en roept [ICommentCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#clear--) aan voor elke auteur, daarna [ICommentAuthorCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#clear--) om de auteurs zelf te verwijderen. De opgeslagen presentatie bevat geen commentaren en geen commentaarauteurs. Gebruik een presentatie met commentaren om de verwijdering te observeren.
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -420,15 +467,16 @@ try {
     }
 
     presentation.getCommentAuthors().clear();
+
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Specifieke opmerkingen verwijderen**
+### **Specifieke commentaren verwijderen**
 
-Het volgende voorbeeld laat zien hoe je specifieke opmerkingen van een dia verwijdert:
+Het voorbeeld maakt twee commentaren op één dia en gebruikt [getSlideComments](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) om commentaren per auteur te vinden. Het verzamelt commentaren waarvan de tekst gelijk is aan “comment 1” voordat [ICommentCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#remove-com.aspose.slides.IComment-) wordt aangeroepen, om wijzigingen in de collectie tijdens de selectie te vermijden. De opgeslagen presentatie behoudt alleen “comment 2”.
 
 ```java
 import com.aspose.slides.IComment;
@@ -444,6 +492,7 @@ import java.util.List;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
     Date createdTime = new Date();
 
@@ -475,14 +524,14 @@ try {
 
 ## **FAQ**
 
-**Ondersteunt Aspose.Slides een opgeloste status voor moderne opmerkingen?**
+**Ondersteunt Aspose.Slides een opgeloste status voor moderne commentaren?**
 
-Ja. [IModernComment.getStatus](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#getStatus--) en [IModernComment.setStatus](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imoderncomment/#setStatus-byte--) geven een [ModernCommentStatus](https://reference.aspose.com/slides/nl/java/com.aspose.slides/moderncommentstatus/) waarde terug, inclusief `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw worden gelezen nadat het bestand opnieuw is geopend.
+Ja. [IModernComment.getStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getStatus--) en [IModernComment.setStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setStatus-byte-) benaderen een [ModernCommentStatus](https://reference.aspose.com/slides/java/com.aspose.slides/moderncommentstatus/) waarde, inclusief `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw worden gelezen nadat het bestand is heropend.
 
-**Worden gestructureerde discussies (antwoordketens) ondersteund, en is er een limiet op de geneste diepte?**
+**Worden draden discussies (antwoordketens) ondersteund, en is er een limiet op de nesting?**
 
-Ja. Elke opmerking kan verwijzen naar zijn [parent comment](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icomment/#getParentComment--), waardoor antwoordketens mogelijk zijn. De API definieert geen specifieke limiet voor de nestdiepte.
+Ja. Elk commentaar kan zijn [parent comment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#getParentComment--) refereren, waardoor antwoordketens mogelijk zijn. De API definieert geen specifieke limiet voor de diepte van de nesting.
 
-**In welk coördinatensysteem is de positie van een opmerkingmarker gedefinieerd op een dia?**
+**In welk coördinatensysteem is de positie van een commentaarmarker gedefinieerd op een dia?**
 
-De markerpositie wordt gedefinieerd door zwevende-kommagetallen in het dia-coördinatensysteem, waardoor je de marker nauwkeurig op de dia kunt plaatsen.
+De marker‑positie wordt gedefinieerd door zwevend‑kommagetallen in het dia‑coördinatensysteem, waardoor u deze precies op de dia kunt plaatsen.

@@ -20,32 +20,32 @@ keywords:
 - 簡報
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 管理簡報註解：快速且輕鬆地在 PowerPoint 簡報中新增、讀取、編輯、回覆與移除註解。"
+description: "使用 Aspose.Slides for C++ 管理簡報註解：快速且輕鬆地在 PowerPoint 簡報中新增、閱讀、編輯、回覆與移除註解。"
 ---
-## **概述**
+## **概觀**
 
-本文說明如何使用 Aspose.Slides for C++ 來管理簡報註解。它介紹了與註解相關的主要型別，並示範如何向投影片新增註解、存取現有註解、處理回覆與現代註解，以及從簡報中移除註解。
+本文說明如何使用 Aspose.Slides for C++ 來管理簡報註解。它會介紹與註解相關的主要類型，並示範如何向投影片新增註解、存取現有註解、操作回覆與現代註解，以及如何從簡報中刪除註解。
 
-這些範例涵蓋了 PowerPoint 中常見的審閱與協作情境，例如指派註解給作者、讀取註解文字與中繼資料、建立回覆鏈，以及移除選取的註解或全部註解。
+這些範例涵蓋 PowerPoint 中常見的審閱與協作情境，例如將註解指派給作者、讀取註解文字與中繼資料、建立回覆鏈，以及移除選取的註解或全部註解。
 
-在 PowerPoint 中，註解會顯示為投影片上的標註。選取註解時會顯示其文字與相關討論。
+在 PowerPoint 中，註解會以投影片上的批註形式呈現。選取註解時會顯示其文字與相關討論。
 
-若要在開啟簡報時要求顯示或隱藏註解（而不變更註解本身），請參閱[Show or Hide Comments When Opening a Presentation](/slides/zh-hant/cpp/presentation-view-properties/)。
+若要在開啟簡報時請求顯示或隱藏註解（而不變更註解本身），請參閱 [在開啟簡報時顯示或隱藏註解](/slides/zh-hant/cpp/presentation-view-properties/)。
 
-## **為何在簡報中加入註解？**
+## **為何要在簡報中加入註解？**
 
-在審閱簡報時，您可以使用註解提供回饋並與同事協同合作。
+您可以在審閱簡報時使用註解提供回饋，並與同事協同合作。
 
-Aspose.Slides for C++ 提供以下用於操作註解的 API：
+Aspose.Slides for C++ 提供以下用於處理註解的 API：
 
-* [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別，可取得簡報的註解作者。
-* [ICommentCollection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/icommentcollection/) 介面，代表與單一作者相關聯的註解集合。
-* [IComment](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/icomment/) 介面，提供有關註解的資訊，包括作者、建立時間、位置與文字。
-* [CommentAuthor](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/commentauthor/) 類別，提供作者資訊，包括名稱、縮寫與相關註解。
+* [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 類別，可存取簡報的註解作者。
+* [ICommentCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/) 介面，代表與個別作者相關的註解集合。
+* [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) 介面，提供註解的資訊，包括作者、建立時間、位置與文字。
+* [CommentAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/commentauthor/) 類別，提供作者資訊，包括姓名、縮寫與其相關的註解。
 
 ## **新增投影片註解**
 
-以下範例示範如何在 PowerPoint 簡報的投影片中新增註解：
+此範例建立兩張投影片，並使用 [AddAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/addauthor/) 註冊一位註解作者。它使用 [AddComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addcomment/) 在每張投影片上放置一個註解，然後使用 [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/) 取得該作者在第一張投影片的註解。主控台會兩次顯示第一個註解的文字，示範透過投影片與作者兩種方式存取，且儲存的簡報會同時包含這兩個註解。
 
 ```cpp
 #include <DOM/IComment.h>
@@ -68,6 +68,7 @@ using namespace System::Drawing;
 auto presentation = MakeObject<Presentation>();
 auto firstSlide = presentation->get_Slide(0);
 auto secondSlide = presentation->get_Slides()->AddEmptySlide(presentation->get_LayoutSlide(0));
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Jawad", u"MF");
 auto position = PointF(0.2f, 0.2f);
 auto createdTime = DateTime::get_Now();
@@ -88,9 +89,54 @@ if (comments->get_Length() > 0)
 presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 ```
 
+## **尋找或建立註解作者**
+
+當自動化審閱重複處理相同簡報時，請在新增作者之前先搜尋 [get_CommentAuthors](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_commentauthors/) 回傳的集合。 [FindByNameAndInitials](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/findbynameandinitials/) 同時比對名稱與縮寫，並回傳符合的作者陣列，若無符合則回傳空陣列。相較之下， [FindByName](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/findbyname/) 僅依名稱搜尋，不考慮縮寫。若以已存在於集合中的名稱與縮寫呼叫 [AddAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/addauthor/)，會拋出例外。
+
+此範例需要一個至少包含一張投影片的簡報檔案。於兩次迭代中，它會重複使用第一個符合條件的作者，或在結果為空時才建立新作者。如果有多個符合項目，則選取陣列的第一個元素，且不會合併或移除其他作者。接著它會以選取的作者呼叫 [AddComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addcomment/)，並儲存簡報。第二次迭代會開啟第一次的輸出檔並重複此操作。
+
+```cpp
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/date_time.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+const String authorName = u"Reviewer";
+const String authorInitials = u"RV";
+
+auto inputFile = String(u"input.pptx");
+auto position = PointF(20.0f, 20.0f);
+
+for (auto pass = 1; pass <= 2; pass++)
+{
+    auto presentation = MakeObject<Presentation>(inputFile);
+
+    auto matches = presentation->get_CommentAuthors()->FindByNameAndInitials(authorName, authorInitials);
+
+    auto author = matches->get_Length() > 0 ? matches[0] : presentation->get_CommentAuthors()->AddAuthor(authorName, authorInitials);
+    author->get_Comments()->AddComment(u"Please review this slide.", presentation->get_Slide(0), position, DateTime::get_Now());
+
+    auto outputFile = String::Format(u"review_pass_{0}.pptx", pass);
+    presentation->Save(outputFile, SaveFormat::Pptx);
+    inputFile = outputFile;
+}
+```
+
+第二次迭代會再新增一個註解，但不會新增另一位作者，也不會移除現有的註解。最終檔案 `review_pass_2.pptx` 會同時包含新註解與任何原始註解。重複使用作者不會去除重複的註解：若要避免重複新增相同註解，請在新增前自行實作重複偵測。
+
 ## **存取投影片註解**
 
-以下範例示範如何在 PowerPoint 簡報中存取既有註解：
+此範例開啟現有簡報，讀取由 [get_CommentAuthors](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_commentauthors/) 回傳的集合。對於每位作者，它會遍歷由 [get_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthor/get_comments/) 回傳的集合，並印出投影片編號、註解文字、作者姓名與建立時間。輸入的簡報必須包含註解才能在主控台產生輸出。
 
 ```cpp
 #include <DOM/IComment.h>
@@ -121,9 +167,9 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **回覆註解**
 
-父註解是回覆層級最上方的原始註解。[IComment](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/icomment/) 介面的 [get_ParentComment](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/icomment/get_parentcomment/) 與 [set_ParentComment](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/icomment/set_parentcomment/) 方法可取得或設定註解的父註解。
+父註解是回覆階層頂端的原始註解。 [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) 介面的 [get_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/get_parentcomment/) 與 [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) 方法可取得或設定註解的父項。
 
-以下範例示範如何新增回覆並檢查產生的註解層級結構：
+此範例建立兩位作者的註解，並使用 [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) 來建立回覆，包含回覆另一個回覆。將 `nullptr` 傳遞給 [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/) 會取得所有作者的註解；主控台會依照回覆層級的深度縮排每筆條目。範例會儲存完整的討論，對第一個根註解呼叫 [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/remove/)，並儲存第二個簡報，該簡報已移除該註解及其回覆。
 
 ```cpp
 #include <DOM/IComment.h>
@@ -144,30 +190,31 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto position = PointF(10.0f, 10.0f);
 auto createdTime = DateTime::get_Now();
 
-auto author1 = presentation->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
-auto comment1 = author1->get_Comments()->AddComment(u"comment 1", slide, position, createdTime);
+auto originalAuthor = presentation->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
+auto rootComment = originalAuthor->get_Comments()->AddComment(u"comment 1", slide, position, createdTime);
 
-auto author2 = presentation->get_CommentAuthors()->AddAuthor(u"Author_2", u"B.B.");
-auto reply1 = author2->get_Comments()->AddComment(u"reply 1 for comment 1", slide, position, createdTime);
-reply1->set_ParentComment(comment1);
+auto reviewer = presentation->get_CommentAuthors()->AddAuthor(u"Author_2", u"B.B.");
+auto firstReply = reviewer->get_Comments()->AddComment(u"reply 1 for comment 1", slide, position, createdTime);
+firstReply->set_ParentComment(rootComment);
 
-auto reply2 = author2->get_Comments()->AddComment(u"reply 2 for comment 1", slide, position, createdTime);
-reply2->set_ParentComment(comment1);
+auto secondReply = reviewer->get_Comments()->AddComment(u"reply 2 for comment 1", slide, position, createdTime);
+secondReply->set_ParentComment(rootComment);
 
-auto subReply = author1->get_Comments()->AddComment(u"subreply 3 for reply 2", slide, position, createdTime);
-subReply->set_ParentComment(reply2);
+auto subReply = originalAuthor->get_Comments()->AddComment(u"subreply 3 for reply 2", slide, position, createdTime);
+subReply->set_ParentComment(secondReply);
 
-author2->get_Comments()->AddComment(u"comment 2", slide, position, createdTime);
-auto comment3 = author2->get_Comments()->AddComment(u"comment 3", slide, position, createdTime);
+reviewer->get_Comments()->AddComment(u"comment 2", slide, position, createdTime);
+auto separateComment = reviewer->get_Comments()->AddComment(u"comment 3", slide, position, createdTime);
 
-auto reply3 = author1->get_Comments()->AddComment(u"reply 4 for comment 3", slide, position, createdTime);
-reply3->set_ParentComment(comment3);
+auto separateReply = originalAuthor->get_Comments()->AddComment(u"reply 4 for comment 3", slide, position, createdTime);
+separateReply->set_ParentComment(separateComment);
 
 auto comments = slide->GetSlideComments(nullptr);
-for (int32_t i = 0; i < comments->get_Length(); i++)
+for (auto i = 0; i < comments->get_Length(); i++)
 {
     auto comment = comments[i];
     while (comment->get_ParentComment() != nullptr)
@@ -181,24 +228,24 @@ for (int32_t i = 0; i < comments->get_Length(); i++)
 
 presentation->Save(u"parent_comment.pptx", SaveFormat::Pptx);
 
-comment1->Remove();
+rootComment->Remove();
 presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* 當使用 [IComment](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/icomment/) 介面的 [Remove](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/icomment/remove/) 方法刪除註解時，該註解的所有回覆也會被刪除。
-* 若 [set_ParentComment](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/icomment/set_parentcomment/) 方法造成循環參照，會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/pptxeditexception/)。
+* 使用 [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) 介面的 [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/remove/) 方法刪除註解時，該註解的所有回覆也會一併被刪除。
+* 若 [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) 方法造成循環參照，則會拋出 [PptxEditException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxeditexception/)。
 {{% /alert %}}
 
 ## **新增現代註解**
 
-現代註解可以與投影片本身、特定形狀，或 AutoShape 內的文字範圍關聯。[ICommentCollection::AddModernComment](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/icommentcollection/addmoderncomment/) 方法除了接受投影片與註解標記座標外，還接受一個 [IShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/) 參數。
+現代註解可以與投影片本身、特定圖形，或 AutoShape 內的文字範圍關聯。 [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) 方法接受一個 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 參數，此外還需要投影片與註解標記的座標。
 
-當 shape 參數傳入 `nullptr` 時，註解為投影片層級註解。其標記位置由提供的座標決定，但不會與特定形狀關聯，因此 [IModernComment::get_Shape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/get_shape/) 會回傳 `nullptr`。若傳入 [IShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/)，則註解會錨定至該形狀。座標仍然定義註解標記在投影片上的位置，而形狀關聯可透過 [IModernComment::get_Shape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/get_shape/) 取得。
+當形狀參數傳入 `nullptr` 時，註解為投影片層級的註解。其標記位置由提供的座標決定，但不會與特定圖形關聯，因此 [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) 會回傳 `nullptr`。若提供 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 則註解會錨定於該圖形。座標仍然定義註解標記在投影片上的位置，而圖形關聯可透過 [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) 取得。
 
-### **將現代註解錨定至形狀**
+### **將現代註解錨定於圖形**
 
-以下範例同時建立一個投影片層級的現代註解與一個錨定於特定 AutoShape 的現代註解，並讀取每個註解所關聯的形狀：
+此範例呼叫 [AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) 兩次：一次傳入 `nullptr` 形狀以建立投影片層級註解，另一次傳入矩形作為錨點。呼叫 [get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) 會對投影片層級註解的 null 檢查印出 `True`，對錨定的註解則印出 `Revenue title`。兩個註解皆會隨簡報一起儲存。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -224,7 +271,9 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 300.0f, 80.0f);
 shape->set_Name(u"Revenue title");
 shape->get_TextFrame()->set_Text(u"Quarterly revenue");
@@ -245,11 +294,11 @@ if (shapeAnchor != nullptr)
 presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 ```
 
-### **將註解錨定至不同形狀類型**
+### **將註解錨定於不同類型的圖形**
 
-任何實作了 [IShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/) 的投影片物件皆可作為形狀錨定。常見範例包括 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iconnector/)，以及如圖表等 [IGraphicalObject](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/igraphicalobject/) 實例。
+任何實作了 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 的投影片物件皆可作為圖形錨點。常見範例包括 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/cpp/aspose.slides/iconnector/)，以及如圖表等 [IGraphicalObject](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobject/) 實例。
 
-以下範例建立多種常見形狀類型，並為每一個形狀關聯一個現代註解：
+此範例使用 [AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) 為五種圖形類型各關聯一個註解：AutoShape、圖片框、群組、連接線與圖表。圖片使用內嵌影像資料，無需外部影像檔案。每個註解都有獨立的標記位置，儲存的簡報會保留所有五種圖形的關聯。
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -281,11 +330,13 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
 auto createdTime = DateTime::get_Now();
 
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 180.0f, 60.0f);
 autoShape->get_TextFrame()->set_Text(u"AutoShape");
+
 auto autoShapeCommentPosition = PointF(30.0f, 30.0f);
 author->get_Comments()->AddModernComment(u"Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -313,18 +364,18 @@ author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slid
 presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 ```
 
-### **將註解錨定至文字並設定其狀態**
+### **將註解錨定於文字並設定其狀態**
 
-對於與 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/) 關聯的現代註解，[IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/get_textselectionstart/) 與 [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/set_textselectionstart/) 控制形狀文字框中所選文字的起始位置。同樣地，[IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/get_textselectionlength/) 與 [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/set_textselectionlength/) 控制選取的長度。這些方法共同將註解與 AutoShape 內的特定文字範圍關聯起來。
+對於與 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) 關聯的現代註解， [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionstart/) 與 [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionstart/) 控制文字框中選取文字的起始位置。同理， [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionlength/) 與 [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionlength/) 控制選取的長度。這兩組方法共同將註解與 AutoShape 內特定文字範圍關聯。
 
-[IModernComment::get_Status](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/get_status/) 與 [IModernComment::set_Status](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/set_status/) 方法使用來自 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/moderncommentstatus/) 列舉的值：
+[IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/) 與 [IModernComment::set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) 方法使用 [ModernCommentStatus](https://reference.aspose.com/slides/cpp/aspose.slides/moderncommentstatus/) 列舉中的值：
 
 - `NotDefined` — 未定義特定的現代註解狀態。
-- `Active` — 註解為活動狀態。
+- `Active` — 註解為活躍狀態。
 - `Resolved` — 註解已解決。
 - `Closed` — 註解已關閉。
 
-以下範例建立一個形狀錨定的現代註解，將其與文字選取關聯，標記為已解決，儲存簡報，並在重新開啟檔案後驗證其值：
+此範例將現代註解錨定於矩形文字中的「quarterly revenue」字詞。它先計算文字的零基索引起始位置，傳遞給 [set_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionstart/)，再以選取的字元數呼叫 [set_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionlength/)。之後以 `Resolved` 呼叫 [set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/)，儲存並重新開啟簡報。四個主控台檢查應各自印出 `True`，確認圖形錨點、文字範圍與狀態皆已保留。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -359,6 +410,7 @@ auto expectedSelectionStart = shapeText.IndexOf(selectedText);
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 400.0f, 100.0f);
 shape->set_Name(u"Forecast text");
 shape->get_TextFrame()->set_Text(shapeText);
@@ -399,7 +451,7 @@ for (auto&& reopenedComment : reopenedComments)
 
 ### **檢查現有的現代註解**
 
-要檢查既有簡報，先確認哪些註解實作了 [IModernComment](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/)，然後檢視 [IModernComment::get_Shape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/get_shape/)、[IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/get_textselectionstart/)、[IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/get_textselectionlength/) 與 [IModernComment::get_Status](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/get_status/)。`nullptr` 形狀表示投影片層級的註解。對於 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/) 錨定的情況，文字選取方法會指出形狀文字框中的相關範圍。
+此範例需要一個已包含現代註解的簡報，並印出其文字、狀態與錨點細節。要檢查時，先判斷哪些註解實作了 [IModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/)，然後檢查 [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/)、[IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionstart/)、[IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionlength/)、以及 [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/)。`nullptr` 形狀表示投影片層級的註解。若錨點為 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)，文字選取方法會指出該文字框內的相關範圍。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -458,9 +510,11 @@ for (auto&& slide : presentation->get_Slides())
 
 ## **移除註解**
 
-### **移除所有註解與註解作者**
+Aspose.Slides for C++ 允許您移除簡報中全部的註解與其作者，或僅刪除選取的註解而保留其餘部分。以下範例示範兩種做法，並儲存更新後的簡報。
 
-以下範例示範如何從簡報中移除所有註解與註解作者：
+### **移除全部註解與註解作者**
+
+此範例開啟現有簡報，對每位作者呼叫 [ICommentCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/clear/)，然後呼叫 [ICommentAuthorCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/clear/) 以移除作者本身。儲存的簡報將不再包含任何註解或註解作者。請使用包含註解的簡報以觀察移除結果。
 
 ```cpp
 #include <DOM/ICommentAuthor.h>
@@ -481,12 +535,13 @@ for (auto&& author : presentation->get_CommentAuthors())
 }
 
 presentation->get_CommentAuthors()->Clear();
+
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
 ### **移除特定註解**
 
-以下範例示範如何從投影片中移除特定註解：
+此範例在同一張投影片上建立兩個註解，並使用 [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/) 依作者找出註解。它會收集文字等於「comment 1」的註解，然後呼叫 [ICommentCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/remove/)，以避免在選取期間對集合進行變更。儲存的簡報僅保留「comment 2」。
 
 ```cpp
 #include <DOM/IComment.h>
@@ -508,6 +563,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Author", u"A");
 auto createdTime = DateTime::get_Now();
 
@@ -538,16 +594,16 @@ for (auto&& commentAuthor : presentation->get_CommentAuthors())
 presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **常見問答**
+## **常見問與答**
 
 **Aspose.Slides 是否支援現代註解的已解決狀態？**
 
-是的。[IModernComment::get_Status](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/get_status/) 與 [IModernComment::set_Status](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imoderncomment/set_status/) 使用 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/moderncommentstatus/) 的值，包括 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可讀取。
+是的。[IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/) 與 [IModernComment::set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) 使用 [ModernCommentStatus](https://reference.aspose.com/slides/cpp/aspose.slides/moderncommentstatus/) 的值，其中包含 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可讀取。
 
-**是否支援串流討論（回覆鏈），且有巢狀深度限制嗎？**
+**是否支援串聯討論（回覆鏈），且是否有限制巢狀深度？**
 
-是的。每個註解都可以參考其 [parent comment](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/icomment/set_parentcomment/)，從而形成回覆鏈。API 並未定義特定的巢狀深度上限。
+支援。每個註解皆可參照其 [parent comment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/)，從而形成回覆鏈。API 未定義具體的巢狀深度限制。
 
-**註解標記在投影片上的位置是以什麼座標系統定義的？**
+**註解標記在投影片上的位置是以哪種座標系統定義的？**
 
-標記位置以投影片座標系統中的浮點座標定義，讓您可以精確地將其放置在投影片上。
+標記位置採用投影片座標系統的浮點座標，讓您可以精確地將其放置於投影片上。

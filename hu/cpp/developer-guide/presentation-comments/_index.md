@@ -1,5 +1,5 @@
 ---
-title: Prezentáció megjegyzéseinek kezelése C++-ban
+title: Prezentációs megjegyzések kezelése C++-ban
 linktitle: Prezentációs megjegyzések
 type: docs
 weight: 100
@@ -13,39 +13,38 @@ keywords:
 - megjegyzés hozzáadása
 - megjegyzés elérése
 - megjegyzés szerkesztése
-- megjegyzés megválaszolása
+- megjegyzésre válasz
 - megjegyzés eltávolítása
 - megjegyzés törlése
 - PowerPoint
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Kezelje a prezentáció megjegyzéseit az Aspose.Slides for C++ segítségével: adjon hozzá, olvasson, szerkesszen, válaszoljon, és távolítson el megjegyzéseket a PowerPoint prezentációkban gyorsan és egyszerűen."
+description: "Kezelje a prezentációs megjegyzéseket Az Aspose.Slides for C++ segítségével: gyorsan és egyszerűen adjon hozzá, olvasson, szerkesszen, válaszoljon, és távolítson el megjegyzéseket PowerPoint prezentációkban."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan kezelhetők a prezentációs megjegyzések az Aspose.Slides for C++ használatával. Bemutatja a megjegyzésekkel kapcsolatos fő típusokat, és megmutatja, hogyan adhatunk megjegyzéseket diákhoz, érhetjük el a meglévő megjegyzéseket, dolgozhatunk válaszokkal és modern megjegyzésekkel, illetve hogyan távolíthatunk el megjegyzéseket egy prezentációból.
+Ez a cikk bemutatja, hogyan kezelhetők a prezentáció megjegyzései az Aspose.Slides for C++ segítségével. Bemutatja a fő megjegyzéssel kapcsolatos típusokat, és megmutatja, hogyan adhatunk megjegyzéseket a diákhoz, hogyan érhetjük el a meglévő megjegyzéseket, hogyan dolgozhatunk válaszokkal és modern megjegyzésekkel, valamint hogyan távolíthatók el a megjegyzések a prezentációból.
 
-A példák a PowerPointban gyakran előforduló felülvizsgálati és együttműködési forgatókönyveket fedik le, mint például a megjegyzések szerzőkhöz rendelése, a megjegyzés szövegének és metaadatainak olvasása, válaszos láncok építése, valamint a kiválasztott vagy az összes megjegyzés eltávolítása.
+Az példák a PowerPointban gyakran előforduló felülvizsgálati és együttműködési eseteket fedik le, például a megjegyzések íróhoz rendelését, a megjegyzések szövegének és metaadatainak olvasását, a válaszkötetek építését, illetve a kiválasztott vagy az összes megjegyzés eltávolítását.
 
-A PowerPointban a megjegyzések annotációként jelennek meg a diákon. Egy megjegyzés kiválasztásakor megjelenik a szövege és a kapcsolódó vita.
+A PowerPointban a megjegyzések annotációként jelennek meg a diákon. Egy megjegyzés kiválasztása megjeleníti annak szövegét és a hozzá kapcsolódó vitát.
 
-Annak kéréséhez, hogy a megjegyzések megjelenjenek vagy el legyenek rejtve a prezentáció megnyitásakor anélkül, hogy a megjegyzéseket magukat módosítanánk, lásd a [Megjelenítési vagy elrejtési megjegyzések a prezentáció megnyitásakor](/slides/hu/cpp/presentation-view-properties/) oldalt.
+Ahhoz, hogy a megjegyzéseket a prezentáció megnyitásakor megjeleníteni vagy elrejteni lehessen a megjegyzések módosítása nélkül, lásd [Megjegyzések megjelenítése vagy elrejtése a prezentáció megnyitásakor](/slides/hu/cpp/presentation-view-properties/).
 
-## **Miért érdemes megjegyzéseket hozzáadni a prezentációkhoz?**
+## **Miért adjunk megjegyzéseket a prezentációkhoz?**
 
-A megjegyzésekkel visszajelzést adhat, és együttműködhet kollégáival a prezentációk felülvizsgálata során.
+A megjegyzéseket felhasználhatja visszajelzés nyújtására és a kollégákkal való együttműködésre a prezentációk felülvizsgálata során.
 
 Az Aspose.Slides for C++ a következő API-kat biztosítja a megjegyzésekkel való munkához:
+* A [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) osztály, amely hozzáférést biztosít a prezentáció megjegyzésíróihoz.
+* Az [ICommentCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/) interfész, amely az egyes szerzőkhöz kapcsolódó megjegyzéseket képviseli.
+* Az [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) interfész, amely információkat ad egy megjegyzésről, beleértve a szerzőt, a létrehozás időpontját, a pozíciót és a szöveget.
+* A [CommentAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/commentauthor/) osztály, amely információkat szolgáltat egy szerzőről, beleértve a nevét, a monogramját és a kapcsolódó megjegyzéseket.
 
-* A [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztály, amely hozzáférést biztosít a prezentáció megjegyzés szerzőihez.
-* Az [ICommentCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icommentcollection/) interfész, amely egy adott szerzőhöz tartozó megjegyzéseket képviseli.
-* Az [IComment](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icomment/) interfész, amely információkat nyújt egy megjegyzésről, beleértve a szerzőt, a létrehozás időpontját, a pozíciót és a szöveget.
-* A [CommentAuthor](https://reference.aspose.com/slides/hu/cpp/aspose.slides/commentauthor/) osztály, amely információkat ad egy szerzőről, beleértve a nevét, a monogramját és a hozzá tartozó megjegyzéseket.
+## **Megjegyzések hozzáadása a diákhoz**
 
-## **Diák megjegyzéseinek hozzáadása**
-
-Az alábbi példa bemutatja, hogyan adhatunk megjegyzéseket diákhoz egy PowerPoint‑prezentációban:
+A példa két diát hoz létre, és egy megjegyzésírót regisztrál az [AddAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/addauthor/). Az [AddComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addcomment/) segítségével egy megjegyzést helyez el minden dián, majd a [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/) segítségével lekéri az első dia megjegyzéseit az adott szerző számára. A konzol kétszer jeleníti meg az első megjegyzés szövegét, bemutatva a hozzáférést mind a dia, mind a szerző útján, és a mentett prezentáció mindkét megjegyzést tartalmazza.
 
 ```cpp
 #include <DOM/IComment.h>
@@ -68,6 +67,7 @@ using namespace System::Drawing;
 auto presentation = MakeObject<Presentation>();
 auto firstSlide = presentation->get_Slide(0);
 auto secondSlide = presentation->get_Slides()->AddEmptySlide(presentation->get_LayoutSlide(0));
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Jawad", u"MF");
 auto position = PointF(0.2f, 0.2f);
 auto createdTime = DateTime::get_Now();
@@ -88,9 +88,54 @@ if (comments->get_Length() > 0)
 presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Diák megjegyzéseinek elérése**
+## **Megjegyzésíró keresése vagy létrehozása**
 
-Az alábbi példa bemutatja, hogyan érhetők el a meglévő megjegyzések egy PowerPoint‑prezentációban:
+Amikor egy automatizált felülvizsgálat többször dolgozza fel ugyanazt a prezentációt, a szerző hozzáadása előtt keresse meg a [get_CommentAuthors](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_commentauthors/) által visszaadott gyűjteményt. A [FindByNameAndInitials](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/findbynameandinitials/) egyezést keres a név és a monogram alapján, és egy tömböt ad vissza a megfelelő szerzőkkel, vagy egy üres tömböt, ha nincs egyezés. Ezzel szemben a [FindByName](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/findbyname/) csak név alapján keres, a monogramtól függetlenül. Ha a [AddAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/addauthor/) hívás olyan nevet és monogramot ad meg, amely már létezik a gyűjteményben, kivételt dob.
+
+A példa egy legalább egy diát tartalmazó prezentációfájlt igényel. Két átfutás során újra felhasználja az első egyező szerzőt, vagy csak akkor hoz létre újat, ha az eredmény üres. Ha több egyezés van, az első tömbelemet választja ki, a többi szerzőt összevonás vagy eltávolítás nélkül hagyja. Ezután a [AddComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addcomment/) metódust hívja a kiválasztott szerzőre, és menti a prezentációt. A második átfutás megnyitja az első átfutás kimenetét, és megismétli a műveletet.
+
+```cpp
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/date_time.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+const String authorName = u"Reviewer";
+const String authorInitials = u"RV";
+
+auto inputFile = String(u"input.pptx");
+auto position = PointF(20.0f, 20.0f);
+
+for (auto pass = 1; pass <= 2; pass++)
+{
+    auto presentation = MakeObject<Presentation>(inputFile);
+
+    auto matches = presentation->get_CommentAuthors()->FindByNameAndInitials(authorName, authorInitials);
+
+    auto author = matches->get_Length() > 0 ? matches[0] : presentation->get_CommentAuthors()->AddAuthor(authorName, authorInitials);
+    author->get_Comments()->AddComment(u"Please review this slide.", presentation->get_Slide(0), position, DateTime::get_Now());
+
+    auto outputFile = String::Format(u"review_pass_{0}.pptx", pass);
+    presentation->Save(outputFile, SaveFormat::Pptx);
+    inputFile = outputFile;
+}
+```
+
+A második átfutás egy újabb megjegyzést ad hozzá anélkül, hogy új szerzőt hozna létre vagy meglévő megjegyzéseket eltávolítana. A végső fájl, `review_pass_2.pptx`, mindkét új megjegyzést tartalmazza, valamint az esetleges eredeti megjegyzéseket is. Egy szerző újrafelhasználása nem szűri ki a duplikátumokat: a ugyanazon megjegyzés többszöri hozzáadásának elkerülése érdekében külön duplikátum-ellenőrzést kell bevezetni a hozzáadás előtt.
+
+## **Megjegyzések elérése a diákban**
+
+A példa megnyit egy meglévő prezentációt, és beolvassa a [get_CommentAuthors](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_commentauthors/) által visszaadott gyűjteményt. Minden szerzőre iterál a [get_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthor/get_comments/) által visszaadott gyűjteményen, és kiírja a dia számát, a megjegyzés szövegét, a szerző nevét és a létrehozás idejét. A bemeneti prezentációnak megjegyzéseket kell tartalmaznia, hogy a konzolra kimenet kerüljön.
 
 ```cpp
 #include <DOM/IComment.h>
@@ -121,9 +166,9 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **Válasz a megjegyzésekre**
 
-A szülő megjegyzés a válaszhierarchia tetején található eredeti megjegyzés. Az [IComment](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icomment/) interfész [get_ParentComment](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icomment/get_parentcomment/) és [set_ParentComment](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icomment/set_parentcomment/) metódusai lehetővé teszik a szülő megjegyzés lekérdezését vagy beállítását.
+Egy szülő megjegyzés a válaszhierarchia tetején lévő eredeti megjegyzés. Az [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) interfész [get_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/get_parentcomment/) és [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) metódusai lehetővé teszik a megjegyzés szülőjének lekérését vagy beállítását.
 
-Az alábbi példa bemutatja, hogyan adhatunk válaszokat, és hogyan vizsgálhatjuk meg a keletkezett megjegyzés‑hierarchiát:
+A példa két szerzőtől származó megjegyzéseket hoz létre, és a [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) segítségével felépíti a válaszokat, beleértve egy választ egy másik válaszra is. A `nullptr` átadása a [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/) metódusnak az összes szerző megjegyzéseit adja vissza; a konzol minden bejegyzést a válaszhierarchia mélysége szerint indentál. A példa elmenti a teljes vitát, meghívja a [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/remove/) metódust az első gyökér megjegyzésen, és egy második prezentációt ment, ahol az a megjegyzés és válaszai eltávolításra kerülnek.
 
 ```cpp
 #include <DOM/IComment.h>
@@ -144,30 +189,31 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto position = PointF(10.0f, 10.0f);
 auto createdTime = DateTime::get_Now();
 
-auto author1 = presentation->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
-auto comment1 = author1->get_Comments()->AddComment(u"comment 1", slide, position, createdTime);
+auto originalAuthor = presentation->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
+auto rootComment = originalAuthor->get_Comments()->AddComment(u"comment 1", slide, position, createdTime);
 
-auto author2 = presentation->get_CommentAuthors()->AddAuthor(u"Author_2", u"B.B.");
-auto reply1 = author2->get_Comments()->AddComment(u"reply 1 for comment 1", slide, position, createdTime);
-reply1->set_ParentComment(comment1);
+auto reviewer = presentation->get_CommentAuthors()->AddAuthor(u"Author_2", u"B.B.");
+auto firstReply = reviewer->get_Comments()->AddComment(u"reply 1 for comment 1", slide, position, createdTime);
+firstReply->set_ParentComment(rootComment);
 
-auto reply2 = author2->get_Comments()->AddComment(u"reply 2 for comment 1", slide, position, createdTime);
-reply2->set_ParentComment(comment1);
+auto secondReply = reviewer->get_Comments()->AddComment(u"reply 2 for comment 1", slide, position, createdTime);
+secondReply->set_ParentComment(rootComment);
 
-auto subReply = author1->get_Comments()->AddComment(u"subreply 3 for reply 2", slide, position, createdTime);
-subReply->set_ParentComment(reply2);
+auto subReply = originalAuthor->get_Comments()->AddComment(u"subreply 3 for reply 2", slide, position, createdTime);
+subReply->set_ParentComment(secondReply);
 
-author2->get_Comments()->AddComment(u"comment 2", slide, position, createdTime);
-auto comment3 = author2->get_Comments()->AddComment(u"comment 3", slide, position, createdTime);
+reviewer->get_Comments()->AddComment(u"comment 2", slide, position, createdTime);
+auto separateComment = reviewer->get_Comments()->AddComment(u"comment 3", slide, position, createdTime);
 
-auto reply3 = author1->get_Comments()->AddComment(u"reply 4 for comment 3", slide, position, createdTime);
-reply3->set_ParentComment(comment3);
+auto separateReply = originalAuthor->get_Comments()->AddComment(u"reply 4 for comment 3", slide, position, createdTime);
+separateReply->set_ParentComment(separateComment);
 
 auto comments = slide->GetSlideComments(nullptr);
-for (int32_t i = 0; i < comments->get_Length(); i++)
+for (auto i = 0; i < comments->get_Length(); i++)
 {
     auto comment = comments[i];
     while (comment->get_ParentComment() != nullptr)
@@ -181,24 +227,24 @@ for (int32_t i = 0; i < comments->get_Length(); i++)
 
 presentation->Save(u"parent_comment.pptx", SaveFormat::Pptx);
 
-comment1->Remove();
+rootComment->Remove();
 presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert color="warning" title="Figyelmeztetés" %}}
-* Ha az [IComment](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icomment/) interfész [Remove](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icomment/remove/) metódusát használják megjegyzés törlésére, a megjegyzéshez tartozó összes válasz is törlődik.
-* Ha a [set_ParentComment](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icomment/set_parentcomment/) metódus körkörös hivatkozást hoz létre, egy [PptxEditException](https://reference.aspose.com/slides/hu/cpp/aspose.slides/pptxeditexception/) kivétel keletkezik.
+{{% alert color="warning" title="Warning" %}}
+* Amikor a [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/remove/) metódust a [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) interfész használja egy megjegyzés törlésére, a megjegyzésre adott összes válasz is törlésre kerül.
+* Ha a [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) metódus körkörös hivatkozást hoz létre, akkor egy [PptxEditException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxeditexception/) kivétel dobódik.
 {{% /alert %}}
 
 ## **Modern megjegyzések hozzáadása**
 
-A modern megjegyzések társíthatók a diára, egy adott alakzatra vagy egy AutoShape‑on belüli szövegtartományra. Az [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icommentcollection/addmoderncomment/) metódus egy [IShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/) argumentumot is elfogad a dián és a megjegyzés‑jelző koordinátáin kívül.
+A modern megjegyzések a diára, egy konkrét alakzatra vagy egy AutoShape szövegtartományára is hivatkozhatnak. Az [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) metódus egy [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) paramétert is elfogad a dia és a megjegyzésjelző koordinátái mellett.
 
-Ha a shape argumentumként `nullptr` kerül átadásra, a megjegyzés diálszintű lesz. A jelzőt a megadott koordináták határozzák meg, de nem kapcsolódik konkrét alakzathoz, ezért az [IModernComment::get_Shape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/get_shape/) `nullptr`‑t ad vissza. Ha egy [IShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/) kerül megadásra, a megjegyzés ahhoz az alakzathoz lesz rögzítve. A koordináták továbbra is a megjegyzés jelzőjének pozícióját határozzák meg a dián, míg az alakzathoz való kapcsolat a [IModernComment::get_Shape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/get_shape/) segítségével lekérdezhető.
+Ha a `nullptr` érték kerül átadásra az alakzat argumentumnak, a megjegyzés egy dia-szintű megjegyzés lesz. A jelzőt a megadott koordináták helyezik el, de nincs hozzárendelve konkrét alakzathoz, így az [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) `nullptr`-t ad vissza. Ha egy [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) van megadva, a megjegyzés arra az alakzatra lesz rögzítve. A koordináták továbbra is a megjegyzésjelző pozícióját határozzák a dián, míg az alakzat-hivatkozást a [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) segítségével lehet lekérni.
 
-### **Modern megjegyzés rögzítése egy alakzathoz**
+### **Modern megjegyzés rögzítése egy alakzatra**
 
-Az alábbi példa létrehoz egy diálszintű modern megjegyzést és egy specifikus AutoShape‑hez rögzített modern megjegyzést, majd beolvassa az egyes megjegyzésekhez tartozó alakzatot.
+A példa kétszer hívja meg az [AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) metódust: egyszer egy `nullptr` alakzattal egy dia-szintű megjegyzéshez, és egyszer egy téglalappal, mint rögzítő pont. A [get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) hívás `True`-t ír ki a dia-szintű megjegyzés null ellenőrzésére és a `Revenue title`-t a rögzített megjegyzésre. Mindkét megjegyzés a prezentációval együtt kerül mentésre.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -224,7 +270,9 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 300.0f, 80.0f);
 shape->set_Name(u"Revenue title");
 shape->get_TextFrame()->set_Text(u"Quarterly revenue");
@@ -245,11 +293,11 @@ if (shapeAnchor != nullptr)
 presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 ```
 
-### **Megjegyzések rögzítése különböző alakzat típusokhoz**
+### **Megjegyzések rögzítése különböző alakzattípusokra**
 
-Bármely diátárgy, amely implementálja az [IShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/) interfészt, használható alakzat‑horgonyként. Gyakori példák: [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iconnector/) és [IGraphicalObject](https://reference.aspose.com/slides/hu/cpp/aspose.slides/igraphicalobject/) példányok, például diagramok.
+Bármely, [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) interfészt megvalósító diaobjektum használható alakzat rögzítésként. Gyakori példák: [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/cpp/aspose.slides/iconnector/), valamint [IGraphicalObject](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobject/) példányok, például diagramok.
 
-Az alábbi példa több gyakori alakzat típust hoz létre, és mindegyikhez társít egy modern megjegyzést.
+A példa az [AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) segítségével egy megjegyzést kapcsol minden egyes öt alakzattípushoz: egy AutoShape-hez, egy képkerethez, egy csoporthoz, egy összekötőhöz és egy diagramhoz. A kép beágyazott képadatot használ, így külső képre nincs szükség. Minden megjegyzésnek saját jelzőpozíciója van, és a mentett prezentáció megtartja az öt alakzat-hivatkozást.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -281,11 +329,13 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
 auto createdTime = DateTime::get_Now();
 
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 180.0f, 60.0f);
 autoShape->get_TextFrame()->set_Text(u"AutoShape");
+
 auto autoShapeCommentPosition = PointF(30.0f, 30.0f);
 author->get_Comments()->AddModernComment(u"Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -313,18 +363,17 @@ author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slid
 presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 ```
 
-### **Megjegyzés rögzítése szöveghez és állapotának beállítása**
+### **Megjegyzés rögzítése szövegre és állapotának beállítása**
 
-Egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/)‑hez társított modern megjegyzésnél az [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/get_textselectionstart/) és [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/set_textselectionstart/) a kiválasztott szöveg kezdőpozícióját, az [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/get_textselectionlength/) és [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/set_textselectionlength/) pedig a kijelölés hosszát vezérli. Ezek a metódusok együttesen a megjegyzést egy adott szövegtartományhoz kapcsolják az AutoShape‑on belül.
+Egy [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)‑hez kapcsolódó modern megjegyzésnél az [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionstart/) és az [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionstart/) határozzák meg a kiválasztott szöveg kezdőpozícióját az alakzat szövegdobozában. Hasonló módon az [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionlength/) és az [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionlength/) szabályozzák a kiválasztás hosszát. Ezek a metódusok együtt a megjegyzést egy adott szövegtartományhoz kapcsolják az AutoShape‑ben.
 
-Az [IModernComment::get_Status](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/get_status/) és [IModernComment::set_Status](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/set_status/) metódusok a [ModernCommentStatus](https://reference.aspose.com/slides/hu/cpp/aspose.slides/moderncommentstatus/) felsorolás egy értékét használják:
-
-- `NotDefined` — nincs meghatározott modern megjegyzés‑állapot.
+Az [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/) és [IModernComment::set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) egy [ModernCommentStatus](https://reference.aspose.com/slides/cpp/aspose.slides/moderncommentstatus/) felsorolásból származó értéket használ, amely tartalmazza a `Resolved` állapotot.
+- `NotDefined` — nincs meghatározott modern megjegyzés állapot.
 - `Active` — a megjegyzés aktív.
 - `Resolved` — a megjegyzés megoldott.
 - `Closed` — a megjegyzés lezárt.
 
-Az alábbi példa létrehoz egy alakzathoz rögzített modern megjegyzést, szövegjelölést ad hozzá, megoldottként jelöli meg, elmenti a prezentációt, majd a fájl újranyitása után ellenőrzi az értékeket.
+A példa egy modern megjegyzést rögzít a "quarterly revenue" szavakra egy téglalap szövegében. Kiszámítja a nullától induló kiválasztás kezdő indexét a szövegből, átadja a [set_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionstart/) metódusnak, és a [set_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionlength/)‑t a kiválasztott karakterek számával hívja meg. A [set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) `Resolved` értékkel történő meghívása után menti és újra megnyitja a prezentációt. A négy konzol-ellenőrzés mind `True`‑t kell, hogy kiírjon, megerősítve, hogy az alakzat‑ankor, a szövegtartomány és az állapot megmaradt.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -359,6 +408,7 @@ auto expectedSelectionStart = shapeText.IndexOf(selectedText);
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 400.0f, 100.0f);
 shape->set_Name(u"Forecast text");
 shape->get_TextFrame()->set_Text(shapeText);
@@ -399,7 +449,7 @@ for (auto&& reopenedComment : reopenedComments)
 
 ### **Meglévő modern megjegyzések vizsgálata**
 
-Egy meglévő prezentáció vizsgálatához ellenőrizze, mely megjegyzések implementálják az [IModernComment](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/) interfészt, majd tekintse meg az [IModernComment::get_Shape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/get_textselectionlength/) és [IModernComment::get_Status](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/get_status/) értékeket. A `nullptr` alakzat diálszintű megjegyzést jelez. Egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) horgony esetén a szövegjelölés‑metódusok az alakzat szövegkeretében lévő tartományt azonosítják.
+A példa egy olyan meglévő prezentációt igényel, amely modern megjegyzéseket tartalmaz, és kiírja azok szövegét, állapotát és rögzítési részleteit. A vizsgálathoz ellenőrizze, mely megjegyzések implementálják az [IModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/) interfészt, majd vizsgálja meg az [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionlength/) és [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/) metódusokat. A `nullptr` alakzat egy dia-szintű megjegyzést jelöl. Egy [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) rögzítés esetén a szövegkijelölés metódusai meghatározzák a kapcsolódó tartományt az alakzat szövegdobozában.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -458,9 +508,11 @@ for (auto&& slide : presentation->get_Slides())
 
 ## **Megjegyzések eltávolítása**
 
-### **Az összes megjegyzés és megjegyzés‑szerző eltávolítása**
+Az Aspose.Slides for C++ lehetővé teszi, hogy egy prezentációból eltávolítsa az összes megjegyzést és azok szerzőit, vagy egyes megjegyzéseket töröljön a többi megőrzése mellett. A következő példák mindkét megközelítést bemutatják, és elmentik a frissített prezentációt.
 
-Az alábbi példa bemutatja, hogyan távolítható el az összes megjegyzés és a megjegyzés‑szerzők egy prezentációból:
+### **Minden megjegyzés és megjegyzésíró eltávolítása**
+
+A példa megnyit egy meglévő prezentációt, és minden szerzőre meghívja az [ICommentCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/clear/) metódust, majd az [ICommentAuthorCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/clear/) metódust a szerzők eltávolításához. A mentett prezentáció sem megjegyzéseket, sem megjegyzésírókat nem tartalmaz. A törlés megfigyeléséhez használjon olyan prezentációt, amely megjegyzéseket tartalmaz.
 
 ```cpp
 #include <DOM/ICommentAuthor.h>
@@ -481,12 +533,13 @@ for (auto&& author : presentation->get_CommentAuthors())
 }
 
 presentation->get_CommentAuthors()->Clear();
+
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-### **Egyedi megjegyzések eltávolítása**
+### **Kiválasztott megjegyzések eltávolítása**
 
-Az alábbi példa bemutatja, hogyan távolítható el egyedi megjegyzés egy diákról:
+A példa egy dián két megjegyzést hoz létre, és a [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/) segítségével keresi meg a megjegyzéseket szerzőként. A [ICommentCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/remove/) meghívása előtt összegyűjti azokat a megjegyzéseket, amelyek szövege "comment 1". Így elkerüli a gyűjtemény módosítását a kiválasztás során. A mentett prezentáció csak a "comment 2"-t tartja meg.
 
 ```cpp
 #include <DOM/IComment.h>
@@ -508,6 +561,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Author", u"A");
 auto createdTime = DateTime::get_Now();
 
@@ -538,16 +592,16 @@ for (auto&& commentAuthor : presentation->get_CommentAuthors())
 presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **GYIK**
+## **FAQ**
 
-**Támogatja-e az Aspose.Slides a modern megjegyzések megoldott állapotát?**
+**Támogatja az Aspose.Slides a megoldott állapotot a modern megjegyzésekhez?**
 
-Igen. Az [IModernComment::get_Status](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/get_status/) és [IModernComment::set_Status](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imoderncomment/set_status/) egy [ModernCommentStatus](https://reference.aspose.com/slides/hu/cpp/aspose.slides/moderncommentstatus/) értéket használ, beleértve a `Resolved` állapotot. Az állapot a prezentációban tárolódik, és a fájl újranyitása után ismét olvasható.
+Igen. Az [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/) és az [IModernComment::set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) egy [ModernCommentStatus](https://reference.aspose.com/slides/cpp/aspose.slides/moderncommentstatus/) értéket használ, amely tartalmazza a `Resolved` állapotot. Az állapot a prezentációban tárolódik, és a fájl újra megnyitása után újra leolvasható.
 
-**Támogatottak-e a szálas viták (válaszláncok), és van-e mélységkorlát?**
+**Támogatják a szálas vitákat (válaszköteteket), és van-e beágyazási korlát?**
 
-Igen. Minden megjegyzés hivatkozhat a [szülő megjegyzésre](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icomment/set_parentcomment/), így válaszláncok hozhatók létre. Az API nem definiál konkrét beágyazási mélységi korlátot.
+Igen. Minden megjegyzés hivatkozhat a [parent comment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/), ami lehetővé teszi a válaszköteteket. Az API nem határoz meg konkrét beágyazási mélységkorlátot.
 
-**Milyen koordináta‑rendszerben van meghatározva a megjegyzés‑jelző pozíciója a dián?**
+**Milyen koordináta‑rendszerben van meghatározva egy megjegyzésjelző pozíciója a dián?**
 
-A jelző pozíciója lebegőpontos koordinátákkal van megadva a dia koordináta‑rendszerében, ami lehetővé teszi a pontos elhelyezést a dián.
+A jelző pozíciója lebegőpontos koordinátákkal van definiálva a dia koordináta‑rendszerében, ami lehetővé teszi a pontos elhelyezést a dián.

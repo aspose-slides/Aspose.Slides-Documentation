@@ -1,12 +1,12 @@
 ---
-title: Διαχείριση σχολίων παρουσίασης σε .NET
-linktitle: Σχόλια παρουσίασης
+title: Διαχείριση Σχολίων Παρουσίασης σε .NET
+linktitle: Σχόλια Παρουσίασης
 type: docs
 weight: 100
 url: /el/net/presentation-comments/
 keywords:
 - σχόλιο
-- σύγχρονο σχόλιο
+- μοντέρνο σχόλιο
 - σχόλια PowerPoint
 - σχόλια παρουσίασης
 - σχόλια διαφάνειας
@@ -21,31 +21,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides για .NET: προσθέστε, διαβάστε, επεξεργαστείτε, απαντήστε και αφαιρέστε σχόλια σε παρουσιάσεις PowerPoint γρήγορα και εύκολα."
+description: "Διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides για .NET: προσθέστε, διαβάστε, επεξεργαστείτε, απαντήστε σε και αφαιρέστε σχόλια σε παρουσιάσεις PowerPoint γρήγορα και εύκολα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε τα σχόλια παρουσίασης με το Aspose.Slides for .NET. Παρουσιάζει τους κύριους τύπους που σχετίζονται με τα σχόλια και δείχνει πώς να προσθέτετε σχόλια στις διαφάνειες, να έχετε πρόσβαση σε υπάρχοντα σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια, και να αφαιρείτε σχόλια από μια παρουσίαση.
+Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε τα σχόλια παρουσίασης με το Aspose.Slides for .NET. Παρουσιάζει τους κύριους τύπους που σχετίζονται με σχόλια και επιδεικνύει πώς να προσθέσετε σχόλια στις διαφάνειες, να αποκτήσετε πρόσβαση σε υπάρχοντα σχόλια, να εργαστείτε με απαντήσεις και μοντέρνα σχόλια, και να αφαιρέσετε σχόλια από μια παρουσίαση.
 
-Τα παραδείγματα καλύπτουν κοινά σενάρια ελέγχου και συνεργασίας σε PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίου και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
+Τα παραδείγματα καλύπτουν κοινά σενάρια ανασκόπησης και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση του κειμένου και των μεταδεδομένων των σχολίων, η δημιουργία αλυσίδων απαντήσεων, και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
 
-Στο PowerPoint, τα σχόλια εμφανίζονται ως σημειώσεις στις διαφάνειες. Επιλέγοντας ένα σχόλιο εμφανίζεται το κείμενό του και η σχετική συζήτηση.
+Στο PowerPoint, τα σχόλια εμφανίζονται ως σημειώσεις στις διαφάνειες. Η επιλογή ενός σχολίου εμφανίζει το κείμενό του και τη σχετική συζήτηση.
 
-Για να ζητήσετε η εμφάνιση ή η απόκρυψη των σχολίων όταν ανοίγει μια παρουσίαση χωρίς να αλλάξετε τα σχόλια, δείτε [Εμφάνιση ή απόκρυψη σχολίων κατά το άνοιγμα παρουσίασης](/slides/el/net/presentation-view-properties/).
+Για να ζητήσετε τα σχόλια να εμφανίζονται ή να κρύβονται όταν ανοίγει μια παρουσίαση χωρίς να αλλάζετε τα σχόλια, δείτε [Εμφάνιση ή Απόκρυψη Σχολίων Κατά το Άνοιγμα μιας Παρουσίασης](/slides/el/net/presentation-view-properties/).
 
-## **Γιατί να προσθέτετε σχόλια σε παρουσιάσεις;**
+## **Γιατί να Προσθέτετε Σχόλια σε Παρουσιάσεις;**
 
-Μπορείτε να χρησιμοποιήσετε τα σχόλια για να παρέχετε ανατροφοδότηση και να συνεργάζεστε με συναδέλφους κατά την ανασκόπηση παρουσιάσεων.
+Μπορείτε να χρησιμοποιήσετε σχόλια για να παρέχετε ανατροφοδότηση και να συνεργάζεστε με συναδέλφους κατά την ανασκόπηση παρουσιάσεων.
 
 Το Aspose.Slides for .NET παρέχει τα ακόλουθα API για εργασία με σχόλια:
 
-* Η κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation) που παρέχει πρόσβαση στους συντάκτες σχολίων της παρουσίασης.
-* Η διεπαφή [ICommentCollection](https://reference.aspose.com/slides/el/net/aspose.slides/icommentcollection) που αντιπροσωπεύει τα σχόλια που συνδέονται με έναν συγκεκριμένο συγγραφέα.
-* Η διεπαφή [IComment](https://reference.aspose.com/slides/el/net/aspose.slides/icomment) που παρέχει πληροφορίες για ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, του χρόνου δημιουργίας, της θέσης και του κειμένου.
-* Η κλάση [CommentAuthor](https://reference.aspose.com/slides/el/net/aspose.slides/commentauthor) που παρέχει πληροφορίες για έναν συγγραφέα, συμπεριλαμβανομένου του ονόματος, των αρχικών και των συνδεδεμένων σχολίων.
+* Την κλάση [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) που παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
+* Τη διεπαφή [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) που αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν συγκεκριμένο συγγραφέα.
+* Τη διεπαφή [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) που παρέχει πληροφορίες σχετικά με ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, της ώρας δημιουργίας, της θέσης και του κειμένου.
+* Την κλάση [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) που παρέχει πληροφορίες για έναν συγγραφέα, όπως το όνομα, τα αρχικά και τα συσχετισμένα σχόλια.
 
-## **Προσθήκη Σχολίων σε Διαφάνεια**
-Το παρακάτω παράδειγμα δείχνει πώς να προσθέτετε σχόλια σε διαφάνειες σε μια παρουσίαση PowerPoint:
+## **Προσθήκη Σχολίων σε Διαφάνειες**
+
+Το παράδειγμα δημιουργεί δύο διαφάνειες και καταχωρεί έναν συγγραφέα σχολίου με το [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/). Χρησιμοποιεί το [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) για να τοποθετήσει ένα σχόλιο σε κάθε διαφάνεια, στη συνέχεια ανακτά τα σχόλια της πρώτης διαφάνειας για αυτόν τον συγγραφέα με το [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/). Η κονσόλα εμφανίζει το κείμενο του πρώτου σχολίου δύο φορές, δείχνοντας πρόσβαση τόσο από τη διαφάνεια όσο και από τον συγγραφέα, και η αποθηκευμένη παρουσίαση περιέχει και τα δύο σχόλια.
 
 ```csharp
 using System;
@@ -56,6 +57,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var firstSlide = presentation.Slides[0];
 var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
 var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 var position = new PointF(0.2f, 0.2f);
 var createdTime = DateTime.Now;
@@ -76,8 +78,44 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Εύρεση ή Δημιουργία Συγγραφέα Σχολίου**
+
+Όταν μια αυτοματοποιημένη ανασκόπηση επεξεργάζεται την ίδια παρουσίαση επανειλημμένα, ψάξτε στη συλλογή [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/) πριν προσθέσετε νέο συγγραφέα. Η μέθοδος [FindByNameAndInitials](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbynameandinitials/) ταιριάζει τόσο με το όνομα όσο και με τα αρχικά και επιστρέφει έναν πίνακα με τους αντίστοιχους συγγραφείς, ή έναν κενό πίνακα αν δεν βρεθούν αντιστοιχίες. Αντίθετα, η [FindByName](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbyname/) αναζητεί μόνο με βάση το όνομα, χωρίς να λαμβάνει υπόψη τα αρχικά. Η κλήση του [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) με όνομα και αρχικά που ήδη υπάρχουν στη συλλογή προκαλεί εξαίρεση.
+
+Το παράδειγμα απαιτεί ένα αρχείο παρουσίασης με τουλάχιστον μία διαφάνεια. Σε κάθε μια από τις δύο διέλευσεις, επαναχρησιμοποιεί τον πρώτο ταιριανό συγγραφέα ή δημιουργεί νέο μόνο όταν το αποτέλεσμα είναι κενό. Αν υπάρχουν πολλαπλές αντιστοιχίες, επιλέγει το πρώτο στοιχείο του πίνακα χωρίς να συγχωνεύει ή να αφαιρεί άλλους συγγραφείς. Στη συνέχεια καλεί το [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) για τον επιλεγμένο συγγραφέα και αποθηκεύει την παρουσίαση. Η δεύτερη διέλευση ανοίγει το αποτέλεσμα της πρώτης διέλευσης και επαναλαμβάνει τη λειτουργία.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string authorName = "Reviewer";
+const string authorInitials = "RV";
+
+var inputFile = "input.pptx";
+var position = new PointF(20, 20);
+
+for (var pass = 1; pass <= 2; pass++)
+{
+    using var presentation = new Presentation(inputFile);
+
+    var matches = presentation.CommentAuthors.FindByNameAndInitials(authorName, authorInitials);
+    
+    var author = matches.Length > 0 ? matches[0] : presentation.CommentAuthors.AddAuthor(authorName, authorInitials);
+    author.Comments.AddComment("Please review this slide.", presentation.Slides[0], position, DateTime.Now);
+
+    var outputFile = $"review_pass_{pass}.pptx";
+    presentation.Save(outputFile, SaveFormat.Pptx);
+    inputFile = outputFile;
+}
+```
+
+Η δεύτερη διέλευση προσθέτει ακόμη ένα σχόλιο χωρίς να προσθέτει νέο συγγραφέα ή να αφαιρεί υπάρχοντα σχόλια. Το τελικό αρχείο, `review_pass_2.pptx`, περιέχει και τα νέα σχόλια και τυχόν αυθεντικά σχόλια. Η επανάληψη ενός συγγραφέα δεν αφαιρεί διπλότυπα σχόλια: για να αποφύγετε την επανειλημμένη προσθήκη του ίδιου σχολίου, υλοποιήστε ξεχωριστό έλεγχο διπλοτύπων πριν το προσθέσετε.
+
 ## **Πρόσβαση σε Σχόλια Διαφάνειας**
-Το παρακάτω παράδειγμα δείχνει πώς να έχετε πρόσβαση σε υπάρχοντα σχόλια σε μια παρουσίαση PowerPoint:
+
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και διαβάζει τη συλλογή [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/). Για κάθε συγγραφέα, διατρέχει τα [Comments](https://reference.aspose.com/slides/net/aspose.slides/icommentauthor/comments/) και εκτυπώνει τον αριθμό της διαφάνειας, το κείμενο του σχολίου, το όνομα του συγγραφέα και την ώρα δημιουργίας. Η εισαγόμενη παρουσίαση πρέπει να περιέχει σχόλια για να παραχθεί έξοδος στην κονσόλα.
 
 ```csharp
 using System;
@@ -99,9 +137,10 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **Απάντηση σε Σχόλια**
-Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Η ιδιότητα [ParentComment](https://reference.aspose.com/slides/el/net/aspose.slides/icomment/properties/parentcomment) της διεπαφής [IComment](https://reference.aspose.com/slides/el/net/aspose.slides/icomment) σας επιτρέπει να λάβετε ή να ορίσετε το γονιό ενός σχολίου.
 
-Το παρακάτω παράδειγμα δείχνει πώς να προσθέτετε απαντήσεις και να εξετάζετε τη δημιουργημένη ιεραρχία σχολίων:
+Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Η ιδιότητα [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) της διεπαφής [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) επιτρέπει την ανάκτηση ή την ορισμό του γονέα ενός σχολίου.
+
+Το παράδειγμα δημιουργεί σχόλια από δύο συγγραφείς και χρησιμοποιεί το [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) για να δημιουργήσει απαντήσεις, συμπεριλαμβανομένης μιας απάντησης σε άλλη απάντηση. Η παράδοση του `null` στο [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) ανακτά σχόλια από όλους τους συγγραφείς· η κονσόλα εσοχή κάθε καταχώρησης ανάλογα με το βάθος της στην ιεραρχία απαντήσεων. Το παράδειγμα αποθηκεύει τη συνολική συζήτηση, καλεί το [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) στο πρώτο ριζικό σχόλιο, και αποθηκεύει μια δεύτερη παρουσίαση με το σχόλιο αυτό και τις απαντήσεις του αφαιρεμένες.
 
 ```csharp
 using System;
@@ -111,27 +150,28 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var position = new PointF(10, 10);
 var createdTime = DateTime.Now;
 
-var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
-var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
+var originalAuthor = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var rootComment = originalAuthor.Comments.AddComment("comment 1", slide, position, createdTime);
 
-var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
-var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
-reply1.ParentComment = comment1;
+var reviewer = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var firstReply = reviewer.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+firstReply.ParentComment = rootComment;
 
-var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
-reply2.ParentComment = comment1;
+var secondReply = reviewer.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+secondReply.ParentComment = rootComment;
 
-var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
-subReply.ParentComment = reply2;
+var subReply = originalAuthor.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = secondReply;
 
-author2.Comments.AddComment("comment 2", slide, position, createdTime);
-var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+reviewer.Comments.AddComment("comment 2", slide, position, createdTime);
+var separateComment = reviewer.Comments.AddComment("comment 3", slide, position, createdTime);
 
-var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
-reply3.ParentComment = comment3;
+var separateReply = originalAuthor.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+separateReply.ParentComment = separateComment;
 
 var comments = slide.GetSlideComments(null);
 for (var i = 0; i < comments.Length; i++)
@@ -148,24 +188,24 @@ for (var i = 0; i < comments.Length; i++)
 
 presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
 
-comment1.Remove();
+rootComment.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-* Όταν χρησιμοποιείται η μέθοδος [Remove](https://reference.aspose.com/slides/el/net/aspose.slides/icomment/methods/remove) της διεπαφής [IComment](https://reference.aspose.com/slides/el/net/aspose.slides/icomment) για διαγραφή ενός σχολίου, διαγράφονται επίσης όλες οι απαντήσεις σε αυτό το σχόλιο.
-* Εάν η ιδιότητα [ParentComment](https://reference.aspose.com/slides/el/net/aspose.slides/icomment/properties/parentcomment) δημιουργήσει κυκλική αναφορά, γίνεται ρίψη [PptxEditException](https://reference.aspose.com/slides/el/net/aspose.slides/pptxeditexception).
+{{% alert color="warning" title="Warning" %}}
+* Όταν η μέθοδος [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) της διεπαφής [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) χρησιμοποιείται για διαγραφή ενός σχολίου, διαγράφονται επίσης όλες οι απαντήσεις σε αυτό το σχόλιο.
+* Εάν η ιδιότητα [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) δημιουργεί κυκλική αναφορά, εξαίρεση [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) ρίχνεται.
 {{% /alert %}}
 
-## **Προσθήκη Σύγχρονων Σχολίων**
+## **Προσθήκη Μοντέρνων Σχολίων**
 
-Τα σύγχρονα σχόλια μπορούν να συνδεθούν με την ίδια τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με ένα εύρος κειμένου μέσα σε AutoShape. Η μέθοδος [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/el/net/aspose.slides/icommentcollection/addmoderncomment/) δέχεται ως παράμετρο ένα [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/) εκτός από τις συντεταγμένες της διαφάνειας και του δείκτη σχολίου.
+Τα μοντέρνα σχόλια μπορούν να συσχετιστούν με την ίδια τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με μια περιοχή κειμένου μέσα σε AutoShape. Η μέθοδος [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) δέχεται ένα όρισμα τύπου [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) επιπλέον των συντεταγμένων της διαφάνειας και του δείκτη σχολίου.
 
-Όταν περνιέται `null` για το όρισμα σχήματος, το σχόλιο είναι σχόλιο επιπέδου διαφάνειας. Ο δείκτης του τοποθετείται με τις παρεχόμενες συντεταγμένες, αλλά δεν συνδέεται με κάποιο συγκεκριμένο σχήμα, έτσι το [IModernComment.Shape](https://reference.aspose.com/slides/el/net/aspose.slides/imoderncomment/shape/) επιστρέφει `null`. Όταν παρέχεται ένα [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/), το σχόλιο προσδέεται σε αυτό το σχήμα. Οι συντεταγμένες εξακολουθούν να ορίζουν τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η ένωση με το σχήμα μπορεί να ληφθεί μέσω του [IModernComment.Shape](https://reference.aspose.com/slides/el/net/aspose.slides/imoderncomment/shape/).
+Όταν το όρισμα του σχήματος είναι `null`, το σχόλιο είναι σχολιασμένο στο επίπεδο της διαφάνειας. Ο δείκτης του τοποθετείται από τις δοθείσες συντεταγμένες, αλλά δεν σχετίζεται με κάποιο συγκεκριμένο σχήμα, έτσι η ιδιότητα [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) επιστρέφει `null`. Όταν παρέχεται ένα [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), το σχόλιο αγκυροβολείται στο σχήμα αυτό. Οι συντεταγμένες εξακολουθούν να ορίζουν τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η συσχέτιση σχήματος μπορεί να ανακτηθεί μέσω του [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/).
 
-### **Αγκύρωση Σύγχρονου Σχολίου σε Σχήμα**
+### **Αγκυροβολία Μοντέρνου Σχολίου σε Σχήμα**
 
-Το παρακάτω παράδειγμα δημιουργεί τόσο ένα σχόλιο επιπέδου διαφάνειας όσο και ένα σύγχρονο σχόλιο προσδεδεμένο σε ένα συγκεκριμένο AutoShape. Στη συνέχεια διαβάζει το συνδεδεμένο σχήμα από κάθε σχόλιο.
+Το παράδειγμα καλεί το [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) δύο φορές: μία με σχήμα `null` για σχόλιο σε επίπεδο διαφάνειας και μία με ένα ορθογώνιο ως αγκίστρωση. Η ανάγνωση του [Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) εκτυπώνει `True` για τον έλεγχο null του σχολίου επιπέδου διαφάνειας και `Revenue title` για το αγκυρωμένο σχόλιο. Και τα δύο σχόλια αποθηκεύονται με την παρουσίαση.
 
 ```csharp
 using System;
@@ -175,7 +215,9 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
 shape.Name = "Revenue title";
 shape.TextFrame.Text = "Quarterly revenue";
@@ -192,11 +234,11 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **Αγκύρωση Σχολίων σε Διαφορετικούς Τύπους Σχημάτων**
+### **Αγκυροβολία Σχολίων σε Διαφορετικούς Τύπους Σχημάτων**
 
-Οποιοδήποτε αντικείμενο διαφάνειας που υλοποιεί την διεπαφή [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/) μπορεί να χρησιμοποιηθεί ως αγκύρωση σχήματος. Συχνά παραδείγματα περιλαμβάνουν τις [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/el/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/el/net/aspose.slides/iconnector/) και τις [IGraphicalObject](https://reference.aspose.com/slides/el/net/aspose.slides/igraphicalobject/) όπως γραφήματα.
+Οποιοδήποτε αντικείμενο διαφάνειας που υλοποιεί την διεπαφή [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) μπορεί να χρησιμοποιηθεί ως αγκίστρωση σχήματος. Συνήθη παραδείγματα περιλαμβάνουν [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/net/aspose.slides/iconnector/), και [IGraphicalObject](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobject/) όπως τα γραφήματα.
 
-Το παρακάτω παράδειγμα δημιουργεί διάφορους κοινά τύπους σχημάτων και συνδέει ένα σύγχρονο σχόλιο με καθένα από αυτά.
+Το παράδειγμα χρησιμοποιεί το [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) για να συσχετίσει ένα σχόλιο με καθέναν από τους πέντε τύπους σχημάτων: ένα AutoShape, ένα πλαίσιο εικόνας, μια ομάδα, ένα σύνδεσμο και ένα γράφημα. Η εικόνα ενσωματώνει δεδομένα εικόνας, έτσι δεν απαιτείται εξωτερική εικόνα. Κάθε σχόλιο έχει τη δική του θέση δείκτη, και η αποθηκευμένη παρουσίαση διατηρεί όλες τις πέντε συσχετίσεις σχήματος.
 
 ```csharp
 using System;
@@ -207,11 +249,13 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
 var createdTime = DateTime.Now;
 
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
 autoShape.TextFrame.Text = "AutoShape";
+
 var autoShapeCommentPosition = new PointF(30, 30);
 author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -239,18 +283,18 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **Αγκύρωση Σχολίου σε Κείμενο και Ορισμός Κατάστασής του**
+### **Αγκυροβολία Σχολίου σε Κείμενο και Ορισμός της Κατάστασής του**
 
-Για ένα σύγχρονο σχόλιο που συνδέεται με μια [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/), η ιδιότητα [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/el/net/aspose.slides/imoderncomment/textselectionstart/) καθορίζει τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος, ενώ η ιδιότητα [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/el/net/aspose.slides/imoderncomment/textselectionlength/) καθορίζει το μήκος της επιλογής. Μαζί, αυτές οι ιδιότητες συνδέουν το σχόλιο με ένα συγκεκριμένο εύρος κειμένου μέσα στο AutoShape.
+Για ένα μοντέρνο σχόλιο που συνδέεται με ένα [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), η ιδιότητα [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) καθορίζει τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος, ενώ η [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) καθορίζει το μήκος της επιλογής. Μαζί, αυτές οι ιδιότητες συνδέουν το σχόλιο με ένα συγκεκριμένο εύρος κειμένου μέσα στο AutoShape.
 
-Η ιδιότητα [IModernComment.Status](https://reference.aspose.com/slides/el/net/aspose.slides/imoderncomment/status/) μπορεί να διαβαστεί ή να ενημερωθεί με μια τιμή από την παγίδα [ModernCommentStatus](https://reference.aspose.com/slides/el/net/aspose.slides/moderncommentstatus/):
+Η ιδιότητα [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) μπορεί να διαβαστεί ή να ενημερωθεί με τιμή από τον αριθμό [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — δεν έχει οριστεί συγκεκριμένη κατάσταση σύγχρονου σχολίου.
+- `NotDefined` — δεν έχει οριστεί συγκεκριμένη κατάσταση μοντέρνου σχολίου.
 - `Active` — το σχόλιο είναι ενεργό.
 - `Resolved` — το σχόλιο έχει επιλυθεί.
 - `Closed` — το σχόλιο είναι κλειστό.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχόλιο προσδεδεμένο σε σχήμα, το συνδέει με επιλογή κειμένου, το σημαδεύει ως επιλυμένο, αποθηκεύει την παρουσίαση και ελέγχει τις τιμές μετά το άνοιγμα ξανά του αρχείου.
+Το παράδειγμα αγκυροβολεί ένα μοντέρνο σχόλιο στις λέξεις «quarterly revenue» σε κείμενο ορθογωνίου. Υπολογίζει τη θέση έναρξης μηδενικής βάσης του [TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) από το κείμενο και ορίζει το [TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) στον αριθμό των επιλεγμένων χαρακτήρων. Αφού θέτει το [Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) σε `Resolved`, αποθηκεύει και ξαναφορτώνει την παρουσίαση. Οι τέσσερις έλεγχοι στην κονσόλα θα πρέπει να εκτυπώσουν `True`, επιβεβαιώνοντας ότι η αγκίστρωση σχήματος, το εύρος κειμένου και η κατάσταση διατηρήθηκαν.
 
 ```csharp
 using System;
@@ -265,6 +309,7 @@ var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Or
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
 shape.Name = "Forecast text";
 shape.TextFrame.Text = shapeText;
@@ -301,9 +346,9 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
-### **Επιθεώρηση Υπάρχοντων Σύγχρονων Σχολίων**
+### **Επιθεώρηση Υπαρχόντων Μοντέρνων Σχολίων**
 
-Για να επιθεωρήσετε μια υπάρχουσα παρουσίαση, ελέγξτε ποια σχόλια υλοποιούν το [IModernComment](https://reference.aspose.com/slides/el/net/aspose.slides/imoderncomment/), στη συνέχεια εξετάστε το [IModernComment.Shape](https://reference.aspose.com/slides/el/net/aspose.slides/imoderncomment/shape/), το [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/el/net/aspose.slides/imoderncomment/textselectionstart/), το [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/el/net/aspose.slides/imoderncomment/textselectionlength/) και το [IModernComment.Status](https://reference.aspose.com/slides/el/net/aspose.slides/imoderncomment/status/). Ένα σχήμα `null` υποδηλώνει σχόλιο επιπέδου διαφάνειας. Για μια αγκύρωση [IAutoShape], οι ιδιότητες επιλογής κειμένου προσδιορίζουν το συνδεδεμένο εύρος στο πλαίσιο κειμένου του σχήματος.
+Το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση που περιέχει μοντέρνα σχόλια και εκτυπώνει το κείμενό τους, την κατάσταση και τις λεπτομέρειες αγκίστρωσης. Για να το επιθεωρήσετε, ελέγξτε ποια σχόλια υλοποιούν το [IModernComment](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/), στη συνέχεια εξετάστε το [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/), το [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/), το [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) και το [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/). Ένα σχήμα `null` υποδεικνύει σχολίαση σε επίπεδο διαφάνειας. Για μια αγκίστρωση σε [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), οι ιδιότητες επιλογής κειμένου προσδιορίζουν το αντίστοιχο εύρος στο πλαίσιο κειμένου του σχήματος.
 
 ```csharp
 using System;
@@ -349,9 +394,11 @@ foreach (var slide in presentation.Slides)
 
 ## **Αφαίρεση Σχολίων**
 
-### **Αφαίρεση Όλων των Σχολίων και Συντακτών Σχολίων**
+Το Aspose.Slides for .NET επιτρέπει την αφαίρεση όλων των σχολίων και των συγγραφέων τους από μια παρουσίαση ή τη διαγραφή επιλεγμένων σχολίων διατηρώντας τα υπόλοιπα. Τα παρακάτω παραδείγματα δείχνουν και τις δύο προσεγγίσεις και αποθηκεύουν την ενημερωμένη παρουσίαση.
 
-Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε όλα τα σχόλια και τους συντάκτες σχολίων από μια παρουσίαση:
+### **Αφαίρεση Όλων των Σχολίων και των Συγγραφέων Σχολίων**
+
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και καλεί το [ICommentCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/clear/) για κάθε συγγραφέα, στη συνέχεια καλεί το [ICommentAuthorCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/clear/) για την αφαίρεση των ίδιων των συγγραφέων. Η αποθηκευμένη παρουσίαση δεν περιλαμβάνει ούτε σχόλια ούτε συγγραφείς σχολίων. Χρησιμοποιήστε μια παρουσίαση που περιέχει σχόλια για να παρατηρήσετε την αφαίρεση.
 
 ```csharp
 using Aspose.Slides;
@@ -365,12 +412,13 @@ foreach (var author in presentation.CommentAuthors)
 }
 
 presentation.CommentAuthors.Clear();
+
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
 ### **Αφαίρεση Συγκεκριμένων Σχολίων**
 
-Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε συγκεκριμένα σχόλια από μια διαφάνεια:
+Το παράδειγμα δημιουργεί δύο σχόλια σε μία διαφάνεια και χρησιμοποιεί το [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) για να βρει τα σχόλια ανά συγγραφέα. Συλλέγει σχόλια του οποίου το κείμενο είναι ίσο με «comment 1» πριν καλέσει το [ICommentCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/remove/), αποφεύγοντας αλλαγές στη συλλογή κατά την επιλογή. Η αποθηκευμένη παρουσίαση διατηρεί μόνο το «comment 2».
 
 ```csharp
 using System;
@@ -381,6 +429,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Author", "A");
 var createdTime = DateTime.Now;
 
@@ -411,16 +460,16 @@ foreach (var commentAuthor in presentation.CommentAuthors)
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Υποστηρίζει το Aspose.Slides κατάσταση “επιλυμένο” για σύγχρονα σχόλια;**
+**Υποστηρίζει το Aspose.Slides κατάσταση «επιλυμένο» για μοντέρνα σχόλια;**
 
-Ναι. Η ιδιότητα [IModernComment.Status](https://reference.aspose.com/slides/el/net/aspose.slides/imoderncomment/status/) μπορεί να διαβαστεί και να οριστεί με μια τιμή από την παγίδα [ModernCommentStatus](https://reference.aspose.com/slides/el/net/aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
+Ναι. Η ιδιότητα [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) μπορεί να διαβαστεί και να οριστεί με τιμή του αριθμού [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να αναγνωστεί ξανά μετά το άνοιγμα του αρχείου.
 
-**Υποστηρίζονται συζητήσεις σε νήματα (αλληλουχίες απαντήσεων) και υπάρχει όριο βάθους;**
+**Υποστηρίζονται συζητήσεις με αλληλουχίες απαντήσεων και υπάρχει όριο εσωτερικοποίησης;**
 
-Ναι. Κάθε σχόλιο μπορεί να αναφερθεί στο [parent comment](https://reference.aspose.com/slides/el/net/aspose.slides/comment/parentcomment/), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους.
+Ναι. Κάθε σχόλιο μπορεί να αναφέρει το [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/), επιτρέποντας αλληλουχίες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους εσωτερικοποίησης.
 
 **Σε ποιο σύστημα συντεταγμένων ορίζεται η θέση του δείκτη σχολίου σε μια διαφάνεια;**
 
-Η θέση του δείκτη ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να τοποθετήσετε τον δείκτη ακριβώς στη διαφάνεια.
+Η θέση του δείκτη ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να τοποθετήσετε το δείκτη ακριβώς στη διαφάνεια.

@@ -1,51 +1,52 @@
 ---
-title: "مدیریت نظرات ارائه در .NET"
-linktitle: "نظرات ارائه"
+title: مدیریت نظرات ارائه در .NET
+linktitle: نظرات ارائه
 type: docs
 weight: 100
 url: /fa/net/presentation-comments/
 keywords:
-- "نظر"
-- "نظر مدرن"
-- "نظرات PowerPoint"
-- "نظرات ارائه"
-- "نظرات اسلاید"
-- "افزودن نظر"
-- "دسترس‌پذیری نظر"
-- "ویرایش نظر"
-- "پاسخ به نظر"
-- "حذف نظر"
-- "پاک کردن نظر"
-- "PowerPoint"
-- "ارائه"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "نظرات ارائه را با Aspose.Slides برای .NET مدیریت کنید: افزودن، خواندن، ویرایش، پاسخ دادن و حذف نظرات در ارائه‌های PowerPoint به سرعت و به آسانی."
+- نظر
+- نظر مدرن
+- نظرات PowerPoint
+- نظرات ارائه
+- نظرات اسلاید
+- افزودن نظر
+- دسترسی به نظر
+- ویرایش نظر
+- پاسخ به نظر
+- حذف نظر
+- حذف نظر
+- PowerPoint
+- ارائه
+- .NET
+- C#
+- Aspose.Slides
+description: "نظرات ارائه را با Aspose.Slides برای .NET مدیریت کنید: افزودن، خواندن، ویرایش، پاسخ به و حذف نظرات در ارائه‌های PowerPoint به‌سرعت و به‌راحتی."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-این مقاله نحوه مدیریت نظرات ارائه را با Aspose.Slides برای .NET توضیح می‌دهد. انواع اصلی مرتبط با نظرات معرفی می‌شوند و نشان داده می‌شود که چگونه نظرات را به اسلایدها اضافه کنید، نظرات موجود را دسترسی پیدا کنید، با پاسخ‌ها و نظرات مدرن کار کنید و نظرات را از یک ارائه حذف کنید.
+این مقاله توضیح می‌دهد که چگونه نظرات ارائه را با Aspose.Slides برای .NET مدیریت کنید. این مقاله انواع اصلی مرتبط با نظرات را معرفی می‌کند و نحوه افزودن نظرات به اسلایدها، دسترسی به نظرات موجود، کار با پاسخ‌ها و نظرات مدرن، و حذف نظرات از یک ارائه را نشان می‌دهد.
 
-مثال‌ها سناریوهای رایج بررسی و همکاری در PowerPoint را پوشش می‌دهند، مانند تخصیص نظرات به نویسندگان، خواندن متن نظرات و داده‌های متا، ساخت سلسله‌مراتبی پاسخ‌ها، و حذف نظرات انتخاب‌شده یا تمام نظرات.
+مثال‌ها سناریوهای رایج بررسی و همکاری در PowerPoint را پوشش می‌دهند، مانند اختصاص نظرات به نویسندگان، خواندن متن نظر و فراداده‌ها، ساخت زنجیره‌های پاسخ، و حذف نظرات انتخاب شده یا همه نظرات.
 
-در PowerPoint، نظرات به‌صورت حاشیه‌نویسی بر روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر، متن و بحث مرتبط با آن را نمایش می‌دهد.
+در PowerPoint، نظرات به‌عنوان حاشیه‌نویسی روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر متن و بحث مرتبط با آن را نمایش می‌دهد.
 
-برای درخواست نمایش یا مخفی کردن نظرات هنگام باز کردن یک ارائه بدون تغییر در خود نظرات، به [نمایش یا مخفی کردن نظرات هنگام باز کردن ارائه](/slides/fa/net/presentation-view-properties/) مراجعه کنید.
+برای درخواست نمایش یا مخفی‌سازی نظرات هنگام باز کردن یک ارائه بدون تغییر در خود نظرات، ببینید [نمایش یا مخفی‌سازی نظرات هنگام باز کردن یک ارائه](/slides/fa/net/presentation-view-properties/).
 
 ## **چرا نظرات را به ارائه‌ها اضافه کنیم؟**
 
-می‌توانید از نظرات برای ارائه بازخورد و همکاری با همکاران در هنگام بررسی ارائه‌ها استفاده کنید.
+می‌توانید از نظرات برای ارائه بازخورد و همکاری با همکاران هنگام بررسی ارائه‌ها استفاده کنید.
 
-Aspose.Slides برای .NET APIهای زیر را برای کار با نظرات فراهم می‌کند:
+Aspose.Slides برای .NET APIهای زیر را برای کار با نظرات ارائه می‌دهد:
 
-* کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) که دسترسی به نویسندگان نظرات ارائه را فراهم می‌کند.
-* اینترفیس [ICommentCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/icommentcollection) که نظرات مربوط به یک نویسنده خاص را نشان می‌دهد.
-* اینترفیس [IComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment) که اطلاعاتی درباره یک نظر شامل نویسنده، زمان ایجاد، موقعیت و متن را فراهم می‌آورد.
-* کلاس [CommentAuthor](https://reference.aspose.com/slides/fa/net/aspose.slides/commentauthor) که اطلاعاتی درباره یک نویسنده شامل نام، حروف اختصاری و نظرات مرتبط را ارائه می‌دهد.
+* The [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class, which provides access to the presentation's comment authors.
+* The [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) interface, which represents the comments associated with an individual author.
+* The [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) interface, which provides information about a comment, including its author, creation time, position, and text.
+* The [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) class, which provides information about an author, including their name, initials, and associated comments.
 
-## **اضافه کردن نظرات به اسلاید**
-مثال زیر نشان می‌دهد که چگونه نظرات را به اسلایدهای یک ارائه PowerPoint اضافه کنید:
+## **افزودن نظرات به اسلاید**
+
+مثال دو اسلاید ایجاد می‌کند و یک نویسنده نظر را با [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) ثبت می‌کند. از [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) برای قرار دادن یک نظر روی هر اسلاید استفاده می‌شود، سپس نظرات اسلاید اول برای آن نویسنده با [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) بازیابی می‌شود. کنسول متن اولین نظر را دو بار نمایش می‌دهد، دسترسی از طریق اسلاید و نویسنده را نشان می‌دهد و ارائه ذخیره‌شده هر دو نظر را شامل می‌شود.
 
 ```csharp
 using System;
@@ -56,6 +57,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var firstSlide = presentation.Slides[0];
 var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
 var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 var position = new PointF(0.2f, 0.2f);
 var createdTime = DateTime.Now;
@@ -76,8 +78,44 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
-## **دسترس‌پذیری نظرات اسلاید**
-مثال زیر نشان می‌دهد که چگونه نظرات موجود در یک ارائه PowerPoint را دسترسی پیدا کنید:
+## **یافتن یا ایجاد نویسندهٔ نظر**
+
+هنگامی که یک بررسی خودکار به‌طور مکرر همان ارائه را پردازش می‌کند، قبل از افزودن یک نویسنده، مجموعه [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/) آن را جستجو کنید. [FindByNameAndInitials](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbynameandinitials/) هم نام و هم حروف ابتدایی را مطابقت می‌دهد و آرایه‌ای از نویسندگان مطابقت‌داده‌شده بر می‌گرداند یا آرایه خالی اگر هیچ‌کدام وجود نداشته باشند. در مقابل، [FindByName](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbyname/) فقط بر اساس نام جستجو می‌کند، صرف‌نظر از حروف ابتدایی. فراخوانی [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) با نام و حروف ابتدایی که از پیش در مجموعه موجود است، استثنا پرتاب می‌کند.
+
+مثال به فایلی از ارائه با حداقل یک اسلاید نیاز دارد. در هر یک از دو گذر، نویسندهٔ اولین مطابقت‌شده را مجدداً استفاده می‌کند یا فقط وقتی نتایج خالی باشد یک نویسنده جدید می‌سازد. اگر چندین مطابقت وجود داشته باشد، اولین عنصر آرایه را بدون ترکیب یا حذف سایر نویسندگان انتخاب می‌کند. سپس برای نویسندهٔ انتخاب‌شده [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) را فراخوانی می‌کند و ارائه را ذخیره می‌کند. گذر دوم خروجی گذر اول را باز کرده و عمل را تکرار می‌کند.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string authorName = "Reviewer";
+const string authorInitials = "RV";
+
+var inputFile = "input.pptx";
+var position = new PointF(20, 20);
+
+for (var pass = 1; pass <= 2; pass++)
+{
+    using var presentation = new Presentation(inputFile);
+
+    var matches = presentation.CommentAuthors.FindByNameAndInitials(authorName, authorInitials);
+    
+    var author = matches.Length > 0 ? matches[0] : presentation.CommentAuthors.AddAuthor(authorName, authorInitials);
+    author.Comments.AddComment("Please review this slide.", presentation.Slides[0], position, DateTime.Now);
+
+    var outputFile = $"review_pass_{pass}.pptx";
+    presentation.Save(outputFile, SaveFormat.Pptx);
+    inputFile = outputFile;
+}
+```
+
+گذر دوم نظریه‌ای دیگر اضافه می‌کند بدون افزودن نویسندهٔ دیگر یا حذف نظرات موجود. فایل نهایی، `review_pass_2.pptx`، هر دو نظر جدید را به همراه هر نظر اصلی دیگر شامل می‌شود. استفاده مجدد از یک نویسنده تکراری‌سازی نظرات را انجام نمی‌دهد: برای جلوگیری از افزودن مکرر همان نظر، قبل از افزودن آن، تشخیص تکراری جداگانه‌ای پیاده‌سازی کنید.
+
+## **دسترسی به نظرات اسلاید**
+
+مثال یک ارائه موجود را باز می‌کند و مجموعه [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/) آن را می‌خواند. برای هر نویسنده، از طریق [Comments](https://reference.aspose.com/slides/net/aspose.slides/icommentauthor/comments/) تکرار می‌کند و شماره اسلاید، متن نظر، نام نویسنده و زمان ایجاد را چاپ می‌کند. ارائه ورودی باید شامل نظرات باشد تا خروجی کنسول تولید شود.
 
 ```csharp
 using System;
@@ -99,9 +137,10 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **پاسخ به نظرات**
-یک نظر والد، نظر اصلی در بالای یک سلسله‌مراتبی پاسخ‌ها است. خصوصیت [ParentComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment/properties/parentcomment) از اینترفیس [IComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment) به شما امکان می‌دهد تا والد یک نظر را دریافت یا تنظیم کنید.
 
-مثال زیر نشان می‌دهد که چگونه پاسخ‌ها را اضافه کنید و ساختار سلسله‌مراتبی نظرات حاصل را بررسی کنید:
+یک نظر پدر، نظر اصلی در بالای سلسله‌مراتبی پاسخ‌هاست. ویژگی [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) واسط [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) به شما امکان می‌دهد والد یک نظر را دریافت یا تنظیم کنید.
+
+مثال نظراتی از دو نویسنده ایجاد می‌کند و از [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) برای ساخت پاسخ‌ها، از جمله پاسخی به یک پاسخ دیگر، استفاده می‌کند. عبور `null` به [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) نظرات همه نویسندگان را بازیابی می‌کند؛ کنسول هر ورودی را بر اساس عمق در سلسله‌مراتبی پاسخ‌ها تورفتگی می‌دهد. مثال بحث کامل را ذخیره می‌کند، بر روی اولین نظر ریشه [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) را فراخوانی می‌کند و ارائهٔ دوم را با حذف آن نظر و پاسخ‌هایش ذخیره می‌کند.
 
 ```csharp
 using System;
@@ -111,27 +150,28 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var position = new PointF(10, 10);
 var createdTime = DateTime.Now;
 
-var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
-var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
+var originalAuthor = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var rootComment = originalAuthor.Comments.AddComment("comment 1", slide, position, createdTime);
 
-var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
-var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
-reply1.ParentComment = comment1;
+var reviewer = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var firstReply = reviewer.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+firstReply.ParentComment = rootComment;
 
-var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
-reply2.ParentComment = comment1;
+var secondReply = reviewer.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+secondReply.ParentComment = rootComment;
 
-var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
-subReply.ParentComment = reply2;
+var subReply = originalAuthor.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = secondReply;
 
-author2.Comments.AddComment("comment 2", slide, position, createdTime);
-var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+reviewer.Comments.AddComment("comment 2", slide, position, createdTime);
+var separateComment = reviewer.Comments.AddComment("comment 3", slide, position, createdTime);
 
-var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
-reply3.ParentComment = comment3;
+var separateReply = originalAuthor.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+separateReply.ParentComment = separateComment;
 
 var comments = slide.GetSlideComments(null);
 for (var i = 0; i < comments.Length; i++)
@@ -148,26 +188,24 @@ for (var i = 0; i < comments.Length; i++)
 
 presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
 
-comment1.Remove();
+rootComment.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-
-* وقتی متد [Remove](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment/methods/remove) از اینترفیس [IComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment) برای حذف یک نظر استفاده می‌شود، تمام پاسخ‌های آن نظر نیز حذف می‌شوند.
-* اگر خصوصیت [ParentComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment/properties/parentcomment) یک ارجاع دایره‌ای ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/fa/net/aspose.slides/pptxeditexception) پرتاب می‌شود.
-
+{{% alert color="warning" title="Warning" %}}
+* هنگامی که متد [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) واسط [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) برای حذف یک نظر استفاده می‌شود، تمام پاسخ‌های آن نیز حذف می‌گردند.
+* اگر ویژگی [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) مرجعی دایره‌ای ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) پرتاب می‌شود.
 {{% /alert %}}
 
-## **اضافه کردن نظرات مدرن**
+## **افزودن نظرات مدرن**
 
-نظرات مدرن می‌توانند با خود اسلاید، یک شکل خاص یا یک بازه متن داخل AutoShape مرتبط شوند. متد [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icommentcollection/addmoderncomment/) علاوه بر اسلاید و مختصات نشانگر نظر، یک پارامتر از نوع [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) می‌پذیرد.
+نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص یا به بازهٔ متنی داخل یک AutoShape پیوست شوند. متد [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) علاوه بر اسلاید و مختصات نشانگر نظر، یک آرگومان [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) می‌پذیرد.
 
-زمانی که مقدار `null` برای پارامتر shape ارسال می‌شود، نظر یک نظر سطح‑اسلاید است. نشانگر آن توسط مختصات ارائه‌شده موقعیت می‌یابد، اما به شکل خاصی مرتبط نیست، بنابراین [IModernComment.Shape](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/shape/) مقدار `null` برمی‌گرداند. وقتی یک [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) فراهم شود، نظر به آن شکل متصل می‌شود. مختصات همچنان موقعیت نشانگر نظر روی اسلاید را تعریف می‌کند، در حالی که ارتباط شکل می‌تواند از طریق [IModernComment.Shape](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/shape/) بازیابی شود.
+هنگامی که `null` برای آرگومان شکل پاس داده شود، نظر یک نظر سطح اسلاید است. نشانگر آن توسط مختصات ارائه‌شده موقعیت‌گذاری می‌شود، اما به شکل خاصی پیوست نیست، بنابراین [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) `null` برمی‌گرداند. زمانی که یک [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) ارائه شود، نظر به آن شکل متصل می‌شود. مختصات همچنان موقعیت نشانگر نظر بر روی اسلاید را تعریف می‌کند، در حالی که ارتباط شکل می‌تواند از طریق [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) بازیابی شود.
 
 ### **اتصال یک نظر مدرن به یک شکل**
 
-مثال زیر هم یک نظر مدرن سطح‑اسلاید و هم یک نظر مدرن متصل به یک AutoShape خاص ایجاد می‌کند و سپس شکل مرتبط با هر نظر را می‌خواند:
+مثال دو بار [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) را فراخوانی می‌کند: یک بار با شکل `null` برای نظر سطح اسلاید و یک بار با یک مستطیل به‌عنوان لنگر. خواندن [Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) برای نظر سطح اسلاید مقدار `True` را برای بررسی `null` و برای نظر لنگر شده مقدار `Revenue title` چاپ می‌کند. هر دو نظر با ارائه ذخیره می‌شوند.
 
 ```csharp
 using System;
@@ -177,7 +215,9 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
 shape.Name = "Revenue title";
 shape.TextFrame.Text = "Quarterly revenue";
@@ -196,9 +236,9 @@ presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 
 ### **اتصال نظرات به انواع مختلف شکل‌ها**
 
-هر شیء اسلایدی که پیاده‌سازی‌کننده‌ی [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) باشد می‌تواند به‌عنوان لنگر شکل استفاده شود. مثال‌های رایج شامل [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/fa/net/aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/fa/net/aspose.slides/iconnector/) و نمونه‌های [IGraphicalObject](https://reference.aspose.com/slides/fa/net/aspose.slides/igraphicalobject/) مانند نمودارها هستند.
+هر شیء اسلایدی که واسط [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) را پیاده‌سازی کند می‌تواند به‌عنوان لنگر شکل استفاده شود. مثال‌های رایج شامل [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/net/aspose.slides/iconnector/) و نمونه‌های [IGraphicalObject](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobject/) مانند نمودارها هستند.
 
-مثال زیر چند نوع شکل رایج ایجاد می‌کند و یک نظر مدرن را به هر کدام متصل می‌سازد:
+مثال از [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) برای پیوست یک نظر به هر یک از پنج نوع شکل استفاده می‌کند: یک AutoShape، یک چارچوب تصویر، یک گروه، یک کانکتور و یک نمودار. تصویر داخل چارچوب به‌صورت تعبیه‌شده است، بنابراین نیازی به تصویر خارجی نیست. هر نظر موقعیت نشانگر مخصوص به خود را دارد و ارائهٔ ذخیره‌شده تمام پنج ارتباط شکل را حفظ می‌کند.
 
 ```csharp
 using System;
@@ -209,11 +249,13 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
 var createdTime = DateTime.Now;
 
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
 autoShape.TextFrame.Text = "AutoShape";
+
 var autoShapeCommentPosition = new PointF(30, 30);
 author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -243,16 +285,16 @@ presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 
 ### **اتصال یک نظر به متن و تنظیم وضعیت آن**
 
-برای یک نظر مدرن که به یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) متصل است، خصوصیت [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/textselectionstart/) موقعیت شروع متن انتخاب‌شده در قاب متن شکل را مشخص می‌کند، در حالی که [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/textselectionlength/) طول انتخاب را تعیین می‌کند. با هم این خصوصیات نظر را به یک بازه متنی خاص داخل AutoShape مرتبط می‌سازند.
+برای یک نظر مدرن که به یک [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) متصل است، ویژگی [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) موقعیت شروع متن انتخاب‌شده در فریم متنی شکل را مشخص می‌کند، در حالی که [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) طول انتخاب را تعیین می‌کند. با هم این ویژگی‌ها نظر را به بازهٔ متنی خاصی داخل AutoShape پیوست می‌کنند.
 
-خصوصیت [IModernComment.Status](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/status/) می‌تواند با مقداری از شمارش‌گر [ModernCommentStatus](https://reference.aspose.com/slides/fa/net/aspose.slides/moderncommentstatus/) خوانده یا به‌روزرسانی شود:
+ویژگی [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) می‌تواند با مقدار از شمارش‌گر [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/) خوانده یا به‌روزرسانی شود:
 
 - `NotDefined` — هیچ وضعیت خاصی برای نظر مدرن تعریف نشده است.
 - `Active` — نظر فعال است.
-- `Resolved` — نظر حل شده است.
-- `Closed` — نظر بسته شده است.
+- `Resolved` — نظر حل و فصل شده است.
+- `Closed` — نظر بسته است.
 
-مثال زیر یک نظر مدرن متصل به شکل ایجاد می‌کند، آن را به یک انتخاب متن پیوند می‌دهد، به‌عنوان حل‌شده علامت‌گذاری می‌کند، ارائه را ذخیره می‌کند و پس از بازگشایی فایل مقادیر را تأیید می‌نماید:
+مثال یک نظر مدرن را به کلمات «quarterly revenue» در متن یک مستطیل لنگر می‌دهد. مقدار [TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) را بر پایهٔ صفر از متن محاسبه می‌کند و [TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) را به تعداد کاراکترهای انتخابی تنظیم می‌کند. پس از تنظیم [Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) به `Resolved`، ارائه را ذخیره و دوباره باز می‌کند. چهار بررسی کنسول باید هر کدام `True` چاپ کنند، تأیید می‌کند که لنگر شکل، بازهٔ متن و وضعیت حفظ شده‌اند.
 
 ```csharp
 using System;
@@ -267,6 +309,7 @@ var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Or
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
 shape.Name = "Forecast text";
 shape.TextFrame.Text = shapeText;
@@ -305,7 +348,7 @@ foreach (var reopenedComment in reopenedComments)
 
 ### **بررسی نظرات مدرن موجود**
 
-برای بررسی یک ارائه موجود، ابتدا بررسی کنید که کدام نظرات پیاده‌ساز [IModernComment](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/) هستند، سپس به [IModernComment.Shape](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/shape/)، [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/textselectionstart/)، [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/textselectionlength/) و [IModernComment.Status](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/status/) نگاهی بیندازید. یک shape برابر `null` نشان‌دهنده یک نظر سطح‑اسلاید است. برای لنگر [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/)، خصوصیات انتخاب متن بازه مرتبط در قاب متن شکل را شناسایی می‌کند.
+مثال به ارائه‌ای موجود که شامل نظرات مدرن است نیاز دارد و متن، وضعیت و جزئیات لنگر آن‌ها را چاپ می‌کند. برای بررسی، ابتدا بررسی کنید که کدام نظرات واسط [IModernComment](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/) را پیاده‌سازی می‌کنند، سپس به [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/)، [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/)، [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) و [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) نگاه کنید. یک شکل `null` نشان‌دهندهٔ نظر سطح اسلاید است. برای لنگر [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ویژگی‌های انتخاب متن بازهٔ متن مربوطه در فریم متنی شکل را شناسایی می‌کند.
 
 ```csharp
 using System;
@@ -351,9 +394,11 @@ foreach (var slide in presentation.Slides)
 
 ## **حذف نظرات**
 
+Aspose.Slides برای .NET به شما امکان می‌دهد تمام نظرات و نویسندگان آن‌ها را از یک ارائه حذف کنید یا نظرات انتخابی را حذف کنید و بقیه را حفظ کنید. مثال‌های زیر هر دو رویکرد را نشان می‌دهند و ارائه به‌روز‌شده را ذخیره می‌کنند.
+
 ### **حذف تمام نظرات و نویسندگان نظرات**
 
-مثال زیر نشان می‌دهد که چگونه تمام نظرات و نویسندگان نظرات را از یک ارائه حذف کنید:
+مثال یک ارائه موجود را باز می‌کند و برای هر نویسنده [ICommentCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/clear/) را فراخوانی می‌کند، سپس [ICommentAuthorCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/clear/) را برای حذف خود نویسندگان صدا می‌کند. ارائه ذخیره‌شده نه نظرات و نه نویسندگان نظرات را شامل نمی‌شود. برای مشاهده حذف، از ارائه‌ای که شامل نظرات است استفاده کنید.
 
 ```csharp
 using Aspose.Slides;
@@ -367,12 +412,13 @@ foreach (var author in presentation.CommentAuthors)
 }
 
 presentation.CommentAuthors.Clear();
+
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
 ### **حذف نظرات خاص**
 
-مثال زیر نشان می‌دهد که چگونه نظرات خاصی را از یک اسلاید حذف کنید:
+مثال دو نظر در یک اسلاید ایجاد می‌کند و از [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) برای یافتن نظرات هر نویسنده استفاده می‌کند. نظراتی که متن آن‌ها برابر با «comment 1» است جمع‌آوری می‌کند قبل از فراخوانی [ICommentCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/remove/)، تا از تغییر مجموعه در طول انتخاب جلوگیری کند. ارائه ذخیره‌شده فقط «comment 2» را نگه می‌دارد.
 
 ```csharp
 using System;
@@ -383,6 +429,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Author", "A");
 var createdTime = DateTime.Now;
 
@@ -413,16 +460,16 @@ foreach (var commentAuthor in presentation.CommentAuthors)
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **سؤالات متداول**
+## **پرسش‌های متداول**
 
-**آیا Aspose.Slides از وضعیت حل‌شده برای نظرات مدرن پشتیبانی می‌کند؟**
+**آیا Aspose.Slides برای نظرات مدرن وضعیت حل و فصل شده را پشتیبانی می‌کند؟**
 
-بله. خصوصیت [IModernComment.Status](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/status/) می‌تواند با مقدار شمارش‌گر [ModernCommentStatus](https://reference.aspose.com/slides/fa/net/aspose.slides/moderncommentstatus/) خوانده و تنظیم شود، از جمله `Resolved`. وضعیت در ارائه ذخیره می‌شود و پس از بازکردن دوباره فایل قابل خواندن است.
+بله. ویژگی [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) می‌تواند با مقدار از شمارش‌گر [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/) خوانده و تنظیم شود، از جمله `Resolved`. این وضعیت در ارائه ذخیره می‌شود و پس از بازکردن مجدد فایل می‌تواند دوباره خوانده شود.
 
-**آیا بحث‌های سلسله‌دار (زنجیره پاسخ) پشتیبانی می‌شود و آیا محدودیتی برای عمق تو در تویی وجود دارد؟**
+**آیا بحث‌های زنجیره‌ای (زنجیره‌های پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای عمق تو در تو وجود دارد؟**
 
-بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/fa/net/aspose.slides/comment/parentcomment/) خود ارجاع دهد و زنجیره‌های پاسخ را فعال کند. API محدودیت خاصی برای عمق تو در تو تعیین نکرده است.
+بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/) خود ارجاع دهد و زنجیره‌های پاسخ را فعال می‌کند. API محدودیت عمق خاصی تعریف نکرده است.
 
-**مختصات نشانگر نظر در اسلاید بر اساس چه سیستم مختصاتی تعریف می‌شود؟**
+**موقعیت نشانگر نظر روی اسلاید در چه سیستم مختصاتی تعریف می‌شود؟**
 
-موقعیت نشانگر توسط مختصات عددی شناور در سیستم مختصات اسلاید تعریف می‌شود که امکان قرار دادن دقیق آن روی اسلاید را می‌دهد.
+موقعیت نشانگر با مختصات نقطه‌ای شناور در سیستم مختصات اسلاید تعریف می‌شود، که به شما امکان می‌دهد آن را دقیقاً بر روی اسلاید قرار دهید.

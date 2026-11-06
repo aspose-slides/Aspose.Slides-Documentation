@@ -1,6 +1,6 @@
 ---
-title: Java でプレゼンテーション コメントを管理
-linktitle: プレゼンテーション コメント
+title: Java でプレゼンテーションのコメントを管理
+linktitle: プレゼンテーションコメント
 type: docs
 weight: 100
 url: /ja/java/presentation-comments/
@@ -8,49 +8,48 @@ keywords:
 - コメント
 - モダンコメント
 - PowerPoint コメント
-- プレゼンテーション コメント
-- スライド コメント
-- コメントを追加
-- コメントにアクセス
-- コメントを編集
-- コメントに返信
-- コメントを削除
-- コメントを削除
+- プレゼンテーションコメント
+- スライドコメント
+- コメントの追加
+- コメントへのアクセス
+- コメントの編集
+- コメントへの返信
+- コメントの削除
+- コメントの削除
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用してプレゼンテーション コメントを管理します：PowerPoint プレゼンテーション内でコメントを追加、読み取り、編集、返信、削除を迅速かつ簡単に行えます。"
+description: "Aspose.Slides for Java を使用してプレゼンテーションのコメントを管理します。PowerPoint プレゼンテーションでコメントを追加、読み取り、編集、返信、削除を迅速かつ簡単に行えます。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides for Java を使用してプレゼンテーションのコメントを管理する方法を説明します。主なコメント関連タイプを紹介し、スライドへのコメントの追加、既存のコメントへのアクセス、返信およびモダンコメントの操作、プレゼンテーションからのコメントの削除方法を実演します。
+この記事では、Aspose.Slides for Java を使用してプレゼンテーションのコメントを管理する方法を説明します。主なコメント関連の型を紹介し、スライドへのコメントの追加、既存コメントへのアクセス、返信やモダンコメントの操作、プレゼンテーションからのコメントの削除方法を実演します。
 
-これらの例は、PowerPoint における一般的なレビューおよび共同作業シナリオをカバーしており、コメントを作成者に割り当て、コメントテキストとメタデータを読み取り、返信チェーンを構築し、選択したコメントまたはすべてのコメントを削除する方法を示します。
+例では、PowerPoint の一般的なレビューおよびコラボレーションシナリオ、たとえばコメントを著者に割り当てること、コメントのテキストやメタデータを読み取ること、返信チェーンを構築すること、選択したコメントまたはすべてのコメントを削除すること、を扱います。
 
 PowerPoint では、コメントはスライド上の注釈として表示されます。コメントを選択すると、そのテキストと関連するディスカッションが表示されます。
 
-プレゼンテーションを開く際にコメントを表示または非表示にする方法については、[プレゼンテーションを開く際にコメントを表示または非表示にする方法](/slides/ja/java/presentation-view-properties/)をご参照ください。
+プレゼンテーションを開くときにコメントを表示または非表示にする[プレゼンテーションを開くときにコメントを表示または非表示にする](/slides/ja/java/presentation-view-properties/).
 
 ## **なぜプレゼンテーションにコメントを追加するのか？**
 
-プレゼンテーションのレビュー時に、コメントを使用してフィードバックを提供し、同僚と共同作業できます。
+コメントは、プレゼンテーションをレビューする際にフィードバックを提供し、同僚と協働するために使用できます。
 
 Aspose.Slides for Java は、コメント操作のために以下の API を提供します。
 
-* The [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスは、プレゼンテーションのコメント作成者へのアクセスを提供します。
-* The [ICommentCollection](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icommentcollection/) インターフェイスは、個々の作成者に関連付けられたコメントを表します。
-* The [IComment](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icomment/) インターフェイスは、コメントの作成者、作成時刻、位置、テキストなどの情報を提供します。
-* The [CommentAuthor](https://reference.aspose.com/slides/ja/java/com.aspose.slides/commentauthor/) クラスは、作成者の名前、イニシャル、関連付けられたコメントなどの情報を提供します。
+* [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスは、プレゼンテーションのコメント著者へのアクセスを提供します。
+* [ICommentCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/) インターフェイスは、個々の著者に関連付けられたコメントを表します。
+* [IComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/) インターフェイスは、コメントの情報（著者、作成時刻、位置、テキスト）を提供します。
+* [CommentAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/commentauthor/) クラスは、著者の情報（名前、イニシャル、関連コメント）を提供します。
 
 ## **スライドコメントの追加**
 
-以下の例は、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示しています。
+この例では、2 つのスライドを作成し、[addAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) を使用してコメント著者を登録します。[addComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-java.awt.geom.Point2D.Float-java.util.Date-) を使って各スライドに 1 つずつコメントを配置し、[getSlideComments](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) でその著者の最初のスライドのコメントを取得します。コンソールは最初のコメントのテキストを 2 回表示し、スライドと著者の両方からのアクセスを示し、保存されたプレゼンテーションには両方のコメントが含まれます。
 
 ```java
 import com.aspose.slides.IComment;
 import com.aspose.slides.ICommentAuthor;
-import com.aspose.slides.ICommentCollection;
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -61,6 +60,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
     ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     Point2D.Float position = new Point2D.Float(0.2f, 0.2f);
     Date createdTime = new Date();
@@ -73,8 +73,7 @@ try {
         IComment firstComment = comments[0];
         System.out.println(firstComment.getText());
 
-        ICommentCollection authorComments = firstComment.getAuthor().getComments();
-        String commentText = authorComments.get_Item(0).getText();
+        String commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         System.out.println(commentText);
     }
 
@@ -84,9 +83,47 @@ try {
 }
 ```
 
+## **コメント著者の検索または作成**
+
+自動レビューが同じプレゼンテーションを繰り返し処理する場合、著者を追加する前に [getCommentAuthors](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getCommentAuthors--) が返すコレクションを検索します。[findByNameAndInitials](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#findByNameAndInitials-java.lang.String-java.lang.String-) は名前とイニシャルの両方が一致する著者の配列を返し、該当がなければ空の配列を返します。これに対し、[findByName](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#findByName-java.lang.String-) はイニシャルに関係なく名前だけで検索します。コレクションに既に存在する名前とイニシャルで [addAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) を呼び出すと例外がスローされます。
+
+この例では、少なくとも 1 枚のスライドがあるプレゼンテーションファイルが必要です。2 回のパスそれぞれで、最初に一致した著者を再利用するか、結果が空の場合にのみ新規作成します。複数の一致がある場合は、他の著者を結合または削除せずに最初の配列要素を選択します。その後、選択した著者に対して [addComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-java.awt.geom.Point2D.Float-java.util.Date-) を呼び出し、プレゼンテーションを保存します。2 回目のパスは 1 回目の出力を開き、同じ操作を再実行します。
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
+final String authorName = "Reviewer";
+final String authorInitials = "RV";
+
+String inputFile = "input.pptx";
+Point2D.Float position = new Point2D.Float(20, 20);
+
+for (int pass = 1; pass <= 2; pass++) {
+    Presentation presentation = new Presentation(inputFile);
+    try {
+        ICommentAuthor[] matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        ICommentAuthor author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, new Date());
+
+        String outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+2 回目のパスは、別の著者を追加したり既存のコメントを削除したりせずに別のコメントを追加します。最終ファイル `review_pass_2.pptx` には、元のコメントに加えて新しいコメントの両方が含まれます。著者を再利用してもコメントは重複除去されません。同じコメントの繰り返し追加を防ぐには、追加前に別途重複検出を実装してください。
+
 ## **スライドコメントへのアクセス**
 
-以下の例は、PowerPoint プレゼンテーション内の既存のコメントにアクセスする方法を示しています。
+この例では、既存のプレゼンテーションを開き、[getCommentAuthors](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getCommentAuthors--) が返すコレクションを読み取ります。各著者について、[getComments](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthor/#getComments--) が返すコレクションを反復し、スライド番号、コメントテキスト、著者名、作成時刻を出力します。コンソール出力を得るには、入力プレゼンテーションにコメントが含まれている必要があります。
 
 ```java
 import com.aspose.slides.IComment;
@@ -111,9 +148,9 @@ try {
 
 ## **コメントへの返信**
 
-親コメントは、返信階層のトップにある元のコメントです。[IComment.getParentComment](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icomment/#getParentComment--) および [IComment.setParentComment](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) メソッドを使用して、コメントの親を取得または設定できます。
+親コメントは、返信階層の最上位にある元のコメントです。[IComment.getParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#getParentComment--) および [IComment.setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) メソッドを使用して、コメントの親を取得または設定できます。
 
-以下の例は、返信を追加し、結果として得られるコメント階層を検査する方法を示しています。
+この例では、2 人の著者からコメントを作成し、[setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) を使用して返信を構築し、別の返信への返信も含めます。`null` を [getSlideComments](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) に渡すとすべての著者からコメントを取得します。コンソールは返信階層の深さに応じて各エントリをインデントします。例は全体のディスカッションを保存し、最初のルートコメントに対して [remove](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#remove--) を呼び出し、そのコメントと返信が削除された 2 番目のプレゼンテーションを保存します。
 
 ```java
 import com.aspose.slides.IComment;
@@ -127,27 +164,28 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     Point2D.Float position = new Point2D.Float(10, 10);
     Date createdTime = new Date();
 
-    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    ICommentAuthor originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    ICommentAuthor reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    IComment secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    IComment subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    IComment separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     IComment[] comments = slide.getSlideComments(null);
     for (int i = 0; i < comments.length; i++) {
@@ -162,27 +200,26 @@ try {
 
     presentation.save("parent_comment.pptx", SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
 {{% alert color="warning" title="Warning" %}}
-* コメントを削除するために [IComment.remove](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icomment/#remove--) メソッドを使用すると、そのコメントへのすべての返信も削除されます。
-* [IComment.setParentComment](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) が循環参照を作成した場合、[PptxEditException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/pptxeditexception/) がスローされます。
+* [IComment.remove](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#remove--) メソッドを使用してコメントを削除すると、そのコメントへのすべての返信も削除されます。
+* [IComment.setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) が循環参照を作成すると、[PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/) がスローされます。
 {{% /alert %}}
 
 ## **モダンコメントの追加**
 
-モダンコメントは、スライド自体、特定のシェイプ、または AutoShape 内のテキスト範囲に関連付けることができます。[ICommentCollection.addModernComment](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) メソッドは、スライドとコメントマーカーの座標に加えて [IShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/) 引数を受け取ります。
+モダンコメントは、スライド自体、特定のシェイプ、または AutoShape 内のテキスト範囲に関連付けることができます。[ICommentCollection.addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) メソッドは、スライドとコメントマーカーの座標に加えて [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) 引数を受け取ります。
 
-`null` がシェイプ引数として渡された場合、コメントはスライドレベルのコメントになります。そのマーカーは指定された座標で配置されますが、特定のシェイプには紐付けられません。そのため [IModernComment.getShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#getShape--) は `null` を返します。[IShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/) が指定された場合、コメントはそのシェイプにアンカリングされます。座標はスライド上のコメントマーカーの位置を定義したままで、シェイプとの紐付けは [IModernComment.getShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#getShape--) を通じて取得できます。
+`null` がシェイプ引数として渡されると、コメントはスライドレベルのコメントになります。マーカーは指定された座標で配置されますが、特定のシェイプには関連付けられないため、[IModernComment.getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--) は `null` を返します。[IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) が指定されると、コメントはそのシェイプにアンカー付けされます。座標は依然としてスライド上のコメントマーカーの位置を定義し、シェイプの関連付けは [IModernComment.getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--) で取得できます。
 
-### **モダンコメントをシェイプにアンカーする**
+### **モダンコメントをシェイプにアンカー付けする**
 
-以下の例は、スライドレベルのモダンコメントと特定の AutoShape にアンカリングされたモダンコメントの両方を作成し、各コメントから関連するシェイプを読み取ります。
+この例では、[addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) を 2 回呼び出します。1 回目は `null` シェイプでスライドレベルのコメント、2 回目は矩形をアンカーとして使用します。[getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--) を読み取ると、スライドレベルコメントの null チェックで `true`、アンカー付きコメントで `Revenue title` が出力されます。両方のコメントはプレゼンテーションに保存されます。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -198,7 +235,9 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -218,11 +257,11 @@ try {
 }
 ```
 
-### **異なるシェイプタイプへのコメントのアンカー**
+### **異なるシェイプタイプへのコメントのアンカー付け**
 
-[IShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/) を実装する任意のスライドオブジェクトをシェイプアンカーとして使用できます。一般的な例として、[IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iconnector/) およびチャートなどの [IGraphicalObject](https://reference.aspose.com/slides/ja/java/com.aspose.slides/igraphicalobject/) インスタンスがあります。
+[IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) を実装するスライドオブジェクトは、シェイプのアンカーとして使用できます。代表的な例として [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/java/com.aspose.slides/iconnector/)、およびチャートなどの [IGraphicalObject](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobject/) インスタンスがあります。
 
-以下の例は、いくつかの一般的なシェイプタイプを作成し、それぞれにモダンコメントを関連付けます。
+この例では、[addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) を使用して、5 種類のシェイプ（AutoShape、ピクチャフレーム、グループ、コネクタ、チャート）それぞれにコメントを関連付けます。ピクチャは埋め込み画像データを使用するため、外部画像は必要ありません。各コメントは独自のマーカー位置を持ち、保存されたプレゼンテーションは 5 つすべてのシェイプ関連付けを保持します。
 
 ```java
 import com.aspose.slides.ChartType;
@@ -244,11 +283,13 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     Date createdTime = new Date();
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     Point2D.Float autoShapeCommentPosition = new Point2D.Float(30, 30);
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -279,18 +320,18 @@ try {
 }
 ```
 
-### **テキストにコメントをアンカーしステータスを設定する**
+### **テキストへのコメントのアンカー付けとステータス設定**
 
-[IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) に関連付けられたモダンコメントの場合、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) および [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) はシェイプのテキストフレーム内で選択されたテキストの開始位置にアクセスします。[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) と [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) は選択範囲の長さにアクセスします。これらの値を組み合わせて、コメントを AutoShape 内の特定のテキスト範囲に関連付けます。
+[IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) に関連付けられたモダンコメントの場合、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) と [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) はシェイプのテキストフレーム内で選択されたテキストの開始位置にアクセスします。[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) と [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) は選択範囲の長さにアクセスします。これらの値を組み合わせることで、コメントは AutoShape 内の特定のテキスト範囲に関連付けられます。
 
-[IModernComment.getStatus](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#getStatus--) と [IModernComment.setStatus](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#setStatus-byte--) メソッドは、[ModernCommentStatus](https://reference.aspose.com/slides/ja/java/com.aspose.slides/moderncommentstatus/) 定数から値を取得します。
+[IModernComment.getStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getStatus--) と [IModernComment.setStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setStatus-byte-) メソッドは、[ModernCommentStatus](https://reference.aspose.com/slides/java/com.aspose.slides/moderncommentstatus/) 定数の値にアクセスします。
 
 - `NotDefined` — 特定のモダンコメントステータスは定義されていません。
 - `Active` — コメントはアクティブです。
 - `Resolved` — コメントは解決済みです。
 - `Closed` — コメントはクローズされています。
 
-以下の例は、シェイプにアンカーされたモダンコメントを作成し、テキスト選択に関連付け、解決済みとしてマークし、プレゼンテーションを保存し、ファイルを再度開いた後に値を検証します。
+この例では、矩形テキスト内の "quarterly revenue" という語句にモダンコメントをアンカー付けします。テキストからゼロベースの選択開始位置を計算し、[setTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) に渡し、[setTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) で選択文字数を設定します。`Resolved` を指定して [setStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setStatus-byte-) を呼び出した後、プレゼンテーションを保存して再度開きます。4 つのコンソールチェックはすべて `true` を出力し、シェイプアンカー、テキスト範囲、ステータスが保持されていることを確認します。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -313,6 +354,7 @@ int expectedSelectionStart = shapeText.indexOf(selectedText);
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
@@ -355,9 +397,9 @@ try {
 }
 ```
 
-### **既存のモダンコメントを検査する**
+### **既存のモダンコメントの検査**
 
-既存のプレゼンテーションを検査するには、どのコメントが [IModernComment](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/) を実装しているかを確認し、次に [IModernComment.getShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#getShape--)、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--)、[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--)、および [IModernComment.getStatus](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#getStatus--) を調べます。`null` のシェイプはスライドレベルのコメントを示します。[IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) アンカーの場合、テキスト選択メソッドはシェイプのテキストフレーム内の関連範囲を特定します。
+この例では、モダンコメントを含む既存のプレゼンテーションが必要で、コメントのテキスト、ステータス、アンカーの詳細を出力します。検査するには、どのコメントが [IModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/) を実装しているか確認し、[IModernComment.getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--) 、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) 、[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 、[IModernComment.getStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getStatus--) を調べます。`null` のシェイプはスライドレベルのコメントを示します。[IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) アンカーの場合、テキスト選択メソッドはシェイプのテキストフレーム内の対象範囲を特定します。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -404,9 +446,11 @@ try {
 
 ## **コメントの削除**
 
-### **すべてのコメントとコメント作成者の削除**
+Aspose.Slides for Java を使用すると、プレゼンテーションからすべてのコメントとその著者を削除したり、選択したコメントだけを削除して残りを保持したりできます。以下の例は両方の方法を示し、更新されたプレゼンテーションを保存します。
 
-以下の例は、プレゼンテーションからすべてのコメントとコメント作成者を削除する方法を示しています。
+### **すべてのコメントとコメント著者の削除**
+
+この例では、既存のプレゼンテーションを開き、各著者に対して [ICommentCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#clear--) を呼び出し、次に [ICommentAuthorCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#clear--) を呼び出して著者自体を削除します。保存されたプレゼンテーションにはコメントもコメント著者も含まれません。削除を確認するには、コメントを含むプレゼンテーションを使用してください。
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -420,6 +464,7 @@ try {
     }
 
     presentation.getCommentAuthors().clear();
+
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -428,7 +473,7 @@ try {
 
 ### **特定のコメントの削除**
 
-以下の例は、スライドから特定のコメントを削除する方法を示しています。
+この例では、1 枚のスライドに 2 つのコメントを作成し、[getSlideComments](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) を使用して各著者のコメントを検索します。[ICommentCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#remove-com.aspose.slides.IComment-) を呼び出す前に、テキストが "comment 1" と等しいコメントを収集し、選択中にコレクションが変更されるのを防ぎます。保存されたプレゼンテーションには "comment 2" のみが残ります。
 
 ```java
 import com.aspose.slides.IComment;
@@ -444,6 +489,7 @@ import java.util.List;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
     Date createdTime = new Date();
 
@@ -477,12 +523,12 @@ try {
 
 **Aspose.Slides はモダンコメントの解決済みステータスをサポートしていますか？**
 
-はい。[IModernComment.getStatus](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#getStatus--) と [IModernComment.setStatus](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imoderncomment/#setStatus-byte--) は、`Resolved` を含む [ModernCommentStatus](https://reference.aspose.com/slides/ja/java/com.aspose.slides/moderncommentstatus/) の値にアクセスします。このステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも再読取できます。
+はい。 [IModernComment.getStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getStatus--) と [IModernComment.setStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setStatus-byte-) は、`Resolved` を含む [ModernCommentStatus](https://reference.aspose.com/slides/java/com.aspose.slides/moderncommentstatus/) の値にアクセスします。ステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも読み取れます。
 
-**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？また、ネストの制限はありますか？**
+**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？また、入れ子の制限はありますか？**
 
-はい。各コメントは自身の [parent comment](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icomment/#getParentComment--) を参照でき、これにより返信チェーンが可能です。API は特定のネスト深度の制限を定義していません。
+はい。各コメントは [parent comment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#getParentComment--) を参照できるため、返信チェーンが可能です。API では特定の入れ子深さの制限は定義されていません。
 
 **スライド上のコメントマーカーの位置はどの座標系で定義されていますか？**
 
-マーカーの位置は、スライド座標系の浮動小数点座標で定義されており、スライド上の正確な位置に配置できます。
+マーカーの位置はスライド座標系の浮動小数点座標で定義されており、スライド上の正確な位置に配置できます。

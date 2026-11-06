@@ -1,51 +1,51 @@
 ---
-title: PHP에서 프레젠테이션 댓글 관리
-linktitle: 프레젠테이션 댓글
+title: PHP에서 프레젠테이션 주석 관리
+linktitle: 프레젠테이션 주석
 type: docs
 weight: 100
 url: /ko/php-java/presentation-comments/
 keywords:
-- 댓글
-- 최신 댓글
-- PowerPoint 댓글
-- 프레젠테이션 댓글
-- 슬라이드 댓글
-- 댓글 추가
-- 댓글 접근
-- 댓글 편집
-- 댓글 답글
-- 댓글 제거
-- 댓글 삭제
+- 주석
+- 현대 주석
+- PowerPoint 주석
+- 프레젠테이션 주석
+- 슬라이드 주석
+- 주석 추가
+- 주석 접근
+- 주석 편집
+- 주석 답글
+- 주석 제거
+- 주석 삭제
 - PowerPoint
 - 프레젠테이션
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java를 사용하여 프레젠테이션 댓글을 관리합니다: PowerPoint 프레젠테이션에서 댓글을 빠르고 쉽게 추가, 읽기, 편집, 답글 달기 및 제거합니다."
+description: "Aspose.Slides for PHP via Java를 사용하여 프레젠테이션 주석을 관리합니다: PowerPoint 프레젠테이션에서 주석을 빠르고 쉽게 추가, 읽기, 편집, 답글 달기 및 제거합니다."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides for PHP via Java를 사용하여 프레젠테이션 댓글을 관리하는 방법을 설명합니다. 주요 댓글 관련 유형을 소개하고 슬라이드에 댓글을 추가하고, 기존 댓글에 접근하고, 답글 및 최신 댓글을 다루며, 프레젠테이션에서 댓글을 제거하는 방법을 보여줍니다.
+이 문서는 Aspose.Slides for PHP via Java를 사용하여 프레젠테이션 주석을 관리하는 방법을 설명합니다. 주요 주석 관련 유형을 소개하고 슬라이드에 주석을 추가하고, 기존 주석에 접근하고, 답글 및 최신 주석을 다루며, 프레젠테이션에서 주석을 제거하는 방법을 보여줍니다.
 
-예제는 PowerPoint에서 일반적인 검토 및 협업 시나리오를 다루며, 저자에게 댓글을 할당하고, 댓글 텍스트와 메타데이터를 읽으며, 답글 체인을 구성하고, 선택된 댓글 또는 모든 댓글을 제거하는 방법을 포함합니다.
+예제는 PowerPoint에서 일반적인 검토 및 협업 시나리오를 다룹니다. 예를 들어 주석을 작성자에게 할당하고, 주석 텍스트와 메타데이터를 읽고, 답글 체인을 구성하고, 선택한 주석이나 모든 주석을 제거하는 작업을 포함합니다.
 
-PowerPoint에서 댓글은 슬라이드의 주석으로 표시됩니다. 댓글을 선택하면 해당 텍스트와 관련 토론이 표시됩니다.
+PowerPoint에서 주석은 슬라이드에 표시되는 주석 형태로 나타납니다. 주석을 선택하면 해당 텍스트와 관련 토론이 표시됩니다.
 
-프레젠테이션을 열 때 댓글 자체를 변경하지 않고 댓글을 표시하거나 숨기도록 요청하려면 [프레젠테이션 열 때 댓글 표시 또는 숨기기](/slides/ko/php-java/presentation-view-properties/)를 참조하세요.
+프레젠테이션을 열 때 주석을 표시하거나 숨기려면, 주석 자체를 변경하지 않은 상태에서 [프레젠테이션 열 때 주석 보이기/숨기기](/slides/ko/php-java/presentation-view-properties/)를 참조하십시오.
 
-## **프레젠테이션에 댓글을 추가하는 이유?**
+## **왜 프레젠테이션에 주석을 추가해야 하나요?**
 
-프레젠테이션을 검토할 때 댓글을 사용하여 피드백을 제공하고 동료와 협업할 수 있습니다.
+프레젠테이션을 검토할 때 피드백을 제공하고 동료와 협업하기 위해 주석을 사용할 수 있습니다.
 
-Aspose.Slides for PHP via Java는 댓글 작업을 위한 다음 API를 제공합니다:
+Aspose.Slides for PHP via Java는 주석 작업을 위한 다음 API를 제공합니다:
 
-* The [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/) 클래스는 프레젠테이션의 댓글 저자에 대한 접근을 제공합니다.
-* The [CommentCollection](https://reference.aspose.com/slides/ko/php-java/aspose.slides/commentcollection/) 클래스는 개별 저자와 연결된 댓글을 나타냅니다.
-* The [Comment](https://reference.aspose.com/slides/ko/php-java/aspose.slides/comment/) 클래스는 댓글에 대한 정보(저자, 생성 시간, 위치, 텍스트 등)를 제공합니다.
-* The [CommentAuthor](https://reference.aspose.com/slides/ko/php-java/aspose.slides/commentauthor/) 클래스는 저자에 대한 정보(이름, 이니셜, 연결된 댓글 등)를 제공합니다.
+* [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 클래스 – 프레젠테이션의 주석 작성자에 대한 액세스를 제공합니다.
+* [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) 클래스 – 개별 작성자와 연결된 주석을 나타냅니다.
+* [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) 클래스 – 작성자, 생성 시간, 위치 및 텍스트를 포함한 주석 정보를 제공합니다.
+* [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/) 클래스 – 이름, 이니셜 및 연결된 주석을 포함한 작성자 정보를 제공합니다.
 
-## **슬라이드 댓글 추가**
+## **슬라이드 주석 추가**
 
-다음 예제는 PowerPoint 프레젠테이션의 슬라이드에 댓글을 추가하는 방법을 보여줍니다:
+예제는 두 개의 슬라이드를 만들고 [addAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/addauthor/) 로 주석 작성자를 등록합니다. 그런 다음 [addComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addcomment/) 을 사용해 각 슬라이드에 하나씩 주석을 배치하고, [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/) 로 해당 작성자의 첫 번째 슬라이드 주석을 가져옵니다. 콘솔은 첫 번째 주석 텍스트를 두 번 표시하여 슬라이드와 작성자를 통해 모두 접근할 수 있음을 보여 주며, 저장된 프레젠테이션에는 두 주석이 모두 포함됩니다.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -56,6 +56,7 @@ $presentation = new Presentation();
 try {
     $firstSlide = $presentation->getSlides()->get_Item(0);
     $secondSlide = $presentation->getSlides()->addEmptySlide($presentation->getLayoutSlides()->get_Item(0));
+
     $author = $presentation->getCommentAuthors()->addAuthor("Jawad", "MF");
     $position = new Point2DFloat(0.2, 0.2);
     $createdTime = new Java("java.util.Date");
@@ -81,9 +82,48 @@ try {
 }
 ```
 
-## **슬라이드 댓글 접근**
+## **주석 작성자 찾기 또는 만들기**
 
-다음 예제는 PowerPoint 프레젠테이션에서 기존 댓글에 접근하는 방법을 보여줍니다:
+자동 검토가 동일한 프레젠테이션을 반복해서 처리할 때는 [getCommentAuthors](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getcommentauthors/) 로 반환된 컬렉션을 검색한 후에 작성자를 추가합니다. [findByNameAndInitials](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/findbynameandinitials/) 은 이름과 이니셜을 모두 일치시켜 일치하는 작성자 배열을 반환하며, 일치 항목이 없으면 빈 배열을 반환합니다. 반면에 [findByName](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/findbyname/) 은 이니셜에 관계없이 이름만으로 검색합니다. 컬렉션에 이미 존재하는 이름과 이니셜으로 [addAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/addauthor/) 를 호출하면 예외가 발생합니다.
+
+예제는 최소 하나의 슬라이드가 포함된 프레젠테이션 파일이 필요합니다. 두 번의 반복 중 각각 첫 번째 일치하는 작성자를 재사용하거나, 결과가 비어 있을 때만 새로 만듭니다. 일치 항목이 여러 개이면 첫 번째 배열 요소를 선택하고 다른 작성자를 병합하거나 제거하지 않습니다. 그런 다음 선택된 작성자에 대해 [addComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addcomment/) 를 호출하고 프레젠테이션을 저장합니다. 두 번째 반복에서는 첫 번째 반복의 출력 파일을 열어 동일한 작업을 다시 수행합니다.
+
+```php
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$authorName = "Reviewer";
+$authorInitials = "RV";
+
+$inputFile = "input.pptx";
+$position = new Point2DFloat(20, 20);
+$arrayClass = new JavaClass("java.lang.reflect.Array");
+
+for ($pass = 1; $pass <= 2; $pass++) {
+    $presentation = new Presentation($inputFile);
+    try {
+        $matches = $presentation->getCommentAuthors()->findByNameAndInitials($authorName, $authorInitials);
+        $matchCount = java_values($arrayClass->getLength($matches));
+
+        $author = $matchCount > 0 ? $matches[0] : $presentation->getCommentAuthors()->addAuthor($authorName, $authorInitials);
+        $createdTime = new Java("java.util.Date");
+        $author->getComments()->addComment("Please review this slide.", $presentation->getSlides()->get_Item(0), $position, $createdTime);
+
+        $outputFile = "review_pass_" . $pass . ".pptx";
+        $presentation->save($outputFile, SaveFormat::Pptx);
+        $inputFile = $outputFile;
+    } finally {
+        $presentation->dispose();
+    }
+}
+```
+
+두 번째 반복에서는 새로운 주석을 추가하지만 추가 작성자를 만들거나 기존 주석을 제거하지 않습니다. 최종 파일 `review_pass_2.pptx` 에는 원본 주석과 함께 두 개의 새로운 주석이 모두 포함됩니다. 작성자를 재사용한다 하더라도 주석이 중복 삭제되지 않으며, 동일한 주석이 반복해서 추가되는 것을 방지하려면 추가하기 전에 별도의 중복 검사를 구현해야 합니다.
+
+## **슬라이드 주석 접근**
+
+예제는 기존 프레젠테이션을 열고 [getCommentAuthors](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getcommentauthors/) 로 반환된 컬렉션을 읽습니다. 각 작성자에 대해 [getComments](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/getcomments/) 로 반환된 컬렉션을 순회하면서 슬라이드 번호, 주석 텍스트, 작성자 이름 및 생성 시간을 출력합니다. 콘솔 출력이 나타나려면 입력 프레젠테이션에 주석이 포함되어 있어야 합니다.
 
 ```php
 use aspose\slides\Presentation;
@@ -104,11 +144,11 @@ try {
 }
 ```
 
-## **댓글에 답글 달기**
+## **주석에 답글 달기**
 
-부모 댓글은 답글 계층 구조의 최상위에 있는 원본 댓글을 의미합니다. [Comment::getParentComment](https://reference.aspose.com/slides/ko/php-java/aspose.slides/comment/getparentcomment/) 및 [Comment::setParentComment](https://reference.aspose.com/slides/ko/php-java/aspose.slides/comment/setparentcomment/) 메서드를 사용하면 댓글의 부모를 가져오거나 설정할 수 있습니다.
+부모 주석은 답글 계층 구조의 최상위에 있는 원본 주석을 의미합니다. [Comment::getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) 와 [Comment::setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) 메서드를 사용해 주석의 부모를 가져오거나 설정할 수 있습니다.
 
-다음 예제는 답글을 추가하고 결과 댓글 계층 구조를 검사하는 방법을 보여줍니다:
+예제는 두 명의 작성자로부터 주석을 만든 다음 [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) 로 답글을 구성합니다. 여기에는 다른 답글에 대한 답글도 포함됩니다. `null` 을 [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/) 에 전달하면 모든 작성자의 주석을 가져옵니다. 콘솔은 답글 계층 깊이에 따라 각 항목을 들여쓰기합니다. 예제는 전체 토론을 저장하고 첫 번째 루트 주석에 대해 [remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) 를 호출한 뒤 해당 주석과 그 답글이 제거된 두 번째 프레젠테이션을 저장합니다.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -118,6 +158,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $position = new Point2DFloat(10, 10);
     $createdTime = new Java("java.util.Date");
 
@@ -163,19 +204,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* [Comment::remove](https://reference.aspose.com/slides/ko/php-java/aspose.slides/comment/remove/) 메서드로 댓글을 삭제하면 해당 댓글의 모든 답글도 함께 삭제됩니다.
-* [Comment::setParentComment](https://reference.aspose.com/slides/ko/php-java/aspose.slides/comment/setparentcomment/) 가 순환 참조를 만들 경우 [PptxEditException](https://reference.aspose.com/slides/ko/php-java/aspose.slides/pptxeditexception/) 이 발생합니다.
+* [Comment::remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) 메서드를 사용해 주석을 삭제하면 해당 주석에 대한 모든 답글도 함께 삭제됩니다.
+* [Comment::setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) 가 순환 참조를 만들면 [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/) 이 발생합니다.
 {{% /alert %}}
 
-## **최신 댓글 추가**
+## **현대 주석 추가**
 
-최신 댓글은 슬라이드 자체, 특정 모양, 또는 AutoShape 내부의 텍스트 범위와 연결될 수 있습니다. [CommentCollection::addModernComment](https://reference.aspose.com/slides/ko/php-java/aspose.slides/commentcollection/addmoderncomment/) 메서드는 슬라이드와 댓글 마커 좌표 외에 [Shape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/) 인수를 허용합니다.
+현대 주석은 슬라이드 자체, 특정 도형, 또는 AutoShape 내부의 텍스트 범위에 연결될 수 있습니다. [CommentCollection::addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) 메서드는 슬라이드와 주석 마커 좌표 외에 [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) 인수를 추가로 받습니다.
 
-`null` 이 모양 인수로 전달되면 댓글은 슬라이드 수준 댓글이 됩니다. 마커는 제공된 좌표에 따라 배치되지만 특정 모양과 연결되지 않으므로 [ModernComment::getShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/getshape/) 은 `null` 을 반환합니다. [Shape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/) 가 제공되면 댓글은 해당 모양에 고정됩니다. 좌표는 여전히 슬라이드상의 댓글 마커 위치를 정의하며, 모양 연결은 [ModernComment::getShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/getshape/) 를 통해 조회할 수 있습니다.
+`null` 을 shape 인수로 전달하면 주석은 슬라이드 수준 주석이 됩니다. 마커는 제공된 좌표에 배치되지만 특정 도형과 연결되지 않으므로 [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/) 은 `null` 을 반환합니다. [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) 가 제공되면 주석은 해당 도형에 고정됩니다. 좌표는 여전히 슬라이드상의 주석 마커 위치를 정의하고, 도형 연결은 [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/) 를 통해 확인할 수 있습니다.
 
-### **모던 댓글을 모양에 고정하기**
+### **도형에 현대 주석 고정**
 
-다음 예제는 슬라이드 수준 최신 댓글과 특정 AutoShape에 고정된 최신 댓글을 모두 생성하고, 각각의 댓글에서 연결된 모양을 읽어봅니다.
+예제는 [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) 를 두 번 호출합니다. 첫 번째는 `null` shape 로 슬라이드 수준 주석을 만들고, 두 번째는 사각형을 고정점으로 사용합니다. [getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/) 를 읽어 슬라이드 수준 주석의 `null` 검사에서는 `true` 가 출력되고, 고정된 주석에서는 `Revenue title` 이 출력됩니다. 두 주석 모두 프레젠테이션에 저장됩니다.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -186,7 +227,9 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 300, 80);
     $shape->setName("Revenue title");
     $shape->getTextFrame()->setText("Quarterly revenue");
@@ -206,11 +249,11 @@ try {
 }
 ```
 
-### **다양한 모양 유형에 댓글 고정**
+### **다양한 도형 유형에 주석 고정**
 
-[Shape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/) 클래스로 표현되는 모든 슬라이드 개체를 모양 앵커로 사용할 수 있습니다. 일반적인 예로는 [AutoShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/ko/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/ko/php-java/aspose.slides/connector/), 그리고 차트와 같은 [GraphicalObject](https://reference.aspose.com/slides/ko/php-java/aspose.slides/graphicalobject/) 인스턴스가 있습니다.
+[Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) 클래스로 표현되는 모든 슬라이드 객체를 도형 고정점으로 사용할 수 있습니다. 일반적인 예로 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/php-java/aspose.slides/connector/), 그리고 차트와 같은 [GraphicalObject](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobject/) 인스턴스가 있습니다.
 
-다음 예제는 여러 일반적인 모양 유형을 생성하고 각 모양에 최신 댓글을 연결합니다.
+예제는 [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) 를 사용해 다섯 가지 도형 유형(자동 도형, 그림 프레임, 그룹, 연결선, 차트) 각각에 주석을 연결합니다. 그림은 임베디드 이미지 데이터를 사용하므로 외부 이미지가 필요하지 않습니다. 각 주석은 자체 마커 위치를 갖고, 저장된 프레젠테이션은 모든 다섯 도형 연결을 유지합니다.
 
 ```php
 use aspose\slides\ChartType;
@@ -222,11 +265,13 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
     $createdTime = new Java("java.util.Date");
 
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 180, 60);
     $autoShape->getTextFrame()->setText("AutoShape");
+
     $autoShapeCommentPosition = new Point2DFloat(30, 30);
     $author->getComments()->addModernComment("Comment on an AutoShape.", $slide, $autoShape, $autoShapeCommentPosition, $createdTime);
 
@@ -258,18 +303,18 @@ try {
 }
 ```
 
-### **텍스트에 댓글을 고정하고 상태 설정**
+### **텍스트에 주석 고정 및 상태 설정**
 
-[AutoShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/autoshape/) 에 연결된 최신 댓글의 경우, [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/gettextselectionstart/) 및 [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/settextselectionstart/) 은 모양 텍스트 프레임에서 선택된 텍스트의 시작 위치에 접근합니다. [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/gettextselectionlength/) 및 [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/settextselectionlength/) 은 선택 길이에 접근합니다. 이 값들을 함께 사용하면 댓글을 AutoShape 내부의 특정 텍스트 범위와 연결할 수 있습니다.
+[AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) 에 연결된 현대 주석의 경우, [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionstart/) 와 [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionstart/) 은 도형 텍스트 프레임 내 선택된 텍스트 시작 위치에 접근합니다. [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionlength/) 와 [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionlength/) 은 선택 길이에 접근합니다. 이 값들을 함께 사용하면 자동 도형 내부의 특정 텍스트 범위에 주석을 연결할 수 있습니다.
 
-[ModernComment::getStatus](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/getstatus/) 및 [ModernComment::setStatus](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/setstatus/) 메서드는 [ModernCommentStatus](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncommentstatus/) 상수 중 하나의 값을 가져오거나 설정합니다:
+[ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/) 와 [ModernComment::setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) 메서드는 [ModernCommentStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/) 상수 중 하나의 값을 가져오고 설정합니다:
 
-- `NotDefined` — 특정 최신 댓글 상태가 정의되지 않음.
-- `Active` — 댓글이 활성 상태임.
-- `Resolved` — 댓글이 해결됨.
-- `Closed` — 댓글이 닫힘.
+- `NotDefined` — 특정 현대 주석 상태가 정의되지 않음.
+- `Active` — 주석이 활성 상태임.
+- `Resolved` — 주석이 해결됨.
+- `Closed` — 주석이 닫힘.
 
-다음 예제는 모양에 고정된 최신 댓글을 생성하고, 텍스트 선택과 연결하며, 해결된 상태로 표시하고, 프레젠테이션을 저장한 뒤 파일을 다시 열어 값들을 검증합니다.
+예제는 사각형 텍스트 내 “quarterly revenue” 라는 단어에 현대 주석을 고정합니다. 텍스트에서 0 기반 선택 시작 위치를 계산해 [setTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionstart/) 에 전달하고, [setTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionlength/) 로 선택 문자 수를 설정합니다. 그런 다음 `Resolved` 로 [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) 를 호출하고 프레젠테이션을 저장·재개방합니다. 네 개의 콘솔 검사는 각각 `true` 를 출력하여 도형 고정, 텍스트 범위 및 상태가 보존되었음을 확인합니다.
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -286,6 +331,7 @@ $expectedSelectionStart = strpos($shapeText, $selectedText);
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
     $shape->setName("Forecast text");
     $shape->getTextFrame()->setText($shapeText);
@@ -329,9 +375,9 @@ try {
 }
 ```
 
-### **기존 최신 댓글 검사**
+### **기존 현대 주석 검사**
 
-기존 프레젠테이션을 검사하려면 각 댓글이 [ModernComment](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/) 인지 확인한 다음, [ModernComment::getShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/gettextselectionlength/), 그리고 [ModernComment::getStatus](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/getstatus/) 를 조사합니다. `null` 모양은 슬라이드 수준 댓글을 의미합니다. [AutoShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/autoshape/) 에 고정된 경우, 텍스트 선택 메서드가 모양 텍스트 프레임 내의 해당 범위를 식별합니다.
+예제는 현대 주석이 포함된 기존 프레젠테이션을 요구하고, 각 주석의 텍스트, 상태 및 고정 상세 정보를 출력합니다. 검사를 위해 각 주석이 [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/) 인지 확인한 뒤, [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionlength/), [ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/) 를 조사합니다. `null` shape 은 슬라이드 수준 주석임을 나타냅니다. [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) 고정점의 경우 텍스트 선택 메서드가 도형 텍스트 프레임 내 연관 범위를 식별합니다.
 
 ```php
 use aspose\slides\Presentation;
@@ -373,11 +419,13 @@ try {
 }
 ```
 
-## **댓글 제거**
+## **주석 제거**
 
-### **모든 댓글 및 댓글 저자 제거**
+Aspose.Slides for PHP via Java는 프레젠테이션에서 모든 주석과 작성자를 제거하거나 선택된 주석만 삭제하고 나머지는 유지할 수 있습니다. 다음 예제는 두 접근 방식을 보여주며 업데이트된 프레젠테이션을 저장합니다.
 
-다음 예제는 프레젠테이션에서 모든 댓글과 댓글 저자를 제거하는 방법을 보여줍니다:
+### **모든 주석 및 주석 작성자 제거**
+
+예제는 기존 프레젠테이션을 열고 각 작성자에 대해 [CommentCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/clear/) 를 호출한 뒤, [CommentAuthorCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/clear/) 로 작성자 자체를 제거합니다. 저장된 프레젠테이션에는 주석도 작성자도 포함되지 않습니다. 제거 효과를 확인하려면 주석이 포함된 프레젠테이션을 사용하십시오.
 
 ```php
 use aspose\slides\Presentation;
@@ -390,15 +438,16 @@ try {
     }
 
     $presentation->getCommentAuthors()->clear();
+
     $presentation->save("example_out.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-### **특정 댓글 제거**
+### **특정 주석 제거**
 
-다음 예제는 슬라이드에서 특정 댓글을 제거하는 방법을 보여줍니다:
+예제는 한 슬라이드에 두 개의 주석을 만든 뒤 [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/) 로 각 작성자의 주석을 찾습니다. 텍스트가 “comment 1” 인 주석을 수집한 후 [CommentCollection::remove](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/remove/) 를 호출해 컬렉션 변경을 방지합니다. 저장된 프레젠테이션에는 “comment 2” 만 남습니다.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -408,6 +457,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
     $createdTime = new Java("java.util.Date");
 
@@ -439,14 +489,14 @@ try {
 
 ## **FAQ**
 
-**Aspose.Slides 가 최신 댓글에 대해 해결된 상태를 지원합니까?**
+**Aspose.Slides가 현대 주석에 대한 해결 상태를 지원하나요?**
 
-예. [ModernComment::getStatus](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/getstatus/) 및 [ModernComment::setStatus](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncomment/setstatus/) 은 `Resolved` 를 포함한 [ModernCommentStatus](https://reference.aspose.com/slides/ko/php-java/aspose.slides/moderncommentstatus/) 값을 접근합니다. 상태는 프레젠테이션에 저장되며 파일을 다시 열었을 때 다시 읽을 수 있습니다.
+예. [ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/) 와 [ModernComment::setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) 는 `Resolved` 를 포함한 [ModernCommentStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/) 값을 접근합니다. 상태는 프레젠테이션에 저장되며 파일을 다시 열었을 때 다시 읽을 수 있습니다.
 
-**스레드 형식 토론(답글 체인)이 지원되며 중첩 제한이 있습니까?**
+**스레드형 토론(답글 체인)이 지원되나요? 중첩 제한이 있나요?**
 
-예. 각 댓글은 [parent comment](https://reference.aspose.com/slides/ko/php-java/aspose.slides/comment/getparentcomment/) 를 참조할 수 있어 답글 체인을 구현합니다. API 에서는 특정 중첩 깊이 제한을 정의하지 않습니다.
+예. 각 주석은 [parent comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) 를 참조할 수 있어 답글 체인을 만들 수 있습니다. API 에는 특정 중첩 깊이 제한이 정의되어 있지 않습니다.
 
-**슬라이드에서 댓글 마커 위치는 어떤 좌표계로 정의됩니까?**
+**주석 마커 위치는 슬라이드에서 어떤 좌표계로 정의되나요?**
 
-마커 위치는 슬라이드 좌표계의 부동 소수점 좌표로 정의되며, 이를 통해 슬라이드에서 정확한 위치에 마커를 지정할 수 있습니다.
+마커 위치는 슬라이드 좌표계의 부동 소수점 좌표로 정의되며, 이를 통해 슬라이드 상의 정확한 위치에 마커를 배치할 수 있습니다.

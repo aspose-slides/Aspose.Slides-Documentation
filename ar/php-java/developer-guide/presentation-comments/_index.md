@@ -20,31 +20,33 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides for PHP عبر Java: إضافة، قراءة، تحرير، الرد على، وإزالة التعليقات في عروض PowerPoint بسرعة وسهولة."
+description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides للـ PHP عبر Java: إضافة، قراءة، تحرير، الرد على، وإزالة التعليقات في عروض PowerPoint التقديمية بسرعة وسهولة."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides for PHP عبر Java. تُقدِّم الأنواع الرئيسية المتعلقة بالتعليقات وتُظهر كيفية إضافة تعليقات إلى الشرائح، والوصول إلى التعليقات الموجودة، والعمل مع الردود والتعليقات الحديثة، وإزالة التعليقات من العرض التقديمي.
+تشرح هذه المقالة كيفية إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides للـ PHP عبر Java. تقدم الأنواع الرئيسية المتعلقة بالتعليقات وتظهر كيفية إضافة تعليقات إلى الشرائح، الوصول إلى التعليقات الموجودة، العمل مع الردود والتعليقات الحديثة، وإزالة التعليقات من العرض التقديمي.
 
-تغطي الأمثلة سيناريوهات المراجعة والتعاون الشائعة في PowerPoint، مثل إسناد التعليقات إلى المؤلفين، قراءة نص التعليق والبيانات الوصفية، بناء سلاسل الردود، وإزالة التعليقات المحددة أو جميع التعليقات.
+تغطي الأمثلة سيناريوهات المراجعة والتعاون الشائعة في PowerPoint، مثل تعيين التعليقات للمؤلفين، قراءة نص التعليق والبيانات الوصفية، بناء سلاسل الردود، وإزالة التعليقات المحددة أو جميع التعليقات.
 
 في PowerPoint، تظهر التعليقات كتعليقات توضيحية على الشرائح. يؤدي تحديد تعليق إلى عرض نصه والنقاش المرتبط به.
 
-للطلب بإظهار أو إخفاء التعليقات عند فتح عرض تقديمي دون تغيير التعليقات نفسها، راجع [إظهار أو إخفاء التعليقات عند فتح عرض تقديمي](/slides/ar/php-java/presentation-view-properties/).
+لطلب إظهار أو إخفاء التعليقات عند فتح عرض تقديمي دون تغيير التعليقات نفسها، راجع [إظهار أو إخفاء التعليقات عند فتح عرض تقديمي](/slides/ar/php-java/presentation-view-properties/).
 
 ## **لماذا إضافة تعليقات إلى العروض التقديمية؟**
 
 يمكنك استخدام التعليقات لتقديم الملاحظات والتعاون مع الزملاء عند مراجعة العروض التقديمية.
 
-توفر Aspose.Slides for PHP عبر Java واجهات برمجة التطبيقات التالية للعمل مع التعليقات:
-* فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) التي توفر الوصول إلى مؤلفي تعليقات العرض التقديمي.
-* فئة [CommentCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/commentcollection/) التي تمثل التعليقات المرتبطة بمؤلف فردي.
-* فئة [Comment](https://reference.aspose.com/slides/ar/php-java/aspose.slides/comment/) التي توفر معلومات عن التعليق، بما في ذلك مؤلفه، وقت الإنشاء، الموقع، والنص.
-* فئة [CommentAuthor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/commentauthor/) التي توفر معلومات عن المؤلف، بما في ذلك اسمه، أحرفه الأولى، والتعليقات المرتبطة به.
+توفر Aspose.Slides للـ PHP عبر Java واجهات برمجة التطبيقات التالية للعمل مع التعليقات:
+
+* الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) ، التي تتيح الوصول إلى مؤلفي تعليقات العرض التقديمي.
+* الفئة [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) ، التي تمثل التعليقات المرتبطة بمؤلف فردي.
+* الفئة [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) ، التي توفر معلومات حول التعليق، بما في ذلك مؤلفه، وقت الإنشاء، الموقع، والنص.
+* الفئة [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/) ، التي توفر معلومات حول المؤلف، بما في ذلك اسمه، الأحرف الأولية، والتعليقات المرتبطة.
 
 ## **إضافة تعليقات إلى الشرائح**
 
-يوضح المثال التالي كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint:
+ينشئ المثال شريحتين ويسجل مؤلف تعليق باستخدام [addAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/addauthor/). يستخدم [addComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addcomment/) لوضع تعليق واحد على كل شريحة، ثم يسترجع تعليقات الشريحة الأولى لذلك المؤلف باستخدام [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/). يعرض الطرفية نص التعليق الأول مرتين، مظهرًا الوصول عبر كل من الشريحة والمؤلف، وتحتوي العرض التقديمي المحفوظ على كلا التعليقين.
+
 ```php
 use aspose\slides\Point2DFloat;
 use aspose\slides\Presentation;
@@ -54,6 +56,7 @@ $presentation = new Presentation();
 try {
     $firstSlide = $presentation->getSlides()->get_Item(0);
     $secondSlide = $presentation->getSlides()->addEmptySlide($presentation->getLayoutSlides()->get_Item(0));
+
     $author = $presentation->getCommentAuthors()->addAuthor("Jawad", "MF");
     $position = new Point2DFloat(0.2, 0.2);
     $createdTime = new Java("java.util.Date");
@@ -79,9 +82,49 @@ try {
 }
 ```
 
+## **العثور على مؤلف تعليق أو إنشائه**
+
+عند معالجة مراجعة آلية لنفس العرض التقديمي بشكل متكرر، ابحث في المجموعة التي تُرجِعها [getCommentAuthors](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getcommentauthors/) قبل إضافة مؤلف. يتطابق [findByNameAndInitials](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/findbynameandinitials/) مع كل من الاسم والأحرف الأولية ويُعيد مصفوفة من المؤلفين المطابقين، أو مصفوفة فارغة إذا لم توجد مطابقة. بالمقابل، يبحث [findByName](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/findbyname/) بالاسم فقط، بغض النظر عن الأحرف الأولية. استدعاء [addAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/addauthor/) باسم وأحرف أولية موجودة بالفعل في المجموعة يطرح استثناءً.
+
+يتطلب المثال ملف عرض تقديمي يحتوي على شريحة واحدة على الأقل. في كلٍ من المرورين، يعيد استخدام أول مؤلف متطابق، أو ينشئ واحدًا فقط عندما تكون النتيجة فارغة. إذا كان هناك عدة مطابقات، يختار العنصر الأول في المصفوفة دون دمج أو إزالة المؤلفين الآخرين. ثم يستدعي [addComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addcomment/) للمؤلف المحدد ويحفظ العرض التقديمي. يفتح المرور الثاني ناتج المرور الأول ويكرر العملية.
+
+```php
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$authorName = "Reviewer";
+$authorInitials = "RV";
+
+$inputFile = "input.pptx";
+$position = new Point2DFloat(20, 20);
+$arrayClass = new JavaClass("java.lang.reflect.Array");
+
+for ($pass = 1; $pass <= 2; $pass++) {
+    $presentation = new Presentation($inputFile);
+    try {
+        $matches = $presentation->getCommentAuthors()->findByNameAndInitials($authorName, $authorInitials);
+        $matchCount = java_values($arrayClass->getLength($matches));
+
+        $author = $matchCount > 0 ? $matches[0] : $presentation->getCommentAuthors()->addAuthor($authorName, $authorInitials);
+        $createdTime = new Java("java.util.Date");
+        $author->getComments()->addComment("Please review this slide.", $presentation->getSlides()->get_Item(0), $position, $createdTime);
+
+        $outputFile = "review_pass_" . $pass . ".pptx";
+        $presentation->save($outputFile, SaveFormat::Pptx);
+        $inputFile = $outputFile;
+    } finally {
+        $presentation->dispose();
+    }
+}
+```
+
+يضيف المرور الثاني تعليقًا آخر دون إضافة مؤلف آخر أو إزالة التعليقات الموجودة. يحتوي الملف النهائي، `review_pass_2.pptx`، على كل من التعليقات الجديدة وأي تعليقات أصلية. إعادة استخدام مؤلف لا تُزيل التكرار في التعليقات: لتجنب إضافة نفس التعليق مرارًا، نفّذ كشف تكرار منفصل قبل إضافته.
+
 ## **الوصول إلى تعليقات الشرائح**
 
-يوضح المثال التالي كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint:
+يفتح المثال عرضًا تقديميًا موجودًا ويقرأ المجموعة التي تُرجِعها [getCommentAuthors](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getcommentauthors/). لكل مؤلف، يتنقل خلال المجموعة التي تُرجِعها [getComments](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/getcomments/) ويطبع رقم الشريحة، نص التعليق، اسم المؤلف، ووقت الإنشاء. يجب أن يحتوي العرض التقديمي المُدخل على تعليقات لإنتاج إخراج في الطرفية.
+
 ```php
 use aspose\slides\Presentation;
 
@@ -103,9 +146,10 @@ try {
 
 ## **الرد على التعليقات**
 
-التعليق الأصلي هو التعليق الأساسي في أعلى تسلسل الردود. تسمح لك طريقتا [Comment::getParentComment](https://reference.aspose.com/slides/ar/php-java/aspose.slides/comment/getparentcomment/) و[Comment::setParentComment](https://reference.aspose.com/slides/ar/php-java/aspose.slides/comment/setparentcomment/) بالحصول على أو تعيين التعليق الأب.
+التعليق الأصلي هو التعليق الأصلي في قمة هيكل الردود. تتيح طُرُق [Comment::getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) و[Comment::setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) الحصول على الوالد أو تعيينه للتعليق.
 
-يوضح المثال التالي كيفية إضافة ردود وفحص هيكل التعليقات الناتج:
+ينشئ المثال تعليقات من مؤلفين اثنين ويستخدم [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) لبناء ردود، بما في ذلك رد على رد آخر. تمرير `null` إلى [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/) يسترجع التعليقات من جميع المؤلفين؛ تُدرج الطرفية كل إدخال وفقًا لعمقه في هيكل الرد. يحفظ المثال المناقشة الكاملة، يستدعي [remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) على أول تعليق جذري، ويحفظ عرضًا تقديميًا ثانيًا مع حذف ذلك التعليق وردوده.
+
 ```php
 use aspose\slides\Point2DFloat;
 use aspose\slides\Presentation;
@@ -114,6 +158,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $position = new Point2DFloat(10, 10);
     $createdTime = new Java("java.util.Date");
 
@@ -159,19 +204,20 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* عند استخدام طريقة [Comment::remove](https://reference.aspose.com/slides/ar/php-java/aspose.slides/comment/remove/) لحذف تعليق، يتم حذف جميع الردود على ذلك التعليق أيضاً.
-* إذا أدت طريقة [Comment::setParentComment](https://reference.aspose.com/slides/ar/php-java/aspose.slides/comment/setparentcomment/) إلى إنشاء إشارة دائرية، يتم إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/ar/php-java/aspose.slides/pptxeditexception/).
+* عند استخدام طريقة [Comment::remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) لحذف تعليق، يتم حذف جميع الردود على ذلك التعليق أيضًا.
+* إذا أنشأت طريقة [Comment::setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) إشارة دائرية، يتم إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **إضافة تعليقات حديثة**
 
-يمكن ربط التعليقات الحديثة بالشريحة نفسها، أو بصورة معينة، أو بنطاق نص داخل AutoShape. تقبل طريقة [CommentCollection::addModernComment](https://reference.aspose.com/slides/ar/php-java/aspose.slides/commentcollection/addmoderncomment/) معاملًا من نوع [Shape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/) بالإضافة إلى إحداثيات الشريحة وعلامة التعليق.
+يمكن ربط التعليقات الحديثة بالشق نفسه، بشكل محدد، أو بنطاق نص داخل AutoShape. تقبل طريقة [CommentCollection::addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) معاملًا من نوع [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) بالإضافة إلى الشريحة وإحداثيات علامة التعليق.
 
-عند تمرير `null` كقيمة لمعامل الشكل، يكون التعليق تعليقا على مستوى الشريحة. يتم تحديد موضع العلامة باستخدام الإحداثيات المقدمة، لكنه غير مرتبط بصورة معينة، وبالتالي تُعيد [ModernComment::getShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/getshape/) القيمة `null`. عند توفير [Shape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/)، يتم تثبيت التعليق إلى ذلك الشكل. لا تزال الإحداثيات تحدد موقع علامة التعليق على الشريحة، بينما يمكن استرداد ارتباط الشكل عبر [ModernComment::getShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/getshape/).
+عند تمرير `null` كمعامل الشكل، يكون التعليق تعليقًا على مستوى الشريحة. تُحدد علامته بالإحداثيات المقدمة، لكنه غير مرتبط بشكل معين، وبالتالي تُعيد [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/) `null`. عندما يتم توفير [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/)، يرتبط التعليق بذلك الشكل. لا تزال الإحداثيات تُحدد موقع علامة التعليق على الشريحة، بينما يمكن استرجاع ارتباط الشكل عبر [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/).
 
-### **تثبيت تعليق حديث إلى شكل**
+### **ربط تعليق حديث بشكل**
 
-ينشئ المثال التالي كلًا من تعليق حديث على مستوى الشريحة وتعليق حديث مثبت إلى AutoShape محدد. ثم يقرأ الشكل المرتبط من كل تعليق.
+ينفذ المثال استدعاءً لطريقة [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) مرتين: مرةً مع شكل `null` لتعليق على مستوى الشريحة ومرةً أخرى مع مستطيل كمرساة. قراءة [getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/) تطبع `true` للتحقق من `null` في تعليق الشريحة و`Revenue title` للتعليق المرتكز. يُحفظ كلا التعليقين مع العرض التقديمي.
+
 ```php
 use aspose\slides\Point2DFloat;
 use aspose\slides\Presentation;
@@ -181,7 +227,9 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 300, 80);
     $shape->setName("Revenue title");
     $shape->getTextFrame()->setText("Quarterly revenue");
@@ -201,11 +249,12 @@ try {
 }
 ```
 
-### **تثبيت التعليقات إلى أنواع مختلفة من الأشكال**
+### **ربط التعليقات بأنواع أشكال مختلفة**
 
-يمكن استخدام أي كائن شريحة يُمثَّل بواسطة فئة [Shape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/) كمرساة شكل. تشمل الأمثلة الشائعة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/ar/php-java/aspose.slides/connector/), و[GraphicalObject](https://reference.aspose.com/slides/ar/php-java/aspose.slides/graphicalobject/) مثل المخططات.
+يمكن استخدام أي كائن شريحة يُمثَّل بالفئة [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) كمرساة للشكل. تشمل الأمثلة الشائعة [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)، [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/)، [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/)، [Connector](https://reference.aspose.com/slides/php-java/aspose.slides/connector/)، و[GraphicalObject](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobject/) مثل المخططات.
 
-يوضح المثال التالي إنشاء عدة أنواع شائعة من الأشكال وربط تعليق حديث بكل منها.
+يستخدم المثال [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) لربط تعليق بكل من الأنواع الخمسة للأشكال: AutoShape، إطار صورة، مجموعة، موصل، ومخطط. تستخدم الصورة بيانات صورة مدمجة، لذا لا يلزم وجود صورة خارجية. لكل تعليق موضع علامة خاص به، ويحفظ العرض التقديمي جميع ارتباطات الأشكال الخمسة.
+
 ```php
 use aspose\slides\ChartType;
 use aspose\slides\Point2DFloat;
@@ -216,11 +265,13 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
     $createdTime = new Java("java.util.Date");
 
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 180, 60);
     $autoShape->getTextFrame()->setText("AutoShape");
+
     $autoShapeCommentPosition = new Point2DFloat(30, 30);
     $author->getComments()->addModernComment("Comment on an AutoShape.", $slide, $autoShape, $autoShapeCommentPosition, $createdTime);
 
@@ -252,17 +303,19 @@ try {
 }
 ```
 
-### **تثبيت تعليق إلى نص وتعيين حالته**
+### **ربط تعليق بنص وتعيين حالته**
 
-بالنسبة لتعليق حديث مرتبط بـ[AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/)، تُتيح طريقتا [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/gettextselectionstart/) و[ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/settextselectionstart/) الوصول إلى موضع بدء النص المحدد في إطار نص الشكل. وتُتيح طريقتا [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/gettextselectionlength/) و[ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/settextselectionlength/) الحصول على طول التحديد. معًا، تربط هذه القيم التعليق بنطاق نص محدد داخل AutoShape.
+للتعليق الحديث المرتبط بـ [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)، تتيح طُرُق [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionstart/) و[ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionstart/) الوصول إلى موضع البداية للنص المحدد داخل إطار نص الشكل. تتيح طُرُق [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionlength/) و[ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionlength/) الوصول إلى طول التحديد. معًا، تربط هذه القيم التعليق بنطاق نص محدد داخل AutoShape.
 
-توفر طريقتا [ModernComment::getStatus](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/getstatus/) و[ModernComment::setStatus](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/setstatus/) قيمةً من ثوابت [ModernCommentStatus](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncommentstatus/):
+تتيح طُرُق [ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/) و[ModernComment::setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) الحصول على قيمة من ثوابت [ModernCommentStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/):
+
 - `NotDefined` — لا يتم تعريف حالة تعليق حديث محددة.
 - `Active` — التعليق نشط.
 - `Resolved` — تم حل التعليق.
-- `Closed` — التعليق مُغلق.
+- `Closed` — التعليق مغلق.
 
-ينشئ المثال التالي تعليقًا حديثًا مثبتًا إلى شكل، يرتبط بتحديد نص، يُعلِّم كـ `Resolved`، يحفظ العرض التقديمي، ويُتحقق من القيم بعد إعادة فتح الملف.
+يرتبط المثال تعليقًا حديثًا بالكلمات "quarterly revenue" في نص مستطيل. يحسب بداية التحديد صفرية القاعدة من النص ويمررها إلى [setTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionstart/) ويستخدم [setTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionlength/) لتحديد عدد الأحرف المحددة. بعد استدعاء [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) بـ `Resolved`، يحفظ ويعيد فتح العرض التقديمي. يجب أن تطبع الفحوصات الأربعة في الطرفية `true`، مؤكدًا أن مرساة الشكل، ونطاق النص، والحالة تم حفظها.
+
 ```php
 use aspose\slides\ModernCommentStatus;
 use aspose\slides\Point2DFloat;
@@ -278,6 +331,7 @@ $expectedSelectionStart = strpos($shapeText, $selectedText);
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
     $shape->setName("Forecast text");
     $shape->getTextFrame()->setText($shapeText);
@@ -323,7 +377,8 @@ try {
 
 ### **فحص التعليقات الحديثة الموجودة**
 
-لفحص عرض تقديمي موجود، تحقق مما إذا كان كل تعليق هو [ModernComment](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/)، ثم افحص [ModernComment::getShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/gettextselectionlength/), و[ModernComment::getStatus](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/getstatus/). يشير الشكل `null` إلى تعليق على مستوى الشريحة. بالنسبة لمرساة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/)، تحدد طُرُق تحديد النص النطاق المرتبط ضمن إطار نص الشكل.
+يتطلب المثال عرضًا تقديميًا موجودًا يحتوي على تعليقات حديثة ويطبع نصها وحالتها وتفاصيل المرساة. لفحصه، تحقق مما إذا كان كل تعليق من نوع [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/)، ثم افحص [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/)، [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionstart/)، [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionlength/)، و[ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/). الشكل `null` يدل على تعليق على مستوى الشريحة. بالنسبة لمرساة [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)، تحدد طرق اختيار النص النطاق المرتبط في إطار نص الشكل.
+
 ```php
 use aspose\slides\Presentation;
 
@@ -366,9 +421,12 @@ try {
 
 ## **إزالة التعليقات**
 
+تمكنك Aspose.Slides للـ PHP عبر Java من إزالة جميع التعليقات ومؤلفيها من عرض تقديمي أو حذف تعليقات مختارة مع الحفاظ على باقي المحتوى. توضح الأمثلة التالية كلا النهجين وتُحفظ العرض التقديمي المحدث.
+
 ### **إزالة جميع التعليقات ومؤلفي التعليقات**
 
-يوضح المثال التالي كيفية إزالة جميع التعليقات ومؤلفي التعليقات من عرض تقديمي:
+يفتح المثال عرضًا تقديميًا موجودًا ويستدعي [CommentCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/clear/) لكل مؤلف، ثم يستدعي [CommentAuthorCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/clear/) لإزالة المؤلفين أنفسهم. يحتوي العرض التقديمي المحفوظ على لا تعليقات ولا مؤلفي تعليقات. استخدم عرضًا يحتوي على تعليقات لملاحظة الإزالة.
+
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -380,6 +438,7 @@ try {
     }
 
     $presentation->getCommentAuthors()->clear();
+
     $presentation->save("example_out.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -388,7 +447,8 @@ try {
 
 ### **إزالة تعليقات محددة**
 
-يوضح المثال التالي كيفية إزالة تعليقات محددة من شريحة:
+ينشئ المثال تعليقاتين على شريحة واحدة ويستخدم [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/) للعثور على التعليقات لكل مؤلف. يجمع التعليقات التي يساوي نصها "comment 1" قبل استدعاء [CommentCollection::remove](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/remove/)، متجنبًا تغييرات على المجموعة أثناء الاختيار. يحتفظ العرض التقديمي المحفوظ بـ "comment 2" فقط.
+
 ```php
 use aspose\slides\Point2DFloat;
 use aspose\slides\Presentation;
@@ -397,6 +457,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
     $createdTime = new Java("java.util.Date");
 
@@ -426,13 +487,16 @@ try {
 }
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل تدعم Aspose.Slides حالة `Resolved` للتعليقات الحديثة؟**  
-نعم. تُتيح طريقتا [ModernComment::getStatus](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/getstatus/) و[ModernComment::setStatus](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncomment/setstatus/) الحصول على قيمة من [ModernCommentStatus](https://reference.aspose.com/slides/ar/php-java/aspose.slides/moderncommentstatus/)، بما في ذلك `Resolved`. يتم حفظ الحالة في العرض التقديمي ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
+**هل يدعم Aspose.Slides حالة تم الحل للتعليقات الحديثة؟**
 
-**هل يتم دعم المناقشات المتسلسلة (سلاسل الرد) وهل هناك حد للتعشيق؟**  
-نعم. يمكن لكل تعليق الرجوع إلى [parent comment](https://reference.aspose.com/slides/ar/php-java/aspose.slides/comment/getparentcomment/)، مما يتيح سلاسل ردود. لا تحدد واجهة برمجة التطبيقات حدًا معينًا لعمق التعشيق.
+نعم. تتيح طُرُق [ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/) و[ModernComment::setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) الوصول إلى قيمة من [ModernCommentStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/) تشمل `Resolved`. تُحفظ الحالة في العرض التقديمي ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
 
-**في أي نظام إحداثيات يُحدد موضع علامة التعليق على الشريحة؟**  
-يُحدد موضع العلامة باستخدام إحداثيات ذات نقطة عائمة في نظام إحداثيات الشريحة، مما يتيح لك وضعها بدقة على الشريحة.
+**هل يتم دعم المناقشات المتسلسلة (سلاسل الردود) وهل هناك حد للتعشيق؟**
+
+نعم. يمكن لكل تعليق الإشارة إلى [parent comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) الخاص به، مما يلغي سلاسل الردود. لا تُحدد واجهة برمجة التطبيقات حدًا معينًا لعمق التعشيق.
+
+**في أي نظام إحداثيات يتم تعريف موضع علامة التعليق على الشريحة؟**
+
+يُحدد موضع العلامة بإحداثيات عائمة في نظام إحداثيات الشريحة، مما يتيح لك وضعها بدقة على الشريحة.

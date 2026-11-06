@@ -1,5 +1,5 @@
 ---
-title: Управление комментариями презентаций в .NET
+title: Управление комментариями презентации в .NET
 linktitle: Комментарии к презентации
 type: docs
 weight: 100
@@ -7,11 +7,11 @@ url: /ru/net/presentation-comments/
 keywords:
 - комментарий
 - современный комментарий
-- комментарии PowerPoint
-- комментарии к презентации
-- комментарии слайдов
+- Комментарии PowerPoint
+- Комментарии презентации
+- Комментарии слайдов
 - добавить комментарий
-- доступ к комментариям
+- доступ к комментарию
 - редактировать комментарий
 - ответить на комментарий
 - удалить комментарий
@@ -21,31 +21,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Управляйте комментариями презентаций с помощью Aspose.Slides для .NET: добавляйте, читайте, редактируйте, отвечайте и удаляйте комментарии в презентациях PowerPoint быстро и легко."
+description: "Управляйте комментариями презентаций с помощью Aspose.Slides для .NET: быстро и легко добавляйте, читаете, редактируете, отвечаете и удаляете комментарии в презентациях PowerPoint."
 ---
 ## **Обзор**
 
-В этой статье объясняется, как управлять комментариями презентаций с помощью Aspose.Slides для .NET. Она вводит основные типы, связанные с комментариями, и демонстрирует, как добавлять комментарии на слайды, получать доступ к существующим комментариям, работать с ответами и современными комментариями, а также удалять комментарии из презентации.
+В этой статье объясняется, как управлять комментариями презентации с помощью Aspose.Slides для .NET. Она вводит основные типы, связанные с комментариями, и демонстрирует, как добавлять комментарии на слайды, получать доступ к существующим комментариям, работать с ответами и современными комментариями, а также удалять комментарии из презентации.
 
 Примеры охватывают типичные сценарии рецензирования и совместной работы в PowerPoint, такие как назначение комментариев авторам, чтение текста комментариев и метаданных, построение цепочек ответов и удаление выбранных комментариев или всех комментариев.
 
-В PowerPoint комментарии отображаются как аннотации на слайдах. Выбор комментария отображает его текст и связанную дискуссию.
+В PowerPoint комментарии отображаются как аннотации на слайдах. При выборе комментария отображаются его текст и связанная дискуссия.
 
-Чтобы запросить отображение или скрытие комментариев при открытии презентации без изменения самих комментариев, смотрите [Показать или скрыть комментарии при открытии презентации](/slides/ru/net/presentation-view-properties/).
+Для того чтобы запросить отображение или скрытие комментариев при открытии презентации без изменения самих комментариев, см. [Показать или скрыть комментарии при открытии презентации](/slides/ru/net/presentation-view-properties/).
 
-## **Зачем добавлять комментарии к презентациям?**
+## **Зачем добавлять комментарии в презентации?**
 
-Вы можете использовать комментарии для предоставления отзывов и совместной работы с коллегами при проверке презентаций.
+Вы можете использовать комментарии для предоставления обратной связи и совместной работы с коллегами при рецензировании презентаций.
 
-Aspose.Slides for .NET предоставляет следующие API для работы с комментариями:
+Aspose.Slides для .NET предоставляет следующие API для работы с комментариями:
 
-* Класс [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation), который предоставляет доступ к авторам комментариев презентации.
-* Интерфейс [ICommentCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/icommentcollection), который представляет комментарии, связанные с отдельным автором.
-* Интерфейс [IComment](https://reference.aspose.com/slides/ru/net/aspose.slides/icomment), который предоставляет информацию о комментарии, включая его автора, время создания, позицию и текст.
-* Класс [CommentAuthor](https://reference.aspose.com/slides/ru/net/aspose.slides/commentauthor), который предоставляет информацию об авторе, включая его имя, инициалы и связанные комментарии.
+* The [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) класс, который предоставляет доступ к авторам комментариев презентации.
+* The [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) интерфейс, который представляет комментарии, связанные с отдельным автором.
+* The [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) интерфейс, который предоставляет информацию о комментарии, включая его автора, время создания, позицию и текст.
+* The [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) класс, который предоставляет информацию об авторе, включая его имя, инициалы и связанные комментарии.
 
 ## **Добавление комментариев к слайдам**
-Следующий пример показывает, как добавить комментарии к слайдам в презентации PowerPoint:
+
+Пример создает два слайда и регистрирует автора комментариев с помощью [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/). Он использует [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) чтобы разместить один комментарий на каждом слайде, затем получает комментарии первого слайда для этого автора с помощью [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/). Консоль выводит текст первого комментария дважды, демонстрируя доступ как через слайд, так и через автора, а сохраненная презентация содержит оба комментария.
 
 ```csharp
 using System;
@@ -56,6 +57,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var firstSlide = presentation.Slides[0];
 var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
 var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 var position = new PointF(0.2f, 0.2f);
 var createdTime = DateTime.Now;
@@ -76,8 +78,44 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Найти или создать автора комментариев**
+
+Когда автоматический обзор многократно обрабатывает одну и ту же презентацию, перед добавлением автора следует искать в её коллекции [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/). [FindByNameAndInitials](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbynameandinitials/) сопоставляет и имя, и инициалы и возвращает массив соответствующих авторов, либо пустой массив, если совпадений нет. В отличие от этого, [FindByName](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbyname/) ищет только по имени, независимо от инициалов. Вызов [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) с именем и инициалами, уже присутствующими в коллекции, генерирует исключение.
+
+Пример требует файл презентации минимум с одним слайдом. На каждом из двух проходов он переиспользует первого совпадающего автора или создает нового лишь когда результат пустой. Если найдено несколько совпадений, выбирается первый элемент массива без объединения или удаления остальных авторов. Затем вызывается [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) для выбранного автора и сохраняется презентация. На втором проходе открывается вывод первого прохода и операция повторяется.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string authorName = "Reviewer";
+const string authorInitials = "RV";
+
+var inputFile = "input.pptx";
+var position = new PointF(20, 20);
+
+for (var pass = 1; pass <= 2; pass++)
+{
+    using var presentation = new Presentation(inputFile);
+
+    var matches = presentation.CommentAuthors.FindByNameAndInitials(authorName, authorInitials);
+    
+    var author = matches.Length > 0 ? matches[0] : presentation.CommentAuthors.AddAuthor(authorName, authorInitials);
+    author.Comments.AddComment("Please review this slide.", presentation.Slides[0], position, DateTime.Now);
+
+    var outputFile = $"review_pass_{pass}.pptx";
+    presentation.Save(outputFile, SaveFormat.Pptx);
+    inputFile = outputFile;
+}
+```
+
+Второй проход добавляет еще один комментарий без создания нового автора и без удаления существующих комментариев. Финальный файл, `review_pass_2.pptx`, содержит оба новых комментария вместе с любыми оригинальными комментариями. Повторное использование автора не объединяет дубликаты комментариев: чтобы избежать многократного добавления одного и того же комментария, реализуйте отдельное обнаружение дубликатов перед добавлением его.
+
 ## **Доступ к комментариям слайдов**
-Следующий пример показывает, как получить доступ к существующим комментариям в презентации PowerPoint:
+
+Пример открывает существующую презентацию и читает её коллекцию [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/). Для каждого автора он проходит через [Comments](https://reference.aspose.com/slides/net/aspose.slides/icommentauthor/comments/) и выводит номер слайда, текст комментария, имя автора и время создания. Входная презентация должна содержать комментарии, чтобы получить вывод в консоль.
 
 ```csharp
 using System;
@@ -99,9 +137,10 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **Ответы на комментарии**
-Родительский комментарий — это оригинальный комментарий в вершине иерархии ответов. Свойство [ParentComment](https://reference.aspose.com/slides/ru/net/aspose.slides/icomment/properties/parentcomment) интерфейса [IComment](https://reference.aspose.com/slides/ru/net/aspose.slides/icomment) позволяет получить или задать родителя комментария.
 
-Следующий пример показывает, как добавить ответы и проверить получившуюся иерархию комментариев:
+Основным (родительским) комментарием считается исходный комментарий в вершине иерархии ответов. Свойство [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) интерфейса [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) позволяет получить или задать родительский комментарий.
+
+Пример создает комментарии от двух авторов и использует [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) для построения ответов, включая ответ на другой ответ. Передача `null` в [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) получает комментарии от всех авторов; консоль отступает каждую запись в соответствии с её глубиной в иерархии ответов. Пример сохраняет полную дискуссию, вызывая [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) для первого корневого комментария, и сохраняет вторую презентацию, в которой этот комментарий и его ответы удалены.
 
 ```csharp
 using System;
@@ -111,27 +150,28 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var position = new PointF(10, 10);
 var createdTime = DateTime.Now;
 
-var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
-var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
+var originalAuthor = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var rootComment = originalAuthor.Comments.AddComment("comment 1", slide, position, createdTime);
 
-var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
-var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
-reply1.ParentComment = comment1;
+var reviewer = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var firstReply = reviewer.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+firstReply.ParentComment = rootComment;
 
-var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
-reply2.ParentComment = comment1;
+var secondReply = reviewer.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+secondReply.ParentComment = rootComment;
 
-var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
-subReply.ParentComment = reply2;
+var subReply = originalAuthor.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = secondReply;
 
-author2.Comments.AddComment("comment 2", slide, position, createdTime);
-var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+reviewer.Comments.AddComment("comment 2", slide, position, createdTime);
+var separateComment = reviewer.Comments.AddComment("comment 3", slide, position, createdTime);
 
-var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
-reply3.ParentComment = comment3;
+var separateReply = originalAuthor.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+separateReply.ParentComment = separateComment;
 
 var comments = slide.GetSlideComments(null);
 for (var i = 0; i < comments.Length; i++)
@@ -148,24 +188,24 @@ for (var i = 0; i < comments.Length; i++)
 
 presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
 
-comment1.Remove();
+rootComment.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-* При использовании метода [Remove](https://reference.aspose.com/slides/ru/net/aspose.slides/icomment/methods/remove) интерфейса [IComment](https://reference.aspose.com/slides/ru/net/aspose.slides/icomment) удаляющего комментарий, все ответы на этот комментарий также удаляются.
-* Если свойство [ParentComment](https://reference.aspose.com/slides/ru/net/aspose.slides/icomment/properties/parentcomment) создает кольцевую ссылку, выбрасывается [PptxEditException](https://reference.aspose.com/slides/ru/net/aspose.slides/pptxeditexception).
+{{% alert color="warning" title="Предупреждение" %}}
+* При использовании метода [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) интерфейса [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment), чтобы удалить комментарий, все ответы на этот комментарий также удаляются.
+* Если свойство [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) создает циклическую ссылку, генерируется исключение [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception).
 {{% /alert %}}
 
 ## **Добавление современных комментариев**
 
-Современные комментарии могут быть связаны со слайдом, с конкретной фигурой или с диапазоном текста внутри AutoShape. Метод [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/ru/net/aspose.slides/icommentcollection/addmoderncomment/) принимает аргумент [IShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/) помимо слайда и координат маркера комментария.
+Современные комментарии могут быть связаны со слайдом, с определенной фигурой или с диапазоном текста внутри AutoShape. Метод [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) принимает аргумент [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), помимо слайда и координат маркера комментария.
 
-When `null` is passed for the shape argument, the comment is a slide-level comment. Its marker is positioned by the supplied coordinates, but it is not associated with a particular shape, so [IModernComment.Shape](https://reference.aspose.com/slides/ru/net/aspose.slides/imoderncomment/shape/) returns `null`. When an [IShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/) is supplied, the comment is anchored to that shape. The coordinates still define the position of the comment marker on the slide, while the shape association can be retrieved through [IModernComment.Shape](https://reference.aspose.com/slides/ru/net/aspose.slides/imoderncomment/shape/).
+Когда в аргумент shape передается `null`, комментарий становится комментариев уровня слайда. Его маркер позиционируется заданными координатами, но не привязан к конкретной фигуре, поэтому [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) возвращает `null`. Когда передается [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), комментарий фиксируется к этой фигуре. Координаты по‑прежнему определяют положение маркера комментария на слайде, а ассоциацию с фигурой можно получить через [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/).
 
 ### **Привязка современного комментария к фигуре**
 
-Следующий пример создает как современный комментарий уровня слайда, так и современный комментарий, привязанный к конкретному AutoShape. Затем он читает связанную фигуру из каждого комментария.
+Пример вызывает [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) дважды: один раз с фигурой `null` для комментария уровня слайда и один раз с прямоугольником в качестве привязки. Чтение [Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) выводит `True` для проверки null у комментария уровня слайда и `Revenue title` для привязанного комментария. Оба комментария сохраняются вместе с презентацией.
 
 ```csharp
 using System;
@@ -175,7 +215,9 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
 shape.Name = "Revenue title";
 shape.TextFrame.Text = "Quarterly revenue";
@@ -194,9 +236,9 @@ presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 
 ### **Привязка комментариев к различным типам фигур**
 
-Любой объект слайда, реализующий [IShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/) может использоваться в качестве привязки к фигуре. Распространённые примеры включают [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/ru/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/ru/net/aspose.slides/iconnector/) и экземпляры [IGraphicalObject](https://reference.aspose.com/slides/ru/net/aspose.slides/igraphicalobject/), такие как диаграммы.
+Любой объект слайда, реализующий [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), может использоваться в качестве привязки к фигуре. Распространённые примеры включают [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/net/aspose.slides/iconnector/) и экземпляры [IGraphicalObject](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobject/), такие как диаграммы.
 
-Следующий пример создаёт несколько распространённых типов фигур и связывает с каждой из них современный комментарий.
+Пример использует [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) для связывания комментария с каждым из пяти типов фигур: AutoShape, PictureFrame, Group, Connector и Chart. Изображение использует встроенные данные, поэтому внешний файл изображения не требуется. Каждый комментарий имеет своё собственное положение маркера, и сохранённая презентация сохраняет все пять привязок к фигурам.
 
 ```csharp
 using System;
@@ -207,11 +249,13 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
 var createdTime = DateTime.Now;
 
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
 autoShape.TextFrame.Text = "AutoShape";
+
 var autoShapeCommentPosition = new PointF(30, 30);
 author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -241,16 +285,16 @@ presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 
 ### **Привязка комментария к тексту и установка его статуса**
 
-Для современного комментария, связанного с [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/), свойство [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/ru/net/aspose.slides/imoderncomment/textselectionstart/) указывает начальную позицию выбранного текста во фрейме текста фигуры, а [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/ru/net/aspose.slides/imoderncomment/textselectionlength/) указывает длину выделения. Вместе эти свойства связывают комментарий с определённым диапазоном текста внутри AutoShape.
+Для современного комментария, связанного с [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), свойство [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) указывает начальную позицию выбранного текста во фрейме текста фигуры, а [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) задаёт длину выделения. Вместе эти свойства связывают комментарий с конкретным диапазоном текста внутри AutoShape.
 
-Свойство [IModernComment.Status](https://reference.aspose.com/slides/ru/net/aspose.slides/imoderncomment/status/) можно прочитать или обновить значением из перечисления [ModernCommentStatus](https://reference.aspose.com/slides/ru/net/aspose.slides/moderncommentstatus/):
+Свойство [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) можно читать или изменять значением из перечисления [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — конкретный статус современного комментария не определён.
+- `NotDefined` — статус современного комментария не определён.
 - `Active` — комментарий активен.
-- `Resolved` — комментарий разрешён.
+- `Resolved` — комментарий отмечен как решённый.
 - `Closed` — комментарий закрыт.
 
-Следующий пример создаёт современный комментарий, привязанный к фигуре, связывает его с выделением текста, отмечает как разрешённый, сохраняет презентацию и проверяет значения после повторного открытия файла.
+Пример привязывает современный комментарий к словам «quarterly revenue» в тексте прямоугольника. Он вычисляет нулевой индекс [TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) из текста и задаёт [TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) равным количеству выбранных символов. После установки [Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) в `Resolved`, презентация сохраняется и открывается заново. Четыре проверки в консоли должны вывести `True`, подтверждая, что привязка к фигуре, диапазон текста и статус были сохранены.
 
 ```csharp
 using System;
@@ -265,6 +309,7 @@ var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Or
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
 shape.Name = "Forecast text";
 shape.TextFrame.Text = shapeText;
@@ -301,9 +346,9 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
-### **Проверка существующих современных комментариев**
+### **Исследование существующих современных комментариев**
 
-Чтобы проверить существующую презентацию, определите, какие комментарии реализуют [IModernComment](https://reference.aspose.com/slides/ru/net/aspose.slides/imoderncomment/), затем изучите [IModernComment.Shape](https://reference.aspose.com/slides/ru/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/ru/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/ru/net/aspose.slides/imoderncomment/textselectionlength/) и [IModernComment.Status](https://reference.aspose.com/slides/ru/net/aspose.slides/imoderncomment/status/). Фигура `null` указывает на комментарий уровня слайда. Для привязки к [IAutoShape] свойства выделения текста определяют соответствующий диапазон во фрейме текста фигуры.
+Пример требует существующую презентацию, содержащую современные комментарии, и выводит их текст, статус и детали привязки. Для их изучения проверьте, какие комментарии реализуют [IModernComment](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/), затем изучите [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) и [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/). Фигура `null` указывает на комментарий уровня слайда. Для привязки к [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) свойства выбора текста определяют соответствующий диапазон во фрейме текста фигуры.
 
 ```csharp
 using System;
@@ -349,9 +394,11 @@ foreach (var slide in presentation.Slides)
 
 ## **Удаление комментариев**
 
-### **Удаление всех комментариев и их авторов**
+Aspose.Slides для .NET позволяет удалить все комментарии и их авторов из презентации или удалить выбранные комментарии, оставив остальные. Ниже приведённые примеры демонстрируют оба подхода и сохраняют обновлённую презентацию.
 
-Следующий пример показывает, как удалить все комментарии и их авторов из презентации:
+### **Удалить все комментарии и их авторов**
+
+Пример открывает существующую презентацию и вызывает [ICommentCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/clear/) для каждого автора, затем вызывает [ICommentAuthorCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/clear/) для удаления самих авторов. Сохранённая презентация не содержит ни комментариев, ни их авторов. Используйте презентацию с комментариями, чтобы увидеть удаление.
 
 ```csharp
 using Aspose.Slides;
@@ -365,12 +412,13 @@ foreach (var author in presentation.CommentAuthors)
 }
 
 presentation.CommentAuthors.Clear();
+
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
-### **Удаление конкретных комментариев**
+### **Удалить конкретные комментарии**
 
-Следующий пример показывает, как удалить конкретные комментарии со слайда:
+Пример создаёт два комментария на одном слайде и использует [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) для поиска комментариев каждого автора. Он собирает комментарии, текст которых равен "comment 1", перед вызовом [ICommentCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/remove/), избегая изменений в коллекции во время выбора. Сохранённая презентация сохраняет только "comment 2".
 
 ```csharp
 using System;
@@ -381,6 +429,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Author", "A");
 var createdTime = DateTime.Now;
 
@@ -413,14 +462,14 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Поддерживает ли Aspose.Slides статус `Resolved` для современных комментариев?**
+**Поддерживает ли Aspose.Slides статус «решён» для современных комментариев?**
 
-Да. Свойство [IModernComment.Status](https://reference.aspose.com/slides/ru/net/aspose.slides/imoderncomment/status/) можно читать и задавать значением из перечисления [ModernCommentStatus](https://reference.aspose.com/slides/ru/net/aspose.slides/moderncommentstatus/), включая `Resolved`. Статус сохраняется в презентации и может быть прочитан после повторного открытия файла.
+Да. Свойство [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) можно читать и задавать значением из [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/), включая `Resolved`. Статус сохраняется в презентации и может быть вновь прочитан после повторного открытия файла.
 
-**Поддерживаются ли ветвящиеся дискуссии (цепочки ответов) и есть ли ограничение на вложенность?**
+**Поддерживаются ли дискуссии в виде веток (цепочки ответов) и существует ли ограничение вложенности?**
 
-Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/ru/net/aspose.slides/comment/parentcomment/), что позволяет создавать цепочки ответов. API не определяет конкретного предела глубины вложения.
+Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/), что позволяет создавать цепочки ответов. API не определяет конкретного ограничения глубины вложенности.
 
 **В какой системе координат определяется позиция маркера комментария на слайде?**
 
-Позиция маркера задаётся координатами с плавающей точкой в системе координат слайда, что позволяет точно разместить его на слайде.
+Позиция маркера задаётся координатами с плавающей запятой в системе координат слайда, что позволяет точно разместить её на слайде.

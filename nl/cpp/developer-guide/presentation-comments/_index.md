@@ -1,51 +1,51 @@
 ---
-title: Beheer presentatiecommentaren in C++
-linktitle: Presentatiecommentaren
+title: Beheer presentatieopmerkingen in C++
+linktitle: Presentatieopmerkingen
 type: docs
 weight: 100
 url: /nl/cpp/presentation-comments/
 keywords:
-- commentaar
-- modern commentaar
-- PowerPoint-commentaren
-- presentatiecommentaren
-- dia-commentaren
-- commentaar toevoegen
-- commentaar benaderen
-- commentaar bewerken
-- commentaar beantwoorden
-- commentaar verwijderen
-- commentaar wissen
+- opmerking
+- moderne opmerking
+- PowerPoint-opmerkingen
+- presentatie-opmerkingen
+- dia-opmerkingen
+- opmerking toevoegen
+- opmerking benaderen
+- opmerking bewerken
+- opmerking beantwoorden
+- opmerking verwijderen
+- opmerking wissen
 - PowerPoint
 - presentatie
 - C++
 - Aspose.Slides
-description: "Beheer presentatiecommentaren met Aspose.Slides voor C++: voeg toe, lees, bewerk, beantwoord en verwijder commentaren in PowerPoint-presentaties snel en eenvoudig."
+description: "Beheer presentatie‑opmerkingen met Aspose.Slides for C++: voeg toe, lees, bewerk, beantwoord en verwijder opmerkingen in PowerPoint‑presentaties snel en eenvoudig."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je presentatiecommentaren kunt beheren met Aspose.Slides for C++. Het introduceert de belangrijkste typen met betrekking tot commentaren en laat zien hoe je commentaren aan dia's kunt toevoegen, bestaande commentaren kunt benaderen, met antwoorden en moderne commentaren kunt werken, en commentaren uit een presentatie kunt verwijderen.
+Dit artikel legt uit hoe je presentatieopmerkingen beheert met Aspose.Slides for C++. Het introduceert de belangrijkste types die verband houden met opmerkingen en toont hoe je opmerkingen aan dia's toevoegt, bestaande opmerkingen benadert, werkt met antwoorden en moderne opmerkingen, en opmerkingen uit een presentatie verwijdert.
 
-De voorbeelden behandelen veelvoorkomende beoordelings- en samenwerkingsscenario's in PowerPoint, zoals commentaren toewijzen aan auteurs, commentaartekst en metadata lezen, antwoordketens opbouwen, en geselecteerde commentaren of alle commentaren verwijderen.
+De voorbeelden behandelen veelvoorkomende beoordelings‑ en samenwerkingsscenario’s in PowerPoint, zoals het toewijzen van opmerkingen aan auteurs, het lezen van de opmerkingstekst en metadata, het opbouwen van antwoordketens, en het verwijderen van geselecteerde opmerkingen of alle opmerkingen.
 
-In PowerPoint verschijnen commentaren als annotaties op dia's. Het selecteren van een commentaar toont de tekst en de bijbehorende discussie.
+In PowerPoint verschijnen opmerkingen als annotaties op dia’s. Het selecteren van een opmerking toont de tekst en de bijbehorende discussie.
 
-Om commentaren bij het openen van een presentatie te tonen of te verbergen zonder de commentaren zelf te wijzigen, zie [Toon of verberg commentaren bij het openen van een presentatie](/slides/nl/cpp/presentation-view-properties/).
+Om aan te geven dat opmerkingen getoond of verborgen moeten worden wanneer een presentatie wordt geopend zonder de opmerkingen zelf te wijzigen, zie [Show or Hide Comments When Opening a Presentation](/slides/nl/cpp/presentation-view-properties/).
 
-## **Waarom commentaren aan presentaties toevoegen?**
+## **Waarom opmerkingen toevoegen aan presentaties?**
 
-Je kunt commentaren gebruiken om feedback te geven en samen te werken met collega's bij het beoordelen van presentaties.
+Je kunt opmerkingen gebruiken om feedback te geven en samen te werken met collega‑s bij het beoordelen van presentaties.
 
-Aspose.Slides for C++ biedt de volgende API's voor het werken met commentaren:
+Aspose.Slides for C++ biedt de volgende API’s voor het werken met opmerkingen:
 
-* De [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse, die toegang biedt tot de commentaarauteurs van de presentatie.
-* De [ICommentCollection](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icommentcollection/) interface, die de commentaren vertegenwoordigt die aan een individuele auteur zijn gekoppeld.
-* De [IComment](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icomment/) interface, die informatie over een commentaar biedt, inclusief auteur, aanmaaktijd, positie en tekst.
-* De [CommentAuthor](https://reference.aspose.com/slides/nl/cpp/aspose.slides/commentauthor/) klasse, die informatie over een auteur biedt, inclusief naam, initialen en bijbehorende commentaren.
+* De klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) die toegang biedt tot de commentauteurs van de presentatie.
+* De interface [ICommentCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/) die de opmerkingen vertegenwoordigt die aan een individuele auteur zijn gekoppeld.
+* De interface [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) die informatie over een opmerking levert, inclusief auteur, aanmaak‑tijd, positie en tekst.
+* De klasse [CommentAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/commentauthor/) die informatie over een auteur geeft, zoals naam, initialen en bijbehorende opmerkingen.
 
-## **Commentaren aan dia's toevoegen**
+## **Dia‑opmerkingen toevoegen**
 
-Het volgende voorbeeld toont hoe je commentaren aan dia's in een PowerPoint‑presentatie kunt toevoegen:
+Het voorbeeld maakt twee dia’s aan en registreert een commentauteur met [AddAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/addauthor/). Het gebruikt [AddComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addcomment/) om op elke dia één opmerking te plaatsen, haalt daarna de opmerkingen van de eerste dia op voor die auteur met [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/). De console toont de tekst van de eerste opmerking twee keer, waarmee toegang via zowel de dia als de auteur wordt gedemonstreerd, en de opgeslagen presentatie bevat beide opmerkingen.
 
 ```cpp
 #include <DOM/IComment.h>
@@ -68,6 +68,7 @@ using namespace System::Drawing;
 auto presentation = MakeObject<Presentation>();
 auto firstSlide = presentation->get_Slide(0);
 auto secondSlide = presentation->get_Slides()->AddEmptySlide(presentation->get_LayoutSlide(0));
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Jawad", u"MF");
 auto position = PointF(0.2f, 0.2f);
 auto createdTime = DateTime::get_Now();
@@ -88,9 +89,54 @@ if (comments->get_Length() > 0)
 presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Commentaren op dia's benaderen**
+## **Zoek of maak een commentauteur aan**
 
-Het volgende voorbeeld toont hoe je bestaande commentaren in een PowerPoint‑presentatie kunt benaderen:
+Wanneer een geautomatiseerde review dezelfde presentatie herhaaldelijk verwerkt, doorzoek dan de collectie die wordt geretourneerd door [get_CommentAuthors](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_commentauthors/) voordat je een auteur toevoegt. [FindByNameAndInitials](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/findbynameandinitials/) vergelijkt zowel de naam als de initialen en retourneert een array met overeenkomende auteurs, of een lege array als er geen overeenkomsten zijn. Daarentegen zoekt [FindByName](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/findbyname/) alleen op naam, ongeacht de initialen. Het aanroepen van [AddAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/addauthor/) met een naam en initialen die al in de collectie aanwezig zijn, werpt een uitzondering.
+
+Het voorbeeld vereist een presentatiedocument met ten minste één dia. Tijdens elke van de twee passes wordt de eerst gevonden auteur hergebruikt, of wordt er een nieuwe aangemaakt alleen wanneer het resultaat leeg is. Als er meerdere overeenkomsten zijn, wordt het eerste array‑element geselecteerd zonder de andere auteurs samen te voegen of te verwijderen. Vervolgens wordt [AddComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addcomment/) aangeroepen voor de geselecteerde auteur en wordt de presentatie opgeslagen. De tweede pass opent de uitvoer van de eerste pass en herhaalt de bewerking.
+
+```cpp
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/date_time.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+const String authorName = u"Reviewer";
+const String authorInitials = u"RV";
+
+auto inputFile = String(u"input.pptx");
+auto position = PointF(20.0f, 20.0f);
+
+for (auto pass = 1; pass <= 2; pass++)
+{
+    auto presentation = MakeObject<Presentation>(inputFile);
+
+    auto matches = presentation->get_CommentAuthors()->FindByNameAndInitials(authorName, authorInitials);
+
+    auto author = matches->get_Length() > 0 ? matches[0] : presentation->get_CommentAuthors()->AddAuthor(authorName, authorInitials);
+    author->get_Comments()->AddComment(u"Please review this slide.", presentation->get_Slide(0), position, DateTime::get_Now());
+
+    auto outputFile = String::Format(u"review_pass_{0}.pptx", pass);
+    presentation->Save(outputFile, SaveFormat::Pptx);
+    inputFile = outputFile;
+}
+```
+
+De tweede pass voegt een extra opmerking toe zonder een extra auteur toe te voegen of bestaande opmerkingen te verwijderen. Het uiteindelijke bestand, `review_pass_2.pptx`, bevat beide nieuwe opmerkingen naast eventuele oorspronkelijke opmerkingen. Het hergebruiken van een auteur dedupliceert opmerkingen niet: om te voorkomen dat dezelfde opmerking herhaaldelijk wordt toegevoegd, implementeer je een aparte duplicaatdetectie vóór het toevoegen.
+
+## **Toegang tot dia‑opmerkingen**
+
+Het voorbeeld opent een bestaande presentatie en leest de collectie die wordt geretourneerd door [get_CommentAuthors](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_commentauthors/). Voor elke auteur wordt de collectie opgehaald via [get_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthor/get_comments/) en worden het dia‑nummer, de opmerkingstekst, de auteursnaam en de aanmaak‑tijd afgedrukt. De invoerpresentatie moet opmerkingen bevatten om console‑output te genereren.
 
 ```cpp
 #include <DOM/IComment.h>
@@ -119,11 +165,11 @@ for (auto&& author : presentation->get_CommentAuthors())
 }
 ```
 
-## **Antwoorden op commentaren**
+## **Beantwoorden van opmerkingen**
 
-Een hoofdcommentaar is het oorspronkelijke commentaar bovenaan een antwoordhiërarchie. De [get_ParentComment](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icomment/get_parentcomment/)‑ en [set_ParentComment](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icomment/set_parentcomment/)‑methoden van de [IComment](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icomment/) interface laten je het hoofdcommentaar van een commentaar ophalen of instellen.
+Een bovenliggende opmerking is de oorspronkelijke opmerking bovenaan een antwoordhiërarchie. De methoden [get_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/get_parentcomment/) en [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) van de interface [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) laten je de ouder van een opmerking ophalen of instellen.
 
-Het volgende voorbeeld toont hoe je antwoorden kunt toevoegen en de resulterende commentaariharchie kunt inspecteren:
+Het voorbeeld maakt opmerkingen van twee auteurs en gebruikt [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) om antwoorden op te bouwen, inclusief een antwoord op een ander antwoord. Het doorgeven van `nullptr` aan [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/) haalt opmerkingen op van alle auteurs; de console indentieert elke entry volgens de diepte in de antwoordhiërarchie. Het voorbeeld slaat de volledige discussie op, roept [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/remove/) aan op de eerste root‑opmerking, en slaat een tweede presentatie op waarin die opmerking en diens antwoorden verwijderd zijn.
 
 ```cpp
 #include <DOM/IComment.h>
@@ -144,30 +190,31 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto position = PointF(10.0f, 10.0f);
 auto createdTime = DateTime::get_Now();
 
-auto author1 = presentation->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
-auto comment1 = author1->get_Comments()->AddComment(u"comment 1", slide, position, createdTime);
+auto originalAuthor = presentation->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
+auto rootComment = originalAuthor->get_Comments()->AddComment(u"comment 1", slide, position, createdTime);
 
-auto author2 = presentation->get_CommentAuthors()->AddAuthor(u"Author_2", u"B.B.");
-auto reply1 = author2->get_Comments()->AddComment(u"reply 1 for comment 1", slide, position, createdTime);
-reply1->set_ParentComment(comment1);
+auto reviewer = presentation->get_CommentAuthors()->AddAuthor(u"Author_2", u"B.B.");
+auto firstReply = reviewer->get_Comments()->AddComment(u"reply 1 for comment 1", slide, position, createdTime);
+firstReply->set_ParentComment(rootComment);
 
-auto reply2 = author2->get_Comments()->AddComment(u"reply 2 for comment 1", slide, position, createdTime);
-reply2->set_ParentComment(comment1);
+auto secondReply = reviewer->get_Comments()->AddComment(u"reply 2 for comment 1", slide, position, createdTime);
+secondReply->set_ParentComment(rootComment);
 
-auto subReply = author1->get_Comments()->AddComment(u"subreply 3 for reply 2", slide, position, createdTime);
-subReply->set_ParentComment(reply2);
+auto subReply = originalAuthor->get_Comments()->AddComment(u"subreply 3 for reply 2", slide, position, createdTime);
+subReply->set_ParentComment(secondReply);
 
-author2->get_Comments()->AddComment(u"comment 2", slide, position, createdTime);
-auto comment3 = author2->get_Comments()->AddComment(u"comment 3", slide, position, createdTime);
+reviewer->get_Comments()->AddComment(u"comment 2", slide, position, createdTime);
+auto separateComment = reviewer->get_Comments()->AddComment(u"comment 3", slide, position, createdTime);
 
-auto reply3 = author1->get_Comments()->AddComment(u"reply 4 for comment 3", slide, position, createdTime);
-reply3->set_ParentComment(comment3);
+auto separateReply = originalAuthor->get_Comments()->AddComment(u"reply 4 for comment 3", slide, position, createdTime);
+separateReply->set_ParentComment(separateComment);
 
 auto comments = slide->GetSlideComments(nullptr);
-for (int32_t i = 0; i < comments->get_Length(); i++)
+for (auto i = 0; i < comments->get_Length(); i++)
 {
     auto comment = comments[i];
     while (comment->get_ParentComment() != nullptr)
@@ -181,24 +228,24 @@ for (int32_t i = 0; i < comments->get_Length(); i++)
 
 presentation->Save(u"parent_comment.pptx", SaveFormat::Pptx);
 
-comment1->Remove();
+rootComment->Remove();
 presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Wanneer de [Remove](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icomment/remove/)‑methode van de [IComment]‑interface wordt gebruikt om een commentaar te verwijderen, worden ook alle antwoorden op dat commentaar verwijderd.
-* Als de [set_ParentComment](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icomment/set_parentcomment/)‑methode een circulaire verwijzing creëert, wordt een [PptxEditException] gegooid.
+* Wanneer de [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/remove/)‑methode van de interface [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) wordt gebruikt om een opmerking te verwijderen, worden alle antwoorden op die opmerking eveneens verwijderd.
+* Als de [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/)‑methode een circulaire referentie creëert, wordt een [PptxEditException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxeditexception/) gegooid.
 {{% /alert %}}
 
-## **Moderne commentaren toevoegen**
+## **Moderne opmerkingen toevoegen**
 
-Moderne commentaren kunnen worden gekoppeld aan de dia zelf, aan een specifieke vorm, of aan een tekstreeks binnen een AutoShape. De [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icommentcollection/addmoderncomment/)‑methode accepteert een [IShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/)‑argument naast de dia‑ en commentaar‑markercoördinaten.
+Moderne opmerkingen kunnen worden gekoppeld aan de dia zelf, aan een specifieke vorm, of aan een tekstreeks binnen een AutoShape. De methode [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) accepteert een argument van het type [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) naast de dia‑ en marker‑coördinaten.
 
-Wanneer `nullptr` wordt doorgegeven voor het vorm‑argument, is het commentaar een dia‑niveau commentaar. De marker wordt gepositioneerd volgens de opgegeven coördinaten, maar is niet gekoppeld aan een specifieke vorm, zodat [IModernComment::get_Shape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imoderncomment/get_shape/) `nullptr` retourneert. Wanneer een [IShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/) wordt opgegeven, wordt het commentaar aan die vorm verankerd. De coördinaten bepalen nog steeds de positie van de commentaar‑marker op de dia, terwijl de vormkoppeling kan worden opgehaald via [IModernComment::get_Shape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imoderncomment/get_shape/).
+Wanneer `nullptr` wordt doorgegeven voor het vorm‑argument, is de opmerking een dia‑niveau opmerking. De marker wordt gepositioneerd volgens de opgegeven coördinaten, maar is niet gekoppeld aan een specifieke vorm, zodat [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) `nullptr` teruggeeft. Wanneer een [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) wordt opgegeven, wordt de opmerking aan die vorm verankerd. De coördinaten bepalen nog steeds de positie van de marker op de dia, terwijl de vormkoppeling kan worden opgehaald via [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/).
 
-### **Een modern commentaar aan een vorm verankeren**
+### **Een moderne opmerking aan een vorm verankeren**
 
-Het volgende voorbeeld maakt zowel een modern commentaar op dia‑niveau als een modern commentaar verankerd aan een specifieke AutoShape. Het leest vervolgens de bijbehorende vorm uit elk commentaar.
+Het voorbeeld roept [AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) twee keer aan: één keer met een `nullptr` vorm voor een dia‑niveau opmerking en één keer met een rechthoek als anker. Het aanroepen van [get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) drukt `True` af voor de null‑check van de dia‑niveau opmerking en `Revenue title` voor de verankerde opmerking. Beide opmerkingen worden met de presentatie opgeslagen.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -224,7 +271,9 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 300.0f, 80.0f);
 shape->set_Name(u"Revenue title");
 shape->get_TextFrame()->set_Text(u"Quarterly revenue");
@@ -245,11 +294,11 @@ if (shapeAnchor != nullptr)
 presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 ```
 
-### **Commentaren aan verschillende vormtypen verankeren**
+### **Opmerkingen verankeren aan verschillende vormtypes**
 
-Elk dia‑object dat [IShape] implementeert kan gebruikt worden als vorm‑ankerpunt. Veelvoorkomende voorbeelden omvatten [IAutoShape], [IPictureFrame], [IGroupShape], [IConnector] en [IGraphicalObject]‑instanties zoals diagrammen.
+Elk dia‑object dat de interface [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) implementeert, kan worden gebruikt als anker. Veelvoorkomende voorbeelden zijn [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/cpp/aspose.slides/iconnector/) en [IGraphicalObject](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobject/) zoals grafieken.
 
-Het volgende voorbeeld maakt verschillende veelvoorkomende vormtypen en koppelt een modern commentaar aan elk van hen.
+Het voorbeeld gebruikt [AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) om een opmerking aan elk van vijf vormtypes te koppelen: een AutoShape, een afbeelding, een groep, een connector en een grafiek. De afbeelding maakt gebruik van ingebedde afbeeldingsdata, dus er is geen externe afbeelding nodig. Elke opmerking heeft zijn eigen marker‑positie, en de opgeslagen presentatie behoudt alle vijf vormkoppelingen.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -281,11 +330,13 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
 auto createdTime = DateTime::get_Now();
 
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 180.0f, 60.0f);
 autoShape->get_TextFrame()->set_Text(u"AutoShape");
+
 auto autoShapeCommentPosition = PointF(30.0f, 30.0f);
 author->get_Comments()->AddModernComment(u"Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -313,18 +364,18 @@ author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slid
 presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 ```
 
-### **Een commentaar aan tekst verankeren en de status instellen**
+### **Een opmerking aan tekst verankeren en de status instellen**
 
-Voor een modern commentaar gekoppeld aan een [IAutoShape] bepalen [IModernComment::get_TextSelectionStart] en [IModernComment::set_TextSelectionStart] de startpositie van de geselecteerde tekst in het tekstvak van de vorm. Op dezelfde manier bepalen [IModernComment::get_TextSelectionLength] en [IModernComment::set_TextSelectionLength] de lengte van de selectie. Samen koppelen deze methoden het commentaar aan een specifieke tekstreeks binnen de AutoShape.
+Voor een moderne opmerking gekoppeld aan een [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/), regelen [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionstart/) en [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionstart/) de startpositie van de geselecteerde tekst in het tekstvak van de vorm. Evenzo regelen [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionlength/) en [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionlength/) de lengte van de selectie. Samen koppelen deze methoden de opmerking aan een specifiek tekstreeks binnen de AutoShape.
 
-De [IModernComment::get_Status]‑ en [IModernComment::set_Status]‑methoden gebruiken een waarde uit de [ModernCommentStatus]‑enumeratie:
+De methoden [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/) en [IModernComment::set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) gebruiken een waarde uit de enumeratie [ModernCommentStatus](https://reference.aspose.com/slides/cpp/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — er is geen specifieke status voor modern commentaar gedefinieerd.
-- `Active` — het commentaar is actief.
-- `Resolved` — het commentaar is opgelost.
-- `Closed` — het commentaar is gesloten.
+- `NotDefined` — er is geen specifieke moderne‑opmerkingstatus gedefinieerd.
+- `Active` — de opmerking is actief.
+- `Resolved` — de opmerking is opgelost.
+- `Closed` — de opmerking is gesloten.
 
-Het volgende voorbeeld maakt een aan een vorm verankerd modern commentaar, koppelt het aan een tekstselectie, markeert het als opgelost, slaat de presentatie op, en controleert de waarden na het opnieuw openen van het bestand.
+Het voorbeeld verankert een moderne opmerking aan de woorden “quarterly revenue” in de tekst van een rechthoek. Het bepaalt de nul‑gebaseerde startpositie uit de tekst, geeft deze door aan [set_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionstart/), en roept [set_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionlength/) aan met het aantal geselecteerde tekens. Na het aanroepen van [set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) met `Resolved` wordt de presentatie opgeslagen en opnieuw geopend. De vier console‑controles zouden elk `True` moeten afdrukken, waarmee wordt bevestigd dat het vorm‑anker, het tekstreeks‑gebied en de status behouden zijn gebleven.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -359,6 +410,7 @@ auto expectedSelectionStart = shapeText.IndexOf(selectedText);
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 400.0f, 100.0f);
 shape->set_Name(u"Forecast text");
 shape->get_TextFrame()->set_Text(shapeText);
@@ -397,9 +449,9 @@ for (auto&& reopenedComment : reopenedComments)
 }
 ```
 
-### **Bestaande moderne commentaren inspecteren**
+### **Bestaande moderne opmerkingen inspecteren**
 
-Om een bestaande presentatie te inspecteren, controleer welke commentaren [IModernComment] implementeren, en bekijk daarna [IModernComment::get_Shape], [IModernComment::get_TextSelectionStart], [IModernComment::get_TextSelectionLength] en [IModernComment::get_Status]. Een `nullptr`‑vorm duidt op een commentaar op dia‑niveau. Voor een [IAutoShape]‑anker identificeren de tekstselectiemethoden het bijbehorende bereik in het tekstvak van de vorm.
+Het voorbeeld vraagt een bestaande presentatie op die moderne opmerkingen bevat en drukt hun tekst, status en ankerdetails af. Om dit te inspecteren, controleer je welke opmerkingen de interface [IModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/) implementeren, en onderzoek je vervolgens [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionlength/) en [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/). Een `nullptr`‑vorm duidt op een dia‑niveau opmerking. Voor een anker van het type [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) identificeren de tekst‑selectiemethoden het bijbehorende bereik in het tekstvak van de vorm.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -456,11 +508,13 @@ for (auto&& slide : presentation->get_Slides())
 }
 ```
 
-## **Commentaren verwijderen**
+## **Opmerkingen verwijderen**
 
-### **Alle commentaren en commentaarauteurs verwijderen**
+Aspose.Slides for C++ stelt je in staat alle opmerkingen en hun auteurs uit een presentatie te verwijderen of geselecteerde opmerkingen te verwijderen terwijl de rest behouden blijft. De volgende voorbeelden demonstreren beide benaderingen en slaan de bijgewerkte presentatie op.
 
-Het volgende voorbeeld toont hoe je alle commentaren en commentaarauteurs uit een presentatie kunt verwijderen:
+### **Alle opmerkingen en commentauteurs verwijderen**
+
+Het voorbeeld opent een bestaande presentatie en roept voor elke auteur [ICommentCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/clear/) aan, waarna [ICommentAuthorCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/clear/) wordt aangeroepen om de auteurs zelf te verwijderen. De opgeslagen presentatie bevat geen opmerkingen of commentauteurs. Gebruik een presentatie met opmerkingen om de verwijdering te observeren.
 
 ```cpp
 #include <DOM/ICommentAuthor.h>
@@ -481,12 +535,13 @@ for (auto&& author : presentation->get_CommentAuthors())
 }
 
 presentation->get_CommentAuthors()->Clear();
+
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-### **Specifieke commentaren verwijderen**
+### **Specifieke opmerkingen verwijderen**
 
-Het volgende voorbeeld toont hoe je specifieke commentaren van een dia kunt verwijderen:
+Het voorbeeld maakt twee opmerkingen op één dia en gebruikt [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/) om opmerkingen per auteur op te zoeken. Het verzamelt opmerkingen waarvan de tekst gelijk is aan “comment 1” voordat [ICommentCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/remove/) wordt aangeroepen, zodat de collectie niet wordt gewijzigd tijdens de selectie. De opgeslagen presentatie bevat alleen “comment 2”.
 
 ```cpp
 #include <DOM/IComment.h>
@@ -508,6 +563,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Author", u"A");
 auto createdTime = DateTime::get_Now();
 
@@ -540,14 +596,14 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Ondersteunt Aspose.Slides een opgeloste status voor moderne commentaren?**
+**Ondersteunt Aspose.Slides een resolved‑status voor moderne opmerkingen?**
 
-Ja. De [IModernComment::get_Status]‑ en [IModernComment::set_Status]‑methoden gebruiken een [ModernCommentStatus]‑waarde, inclusief `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw worden gelezen nadat het bestand opnieuw geopend is.
+Ja. Zowel [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/) als [IModernComment::set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) gebruiken een waarde uit de enumeratie [ModernCommentStatus](https://reference.aspose.com/slides/cpp/aspose.slides/moderncommentstatus/), inclusief `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw worden gelezen nadat het bestand is heropend.
 
-**Worden draadgesprekken (antwoordketens) ondersteund en is er een limiet op de nesting?**
+**Worden doorlopende discussies (antwoordketens) ondersteund, en is er een limiet aan het aantal niveaus?**
 
-Ja. Elk commentaar kan naar zijn [parent comment](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icomment/set_parentcomment/) verwijzen, waardoor antwoordketens mogelijk zijn. De API definieert geen specifieke limiet voor de nesting‑diepte.
+Ja. Elke opmerking kan een verwijzing naar zijn [parent comment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) bevatten, waardoor antwoordketens mogelijk zijn. De API definieert geen specifieke limiet voor de diepte van de nesting.
 
-**In welk coördinatensysteem wordt de positie van een commentaar‑marker op een dia gedefinieerd?**
+**In welk coördinatensysteem wordt de positie van een opmerkingen‑marker op een dia gedefinieerd?**
 
-De marker‑positie wordt gedefinieerd door zwevende‑kommagetallen in het dia‑coördinatensysteem, waardoor je deze nauwkeurig op de dia kunt plaatsen.
+De marker‑positie wordt gedefinieerd door zwevende‑komma‑coördinaten in het dia‑coördinatensysteem, zodat je de marker nauwkeurig op de dia kunt plaatsen.

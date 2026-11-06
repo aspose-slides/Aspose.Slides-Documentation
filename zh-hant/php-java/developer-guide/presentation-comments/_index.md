@@ -1,51 +1,51 @@
 ---
-title: 管理 PHP 簡報註解
-linktitle: 簡報註解
+title: 在 PHP 中管理簡報批註
+linktitle: 簡報批註
 type: docs
 weight: 100
 url: /zh-hant/php-java/presentation-comments/
 keywords:
-- 註解
-- 現代註解
-- PowerPoint 註解
-- 簡報註解
-- 投影片註解
-- 新增註解
-- 存取註解
-- 編輯註解
-- 回覆註解
-- 移除註解
-- 刪除註解
+- 批註
+- 現代批註
+- PowerPoint 批註
+- 簡報批註
+- 投影片批註
+- 新增批註
+- 存取批註
+- 編輯批註
+- 回覆批註
+- 移除批註
+- 刪除批註
 - PowerPoint
 - 簡報
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP via Java 管理簡報註解：快速且輕鬆地在 PowerPoint 簡報中新增、讀取、編輯、回覆以及移除註解。"
+description: "使用 Aspose.Slides for PHP via Java 管理簡報批註：快速且輕鬆地在 PowerPoint 簡報中新增、閱讀、編輯、回覆及移除批註。"
 ---
-## **概述**
+## **概觀**
 
-本文說明如何使用 Aspose.Slides for PHP via Java 管理簡報註解。它介紹了主要的與註解相關的類型，並示範如何向投影片加入註解、存取現有註解、處理回覆與現代註解，以及如何從簡報中移除註解。
+本文說明如何使用 Aspose.Slides for PHP via Java 來管理簡報批註。它會介紹主要的批註相關型別，並示範如何在投影片上新增批註、存取既有批註、處理回覆與現代批註，以及如何從簡報中移除批註。
 
-這些範例涵蓋了 PowerPoint 中常見的審閱與協作情境，例如將註解指派給作者、讀取註解文字及中繼資料、建立回覆鏈，以及移除選取的註解或全部註解。
+這些範例涵蓋 PowerPoint 中常見的審閱與協作情境，例如指派批註給作者、讀取批註文字與中繼資料、建立回覆鏈，以及移除選取的批註或全部批註。
 
-在 PowerPoint 中，註解顯示為投影片上的標註。選取註解時會顯示其文字和相關討論。
+在 PowerPoint 中，批註會顯示為投影片上的註解。選取批註時會顯示其文字及相關討論。
 
-在簡報開啟時要求顯示或隱藏註解（不改變註解本身），請參閱[在開啟簡報時顯示或隱藏註解](/slides/zh-hant/php-java/presentation-view-properties/)。
+若要在開啟簡報時請求顯示或隱藏批註（而不變更批註本身），請參閱 [Show or Hide Comments When Opening a Presentation](/slides/zh-hant/php-java/presentation-view-properties/)。
 
-## **為何要在簡報中加入註解？**
+## **為何要在簡報中加入批註？**
 
-您可以利用註解在審閱簡報時提供回饋並與同事協作。
+在審閱簡報時，您可以使用批註提供回饋並與同事協作。
 
-Aspose.Slides for PHP via Java 提供以下用於處理註解的 API：
+Aspose.Slides for PHP via Java 提供以下 API 以處理批註：
 
-* [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別，提供存取簡報的註解作者的功能。
-* [CommentCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/commentcollection/) 類別，代表與單一作者相關聯的註解。
-* [Comment](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/comment/) 類別，提供關於註解的資訊，包括作者、建立時間、位置與文字。
-* [CommentAuthor](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/commentauthor/) 類別，提供關於作者的資訊，包括名稱、縮寫與相關註解。
+* [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 類別，提供存取簡報的批註作者。
+* [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) 類別，表示與單一作者相關的批註集合。
+* [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) 類別，提供批註資訊，包括作者、建立時間、位置與文字。
+* [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/) 類別，提供作者資訊，包括姓名、姓名縮寫與相關批註。
 
-## **新增投影片註解**
+## **新增投影片批註**
 
-以下範例說明如何在 PowerPoint 簡報的投影片中新增註解：
+此範例建立兩張投影片，並使用 [addAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/addauthor/) 註冊批註作者。它透過 [addComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addcomment/) 在每張投影片上放置一則批註，接著使用 [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/) 取得該作者在第一張投影片的批註。主控台會兩次顯示第一則批註的文字，示範透過投影片與作者兩種方式存取，同時已儲存的簡報會包含兩則批註。
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -56,6 +56,7 @@ $presentation = new Presentation();
 try {
     $firstSlide = $presentation->getSlides()->get_Item(0);
     $secondSlide = $presentation->getSlides()->addEmptySlide($presentation->getLayoutSlides()->get_Item(0));
+
     $author = $presentation->getCommentAuthors()->addAuthor("Jawad", "MF");
     $position = new Point2DFloat(0.2, 0.2);
     $createdTime = new Java("java.util.Date");
@@ -81,9 +82,48 @@ try {
 }
 ```
 
-## **存取投影片註解**
+## **尋找或建立批註作者**
 
-以下範例說明如何在 PowerPoint 簡報中存取現有註解：
+當自動化審閱重複處理相同簡報時，請在新增作者之前先搜尋由 [getCommentAuthors](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getcommentauthors/) 回傳的集合。[findByNameAndInitials](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/findbynameandinitials/) 同時比對姓名與縮寫，並回傳符合的作者陣列；若無符合者則回傳空陣列。相較之下，[findByName](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/findbyname/) 僅依姓名搜尋，與縮寫無關。使用已存在於集合中的姓名與縮寫呼叫 [addAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/addauthor/) 會拋出例外。
+
+此範例需要一個至少含有一張投影片的簡報檔案。於兩次執行的每一次，它都會重複使用第一個符合的作者，或在結果為空時才建立新作者。若有多筆符合，會選取陣列的第一個元素，而不會合併或移除其他作者。然後它會為選取的作者呼叫 [addComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addcomment/) 並儲存簡報。第二次執行會開啟第一次的輸出並重複此操作。
+
+```php
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$authorName = "Reviewer";
+$authorInitials = "RV";
+
+$inputFile = "input.pptx";
+$position = new Point2DFloat(20, 20);
+$arrayClass = new JavaClass("java.lang.reflect.Array");
+
+for ($pass = 1; $pass <= 2; $pass++) {
+    $presentation = new Presentation($inputFile);
+    try {
+        $matches = $presentation->getCommentAuthors()->findByNameAndInitials($authorName, $authorInitials);
+        $matchCount = java_values($arrayClass->getLength($matches));
+
+        $author = $matchCount > 0 ? $matches[0] : $presentation->getCommentAuthors()->addAuthor($authorName, $authorInitials);
+        $createdTime = new Java("java.util.Date");
+        $author->getComments()->addComment("Please review this slide.", $presentation->getSlides()->get_Item(0), $position, $createdTime);
+
+        $outputFile = "review_pass_" . $pass . ".pptx";
+        $presentation->save($outputFile, SaveFormat::Pptx);
+        $inputFile = $outputFile;
+    } finally {
+        $presentation->dispose();
+    }
+}
+```
+
+第二次執行會新增另一則批註，但不會再新增作者或移除既有批註。最終檔案 `review_pass_2.pptx` 會同時包含兩則新批註以及任何原始批註。重複使用作者不會去除重複的批註：若要避免重複加入相同批註，請在加入前自行實作重複偵測。
+
+## **存取投影片批註**
+
+此範例開啟現有簡報，讀取由 [getCommentAuthors](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getcommentauthors/) 回傳的集合。對於每位作者，它會遍歷由 [getComments](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/getcomments/) 回傳的集合，並印出投影片編號、批註文字、作者姓名與建立時間。輸入簡報必須包含批註才能產生主控台輸出。
 
 ```php
 use aspose\slides\Presentation;
@@ -104,11 +144,11 @@ try {
 }
 ```
 
-## **回覆註解**
+## **回覆批註**
 
-父註解是回覆層級最上層的原始註解。[Comment::getParentComment](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/comment/getparentcomment/) 與 [Comment::setParentComment](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/comment/setparentcomment/) 方法可取得或設定註解的父註解。
+父批註是回覆階層最上層的原始批註。[Comment::getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) 與 [Comment::setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) 方法讓您取得或設定批註的父批註。
 
-以下範例說明如何新增回覆並檢查產生的註解層級結構：
+此範例建立兩位作者的批註，並使用 [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) 來建立回覆，包括對另一則回覆的回覆。將 `null` 傳遞給 [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/) 會取得所有作者的批註；主控台會根據回覆階層深度縮排每個條目。範例會儲存完整的討論，對第一個根批註呼叫 [remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/)，並儲存第二份已移除該批註及其回覆的簡報。
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -118,6 +158,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $position = new Point2DFloat(10, 10);
     $createdTime = new Java("java.util.Date");
 
@@ -163,19 +204,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* 使用 [Comment::remove](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/comment/remove/) 方法刪除註解時，該註解的所有回覆也會一併被刪除。
-* 若 [Comment::setParentComment](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/comment/setparentcomment/) 產生循環參考，將拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/pptxeditexception/)。
+* 使用 [Comment::remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) 方法刪除批註時，該批註的所有回覆也會一起被刪除。
+* 若 [Comment::setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) 建立循環參照，會拋出 [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/)。
 {{% /alert %}}
 
-## **加入現代註解**
+## **新增現代批註**
 
-現代註解可以與投影片本身、特定圖形，或 AutoShape 內的文字範圍關聯。[CommentCollection::addModernComment](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/commentcollection/addmoderncomment/) 方法除了投影片與註解標記座標外，還接受一個 [Shape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shape/) 參數。
+現代批註可以與投影片本身、特定圖形，或 AutoShape 內的文字範圍相關聯。[CommentCollection::addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) 方法除了接受投影片與批註標記座標外，還接受一個 [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) 參數。
 
-若對 shape 參數傳入 `null`，則註解為投影片層級註解。其標記依提供的座標定位，但不與特定圖形關聯，因此 [ModernComment::getShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/getshape/) 會回傳 `null`。若提供 [Shape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shape/)，則註解會錨定於該圖形。座標仍決定註解標記在投影片上的位置，圖形關聯可透過 [ModernComment::getShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/getshape/) 取得。
+當傳入 `null` 作為圖形參數時，批註為投影片層級批註。其標記依提供的座標定位，但不會與特定圖形關聯，因此 [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/) 會回傳 `null`。若提供 [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/)，批註則會錨定於該圖形。座標仍然定義批註標記在投影片上的位置，而圖形關聯可透過 [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/) 取得。
 
-### **將現代註解錨定至圖形**
+### **將現代批註錨定到圖形**
 
-以下範例同時建立投影片層級的現代註解與錨定於特定 AutoShape 的現代註解，並分別從每個註解讀取其關聯的圖形。
+此範例分別以 `null` 圖形（投影片層級批註）與矩形作為錨點兩次呼叫 [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/)。讀取 [getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/) 時，會對投影片層級批註的 `null` 檢查印出 `true`，對錨定批註則印出 `Revenue title`。兩則批註皆隨簡報儲存。
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -186,7 +227,9 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 300, 80);
     $shape->setName("Revenue title");
     $shape->getTextFrame()->setText("Quarterly revenue");
@@ -206,11 +249,11 @@ try {
 }
 ```
 
-### **將註解錨定至不同圖形類型**
+### **將批註錨定到不同類型的圖形**
 
-任何以 [Shape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shape/) 類別表示的投影片物件皆可作為圖形錨點。常見範例包括 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/)、[PictureFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/pictureframe/)、[GroupShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/groupshape/)、[Connector](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/connector/) 以及如圖表的 [GraphicalObject](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/graphicalobject/) 實例。
+任何由 [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) 類別表示的投影片物件都可作為圖形錨點。常見範例包括 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)、[PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/)、[GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/)、[Connector](https://reference.aspose.com/slides/php-java/aspose.slides/connector/) 與 [GraphicalObject](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobject/)（例如圖表）實例。
 
-以下範例建立數種常見的圖形類型，並為每個圖形關聯一個現代註解。
+此範例使用 [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) 為五種圖形類型各建立一則批註：AutoShape、圖片框、群組、連接線與圖表。圖片使用嵌入式影像資料，無需外部影像。每則批註都有自己的標記位置，儲存的簡報會保留所有五種圖形的關聯。
 
 ```php
 use aspose\slides\ChartType;
@@ -222,11 +265,13 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
     $createdTime = new Java("java.util.Date");
 
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 180, 60);
     $autoShape->getTextFrame()->setText("AutoShape");
+
     $autoShapeCommentPosition = new Point2DFloat(30, 30);
     $author->getComments()->addModernComment("Comment on an AutoShape.", $slide, $autoShape, $autoShapeCommentPosition, $createdTime);
 
@@ -258,18 +303,18 @@ try {
 }
 ```
 
-### **將註解錨定至文字並設定其狀態**
+### **將批註錨定到文字並設定其狀態**
 
-對於關聯於 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/) 的現代註解，[ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/gettextselectionstart/) 與 [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/settextselectionstart/) 用於取得圖形文字框中所選文字的起始位置。[ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/gettextselectionlength/) 與 [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/settextselectionlength/) 用於取得選取的長度。這兩個值共同將註解與 AutoShape 內特定文字範圍關聯起來。
+對於與 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) 相關的現代批註，[ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionstart/) 與 [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionstart/) 取得圖形文字框中所選文字的起始位置。[ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionlength/) 與 [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionlength/) 取得選取的長度。這兩個值一起將批註與 AutoShape 內特定文字範圍關聯。
 
-[ModernComment::getStatus](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/getstatus/) 與 [ModernComment::setStatus](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/setstatus/) 方法可存取 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncommentstatus/) 常數中的值：
+[ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/) 與 [ModernComment::setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) 方法會存取 [ModernCommentStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/) 常數中的值：
 
-- `NotDefined` — 未定義特定的現代註解狀態。
-- `Active` — 註解為啟用狀態。
-- `Resolved` — 註解已被解決。
-- `Closed` — 註解已關閉。
+- `NotDefined` — 未定義特定的現代批註狀態。
+- `Active` — 批註為啟用狀態。
+- `Resolved` — 批註已解決。
+- `Closed` — 批註已關閉。
 
-以下範例建立一個錨定於圖形的現代註解，將其關聯至文字選取，標記為已解決，儲存簡報，並在重新開啟檔案後驗證其值。
+此範例將現代批註錨定於矩形文字中的「quarterly revenue」字樣。它先計算零基的選取起點，傳遞給 [setTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionstart/)，再使用 [setTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionlength/) 設定選取的字元數。之後以 `Resolved` 呼叫 [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/)，儲存並重新開啟簡報。四個主控台檢查皆應印出 `true`，以確認圖形錨點、文字範圍與狀態皆被保留。
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -286,6 +331,7 @@ $expectedSelectionStart = strpos($shapeText, $selectedText);
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
     $shape->setName("Forecast text");
     $shape->getTextFrame()->setText($shapeText);
@@ -329,9 +375,9 @@ try {
 }
 ```
 
-### **檢查現有的現代註解**
+### **檢視現有的現代批註**
 
-若要檢查已存在的簡報，先確認每個註解是否為 [ModernComment](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/)，再檢視 [ModernComment::getShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/getshape/)、[ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/gettextselectionstart/)、[ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/gettextselectionlength/) 與 [ModernComment::getStatus](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/getstatus/)。`null` 的 shape 表示投影片層級的註解。對於 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/) 錨點，文字選取方法會指出圖形文字框中的相關範圍。
+此範例需要一個已包含現代批註的簡報，並印出其文字、狀態與錨點細節。檢視時，先確認每則批註是否為 [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/)，再檢查 [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/)、[ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionstart/)、[ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionlength/) 與 [ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/)。`null` 圖形表示投影片層級批註。若為 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) 錨點，文字選取方法會指出圖形文字框中的相關範圍。
 
 ```php
 use aspose\slides\Presentation;
@@ -373,11 +419,13 @@ try {
 }
 ```
 
-## **移除註解**
+## **移除批註**
 
-### **移除全部註解與註解作者**
+Aspose.Slides for PHP via Java 可讓您從簡報中移除所有批註與其作者，或僅刪除選取的批註而保留其餘批註。以下範例示範兩種作法，並儲存更新後的簡報。
 
-以下範例說明如何從簡報中移除全部註解與註解作者：
+### **移除全部批註與批註作者**
+
+此範例開啟現有簡報，對每位作者呼叫 [CommentCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/clear/)，然後呼叫 [CommentAuthorCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/clear/) 移除作者本身。儲存的簡報將不再包含批註與批註作者。請使用含有批註的簡報以觀察移除效果。
 
 ```php
 use aspose\slides\Presentation;
@@ -390,15 +438,16 @@ try {
     }
 
     $presentation->getCommentAuthors()->clear();
+
     $presentation->save("example_out.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-### **移除特定註解**
+### **移除特定批註**
 
-以下範例說明如何從投影片中移除特定註解：
+此範例在同一張投影片上建立兩則批註，並使用 [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/) 依作者找出批註。它會收集文字等於「comment 1」的批註，然後呼叫 [CommentCollection::remove](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/remove/) 移除它們，以避免在選取期間改變集合。儲存的簡報只會保留「comment 2」。
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -408,6 +457,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
     $createdTime = new Java("java.util.Date");
 
@@ -439,14 +489,14 @@ try {
 
 ## **常見問題**
 
-**Aspose.Slides 是否支援現代註解的已解決狀態？**
+**Aspose.Slides 是否支援現代批註的已解決狀態？**
 
-是的。[ModernComment::getStatus](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/getstatus/) 與 [ModernComment::setStatus](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncomment/setstatus/) 可存取 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/moderncommentstatus/) 的值，包括 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可讀取。
+是的。[ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/) 與 [ModernComment::setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) 可存取 [ModernCommentStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/) 中的值，包括 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可讀取。
 
-**是否支援串聯討論（回覆鏈），且是否有巢狀深度限制？**
+**是否支援串接討論（回覆鏈），是否有巢狀深度限制？**
 
-是的。每個註解皆可參照其 [parent comment](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/comment/getparentcomment/)，從而形成回覆鏈。API 並未定義特定的巢狀深度上限。
+是的。每則批註都可以參照其 [parent comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/)，從而形成回覆鏈。API 並未定義特定的巢狀深度限制。
 
-**註解標記在投影片上的位置是以哪種座標系統定義的？**
+**批註標記在投影片上的位置是以何種座標系統定義的？**
 
-標記位置是以投影片座標系統中的浮點座標定義，可讓您精確地將其置於投影片上。
+標記位置以浮點座標定義於投影片座標系統中，讓您可以精確地將其放置於投影片上。

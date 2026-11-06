@@ -1,5 +1,5 @@
 ---
-title: Kelola Komentar Presentasi di Android
+title: Kelola Komentar Presentasi pada Android
 linktitle: Komentar Presentasi
 type: docs
 weight: 100
@@ -10,48 +10,47 @@ keywords:
 - komentar PowerPoint
 - komentar presentasi
 - komentar slide
-- tambah komentar
+- tambahkan komentar
 - akses komentar
-- edit komentar
+- mengedit komentar
 - balas komentar
 - hapus komentar
-- hapus komentar
+- menghapus komentar
 - PowerPoint
 - presentasi
 - Android
 - Java
 - Aspose.Slides
-description: "Kelola komentar presentasi dengan Aspose.Slides untuk Android via Java: tambahkan, baca, edit, balas, dan hapus komentar dalam presentasi PowerPoint dengan cepat dan mudah."
+description: "Kelola komentar presentasi dengan Aspose.Slides untuk Android via Java: menambah, membaca, mengedit, membalas, dan menghapus komentar dalam presentasi PowerPoint dengan cepat dan mudah."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara mengelola komentar presentasi dengan Aspose.Slides untuk Android via Java. Artikel ini memperkenalkan tipe‑tipe utama terkait komentar dan menunjukkan cara menambahkan komentar ke slide, mengakses komentar yang ada, bekerja dengan balasan dan komentar modern, serta menghapus komentar dari sebuah presentasi.
+Artikel ini menjelaskan cara mengelola komentar presentasi dengan Aspose.Slides untuk Android via Java. Ini memperkenalkan tipe utama yang terkait dengan komentar dan mendemonstrasikan cara menambahkan komentar ke slide, mengakses komentar yang ada, bekerja dengan balasan dan komentar modern, serta menghapus komentar dari presentasi.
 
-Contoh‑contoh mencakup skenario peninjauan dan kolaborasi umum di PowerPoint, seperti menetapkan komentar kepada penulis, membaca teks komentar dan metadata, membangun rantai balasan, serta menghapus komentar terpilih atau semua komentar.
+Contoh-contoh mencakup skenario peninjauan dan kolaborasi umum di PowerPoint, seperti menetapkan komentar ke penulis, membaca teks komentar dan metadata, membangun rantai balasan, dan menghapus komentar yang dipilih atau semua komentar.
 
 Di PowerPoint, komentar muncul sebagai anotasi pada slide. Memilih komentar menampilkan teksnya dan diskusi terkait.
 
-Untuk meminta komentar ditampilkan atau disembunyikan saat presentasi dibuka tanpa mengubah komentar itu sendiri, lihat [Tampilkan atau Sembunyikan Komentar Saat Membuka Presentasi](/slides/id/androidjava/presentation-view-properties/).
+Untuk meminta agar komentar ditampilkan atau disembunyikan saat presentasi dibuka tanpa mengubah komentar itu sendiri, lihat [Tampilkan atau Sembunyikan Komentar Saat Membuka Presentasi](/slides/id/androidjava/presentation-view-properties/).
 
 ## **Mengapa Menambahkan Komentar ke Presentasi?**
 
-Anda dapat menggunakan komentar untuk memberikan umpan balik dan berkolaborasi dengan rekan kerja saat meninjau presentasi.
+Anda dapat menggunakan komentar untuk memberikan umpan balik dan berkolaborasi dengan rekan saat meninjau presentasi.
 
 Aspose.Slides untuk Android via Java menyediakan API berikut untuk bekerja dengan komentar:
 
-* Kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) yang menyediakan akses ke penulis komentar presentasi.
-* Antarmuka [ICommentCollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icommentcollection/) yang mewakili komentar yang terkait dengan seorang penulis tertentu.
-* Antarmuka [IComment](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icomment/) yang memberikan informasi tentang sebuah komentar, termasuk penulisnya, waktu pembuatan, posisi, dan teksnya.
-* Kelas [CommentAuthor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/commentauthor/) yang memberikan informasi tentang seorang penulis, termasuk nama, inisial, dan komentar yang terkait.
+* The [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class, which provides access to the presentation's comment authors.
+* The [ICommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/) interface, which represents the comments associated with an individual author.
+* The [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/) interface, which provides information about a comment, including its author, creation time, position, and text.
+* The [CommentAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/commentauthor/) class, which provides information about an author, including their name, initials, and associated comments.
 
-## **Menambahkan Komentar Slide**
+## **Tambah Komentar Slide**
 
-Contoh berikut menunjukkan cara menambahkan komentar ke slide dalam sebuah presentasi PowerPoint:
+Contoh ini membuat dua slide dan mendaftarkan penulis komentar dengan [addAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-). Ia menggunakan [addComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-android.graphics.PointF-java.util.Date-) untuk menempatkan satu komentar pada setiap slide, kemudian mengambil komentar slide pertama untuk penulis itu dengan [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-). Konsol menampilkan teks komentar pertama dua kali, menunjukkan akses melalui slide dan penulis, dan presentasi yang disimpan berisi kedua komentar.
 
 ```java
 import com.aspose.slides.IComment;
 import com.aspose.slides.ICommentAuthor;
-import com.aspose.slides.ICommentCollection;
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -62,6 +61,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
     ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     PointF position = new PointF(0.2f, 0.2f);
     Date createdTime = new Date();
@@ -74,8 +74,7 @@ try {
         IComment firstComment = comments[0];
         System.out.println(firstComment.getText());
 
-        ICommentCollection authorComments = firstComment.getAuthor().getComments();
-        String commentText = authorComments.get_Item(0).getText();
+        String commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         System.out.println(commentText);
     }
 
@@ -85,9 +84,47 @@ try {
 }
 ```
 
-## **Mengakses Komentar Slide**
+## **Temukan atau Buat Penulis Komentar**
 
-Contoh berikut menunjukkan cara mengakses komentar yang ada dalam sebuah presentasi PowerPoint:
+Ketika proses peninjauan otomatis memproses presentasi yang sama berulang kali, cari koleksi yang dikembalikan oleh [getCommentAuthors](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getCommentAuthors--) sebelum menambahkan penulis. [findByNameAndInitials](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#findByNameAndInitials-java.lang.String-java.lang.String-) mencocokkan nama dan inisial serta mengembalikan array penulis yang cocok, atau array kosong jika tidak ada yang cocok. Sebaliknya, [findByName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#findByName-java.lang.String-) mencari hanya berdasarkan nama, terlepas dari inisial. Memanggil [addAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) dengan nama dan inisial yang sudah ada di koleksi akan melempar pengecualian.
+
+Contoh ini memerlukan berkas presentasi dengan setidaknya satu slide. Pada masing‑masing dari dua putaran, ia menggunakan kembali penulis yang pertama cocok, atau membuat yang baru hanya ketika hasilnya kosong. Jika ada beberapa kecocokan, ia memilih elemen array pertama tanpa menggabungkan atau menghapus penulis lain. Kemudian ia memanggil [addComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-android.graphics.PointF-java.util.Date-) untuk penulis yang dipilih dan menyimpan presentasi. Putaran kedua membuka keluaran putaran pertama dan mengulangi operasi.
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.Date;
+
+final String authorName = "Reviewer";
+final String authorInitials = "RV";
+
+String inputFile = "input.pptx";
+PointF position = new PointF(20, 20);
+
+for (int pass = 1; pass <= 2; pass++) {
+    Presentation presentation = new Presentation(inputFile);
+    try {
+        ICommentAuthor[] matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        ICommentAuthor author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, new Date());
+
+        String outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+Putaran kedua menambahkan komentar lain tanpa menambahkan penulis lain atau menghapus komentar yang ada. Berkas akhir, `review_pass_2.pptx`, berisi kedua komentar baru bersama komentar asli apa pun. Menggunakan kembali penulis tidak menghilangkan duplikat komentar: untuk menghindari penambahan komentar yang sama berulang kali, implementasikan deteksi duplikat terpisah sebelum menambahkannya.
+
+## **Akses Komentar Slide**
+
+Contoh ini membuka presentasi yang ada dan membaca koleksi yang dikembalikan oleh [getCommentAuthors](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getCommentAuthors--). Untuk setiap penulis, ia iterasi melalui koleksi yang dikembalikan oleh [getComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthor/#getComments--) dan mencetak nomor slide, teks komentar, nama penulis, dan waktu pembuatan. Presentasi input harus berisi komentar agar menghasilkan output konsol.
 
 ```java
 import com.aspose.slides.IComment;
@@ -110,11 +147,11 @@ try {
 }
 ```
 
-## **Membalas Komentar**
+## **Balas Komentar**
 
-Komentar induk adalah komentar asli di bagian atas hierarki balasan. Metode [IComment.getParentComment](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icomment/#getParentComment--) dan [IComment.setParentComment](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) memungkinkan Anda mendapatkan atau menetapkan induk sebuah komentar.
+Komentar induk adalah komentar asli di puncak hierarki balasan. Metode [IComment.getParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#getParentComment--) dan [IComment.setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) memungkinkan Anda mendapatkan atau mengatur induk sebuah komentar.
 
-Contoh berikut menunjukkan cara menambahkan balasan dan memeriksa hierarki komentar yang dihasilkan:
+Contoh ini membuat komentar dari dua penulis dan menggunakan [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) untuk membangun balasan, termasuk balasan ke balasan lain. Mengirim `null` ke [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) mengambil komentar dari semua penulis; konsol menjorokkan setiap entri sesuai kedalamannya dalam hierarki balasan. Contoh menyimpan diskusi lengkap, memanggil [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#remove--) pada komentar akar pertama, dan menyimpan presentasi kedua dengan komentar itu serta balasannya dihapus.
 
 ```java
 import com.aspose.slides.IComment;
@@ -128,27 +165,28 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     PointF position = new PointF(10, 10);
     Date createdTime = new Date();
 
-    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    ICommentAuthor originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    ICommentAuthor reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    IComment secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    IComment subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    IComment separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     IComment[] comments = slide.getSlideComments(null);
     for (int i = 0; i < comments.length; i++) {
@@ -163,7 +201,7 @@ try {
 
     presentation.save("parent_comment.pptx", SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -171,19 +209,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Ketika metode [IComment.remove](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icomment/#remove--) digunakan untuk menghapus sebuah komentar, semua balasan untuk komentar tersebut juga dihapus.
-* Jika [IComment.setParentComment](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) membuat referensi melingkar, sebuah [PptxEditException](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pptxeditexception/) dilemparkan.
+* Ketika metode [IComment.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#remove--) digunakan untuk menghapus sebuah komentar, semua balasan ke komentar tersebut juga dihapus.
+* Jika [IComment.setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) membuat referensi melingkar, sebuah [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxeditexception/) dilempar.
 {{% /alert %}}
 
-## **Menambahkan Komentar Modern**
+## **Tambah Komentar Modern**
 
-Komentar modern dapat dikaitkan dengan slide itu sendiri, dengan bentuk tertentu, atau dengan rentang teks di dalam AutoShape. Metode [ICommentCollection.addModernComment](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) menerima argumen [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/) selain slide dan koordinat penanda komentar.
+Komentar modern dapat dikaitkan dengan slide itu sendiri, dengan bentuk tertentu, atau dengan rentang teks di dalam AutoShape. Metode [ICommentCollection.addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) menerima argumen [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) selain slide dan koordinat penanda komentar.
 
-Ketika `null` diberikan untuk argumen shape, komentar menjadi komentar tingkat slide. Penandanya diposisikan oleh koordinat yang diberikan, tetapi tidak terkait dengan bentuk tertentu, sehingga [IModernComment.getShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#getShape--) mengembalikan `null`. Ketika sebuah [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/) disediakan, komentar dipasang pada bentuk tersebut. Koordinat tetap menentukan posisi penanda komentar pada slide, sementara asosiasi bentuk dapat diperoleh melalui [IModernComment.getShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#getShape--).
+Ketika `null` diberikan untuk argumen shape, komentar menjadi komentar tingkat slide. Penandanya diposisikan oleh koordinat yang diberikan, tetapi tidak terkait dengan bentuk tertentu, sehingga [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) mengembalikan `null`. Ketika sebuah [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) disediakan, komentar diikat ke bentuk tersebut. Koordinat masih menentukan posisi penanda komentar pada slide, sementara asosiasi bentuk dapat diambil melalui [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--).
 
-### **Menambatkan Komentar Modern ke Bentuk**
+### **Jangkau Komentar Modern ke Bentuk**
 
-Contoh berikut membuat komentar modern tingkat slide dan komentar modern yang dipasang pada AutoShape tertentu. Kemudian contoh membaca bentuk yang terkait dari setiap komentar.
+Contoh ini memanggil [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) dua kali: sekali dengan bentuk `null` untuk komentar tingkat slide dan sekali dengan persegi panjang sebagai jangkar. Membaca [getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) mencetak `true` untuk pemeriksaan null komentar tingkat slide dan `Revenue title` untuk komentar yang dijangkau. Kedua komentar disimpan bersama presentasi.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -199,7 +237,9 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -219,11 +259,11 @@ try {
 }
 ```
 
-### **Menambatkan Komentar ke Berbagai Tipe Bentuk**
+### **Jangkau Komentar ke Berbagai Tipe Bentuk**
 
-Setiap objek slide yang mengimplementasikan [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/) dapat digunakan sebagai jangkar bentuk. Contoh umum meliputi [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iconnector/), dan instance [IGraphicalObject](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/igraphicalobject/) seperti diagram.
+Setiap objek slide yang mengimplementasikan [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) dapat digunakan sebagai jangkar bentuk. Contoh umum termasuk [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnector/), dan instance [IGraphicalObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobject/) seperti bagan.
 
-Contoh berikut membuat beberapa tipe bentuk umum dan mengaitkan komentar modern dengan masing‑masing.
+Contoh ini menggunakan [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) untuk mengaitkan komentar dengan masing‑masing lima tipe bentuk: sebuah AutoShape, sebuah bingkai gambar, sebuah grup, sebuah konektor, dan sebuah bagan. Gambar menggunakan data gambar tersemat, sehingga tidak memerlukan gambar eksternal. Setiap komentar memiliki posisi penanda sendiri, dan presentasi yang disimpan mempertahankan semua lima asosiasi bentuk.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -239,22 +279,24 @@ import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
 import com.aspose.slides.ShapeType;
 import android.graphics.PointF;
-import java.util.Base64;
+import android.util.Base64;
 import java.util.Date;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     Date createdTime = new Date();
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     PointF autoShapeCommentPosition = new PointF(30, 30);
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
     String imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
-    byte[] imageData = Base64.getDecoder().decode(imageBase64);
+    byte[] imageData = Base64.decode(imageBase64, Base64.DEFAULT);
     IPPImage image = presentation.getImages().addImage(imageData);
     IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
     PointF pictureCommentPosition = new PointF(230, 30);
@@ -280,18 +322,18 @@ try {
 }
 ```
 
-### **Menambatkan Komentar ke Teks dan Menetapkan Statusnya**
+### **Jangkau Komentar ke Teks dan Atur Statusnya**
 
-Untuk komentar modern yang terkait dengan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/), metode [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) dan [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) mengakses posisi awal teks yang dipilih dalam frame teks bentuk. Metode [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) dan [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) mengakses panjang seleksi. Bersama‑sama, nilai‑nilai ini mengaitkan komentar dengan rentang teks tertentu di dalam AutoShape.
+Untuk komentar modern yang terkait dengan sebuah [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/), metode [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) dan [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) mengakses posisi awal teks yang dipilih dalam bingkai teks bentuk. Metode [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) dan [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) mengakses panjang pilihan. Bersama‑sama, nilai‑nilai ini mengaitkan komentar dengan rentang teks spesifik di dalam AutoShape.
 
-Metode [IModernComment.getStatus](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#getStatus--) dan [IModernComment.setStatus](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) mengakses nilai dari konstanta [ModernCommentStatus](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/moderncommentstatus/):
+Metode [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) dan [IModernComment.setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) mengakses nilai dari konstanta [ModernCommentStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — tidak ada status komentar modern yang spesifik didefinisikan.
+- `NotDefined` — tidak ada status komentar modern tertentu yang ditetapkan.
 - `Active` — komentar aktif.
 - `Resolved` — komentar telah diselesaikan.
 - `Closed` — komentar ditutup.
 
-Contoh berikut membuat komentar modern yang dipasang pada bentuk, mengaitkannya dengan seleksi teks, menandainya sebagai selesai, menyimpan presentasi, dan memverifikasi nilai‑nilai setelah file dibuka kembali.
+Contoh ini menjangkau komentar modern ke kata “quarterly revenue” dalam teks sebuah persegi panjang. Ia menghitung posisi mulai pilihan berbasis nol dari teks dan mengirimnya ke [setTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) serta menggunakan [setTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) untuk menetapkan jumlah karakter yang dipilih. Setelah memanggil [setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) dengan `Resolved`, ia menyimpan dan membuka kembali presentasi. Empat pemeriksaan konsol masing‑masing harus mencetak `true`, mengonfirmasi bahwa jangkar bentuk, rentang teks, dan status tetap terjaga.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -314,6 +356,7 @@ int expectedSelectionStart = shapeText.indexOf(selectedText);
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
@@ -356,9 +399,9 @@ try {
 }
 ```
 
-### **Memeriksa Komentar Modern yang Ada**
+### **Periksa Komentar Modern yang Ada**
 
-Untuk memeriksa presentasi yang ada, periksa komentar mana yang mengimplementasikan [IModernComment](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/), kemudian tinjau [IModernComment.getShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), dan [IModernComment.getStatus](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Bentuk `null` menunjukkan komentar tingkat slide. Untuk jangkar [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/), metode seleksi teks mengidentifikasi rentang yang terkait dalam frame teks bentuk.
+Contoh ini memerlukan presentasi yang ada berisi komentar modern dan mencetak teks, status, serta detail jangkarnya. Untuk memeriksanya, lihat komentar mana yang mengimplementasikan [IModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/), lalu periksa [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), dan [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Bentuk `null` menunjukkan komentar tingkat slide. Untuk jangkar [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/), metode teks‑pilihan mengidentifikasi rentang yang terkait dalam bingkai teks bentuk.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -403,11 +446,13 @@ try {
 }
 ```
 
-## **Menghapus Komentar**
+## **Hapus Komentar**
 
-### **Menghapus Semua Komentar dan Penulis Komentar**
+Aspose.Slides untuk Android via Java memungkinkan Anda menghapus semua komentar dan penulisnya dari sebuah presentasi atau menghapus komentar tertentu sekaligus mempertahankan sisanya. Contoh berikut menunjukkan kedua pendekatan dan menyimpan presentasi yang diperbarui.
 
-Contoh berikut menunjukkan cara menghapus semua komentar dan penulis komentar dari sebuah presentasi:
+### **Hapus Semua Komentar dan Penulis Komentar**
+
+Contoh ini membuka presentasi yang ada dan memanggil [ICommentCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#clear--) untuk setiap penulis, lalu memanggil [ICommentAuthorCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#clear--) untuk menghapus penulisnya. Presentasi yang disimpan tidak lagi berisi komentar maupun penulis komentar. Gunakan presentasi yang berisi komentar untuk melihat penghapusan.
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -421,15 +466,16 @@ try {
     }
 
     presentation.getCommentAuthors().clear();
+
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Menghapus Komentar Tertentu**
+### **Hapus Komentar Tertentu**
 
-Contoh berikut menunjukkan cara menghapus komentar tertentu dari sebuah slide:
+Contoh ini membuat dua komentar pada satu slide dan menggunakan [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) untuk menemukan komentar per masing‑masing penulis. Ia mengumpulkan komentar yang teksnya sama dengan “comment 1” sebelum memanggil [ICommentCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#remove-com.aspose.slides.IComment-), menghindari perubahan pada koleksi selama pemilihan. Presentasi yang disimpan hanya menyisakan “comment 2”.
 
 ```java
 import com.aspose.slides.IComment;
@@ -445,6 +491,7 @@ import java.util.List;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
     Date createdTime = new Date();
 
@@ -474,16 +521,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Apakah Aspose.Slides mendukung status selesai untuk komentar modern?**
+**Apakah Aspose.Slides mendukung status terselesaikan untuk komentar modern?**
 
-Ya. Metode [IModernComment.getStatus](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#getStatus--) dan [IModernComment.setStatus](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) mengakses nilai [ModernCommentStatus](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/moderncommentstatus/), termasuk `Resolved`. Status tersebut disimpan dalam presentasi dan dapat dibaca kembali setelah file dibuka kembali.
+Ya. [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) dan [IModernComment.setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) mengakses nilai [ModernCommentStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/) termasuk `Resolved`. Status disimpan dalam presentasi dan dapat dibaca kembali setelah berkas dibuka kembali.
 
-**Apakah diskusi berulang (rantai balasan) didukung, dan apakah ada batas kedalaman?**
+**Apakah diskusi beruntai (rantai balasan) didukung, dan apakah ada batas kedalaman?**
 
-Ya. Setiap komentar dapat merujuk ke [parent comment](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icomment/#getParentComment--), memungkinkan rantai balasan. API tidak mendefinisikan batas kedalaman nesting tertentu.
+Ya. Setiap komentar dapat merujuk ke [parent comment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#getParentComment--)‑nya, memungkinkan rantai balasan. API tidak mendefinisikan batas kedalaman tertentu.
 
 **Dalam sistem koordinat apa posisi penanda komentar pada slide didefinisikan?**
 
-Posisi penanda didefinisikan oleh koordinat floating‑point dalam sistem koordinat slide, memungkinkan Anda menempatkannya secara presisi pada slide.
+Posisi penanda didefinisikan oleh koordinat titik mengambang dalam sistem koordinat slide, memungkinkan penempatan yang tepat pada slide.

@@ -15,43 +15,42 @@ keywords:
 - ویرایش نظر
 - پاسخ به نظر
 - حذف نظر
-- حذف نظر
+- حذف نظرات
 - پاورپوینت
 - ارائه
 - اندروید
 - جاوا
 - Aspose.Slides
-description: "مدیریت نظرات ارائه با Aspose.Slides برای اندروید از طریق جاوا: افزودن، خواندن، ویرایش، پاسخ‌دادن و حذف نظرات در ارائه‌های پاورپوینت به سرعت و به‌راحتی."
+description: "مدیریت نظرات ارائه با Aspose.Slides برای اندروید از طریق جاوا: افزودن، خواندن، ویرایش، پاسخ به و حذف نظرات در ارائه‌های پاورپوینت به‌سرعت و به‌سهولت."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد که چگونه نظرات ارائه را در Aspose.Slides برای Android از طریق Java مدیریت کنید. این مقاله انواع اصلی مرتبط با نظرات را معرفی می‌کند و نشان می‌دهد چگونه نظرات را به اسلایدها اضافه کنید، نظرات موجود را دسترسی پیدا کنید، با پاسخ‌ها و نظرات مدرن کار کنید و نظرات را از یک ارائه حذف کنید.
+این مقاله توضیح می‌دهد که چگونه می‌توان نظرات ارائه را با Aspose.Slides برای Android via Java مدیریت کرد. انواع اصلی مرتبط با نظرات را معرفی می‌کند و نشان می‌دهد چگونه نظرات را به اسلایدها اضافه کنید، نظرات موجود را دسترسی داشته باشید، با پاسخ‌ها و نظرات مدرن کار کنید و نظرات را از یک ارائه حذف کنید.
 
-مثال‌ها شامل سناریوهای رایج بررسی و همکاری در PowerPoint می‌شوند، از جمله اختصاص نظرات به نویسندگان، خواندن متن نظر و متادیتا، ایجاد زنجیره‌های پاسخ و حذف نظرات انتخاب‌شده یا تمام نظرات.
+مثال‌ها سناریوهای رایج مرور و همکاری در PowerPoint را پوشش می‌دهند، از جمله اختصاص نظرات به نویسندگان، خواندن متن نظر و متادیتا، ساخت زنجیره پاسخ‌ها و حذف نظرات انتخاب شده یا تمام نظرات.
 
-در PowerPoint، نظرات به‌عنوان حاشیه‌نویسی بر روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر متن آن و بحث مربوطه را نمایش می‌دهد.
+در PowerPoint، نظرات به عنوان حاشیه‌نویسی بر روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر متن و بحث مربوطه را نمایش می‌دهد.
 
-برای درخواست نمایش یا پنهان‌سازی نظرات هنگام باز کردن یک ارائه بدون تغییر در خود نظرات، به [Show or Hide Comments When Opening a Presentation](/slides/fa/androidjava/presentation-view-properties/) مراجعه کنید.
+برای درخواست نمایش یا پنهان کردن نظرات هنگام باز کردن یک ارائه بدون تغییر نظرات، به [نمایش یا مخفی کردن نظرات هنگام باز کردن یک ارائه](/slides/fa/androidjava/presentation-view-properties/) مراجعه کنید.
 
 ## **چرا نظرات را به ارائه‌ها اضافه کنیم؟**
 
-می‌توانید از نظرات برای ارائه بازخورد و همکاری با همکاران هنگام بررسی ارائه‌ها استفاده کنید.
+می‌توانید از نظرات برای ارائه بازخورد و همکاری با همکاران هنگام مرور ارائه‌ها استفاده کنید.
 
-Aspose.Slides برای Android از طریق Java APIهای زیر را برای کار با نظرات ارائه می‌دهد:
+Aspose.Slides برای Android via Java APIهای زیر را برای کار با نظرات فراهم می‌کند:
 
-* کلاس [Presentation] که دسترسی به نویسندگان نظرات ارائه را فراهم می‌کند.
-* رابط [ICommentCollection] که نظرات مرتبط با یک نویسنده خاص را نشان می‌دهد.
-* رابط [IComment] که اطلاعاتی درباره یک نظر شامل نویسنده، زمان ایجاد، موقعیت و متن را فراهم می‌کند.
-* کلاس [CommentAuthor] که اطلاعاتی درباره یک نویسنده شامل نام، حروف اولیه و نظرات مرتبط را ارائه می‌دهد.
+* کلاس [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) که دسترسی به نویسندگان نظرات ارائه را فراهم می‌کند.
+* اینترفیس [ICommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/) که نظرات مرتبط با یک نویسنده خاص را نشان می‌دهد.
+* اینترفیس [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/) که اطلاعاتی درباره یک نظر شامل نویسنده، زمان ایجاد، موقعیت و متن را فراهم می‌کند.
+* کلاس [CommentAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/commentauthor/) که اطلاعاتی درباره یک نویسنده شامل نام، حروف ابتدایی و نظرات مرتبط را ارائه می‌دهد.
 
 ## **افزودن نظرات به اسلاید**
 
-مثال زیر نشان می‌دهد چگونه نظرات را به اسلایدهای یک ارائه PowerPoint اضافه کنید:
+مثال دو اسلاید ایجاد می‌کند و یک نویسنده نظرسازی را با [addAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) ثبت می‌کند. از [addComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-android.graphics.PointF-java.util.Date-) برای قرار دادن یک نظر در هر اسلاید استفاده می‌کند، سپس نظرات اسلاید اول برای آن نویسنده را با [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) دریافت می‌کند. کنسول متن اولین نظر را دو بار نمایش می‌دهد، دسترسی از طریق اسلاید و نویسنده را نشان می‌دهد و ارائه ذخیره‌شده شامل هر دو نظر است.
 
 ```java
 import com.aspose.slides.IComment;
 import com.aspose.slides.ICommentAuthor;
-import com.aspose.slides.ICommentCollection;
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -62,6 +61,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
     ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     PointF position = new PointF(0.2f, 0.2f);
     Date createdTime = new Date();
@@ -74,8 +74,7 @@ try {
         IComment firstComment = comments[0];
         System.out.println(firstComment.getText());
 
-        ICommentCollection authorComments = firstComment.getAuthor().getComments();
-        String commentText = authorComments.get_Item(0).getText();
+        String commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         System.out.println(commentText);
     }
 
@@ -85,9 +84,47 @@ try {
 }
 ```
 
+## **یافتن یا ایجاد یک نویسنده نظر**
+
+وقتی یک بازنگری خودکار به طور مکرر همان ارائه را پردازش می‌کند، قبل از افزودن نویسنده، مجموعه بازگردانده‌شده توسط [getCommentAuthors](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getCommentAuthors--) را جستجو کنید. [findByNameAndInitials](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#findByNameAndInitials-java.lang.String-java.lang.String-) هم نام و هم حروف ابتدایی را مطابق می‌کند و آرایه‌ای از نویسندگان مطابق را برمی‌گرداند، یا آرایه خالی اگر مطابقتی وجود نداشته باشد. در مقابل، [findByName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#findByName-java.lang.String-) فقط بر اساس نام جستجو می‌کند، بدون در نظر گرفتن حروف ابتدایی. فراخوانی [addAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) با نام و حروف ابتدایی‌ای که قبلاً در مجموعه موجود است، استثنا پرتاب می‌کند.
+
+مثال به یک فایل ارائه با حداقل یک اسلاید نیاز دارد. در هر یک از دو عبور، اولین نویسنده مطابق را دوباره استفاده می‌کند، یا تنها زمانی که نتیجه خالی باشد، یکی ایجاد می‌کند. اگر چندین مطابقت وجود داشته باشد، اولین عنصر آرایه را بدون ادغام یا حذف دیگر نویسندگان انتخاب می‌کند. سپس برای نویسنده انتخاب‌شده [addComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-android.graphics.PointF-java.util.Date-) را فراخوانی می‌کند و ارائه را ذخیره می‌کند. عبور دوم خروجی عبور اول را باز می‌کند و عملیات را تکرار می‌کند.
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.Date;
+
+final String authorName = "Reviewer";
+final String authorInitials = "RV";
+
+String inputFile = "input.pptx";
+PointF position = new PointF(20, 20);
+
+for (int pass = 1; pass <= 2; pass++) {
+    Presentation presentation = new Presentation(inputFile);
+    try {
+        ICommentAuthor[] matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        ICommentAuthor author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, new Date());
+
+        String outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+عبور دوم یک نظر دیگر بدون افزودن نویسنده دیگر یا حذف نظرات موجود اضافه می‌کند. فایل نهایی، `review_pass_2.pptx`، هر دو نظر جدید را همراه با هر نظر اصلی موجود در بر دارد. استفاده مجدد از یک نویسنده تکرار نظرات را حذف نمی‌کند: برای جلوگیری از افزودن مکرر همان نظر، قبل از افزودن آن تشخیص تکراری جداگانه‌ای پیاده‌سازی کنید.
+
 ## **دسترسی به نظرات اسلاید**
 
-مثال زیر نشان می‌دهد چگونه به نظرات موجود در یک ارائه PowerPoint دسترسی پیدا کنید:
+مثال یک ارائه موجود را باز می‌کند و مجموعه بازگردانده‌شده توسط [getCommentAuthors](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getCommentAuthors--) را می‌خواند. برای هر نویسنده، از مجموعه بازگردانده‌شده توسط [getComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthor/#getComments--) عبور می‌کند و شماره اسلاید، متن نظر، نام نویسنده و زمان ایجاد را چاپ می‌کند. ارائه ورودی باید شامل نظرات باشد تا خروجی کنسول تولید شود.
 
 ```java
 import com.aspose.slides.IComment;
@@ -112,9 +149,9 @@ try {
 
 ## **پاسخ به نظرات**
 
-یک نظر والد، همان نظر اصلی در بالای سلسله‌مراتبی پاسخ‌هاست. متدهای [IComment.getParentComment](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icomment/#getParentComment--) و [IComment.setParentComment](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) به شما امکان می‌دهند والد یک نظر را دریافت یا تنظیم کنید.
+یک نظر والد، نظر اصلی در بالای یک سلسله‌مراتب پاسخ‌ها است. متدهای [IComment.getParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#getParentComment--) و [IComment.setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) به شما امکان می‌دهند والد یک نظر را دریافت یا تنظیم کنید.
 
-مثال زیر نشان می‌دهد چگونه پاسخ‌ها را اضافه کنید و سلسله‌مراتبی نظرات حاصل را بررسی کنید:
+مثال نظراتی از دو نویسنده ایجاد می‌کند و از [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) برای ساخت پاسخ‌ها، از جمله پاسخ به یک پاسخ دیگر، استفاده می‌کند. پاس دادن `null` به [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) نظرات را از تمام نویسندگان بازیابی می‌کند؛ کنسول هر ورودی را بر اساس عمق آن در سلسله‌مراتب پاسخ‌ها تورفتگی می‌دهد. مثال بحث کامل را ذخیره می‌کند، بر روی اولین نظر ریشه [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#remove--) را فراخوانی می‌کند و ارائه دومین را با آن نظر و پاسخ‌هایش حذف‌شده ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.IComment;
@@ -128,27 +165,28 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     PointF position = new PointF(10, 10);
     Date createdTime = new Date();
 
-    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    ICommentAuthor originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    ICommentAuthor reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    IComment secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    IComment subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    IComment separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     IComment[] comments = slide.getSlideComments(null);
     for (int i = 0; i < comments.length; i++) {
@@ -163,7 +201,7 @@ try {
 
     presentation.save("parent_comment.pptx", SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -171,19 +209,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* هنگامی که متد [IComment.remove](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icomment/#remove--) برای حذف یک نظر استفاده می‌شود، تمام پاسخ‌های آن نظر نیز حذف می‌شوند.
-* اگر متد [IComment.setParentComment](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) یک ارجاع چرخه‌ای ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pptxeditexception/) پرتاب می‌شود.
+* هنگامی که متد [IComment.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#remove--) برای حذف یک نظر استفاده می‌شود، تمام پاسخ‌های آن نظر نیز حذف می‌شوند.
+* اگر [IComment.setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) یک ارجاع حلقه‌ای ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxeditexception/) پرتاب می‌شود.
 {{% /alert %}}
 
 ## **افزودن نظرات مدرن**
 
-نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص یا به یک بازه متنی داخل AutoShape مرتبط شوند. متد [ICommentCollection.addModernComment](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) علاوه بر اسلاید و مختصات نشانگر نظر، یک پارامتر [IShape] می‌پذیرد.
+نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص یا به بازه متنی داخل یک AutoShape مرتبط شوند. متد [ICommentCollection.addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) علاوه بر اسلاید و مختصات نشانگر نظر، یک آرگومان [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) را نیز می‌پذیرد.
 
-زمانی که برای پارامتر shape مقدار `null` ارسال شود، نظر یک نظر سطح اسلاید است. نشانگر آن توسط مختصات ارائه‌شده موقعیت‌دهی می‌شود، اما به هیچ شکل خاصی مرتبط نیست، بنابراین متد [IModernComment.getShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imoderncomment/#getShape--) `null` بر می‌گرداند. وقتی یک [IShape] ارائه شود، نظر به آن شکل ثابت می‌شود. مختصات همچنان موقعیت نشانگر نظر بر روی اسلاید را تعریف می‌کند، در حالی که ارتباط شکل می‌تواند از طریق [IModernComment.getShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imoderncomment/#getShape--) بازیابی شود.
+زمانی که برای آرگومان shape مقدار `null` پاس شود، نظر یک نظر سطح اسلاید است. نشانگر آن با مختصات ارائه شده موقعیت‌یابی می‌شود، اما به شکل خاصی مرتبط نیست، بنابراین [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) مقدار `null` برمی‌گرداند. هنگامی که یک [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) فراهم شود، نظر به آن شکل متصل می‌شود. مختصات همچنان موقعیت نشانگر نظر بر روی اسلاید را تعریف می‌کند، در حالی که ارتباط شکل می‌تواند از طریق [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) بازیابی شود.
 
 ### **اتصال یک نظر مدرن به یک شکل**
 
-مثال زیر یک نظر مدرن سطح اسلاید و یک نظر مدرن متصل به یک AutoShape خاص ایجاد می‌کند. سپس شکل مرتبط با هر نظر را می‌خواند:
+مثال دو بار [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) را فراخوانی می‌کند: یک بار با shape `null` برای یک نظر سطح اسلاید و یک بار با یک مستطیل به عنوان لنگر. خواندن [getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) برای نظر سطح اسلاید مقدار `true` برای بررسی null و برای نظر متصل به شکل مقدار `Revenue title` را چاپ می‌کند. هر دو نظر همراه با ارائه ذخیره می‌شوند.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -199,7 +237,9 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -219,11 +259,11 @@ try {
 }
 ```
 
-### **اتصال نظرات به انواع مختلف شکل**
+### **اتصال نظرات به انواع مختلف شکل‌ها**
 
-هر شیء اسلایدی که پیاده‌سازی‌کنندهٔ [IShape] باشد می‌تواند به‌عنوان نقطهٔ اتصال شکل استفاده شود. مثال‌های رایج شامل [IAutoShape]، [IPictureFrame]، [IGroupShape]، [IConnector] و نمونه‌های [IGraphicalObject] مانند نمودارها هستند.
+هر شیء اسلایدی که پیاده‌سازی [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) را داشته باشد می‌تواند به عنوان لنگر شکل استفاده شود. مثال‌های رایج شامل [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnector/) و نمونه‌های [IGraphicalObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobject/) مانند نمودارها هستند.
 
-مثال زیر چند نوع شکل رایج را ایجاد می‌کند و یک نظر مدرن را به هر یک از آن‌ها متصل می‌سازد:
+مثال از [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) برای ارتباط یک نظر با هر یک از پنج نوع شکل استفاده می‌کند: یک AutoShape، یک picture frame، یک گروه، یک connector و یک chart. تصویر استفاده شده داده‌های تصویری تعبیه‌شده دارد، بنابراین نیازی به تصویر خارجی نیست. هر نظر موقعیت نشانگر خود را دارد و ارائه ذخیره‌شده تمام پنج ارتباط شکل را حفظ می‌کند.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -239,22 +279,24 @@ import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
 import com.aspose.slides.ShapeType;
 import android.graphics.PointF;
-import java.util.Base64;
+import android.util.Base64;
 import java.util.Date;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     Date createdTime = new Date();
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     PointF autoShapeCommentPosition = new PointF(30, 30);
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
     String imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
-    byte[] imageData = Base64.getDecoder().decode(imageBase64);
+    byte[] imageData = Base64.decode(imageBase64, Base64.DEFAULT);
     IPPImage image = presentation.getImages().addImage(imageData);
     IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
     PointF pictureCommentPosition = new PointF(230, 30);
@@ -282,16 +324,16 @@ try {
 
 ### **اتصال یک نظر به متن و تنظیم وضعیت آن**
 
-برای یک نظر مدرن مرتبط با یک [IAutoShape]، متدهای [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) و [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) موقعیت شروع متن انتخاب شده در فریم متنی شکل را دسترسی می‌دهند. متدهای [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) و [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) طول انتخاب را برمی‌گردانند. این مقادیر با هم نظر را به یک بازه متنی خاص داخل AutoShape مرتبط می‌کنند.
+برای یک نظر مدرن مرتبط با یک [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)، متدهای [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) و [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) موقعیت شروع متنی انتخاب‌شده در فریم متنی شکل را دسترسی می‌دهند. متدهای [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) و [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) طول انتخاب را دسترسی می‌دهند. این مقادیر با هم نظر را به بازه متنی خاصی داخل AutoShape مرتبط می‌کنند.
 
-متدهای [IModernComment.getStatus](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imoderncomment/#getStatus--) و [IModernComment.setStatus](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) مقدار یک ثابت از [ModernCommentStatus] را برمی‌گردانند:
+متدهای [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) و [IModernComment.setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) مقداری از ثابت‌های [ModernCommentStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/) را دسترسی می‌دهند:
 
 - `NotDefined` — هیچ وضعیت خاصی برای نظر مدرن تعریف نشده است.
 - `Active` — نظر فعال است.
-- `Resolved` — نظر رفع شده است.
-- `Closed` — نظر بسته است.
+- `Resolved` — نظر حل‌شده است.
+- `Closed` — نظر بسته شده است.
 
-مثال زیر یک نظر مدرن متصل به شکل ایجاد می‌کند، آن را به یک انتخاب متنی متصل می‌کند، به‌عنوان رفع‌شده علامتگذاری می‌کند، ارائه را ذخیره می‌کند و پس از بازگشایی فایل مقادیر را بررسی می‌کند:
+مثال یک نظر مدرن را به کلمات "quarterly revenue" در متن یک مستطیل می‌چسباند. شروع انتخاب صفر‑مبنایی را از متن محاسبه می‌کند و به [setTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) پاس می‌دهد و با استفاده از [setTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) تعداد کاراکترهای انتخاب‌شده را تنظیم می‌کند. پس از فراخوانی [setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) با `Resolved`، ارائه را ذخیره و دوباره باز می‌کند. چهار بررسی کنسول باید هر کدام مقدار `true` چاپ کنند، تأیید می‌کنند که لنگر شکل، بازه متن و وضعیت حفظ شده‌اند.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -314,6 +356,7 @@ int expectedSelectionStart = shapeText.indexOf(selectedText);
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
@@ -356,9 +399,9 @@ try {
 }
 ```
 
-### **بررسی نظرات مدرن موجود**
+### **بازرسی نظرات مدرن موجود**
 
-برای بررسی یک ارائه موجود، ابتدا بررسی کنید کدام نظرات پیاده‌سازی‌کنندهٔ [IModernComment] هستند، سپس به [IModernComment.getShape]، [IModernComment.getTextSelectionStart]، [IModernComment.getTextSelectionLength] و [IModernComment.getStatus] نگاهی بیندازید. یک شکل `null` نشان‌دهندهٔ نظر سطح اسلاید است. برای یک اتصال [IAutoShape]، متدهای انتخاب متن بازهٔ مرتبط در فریم متنی شکل را شناسایی می‌کنند.
+مثال به یک ارائه موجود حاوی نظرات مدرن نیاز دارد و متن، وضعیت و جزئیات لنگر آنها را چاپ می‌کند. برای بازرسی، بررسی کنید کدام نظرات پیاده‌سازی [IModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/) را دارند، سپس به [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--)، [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--)، [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) و [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) نگاه کنید. یک shape `null` نشان‌دهنده یک نظر سطح اسلاید است. برای یک لنگر [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)، متدهای انتخاب متن بازه‌ای را که در فریم متنی شکل مرتبط است، مشخص می‌کنند.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -405,9 +448,11 @@ try {
 
 ## **حذف نظرات**
 
+Aspose.Slides برای Android via Java به شما امکان می‌دهد تمام نظرات و نویسندگان آن‌ها را از یک ارائه حذف کنید یا نظرات انتخابی را حذف کنید در حالی که بقیه را نگه می‌دارید. مثال‌های زیر هر دو رویکرد را نمایش می‌دهند و ارائه به‌روزشده را ذخیره می‌کنند.
+
 ### **حذف تمام نظرات و نویسندگان نظرات**
 
-مثال زیر نشان می‌دهد چگونه تمام نظرات و نویسندگان نظرات را از یک ارائه حذف کنید:
+مثال یک ارائه موجود را باز می‌کند و برای هر نویسنده متد [ICommentCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#clear--) را فراخوانی می‌کند، سپس برای حذف خود نویسندگان متد [ICommentAuthorCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#clear--) را صدا می‌زند. ارائه ذخیره‌شده هیچ نظری یا نویسنده نظری ندارد. برای مشاهده حذف، از ارائه‌ای که حاوی نظرات است استفاده کنید.
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -421,6 +466,7 @@ try {
     }
 
     presentation.getCommentAuthors().clear();
+
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -429,7 +475,7 @@ try {
 
 ### **حذف نظرات خاص**
 
-مثال زیر نشان می‌دهد چگونه نظرات خاصی را از یک اسلاید حذف کنید:
+مثال دو نظر بر روی یک اسلاید ایجاد می‌کند و از [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) برای یافتن نظرات هر نویسنده استفاده می‌کند. نظراتی که متن آن‌ها برابر با "comment 1" باشد جمع‌آوری می‌شوند قبل از فراخوانی [ICommentCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#remove-com.aspose.slides.IComment-)، تا از تغییر مجموعه هنگام انتخاب جلوگیری شود. ارائه ذخیره‌شده فقط "comment 2" را نگه می‌دارد.
 
 ```java
 import com.aspose.slides.IComment;
@@ -445,6 +491,7 @@ import java.util.List;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
     Date createdTime = new Date();
 
@@ -476,14 +523,14 @@ try {
 
 ## **سوالات متداول**
 
-**آیا Aspose.Slides وضعیت رفع‌شده برای نظرات مدرن را پشتیبانی می‌کند؟**
+**آیا Aspose.Slides از وضعیت حل‌شده برای نظرات مدرن پشتیبانی می‌کند؟**
 
-بله. متدهای [IModernComment.getStatus](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imoderncomment/#getStatus--) و [IModernComment.setStatus](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) یک مقدار از [ModernCommentStatus]، از جمله `Resolved`، برمی‌گردانند. این وضعیت در ارائه ذخیره می‌شود و پس از بازگشایی فایل می‌تواند دوباره خوانده شود.
+بله. [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) و [IModernComment.setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) مقداری از [ModernCommentStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/) را دسترسی می‌دهند، از جمله `Resolved`. وضعیت در ارائه ذخیره می‌شود و پس از بازگشایی فایل می‌تواند دوباره خوانده شود.
 
-**آیا بحث‌های رشته‌ای (زنجیره‌های پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای تو در تو بودن وجود دارد؟**
+**آیا بحث‌های رشته‌ای (زنجیره‌های پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای عمق تو در تو وجود دارد؟**
 
-بله. هر نظر می‌تواند به [parent comment] خود ارجاع دهد و زنجیره‌های پاسخ را امکان‌پذیر می‌کند. API محدودیت خاصی برای عمق تو در تو تعریف نکرده است.
+بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#getParentComment--) خود ارجاع دهد و زنجیره‌های پاسخ را فعال کند. API محدودیت خاصی برای عمق تو در تو تعریف نمی‌کند.
 
-**موقعیت نشانگر نظر در اسلاید در چه سیستم‌مختصاتی تعریف می‌شود؟**
+**موقعیت نشانگر نظر روی اسلاید در چه سیستم مختصاتی تعریف می‌شود؟**
 
-موقعیت نشانگر با مختصات نقطه شناور در سیستم مختصات اسلاید تعریف می‌شود و به شما اجازه می‌دهد آن را به‌دقت در محل دلخواه روی اسلاید قرار دهید.
+موقعیت نشانگر با مختصات شناور (floating‑point) در سیستم مختصات اسلاید تعریف می‌شود که به شما امکان می‌دهد آن را دقیقاً بر روی اسلاید قرار دهید.

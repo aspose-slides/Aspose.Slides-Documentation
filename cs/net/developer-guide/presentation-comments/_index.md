@@ -9,9 +9,9 @@ keywords:
 - moderní komentář
 - komentáře PowerPoint
 - komentáře v prezentaci
-- komentáře snímků
+- komentáře na snímcích
 - přidat komentář
-- přístup k komentáři
+- přístup ke komentáři
 - upravit komentář
 - odpověď na komentář
 - odstranit komentář
@@ -21,32 +21,33 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Spravujte komentáře v prezentaci pomocí Aspose.Slides pro .NET: přidávejte, čtěte, upravujte, odpovídejte a odstraňujte komentáře v prezentacích PowerPoint rychle a snadno."
+description: "Spravujte komentáře v prezentacích pomocí Aspose.Slides pro .NET: přidávejte, čtěte, upravujte, odpovídejte na a odstraňujte komentáře v prezentacích PowerPoint rychle a snadno."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak spravovat komentáře v prezentaci pomocí Aspose.Slides pro .NET. Představuje hlavní typy související s komentáři a ukazuje, jak přidávat komentáře do snímků, přistupovat k existujícím komentářům, pracovat s odpověďmi a moderními komentáři a odstraňovat komentáře z prezentace.
+Tento článek vysvětluje, jak spravovat poznámky v prezentaci pomocí Aspose.Slides pro .NET. Představuje hlavní typy související s poznámkami a ukazuje, jak přidávat poznámky do snímků, přistupovat k existujícím poznámkám, pracovat s odpověďmi a moderními poznámkami a odstraňovat poznámky z prezentace.
 
-Příklady pokrývají běžné scénáře recenzí a spolupráce v PowerPointu, jako je přiřazování komentářů autorům, čtení textu komentáře a metadat, vytváření řetězců odpovědí a odstraňování vybraných komentářů nebo všech komentářů.
+Příklady pokrývají běžné scénáře recenzí a spolupráce v PowerPointu, jako je přiřazování poznámek autorům, čtení textu a metadat poznámky, vytváření řetězců odpovědí a odstraňování vybraných nebo všech poznámek.
 
-V PowerPointu se komentáře zobrazují jako anotace na snímcích. Výběrem komentáře se zobrazí jeho text a související diskuse.
+V PowerPointu se poznámky zobrazují jako anotace na snímcích. Po výběru poznámky se zobrazí její text a související diskuse.
 
-Pro požadavek, aby se komentáře při otevření prezentace zobrazily nebo skryly, aniž by se samotné komentáře měnily, viz [Zobrazit nebo skrýt komentáře při otevírání prezentace](/slides/cs/net/presentation-view-properties/).
+Chcete‑li, aby se při otevření prezentace zobrazily nebo skryly poznámky, aniž byste měnili samotné poznámky, viz [Zobrazit nebo skrýt poznámky při otevírání prezentace](/slides/cs/net/presentation-view-properties/).
 
-## **Proč přidávat komentáře do prezentací?**
+## **Proč přidávat poznámky do prezentací?**
 
-Komentáře můžete použít k poskytnutí zpětné vazby a spolupráci s kolegy při revizi prezentací.
+Poznámky můžete použít k poskytnutí zpětné vazby a spolupráci s kolegy při recenzování prezentací.
 
-Aspose.Slides pro .NET poskytuje následující rozhraní API pro práci s komentáři:
+Aspose.Slides pro .NET poskytuje následující rozhraní pro práci s poznámkami:
 
-* Třída [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation) poskytuje přístup k autorům komentářů v prezentaci.
-* Rozhraní [ICommentCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/icommentcollection) představuje komentáře přiřazené konkrétnímu autorovi.
-* Rozhraní [IComment](https://reference.aspose.com/slides/cs/net/aspose.slides/icomment) poskytuje informace o komentáři, včetně jeho autora, času vytvoření, pozice a textu.
-* Třída [CommentAuthor](https://reference.aspose.com/slides/cs/net/aspose.slides/commentauthor) poskytuje informace o autorovi, včetně jeho jména, iniciál a přiřazených komentářů.
+* Třídu [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), která umožňuje přístup k autorům poznámek v prezentaci.
+* Rozhraní [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection), které představuje poznámky přiřazené k jednotlivému autorovi.
+* Rozhraní [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment), které poskytuje informace o poznámce, včetně autora, času vytvoření, polohy a textu.
+* Třídu [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor), která poskytuje informace o autorovi, včetně jména, iniciál a přiřazených poznámek.
 
-## **Přidat komentáře do snímků**
+## **Přidání poznámek ke snímkům**
 
-Následující příklad ukazuje, jak přidat komentáře do snímků v prezentaci PowerPoint:
+Příklad vytvoří dva snímky a zaregistruje autora poznámek pomocí [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/). Použije [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) k umístění jedné poznámky na každý snímek, poté získá poznámky z prvního snímku pro daného autora pomocí [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/). Konzole vypíše text první poznámky dvakrát, čímž demonstruje přístup jak přes snímek, tak přes autora, a uložená prezentace obsahuje obě poznámky.
+
 ```csharp
 using System;
 using System.Drawing;
@@ -56,6 +57,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var firstSlide = presentation.Slides[0];
 var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
 var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 var position = new PointF(0.2f, 0.2f);
 var createdTime = DateTime.Now;
@@ -76,9 +78,45 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Přístup ke komentářům ve snímcích**
+## **Vyhledání nebo vytvoření autora poznámek**
 
-Následující příklad ukazuje, jak získat přístup k existujícím komentářům v prezentaci PowerPoint:
+Když automatizovaný proces recenze opakovaně zpracovává stejnou prezentaci, před přidáním autora prohledá kolekci [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/). Metoda [FindByNameAndInitials](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbynameandinitials/) porovná jak jméno, tak iniciály a vrátí pole odpovídajících autorů nebo prázdné pole, pokud žádná shoda neexistuje. Naopak [FindByName](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbyname/) hledá pouze podle jména, bez ohledu na iniciály. Volání [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) s již existujícím jménem a iniciálami v kolekci vyvolá výjimku.
+
+Příklad vyžaduje soubor prezentace s alespoň jedním snímkem. V každém ze dvou průchodů znovu použije první nalezeného autora nebo jej vytvoří jen v případě, že výsledek je prázdný. Pokud existuje více shod, vybere první prvek pole bez slučování nebo odstraňování ostatních autorů. Poté zavolá [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) pro vybraného autora a uloží prezentaci. Druhý průchod otevře výstup z prvního průchodu a operaci opakuje.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string authorName = "Reviewer";
+const string authorInitials = "RV";
+
+var inputFile = "input.pptx";
+var position = new PointF(20, 20);
+
+for (var pass = 1; pass <= 2; pass++)
+{
+    using var presentation = new Presentation(inputFile);
+
+    var matches = presentation.CommentAuthors.FindByNameAndInitials(authorName, authorInitials);
+    
+    var author = matches.Length > 0 ? matches[0] : presentation.CommentAuthors.AddAuthor(authorName, authorInitials);
+    author.Comments.AddComment("Please review this slide.", presentation.Slides[0], position, DateTime.Now);
+
+    var outputFile = $"review_pass_{pass}.pptx";
+    presentation.Save(outputFile, SaveFormat.Pptx);
+    inputFile = outputFile;
+}
+```
+
+Druhý průchod přidá další poznámku bez vytvoření dalšího autora nebo odstraňování existujících poznámek. Výsledný soubor `review_pass_2.pptx` obsahuje obě nové poznámky vedle všech původních. Znovupoužití autora neduplikovat poznámky: aby se zabránilo opakovanému přidávání stejné poznámky, implementujte samostatnou detekci duplicit před jejím přidáním.
+
+## **Přístup k poznámkám ve snímcích**
+
+Příklad otevře existující prezentaci a načte její kolekci [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/). Pro každého autora iteruje přes [Comments](https://reference.aspose.com/slides/net/aspose.slides/icommentauthor/comments/) a vypíše číslo snímku, text poznámky, jméno autora a čas vytvoření. Vstupní prezentace musí obsahovat poznámky, aby byl generován výstup v konzoli.
+
 ```csharp
 using System;
 using Aspose.Slides;
@@ -98,11 +136,12 @@ foreach (var author in presentation.CommentAuthors)
 }
 ```
 
-## **Odpovědět na komentáře**
+## **Odpovídání na poznámky**
 
-Nadřazený komentář je původní komentář na vrcholu hierarchie odpovědí. Vlastnost [ParentComment](https://reference.aspose.com/slides/cs/net/aspose.slides/icomment/properties/parentcomment) rozhraní [IComment](https://reference.aspose.com/slides/cs/net/aspose.slides/icomment) vám umožňuje získat nebo nastavit nadřazený komentář.
+Rodičovská poznámka je původní poznámka na vrcholu hierarchie odpovědí. Vlastnost [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) rozhraní [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) umožňuje získat nebo nastavit rodiče poznámky.
 
-Následující příklad ukazuje, jak přidat odpovědi a prozkoumat vzniklou hierarchii komentářů:
+Příklad vytvoří poznámky od dvou autorů a použije [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) k vytvoření odpovědí, včetně odpovědi na další odpověď. Předání `null` do [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) načte poznámky od všech autorů; konzole odsazuje každý záznam podle hloubky v hierarchii odpovědí. Příklad uloží celou diskusi, zavolá [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) na první kořenovou poznámku a uloží druhou prezentaci, ve které je tato poznámka spolu s odpověďmi odstraněna.
+
 ```csharp
 using System;
 using System.Drawing;
@@ -111,27 +150,28 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var position = new PointF(10, 10);
 var createdTime = DateTime.Now;
 
-var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
-var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
+var originalAuthor = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var rootComment = originalAuthor.Comments.AddComment("comment 1", slide, position, createdTime);
 
-var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
-var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
-reply1.ParentComment = comment1;
+var reviewer = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var firstReply = reviewer.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+firstReply.ParentComment = rootComment;
 
-var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
-reply2.ParentComment = comment1;
+var secondReply = reviewer.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+secondReply.ParentComment = rootComment;
 
-var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
-subReply.ParentComment = reply2;
+var subReply = originalAuthor.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = secondReply;
 
-author2.Comments.AddComment("comment 2", slide, position, createdTime);
-var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+reviewer.Comments.AddComment("comment 2", slide, position, createdTime);
+var separateComment = reviewer.Comments.AddComment("comment 3", slide, position, createdTime);
 
-var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
-reply3.ParentComment = comment3;
+var separateReply = originalAuthor.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+separateReply.ParentComment = separateComment;
 
 var comments = slide.GetSlideComments(null);
 for (var i = 0; i < comments.Length; i++)
@@ -148,24 +188,25 @@ for (var i = 0; i < comments.Length; i++)
 
 presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
 
-comment1.Remove();
+rootComment.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-* Když je metodou [Remove](https://reference.aspose.com/slides/cs/net/aspose.slides/icomment/methods/remove) rozhraní [IComment](https://reference.aspose.com/slides/cs/net/aspose.slides/icomment) smazán komentář, jsou také smazány všechny odpovědi na tento komentář.
-* Pokud vlastnost [ParentComment](https://reference.aspose.com/slides/cs/net/aspose.slides/icomment/properties/parentcomment) vytvoří kruhovou referenci, je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/net/aspose.slides/pptxeditexception).
+{{% alert color="warning" title="Warning" %}}
+* Když se metodou [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) rozhraní [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) smaže poznámka, všechny odpovědi na tuto poznámku jsou také smazány.
+* Pokud vlastnost [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) vytvoří kruhový odkaz, je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception).
 {{% /alert %}}
 
-## **Přidat moderní komentáře**
+## **Přidání moderních poznámek**
 
-Moderní komentáře mohou být přiřazeny samotnému snímku, konkrétnímu tvaru nebo textovému rozsahu uvnitř AutoShape. Metoda [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/cs/net/aspose.slides/icommentcollection/addmoderncomment/) přijímá argument [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/) kromě snímku a souřadnic značky komentáře.
+Moderní poznámky mohou být přiřazeny přímo ke snímku, k určitému tvaru nebo k textovému úseku uvnitř AutoShape. Metoda [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) přijímá argument [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) vedle snímku a souřadnic značky poznámky.
 
-Když je pro argument tvaru předáno `null`, jedná se o komentář úrovně snímku. Jeho značka je umístěna podle zadaných souřadnic, ale není přiřazena k žádnému konkrétnímu tvaru, takže [IModernComment.Shape](https://reference.aspose.com/slides/cs/net/aspose.slides/imoderncomment/shape/) vrací `null`. Když je zadán [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/), je komentář ukotven k tomuto tvaru. Souřadnice stále určují pozici značky komentáře na snímku, zatímco přiřazení tvaru lze získat pomocí [IModernComment.Shape](https://reference.aspose.com/slides/cs/net/aspose.slides/imoderncomment/shape/).
+Když je jako argument tvaru předáno `null`, jedná se o poznámku na úrovni snímku. Její značka je umístěna podle zadaných souřadnic, ale není svázána s konkrétním tvarem, takže [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) vrací `null`. Když je předán [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), je poznámka ukotvena k tomuto tvaru. Souřadnice i nadále určují pozici značky na snímku, zatímco vazba na tvar je získatelná přes [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/).
 
-### **Ukotvit moderní komentář k tvaru**
+### **Ukotvení moderní poznámky k tvaru**
 
-Následující příklad vytvoří moderní komentář úrovně snímku i moderní komentář ukotvený ke konkrétní AutoShape. Pak načte přiřazený tvar z každého komentáře.
+Příklad dvakrát zavolá [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/): jednou s `null` tvarem pro poznámku na úrovni snímku a podruhé s obdélníkem jako ukotvením. Načtení [Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) vypíše `True` pro kontrolu null u poznámky na úrovni snímku a `Revenue title` pro ukotvenou poznámku. Obě poznámky jsou uloženy s prezentací.
+
 ```csharp
 using System;
 using System.Drawing;
@@ -174,7 +215,9 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
 shape.Name = "Revenue title";
 shape.TextFrame.Text = "Quarterly revenue";
@@ -191,11 +234,12 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **Ukotvit komentáře k různým typům tvarů**
+### **Ukotvení poznámek k různým typům tvarů**
 
-Jakýkoli objekt snímku, který implementuje [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/), lze použít jako ukotvení tvaru. Běžné příklady zahrnují [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/cs/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/cs/net/aspose.slides/iconnector/) a instance [IGraphicalObject](https://reference.aspose.com/slides/cs/net/aspose.slides/igraphicalobject/), například grafy.
+Každý objekt snímku, který implementuje [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), může být použit jako ukotvení. Běžné příklady zahrnují [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/net/aspose.slides/iconnector/) a instance [IGraphicalObject](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobject/) jako jsou grafy.
 
-Následující příklad vytvoří několik běžných typů tvarů a přiřadí k nim moderní komentář.
+Příklad použije [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) k přiřazení poznámky k pěti typům tvarů: AutoShape, obrázku, skupině, spojce a grafu. Obrázek používá vložená data, takže není potřeba externí soubor. Každá poznámka má vlastní pozici značky a uložená prezentace si zachová všech pět vazeb na tvary.
+
 ```csharp
 using System;
 using System.Drawing;
@@ -205,11 +249,13 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
 var createdTime = DateTime.Now;
 
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
 autoShape.TextFrame.Text = "AutoShape";
+
 var autoShapeCommentPosition = new PointF(30, 30);
 author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -237,18 +283,19 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **Ukotvit komentář k textu a nastavit jeho stav**
+### **Ukotvení poznámky k textu a nastavení jejího stavu**
 
-U moderního komentáře přiřazeného k [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/cs/net/aspose.slides/imoderncomment/textselectionstart/) stanovuje počáteční pozici vybraného textu v textovém rámečku tvaru, zatímco [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/cs/net/aspose.slides/imoderncomment/textselectionlength/) určuje délku výběru. Společně tyto vlastnosti přiřazují komentář ke konkrétnímu textovému rozsahu uvnitř AutoShape.
+Pro moderní poznámku přiřazenou k [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) určuje [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) počáteční pozici vybraného textu v textovém rámci tvaru, zatímco [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) stanovuje délku výběru. Společně tyto vlastnosti spojují poznámku s konkrétním textovým úsekem uvnitř AutoShape.
 
-Vlastnost [IModernComment.Status](https://reference.aspose.com/slides/cs/net/aspose.slides/imoderncomment/status/) lze číst nebo aktualizovat hodnotou z výčtu [ModernCommentStatus](https://reference.aspose.com/slides/cs/net/aspose.slides/moderncommentstatus/):
+Vlastnost [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) může být čtena nebo aktualizována hodnotou z výčtu [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — není definován žádný konkrétní stav moderního komentáře.
-- `Active` — komentář je aktivní.
-- `Resolved` — komentář byl vyřešen.
-- `Closed` — komentář je uzavřen.
+- `NotDefined` — není definován žádný konkrétní stav moderní poznámky.
+- `Active` — poznámka je aktivní.
+- `Resolved` — poznámka byla vyřešena.
+- `Closed` — poznámka je uzavřena.
 
-Následující příklad vytvoří moderní komentář ukotvený k tvaru, přiřadí jej k výběru textu, označí jej jako vyřešený, uloží prezentaci a ověří hodnoty po opětovném otevření souboru.
+Příklad ukotví moderní poznámku k výrazům „quarterly revenue“ v textu obdélníka. Vypočítá nulově‑základní [TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) z textu a nastaví [TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) na počet vybraných znaků. Po nastavení [Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) na `Resolved` prezentaci uloží a znovu otevře. Čtyři kontroly v konzoli by měly každá vypsat `True`, což potvrzuje zachování ukotvení tvaru, textového úseku a stavu.
+
 ```csharp
 using System;
 using System.Drawing;
@@ -262,6 +309,7 @@ var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Or
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
 shape.Name = "Forecast text";
 shape.TextFrame.Text = shapeText;
@@ -298,9 +346,10 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
-### **Prozkoumat existující moderní komentáře**
+### **Prohlédnutí existujících moderních poznámek**
 
-Pro prozkoumání existující prezentace zkontrolujte, které komentáře implementují [IModernComment](https://reference.aspose.com/slides/cs/net/aspose.slides/imoderncomment/), a poté prozkoumejte [IModernComment.Shape](https://reference.aspose.com/slides/cs/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/cs/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/cs/net/aspose.slides/imoderncomment/textselectionlength/) a [IModernComment.Status](https://reference.aspose.com/slides/cs/net/aspose.slides/imoderncomment/status/). `null` tvar označuje komentář úrovně snímku. Pro ukotvení k [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/), vlastnosti výběru textu určují přiřazený rozsah v textovém rámečku tvaru.
+Příklad vyžaduje existující prezentaci obsahující moderní poznámky a vypíše jejich text, stav a podrobnosti ukotvení. Pro inspekci zkontrolujte, které poznámky implementují [IModernComment](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/), poté prohlédněte [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) a [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/). `null` tvar naznačuje poznámku na úrovni snímku. Pro ukotvení k [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) vlastnosti výběru textu určují odpovídající úsek v textovém rámci tvaru.
+
 ```csharp
 using System;
 using Aspose.Slides;
@@ -343,11 +392,14 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **Odstranit komentáře**
+## **Odstranění poznámek**
 
-### **Odstranit všechny komentáře a autory komentářů**
+Aspose.Slides pro .NET umožňuje odstranit všechny poznámky a jejich autory z prezentace nebo smazat vybrané poznámky a ponechat ostatní. Následující příklady ukazují oba přístupy a ukládají aktualizovanou prezentaci.
 
-Následující příklad ukazuje, jak odstranit všechny komentáře a autory komentářů z prezentace:
+### **Odstranění všech poznámek a autorů poznámek**
+
+Příklad otevře existující prezentaci a pro každého autora zavolá [ICommentCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/clear/), poté zavolá [ICommentAuthorCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/clear/) k odstranění samotných autorů. Uložená prezentace neobsahuje ani poznámky, ani autory poznámek. Použijte prezentaci obsahující poznámky, abyste viděli výsledek odstranění.
+
 ```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -360,12 +412,14 @@ foreach (var author in presentation.CommentAuthors)
 }
 
 presentation.CommentAuthors.Clear();
+
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
-### **Odstranit konkrétní komentáře**
+### **Odstranění konkrétních poznámek**
 
-Následující příklad ukazuje, jak odstranit konkrétní komentáře ze snímku:
+Příklad vytvoří dvě poznámky na jednom snímku a pomocí [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) najde poznámky podle každého autora. Shromáždí poznámky, jejichž text je roven „comment 1“, před voláním [ICommentCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/remove/), aby nedošlo ke změně kolekce během výběru. Uložená prezentace si ponechá jen „comment 2“.
+
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -375,6 +429,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Author", "A");
 var createdTime = DateTime.Now;
 
@@ -407,14 +462,14 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 ## **Často kladené otázky**
 
-**Podporuje Aspose.Slides stav vyřešený pro moderní komentáře?**
+**Podporuje Aspose.Slides stav „vyřešeno“ pro moderní poznámky?**
 
-Ano. Vlastnost [IModernComment.Status](https://reference.aspose.com/slides/cs/net/aspose.slides/imoderncomment/status/) lze číst a nastavit hodnotou z [ModernCommentStatus](https://reference.aspose.com/slides/cs/net/aspose.slides/moderncommentstatus/), včetně `Resolved`. Stav je uložen v prezentaci a lze jej znovu přečíst po opětovném otevření souboru.
+Ano. [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) lze číst a nastavit hodnotou z [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/), včetně `Resolved`. Stav je uložen v prezentaci a lze jej opět přečíst po opětovném otevření souboru.
 
-**Jsou podporovány vláknové diskuse (řetězce odpovědí) a existuje limit vnoření?**
+**Jsou podporovány vlákna diskusí (řetězce odpovědí) a existuje limit hloubky vnoření?**
 
-Ano. Každý komentář může odkazovat na svůj [parent comment](https://reference.aspose.com/slides/cs/net/aspose.slides/comment/parentcomment/), což umožňuje řetězce odpovědí. API nedefinuje konkrétní limit hloubky vnoření.
+Ano. Každá poznámka může odkazovat na svou [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/), což umožňuje řetězce odpovědí. API nedefinuje konkrétní limit hloubky vnoření.
 
-**V jakém souřadnicovém systému je definována pozice značky komentáře na snímku?**
+**V jakém souřadnicovém systému je definována pozice značky poznámky na snímku?**
 
-Pozice značky je definována pomocí desetiných čísel v souřadnicovém systému snímku, což vám umožňuje ji přesně umístit na snímek.
+Pozice značky je definována jako desetinné souřadnice v souřadnicovém systému snímku, což umožňuje přesné umístění na snímku.

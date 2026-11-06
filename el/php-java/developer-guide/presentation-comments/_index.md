@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση Σχόλια Παρουσίασης σε PHP
+title: Διαχείριση Σχολίων Παρουσίασης σε PHP
 linktitle: Σχόλια Παρουσίασης
 type: docs
 weight: 100
@@ -20,32 +20,32 @@ keywords:
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides for PHP via Java: προσθήκη, ανάγνωση, επεξεργασία, απάντηση και αφαίρεση σχολίων σε παρουσιάσεις PowerPoint γρήγορα και εύκολα."
+description: "Διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides για PHP μέσω Java: προσθέστε, διαβάστε, επεξεργαστείτε, απαντήστε και αφαιρέστε σχόλια σε παρουσιάσεις PowerPoint γρήγορα και εύκολα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε σχόλια παρουσίασης με το Aspose.Slides for PHP via Java. Παρουσιάζει τους κύριους τύπους σχετικούς με τα σχόλια και δείχνει πώς να προσθέτετε σχόλια σε διαφάνειες, να προσπελάζετε υπάρχοντα σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια, και να αφαιρείτε σχόλια από μια παρουσίαση.
+Αυτό το άρθρο εξηγεί πώς να διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides for PHP via Java. Παρουσιάζει τους κύριους τύπους που σχετίζονται με σχόλια και δείχνει πώς να προσθέτετε σχόλια σε διαφάνειες, να αποκτάτε πρόσβαση σε υπάρχοντα σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια, και να αφαιρείτε σχόλια από μια παρουσίαση.
 
-Τα παραδείγματα καλύπτουν κοινά σενάρια ανασκόπησης και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίου και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων, και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
+Τα παραδείγματα καλύπτουν κοινές περιπτώσεις ελέγχου και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου και μεταδεδομένων σχολίων, η δημιουργία αλυσίδων απαντήσεων και η αφαίρεση επιλεγμένων ή όλων των σχολίων.
 
 Στο PowerPoint, τα σχόλια εμφανίζονται ως σημειώσεις στις διαφάνειες. Η επιλογή ενός σχολίου εμφανίζει το κείμενό του και τη σχετική συζήτηση.
 
-Για να ζητήσετε να φαίνονται ή να κρύβονται τα σχόλια όταν ανοίγει μια παρουσίαση χωρίς αλλαγή των ίδιων των σχολίων, δείτε [Show or Hide Comments When Opening a Presentation](/slides/el/php-java/presentation-view-properties/).
+Για να ζητήσετε τα σχόλια να εμφανίζονται ή να κρύβονται όταν ανοίγει μια παρουσίαση χωρίς να αλλάξετε τα ίδια τα σχόλια, δείτε [Εμφάνιση ή Απόκρυψη Σχολίων Κατά το Άνοιγμα μιας Παρουσίασης](/slides/el/php-java/presentation-view-properties/).
 
-## **Γιατί να Προσθέσετε Σχόλια στις Παρουσιάσεις;**
+## **Γιατί να Προσθέτετε Σχόλια σε Παρουσιάσεις;**
 
-Μπορείτε να χρησιμοποιήσετε σχόλια για να παρέχετε ανάδραση και να συνεργάζεστε με συναδέλφους κατά την ανασκόπηση παρουσιάσεων.
+Μπορείτε να χρησιμοποιήσετε τα σχόλια για να παρέχετε ανατροφοδότηση και να συνεργάζεστε με συναδέλφους κατά την ανασκόπηση παρουσιάσεων.
 
-Το Aspose.Slides for PHP via Java παρέχει τις ακόλουθες API για εργασία με σχόλια:
+Aspose.Slides for PHP via Java παρέχει τα ακόλουθα API για εργασία με σχόλια:
 
-* Τη [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) κλάση, η οποία προσφέρει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
-* Τη [CommentCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/commentcollection/) κλάση, η οποία αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν συγκεκριμένο συγγραφέα.
-* Τη [Comment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/) κλάση, η οποία παρέχει πληροφορίες για ένα σχόλιο, όπως ο συγγραφέας, η χρονική δημιουργία, η θέση και το κείμενο.
-* Τη [CommentAuthor](https://reference.aspose.com/slides/el/php-java/aspose.slides/commentauthor/) κλάση, η οποία παρέχει πληροφορίες για έναν συγγραφέα, όπως το όνομα, τα αρχικά και τα συσχετισμένα σχόλια.
+* Η κλάση [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) παρέχει πρόσβαση στους συντάκτες σχολίων της παρουσίασης.
+* Η κλάση [CommentCollection](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/) αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν συγκεκριμένο συγγραφέα.
+* Η κλάση [Comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/) παρέχει πληροφορίες για ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, του χρόνου δημιουργίας, της θέσης και του κειμένου.
+* Η κλάση [CommentAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/) παρέχει πληροφορίες για έναν συγγραφέα, όπως το όνομα, τα αρχικά και τα σχετικά σχόλια.
 
 ## **Προσθήκη Σχολίων σε Διαφάνειες**
 
-Το παρακάτω παράδειγμα δείχνει πώς να προσθέτετε σχόλια σε διαφάνειες σε μια παρουσίαση PowerPoint:
+Το παράδειγμα δημιουργεί δύο διαφάνειες και εγγράφει έναν συγγραφέα σχολίων με τη μέθοδο [addAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/addauthor/). Χρησιμοποιεί τη μέθοδο [addComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addcomment/) για να τοποθετήσει ένα σχόλιο σε κάθε διαφάνεια, στη συνέχεια ανακτά τα σχόλια της πρώτης διαφάνειας για εκείνον τον συγγραφέα με τη μέθοδο [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/). Η κονσόλα εμφανίζει το κείμενο του πρώτου σχολίου δύο φορές, δείχνοντας την πρόσβαση τόσο μέσω της διαφάνειας όσο και μέσω του συγγραφέα, και η αποθηκευμένη παρουσίαση περιέχει και τα δύο σχόλια.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -56,6 +56,7 @@ $presentation = new Presentation();
 try {
     $firstSlide = $presentation->getSlides()->get_Item(0);
     $secondSlide = $presentation->getSlides()->addEmptySlide($presentation->getLayoutSlides()->get_Item(0));
+
     $author = $presentation->getCommentAuthors()->addAuthor("Jawad", "MF");
     $position = new Point2DFloat(0.2, 0.2);
     $createdTime = new Java("java.util.Date");
@@ -81,9 +82,48 @@ try {
 }
 ```
 
+## **Εύρεση ή Δημιουργία Συγγραφέα Σχολίου**
+
+Όταν μια αυτοματοποιημένη ανασκόπηση επεξεργάζεται τις ίδιες παρουσιάσεις επανειλημμένα, αναζητήστε στη συλλογή που επιστρέφει η μέθοδος [getCommentAuthors](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getcommentauthors/) πριν προσθέσετε έναν συγγραφέα. Η μέθοδος [findByNameAndInitials](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/findbynameandinitials/) ταιριάζει τόσο με το όνομα όσο και με τα αρχικά και επιστρέφει έναν πίνακα με τους αντίστοιχους συγγραφείς, ή έναν κενό πίνακα εάν δεν βρεθούν αντιστοιχίες. Αντίθετα, η μέθοδος [findByName](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/findbyname/) ψάχνει μόνο κατά όνομα, ανεξάρτητα από τα αρχικά. Η κλήση της [addAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/addauthor/) με όνομα και αρχικά που ήδη υπάρχουν στη συλλογή προκαλεί εξαίρεση.
+
+Το παράδειγμα απαιτεί ένα αρχείο παρουσίασης με τουλάχιστον μία διαφάνεια. Σε κάθε μία από τις δύο εκτελέσεις, επαναχρησιμοποιεί τον πρώτο ταιριανό συγγραφέα ή δημιουργεί έναν νέο μόνο όταν το αποτέλεσμα είναι κενό. Εάν υπάρχουν πολλές αντιστοιχίες, επιλέγει το πρώτο στοιχείο του πίνακα χωρίς συγχώνευση ή αφαίρεση των άλλων συγγραφέων. Στη συνέχεια καλεί τη μέθοδο [addComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addcomment/) για τον επιλεγμένο συγγραφέα και αποθηκεύει την παρουσίαση. Η δεύτερη εκτέλεση ανοίγει το αποτέλεσμα της πρώτης και επαναλαμβάνει τη διαδικασία.
+
+```php
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$authorName = "Reviewer";
+$authorInitials = "RV";
+
+$inputFile = "input.pptx";
+$position = new Point2DFloat(20, 20);
+$arrayClass = new JavaClass("java.lang.reflect.Array");
+
+for ($pass = 1; $pass <= 2; $pass++) {
+    $presentation = new Presentation($inputFile);
+    try {
+        $matches = $presentation->getCommentAuthors()->findByNameAndInitials($authorName, $authorInitials);
+        $matchCount = java_values($arrayClass->getLength($matches));
+
+        $author = $matchCount > 0 ? $matches[0] : $presentation->getCommentAuthors()->addAuthor($authorName, $authorInitials);
+        $createdTime = new Java("java.util.Date");
+        $author->getComments()->addComment("Please review this slide.", $presentation->getSlides()->get_Item(0), $position, $createdTime);
+
+        $outputFile = "review_pass_" . $pass . ".pptx";
+        $presentation->save($outputFile, SaveFormat::Pptx);
+        $inputFile = $outputFile;
+    } finally {
+        $presentation->dispose();
+    }
+}
+```
+
+Η δεύτερη εκτέλεση προσθέτει ένα ακόμη σχόλιο χωρίς να προσθέσει νέο συγγραφέα ή να αφαιρέσει υπάρχοντα σχόλια. Το τελικό αρχείο, `review_pass_2.pptx`, περιέχει και τα δύο νέα σχόλια μαζί με τυχόν αρχικά σχόλια. Η επαναχρησιμοποίηση ενός συγγραφέα δεν αφαιρεί διπλότυπα σχόλια: για να αποφύγετε την επανειλημμένη προσθήκη του ίδιου σχολίου, υλοποιήστε χωριστό μηχανισμό ανίχνευσης διπλοτύπων πριν το προσθέσετε.
+
 ## **Πρόσβαση σε Σχόλια Διαφάνειας**
 
-Το παρακάτω παράδειγμα δείχνει πώς να προσπελάζετε υπάρχοντα σχόλια σε μια παρουσίαση PowerPoint:
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και διαβάζει τη συλλογή που επιστρέφει η μέθοδος [getCommentAuthors](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getcommentauthors/). Για κάθε συγγραφέα, επαναλαμβάνει τη συλλογή που επιστρέφει η μέθοδος [getComments](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthor/getcomments/) και εκτυπώνει τον αριθμό της διαφάνειας, το κείμενο του σχολίου, το όνομα του συγγραφέα και την ώρα δημιουργίας. Η εισερχόμενη παρουσίαση πρέπει να περιέχει σχόλια για να παραχθεί έξοδος στην κονσόλα.
 
 ```php
 use aspose\slides\Presentation;
@@ -104,11 +144,11 @@ try {
 }
 ```
 
-## **Απάντηση σε Σχόλια**
+## **Απαντήσεις σε Σχόλια**
 
-Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Οι μέθοδοι [Comment::getParentComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/getparentcomment/) και [Comment::setParentComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/setparentcomment/) σας επιτρέπουν να λάβετε ή να ορίσετε το γονικό ενός σχολίου.
+Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Οι μέθοδοι [Comment::getParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/) και [Comment::setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) επιτρέπουν τη λήψη ή ορισμό του γονικού σχολίου.
 
-Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε απαντήσεις και να ελέγξετε την προκύπτουσα ιεραρχία σχολίων:
+Το παράδειγμα δημιουργεί σχόλια από δύο συγγραφείς και χρησιμοποιεί τη μέθοδο [setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) για να δημιουργήσει απαντήσεις, συμπεριλαμβανομένης μιας απάντησης σε άλλη απάντηση. Π Passing `null` στη μέθοδο [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/) ανακτά σχόλια από όλους τους συγγραφείς· η κονσόλα εσοχίζει κάθε καταχώρηση ανάλογα με το βάθος της στην ιεραρχία απαντήσεων. Το παράδειγμα αποθηκεύει τη πλήρη συζήτηση, καλεί τη μέθοδο [remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) στο πρώτο ριζικό σχόλιο και αποθηκεύει μια δεύτερη παρουσίαση με αυτό το σχόλιο και τις απαντήσεις του αφαιρεμένα.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -118,6 +158,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $position = new Point2DFloat(10, 10);
     $createdTime = new Java("java.util.Date");
 
@@ -163,19 +204,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Όταν χρησιμοποιείται η μέθοδος [Comment::remove](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/remove/) για διαγραφή ενός σχολίου, όλες οι απαντήσεις σε αυτό το σχόλιο διαγράφονται επίσης.
-* Αν η [Comment::setParentComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/setparentcomment/) δημιουργήσει κυκλική αναφορά, γίνεται ρίψη μιας [PptxEditException](https://reference.aspose.com/slides/el/php-java/aspose.slides/pptxeditexception/).
+* Όταν η μέθοδος [Comment::remove](https://reference.aspose.com/slides/php-java/aspose.slides/comment/remove/) χρησιμοποιείται για τη διαγραφή ενός σχολίου, όλες οι απαντήσεις σε αυτό το σχόλιο διαγράφονται επίσης.
+* Εάν η μέθοδος [Comment::setParentComment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/setparentcomment/) δημιουργεί μια κυκλική αναφορά, εγείρεται ένα [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Προσθήκη Σύγχρονων Σχολίων**
 
-Τα σύγχρονα σχόλια μπορούν να συσχετιστούν με την ίδια τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με μια περιοχή κειμένου μέσα σε AutoShape. Η μέθοδος [CommentCollection::addModernComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/commentcollection/addmoderncomment/) δέχεται ένα όρισμα [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/) εκτός από τις συντεταγμένες της διαφάνειας και του δείκτη σχολίου.
+Τα σύγχρονα σχόλια μπορούν να συνδεθούν με την ίδια τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με μια περιοχή κειμένου μέσα σε AutoShape. Η μέθοδος [CommentCollection::addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) δέχεται ένα όρισμα τύπου [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) εκτός από τη διαφάνεια και τις συντεταγμένες του δείκτη σχολίου.
 
-Όταν περνιέται `null` για το όρισμα shape, το σχόλιο είναι σχόλιο επιπέδου διαφάνειας. Ο δείκτης του τοποθετείται με τις δοσμένες συντεταγμένες, αλλά δεν συσχετίζεται με συγκεκριμένο σχήμα, έτσι η [ModernComment::getShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/getshape/) επιστρέφει `null`. Όταν παρέχεται ένα [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/), το σχόλιο αγκυρείζεται σε αυτό το σχήμα. Οι συντεταγμένες ορίζουν ακόμη τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η συσχέτιση σχήματος μπορεί να ληφθεί μέσω της [ModernComment::getShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/getshape/).
+Όταν περνιέται `null` για το όρισμα του σχήματος, το σχόλιο είναι σχολείο σε επίπεδο διαφάνειας. Ο δείκτης τοποθετείται από τις παρεχόμενες συντεταγμένες, αλλά δεν συνδέεται με συγκεκριμένο σχήμα, οπότε η μέθοδος [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/) επιστρέφει `null`. Όταν παρέχεται ένα [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), το σχόλιο αγκιστρώνεται σε αυτό το σχήμα. Οι συντεταγμένες εξακολουθούν να ορίζουν τη θέση του δείκτη του σχολίου στη διαφάνεια, ενώ η σύνδεση με το σχήμα μπορεί να ανακτηθεί μέσω της μεθόδου [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/).
 
-### **Άγκυρο Σχόλιο Σύγχρονο σε Σχήμα**
+### **Αγκίστρωση Σύγχρονου Σχολίου σε Σχήμα**
 
-Το παρακάτω παράδειγμα δημιουργεί τόσο ένα σχόλιο επιπέδου διαφάνειας όσο και ένα σύγχρονο σχόλιο αγκυρεμένο σε συγκεκριμένο AutoShape. Στη συνέχεια διαβάζει το συσχετισμένο σχήμα από κάθε σχόλιο.
+Το παράδειγμα καλεί τη μέθοδο [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) δύο φορές: μία με σχήμα `null` για σχόλιο σε επίπεδο διαφάνειας και μία με ένα ορθογώνιο ως αγκίστρωση. Η ανάγνωση της μεθόδου [getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/) εκτυπώνει `true` για τον έλεγχο `null` του σχολίου σε επίπεδο διαφάνειας και `Revenue title` για το αγκυρισμένο σχόλιο. Και τα δύο σχόλια αποθηκεύονται με την παρουσίαση.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -186,7 +227,9 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 300, 80);
     $shape->setName("Revenue title");
     $shape->getTextFrame()->setText("Quarterly revenue");
@@ -206,11 +249,11 @@ try {
 }
 ```
 
-### **Άγκυρο Σχόλια σε Διαφορετικούς Τύπους Σχημάτων**
+### **Αγκίστρωση Σχολίων σε Διαφορετικούς Τύπους Σχημάτων**
 
-Οποιοδήποτε αντικείμενο διαφάνειας που εκπροσωπείται από την κλάση [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/) μπορεί να χρησιμοποιηθεί ως άγκυρο σχήματος. Κοινά παραδείγματα περιλαμβάνουν [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/el/php-java/aspose.slides/connector/), και [GraphicalObject](https://reference.aspose.com/slides/el/php-java/aspose.slides/graphicalobject/) αντικείμενα όπως διαγράμματα.
+Οποιοδήποτε αντικείμενο διαφάνειας που αντιπροσωπεύεται από την κλάση [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) μπορεί να χρησιμοποιηθεί ως αγκίστρωση σχήματος. Συνήθεις παράδειγμα περιλαμβάνουν [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/php-java/aspose.slides/connector/) και [GraphicalObject](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobject/) όπως γραφήματα.
 
-Το παρακάτω παράδειγμα δημιουργεί αρκετούς κοινά τύπους σχημάτων και συσχετίζει ένα σύγχρονο σχόλιο με το καθένα.
+Το παράδειγμα χρησιμοποιεί τη μέθοδο [addModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/addmoderncomment/) για να συνδέσει ένα σχόλιο με καθέναν από πέντε τύπους σχημάτων: AutoShape, picture frame, group, connector και chart. Η εικόνα χρησιμοποιεί ενσωματωμένα δεδομένα εικόνας, οπότε δεν απαιτείται εξωτερική εικόνα. Κάθε σχόλιο έχει τη δική του θέση δείκτη, και η αποθηκευμένη παρουσίαση διατηρεί όλες τις πέντε συνδέσεις σχήματος.
 
 ```php
 use aspose\slides\ChartType;
@@ -222,11 +265,13 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
     $createdTime = new Java("java.util.Date");
 
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 180, 60);
     $autoShape->getTextFrame()->setText("AutoShape");
+
     $autoShapeCommentPosition = new Point2DFloat(30, 30);
     $author->getComments()->addModernComment("Comment on an AutoShape.", $slide, $autoShape, $autoShapeCommentPosition, $createdTime);
 
@@ -258,18 +303,18 @@ try {
 }
 ```
 
-### **Άγκυρο Σχόλιο σε Κείμενο και Ορίζος της Κατάστασής του**
+### **Αγκίστρωση Σχολίου σε Κείμενο και Ορισμός Κατάστασης**
 
-Για ένα σύγχρονο σχόλιο που σχετίζεται με ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/), οι μέθοδοι [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/gettextselectionstart/) και [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/settextselectionstart/) προσπελάζουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Οι [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/gettextselectionlength/) και [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/settextselectionlength/) προσπελάζουν το μήκος της επιλογής. Μαζί, αυτές οι τιμές συσχετίζουν το σχόλιο με μια συγκεκριμένη περιοχή κειμένου μέσα στο AutoShape.
+Για ένα σύγχρονο σχόλιο που σχετίζεται με ένα [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/), οι μέθοδοι [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionstart/) και [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionstart/) προσπερνούν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Οι μέθοδοι [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionlength/) και [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionlength/) προσπερνούν το μήκος της επιλογής. Μαζί, αυτές οι τιμές συνδέουν το σχόλιο με μια συγκεκριμένη περιοχή κειμένου μέσα στο AutoShape.
 
-Οι μέθοδοι [ModernComment::getStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/getstatus/) και [ModernComment::setStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/setstatus/) προσπελάζουν μια τιμή από τις σταθερές [ModernCommentStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncommentstatus/):
+Οι μέθοδοι [ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/) και [ModernComment::setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) προσπερνούν μια τιμή από τις σταθερές του [ModernCommentStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — δεν έχει οριστεί συγκεκριμένη κατάσταση σύγχρονου σχολίου.
+- `NotDefined` — δεν ορίζεται συγκεκριμένη κατάσταση σύγχρονου σχολίου.
 - `Active` — το σχόλιο είναι ενεργό.
 - `Resolved` — το σχόλιο έχει επιλυθεί.
 - `Closed` — το σχόλιο είναι κλειστό.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχόλιο αγκυρεμένο σε σχήμα, το συσχετίζει με μια επιλογή κειμένου, το σηματοδοτεί ως επιλυμένο, αποθηκεύει την παρουσίαση και ελέγχει τις τιμές μετά το άνοιγμα του αρχείου.
+Το παράδειγμα αγκυρώνει ένα σύγχρονο σχόλιο στις λέξεις «quarterly revenue» στο κείμενο ενός ορθογωνίου. Υπολογίζει τη μηδενική βάση του σημείου εκκίνησης της επιλογής από το κείμενο και το περνά στη μέθοδο [setTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionstart/), χρησιμοποιώντας τη μέθοδο [setTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/settextselectionlength/) για να ορίσει τον αριθμό των επιλεγμένων χαρακτήρων. Μετά την κλήση της [setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) με `Resolved`, αποθηκεύει και ανοίγει ξανά την παρουσίαση. Οι τέσσερις έλεγχοι στην κονσόλα πρέπει να εκτυπώσουν `true`, επιβεβαιώνοντας ότι η αγκίστρωση σχήματος, η περιοχή κειμένου και η κατάσταση διατηρήθηκαν.
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -286,6 +331,7 @@ $expectedSelectionStart = strpos($shapeText, $selectedText);
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
     $shape->setName("Forecast text");
     $shape->getTextFrame()->setText($shapeText);
@@ -329,9 +375,9 @@ try {
 }
 ```
 
-### **Επιθεώρηση Υπαρχόντων Σύγχρονων Σχολίων**
+### **Έλεγχος Υπάρχοντων Σύγχρονων Σχολίων**
 
-Για να επιθεωρήσετε μια υφιστάμενη παρουσίαση, ελέγξτε εάν κάθε σχόλιο είναι [ModernComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/), στη συνέχεια εξετάστε [ModernComment::getShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/gettextselectionlength/), και [ModernComment::getStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/getstatus/). Ένα σχήμα `null` υποδηλώνει σχόλιο επιπέδου διαφάνειας. Για άγκυρο σε [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/), οι μέθοδοι επιλογής κειμένου προσδιορίζουν την αντίστοιχη περιοχή στο πλαίσιο κειμένου του σχήματος.
+Το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση που περιέχει σύγχρονα σχόλια και εκτυπώνει το κείμενό τους, την κατάσταση και τις λεπτομέρειες αγκίστρωσης. Για να το εξετάσετε, ελέγξτε εάν κάθε σχόλιο είναι ένα [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/), στη συνέχεια εξετάστε τις μεθόδους [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionlength/) και [ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/). Ένα σχήμα `null` υποδεικνύει σχόλιο σε επίπεδο διαφάνειας. Για μια αγκίστρωση [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/), οι μέθοδοι επιλογής κειμένου προσδιορίζουν το σχετικό εύρος στο πλαίσιο κειμένου του σχήματος.
 
 ```php
 use aspose\slides\Presentation;
@@ -375,9 +421,11 @@ try {
 
 ## **Αφαίρεση Σχολίων**
 
+Aspose.Slides for PHP via Java επιτρέπει την αφαίρεση όλων των σχολίων και των συγγραφέων τους από μια παρουσίαση ή τη διαγραφή επιλεγμένων σχολίων διατηρώντας τα υπόλοιπα. Τα ακόλουθα παραδείγματα δείχνουν και τις δύο προσεγγίσεις και αποθηκεύουν την ενημερωμένη παρουσίαση.
+
 ### **Αφαίρεση Όλων των Σχολίων και Συγγραφέων Σχολίων**
 
-Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε όλα τα σχόλια και τους συγγραφείς σχολίων από μια παρουσίαση:
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και καλεί τη μέθοδο [CommentCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/clear/) για κάθε συγγραφέα, στη συνέχεια καλεί τη μέθοδο [CommentAuthorCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/commentauthorcollection/clear/) για την αφαίρεση των συγγραφέων. Η αποθηκευμένη παρουσίαση δεν περιέχει ούτε σχόλια ούτε συγγραφείς σχολίων. Χρησιμοποιήστε μια παρουσίαση που περιέχει σχόλια για να παρατηρήσετε την αφαίρεση.
 
 ```php
 use aspose\slides\Presentation;
@@ -390,6 +438,7 @@ try {
     }
 
     $presentation->getCommentAuthors()->clear();
+
     $presentation->save("example_out.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -398,7 +447,7 @@ try {
 
 ### **Αφαίρεση Συγκεκριμένων Σχολίων**
 
-Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε συγκεκριμένα σχόλια από μια διαφάνεια:
+Το παράδειγμα δημιουργεί δύο σχόλια σε μία διαφάνεια και χρησιμοποιεί τη μέθοδο [getSlideComments](https://reference.aspose.com/slides/php-java/aspose.slides/slide/getslidecomments/) για να βρει τα σχόλια από κάθε συγγραφέα. Συλλέγει τα σχόλια των οποίων το κείμενο ισούται με «comment 1» πριν καλέσει τη μέθοδο [CommentCollection::remove](https://reference.aspose.com/slides/php-java/aspose.slides/commentcollection/remove/), αποφεύγοντας αλλαγές στη συλλογή κατά την επιλογή. Η αποθηκευμένη παρουσίαση διατηρεί μόνο το «comment 2».
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -408,6 +457,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
     $createdTime = new Java("java.util.Date");
 
@@ -439,14 +489,14 @@ try {
 
 ## **Συχνές Ερωτήσεις**
 
-**Υποστηρίζει το Aspose.Slides κατάσταση επιλυμένου για σύγχρονα σχόλια;**
+**Υποστηρίζει το Aspose.Slides κατάσταση επιλυμένου σχολίου για σύγχρονα σχόλια;**
 
-Ναι. Οι [ModernComment::getStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/getstatus/) και [ModernComment::setStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/setstatus/) προσπελάζουν μια τιμή [ModernCommentStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
+Ναι. Οι μέθοδοι [ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/) και [ModernComment::setStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/setstatus/) προσπερνούν μια τιμή του [ModernCommentStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
 
-**Υποστηρίζονται συζητήσεις με νήματα (αλυσίδες απαντήσεων) και υπάρχει όριο εσοχής;**
+**Υποστηρίζονται οι αλυσιδωτές συζητήσεις (αλυσίδες απαντήσεων) και υπάρχει όριο βάθους;**
 
-Ναι. Κάθε σχόλιο μπορεί να αναφέρεται στο [parent comment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/getparentcomment/), επιτρέποντας αλυσίδες απαντήσεων. Η API δεν ορίζει συγκεκριμένο όριο βάθους εσοχής.
+Ναι. Κάθε σχόλιο μπορεί να αναφέρει το [parent comment](https://reference.aspose.com/slides/php-java/aspose.slides/comment/getparentcomment/), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους.
 
-**Σε ποιο σύστημα συντονικών ορίζεται η θέση του δείκτη σχολίου σε μια διαφάνεια;**
+**Σε ποιο σύστημα συντεταγμένων ορίζεται η θέση του δείκτη σχολίου σε μια διαφάνεια;**
 
-Η θέση του δείκτη ορίζεται με δεκαδικές συντεταγμένες στο σύστημα συντονικών της διαφάνειας, επιτρέποντάς σας να το τοποθετήσετε ακριβώς στη διαφάνεια.
+Η θέση του δείκτη ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντας ακριβή τοποθέτηση.

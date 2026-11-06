@@ -10,42 +10,43 @@ keywords:
 - komentar PowerPoint
 - komentar presentasi
 - komentar slide
-- tambahkan komentar
+- menambah komentar
 - akses komentar
-- edit komentar
+- sunting komentar
 - balas komentar
 - hapus komentar
-- hapus komentar
+- menghapus komentar
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Kelola komentar presentasi dengan Aspose.Slides untuk .NET: tambahkan, baca, edit, balas, dan hapus komentar dalam presentasi PowerPoint dengan cepat dan mudah."
+description: "Kelola komentar presentasi dengan Aspose.Slides untuk .NET: tambahkan, baca, sunting, balas, dan hapus komentar dalam presentasi PowerPoint secara cepat dan mudah."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara mengelola komentar presentasi dengan Aspose.Slides untuk .NET. Artikel ini memperkenalkan tipe utama yang berhubungan dengan komentar dan menunjukkan cara menambahkan komentar ke slide, mengakses komentar yang sudah ada, bekerja dengan balasan dan komentar modern, serta menghapus komentar dari presentasi.
+Artikel ini menjelaskan cara mengelola komentar presentasi dengan Aspose.Slides for .NET. Ini memperkenalkan tipe terkait komentar utama dan menunjukkan cara menambahkan komentar ke slide, mengakses komentar yang ada, bekerja dengan balasan dan komentar modern, serta menghapus komentar dari presentasi.
 
 Contoh-contoh mencakup skenario peninjauan dan kolaborasi umum di PowerPoint, seperti menetapkan komentar kepada penulis, membaca teks komentar dan metadata, membangun rantai balasan, serta menghapus komentar yang dipilih atau semua komentar.
 
 Di PowerPoint, komentar muncul sebagai anotasi pada slide. Memilih komentar menampilkan teksnya dan diskusi terkait.
 
-Untuk meminta agar komentar ditampilkan atau disembunyikan ketika presentasi dibuka tanpa mengubah komentar itu sendiri, lihat [Tampilkan atau Sembunyikan Komentar saat Membuka Presentasi](/slides/id/net/presentation-view-properties/).
+Untuk meminta agar komentar ditampilkan atau disembunyikan saat presentasi dibuka tanpa mengubah komentar itu sendiri, lihat [Tampilkan atau Sembunyikan Komentar Saat Membuka Presentasi](/slides/id/net/presentation-view-properties/).
 
 ## **Mengapa Menambahkan Komentar ke Presentasi?**
 
-Anda dapat menggunakan komentar untuk memberikan umpan balik dan berkolaborasi dengan rekan kerja saat meninjau presentasi.
+Anda dapat menggunakan komentar untuk memberikan masukan dan berkolaborasi dengan rekan kerja saat meninjau presentasi.
 
-Aspose.Slides untuk .NET menyediakan API berikut untuk bekerja dengan komentar:
+Aspose.Slides for .NET menyediakan API berikut untuk bekerja dengan komentar:
 
-* Kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) yang memberikan akses ke penulis komentar presentasi.
-* Antarmuka [ICommentCollection](https://reference.aspose.com/slides/id/net/aspose.slides/icommentcollection) yang mewakili komentar yang terkait dengan seorang penulis.
-* Antarmuka [IComment](https://reference.aspose.com/slides/id/net/aspose.slides/icomment) yang memberikan informasi tentang sebuah komentar, termasuk penulis, waktu pembuatan, posisi, dan teks.
-* Kelas [CommentAuthor](https://reference.aspose.com/slides/id/net/aspose.slides/commentauthor) yang memberikan informasi tentang seorang penulis, termasuk nama, inisial, dan komentar yang terkait.
+* Kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) yang menyediakan akses ke penulis komentar presentasi.
+* Antarmuka [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) yang mewakili komentar yang terkait dengan seorang penulis.
+* Antarmuka [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) yang menyediakan informasi tentang komentar, termasuk penulisnya, waktu pembuatan, posisi, dan teks.
+* Kelas [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) yang menyediakan informasi tentang seorang penulis, termasuk nama, inisial, dan komentar yang terkait.
 
 ## **Menambahkan Komentar Slide**
-Contoh berikut menunjukkan cara menambahkan komentar ke slide dalam presentasi PowerPoint:
+
+Contoh ini membuat dua slide dan mendaftarkan penulis komentar dengan [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/). Ia menggunakan [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) untuk menempatkan satu komentar pada setiap slide, lalu mengambil komentar slide pertama untuk penulis tersebut dengan [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/). Konsol menampilkan teks komentar pertama dua kali, menunjukkan akses melalui slide maupun penulis, dan presentasi yang disimpan berisi kedua komentar.
 
 ```csharp
 using System;
@@ -56,6 +57,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var firstSlide = presentation.Slides[0];
 var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
 var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 var position = new PointF(0.2f, 0.2f);
 var createdTime = DateTime.Now;
@@ -76,8 +78,44 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Temukan atau Buat Penulis Komentar**
+
+Ketika tinjauan otomatis memproses presentasi yang sama berulang kali, cari koleksi [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/) sebelum menambahkan penulis. [FindByNameAndInitials](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbynameandinitials/) mencocokkan nama dan inisial serta mengembalikan array penulis yang cocok, atau array kosong jika tidak ada yang cocok. Sebaliknya, [FindByName](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbyname/) mencari hanya berdasarkan nama, tanpa memperhatikan inisial. Memanggil [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) dengan nama dan inisial yang sudah ada dalam koleksi akan melempar pengecualian.
+
+Contoh ini memerlukan file presentasi dengan setidaknya satu slide. Pada masing‑masing dari dua lintasan, ia kembali menggunakan penulis pertama yang cocok, atau membuat satu hanya ketika hasilnya kosong. Jika ada beberapa kecocokan, ia memilih elemen array pertama tanpa menggabungkan atau menghapus penulis lain. Kemudian ia memanggil [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) untuk penulis yang dipilih dan menyimpan presentasi. Lintasan kedua membuka output lintasan pertama dan mengulangi operasi.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string authorName = "Reviewer";
+const string authorInitials = "RV";
+
+var inputFile = "input.pptx";
+var position = new PointF(20, 20);
+
+for (var pass = 1; pass <= 2; pass++)
+{
+    using var presentation = new Presentation(inputFile);
+
+    var matches = presentation.CommentAuthors.FindByNameAndInitials(authorName, authorInitials);
+    
+    var author = matches.Length > 0 ? matches[0] : presentation.CommentAuthors.AddAuthor(authorName, authorInitials);
+    author.Comments.AddComment("Please review this slide.", presentation.Slides[0], position, DateTime.Now);
+
+    var outputFile = $"review_pass_{pass}.pptx";
+    presentation.Save(outputFile, SaveFormat.Pptx);
+    inputFile = outputFile;
+}
+```
+
+Lintasan kedua menambahkan komentar lain tanpa menambahkan penulis lain atau menghapus komentar yang ada. Berkas akhir, `review_pass_2.pptx`, berisi kedua komentar baru bersama komentar asli apa pun. Menggunakan kembali penulis tidak menduplikasi komentar: untuk menghindari penambahan komentar yang sama berulang kali, terapkan deteksi duplikat terpisah sebelum menambahkannya.
+
 ## **Mengakses Komentar Slide**
-Contoh berikut menunjukkan cara mengakses komentar yang sudah ada dalam presentasi PowerPoint:
+
+Contoh ini membuka presentasi yang ada dan membaca koleksi [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/). Untuk setiap penulis, ia mengiterasi [Comments](https://reference.aspose.com/slides/net/aspose.slides/icommentauthor/comments/) dan mencetak nomor slide, teks komentar, nama penulis, dan waktu pembuatan. Presentasi input harus berisi komentar agar menghasilkan output konsol.
 
 ```csharp
 using System;
@@ -99,9 +137,10 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **Membalas Komentar**
-Komentar induk adalah komentar asli di bagian atas hierarki balasan. Properti [ParentComment](https://reference.aspose.com/slides/id/net/aspose.slides/icomment/properties/parentcomment) pada antarmuka [IComment](https://reference.aspose.com/slides/id/net/aspose.slides/icomment) memungkinkan Anda mendapatkan atau mengatur induk sebuah komentar.
 
-Contoh berikut menunjukkan cara menambahkan balasan dan memeriksa hierarki komentar yang dihasilkan:
+Komentar induk adalah komentar asli di bagian atas hierarki balasan. Properti [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) dari antarmuka [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) memungkinkan Anda mendapatkan atau mengatur induk sebuah komentar.
+
+Contoh ini membuat komentar dari dua penulis dan menggunakan [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) untuk membangun balasan, termasuk balasan ke balasan lain. Mem passing `null` ke [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) mengambil komentar dari semua penulis; konsol memberi indentasi tiap entri sesuai kedalamannya dalam hierarki balasan. Contoh menyimpan diskusi lengkap, memanggil [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) pada komentar akar pertama, dan menyimpan presentasi kedua dengan komentar tersebut dan balasannya dihapus.
 
 ```csharp
 using System;
@@ -111,27 +150,28 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var position = new PointF(10, 10);
 var createdTime = DateTime.Now;
 
-var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
-var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
+var originalAuthor = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var rootComment = originalAuthor.Comments.AddComment("comment 1", slide, position, createdTime);
 
-var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
-var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
-reply1.ParentComment = comment1;
+var reviewer = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var firstReply = reviewer.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+firstReply.ParentComment = rootComment;
 
-var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
-reply2.ParentComment = comment1;
+var secondReply = reviewer.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+secondReply.ParentComment = rootComment;
 
-var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
-subReply.ParentComment = reply2;
+var subReply = originalAuthor.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = secondReply;
 
-author2.Comments.AddComment("comment 2", slide, position, createdTime);
-var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+reviewer.Comments.AddComment("comment 2", slide, position, createdTime);
+var separateComment = reviewer.Comments.AddComment("comment 3", slide, position, createdTime);
 
-var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
-reply3.ParentComment = comment3;
+var separateReply = originalAuthor.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+separateReply.ParentComment = separateComment;
 
 var comments = slide.GetSlideComments(null);
 for (var i = 0; i < comments.Length; i++)
@@ -148,24 +188,24 @@ for (var i = 0; i < comments.Length; i++)
 
 presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
 
-comment1.Remove();
+rootComment.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-* Ketika metode [Remove](https://reference.aspose.com/slides/id/net/aspose.slides/icomment/methods/remove) pada antarmuka [IComment](https://reference.aspose.com/slides/id/net/aspose.slides/icomment) digunakan untuk menghapus sebuah komentar, semua balasan untuk komentar tersebut juga dihapus.
-* Jika properti [ParentComment](https://reference.aspose.com/slides/id/net/aspose.slides/icomment/properties/parentcomment) membuat referensi melingkar, sebuah [PptxEditException](https://reference.aspose.com/slides/id/net/aspose.slides/pptxeditexception) akan dilemparkan.
+{{% alert color="warning" title="Warning" %}}
+* Saat metode [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) dari antarmuka [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) digunakan untuk menghapus komentar, semua balasan ke komentar tersebut juga dihapus.
+* Jika properti [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) membuat referensi melingkar, sebuah [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) akan dilempar.
 {{% /alert %}}
 
 ## **Menambahkan Komentar Modern**
 
-Komentar modern dapat dikaitkan dengan slide itu sendiri, dengan bentuk tertentu, atau dengan rentang teks di dalam AutoShape. Metode [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/id/net/aspose.slides/icommentcollection/addmoderncomment/) menerima argumen [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/) selain slide dan koordinat penanda komentar.
+Komentar modern dapat dikaitkan dengan slide itu sendiri, dengan bentuk tertentu, atau dengan rentang teks di dalam AutoShape. Metode [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) menerima argumen [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) selain slide dan koordinat penanda komentar.
 
-Ketika `null` diberikan untuk argumen shape, komentar menjadi komentar tingkat slide. Penandanya diposisikan oleh koordinat yang diberikan, tetapi tidak dikaitkan dengan bentuk tertentu, sehingga [IModernComment.Shape](https://reference.aspose.com/slides/id/net/aspose.slides/imoderncomment/shape/) mengembalikan `null`. Ketika sebuah [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/) disediakan, komentar dipasang pada bentuk tersebut. Koordinat tetap menentukan posisi penanda komentar pada slide, sementara asosiasi bentuk dapat diambil melalui [IModernComment.Shape](https://reference.aspose.com/slides/id/net/aspose.slides/imoderncomment/shape/).
+Ketika `null` diberikan untuk argumen shape, komentar menjadi komentar tingkat slide. Penandanya diposisikan oleh koordinat yang diberikan, tetapi tidak terkait dengan bentuk tertentu, sehingga [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) mengembalikan `null`. Ketika sebuah [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) disediakan, komentar diikat ke bentuk tersebut. Koordinat masih mendefinisikan posisi penanda komentar pada slide, sementara asosiasi bentuk dapat diambil melalui [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/).
 
-### **Melekatkan Komentar Modern pada Bentuk**
+### **Menambatkan Komentar Modern ke Bentuk**
 
-Contoh berikut membuat komentar modern tingkat slide serta komentar modern yang dilekatkan pada AutoShape tertentu. Kemudian contoh tersebut membaca bentuk yang terkait dari masing-masing komentar.
+Contoh ini memanggil [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) dua kali: sekali dengan shape `null` untuk komentar tingkat slide dan sekali dengan persegi panjang sebagai jangkar. Membaca [Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) mencetak `True` untuk pemeriksaan null pada komentar tingkat slide dan `Revenue title` untuk komentar yang dijangkarkan. Kedua komentar disimpan bersama presentasi.
 
 ```csharp
 using System;
@@ -175,7 +215,9 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
 shape.Name = "Revenue title";
 shape.TextFrame.Text = "Quarterly revenue";
@@ -192,11 +234,11 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **Melekatkan Komentar pada Berbagai Jenis Bentuk**
+### **Menambatkan Komentar ke Berbagai Jenis Bentuk**
 
-Setiap objek slide yang mengimplementasikan [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/) dapat digunakan sebagai jangkar bentuk. Contoh umum termasuk [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/id/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/id/net/aspose.slides/iconnector/), dan instance [IGraphicalObject](https://reference.aspose.com/slides/id/net/aspose.slides/igraphicalobject/) seperti diagram.
+Setiap objek slide yang mengimplementasikan [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) dapat digunakan sebagai jangkar bentuk. Contoh umum meliputi [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/net/aspose.slides/iconnector/), dan instansi [IGraphicalObject](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobject/) seperti bagan.
 
-Contoh berikut membuat beberapa jenis bentuk umum dan mengaitkan komentar modern dengan masing‑masing.
+Contoh ini menggunakan [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) untuk mengaitkan komentar dengan masing‑masing lima jenis bentuk: sebuah AutoShape, bingkai gambar, grup, penyambung, dan bagan. Gambar menggunakan data gambar yang disematkan, jadi tidak memerlukan gambar eksternal. Setiap komentar memiliki posisi penanda masing‑masing, dan presentasi yang disimpan mempertahankan semua lima asosiasi bentuk.
 
 ```csharp
 using System;
@@ -207,11 +249,13 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
 var createdTime = DateTime.Now;
 
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
 autoShape.TextFrame.Text = "AutoShape";
+
 var autoShapeCommentPosition = new PointF(30, 30);
 author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -239,18 +283,18 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **Melekatkan Komentar pada Teks dan Mengatur Statusnya**
+### **Menambatkan Komentar ke Teks dan Mengatur Statusnya**
 
-Untuk komentar modern yang terkait dengan sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/), properti [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/id/net/aspose.slides/imoderncomment/textselectionstart/) menentukan posisi awal teks yang dipilih dalam bingkai teks bentuk, sementara [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/id/net/aspose.slides/imoderncomment/textselectionlength/) menentukan panjang seleksi. Kedua properti ini mengaitkan komentar dengan rentang teks tertentu di dalam AutoShape.
+Untuk komentar modern yang terkait dengan sebuah [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) menentukan posisi awal teks yang dipilih dalam bingkai teks bentuk, sementara [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) menentukan panjang pemilihan. Bersama‑sama, properti ini mengaitkan komentar dengan rentang teks tertentu di dalam AutoShape.
 
-Properti [IModernComment.Status](https://reference.aspose.com/slides/id/net/aspose.slides/imoderncomment/status/) dapat dibaca atau diperbarui dengan nilai dari enumerasi [ModernCommentStatus](https://reference.aspose.com/slides/id/net/aspose.slides/moderncommentstatus/):
+Properti [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) dapat dibaca atau diperbarui dengan nilai dari enumerasi [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — tidak ada status komentar modern yang spesifik.
+- `NotDefined` — tidak ada status komentar modern khusus yang didefinisikan.
 - `Active` — komentar aktif.
 - `Resolved` — komentar telah diselesaikan.
 - `Closed` — komentar ditutup.
 
-Contoh berikut membuat komentar modern yang dilekatkan pada bentuk, mengaitkannya dengan seleksi teks, menandainya sebagai diselesaikan, menyimpan presentasi, dan memverifikasi nilai setelah file dibuka kembali.
+Contoh ini menambatkan komentar modern ke kata “quarterly revenue” dalam teks sebuah persegi panjang. Ia menghitung [TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) berbasis nol dari teks dan mengatur [TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) ke jumlah karakter yang dipilih. Setelah mengatur [Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) ke `Resolved`, ia menyimpan dan membuka kembali presentasi. Empat pemeriksaan konsol seharusnya masing‑masing mencetak `True`, mengonfirmasi bahwa jangkar bentuk, rentang teks, dan status tetap dipertahankan.
 
 ```csharp
 using System;
@@ -265,6 +309,7 @@ var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Or
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
 shape.Name = "Forecast text";
 shape.TextFrame.Text = shapeText;
@@ -303,7 +348,7 @@ foreach (var reopenedComment in reopenedComments)
 
 ### **Memeriksa Komentar Modern yang Ada**
 
-Untuk memeriksa presentasi yang ada, periksa komentar mana yang mengimplementasikan [IModernComment](https://reference.aspose.com/slides/id/net/aspose.slides/imoderncomment/), kemudian periksa [IModernComment.Shape](https://reference.aspose.com/slides/id/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/id/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/id/net/aspose.slides/imoderncomment/textselectionlength/), dan [IModernComment.Status](https://reference.aspose.com/slides/id/net/aspose.slides/imoderncomment/status/). Bentuk `null` menunjukkan komentar tingkat slide. Untuk jangkar [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/), properti seleksi teks mengidentifikasi rentang yang terkait dalam bingkai teks bentuk.
+Contoh ini memerlukan presentasi yang ada berisi komentar modern dan mencetak teks, status, serta detail jangkarnya. Untuk memeriksanya, periksa komentar mana yang mengimplementasikan [IModernComment](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/), lalu tinjau [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/), dan [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/). Sebuah shape `null` menunjukkan komentar tingkat slide. Untuk jangkar [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), properti pilihan teks mengidentifikasi rentang terkait dalam bingkai teks bentuk.
 
 ```csharp
 using System;
@@ -349,9 +394,11 @@ foreach (var slide in presentation.Slides)
 
 ## **Menghapus Komentar**
 
+Aspose.Slides for .NET memungkinkan Anda menghapus semua komentar dan penulisnya dari sebuah presentasi atau menghapus komentar tertentu sementara yang lain tetap ada. Contoh‑contoh berikut mendemonstrasikan kedua pendekatan dan menyimpan presentasi yang diperbarui.
+
 ### **Menghapus Semua Komentar dan Penulis Komentar**
 
-Contoh berikut menunjukkan cara menghapus semua komentar dan penulis komentar dari sebuah presentasi:
+Contoh ini membuka presentasi yang ada dan memanggil [ICommentCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/clear/) untuk setiap penulis, lalu memanggil [ICommentAuthorCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/clear/) untuk menghapus penulis itu sendiri. Presentasi yang disimpan tidak mengandung komentar maupun penulis komentar. Gunakan presentasi yang berisi komentar untuk melihat hasil penghapusan.
 
 ```csharp
 using Aspose.Slides;
@@ -365,12 +412,13 @@ foreach (var author in presentation.CommentAuthors)
 }
 
 presentation.CommentAuthors.Clear();
+
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
 ### **Menghapus Komentar Tertentu**
 
-Contoh berikut menunjukkan cara menghapus komentar tertentu dari sebuah slide:
+Contoh ini membuat dua komentar pada satu slide dan menggunakan [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) untuk menemukan komentar per penulis. Ia mengumpulkan komentar yang teksnya sama dengan “comment 1” sebelum memanggil [ICommentCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/remove/), menghindari perubahan pada koleksi selama pemilihan. Presentasi yang disimpan hanya mempertahankan “comment 2”.
 
 ```csharp
 using System;
@@ -381,6 +429,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Author", "A");
 var createdTime = DateTime.Now;
 
@@ -415,12 +464,12 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 **Apakah Aspose.Slides mendukung status terselesaikan untuk komentar modern?**
 
-Ya. [IModernComment.Status](https://reference.aspose.com/slides/id/net/aspose.slides/imoderncomment/status/) dapat dibaca dan diatur dengan nilai [ModernCommentStatus](https://reference.aspose.com/slides/id/net/aspose.slides/moderncommentstatus/), termasuk `Resolved`. Status disimpan dalam presentasi dan dapat dibaca kembali setelah file dibuka kembali.
+Ya. [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) dapat dibaca dan diatur dengan nilai dari enumerasi [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/), termasuk `Resolved`. Status disimpan dalam presentasi dan dapat dibaca kembali setelah file dibuka kembali.
 
-**Apakah diskusi berulir (rantai balasan) didukung, dan apakah ada batas kedalaman?**
+**Apakah diskusi berutas (rantai balasan) didukung, dan apakah ada batas penumpukan?**
 
-Ya. Setiap komentar dapat merujuk ke [parent comment](https://reference.aspose.com/slides/id/net/aspose.slides/comment/parentcomment/), memungkinkan rantai balasan. API tidak mendefinisikan batas kedalaman penumpukan tertentu.
+Ya. Setiap komentar dapat merujuk ke [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/), memungkinkan rantai balasan. API tidak menetapkan batas kedalaman penumpukan tertentu.
 
-**Dalam sistem koordinat apa posisi penanda komentar didefinisikan pada slide?**
+**Dalam sistem koordinat apa posisi penanda komentar pada slide didefinisikan?**
 
-Posisi penanda didefinisikan oleh koordinat titik mengambang dalam sistem koordinat slide, memungkinkan Anda menempatkannya secara tepat pada slide.
+Posisi penanda didefinisikan oleh koordinat titik mengambang dalam sistem koordinat slide, memungkinkan penempatan yang tepat pada slide.
