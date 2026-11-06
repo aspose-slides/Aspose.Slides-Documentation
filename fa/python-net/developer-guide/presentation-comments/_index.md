@@ -15,49 +15,48 @@ keywords:
 - ویرایش نظر
 - پاسخ به نظر
 - حذف نظر
-- پاک کردن نظر
+- حذف نظر
 - پاورپوینت
 - ارائه
 - پایتون
 - Aspose.Slides
-description: "مدیریت نظرات ارائه با Aspose.Slides برای پایتون از طریق .NET: افزودن، خواندن، ویرایش، پاسخ به و حذف نظرات در ارائه‌های پاورپوینت."
+description: "مدیریت نظرات ارائه با Aspose.Slides برای پایتون عبر .NET: افزودن، خواندن، ویرایش، پاسخ به و حذف نظرات در ارائه‌های پاورپوینت."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-این مقاله نحوه مدیریت نظرات ارائه را با Aspose.Slides برای Python از طریق .NET توضیح می‌دهد. انواع اصلی مرتبط با نظرات معرفی می‌شوند و نحوه افزودن نظرات به اسلایدها، دسترسی به نظرات موجود، کار با پاسخ‌ها و نظرات مدرن، و حذف نظرات از یک ارائه نشان داده می‌شود.
+این مقاله نحوه مدیریت نظرات ارائه در Aspose.Slides for Python via .NET را توضیح می‌دهد. این مقاله انواع اصلی مربوط به نظرات را معرفی می‌کند و نشان می‌دهد چگونه نظرات را به اسلایدها اضافه کنید، نظرات موجود را دسترسی داشته باشید، با پاسخ‌ها و نظرات مدرن کار کنید و نظرات را از یک ارائه حذف کنید.
 
-مثال‌ها سناریوهای رایج بررسی و همکاری در PowerPoint را پوشش می‌دهند، از جمله اختصاص نظرات به نویسندگان، خواندن متن و متادیتای نظر، ساخت زنجیره‌های پاسخ، و حذف نظرات انتخاب شده یا تمام نظرات.
+مثال‌ها شامل سناریوهای رایج بازبینی و همکاری در PowerPoint هستند، مانند اختصاص نظرات به نویسندگان، خواندن متن نظرات و متاداده، ساخت زنجیره‌های پاسخ، و حذف نظرات انتخاب شده یا تمام نظرات.
 
-در PowerPoint، نظرات به‌صورت حاشیه‌نویسی بر روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر متن و بحث مربوطه را نشان می‌دهد.
+در PowerPoint، نظرات به صورت حاشیه‌نویسی بر روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر متن آن و بحث مرتبط را نشان می‌دهد.
 
-برای درخواست نمایش یا پنهان‌سازی نظرات هنگام باز کردن یک ارائه بدون تغییر نظرات، ببینید [نمایش یا پنهان‌سازی نظرات هنگام باز کردن یک ارائه](/slides/fa/python-net/presentation-view-properties/).
+برای درخواست نمایش یا مخفی‌کردن نظرات هنگام باز کردن ارائه بدون تغییر نظرات خود، به [نمایش یا مخفی‌کردن نظرات هنگام باز کردن ارائه](/slides/fa/python-net/presentation-view-properties/) مراجعه کنید.
 
-## **چرا نظرات را به ارائه‌ها اضافه کنیم؟**
+## **چرا نظرات به ارائه‌ها اضافه کنیم؟**
 
 می‌توانید از نظرات برای ارائه بازخورد و همکاری با همکاران هنگام بررسی ارائه‌ها استفاده کنید.
 
-Aspose.Slides برای Python از طریق .NET APIهای زیر را برای کار با نظرات فراهم می‌کند:
+Aspose.Slides for Python via .NET APIهای زیر را برای کار با نظرات فراهم می‌کند:
+* کلاس [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) که دسترسی به نویسندگان نظرات ارائه را فراهم می‌کند.
+* کلاس [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/) که نظرات مربوط به یک نویسنده خاص را نمایندگی می‌کند.
+* کلاس [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) که اطلاعاتی درباره یک نظر شامل نویسنده، زمان ایجاد، موقعیت و متن را فراهم می‌کند.
+* کلاس [CommentAuthor](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/) که اطلاعاتی درباره یک نویسنده شامل نام، حروف اولیه و نظرات مرتبط را فراهم می‌کند.
 
-* کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) که دسترسی به نویسندگان نظرات ارائه را فراهم می‌کند.
-* کلاس [CommentCollection](https://reference.aspose.com/slides/fa/python-net/aspose.slides/commentcollection/) که نظرات مرتبط با یک نویسنده خاص را نمایش می‌دهد.
-* کلاس [Comment](https://reference.aspose.com/slides/fa/python-net/aspose.slides/comment/) که اطلاعاتی درباره یک نظر، شامل نویسنده، زمان ایجاد، موقعیت و متن را ارائه می‌دهد.
-* کلاس [CommentAuthor](https://reference.aspose.com/slides/fa/python-net/aspose.slides/commentauthor/) که اطلاعاتی درباره نویسنده، شامل نام، حروف اولیه و نظرات مرتبط را فراهم می‌کند.
+## **افزودن نظرات اسلاید**
 
-## **افزودن نظرات به اسلاید**
-
-مثال زیر نشان می‌دهد چگونه نظرات به اسلایدهای یک ارائه PowerPoint اضافه شوند:
+مثال دو اسلاید ایجاد می‌کند و یک نویسنده‌ی نظر را با [add_author](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/add_author/) ثبت می‌نماید. سپس با استفاده از [add_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_comment/) یک نظر روی هر اسلاید قرار می‌دهد، سپس نظرات اسلاید اول برای آن نویسنده را با [get_slide_comments](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_slide_comments/) بازیابی می‌کند. کنسول متن اولین نظر را دو بار نمایش می‌دهد، که دسترسی از طریق هر دو اسلاید و نویسنده را نشان می‌دهد، و ارائه‌ی ذخیره‌شده شامل هر دو نظر است.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     first_slide = presentation.slides[0]
     second_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
+
     author = presentation.comment_authors.add_author("Jawad", "MF")
-    position = draw.PointF(0.2, 0.2)
+    position = slides.PointF(0.2, 0.2)
     created_time = datetime.now()
 
     author.comments.add_comment("Hello Jawad, this is a slide comment", first_slide, position, created_time)
@@ -74,9 +73,40 @@ with slides.Presentation() as presentation:
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **یافتن یا ایجاد نویسنده‌ی نظر**
+
+زمانی که یک بازبینی خودکار به‌صورت مکرر همان ارائه را پردازش می‌کند، قبل از افزودن نویسنده، مجموعه‌ی [comment_authors](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/comment_authors/) آن را جستجو کنید. متد [find_by_name_and_initials](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/find_by_name_and_initials/) هم نام و هم حروف اولیه را مطابقت می‌دهد و آرایه‌ای از نویسندگان مطابق را برمی‌گرداند، یا آرایه‌ای خالی اگر هیچ مطابقتی وجود نداشته باشد. در مقابل، متد [find_by_name](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/find_by_name/) تنها براساس نام جستجو می‌کند، صرف‌نظر از حروف اولیه. فراخوانی [add_author](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/add_author/) با نام و حروف اولیه‌ای که از قبل در مجموعه موجود هستند، موجب بروز استثنا می‌شود.
+
+این مثال به یک فایل ارائه با حداقل یک اسلاید نیاز دارد. در هر یک از دو گذر، نویسنده‌ی اولین مطابقت را مجدداً استفاده می‌کند، یا تنها زمانی که نتیجه خالی باشد یک نویسنده جدید ایجاد می‌کند. اگر چندین مطابقت وجود داشته باشد، عنصر اول آرایه را انتخاب می‌کند بدون ادغام یا حذف دیگر نویسندگان. سپس برای نویسنده انتخاب شده [add_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_comment/) را فراخوانی می‌کند و ارائه را ذخیره می‌نماید. گذر دوم خروجی گذر اول را باز می‌کند و عملیات را تکرار می‌کند.
+
+```python
+from datetime import datetime
+
+import aspose.slides as slides
+
+author_name = "Reviewer"
+author_initials = "RV"
+
+input_file = "input.pptx"
+position = slides.PointF(20, 20)
+
+for pass_number in range(1, 3):
+    with slides.Presentation(input_file) as presentation:
+        matches = presentation.comment_authors.find_by_name_and_initials(author_name, author_initials)
+
+        author = matches[0] if len(matches) > 0 else presentation.comment_authors.add_author(author_name, author_initials)
+        author.comments.add_comment("Please review this slide.", presentation.slides[0], position, datetime.now())
+
+        output_file = f"review_pass_{pass_number}.pptx"
+        presentation.save(output_file, slides.export.SaveFormat.PPTX)
+        input_file = output_file
+```
+
+گذر دوم یک نظر دیگر اضافه می‌کند بدون افزودن نویسنده جدید یا حذف نظرات موجود. فایل نهایی، `review_pass_2.pptx`، هر دو نظر جدید را همراه با هر نظر اصلی در بر دارد. استفاده مجدد از یک نویسنده، نظرات را تکراری نمی‌کند: برای جلوگیری از افزودن مکرر همان نظر، پیش از افزودن، تشخیص تکرار جداگانه‌ای پیاده‌سازی کنید.
+
 ## **دسترسی به نظرات اسلاید**
 
-مثال زیر نشان می‌دهد چگونه به نظرات موجود در یک ارائه PowerPoint دسترسی پیدا کنید:
+مثال یک ارائه موجود را باز می‌کند و مجموعه‌ی [comment_authors](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/comment_authors/) آن را می‌خواند. برای هر نویسنده، از طریق [comments](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/comments/) حلقه می‌زند و شماره اسلاید، متن نظر، نام نویسنده و زمان ایجاد را چاپ می‌کند. ارائه ورودی باید شامل نظرات باشد تا خروجی کنسول تولید شود.
 
 ```python
 import aspose.slides as slides
@@ -93,39 +123,39 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 ## **پاسخ به نظرات**
 
-یک نظر والد (parent comment) نظر اصلی در رأس سلسلهٔ پاسخ‌هاست. ویژگی [parent_comment](https://reference.aspose.com/slides/fa/python-net/aspose.slides/comment/parent_comment/) کلاس [Comment](https://reference.aspose.com/slides/fa/python-net/aspose.slides/comment/) به شما اجازه می‌دهد والد یک نظر را دریافت یا تنظیم کنید.
+یک نظر والد، نظر اصلی در بالای یک سلسله‌مراتبی پاسخ‌ها است. خاصیت [parent_comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/) کلاس [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) به شما امکان می‌دهد والد یک نظر را دریافت یا تنظیم کنید.
 
-مثال زیر نشان می‌دهد چگونه پاسخ‌ها را اضافه کنید و سلسله‌مراتب نظرات حاصل را بررسی کنید:
+مثال نظراتی از دو نویسنده ایجاد می‌کند و با استفاده از [parent_comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/) پاسخ‌ها را می‌سازد، از جمله پاسخی به یک پاسخ دیگر. ارسال `None` به [get_slide_comments](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_slide_comments/) نظرات تمام نویسندگان را بازیابی می‌کند؛ کنسول هر ورودی را بر اساس عمق آن در سلسله‌مراتبی پاسخ‌ها تو رفتگی می‌دهد. مثال بحث کامل را ذخیره می‌کند، برای اولین نظر ریشه‌ای [remove](https://reference.aspose.com/slides/python-net/aspose.slides/comment/remove/) را فراخوانی می‌کند، و ارائه‌ی دوم را با حذف آن نظر و پاسخ‌هایش حفظ می‌کند.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    position = draw.PointF(10, 10)
+
+    position = slides.PointF(10, 10)
     created_time = datetime.now()
 
-    author1 = presentation.comment_authors.add_author("Author_1", "A.A.")
-    comment1 = author1.comments.add_comment("comment 1", slide, position, created_time)
+    original_author = presentation.comment_authors.add_author("Author_1", "A.A.")
+    root_comment = original_author.comments.add_comment("comment 1", slide, position, created_time)
 
-    author2 = presentation.comment_authors.add_author("Author_2", "B.B.")
-    reply1 = author2.comments.add_comment("reply 1 for comment 1", slide, position, created_time)
-    reply1.parent_comment = comment1
+    reviewer = presentation.comment_authors.add_author("Author_2", "B.B.")
+    first_reply = reviewer.comments.add_comment("reply 1 for comment 1", slide, position, created_time)
+    first_reply.parent_comment = root_comment
 
-    reply2 = author2.comments.add_comment("reply 2 for comment 1", slide, position, created_time)
-    reply2.parent_comment = comment1
+    second_reply = reviewer.comments.add_comment("reply 2 for comment 1", slide, position, created_time)
+    second_reply.parent_comment = root_comment
 
-    sub_reply = author1.comments.add_comment("subreply 3 for reply 2", slide, position, created_time)
-    sub_reply.parent_comment = reply2
+    sub_reply = original_author.comments.add_comment("subreply 3 for reply 2", slide, position, created_time)
+    sub_reply.parent_comment = second_reply
 
-    author2.comments.add_comment("comment 2", slide, position, created_time)
-    comment3 = author2.comments.add_comment("comment 3", slide, position, created_time)
+    reviewer.comments.add_comment("comment 2", slide, position, created_time)
+    separate_comment = reviewer.comments.add_comment("comment 3", slide, position, created_time)
 
-    reply3 = author1.comments.add_comment("reply 4 for comment 3", slide, position, created_time)
-    reply3.parent_comment = comment3
+    separate_reply = original_author.comments.add_comment("reply 4 for comment 3", slide, position, created_time)
+    separate_reply.parent_comment = separate_comment
 
     comments = slide.get_slide_comments(None)
     for current_comment in comments:
@@ -138,41 +168,42 @@ with slides.Presentation() as presentation:
 
     presentation.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
 
-    comment1.remove()
+    root_comment.remove()
     presentation.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* وقتی متد [remove](https://reference.aspose.com/slides/fa/python-net/aspose.slides/comment/remove/) کلاس [Comment](https://reference.aspose.com/slides/fa/python-net/aspose.slides/comment/) برای حذف یک نظر استفاده می‌شود، تمام پاسخ‌های آن نظر نیز حذف می‌شوند.
-* اگر ویژگی [parent_comment](https://reference.aspose.com/slides/fa/python-net/aspose.slides/comment/parent_comment/) یک ارجاع حلقوی ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/fa/python-net/aspose.slides/pptxeditexception/) پرتاب می‌شود.
+* وقتی متد [remove](https://reference.aspose.com/slides/python-net/aspose.slides/comment/remove/) کلاس [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) برای حذف یک نظر استفاده می‌شود، تمام پاسخ‌های آن نظر نیز حذف می‌شوند.
+* اگر خاصیت [parent_comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/) یک ارجاع چرخشی ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/) پرتاب می‌شود.
 {{% /alert %}}
 
 ## **افزودن نظرات مدرن**
 
-نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص یا به یک بازه متنی داخل AutoShape مرتبط شوند. متد [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/fa/python-net/aspose.slides/commentcollection/add_modern_comment/) علاوه بر اسلاید و مختصات نشانگر نظر، یک آرگومان [Shape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/) را می‌پذیرد.
+نظرات مدرن می‌توانند با خود اسلاید، با یک شکل خاص، یا با یک بازه‌متن داخل AutoShape مرتبط شوند. متد [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_modern_comment/) یک پارامتر [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) را علاوه بر مختصات اسلاید و نشانگر نظر می‌پذیرد.
 
-زمانی که برای آرگومان shape مقدار `None` ارسال شود، نظر یک نظر سطح‑اسلاید است. نشانگر آن توسط مختصات ارائه‌شده موقعیت‌گیری می‌شود، اما به شکل خاصی مرتبط نیست، بنابراین [ModernComment.shape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/moderncomment/shape/) مقدار `None` برمی‌گرداند. وقتی یک [Shape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/) فراهم شود، نظر به آن شکل پیوست می‌شود. مختصات هنوز موقعیت نشانگر نظر را بر روی اسلاید تعریف می‌کند، در حالی که ارتباط شکل می‌تواند از طریق [ModernComment.shape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/moderncomment/shape/) بازیابی شود.
+وقتی برای پارامتر shape مقدار `None` ارسال شود، نظر یک نظر سطح اسلاید است. نشانگر آن بر اساس مختصات ارائه‌شده قرار می‌گیرد، اما به شکل خاصی مرتبط نیست، بنابراین [ModernComment.shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/) مقدار `None` برمی‌گرداند. هنگامی که یک [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) ارائه شود، نظر به آن شکل متصل می‌شود. مختصات همچنان موقعیت نشانگر نظر را بر روی اسلاید تعریف می‌کند، در حالی که ارتباط شکل از طریق [ModernComment.shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/) قابل بازیابی است.
 
 ### **اتصال یک نظر مدرن به یک شکل**
 
-مثال زیر هم یک نظر مدرن سطح‑اسلاید و هم یک نظر مدرن متصل به یک AutoShape خاص ایجاد می‌کند. سپس شکل مرتبط با هر نظر را می‌خواند.
+مثال دو بار [add_modern_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_modern_comment/) را فراخوانی می‌کند: یک بار با شکل `None` برای یک نظر سطح اسلاید و یک بار با یک مستطیل به‌عنوان نقطه‌ی اتصال. خواندن [shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/) مقدار `True` را برای بررسی تهی بودن نظر سطح اسلاید و `Revenue title` را برای نظر متصل شده چاپ می‌کند. هر دو نظر همراه با ارائه ذخیره می‌شوند.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     author = presentation.comment_authors.add_author("Reviewer", "RV")
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 300, 80)
     shape.name = "Revenue title"
     shape.text_frame.text = "Quarterly revenue"
 
     created_time = datetime.now()
-    slide_comment_position = draw.PointF(20, 20)
-    shape_comment_position = draw.PointF(60, 60)
+    slide_comment_position = slides.PointF(20, 20)
+    shape_comment_position = slides.PointF(60, 60)
     slide_comment = author.comments.add_modern_comment("Review the overall slide layout.", slide, None, slide_comment_position, created_time)
     shape_comment = author.comments.add_modern_comment("Check this title.", slide, shape, shape_comment_position, created_time)
 
@@ -184,68 +215,67 @@ with slides.Presentation() as presentation:
 
 ### **اتصال نظرات به انواع مختلف شکل‌ها**
 
-هر شیء اسلایدی که از کلاس [Shape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/) مشتق شده باشد می‌تواند به‌عنوان لنگر شکل استفاده شود. مثال‌های رایج شامل [AutoShape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/autoshape/)، [PictureFrame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/pictureframe/)، [GroupShape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/groupshape/)، [Connector](https://reference.aspose.com/slides/fa/python-net/aspose.slides/connector/)، و نمونه‌های [GraphicalObject](https://reference.aspose.com/slides/fa/python-net/aspose.slides/graphicalobject/) مانند نمودارها می‌شود.
+هر شیء اسلایدی که از [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) مشتق شده باشد می‌تواند به‌عنوان نقطه‌ی اتصال شکل استفاده شود. مثال‌های رایج شامل [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)، [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/)، [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/)، [Connector](https://reference.aspose.com/slides/python-net/aspose.slides/connector/)، و نمونه‌های [GraphicalObject](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobject/) مانند نمودارها هستند.
 
-مثال زیر چند نوع شکل رایج ایجاد می‌کند و یک نظر مدرن را به هر یک پیوست می‌سازد.
+مثال از [add_modern_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_modern_comment/) برای ارتباط یک نظر با هر یک از پنج نوع شکل استفاده می‌کند: یک AutoShape، یک PictureFrame، یک GroupShape، یک Connector و یک Chart. تصویر از داده‌های تصویری جاسازی‌شده استفاده می‌کند، بنابراین نیازی به تصویر خارجی نیست. هر نظر موقعیت نشانگر خود را دارد و ارائه ذخیره‌شده تمام پنج ارتباط شکل را حفظ می‌کند.
 
 ```python
 import base64
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     author = presentation.comment_authors.add_author("Reviewer", "RV")
     created_time = datetime.now()
 
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 180, 60)
     auto_shape.text_frame.text = "AutoShape"
-    auto_shape_comment_position = draw.PointF(30, 30)
+
+    auto_shape_comment_position = slides.PointF(30, 30)
     author.comments.add_modern_comment("Comment on an AutoShape.", slide, auto_shape, auto_shape_comment_position, created_time)
 
     image_base64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg=="
     image_data = base64.b64decode(image_base64)
     image = presentation.images.add_image(image_data)
     picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 220, 20, 120, 80, image)
-    picture_comment_position = draw.PointF(230, 30)
+    picture_comment_position = slides.PointF(230, 30)
     author.comments.add_modern_comment("Comment on a picture.", slide, picture_frame, picture_comment_position, created_time)
 
     group_shape = slide.shapes.add_group_shape()
     group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 80, 40)
     group_shape.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 100, 0, 80, 40)
-    group_comment_position = draw.PointF(40, 150)
+    group_comment_position = slides.PointF(40, 150)
     author.comments.add_modern_comment("Comment on a group.", slide, group_shape, group_comment_position, created_time)
 
     connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 220, 150, 140, 40)
-    connector_comment_position = draw.PointF(240, 150)
+    connector_comment_position = slides.PointF(240, 150)
     author.comments.add_modern_comment("Comment on a connector.", slide, connector, connector_comment_position, created_time)
 
     chart = slide.shapes.add_chart(slides.charts.ChartType.CLUSTERED_COLUMN, 400, 20, 250, 180)
-    chart_comment_position = draw.PointF(420, 40)
+    chart_comment_position = slides.PointF(420, 40)
     author.comments.add_modern_comment("Comment on a graphical object.", slide, chart, chart_comment_position, created_time)
 
     presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **اتصال یک نظر به متن و تنظیم وضعیت آن**
+### **اتصال نظر به متن و تنظیم وضعیت آن**
 
-برای یک نظر مدرن که به یک [AutoShape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/autoshape/) مرتبط است، ویژگی [ModernComment.text_selection_start](https://reference.aspose.com/slides/fa/python-net/aspose.slides/moderncomment/text_selection_start/) موقعیت شروع متن انتخاب‌شده در قاب متن شکل را مشخص می‌کند، در حالی که [ModernComment.text_selection_length](https://reference.aspose.com/slides/fa/python-net/aspose.slides/moderncomment/text_selection_length/) طول انتخاب را تعیین می‌کند. این دو ویژگی با هم نظر را به یک بازه متنی خاص داخل AutoShape پیوند می‌دهند.
+برای یک نظر مدرن که به یک [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) مرتبط است، [ModernComment.text_selection_start](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_start/) موقعیت شروع متن انتخاب‌شده در فریم متنی شکل را مشخص می‌کند، در حالی که [ModernComment.text_selection_length](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_length/) طول انتخاب را تعیین می‌کند. این دو خاصیت با هم نظر را به یک بازه متنی خاص داخل AutoShape پیوند می‌دهند.
 
-ویژگی [ModernComment.status](https://reference.aspose.com/slides/fa/python-net/aspose.slides/moderncomment/status/) می‌تواند با مقداری از شمارنده [ModernCommentStatus](https://reference.aspose.com/slides/fa/python-net/aspose.slides/moderncommentstatus/) خوانده یا به‌روزرسانی شود:
-
-- `NOT_DEFINED` — هیچ وضعیت خاصی برای نظر مدرن تعریف نشده است.
+خاصیت [ModernComment.status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) می‌تواند با مقدار از شمارش‌گر [ModernCommentStatus](https://reference.aspose.com/slides/python-net/aspose.slides/moderncommentstatus/) خوانده یا به‌روزرسانی شود:
+- `NOT_DEFINED` — وضعیت خاصی برای نظر مدرن تعریف نشده است.
 - `ACTIVE` — نظر فعال است.
-- `RESOLVED` — نظر حل‌شده است.
+- `RESOLVED` — نظر حل شده است.
 - `CLOSED` — نظر بسته شده است.
 
-مثال زیر یک نظر مدرن متصل به شکل ایجاد می‌کند، آن را به یک بازه متنی پیوست می‌سازد، به عنوان حل‌شده علامت می‌زند، ارائه را ذخیره می‌کند و پس از بازگشایی فایل مقادیر را تأیید می‌کند.
+مثال یک نظر مدرن را به کلمات «quarterly revenue» در متن یک مستطیل متصل می‌کند. مقدار zero-based [text_selection_start](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_start/) را از متن محاسبه می‌کند و [text_selection_length](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_length/) را به تعداد کاراکترهای انتخاب‌شده تنظیم می‌نماید. پس از تنظیم [status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) به `RESOLVED`، ارائه را ذخیره و مجدداً باز می‌کند. چهار بررسی کنسول باید هر کدام `True` چاپ کنند، که تأیید می‌کند اتکا به شکل، بازه متن و وضعیت حفظ شده‌اند.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 output_file = "modern_comment_text_anchor.pptx"
@@ -255,12 +285,13 @@ expected_selection_start = shape_text.index(selected_text)
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 400, 100)
     shape.name = "Forecast text"
     shape.text_frame.text = shape_text
 
     author = presentation.comment_authors.add_author("Reviewer", "RV")
-    comment_position = draw.PointF(60, 60)
+    comment_position = slides.PointF(60, 60)
     comment = author.comments.add_modern_comment("Verify this forecast wording.", slide, shape, comment_position, datetime.now())
     comment.text_selection_start = expected_selection_start
     comment.text_selection_length = len(selected_text)
@@ -287,9 +318,9 @@ with slides.Presentation(output_file) as reopened_presentation:
         print("Resolved status preserved: " + str(status_matches))
 ```
 
-### **بررسی نظرات مدرن موجود**
+### **بازرسی نظرات مدرن موجود**
 
-برای بررسی یک ارائه موجود، بررسی کنید کدام نظرات از نوع [ModernComment](https://reference.aspose.com/slides/fa/python-net/aspose.slides/moderncomment/) هستند، سپس به [ModernComment.shape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/moderncomment/shape/)، [ModernComment.text_selection_start](https://reference.aspose.com/slides/fa/python-net/aspose.slides/moderncomment/text_selection_start/)، [ModernComment.text_selection_length](https://reference.aspose.com/slides/fa/python-net/aspose.slides/moderncomment/text_selection_length/)، و [ModernComment.status](https://reference.aspose.com/slides/fa/python-net/aspose.slides/moderncomment/status/) نگاهی بیندازید. یک شکل `None` نشان‌دهندهٔ نظر سطح‑اسلاید است. برای یک لنگر [AutoShape]، ویژگی‌های انتخاب متن بازه مرتبط در قاب متن شکل را شناسایی می‌کنند.
+مثال به یک ارائه موجود شامل نظرات مدرن نیاز دارد و متن، وضعیت و جزئیات اتصال آن‌ها را چاپ می‌کند. برای بازرسی، بررسی کنید که کدام نظرات نمونه‌ای از [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) هستند، سپس [ModernComment.shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/)، [ModernComment.text_selection_start](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_start/)، [ModernComment.text_selection_length](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_length/) و [ModernComment.status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) را بررسی کنید. یک شکل `None` نشان‌دهنده یک نظر سطح اسلاید است. برای یک نقطه‌ی اتصال [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)، ویژگی‌های انتخاب متن بازه مرتبط در فریم متنی شکل را مشخص می‌کنند.
 
 ```python
 import aspose.slides as slides
@@ -321,9 +352,11 @@ with slides.Presentation("comments.pptx") as presentation:
 
 ## **حذف نظرات**
 
+Aspose.Slides for Python via .NET به شما اجازه می‌دهد تمام نظرات و نویسندگان آن‌ها را از یک ارائه حذف کنید یا نظرات انتخابی را حذف کنید در حالی که بقیه نگه داشته می‌شوند. مثال‌های زیر هر دو روش را نشان می‌دهند و ارائه به‌روز‌شده را ذخیره می‌کنند.
+
 ### **حذف تمام نظرات و نویسندگان نظرات**
 
-مثال زیر نشان می‌دهد چگونه تمام نظرات و نویسندگان نظرات را از یک ارائه حذف کنید:
+مثال یک ارائه موجود را باز می‌کند و برای هر نویسنده [CommentCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/clear/) را فراخوانی می‌کند، سپس [CommentAuthorCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/clear/) را برای حذف خود نویسندگان فراخوانی می‌کند. ارائه ذخیره‌شده نه نظراتی دارد و نه نویسندگان نظرات. برای مشاهده حذف، از یک ارائه شامل نظرات استفاده کنید.
 
 ```python
 import aspose.slides as slides
@@ -333,26 +366,27 @@ with slides.Presentation("example.pptx") as presentation:
         author.comments.clear()
 
     presentation.comment_authors.clear()
+
     presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **حذف نظرات خاص**
 
-مثال زیر نشان می‌دهد چگونه نظرات خاصی را از یک اسلاید حذف کنید:
+مثال دو نظر بر روی یک اسلاید ایجاد می‌کند و با استفاده از [get_slide_comments](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_slide_comments/) نظرات هر نویسنده را پیدا می‌کند. قبل از فراخوانی [CommentCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/remove/) نظراتی که متن آن‌ها برابر با «comment 1» است جمع‌آوری می‌کند تا از تغییر مجموعه حین انتخاب جلوگیری شود. ارائه ذخیره‌شده تنها «comment 2» را نگه می‌دارد.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     author = presentation.comment_authors.add_author("Author", "A")
     created_time = datetime.now()
 
-    first_comment_position = draw.PointF(0.2, 0.2)
-    second_comment_position = draw.PointF(0.3, 0.2)
+    first_comment_position = slides.PointF(0.2, 0.2)
+    second_comment_position = slides.PointF(0.3, 0.2)
     author.comments.add_comment("comment 1", slide, first_comment_position, created_time)
     author.comments.add_comment("comment 2", slide, second_comment_position, created_time)
 
@@ -370,16 +404,13 @@ with slides.Presentation() as presentation:
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا Aspose.Slides وضعیت حل‌شده برای نظرات مدرن را پشتیبانی می‌کند؟**
+**آیا Aspose.Slides وضعیت حل شده برای نظرات مدرن را پشتیبانی می‌کند؟**  
+بله. [ModernComment.status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) می‌تواند با مقدار از [ModernCommentStatus](https://reference.aspose.com/slides/python-net/aspose.slides/moderncommentstatus/)، از جمله `RESOLVED`، خوانده و تنظیم شود. این وضعیت در ارائه ذخیره می‌شود و پس از بازگشایی مجدد فایل می‌توان آن را دوباره خواند.
 
-بله. ویژگی [ModernComment.status](https://reference.aspose.com/slides/fa/python-net/aspose.slides/moderncomment/status/) می‌تواند با مقداری از شمارنده [ModernCommentStatus](https://reference.aspose.com/slides/fa/python-net/aspose.slides/moderncommentstatus/) خوانده و تنظیم شود، از جمله `RESOLVED`. این وضعیت در ارائه ذخیره می‌شود و پس از بازگشایی فایل می‌توان دوباره آن را خواند.
+**آیا بحث‌های رشته‌ای (زنجیره‌های پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای عمق تو در توی آن‌ها وجود دارد؟**  
+بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/) خود ارجاع دهد، که زنجیره‌های پاسخ را امکان‌پذیر می‌سازد. API محدودیت خاصی برای عمق تو در تو تعریف نکرده است.
 
-**آیا بحث‌های رشته‌ای (زنجیره‌های پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای عمق تو در توی آن‌ها وجود دارد؟**
-
-بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/fa/python-net/aspose.slides/comment/parent_comment/) خود ارجاع دهد و بدین ترتیب زنجیره‌های پاسخ امکان‌پذیر می‌شود. API محدودیت خاصی برای عمق تو در تو تعریف نمی‌کند.
-
-**موقعیت نشانگر نظر بر روی اسلاید بر اساس چه سیستم مختصات تعریف می‌شود؟**
-
-موقعیت نشانگر با مختصات اعشاری در سیستم مختصات اسلاید تعریف می‌شود، که امکان قرار دادن دقیق آن را بر روی اسلاید فراهم می‌کند.
+**موقعیت نشانگر نظر بر روی اسلاید در چه سیستم مختصاتی تعریف می‌شود؟**  
+موقعیت نشانگر توسط مختصات عددی شناور در سیستم مختصات اسلاید تعریف می‌شود، به‌طوری که بتوانید آن را دقیقاً بر روی اسلاید قرار دهید.

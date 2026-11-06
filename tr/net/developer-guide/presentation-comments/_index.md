@@ -11,9 +11,9 @@ keywords:
 - sunum yorumları
 - slayt yorumları
 - yorum ekle
-- yoruma erişim
+- yoruma eriş
 - yorumu düzenle
-- yoruma yanıt
+- yoruma yanıtla
 - yorumu kaldır
 - yorumu sil
 - PowerPoint
@@ -25,28 +25,28 @@ description: "Aspose.Slides for .NET ile sunum yorumlarını yönetin: PowerPoin
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for .NET ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili tipleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
+Bu makale, Aspose.Slides for .NET ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili türleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
 
-Örnekler, PowerPoint'te yaygın inceleme ve işbirliği senaryolarını kapsar; yazarlarına yorum atama, yorum metni ve meta verilerini okuma, yanıt zincirleri oluşturma ve seçili yorumları veya tüm yorumları kaldırma gibi.
+Örnekler, PowerPoint'te yaygın inceleme ve iş birliği senaryolarını kapsar; yorumları yazarlara atama, yorum metnini ve meta verilerini okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma gibi.
 
-PowerPoint'te yorumlar, slaytlardaki açıklama balonları olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
+PowerPoint'te yorumlar, slaytlardaki açıklama olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
 
-[Sunumu Açarken Yorumları Göster veya Gizle](/slides/tr/net/presentation-view-properties/).
+Sunum Açılırken Yorumların Gösterilmesi veya Gizlenmesi istediğinizde, yorumların kendisini değiştirmeden bunu talep etmek için [Show or Hide Comments When Opening a Presentation](/slides/tr/net/presentation-view-properties/).
 
-## **Sunumlara Neden Yorum Eklenir?**
+## **Sunumalara Neden Yorum Eklenir?**
 
-Yorumları, sunumları incelerken geri bildirim sağlamak ve meslektaşlarla işbirliği yapmak için kullanabilirsiniz.
+Yorumları, sunumları incelerken geri bildirim sağlamak ve meslektaşlarla iş birliği yapmak için kullanabilirsiniz.
 
-Aspose.Slides for .NET aşağıdaki API'leri yorumlarla çalışmak için sağlar:
+Aspose.Slides for .NET, yorumlarla çalışmak için aşağıdaki API'leri sağlar:
 
-* The [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfı, sunumun yorum yazarlarına erişim sağlar.
-* The [ICommentCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/icommentcollection) arayüzü, bireysel bir yazarla ilişkili yorumları temsil eder.
-* The [IComment](https://reference.aspose.com/slides/tr/net/aspose.slides/icomment) arayüzü, bir yorum hakkında yazar, oluşturulma zamanı, konum ve metin dahil bilgi sağlar.
-* The [CommentAuthor](https://reference.aspose.com/slides/tr/net/aspose.slides/commentauthor) sınıfı, bir yazar hakkında ad, baş harfler ve ilişkili yorumlar gibi bilgi sağlar.
+* The [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfı, sunumun yorum yazarlarına erişim sağlar.
+* The [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) arabirimi, belirli bir yazarla ilişkili yorumları temsil eder.
+* The [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) arabirimi, bir yorum hakkında bilgi sağlar; yazar, oluşturulma zamanı, konum ve metin gibi.
+* The [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) sınıfı, bir yazar hakkında bilgi sağlar; adı, baş harfleri ve ilişkili yorumlar.
 
-## **Slayt Yorumları Ekle**
+## **Slayt Yorumları Ekleme**
 
-PowerPoint sunumundaki slaytlara yorum eklemeyi gösteren örnek:
+Örnek, iki slayt oluşturur ve bir yorum yazarını [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) ile kaydeder. Her slayta bir yorum yerleştirmek için [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) kullanır, ardından o yazar için ilk slaytın yorumlarını [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) ile alır. Konsol, ilk yorumun metnini iki kez gösterir; bu, hem slayt hem de yazar üzerinden erişimi gösterir ve kaydedilen sunum her iki yorumu da içerir.
 
 ```csharp
 using System;
@@ -57,6 +57,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var firstSlide = presentation.Slides[0];
 var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
 var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 var position = new PointF(0.2f, 0.2f);
 var createdTime = DateTime.Now;
@@ -77,9 +78,44 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Slayt Yorumlarına Erişme**
+## **Yorum Yazarını Bulma veya Oluşturma**
 
-PowerPoint sunumundaki mevcut yorumlara erişmeyi gösteren örnek:
+Aynı sunum tekrar tekrar işlendiğinde, yazar eklemeden önce [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/) koleksiyonunu arayın. [FindByNameAndInitials](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbynameandinitials/) hem adı hem de baş harfleri eşleştirir ve eşleşen yazarların bir dizisini döndürür; eşleşme yoksa boş bir dizi döner. Buna karşılık, [FindByName](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbyname/) yalnızca adı arar, baş harfler dikkate alınmaz. Koleksiyonda zaten bulunan bir ad ve baş harf ile [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) çağrısı bir istisna fırlatır.
+
+Örnek, en az bir slaytı olan bir sunum dosyası gerektirir. İki geçişin her birinde, ilk eşleşen yazar yeniden kullanılur veya sonuç boşsa yeni bir yazar oluşturulur. Birden çok eşleşme varsa, diğer yazarları birleştirmeden veya kaldırmadan ilk dizi elemanı seçilir. Ardından seçilen yazar için [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) çağrılır ve sunum kaydedilir. İkinci geçiş, birinci geçişin çıktısını açar ve işlemi tekrarlar.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string authorName = "Reviewer";
+const string authorInitials = "RV";
+
+var inputFile = "input.pptx";
+var position = new PointF(20, 20);
+
+for (var pass = 1; pass <= 2; pass++)
+{
+    using var presentation = new Presentation(inputFile);
+
+    var matches = presentation.CommentAuthors.FindByNameAndInitials(authorName, authorInitials);
+    
+    var author = matches.Length > 0 ? matches[0] : presentation.CommentAuthors.AddAuthor(authorName, authorInitials);
+    author.Comments.AddComment("Please review this slide.", presentation.Slides[0], position, DateTime.Now);
+
+    var outputFile = $"review_pass_{pass}.pptx";
+    presentation.Save(outputFile, SaveFormat.Pptx);
+    inputFile = outputFile;
+}
+```
+
+İkinci geçiş, başka bir yazar eklemeden veya mevcut yorumları kaldırmadan yeni bir yorum ekler. Son dosya, `review_pass_2.pptx`, hem yeni yorumları hem de olası orijinal yorumları içerir. Bir yazarın yeniden kullanılması yorumların tekilleştirilmesini sağlamaz: aynı yorumun tekrar eklenmesini önlemek için eklemeden önce ayrı bir yinelenen kontrolü uygulayın.
+
+## **Slayt Yorumlarına Erişim**
+
+Örnek, mevcut bir sunumu açar ve [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/) koleksiyonunu okur. Her yazar için, [Comments](https://reference.aspose.com/slides/net/aspose.slides/icommentauthor/comments/) üzerinden döner ve slayt numarasını, yorum metnini, yazar adını ve oluşturulma zamanını yazar. Girdi sunumu, konsol çıktısı üretmek için yorumlar içermelidir.
 
 ```csharp
 using System;
@@ -102,9 +138,9 @@ foreach (var author in presentation.CommentAuthors)
 
 ## **Yorumlara Yanıt Verme**
 
-Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. [IComment] arayüzünün [ParentComment] özelliği, bir yorumun üst yorumunu almanızı veya ayarlamanızı sağlar.
+Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) arabirimindeki [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) özelliği, bir yorumun üst yorumunu almanıza veya ayarlamanıza izin verir.
 
-Aşağıdaki örnek, yanıt eklemeyi ve oluşan yorum hiyerarşisini incelemeyi gösterir:
+Örnek, iki yazarın yorumlarını oluşturur ve [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) kullanarak yanıtları, bir yanıtın başka bir yanıta yanıt vermesi dahil olmak üzere, oluşturur. `null` geçildiğinde [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) tüm yazarların yorumlarını getirir; konsol her girişi yanıt hiyerarşisinin derinliğine göre girintiler. Örnek, tam tartışmayı kaydeder, ilk kök yorum üzerinde [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) çağırır ve bu yorum ve yanıtları kaldırılmış ikinci bir sunum kaydeder.
 
 ```csharp
 using System;
@@ -114,27 +150,28 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var position = new PointF(10, 10);
 var createdTime = DateTime.Now;
 
-var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
-var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
+var originalAuthor = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var rootComment = originalAuthor.Comments.AddComment("comment 1", slide, position, createdTime);
 
-var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
-var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
-reply1.ParentComment = comment1;
+var reviewer = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var firstReply = reviewer.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+firstReply.ParentComment = rootComment;
 
-var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
-reply2.ParentComment = comment1;
+var secondReply = reviewer.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+secondReply.ParentComment = rootComment;
 
-var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
-subReply.ParentComment = reply2;
+var subReply = originalAuthor.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = secondReply;
 
-author2.Comments.AddComment("comment 2", slide, position, createdTime);
-var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+reviewer.Comments.AddComment("comment 2", slide, position, createdTime);
+var separateComment = reviewer.Comments.AddComment("comment 3", slide, position, createdTime);
 
-var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
-reply3.ParentComment = comment3;
+var separateReply = originalAuthor.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+separateReply.ParentComment = separateComment;
 
 var comments = slide.GetSlideComments(null);
 for (var i = 0; i < comments.Length; i++)
@@ -151,24 +188,24 @@ for (var i = 0; i < comments.Length; i++)
 
 presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
 
-comment1.Remove();
+rootComment.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-* Bir yorumu silmek için [IComment] arayüzünün [Remove] yöntemi kullanıldığında, o yoruma ait tüm yanıtlar da silinir.
-* ParentComment özelliği döngüsel bir referans oluşturursa, bir [PptxEditException] istisnası fırlatılır.
+{{% alert color="warning" title="Warning" %}}
+* [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) arabiriminin [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) yöntemi bir yorumu silerken, o yoruma ait tüm yanıtlar da silinir.
+* [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) özelliği dairesel bir referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) fırlatılır.
 {{% /alert %}}
 
-## **Modern Yorumlar Ekle**
+## **Modern Yorumlar Ekleme**
 
-Modern yorumlar slaytın kendisine, belirli bir şekle veya AutoShape içindeki bir metin aralığına ilişkilendirilebilir. [ICommentCollection.AddModernComment] yöntemi, slayt ve yorum işaretleyici koordinatlarına ek olarak bir [IShape] bağımsız değişkeni kabul eder.
+Modern yorumlar, slaytın kendisine, belirli bir şekle veya bir AutoShape içindeki metin aralığına ilişkilendirilebilir. [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) yöntemi, slayt ve yorum işaretçi koordinatlarına ek olarak bir [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) argümanı kabul eder.
 
-Şekil bağımsız değişkeni için `null` geçirilirse, yorum slayt seviyesinde bir yorum olur. İşaretleyicisi sağlanan koordinatlarla konumlandırılır, ancak belirli bir şekle bağlı değildir, bu yüzden [IModernComment.Shape] `null` döner. Bir [IShape] sağlandığında, yorum o şekle bağlanır. Koordinatlar yine slayt üzerindeki yorum işaretleyicisinin konumunu tanımlar, şekil ilişkisi ise [IModernComment.Shape] üzerinden alınabilir.
+`null` şekil argümanı sağlandığında yorum, slayt‑seviyesinde bir yorum olur. İşaretçi sağlanan koordinatlarla konumlandırılır, ancak belirli bir şekle bağlı değildir; bu nedenle [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) `null` döner. Bir [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) sağlandığında yorum o şekle sabitlenir. Koordinatlar, yorum işaretçisinin slayttaki konumunu tanımlamaya devam ederken, şekil ilişkisi [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) ile alınabilir.
 
-### **Modern Yorumu Bir Şekle Bağlama**
+### **Modern Yorumu Bir Şekle Sabitleme**
 
-Bu örnek, hem slayt seviyesinde bir modern yorum hem de belirli bir AutoShape'e bağlanmış bir modern yorum oluşturur. Ardından her yorumdan ilişkili şekli okur.
+Örnek, [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) yöntemini iki kez çağırır: bir kez `null` şekil ile slayt‑seviyesi yorum, bir kez de dikdörtgeni çapa olarak kullanarak. [Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) okununca slayt‑seviyesi yorum için `True` ve çapa yapılan yorum için `Revenue title` yazdırılır. Her iki yorum da sunumla kaydedilir.
 
 ```csharp
 using System;
@@ -178,7 +215,9 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
 shape.Name = "Revenue title";
 shape.TextFrame.Text = "Quarterly revenue";
@@ -195,11 +234,11 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **Yorumları Farklı Şekil Türlerine Bağlama**
+### **Farklı Şekil Türlerine Yorum Sabitleme**
 
-Yorum bağlama için kullanılabilecek herhangi bir slayt nesnesi [IShape] arayüzünü uygular. Yaygın örnekler arasında [IAutoShape], [IPictureFrame], [IGroupShape], [IConnector] ve grafik nesneleri (ör. grafikler) bulunur.
+[IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) uygulayan herhangi bir slayt nesnesi şekil çapa olarak kullanılabilir. Yaygın örnekler arasında [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/net/aspose.slides/iconnector/) ve [IGraphicalObject](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobject/) (ör. grafikler) bulunur.
 
-Bu örnek, çeşitli yaygın şekil türleri oluşturur ve her birine modern bir yorum ilişkilendirir.
+Örnek, beş şekil türüne (AutoShape, resim çerçevesi, grup, bağlayıcı ve grafik) her biri için bir modern yorum ilişkilendirmek amacıyla [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) kullanır. Resim gömülü görüntü verisiyle sağlanır, dış bir resim gerekli değildir. Her yorumun kendi işaretçi konumu vardır ve kaydedilen sunum beş şekil ilişkisini de tutar.
 
 ```csharp
 using System;
@@ -210,11 +249,13 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
 var createdTime = DateTime.Now;
 
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
 autoShape.TextFrame.Text = "AutoShape";
+
 var autoShapeCommentPosition = new PointF(30, 30);
 author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -242,18 +283,18 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **Yorumu Metne Bağla ve Durumunu Ayarla**
+### **Metne Yorum Sabitleme ve Durumunu Ayarlama**
 
-Bir [IAutoShape] ile ilişkili modern yorum için, [IModernComment.TextSelectionStart] seçilen metnin şeklin metin çerçevesindeki başlangıç konumunu, [IModernComment.TextSelectionLength] ise seçimin uzunluğunu belirtir. Bu iki özellik birlikte, yorumu AutoShape içindeki belirli bir metin aralığına bağlar.
+[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ile ilişkilendirilmiş bir modern yorumda, [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) şeklin metin çerçevesindeki seçili metnin başlangıç konumunu, [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) ise seçimin uzunluğunu belirler. Bu iki özellik, yorumu AutoShape içinde belirli bir metin aralığıyla ilişkilendirir.
 
-[IModernComment.Status] özelliği, bir [ModernCommentStatus] değerinden okunabilir veya ayarlanabilir:
+[IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) özelliği, [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/) enum değerlerinden biriyle okunabilir veya güncellenebilir:
 
-- `NotDefined` — belirli bir modern yorum durumu tanımlanmadı.
+- `NotDefined` — belirli bir modern‑yorum durumu tanımlı değildir.
 - `Active` — yorum aktiftir.
-- `Resolved` — yorum çözülmüş durumdadır.
-- `Closed` — yorum kapalıdır.
+- `Resolved` — yorum çözülmüştür.
+- `Closed` — yorum kapatılmıştır.
 
-Bu örnek, şekle bağlanmış bir modern yorum oluşturur, metin seçimiyle ilişkilendirir, durumu çözülmüş olarak işaretler, sunumu kaydeder ve dosyayı yeniden açtıktan sonra değerleri doğrular.
+Örnek, bir dikdörtgenin metnindeki "quarterly revenue" kelimelerine modern bir yorum sabitler. Metinden sıfır‑bazlı [TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) hesaplanır ve [TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) seçili karakter sayısına ayarlanır. [Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) `Resolved` olarak ayarlandıktan sonra sunum kaydedilir ve yeniden açılır. Dört konsol kontrolü her biri `True` yazdırmalı, şekil çapasının, metin aralığının ve durumun korunduğunu onaylamalıdır.
 
 ```csharp
 using System;
@@ -268,6 +309,7 @@ var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Or
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
 shape.Name = "Forecast text";
 shape.TextFrame.Text = shapeText;
@@ -306,7 +348,7 @@ foreach (var reopenedComment in reopenedComments)
 
 ### **Mevcut Modern Yorumları İnceleme**
 
-Var olan bir sunumu incelemek için, hangi yorumların [IModernComment] uyguladığını kontrol edin, ardından [IModernComment.Shape], [IModernComment.TextSelectionStart], [IModernComment.TextSelectionLength] ve [IModernComment.Status] özelliklerine bakın. `null` şekil bir slayt düzeyi yorumu gösterir. Bir [IAutoShape] bağlaması için, metin seçim özellikleri şeklin metin çerçevesindeki ilgili aralığı tanımlar.
+Örnek, modern yorumlar içeren mevcut bir sunum gerektirir ve yorumların metnini, durumunu ve çapa ayrıntılarını yazdırır. İncelemek için, hangi yorumların [IModernComment](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/) uyguladığını kontrol edin, ardından [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) ve [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) incelenir. `null` şekil, slayt‑seviyesi yorum olduğunu gösterir. Bir [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) çapasında, metin‑seçim özellikleri şeklin metin çerçevesindeki ilgili aralığı tanımlar.
 
 ```csharp
 using System;
@@ -350,11 +392,13 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **Yorumları Kaldır**
+## **Yorumları Kaldırma**
 
-### **Tüm Yorumları ve Yorum Yazarlarını Kaldır**
+Aspose.Slides for .NET, bir sunumdan tüm yorumları ve yazarlarını kaldırmanıza veya seçili yorumları silip geri kalanını tutmanıza olanak tanır. Aşağıdaki örnekler her iki yaklaşımı gösterir ve güncellenmiş sunumu kaydeder.
 
-Bu örnek, bir sunumdan tüm yorumları ve yorum yazarlarını kaldırmayı gösterir.
+### **Tüm Yorumları ve Yorum Yazarlarını Kaldırma**
+
+Örnek, mevcut bir sunumu açar ve her yazar için [ICommentCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/clear/) metodunu çağırır, ardından yazarları kendilerini kaldırmak için [ICommentAuthorCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/clear/) metodunu çağırır. Kaydedilen sunum ne yorum ne de yorum yazarları içerir. Kaldırmayı gözlemlemek için yorumlar içeren bir sunum kullanın.
 
 ```csharp
 using Aspose.Slides;
@@ -368,12 +412,13 @@ foreach (var author in presentation.CommentAuthors)
 }
 
 presentation.CommentAuthors.Clear();
+
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
-### **Belirli Yorumları Kaldır**
+### **Belirli Yorumları Kaldırma**
 
-Bu örnek, bir slayttan belirli yorumları kaldırmayı gösterir.
+Örnek, bir slaytta iki yorum oluşturur ve [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) kullanarak her yazarın yorumlarını bulur. Metni "comment 1" olan yorumları toplar ve ardından [ICommentCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/remove/) metodunu çağırır; bu, seçim sırasında koleksiyonun değiştirilmesini önler. Kaydedilen sunum yalnızca "comment 2" yorumunu tutar.
 
 ```csharp
 using System;
@@ -384,6 +429,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Author", "A");
 var createdTime = DateTime.Now;
 
@@ -416,14 +462,14 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 ## **SSS**
 
-**Aspose.Slides modern yorumlar için çözülmüş durumunu destekliyor mu?**
+**Aspose.Slides modern yorumlar için çözülmüş (resolved) durumunu destekliyor mu?**
 
-Evet. [IModernComment.Status] bir [ModernCommentStatus] değeriyle, `Resolved` dahil, okunabilir ve ayarlanabilir. Durum sunumda saklanır ve dosya yeniden açıldığında tekrar okunabilir.
+Evet. [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) bir [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/) değeriyle okunabilir ve ayarlanabilir; `Resolved` da dahildir. Durum sunumda saklanır ve dosya yeniden açıldıktan sonra tekrar okunabilir.
 
-**İş parçacıklı tartışmalar (yanıt zincirleri) destekleniyor mu ve bir iç içeleme sınırı var mı?**
+**İleti zincirleri (yanıt dizileri) destekleniyor mu ve bir iç içe limit var mı?**
 
-Evet. Her yorum, [parent comment] referansı ile bir yanıt zinciri oluşturabilir. API belirli bir iç içeleme derinliği sınırı tanımlamaz.
+Evet. Her yorum, [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/) referansı ile bir yanıt zinciri oluşturabilir. API, belirli bir iç içe derinlik limiti tanımlamaz.
 
-**Bir yorum işaretleyicisinin konumu slayt üzerinde hangi koordinat sisteminde tanımlanır?**
+**Bir yorum işaretçisinin slayt üzerindeki konumu hangi koordinat sisteminde tanımlanır?**
 
-İşaretleyici konumu, slayt koordinat sistemindeki kayan nokta koordinatlarıyla tanımlanır, bu da onu slayt üzerinde kesin olarak konumlandırmanıza olanak tanır.
+İşaretçi konumu, slayt koordinat sistemindeki kayan nokta koordinatlarıyla tanımlanır; bu, işaretçiyi slayt üzerinde kesin olarak konumlandırmanızı sağlar.

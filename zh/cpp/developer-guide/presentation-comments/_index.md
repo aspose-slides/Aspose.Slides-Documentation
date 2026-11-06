@@ -20,32 +20,32 @@ keywords:
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 管理演示文稿批注：在 PowerPoint 演示文稿中快速轻松地添加、读取、编辑、回复和删除批注。"
+description: "使用 Aspose.Slides for C++ 管理演示文稿批注：快速轻松地在 PowerPoint 演示文稿中添加、读取、编辑、回复和删除批注。"
 ---
 ## **概述**
 
-本文介绍如何使用 Aspose.Slides for C++ 管理演示文稿的批注。它介绍了主要的批注相关类型，并演示了如何向幻灯片添加批注、访问现有批注、处理回复和现代批注，以及如何从演示文稿中删除批注。
+本文介绍如何使用 Aspose.Slides for C++ 管理演示文稿的批注。它阐述了主要的批注相关类型，并演示了如何向幻灯片添加批注、访问现有批注、处理回复和现代批注，以及从演示文稿中删除批注。
 
-这些示例涵盖了 PowerPoint 中常见的审阅和协作场景，例如将批注分配给作者、读取批注文本和元数据、构建回复链，以及删除选定的批注或全部批注。
+示例涵盖了 PowerPoint 中常见的审阅与协作场景，例如为作者分配批注、读取批注文本和元数据、构建回复链，以及删除选定的批注或全部批注。
 
-在 PowerPoint 中，批注显示为幻灯片上的注释。选择批注后会显示其文本和相关讨论。
+在 PowerPoint 中，批注显示为幻灯片上的注释。选中批注后会显示其文本及相关讨论。
 
-要在打开演示文稿时显示或隐藏批注而不更改批注本身，请参阅[打开演示文稿时显示或隐藏批注](/slides/zh/cpp/presentation-view-properties/)。
+当打开演示文稿时显示或隐藏批注，请参见[打开演示文稿时显示或隐藏批注](/slides/zh/cpp/presentation-view-properties/)。
 
-## **为什么要向演示文稿添加批注？**
+## **为什么要在演示文稿中添加批注？**
 
 在审阅演示文稿时，您可以使用批注提供反馈并与同事协作。
 
 Aspose.Slides for C++ 提供以下用于处理批注的 API：
 
-* [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 类，提供对演示文稿的批注作者的访问。
-* [ICommentCollection](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icommentcollection/) 接口，表示与单个作者关联的批注。
-* [IComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/) 接口，提供有关批注的信息，包括作者、创建时间、位置和文本。
-* [CommentAuthor](https://reference.aspose.com/slides/zh/cpp/aspose.slides/commentauthor/) 类，提供有关作者的信息，包括姓名、首字母和关联的批注。
+* The [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类，提供对演示文稿批注作者的访问。
+* The [ICommentCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/) 接口，表示与单个作者关联的批注。
+* The [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) 接口，提供有关批注的信息，包括作者、创建时间、位置和文本。
+* The [CommentAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/commentauthor/) 类，提供有关作者的信息，包括姓名、缩写以及关联的批注。
 
 ## **添加幻灯片批注**
 
-以下示例展示了如何在 PowerPoint 演示文稿中向幻灯片添加批注：
+示例创建了两个幻灯片，并使用 [AddAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/addauthor/) 注册了一个批注作者。它使用 [AddComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addcomment/) 在每个幻灯片上放置一个批注，然后使用 [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/) 获取该作者在第一张幻灯片上的批注。控制台两次显示第一条批注的文本，演示了通过幻灯片和作者两种方式访问，并且保存的演示文稿包含这两个批注。
 
 ```cpp
 #include <DOM/IComment.h>
@@ -68,6 +68,7 @@ using namespace System::Drawing;
 auto presentation = MakeObject<Presentation>();
 auto firstSlide = presentation->get_Slide(0);
 auto secondSlide = presentation->get_Slides()->AddEmptySlide(presentation->get_LayoutSlide(0));
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Jawad", u"MF");
 auto position = PointF(0.2f, 0.2f);
 auto createdTime = DateTime::get_Now();
@@ -88,9 +89,54 @@ if (comments->get_Length() > 0)
 presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 ```
 
+## **查找或创建批注作者**
+
+当自动审阅重复处理同一演示文稿时，应在添加作者之前搜索由 [get_CommentAuthors](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_commentauthors/) 返回的集合。 [FindByNameAndInitials](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/findbynameandinitials/) 同时匹配姓名和缩写，并返回匹配作者的数组；如果没有匹配项，则返回空数组。相比之下， [FindByName](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/findbyname/) 仅按姓名搜索，不考虑缩写。使用已存在于集合中的姓名和缩写调用 [AddAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/addauthor/) 会抛出异常。
+
+示例需要一个至少包含一张幻灯片的演示文稿文件。在两次遍历中，它复用第一个匹配的作者，只有在结果为空时才创建新的作者。如果有多个匹配项，则选择数组的第一个元素，而不合并或删除其他作者。随后为选定的作者调用 [AddComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addcomment/) 并保存演示文稿。第二次遍历打开第一次遍历的输出并重复该操作。
+
+```cpp
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/date_time.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+const String authorName = u"Reviewer";
+const String authorInitials = u"RV";
+
+auto inputFile = String(u"input.pptx");
+auto position = PointF(20.0f, 20.0f);
+
+for (auto pass = 1; pass <= 2; pass++)
+{
+    auto presentation = MakeObject<Presentation>(inputFile);
+
+    auto matches = presentation->get_CommentAuthors()->FindByNameAndInitials(authorName, authorInitials);
+
+    auto author = matches->get_Length() > 0 ? matches[0] : presentation->get_CommentAuthors()->AddAuthor(authorName, authorInitials);
+    author->get_Comments()->AddComment(u"Please review this slide.", presentation->get_Slide(0), position, DateTime::get_Now());
+
+    auto outputFile = String::Format(u"review_pass_{0}.pptx", pass);
+    presentation->Save(outputFile, SaveFormat::Pptx);
+    inputFile = outputFile;
+}
+```
+
+第二次遍历会添加另一条批注，但不会再添加作者或删除已有批注。最终文件 `review_pass_2.pptx` 包含这两个新批注以及任何原有批注。复用作者并不会对批注去重：若要避免重复添加相同批注，需要在添加前实现单独的重复检测。
+
 ## **访问幻灯片批注**
 
-以下示例展示了如何访问 PowerPoint 演示文稿中的现有批注：
+示例打开一个现有的演示文稿，并读取由 [get_CommentAuthors](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_commentauthors/) 返回的集合。对于每个作者，它遍历由 [get_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthor/get_comments/) 返回的集合，并打印幻灯片编号、批注文本、作者姓名和创建时间。输入的演示文稿必须包含批注才能在控制台产生输出。
 
 ```cpp
 #include <DOM/IComment.h>
@@ -121,9 +167,9 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **回复批注**
 
-父批注是回复层次结构顶部的原始批注。[IComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/) 接口的 [get_ParentComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/get_parentcomment/) 和 [set_ParentComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/set_parentcomment/) 方法可让您获取或设置批注的父批注。
+父批注是回复层级顶部的原始批注。 [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) 接口的 [get_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/get_parentcomment/) 和 [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) 方法允许您获取或设置批注的父批注。
 
-以下示例展示了如何添加回复并检查生成的批注层次结构：
+示例由两位作者创建批注，并使用 [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) 构建回复，包括对另一个回复的回复。向 [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/) 传入 `nullptr` 可检索所有作者的批注；控制台根据回复层级的深度对每条记录进行缩进。示例保存完整的讨论，对第一条根批注调用 [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/remove/)，并保存第二个演示文稿，其中该批注及其回复已被删除。
 
 ```cpp
 #include <DOM/IComment.h>
@@ -144,30 +190,31 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto position = PointF(10.0f, 10.0f);
 auto createdTime = DateTime::get_Now();
 
-auto author1 = presentation->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
-auto comment1 = author1->get_Comments()->AddComment(u"comment 1", slide, position, createdTime);
+auto originalAuthor = presentation->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
+auto rootComment = originalAuthor->get_Comments()->AddComment(u"comment 1", slide, position, createdTime);
 
-auto author2 = presentation->get_CommentAuthors()->AddAuthor(u"Author_2", u"B.B.");
-auto reply1 = author2->get_Comments()->AddComment(u"reply 1 for comment 1", slide, position, createdTime);
-reply1->set_ParentComment(comment1);
+auto reviewer = presentation->get_CommentAuthors()->AddAuthor(u"Author_2", u"B.B.");
+auto firstReply = reviewer->get_Comments()->AddComment(u"reply 1 for comment 1", slide, position, createdTime);
+firstReply->set_ParentComment(rootComment);
 
-auto reply2 = author2->get_Comments()->AddComment(u"reply 2 for comment 1", slide, position, createdTime);
-reply2->set_ParentComment(comment1);
+auto secondReply = reviewer->get_Comments()->AddComment(u"reply 2 for comment 1", slide, position, createdTime);
+secondReply->set_ParentComment(rootComment);
 
-auto subReply = author1->get_Comments()->AddComment(u"subreply 3 for reply 2", slide, position, createdTime);
-subReply->set_ParentComment(reply2);
+auto subReply = originalAuthor->get_Comments()->AddComment(u"subreply 3 for reply 2", slide, position, createdTime);
+subReply->set_ParentComment(secondReply);
 
-author2->get_Comments()->AddComment(u"comment 2", slide, position, createdTime);
-auto comment3 = author2->get_Comments()->AddComment(u"comment 3", slide, position, createdTime);
+reviewer->get_Comments()->AddComment(u"comment 2", slide, position, createdTime);
+auto separateComment = reviewer->get_Comments()->AddComment(u"comment 3", slide, position, createdTime);
 
-auto reply3 = author1->get_Comments()->AddComment(u"reply 4 for comment 3", slide, position, createdTime);
-reply3->set_ParentComment(comment3);
+auto separateReply = originalAuthor->get_Comments()->AddComment(u"reply 4 for comment 3", slide, position, createdTime);
+separateReply->set_ParentComment(separateComment);
 
 auto comments = slide->GetSlideComments(nullptr);
-for (int32_t i = 0; i < comments->get_Length(); i++)
+for (auto i = 0; i < comments->get_Length(); i++)
 {
     auto comment = comments[i];
     while (comment->get_ParentComment() != nullptr)
@@ -181,24 +228,24 @@ for (int32_t i = 0; i < comments->get_Length(); i++)
 
 presentation->Save(u"parent_comment.pptx", SaveFormat::Pptx);
 
-comment1->Remove();
+rootComment->Remove();
 presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* 当使用 [IComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/) 接口的 [Remove](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/remove/) 方法删除批注时，该批注的所有回复也会被删除。
-* 如果 [set_ParentComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/set_parentcomment/) 方法导致循环引用，则会抛出 [PptxEditException](https://reference.aspose.com/slides/zh/cpp/aspose.slides/pptxeditexception/)。
+* 当使用 [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/remove/) 方法的 [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) 接口删除批注时，该批注的所有回复也会被删除。
+* 如果 [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) 方法导致循环引用，则会抛出 [PptxEditException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxeditexception/)。
 {{% /alert %}}
 
 ## **添加现代批注**
 
-现代批注可以关联到幻灯片本身、特定形状或 AutoShape 内的文本范围。[ICommentCollection::AddModernComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icommentcollection/addmoderncomment/) 方法除了接受幻灯片和批注标记坐标外，还接受一个 [IShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishape/) 参数。
+现代批注可以关联到幻灯片本身、特定形状或 AutoShape 内的文本范围。 [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) 方法除了接受幻灯片和批注标记坐标外，还接受一个 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 参数。
 
-当形状参数传入 `nullptr` 时，批注为幻灯片级别批注。其标记由提供的坐标定位，但不与特定形状关联，因此 [IModernComment::get_Shape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_shape/) 返回 `nullptr`。当提供 [IShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishape/) 时，批注锚定到该形状。坐标仍然定义批注标记在幻灯片上的位置，而形状关联可通过 [IModernComment::get_Shape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_shape/) 获取。
+如果为 shape 参数传入 `nullptr`，则该批注为幻灯片级批注。其标记由提供的坐标定位，但不关联到特定形状，因此 [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) 返回 `nullptr`。如果提供了 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/)，则批注锚定到该形状。坐标仍然定义批注标记在幻灯片上的位置，而形状关联可通过 [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) 获取。
 
 ### **将现代批注锚定到形状**
 
-以下示例创建了一个幻灯片级别的现代批注和一个锚定到特定 AutoShape 的现代批注。随后读取每个批注关联的形状。
+示例调用 [AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) 两次：一次使用 `nullptr` shape 创建幻灯片级批注，另一次使用矩形作为锚点。调用 [get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) 对幻灯片级批注的空检查输出 `True`，对锚定批注输出 `Revenue title`。两个批注均随演示文稿一起保存。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -224,7 +271,9 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 300.0f, 80.0f);
 shape->set_Name(u"Revenue title");
 shape->get_TextFrame()->set_Text(u"Quarterly revenue");
@@ -247,9 +296,9 @@ presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 
 ### **将批注锚定到不同的形状类型**
 
-任何实现了 [IShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishape/) 的幻灯片对象都可以用作形状锚点。常见示例包括 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iconnector/) 和 [IGraphicalObject](https://reference.aspose.com/slides/zh/cpp/aspose.slides/igraphicalobject/) 实例（如图表）。
+任何实现了 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 的幻灯片对象都可以用作形状锚点。常见示例包括 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/cpp/aspose.slides/iconnector/) 以及诸如图表等的 [IGraphicalObject](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobject/) 实例。
 
-以下示例创建了几种常见的形状类型，并为每种形状关联了一个现代批注。
+示例使用 [AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) 将批注关联到五种形状类型：AutoShape、图片框、组形状、连接线和图表。图片使用嵌入的图像数据，无需外部图像。每个批注都有自己的标记位置，保存的演示文稿保留了这五种形状的关联。
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -281,11 +330,13 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
 auto createdTime = DateTime::get_Now();
 
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 180.0f, 60.0f);
 autoShape->get_TextFrame()->set_Text(u"AutoShape");
+
 auto autoShapeCommentPosition = PointF(30.0f, 30.0f);
 author->get_Comments()->AddModernComment(u"Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -315,16 +366,16 @@ presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 
 ### **将批注锚定到文本并设置其状态**
 
-对于与 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/) 关联的现代批注，[IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_textselectionstart/) 和 [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/set_textselectionstart/) 控制形状文本框中所选文本的起始位置。同样，[IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_textselectionlength/) 和 [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/set_textselectionlength/) 控制选区的长度。这些方法共同将批注关联到 AutoShape 内的特定文本范围。
+对于关联到 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) 的现代批注， [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionstart/) 和 [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionstart/) 控制形状文本框中所选文本的起始位置。类似地， [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionlength/) 和 [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionlength/) 控制选择的长度。这些方法共同将批注关联到 AutoShape 内的特定文本范围。
 
-[IModernComment::get_Status](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_status/) 和 [IModernComment::set_Status](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/set_status/) 方法使用来自 [ModernCommentStatus](https://reference.aspose.com/slides/zh/cpp/aspose.slides/moderncommentstatus/) 枚举的值：
+ [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/) 和 [IModernComment::set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) 方法使用 [ModernCommentStatus](https://reference.aspose.com/slides/cpp/aspose.slides/moderncommentstatus/) 枚举中的值：
 
 - `NotDefined` — 未定义特定的现代批注状态。
 - `Active` — 批注处于活动状态。
 - `Resolved` — 批注已解决。
 - `Closed` — 批注已关闭。
 
-以下示例创建了一个锚定到形状的现代批注，将其关联到文本选区，标记为已解决，保存演示文稿，并在重新打开文件后验证这些值。
+示例将现代批注锚定到矩形文本中“quarterly revenue”这几个词。它根据文本计算零基的选择起始位置，并将其传递给 [set_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionstart/)，随后使用选中字符数调用 [set_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionlength/)。调用带有 `Resolved` 的 [set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) 后，保存并重新打开演示文稿。四个控制台检查应各自输出 `True`，以确认形状锚点、文本范围和状态均被保留。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -359,6 +410,7 @@ auto expectedSelectionStart = shapeText.IndexOf(selectedText);
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 400.0f, 100.0f);
 shape->set_Name(u"Forecast text");
 shape->get_TextFrame()->set_Text(shapeText);
@@ -399,7 +451,7 @@ for (auto&& reopenedComment : reopenedComments)
 
 ### **检查现有的现代批注**
 
-要检查现有演示文稿，首先确定哪些批注实现了 [IModernComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/)，然后检查 [IModernComment::get_Shape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_shape/)、[IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_textselectionstart/)、[IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_textselectionlength/) 和 [IModernComment::get_Status](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_status/)。`nullptr` 形状表示幻灯片级批注。对于 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/) 锚定，文本选区方法可识别形状文本框中的关联范围。
+示例需要一个包含现代批注的现有演示文稿，并打印其文本、状态和锚点详情。要检查它，请先确定哪些批注实现了 [IModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/)，然后检查 [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/)、[IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionstart/)、[IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionlength/) 和 [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/)。`nullptr` shape 表示幻灯片级批注。对于 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) 锚点，文本选择方法标识形状文本框中的关联范围。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -458,9 +510,11 @@ for (auto&& slide : presentation->get_Slides())
 
 ## **删除批注**
 
-### **删除所有批注和批注作者**
+Aspose.Slides for C++ 可让您从演示文稿中删除所有批注及其作者，或仅删除选定的批注而保留其余内容。以下示例演示了这两种方法并保存更新后的演示文稿。
 
-以下示例展示了如何从演示文稿中删除所有批注和批注作者：
+### **删除所有批注及批注作者**
+
+示例打开一个现有的演示文稿，对每个作者调用 [ICommentCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/clear/)，随后调用 [ICommentAuthorCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/clear/) 删除作者本身。保存的演示文稿既不包含批注，也不包含批注作者。请使用包含批注的演示文稿以观察删除效果。
 
 ```cpp
 #include <DOM/ICommentAuthor.h>
@@ -481,12 +535,13 @@ for (auto&& author : presentation->get_CommentAuthors())
 }
 
 presentation->get_CommentAuthors()->Clear();
+
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
 ### **删除特定批注**
 
-以下示例展示了如何从幻灯片中删除特定批注：
+示例在同一张幻灯片上创建两个批注，并使用 [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/) 按作者查找批注。它先收集文本等于 “comment 1” 的批注，然后调用 [ICommentCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/remove/)，以避免在选择期间对集合进行修改。保存的演示文稿仅保留 “comment 2”。
 
 ```cpp
 #include <DOM/IComment.h>
@@ -508,6 +563,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Author", u"A");
 auto createdTime = DateTime::get_Now();
 
@@ -542,12 +598,12 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 **Aspose.Slides 是否支持现代批注的已解决状态？**
 
-是的。[IModernComment::get_Status](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_status/) 和 [IModernComment::set_Status](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/set_status/) 使用 [ModernCommentStatus](https://reference.aspose.com/slides/zh/cpp/aspose.slides/moderncommentstatus/) 的值，包括 `Resolved`。该状态存储在演示文稿中，重新打开文件后仍可读取。
+是。 [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/) 和 [IModernComment::set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) 使用 [ModernCommentStatus](https://reference.aspose.com/slides/cpp/aspose.slides/moderncommentstatus/) 值，包括 `Resolved`。该状态存储在演示文稿中，重新打开文件后仍可读取。
 
-**是否支持线程式讨论（回复链），以及是否有嵌套深度限制？**
+**是否支持线程式讨论（回复链），以及是否有限制嵌套层级？**
 
-是的。每个批注都可以引用其 [父批注](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/set_parentcomment/)，从而实现回复链。API 并未定义具体的嵌套深度限制。
+是。每个批注都可以引用其 [parent comment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/)，从而实现回复链。API 并未定义具体的嵌套深度限制。
 
 **批注标记在幻灯片上的位置使用何种坐标系定义？**
 
-标记位置使用幻灯片坐标系中的浮点坐标定义，可精确地将其放置在幻灯片上。
+标记位置使用幻灯片坐标系中的浮点坐标定义，您可以在幻灯片上精确定位它。

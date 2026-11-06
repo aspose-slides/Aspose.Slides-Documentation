@@ -1,52 +1,52 @@
 ---
-title: Spravovat komentáře v prezentaci v Pythonu přes Java
-linktitle: Komentáře v prezentaci
+title: Správa komentářů v prezentaci v Pythonu přes Java
+linktitle: Komentáře k prezentaci
 type: docs
 weight: 100
 url: /cs/python-java/presentation-comments/
 keywords:
 - komentář
 - moderní komentář
-- komentáře v PowerPointu
-- komentáře v prezentaci
-- komentáře na snímcích
+- komentáře PowerPoint
+- komentáře prezentace
+- komentáře snímku
 - přidat komentář
-- číst komentář
+- přístup ke komentáři
 - upravit komentář
 - odpovědět na komentář
-- odstranit komentář
+- odebrat komentář
 - smazat komentář
 - PowerPoint
 - prezentace
 - Python
 - Java
 - Aspose.Slides
-description: "Spravujte komentáře v prezentaci pomocí Aspose.Slides pro Python přes Java: přidávejte, čtěte, upravujte, odpovídejte na a odstraňujte komentáře v PowerPoint prezentacích rychle a snadno."
+description: "Spravujte komentáře v prezentacích pomocí Aspose.Slides pro Python přes Java: přidávejte, čtěte, upravujte, odpovídejte a odstraňujte komentáře v prezentacích PowerPoint rychle a jednoduše."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak spravovat poznámky v prezentaci pomocí Aspose.Slides pro Python prostřednictvím Javy. Představuje hlavní typy související s poznámkami a ukazuje, jak přidávat poznámky do snímků, přistupovat k existujícím poznámkám, pracovat s odpověďmi a moderními poznámkami a odstraňovat poznámky z prezentace.
+Tento článek vysvětluje, jak spravovat komentáře v prezentaci pomocí Aspose.Slides pro Python přes Java. Představuje hlavní typy související s komentáři a ukazuje, jak přidávat komentáře ke snímkům, přistupovat k existujícím komentářům, pracovat s odpověďmi a moderními komentáři a odstraňovat komentáře z prezentace.
 
-Příklady pokrývají běžné scénáře revize a spolupráce v PowerPointu, jako je přiřazování poznámek autorům, čtení textu a metadat poznámek, vytváření řetězců odpovědí a odstraňování vybraných poznámek nebo všech poznámek.
+Příklady pokrývají běžné scénáře revize a spolupráce v PowerPointu, jako je přiřazování komentářů autorům, čtení textu komentáře a metadat, vytváření řetězců odpovědí a odstraňování vybraných komentářů nebo všech komentářů.
 
-V PowerPointu se poznámky zobrazují jako anotace na snímcích. Vybrání poznámky zobrazí její text a související diskusi.
+V PowerPointu se komentáře zobrazují jako poznámky na snímcích. Výběr komentáře zobrazí jeho text a související diskusi.
 
-Chcete-li požádat, aby byly při otevření prezentace poznámky zobrazeny nebo skryty, aniž byste měnili samotné poznámky, viz [Show or Hide Comments When Opening a Presentation](/slides/cs/python-java/presentation-view-properties/).
+Chcete-li požádat, aby se při otevření prezentace zobrazily nebo skryly komentáře, aniž byste měnili samotné komentáře, viz [Zobrazit nebo skrýt komentáře při otevírání prezentace](/slides/cs/python-java/presentation-view-properties/).
 
-## **Proč přidávat poznámky do prezentací?**
+## **Proč přidávat komentáře do prezentací?**
 
-Můžete použít poznámky k poskytování zpětné vazby a spolupráci s kolegy při revizi prezentací.
+Můžete použít komentáře k poskytování zpětné vazby a spolupráci s kolegy při revizi prezentací.
 
-Aspose.Slides pro Python prostřednictvím Javy poskytuje následující API pro práci s poznámkami:
+Aspose.Slides for Python via Java poskytuje následující rozhraní pro práci s komentáři:
 
-* Třída [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/), která poskytuje přístup k autorům poznámek v prezentaci.
-* Třída [CommentCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/commentcollection/), která představuje poznámky přiřazené konkrétnímu autorovi.
-* Třída [Comment](https://reference.aspose.com/slides/cs/python-java/aspose.slides/comment/), která poskytuje informace o poznámce, včetně jejího autora, času vytvoření, polohy a textu.
-* Třída [CommentAuthor](https://reference.aspose.com/slides/cs/python-java/aspose.slides/commentauthor/), která poskytuje informace o autorovi, včetně jeho jména, iniciál a přiřazených poznámek.
+* The [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class, která poskytuje přístup k autorům komentářů prezentace.
+* The [CommentCollection](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/) class, která představuje komentáře přiřazené konkrétnímu autorovi.
+* The [Comment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/) class, která poskytuje informace o komentáři, včetně jeho autora, času vytvoření, pozice a textu.
+* The [CommentAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthor/) class, která poskytuje informace o autorovi, včetně jeho jména, iniciál a přiřazených komentářů.
 
-## **Přidání poznámek do snímků**
+## **Přidání komentářů ke snímkům**
 
-Následující příklad ukazuje, jak přidat poznámky do snímků v prezentaci PowerPoint:
+Příklad vytvoří dva snímky a zaregistruje autora komentáře pomocí [addAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#addAuthor). Používá [addComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addComment) k umístění jednoho komentáře na každý snímek, poté získá komentáře první snímku pro toho autora pomocí [getSlideComments](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideComments). Konzole zobrazí text prvního komentáře dvakrát, což demonstruje přístup jak přes snímek, tak přes autora, a uložená prezentace obsahuje oba komentáře.
 
 ```python
 import jpype
@@ -64,6 +64,7 @@ presentation = Presentation()
 try:
     first_slide = presentation.getSlides().get_Item(0)
     second_slide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0))
+
     author = presentation.getCommentAuthors().addAuthor("Jawad", "MF")
     position = Point2DFloat(0.2, 0.2)
     created_time = Date()
@@ -85,9 +86,51 @@ finally:
     presentation.dispose()
 ```
 
-## **Přístup k poznámkám ve snímcích**
+## **Vyhledání nebo vytvoření autora komentáře**
 
-Následující příklad ukazuje, jak přistupovat k existujícím poznámkám v prezentaci PowerPoint:
+Pokud automatizovaná revize zpracovává stejnou prezentaci opakovaně, prohledá kolekci vrácenou metodou [getCommentAuthors](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getCommentAuthors) před přidáním autora. [findByNameAndInitials](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#findByNameAndInitials) porovnává jak jméno, tak iniciály a vrací pole odpovídajících autorů nebo prázdné pole, pokud žádná shoda neexistuje. Naproti tomu [findByName](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#findByName) hledá jen podle jména, nezávisle na iniciálách. Volání [addAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#addAuthor) s již existujícím jménem a iniciálami v kolekci vyvolá výjimku.
+
+Příklad vyžaduje soubor prezentace s alespoň jedním snímkem. V každém ze dvou průchodů znovu použije prvního odpovídajícího autora, nebo jej vytvoří pouze když je výsledek prázdný. Pokud existuje více shod, vybere první prvek pole bez slučování nebo odstraňování ostatních autorů. Poté zavolá [addComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addComment) pro vybraného autora a uloží prezentaci. Druhý průchod otevře výstup prvního průchodu a opakuje operaci.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+Point2DFloat = jpype.JClass("java.awt.geom.Point2D$Float")
+Date = jpype.JClass("java.util.Date")
+
+author_name = "Reviewer"
+author_initials = "RV"
+
+input_file = "input.pptx"
+position = Point2DFloat(20, 20)
+
+for pass_number in range(1, 3):
+    presentation = Presentation(input_file)
+    try:
+        matches = presentation.getCommentAuthors().findByNameAndInitials(author_name, author_initials)
+
+        author = matches[0] if len(matches) > 0 else presentation.getCommentAuthors().addAuthor(author_name, author_initials)
+        created_time = Date()
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, created_time)
+
+        output_file = f"review_pass_{pass_number}.pptx"
+        presentation.save(output_file, SaveFormat.Pptx)
+        input_file = output_file
+    finally:
+        presentation.dispose()
+```
+
+Druhý průchod přidá další komentář bez přidání dalšího autora nebo odstranění existujících komentářů. Konečný soubor `review_pass_2.pptx` obsahuje oba nové komentáře spolu s původními. Opětovné použití autora nededuplicuje komentáře: aby se zabránilo opakovanému přidávání stejných komentářů, implementujte samostatnou detekci duplicit před jejich přidáním.
+
+## **Přístup ke komentářům snímků**
+
+Příklad otevře existující prezentaci a přečte kolekci vrácenou metodou [getCommentAuthors](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getCommentAuthors). Pro každého autora iteruje přes kolekci vrácenou metodou [getComments](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthor/#getComments) a vypisuje číslo snímku, text komentáře, jméno autora a čas vytvoření. Vstupní prezentace musí obsahovat komentáře, aby byl výstup na konzoli.
 
 ```python
 import jpype
@@ -111,11 +154,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Odpověď na poznámky**
+## **Odpovědi na komentáře**
 
-Rodičovská poznámka je originální poznámka na vrcholu hierarchie odpovědí. Metody [Comment.getParentComment](https://reference.aspose.com/slides/cs/python-java/aspose.slides/comment/#getParentComment) a [Comment.setParentComment](https://reference.aspose.com/slides/cs/python-java/aspose.slides/comment/#setParentComment) umožňují získat nebo nastavit rodiče poznámky.
+Rodičovský komentář je původní komentář na vrcholu hierarchie odpovědí. Metody [Comment.getParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#getParentComment) a [Comment.setParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#setParentComment) umožňují získat nebo nastavit rodiče komentáře.
 
-Následující příklad ukazuje, jak přidat odpovědi a prozkoumat vzniklou hierarchii poznámek:
+Příklad vytváří komentáře od dvou autorů a používá [setParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#setParentComment) k vytvoření odpovědí, včetně odpovědi na jinou odpověď. Předání `None` metodě [getSlideComments](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideComments) získá komentáře ze všech autorů; konzole odsazuje každou položku podle její hloubky v hierarchii odpovědí. Příklad uloží kompletní diskusi, zavolá [remove](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#remove) na první kořenový komentář a uloží druhou prezentaci s tímto komentářem a jeho odpověďmi odstraněnými.
 
 ```python
 import jpype
@@ -132,6 +175,7 @@ Date = jpype.JClass("java.util.Date")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     position = Point2DFloat(10, 10)
     created_time = Date()
 
@@ -172,19 +216,19 @@ finally:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Když je použita metoda [Comment.remove](https://reference.aspose.com/slides/cs/python-java/aspose.slides/comment/#remove) k odstranění poznámky, jsou také smazány všechny odpovědi na tuto poznámku.
-* Pokud metoda [Comment.setParentComment](https://reference.aspose.com/slides/cs/python-java/aspose.slides/comment/#setParentComment) vytvoří kruhový odkaz, je vyhozena výjimka [PptxEditException](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxeditexception/).
+* Když je metoda [Comment.remove](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#remove) použita k odstranění komentáře, jsou také smazány všechny odpovědi na tento komentář.
+* Pokud [Comment.setParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#setParentComment) vytvoří kruhový odkaz, je vyhozena výjimka [PptxEditException](https://reference.aspose.com/slides/python-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Přidání moderních poznámek**
+## **Přidání moderních komentářů**
 
-Moderní poznámky mohou být přiřazeny přímo ke snímku, k určitému tvaru nebo k textovému úseku uvnitř [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/). Metoda [CommentCollection.addModernComment](https://reference.aspose.com/slides/cs/python-java/aspose.slides/commentcollection/#addModernComment) přijímá jako argument kromě snímku a souřadnic značky poznámky také objekt [Shape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/).
+Moderní komentáře mohou být přiřazeny k samotnému snímku, k určitému tvaru nebo k textovému rozsahu uvnitř [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/). Metoda [CommentCollection.addModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addModernComment) přijímá argument [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) kromě snímku a souřadnic značky komentáře.
 
-Když je pro argument shape předáno `None`, jedná se o poznámku na úrovni snímku. Její značka je umístěna podle zadaných souřadnic, ale není spojena s konkrétním tvarem, takže [ModernComment.getShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#getShape) vrací `None`. Když je předán objekt [Shape], je poznámka ukotvena k tomuto tvaru. Souřadnice i nadále určují pozici značky poznámky na snímku, zatímco asociaci s tvarem lze získat pomocí [ModernComment.getShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#getShape).
+Když je pro argument shape předáno `None`, komentář je komentář na úrovni snímku. Jeho značka je umístěna pomocí dodaných souřadnic, ale není přiřazena k žádnému konkrétnímu tvaru, takže [ModernComment.getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape) vrací `None`. Když je poskytnut [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/), komentář je ukotven k tomuto tvaru. Souřadnice stále definují polohu značky komentáře na snímku, zatímco asociaci s tvarem lze získat pomocí [ModernComment.getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape).
 
-### **Ukotvení moderní poznámky na tvar**
+### **Ukotvení moderního komentáře k objektu**
 
-Následující příklad vytvoří jak moderní poznámku na úrovni snímku, tak moderní poznámku ukotvenou ke konkrétnímu [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/). Poté přečte přiřazený tvar u každé poznámky.
+Příklad zavolá [addModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addModernComment) dvakrát: jednou s `None` tvarem pro komentář na úrovni snímku a podruhé s obdélníkem jako kotvou. Čtení [getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape) vypíše `True` pro kontrolu `None` u komentáře na úrovni snímku a `Revenue title` pro ukotvený komentář. Oba komentáře jsou uloženy s prezentací.
 
 ```python
 import jpype
@@ -201,7 +245,9 @@ Date = jpype.JClass("java.util.Date")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV")
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80)
     shape.setName("Revenue title")
     shape.getTextFrame().setText("Quarterly revenue")
@@ -220,11 +266,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Ukotvení poznámek k různým typům tvarů**
+### **Ukotvení komentářů k různým typům objektů**
 
-Jakýkoli objekt snímku, který dědí z třídy [Shape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/), může být použit jako kotva tvaru. Běžné příklady zahrnují [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/cs/python-java/aspose.slides/connector/) a instance [GraphicalObject](https://reference.aspose.com/slides/cs/python-java/aspose.slides/graphicalobject/), například grafy.
+Jakýkoli objekt snímku, který dědí od [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/), může být použit jako kotva tvaru. Běžné příklady zahrnují [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/python-java/aspose.slides/connector/), a [GraphicalObject](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobject/) instance, jako jsou grafy.
 
-Následující příklad vytvoří několik běžných typů tvarů a přiřadí k nim moderní poznámku.
+Příklad používá [addModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addModernComment) ke spojení komentáře s každým z pěti typů tvarů: AutoShape, obrázkový rámeček, skupinu, konektor a graf. Obrázek používá vložená data obrazu, takže není potřeba externí obrázek. Každý komentář má svou vlastní polohu značky a uložená prezentace zachová všech pět asociací tvarů.
 
 ```python
 import jpype
@@ -242,11 +288,13 @@ Base64 = jpype.JClass("java.util.Base64")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV")
     created_time = Date()
 
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60)
     auto_shape.getTextFrame().setText("AutoShape")
+
     auto_shape_comment_position = Point2DFloat(30, 30)
     author.getComments().addModernComment("Comment on an AutoShape.", slide, auto_shape, auto_shape_comment_position, created_time)
 
@@ -276,21 +324,21 @@ finally:
     presentation.dispose()
 ```
 
-### **Ukotvení poznámky k textu a nastavení jejího stavu**
+### **Ukotvení komentáře k textu a nastavení jeho stavu**
 
-Pro moderní poznámku přiřazenou k [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/) umožňují metody [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#getTextSelectionStart) a [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#setTextSelectionStart) získat počáteční pozici vybraného textu v textovém rámci tvaru. Metody [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#getTextSelectionLength) a [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#setTextSelectionLength) získávají délku výběru. Společně tyto hodnoty přiřazují poznámku ke konkrétnímu textovému úseku uvnitř AutoShape.
+Pro moderní komentář spojený s [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) poskytují [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionStart) a [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionStart) přístup k počáteční pozici vybraného textu v textovém rámci tvaru. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionLength) a [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionLength) přistupují k délce výběru. Společně tyto hodnoty spojují komentář s konkrétním textovým rozsahem uvnitř AutoShape.
 
-Metody [ModernComment.getStatus](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#getStatus) a [ModernComment.setStatus](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#setStatus) přistupují k hodnotě z konstant [ModernCommentStatus](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncommentstatus/):
+Metody [ModernComment.getStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getStatus) a [ModernComment.setStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setStatus) přistupují k hodnotě z konstant [ModernCommentStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/):
 
-- [NotDefined] — není definován žádný konkrétní stav moderní poznámky.
-- [Active] — poznámka je aktivní.
-- [Resolved] — poznámka byla vyřešena.
-- [Closed] — poznámka je uzavřena.
+- [NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#NotDefined) — není definován žádný konkrétní stav moderního komentáře.
+- [Active](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#Active) — komentář je aktivní.
+- [Resolved](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#Resolved) — komentář byl vyřešen.
+- [Closed](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#Closed) — komentář je uzavřen.
 
-Následující příklad vytvoří moderní poznámku ukotvenou k tvaru, přiřadí ji k výběru textu, označí ji jako vyřešenou, uloží prezentaci a po znovuotevření souboru ověří hodnoty.
+Příklad ukotví moderní komentář ke slovům "quarterly revenue" v textu obdélníku. Vypočítá nulový výchozí index výběru z textu a předá jej metodě [setTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionStart) a použije [setTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionLength) k nastavení počtu vybraných znaků. Po zavolání [setStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setStatus) s `Resolved` uloží a znovu otevře prezentaci. Čtyři kontroly na konzoli by měly každá vypsat `True`, což potvrzuje, že kotva tvaru, textový rozsah a stav byly zachovány.
 
 ```python
-import jpype
+import jpime
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -309,6 +357,7 @@ expected_selection_start = shape_text.find(selected_text)
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100)
     shape.setName("Forecast text")
     shape.getTextFrame().setText(shape_text)
@@ -348,9 +397,9 @@ finally:
     reopened_presentation.dispose()
 ```
 
-### **Prohlížení existujících moderních poznámek**
+### **Prohlédnutí existujících moderních komentářů**
 
-Pro prohlédnutí existující prezentace zjistěte, které poznámky jsou instance [ModernComment](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/), poté prověřte [ModernComment.getShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#getTextSelectionLength) a [ModernComment.getStatus](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#getStatus). `None` jako tvar označuje poznámku na úrovni snímku. Pro kotvu na [AutoShape] je metoda výběru textu schopna identifikovat příslušný úsek v textovém rámci tvaru.
+Příklad vyžaduje existující prezentaci obsahující moderní komentáře a vypisuje jejich text, stav a podrobnosti kotvy. Pro prohlédnutí zkontrolujte, které komentáře jsou instance [ModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/), poté prozkoumejte [ModernComment.getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionLength) a [ModernComment.getStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getStatus). `None` shape indikuje komentář na úrovni snímku. Pro kotvu [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) metody pro výběr textu identifikují související rozsah v textovém rámci tvaru.
 
 ```python
 import jpype
@@ -390,11 +439,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Odstranění poznámek**
+## **Odstranění komentářů**
 
-### **Odstranění všech poznámek a autorů poznámek**
+Aspose.Slides for Python via Java umožňuje odstranit všechny komentáře a jejich autory z prezentace nebo smazat vybrané komentáře při zachování ostatních. Následující příklady ukazují oba přístupy a uloží aktualizovanou prezentaci.
 
-Následující příklad ukazuje, jak odstranit všechny poznámky a autory poznámek z prezentace:
+### **Odstranit všechny komentáře a jejich autory**
+
+Příklad otevře existující prezentaci a zavolá [CommentCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#clear) pro každého autora, poté volá [CommentAuthorCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#clear) k odstranění samotných autorů. Uložená prezentace neobsahuje ani komentáře, ani autory komentářů. Použijte prezentaci obsahující komentáře pro pozorování odstranění.
 
 ```python
 import jpype
@@ -411,14 +462,15 @@ try:
         author.getComments().clear()
 
     presentation.getCommentAuthors().clear()
+
     presentation.save("example_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Odstranění konkrétních poznámek**
+### **Odstranit konkrétní komentáře**
 
-Následující příklad ukazuje, jak odstranit konkrétní poznámky ze snímku:
+Příklad vytvoří dva komentáře na jednom snímku a používá [getSlideComments](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideComments) k nalezení komentářů od každého autora. Sbírá komentáře, jejichž text se rovná "comment 1" před voláním [CommentCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#remove), aby se vyhnul změnám kolekce během výběru. Uložená prezentace zachová pouze "comment 2".
 
 ```python
 import jpype
@@ -435,6 +487,7 @@ Date = jpype.JClass("java.util.Date")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     author = presentation.getCommentAuthors().addAuthor("Author", "A")
     created_time = Date()
 
@@ -461,14 +514,14 @@ finally:
 
 ## **Často kladené otázky**
 
-**Podporuje Aspose.Slides stav „vyřešeno“ pro moderní poznámky?**
+**Podporuje Aspose.Slides stav resolved pro moderní komentáře?**
 
-Ano. Metody [ModernComment.getStatus](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#getStatus) a [ModernComment.setStatus](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncomment/#setStatus) přistupují k hodnotě z [ModernCommentStatus](https://reference.aspose.com/slides/cs/python-java/aspose.slides/moderncommentstatus/), včetně `Resolved`. Stav je uložen v prezentaci a lze jej po opětovném otevření souboru znovu načíst.
+Ano. [ModernComment.getStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getStatus) a [ModernComment.setStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setStatus) přistupují k hodnotě [ModernCommentStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/), včetně `Resolved`. Stav je uložen v prezentaci a lze jej opět načíst po opětovném otevření souboru.
 
-**Jsou podporovány vlákna diskuzí (řetězce odpovědí) a existuje limit hloubky vnoření?**
+**Jsou podporovány vlákna diskusí (řetězce odpovědí) a existuje limit vnoření?**
 
-Ano. Každá poznámka může odkazovat na svou [parent comment](https://reference.aspose.com/slides/cs/python-java/aspose.slides/comment/#getParentComment), což umožňuje řetězce odpovědí. API nedefinuje konkrétní limit hloubky vnoření.
+Ano. Každý komentář může odkazovat na svůj [parent comment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#getParentComment), což umožňuje řetězce odpovědí. API nedefinuje konkrétní limit hloubky vnoření.
 
-**V jakém souřadnicovém systému je definována pozice značky poznámky na snímku?**
+**V jakém souřadnicovém systému je definována poloha značky komentáře na snímku?**
 
-Pozice značky je definována pomocí souřadnic s plovoucí desetinnou čárkou v souřadnicovém systému snímku, což umožňuje její přesné umístění na snímku.
+Pozice značky je definována pomocí souřadnic s plovoucí desetinnou čárkou v souřadnicovém systému snímku, což vám umožňuje ji přesně umístit na snímek.

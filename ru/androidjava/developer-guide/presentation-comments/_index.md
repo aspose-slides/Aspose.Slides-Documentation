@@ -1,6 +1,6 @@
 ---
-title: У��авление комментариями презентаций на Android
-linktitle: Комментарии к презентациям
+title: Управление комментариями презентации на Android
+linktitle: Комментарии к презентации
 type: docs
 weight: 100
 url: /ru/androidjava/presentation-comments/
@@ -8,12 +8,12 @@ keywords:
 - комментарий
 - современный комментарий
 - комментарии PowerPoint
-- комментарии презентации
-- комментарии слайда
+- комментарии к презентации
+- комментарии слайдов
 - добавить комментарий
-- доступ к комментариям
+- доступ к комментарию
 - редактировать комментарий
-- отвечать на комментарий
+- ответить на комментарий
 - удалить комментарий
 - удалить комментарий
 - PowerPoint
@@ -21,37 +21,36 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Управляйте комментариями презентаций с помощью Aspose.Slides для Android через Java: быстро и легко добавляйте, считывайте, редактируйте, отвечайте и удаляйте комментарии в презентациях PowerPoint."
+description: "Управляйте комментариями презентаций с помощью Aspose.Slides for Android via Java: добавляйте, читайте, редактируйте, отвечайте и удаляйте комментарии в презентациях PowerPoint быстро и без усилий."
 ---
 ## **Обзор**
 
-Эта статья объясняет, как управлять комментариями презентаций с помощью Aspose.Slides для Android через Java. Описываются основные типы, связанные с комментариями, и демонстрируется, как добавлять комментарии на слайды, получать доступ к существующим комментариям, работать с ответами и современными комментариями, а также удалять комментарии из презентации.
+Эта статья объясняет, как управлять комментариями презентации с помощью Aspose.Slides for Android via Java. Она вводит основные типы, связанные с комментариями, и демонстрирует, как добавлять комментарии на слайды, получать доступ к существующим комментариям, работать с ответами и современными комментариями, а также удалять комментарии из презентации.
 
 Примеры охватывают типичные сценарии рецензирования и совместной работы в PowerPoint, такие как назначение комментариев авторам, чтение текста комментария и метаданных, построение цепочек ответов и удаление выбранных комментариев или всех комментариев.
 
-В PowerPoint комментарии отображаются как аннотации на слайдах. Выбор комментария показывает его текст и связанные обсуждения.
+В PowerPoint комментарии отображаются как аннотации на слайдах. Выбор комментария показывает его текст и связанную дискуссию.
 
-Чтобы запросить отображение или скрытие комментариев при открытии презентации без изменения самих комментариев, см. [Показать или скрыть комментарии при открытии презентации](/slides/ru/androidjava/presentation-view-properties/).
+Чтобы запросить показ или скрытие комментариев при открытии презентации без изменения самих комментариев, см. [Show or Hide Comments When Opening a Presentation](/slides/ru/androidjava/presentation-view-properties/).
 
-## **Зачем добавлять комментарии в презентации?**
+## **Почему добавлять комментарии в презентации?**
 
-Вы можете использовать комментарии для предоставления обратной связи и совместной работы с коллегами при рецензировании презентаций.
+Вы можете использовать комментарии для предоставления обратной связи и совместной работы с коллегами при обзоре презентаций.
 
-Aspose.Slides для Android через Java предоставляет следующие API для работы с комментариями:
+Aspose.Slides for Android via Java предоставляет следующие API для работы с комментариями:
 
-* Класс [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/), который предоставляет доступ к авторам комментариев презентации.
-* Интерфейс [ICommentCollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icommentcollection/), представляющий комментарии, связанные с отдельным автором.
-* Интерфейс [IComment](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icomment/), который предоставляет информацию о комментарии, включая его автора, время создания, позицию и текст.
-* Класс [CommentAuthor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/commentauthor/), который предоставляет информацию об авторе, включая его имя, инициалы и связанные комментарии.
+* Класс [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), который предоставляет доступ к авторам комментариев презентации.
+* Интерфейс [ICommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/), представляющий комментарии, связанные с отдельным автором.
+* Интерфейс [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/), предоставляющий информацию о комментарии, включая автора, время создания, позицию и текст.
+* Класс [CommentAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/commentauthor/), который предоставляет информацию об авторе, включая имя, инициалы и связанные комментарии.
 
-## **Добавление комментариев к слайдам**
+## **Добавить комментарии к слайдам**
 
-Следующий пример показывает, как добавить комментарии к слайдам в презентации PowerPoint:
+Пример создает два слайда и регистрирует автора комментариев с помощью [addAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-). Он использует [addComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-android.graphics.PointF-java.util.Date-) для размещения одного комментария на каждом слайде, затем получает комментарии первого слайда для этого автора с помощью [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-). Консоль дважды выводит текст первого комментария, демонстрируя доступ как через слайд, так и через автора, а сохранённая презентация содержит оба комментария.
 
 ```java
 import com.aspose.slides.IComment;
 import com.aspose.slides.ICommentAuthor;
-import com.aspose.slides.ICommentCollection;
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -62,6 +61,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
     ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     PointF position = new PointF(0.2f, 0.2f);
     Date createdTime = new Date();
@@ -74,8 +74,7 @@ try {
         IComment firstComment = comments[0];
         System.out.println(firstComment.getText());
 
-        ICommentCollection authorComments = firstComment.getAuthor().getComments();
-        String commentText = authorComments.get_Item(0).getText();
+        String commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         System.out.println(commentText);
     }
 
@@ -85,9 +84,47 @@ try {
 }
 ```
 
-## **Доступ к комментариям слайдов**
+## **Найти или создать автора комментария**
 
-Следующий пример показывает, как получить доступ к существующим комментариям в презентации PowerPoint:
+Когда автоматический обзор несколько раз обрабатывает одну и ту же презентацию, перед добавлением автора следует искать в коллекции, возвращаемой [getCommentAuthors](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getCommentAuthors--). Метод [findByNameAndInitials](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#findByNameAndInitials-java.lang.String-java.lang.String-) сопоставляет как имя, так и инициалы и возвращает массив подходящих авторов, либо пустой массив, если совпадений нет. В отличие от него, [findByName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#findByName-java.lang.String-) ищет только по имени, независимо от инициалов. Вызов [addAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) с именем и инициалами, уже присутствующими в коллекции, генерирует исключение.
+
+Пример требует файл презентации минимум с одним слайдом. На каждом из двух проходов он повторно использует первого найденного автора или создаёт нового только когда результат пуст. Если найдено несколько совпадений, выбирается первый элемент массива без объединения или удаления остальных авторов. Затем вызывается [addComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-android.graphics.PointF-java.util.Date-) для выбранного автора и сохраняет презентацию. Второй проход открывает вывод первого прохода и повторяет операцию.
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.Date;
+
+final String authorName = "Reviewer";
+final String authorInitials = "RV";
+
+String inputFile = "input.pptx";
+PointF position = new PointF(20, 20);
+
+for (int pass = 1; pass <= 2; pass++) {
+    Presentation presentation = new Presentation(inputFile);
+    try {
+        ICommentAuthor[] matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        ICommentAuthor author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, new Date());
+
+        String outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+Второй проход добавляет ещё один комментарий без создания нового автора и без удаления существующих комментариев. Финальный файл `review_pass_2.pptx` содержит оба новых комментария вместе с любыми оригинальными. Повторное использование автора не устраняет дублирование комментариев: чтобы избежать многократного добавления одного и того же комментария, реализуйте отдельное обнаружение дубликатов перед его добавлением.
+
+## **Получить доступ к комментариям слайдов**
+
+Пример открывает существующую презентацию и считывает коллекцию, возвращаемую [getCommentAuthors](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getCommentAuthors--). Для каждого автора он перебирает коллекцию, возвращаемую [getComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthor/#getComments--), и выводит номер слайда, текст комментария, имя автора и время создания. Входная презентация должна содержать комментарии, чтобы получить вывод в консоль.
 
 ```java
 import com.aspose.slides.IComment;
@@ -112,9 +149,9 @@ try {
 
 ## **Ответы на комментарии**
 
-Родительским комментарием считается исходный комментарий в верхней части иерархии ответов. Методы [IComment.getParentComment](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icomment/#getParentComment--) и [IComment.setParentComment](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) позволяют получить или установить родительский комментарий.
+Родительским комментарием считается оригинальный комментарий в верхушке иерархии ответов. Методы [IComment.getParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#getParentComment--) и [IComment.setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) позволяют получить или задать родительский комментарий.
 
-Следующий пример показывает, как добавлять ответы и просматривать получившуюся иерархию комментариев:
+Пример создаёт комментарии от двух авторов и использует [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) для построения ответов, включая ответ на другой ответ. Передача `null` в [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) получает комментарии от всех авторов; консоль отступает каждую запись в соответствии с её глубиной в иерархии ответов. Пример сохраняет полную дискуссию, вызывает [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#remove--) у первого корневого комментария и сохраняет вторую презентацию без этого комментария и его ответов.
 
 ```java
 import com.aspose.slides.IComment;
@@ -128,27 +165,28 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     PointF position = new PointF(10, 10);
     Date createdTime = new Date();
 
-    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    ICommentAuthor originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    ICommentAuthor reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    IComment secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    IComment subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    IComment separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     IComment[] comments = slide.getSlideComments(null);
     for (int i = 0; i < comments.length; i++) {
@@ -163,27 +201,27 @@ try {
 
     presentation.save("parent_comment.pptx", SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert color="warning" title="Внимание" %}}
-* При использовании метода [IComment.remove](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icomment/#remove--) для удаления комментария также удаляются все ответы на этот комментарий.
-* Если вызов [IComment.setParentComment](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) создаёт кольцевую ссылку, генерируется исключение [PptxEditException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pptxeditexception/).
+{{% alert color="warning" title="Warning" %}}
+* При использовании метода [IComment.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#remove--) для удаления комментария удаляются все ответы на этот комментарий.
+* Если [IComment.setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) создает кольцевую ссылку, генерируется [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Добавление современных комментариев**
+## **Добавить современные комментарии**
 
-Современные комментарии могут быть связаны с самим слайдом, конкретной фигурой или диапазоном текста внутри AutoShape. Метод [ICommentCollection.addModernComment](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) принимает в качестве аргумента объект [IShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishape/) в дополнение к слайду и координатам маркера комментария.
+Современные комментарии могут быть привязаны к самому слайду, к конкретной фигуре или к диапазону текста внутри AutoShape. Метод [ICommentCollection.addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) принимает аргумент [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) в дополнение к слайду и координатам маркера комментария.
 
-Когда в качестве аргумента shape передаётся `null`, комментарий считается слайд‑уровневым. Его маркер позиционируется по заданным координатам, но не привязан к конкретной фигуре, поэтому [IModernComment.getShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#getShape--) возвращает `null`. Когда передаётся объект [IShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishape/), комментарий привязывается к этой фигуре. Координаты всё равно определяют позицию маркера комментария на слайде, а ассоциацию с фигурой можно получить через [IModernComment.getShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#getShape--).
+Когда в аргумент shape передаётся `null`, комментарий считается уровнем слайда. Его маркер позиционируется с помощью переданных координат, но он не привязан к конкретной фигуре, поэтому [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) возвращает `null`. Когда передаётся объект [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/), комментарий привязывается к этой фигуре. Координаты всё равно определяют позицию маркера комментария на слайде, а привязка к фигуре может быть получена через [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--).
 
-### **Привязка современного комментария к фигуре**
+### **Привязать современный комментарий к фигуре**
 
-Следующий пример создаёт как слайд‑уровневый современный комментарий, так и современный комментарий, привязанный к конкретному AutoShape. Затем он считывает связанную фигуру из каждого комментария.
+Пример дважды вызывает [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-): один раз с `null` фигурой для комментария уровня слайда и один раз с прямоугольником в качестве привязки. Чтение [getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) выводит `true` для проверки `null` у комментария уровня слайда и `Revenue title` для привязанного комментария. Оба комментария сохраняются вместе с презентацией.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -199,7 +237,9 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -219,11 +259,11 @@ try {
 }
 ```
 
-### **Привязка комментариев к различным типам фигур**
+### **Привязать комментарии к различным типам фигур**
 
-Любой объект слайда, реализующий [IShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishape/), может использоваться в качестве привязки. Типичные примеры включают [IAutoShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iconnector/) и экземпляры [IGraphicalObject](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/igraphicalobject/), такие как диаграммы.
+Любой объект слайда, реализующий [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/), может быть использован в качестве привязки. Распространённые примеры включают [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnector/) и экземпляры [IGraphicalObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobject/) такие как диаграммы.
 
-Следующий пример создаёт несколько распространённых типов фигур и связывает с каждой из них современный комментарий.
+Пример использует [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) для привязки комментария к каждому из пяти типов фигур: AutoShape, picture frame, group, connector и chart. Картинка использует встроенные данные изображения, поэтому внешнее изображение не требуется. Каждый комментарий имеет собственную позицию маркера, а сохранённая презентация сохраняет все пять привязок фигур.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -239,22 +279,24 @@ import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
 import com.aspose.slides.ShapeType;
 import android.graphics.PointF;
-import java.util.Base64;
+import android.util.Base64;
 import java.util.Date;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     Date createdTime = new Date();
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     PointF autoShapeCommentPosition = new PointF(30, 30);
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
     String imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
-    byte[] imageData = Base64.getDecoder().decode(imageBase64);
+    byte[] imageData = Base64.decode(imageBase64, Base64.DEFAULT);
     IPPImage image = presentation.getImages().addImage(imageData);
     IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
     PointF pictureCommentPosition = new PointF(230, 30);
@@ -280,18 +322,18 @@ try {
 }
 ```
 
-### **Привязка комментария к тексту и установка его статуса**
+### **Привязать комментарий к тексту и установить его статус**
 
-Для современного комментария, связанного с [IAutoShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iautoshape/), методы [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) и [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) получают начальную позицию выбранного текста в текстовом фрейме фигуры. Методы [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) и [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) определяют длину выделения. Вместе эти значения связывают комментарий с конкретным диапазоном текста внутри AutoShape.
+Для современного комментария, связанного с [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/), методы [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) и [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) дают доступ к начальной позиции выбранного текста в текстовом фрейме фигуры. Методы [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) и [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) дают доступ к длине выбора. Вместе эти значения связывают комментарий с конкретным диапазоном текста внутри AutoShape.
 
-Методы [IModernComment.getStatus](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#getStatus--) и [IModernComment.setStatus](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) работают со значением из констант [ModernCommentStatus](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/moderncommentstatus/):
+Методы [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) и [IModernComment.setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) работают со значением из констант [ModernCommentStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — конкретный статус современного комментария не определён.
+- `NotDefined` — статус современного комментария не определён.
 - `Active` — комментарий активен.
 - `Resolved` — комментарий решён.
 - `Closed` — комментарий закрыт.
 
-Следующий пример создаёт привязанный к фигуре современный комментарий, связывает его с выделением текста, помечает как решённый, сохраняет презентацию и проверяет значения после повторного открытия файла.
+Пример привязывает современный комментарий к словам «quarterly revenue» в тексте прямоугольника. Он вычисляет нулевой старт выбора из текста и передаёт его в [setTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-), затем использует [setTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) для установки количества выбранных символов. После вызова [setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) со значением `Resolved` презентация сохраняется и открывается заново. Четыре проверки в консоли должны вывести `true`, подтверждая сохранение привязки к фигуре, диапазона текста и статуса.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -314,6 +356,7 @@ int expectedSelectionStart = shapeText.indexOf(selectedText);
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
@@ -356,9 +399,9 @@ try {
 }
 ```
 
-### **Просмотр существующих современных комментариев**
+### **Проверить существующие современные комментарии**
 
-Чтобы проанализировать существующую презентацию, проверьте, реализуют ли комментарии интерфейс [IModernComment](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/), затем изучите [IModernComment.getShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), и [IModernComment.getStatus](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#getStatus--). `null` в качестве фигуры указывает на слайд‑уровневый комментарий. Для привязки к [IAutoShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iautoshape/) методы выбора текста определяют соответствующий диапазон в текстовом фрейме фигуры.
+Пример требует существующую презентацию, содержащую современные комментарии, и выводит их текст, статус и детали привязки. Чтобы проанализировать её, проверьте, какие комментарии реализуют [IModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/), затем изучите [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) и [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--). `null` shape указывает на комментарий уровня слайда. Для привязки к [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) методы выбора текста определяют соответствующий диапазон в текстовом фрейме фигуры.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -403,11 +446,13 @@ try {
 }
 ```
 
-## **Удаление комментариев**
+## **Удалить комментарии**
 
-### **Удаление всех комментариев и их авторов**
+Aspose.Slides for Android via Java позволяет удалить все комментарии и их авторов из презентации или удалить выбранные комментарии, оставив остальные. Ниже приведены примеры обоих подходов и сохранения обновлённой презентации.
 
-Следующий пример показывает, как удалить все комментарии и их авторов из презентации:
+### **Удалить все комментарии и их авторов**
+
+Пример открывает существующую презентацию и вызывает [ICommentCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#clear--) для каждого автора, затем вызывает [ICommentAuthorCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#clear--) для удаления самих авторов. Сохранённая презентация не содержит ни комментариев, ни авторов комментариев. Используйте презентацию с комментариями, чтобы увидеть результат удаления.
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -421,15 +466,16 @@ try {
     }
 
     presentation.getCommentAuthors().clear();
+
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Удаление определённых комментариев**
+### **Удалить определенные комментарии**
 
-Следующий пример показывает, как удалить конкретные комментарии со слайда:
+Пример создаёт два комментария на одном слайде и использует [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) для поиска комментариев каждого автора. Он собирает комментарии, чей текст равен «comment 1», перед вызовом [ICommentCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#remove-com.aspose.slides.IComment-), избегая изменения коллекции во время выбора. Сохранённая презентация оставляет только «comment 2».
 
 ```java
 import com.aspose.slides.IComment;
@@ -445,6 +491,7 @@ import java.util.List;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
     Date createdTime = new Date();
 
@@ -474,16 +521,16 @@ try {
 }
 ```
 
-## **Часто задаваемые вопросы**
+## **Вопросы и ответы**
 
-**Поддерживает ли Aspose.Slides статус `Resolved` для современных комментариев?**
+**Поддерживает ли Aspose.Slides статус «Resolved» для современных комментариев?**
 
-Да. Методы [IModernComment.getStatus](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#getStatus--) и [IModernComment.setStatus](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) позволяют получить или задать значение из [ModernCommentStatus](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/moderncommentstatus/), включая `Resolved`. Статус сохраняется в презентации и может быть считан после повторного открытия файла.
+Да. Методы [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) и [IModernComment.setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) работают со значением [ModernCommentStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/), включая `Resolved`. Статус сохраняется в презентации и может быть прочитан после повторного открытия файла.
 
-**Поддерживаются ли дискуссии в виде цепочек ответов, и существует ли ограничение вложенности?**
+**Поддерживаются ли обсуждения в виде ветвей (цепочки ответов) и есть ли ограничение вложенности?**
 
-Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icomment/#getParentComment--), что позволяет создавать цепочки ответов. API не задаёт конкретного ограничения глубины вложения.
+Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#getParentComment--), что позволяет создавать цепочки ответов. API не определяет конкретного ограничения глубины вложенности.
 
 **В какой системе координат определяется позиция маркера комментария на слайде?**
 
-Позиция маркера задаётся координатами с плавающей точкой в системе координат слайда, что позволяет точно разместить его на слайде.
+Позиция маркера задаётся координатами с плавающей точкой в системе координат слайда, что позволяет точно размещать его на слайде.

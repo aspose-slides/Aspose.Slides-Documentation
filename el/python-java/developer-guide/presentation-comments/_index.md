@@ -10,7 +10,7 @@ keywords:
 - σχόλια PowerPoint
 - σχόλια παρουσίασης
 - σχόλια διαφάνειας
-- πρόσθεσε σχόλιο
+- προσθήκη σχολίου
 - πρόσβαση σε σχόλιο
 - επεξεργασία σχολίου
 - απάντηση σε σχόλιο
@@ -21,32 +21,32 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides για Python μέσω Java: προσθέστε, διαβάστε, επεξεργαστείτε, απαντήστε και αφαιρέστε σχόλια σε παρουσιάσεις PowerPoint γρήγορα και εύκολα."
+description: "Διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides for Python via Java: προσθέστε, διαβάστε, επεξεργαστείτε, απαντήστε σε, και αφαιρέστε σχόλια σε παρουσιάσεις PowerPoint γρήγορα και εύκολα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε τα σχόλια παρουσίασης με το Aspose.Slides για Python μέσω Java. Παρουσιάζει τους κύριους τύπους που σχετίζονται με τα σχόλια και δείχνει πώς να προσθέτετε σχόλια σε διαφάνειες, να προσπελάζετε υπάρχοντα σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια, και να αφαιρείτε σχόλια από μια παρουσίαση.
+Αυτό το άρθρο εξηγεί πώς να διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides for Python via Java. Παρουσιάζει τους κύριους τύπους σχετικούς με τα σχόλια και δείχνει πώς να προσθέτετε σχόλια στις διαφάνειες, να έχετε πρόσβαση σε υπάρχοντα σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια, και να αφαιρείτε σχόλια από μια παρουσίαση.
 
-Τα παραδείγματα καλύπτουν κοινά σενάρια ελέγχου και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίου και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων, και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
+Τα παραδείγματα καλύπτουν κοινά σενάρια ελέγχου και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση του κειμένου και των μεταδεδομένων του σχολίου, η δημιουργία αλυσίδων απαντήσεων, και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
 
 Στο PowerPoint, τα σχόλια εμφανίζονται ως σημειώσεις στις διαφάνειες. Η επιλογή ενός σχολίου εμφανίζει το κείμενό του και τη σχετική συζήτηση.
 
-Για να ζητήσετε τα σχόλια να εμφανίζονται ή να κρύβονται όταν ανοίγει μια παρουσίαση χωρίς να αλλάξουν τα ίδια τα σχόλια, δείτε [Show or Hide Comments When Opening a Presentation](/slides/el/python-java/presentation-view-properties/).
+Για να ζητήσετε να εμφανίζονται ή να αποκρύπτονται τα σχόλια κατά το άνοιγμα μιας παρουσίασης χωρίς να αλλάξετε τα ίδια τα σχόλια, δείτε [Εμφάνιση ή Απόκρυψη Σχολίων Κατά το Άνοιγμα Παρουσίασης](/slides/el/python-java/presentation-view-properties/).
 
 ## **Γιατί να Προσθέσετε Σχόλια σε Παρουσιάσεις;**
 
-Μπορείτε να χρησιμοποιήσετε τα σχόλια για να παρέχετε ανατροφοδότηση και να συνεργάζεστε με συναδέλφους κατά την αξιολόγηση παρουσιάσεων.
+Μπορείτε να χρησιμοποιήσετε τα σχόλια για να παρέχετε ανατροφοδότηση και να συνεργαστείτε με συναδέλφους κατά την αναθεώρηση παρουσιάσεων.
 
-Aspose.Slides για Python μέσω Java παρέχει τα παρακάτω API για εργασία με σχόλια:
+Το Aspose.Slides for Python via Java παρέχει τα ακόλουθα API για εργασία με σχόλια:
 
-* Η κλάση [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) που παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
-* Η κλάση [CommentCollection](https://reference.aspose.com/slides/el/python-java/aspose.slides/commentcollection/) που αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν συγκεκριμένο συγγραφέα.
-* Η κλάση [Comment](https://reference.aspose.com/slides/el/python-java/aspose.slides/comment/) που παρέχει πληροφορίες για ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, της ώρας δημιουργίας, της θέσης και του κειμένου.
-* Η κλάση [CommentAuthor](https://reference.aspose.com/slides/el/python-java/aspose.slides/commentauthor/) που παρέχει πληροφορίες για έναν συγγραφέα, συμπεριλαμβανομένου του ονόματός του, των αρχικών και των σχετικών σχολίων.
+* Η κλάση [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
+* Η κλάση [CommentCollection](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/) αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν συγκεκριμένο συγγραφέα.
+* Η κλάση [Comment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/) παρέχει πληροφορίες για ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, της ώρας δημιουργίας, της θέσης και του κειμένου.
+* Η κλάση [CommentAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthor/) παρέχει πληροφορίες για έναν συγγραφέα, συμπεριλαμβανομένων του ονόματος, των αρχικών και των σχετικών σχολίων.
 
 ## **Προσθήκη Σχολίων σε Διαφάνειες**
 
-Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε σχόλια σε διαφάνειες σε μια παρουσίαση PowerPoint:
+Το παράδειγμα δημιουργεί δύο διαφάνειες και εγγράφει έναν συγγραφέα σχολίου με τη μέθοδο [addAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#addAuthor). Χρησιμοποιεί τη [addComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addComment) για να τοποθετήσει ένα σχόλιο σε κάθε διαφάνεια, στη συνέχεια ανακτά τα σχόλια της πρώτης διαφάνειας για αυτόν τον συγγραφέα με τη [getSlideComments](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideComments). Η κονσόλα εμφανίζει το κείμενο του πρώτου σχολίου δυο φορές, δείχοντας την πρόσβαση τόσο μέσω της διαφάνειας όσο και του συγγραφέα, και η αποθηκευμένη παρουσίαση περιέχει και τα δύο σχόλια.
 
 ```python
 import jpype
@@ -64,6 +64,7 @@ presentation = Presentation()
 try:
     first_slide = presentation.getSlides().get_Item(0)
     second_slide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0))
+
     author = presentation.getCommentAuthors().addAuthor("Jawad", "MF")
     position = Point2DFloat(0.2, 0.2)
     created_time = Date()
@@ -85,9 +86,51 @@ finally:
     presentation.dispose()
 ```
 
+## **Εύρεση ή Δημιουργία Συγγραφέα Σχολίου**
+
+Όταν μια αυτοματοποιημένη αξιολόγηση επεξεργάζεται την ίδια παρουσίαση επανειλημμένα, ψάξτε στη συλλογή που επιστρέφει η [getCommentAuthors](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getCommentAuthors) πριν προσθέσετε έναν συγγραφέα. Η [findByNameAndInitials](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#findByNameAndInitials) ταιριάζει τόσο με το όνομα όσο και με τα αρχικά και επιστρέφει έναν πίνακα με τους αντίστοιχους συγγραφείς, ή έναν κενό πίνακα αν δεν υπάρχουν αντιστοιχίες. Αντίθετα, η [findByName](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#findByName) ψάχνει μόνο με βάση το όνομα, ανεξάρτητα από τα αρχικά. Η κλήση της [addAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#addAuthor) με όνομα και αρχικά που ήδη υπάρχουν στη συλλογή ρίχνει εξαίρεση.
+
+Το παράδειγμα απαιτεί ένα αρχείο παρουσίασης με τουλάχιστον μια διαφάνεια. Σε κάθε μια από τις δύο διεργασίες, επαναχρησιμοποιεί τον πρώτο ταιριαστό συγγραφέα, ή δημιουργεί έναν μόνο όταν το αποτέλεσμα είναι κενό. Αν υπάρχουν πολλαπλές αντιστοιχίες, επιλέγει το πρώτο στοιχείο του πίνακα χωρίς να συγχωνεύσει ή να αφαιρέσει τους άλλους συγγραφείς. Στη συνέχεια καλεί τη [addComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addComment) για τον επιλεγμένο συγγραφέα και αποθηκεύει την παρουσίαση. Η δεύτερη διεργασία ανοίγει το αποτέλεσμα της πρώτης και επαναλαμβάνει τη λειτουργία.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+Point2DFloat = jpype.JClass("java.awt.geom.Point2D$Float")
+Date = jpype.JClass("java.util.Date")
+
+author_name = "Reviewer"
+author_initials = "RV"
+
+input_file = "input.pptx"
+position = Point2DFloat(20, 20)
+
+for pass_number in range(1, 3):
+    presentation = Presentation(input_file)
+    try:
+        matches = presentation.getCommentAuthors().findByNameAndInitials(author_name, author_initials)
+
+        author = matches[0] if len(matches) > 0 else presentation.getCommentAuthors().addAuthor(author_name, author_initials)
+        created_time = Date()
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, created_time)
+
+        output_file = f"review_pass_{pass_number}.pptx"
+        presentation.save(output_file, SaveFormat.Pptx)
+        input_file = output_file
+    finally:
+        presentation.dispose()
+```
+
+Η δεύτερη διεργασία προσθέτει ένα ακόμη σχόλιο χωρίς να προσθέσει νέο συγγραφέα ή να αφαιρέσει υπάρχοντα σχόλια. Το τελικό αρχείο, `review_pass_2.pptx`, περιέχει και τα νέα σχόλια μαζί με τυχόν αρχικά σχόλια. Η επαναχρησιμοποίηση ενός συγγραφέα δεν αφαιρεί διπλότυπα σχόλια: για να αποφύγετε την επαναλαμβανόμενη προσθήκη του ίδιου σχολίου, εφαρμόστε ξεχωριστή ανίχνευση διπλοτύπων πριν το προσθέσετε.
+
 ## **Πρόσβαση σε Σχόλια Διαφάνειας**
 
-Το παρακάτω παράδειγμα δείχνει πώς να προσπελάσετε υπάρχοντα σχόλια σε μια παρουσίαση PowerPoint:
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και διαβάζει τη συλλογή που επιστρέφει η [getCommentAuthors](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getCommentAuthors). Για κάθε συγγραφέα, περνάει τη συλλογή που επιστρέφει η [getComments](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthor/#getComments) και εκτυπώνει τον αριθμό της διαφάνειας, το κείμενο του σχολίου, το όνομα του συγγραφέα και την ώρα δημιουργίας. Η παρουσίαση εισόδου πρέπει να περιέχει σχόλια για να παραχθεί έξοδος στην κονσόλα.
 
 ```python
 import jpype
@@ -113,9 +156,9 @@ finally:
 
 ## **Απάντηση σε Σχόλια**
 
-Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Οι μέθοδοι [Comment.getParentComment](https://reference.aspose.com/slides/el/python-java/aspose.slides/comment/#getParentComment) και [Comment.setParentComment](https://reference.aspose.com/slides/el/python-java/aspose.slides/comment/#setParentComment) σας επιτρέπουν να λάβετε ή να ορίσετε το γονικό ενός σχολίου.
+Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Οι μέθοδοι [Comment.getParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#getParentComment) και [Comment.setParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#setParentComment) σας επιτρέπουν να λάβετε ή να ορίσετε το γονικό σχόλιο.
 
-Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε απαντήσεις και να εξετάσετε την προκύπτουσα ιεραρχία σχολίων:
+Το παράδειγμα δημιουργεί σχόλια από δύο συγγραφείς και χρησιμοποιεί τη [setParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#setParentComment) για να δημιουργήσει απαντήσεις, συμπεριλαμβανομένης μιας απάντησης σε άλλη απάντηση. Π Passing `None` στην [getSlideComments](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideComments) ανασύρει τα σχόλια από όλους τους συγγραφείς· η κονσόλα εσοχή κάθε καταχώριση ανάλογα με το βάθος της ιεραρχίας απαντήσεων. Το παράδειγμα αποθηκεύει τη συνολική συζήτηση, καλεί τη [remove](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#remove) στο πρώτο ριζικό σχόλιο, και αποθηκεύει μια δεύτερη παρουσίαση με το εν λόγω σχόλιο και τις απαντήσεις του απομακρυσμένες.
 
 ```python
 import jpype
@@ -132,6 +175,7 @@ Date = jpype.JClass("java.util.Date")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     position = Point2DFloat(10, 10)
     created_time = Date()
 
@@ -172,19 +216,19 @@ finally:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Όταν η μέθοδος [Comment.remove](https://reference.aspose.com/slides/el/python-java/aspose.slides/comment/#remove) χρησιμοποιείται για τη διαγραφή ενός σχολίου, όλες οι απαντήσεις σε αυτό το σχόλιο διαγράφονται επίσης.
-* Αν η [Comment.setParentComment](https://reference.aspose.com/slides/el/python-java/aspose.slides/comment/#setParentComment) δημιουργήσει κυκλική αναφορά, θα εξαχθεί ένα [PptxEditException](https://reference.aspose.com/slides/el/python-java/aspose.slides/pptxeditexception/).
+* Όταν η μέθοδος [Comment.remove](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#remove) χρησιμοποιείται για τη διαγραφή ενός σχολίου, όλες οι απαντήσεις σε εκείνο το σχόλιο διαγράφονται επίσης.
+* Εάν η [Comment.setParentComment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#setParentComment) δημιουργεί κυκλική αναφορά, ρίχνεται μια [PptxEditException](https://reference.aspose.com/slides/python-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Προσθήκη Σύγχρονων Σχολίων**
 
-Τα σύγχρονα σχόλια μπορούν να συνδεθούν με τη διαφάνεια ίδια, με ένα συγκεκριμένο σχήμα ή με ένα εύρος κειμένου μέσα σε ένα [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/). Η μέθοδος [CommentCollection.addModernComment](https://reference.aspose.com/slides/el/python-java/aspose.slides/commentcollection/#addModernComment) δέχεται ένα όρισμα [Shape](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/) επιπλέον της διαφάνειας και των συντεταγμένων του δείκτη σχολίου.
+Τα σύγχρονα σχόλια μπορεί να συνδέονται με την ίδια τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με μια περιοχή κειμένου μέσα σε ένα [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/). Η μέθοδος [CommentCollection.addModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addModernComment) δέχεται ένα επιχείρημα τύπου [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) εκτός από τη διαφάνεια και τις συντεταγμένες του δείκτη σχολίου.
 
-Όταν το `None` περνιέται ως όρισμα σχήματος, το σχόλιο είναι σχόλιο επιπέδου διαφάνειας. Ο δείκτης τοποθετείται από τις δοσμένες συντεταγμένες, αλλά δεν συνδέεται με συγκεκριμένο σχήμα, έτσι το [ModernComment.getShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#getShape) επιστρέφει `None`. Όταν παρέχεται ένα [Shape](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/), το σχόλιο αγκυρώνεται σε αυτό το σχήμα. Οι συντεταγμένες εξακολουθούν να καθορίζουν τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η σύνδεση με το σχήμα μπορεί να ανακτηθεί μέσω του [ModernComment.getShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#getShape).
+Όταν παρασχέται `None` ως το επιχείρημα shape, το σχόλιο είναι σχόλια επιπέδου διαφάνειας. Ο δείκτης του τοποθετείται με τις δοθείσες συντεταγμένες, αλλά δεν συνδέεται με κάποιο συγκεκριμένο σχήμα, έτσι η [ModernComment.getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape) επιστρέφει `None`. Όταν παρέχεται ένα [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/), το σχόλιο αγκυροβολείται σε αυτό το σχήμα. Οι συντεταγμένες εξακολουθούν να ορίζουν τη θέση του δείκτη του σχολίου στη διαφάνεια, ενώ η σύνδεση σχήματος μπορεί να ανακτηθεί μέσω της [ModernComment.getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape).
 
-### **Αγκύρωση Σύγχρονου Σχολίου σε Σχήμα**
+### **Αγκίστρωση Σύγχρονου Σχολίου σε Σχήμα**
 
-Το παρακάτω παράδειγμα δημιουργεί τόσο ένα σύγχρονο σχόλιο επιπέδου διαφάνειας όσο και ένα σύγχρονο σχόλιο αγκυρωμένο σε ένα συγκεκριμένο [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/). Στη συνέχεια διαβάζει το συνδεδεμένο σχήμα από κάθε σχόλιο.
+Το παράδειγμα καλεί τη [addModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addModernComment) δύο φορές: μια φορά με σχήμα `None` για σχόλιο επιπέδου διαφάνειας και μια φορά με ένα παραλληλόγραμμο ως άγκυρα. Η ανάγνωση της [getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape) εκτυπώνει `True` για τον έλεγχο `None` του σχολίου επιπέδου διαφάνειας και `Revenue title` για το αγκυροβολημένο σχόλιο. Και τα δύο σχόλια αποθηκεύονται με την παρουσίαση.
 
 ```python
 import jpype
@@ -201,7 +245,9 @@ Date = jpype.JClass("java.util.Date")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV")
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80)
     shape.setName("Revenue title")
     shape.getTextFrame().setText("Quarterly revenue")
@@ -220,11 +266,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Αγκύρωση Σχολίων σε Διάφορους Τύπους Σχημάτων**
+### **Αγκίστρωση Σχολίων σε Διάφορους Τύπους Σχημάτων**
 
-Οποιοδήποτε αντικείμενο διαφάνειας κληρονομεί από τη [Shape](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/) μπορεί να χρησιμοποιηθεί ως άγκυρο σχήματος. Συνηθισμένα παραδείγματα περιλαμβάνουν το [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/), το [PictureFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/pictureframe/), το [GroupShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/groupshape/), το [Connector](https://reference.aspose.com/slides/el/python-java/aspose.slides/connector/), και τις παρουσίες [GraphicalObject](https://reference.aspose.com/slides/el/python-java/aspose.slides/graphicalobject/) όπως γραφήματα.
+Οποιοδήποτε αντικείμενο διαφάνειας που κληρονομεί από την [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) μπορεί να χρησιμοποιηθεί ως άγκυρα σχήματος. Συνηθισμένα παραδείγματα περιλαμβάνουν [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/python-java/aspose.slides/connector/), και [GraphicalObject](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobject/) αντικείμενα όπως διαγράμματα.
 
-Το παρακάτω παράδειγμα δημιουργεί πολλούς κοινούς τύπους σχημάτων και συσχετίζει ένα σύγχρονο σχόλιο με το καθένα.
+Το παράδειγμα χρησιμοποιεί τη [addModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#addModernComment) για να συσχετίσει ένα σχόλιο με καθέναν από τους πέντε τύπους σχημάτων: ένα AutoShape, ένα picture frame, μια ομάδα, έναν connector και ένα διάγραμμα. Η εικόνα χρησιμοποιεί ενσωματωμένα δεδομένα εικόνας, οπότε δεν απαιτείται εξωτερική εικόνα. Κάθε σχόλιο έχει τη δική του θέση δείκτη, και η αποθηκευμένη παρουσίαση διατηρεί και τις πέντε συνδέσεις σχήματος.
 
 ```python
 import jpype
@@ -242,11 +288,13 @@ Base64 = jpype.JClass("java.util.Base64")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV")
     created_time = Date()
 
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60)
     auto_shape.getTextFrame().setText("AutoShape")
+
     auto_shape_comment_position = Point2DFloat(30, 30)
     author.getComments().addModernComment("Comment on an AutoShape.", slide, auto_shape, auto_shape_comment_position, created_time)
 
@@ -276,18 +324,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Αγκύρωση Σχολίου σε Κείμενο και Ορισμός Κατάστασής του**
+### **Αγκίστρωση Σχολίου σε Κείμενο και Ορισμός Κατάστασής του**
 
-Για ένα σύγχρονο σχόλιο συνδεδεμένο με ένα [AutoShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/autoshape/), οι μέθοδοι [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#getTextSelectionStart) και [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#setTextSelectionStart) προσπελαύνουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Οι [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#getTextSelectionLength) και [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#setTextSelectionLength) προσπελαύνουν το μήκος της επιλογής. Μαζί, αυτές οι τιμές συσχετίζουν το σχόλιο με ένα συγκεκριμένο εύρος κειμένου μέσα στο AutoShape.
+Για ένα σύγχρονο σχολίου που σχετίζεται με ένα [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/), οι μέθοδοι [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionStart) και [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionStart) προσπελάζουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Οι [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionLength) και [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionLength) προσπελάζουν το μήκος της επιλογής. Μαζί, αυτές οι τιμές συσχετίζουν το σχόλιο με ένα συγκεκριμένο εύρος κειμένου μέσα στο AutoShape.
 
-Οι μέθοδοι [ModernComment.getStatus](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#getStatus) και [ModernComment.setStatus](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#setStatus) προσπερνούν μια τιμή από τις σταθερές [ModernCommentStatus](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncommentstatus/):
+Οι μέθοδοι [ModernComment.getStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getStatus) και [ModernComment.setStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setStatus) προσπελάζουν μια τιμή από τις σταθερές του [ModernCommentStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/):
 
-- [NotDefined](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncommentstatus/#NotDefined) — δεν έχει οριστεί συγκεκριμένη κατάσταση σύγχρονου σχολίου.
-- [Active](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncommentstatus/#Active) — το σχόλιο είναι ενεργό.
-- [Resolved](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncommentstatus/#Resolved) — το σχόλιο έχει επιλυθεί.
-- [Closed](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncommentstatus/#Closed) — το σχόλιο είναι κλειστό.
+- [NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#NotDefined) — δεν έχει καθοριστεί συγκεκριμένη κατάσταση σύγχρονου σχολίου.
+- [Active](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#Active) — το σχόλιο είναι ενεργό.
+- [Resolved](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#Resolved) — το σχόλιο έχει επιλυθεί.
+- [Closed](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/#Closed) — το σχόλιο είναι κλειστό.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σύγχρονο σχόλιο αγκυρωμένο σε σχήμα, το συνδέει με μια επιλογή κειμένου, το σημειώνει ως επιλυμένο, αποθηκεύει την παρουσίαση και επαληθεύει τις τιμές μετά το άνοιγμα του αρχείου.
+Το παράδειγμα αγκυροβολεί ένα σύγχρονο σχόλιο στις λέξεις «quarterly revenue» στο κείμενο ενός παραλληλογράμμου. Υπολογίζει την αρχή της επιλογής μηδενικής βάσης από το κείμενο και τη περνά στη [setTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionStart), και χρησιμοποιεί τη [setTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setTextSelectionLength) για να ορίσει τον αριθμό των επιλεγμένων χαρακτήρων. Μετά την κλήση της [setStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setStatus) με `Resolved`, αποθηκεύει και ανοίγει ξανά την παρουσίαση. Οι τέσσερις έλεγχοι της κονσόλας θα πρέπει να εκτυπώσουν `True`, επιβεβαιώνοντας ότι η άγκυρα του σχήματος, το εύρος κειμένου και η κατάσταση διατηρήθηκαν.
 
 ```python
 import jpype
@@ -309,6 +357,7 @@ expected_selection_start = shape_text.find(selected_text)
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100)
     shape.setName("Forecast text")
     shape.getTextFrame().setText(shape_text)
@@ -348,9 +397,9 @@ finally:
     reopened_presentation.dispose()
 ```
 
-### **Έλεγχος Υπάρχων Σύγχρονων Σχολίων**
+### **Επιθεώρηση Υπάρχοντων Σύγχρονων Σχολίων**
 
-Για να ελέγξετε μια υπάρχουσα παρουσίαση, ελέγξτε ποια σχόλια είναι στιγμιότυπα του [ModernComment](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/), στη συνέχεια εξετάστε το [ModernComment.getShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#getShape), το [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#getTextSelectionStart), το [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#getTextSelectionLength) και το [ModernComment.getStatus](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#getStatus). Ένα σχήμα `None` υποδεικνύει σχόλιο επιπέδου διαφάνειας. Για άγκυρο [AutoShape], οι μέθοδοι επιλογής κειμένου προσδιορίζουν το σχετικό εύρος στο πλαίσιο κειμένου του σχήματος.
+Το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση που περιέχει σύγχρονα σχόλια και εκτυπώνει το κείμενό τους, την κατάσταση και τα στοιχεία άγκυρας. Για την επιθεώρηση, ελέγξτε ποια σχόλια είναι στιγμιότυπα του [ModernComment](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/), έπειτα εξετάστε τις [ModernComment.getShape](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getTextSelectionLength) και [ModernComment.getStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getStatus). Ένα σχήμα `None` υποδηλώνει σχόλιο επιπέδου διαφάνειας. Για άγκυρα [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/), οι μέθοδοι επιλογής κειμένου εντοπίζουν το σχετικό εύρος στο πλαίσιο κειμένου του σχήματος.
 
 ```python
 import jpype
@@ -392,9 +441,11 @@ finally:
 
 ## **Αφαίρεση Σχολίων**
 
-### **Αφαίρεση Όλων των Σχολίων και Συγγραφέων Σχολίων**
+Το Aspose.Slides for Python via Java σας επιτρέπει να αφαιρέσετε όλα τα σχόλια και τους συγγραφείς τους από μια παρουσίαση ή να διαγράψετε επιλεγμένα σχόλια ενώ διατηρείτε τα υπόλοιπα. Τα παρακάτω παραδείγματα δείχνουν και τις δύο προσεγγίσεις και αποθηκεύουν την ενημερωμένη παρουσίαση.
 
-Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε όλα τα σχόλια και τους συγγραφείς σχολίων από μια παρουσίαση:
+### **Αφαίρεση Όλων των Σχολίων και των Συγγραφέων Σχολίων**
+
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και καλεί τη [CommentCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#clear) για κάθε συγγραφέα, στη συνέχεια καλεί τη [CommentAuthorCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/commentauthorcollection/#clear) για να αφαιρέσει τους ίδιους τους συγγραφείς. Η αποθηκευμένη παρουσίαση δεν περιέχει ούτε σχόλια ούτε συγγραφείς σχολίων. Χρησιμοποιήστε μια παρουσίαση που περιέχει σχόλια για να παρατηρήσετε την αφαίρεση.
 
 ```python
 import jpype
@@ -411,6 +462,7 @@ try:
         author.getComments().clear()
 
     presentation.getCommentAuthors().clear()
+
     presentation.save("example_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -418,7 +470,7 @@ finally:
 
 ### **Αφαίρεση Συγκεκριμένων Σχολίων**
 
-Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε συγκεκριμένα σχόλια από μια διαφάνεια:
+Το παράδειγμα δημιουργεί δύο σχόλια σε μια διαφάνεια και χρησιμοποιεί τη [getSlideComments](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideComments) για να βρει σχόλια από κάθε συγγραφέα. Συλλέγει σχόλια του οποίου το κείμενο ισούται με «comment 1» πριν καλέσει τη [CommentCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/commentcollection/#remove), αποφεύγοντας αλλαγές στη συλλογή κατά την επιλογή. Η αποθηκευμένη παρουσίαση διατηρεί μόνο το «comment 2».
 
 ```python
 import jpype
@@ -435,6 +487,7 @@ Date = jpype.JClass("java.util.Date")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     author = presentation.getCommentAuthors().addAuthor("Author", "A")
     created_time = Date()
 
@@ -459,16 +512,16 @@ finally:
     presentation.dispose()
 ```
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Συχνές Ερωτήσεις**
 
-**Υποστηρίζει το Aspose.Slides κατάσταση 'επιλυμένο' για σύγχρονα σχόλια;**
+**Υποστηρίζει το Aspose.Slides κατάσταση επιλυμένου για σύγχρονα σχόλια;**
 
-Ναι. Οι μέθοδοι [ModernComment.getStatus](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#getStatus) και [ModernComment.setStatus](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncomment/#setStatus) προσπερνούν μια τιμή του [ModernCommentStatus](https://reference.aspose.com/slides/el/python-java/aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
+Ναι. Η [ModernComment.getStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#getStatus) και η [ModernComment.setStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncomment/#setStatus) προσπελάζουν μια τιμή του [ModernCommentStatus](https://reference.aspose.com/slides/python-java/aspose.slides/moderncommentstatus/), συμπεριλαμβανομένης της `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
 
-**Υποστηρίζονται οι αλληλουχίες συζητήσεων (αλυσίδες απαντήσεων) και υπάρχει όριο εμφώλευσης;**
+**Υπάρχουν υποστηριζόμενες συζητήσεις με νηματοποίηση (αλυσίδες απαντήσεων), και υπάρχει όριο βάθους;**
 
-Ναι. Κάθε σχόλιο μπορεί να αναφέρει το [parent comment](https://reference.aspose.com/slides/el/python-java/aspose.slides/comment/#getParentComment), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους εμφώλευσης.
+Ναι. Κάθε σχόλιο μπορεί να αναφέρεται στο [parent comment](https://reference.aspose.com/slides/python-java/aspose.slides/comment/#getParentComment), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους ενσωμάτωσης.
 
 **Σε ποιο σύστημα συντεταγμένων ορίζεται η θέση του δείκτη σχολίου σε μια διαφάνεια;**
 
-Η θέση του δείκτη ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να τοποθετήσετε τον δείκτη ακριβώς στη διαφάνεια.
+Η θέση του δείκτη ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να τοποθετήσετε ακριβώς το δείκτη στη διαφάνεια.

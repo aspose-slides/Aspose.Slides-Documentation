@@ -1,51 +1,52 @@
 ---
-title: Quản lý bình luận bài thuyết trình trong .NET
-linktitle: Bình luận bài thuyết trình
+title: Quản lý nhận xét bản trình chiếu trong .NET
+linktitle: Nhận xét bản trình chiếu
 type: docs
 weight: 100
 url: /vi/net/presentation-comments/
 keywords:
-- bình luận
-- bình luận hiện đại
-- bình luận PowerPoint
-- bình luận bài thuyết trình
-- bình luận slide
-- thêm bình luận
-- truy cập bình luận
-- chỉnh sửa bình luận
-- trả lời bình luận
-- loại bỏ bình luận
-- xóa bình luận
+- nhận xét
+- nhận xét hiện đại
+- nhận xét PowerPoint
+- nhận xét bản trình chiếu
+- nhận xét slide
+- thêm nhận xét
+- truy cập nhận xét
+- chỉnh sửa nhận xét
+- trả lời nhận xét
+- xóa nhận xét
+- xoá nhận xét
 - PowerPoint
-- bài thuyết trình
+- bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Quản lý bình luận bài thuyết trình với Aspose.Slides cho .NET: thêm, đọc, chỉnh sửa, trả lời và xóa bình luận trong các bài thuyết trình PowerPoint một cách nhanh chóng và dễ dàng."
+description: "Quản lý các nhận xét bản trình chiếu với Aspose.Slides cho .NET: thêm, đọc, chỉnh sửa, trả lời và xóa nhận xét trong các bản trình chiếu PowerPoint một cách nhanh chóng và dễ dàng."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách quản lý các bình luận trong bài thuyết trình bằng Aspose.Slides for .NET. Nó giới thiệu các kiểu dữ liệu liên quan đến bình luận chính và trình bày cách thêm bình luận vào các slide, truy cập các bình luận hiện có, làm việc với trả lời và bình luận hiện đại, cũng như xóa bình luận khỏi bài thuyết trình.
+Bài viết này giải thích cách quản lý các chú thích trong bản trình chiếu bằng Aspose.Slides cho .NET. Nó giới thiệu các kiểu liên quan tới chú thích chính và trình bày cách thêm chú thích vào các slide, truy cập các chú thích hiện có, làm việc với các phản hồi và chú thích hiện đại, và xóa các chú thích khỏi một bản trình chiếu.
 
-Các ví dụ bao phủ các kịch bản xem xét và cộng tác phổ biến trong PowerPoint, chẳng hạn như gán bình luận cho tác giả, đọc văn bản và siêu dữ liệu của bình luận, xây dựng chuỗi trả lời, và xóa các bình luận đã chọn hoặc tất cả bình luận.
+Các ví dụ bao gồm các kịch bản đánh giá và cộng tác thường gặp trong PowerPoint, chẳng hạn như gán chú thích cho tác giả, đọc nội dung và siêu dữ liệu của chú thích, xây dựng chuỗi phản hồi, và xóa các chú thích đã chọn hoặc tất cả các chú thích.
 
-Trong PowerPoint, bình luận xuất hiện như các chú thích trên slide. Khi chọn một bình luận, văn bản và cuộc thảo luận liên quan sẽ được hiển thị.
+Trong PowerPoint, các chú thích xuất hiện dưới dạng chú giải trên các slide. Việc chọn một chú thích sẽ hiển thị nội dung và cuộc thảo luận liên quan.
 
-Để yêu cầu hiển thị hoặc ẩn bình luận khi mở bài thuyết trình mà không thay đổi nội dung bình luận, hãy xem [Show or Hide Comments When Opening a Presentation](/slides/vi/net/presentation-view-properties/).
+Để yêu cầu hiển thị hoặc ẩn các chú thích khi mở bản trình chiếu mà không thay đổi chúng, xem [Hiển thị hoặc Ẩn chú thích khi mở bản trình chiếu](/slides/vi/net/presentation-view-properties/).
 
-## **Tại sao nên thêm bình luận vào bài thuyết trình?**
+## **Tại sao thêm chú thích vào bản trình chiếu?**
 
-Bạn có thể sử dụng bình luận để cung cấp phản hồi và cộng tác với đồng nghiệp khi xem xét bài thuyết trình.
+Bạn có thể sử dụng chú thích để đưa ra phản hồi và cộng tác với đồng nghiệp khi xem xét bản trình chiếu.
 
-Aspose.Slides for .NET cung cấp các API sau để làm việc với bình luận:
+Aspose.Slides cho .NET cung cấp các API sau để làm việc với chú thích:
 
-* Lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation) cung cấp quyền truy cập vào các tác giả bình luận của bài thuyết trình.
-* Giao diện [ICommentCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/icommentcollection) đại diện cho các bình luận liên kết với một tác giả cụ thể.
-* Giao diện [IComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment) cung cấp thông tin về một bình luận, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
-* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/net/aspose.slides/commentauthor) cung cấp thông tin về một tác giả, bao gồm tên, ký tự viết tắt và các bình luận liên quan.
+* Lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), cung cấp quyền truy cập vào các tác giả chú thích của bản trình chiếu.  
+* Giao diện [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection), đại diện cho các chú thích liên kết với một tác giả riêng lẻ.  
+* Giao diện [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment), cung cấp thông tin về một chú thích, bao gồm tác giả, thời gian tạo, vị trí và nội dung.  
+* Lớp [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor), cung cấp thông tin về một tác giả, bao gồm tên, ký hiệu và các chú thích liên quan.
 
-## **Thêm bình luận vào slide**
-Ví dụ sau cho thấy cách thêm bình luận vào các slide trong một bài thuyết trình PowerPoint:
+## **Thêm chú thích vào slide**
+
+Ví dụ tạo hai slide và đăng ký một tác giả chú thích bằng [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/). Nó sử dụng [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) để đặt một chú thích trên mỗi slide, sau đó lấy các chú thích của slide đầu tiên cho tác giả đó bằng [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/). Bảng điều khiển hiển thị nội dung của chú thích đầu tiên hai lần, chứng minh việc truy cập qua cả slide và tác giả, và bản trình chiếu đã lưu chứa cả hai chú thích.
 
 ```csharp
 using System;
@@ -56,6 +57,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var firstSlide = presentation.Slides[0];
 var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
 var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 var position = new PointF(0.2f, 0.2f);
 var createdTime = DateTime.Now;
@@ -76,8 +78,44 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Truy cập bình luận trên slide**
-Ví dụ sau cho thấy cách truy cập các bình luận hiện có trong một bài thuyết trình PowerPoint:
+## **Tìm hoặc Tạo Tác Giả Chú Thích**
+
+Khi một quy trình đánh giá tự động xử lý cùng một bản trình chiếu nhiều lần, hãy tìm trong bộ sưu tập [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/) trước khi thêm tác giả. [FindByNameAndInitials](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbynameandinitials/) khớp cả tên và ký hiệu và trả về một mảng các tác giả phù hợp, hoặc một mảng rỗng nếu không tìm thấy. Ngược lại, [FindByName](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbyname/) chỉ tìm theo tên, bất kể ký hiệu. Gọi [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) với tên và ký hiệu đã tồn tại trong bộ sưu tập sẽ ném ngoại lệ.
+
+Ví dụ yêu cầu một tệp bản trình chiếu có ít nhất một slide. Trong mỗi trong hai lần chạy, nó tái sử dụng tác giả khớp đầu tiên, hoặc tạo mới chỉ khi kết quả rỗng. Nếu có nhiều kết quả phù hợp, nó chọn phần tử đầu tiên trong mảng mà không hợp nhất hay xóa các tác giả khác. Sau đó nó gọi [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) cho tác giả đã chọn và lưu bản trình chiếu. Lần chạy thứ hai mở kết quả của lần chạy đầu tiên và lặp lại thao tác.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string authorName = "Reviewer";
+const string authorInitials = "RV";
+
+var inputFile = "input.pptx";
+var position = new PointF(20, 20);
+
+for (var pass = 1; pass <= 2; pass++)
+{
+    using var presentation = new Presentation(inputFile);
+
+    var matches = presentation.CommentAuthors.FindByNameAndInitials(authorName, authorInitials);
+    
+    var author = matches.Length > 0 ? matches[0] : presentation.CommentAuthors.AddAuthor(authorName, authorInitials);
+    author.Comments.AddComment("Please review this slide.", presentation.Slides[0], position, DateTime.Now);
+
+    var outputFile = $"review_pass_{pass}.pptx";
+    presentation.Save(outputFile, SaveFormat.Pptx);
+    inputFile = outputFile;
+}
+```
+
+Lần chạy thứ hai thêm một chú thích khác mà không thêm tác giả mới hoặc xóa các chú thích hiện có. Tệp cuối cùng, `review_pass_2.pptx`, chứa cả hai chú thích mới cùng với bất kỳ chú thích gốc nào. Tái sử dụng một tác giả không loại bỏ trùng lặp các chú thích: để tránh việc thêm lại cùng một chú thích, hãy triển khai kiểm tra trùng lặp riêng trước khi thêm.
+
+## **Truy cập các chú thích trên slide**
+
+Ví dụ mở một bản trình chiếu hiện có và đọc bộ sưu tập [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/). Đối với mỗi tác giả, nó duyệt qua [Comments](https://reference.aspose.com/slides/net/aspose.slides/icommentauthor/comments/) và in số slide, nội dung chú thích, tên tác giả và thời gian tạo. Bản trình chiếu nhập vào phải chứa chú thích để tạo ra đầu ra trên bảng điều khiển.
 
 ```csharp
 using System;
@@ -98,10 +136,11 @@ foreach (var author in presentation.CommentAuthors)
 }
 ```
 
-## **Trả lời bình luận**
-Một bình luận gốc là bình luận ban đầu ở đầu cây trả lời. Thuộc tính [ParentComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment/properties/parentcomment) của giao diện [IComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment) cho phép bạn lấy hoặc đặt bình luận cha của một bình luận.
+## **Phản hồi cho các chú thích**
 
-Ví dụ sau cho thấy cách thêm trả lời và kiểm tra cấu trúc cây bình luận tạo ra:
+Một chú thích cha là chú thích gốc ở đầu một chuỗi phản hồi. Thuộc tính [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) của giao diện [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) cho phép bạn lấy hoặc đặt chú thích cha.
+
+Ví dụ tạo các chú thích từ hai tác giả và sử dụng [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) để xây dựng các phản hồi, bao gồm một phản hồi cho một phản hồi khác. Truyền `null` vào [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) sẽ lấy các chú thích từ tất cả các tác giả; bảng điều khiển thụt lề mỗi mục theo độ sâu trong cây phản hồi. Ví dụ lưu toàn bộ cuộc thảo luận, gọi [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) trên chú thích gốc đầu tiên, và lưu một bản trình chiếu thứ hai với chú thích đó và các phản hồi của nó đã bị xóa.
 
 ```csharp
 using System;
@@ -111,27 +150,28 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var position = new PointF(10, 10);
 var createdTime = DateTime.Now;
 
-var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
-var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
+var originalAuthor = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var rootComment = originalAuthor.Comments.AddComment("comment 1", slide, position, createdTime);
 
-var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
-var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
-reply1.ParentComment = comment1;
+var reviewer = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var firstReply = reviewer.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+firstReply.ParentComment = rootComment;
 
-var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
-reply2.ParentComment = comment1;
+var secondReply = reviewer.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+secondReply.ParentComment = rootComment;
 
-var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
-subReply.ParentComment = reply2;
+var subReply = originalAuthor.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = secondReply;
 
-author2.Comments.AddComment("comment 2", slide, position, createdTime);
-var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+reviewer.Comments.AddComment("comment 2", slide, position, createdTime);
+var separateComment = reviewer.Comments.AddComment("comment 3", slide, position, createdTime);
 
-var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
-reply3.ParentComment = comment3;
+var separateReply = originalAuthor.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+separateReply.ParentComment = separateComment;
 
 var comments = slide.GetSlideComments(null);
 for (var i = 0; i < comments.Length; i++)
@@ -148,26 +188,24 @@ for (var i = 0; i < comments.Length; i++)
 
 presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
 
-comment1.Remove();
+rootComment.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-
-* Khi sử dụng phương thức [Remove](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment/methods/remove) của giao diện [IComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment) để xóa một bình luận, tất cả các trả lời của bình luận đó cũng sẽ bị xóa.
-* Nếu thuộc tính [ParentComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment/properties/parentcomment) tạo ra một vòng tham chiếu, một [PptxEditException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxeditexception) sẽ được ném ra.
-
+{{% alert color="warning" title="Warning" %}}
+* Khi sử dụng phương thức [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) của giao diện [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) để xóa một chú thích, tất cả các phản hồi của chú thích đó cũng sẽ bị xóa.
+* Nếu thuộc tính [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) sẽ được ném.
 {{% /alert %}}
 
-## **Thêm bình luận hiện đại**
+## **Thêm chú thích hiện đại**
 
-Bình luận hiện đại có thể được liên kết với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một AutoShape. Phương thức [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icommentcollection/addmoderncomment/) chấp nhận một đối số [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/) bổ sung cho slide và tọa độ đánh dấu bình luận.
+Các chú thích hiện đại có thể được gắn với slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một AutoShape. Phương thức [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) chấp nhận một đối số [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) bổ sung vào slide và tọa độ của dấu chú thích.
 
-Khi truyền `null` cho đối số shape, bình luận sẽ là bình luận cấp slide. Dấu đánh dấu của nó được định vị bằng các tọa độ được cung cấp, nhưng không gắn với một shape cụ thể, do đó [IModernComment.Shape](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/shape/) trả về `null`. Khi cung cấp một [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/), bình luận sẽ được neo vào shape đó. Các tọa độ vẫn xác định vị trí của dấu đánh dấu bình luận trên slide, trong khi việc liên kết shape có thể được truy xuất qua [IModernComment.Shape](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/shape/).
+Khi truyền `null` cho đối số shape, chú thích sẽ là chú thích ở mức slide. Dấu chú thích được định vị bằng các tọa độ cung cấp, nhưng không gắn với một hình dạng cụ thể, vì vậy [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) trả về `null`. Khi cung cấp một [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), chú thích sẽ được neo vào hình dạng đó. Các tọa độ vẫn xác định vị trí của dấu chú thích trên slide, trong khi thông tin về hình dạng có thể được truy xuất qua [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/).
 
-### **Neo một bình luận hiện đại vào một shape**
+### **Neo một chú thích hiện đại vào một hình dạng**
 
-Ví dụ sau tạo cả bình luận hiện đại cấp slide và bình luận hiện đại được neo vào một AutoShape cụ thể. Sau đó nó đọc shape liên kết từ mỗi bình luận.
+Ví dụ gọi [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) hai lần: một lần với shape `null` cho chú thích ở mức slide và một lần nữa với một hình chữ nhật làm neo. Đọc [Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) in ra `True` cho kiểm tra `null` của chú thích ở mức slide và in ra `Revenue title` cho chú thích được neo. Cả hai chú thích đều được lưu cùng bản trình chiếu.
 
 ```csharp
 using System;
@@ -177,7 +215,9 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
 shape.Name = "Revenue title";
 shape.TextFrame.Text = "Quarterly revenue";
@@ -194,11 +234,11 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **Neo bình luận vào các loại shape khác nhau**
+### **Neo chú thích vào các loại hình dạng khác nhau**
 
-Bất kỳ đối tượng slide nào triển khai [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/) đều có thể được dùng làm neo shape. Các ví dụ phổ biến bao gồm [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/vi/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/vi/net/aspose.slides/iconnector/), và các thể hiện [IGraphicalObject](https://reference.aspose.com/slides/vi/net/aspose.slides/igraphicalobject/) như biểu đồ.
+Bất kỳ đối tượng slide nào triển khai [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) đều có thể được dùng làm neo cho chú thích. Các ví dụ phổ biến bao gồm [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/net/aspose.slides/iconnector/), và các thể hiện của [IGraphicalObject](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobject/) như biểu đồ.
 
-Ví dụ sau tạo một số loại shape thông dụng và gắn một bình luận hiện đại vào mỗi shape.
+Ví dụ sử dụng [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) để gắn một chú thích vào mỗi một trong năm loại hình dạng: một AutoShape, một khung hình, một nhóm, một kết nối và một biểu đồ. Hình ảnh được nhúng dữ liệu ảnh, vì vậy không cần hình ảnh bên ngoài. Mỗi chú thích có vị trí dấu riêng, và bản trình chiếu đã lưu giữ tất cả năm mối liên kết hình dạng.
 
 ```csharp
 using System;
@@ -209,11 +249,13 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
 var createdTime = DateTime.Now;
 
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
 autoShape.TextFrame.Text = "AutoShape";
+
 var autoShapeCommentPosition = new PointF(30, 30);
 author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -241,18 +283,18 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **Neo bình luận vào văn bản và đặt trạng thái**
+### **Neo chú thích vào văn bản và đặt trạng thái**
 
-Đối với một bình luận hiện đại được gắn với một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/), thuộc tính [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/textselectionstart/) chỉ vị trí bắt đầu của đoạn văn bản được chọn trong khung văn bản của shape, trong khi [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/textselectionlength/) chỉ độ dài của phần chọn. Hai thuộc tính này kết hợp lại để liên kết bình luận với một đoạn văn bản cụ thể bên trong AutoShape.
+Đối với một chú thích hiện đại gắn với [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), thuộc tính [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) xác định vị trí bắt đầu của văn bản được chọn trong khung văn bản của hình dạng, trong khi [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) xác định độ dài của phần chọn. Hai thuộc tính này kết hợp để gắn chú thích với một đoạn văn bản cụ thể bên trong AutoShape.
 
-Thuộc tính [IModernComment.Status](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/status/) có thể được đọc hoặc cập nhật bằng một giá trị từ enum [ModernCommentStatus](https://reference.aspose.com/slides/vi/net/aspose.slides/moderncommentstatus/):
+Thuộc tính [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) có thể được đọc hoặc cập nhật với một giá trị từ liệt kê [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — không có trạng thái bình luận hiện đại cụ thể nào được xác định.
-- `Active` — bình luận đang hoạt động.
-- `Resolved` — bình luận đã được giải quyết.
-- `Closed` — bình luận đã đóng.
+- `NotDefined` — không có trạng thái chú thích hiện đại cụ thể nào được định nghĩa.  
+- `Active` — chú thích đang hoạt động.  
+- `Resolved` — chú thích đã được giải quyết.  
+- `Closed` — chú thích đã đóng.
 
-Ví dụ sau tạo một bình luận hiện đại được neo vào shape, liên kết nó với một đoạn văn bản được chọn, đánh dấu là đã giải quyết, lưu bài thuyết trình và kiểm tra các giá trị sau khi mở lại tệp.
+Ví dụ neo một chú thích hiện đại vào các từ “quarterly revenue” trong văn bản của một hình chữ nhật. Nó tính [TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) dựa trên vị trí zero‑based trong văn bản và đặt [TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) bằng số ký tự được chọn. Sau khi đặt [Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) thành `Resolved`, nó lưu và mở lại bản trình chiếu. Bốn kiểm tra trên bảng điều khiển đều in `True`, xác nhận rằng neo hình dạng, phạm vi văn bản và trạng thái đã được bảo tồn.
 
 ```csharp
 using System;
@@ -267,6 +309,7 @@ var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Or
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
 shape.Name = "Forecast text";
 shape.TextFrame.Text = shapeText;
@@ -303,9 +346,9 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
-### **Kiểm tra các bình luận hiện đại hiện có**
+### **Kiểm tra các chú thích hiện đại hiện có**
 
-Để kiểm tra một bài thuyết trình hiện có, xác định những bình luận nào triển khai [IModernComment](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/), sau đó xem xét [IModernComment.Shape](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/textselectionlength/) và [IModernComment.Status](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/status/). Một shape `null` cho thấy bình luận cấp slide. Đối với neo vào [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/), các thuộc tính chọn văn bản xác định đoạn văn bản liên quan trong khung văn bản của shape.
+Ví dụ yêu cầu một bản trình chiếu hiện có chứa các chú thích hiện đại và in ra nội dung, trạng thái và chi tiết neo. Để kiểm tra, xác định các chú thích triển khai [IModernComment](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/), sau đó xem xét [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) và [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/). Một hình dạng `null` cho thấy đây là chú thích ở mức slide. Đối với neo [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), các thuộc tính lựa chọn văn bản xác định phạm vi liên quan trong khung văn bản của hình dạng.
 
 ```csharp
 using System;
@@ -349,11 +392,13 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **Xóa bình luận**
+## **Xóa chú thích**
 
-### **Xóa tất cả bình luận và tác giả bình luận**
+Aspose.Slides cho .NET cho phép bạn xóa tất cả các chú thích và các tác giả của chúng khỏi một bản trình chiếu hoặc xóa các chú thích đã chọn trong khi giữ lại phần còn lại. Các ví dụ sau minh họa cả hai cách và lưu bản trình chiếu đã cập nhật.
 
-Ví dụ sau cho thấy cách xóa tất cả bình luận và tác giả bình luận khỏi một bài thuyết trình:
+### **Xóa tất cả các chú thích và tác giả chú thích**
+
+Ví dụ mở một bản trình chiếu hiện có và gọi [ICommentCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/clear/) cho mỗi tác giả, sau đó gọi [ICommentAuthorCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/clear/) để xóa các tác giả. Bản trình chiếu đã lưu sẽ không còn chứa chú thích và cũng không có tác giả chú thích. Hãy sử dụng một bản trình chiếu có chú thích để quan sát quá trình xóa.
 
 ```csharp
 using Aspose.Slides;
@@ -367,12 +412,13 @@ foreach (var author in presentation.CommentAuthors)
 }
 
 presentation.CommentAuthors.Clear();
+
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
-### **Xóa các bình luận cụ thể**
+### **Xóa các chú thích cụ thể**
 
-Ví dụ sau cho thấy cách xóa các bình luận cụ thể khỏi một slide:
+Ví dụ tạo hai chú thích trên một slide và sử dụng [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) để tìm các chú thích theo từng tác giả. Nó thu thập các chú thích có nội dung bằng “comment 1” trước khi gọi [ICommentCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/remove/), tránh việc thay đổi bộ sưu tập trong quá trình lựa chọn. Bản trình chiếu đã lưu sẽ chỉ còn lại “comment 2”.
 
 ```csharp
 using System;
@@ -383,6 +429,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Author", "A");
 var createdTime = DateTime.Now;
 
@@ -413,16 +460,16 @@ foreach (var commentAuthor in presentation.CommentAuthors)
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho bình luận hiện đại không?**
+**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho các chú thích hiện đại không?**
 
-Có. Thuộc tính [IModernComment.Status](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/status/) có thể được đọc và đặt bằng một giá trị [ModernCommentStatus](https://reference.aspose.com/slides/vi/net/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái này được lưu trong bài thuyết trình và có thể được đọc lại sau khi mở lại tệp.
+Có. [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) có thể được đọc và đặt bằng một giá trị của [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái được lưu trong bản trình chiếu và có thể đọc lại sau khi tệp được mở lại.
 
-**Liệu có hỗ trợ các cuộc thảo luận dạng chuỗi trả lời (threaded discussions) và có giới hạn độ sâu lồng nhau không?**
+**Các cuộc thảo luận dạng chuỗi (chuỗi phản hồi) có được hỗ trợ không, và có giới hạn độ sâu không?**
 
-Có. Mỗi bình luận có thể tham chiếu đến [parent comment](https://reference.aspose.com/slides/vi/net/aspose.slides/comment/parentcomment/), cho phép tạo chuỗi trả lời. API không xác định giới hạn độ sâu lồng nhau cụ thể.
+Có. Mỗi chú thích có thể tham chiếu tới [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/), cho phép tạo chuỗi phản hồi. API không định nghĩa giới hạn độ sâu cụ thể nào.
 
-**Vị trí dấu đánh dấu bình luận trên slide được xác định bằng hệ tọa độ nào?**
+**Vị trí của dấu chú thích trên slide được định nghĩa trong hệ tọa độ nào?**
 
-Vị trí dấu đánh dấu được xác định bằng các tọa độ số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.
+Vị trí dấu chú thích được xác định bằng các tọa độ kiểu số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.

@@ -10,43 +10,43 @@ keywords:
 - komentar PowerPoint
 - komentar presentasi
 - komentar slide
-- menambah komentar
-- mengakses komentar
-- mengedit komentar
-- membalas komentar
-- menghapus komentar
+- tambahkan komentar
+- akses komentar
+- edit komentar
+- balas komentar
+- hapus komentar
 - menghapus komentar
 - PowerPoint
 - presentasi
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Kelola komentar presentasi dengan Aspose.Slides untuk Node.js via Java: tambahkan, baca, edit, balas, dan hapus komentar dalam presentasi PowerPoint."
+description: "Kelola komentar presentasi dengan Aspose.Slides untuk Node.js via Java: tambahkan, baca, edit, balas, dan hapus komentar dalam presentasi PowerPowerPoint."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara mengelola komentar presentasi dengan Aspose.Slides untuk Node.js via Java. Artikel ini memperkenalkan tipe utama yang terkait dengan komentar dan mendemonstrasikan cara menambahkan komentar ke slide, mengakses komentar yang ada, bekerja dengan balasan dan komentar modern, serta menghapus komentar dari presentasi.
+Artikel ini menjelaskan cara mengelola komentar presentasi dengan Aspose.Slides untuk Node.js via Java. Ini memperkenalkan tipe utama yang terkait dengan komentar dan mendemonstrasikan cara menambahkan komentar ke slide, mengakses komentar yang ada, bekerja dengan balasan dan komentar modern, serta menghapus komentar dari sebuah presentasi.
 
-Contoh-contoh mencakup skenario peninjauan dan kolaborasi umum di PowerPoint, seperti menetapkan komentar kepada penulis, membaca teks komentar dan metadata, membangun rantai balasan, serta menghapus komentar terpilih atau semua komentar.
+Contoh-contoh mencakup skenario peninjauan dan kolaborasi umum di PowerPoint, seperti menetapkan komentar kepada penulis, membaca teks komentar dan metadata, membangun rantai balasan, dan menghapus komentar yang dipilih atau semua komentar.
 
 Di PowerPoint, komentar muncul sebagai anotasi pada slide. Memilih sebuah komentar menampilkan teksnya dan diskusi terkait.
 
-Untuk meminta agar komentar ditampilkan atau disembunyikan ketika presentasi dibuka tanpa mengubah komentar itu sendiri, lihat [Tampilkan atau Sembunyikan Komentar Saat Membuka Presentasi](/slides/id/nodejs-java/presentation-view-properties/).
+Untuk meminta agar komentar ditampilkan atau disembunyikan saat presentasi dibuka tanpa mengubah komentar itu sendiri, lihat [Tampilkan atau Sembunyikan Komentar Saat Membuka Presentasi](/slides/id/nodejs-java/presentation-view-properties/).
 
 ## **Mengapa Menambahkan Komentar ke Presentasi?**
 
-Anda dapat menggunakan komentar untuk memberikan umpan balik dan berkolaborasi dengan rekan kerja saat meninjau presentasi.
+Anda dapat menggunakan komentar untuk memberikan masukan dan berkolaborasi dengan rekan saat meninjau presentasi.
 
 Aspose.Slides untuk Node.js via Java menyediakan API berikut untuk bekerja dengan komentar:
 
-* Kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) yang memberikan akses ke penulis komentar presentasi.
-* Kelas [CommentCollection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/commentcollection/) yang mewakili komentar yang terkait dengan seorang penulis tertentu.
-* Kelas [Comment](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/comment/) yang menyediakan informasi tentang sebuah komentar, termasuk penulisnya, waktu pembuatan, posisi, dan teksnya.
-* Kelas [CommentAuthor](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/commentauthor/) yang menyediakan informasi tentang seorang penulis, termasuk nama, inisial, dan komentar yang terkait.
+* Kelas [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) yang menyediakan akses ke penulis komentar presentasi.
+* Kelas [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/) yang mewakili komentar yang terkait dengan seorang penulis tertentu.
+* Kelas [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/) yang menyediakan informasi tentang sebuah komentar, termasuk penulis, waktu pembuatan, posisi, dan teksnya.
+* Kelas [CommentAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthor/) yang menyediakan informasi tentang seorang penulis, termasuk nama, inisial, dan komentar yang terkait.
 
 ## **Menambahkan Komentar Slide**
 
-Contoh berikut menunjukkan cara menambahkan komentar ke slide dalam sebuah presentasi PowerPoint:
+Contoh ini membuat dua slide dan mendaftarkan penulis komentar dengan [addAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/addauthor/). Ia menggunakan [addComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addcomment/) untuk menempatkan satu komentar pada setiap slide, kemudian mengambil komentar slide pertama untuk penulis tersebut dengan [getSlideComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidecomments/). Konsol menampilkan teks komentar pertama dua kali, menunjukkan akses melalui slide dan penulis, dan presentasi yang disimpan berisi kedua komentar.
 
 ```javascript
 var aspose = aspose || {};
@@ -57,6 +57,7 @@ const presentation = new aspose.slides.Presentation();
 try {
     const firstSlide = presentation.getSlides().get_Item(0);
     const secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     const author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.2), java.newFloat(0.2));
     const createdTime = java.newInstanceSync("java.util.Date");
@@ -69,8 +70,7 @@ try {
         const firstComment = comments[0];
         console.log(firstComment.getText());
 
-        const authorComments = firstComment.getAuthor().getComments();
-        const commentText = authorComments.get_Item(0).getText();
+        const commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         console.log(commentText);
     }
 
@@ -80,9 +80,46 @@ try {
 }
 ```
 
+## **Menemukan atau Membuat Penulis Komentar**
+
+Ketika peninjauan otomatis memproses presentasi yang sama berulang kali, cari dalam koleksi yang dikembalikan oleh [getCommentAuthors](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getcommentauthors/) sebelum menambahkan penulis. [findByNameAndInitials](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/findbynameandinitials/) mencocokkan baik nama maupun inisial dan mengembalikan array penulis yang cocok, atau array kosong jika tidak ada yang cocok. Sebaliknya, [findByName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/findbyname/) mencari hanya berdasarkan nama, tanpa mempedulikan inisial. Memanggil [addAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/addauthor/) dengan nama dan inisial yang sudah ada dalam koleksi akan melemparkan pengecualian.
+
+Contoh ini memerlukan file presentasi dengan setidaknya satu slide. Pada setiap dari dua putaran, ia menggunakan kembali penulis pertama yang cocok, atau membuat satu hanya ketika hasilnya kosong. Jika ada beberapa kecocokan, ia memilih elemen array pertama tanpa menggabungkan atau menghapus penulis lainnya. Kemudian ia memanggil [addComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addcomment/) untuk penulis yang dipilih dan menyimpan presentasi. Putaran kedua membuka output putaran pertama dan mengulangi operasi tersebut.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const authorName = "Reviewer";
+const authorInitials = "RV";
+
+let inputFile = "input.pptx";
+const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(20), java.newFloat(20));
+
+for (let pass = 1; pass <= 2; pass++) {
+    const presentation = new aspose.slides.Presentation(inputFile);
+    try {
+        const matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        const author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        const createdTime = java.newInstanceSync("java.util.Date");
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, createdTime);
+
+        const outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, aspose.slides.SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+Putaran kedua menambahkan komentar lain tanpa menambahkan penulis lain atau menghapus komentar yang ada. File akhir, `review_pass_2.pptx`, berisi kedua komentar baru bersamaan dengan komentar asli apa pun. Menggunakan kembali penulis tidak menduplikasi komentar: untuk menghindari penambahan komentar yang sama berulang kali, terapkan deteksi duplikat terpisah sebelum menambahkannya.
+
 ## **Mengakses Komentar Slide**
 
-Contoh berikut menunjukkan cara mengakses komentar yang ada dalam sebuah presentasi PowerPoint:
+Contoh ini membuka presentasi yang ada dan membaca koleksi yang dikembalikan oleh [getCommentAuthors](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getcommentauthors/). Untuk setiap penulis, ia mengiterasi melalui koleksi yang dikembalikan oleh [getComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthor/getcomments/) dan mencetak nomor slide, teks komentar, nama penulis, dan waktu pembuatan. Presentasi input harus berisi komentar agar menghasilkan output konsol.
 
 ```javascript
 var aspose = aspose || {};
@@ -111,9 +148,9 @@ try {
 
 ## **Membalas Komentar**
 
-Sebuah komentar induk adalah komentar asli di bagian atas hierarki balasan. Metode [Comment.getParentComment](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/comment/getparentcomment/) dan [Comment.setParentComment](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/comment/setparentcomment/) memungkinkan Anda mendapatkan atau mengatur induk sebuah komentar.
+Komentar induk adalah komentar asli di bagian atas hierarki balasan. Metode [Comment.getParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/getparentcomment/) dan [Comment.setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/setparentcomment/) memungkinkan Anda mendapatkan atau menetapkan induk sebuah komentar.
 
-Contoh berikut menunjukkan cara menambahkan balasan dan memeriksa hierarki komentar yang dihasilkan:
+Contoh ini membuat komentar dari dua penulis dan menggunakan [setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/setparentcomment/) untuk membangun balasan, termasuk balasan ke balasan lain. Mengirim `null` ke [getSlideComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidecomments/) mengambil komentar dari semua penulis; konsol memberi indentasi setiap entri sesuai kedalaman dalam hierarki balasan. Contoh menyimpan diskusi lengkap, memanggil [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/remove/) pada komentar akar pertama, dan menyimpan presentasi kedua dengan komentar tersebut serta balasannya dihapus.
 
 ```javascript
 var aspose = aspose || {};
@@ -123,27 +160,28 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10));
     const createdTime = java.newInstanceSync("java.util.Date");
 
-    const author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    const comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    const originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    const rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    const author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    const reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    const reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    const firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    const reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    const secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    const subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    const subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    const comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    const separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    const reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    const separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     const comments = slide.getSlideComments(null);
     for (let index = 0; index < comments.length; index++) {
@@ -159,7 +197,7 @@ try {
 
     presentation.save("parent_comment.pptx", aspose.slides.SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -167,19 +205,21 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Ketika metode [Comment.remove](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/comment/remove/) digunakan untuk menghapus sebuah komentar, semua balasan terhadap komentar tersebut juga dihapus.
-* Jika [Comment.setParentComment](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/comment/setparentcomment/) membuat referensi melingkar, sebuah [PptxEditException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pptxeditexception/) akan dilemparkan.
+
+* Ketika metode [Comment.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/remove/) digunakan untuk menghapus sebuah komentar, semua balasan ke komentar tersebut juga dihapus.
+* Jika [Comment.setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/setparentcomment/) membuat referensi melingkar, sebuah [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pptxeditexception/) akan dilemparkan.
+
 {{% /alert %}}
 
 ## **Menambahkan Komentar Modern**
 
-Komentar modern dapat dikaitkan dengan slide itu sendiri, dengan bentuk tertentu, atau dengan rentang teks di dalam sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/). Metode [CommentCollection.addModernComment](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) menerima argumen [Shape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/) selain slide dan koordinat penanda komentar.
+Komentar modern dapat dikaitkan dengan slide itu sendiri, dengan bentuk tertentu, atau dengan rentang teks di dalam AutoShape. Metode [CommentCollection.addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) menerima argumen [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) selain slide dan koordinat penanda komentar.
 
-Ketika `null` diberikan untuk argumen shape, komentar menjadi komentar tingkat slide. Penandanya diposisikan oleh koordinat yang diberikan, tetapi tidak dikaitkan dengan bentuk tertentu, sehingga [ModernComment.getShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/getshape/) mengembalikan `null`. Ketika sebuah [Shape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/) disediakan, komentar diikat pada bentuk tersebut. Koordinat tetap menentukan posisi penanda komentar pada slide, sementara asosiasi bentuk dapat diambil melalui [ModernComment.getShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/getshape/).
+Ketika `null` diberikan untuk argumen shape, komentar menjadi komentar tingkat slide. Penandanya diposisikan oleh koordinat yang diberikan, tetapi tidak dikaitkan dengan shape tertentu, sehingga [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/) mengembalikan `null`. Ketika sebuah [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) disediakan, komentar diikat ke shape tersebut. Koordinat tetap menentukan posisi penanda komentar pada slide, sementara asosiasi shape dapat diambil melalui [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/).
 
-### **Menyematkan Komentar Modern ke Bentuk**
+### **Membuat Komentar Modern pada Shape**
 
-Contoh berikut membuat komentar modern tingkat slide dan komentar modern yang diikat pada sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) tertentu. Kemudian membaca bentuk yang terkait dari setiap komentar.
+Contoh memanggil [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) dua kali: sekali dengan shape `null` untuk komentar tingkat slide dan sekali dengan persegi panjang sebagai jangkar. Membaca [getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/) mencetak `true` untuk pemeriksaan null pada komentar tingkat slide dan `Revenue title` untuk komentar yang dijadikan jangkar. Kedua komentar disimpan bersama presentasi.
 
 ```javascript
 var aspose = aspose || {};
@@ -189,7 +229,9 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -209,11 +251,11 @@ try {
 }
 ```
 
-### **Menyematkan Komentar ke Berbagai Jenis Bentuk**
+### **Membuat Komentar pada Berbagai Jenis Shape**
 
-Setiap objek slide yang diturunkan dari [Shape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/) dapat digunakan sebagai jangkar bentuk. Contoh umum meliputi [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/connector/), dan instansi [GraphicalObject](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/graphicalobject/) seperti bagan.
+Setiap objek slide yang diturunkan dari [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) dapat digunakan sebagai jangkar shape. Contoh umum meliputi [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connector/), dan instance [GraphicalObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobject/) seperti diagram.
 
-Contoh berikut membuat beberapa jenis bentuk umum dan mengaitkan komentar modern dengan masing‑masing.
+Contoh menggunakan [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) untuk mengaitkan komentar dengan masing-masing dari lima tipe shape: sebuah AutoShape, sebuah picture frame, sebuah grup, sebuah connector, dan sebuah diagram. Gambar menggunakan data gambar tersemat, jadi tidak diperlukan gambar eksternal. Setiap komentar memiliki posisi penanda masing‑misinya, dan presentasi yang disimpan mempertahankan semua lima asosiasi shape.
 
 ```javascript
 var aspose = aspose || {};
@@ -223,11 +265,13 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     const createdTime = java.newInstanceSync("java.util.Date");
 
     const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     const autoShapeCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(30), java.newFloat(30));
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -258,18 +302,18 @@ try {
 }
 ```
 
-### **Menyematkan Komentar ke Teks dan Menetapkan Statusnya**
+### **Membuat Komentar pada Teks dan Mengatur Statusnya**
 
-Untuk komentar modern yang terkait dengan sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/), metode [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) dan [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) mengakses posisi awal teks yang dipilih dalam bingkai teks bentuk. Metode [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) dan [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) mengakses panjang pilihan. Bersama‑sama, nilai‑nilai ini mengaitkan komentar dengan rentang teks tertentu di dalam [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/).
+Untuk komentar modern yang terkait dengan sebuah [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) dan [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) mengakses posisi awal teks yang dipilih dalam bingkai teks shape. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) dan [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) mengakses panjang pilihan. Bersama-sama, nilai‑nilai ini mengaitkan komentar dengan rentang teks spesifik di dalam AutoShape.
 
-Metode [ModernComment.getStatus](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/getstatus/) dan [ModernComment.setStatus](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/setstatus/) mengakses nilai dari enumerasi [ModernCommentStatus](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncommentstatus/):
+Metode [ModernComment.getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/) dan [ModernComment.setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setstatus/) mengakses nilai dari enumerasi [ModernCommentStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncommentstatus/):
 
 - `NotDefined` — tidak ada status komentar modern yang spesifik didefinisikan.
-- `Active` — komentar aktif.
+- `Active` — komentar sedang aktif.
 - `Resolved` — komentar telah diselesaikan.
 - `Closed` — komentar ditutup.
 
-Contoh berikut membuat komentar modern yang diikat pada bentuk, mengaitkannya dengan pilihan teks, menandainya sebagai diselesaikan, menyimpan presentasi, dan memverifikasi nilai setelah membuka kembali berkas.
+Contoh mengaitkan komentar modern dengan kata “quarterly revenue” dalam teks sebuah persegi panjang. Ia menghitung awal pilihan berbasis nol dari teks dan mengirimkannya ke [setTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) serta menggunakan [setTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) untuk menetapkan jumlah karakter yang dipilih. Setelah memanggil [setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setstatus/) dengan `Resolved`, ia menyimpan dan membuka kembali presentasi. Empat pemeriksaan konsol masing‑masing harus mencetak `true`, mengonfirmasi bahwa jangkar shape, rentang teks, dan status dipertahankan.
 
 ```javascript
 var aspose = aspose || {};
@@ -284,6 +328,7 @@ const expectedSelectionStart = shapeText.indexOf(selectedText);
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
@@ -294,7 +339,7 @@ try {
     const comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, createdTime);
     comment.setTextSelectionStart(expectedSelectionStart);
     comment.setTextSelectionLength(selectedText.length);
-    comment.setStatus(aspose.slides.ModernCommentStatus.Resolved);
+    comment.setStatus(java.newByte(aspose.slides.ModernCommentStatus.Resolved));
 
     presentation.save(outputFile, aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -329,7 +374,7 @@ try {
 
 ### **Memeriksa Komentar Modern yang Ada**
 
-Untuk memeriksa presentasi yang ada, periksa komentar mana yang merupakan instansi [ModernComment](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/), lalu telaah [ModernComment.getShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), dan [ModernComment.getStatus](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/getstatus/). Sebuah bentuk `null` menunjukkan komentar tingkat slide. Untuk jangkar [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/), metode pilihan‑teks mengidentifikasi rentang yang terkait dalam bingkai teks bentuk.
+Contoh ini memerlukan presentasi yang sudah ada yang berisi komentar modern dan mencetak teks, status, dan detail jangkar mereka. Untuk memeriksanya, periksa komentar mana yang merupakan instance dari [ModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/), kemudian periksa [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), dan [ModernComment.getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/). Sebuah shape `null` menunjukkan komentar tingkat slide. Untuk jangkar [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/), metode pemilihan teks mengidentifikasi rentang yang terkait dalam bingkai teks shape.
 
 ```javascript
 var aspose = aspose || {};
@@ -376,9 +421,11 @@ try {
 
 ## **Menghapus Komentar**
 
+Aspose.Slides untuk Node.js via Java memungkinkan Anda menghapus semua komentar dan penulisnya dari sebuah presentasi atau menghapus komentar tertentu sambil mempertahankan yang lainnya. Contoh-contoh berikut mendemonstrasikan kedua pendekatan dan menyimpan presentasi yang diperbarui.
+
 ### **Menghapus Semua Komentar dan Penulis Komentar**
 
-Contoh berikut menunjukkan cara menghapus semua komentar dan penulis komentar dari sebuah presentasi:
+Contoh membuka presentasi yang ada dan memanggil [CommentCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/clear/) untuk setiap penulis, kemudian memanggil [CommentAuthorCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/clear/) untuk menghapus penulis itu sendiri. Presentasi yang disimpan tidak mengandung komentar maupun penulis komentar. Gunakan presentasi yang berisi komentar untuk melihat penghapusan.
 
 ```javascript
 var aspose = aspose || {};
@@ -392,6 +439,7 @@ try {
     }
 
     authors.clear();
+
     presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -400,7 +448,7 @@ try {
 
 ### **Menghapus Komentar Tertentu**
 
-Contoh berikut menunjukkan cara menghapus komentar tertentu dari sebuah slide:
+Contoh membuat dua komentar pada satu slide dan menggunakan [getSlideComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidecomments/) untuk menemukan komentar setiap penulis. Ia mengumpulkan komentar yang teksnya sama dengan “comment 1” sebelum memanggil [CommentCollection.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/remove/), menghindari perubahan pada koleksi selama pemilihan. Presentasi yang disimpan hanya menyisakan “comment 2”.
 
 ```javascript
 var aspose = aspose || {};
@@ -410,6 +458,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const author = presentation.getCommentAuthors().addAuthor("Author", "A");
     const createdTime = java.newInstanceSync("java.util.Date");
 
@@ -446,12 +495,12 @@ try {
 
 **Apakah Aspose.Slides mendukung status selesai untuk komentar modern?**
 
-Ya. Metode [ModernComment.getStatus](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/getstatus/) dan [ModernComment.setStatus](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncomment/setstatus/) mengakses nilai [ModernCommentStatus](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/moderncommentstatus/), termasuk `Resolved`. Status disimpan dalam presentasi dan dapat dibaca kembali setelah berkas dibuka kembali.
+Ya. [ModernComment.getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/) dan [ModernComment.setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setstatus/) mengakses nilai [ModernCommentStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncommentstatus/), termasuk `Resolved`. Status tersebut disimpan dalam presentasi dan dapat dibaca kembali setelah file dibuka kembali.
 
-**Apakah diskusi berulir (rantai balasan) didukung, dan apakah ada batas kedalaman?**
+**Apakah diskusi berurutan (rantai balasan) didukung, dan apakah ada batasan kedalaman?**
 
-Ya. Setiap komentar dapat merujuk ke [parent comment](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/comment/getparentcomment/)-nya, memungkinkan rantai balasan. API tidak mendefinisikan batas kedalaman bersarang tertentu.
+Ya. Setiap komentar dapat merujuk ke [parent comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/getparentcomment/), memungkinkan rantai balasan. API tidak mendefinisikan batas kedalaman tertentu.
 
-**Dalam sistem koordinat apa posisi penanda komentar didefinisikan pada slide?**
+**Dalam sistem koordinat apa posisi penanda komentar pada slide didefinisikan?**
 
 Posisi penanda didefinisikan oleh koordinat floating‑point dalam sistem koordinat slide, memungkinkan Anda menempatkannya secara tepat pada slide.

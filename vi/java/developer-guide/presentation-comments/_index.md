@@ -1,56 +1,55 @@
 ---
-title: Quản lý bình luận bản trình bày trong Java
-linktitle: Bình luận bản trình bày
+title: Quản lý Nhận xét Bản trình bày trong Java
+linktitle: Nhận xét Bản trình bày
 type: docs
 weight: 100
 url: /vi/java/presentation-comments/
 keywords:
-- bình luận
-- bình luận hiện đại
-- bình luận PowerPoint
-- bình luận bản trình bày
-- bình luận slide
-- thêm bình luận
-- truy cập bình luận
-- chỉnh sửa bình luận
-- trả lời bình luận
-- xóa bình luận
-- xoá bình luận
+- nhận xét
+- nhận xét hiện đại
+- nhận xét PowerPoint
+- nhận xét bản trình bày
+- nhận xét slide
+- thêm nhận xét
+- truy cập nhận xét
+- chỉnh sửa nhận xét
+- trả lời nhận xét
+- xóa nhận xét
+- xoá nhận xét
 - PowerPoint
 - bản trình bày
 - Java
 - Aspose.Slides
-description: "Quản lý bình luận bản trình bày bằng Aspose.Slides cho Java: thêm, đọc, chỉnh sửa, trả lời và xóa bình luận trong các bản PowerPoint một cách nhanh chóng và dễ dàng."
+description: "Quản lý nhận xét trong bản trình bày với Aspose.Slides for Java: thêm, đọc, chỉnh sửa, trả lời và xóa nhận xét trong các bản trình bày PowerPoint một cách nhanh chóng và dễ dàng."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách quản lý bình luận trong bản trình bày bằng Aspose.Slides for Java. Nó giới thiệu các kiểu dữ liệu chính liên quan đến bình luận và trình bày cách thêm bình luận vào slide, truy cập các bình luận hiện có, làm việc với trả lời và bình luận hiện đại, cũng như xóa bình luận khỏi bản trình bày.
+Bài viết này giải thích cách quản lý nhận xét trong bản trình bày bằng Aspose.Slides for Java. Nó giới thiệu các kiểu liên quan đến nhận xét chính và minh họa cách thêm nhận xét vào các slide, truy cập các nhận xét hiện có, làm việc với các trả lời và nhận xét hiện đại, và xóa nhận xét khỏi bản trình bày.
 
-Các ví dụ bao phủ các kịch bản đánh giá và cộng tác thường gặp trong PowerPoint, như gán bình luận cho tác giả, đọc văn bản và siêu dữ liệu của bình luận, xây dựng chuỗi trả lời, và xóa các bình luận đã chọn hoặc tất cả các bình luận.
+Các ví dụ bao phủ các kịch bản đánh giá và cộng tác phổ biến trong PowerPoint, chẳng hạn như gán nhận xét cho tác giả, đọc nội dung và siêu dữ liệu của nhận xét, xây dựng chuỗi trả lời, và xóa các nhận xét đã chọn hoặc tất cả các nhận xét.
 
-Trong PowerPoint, bình luận xuất hiện như các chú thích trên slide. Khi chọn một bình luận, văn bản và cuộc thảo luận liên quan sẽ được hiển thị.
+Trong PowerPoint, nhận xét xuất hiện dưới dạng chú thích trên các slide. Chọn một nhận xét sẽ hiển thị nội dung và cuộc thảo luận liên quan.
 
-Để yêu cầu hiển thị hoặc ẩn bình luận khi mở bản trình bày mà không thay đổi nội dung bình luận, xem [Show or Hide Comments When Opening a Presentation](/slides/vi/java/presentation-view-properties/).
+Để yêu cầu hiển thị hoặc ẩn nhận xét khi một bản trình bày được mở mà không thay đổi các nhận xét, xem [Hiển thị hoặc Ẩn Nhận xét Khi Mở Bản trình bày](/slides/vi/java/presentation-view-properties/).
 
-## **Tại sao cần thêm bình luận vào bản trình bày?**
+## **Tại sao thêm nhận xét vào bản trình bày?**
 
-Bạn có thể sử dụng bình luận để cung cấp phản hồi và cộng tác với đồng nghiệp khi đánh giá bản trình bày.
+Bạn có thể sử dụng nhận xét để cung cấp phản hồi và cộng tác với đồng nghiệp khi đánh giá bản trình bày.
 
-Aspose.Slides for Java cung cấp các API sau để làm việc với bình luận:
+Aspose.Slides for Java cung cấp các API sau để làm việc với nhận xét:
 
-* Lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) cung cấp quyền truy cập vào các tác giả bình luận của bản trình bày.
-* Giao diện [ICommentCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icommentcollection/) đại diện cho các bình luận liên kết với một tác giả cụ thể.
-* Giao diện [IComment](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icomment/) cung cấp thông tin về một bình luận, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
-* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, ký hiệu và các bình luận liên quan.
+* Lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) cung cấp quyền truy cập vào các tác giả nhận xét của bản trình bày.
+* Giao diện [ICommentCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/) đại diện cho các nhận xét liên quan tới một tác giả cụ thể.
+* Giao diện [IComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/) cung cấp thông tin về một nhận xét, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
+* Lớp [CommentAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, ký tự viết tắt và các nhận xét liên quan.
 
-## **Thêm bình luận cho slide**
+## **Thêm Nhận xét vào Slide**
 
-Ví dụ sau cho thấy cách thêm bình luận vào các slide trong một bản trình bày PowerPoint:
+Ví dụ tạo hai slide và đăng ký một tác giả nhận xét bằng [addAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-). Nó sử dụng [addComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-java.awt.geom.Point2D.Float-java.util.Date-) để đặt một nhận xét trên mỗi slide, sau đó lấy các nhận xét của slide đầu tiên cho tác giả đó bằng [getSlideComments](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-). Console hiển thị nội dung của nhận xét đầu tiên hai lần, minh họa việc truy cập qua cả slide và tác giả, và bản trình bày đã lưu chứa cả hai nhận xét.
 
 ```java
 import com.aspose.slides.IComment;
 import com.aspose.slides.ICommentAuthor;
-import com.aspose.slides.ICommentCollection;
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -61,6 +60,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
     ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     Point2D.Float position = new Point2D.Float(0.2f, 0.2f);
     Date createdTime = new Date();
@@ -73,8 +73,7 @@ try {
         IComment firstComment = comments[0];
         System.out.println(firstComment.getText());
 
-        ICommentCollection authorComments = firstComment.getAuthor().getComments();
-        String commentText = authorComments.get_Item(0).getText();
+        String commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         System.out.println(commentText);
     }
 
@@ -84,9 +83,47 @@ try {
 }
 ```
 
-## **Truy cập bình luận của slide**
+## **Tìm hoặc Tạo Tác giả Nhận xét**
 
-Ví dụ sau cho thấy cách truy cập các bình luận hiện có trong một bản trình bày PowerPoint:
+Khi một đánh giá tự động xử lý cùng một bản trình bày nhiều lần, hãy tìm trong bộ sưu tập trả về bởi [getCommentAuthors](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getCommentAuthors--) trước khi thêm một tác giả. [findByNameAndInitials](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#findByNameAndInitials-java.lang.String-java.lang.String-) khớp cả tên và ký tự viết tắt và trả về một mảng các tác giả phù hợp, hoặc một mảng rỗng nếu không có kết quả. Ngược lại, [findByName](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#findByName-java.lang.String-) chỉ tìm theo tên, bất kể ký tự viết tắt. Gọi [addAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) với một tên và ký tự viết tắt đã tồn tại trong bộ sưu tập sẽ ném ra ngoại lệ.
+
+Ví dụ yêu cầu một tệp bản trình bày có ít nhất một slide. Trong mỗi trong hai lượt, nó tái sử dụng tác giả phù hợp đầu tiên, hoặc tạo mới chỉ khi kết quả rỗng. Nếu có nhiều kết quả phù hợp, nó chọn phần tử đầu tiên của mảng mà không hợp nhất hoặc xóa các tác giả khác. Sau đó nó gọi [addComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-java.awt.geom.Point2D.Float-java.util.Date-) cho tác giả đã chọn và lưu bản trình bày. Lượt thứ hai mở đầu ra của lượt thứ nhất và lặp lại thao tác.
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
+final String authorName = "Reviewer";
+final String authorInitials = "RV";
+
+String inputFile = "input.pptx";
+Point2D.Float position = new Point2D.Float(20, 20);
+
+for (int pass = 1; pass <= 2; pass++) {
+    Presentation presentation = new Presentation(inputFile);
+    try {
+        ICommentAuthor[] matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        ICommentAuthor author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, new Date());
+
+        String outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+Lượt thứ hai thêm một nhận xét khác mà không thêm tác giả mới hoặc xóa các nhận xét hiện có. Tệp cuối cùng, `review_pass_2.pptx`, chứa cả hai nhận xét mới cùng với bất kỳ nhận xét gốc nào. Tái sử dụng một tác giả không loại bỏ trùng lặp nhận xét: để tránh việc thêm lặp lại cùng một nhận xét, hãy triển khai phát hiện trùng lặp riêng trước khi thêm.
+
+## **Truy cập Nhận xét của Slide**
+
+Ví dụ mở một bản trình bày hiện có và đọc bộ sưu tập trả về bởi [getCommentAuthors](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getCommentAuthors--). Đối với mỗi tác giả, nó lặp qua bộ sưu tập trả về bởi [getComments](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthor/#getComments--) và in số slide, nội dung nhận xét, tên tác giả và thời gian tạo. Bản trình bày đầu vào phải chứa các nhận xét để tạo ra đầu ra console.
 
 ```java
 import com.aspose.slides.IComment;
@@ -109,11 +146,11 @@ try {
 }
 ```
 
-## **Trả lời bình luận**
+## **Trả lời Nhận xét**
 
-Một bình luận gốc là bình luận ban đầu ở đầu cây trả lời. Các phương thức [IComment.getParentComment](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icomment/#getParentComment--) và [IComment.setParentComment](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) cho phép bạn lấy hoặc đặt bình luận cha của một bình luận.
+Một nhận xét cha là nhận xét gốc ở đầu một cây thư mục trả lời. Các phương pháp [IComment.getParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#getParentComment--) và [IComment.setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) cho phép bạn lấy hoặc đặt cha của một nhận xét.
 
-Ví dụ sau cho thấy cách thêm các trả lời và kiểm tra cây bình luận kết quả:
+Ví dụ tạo nhận xét từ hai tác giả và sử dụng [setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) để xây dựng các trả lời, bao gồm một trả lời cho một trả lời khác. Truyền `null` vào [getSlideComments](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) sẽ lấy các nhận xét từ tất cả các tác giả; console thụt lề mỗi mục theo độ sâu trong cây trả lời. Ví dụ lưu toàn bộ cuộc thảo luận, gọi [remove](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#remove--) trên nhận xét gốc đầu tiên, và lưu một bản trình bày thứ hai với nhận xét đó và các trả lời của nó đã bị xóa.
 
 ```java
 import com.aspose.slides.IComment;
@@ -127,27 +164,28 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     Point2D.Float position = new Point2D.Float(10, 10);
     Date createdTime = new Date();
 
-    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    ICommentAuthor originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    ICommentAuthor reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    IComment secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    IComment subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    IComment separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     IComment[] comments = slide.getSlideComments(null);
     for (int i = 0; i < comments.length; i++) {
@@ -162,7 +200,7 @@ try {
 
     presentation.save("parent_comment.pptx", SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -170,19 +208,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Khi sử dụng phương thức [IComment.remove](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icomment/#remove--) để xóa một bình luận, tất cả các trả lời của bình luận đó cũng sẽ bị xóa.
-* Nếu [IComment.setParentComment](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxeditexception/) sẽ được ném.
+* Khi phương thức [IComment.remove](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#remove--) được sử dụng để xóa một nhận xét, tất cả các trả lời cho nhận xét đó cũng sẽ bị xóa.
+* Nếu [IComment.setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/) sẽ được ném ra.
 {{% /alert %}}
 
-## **Thêm bình luận hiện đại**
+## **Thêm Nhận xét Hiện đại**
 
-Bình luận hiện đại có thể được liên kết với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong AutoShape. Phương thức [ICommentCollection.addModernComment](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) nhận một đối số [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/) ngoài slide và các tọa độ đánh dấu bình luận.
+Nhận xét hiện đại có thể được liên kết với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một AutoShape. Phương pháp [ICommentCollection.addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) chấp nhận một đối số [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) ngoài slide và tọa độ đánh dấu nhận xét.
 
-Khi truyền `null` cho đối số shape, bình luận sẽ là bình luận cấp slide. Dấu đánh dấu được đặt theo tọa độ cung cấp, nhưng không gắn với một shape cụ thể, do đó [IModernComment.getShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#getShape--) trả về `null`. Khi cung cấp một [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/), bình luận sẽ được neo vào shape đó. Các tọa độ vẫn xác định vị trí của dấu đánh dấu trên slide, trong khi mối liên kết với shape có thể được lấy qua [IModernComment.getShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#getShape--).
+Khi `null` được truyền cho đối số shape, nhận xét sẽ là một nhận xét cấp slide. Dấu đánh dấu được đặt theo tọa độ đã cung cấp, nhưng không được liên kết với một shape cụ thể, do đó [IModernComment.getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--) trả về `null`. Khi một [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) được cung cấp, nhận xét sẽ được neo vào shape đó. Tọa độ vẫn xác định vị trí của dấu đánh dấu nhận xét trên slide, trong khi liên kết shape có thể được truy xuất qua [IModernComment.getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--).
 
-### **Neo bình luận hiện đại vào một shape**
+### **Neo một Nhận xét Hiện đại vào một Hình dạng**
 
-Ví dụ sau tạo cả bình luận hiện đại cấp slide và bình luận hiện đại neo vào một AutoShape cụ thể. Sau đó đọc shape liên kết từ mỗi bình luận.
+Ví dụ gọi [addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) hai lần: một lần với shape `null` cho một nhận xét cấp slide và một lần với một hình chữ nhật làm neo. Đọc [getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--) in ra `true` cho kiểm tra `null` của nhận xét cấp slide và `Revenue title` cho nhận xét đã neo. Cả hai nhận xét đều được lưu cùng với bản trình bày.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -198,7 +236,9 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -218,11 +258,11 @@ try {
 }
 ```
 
-### **Neo bình luận vào các loại shape khác nhau**
+### **Neo Nhận xét vào Các Loại Hình dạng Khác nhau**
 
-Bất kỳ đối tượng slide nào thực thi [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/) đều có thể được dùng làm anchor cho shape. Các ví dụ phổ biến bao gồm [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iconnector/), và các thể hiện [IGraphicalObject](https://reference.aspose.com/slides/vi/java/com.aspose.slides/igraphicalobject/) như biểu đồ.
+Bất kỳ đối tượng slide nào thực thi [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) đều có thể được dùng làm neo shape. Các ví dụ phổ biến bao gồm [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/java/com.aspose.slides/iconnector/), và các thể hiện [IGraphicalObject](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobject/) như biểu đồ.
 
-Ví dụ sau tạo một số kiểu shape phổ biến và gắn một bình luận hiện đại vào mỗi shape.
+Ví dụ sử dụng [addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) để liên kết một nhận xét với mỗi trong năm loại shape: một AutoShape, một khung hình, một nhóm, một connector và một biểu đồ. Hình ảnh sử dụng dữ liệu ảnh nhúng, nên không cần ảnh ngoại vi. Mỗi nhận xét có vị trí dấu đánh dấu riêng, và bản trình bày đã lưu giữ lại mọi liên kết shape.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -244,11 +284,13 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     Date createdTime = new Date();
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     Point2D.Float autoShapeCommentPosition = new Point2D.Float(30, 30);
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -279,18 +321,18 @@ try {
 }
 ```
 
-### **Neo bình luận vào văn bản và đặt trạng thái**
+### **Neo Nhận xét vào Văn bản và Đặt Trạng thái của Nó**
 
-Đối với một bình luận hiện đại gắn với một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/), các phương thức [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) và [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) truy cập vị trí bắt đầu của đoạn văn bản đã chọn trong khung văn bản của shape. Các phương thức [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) và [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) truy cập độ dài của đoạn chọn. Cùng nhau, các giá trị này liên kết bình luận với một đoạn văn bản cụ thể trong AutoShape.
+Đối với một nhận xét hiện đại liên kết với một [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/), các phương pháp [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) và [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) truy cập vị trí bắt đầu của văn bản được chọn trong khung văn bản của shape. Các phương pháp [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) và [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) truy cập độ dài của đoạn được chọn. Cùng nhau, các giá trị này liên kết nhận xét với một đoạn văn bản cụ thể trong AutoShape.
 
-Các phương thức [IModernComment.getStatus](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#getStatus--) và [IModernComment.setStatus](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#setStatus-byte-) truy cập một giá trị từ các hằng số [ModernCommentStatus](https://reference.aspose.com/slides/vi/java/com.aspose.slides/moderncommentstatus/):
+Các phương pháp [IModernComment.getStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getStatus--) và [IModernComment.setStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setStatus-byte-) truy cập một giá trị từ các hằng số [ModernCommentStatus](https://reference.aspose.com/slides/java/com.aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — không có trạng thái bình luận hiện đại cụ thể nào được định nghĩa.
-- `Active` — bình luận đang hoạt động.
-- `Resolved` — bình luận đã được giải quyết.
-- `Closed` — bình luận đã đóng.
+- `NotDefined` — không có trạng thái nhận xét hiện đại cụ thể nào được định nghĩa.
+- `Active` — nhận xét đang hoạt động.
+- `Resolved` — nhận xét đã được giải quyết.
+- `Closed` — nhận xét đã được đóng.
 
-Ví dụ sau tạo một bình luận hiện đại neo vào shape, gắn nó với một đoạn văn bản được chọn, đánh dấu là đã giải quyết, lưu bản trình bày và xác minh các giá trị sau khi mở lại tệp.
+Ví dụ neo một nhận xét hiện đại vào các từ "quarterly revenue" trong văn bản của một hình chữ nhật. Nó tính vị trí bắt đầu lựa chọn dựa trên chỉ số không của văn bản và truyền vào [setTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-), sau đó sử dụng [setTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) để đặt số ký tự được chọn. Sau khi gọi [setStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setStatus-byte-) với `Resolved`, nó lưu và mở lại bản trình bày. Bốn kiểm tra console mỗi lần đều phải in ra `true`, xác nhận rằng neo shape, đoạn văn bản và trạng thái đã được bảo tồn.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -313,6 +355,7 @@ int expectedSelectionStart = shapeText.indexOf(selectedText);
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
@@ -355,9 +398,9 @@ try {
 }
 ```
 
-### **Kiểm tra các bình luận hiện đại hiện có**
+### **Kiểm tra Các Nhận xét Hiện đại hiện có**
 
-Để kiểm tra một bản trình bày hiện có, xác định các bình luận triển khai [IModernComment](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/), sau đó xem xét [IModernComment.getShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), và [IModernComment.getStatus](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#getStatus--). Một shape `null` cho biết bình luận cấp slide. Đối với anchor kiểu [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/), các phương thức chọn văn bản xác định đoạn tương ứng trong khung văn bản của shape.
+Ví dụ yêu cầu một bản trình bày hiện có chứa các nhận xét hiện đại và in ra nội dung, trạng thái và chi tiết neo của chúng. Để kiểm tra, xác định những nhận xét nào triển khai [IModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/), sau đó kiểm tra [IModernComment.getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), và [IModernComment.getStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getStatus--). Một shape `null` cho thấy đó là một nhận xét cấp slide. Đối với một neo [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/), các phương pháp lựa chọn văn bản xác định đoạn liên quan trong khung văn bản của shape.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -402,11 +445,13 @@ try {
 }
 ```
 
-## **Xóa bình luận**
+## **Xóa Nhận xét**
 
-### **Xóa mọi bình luận và tác giả bình luận**
+Aspose.Slides for Java cho phép bạn xóa tất cả nhận xét và các tác giả của chúng khỏi một bản trình bày hoặc xóa các nhận xét đã chọn trong khi giữ lại phần còn lại. Các ví dụ dưới đây minh họa cả hai cách và lưu bản trình bày đã cập nhật.
 
-Ví dụ sau cho thấy cách xóa tất cả các bình luận và tác giả bình luận khỏi một bản trình bày:
+### **Xóa Tất cả Nhận xét và Tác giả Nhận xét**
+
+Ví dụ mở một bản trình bày hiện có và gọi [ICommentCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#clear--) cho mỗi tác giả, sau đó gọi [ICommentAuthorCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#clear--) để xóa các tác giả. Bản trình bày đã lưu không chứa nhận xét nào cũng như không có tác giả nhận xét. Sử dụng một bản trình bày có chứa nhận xét để quan sát việc xóa.
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -420,15 +465,16 @@ try {
     }
 
     presentation.getCommentAuthors().clear();
+
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Xóa các bình luận cụ thể**
+### **Xóa Nhận xét Cụ thể**
 
-Ví dụ sau cho thấy cách xóa các bình luận cụ thể khỏi một slide:
+Ví dụ tạo hai nhận xét trên một slide và sử dụng [getSlideComments](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) để tìm nhận xét của từng tác giả. Nó thu thập các nhận xét có nội dung bằng "comment 1" trước khi gọi [ICommentCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#remove-com.aspose.slides.IComment-), tránh thay đổi bộ sưu tập trong quá trình lựa chọn. Bản trình bày đã lưu chỉ còn lại "comment 2".
 
 ```java
 import com.aspose.slides.IComment;
@@ -444,6 +490,7 @@ import java.util.List;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
     Date createdTime = new Date();
 
@@ -475,14 +522,14 @@ try {
 
 ## **Câu hỏi thường gặp**
 
-**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho bình luận hiện đại không?**
+**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho nhận xét hiện đại không?**
 
-Có. Các phương thức [IModernComment.getStatus](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#getStatus--) và [IModernComment.setStatus](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imoderncomment/#setStatus-byte-) truy cập giá trị [ModernCommentStatus](https://reference.aspose.com/slides/vi/java/com.aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái được lưu trong bản trình bày và có thể đọc lại sau khi mở lại tệp.
+Có. [IModernComment.getStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getStatus--) và [IModernComment.setStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setStatus-byte-) truy cập một giá trị [ModernCommentStatus](https://reference.aspose.com/slides/java/com.aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái được lưu trong bản trình bày và có thể đọc lại sau khi tệp được mở lại.
 
-**Có hỗ trợ thảo luận dạng chuỗi trả lời không, và có giới hạn độ sâu lồng nhau không?**
+**Các cuộc thảo luận dạng chuỗi (chuỗi trả lời) có được hỗ trợ không, và có giới hạn độ sâu lồng nhau không?**
 
-Có. Mỗi bình luận có thể tham chiếu tới [parent comment](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icomment/#getParentComment--), cho phép tạo chuỗi trả lời. API không định nghĩa giới hạn cụ thể về độ sâu lồng nhau.
+Có. Mỗi nhận xét có thể tham chiếu đến [parent comment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#getParentComment--) của nó, cho phép tạo chuỗi trả lời. API không định nghĩa giới hạn độ sâu lồng nhau cụ thể.
 
-**Vị trí của dấu đánh dấu bình luận trên slide được xác định trong hệ tọa độ nào?**
+**Vị trí của điểm đánh dấu nhận xét trên slide được định nghĩa trong hệ tọa độ nào?**
 
-Vị trí dấu đánh dấu được xác định bằng các tọa độ kiểu floating‑point trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.
+Vị trí dấu đánh dấu được xác định bằng các tọa độ dạng số thực trong hệ tọa độ slide, cho phép bạn đặt nó một cách chính xác trên slide.

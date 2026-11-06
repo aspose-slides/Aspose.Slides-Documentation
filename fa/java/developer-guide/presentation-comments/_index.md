@@ -1,5 +1,5 @@
 ---
-title: مدیریت نظرات ارائه در جاوا
+title: مدیریت نظرات ارائه در Java
 linktitle: نظرات ارائه
 type: docs
 weight: 100
@@ -7,7 +7,7 @@ url: /fa/java/presentation-comments/
 keywords:
 - نظر
 - نظر مدرن
-- نظرات پاورپوینت
+- نظرات PowerPoint
 - نظرات ارائه
 - نظرات اسلاید
 - افزودن نظر
@@ -16,41 +16,40 @@ keywords:
 - پاسخ به نظر
 - حذف نظر
 - حذف نظر
-- پاورپوینت
+- PowerPoint
 - ارائه
-- جاوا
+- Java
 - Aspose.Slides
-description: "نظرات ارائه را با Aspose.Slides برای جاوا مدیریت کنید: افزودن، خواندن، ویرایش، پاسخ و حذف نظرات در ارائه‌های پاورپوینت به‌سرعت و به‌سادگی."
+description: "نظرات ارائه را با Aspose.Slides برای Java مدیریت کنید: اضافه‌کردن، خواندن، ویرایش، پاسخ‌دادن و حذف نظرات در ارائه‌های PowerPoint به‌سرعت و به‌سادگی."
 ---
-## **بررسی اجمالی**
+## **مرور کلی**
 
-این مقاله توضیح می‌دهد چگونه نظرات ارائه را با Aspose.Slides for Java مدیریت کنید. این مقاله انواع اصلی مرتبط با نظرات را معرفی کرده و نشان می‌دهد چگونه نظرات را به اسلایدها اضافه کنید، نظرات موجود را دسترسی پیدا کنید، با پاسخ‌ها و نظرات مدرن کار کنید و نظرات را از یک ارائه حذف کنید.
+این مقاله توضیح می‌دهد که چگونه نظرات ارائه را با Aspose.Slides for Java مدیریت کنید. انواع اصلی مرتبط با نظرات معرفی می‌شود و نشان داده می‌شود چطور نظرات را به اسلایدها اضافه کنید، نظرات موجود را دسترسی داشته باشید، با پاسخ‌ها و نظرات مدرن کار کنید و نظرات را از یک ارائه حذف کنید.
 
-مثال‌ها سناریوهای رایج بازبینی و همکاری در PowerPoint را پوشش می‌دهند، مانند انتساب نظرات به نویسندگان، خواندن متن نظر و متادیتا، ساخت زنجیره‌های پاسخ، و حذف نظرات انتخاب‌شده یا تمام نظرات.
+نمونه‌ها سناریوهای رایج مرور و همکاری در PowerPoint را پوشش می‌دهند، مانند اختصاص نظرات به نویسندگان، خواندن متن و متادیتای نظر، ساخت زنجیره‌های پاسخ و حذف نظرات انتخابی یا تمام نظرات.
 
-در PowerPoint، نظرات به‌عنوان حاشیه‌نویسی‌ها بر روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر متن و بحث مرتبط با آن را نمایش می‌دهد.
+در PowerPoint، نظرات به‌عنوان حاشیه‌نویسی بر روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر، متن و بحث مرتبط را نمایش می‌دهد.
 
-برای درخواست نمایش یا مخفی کردن نظرات هنگام باز کردن یک ارائه بدون تغییر خود نظرات، ببینید [نمایش یا مخفی کردن نظرات هنگام باز کردن یک ارائه](/slides/fa/java/presentation-view-properties/).
+برای درخواست نمایش یا پنهان کردن نظرات هنگام باز کردن یک ارائه بدون تغییر نظرات، به [نمایش یا پنهان کردن نظرات هنگام باز کردن ارائه](/slides/fa/java/presentation-view-properties/) مراجعه کنید.
 
-## **چرا نظرات را به ارائه‌ها اضافه کنیم؟**
+## **چرا نظرات به ارائه‌ها اضافه کنیم؟**
 
-می‌توانید از نظرات برای ارائه بازخورد و همکاری با همکاران هنگام بازبینی ارائه‌ها استفاده کنید.
+می‌توانید از نظرات برای ارائه بازخورد و همکاری با همکاران هنگام مرور ارائه‌ها استفاده کنید.
 
 Aspose.Slides for Java APIهای زیر را برای کار با نظرات فراهم می‌کند:
 
-* کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) که دسترسی به نویسندگان نظرات ارائه را فراهم می‌کند.
-* رابط [ICommentCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icommentcollection/) که نظرات مرتبط با یک نویسنده خاص را نشان می‌دهد.
-* رابط [IComment](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icomment/) که اطلاعاتی درباره یک نظر شامل نویسنده، زمان ایجاد، موقعیت و متن را فراهم می‌کند.
-* کلاس [CommentAuthor](https://reference.aspose.com/slides/fa/java/com.aspose.slides/commentauthor/) که اطلاعاتی درباره یک نویسنده شامل نام، حروف اولیه و نظرات مرتبط را ارائه می‌دهد.
+* کلاس [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) که دسترسی به نویسندگان نظرات ارائه را فراهم می‌کند.
+* اینترفیس [ICommentCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/) که نظرات مرتبط با یک نویسندهٔ خاص را نمایندگی می‌کند.
+* اینترفیس [IComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/) که اطلاعاتی دربارهٔ یک نظر شامل نویسنده، زمان ایجاد، موقعیت و متن را ارائه می‌دهد.
+* کلاس [CommentAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/commentauthor/) که اطلاعاتی دربارهٔ یک نویسنده شامل نام، حروف اولیه و نظرات مرتبط را فراهم می‌کند.
 
 ## **افزودن نظرات اسلاید**
 
-مثال زیر نشان می‌دهد چگونه نظرات را به اسلایدهای یک ارائه PowerPoint اضافه کنید:
+این مثال دو اسلاید ایجاد می‌کند و یک نویسندهٔ نظر را با [addAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) ثبت می‌کند. سپس با [addComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-java.awt.geom.Point2D.Float-java.util.Date-) یک نظر روی هر اسلاید قرار می‌دهد و نظرات اسلاید اول برای آن نویسنده را با [getSlideComments](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) بازیابی می‌کند. کنسول متن اولین نظر را دو بار نمایش می‌دهد تا دسترسی هم از طریق اسلاید و هم از طریق نویسنده نشان داده شود و ارائهٔ ذخیره‌شده شامل هر دو نظر می‌شود.
 
 ```java
 import com.aspose.slides.IComment;
 import com.aspose.slides.ICommentAuthor;
-import com.aspose.slides.ICommentCollection;
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -61,6 +60,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
     ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     Point2D.Float position = new Point2D.Float(0.2f, 0.2f);
     Date createdTime = new Date();
@@ -73,8 +73,7 @@ try {
         IComment firstComment = comments[0];
         System.out.println(firstComment.getText());
 
-        ICommentCollection authorComments = firstComment.getAuthor().getComments();
-        String commentText = authorComments.get_Item(0).getText();
+        String commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         System.out.println(commentText);
     }
 
@@ -84,9 +83,47 @@ try {
 }
 ```
 
+## **پیدا کردن یا ایجاد نویسندهٔ نظر**
+
+هنگامی که یک مرور خودکار همان ارائه را بارها پردازش می‌کند، قبل از افزودن نویسنده از مجموعه‌ای که توسط [getCommentAuthors](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getCommentAuthors--) برگردانده می‌شود جستجو کنید. متد [findByNameAndInitials](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#findByNameAndInitials-java.lang.String-java.lang.String-) هم نام و هم حروف اولیه را مطابقت می‌دهد و یک آرایهٔ نویسندگان منطبق یا آرایهٔ خالی برمی‌گرداند. در مقابل، [findByName](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#findByName-java.lang.String-) تنها بر اساس نام جستجو می‌کند، بدون توجه به حروف اولیه. فراخوانی [addAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) با یک نام و حروف اولیهٔ که پیش‌اپ پیش در مجموعه موجود است، باعث پرتاب استثنا می‌شود.
+
+این مثال نیاز به فایلی دارد که حداقل یک اسلاید داشته باشد. در هر دو پاس، نویسندهٔ اولین مطابقت را بازاستفاده می‌کند یا فقط زمانی که نتیجه خالی باشد نویسنده‌ای جدید می‌سازد. اگر چند مطابقت وجود داشته باشد، اولین عنصر آرایه انتخاب می‌شود بدون ترکیب یا حذف نویسندگان دیگر. سپس برای نویسندهٔ انتخاب‌شده با [addComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-java.awt.geom.Point2D.Float-java.util.Date-) نظر اضافه می‌کند و ارائه را ذخیره می‌کند. پاس دوم خروجی پاس اول را باز می‌کند و عملیات را تکرار می‌کند.
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
+final String authorName = "Reviewer";
+final String authorInitials = "RV";
+
+String inputFile = "input.pptx";
+Point2D.Float position = new Point2D.Float(20, 20);
+
+for (int pass = 1; pass <= 2; pass++) {
+    Presentation presentation = new Presentation(inputFile);
+    try {
+        ICommentAuthor[] matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        ICommentAuthor author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, new Date());
+
+        String outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+پاس دوم نظر دیگری اضافه می‌کند بدون اینکه نویسندهٔ دیگری اضافه یا نظرات موجود حذف شود. فایل نهایی، `review_pass_2.pptx`، هر دو نظر جدید را همراه با هر نظر اصلی شامل می‌شود. بازاستفاده از نویسنده باعث حذف مضduplicate نظرات نمی‌شود: برای جلوگیری از افزودن مکرر همان نظر، قبل از افزودن آن تشخیص تکراری جداگانه‌ای پیاده‌سازی کنید.
+
 ## **دسترسی به نظرات اسلاید**
 
-مثال زیر نشان می‌دهد چگونه به نظرات موجود در یک ارائه PowerPoint دسترسی پیدا کنید:
+این مثال یک ارائهٔ موجود را باز می‌کند و مجموعه‌ای که توسط [getCommentAuthors](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getCommentAuthors--) برگردانده می‌شود می‌خواند. برای هر نویسنده، از مجموعه‌ای که توسط [getComments](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthor/#getComments--) برگردانده می‌شود می‌گردد و شماره اسلاید، متن نظر، نام نویسنده و زمان ایجاد را چاپ می‌کند. ارائهٔ ورودی باید شامل نظرات باشد تا خروجی کنسول تولید شود.
 
 ```java
 import com.aspose.slides.IComment;
@@ -111,9 +148,9 @@ try {
 
 ## **پاسخ به نظرات**
 
-یک نظر والد، نظر اصلی در بالای سلسله‌مراتبی پاسخ‌ها است. روش‌های [IComment.getParentComment](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icomment/#getParentComment--) و [IComment.setParentComment](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) به شما امکان می‌دهند والد یک نظر را دریافت یا تنظیم کنید.
+یک نظر والد، نظر اصلی در بالای یک سلسله‌مراتب پاسخ است. متدهای [IComment.getParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#getParentComment--) و [IComment.setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) به شما اجازه می‌دهند والد یک نظر را دریافت یا تنظیم کنید.
 
-مثال زیر نشان می‌دهد چگونه پاسخ‌ها را اضافه کنید و سلسله‌مراتب نظرات حاصل را بررسی کنید:
+این مثال نظراتی از دو نویسنده ایجاد می‌کند و با [setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) پاسخ‌ها را می‌سازد، از جمله پاسخی به یک پاسخ دیگر. پاس دادن `null` به [getSlideComments](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) نظرات همهٔ نویسندگان را بازیابی می‌کند؛ کنسول هر ورودی را بر اساس عمق آن در سلسله‌مراتب پاسخ تورفتگی می‌کند. مثال بحث کامل را ذخیره می‌کند، روی اولین نظر ریشه‌ای [remove](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#remove--) صدا می‌زند و یک ارائهٔ دوم را با حذف آن نظر و پاسخ‌هایش ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.IComment;
@@ -127,27 +164,28 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     Point2D.Float position = new Point2D.Float(10, 10);
     Date createdTime = new Date();
 
-    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    ICommentAuthor originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    ICommentAuthor reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    IComment secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    IComment subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    IComment separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     IComment[] comments = slide.getSlideComments(null);
     for (int i = 0; i < comments.length; i++) {
@@ -162,7 +200,7 @@ try {
 
     presentation.save("parent_comment.pptx", SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -170,19 +208,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* زمانی که متد [IComment.remove](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icomment/#remove--) برای حذف یک نظر استفاده شود، تمام پاسخ‌های آن نظر نیز حذف می‌شوند.
-* اگر [IComment.setParentComment](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) یک مرجع دایره‌ای ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pptxeditexception/) صادر می‌شود.
+* هنگام استفاده از متد [IComment.remove](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#remove--) برای حذف یک نظر، تمام پاسخ‌های آن نیز حذف می‌شوند.
+* اگر [IComment.setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) یک ارجاع حلقه‌ای ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/) پرتاب می‌شود.
 {{% /alert %}}
 
 ## **افزودن نظرات مدرن**
 
-نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص یا به یک بازهٔ متنی داخل AutoShape مرتبط شوند. متد [ICommentCollection.addModernComment](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) علاوه بر اسلاید و مختصات نشانگر نظر، یک آرگومان [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/) را می‌پذیرد.
+نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص یا به یک بازهٔ متنی داخل یک AutoShape مرتبط شوند. متد [ICommentCollection.addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) علاوه بر اسلاید و مختصات نشانگر نظر، آرگومان یک [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) را می‌پذیرد.
 
-زمانی که `null` برای آرگومان shape ارسال شود، نظر یک نظر سطح‑اسلاید است. نشانه آن توسط مختصات ارائه‌شده موقعیت‌گیری می‌شود، اما به شکل خاصی مرتبط نیست، بنابراین [IModernComment.getShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#getShape--) `null` برمی‌گرداند. وقتی یک [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/) فراهم شود، نظر به آن شکل لنگر می‌خورد. مختصات همچنان موقعیت نشانگر نظر را بر روی اسلید تعریف می‌کند، در حالی که ارتباط شکل می‌تواند از طریق [IModernComment.getShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#getShape--) بازیابی شود.
+زمانی که برای آرگومان shape مقدار `null` پاس داده شود، نظر یک نظر سطح اسلاید است. نشانگر آن توسط مختصات ارائه‌شده موقعیت می‌یابد، اما به شکل خاصی مرتبط نیست، بنابراین [IModernComment.getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--) `null` برمی‌گرداند. وقتی یک [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) فراهم شود، نظر به آن شکل لنگر می‌گیرد. مختصات همچنان موقعیت نشانگر نظر را روی اسلاید تعریف می‌کند، در حالی که ارتباط شکل می‌تواند از طریق [IModernComment.getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--) بازیابی شود.
 
-### **لنگر کردن یک نظر مدرن به یک شکل**
+### **اتصال یک نظر مدرن به یک شکل**
 
-مثال زیر هم یک نظر مدرن سطح‑اسلاید و هم یک نظر مدرن لنگر شده به یک AutoShape خاص ایجاد می‌کند. سپس شکل مرتبط با هر نظر را می‌خواند.
+این مثال دو بار [addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) را صدا می‌کند: یک بار با شکل `null` برای نظری سطح اسلاید و یک بار با یک مستطیل به‌عنوان لنگر. خواندن [getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--) برای نظر سطح اسلاید `true` در بررسی `null` چاپ می‌کند و برای نظر لنگری `Revenue title` را چاپ می‌کند. هر دو نظر با ارائه ذخیره می‌شوند.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -198,7 +236,9 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -218,11 +258,11 @@ try {
 }
 ```
 
-### **لنگر کردن نظرات به انواع مختلف شکل‌ها**
+### **اتصال نظرات به انواع مختلف شکل‌ها**
 
-هر شیء اسلایدی که واسط [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/) را پیاده‌سازی کند می‌تواند به‌عنوان لنگر شکل استفاده شود. مثال‌های رایج شامل [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iconnector/) و نمونه‌های [IGraphicalObject](https://reference.aspose.com/slides/fa/java/com.aspose.slides/igraphicalobject/) مانند نمودارها هستند.
+هر شیء اسلایدی که پیاده‌سازی‌کنندهٔ [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) باشد می‌تواند به عنوان لنگر شکل استفاده شود. مثال‌های رایج شامل [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/java/com.aspose.slides/iconnector/) و نمونه‌های [IGraphicalObject](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobject/) مانند نمودارها هستند.
 
-مثال زیر چند نوع شکل رایج را ایجاد کرده و یک نظر مدرن را با هر کدام مرتبط می‌کند.
+این مثال از [addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) برای ارتباط یک نظر با هر یک از پنج نوع شکل استفاده می‌کند: یک AutoShape، یک picture frame، یک گروه، یک connector و یک نمودار. تصویر استفاده‌شده دادهٔ تصویری نهفته دارد، بنابراین نیازی به تصویر خارجی نیست. هر نظر موقعیت نشانگر خود را دارد و ارائهٔ ذخیره‌شده تمام پنج ارتباط شکل را نگه می‌دارد.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -244,11 +284,13 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     Date createdTime = new Date();
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     Point2D.Float autoShapeCommentPosition = new Point2D.Float(30, 30);
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -279,18 +321,18 @@ try {
 }
 ```
 
-### **لنگر کردن یک نظر به متن و تنظیم وضعیت آن**
+### **اتصال یک نظر به متن و تنظیم وضعیت آن**
 
-برای یک نظر مدرن مرتبط با یک [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/)، متدهای [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) و [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) موقعیت شروع متن انتخاب‌شده در فریم متنی شکل را برمی‌گردانند. متدهای [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) و [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) طول انتخاب را برمی‌گردانند. این مقادیر نظرتان را به بازهٔ متنی خاصی داخل AutoShape پیوند می‌دهند.
+برای یک نظر مدرن مرتبط با یک [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)، متدهای [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) و [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) موقعیت شروع متن انتخاب‌شده در فریم متنی شکل را می‌گردانند. متدهای [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) و [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) طول انتخاب را برمی‌گردانند. ترکیب این مقادیر نظر را به بازهٔ متنی خاصی داخل AutoShape مرتبط می‌کند.
 
-متدهای [IModernComment.getStatus](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#getStatus--) و [IModernComment.setStatus](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#setStatus-byte-) مقدار یک ثابت از [ModernCommentStatus](https://reference.aspose.com/slides/fa/java/com.aspose.slides/moderncommentstatus/) را باز می‌گردانند:
+متدهای [IModernComment.getStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getStatus--) و [IModernComment.setStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setStatus-byte-) مقداری از ثابت‌های [ModernCommentStatus](https://reference.aspose.com/slides/java/com.aspose.slides/moderncommentstatus/) را برمی‌گردانند:
 
-- `NotDefined` — هیچ وضعیت خاصی برای نظر مدرن تعریف نشده است.
+- `NotDefined` — وضعیت خاصی برای نظر مدرن تعریف نشده است.
 - `Active` — نظر فعال است.
 - `Resolved` — نظر حل شده است.
-- `Closed` — نظر بسته شده است.
+- `Closed` — نظر بسته است.
 
-مثال زیر یک نظر مدرن لنگر شده به شکل ایجاد می‌کند، آن را به یک بازهٔ متنی پیوند می‌دهد، به عنوان حل‌شده علامت‌گذاری می‌کند، ارائه را ذخیره می‌کند و پس از بازگشایی فایل مقادیر را تأیید می‌کند.
+این مثال یک نظر مدرن را به کلمات «quarterly revenue» در متن یک مستطیل لنگر می‌کند. شروع انتخاب صفر‑مبنای متن را محاسبه می‌کند و به [setTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) می‌فرستد و با [setTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) تعداد کاراکترهای انتخاب‌شده را تنظیم می‌کند. پس از فراخوانی [setStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setStatus-byte-) با `Resolved`، ارائه را ذخیره و دوباره باز می‌کند. چهار بررسی کنسول باید هر کدام `true` چاپ کنند تا تأیید شود که لنگر شکل، بازهٔ متنی و وضعیت حفظ شده‌اند.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -313,6 +355,7 @@ int expectedSelectionStart = shapeText.indexOf(selectedText);
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
@@ -355,9 +398,9 @@ try {
 }
 ```
 
-### **بازرسی نظرات مدرن موجود**
+### **بررسی نظرات مدرن موجود**
 
-برای بررسی یک ارائه موجود، بررسی کنید کدام نظرات رابط [IModernComment](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/) را پیاده‌سازی می‌کنند، سپس [IModernComment.getShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#getShape--)، [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--)، [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) و [IModernComment.getStatus](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#getStatus--) را بررسی کنید. یک شکل `null` نشانگر یک نظر سطح‑اسلاید است. برای یک لنگر [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) متدهای انتخاب متن بازهٔ متنی مرتبط در فریم متنی شکل را مشخص می‌کنند.
+این مثال به یک ارائهٔ موجود حاوی نظرات مدرن نیاز دارد و متن، وضعیت و جزئیات لنگر آن‌ها را چاپ می‌کند. برای بررسی، تعیین کنید کدام نظرات پیاده‌سازی‌کنندهٔ [IModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/) هستند، سپس [IModernComment.getShape](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getShape--)، [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--)، [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--)، و [IModernComment.getStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getStatus--) را بررسی کنید. یک shape `null` نشانگر نظر سطح اسلاید است. برای لنگر یک [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)، متدهای انتخاب متن بازهٔ متنی مرتبط در فریم متنی شکل را شناسایی می‌کنند.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -404,9 +447,11 @@ try {
 
 ## **حذف نظرات**
 
+Aspose.Slides for Java به شما امکان می‌دهد تمام نظرات و نویسندگان آن‌ها را از یک ارائه حذف کنید یا نظرات منتخب را حذف کنید در حالی که بقیه حفظ می‌شوند. مثال‌های زیر هر دو روش را نشان می‌دهند و ارائه به‌روز‌شده را ذخیره می‌کنند.
+
 ### **حذف تمام نظرات و نویسندگان نظرات**
 
-مثال زیر نشان می‌دهد چگونه تمام نظرات و نویسندگان نظرات را از یک ارائه حذف کنید:
+این مثال یک ارائهٔ موجود را باز می‌کند و برای هر نویسنده [ICommentCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#clear--) را صدا می‌زند، سپس [ICommentAuthorCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icommentauthorcollection/#clear--) را برای حذف خود نویسندگان فراخوانی می‌کند. ارائهٔ ذخیره‌شده نه نظرات و نه نویسندگان نظرات را دارد. برای مشاهده حذف، از ارائه‌ای حاوی نظرات استفاده کنید.
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -420,6 +465,7 @@ try {
     }
 
     presentation.getCommentAuthors().clear();
+
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -428,7 +474,7 @@ try {
 
 ### **حذف نظرات خاص**
 
-مثال زیر نشان می‌دهد چگونه نظرات خاص را از یک اسلاید حذف کنید:
+این مثال دو نظر روی یک اسلاید ایجاد می‌کند و با [getSlideComments](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) نظرات هر نویسنده را پیدا می‌کند. نظراتی که متن آن‌ها برابر با «comment 1» است جمع‌آوری می‌کند قبل از اینکه [ICommentCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/icommentcollection/#remove-com.aspose.slides.IComment-) را صدا بزند، تا از تغییر مجموعه هنگام انتخاب جلوگیری شود. ارائهٔ ذخیره‌شده فقط «comment 2» را حفظ می‌کند.
 
 ```java
 import com.aspose.slides.IComment;
@@ -444,6 +490,7 @@ import java.util.List;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
     Date createdTime = new Date();
 
@@ -473,16 +520,16 @@ try {
 }
 ```
 
-## **پرسش‌های متداول**
+## **سؤالات متداول**
 
-**آیا Aspose.Slides از وضعیت حل‌شده برای نظرات مدرن پشتیبانی می‌کند؟**
+**آیا Aspose.Slides وضعیت حل‌شده را برای نظرات مدرن پشتیبانی می‌کند؟**
 
-بله. متدهای [IModernComment.getStatus](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#getStatus--) و [IModernComment.setStatus](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imoderncomment/#setStatus-byte-) مقداری از [ModernCommentStatus](https://reference.aspose.com/slides/fa/java/com.aspose.slides/moderncommentstatus/) را برمی‌گردانند که شامل `Resolved` است. این وضعیت در ارائه ذخیره می‌شود و پس از بازگشایی فایل می‌تواند دوباره خوانده شود.
+بله. متدهای [IModernComment.getStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#getStatus--) و [IModernComment.setStatus](https://reference.aspose.com/slides/java/com.aspose.slides/imoderncomment/#setStatus-byte-) مقداری از [ModernCommentStatus](https://reference.aspose.com/slides/java/com.aspose.slides/moderncommentstatus/) شامل `Resolved` را دسترسی می‌دهند. این وضعیت در ارائه ذخیره می‌شود و پس از بازگشایی فایل قابل خواندن است.
 
-**آیا بحث‌های زنجیره‌ای (زنجیره‌های پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای عمق تو در تو وجود دارد؟**
+**آیا بحث‌های رشته‌ای (زنجیره پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای عمق تو در توی آن‌ها وجود دارد؟**
 
-بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icomment/#getParentComment--) خود ارجاع دهد و زنجیره‌های پاسخ را فعال کند. API محدودیت خاصی برای عمق تو در تو تعیین نکرده است.
+بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/java/com.aspose.slides/icomment/#getParentComment--) خود ارجاع دهد و زنجیره پاسخ‌ها را فعال کند. API محدودیت عمق خاصی تعریف نمی‌کند.
 
-**مختصات موقعیت نشانگر نظر در اسلاید بر پایهٔ چه سیستم مختصاتی تعریف می‌شود؟**
+**موقعیت نشانگر نظر روی اسلاید بر پایهٔ چه سامانهٔ مختصاتی تعریف می‌شود؟**
 
-موقعیت نشانگر توسط مختصات نقطه شناور در سیستم مختصات اسلاید تعریف می‌شود که به شما امکان می‌دهد دقیقاً در محل مورد نظر در اسلاید قرار گیرد.
+موقعیت نشانگر توسط مختصات نقطه‌ای شناور در سامانهٔ مختصات اسلاید تعریف می‌شود، که امکان قرارگیری دقیق آن بر روی اسلاید را می‌دهد.

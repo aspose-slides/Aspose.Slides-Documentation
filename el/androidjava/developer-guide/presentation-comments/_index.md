@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση σχολίων παρουσίασης σε Android
-linktitle: Σχόλια παρουσίασης
+title: Διαχείριση Σχολίων Παρουσίασης στο Android
+linktitle: Σχόλια Παρουσίασης
 type: docs
 weight: 100
 url: /el/androidjava/presentation-comments/
@@ -25,33 +25,32 @@ description: "Διαχειριστείτε τα σχόλια παρουσίασ�
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε σχόλια παρουσίασης με το Aspose.Slides για Android μέσω Java. Παρουσιάζει τους κύριους τύπους σχετικούς με τα σχόλια και δείχνει πώς να προσθέτετε σχόλια στις διαφάνειες, να έχετε πρόσβαση σε υπάρχοντα σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια, και να αφαιρείτε σχόλια από μια παρουσίαση.
+Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε σχόλια παρουσιάσεων με το Aspose.Slides για Android μέσω Java. Παρουσιάζει τους κύριους τύπους που σχετίζονται με τα σχόλια και δείχνει πώς να προσθέτετε σχόλια σε διαφάνειες, να έχετε πρόσβαση σε υπάρχοντα σχόλια, να εργάζεστε με τις απαντήσεις και τα σύγχρονα σχόλια, και να αφαιρείτε σχόλια από μια παρουσίαση.
 
-Τα παραδείγματα καλύπτουν κοινά σενάρια ελέγχου και συνεργασίας σε PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίου και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
+Τα παραδείγματα καλύπτουν κοινά σενάρια ελέγχου και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίου και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων, και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
 
 Στο PowerPoint, τα σχόλια εμφανίζονται ως σημειώσεις στις διαφάνειες. Η επιλογή ενός σχολίου εμφανίζει το κείμενό του και τη σχετική συζήτηση.
 
-Για να ζητήσετε να εμφανίζονται ή να κρύβονται τα σχόλια όταν ανοίγει μια παρουσίαση χωρίς να αλλάξετε τα ίδια τα σχόλια, δείτε [Show or Hide Comments When Opening a Presentation](/slides/el/androidjava/presentation-view-properties/).
+Για να ζητήσετε τα σχόλια να εμφανίζονται ή να κρύβονται όταν ανοίγει μια παρουσίαση χωρίς να αλλάξουν τα ίδια τα σχόλια, δείτε [Εμφάνιση ή Απόκρυψη Σχόλων Κατά το Άνοιγμα Παρουσίασης](/slides/el/androidjava/presentation-view-properties/).
 
 ## **Γιατί να Προσθέσετε Σχόλια σε Παρουσιάσεις;**
 
-Μπορείτε να χρησιμοποιείτε σχόλια για να παρέχετε ανάδραση και να συνεργάζεστε με συναδέλφους κατά την αξιολόγηση παρουσιάσεων.
+Μπορείτε να χρησιμοποιήσετε σχόλια για να παρέχετε ανατροφοδότηση και να συνεργάζεστε με συναδέλφους κατά την αξιολόγηση παρουσιάσεων.
 
-Aspose.Slides for Android via Java παρέχει τα ακόλουθα API για εργασία με σχόλια:
+Το Aspose.Slides για Android μέσω Java παρέχει τα ακόλουθα API για εργασία με σχόλια:
 
-* Η κλάση [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) που παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
-* Η διεπαφή [ICommentCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icommentcollection/) που αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν συγκεκριμένο συγγραφέα.
-* Η διεπαφή [IComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/) που παρέχει πληροφορίες για ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, του χρόνου δημιουργίας, της θέσης και του κειμένου.
-* Η κλάση [CommentAuthor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/commentauthor/) που παρέχει πληροφορίες για έναν συγγραφέα, όπως το όνομα, τα αρχικά και τα σχετικά σχόλια.
+* Τη **[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)** κλάση, η οποία παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
+* Το **[ICommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/)** interface, το οποίο αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν συγκεκριμένο συγγραφέα.
+* Το **[IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/)** interface, το οποίο παρέχει πληροφορίες για ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, της ώρας δημιουργίας, της θέσης και του κειμένου.
+* Το **[CommentAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/commentauthor/)** κλάση, η οποία παρέχει πληροφορίες για έναν συγγραφέα, όπως το όνομα, τα αρχικά και τα σχετικά σχόλια.
 
-## **Προσθήκη Σχολίων στις Διαφάνειες**
+## **Προσθήκη Σχολίων σε Διαφάνειες**
 
-Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε σχόλια στις διαφάνειες μιας παρουσίασης PowerPoint:
+Το παράδειγμα δημιουργεί δύο διαφάνειες και καταχωρεί έναν συγγραφέα σχολίων με τη μέθοδο [addAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-). Χρησιμοποιεί τη μέθοδο [addComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-android.graphics.PointF-java.util.Date-) για να τοποθετήσει ένα σχόλιο σε κάθε διαφάνεια, στη συνέχεια ανακτά τα σχόλια της πρώτης διαφάνειας για εκείνο το συγγραφέα με τη μέθοδο [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-). Η κονσόλα εμφανίζει το κείμενο του πρώτου σχολίου δύο φορές, δείχνοντας πρόσβαση μέσω της διαφάνειας και του συγγραφέα, και η αποθηκευμένη παρουσίαση περιέχει και τα δύο σχόλια.
 
 ```java
 import com.aspose.slides.IComment;
 import com.aspose.slides.ICommentAuthor;
-import com.aspose.slides.ICommentCollection;
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -62,6 +61,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
     ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     PointF position = new PointF(0.2f, 0.2f);
     Date createdTime = new Date();
@@ -74,8 +74,7 @@ try {
         IComment firstComment = comments[0];
         System.out.println(firstComment.getText());
 
-        ICommentCollection authorComments = firstComment.getAuthor().getComments();
-        String commentText = authorComments.get_Item(0).getText();
+        String commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         System.out.println(commentText);
     }
 
@@ -85,9 +84,47 @@ try {
 }
 ```
 
-## **Πρόσβαση στα Σχόλια Διαφάνειας**
+## **Εύρεση ή Δημιουργία Συγγραφέα Σχολίου**
 
-Το παρακάτω παράδειγμα δείχνει πώς να έχετε πρόσβαση σε υπάρχοντα σχόλια σε μια παρουσίαση PowerPoint:
+Όταν μια αυτοματοποιημένη αξιολόγηση επεξεργάζεται την ίδια παρουσίαση επανειλημμένα, ψάξτε στη συλλογή που επιστρέφεται από τη μέθοδο [getCommentAuthors](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getCommentAuthors--) πριν προσθέσετε έναν συγγραφέα. Η μέθοδος [findByNameAndInitials](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#findByNameAndInitials-java.lang.String-java.lang.String-) ταιριάζει τόσο στο όνομα όσο και στα αρχικά και επιστρέφει έναν πίνακα με τους αντίστοιχους συγγραφείς, ή έναν κενό πίνακα αν δεν υπάρχουν αντιστοιχίες. Αντίθετα, η μέθοδος [findByName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#findByName-java.lang.String-) αναζητά μόνο με βάση το όνομα, ανεξάρτητα από τα αρχικά. Η κλήση της [addAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) με όνομα και αρχικά που ήδη υπάρχουν στη συλλογή προκαλεί εξαίρεση.
+
+Το παράδειγμα απαιτεί ένα αρχείο παρουσίασης με τουλάχιστον μία διαφάνι. Σε κάθε μία από τις δύο επαναλήψεις, χρησιμοποιεί ξανά τον πρώτο ταιριαστό συγγραφέα, ή δημιουργεί έναν νέο μόνο όταν το αποτέλεσμα είναι κενό. Αν υπάρχουν πολλαπλές αντιστοιχίες, επιλέγει το πρώτο στοιχείο του πίνακα χωρίς συγχώνευση ή αφαίρεση των άλλων συγγραφέων. Στη συνέχεια καλεί τη [addComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-android.graphics.PointF-java.util.Date-) για τον επιλεγμένο συγγραφέα και αποθηκεύει την παρουσίαση. Η δεύτερη επανάληψη ανοίγει το αποτέλεσμα της πρώτης επανάληψης και επαναλαμβάνει τη λειτουργία.
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.Date;
+
+final String authorName = "Reviewer";
+final String authorInitials = "RV";
+
+String inputFile = "input.pptx";
+PointF position = new PointF(20, 20);
+
+for (int pass = 1; pass <= 2; pass++) {
+    Presentation presentation = new Presentation(inputFile);
+    try {
+        ICommentAuthor[] matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        ICommentAuthor author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, new Date());
+
+        String outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+Η δεύτερη επανάληψη προσθέτει ακόμη ένα σχόλιο χωρίς να προσθέτει νέο συγγραφέα ή να αφαιρεί υπάρχοντα σχόλια. Το τελικό αρχείο, `review_pass_2.pptx`, περιέχει και τα νέα σχόλια και τυχόν αρχικά σχόλια. Η επαναχρησιμοποίηση ενός συγγραφέα δεν αφαιρεί διπλότυπα σχόλια: για να αποφύγετε την επανειλημμένη προσθήκη του ίδιου σχολίου, υλοποιήστε ξεχωριστό μηχανισμό ανίχνευσης διπλοτύπων πριν το προσθέσετε.
+
+## **Πρόσβαση σε Σχόλια Διαφάνειας**
+
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και διαβάζει τη συλλογή που επιστρέφεται από τη μέθοδο [getCommentAuthors](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getCommentAuthors--). Για κάθε συγγραφέα, κάνει επανάληψη στη συλλογή που επιστρέφεται από τη μέθοδο [getComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthor/#getComments--) και εκτυπώνει τον αριθμό διαφάνειας, το κείμενο του σχολίου, το όνομα του συγγραφέα και την ώρα δημιουργίας. Η είσοδος παρουσίασης πρέπει να περιέχει σχόλια για να παραχθεί έξοδος στην κονσόλα.
 
 ```java
 import com.aspose.slides.IComment;
@@ -112,9 +149,9 @@ try {
 
 ## **Απάντηση σε Σχόλια**
 
-Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Οι μέθοδοι [IComment.getParentComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#getParentComment--) και [IComment.setParentComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) σας επιτρέπουν να λάβετε ή να ορίσετε το γονίδιο ενός σχολίου.
+Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Οι μέθοδοι [IComment.getParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#getParentComment--) και [IComment.setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) επιτρέπουν την ανάκτηση ή την ορισμό του γονέα ενός σχολίου.
 
-Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε απαντήσεις και να εξετάσετε την προκύπτουσα ιεραρχία σχολίων:
+Το παράδειγμα δημιουργεί σχόλια από δύο συγγραφείς και χρησιμοποιεί τη μέθοδο [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) για να δημιουργήσει απαντήσεις, συμπεριλαμβανομένης μιας απάντησης σε άλλη απάντηση. Η κλήση του `null` στη μέθοδο [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) ανακτά σχόλια από όλους τους συγγραφείς· η κονσόλα εσοχής κάθε εγγραφής σύμφωνα με το βάθος της ιεραρχίας απαντήσεων. Το παράδειγμα αποθηκεύει τη συνολική συζήτηση, καλεί τη μέθοδο [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#remove--) στο πρώτο ριζικό σχόλιο, και αποθηκεύει μια δεύτερη παρουσίαση με εκείνο το σχόλιο και τις απαντήσεις του αφαιρεμένες.
 
 ```java
 import com.aspose.slides.IComment;
@@ -128,27 +165,28 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     PointF position = new PointF(10, 10);
     Date createdTime = new Date();
 
-    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    ICommentAuthor originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    ICommentAuthor reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    IComment secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    IComment subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    IComment separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     IComment[] comments = slide.getSlideComments(null);
     for (int i = 0; i < comments.length; i++) {
@@ -163,27 +201,27 @@ try {
 
     presentation.save("parent_comment.pptx", SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert color="warning" title="Προειδοποίηση" %}}
-* Όταν η μέθοδος [IComment.remove](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#remove--) χρησιμοποιείται για διαγραφή ενός σχολίου, διαγράφονται επίσης όλες οι απαντήσεις σε αυτό το σχόλιο.
-* Εάν η [IComment.setParentComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) δημιουργεί κυκλική παραπομπή, εκτοξεύεται μια [PptxEditException](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/pptxeditexception/).
+{{% alert color="warning" title="Warning" %}}
+* Όταν χρησιμοποιείται η μέθοδος [IComment.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#remove--) για τη διαγραφή ενός σχολίου, διαγράφονται επίσης όλες οι απαντήσεις σε αυτό το σχόλιο.
+* Εάν η [IComment.setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) δημιουργήσει κυκλική αναφορά, εγείρεται μια [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Προσθήκη Σύγχρονων Σχολίων**
 
-Τα σύγχρονα σχόλια μπορούν να συνδεθούν με την ίδια τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με ένα εύρος κειμένου μέσα σε AutoShape. Η μέθοδος [ICommentCollection.addModernComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) δέχεται ένα όρισμα [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/) επιπλέον της διαφάνειας και των συντεταγμένων του δείκτη σχολίου.
+Τα σύγχρονα σχόλια μπορούν να συσχετιστούν με τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με ένα εύρος κειμένου μέσα σε AutoShape. Η μέθοδος [ICommentCollection.addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) δέχεται ένα όρισμα **[IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/)** εκτός από τη διαφάνεια και τις συντεταγμένες του σημειωτή σχολίου.
 
-Όταν `null` περνιέται ως όρισμα του σχήματος, το σχόλιο είναι σχόλιο επιπέδου διαφάνειας. Ο δείκτης τοποθετείται με βάση τις δοθείσες συντεταγμένες, αλλά δεν συνδέεται με κάποιο συγκεκριμένο σχήμα, έτσι η μέθοδος [IModernComment.getShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getShape--) επιστρέφει `null`. Όταν παρέχεται ένα [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/), το σχόλιο αγκυροβολείται σε αυτό το σχήμα. Οι συντεταγμένες συνεχίζουν να ορίζουν τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η σύνδεση με το σχήμα μπορεί να ανακτηθεί μέσω του [IModernComment.getShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getShape--).
+Όταν το `null` περνιέται ως όρισμα σχήματος, το σχόλιο είναι σχόλιο σε επίπεδο διαφάνειας. Ο σημειωτής του τοποθετείται με τις δοσμένες συντεταγμένες, αλλά δεν συνδέεται με κάποιο συγκεκριμένο σχήμα, οπότε η μέθοδος [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) επιστρέφει `null`. Όταν παρέχεται ένα **[IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/)**, το σχόλιο αγκυροβολείται σε αυτό το σχήμα. Οι συντεταγμένες εξακολουθούν να ορίζουν τη θέση του σημειωτή του σχολίου στη διαφάνεια, ενώ η συσχέτιση σχήματος μπορεί να ανακτηθεί μέσω της [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) μεθόδου.
 
-### **Σύνδεση ενός σύγχρονου σχολίου σε σχήμα**
+### **Αγκυροβολία Σύγχρονου Σχολίου σε Σχήμα**
 
-Το παρακάτω παράδειγμα δημιουργεί τόσο ένα σχόλιο επιπέδου διαφάνειας όσο και ένα σύγχρονο σχόλιο αγκυροβολημένο σε συγκεκριμένη AutoShape. Στη συνέχεια διαβάζει το συσχετισμένο σχήμα από κάθε σχόλιο.
+Το παράδειγμα καλεί τη μέθοδο [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) δύο φορές: μία φορά με `null` σχήμα για σχόλιο σε επίπεδο διαφάνειας και μία φορά με ένα ορθογώνιο ως άγκυρα. Η ανάγνωση της μεθόδου [getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) εκτυπώνει `true` για το έλεγχο null του σχολίου διαφάνειας και `Revenue title` για το αγκυροβολημένο σχόλιο. Και τα δύο σχόλια αποθηκεύονται με την παρουσίαση.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -199,7 +237,9 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -219,11 +259,11 @@ try {
 }
 ```
 
-### **Σύνδεση σχολίων σε διαφορετικούς τύπους σχημάτων**
+### **Αγκυροβολία Σχολίων σε Διαφορετικούς Τύπους Σχημάτων**
 
-Οποιοδήποτε αντικείμενο διαφάνειας που υλοποιεί το [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/) μπορεί να χρησιμοποιηθεί ως άγκυρα σχήματος. Συνηθισμένα παραδείγματα περιλαμβάνουν [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iconnector/), και παραδείγματα [IGraphicalObject](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/igraphicalobject/) όπως γραφήματα.
+Οποιοδήποτε αντικείμενο διαφάνειας που υλοποιεί το **[IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/)** μπορεί να χρησιμοποιηθεί ως άγκυρα σχήματος. Συνηθισμένα παραδείγματα περιλαμβάνουν **[IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)**, **[IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/)**, **[IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/)**, **[IConnector](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnector/)** και **[IGraphicalObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobject/)** όπως διαγράμματα.
 
-Το παρακάτω παράδειγμα δημιουργεί αρκετούς συνηθισμένους τύπους σχημάτων και συσχετίζει ένα σύγχρονο σχόλιο με τον καθένα.
+Το παράδειγμα χρησιμοποιεί τη μέθοδο [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) για να συσχετίσει ένα σχόλιο με καθέναν από πέντε τύπους σχημάτων: AutoShape, πλαίσιο εικόνας, ομάδα, σύνδεσμο και διάγραμμα. Η εικόνα ενσωματώνεται ως δεδομένα, οπότε δεν απαιτείται εξωτερική εικόνα. Κάθε σχόλιο έχει τη δική του θέση σημειωτή, και η αποθηκευμένη παρουσίαση διατηρεί όλες τις πέντε συσχετίσεις σχημάτων.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -239,22 +279,24 @@ import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
 import com.aspose.slides.ShapeType;
 import android.graphics.PointF;
-import java.util.Base64;
+import android.util.Base64;
 import java.util.Date;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     Date createdTime = new Date();
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     PointF autoShapeCommentPosition = new PointF(30, 30);
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
     String imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
-    byte[] imageData = Base64.getDecoder().decode(imageBase64);
+    byte[] imageData = Base64.decode(imageBase64, Base64.DEFAULT);
     IPPImage image = presentation.getImages().addImage(imageData);
     IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
     PointF pictureCommentPosition = new PointF(230, 30);
@@ -280,18 +322,18 @@ try {
 }
 ```
 
-### **Σύνδεση σχολίου σε κείμενο και ορισμός της κατάστασής του**
+### **Αγκυροβολία Σχόλιου σε Κείμενο και Ορισμός Κατάστασής του**
 
-Για ένα σύγχρονο σχόλιο που συσχετίζεται με [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/), οι μέθοδοι [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) και [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) προσπελάζουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Οι μέθοδοι [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) και [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) προσπελάζουν το μήκος της επιλογής. Μαζί, αυτές οι τιμές συσχετίζουν το σχόλιο με ένα συγκεκριμένο εύρος κειμένου μέσα στην AutoShape.
+Για ένα σύγχρονο σχόλιο που συσχετίζεται με **[IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)**, οι μέθοδοι [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) και [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) προσπελάζουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Οι μέθοδοι [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) και [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) προσπελάζουν το μήκος της επιλογής. Μαζί, αυτές οι τιμές συσχετίζουν το σχόλιο με ένα συγκεκριμένο εύρος κειμένου μέσα στο AutoShape.
 
-Οι μέθοδοι [IModernComment.getStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getStatus--) και [IModernComment.setStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) προσπελάζουν μια τιμή από τις σταθερές [ModernCommentStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/moderncommentstatus/):
+Οι μέθοδοι [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) και [IModernComment.setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) προσπελάζουν μια τιμή από τις σταθερές **[ModernCommentStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/)**:
 
-- `NotDefined` — δεν έχει οριστεί συγκεκριμένη κατάσταση σύγχρονου σχολίου.
+- `NotDefined` — δεν ορίζεται συγκεκριμένη κατάσταση σύγχρονου σχολίου.
 - `Active` — το σχόλιο είναι ενεργό.
 - `Resolved` — το σχόλιο έχει επιλυθεί.
 - `Closed` — το σχόλιο είναι κλειστό.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχόλιο αγκυροβολημένο σε σχήμα, το συσχετίζει με επιλογή κειμένου, το σηματοδοτεί ως επιλυμένο, αποθηκεύει την παρουσίαση και ελέγχει τις τιμές μετά το άνοιγμα του αρχείου.
+Το παράδειγμα αγκυροβολεί ένα σύγχρονο σχόλιο στις λέξεις «quarterly revenue» σε κείμενο ενός ορθογωνίου. Υπολογίζει τη μηδενική θέση έναρξης επιλογής από το κείμενο και τη μεταβιβάζει στη μέθοδο [setTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-), χρησιμοποιεί τη [setTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) για να ορίσει τον αριθμό των επιλεγμένων χαρακτήρων. Μετά την κλήση του [setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) με `Resolved`, αποθηκεύει και ξαναανοίγει την παρουσίαση. Οι τέσσερις έλεγχοι στην κονσόλα θα πρέπει να εκτυπώσουν `true`, επιβεβαιώνοντας ότι η άγκυρα σχήματος, το εύρος κειμένου και η κατάσταση διατηρήθηκαν.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -314,6 +356,7 @@ int expectedSelectionStart = shapeText.indexOf(selectedText);
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
@@ -356,9 +399,9 @@ try {
 }
 ```
 
-### **Έλεγχος Υπαρχόντων Σύγχρονων Σχολίων**
+### **Επιθεώρηση Υφιστάμενων Σύγχρονων Σχολίων**
 
-Για να ελέγξετε μια υπάρχουσα παρουσίαση, ελέγξτε ποια σχόλια υλοποιούν το [IModernComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/), έπειτα εξετάστε [IModernComment.getShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), και [IModernComment.getStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Ένα σχήμα `null` υποδεικνύει σχόλιο επιπέδου διαφάνειας. Για άγκυρα [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/), οι μέθοδοι επιλογής κειμένου εντοπίζουν το σχετικό εύρος στο πλαίσιο κειμένου του σχήματος.
+Το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση που περιέχει σύγχρονα σχόλια και εκτυπώνει το κείμενο, την κατάσταση και τις λεπτομέρειες άγκυρας. Για να το εξετάσετε, ελέγξτε ποια σχόλια υλοποιούν το **[IModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/)**, έπειτα εξετάστε τις μεθόδους **[IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--)**, **[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--)**, **[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--)** και **[IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--)**. Ένα `null` σχήμα υποδεικνύει σχόλιο σε επίπεδο διαφάνειας. Για άγκυρα **[IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)**, οι μέθοδοι επιλογής κειμένου εντοπίζουν το αντίστοιχο εύρος στο πλαίσιο κειμένου του σχήματος.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -405,9 +448,11 @@ try {
 
 ## **Αφαίρεση Σχολίων**
 
-### **Αφαίρεση Όλων των Σχολίων και Συγγραφέων Σχολίων**
+Το Aspose.Slides για Android μέσω Java σας επιτρέπει να αφαιρέσετε όλα τα σχόλια και τους συγγραφείς τους από μια παρουσίαση ή να διαγράψετε επιλεγμένα σχόλια διατηρώντας τα υπόλοιπα. Τα παρακάτω παραδείγματα δείχνουν και τις δύο προσεγγίσεις και αποθηκεύουν την ενημερωμένη παρουσίαση.
 
-Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε όλα τα σχόλια και τους συγγραφείς σχολίων από μια παρουσίαση:
+### **Αφαίρεση Όλων των Σχολίων και των Συγγραφέων Σχολίων**
+
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και καλεί τη μέθοδο [ICommentCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#clear--) για κάθε συγγραφέα, στη συνέχεια καλεί τη μέθοδο [ICommentAuthorCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#clear--) για να αφαιρέσει τους ίδιους τους συγγραφείς. Η αποθηκευμένη παρουσίαση δεν περιέχει ούτε σχόλια ούτε συγγραφείς σχολίων. Χρησιμοποιήστε μια παρουσίαση που περιέχει σχόλια για να παρατηρήσετε την αφαίρεση.
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -421,6 +466,7 @@ try {
     }
 
     presentation.getCommentAuthors().clear();
+
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -429,7 +475,7 @@ try {
 
 ### **Αφαίρεση Συγκεκριμένων Σχολίων**
 
-Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε συγκεκριμένα σχόλια από μια διαφάνεια:
+Το παράδειγμα δημιουργεί δύο σχόλια σε μία διαφάνεια και χρησιμοποιεί τη μέθοδο [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) για να βρει σχόλια ανά συγγραφέα. Συλλέγει τα σχόλια των οποίων το κείμενο ισούται με «comment 1» πριν καλέσει τη μέθοδο [ICommentCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#remove-com.aspose.slides.IComment-), αποφεύγοντας αλλαγές στη συλλογή κατά την επιλογή. Η αποθηκευμένη παρουσίαση διατηρεί μόνο το «comment 2».
 
 ```java
 import com.aspose.slides.IComment;
@@ -445,6 +491,7 @@ import java.util.List;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
     Date createdTime = new Date();
 
@@ -476,14 +523,14 @@ try {
 
 ## **Συχνές Ερωτήσεις**
 
-**Υποστηρίζει το Aspose.Slides μια κατάσταση 'επιλύθηκε' για τα σύγχρονα σχόλια;**
+**Υποστηρίζει το Aspose.Slides κατάσταση επιλυμένο για σύγχρονα σχόλια;**
 
-Ναι. Οι μέθοδοι [IModernComment.getStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getStatus--) και [IModernComment.setStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) προσπελάζουν μια τιμή του [ModernCommentStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
+Ναι. Οι μέθοδοι [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) και [IModernComment.setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) προσπελάζουν μια τιμή του **[ModernCommentStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/)**, συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
 
-**Υποστηρίζονται συζητήσεις σε νήμα (αλυσίδες απαντήσεων) και υπάρχει όριο στο βάθος εσοχής;**
+**Υποστηρίζονται συζητήσεις με κλάδους (αλυσίδες απαντήσεων) και υπάρχει όριο εμβάθους;**
 
-Ναι. Κάθε σχόλιο μπορεί να παραπέμπει στο [parent comment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#getParentComment--), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους εσοχής.
+Ναι. Κάθε σχόλιο μπορεί να αναφέρεται στο [parent comment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#getParentComment--), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους.
 
-**Σε ποιο σύστημα συντεταγμένων ορίζεται η θέση του δείκτη σχολίου σε μια διαφάνεια;**
+**Σε ποιο σύστημα συντεταγμένων ορίζεται η θέση του σημειωτή σχολίου σε μια διαφάνεια;**
 
-Η θέση του δείκτη ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να τοποθετήσετε ακριβώς το δείκτη στη διαφάνεια.
+Η θέση του σημειωτή ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντας ακριβή τοποθέτηση.

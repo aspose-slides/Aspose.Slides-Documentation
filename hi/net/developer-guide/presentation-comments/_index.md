@@ -1,51 +1,52 @@
 ---
-title: ".NET में प्रस्तुति टिप्पणियों का प्रबंधन"
-linktitle: "प्रस्तुति टिप्पणियाँ"
+title: .NET में प्रेजेंटेशन टिप्पणियों का प्रबंधन
+linktitle: प्रेजेंटेशन टिप्पणियां
 type: docs
 weight: 100
 url: /hi/net/presentation-comments/
 keywords:
 - टिप्पणी
 - आधुनिक टिप्पणी
-- PowerPoint टिप्पणियाँ
-- प्रस्तुति टिप्पणियाँ
-- स्लाइड टिप्पणियाँ
+- PowerPoint टिप्पणियां
+- प्रेजेंटेशन टिप्पणियां
+- स्लाइड टिप्पणियां
 - टिप्पणी जोड़ें
-- टिप्पणी तक पहुँचें
+- टिप्पणी तक पहुंचें
 - टिप्पणी संपादित करें
-- टिप्पणी का उत्तर दें
-- टिप्पणी निकालें
+- टिप्पणी उत्तर
+- टिप्पणी हटाएँ
 - टिप्पणी हटाएँ
 - PowerPoint
-- प्रस्तुति
+- प्रेजेंटेशन
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET के साथ प्रस्तुति टिप्पणियों का प्रबंधन: PowerPoint प्रस्तुतियों में टिप्पणियों को जल्दी और आसानी से जोड़ें, पढ़ें, संपादित करें, उत्तर दें और हटाएँ।"
+description: "Aspose.Slides for .NET के साथ प्रेजेंटेशन टिप्पणियों को प्रबंधित करें: PowerPoint प्रेजेंटेशन में टिप्पणियों को जल्दी और आसानी से जोड़ें, पढ़ें, संपादित करें, उत्तर दें और हटाएँ।"
 ---
-## **अवलोकन**
+## **समीक्षा**
 
-यह लेख Aspose.Slides for .NET के साथ प्रस्तुति टिप्पणी प्रबंधन के बारे में समझाता है। यह मुख्य टिप्पणी‑संबंधित प्रकारों का परिचय देता है और स्लाइड्स में टिप्पणियाँ जोड़ना, मौजूदा टिप्पणियों तक पहुँचना, उत्तर और आधुनिक टिप्पणियों के साथ काम करना, तथा प्रस्तुति से टिप्पणियों को हटाना दर्शाता है।
+यह लेख Aspose.Slides for .NET के साथ प्रेजेंटेशन टिप्पणियों को प्रबंधित करने का तरीका समझाता है। यह मुख्य टिप्पणी‑संबंधित प्रकारों का परिचय देता है और स्लाइड में टिप्पणियां जोड़ना, मौजूदा टिप्पणियों तक पहुंचना, उत्तरों और आधुनिक टिप्पणियों के साथ काम करना, तथा प्रेजेंटेशन से टिप्पणियां हटाना दिखाता है।
 
-उदाहरण PowerPoint में सामान्य समीक्षात्मक और सहयोगी परिदृश्यों को कवर करता है, जैसे कि लेखकों को टिप्पणियाँ असाइन करना, टिप्पणी पाठ और मेटाडाटा पढ़ना, उत्तर श्रृंखलाएँ बनाना, तथा चयनित टिप्पणियों या सभी टिप्पणियों को हटाना।
+उदाहरण सामान्य समीक्षा और सहयोग परिदृश्यों को कवर करते हैं, जैसे टिप्पणी लेखकों को सौंपना, टिप्पणी टेक्स्ट और मेटाडाटा पढ़ना, रिप्लाई चेन बनाना, और चयनित टिप्पणियों या सभी टिप्पणियों को हटाना।
 
-PowerPoint में, टिप्पणियाँ स्लाइड्स पर एनोटेशन के रूप में दिखती हैं। कोई टिप्पणी चुनने पर उसका पाठ और संबंधित चर्चा प्रदर्शित होती है।
+PowerPoint में, टिप्पणियां स्लाइड पर एनोटेशन के रूप में दिखाई देती हैं। किसी टिप्पणी का चयन करने पर उसका टेक्स्ट और संबंधित चर्चा प्रदर्शित होती है।
 
-जब आप प्रस्तुति खोलते समय टिप्पणियों को दिखाने या छिपाने का अनुरोध करना चाहते हैं, बिना स्वयं टिप्पणियों को बदले, तो देखें [Show or Hide Comments When Opening a Presentation](/slides/hi/net/presentation-view-properties/)।
+जब आप चाहते हैं कि प्रेजेंटेशन खुलने पर टिप्पणियां दिखें या छिपें, बिना स्वयं टिप्पणियों को बदले, देखें [प्रेजेंटेशन खोलते समय टिप्पणियां दिखाने या छिपाने के लिए](/slides/hi/net/presentation-view-properties/)।
 
-## **प्रस्तुति में टिप्पणियाँ क्यों जोड़ें?**
+## **प्रेजेंटेशन में टिप्पणियां क्यों जोड़ें?**
 
-आप प्रस्तुति की समीक्षा करते समय प्रतिक्रिया प्रदान करने और सहयोगियों के साथ सहयोग करने के लिए टिप्पणियों का उपयोग कर सकते हैं।
+आप प्रेजेंटेशन की समीक्षा करते समय प्रतिक्रिया देने और सहकर्मियों के साथ सहयोग करने के लिए टिप्पणियों का उपयोग कर सकते हैं।
 
-Aspose.Slides for .NET टिप्पणी के साथ काम करने के लिए निम्नलिखित API प्रदान करता है:
+Aspose.Slides for .NET टिप्पणियों के साथ काम करने के लिए निम्नलिखित API प्रदान करता है:
 
-* The [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) class, which provides access to the presentation's comment authors.
-* The [ICommentCollection](https://reference.aspose.com/slides/hi/net/aspose.slides/icommentcollection) interface, which represents the comments associated with an individual author.
-* The [IComment](https://reference.aspose.com/slides/hi/net/aspose.slides/icomment) interface, which provides information about a comment, including its author, creation time, position, and text.
-* The [CommentAuthor](https://reference.aspose.com/slides/hi/net/aspose.slides/commentauthor) class, which provides information about an author, including their name, initials, and associated comments.
+* [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) क्लास, जो प्रेजेंटेशन के टिप्पणी लेखकों तक पहुंच प्रदान करती है।
+* [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) इंटरफ़ेस, जो व्यक्तिगत लेखक से जुड़ी टिप्पणियों का प्रतिनिधित्व करता है।
+* [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) इंटरफ़ेस, जो टिप्पणी के बारे में जानकारी देता है, जिसमें उसका लेखक, निर्माण समय, स्थिति और टेक्स्ट शामिल है।
+* [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) क्लास, जो लेखक के बारे में जानकारी प्रदान करती है, जैसे उनका नाम, आद्याक्षर, और संबंधित टिप्पणियां।
 
-## **स्लाइड टिप्पणियाँ जोड़ें**
-नीचे दिया गया उदाहरण दिखाता है कि PowerPoint प्रस्तुति में स्लाइड्स पर टिप्पणियाँ कैसे जोड़ें:
+## **स्लाइड टिप्पणियां जोड़ें**
+
+उदाहरण दो स्लाइड बनाता है और [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) से एक टिप्पणी लेखक को पंजीकृत करता है। यह प्रत्येक स्लाइड पर एक टिप्पणी रखने के लिए [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) का उपयोग करता है, फिर उस लेखक के लिए पहले स्लाइड की टिप्पणियां [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) से प्राप्त करता है। कंसोल पहले टिप्पणी के टेक्स्ट को दो बार प्रदर्शित करता है, जिससे स्लाइड और लेखक दोनों के माध्यम से पहुंच दर्शाई जाती है, और सहेजा गया प्रेजेंटेशन दोनों टिप्पणियां रखता है।
 
 ```csharp
 using System;
@@ -56,6 +57,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var firstSlide = presentation.Slides[0];
 var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
 var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 var position = new PointF(0.2f, 0.2f);
 var createdTime = DateTime.Now;
@@ -76,8 +78,44 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
-## **स्लाइड टिप्पणियों तक पहुँचें**
-नीचे दिया गया उदाहरण दिखाता है कि PowerPoint प्रस्तुति में मौजूदा टिप्पणियों तक कैसे पहुँचें:
+## **टिप्पणी लेखक खोजें या बनाएं**
+
+जब कोई स्वचालित समीक्षा समान प्रेजेंटेशन को बार‑बार प्रोसेस करती है, तो लेखक जोड़ने से पहले उसकी [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/) संग्रह को खोजें। [FindByNameAndInitials](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbynameandinitials/) नाम और आद्याक्षर दोनों से मेल खाता है और मिलते‑जुलते लेखकों की एक array लौटाता है, या यदि कोई मेल नहीं है तो खाली array। इसके विपरीत, [FindByName](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/findbyname/) केवल नाम से खोज करता है, चाहे आद्याक्षर हों या न हों। यदि आप वही नाम और आद्याक्षर वाली एक लेखक को फिर से जोड़ते हैं, तो [AddAuthor](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/addauthor/) अपवाद फेंकेगा।
+
+उदाहरण के लिए, कम से कम एक स्लाइड वाले प्रेजेंटेशन फ़ाइल की आवश्यकता होती है। दो पासों में, यह पहले मिले लेखक को पुन: उपयोग करता है, या परिणाम खाली होने पर नया बनाता है। यदि कई मिलते हैं, तो यह पहला array तत्व चुनता है, बिना अन्य लेखकों को मिलाए या हटाए। फिर वह चयनित लेखक के लिए [AddComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addcomment/) को कॉल करता है और प्रेजेंटेशन सहेजता है। दूसरा पास पहले पास के आउटपुट को खोलता है और वही प्रक्रिया दोहराता है।
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string authorName = "Reviewer";
+const string authorInitials = "RV";
+
+var inputFile = "input.pptx";
+var position = new PointF(20, 20);
+
+for (var pass = 1; pass <= 2; pass++)
+{
+    using var presentation = new Presentation(inputFile);
+
+    var matches = presentation.CommentAuthors.FindByNameAndInitials(authorName, authorInitials);
+    
+    var author = matches.Length > 0 ? matches[0] : presentation.CommentAuthors.AddAuthor(authorName, authorInitials);
+    author.Comments.AddComment("Please review this slide.", presentation.Slides[0], position, DateTime.Now);
+
+    var outputFile = $"review_pass_{pass}.pptx";
+    presentation.Save(outputFile, SaveFormat.Pptx);
+    inputFile = outputFile;
+}
+```
+
+दूसरे पास में एक और टिप्पणी जोड़ी जाती है, लेकिन नया लेखक नहीं बनाया जाता और मौजूदा टिप्पणियों को नहीं हटाया जाता। अंतिम फ़ाइल `review_pass_2.pptx` दोनों नई टिप्पणियां साथ ही मूल टिप्पणियां रखती है। लेखक का पुन: उपयोग करने से टिप्पणियों का डुप्लिकेशन नहीं होता: समान टिप्पणी को बार‑बार जोड़ने से बचने के लिए जोड़ने से पहले अलग डुप्लीकेट जाँच लागू करें।
+
+## **स्लाइड टिप्पणियों तक पहुंचें**
+
+उदाहरण मौजूदा प्रेजेंटेशन को खोलता है और उसकी [CommentAuthors](https://reference.aspose.com/slides/net/aspose.slides/presentation/commentauthors/) संग्रह को पढ़ता है। प्रत्येक लेखक के लिए, यह [Comments](https://reference.aspose.com/slides/net/aspose.slides/icommentauthor/comments/) पर इटरेट करता है और स्लाइड नंबर, टिप्पणी टेक्स्ट, लेखक नाम, तथा निर्माण समय को प्रिंट करता है। इनपुट प्रेजेंटेशन में टिप्पणी होनी चाहिए ताकि कंसोल आउटपुट उत्पन्न हो।
 
 ```csharp
 using System;
@@ -99,9 +137,10 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **टिप्पणियों का उत्तर दें**
-एक पैरेंट टिप्पणी वह मूल टिप्पणी है जो उत्तर पदानुक्रम के शीर्ष पर होती है। [ParentComment](https://reference.aspose.com/slides/hi/net/aspose.slides/icomment/properties/parentcomment) प्रॉपर्टी आपको टिप्पणी का पैरेंट प्राप्त करने या सेट करने की अनुमति देती है।
 
-नीचे दिया गया उदाहरण दिखाता है कि उत्तर कैसे जोड़ें और परिणामी टिप्पणी पदानुक्रम की जांच कैसे करें:
+एक पैरेंट टिप्पणी वह मूल टिप्पणी है जो उत्तर पदानुक्रम के शीर्ष पर स्थित होती है। [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) इंटरफ़ेस की [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) प्रॉपर्टी आपको टिप्पणी के पैरेंट को प्राप्त या सेट करने देती है।
+
+उदाहरण दो लेखकों से टिप्पणियां बनाता है और [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) का उपयोग करके उत्तर बनाता है, जिसमें एक उत्तर का उत्तर भी शामिल है। `null` को [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) में पास करने से सभी लेखकों की टिप्पणियां प्राप्त होती हैं; कंसोल प्रत्येक प्रविष्टि को उसकी गहराई के अनुसार इंडेंट करता है। उदाहरण पूरी चर्चा को सहेजता है, पहले रूट टिप्पणी पर [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) को कॉल करता है, और उस टिप्पणी और उसके उत्तरों को हटाकर दूसरा प्रेजेंटेशन बनाता है।
 
 ```csharp
 using System;
@@ -111,27 +150,28 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var position = new PointF(10, 10);
 var createdTime = DateTime.Now;
 
-var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
-var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
+var originalAuthor = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var rootComment = originalAuthor.Comments.AddComment("comment 1", slide, position, createdTime);
 
-var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
-var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
-reply1.ParentComment = comment1;
+var reviewer = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var firstReply = reviewer.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+firstReply.ParentComment = rootComment;
 
-var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
-reply2.ParentComment = comment1;
+var secondReply = reviewer.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+secondReply.ParentComment = rootComment;
 
-var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
-subReply.ParentComment = reply2;
+var subReply = originalAuthor.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = secondReply;
 
-author2.Comments.AddComment("comment 2", slide, position, createdTime);
-var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+reviewer.Comments.AddComment("comment 2", slide, position, createdTime);
+var separateComment = reviewer.Comments.AddComment("comment 3", slide, position, createdTime);
 
-var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
-reply3.ParentComment = comment3;
+var separateReply = originalAuthor.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+separateReply.ParentComment = separateComment;
 
 var comments = slide.GetSlideComments(null);
 for (var i = 0; i < comments.Length; i++)
@@ -148,24 +188,24 @@ for (var i = 0; i < comments.Length; i++)
 
 presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
 
-comment1.Remove();
+rootComment.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-* जब [Remove](https://reference.aspose.com/slides/hi/net/aspose.slides/icomment/methods/remove) मेथड का उपयोग करके कोई टिप्पणी हटाई जाती है, तो उसकी सभी उत्तर भी हटाए जा जाते हैं।
-* यदि [ParentComment](https://reference.aspose.com/slides/hi/net/aspose.slides/icomment/properties/parentcomment) प्रॉपर्टी एक चक्रीय संदर्भ बनाती है, तो एक [PptxEditException](https://reference.aspose.com/slides/hi/net/aspose.slides/pptxeditexception) फेंका जाता है।
+{{% alert color="warning" title="Warning" %}}
+* जब [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) इंटरफ़ेस की [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/remove/) विधि से कोई टिप्पणी हटाई जाती है, तो उस टिप्पणी के सभी उत्तर भी हटा दिए जातें हैं।
+* यदि [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/parentcomment/) प्रॉपर्टी एक चक्रीय संदर्भ बनाती है, तो [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) फेंका जाएगा।
 {{% /alert %}}
 
-## **आधुनिक टिप्पणियाँ जोड़ें**
+## **आधुनिक टिप्पणियां जोड़ें**
 
-आधुनिक टिप्पणियों को स्लाइड स्वयं, किसी विशिष्ट आकार, या AutoShape के भीतर टेक्स्ट रेंज से जोड़ा जा सकता है। [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/hi/net/aspose.slides/icommentcollection/addmoderncomment/) मेथड स्लाइड और टिप्पणी‑मार्कर निर्देशांक के अतिरिक्त एक [IShape](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/) аргумент स्वीकार करता है।
+आधुनिक टिप्पणी को स्लाइड स्वयं, किसी विशिष्ट आकार, या AutoShape के टेक्स्ट रेंज के साथ जोड़ा जा सकता है। [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) विधि में स्लाइड और टिप्पणी‑मार्कर निर्देशांक के साथ एक अतिरिक्त [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) आर्ग्यूमेंट स्वीकार किया जाता है।
 
-जब `null` को आकार аргумент के रूप में पास किया जाता है, तो टिप्पणी एक स्लाइड‑लेवल टिप्पणी होती है। उसका मार्कर प्रदान किए गए निर्देशांक द्वारा स्थित होता है, लेकिन वह किसी विशिष्ट आकार से जुड़ी नहीं होती, इसलिए [IModernComment.Shape](https://reference.aspose.com/slides/hi/net/aspose.slides/imoderncomment/shape/) `null` लौटाता है। जब एक [IShape](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/) दिया जाता है, तो टिप्पणी उस आकार से जुड़ी होती है। निर्देशांक फिर भी स्लाइड पर टिप्पणी‑मार्कर की स्थिति निर्धारित करते हैं, जबकि आकार संबंध को [IModernComment.Shape](https://reference.aspose.com/slides/hi/net/aspose.slides/imoderncomment/shape/) द्वारा प्राप्त किया जा सकता है।
+जब `null` को shape आर्ग्यूमेंट के रूप में पास किया जाता है, तो टिप्पणी स्लाइड‑स्तरीय टिप्पणी बन जाती है। उसका मार्कर प्रदान किए गए निर्देशांक द्वारा स्थित होता है, लेकिन यह किसी विशेष आकार से जुड़ा नहीं होता, इसलिए [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) `null` लौटाता है। जब कोई [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) दिया जाता है, तो टिप्पणी उस आकार से एंकर होती है। निर्देशांक अभी भी स्लाइड पर मार्कर की स्थिति निर्धारित करते हैं, जबकि आकार का संबंध [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) से प्राप्त किया जा सकता है।
 
-### **आधुनिक टिप्पणी को आकार से जोड़ें**
+### **आधुनिक टिप्पणी को आकार पर एंकर करें**
 
-नीचे दिया गया उदाहरण एक स्लाइड‑लेवल आधुनिक टिप्पणी और एक विशिष्ट AutoShape से जुड़ी आधुनिक टिप्पणी बनाता है। फिर प्रत्येक टिप्पणी से संबंधित आकार को पढ़ता है।
+उदाहरण दो बार [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) को कॉल करता है: एक बार `null` आकार के साथ स्लाइड‑स्तरीय टिप्पणी के लिए और एक बार आयत को एंकर के रूप में। [Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/) पढ़ने से स्लाइड‑स्तरीय टिप्पणी के `null` जांच के लिए `True` और एंकर की गई टिप्पणी के लिए `Revenue title` प्रदर्शित होता है। दोनों टिप्पणियां प्रेजेंटेशन के साथ सहेजी गई हैं।
 
 ```csharp
 using System;
@@ -175,7 +215,9 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
 shape.Name = "Revenue title";
 shape.TextFrame.Text = "Quarterly revenue";
@@ -192,11 +234,11 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **विभिन्न आकार प्रकारों से टिप्पणियाँ जोड़ें**
+### **विभिन्न आकार प्रकारों पर टिप्पणियां एंकर करें**
 
-कोई भी स्लाइड ऑब्जेक्ट जो [IShape](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/) को लागू करता है, आकार एंकर के रूप में उपयोग किया जा सकता है। सामान्य उदाहरणों में [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/hi/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/hi/net/aspose.slides/iconnector/), और [IGraphicalObject](https://reference.aspose.com/slides/hi/net/aspose.slides/igraphicalobject/) जैसे चार्ट शामिल हैं।
+कोई भी स्लाइड ऑब्जेक्ट जो [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) को लागू करता है, उसे आकार एंकर के रूप में उपयोग किया जा सकता है। सामान्य उदाहरणों में [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/net/aspose.slides/iconnector/), और चार्ट जैसी [IGraphicalObject](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobject/) इंस्टैंस शामिल हैं।
 
-नीचे दिया गया उदाहरण कई सामान्य आकार प्रकार बनाता है और प्रत्येक से एक आधुनिक टिप्पणी जोड़ता है।
+उदाहरण [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/addmoderncomment/) का उपयोग करके पाँच आकार प्रकारों—AutoShape, picture frame, group, connector, और chart—के साथ एक‑एक टिप्पणी जोड़ता है। चित्र में एम्बेडेड इमेज डेटा होता है, इसलिए कोई बाहरी इमेज आवश्यक नहीं है। प्रत्येक टिप्पणी का अपना मार्कर स्थिति होता है, और सहेजा गया प्रेजेंटेशन सभी पाँच आकार संबंधों को बरकरार रखता है।
 
 ```csharp
 using System;
@@ -207,11 +249,13 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
 var createdTime = DateTime.Now;
 
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
 autoShape.TextFrame.Text = "AutoShape";
+
 var autoShapeCommentPosition = new PointF(30, 30);
 author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -239,18 +283,18 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **टेक्स्ट से टिप्पणी जोड़ें और उसकी स्थिति सेट करें**
+### **टेक्स्ट पर टिप्पणी एंकर करें और उसकी स्थिति सेट करें**
 
-एक [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) से जुड़ी आधुनिक टिप्पणी के लिए, [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/hi/net/aspose.slides/imoderncomment/textselectionstart/) आकार के टेक्स्ट फ़्रेम में चयनित टेक्स्ट की प्रारम्भिक स्थिति दर्शाता है, जबकि [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/hi/net/aspose.slides/imoderncomment/textselectionlength/) चयन की लंबाई बताता है। इन दोनों प्रॉपर्टी के साथ टिप्पणी को AutoShape के भीतर विशिष्ट टेक्स्ट रेंज से जोड़ा जाता है।
+[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) से जुड़ी आधुनिक टिप्पणी के लिए, [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) आकार के टेक्स्ट फ़्रेम में चयनित टेक्स्ट की शुरुआती स्थिति निर्धारित करता है, जबकि [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) चयन की लंबाई बताता है। ये दोनों प्रॉपर्टी टिप्पणी को AutoShape के भीतर एक विशिष्ट टेक्स्ट रेंज से जोड़ती हैं।
 
-[IModernComment.Status](https://reference.aspose.com/slides/hi/net/aspose.slides/imoderncomment/status/) प्रॉपर्टी को [ModernCommentStatus](https://reference.aspose.com/slides/hi/net/aspose.slides/moderncommentstatus/) मान से पढ़ा या अद्यतन किया जा सकता है:
+[IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) प्रॉपर्टी को [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/) एन्यूमरेशन के मानों से पढ़ा या अपडेट किया जा सकता है:
 
-- `NotDefined` — कोई विशिष्ट आधुनिक‑टिप्पणी स्थिति निर्धारित नहीं है।
+- `NotDefined` — कोई विशिष्ट आधुनिक‑टिप्पणी स्थिति निर्धारित नहीं।
 - `Active` — टिप्पणी सक्रिय है।
 - `Resolved` — टिप्पणी हल हो गई है।
 - `Closed` — टिप्पणी बंद है।
 
-नीचे दिया गया उदाहरण एक आकार‑एंकर वाली आधुनिक टिप्पणी बनाता है, उसे टेक्स्ट चयन से जोड़ता है, इसे हल हुए के रूप में चिह्नित करता है, प्रस्तुति को सहेजता है, और फ़ाइल पुनः खोलने के बाद मूल्यों की जाँच करता है।
+उदाहरण एक आयत के टेक्स्ट में शब्द “quarterly revenue” पर आधुनिक टिप्पणी एंकर करता है। वह टेक्स्ट से शून्य‑आधारित [TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/) की गणना करता है और चयनित अक्षरों की संख्या के रूप में [TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/) सेट करता है। [Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) को `Resolved` करने के बाद, वह प्रेजेंटेशन को सहेजता और पुनः खोलता है। चार कंसोल जाँच प्रत्येक `True` प्रिंट करनी चाहिए, जिससे पुष्टि हो कि आकार एंकर, टेक्स्ट रेंज, और स्थिति संरक्षित रह गई।
 
 ```csharp
 using System;
@@ -265,6 +309,7 @@ var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Or
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
 shape.Name = "Forecast text";
 shape.TextFrame.Text = shapeText;
@@ -301,9 +346,9 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
-### **मौजूदा आधुनिक टिप्पणियों की जाँच करें**
+### **मौजूदा आधुनिक टिप्पणियों की जांच करें**
 
-किसी मौजूदा प्रस्तुति की जाँच करने के लिए, देखें कि कौन‑से टिप्पणियाँ [IModernComment](https://reference.aspose.com/slides/hi/net/aspose.slides/imoderncomment/) लागू करती हैं, फिर [IModernComment.Shape](https://reference.aspose.com/slides/hi/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/hi/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/hi/net/aspose.slides/imoderncomment/textselectionlength/), और [IModernComment.Status](https://reference.aspose.com/slides/hi/net/aspose.slides/imoderncomment/status/) की जांच करें। `null` आकार एक स्लाइड‑लेवल टिप्पणी को दर्शाता है। जब [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) एंकर होता है, तो टेक्स्ट‑सेलेक्शन प्रॉपर्टी आकार के टेक्स्ट फ़्रेम में संबंधित रेंज को पहचानती है।
+उदाहरण के लिए एक मौजूदा प्रेजेंटेशन की आवश्यकता है जिसमें आधुनिक टिप्पणियां हों, और वह उनके टेक्स्ट, स्थिति, और एंकर विवरण प्रिंट करता है। जांचने के लिए, देखें कि कौन सी टिप्पणियां [IModernComment](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/) लागू करती हैं, फिर [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/), और [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) का परीक्षण करें। `null` आकार का अर्थ है स्लाइड‑स्तरीय टिप्पणी। यदि [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) एंकर है, तो टेक्स्ट‑सेलेक्शन प्रॉपर्टी आकार के टेक्स्ट फ़्रेम में संबंधित रेंज को पहचानती है।
 
 ```csharp
 using System;
@@ -347,11 +392,13 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **टिप्पणियाँ हटाएँ**
+## **टिप्पणियां हटाएं**
 
-### **सभी टिप्पणियों और टिप्पणी लेखकों को हटाएँ**
+Aspose.Slides for .NET आपको प्रेजेंटेशन से सभी टिप्पणियां और उनके लेखकों को हटाने या चयनित टिप्पणियों को हटाते हुए शेष को बरकरार रखने की अनुमति देता है। निम्न उदाहरण दोनों विधियों को दर्शाते हैं और अद्यतन प्रेजेंटेशन को सहेजते हैं।
 
-नीचे दिया गया उदाहरण दिखाता है कि प्रस्तुति से सभी टिप्पणियों और टिप्पणी लेखकों को कैसे हटाएँ:
+### **सभी टिप्पणियां और टिप्पणी लेखकों को हटाएं**
+
+उदाहरण मौजूदा प्रेजेंटेशन को खोलता है और प्रत्येक लेखक के लिए [ICommentCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/clear/) को कॉल करता है, फिर [ICommentAuthorCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/clear/) को कॉल करके स्वयं लेखकों को हटाता है। सहेजा गया प्रेजेंटेशन न तो टिप्पणियां न ही टिप्पणी लेखक रखता है। हटाने को देखना हो तो टिप्पणी वाली प्रेजेंटेशन का उपयोग करें।
 
 ```csharp
 using Aspose.Slides;
@@ -365,12 +412,13 @@ foreach (var author in presentation.CommentAuthors)
 }
 
 presentation.CommentAuthors.Clear();
+
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
-### **विशिष्ट टिप्पणियों को हटाएँ**
+### **विशिष्ट टिप्पणियां हटाएं**
 
-नीचे दिया गया उदाहरण दिखाता है कि स्लाइड से विशिष्ट टिप्पणियों को कैसे हटाएँ:
+उदाहरण एक स्लाइड पर दो टिप्पणी बनाता है और प्रत्येक लेखक की टिप्पणियों को खोजने के लिए [GetSlideComments](https://reference.aspose.com/slides/net/aspose.slides/islide/getslidecomments/) का उपयोग करता है। वह उन टिप्पणियों को इकट्ठा करता है जिनका टेक्स्ट “comment 1” के बराबर है, फिर [ICommentCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection/remove/) को कॉल करता है, जिससे चयन के दौरान संग्रह बदलने से बचा जा सके। सहेजा गया प्रेजेंटेशन केवल “comment 2” को रखता है।
 
 ```csharp
 using System;
@@ -381,6 +429,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var author = presentation.CommentAuthors.AddAuthor("Author", "A");
 var createdTime = DateTime.Now;
 
@@ -411,16 +460,16 @@ foreach (var commentAuthor in presentation.CommentAuthors)
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या Aspose.Slides आधुनिक टिप्पणियों के लिए हल‑होने की स्थिति समर्थन करता है?**
+**क्या Aspose.Slides आधुनिक टिप्पणियों के लिए हल की गई स्थिति का समर्थन करता है?**
 
-हाँ। [IModernComment.Status](https://reference.aspose.com/slides/hi/net/aspose.slides/imoderncomment/status/) को [ModernCommentStatus](https://reference.aspose.com/slides/hi/net/aspose.slides/moderncommentstatus/) मान के साथ पढ़ा और सेट किया जा सकता है, जिसमें `Resolved` भी शामिल है। यह स्थिति प्रस्तुति में संग्रहीत रहती है और फ़ाइल पुनः खोलने के बाद फिर से पढ़ी जा सकती है।
+हाँ। [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/) को [ModernCommentStatus](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/) मान के साथ पढ़ा और सेट किया जा सकता है, जिसमें `Resolved` भी शामिल है। स्थिति प्रेजेंटेशन में संग्रहीत होती है और फ़ाइल को पुनः खोलने के बाद फिर से पढ़ी जा सकती है।
 
-**क्या थ्रेडेड डिस्कशन (उत्तर श्रृंखलाएँ) समर्थित हैं, और क्या nesting की कोई सीमा है?**
+**क्या थ्रेडेड डिस्कशन (उत्तर चेन) समर्थित हैं, और क्या इनमें नेस्टिंग सीमा है?**
 
-हाँ। प्रत्येक टिप्पणी अपने [parent comment](https://reference.aspose.com/slides/hi/net/aspose.slides/comment/parentcomment/) को संदर्भित कर सकती है, जिससे उत्तर श्रृंखलाएँ बनती हैं। API ने कोई विशेष nesting‑depth सीमा निर्धारित नहीं की है।
+हाँ। प्रत्येक टिप्पणी अपने [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/) को संदर्भित कर सकती है, जिससे उत्तर चेन बनती है। API कोई विशिष्ट नेस्टिंग‑गहराई सीमा निर्धारित नहीं करती।
 
-**स्लाइड पर टिप्पणी‑मार्कर की स्थिति कौन‑से निर्देशांक प्रणाली में निर्धारित की जाती है?**
+**स्लाइड पर टिप्पणी मार्कर की स्थिति किस निर्देशांक प्रणाली में निर्धारित की जाती है?**
 
-मार्कर की स्थिति स्लाइड निर्देशांक प्रणाली में फ्लोटिंग‑पॉइंट निर्देशांक द्वारा निर्धारित की जाती है, जिससे आप इसे स्लाइड पर सटीक रूप से रख सकते हैं।
+मार्कर की स्थिति स्लाइड निर्देशांक प्रणाली में फ्लोटिंग‑पॉइंट निर्देशांकों द्वारा परिभाषित होती है, जिससे आप इसे स्लाइड पर सटीक रूप से रख सकते हैं।

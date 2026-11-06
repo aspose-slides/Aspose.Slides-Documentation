@@ -1,52 +1,52 @@
 ---
-title: مدیریت نظرات ارائه در Node.js
-linktitle: نظرات ارائه
+title: "مدیریت نظرات ارائه در Node.js"
+linktitle: "نظرات ارائه"
 type: docs
 weight: 100
 url: /fa/nodejs-java/presentation-comments/
 keywords:
-- نظر
-- نظر مدرن
-- نظرات PowerPoint
-- نظرات ارائه
-- نظرات اسلاید
-- افزودن نظر
-- دسترسی به نظر
-- ویرایش نظر
-- پاسخ به نظر
-- حذف نظر
-- حذف نظر
-- PowerPoint
-- ارائه
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "مدیریت نظرات ارائه با Aspose.Slides برای Node.js از طریق Java: افزودن، خواندن، ویرایش، پاسخ‌دادن و حذف نظرات در ارائه‌های PowerPoint."
+- "نظر"
+- "نظر مدرن"
+- "نظرات PowerPoint"
+- "نظرات ارائه"
+- "نظرات اسلاید"
+- "افزودن نظر"
+- "دسترسی به نظر"
+- "ویرایش نظر"
+- "پاسخ به نظر"
+- "حذف نظر"
+- "حذف نظر"
+- "PowerPoint"
+- "ارائه"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "مدیریت نظرات ارائه با Aspose.Slides برای Node.js از طریق Java: افزودن، خواندن، ویرایش، پاسخ‌به‌نظرات و حذف نظرات در ارائه‌های PowerPoint."
 ---
 ## **مرور کلی**
 
-این مقاله نحوه مدیریت نظرات ارائه را با Aspose.Slides برای Node.js از طریق Java توضیح می‌دهد. این مقاله انواع اصلی مرتبط با نظرات را معرفی کرده و نشان می‌دهد چگونه نظرات را به اسلایدها اضافه کنید، نظرات موجود را دسترسی پیدا کنید، با پاسخ‌ها و نظرات مدرن کار کنید و نظرات را از یک ارائه حذف کنید.
+این مقاله توضیح می‌دهد چگونه نظرات ارائه را با Aspose.Slides برای Node.js از طریق Java مدیریت کنید. این مقاله انواع اصلی مرتبط با نظرات را معرفی می‌کند و نحوه افزودن نظرات به اسلایدها، دسترسی به نظرات موجود، کار با پاسخ‌ها و نظرات مدرن، و حذف نظرات از یک ارائه را نشان می‌دهد.
 
-مثال‌ها سناریوهای رایج بررسی و همکاری در PowerPoint را پوشش می‌دهند، از جمله اختصاص نظرات به نویسندگان، خواندن متن نظرسین و متادیتا، ساخت زنجیره‌های پاسخ و حذف نظرات انتخاب‌شده یا همه نظرات.
+مثال‌ها شامل سناریوهای رایج بازبینی و همکاری در PowerPoint می‌شوند، از جمله اختصاص نظرات به نویسندگان، خواندن متن نظرات و متادیتا، ساخت زنجیره‌های پاسخ، و حذف نظرات انتخاب شده یا تمام نظرات.
 
-در PowerPoint، نظرات به‌عنوان حاشیه‌نویسی بر روی اسلایدها نمایش داده می‌شوند. انتخاب یک نظر متن و بحث مربوطه را نشان می‌دهد.
+در PowerPoint، نظرات به‌عنوان حاشیه‌نویسی بر روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر متن و بحث مرتبط با آن را نمایش می‌دهد.
 
-برای درخواست نمایش یا پنهان‌کردن نظرات هنگام باز کردن یک ارائه بدون تغییر خود نظرات، ببینید [نمایش یا پنهان کردن نظرات هنگام باز کردن یک ارائه](/slides/fa/nodejs-java/presentation-view-properties/).
+برای درخواست نمایش یا مخفی‌سازی نظرات هنگام باز کردن یک ارائه بدون تغییر خود نظرات، ببینید [نمایش یا مخفی‌سازی نظرات هنگام باز کردن یک ارائه](/slides/fa/nodejs-java/presentation-view-properties/).
 
-## **چرا نظرات را به ارائه‌ها اضافه کنیم؟**
+## **چرا نظرات به ارائه‌ها اضافه می‌شوند؟**
 
 می‌توانید از نظرات برای ارائه بازخورد و همکاری با همکاران هنگام بازبینی ارائه‌ها استفاده کنید.
 
 Aspose.Slides برای Node.js از طریق Java APIهای زیر را برای کار با نظرات فراهم می‌کند:
 
-* کلاس [Presentation] که دسترسی به نویسندگان نظرات ارائه را فراهم می‌کند.
-* کلاس [CommentCollection] که نظرات مرتبط با یک نویسنده خاص را نشان می‌دهد.
-* کلاس [Comment] که اطلاعاتی درباره یک نظر شامل نویسنده، زمان ایجاد، موقعیت و متن را ارائه می‌دهد.
-* کلاس [CommentAuthor] که اطلاعاتی درباره یک نویسنده شامل نام، حروف ابتدایی و نظرات مرتبط را فراهم می‌کند.
+* کلاس [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) که دسترسی به نویسندگان نظرات ارائه را فراهم می‌کند.
+* کلاس [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/) که نظرات مرتبط با یک نویسنده خاص را نشان می‌دهد.
+* کلاس [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/) که اطلاعاتی درباره یک نظر شامل نویسنده، زمان ایجاد، موقعیت و متن ارائه می‌دهد.
+* کلاس [CommentAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthor/) که اطلاعاتی درباره یک نویسنده شامل نام، حروف اولیه و نظرات مرتبط را فراهم می‌کند.
 
-## **اضافه کردن نظرات اسلاید**
+## **افزودن نظرات به اسلاید**
 
-مثال زیر نشان می‌دهد چگونه نظرات را به اسلایدهای یک ارائه PowerPoint اضافه کنید:
+این مثال دو اسلاید ایجاد می‌کند و یک نویسنده نظر را با [addAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/addauthor/) ثبت می‌کند. از [addComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addcomment/) برای قرار دادن یک نظر بر روی هر اسلاید استفاده می‌کند، سپس نظرات اسلاید اول برای آن نویسنده را با [getSlideComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidecomments/) بازیابی می‌کند. کنسول متن اولین نظر را دو بار نمایش می‌دهد، که دسترسی از طریق هر دو اسلاید و نویسنده را نشان می‌دهد، و ارائه ذخیره‌شده شامل هر دو نظر است.
 
 ```javascript
 var aspose = aspose || {};
@@ -57,6 +57,7 @@ const presentation = new aspose.slides.Presentation();
 try {
     const firstSlide = presentation.getSlides().get_Item(0);
     const secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     const author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.2), java.newFloat(0.2));
     const createdTime = java.newInstanceSync("java.util.Date");
@@ -69,8 +70,7 @@ try {
         const firstComment = comments[0];
         console.log(firstComment.getText());
 
-        const authorComments = firstComment.getAuthor().getComments();
-        const commentText = authorComments.get_Item(0).getText();
+        const commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         console.log(commentText);
     }
 
@@ -80,9 +80,46 @@ try {
 }
 ```
 
+## **یافتن یا ایجاد نویسندهٔ نظر**
+
+زمانی که یک بازبینی خودکار یک ارائه را بارها پردازش می‌کند، پیش از افزودن نویسنده، مجموعه‌ای که توسط [getCommentAuthors](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getcommentauthors/) بازگردانده می‌شود جستجو کنید. [findByNameAndInitials](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/findbynameandinitials/) هم نام و هم حروف اولیه را مطابقت می‌دهد و آرایه‌ای از نویسندگان منطبق بر می‌گرداند، یا آرایهٔ خالی اگر مطابقتی وجود نداشته باشد. برعکس، [findByName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/findbyname/) تنها بر اساس نام جستجو می‌کند، بدون در نظر گرفتن حروف اولیه. فراخوانی [addAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/addauthor/) با نام و حروف اولیه‌ای که در مجموعه موجود‌اند، استثنایی را می‌اندازد.
+
+این مثال به یک فایل ارائه با حداقل یک اسلاید نیاز دارد. در هر یک از دو عبور، اولین نویسندهٔ هم‌خوان را دوباره استفاده می‌کند، یا فقط زمانی که نتیجه خالی باشد، یکی ایجاد می‌کند. اگر چندین هم‌خوانی وجود داشته باشد، اولین عنصر آرایه را بدون ادغام یا حذف سایر نویسندگان انتخاب می‌کند. سپس برای نویسندهٔ انتخاب‌شده [addComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addcomment/) را فراخوانی می‌کند و ارائه را ذخیره می‌کند. عبور دوم خروجی عبور اول را باز می‌کند و عمل را تکرار می‌کند.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const authorName = "Reviewer";
+const authorInitials = "RV";
+
+let inputFile = "input.pptx";
+const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(20), java.newFloat(20));
+
+for (let pass = 1; pass <= 2; pass++) {
+    const presentation = new aspose.slides.Presentation(inputFile);
+    try {
+        const matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        const author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        const createdTime = java.newInstanceSync("java.util.Date");
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, createdTime);
+
+        const outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, aspose.slides.SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+عبور دوم یک نظر دیگر اضافه می‌کند بدون افزودن نویسندهٔ دیگری یا حذف نظرات موجود. فایل نهایی، `review_pass_2.pptx`، هر دو نظر جدید را همراه با هر نظر اصلی دارد. استفاده مجدد از یک نویسنده نظرات را یکتا نمی‌کند: برای جلوگیری از افزودن مکرر همان نظر، قبل از افزودن، تشخیص تکرار جداگانه‌ای پیاده کنید.
+
 ## **دسترسی به نظرات اسلاید**
 
-مثال زیر نشان می‌دهد چگونه نظرات موجود در یک ارائه PowerPoint را دسترسی پیدا کنید:
+این مثال یک ارائهٔ موجود را باز می‌کند و مجموعه‌ای را که توسط [getCommentAuthors](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getcommentauthors/) بازگردانده می‌شود می‌خواند. برای هر نویسنده، از مجموعه‌ای که توسط [getComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthor/getcomments/) برگردانده می‌شود پیمایش می‌کند و شمارهٔ اسلاید، متن نظر، نام نویسنده و زمان ایجاد را چاپ می‌کند. ارائهٔ ورودی باید حاوی نظرات باشد تا خروجی کنسول تولید شود.
 
 ```javascript
 var aspose = aspose || {};
@@ -111,9 +148,9 @@ try {
 
 ## **پاسخ به نظرات**
 
-یک نظر والد، نظر اصلی در بالای یک سلسله‌مراتبی پاسخ است. متدهای [Comment.getParentComment] و [Comment.setParentComment] به شما امکان می‌دهند والد یک نظر را دریافت یا تنظیم کنید.
+یک نظر والد، نظر اصلی در بالای یک سلسله‌مراتب پاسخ است. متدهای [Comment.getParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/getparentcomment/) و [Comment.setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/setparentcomment/) به شما امکان می‌دهند والد یک نظر را به‌دست آورید یا تنظیم کنید.
 
-مثال زیر نشان می‌دهد چگونه پاسخ‌ها را اضافه کنید و سلسله‌مراتبی نظرات حاصل را بررسی کنید:
+این مثال نظراتی از دو نویسنده ایجاد می‌کند و از [setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/setparentcomment/) برای ساخت پاسخ‌ها، از جمله یک پاسخ به پاسخ دیگر، استفاده می‌کند. ارسال `null` به [getSlideComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidecomments/) نظرات را از تمام نویسندگان بازیابی می‌کند؛ کنسول هر ورودی را بر اساس عمق آن در سلسله‌مراتب پاسخ‌ها تو رفتگی می‌کند. مثال بحث کامل را ذخیره می‌کند، روی اولین نظر ریشه‌ای [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/remove/) فراخوانی می‌کند و یک ارائهٔ دوم را با آن نظر و پاسخ‌هایش حذف‌شده ذخیره می‌کند.
 
 ```javascript
 var aspose = aspose || {};
@@ -123,27 +160,28 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10));
     const createdTime = java.newInstanceSync("java.util.Date");
 
-    const author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    const comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    const originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    const rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    const author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    const reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    const reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    const firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    const reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    const secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    const subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    const subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    const comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    const separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    const reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    const separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     const comments = slide.getSlideComments(null);
     for (let index = 0; index < comments.length; index++) {
@@ -159,7 +197,7 @@ try {
 
     presentation.save("parent_comment.pptx", aspose.slides.SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -167,19 +205,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* هنگامی که متد [Comment.remove] برای حذف یک نظر استفاده می‌شود، تمام پاسخ‌های آن نظر نیز حذف می‌شوند.
-* اگر [Comment.setParentComment] یک ارجاع حلقوی ایجاد کند، یک [PptxEditException] پرتاب می‌شود.
+* هنگامی که متد [Comment.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/remove/) برای حذف یک نظر استفاده شود، تمام پاسخ‌های آن نظر نیز حذف می‌شوند.
+* اگر [Comment.setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/setparentcomment/) یک ارجاع دوری ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pptxeditexception/) پرتاب می‌شود.
 {{% /alert %}}
 
-## **اضافه کردن نظرات مدرن**
+## **افزودن نظرات مدرن**
 
-نظرات مدرن می‌توانند با خود اسلاید، یک شکل خاص یا یک بازه متن داخل یک [AutoShape] مرتبط شوند. متد [CommentCollection.addModernComment] علاوه بر اسلاید و مختصات نشانگر نظر، یک پارامتر [Shape] می‌پذیرد.
+نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص یا به یک بازهٔ متنی داخل یک AutoShape مرتبط شوند. متد [CommentCollection.addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) علاوه بر اسلاید و مختصات نشانگر نظر، یک آرگومان [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) می‌پذیرد.
 
-زمانی که مقدار `null` برای پارامتر shape ارسال شود، نظر به‌صورت نظر سطح اسلاید است. نشانگر آن توسط مختصات ارائه شده موقعیت می‌گیرد، اما به شکل خاصی مرتبط نیست، بنابراین [ModernComment.getShape] مقدار `null` برمی‌گرداند. زمانی که یک [Shape] ارائه شود، نظر به آن شکل متصل می‌شود. مختصات هنوز موقعیت نشانگر نظر را روی اسلاید تعریف می‌کند، در حالی که ارتباط شکل می‌تواند از طریق [ModernComment.getShape] بازیابی شود.
+هنگامی که `null` برای آرگومان shape ارسال شود، نظر یک نظر سطح‑اسلاید است. نشانگر آن با مختصات داده‌شده موقعیت‌گیری می‌شود، اما به شکل خاصی مرتبط نیست، بنابراین [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/) `null` برمی‌گرداند. وقتی یک [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) فراهم شود، نظر به آن شکل پیوند می‌خورد. مختصات همچنان موقعیت نشانگر نظر را روی اسلاید تعریف می‌کند، در حالی که ارتباط شکل می‌تواند از طریق [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/) بازیابی شود.
 
 ### **اتصال یک نظر مدرن به یک شکل**
 
-مثال زیر هم یک نظر مدرن سطح اسلاید و هم یک نظر مدرن متصل به یک [AutoShape] خاص ایجاد می‌کند. سپس شکل مرتبط با هر نظر را می‌خواند.
+این مثال دو بار [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) را فراخوانی می‌کند: یک بار با shape برابر `null` برای یک نظر سطح‑اسلاید و یک بار با یک مستطیل به‌عنوان پیوند. خواندن [getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/) برای نظر سطح‑اسلاید مقدار `true` را برای بررسی `null` چاپ می‌کند و برای نظر پیوندخورده مقدار `Revenue title` را چاپ می‌کند. هر دو نظر با ارائه ذخیره می‌شوند.
 
 ```javascript
 var aspose = aspose || {};
@@ -189,7 +227,9 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -211,9 +251,9 @@ try {
 
 ### **اتصال نظرات به انواع مختلف شکل**
 
-هر شیء اسلایدی که از [Shape] مشتق شده باشد می‌تواند به‌عنوان لنگر شکل استفاده شود. نمونه‌های رایج شامل [AutoShape]، [PictureFrame]، [GroupShape]، [Connector] و نمونه‌های [GraphicalObject] مانند نمودارها هستند.
+هر شیء اسلایدی که از [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) مشتق شود می‌تواند به‌عنوان پیوند شکل استفاده شود. مثال‌های رایج شامل [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/)، [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/)، [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/)، [Connector](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connector/)، و نمونه‌های [GraphicalObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobject/) مانند نمودارها هستند.
 
-مثال زیر چندین نوع شکل رایج ایجاد می‌کند و یک نظر مدرن را به هر کدام پیوند می‌دهد.
+این مثال از [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) برای ارتباط یک نظر با هر یک از پنج نوع شکل استفاده می‌کند: یک AutoShape، یک picture frame، یک گروه، یک connector و یک نمودار. تصویر از داده‌های تصویر درونی استفاده می‌کند، بنابراین نیازی به تصویر خارجی نیست. هر نظر موقعیت نشانگر خود را دارد و ارائهٔ ذخیره‌شده تمام پنج ارتباط شکل را نگه می‌دارد.
 
 ```javascript
 var aspose = aspose || {};
@@ -223,11 +263,13 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     const createdTime = java.newInstanceSync("java.util.Date");
 
     const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     const autoShapeCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(30), java.newFloat(30));
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -260,16 +302,16 @@ try {
 
 ### **اتصال یک نظر به متن و تنظیم وضعیت آن**
 
-برای یک نظر مدرن که به یک [AutoShape] مرتبط است، متدهای [ModernComment.getTextSelectionStart] و [ModernComment.setTextSelectionStart] موقعیت شروع متن انتخاب‌شده در فریم متن شکل را دسترسی می‌دهند. متدهای [ModernComment.getTextSelectionLength] و [ModernComment.setTextSelectionLength] طول انتخاب را برمی‌گردانند. این مقادیر با هم نظر را به یک بازه متن خاص داخل [AutoShape] مرتبط می‌کنند.
+برای یک نظر مدرن مرتبط با یک [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/)، متدهای [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) و [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) موقعیت شروع متن انتخاب‌شده در فریم متنی شکل را برمی‌گردانند و تنظیم می‌کنند. متدهای [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) و [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) طول انتخاب را دسترسی می‌دهند. این مقادیر با هم نظر را به بازهٔ متنی خاصی داخل AutoShape پیوند می‌دهند.
 
-متدهای [ModernComment.getStatus] و [ModernComment.setStatus] مقدار یک عضو از شمارش‌گذاری [ModernCommentStatus] را برمی‌گردانند:
+متدهای [ModernComment.getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/) و [ModernComment.setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setstatus/) مقدار از شمارندهٔ [ModernCommentStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncommentstatus/) را دسترسی می‌دهند:
 
-- `NotDefined` — هیچ وضعیت خاصی برای نظر مدرن تعریف نشده است.
+- `NotDefined` — وضعیت خاصی برای نظر مدرن تعریف نشده است.
 - `Active` — نظر فعال است.
-- `Resolved` — نظر حل‌ شده است.
+- `Resolved` — نظر حل شده است.
 - `Closed` — نظر بسته شده است.
 
-مثال زیر یک نظر مدرن متصل به شکل ایجاد می‌کند، آن را به یک انتخاب متن پیوند می‌دهد، به عنوان حل‌ شده علامت‌گذاری می‌کند، ارائه را ذخیره می‌کند و پس از بازگشایی فایل مقادیر را تأیید می‌کند.
+این مثال یک نظر مدرن را به کلمات «quarterly revenue» در متن یک مستطیل پیوند می‌دهد. شروع انتخاب صفر‑محور را از متن محاسبه می‌کند و به [setTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) می‌فرستد و با استفاده از [setTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) تعداد کاراکترهای انتخاب‌شده را تنظیم می‌کند. پس از فراخوانی [setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setstatus/) با مقدار `Resolved`، ارائه ذخیره و دوباره باز می‌شود. چهار بررسی کنسول باید هر کدام `true` چاپ کنند، که تأیید می‌کند پیوند شکل، بازهٔ متن و وضعیت حفظ شده‌اند.
 
 ```javascript
 var aspose = aspose || {};
@@ -284,6 +326,7 @@ const expectedSelectionStart = shapeText.indexOf(selectedText);
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
@@ -294,7 +337,7 @@ try {
     const comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, createdTime);
     comment.setTextSelectionStart(expectedSelectionStart);
     comment.setTextSelectionLength(selectedText.length);
-    comment.setStatus(aspose.slides.ModernCommentStatus.Resolved);
+    comment.setStatus(java.newByte(aspose.slides.ModernCommentStatus.Resolved));
 
     presentation.save(outputFile, aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -327,9 +370,9 @@ try {
 }
 ```
 
-### **بررسی نظرات مدرن موجود**
+### **بازرسی نظرات مدرن موجود**
 
-برای بررسی یک ارائه موجود، ابتدا نظراتی که از نوع [ModernComment] هستند شناسایی کنید، سپس [ModernComment.getShape]، [ModernComment.getTextSelectionStart]، [ModernComment.getTextSelectionLength] و [ModernComment.getStatus] را بررسی نمایید. یک شکل `null` نشانگر یک نظر سطح اسلاید است. برای لنگر [AutoShape]، متدهای انتخاب متن بازه مرتبط در فریم متن شکل را مشخص می‌کنند.
+این مثال به یک ارائهٔ موجود حاوی نظرات مدرن نیاز دارد و متن، وضعیت و جزئیات پیوند آن‌ها را چاپ می‌کند. برای بازرسی، ابتدا بررسی کنید که کدام نظرات نمونهٔ [ModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/) هستند، سپس به [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/)، [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/)، [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) و [ModernComment.getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/) مراجعه کنید. یک shape برابر `null` نشانگر نظر سطح‑اسلاید است. برای پیوند یک [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/)، متدهای انتخاب متن بازهٔ مربوطه در فریم متنی شکل را شناسایی می‌کنند.
 
 ```javascript
 var aspose = aspose || {};
@@ -376,9 +419,11 @@ try {
 
 ## **حذف نظرات**
 
+Aspose.Slides برای Node.js از طریق Java امکان حذف تمام نظرات و نویسندگان آن‌ها از یک ارائه یا حذف نظرات منتخب در حالی که بقیه حفظ می‌شوند را فراهم می‌کند. مثال‌های زیر هر دو روش را نشان می‌دهند و ارائه به‌روزشده را ذخیره می‌کنند.
+
 ### **حذف تمام نظرات و نویسندگان نظرات**
 
-مثال زیر نشان می‌دهد چگونه تمام نظرات و نویسندگان نظرات را از یک ارائه حذف کنید:
+این مثال یک ارائهٔ موجود را باز می‌کند و برای هر نویسنده [CommentCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/clear/) را فراخوانی می‌کند، سپس برای حذف خود نویسندگان [CommentAuthorCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/clear/) را فرا می‌خواند. ارائهٔ ذخیره‌شده نه نظرات دارد و نه نویسندگان نظرات. برای مشاهده حذف، از یک ارائه حاوی نظرات استفاده کنید.
 
 ```javascript
 var aspose = aspose || {};
@@ -392,6 +437,7 @@ try {
     }
 
     authors.clear();
+
     presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -400,7 +446,7 @@ try {
 
 ### **حذف نظرات خاص**
 
-مثال زیر نشان می‌دهد چگونه نظرات خاصی را از یک اسلاید حذف کنید:
+این مثال دو نظر در یک اسلاید ایجاد می‌کند و از [getSlideComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidecomments/) برای یافتن نظرات هر نویسنده استفاده می‌کند. قبل از فراخوانی [CommentCollection.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/remove/)، نظراتی که متن آن‌ها برابر «comment 1» است جمع‌آوری می‌کند تا از تغییر مجموعه هنگام انتخاب جلوگیری کند. ارائهٔ ذخیره‌شده فقط «comment 2» را حفظ می‌کند.
 
 ```javascript
 var aspose = aspose || {};
@@ -410,6 +456,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const author = presentation.getCommentAuthors().addAuthor("Author", "A");
     const createdTime = java.newInstanceSync("java.util.Date");
 
@@ -442,16 +489,16 @@ try {
 }
 ```
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا Aspose.Slides وضعیت حل‌ شده برای نظرات مدرن را پشتیبانی می‌کند؟**
+**آیا Aspose.Slides وضعیت حل‌شده برای نظرات مدرن را پشتیبانی می‌کند؟**
 
-بله. متدهای [ModernComment.getStatus] و [ModernComment.setStatus] مقدار یک [ModernCommentStatus] را، از جمله `Resolved`، برمی‌گردانند. این وضعیت در ارائه ذخیره می‌شود و پس از بازگشایی فایل می‌تواند دوباره خوانده شود.
+بله. متدهای [ModernComment.getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/) و [ModernComment.setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setstatus/) مقدار از شمارندهٔ [ModernCommentStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncommentstatus/) را دسترسی می‌دهند، از جمله `Resolved`. این وضعیت در ارائه ذخیره می‌شود و پس از بازگشایی فایل می‌توان آن را دوباره خواند.
 
-**آیا بحث‌های رشتۀ (زنجیره پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای تو در تو بودن وجود دارد؟**
+**آیا بحث‌های زنجیره‌ای (زنجیره‌های پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای عمق تو در تو وجود دارد؟**
 
-بله. هر نظر می‌تواند به [parent comment] خود ارجاع دهد و زنجیره‌های پاسخ را فعال کند. API محدودیت خاصی برای عمق تو در تو تعریف نمی‌کند.
+بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/getparentcomment/) خود ارجاع دهد، که امکان ایجاد زنجیره‌های پاسخ را فراهم می‌کند. API محدودیت خاصی برای عمق تو در تو تعریف نکرده است.
 
-**موقعیت نشانگر نظر بر روی اسلاید در چه سیستم مختصاتی تعریف می‌شود؟**
+**در چه سیستم مختصاتی موقعیت نشانگر نظر در یک اسلاید تعریف می‌شود؟**
 
-موقعیت نشانگر توسط مختصات نقطه‌ای شناور در سیستم مختصات اسلاید تعریف می‌شود، که امکان قرار دادن دقیق آن را روی اسلاید فراهم می‌آورد.
+موقعیت نشانگر توسط مختصات نقطه‑شناور در سیستم مختصات اسلاید تعریف می‌شود، که امکان قرارگیری دقیق آن بر روی اسلاید را می‌دهد.

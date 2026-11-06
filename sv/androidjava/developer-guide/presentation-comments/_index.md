@@ -10,7 +10,7 @@ keywords:
 - PowerPoint-kommentarer
 - presentationskommentarer
 - bildkommentarer
-- lägga till kommentar
+- lägg till kommentar
 - åtkomst till kommentar
 - redigera kommentar
 - svara på kommentar
@@ -25,33 +25,32 @@ description: "Hantera presentationskommentarer med Aspose.Slides för Android vi
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du hanterar presentationskommentarer med Aspose.Slides för Android via Java. Den introducerar de viktigaste typerna som rör kommentarer och visar hur du lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
+Den här artikeln förklarar hur du hanterar presentationskommentarer med Aspose.Slides för Android via Java. Den introducerar de viktigaste typerna som rör kommentarer och demonstrerar hur du lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
 
-Exemplen täcker vanliga gransknings- och samarbets scenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartext och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
+Exemplen täcker vanliga gransknings- och samarbetsscenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartext och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
 
-I PowerPoint visas kommentarer som annoteringar på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
+I PowerPoint visas kommentarer som noteringar på bilder. När du markerar en kommentar visas dess text och tillhörande diskussion.
 
-För att begära att kommentarer visas eller döljas när en presentation öppnas utan att ändra själva kommentarerna, se [Show or Hide Comments When Opening a Presentation](/slides/sv/androidjava/presentation-view-properties/).
+För att begära att kommentarer ska visas eller döljas när en presentation öppnas utan att ändra själva kommentarerna, se [Show or Hide Comments When Opening a Presentation](/slides/sv/androidjava/presentation-view-properties/).
 
-## **Varför lägga till kommentarer i presentationer?**
+## **Varför Lägga Till Kommentarer i Presentationer?**
 
 Du kan använda kommentarer för att ge återkoppling och samarbeta med kollegor när du granskar presentationer.
 
 Aspose.Slides för Android via Java tillhandahåller följande API:er för att arbeta med kommentarer:
 
-* The [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) class, which provides access to the presentation's comment authors.
-* The [ICommentCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icommentcollection/) interface, which represents the comments associated with an individual author.
-* The [IComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/) interface, which provides information about a comment, including its author, creation time, position, and text.
-* The [CommentAuthor](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/commentauthor/) class, which provides information about an author, including their name, initials, and associated comments.
+* Klassen [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) som ger åtkomst till presentationens kommentar‑författare.
+* Gränssnittet [ICommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/) som representerar kommentarerna som är kopplade till en enskild författare.
+* Gränssnittet [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/) som ger information om en kommentar, inklusive författare, skapandetid, position och text.
+* Klassen [CommentAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/commentauthor/) som ger information om en författare, inklusive namn, initialer och tillhörande kommentarer.
 
-## **Lägg till bildkommentarer**
+## **Lägg Till Bildkommentarer**
 
-Följande exempel visar hur du lägger till kommentarer på bilder i en PowerPoint-presentation:
+Exemplet skapar två bilder och registrerar en kommentar‑författare med [addAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-). Det använder [addComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-android.graphics.PointF-java.util.Date-) för att placera en kommentar på var och en av bilderna, hämtar sedan den första bildens kommentarer för den författaren med [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-). Konsolen skriver ut den första kommentarens text två gånger, vilket demonstrerar åtkomst via både bilden och författaren, och den sparade presentationen innehåller båda kommentarerna.
 
 ```java
 import com.aspose.slides.IComment;
 import com.aspose.slides.ICommentAuthor;
-import com.aspose.slides.ICommentCollection;
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -62,6 +61,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
     ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     PointF position = new PointF(0.2f, 0.2f);
     Date createdTime = new Date();
@@ -74,8 +74,7 @@ try {
         IComment firstComment = comments[0];
         System.out.println(firstComment.getText());
 
-        ICommentCollection authorComments = firstComment.getAuthor().getComments();
-        String commentText = authorComments.get_Item(0).getText();
+        String commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         System.out.println(commentText);
     }
 
@@ -85,9 +84,47 @@ try {
 }
 ```
 
-## **Kom åt bildkommentarer**
+## **Hitta eller Skapa en Kommentar‑Författare**
 
-Följande exempel visar hur du får åtkomst till befintliga kommentarer i en PowerPoint-presentation:
+När en automatiserad granskning bearbetar samma presentation upprepade gånger, sök samlingen som returneras av [getCommentAuthors](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getCommentAuthors--) innan du lägger till en författare. [findByNameAndInitials](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#findByNameAndInitials-java.lang.String-java.lang.String-) matchar både namn och initialer och returnerar en array med matchande författare, eller en tom array om inga matchningar finns. I motsats till detta söker [findByName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#findByName-java.lang.String-) enbart på namn, oavsett initialer. Att anropa [addAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) med ett namn och initialer som redan finns i samlingen kastar ett undantag.
+
+Exemplet kräver en presentationsfil med minst en bild. På två genomgångar återanvänder det den första matchande författaren, eller skapar en ny endast när resultatet är tomt. Om det finns flera matchningar väljs det första array‑elementet utan att slå ihop eller ta bort de andra författarna. Därefter anropas [addComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-android.graphics.PointF-java.util.Date-) för den valda författaren och presentationen sparas. Den andra genomgången öppnar utdata från den första och upprepar operationen.
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.Date;
+
+final String authorName = "Reviewer";
+final String authorInitials = "RV";
+
+String inputFile = "input.pptx";
+PointF position = new PointF(20, 20);
+
+for (int pass = 1; pass <= 2; pass++) {
+    Presentation presentation = new Presentation(inputFile);
+    try {
+        ICommentAuthor[] matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        ICommentAuthor author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, new Date());
+
+        String outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+Den andra genomgången lägger till ytterligare en kommentar utan att lägga till en ny författare eller ta bort befintliga kommentarer. Slutfilen, `review_pass_2.pptx`, innehåller både de nya kommentarerna och eventuella ursprungliga kommentarer. Återanvändning av en författare deduplicerar inte kommentarer: för att undvika att upprepade gånger lägga till samma kommentar, implementera separat dupliceringsdetektering innan du lägger till den.
+
+## **Få Åtkomst till Bildkommentarer**
+
+Exemplet öppnar en befintlig presentation och läser samlingen som returneras av [getCommentAuthors](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getCommentAuthors--). För varje författare itererar det genom samlingen som returneras av [getComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthor/#getComments--) och skriver ut bildnummer, kommentartext, författarnamn och skapandetid. Ingångspresentationen måste innehålla kommentarer för att producera konsolutskrift.
 
 ```java
 import com.aspose.slides.IComment;
@@ -110,11 +147,11 @@ try {
 }
 ```
 
-## **Svara på kommentarer**
+## **Svara på Kommentarer**
 
-En huvudkommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Metoderna [IComment.getParentComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#getParentComment--) och [IComment.setParentComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) låter dig hämta eller sätta föräldrakommentaren för en kommentar.
+En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Metoderna [IComment.getParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#getParentComment--) och [IComment.setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) låter dig hämta eller ange föräldern för en kommentar.
 
-Följande exempel visar hur du lägger till svar och inspekterar den resulterande kommentarshierarkin:
+Exemplet skapar kommentarer från två författare och använder [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) för att bygga svar, inklusive ett svar på ett annat svar. Att skicka `null` till [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) hämtar kommentarer från alla författare; konsolen indenterar varje post enligt dess djup i svarshierarkin. Exemplet sparar hela diskussionen, anropar [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#remove--) på den första rotkommentaren och sparar en andra presentation där den kommentaren och dess svar har tagits bort.
 
 ```java
 import com.aspose.slides.IComment;
@@ -128,27 +165,28 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     PointF position = new PointF(10, 10);
     Date createdTime = new Date();
 
-    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    ICommentAuthor originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    ICommentAuthor reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    IComment secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    IComment subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    IComment separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     IComment[] comments = slide.getSlideComments(null);
     for (int i = 0; i < comments.length; i++) {
@@ -163,7 +201,7 @@ try {
 
     presentation.save("parent_comment.pptx", SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -171,19 +209,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* När metoden [IComment.remove](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#remove--) används för att radera en kommentar, raderas också alla svar på den kommentaren.
-* Om [IComment.setParentComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) skapar en cirkulär referens kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/pptxeditexception/).
+* När metoden [IComment.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#remove--) används för att radera en kommentar, tas även alla svar på den kommentaren bort.
+* Om [IComment.setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) skapar en cirkulär referens, kastas ett [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Lägg till moderna kommentarer**
+## **Lägg Till Moderna Kommentarer**
 
-Moderna kommentarer kan kopplas till själva bilden, till en specifik form eller till ett textintervall i en AutoShape. Metoden [ICommentCollection.addModernComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) accepterar ett [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/)‑argument utöver bildens och kommentarens markörkoordinater.
+Moderna kommentarer kan associeras med själva bilden, med en specifik form eller med ett textintervall i en AutoShape. Metoden [ICommentCollection.addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) accepterar ett [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/)‑argument utöver bilden och koordinaterna för kommentar‑markören.
 
-När `null` skickas för formargumentet blir kommentaren en bildnivåkommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte kopplad till en specifik form, så [IModernComment.getShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getShape--) returnerar `null`. När en [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/) tillhandahålls, förankras kommentaren till den formen. Koordinaterna definierar fortfarande positionen för kommentarens markör på bilden, medan formkopplingen kan hämtas via [IModernComment.getShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getShape--).
+När `null` skickas för form‑argumentet är kommentaren en bildnivå‑kommentar. Dess markör placeras av de angivna koordinaterna, men den är inte kopplad till någon specifik form, så [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) returnerar `null`. När en [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) tillhandahålls, är kommentaren förankrad till den formen. Koordinaterna definierar fortfarande positionen för markören på bilden, medan form‑associationen kan hämtas via [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--).
 
-### **Förankra en modern kommentar till en form**
+### **Förankra en Modern Kommentar till en Form**
 
-Följande exempel skapar både en modern kommentar på bildnivå och en modern kommentar som är förankrad till en specifik AutoShape. Det läser sedan den associerade formen från varje kommentar.
+Exemplet anropar [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) två gånger: en gång med en `null`‑form för en bildnivå‑kommentar och en gång med en rektangel som förankring. Att läsa [getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) skriver ut `true` för bildnivå‑kommentarens null‑kontroll och `Revenue title` för den förankrade kommentaren. Båda kommentarerna sparas med presentationen.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -199,7 +237,9 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -219,11 +259,11 @@ try {
 }
 ```
 
-### **Förankra kommentarer till olika formtyper**
+### **Förankra Kommentarer till Olika Formtyper**
 
-Alla bildobjekt som implementerar [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/) kan användas som en formankare. Vanliga exempel inkluderar [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iconnector/) och [IGraphicalObject](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/igraphicalobject/)‑instanser såsom diagram.
+Alla bildobjekt som implementerar [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) kan användas som formförankring. Vanliga exempel inkluderar [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnector/) och [IGraphicalObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobject/)‑instanser såsom diagram.
 
-Följande exempel skapar flera vanliga formtyper och associerar en modern kommentar med var och en.
+Exemplet använder [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) för att associera en kommentar med var och en av fem formtyper: en AutoShape, en bildram, en grupp, en förbindelse och ett diagram. Bilden använder inbäddade bilddata, så ingen extern bild krävs. Varje kommentar har sin egen markörposition, och den sparade presentationen behåller alla fem formassociationer.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -239,22 +279,24 @@ import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
 import com.aspose.slides.ShapeType;
 import android.graphics.PointF;
-import java.util.Base64;
+import android.util.Base64;
 import java.util.Date;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     Date createdTime = new Date();
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     PointF autoShapeCommentPosition = new PointF(30, 30);
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
     String imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
-    byte[] imageData = Base64.getDecoder().decode(imageBase64);
+    byte[] imageData = Base64.decode(imageBase64, Base64.DEFAULT);
     IPPImage image = presentation.getImages().addImage(imageData);
     IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
     PointF pictureCommentPosition = new PointF(230, 30);
@@ -280,17 +322,18 @@ try {
 }
 ```
 
-### **Förankra en kommentar till text och ange dess status**
+### **Förankra en Kommentar till Text och Ange Dess Status**
 
-För en modern kommentar som är associerad med en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/), ger [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) och [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--) åtkomst till startpositionen för den markerade texten i formens textruta. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) och [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) ger åtkomst till längden på markeringen. Tillsammans associerar dessa värden kommentaren med ett specifikt textrange i AutoShape.
+För en modern kommentar som är knuten till en [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/), låter [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) och [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) dig hämta startpositionen för den markerade texten i formens textruta. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) och [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) ger åtkomst till längden på markeringen. Tillsammans associerar dessa värden kommentaren med ett specifikt textintervall i AutoShape‑texten.
 
-Metoderna [IModernComment.getStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getStatus--) och [IModernComment.setStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) ger åtkomst till ett värde från [ModernCommentStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/moderncommentstatus/) konstanter:
-- `NotDefined` — ingen specifik modern-kommentarsstatus är definierad.
+Metoderna [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) och [IModernComment.setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) ger åtkomst till ett värde från konstanten [ModernCommentStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/):
+
+- `NotDefined` — ingen specifik modern‑kommentarstatus är definierad.
 - `Active` — kommentaren är aktiv.
-- `Resolved` — kommentaren har lösts.
+- `Resolved` — kommentaren har markerats som löst.
 - `Closed` — kommentaren är stängd.
 
-Följande exempel skapar en formförankrad modern kommentar, associerar den med en textmarkering, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
+Exemplet förankrar en modern kommentar till orden "quarterly revenue" i en rektangels text. Det beräknar det nollbaserade startvärdet från texten och skickar det till [setTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) samt använder [setTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) för att ange antalet markerade tecken. Efter att ha anropat [setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) med `Resolved` sparas och öppnas presentationen igen. De fyra konsollkontrollerna bör alla skriva ut `true`, vilket bekräftar att form‑förankringen, textintervallet och statusen har bevarats.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -313,6 +356,7 @@ int expectedSelectionStart = shapeText.indexOf(selectedText);
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
@@ -355,9 +399,9 @@ try {
 }
 ```
 
-### **Inspektera befintliga moderna kommentarer**
+### **Inspektera Befintliga Moderna Kommentarer**
 
-För att inspektera en befintlig presentation, kontrollera vilka kommentarer som implementerar [IModernComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/), och granska sedan [IModernComment.getShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) och [IModernComment.getStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getStatus--). En `null` form indikerar en bildnivåkommentar. För ett [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/)-ankare identifierar textmarkeringsmetoderna det associerade intervallet i formens textruta.
+Exemplet kräver en befintlig presentation som innehåller moderna kommentarer och skriver ut deras text, status och förankringsdetaljer. För att inspektera den, kontrollera vilka kommentarer som implementerar [IModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/), och granska sedan [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), och [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--). En `null`‑form indikerar en bildnivå‑kommentar. För en [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)‑förankring identifierar text‑selektionsmetoderna det tillhörande intervallet i formens textruta.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -402,11 +446,13 @@ try {
 }
 ```
 
-## **Ta bort kommentarer**
+## **Ta Bort Kommentarer**
 
-### **Ta bort alla kommentarer och kommentarförfattare**
+Aspose.Slides för Android via Java låter dig ta bort alla kommentarer och deras författare från en presentation eller radera valda kommentarer medan resten behålls. Följande exempel demonstrerar båda tillvägagångssätten och sparar den uppdaterade presentationen.
 
-Följande exempel visar hur du tar bort alla kommentarer och kommentarförfattare från en presentation:
+### **Ta Bort Alla Kommentarer och Kommentar‑Författare**
+
+Exemplet öppnar en befintlig presentation och anropar [ICommentCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#clear--) för varje författare, därefter [ICommentAuthorCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#clear--) för att ta bort själva författarna. Den sparade presentationen innehåller varken kommentarer eller kommentar‑författare. Använd en presentation som innehåller kommentarer för att observera borttagningen.
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -420,15 +466,16 @@ try {
     }
 
     presentation.getCommentAuthors().clear();
+
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Ta bort specifika kommentarer**
+### **Ta Bort Specifika Kommentarer**
 
-Följande exempel visar hur du tar bort specifika kommentarer från en bild:
+Exemplet skapar två kommentarer på en bild och använder [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) för att hitta kommentarer för varje författare. Det samlar kommentarer vars text är lika med "comment 1" innan [ICommentCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#remove-com.aspose.slides.IComment-) anropas, för att undvika förändringar i samlingen under urvalet. Den sparade presentationen behåller endast "comment 2".
 
 ```java
 import com.aspose.slides.IComment;
@@ -444,6 +491,7 @@ import java.util.List;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
     Date createdTime = new Date();
 
@@ -475,14 +523,14 @@ try {
 
 ## **FAQ**
 
-**Stöder Aspose.Slides ett löst status för moderna kommentarer?**
+**Stöder Aspose.Slides ett löst‑status för moderna kommentarer?**
 
-Ja. [IModernComment.getStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getStatus--) och [IModernComment.setStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) ger åtkomst till ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/moderncommentstatus/) värde, inklusive `Resolved`. Statusen lagras i presentationen och kan läsas igen efter att filen har öppnats på nytt.
+Ja. [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) och [IModernComment.setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) ger åtkomst till ett [ModernCommentStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/)‑värde, inklusive `Resolved`. Statusen sparas i presentationen och kan läsas igen efter att filen har öppnats på nytt.
 
-**Stöds trådade diskussioner (svarskedjor) och finns det en begränsning för nästling?**
+**Stöds trådade diskussioner (svarskedjor) och finns det någon begränsning för djupet?**
 
-Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#getParentComment--), vilket möjliggör svarskedjor. API:et definierar ingen specifik begränsning för nästlingsdjup.
+Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#getParentComment--), vilket möjliggör svarskedjor. API:et definierar ingen specifik gräns för nesting‑djupet.
 
-**I vilket koordinatsystem definieras en kommentarers markörs position på en bild?**
+**I vilket koordinatsystem definieras en kommentarmärkares position på en bild?**
 
-Markörens position definieras av flyttalskoordinater i bildens koordinatsystem, vilket gör att du kan placera den exakt på bilden.
+Märkarens position definieras av flyttalskoordinater i bildens koordinatsystem, vilket gör att du kan placera den exakt på bilden.

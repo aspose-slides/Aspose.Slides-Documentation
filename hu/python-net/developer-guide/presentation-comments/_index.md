@@ -1,6 +1,6 @@
 ---
-title: Prezentációs megjegyzések kezelése Pythonban
-linktitle: Prezentációs megjegyzések
+title: Python bemutató megjegyzések kezelése
+linktitle: Bemutató megjegyzések
 type: docs
 weight: 100
 url: /hu/python-net/presentation-comments/
@@ -8,7 +8,7 @@ keywords:
 - megjegyzés
 - modern megjegyzés
 - PowerPoint megjegyzések
-- prezentációs megjegyzések
+- bemutató megjegyzések
 - dia megjegyzések
 - megjegyzés hozzáadása
 - megjegyzés elérése
@@ -17,47 +17,47 @@ keywords:
 - megjegyzés eltávolítása
 - megjegyzés törlése
 - PowerPoint
-- prezentáció
+- bemutató
 - Python
 - Aspose.Slides
-description: "Az Aspose.Slides for Python via .NET segítségével kezelheti a prezentációs megjegyzéseket: hozzáadhat, olvashat, szerkeszthet, válaszolhat és eltávolíthat megjegyzéseket PowerPoint prezentációkban."
+description: "Kezelje a bemutató megjegyzéseket az Aspose.Slides for Python via .NET segítségével: adjon hozzá, olvassa, szerkessze, válaszoljon, és távolítsa el a megjegyzéseket a PowerPoint bemutatókban."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan kezelhetők a prezentációs megjegyzések az Aspose.Slides for Python via .NET segítségével. Bemutatja a megjegyzésekkel kapcsolatos fő típusokat, és azt, hogyan adhat megjegyzéseket a diákhoz, érheti el a meglévő megjegyzéseket, dolgozhat válaszokkal és modern megjegyzésekkel, valamint hogyan távolíthatja el a megjegyzéseket a prezentációból.
+Ez a cikk bemutatja, hogyan kezelhetők a bemutató megjegyzései az Aspose.Slides for Python via .NET segítségével. Bemutatja a fő megjegyzéssel kapcsolatos típusokat, és megmutatja, hogyan adhatók megjegyzések a diákhoz, hogyan érhetők el a meglévő megjegyzések, hogyan dolgozhatunk válaszokkal és modern megjegyzésekkel, valamint hogyan távolíthatók el a megjegyzések a bemutatóból.
 
-A példák lefedik a PowerPoint gyakori felülvizsgálati és együttműködési szituációit, például a megjegyzések szerzőkhöz rendelését, a megjegyzésszöveg és metaadatok olvasását, a válaszkövetések építését, valamint a kiválasztott vagy az összes megjegyzés eltávolítását.
+A példák a PowerPoint gyakori felülvizsgálati és együttműködési forgatókönyveit fedik le, például a megjegyzések szerzőkhöz rendelését, a megjegyzés szövegének és metaadatainak olvasását, válaszláncok felépítését, valamint a kijelölt vagy összes megjegyzés eltávolítását.
 
-PowerPointban a megjegyzések annotációként jelennek meg a diákon. Egy megjegyzés kiválasztása megjeleníti a szövegét és a kapcsolódó vitát.
+A PowerPointban a megjegyzések annotációként jelennek meg a diákon. Egy megjegyzés kiválasztása megjeleníti a szövegét és a kapcsolódó megbeszélést.
 
-A megjegyzések megjelenítése vagy elrejtése a prezentáció megnyitásakor, anélkül, hogy a megjegyzéseket módosítaná, lásd [A megjegyzések megjelenítése vagy elrejtése a prezentáció megnyitásakor](/slides/hu/python-net/presentation-view-properties/).
+Annak kéréséhez, hogy a megjegyzések megjelenjenek vagy el legyenek rejtve a bemutató megnyitásakor anélkül, hogy magukat a megjegyzéseket módosítanánk, lásd a [Megjegyzések megjelenítése vagy elrejtése bemutató megnyitásakor](/slides/hu/python-net/presentation-view-properties/).
 
-## **Miért érdemes megjegyzéseket hozzáadni a prezentációkhoz?**
+## **Miért adjunk megjegyzéseket a bemutatókhoz?**
 
-A megjegyzéseket felhasználhatja visszajelzés adására és a kollégákkal való együttműködésre a prezentációk felülvizsgálata során.
+A megjegyzések segítségével visszajelzést adhat és együttműködhet a kollégákkal a bemutatók felülvizsgálata során.
 
-Aspose.Slides for Python via .NET a következő API-kat biztosítja a megjegyzésekkel való munkához:
+Az Aspose.Slides for Python via .NET a következő API‑kat biztosítja a megjegyzésekkel való munkához:
 
-* A [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztály, amely hozzáférést biztosít a prezentáció megjegyzésíróihoz.
-* A [CommentCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/commentcollection/) osztály, amely egy adott szerzőhöz kapcsolódó megjegyzéseket képviseli.
-* A [Comment](https://reference.aspose.com/slides/hu/python-net/aspose.slides/comment/) osztály, amely információkat biztosít egy megjegyzésről, beleértve a szerzőjét, létrehozási időt, pozíciót és szöveget.
-* A [CommentAuthor](https://reference.aspose.com/slides/hu/python-net/aspose.slides/commentauthor/) osztály, amely információkat nyújt egy szerzőről, beleértve a nevét, monogramját és a kapcsolódó megjegyzéseket.
+* A [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) osztály, amely hozzáférést biztosít a bemutató megjegyzés‑szerzőihez.
+* A [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/) osztály, amely egy adott szerzőhöz kapcsolódó megjegyzéseket képviseli.
+* A [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) osztály, amely információkat nyújt egy megjegyzésről, beleértve a szerzőt, a létrehozás időpontját, a pozíciót és a szöveget.
+* A [CommentAuthor](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/) osztály, amely információkat nyújt egy szerzőről, beleértve a nevét, a kezdőbetűit és a kapcsolódó megjegyzéseket.
 
-## **Dia Megjegyzések Hozzáadása**
+## **Diák megjegyzéseinek hozzáadása**
 
-Az alábbi példa bemutatja, hogyan adhatók megjegyzések a diákhoz egy PowerPoint prezentációban:
+A példa két diát hoz létre, és egy megjegyzés‑szerzőt regisztrál a [add_author](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/add_author/) segítségével. Az [add_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_comment/) használatával egy megjegyzést helyez el minden dián, majd a [get_slide_comments](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_slide_comments/) segítségével lekéri az első dia megjegyzéseit az adott szerzőhez. A konzol kétszer jeleníti meg az első megjegyzés szövegét, bemutatva a hozzáférést mind a diáról, mind a szerzőről, és a mentett bemutató mindkét megjegyzést tartalmazza.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     first_slide = presentation.slides[0]
     second_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
+
     author = presentation.comment_authors.add_author("Jawad", "MF")
-    position = draw.PointF(0.2, 0.2)
+    position = slides.PointF(0.2, 0.2)
     created_time = datetime.now()
 
     author.comments.add_comment("Hello Jawad, this is a slide comment", first_slide, position, created_time)
@@ -74,9 +74,40 @@ with slides.Presentation() as presentation:
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Dia Megjegyzések Elérése**
+## **Megjegyzés‑szerző keresése vagy létrehozása**
 
-Az alábbi példa bemutatja, hogyan érhetők el a meglévő megjegyzések egy PowerPoint prezentációban:
+Amikor egy automatizált felülvizsgálat többször is feldolgozza ugyanazt a bemutatót, a [comment_authors](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/comment_authors/) gyűjteményt keresni kell egy szerző hozzáadása előtt. A [find_by_name_and_initials](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/find_by_name_and_initials/) a név és a kezdőbetűk egyaránt egyezik, és egy tömböt ad vissza a megfelelő szerzőkkel, vagy egy üres tömböt, ha nincs egyezés. Ezzel szemben a [find_by_name](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/find_by_name/) csak név alapján keres, a kezdőbetűktől függetlenül. Egy már meglévő név‑ és kezdőbetűpárral való [add_author](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/add_author/) hívás kivételt dob.
+
+A példa legalább egy diát tartalmazó bemutatófájlt igényel. Két átfutás során újra felhasználja az első egyező szerzőt, vagy csak akkor hoz létre újat, ha az eredmény üres. Több egyezés esetén az első tömb‑elemet választja anélkül, hogy egyesítené vagy eltávolítaná a többi szerzőt. Ezután a [add_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_comment/) hívással a kiválasztott szerzőhöz hozzáad egy megjegyzést, és elmenti a bemutatót. A második átfutás megnyitja az első átfutás kimenetét és megismétli a műveletet.
+
+```python
+from datetime import datetime
+
+import aspose.slides as slides
+
+author_name = "Reviewer"
+author_initials = "RV"
+
+input_file = "input.pptx"
+position = slides.PointF(20, 20)
+
+for pass_number in range(1, 3):
+    with slides.Presentation(input_file) as presentation:
+        matches = presentation.comment_authors.find_by_name_and_initials(author_name, author_initials)
+
+        author = matches[0] if len(matches) > 0 else presentation.comment_authors.add_author(author_name, author_initials)
+        author.comments.add_comment("Please review this slide.", presentation.slides[0], position, datetime.now())
+
+        output_file = f"review_pass_{pass_number}.pptx"
+        presentation.save(output_file, slides.export.SaveFormat.PPTX)
+        input_file = output_file
+```
+
+A második átfutás egy újabb megjegyzést ad hozzá anélkül, hogy új szerzőt hozna létre vagy a meglévő megjegyzéseket eltávolítaná. A végső fájl, `review_pass_2.pptx`, mindkét új megjegyzést tartalmazza az eredeti megjegyzésekkel együtt. Egy szerző újbóli felhasználása nem szűri ki a duplikált megjegyzéseket: a többszöri hozzáadás elkerüléséhez külön duplikátum‑detektálást kell megvalósítani a hozzáadás előtt.
+
+## **Megjegyzés‑szerzők elérése**
+
+A példa meglévő bemutatót nyit meg, és beolvassa a [comment_authors](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/comment_authors/) gyűjteményt. Minden szerzőhez végigiterál a [comments](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/comments/) listáján, és kiírja a dia számát, a megjegyzés szövegét, a szerző nevét és a létrehozás időpontját. A bemeneti bemutatónak tartalmaznia kell megjegyzéseket ahhoz, hogy a konzol kimenete megjelenjen.
 
 ```python
 import aspose.slides as slides
@@ -91,41 +122,41 @@ with slides.Presentation("Comments1.pptx") as presentation:
             print()
 ```
 
-## **Válasz a Megjegyzésekre**
+## **Válasz a megjegyzésekre**
 
-A szülőmegjegyzés a válaszak hierarchiájának tetején levő eredeti megjegyzés. A [Comment](https://reference.aspose.com/slides/hu/python-net/aspose.slides/comment/) osztály [parent_comment](https://reference.aspose.com/slides/hu/python-net/aspose.slides/comment/parent_comment/) tulajdonsága lehetővé teszi a megjegyzés szülőjének lekérdezését vagy beállítását.
+Egy szülő‑megjegyzés a válasz‑hierarchia tetején lévő eredeti megjegyzés. A [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) osztály [parent_comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/) tulajdonsága lehetővé teszi a szülő megjegyzés lekérését vagy beállítását.
 
-Az alábbi példa bemutatja, hogyan adhatók hozzá válaszok és hogyan vizsgálható meg a keletkezett megjegyzéshierarchia:
+A példa két szerző megjegyzéseit hozza létre, és a [parent_comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/) segítségével felépíti a válaszokat, beleértve egy válasz egy másik válaszra is. A `None` érték átadása a [get_slide_comments](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_slide_comments/) metódusnak az összes szerző megjegyzéseit adja vissza; a konzol minden bejegyzést a válasz‑hierarchiában elfoglalt mélysége szerint behúz. A példa elmenti a teljes megbeszélést, a [remove](https://reference.aspose.com/slides/python-net/aspose.slides/comment/remove/) metódust hívja az első gyökér‑megjegyzésen, és egy második bemutatót ment, amelyben az a megjegyzés és válaszai eltávolításra kerültek.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    position = draw.PointF(10, 10)
+
+    position = slides.PointF(10, 10)
     created_time = datetime.now()
 
-    author1 = presentation.comment_authors.add_author("Author_1", "A.A.")
-    comment1 = author1.comments.add_comment("comment 1", slide, position, created_time)
+    original_author = presentation.comment_authors.add_author("Author_1", "A.A.")
+    root_comment = original_author.comments.add_comment("comment 1", slide, position, created_time)
 
-    author2 = presentation.comment_authors.add_author("Author_2", "B.B.")
-    reply1 = author2.comments.add_comment("reply 1 for comment 1", slide, position, created_time)
-    reply1.parent_comment = comment1
+    reviewer = presentation.comment_authors.add_author("Author_2", "B.B.")
+    first_reply = reviewer.comments.add_comment("reply 1 for comment 1", slide, position, created_time)
+    first_reply.parent_comment = root_comment
 
-    reply2 = author2.comments.add_comment("reply 2 for comment 1", slide, position, created_time)
-    reply2.parent_comment = comment1
+    second_reply = reviewer.comments.add_comment("reply 2 for comment 1", slide, position, created_time)
+    second_reply.parent_comment = root_comment
 
-    sub_reply = author1.comments.add_comment("subreply 3 for reply 2", slide, position, created_time)
-    sub_reply.parent_comment = reply2
+    sub_reply = original_author.comments.add_comment("subreply 3 for reply 2", slide, position, created_time)
+    sub_reply.parent_comment = second_reply
 
-    author2.comments.add_comment("comment 2", slide, position, created_time)
-    comment3 = author2.comments.add_comment("comment 3", slide, position, created_time)
+    reviewer.comments.add_comment("comment 2", slide, position, created_time)
+    separate_comment = reviewer.comments.add_comment("comment 3", slide, position, created_time)
 
-    reply3 = author1.comments.add_comment("reply 4 for comment 3", slide, position, created_time)
-    reply3.parent_comment = comment3
+    separate_reply = original_author.comments.add_comment("reply 4 for comment 3", slide, position, created_time)
+    separate_reply.parent_comment = separate_comment
 
     comments = slide.get_slide_comments(None)
     for current_comment in comments:
@@ -138,41 +169,42 @@ with slides.Presentation() as presentation:
 
     presentation.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
 
-    comment1.remove()
+    root_comment.remove()
     presentation.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Amikor a [Comment](https://reference.aspose.com/slides/hu/python-net/aspose.slides/comment/) osztály [remove](https://reference.aspose.com/slides/hu/python-net/aspose.slides/comment/remove/) metódusa egy megjegyzés törlésére használatos, akkor a megjegyzés összes válasza is törlődik.
-* Ha a [parent_comment](https://reference.aspose.com/slides/hu/python-net/aspose.slides/comment/parent_comment/) tulajdonság körkörös hivatkozást hoz létre, akkor egy [PptxEditException](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pptxeditexception/) kivétel kerül dobásra.
+* Amikor a [remove](https://reference.aspose.com/slides/python-net/aspose.slides/comment/remove/) metódust a [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) osztályban használják megjegyzés törlésére, a megjegyzés összes válasza is törlődik.
+* Ha a [parent_comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/) tulajdonság körkörös hivatkozást hoz létre, egy [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/) kerül dobásra.
 {{% /alert %}}
 
-## **Modern Megjegyzések Hozzáadása**
+## **Modern megjegyzések hozzáadása**
 
-A modern megjegyzések a diával, egy konkrét alakzattal vagy egy AutoShape-on belüli szövegtartománnyal társíthatók. A [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/hu/python-net/aspose.slides/commentcollection/add_modern_comment/) metódus egy [Shape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shape/) argumentumot is elfogad a dia- és megjegyzésjelző koordinátákon felül.
+A modern megjegyzések kapcsolódhatnak a diához magához, egy adott alakzathoz vagy egy AutoShape szöveg‑tartományához. A [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_modern_comment/) metódus a [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) argumentumot is elfogadja a dia és a megjegyzés‑jelölő koordinátái mellett.
 
-Ha a shape argumentumnak `None` értéket adunk, a megjegyzés dia-szintű megjegyzés lesz. Jelzője a megadott koordinátákkal helyezkedik el, de nem kapcsolódik egy meghatározott alakzathoz, ezért a [ModernComment.shape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/moderncomment/shape/) `None` értéket ad vissza. Ha egy [Shape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shape/) kerül megadásra, a megjegyzés az adott alakzathoz van rögzítve. A koordináták továbbra is a megjegyzésjelző pozícióját határozzák meg a dian, míg az alakzattal való kapcsolat a [ModernComment.shape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/moderncomment/shape/) segítségével kérhető le.
+Ha a shape argumentum értéke `None`, a megjegyzés diálszintű megjegyzés. A jelölő a megadott koordinátákkal kerül elhelyezésre, de nem kapcsolódik egy konkrét alakzathoz, ezért a [ModernComment.shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/) `None`‑t ad vissza. Ha egy [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) van megadva, a megjegyzés ahhoz az alakzathoz van rögzítve. A koordináták továbbra is a megjegyzés‑jelölő pozícióját határozzák a dián, míg az alakzathoz való kapcsolódás a [ModernComment.shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/) segítségével kérdezhető le.
 
-### **Modern Megjegyzés Rögzítése Alakzathoz**
+### **Modern megjegyzés rögzítése alakzathoz**
 
-Az alábbi példa létrehoz egy dia-szintű modern megjegyzést és egy konkrét AutoShape-hoz rögzített modern megjegyzést. Ezután minden megjegyzéshez kiolvassa a kapcsolódó alakzatot.
+A példa kétszer hívja meg a [add_modern_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_modern_comment/) metódust: egyszer `None` shape‑szel egy diálszintű megjegyzéshez, egyszer pedig egy téglalappal az anchor‑ként. A [shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/) kiolvasása `True`‑t ad a diálszintű megjegyzés null ellenőrzésére és a `Revenue title`‑t az anchor‑olt megjegyzésre. Mindkét megjegyzés elmentésre kerül a bemutatóval.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     author = presentation.comment_authors.add_author("Reviewer", "RV")
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 300, 80)
     shape.name = "Revenue title"
     shape.text_frame.text = "Quarterly revenue"
 
     created_time = datetime.now()
-    slide_comment_position = draw.PointF(20, 20)
-    shape_comment_position = draw.PointF(60, 60)
+    slide_comment_position = slides.PointF(20, 20)
+    shape_comment_position = slides.PointF(60, 60)
     slide_comment = author.comments.add_modern_comment("Review the overall slide layout.", slide, None, slide_comment_position, created_time)
     shape_comment = author.comments.add_modern_comment("Check this title.", slide, shape, shape_comment_position, created_time)
 
@@ -182,70 +214,70 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comments.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Megjegyzések Rögzítése Különböző Alakzat Típusokhoz**
+### **Megjegyzések rögzítése különböző alakzattípusokhoz**
 
-Bármely diaobjektum, amely a [Shape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shape/) osztályból származik, használható alakzatrögzítőként. Gyakori példák a [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/), a [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/), a [GroupShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/groupshape/), a [Connector](https://reference.aspose.com/slides/hu/python-net/aspose.slides/connector/) valamint a diagramokhoz hasonló [GraphicalObject](https://reference.aspose.com/slides/hu/python-net/aspose.slides/graphicalobject/) példányok.
+Bármely [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) osztályból származó diaobjektum használható alakzat‑ankernak. Gyakori példák a [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/), a [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), a [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), a [Connector](https://reference.aspose.com/slides/python-net/aspose.slides/connector/) és a [GraphicalObject](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobject/) példányok, például diagramok.
 
-Az alábbi példa több gyakori alakzatot hoz létre, és minden egyeshez modern megjegyzést társít.
+A példa a [add_modern_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_modern_comment/) metódust használja, hogy megjegyzést kapcsoljon öt alakzattípushoz: egy AutoShape‑hez, egy képkerethez, egy csoporthoz, egy connector‑hoz és egy diagramhoz. A kép beágyazott képadatot használ, ezért nincs szükség külső képre. Minden megjegyzésnek saját jelölőpozíciója van, és a mentett bemutató megőrzi az öt alakzat‑kapcsolatot.
 
 ```python
 import base64
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     author = presentation.comment_authors.add_author("Reviewer", "RV")
     created_time = datetime.now()
 
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 180, 60)
     auto_shape.text_frame.text = "AutoShape"
-    auto_shape_comment_position = draw.PointF(30, 30)
+
+    auto_shape_comment_position = slides.PointF(30, 30)
     author.comments.add_modern_comment("Comment on an AutoShape.", slide, auto_shape, auto_shape_comment_position, created_time)
 
     image_base64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg=="
     image_data = base64.b64decode(image_base64)
     image = presentation.images.add_image(image_data)
     picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 220, 20, 120, 80, image)
-    picture_comment_position = draw.PointF(230, 30)
+    picture_comment_position = slides.PointF(230, 30)
     author.comments.add_modern_comment("Comment on a picture.", slide, picture_frame, picture_comment_position, created_time)
 
     group_shape = slide.shapes.add_group_shape()
     group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 80, 40)
     group_shape.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 100, 0, 80, 40)
-    group_comment_position = draw.PointF(40, 150)
+    group_comment_position = slides.PointF(40, 150)
     author.comments.add_modern_comment("Comment on a group.", slide, group_shape, group_comment_position, created_time)
 
     connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 220, 150, 140, 40)
-    connector_comment_position = draw.PointF(240, 150)
+    connector_comment_position = slides.PointF(240, 150)
     author.comments.add_modern_comment("Comment on a connector.", slide, connector, connector_comment_position, created_time)
 
     chart = slide.shapes.add_chart(slides.charts.ChartType.CLUSTERED_COLUMN, 400, 20, 250, 180)
-    chart_comment_position = draw.PointF(420, 40)
+    chart_comment_position = slides.PointF(420, 40)
     author.comments.add_modern_comment("Comment on a graphical object.", slide, chart, chart_comment_position, created_time)
 
     presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Megjegyzés Rögzítése Szöveghez és Állapotának Beállítása**
+### **Megjegyzés rögzítése szöveghez és állapotának beállítása**
 
-Egy [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/)‑hoz kapcsolódó modern megjegyzés esetén a [ModernComment.text_selection_start](https://reference.aspose.com/slides/hu/python-net/aspose.slides/moderncomment/text_selection_start/) a kijelölt szöveg kezdőpozícióját adja meg az alakzat szövegdobozában, míg a [ModernComment.text_selection_length](https://reference.aspose.com/slides/hu/python-net/aspose.slides/moderncomment/text_selection_length/) a kijelölés hosszát határozza meg. Együtt ezek a tulajdonságok egy adott szövegtartományhoz kötik a megjegyzést az AutoShape‑on belül.
+Egy modern megjegyzéshez, amely egy [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)-hez kapcsolódik, a [ModernComment.text_selection_start](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_start/) a kijelölt szöveg kezdőpozícióját adja meg az alakzat szövegkeretében, míg a [ModernComment.text_selection_length](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_length/) a kijelölés hosszát határozza meg. Ezek a tulajdonságok együtt a megjegyzést egy meghatározott szövegtartományhoz kötik az AutoShape‑ben.
 
-A [ModernComment.status](https://reference.aspose.com/slides/hu/python-net/aspose.slides/moderncomment/status/) tulajdonság olvasható vagy módosítható a [ModernCommentStatus](https://reference.aspose.com/slides/hu/python-net/aspose.slides/moderncommentstatus/) felsorolás egy értékével:
+A [ModernComment.status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) tulajdonság olvasható vagy frissíthető a [ModernCommentStatus](https://reference.aspose.com/slides/python-net/aspose.slides/moderncommentstatus/) felsorolás egyik értékével:
 
-- `NOT_DEFINED` — nincs definiált modern‑megjegyzés állapot.
+- `NOT_DEFINED` — nincs meghatározott modern‑megjegyzés állapot.
 - `ACTIVE` — a megjegyzés aktív.
-- `RESOLVED` — a megjegyzés megoldódott.
+- `RESOLVED` — a megjegyzés megoldott.
 - `CLOSED` — a megjegyzés lezárt.
 
-Az alábbi példa létrehoz egy alakzatra rögzített modern megjegyzést, szövegválasztáshoz társítja, megoldottként jelöli, elmenti a prezentációt, és újra megnyitás után ellenőrzi az értékeket.
+A példa egy modern megjegyzést rögzít a „quarterly revenue” szavakhoz egy téglalap szövegében. A null‑alapú [text_selection_start](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_start/) a szövegből kerül kiszámításra, a [text_selection_length](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_length/) pedig a kijelölt karakterek számára állítódik. A [status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) `RESOLVED`‑re állítása után a bemutató mentésre és újra megnyitásra kerül. A négy konzol‑ellenőrzés mindegyike `True`‑t kell, hogy kiírjon, ezzel megerősítve, hogy az alakzat‑anchor, a szöveg‑tartomány és az állapot megmaradt.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 output_file = "modern_comment_text_anchor.pptx"
@@ -255,12 +287,13 @@ expected_selection_start = shape_text.index(selected_text)
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 400, 100)
     shape.name = "Forecast text"
     shape.text_frame.text = shape_text
 
     author = presentation.comment_authors.add_author("Reviewer", "RV")
-    comment_position = draw.PointF(60, 60)
+    comment_position = slides.PointF(60, 60)
     comment = author.comments.add_modern_comment("Verify this forecast wording.", slide, shape, comment_position, datetime.now())
     comment.text_selection_start = expected_selection_start
     comment.text_selection_length = len(selected_text)
@@ -287,9 +320,9 @@ with slides.Presentation(output_file) as reopened_presentation:
         print("Resolved status preserved: " + str(status_matches))
 ```
 
-### **Létező Modern Megjegyzések Vizsgálata**
+### **Létező modern megjegyzések ellenőrzése**
 
-Egy létező prezentáció vizsgálatához ellenőrizze, mely megjegyzések [ModernComment](https://reference.aspose.com/slides/hu/python-net/aspose.slides/moderncomment/) példányok, majd vizsgálja meg a [ModernComment.shape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/moderncomment/shape/), a [ModernComment.text_selection_start](https://reference.aspose.com/slides/hu/python-net/aspose.slides/moderncomment/text_selection_start/), a [ModernComment.text_selection_length](https://reference.aspose.com/slides/hu/python-net/aspose.slides/moderncomment/text_selection_length/), és a [ModernComment.status](https://reference.aspose.com/slides/hu/python-net/aspose.slides/moderncomment/status/) tulajdonságokat. A `None` alakzat dia-szintű megjegyzést jelöl. Egy [AutoShape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/autoshape/) rögzítő esetén a szövegkijelölés tulajdonságai az alakzat szövegdobozában lévő kapcsolódó tartományt azonosítják.
+A példa egy meglévő bemutatót igényel, amely modern megjegyzéseket tartalmaz, és kiírja azok szövegét, állapotát és anchor részleteit. A vizsgálathoz ellenőrizze, hogy a megjegyzések példányai [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/)-ek‑e, majd vizsgálja meg a [ModernComment.shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/), a [ModernComment.text_selection_start](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_start/), a [ModernComment.text_selection_length](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_length/) és a [ModernComment.status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) értékeket. A `None` shape egy diálszintű megjegyzést jelez. Egy [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) anchor esetén a szöveg‑kijelölési tulajdonságok az alakzat szövegkeretében lévő tartományt azonosítják.
 
 ```python
 import aspose.slides as slides
@@ -319,11 +352,13 @@ with slides.Presentation("comments.pptx") as presentation:
             print()
 ```
 
-## **Megjegyzések Eltávolítása**
+## **Megjegyzések eltávolítása**
 
-### **Minden Megjegyzés és Megjegyzésíró Eltávolítása**
+Az Aspose.Slides for Python via .NET lehetővé teszi, hogy az összes megjegyzést és szerzőjüket eltávolítsa egy bemutatóból, vagy csak a kiválasztott megjegyzéseket törölje, a többit megtartva. Az alábbi példák mindkét megközelítést bemutatják, és mentik a frissített bemutatót.
 
-Az alábbi példa bemutatja, hogyan távolíthatók el a prezentációból az összes megjegyzés és megjegyzésíró:
+### **Minden megjegyzés és megjegyzés‑szerző eltávolítása**
+
+A példa egy meglévő bemutatót nyit meg, és minden szerzőnél meghívja a [CommentCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/clear/) metódust, majd a [CommentAuthorCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/clear/) hívással eltávolítja magukat a szerzőket. A mentett bemutató sem megjegyzéseket, sem megjegyzés‑szerzőket nem tartalmaz. A eltávolítás megfigyeléséhez használjon olyan bemutatót, amely tartalmaz megjegyzéseket.
 
 ```python
 import aspose.slides as slides
@@ -333,26 +368,27 @@ with slides.Presentation("example.pptx") as presentation:
         author.comments.clear()
 
     presentation.comment_authors.clear()
+
     presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Adott Megjegyzések Eltávolítása**
+### **Specifikus megjegyzések eltávolítása**
 
-Az alábbi példa bemutatja, hogyan távolíthatók el adott megjegyzések egy diáról:
+A példa két megjegyzést hoz létre egy dián, és a [get_slide_comments](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_slide_comments/) segítségével megtalálja minden szerző megjegyzéseit. Azokat a megjegyzéseket gyűjti, amelyek szövege „comment 1”, mielőtt meghívná a [CommentCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/remove/) metódust, így elkerülve a gyűjtemény módosítását a kiválasztás során. A mentett bemutató csak a „comment 2” megjegyzést tartja meg.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     author = presentation.comment_authors.add_author("Author", "A")
     created_time = datetime.now()
 
-    first_comment_position = draw.PointF(0.2, 0.2)
-    second_comment_position = draw.PointF(0.3, 0.2)
+    first_comment_position = slides.PointF(0.2, 0.2)
+    second_comment_position = slides.PointF(0.3, 0.2)
     author.comments.add_comment("comment 1", slide, first_comment_position, created_time)
     author.comments.add_comment("comment 2", slide, second_comment_position, created_time)
 
@@ -372,14 +408,14 @@ with slides.Presentation() as presentation:
 
 ## **GYIK**
 
-**Támogatja az Aspose.Slides a modern megjegyzések megoldott állapotát?**
+**Támogatja-e az Aspose.Slides a modern megjegyzések megoldott állapotát?**
 
-Igen. A [ModernComment.status](https://reference.aspose.com/slides/hu/python-net/aspose.slides/moderncomment/status/) olvasható és beállítható a [ModernCommentStatus](https://reference.aspose.com/slides/hu/python-net/aspose.slides/moderncommentstatus/) értékével, beleértve a `RESOLVED` állapotot is. Az állapot a prezentációban tárolódik, és a fájl újra megnyitása után ismét olvasható.
+Igen. A [ModernComment.status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) olvasható és beállítható egy [ModernCommentStatus](https://reference.aspose.com/slides/python-net/aspose.slides/moderncommentstatus/) értékkel, beleértve a `RESOLVED`‑t. Az állapot a bemutatóban tárolódik, és újra kiolvasható a fájl újra megnyitása után.
 
-**Támogatottak a szálas megbeszélések (válaszkövetések), és van-e beágyazási korlát?**
+**Támogatottak-e a szálas megbeszélések (válasz‑láncok), és van-e beágyazási korlát?**
 
-Igen. Minden megjegyzés hivatkozhat a [parent comment](https://reference.aspose.com/slides/hu/python-net/aspose.slides/comment/parent_comment/), lehetővé téve a válaszkövetéseket. Az API nem határoz meg konkrét beágyazási mélységkorlátot.
+Igen. Minden megjegyzés hivatkozhat a [parent comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/)‑re, így lehetővé téve a válasz‑láncokat. Az API nem definiál konkrét beágyazási mélység‑korlátot.
 
-**Milyen koordinátrendszerben van meghatározva egy megjegyzésjelző pozíciója a dián?**
+**Milyen koordináta‑rendszerben van definiálva egy megjegyzés‑jelölő pozíciója a dián?**
 
-A jelző pozíciója a dia koordinátrendszerében lebegőpontos koordinátákkal van meghatározva, ami lehetővé teszi a pontos elhelyezést a dián.
+A jelölő pozíciója lebegőpontos koordinátákkal van megadva a dia koordináta‑rendszerében, lehetővé téve a pontos elhelyezést a dián.

@@ -1,5 +1,5 @@
 ---
-title: Androidon történő prezentációs megjegyzések kezelése
+title: Prezentációs megjegyzések kezelése Androidon
 linktitle: Prezentációs megjegyzések
 type: docs
 weight: 100
@@ -13,7 +13,7 @@ keywords:
 - megjegyzés hozzáadása
 - megjegyzés elérése
 - megjegyzés szerkesztése
-- megjegyzés megválaszolása
+- megjegyzésre válasz
 - megjegyzés eltávolítása
 - megjegyzés törlése
 - PowerPoint
@@ -21,37 +21,36 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Kezelje a prezentációs megjegyzéseket az Aspose.Slides for Android via Java segítségével: gyorsan és egyszerűen adjon hozzá, olvasson, szerkesszen, válaszoljon, és távolítson el megjegyzéseket PowerPoint prezentációkban."
+description: "Kezelje a prezentációs megjegyzéseket az Aspose.Slides for Android via Java segítségével: gyorsan és egyszerűen adjon hozzá, olvasson, szerkesszen, válaszoljon, és távolítson el megjegyzéseket a PowerPoint prezentációkban."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan kezelhetők a prezentációs megjegyzések az Aspose.Slides for Android via Java segítségével. Bevezeti a fő megjegyzéssel kapcsolatos típusokat, és bemutatja, hogyan adhat megjegyzéseket a diákhoz, hogyan érheti el a már létező megjegyzéseket, hogyan dolgozhat válaszokkal és modern megjegyzésekkel, valamint hogyan távolíthatja el a megjegyzéseket egy prezentációból.
+Ez a cikk bemutatja, hogyan kezelhetők a bemutató megjegyzések az Aspose.Slides for Android via Java segítségével. Bemutatja a fő megjegyzésekkel kapcsolatos típusokat, és demonstrálja, hogyan adhatunk megjegyzéseket a diákhoz, hogyan érhetjük el a meglévő megjegyzéseket, hogyan dolgozhatunk válaszokkal és modern megjegyzésekkel, illetve hogyan távolíthatjuk el a megjegyzéseket egy bemutatóból.
 
-A példák lefedik a PowerPoint gyakori felülvizsgálati és együttműködési forgatókönyveit, például a megjegyzések szerzőkhöz rendelését, a megjegyzés szövegének és metaadatainak olvasását, válaszláncok építését, valamint a kiválasztott vagy az összes megjegyzés eltávolítását.
+A példák a PowerPoint gyakori felülvizsgálati és együttműködési forgatókönyveit fedik le, például a megjegyzések szerzőkhöz rendelését, a megjegyzés szövegének és metaadatainak olvasását, a válaszkötegek felépítését, valamint a kiválasztott vagy az összes megjegyzés eltávolítását.
 
-PowerPointban a megjegyzések annotációként jelennek meg a diákon. Egy megjegyzés kiválasztása megjeleníti annak szövegét és a kapcsolódó beszélgetést.
+PowerPointban a megjegyzések annotációként jelennek meg a diákon. Egy megjegyzés kiválasztása megjeleníti annak szövegét és a kapcsolódó megbeszélést.
 
-A megjegyzések megjelenítése vagy elrejtése a prezentáció megnyitásakor a megjegyzések maguk módosítása nélkül kéréshez, lásd [Megjegyzések megjelenítése vagy elrejtése a prezentáció megnyitásakor](/slides/hu/androidjava/presentation-view-properties/).
+Ha szeretné beállítani, hogy a megjegyzések megjelenjenek vagy rejtve legyenek egy bemutató megnyitásakor a megjegyzések módosítása nélkül, tekintse meg a [Show or Hide Comments When Opening a Presentation](/slides/hu/androidjava/presentation-view-properties/).
 
-## **Miért adjunk megjegyzéseket a prezentációkhoz?**
+## **Miért adjunk megjegyzéseket a bemutatókhoz?**
 
-A megjegyzéseket felhasználhatja visszajelzés adására és a kollégákkal való együttműködésre a prezentációk felülvizsgálata során.
+Megjegyzésekkel visszajelzést adhat és együttműködhet kollégáival a bemutatók felülvizsgálata során.
 
 Az Aspose.Slides for Android via Java a következő API-kat biztosítja a megjegyzésekkel való munkához:
 
-* A [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztály, amely hozzáférést biztosít a prezentáció megjegyzés szerzőihez.
-* Az [ICommentCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icommentcollection/) interfész, amely egy adott szerzőhöz kapcsolódó megjegyzéseket képviseli.
-* Az [IComment](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icomment/) interfész, amely információkat ad egy megjegyzésről, beleértve a szerzőt, létrehozás időpontját, pozícióját és szövegét.
-* A [CommentAuthor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/commentauthor/) osztály, amely információkat ad egy szerzőről, beleértve a nevét, monogramját és a hozzá tartozó megjegyzéseket.
+* A [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztály, amely hozzáférést biztosít a bemutató megjegyzés szerzőihez.
+* A [ICommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/) interface, amely egy adott szerzőhöz társított megjegyzéseket reprezentál.
+* A [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/) interface, amely információkat nyújt egy megjegyzésről, beleértve annak szerzőjét, létrehozási időpontját, pozícióját és szövegét.
+* A [CommentAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/commentauthor/) osztály, amely információkat nyújt egy szerzőről, beleértve a nevét, monogramját és a kapcsolódó megjegyzéseket.
 
-## **Diamegjegyzések hozzáadása**
+## **Dia Megjegyzések Hozzáadása**
 
-Az alábbi példa megmutatja, hogyan adhat megjegyzéseket diákhoz egy PowerPoint‑prezentációban:
+A példa két diát hoz létre, és regisztrál egy megjegyzés szerzőt a [addAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) segítségével. A [addComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-android.graphics.PointF-java.util.Date-) használatával egy megjegyzést helyez el minden dián, majd a [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) hívással lekéri az első dia megjegyzéseit az adott szerzőhöz. A konzol kétszer jeleníti meg az első megjegyzés szövegét, demonstrálva a hozzáférést mind a dián, mind a szerzőn keresztül, és a mentett bemutató mindkét megjegyzést tartalmazza.
 
 ```java
 import com.aspose.slides.IComment;
 import com.aspose.slides.ICommentAuthor;
-import com.aspose.slides.ICommentCollection;
 import com.aspose.slides.ISlide;
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -62,6 +61,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
     ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     PointF position = new PointF(0.2f, 0.2f);
     Date createdTime = new Date();
@@ -74,8 +74,7 @@ try {
         IComment firstComment = comments[0];
         System.out.println(firstComment.getText());
 
-        ICommentCollection authorComments = firstComment.getAuthor().getComments();
-        String commentText = authorComments.get_Item(0).getText();
+        String commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         System.out.println(commentText);
     }
 
@@ -85,9 +84,47 @@ try {
 }
 ```
 
-## **Diamegjegyzések elérése**
+## **Megjegyzés Szerző Keresése vagy Létrehozása**
 
-Az alábbi példa megmutatja, hogyan érheti el a már létező megjegyzéseket egy PowerPoint‑prezentációban:
+Amikor egy automatizált felülvizsgálat ugyanazt a bemutatót többször dolgozza fel, a [getCommentAuthors](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getCommentAuthors--) által visszaadott gyűjteményt kell keresni egy szerző hozzáadása előtt. A [findByNameAndInitials](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#findByNameAndInitials-java.lang.String-java.lang.String-) mind a nevet, mind a monogramot egyezteti, és a megfelelő szerzőket tartalmazó tömböt ad vissza, vagy egy üres tömböt, ha nincs egyezés. Ezzel szemben a [findByName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#findByName-java.lang.String-) csak a nevet vizsgálja, a monogramtól függetlenül. A [addAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#addAuthor-java.lang.String-java.lang.String-) hívása egy már meglévő név‑ és monogramkészlettel kivételt dob.
+
+A példa egy legalább egy diás bemutató fájlt igényel. Két átfutás során újra használja az első egyező szerzőt, vagy csak akkor hoz létre újat, ha a találat üres. Ha több egyezés van, a tömb első elemét választja anélkül, hogy egyesítené vagy eltávolítaná a többi szerzőt. Ezután a kiválasztott szerzőhöz a [addComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addComment-java.lang.String-com.aspose.slides.ISlide-android.graphics.PointF-java.util.Date-) hívást végzi, és menti a bemutatót. A második átfutás megnyitja az első átfutás kimenetét és ismétli a műveletet.
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.Date;
+
+final String authorName = "Reviewer";
+final String authorInitials = "RV";
+
+String inputFile = "input.pptx";
+PointF position = new PointF(20, 20);
+
+for (int pass = 1; pass <= 2; pass++) {
+    Presentation presentation = new Presentation(inputFile);
+    try {
+        ICommentAuthor[] matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        ICommentAuthor author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, new Date());
+
+        String outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+A második átfutás egy újabb megjegyzést ad hozzá anélkül, hogy új szerzőt hozna létre vagy a meglévő megjegyzéseket eltávolítaná. A végső fájl, `review_pass_2.pptx`, mindkét új megjegyzést tartalmazza az eredeti megjegyzésekkel együtt. Egy szerző újrahasználása nem deduplikálja a megjegyzéseket: a többszöri ugyanazon megjegyzés hozzáadásának elkerüléséhez valósítsa meg a duplikátum‑detektálást a hozzáadás előtt.
+
+## **Dia Megjegyzések Elérése**
+
+A példa egy meglévő bemutatót nyit meg, és a [getCommentAuthors](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getCommentAuthors--) által visszaadott gyűjteményt olvassa. Minden szerző esetén végigiterál a [getComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthor/#getComments--) által visszaadott gyűjteményen, és kiírja a dia számát, a megjegyzés szövegét, a szerző nevét és a létrehozás időpontját. A bemeneti bemutatónak megjegyzéseket kell tartalmaznia ahhoz, hogy a konzol kimenetet előállítsa.
 
 ```java
 import com.aspose.slides.IComment;
@@ -110,11 +147,11 @@ try {
 }
 ```
 
-## **Megjegyzések megválaszolása**
+## **Megjegyzések Válaszolása**
 
-A szülőmegjegyzés az eredeti megjegyzés a válasz‑hierarchia csúcsán. Az [IComment.getParentComment](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icomment/#getParentComment--) és az [IComment.setParentComment](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) metódusok lehetővé teszik egy megjegyzés szülőjének lekérdezését vagy beállítását.
+Egy szülő megjegyzés a válaszhierarchia tetején található eredeti megjegyzés. Az [IComment.getParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#getParentComment--) és az [IComment.setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) metódusok lehetővé teszik egy megjegyzés szülőjének lekérdezését vagy beállítását.
 
-Az alábbi példa megmutatja, hogyan adhat válaszokat, és hogyan vizsgálhatja meg a létrejött megjegyzés‑hierarchiát:
+A példa két szerzőtől hoz létre megjegyzéseket, és a [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) segítségével felépíti a válaszokat, beleértve egy válasz egy másik válaszra való hivatkozását is. A [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) `null` argumentummal történő meghívása az összes szerző megjegyzéseit adja vissza; a konzol minden bejegyzést a válaszhierarchia mélységének megfelelően igazít. A példa elmenti a teljes megbeszélést, az első gyökér megjegyzésen meghívja a [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#remove--) metódust, majd egy második bemutatót ment, amelyben az a megjegyzés és annak válaszai eltávolításra kerültek.
 
 ```java
 import com.aspose.slides.IComment;
@@ -128,27 +165,28 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     PointF position = new PointF(10, 10);
     Date createdTime = new Date();
 
-    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    ICommentAuthor originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    ICommentAuthor reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    IComment secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    IComment subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    IComment separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     IComment[] comments = slide.getSlideComments(null);
     for (int i = 0; i < comments.length; i++) {
@@ -163,7 +201,7 @@ try {
 
     presentation.save("parent_comment.pptx", SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -171,19 +209,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Amikor az [IComment.remove](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icomment/#remove--) metódust használja egy megjegyzés törlésére, a megjegyzésre adott összes válasz is törlődik.
-* Ha az [IComment.setParentComment](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) körkörös hivatkozást hoz létre, akkor egy [PptxEditException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pptxeditexception/) kerül kivételként dobásra.
+* Amikor az [IComment.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#remove--) metódust használják egy megjegyzés törlésére, az összes hozzá tartozó válasz is törlődik.
+* Ha az [IComment.setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) körkörös hivatkozást hoz létre, egy [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxeditexception/) kerül dobásra.
 {{% /alert %}}
 
-## **Modern megjegyzések hozzáadása**
+## **Modern Megjegyzések Hozzáadása**
 
-A modern megjegyzések a diára, egy adott alakzatra vagy egy AutoShape‑on belüli szövegtartományra vonatkozhatnak. Az [ICommentCollection.addModernComment](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) metódus egy [IShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) argumentumot is elfogad a dia és a megjegyzés‑marker koordinátái mellett.
+A modern megjegyzések kapcsolhatók a diához, egy adott alakzathoz vagy egy AutoShape szövegtartományához. Az [ICommentCollection.addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) metódus egy [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) argumentumot is elfogad a dia és a megjegyzés‑marker koordinátái mellett.
 
-Ha a shape argumentumként `null` kerül átadásra, a megjegyzés diaszintű megjegyzés lesz. Markerét a megadott koordináták alapján helyezi el, de nem kapcsolódik egy konkrét alakzathoz, így az [IModernComment.getShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#getShape--) `null`‑t ad vissza. Ha egy [IShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) van megadva, a megjegyzés arra az alakzatra van rögzítve. A koordináták továbbra is meghatározzák a megjegyzés‑marker pozícióját a dián, míg az alakzati kapcsolatot a [IModernComment.getShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#getShape--) hívással lehet lekérdezni.
+Ha a shape argumentum `null`, a megjegyzés dia‑szintű. A marker a megadott koordinátákkal kerül pozícionálásra, de nem kapcsolódik konkrét alakzathoz, ezért az [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) `null`‑t ad vissza. Ha egy [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) van megadva, a megjegyzés ehhez az alakzathoz lesz rögzítve. A koordináták továbbra is a megjegyzés marker pozícióját határozzák a dián, míg az alakzat‑kapcsolat a [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) segítségével kérdezhető le.
 
-### **Modern megjegyzés rögzítése alakzatra**
+### **Modern Megjegyzés Horgonyzása Alakzathoz**
 
-Az alábbi példa létrehoz egy diaszintű modern megjegyzést és egy specifikus AutoShape‑ra rögzített modern megjegyzést is. Ezután minden megjegyzéshez kiolvassa a hozzá tartozó alakzatot.
+A példa kétszer hívja az [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) metódust: egyszer `null` shape‑szel dia‑szintű megjegyzéshez, egyszer pedig egy téglalappal horgonyként. A [getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--) kiírása `true`‑t ad a dia‑szintű megjegyzés null‑ellenőrzésére, és `Revenue title`‑t az horgonyzott megjegyzésre. Mindkét megjegyzés a prezentációval mentésre kerül.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -199,7 +237,9 @@ import java.util.Date;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -219,11 +259,11 @@ try {
 }
 ```
 
-### **Megjegyzések rögzítése különböző alakzattípusokhoz**
+### **Megjegyzések Horgonyzása Különböző Alakzat Típusokhoz**
 
-Bármely diaobjektum, amely implementálja az [IShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) interfészt, használható alakzatrögzítőként. Gyakori példák: [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iconnector/) és a diagramokhoz hasonló [IGraphicalObject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/igraphicalobject/) példányok.
+Bármely diaobjektum, amely megvalósítja az [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) interfészt, használható alakzat‑horgonyként. Gyakori példák a [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/), a [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/), az [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/), az [IConnector](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnector/) és az [IGraphicalObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobject/) példányok, például diagramok.
 
-Az alábbi példa több gyakori alakzattípust hoz létre, és mindegyikhez modern megjegyzést rendel.
+A példa az [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) használatával egy megjegyzést kapcsol minden öt alakzat típushoz: egy AutoShape-hez, egy képkerethez, egy csoporthoz, egy csatlakozóhoz és egy diagramhoz. A kép beágyazott képadatot használ, így külső kép nem szükséges. Minden megjegyzésnek saját marker‑pozíciója van, és a mentett bemutató megőrzi mind az öt alakzatkapcsolatot.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -239,22 +279,24 @@ import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
 import com.aspose.slides.ShapeType;
 import android.graphics.PointF;
-import java.util.Base64;
+import android.util.Base64;
 import java.util.Date;
 
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     Date createdTime = new Date();
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     PointF autoShapeCommentPosition = new PointF(30, 30);
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
     String imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
-    byte[] imageData = Base64.getDecoder().decode(imageBase64);
+    byte[] imageData = Base64.decode(imageBase64, Base64.DEFAULT);
     IPPImage image = presentation.getImages().addImage(imageData);
     IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
     PointF pictureCommentPosition = new PointF(230, 30);
@@ -280,18 +322,18 @@ try {
 }
 ```
 
-### **Megjegyzés rögzítése szöveghez és állapotának beállítása**
+### **Megjegyzés Horgonyzása Szöveghez és Állapotának Beállítása**
 
-Egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/)-hez kapcsolódó modern megjegyzésnél az [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) és az [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) a kiválasztott szöveg kezdőpozícióját adja meg az alakzat szövegkeretében. Az [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) és az [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) a kijelölés hosszát adja vissza. Ezek együtt a megjegyzést az AutoShape‑on belüli konkrét szövegtartományhoz kötik.
+Egy modern megjegyzés, amely egy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)-hez van kapcsolva, a [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) és a [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) metódusokkal éri el a kiválasztott szöveg kezdőpozícióját az alakzat szövegdobozában. A [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) és a [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) a kijelölés hosszát adja meg. Ezek együtt a megjegyzést egy adott szövegtartományhoz kötik az AutoShape‑en belül.
 
-Az [IModernComment.getStatus](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#getStatus--) és az [IModernComment.setStatus](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) metódusok a [ModernCommentStatus](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/moderncommentstatus/) konstansok egyikének értékét adják vissza:
+Az [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) és az [IModernComment.setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) metódusok a [ModernCommentStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/) konstansok közül egy értéket adnak vissza:
 
-- `NotDefined` — nincs meghatározott modern‑megjegyzés állapot.
+- `NotDefined` — nincs definiálva konkrét modern‑megjegyzés állapot.
 - `Active` — a megjegyzés aktív.
 - `Resolved` — a megjegyzés megoldott.
 - `Closed` — a megjegyzés lezárt.
 
-Az alábbi példa alakzatra rögzített modern megjegyzést hoz létre, szövegjelenítést ad hozzá, megoldottnak jelöli, elmenti a prezentációt, majd a fájl újbóli megnyitása után ellenőrzi az értékeket.
+A példa egy modern megjegyzést rögzít a "quarterly revenue" szavakra egy téglalap szövegében. Kiszámítja a null‑alapú kezdőpozíciót a szövegből, és átadja a [setTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) metódusnak, majd a [setTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) segítségével beállítja a kiválasztott karakterek számát. A [setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) `Resolved` értékre állítása után menti és újra megnyitja a bemutatót. A négy konzol‑ellenőrzés mindegyike `true`‑t kell, hogy kiírjon, megerősítve, hogy az alakzat‑horgony, a szöveg‑tartomány és az állapot megmaradt.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -314,6 +356,7 @@ int expectedSelectionStart = shapeText.indexOf(selectedText);
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
@@ -356,9 +399,9 @@ try {
 }
 ```
 
-### **Meglévő modern megjegyzések vizsgálata**
+### **Meglévő Modern Megjegyzések Ellenőrzése**
 
-Egy meglévő prezentáció vizsgálatához először ellenőrizze, mely megjegyzések implementálják az [IModernComment](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/) interfészt, majd tekintse meg az [IModernComment.getShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#getShape--), az [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), az [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) és az [IModernComment.getStatus](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#getStatus--) metódusokat. A `null` alakzat diaszintű megjegyzést jelent. Egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) rögzítő esetén a szöveg‑kijelölési metódusok az alakzat szövegkeretében található tartományra mutatnak.
+A példa egy már létező, modern megjegyzéseket tartalmazó bemutatót igényel, és kiírja azok szövegét, állapotát és horgony részleteit. Az ellenőrzéshez először meg kell határozni, mely megjegyzések implementálják az [IModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/) interfészt, majd megvizsgálni az [IModernComment.getShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) és [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) metódusokat. Egy `null` shape egy dia‑szintű megjegyzést jelez. Egy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) horgony esetén a szöveg‑kijelölés‑metódusok az alakzat szövegdobozában lévő tartományt határozzák meg.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -403,11 +446,13 @@ try {
 }
 ```
 
-## **Megjegyzések eltávolítása**
+## **Megjegyzések Törlése**
 
-### **Minden megjegyzés és megjegyzés‑szerző eltávolítása**
+Az Aspose.Slides for Android via Java lehetővé teszi, hogy egy bemutatóból minden megjegyzést és szerzőjüket eltávolítsa, vagy csak a kiválasztott megjegyzéseket törölje a többi megőrzése mellett. Az alábbi példák mindkét megközelítést szemléltetik, és elmentik a módosított bemutatót.
 
-Az alábbi példa megmutatja, hogyan távolíthatja el az összes megjegyzést és megjegyzés‑szerzőt egy prezentációból:
+### **Minden Megjegyzés és Megjegyzés Szerző Törlése**
+
+A példa egy meglévő bemutatót nyit meg, és minden szerző esetén meghívja az [ICommentCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#clear--) metódust, majd az [ICommentAuthorCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentauthorcollection/#clear--) segítségével eltávolítja magukat a szerzőket is. A mentett bemutató sem megjegyzéseket, sem megjegyzés‑szerzőket nem tartalmaz. Használjon egy megjegyzéseket tartalmazó bemutatót a törlés megfigyeléséhez.
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -421,15 +466,16 @@ try {
     }
 
     presentation.getCommentAuthors().clear();
+
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Specifikus megjegyzések eltávolítása**
+### **Kifejezetten Kiválasztott Megjegyzések Törlése**
 
-Az alábbi példa megmutatja, hogyan távolíthatja el a konkrét megjegyzéseket egy diáról:
+A példa két megjegyzést hoz létre egy dián, és a [getSlideComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideComments-com.aspose.slides.ICommentAuthor-) segítségével megtalálja a megjegyzéseket minden szerzőnél. Azok a megjegyzések, amelyek szövege „comment 1”, gyűjtődik, mielőtt meghívná az [ICommentCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommentcollection/#remove-com.aspose.slides.IComment-) metódust, elkerülve a gyűjtemény módosítását a kiválasztás közben. A mentett bemutató csak a „comment 2” megjegyzést tartalmazza.
 
 ```java
 import com.aspose.slides.IComment;
@@ -445,6 +491,7 @@ import java.util.List;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
     Date createdTime = new Date();
 
@@ -476,14 +523,14 @@ try {
 
 ## **GYIK**
 
-**Támogatja az Aspose.Slides a modern megjegyzések megoldott állapotát?**
+**Támogatja-e az Aspose.Slides a modern megjegyzések megoldott állapotát?**
 
-Igen. Az [IModernComment.getStatus](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#getStatus--) és az [IModernComment.setStatus](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) a [ModernCommentStatus](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/moderncommentstatus/) értékét adja vissza, beleértve a `Resolved` állapotot. Az állapot a prezentációban tárolódik, és a fájl újbóli megnyitása után ismét leolvasható.
+Igen. Az [IModernComment.getStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#getStatus--) és az [IModernComment.setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) egy [ModernCommentStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncommentstatus/) értéket ad vissza, többek között a `Resolved`-t. Az állapot a bemutatóban tárolódik, és a fájl újranyitása után újra olvasható.
 
-**Támogatottak a szálas beszélgetések (válaszláncok), és van-e beágyazási korlát?**
+**Támogatottak-e a szálas megbeszélések (válaszkötegek), és van-e beágyazási korlát?**
 
-Igen. Minden megjegyzés hivatkozhat a saját [szülő megjegyzésére](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icomment/#getParentComment--), így válaszláncok hozhatók létre. Az API nem határoz meg konkrét beágyazási mélységi korlátot.
+Igen. Minden megjegyzés hivatkozhat a [parent comment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icomment/#getParentComment--)‑re, így lehetővé téve a válaszkötegeket. Az API nem határoz meg konkrét beágyazási mélység‑korlátot.
 
-**Milyen koordináta‑rendszerben van meghatározva a megjegyzés‑marker pozíciója a dián?**
+**Milyen koordináta‑rendszerben van definiálva egy megjegyzés marker pozíciója a dián?**
 
-A marker pozíciója lebegőpontos koordinátákkal van meghatározva a dia koordináta‑rendszerében, lehetővé téve a pontos elhelyezést a dián.
+A marker pozíciója lebegőpontos koordinátákkal van definiálva a dia koordináta‑rendszerében, lehetővé téve a pontos elhelyezést a dián.

@@ -11,7 +11,7 @@ keywords:
 - Präsentationskommentare
 - Folienkommentare
 - Kommentar hinzufügen
-- Kommentar abrufen
+- Kommentar zugreifen
 - Kommentar bearbeiten
 - Kommentar beantworten
 - Kommentar entfernen
@@ -20,32 +20,32 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Verwalten Sie Präsentationskommentare mit Aspose.Slides für C++: Kommentare in PowerPoint-Präsentationen schnell und einfach hinzufügen, lesen, bearbeiten, beantworten und entfernen."
+description: "Verwalten Sie Präsentationskommentare mit Aspose.Slides für C++: Kommentare in PowerPoint‑Präsentationen schnell und einfach hinzufügen, lesen, bearbeiten, beantworten und entfernen."
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie Kommentare in Präsentationen mit Aspose.Slides für C++ verwaltet werden. Er stellt die wichtigsten kommentarbezogenen Typen vor und zeigt, wie Kommentare zu Folien hinzugefügt, vorhandene Kommentare abgerufen, mit Antworten und modernen Kommentaren gearbeitet und Kommentare aus einer Präsentation entfernt werden.
+Dieser Artikel erklärt, wie man Präsentationskommentare mit Aspose.Slides für C++ verwaltet. Er führt die wichtigsten kommentarbezogenen Typen ein und demonstriert, wie Kommentare zu Folien hinzugefügt, vorhandene Kommentare abgerufen, mit Antworten und modernen Kommentaren gearbeitet und Kommentare aus einer Präsentation entfernt werden.
 
-Die Beispiele decken gängige Szenarien für Überprüfung und Zusammenarbeit in PowerPoint ab, wie das Zuweisen von Kommentaren zu Autoren, das Auslesen von Kommentartext und Metadaten, das Erstellen von Antwortketten und das Entfernen ausgewählter Kommentare oder aller Kommentare.
+Die Beispiele decken gängige Überprüfungs‑ und Zusammenarbeitsszenarien in PowerPoint ab, z. B. das Zuweisen von Kommentaren zu Autoren, das Auslesen von Kommentartext und Metadaten, das Erstellen von Antwortketten und das Entfernen ausgewählter Kommentare oder aller Kommentare.
 
 In PowerPoint erscheinen Kommentare als Anmerkungen auf Folien. Durch Auswählen eines Kommentars wird dessen Text und die zugehörige Diskussion angezeigt.
 
-Um zu verlangen, dass Kommentare beim Öffnen einer Präsentation ein- oder ausgeblendet werden, ohne die Kommentare selbst zu ändern, siehe [Show or Hide Comments When Opening a Presentation](/slides/de/cpp/presentation-view-properties/).
+Um zu verlangen, dass Kommentare beim Öffnen einer Präsentation angezeigt oder ausgeblendet werden, ohne die Kommentare selbst zu ändern, siehe [Kommentare beim Öffnen einer Präsentation ein- oder ausblenden](/slides/de/cpp/presentation-view-properties/).
 
 ## **Warum Kommentare zu Präsentationen hinzufügen?**
 
-Sie können Kommentare verwenden, um Feedback zu geben und mit Kollegen bei der Durchsicht von Präsentationen zusammenzuarbeiten.
+Sie können Kommentare verwenden, um Feedback zu geben und bei der Durchsicht von Präsentationen mit Kollegen zusammenzuarbeiten.
 
-Aspose.Slides für C++ bietet die folgenden APIs zum Arbeiten mit Kommentaren:
+Aspose.Slides für C++ stellt die folgenden APIs für die Arbeit mit Kommentaren bereit:
 
-* Die [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) Klasse, die Zugriff auf die Kommentarautoren der Präsentation bietet.
-* Die [ICommentCollection](https://reference.aspose.com/slides/de/cpp/aspose.slides/icommentcollection/) Schnittstelle, die die Kommentare eines einzelnen Autors darstellt.
-* Die [IComment](https://reference.aspose.com/slides/de/cpp/aspose.slides/icomment/) Schnittstelle, die Informationen zu einem Kommentar liefert, einschließlich Autor, Erstellungszeit, Position und Text.
-* Die [CommentAuthor](https://reference.aspose.com/slides/de/cpp/aspose.slides/commentauthor/) Klasse, die Informationen zu einem Autor liefert, einschließlich Name, Initialen und zugehöriger Kommentare.
+* The [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class, die Zugriff auf die Kommentarautoren der Präsentation bietet.
+* The [ICommentCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/) interface, die die mit einem einzelnen Autor verbundenen Kommentare darstellt.
+* The [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) interface, die Informationen über einen Kommentar bereitstellt, einschließlich Autor, Erstellungszeit, Position und Text.
+* The [CommentAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/commentauthor/) class, die Informationen über einen Autor bereitstellt, einschließlich Name, Initialen und zugehöriger Kommentare.
 
 ## **Folienkommentare hinzufügen**
 
-Das folgende Beispiel zeigt, wie Kommentare zu Folien in einer PowerPoint‑Präsentation hinzugefügt werden:
+Das Beispiel erstellt zwei Folien und registriert einen Kommentarautor mit [AddAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/addauthor/). Es verwendet [AddComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addcomment/), um auf jeder Folie einen Kommentar zu platzieren, ruft dann die Kommentare der ersten Folie für diesen Autor mit [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/) ab. Die Konsole gibt den Text des ersten Kommentars zweimal aus, wodurch der Zugriff sowohl über die Folie als auch über den Autor demonstriert wird, und die gespeicherte Präsentation enthält beide Kommentare.
 
 ```cpp
 #include <DOM/IComment.h>
@@ -68,6 +68,7 @@ using namespace System::Drawing;
 auto presentation = MakeObject<Presentation>();
 auto firstSlide = presentation->get_Slide(0);
 auto secondSlide = presentation->get_Slides()->AddEmptySlide(presentation->get_LayoutSlide(0));
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Jawad", u"MF");
 auto position = PointF(0.2f, 0.2f);
 auto createdTime = DateTime::get_Now();
@@ -88,9 +89,54 @@ if (comments->get_Length() > 0)
 presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Zugriff auf Folienkommentare**
+## **Einen Kommentarautor finden oder erstellen**
 
-Das folgende Beispiel zeigt, wie vorhandene Kommentare in einer PowerPoint‑Präsentation abgerufen werden:
+Wenn eine automatisierte Überprüfung dieselbe Präsentation wiederholt verarbeitet, durchsuchen Sie die Sammlung, die von [get_CommentAuthors](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_commentauthors/) zurückgegeben wird, bevor Sie einen Autor hinzufügen. [FindByNameAndInitials](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/findbynameandinitials/) stimmt sowohl Name als auch Initialen überein und gibt ein Array passender Autoren zurück, oder ein leeres Array, wenn keine Übereinstimmungen existieren. Im Gegensatz dazu durchsucht [FindByName](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/findbyname/) nur nach dem Namen, unabhängig von den Initialen. Der Aufruf von [AddAuthor](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/addauthor/) mit einem Namen und Initialen, die bereits in der Sammlung vorhanden sind, löst eine Ausnahme aus.
+
+Das Beispiel benötigt eine Präsentationsdatei mit mindestens einer Folie. In jedem der beiden Durchläufe wird der zuerst passende Autor wiederverwendet oder nur dann ein neuer erstellt, wenn das Ergebnis leer ist. Gibt es mehrere Treffer, wird das erste Array‑Element ausgewählt, ohne die anderen Autoren zu zusammenzuführen oder zu entfernen. Anschließend wird [AddComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addcomment/) für den ausgewählten Autor aufgerufen und die Präsentation gespeichert. Der zweite Durchlauf öffnet die Ausgabe des ersten Durchlaufs und wiederholt den Vorgang.
+
+```cpp
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/date_time.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+const String authorName = u"Reviewer";
+const String authorInitials = u"RV";
+
+auto inputFile = String(u"input.pptx");
+auto position = PointF(20.0f, 20.0f);
+
+for (auto pass = 1; pass <= 2; pass++)
+{
+    auto presentation = MakeObject<Presentation>(inputFile);
+
+    auto matches = presentation->get_CommentAuthors()->FindByNameAndInitials(authorName, authorInitials);
+
+    auto author = matches->get_Length() > 0 ? matches[0] : presentation->get_CommentAuthors()->AddAuthor(authorName, authorInitials);
+    author->get_Comments()->AddComment(u"Please review this slide.", presentation->get_Slide(0), position, DateTime::get_Now());
+
+    auto outputFile = String::Format(u"review_pass_{0}.pptx", pass);
+    presentation->Save(outputFile, SaveFormat::Pptx);
+    inputFile = outputFile;
+}
+```
+
+Der zweite Durchlauf fügt einen weiteren Kommentar hinzu, ohne einen weiteren Autor zu erzeugen oder vorhandene Kommentare zu entfernen. Die endgültige Datei `review_pass_2.pptx` enthält beide neuen Kommentare neben etwaigen Originalkommentaren. Das Wiederverwenden eines Autors dedupliziert Kommentare nicht: Um zu vermeiden, dass derselbe Kommentar wiederholt hinzugefügt wird, implementieren Sie eine separate Duplikaterkennung, bevor Sie ihn hinzufügen.
+
+## **Auf Folienkommentare zugreifen**
+
+Das Beispiel öffnet eine vorhandene Präsentation und liest die Sammlung, die von [get_CommentAuthors](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_commentauthors/) zurückgegeben wird. Für jeden Autor iteriert es über die Sammlung, die von [get_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthor/get_comments/) zurückgegeben wird, und gibt die Foliennummer, den Kommentartext, den Autorennamen und die Erstellungszeit aus. Die Eingabepäsentation muss Kommentare enthalten, damit Konsolenausgaben erzeugt werden.
 
 ```cpp
 #include <DOM/IComment.h>
@@ -121,9 +167,9 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **Auf Kommentare antworten**
 
-Ein übergeordneter Kommentar ist der ursprüngliche Kommentar an der Spitze einer Antwort‑Hierarchie. Die [get_ParentComment](https://reference.aspose.com/slides/de/cpp/aspose.slides/icomment/get_parentcomment/) und [set_ParentComment](https://reference.aspose.com/slides/de/cpp/aspose.slides/icomment/set_parentcomment/) Methoden der [IComment](https://reference.aspose.com/slides/de/cpp/aspose.slides/icomment/) Schnittstelle ermöglichen das Abrufen bzw. Festlegen des übergeordneten Kommentars.
+Ein Elternkommentar ist der ursprüngliche Kommentar an der Spitze einer Antworthierarchie. Die Methoden [get_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/get_parentcomment/) und [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) des [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) Interfaces ermöglichen das Abrufen bzw. Setzen des Elternteils eines Kommentars.
 
-Das folgende Beispiel zeigt, wie Antworten hinzugefügt und die resultierende Kommentar‑Hierarchie inspiziert werden:
+Das Beispiel erstellt Kommentare von zwei Autoren und verwendet [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/), um Antworten zu erstellen, einschließlich einer Antwort auf eine weitere Antwort. Das Übergeben von `nullptr` an [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/) ruft Kommentare aller Autoren ab; die Konsole rückt jeden Eintrag gemäß seiner Tiefe in der Antworthierarchie ein. Das Beispiel speichert die komplette Diskussion, ruft [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/remove/) für den ersten Root‑Kommentar auf und speichert eine zweite Präsentation, in der dieser Kommentar und seine Antworten entfernt sind.
 
 ```cpp
 #include <DOM/IComment.h>
@@ -144,30 +190,31 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto position = PointF(10.0f, 10.0f);
 auto createdTime = DateTime::get_Now();
 
-auto author1 = presentation->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
-auto comment1 = author1->get_Comments()->AddComment(u"comment 1", slide, position, createdTime);
+auto originalAuthor = presentation->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
+auto rootComment = originalAuthor->get_Comments()->AddComment(u"comment 1", slide, position, createdTime);
 
-auto author2 = presentation->get_CommentAuthors()->AddAuthor(u"Author_2", u"B.B.");
-auto reply1 = author2->get_Comments()->AddComment(u"reply 1 for comment 1", slide, position, createdTime);
-reply1->set_ParentComment(comment1);
+auto reviewer = presentation->get_CommentAuthors()->AddAuthor(u"Author_2", u"B.B.");
+auto firstReply = reviewer->get_Comments()->AddComment(u"reply 1 for comment 1", slide, position, createdTime);
+firstReply->set_ParentComment(rootComment);
 
-auto reply2 = author2->get_Comments()->AddComment(u"reply 2 for comment 1", slide, position, createdTime);
-reply2->set_ParentComment(comment1);
+auto secondReply = reviewer->get_Comments()->AddComment(u"reply 2 for comment 1", slide, position, createdTime);
+secondReply->set_ParentComment(rootComment);
 
-auto subReply = author1->get_Comments()->AddComment(u"subreply 3 for reply 2", slide, position, createdTime);
-subReply->set_ParentComment(reply2);
+auto subReply = originalAuthor->get_Comments()->AddComment(u"subreply 3 for reply 2", slide, position, createdTime);
+subReply->set_ParentComment(secondReply);
 
-author2->get_Comments()->AddComment(u"comment 2", slide, position, createdTime);
-auto comment3 = author2->get_Comments()->AddComment(u"comment 3", slide, position, createdTime);
+reviewer->get_Comments()->AddComment(u"comment 2", slide, position, createdTime);
+auto separateComment = reviewer->get_Comments()->AddComment(u"comment 3", slide, position, createdTime);
 
-auto reply3 = author1->get_Comments()->AddComment(u"reply 4 for comment 3", slide, position, createdTime);
-reply3->set_ParentComment(comment3);
+auto separateReply = originalAuthor->get_Comments()->AddComment(u"reply 4 for comment 3", slide, position, createdTime);
+separateReply->set_ParentComment(separateComment);
 
 auto comments = slide->GetSlideComments(nullptr);
-for (int32_t i = 0; i < comments->get_Length(); i++)
+for (auto i = 0; i < comments->get_Length(); i++)
 {
     auto comment = comments[i];
     while (comment->get_ParentComment() != nullptr)
@@ -181,24 +228,24 @@ for (int32_t i = 0; i < comments->get_Length(); i++)
 
 presentation->Save(u"parent_comment.pptx", SaveFormat::Pptx);
 
-comment1->Remove();
+rootComment->Remove();
 presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Wenn die [Remove](https://reference.aspose.com/slides/de/cpp/aspose.slides/icomment/remove/) Methode der [IComment](https://reference.aspose.com/slides/de/cpp/aspose.slides/icomment/) Schnittstelle verwendet wird, um einen Kommentar zu löschen, werden auch alle Antworten auf diesen Kommentar gelöscht.
-* Wenn die [set_ParentComment](https://reference.aspose.com/slides/de/cpp/aspose.slides/icomment/set_parentcomment/) Methode eine zirkuläre Referenz erzeugt, wird eine [PptxEditException](https://reference.aspose.com/slides/de/cpp/aspose.slides/pptxeditexception/) ausgelöst.
+* Wenn die [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/remove/)‑Methode des [IComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/) Interfaces verwendet wird, um einen Kommentar zu löschen, werden auch alle Antworten auf diesen Kommentar gelöscht.
+* Wenn die [set_ParentComment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/)‑Methode eine zirkuläre Referenz erzeugt, wird eine [PptxEditException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxeditexception/) ausgelöst.
 {{% /alert %}}
 
 ## **Moderne Kommentare hinzufügen**
 
-Moderne Kommentare können der Folie selbst, einer bestimmten Form oder einem Textbereich innerhalb einer AutoShape zugeordnet werden. Die [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/de/cpp/aspose.slides/icommentcollection/addmoderncomment/) Methode akzeptiert ein [IShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/) Argument zusätzlich zu den Folien‑ und Marker‑Koordinaten.
+Moderne Kommentare können der Folie selbst, einem bestimmten Shape oder einem Textbereich innerhalb eines AutoShape zugeordnet werden. Die Methode [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) akzeptiert zusätzlich zum Slide‑ und Marker‑Koordinaten ein [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/)-Argument.
 
-Wird für das Shape‑Argument `nullptr` übergeben, ist der Kommentar ein Folien‑Kommentar. Sein Marker wird anhand der angegebenen Koordinaten positioniert, ist jedoch keiner bestimmten Form zugeordnet, sodass [IModernComment::get_Shape](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/get_shape/) `nullptr` zurückgibt. Wird ein [IShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/) übergeben, wird der Kommentar an dieser Form verankert. Die Koordinaten bestimmen weiterhin die Position des Kommentar‑Markers auf der Folie, während die Formzuordnung über [IModernComment::get_Shape](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/get_shape/) abgerufen werden kann.
+Wird `nullptr` für das Shape‑Argument übergeben, handelt es sich um einen Folien‑Comment. Sein Marker wird über die übergebenen Koordinaten positioniert, ist aber nicht einem bestimmten Shape zugeordnet, sodass [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) `nullptr` zurückgibt. Wird ein [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) übergeben, wird der Kommentar an diesem Shape verankert. Die Koordinaten definieren weiterhin die Position des Markers auf der Folie, während die Shape‑Zuordnung über [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) abgerufen werden kann.
 
-### **Ein modernes Kommentar an einer Form verankern**
+### **Einen modernen Kommentar an ein Shape anheften**
 
-Das folgende Beispiel erstellt sowohl einen Folien‑Kommentar als auch einen modernen Kommentar, der an einer bestimmten AutoShape verankert ist. Anschließend wird die zugehörige Form aus jedem Kommentar ausgelesen.
+Das Beispiel ruft [AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/) zweimal auf: einmal mit einem `nullptr`‑Shape für einen Folien‑Comment und einmal mit einem Rechteck als Anker. Der Aufruf von [get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/) gibt für den Folien‑Comment `True` (Null‑Prüfung) und für den verankerten Kommentar `Revenue title` aus. Beide Kommentare werden mit der Präsentation gespeichert.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -224,7 +271,9 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 300.0f, 80.0f);
 shape->set_Name(u"Revenue title");
 shape->get_TextFrame()->set_Text(u"Quarterly revenue");
@@ -245,11 +294,11 @@ if (shapeAnchor != nullptr)
 presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 ```
 
-### **Kommentare an verschiedenen Formtypen verankern**
+### **Kommentare an verschiedene Shape‑Typen anheften**
 
-Jedes Folien‑Objekt, das [IShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/) implementiert, kann als Formverankerung verwendet werden. Häufige Beispiele sind [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/de/cpp/aspose.slides/iconnector/) und [IGraphicalObject](https://reference.aspose.com/slides/de/cpp/aspose.slides/igraphicalobject/) Instanzen wie Diagramme.
+Jedes Folienobjekt, das [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) implementiert, kann als Shape‑Anker verwendet werden. Häufige Beispiele sind [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/cpp/aspose.slides/iconnector/) und [IGraphicalObject](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobject/)-Instanzen wie Diagramme.
 
-Das folgende Beispiel erstellt mehrere gängige Formtypen und ordnet jedem einen modernen Kommentar zu.
+Das Beispiel verwendet [AddModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/addmoderncomment/), um einem AutoShape, einem Bildrahmen, einer Gruppe, einem Connector und einem Diagramm jeweils einen Kommentar zuzuordnen. Das Bild verwendet eingebettete Bilddaten, so dass kein externes Bild erforderlich ist. Jeder Kommentar hat seine eigene Marker‑Position, und die gespeicherte Präsentation behält alle fünf Shape‑Zuordnungen bei.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -281,11 +330,13 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
 auto createdTime = DateTime::get_Now();
 
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 180.0f, 60.0f);
 autoShape->get_TextFrame()->set_Text(u"AutoShape");
+
 auto autoShapeCommentPosition = PointF(30.0f, 30.0f);
 author->get_Comments()->AddModernComment(u"Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -313,18 +364,18 @@ author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slid
 presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 ```
 
-### **Einen Kommentar an Text verankern und seinen Status festlegen**
+### **Einen Kommentar an Text anheften und dessen Status setzen**
 
-Für einen modernen Kommentar, der mit einer [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) verknüpft ist, steuern [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/get_textselectionstart/) und [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/set_textselectionstart/) die Startposition des ausgewählten Textes im Textfeld der Form. Ebenso steuern [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/get_textselectionlength/) und [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/set_textselectionlength/) die Länge der Auswahl. Zusammen ordnen diese Methoden den Kommentar einem bestimmten Textbereich innerhalb der AutoShape zu.
+Für einen modernen Kommentar, der einem [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) zugeordnet ist, steuern [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionstart/) und [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionstart/) die Startposition des ausgewählten Textes im Textfeld des Shapes. Ebenso steuern [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionlength/) und [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionlength/) die Länge der Auswahl. Zusammen verknüpfen diese Methoden den Kommentar mit einem bestimmten Textbereich innerhalb des AutoShape.
 
-Die [IModernComment::get_Status](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/get_status/) und [IModernComment::set_Status](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/set_status/) Methoden verwenden einen Wert aus der Aufzählung [ModernCommentStatus](https://reference.aspose.com/slides/de/cpp/aspose.slides/moderncommentstatus/):
+Die Methoden [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/) und [IModernComment::set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) verwenden einen Wert aus der Aufzählung [ModernCommentStatus](https://reference.aspose.com/slides/cpp/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — Es ist kein spezifischer moderner Kommentar‑Status definiert.
-- `Active` — Der Kommentar ist aktiv.
-- `Resolved` — Der Kommentar wurde als erledigt markiert.
-- `Closed` — Der Kommentar ist geschlossen.
+- `NotDefined` — kein spezifischer moderner Kommentarstatus definiert.
+- `Active` — der Kommentar ist aktiv.
+- `Resolved` — der Kommentar wurde gelöst.
+- `Closed` — der Kommentar ist geschlossen.
 
-Das folgende Beispiel erstellt einen an einer Form verankerten modernen Kommentar, ordnet ihn einer Textauswahl zu, markiert ihn als erledigt, speichert die Präsentation und prüft die Werte nach erneutem Öffnen der Datei.
+Das Beispiel verankert einen modernen Kommentar an den Worten „quarterly revenue“ im Text eines Rechtecks. Es berechnet den nullbasierten Auswahlstart aus dem Text, übergibt ihn an [set_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionstart/) und ruft [set_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_textselectionlength/) mit der Anzahl ausgewählter Zeichen auf. Nach dem Aufruf von [set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) mit `Resolved` wird die Präsentation gespeichert und erneut geöffnet. Die vier Konsolenprüfungen sollten jeweils `True` ausgeben und bestätigen, dass Shape‑Anker, Textbereich und Status erhalten geblieben sind.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -359,6 +410,7 @@ auto expectedSelectionStart = shapeText.IndexOf(selectedText);
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 400.0f, 100.0f);
 shape->set_Name(u"Forecast text");
 shape->get_TextFrame()->set_Text(shapeText);
@@ -397,9 +449,9 @@ for (auto&& reopenedComment : reopenedComments)
 }
 ```
 
-### **Vorhandene moderne Kommentare prüfen**
+### **Vorhandene moderne Kommentare untersuchen**
 
-Um eine bestehende Präsentation zu untersuchen, prüfen Sie, welche Kommentare [IModernComment](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/) implementieren, und betrachten Sie anschließend [IModernComment::get_Shape](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/get_textselectionlength/) sowie [IModernComment::get_Status](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/get_status/). Ein `nullptr` Shape bedeutet, dass es sich um einen Folien‑Kommentar handelt. Bei einer [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) Verankerung geben die Textauswahl‑Methoden den zugehörigen Bereich im Textfeld der Form an.
+Das Beispiel erfordert eine vorhandene Präsentation mit modernen Kommentaren und gibt deren Text, Status und Ankerdetails aus. Zur Untersuchung prüfen Sie, welche Kommentare [IModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/) implementieren, und untersuchen dann [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionlength/) sowie [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/). Ein `nullptr`‑Shape weist auf einen Folien‑Comment hin. Für einen [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/)‑Anker identifizieren die Text‑Auswahl‑Methoden den zugehörigen Bereich im Textfeld des Shapes.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -458,9 +510,11 @@ for (auto&& slide : presentation->get_Slides())
 
 ## **Kommentare entfernen**
 
+Aspose.Slides für C++ ermöglicht das Entfernen aller Kommentare und ihrer Autoren aus einer Präsentation oder das Löschen ausgewählter Kommentare bei Beibehaltung der übrigen. Die folgenden Beispiele demonstrieren beide Vorgehensweisen und speichern die aktualisierte Präsentation.
+
 ### **Alle Kommentare und Kommentarautoren entfernen**
 
-Das folgende Beispiel zeigt, wie alle Kommentare und Kommentarautoren aus einer Präsentation entfernt werden:
+Das Beispiel öffnet eine vorhandene Präsentation und ruft für jeden Autor [ICommentCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/clear/) auf, danach [ICommentAuthorCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icommentauthorcollection/clear/), um die Autoren selbst zu entfernen. Die gespeicherte Präsentation enthält weder Kommentare noch Kommentarautoren. Verwenden Sie eine Präsentation mit Kommentaren, um die Entfernung zu beobachten.
 
 ```cpp
 #include <DOM/ICommentAuthor.h>
@@ -481,12 +535,13 @@ for (auto&& author : presentation->get_CommentAuthors())
 }
 
 presentation->get_CommentAuthors()->Clear();
+
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-### **Bestimmte Kommentare entfernen**
+### **Spezifische Kommentare entfernen**
 
-Das folgende Beispiel zeigt, wie bestimmte Kommentare von einer Folie entfernt werden:
+Das Beispiel erstellt zwei Kommentare auf einer Folie und verwendet [GetSlideComments](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getslidecomments/), um Kommentare jedes Autors zu finden. Es sammelt Kommentare, deren Text gleich „comment 1“ ist, bevor [ICommentCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icommentcollection/remove/) aufgerufen wird, um Änderungen an der Sammlung während der Auswahl zu vermeiden. Die gespeicherte Präsentation enthält nur „comment 2“.
 
 ```cpp
 #include <DOM/IComment.h>
@@ -508,6 +563,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Author", u"A");
 auto createdTime = DateTime::get_Now();
 
@@ -540,14 +596,14 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Unterstützt Aspose.Slides einen „Resolved“-Status für moderne Kommentare?**
+**Unterstützt Aspose.Slides einen gelösten Status für moderne Kommentare?**
 
-Ja. Die [IModernComment::get_Status](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/get_status/) und [IModernComment::set_Status](https://reference.aspose.com/slides/de/cpp/aspose.slides/imoderncomment/set_status/) Methoden verwenden einen Wert aus der Aufzählung [ModernCommentStatus](https://reference.aspose.com/slides/de/cpp/aspose.slides/moderncommentstatus/), einschließlich `Resolved`. Der Status wird in der Präsentation gespeichert und kann nach erneutem Öffnen der Datei wieder ausgelesen werden.
+Ja. [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/) und [IModernComment::set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/set_status/) verwenden einen [ModernCommentStatus](https://reference.aspose.com/slides/cpp/aspose.slides/moderncommentstatus/)-Wert, einschließlich `Resolved`. Der Status wird in der Präsentation gespeichert und kann nach erneutem Öffnen der Datei wieder ausgelesen werden.
 
-**Werden verschachtelte Diskussionen (Antwortketten) unterstützt und gibt es eine Begrenzung für die Verschachtelungstiefe?**
+**Werden verschachtelte Diskussionen (Antwortketten) unterstützt, und gibt es ein Limit für die Verschachtelungstiefe?**
 
-Ja. Jeder Kommentar kann auf seinen [parent comment](https://reference.aspose.com/slides/de/cpp/aspose.slides/icomment/set_parentcomment/) verweisen, wodurch Antwortketten ermöglicht werden. Die API definiert keine spezifische Begrenzung der Verschachtelungstiefe.
+Ja. Jeder Kommentar kann auf seinen [parent comment](https://reference.aspose.com/slides/cpp/aspose.slides/icomment/set_parentcomment/) verweisen, wodurch Antwortketten ermöglicht werden. Die API definiert kein spezifisches Limit für die Tiefe der Verschachtelung.
 
-**In welchem Koordinatensystem ist die Position eines Kommentar‑Markers auf einer Folie definiert?**
+**In welchem Koordinatensystem ist die Position eines Kommentarmarkers auf einer Folie definiert?**
 
-Die Marker‑Position wird durch Gleitkomma‑Koordinaten im Folien‑Koordinatensystem definiert, sodass Sie ihn exakt auf der Folie platzieren können.
+Die Marker‑Position wird durch Gleitkomma‑Koordinaten im Folien‑Koordinatensystem definiert, sodass Sie sie exakt auf der Folie platzieren können.

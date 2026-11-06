@@ -1,52 +1,52 @@
 ---
-title: "Διαχείριση σχολίων παρουσίασης σε Node.js"
-linktitle: "Σχόλια παρουσίασης"
+title: Διαχείριση Σχολίων Παρουσίασης σε Node.js
+linktitle: Σχόλια Παρουσίασης
 type: docs
 weight: 100
 url: /el/nodejs-java/presentation-comments/
 keywords:
-- "σχόλιο"
-- "σύγχρονο σχόλιο"
-- "σχόλια PowerPoint"
-- "σχόλια παρουσίασης"
-- "σχόλια διαφάνειας"
-- "προσθήκη σχολίου"
-- "πρόσβαση σε σχόλιο"
-- "επεξεργασία σχολίου"
-- "απάντηση σε σχόλιο"
-- "αφαίρεση σχολίου"
-- "διαγραφή σχολίου"
-- "PowerPoint"
-- "παρουσίαση"
-- "Node.js"
-- "JavaScript"
-- "Aspose.Slides"
-description: "Διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides για Node.js μέσω Java: προσθέστε, διαβάστε, επεξεργαστείτε, απαντήστε και αφαιρέστε σχόλια σε παρουσιάσεις PowerPoint."
+- σχόλιο
+- σύγχρονο σχόλιο
+- σχόλια PowerPoint
+- σχόλια παρουσίασης
+- σχόλια διαφάνειας
+- προσθήκη σχολίου
+- πρόσβαση σε σχόλιο
+- επεξεργασία σχολίου
+- απάντηση σε σχόλιο
+- αφαίρεση σχολίου
+- διαγραφή σχολίου
+- PowerPoint
+- παρουσίαση
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Διαχείριση σχολίων παρουσίασης με το Aspose.Slides για Node.js μέσω Java: προσθήκη, ανάγνωση, επεξεργασία, απάντηση και αφαίρεση σχολίων σε παρουσιάσεις PowerPoint."
 ---
-## **Overview**
+## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε σχόλια παρουσίασης με το Aspose.Slides για Node.js μέσω Java. Παρουσιάζει τους κύριους τύπους που σχετίζονται με τα σχόλια και δείχνει πώς να προσθέτετε σχόλια σε διαφάνειες, να προσπελαύετε υπάρχοντα σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια, και να αφαιρείτε σχόλια από μια παρουσίαση.
+Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε σχόλια παρουσίασης με το Aspose.Slides for Node.js via Java. Παρουσιάζει τους κύριους τύπους σχετικού με τα σχόλια και δείχνει πώς να προσθέτετε σχόλια σε διαφάνειες, να έχετε πρόσβαση σε υπάρχοντα σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια, και να αφαιρείτε σχόλια από μια παρουσίαση.
 
-Τα παραδείγματα καλύπτουν κοινά σενάρια ελέγχου και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίου και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων, και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
+Τα παραδείγματα καλύπτουν κοινές περιπτώσεις ελέγχου και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση του κειμένου σχολίου και των μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων, και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
 
-Στο PowerPoint, τα σχόλια εμφανίζονται ως σημειώσεις πάνω στις διαφάνειες. Η επιλογή ενός σχολίου εμφανίζει το κείμενό του και τη σχετική συζήτηση.
+Στο PowerPoint, τα σχόλια εμφανίζονται ως σημειώσεις σε διαφάνειες. Η επιλογή ενός σχολίου προβάλλει το κείμενο του και τη σχετική συζήτηση.
 
-Για να ζητήσετε να εμφανίζονται ή να κρύβονται τα σχόλια όταν ανοίγει μια παρουσίαση χωρίς να αλλάξετε τα ίδια τα σχόλια, δείτε [Show or Hide Comments When Opening a Presentation](/slides/el/nodejs-java/presentation-view-properties/).
+Για να ζητήσετε τα σχόλια να εμφανίζονται ή να αποκρύπτονται κατά το άνοιγμα μιας παρουσίασης χωρίς να αλλάξετε τα ίδια τα σχόλια, δείτε [Εμφάνιση ή Απόκρυψη Σχολίων Κατά το Άνοιγμα Παρουσίασης](/slides/el/nodejs-java/presentation-view-properties/).
 
-## **Why Add Comments to Presentations?**
+## **Γιατί να Προσθέσετε Σχόλια σε Παρουσιάσεις;**
 
-Μπορείτε να χρησιμοποιήσετε σχόλια για να παρέχετε feedback και να συνεργάζεστε με συναδέλφους κατά την αξιολόγηση παρουσιάσεων.
+Μπορείτε να χρησιμοποιήσετε σχόλια για να παρέχετε ανατροφοδότηση και να συνεργαστείτε με συναδέλφους κατά την ανασκόπηση παρουσιάσεων.
 
-Το Aspose.Slides για Node.js μέσω Java παρέχει τις ακόλουθες API για εργασία με σχόλια:
+Το Aspose.Slides for Node.js via Java παρέχει τα ακόλουθα API για εργασία με σχόλια:
 
-* Την κλάση [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) που παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
-* Την κλάση [CommentCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/commentcollection/) που αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν συγκεκριμένο συγγραφέα.
-* Την κλάση [Comment](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/comment/) που παρέχει πληροφορίες για ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, του χρόνου δημιουργίας, της θέσης και του κειμένου.
-* Την κλάση [CommentAuthor](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/commentauthor/) που παρέχει πληροφορίες για έναν συγγραφέα, όπως το όνομα, τα αρχικά και τα συσχετισμένα σχόλια.
+* The [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class, που παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
+* The [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/) class, που αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν επιμέρους συγγραφέα.
+* The [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/) class, που παρέχει πληροφορίες για ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, του χρόνου δημιουργίας, της θέσης και του κειμένου.
+* The [CommentAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthor/) class, που παρέχει πληροφορίες για έναν συγγραφέα, συμπεριλαμβανομένου του ονόματός του, των αρχικών και των σχετικών σχολίων.
 
-## **Add Slide Comments**
+## **Προσθήκη Σχολίων σε Διαφάνειες**
 
-Το ακόλουθο παράδειγμα δείχνει πώς να προσθέτετε σχόλια σε διαφάνειες σε μια παρουσίαση PowerPoint:
+Το παράδειγμα δημιουργεί δύο διαφάνειες και καταχωρεί έναν συγγραφέα σχολίου με την [addAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/addauthor/). Χρησιμοποιεί την [addComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addcomment/) για να τοποθετήσει ένα σχόλιο σε κάθε διαφάνεια, στη συνέχεια ανακτά τα σχόλια της πρώτης διαφάνειας για εκείνον τον συγγραφέα με την [getSlideComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidecomments/). Η κονσόλα εμφανίζει το κείμενο του πρώτου σχολίου δύο φορές, δείχνοντας πρόσβαση μέσω τόσο της διαφάνειας όσο και του συγγραφέα, και η αποθηκευμένη παρουσίαση περιέχει και τα δύο σχόλια.
 
 ```javascript
 var aspose = aspose || {};
@@ -57,6 +57,7 @@ const presentation = new aspose.slides.Presentation();
 try {
     const firstSlide = presentation.getSlides().get_Item(0);
     const secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     const author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.2), java.newFloat(0.2));
     const createdTime = java.newInstanceSync("java.util.Date");
@@ -69,8 +70,7 @@ try {
         const firstComment = comments[0];
         console.log(firstComment.getText());
 
-        const authorComments = firstComment.getAuthor().getComments();
-        const commentText = authorComments.get_Item(0).getText();
+        const commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         console.log(commentText);
     }
 
@@ -80,9 +80,46 @@ try {
 }
 ```
 
-## **Access Slide Comments**
+## **Εύρεση ή Δημιουργία Συγγραφέα Σχολίου**
 
-Το ακόλουθο παράδειγμα δείχνει πώς να προσπελάζετε υπάρχοντα σχόλια σε μια παρουσίαση PowerPoint:
+Όταν μια αυτοματοποιημένη αξιολόγηση επεξεργάζεται την ίδια παρουσίαση επανειλημμένα, αναζητήστε τη συλλογή που επιστρέφεται από την [getCommentAuthors](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getcommentauthors/) πριν προσθέσετε έναν συγγραφέα. Η [findByNameAndInitials](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/findbynameandinitials/) ταιριάζει τόσο με το όνομα όσο και με τις αρχικές και επιστρέφει έναν πίνακα με τους αντίστοιχους συγγραφείς, ή έναν κενό πίνακα αν δεν υπάρχουν ταιριάσματα. Αντίθετα, η [findByName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/findbyname/) ψάχνει μόνο με βάση το όνομα, ανεξαρτήτως αρχικών. Η κλήση της [addAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/addauthor/) με όνομα και αρχικές που ήδη υπάρχουν στη συλλογή ρίχνει εξαίρεση.
+
+Το παράδειγμα απαιτεί ένα αρχείο παρουσίασης με τουλάχιστον μία διαφάνεια. Σε κάθε μία από τις δύο περάσεις, επαναχρησιμοποιεί τον πρώτο ταιριαστό συγγραφέα, ή δημιουργεί έναν μόνο όταν το αποτέλεσμα είναι κενό. Εάν υπάρχουν πολλαπλά ταιριάσματα, επιλέγει το πρώτο στοιχείο του πίνακα χωρίς να συγχωνεύει ή να αφαιρεί τους άλλους συγγραφείς. Στη συνέχεια καλεί την [addComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addcomment/) για τον επιλεγμένο συγγραφέα και αποθηκεύει την παρουσίαση. Η δεύτερη περάδα ανοίγει το αποτέλεσμα της πρώτης περάδας και επαναλαμβάνει τη λειτουργία.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const authorName = "Reviewer";
+const authorInitials = "RV";
+
+let inputFile = "input.pptx";
+const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(20), java.newFloat(20));
+
+for (let pass = 1; pass <= 2; pass++) {
+    const presentation = new aspose.slides.Presentation(inputFile);
+    try {
+        const matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        const author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        const createdTime = java.newInstanceSync("java.util.Date");
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, createdTime);
+
+        const outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, aspose.slides.SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+Η δεύτερη περάδα προσθέτει ένα ακόμη σχόλιο χωρίς να προσθέσει νέο συγγραφέα ή να αφαιρέσει υπάρχοντα σχόλια. Το τελικό αρχείο, `review_pass_2.pptx`, περιέχει και τα δύο νέα σχόλια μαζί με τυχόν αρχικά σχόλια. Η επαναχρήση ενός συγγραφέα δεν αφαιρεί διπλότυπα σχόλια: για να αποφύγετε την επαναλαμβανόμενη προσθήκη του ίδιου σχολίου, υλοποιήστε ξεχωριστή ανίχνευση διπλότυπων πριν το προσθέσετε.
+
+## **Πρόσβαση σε Σχόλια Διαφάνειας**
+
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και διαβάζει τη συλλογή που επιστρέφεται από την [getCommentAuthors](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getcommentauthors/). Για κάθε συγγραφέα, διατρέχει τη συλλογή που επιστρέφεται από την [getComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthor/getcomments/) και εκτυπώνει τον αριθμό της διαφάνειας, το κείμενο του σχολίου, το όνομα του συγγραφέα και την ώρα δημιουργίας. Η παρουσίαση εισόδου πρέπει να περιέχει σχόλια για να παραχθεί έξοδος στην κονσόλα.
 
 ```javascript
 var aspose = aspose || {};
@@ -109,11 +146,11 @@ try {
 }
 ```
 
-## **Reply to Comments**
+## **Απάντηση σε Σχόλια**
 
-Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Οι μέθοδοι [Comment.getParentComment](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/comment/getparentcomment/) και [Comment.setParentComment](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/comment/setparentcomment/) σάς επιτρέπουν να λάβετε ή να ορίσετε το γονιό ενός σχολίου.
+Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Οι μέθοδοι [Comment.getParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/getparentcomment/) και [Comment.setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/setparentcomment/) σάς επιτρέπουν να αποκτήσετε ή να ορίσετε το γονικό στοιχείο ενός σχολίου.
 
-Το ακόλουθο παράδειγμα δείχνει πώς να προσθέτετε απαντήσεις και να εξετάζετε τη δημιουργούμενη ιεραρχία σχολίων:
+Το παράδειγμα δημιουργεί σχόλια από δύο συγγραφείς και χρησιμοποιεί την [setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/setparentcomment/) για να δημιουργήσει απαντήσεις, συμπεριλαμβανομένης μιας απάντησης σε άλλη απάντηση. Η μετάδοση του `null` στην [getSlideComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidecomments/) ανακτά σχόλια από όλους τους συγγραφείς· η κονσόλα εσοχεύει κάθε καταχώρηση ανάλογα με το βάθος της στην ιεραρχία απαντήσεων. Το παράδειγμα αποθηκεύει τη συνολική συζήτηση, καλεί το [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/remove/) στο πρώτο ριζικό σχόλιο, και αποθηκεύει μια δεύτερη παρουσίαση με το σχόλιο αυτό και τις απαντήσεις του αφαιρεμένα.
 
 ```javascript
 var aspose = aspose || {};
@@ -123,27 +160,28 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10));
     const createdTime = java.newInstanceSync("java.util.Date");
 
-    const author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    const comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    const originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    const rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    const author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    const reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    const reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    const firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    const reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    const secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    const subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    const subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    const comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    const separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    const reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    const separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     const comments = slide.getSlideComments(null);
     for (let index = 0; index < comments.length; index++) {
@@ -159,7 +197,7 @@ try {
 
     presentation.save("parent_comment.pptx", aspose.slides.SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -167,19 +205,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Όταν χρησιμοποιείται η μέθοδος [Comment.remove](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/comment/remove/) για τη διαγραφή ενός σχολίου, όλες οι απαντήσεις σε αυτό το σχόλιο διαγράφονται επίσης.
-* Εάν η [Comment.setParentComment](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/comment/setparentcomment/) δημιουργεί κυκλική αναφορά, πετιέται μια [PptxEditException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pptxeditexception/).
+* Όταν η μέθοδος [Comment.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/remove/) χρησιμοποιείται για τη διαγραφή ενός σχολίου, όλες οι απαντήσεις σε αυτό το σχόλιο διαγράφονται επίσης.
+* Εάν η [Comment.setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/setparentcomment/) δημιουργήσει κυκλική αναφορά, θα γίνει ρίψη μιας [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Add Modern Comments**
+## **Προσθήκη Σύγχρονων Σχολίων**
 
-Τα σύγχρονα σχόλια μπορούν να συσχετιστούν είτε με τη διαφάνεια αυτή καθ' αυτή, είτε με ένα συγκεκριμένο σχήμα, είτε με μια περιοχή κειμένου μέσα σε ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/). Η μέθοδος [CommentCollection.addModernComment](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) δέχεται ένα όρισμα τύπου [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/) εκτός από τη διαφάνεια και τις συντεταγμένες του σημειωτή σχολίου.
+Τα σύγχρονα σχόλια μπορούν να συνδεθούν με την ίδια τη διαφάνεια, με ένα συγκεκριμένο σχήμα, ή με μια περιοχή κειμένου μέσα σε AutoShape. Η μέθοδος [CommentCollection.addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) δέχεται ένα όρισμα τύπου [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) επιπλέον των συντεταγμένων της διαφάνειας και του δείκτη σχολίου.
 
-Όταν περνιέται `null` για το όρισμα shape, το σχόλιο είναι σχόλιο επιπέδου διαφάνειας. Ο σημενέας του τοποθετείται με τις δοθείσες συντεταγμένες, αλλά δεν σχετίζεται με κάποιο συγκεκριμένο σχήμα, έτσι η [ModernComment.getShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/getshape/) επιστρέφει `null`. Όταν παρέχεται ένα [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/), το σχόλιο αγκυροβολείται σε αυτό το σχήμα. Οι συντεταγμένες εξακολουθούν να ορίζουν τη θέση του σημειωτή του σχολίου στη διαφάνεια, ενώ η συσχέτιση με το σχήμα μπορεί να ληφθεί μέσω της [ModernComment.getShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/getshape/).
+Όταν περάσει `null` ως όρισμα σχήματος, το σχόλιο είναι σχόλιο επιπέδου διαφάνειας. Ο δείκτης του καθορίζεται από τις δοσμένες συντεταγμένες, αλλά δεν συνδέεται με κάποιο συγκεκριμένο σχήμα, έτσι η [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/) επιστρέφει `null`. Όταν παρέχεται ένα [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/), το σχόλιο αγκυροβολείται σε εκείνο το σχήμα. Οι συντεταγμένες εξακολουθούν να καθορίζουν τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η σύνδεση με το σχήμα μπορεί να ανακτηθεί μέσω της [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/).
 
-### **Anchor a Modern Comment to a Shape**
+### **Αγκύρωση Σύγχρονου Σχολίου σε Σχήμα**
 
-Το ακόλουθο παράδειγμα δημιουργεί τόσο ένα σχόλιο σύγχρονο επιπέδου διαφάνειας όσο και ένα σχόλιο σύγχρονο αγκυροβολημένο σε ένα συγκεκριμένο [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/). Στη συνέχεια διαβάζει το συσχετισμένο σχήμα από κάθε σχόλιο.
+Το παράδειγμα καλεί την [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) δύο φορές: μία με ένα σχήμα `null` για σχόλιο επιπέδου διαφάνειας και μία με ένα ορθογώνιο ως αγκίστρωση. Η ανάγνωση της [getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/) εκτυπώνει `true` για τον έλεγχο null του σχολίου επιπέδου διαφάνειας και `Revenue title` για το αγκυροβολημένο σχόλιο. Και τα δύο σχόλια αποθηκεύονται με την παρουσίαση.
 
 ```javascript
 var aspose = aspose || {};
@@ -189,7 +227,9 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -209,11 +249,11 @@ try {
 }
 ```
 
-### **Anchor Comments to Different Shape Types**
+### **Αγκύρωση Σχολίων σε Διαφορετικούς Τύπους Σχημάτων**
 
-Οποιοδήποτε αντικείμενο διαφάνειας που προέρχεται από το [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/) μπορεί να χρησιμοποιηθεί ως άγκυρα σχήματος. Συνηθισμένα παραδείγματα περιλαμβάνουν [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/connector/), και παραδείγματα [GraphicalObject](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/graphicalobject/) όπως διαγράμματα.
+Οποιοδήποτε αντικείμενο διαφάνειας που προέρχεται από το [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) μπορεί να χρησιμοποιηθεί ως αγκίστρωση σχήματος. Κοινά παραδείγματα περιλαμβάνουν [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connector/), και αντικείμενα [GraphicalObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobject/) όπως γραφήματα.
 
-Το ακόλουθο παράδειγμα δημιουργεί αρκετούς κοινούς τύπους σχημάτων και συσχετίζει ένα σύγχρονο σχόλιο με το καθένα.
+Το παράδειγμα χρησιμοποιεί την [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) για να συσχετίσει ένα σχόλιο με καθέναν από τους πέντε τύπους σχημάτων: ένα AutoShape, ένα πλαίσιο εικόνας, μια ομάδα, έναν σύνδεσμο και ένα γράφημα. Η εικόνα χρησιμοποιεί ενσωματωμένα δεδομένα εικόνας, έτσι δεν απαιτείται εξωτερική εικόνα. Κάθε σχόλιο έχει τη δική του θέση δείκτη, και η αποθηκευμένη παρουσίαση διατηρεί όλες τις πέντε συνδέσεις σχημάτων.
 
 ```javascript
 var aspose = aspose || {};
@@ -223,11 +263,13 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     const createdTime = java.newInstanceSync("java.util.Date");
 
     const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     const autoShapeCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(30), java.newFloat(30));
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -258,18 +300,17 @@ try {
 }
 ```
 
-### **Anchor a Comment to Text and Set Its Status**
+### **Αγκύρωση Σχολίου σε Κείμενο και Ορισμός Κατάστασής του**
 
-Για ένα σύγχρονο σχόλιο που σχετίζεται με ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/), οι μέθοδοι [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) και [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) προσπελαύνουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Οι [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) και [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) προσπελαύνουν το μήκος της επιλογής. Μαζί, αυτές οι τιμές συσχετίζουν το σχόλιο με μια συγκεκριμένη περιοχή κειμένου μέσα στο [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/).
+Για ένα σύγχρονο σχόλιο που συσχετίζεται με ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/), οι [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) και [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) προσπελαύνουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Οι [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) και [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) προσπελαύνουν το μήκος της επιλογής. Μαζί, αυτές οι τιμές συνδέουν το σχόλιο με μια συγκεκριμένη περιοχή κειμένου μέσα στο AutoShape.
 
-Οι μέθοδοι [ModernComment.getStatus](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/getstatus/) και [ModernComment.setStatus](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/setstatus/) προσπελαύνουν μια τιμή από την απαρίθμηση [ModernCommentStatus](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncommentstatus/):
-
+Οι [ModernComment.getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/) και [ModernComment.setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setstatus/) προσεγγίζουν μια τιμή του [ModernCommentStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncommentstatus/)·
 - `NotDefined` — δεν έχει οριστεί συγκεκριμένη κατάσταση σύγχρονου σχολίου.
 - `Active` — το σχόλιο είναι ενεργό.
 - `Resolved` — το σχόλιο έχει επιλυθεί.
 - `Closed` — το σχόλιο είναι κλειστό.
 
-Το ακόλουθο παράδειγμα δημιουργεί ένα σχήμα‑αγκυροβολημένο σύγχρονο σχόλιο, το συσχετίζει με μια επιλογή κειμένου, το σημειώνει ως επιλυμένο, αποθηκεύει την παρουσίαση και ελέγχει τις τιμές μετά το άνοιγμα του αρχείου.
+Το παράδειγμα αγκαλιάζει ένα σύγχρονο σχόλιο στις λέξεις "quarterly revenue" στο κείμενο ενός ορθογωνίου. Υπολογίζει τη μηδενική θέση έναρξης της επιλογής από το κείμενο και τη περνά στην [setTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionstart/), και χρησιμοποιεί την [setTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) για να ορίσει τον αριθμό των επιλεγμένων χαρακτήρων. Μετά την κλήση της [setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setstatus/) με `Resolved`, αποθηκεύει και ανοίγει ξανά την παρουσίαση. Οι τέσσερις έλεγχοι στην κονσόλα πρέπει να εκτυπώσουν `true`, επιβεβαιώνοντας ότι η αγκίστρωση σχήματος, η περιοχή κειμένου και η κατάσταση διατηρήθηκαν.
 
 ```javascript
 var aspose = aspose || {};
@@ -284,6 +325,7 @@ const expectedSelectionStart = shapeText.indexOf(selectedText);
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
@@ -294,7 +336,7 @@ try {
     const comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, createdTime);
     comment.setTextSelectionStart(expectedSelectionStart);
     comment.setTextSelectionLength(selectedText.length);
-    comment.setStatus(aspose.slides.ModernCommentStatus.Resolved);
+    comment.setStatus(java.newByte(aspose.slides.ModernCommentStatus.Resolved));
 
     presentation.save(outputFile, aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -327,9 +369,9 @@ try {
 }
 ```
 
-### **Inspect Existing Modern Comments**
+### **Επιθεώρηση Υπάρχων Σύγχρονων Σχολίων**
 
-Για να εξετάσετε μια υπάρχουσα παρουσίαση, ελέγξτε ποια σχόλια είναι αντικείμενα [ModernComment](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/), έπειτα δείτε τις [ModernComment.getShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), και [ModernComment.getStatus](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/getstatus/). Ένα σχήμα `null` υποδεικνύει σχόλιο επιπέδου διαφάνειας. Για σχήμα‑άγκυρα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/), οι μέθοδοι επιλογής κειμένου προσδιορίζουν τη σχετική περιοχή στο πλαίσιο κειμένου του σχήματος.
+Το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση που περιέχει σύγχρονα σχόλια και εκτυπώνει το κείμενό τους, την κατάσταση και τις λεπτομέρειες της αγκίστρωσης. Για να το επιθεωρήσετε, ελέγξτε ποια σχόλια είναι περιπτώσεις του [ModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/), στη συνέχεια εξετάστε τις [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), και [ModernComment.getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/). Ένα σχήμα `null` υποδηλώνει σχόλιο επιπέδου διαφάνειας. Για μια αγκίστρωση [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/), οι μέθοδοι επιλογής κειμένου εντοπίζουν την αντίστοιχη περιοχή στο πλαίσιο κειμένου του σχήματος.
 
 ```javascript
 var aspose = aspose || {};
@@ -374,11 +416,13 @@ try {
 }
 ```
 
-## **Remove Comments**
+## **Αφαίρεση Σχολίων**
 
-### **Remove All Comments and Comment Authors**
+Το Aspose.Slides for Node.js via Java σας επιτρέπει να αφαιρέσετε όλα τα σχόλια και τους συγγραφείς τους από μια παρουσίαση ή να διαγράψετε επιλεγμένα σχόλια διατηρώντας τα υπόλοιπα. Τα παρακάτω παραδείγματα δείχνουν και τις δύο προσεγγίσεις και αποθηκεύουν την ενημερωμένη παρουσίαση.
 
-Το ακόλουθο παράδειγμα δείχνει πώς να αφαιρέσετε όλα τα σχόλια και όλους τους συγγραφείς σχολίων από μια παρουσίαση:
+### **Αφαίρεση Όλων των Σχολίων και των Συγγραφέων Σχολίων**
+
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και καλεί την [CommentCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/clear/) για κάθε συγγραφέα, στη συνέχεια καλεί την [CommentAuthorCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/clear/) για τη διαγραφή των ίδιων των συγγραφέων. Η αποθηκευμένη παρουσίαση δεν περιέχει ούτε σχόλια ούτε συγγραφείς σχολίων. Χρησιμοποιήστε μια παρουσίαση που περιέχει σχόλια για να παρατηρήσετε την αφαίρεση.
 
 ```javascript
 var aspose = aspose || {};
@@ -392,15 +436,16 @@ try {
     }
 
     authors.clear();
+
     presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Remove Specific Comments**
+### **Αφαίρεση Συγκεκριμένων Σχολίων**
 
-Το ακόλουθο παράδειγμα δείχνει πώς να αφαιρέσετε συγκεκριμένα σχόλια από μια διαφάνεια:
+Το παράδειγμα δημιουργεί δύο σχόλια σε μία διαφάνεια και χρησιμοποιεί την [getSlideComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidecomments/) για να βρει σχόλια ανά συγγραφέα. Συλλέγει σχόλια του οποίου το κείμενο ισούται με "comment 1" πριν καλέσει την [CommentCollection.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/remove/), αποφεύγοντας αλλαγές στη συλλογή κατά την επιλογή. Η αποθηκευμένη παρουσίαση διατηρεί μόνο το "comment 2".
 
 ```javascript
 var aspose = aspose || {};
@@ -410,6 +455,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const author = presentation.getCommentAuthors().addAuthor("Author", "A");
     const createdTime = java.newInstanceSync("java.util.Date");
 
@@ -444,14 +490,14 @@ try {
 
 ## **FAQ**
 
-**Υπάρχει υποστήριξη για κατάσταση “επιλυμένο” σε σύγχρονα σχόλια;**
+**Υποστηρίζει το Aspose.Slides κατάσταση επιλύτη για σύγχρονα σχόλια;**
 
-Ναι. Οι [ModernComment.getStatus](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/getstatus/) και [ModernComment.setStatus](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncomment/setstatus/) προσπελαύνουν μια τιμή του [ModernCommentStatus](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
+Ναι. Οι [ModernComment.getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/) και [ModernComment.setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setstatus/) προσπελαύνουν μια τιμή του [ModernCommentStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
 
-**Υποστηρίζονται αλληλουχίες συζητήσεων (αλυσίδες απαντήσεων) και υπάρχει όριο στο βάθος εμφώλευσης;**
+**Υποστηρίζονται συζητήσεις σε νήμα (αλυσιδωτές απαντήσεις) και υπάρχει όριο εσωτερικότητας;**
 
-Ναι. Κάθε σχόλιο μπορεί να αναφέρεται στο [parent comment](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/comment/getparentcomment/), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους εμφώλευσης.
+Ναι. Κάθε σχόλιο μπορεί να αναφέρει το [parent comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/getparentcomment/), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους εσωτερικότητας.
 
-**Σε ποιο σύστημα συντεταγμένων ορίζεται η θέση του σημειωτή του σχολίου στη διαφάνεια;**
+**Σε ποιο σύστημα συντεταγμένων ορίζεται η θέση του δείκτη σχολίου σε μια διαφάνεια;**
 
-Η θέση του σημειωτή ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να τοποθετήσετε ακριβώς το σημείο στη διαφάνεια.
+Η θέση του δείκτη ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να τοποθετήσετε ακριβώς το σημείο στη διαφάνεια.

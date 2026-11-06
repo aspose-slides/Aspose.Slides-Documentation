@@ -11,27 +11,27 @@ keywords:
 - komentarze prezentacji
 - komentarze slajdów
 - dodaj komentarz
-- pobierz komentarz
+- dostęp do komentarza
 - edytuj komentarz
 - odpowiedz na komentarz
 - usuń komentarz
-- skasuj komentarz
+- usuń komentarz
 - PowerPoint
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Zarządzaj komentarzami prezentacji przy użyciu Aspose.Slides for Node.js via Java: dodawaj, odczytuj, edytuj, odpowiadaj i usuwaj komentarze w prezentacjach PowerPoint."
+description: "Zarządzaj komentarzami prezentacji za pomocą Aspose.Slides dla Node.js przez Java: dodawaj, odczytuj, edytuj, odpowiadaj na i usuwaj komentarze w prezentacjach PowerPoint."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak zarządzać komentarzami w prezentacji za pomocą Aspose.Slides for Node.js via Java. Wprowadza główne typy związane z komentarzami i demonstruje, jak dodawać komentarze do slajdów, uzyskiwać dostęp do istniejących komentarzy, pracować z odpowiedziami i nowoczesnymi komentarzami oraz usuwać komentarze z prezentacji.
+Ten artykuł wyjaśnia, jak zarządzać komentarzami w prezentacji przy użyciu Aspose.Slides dla Node.js przez Java. Wprowadza główne typy związane z komentarzami i demonstruje, jak dodawać komentarze do slajdów, uzyskiwać dostęp do istniejących komentarzy, pracować z odpowiedziami i nowoczesnymi komentarzami oraz usuwać komentarze z prezentacji.
 
-Przykłady obejmują typowe scenariusze przeglądu i współpracy w PowerPoint, takie jak przypisywanie komentarzy do autorów, odczytywanie tekstu i metadanych komentarza, budowanie łańcuchów odpowiedzi oraz usuwanie wybranych komentarzy lub wszystkich komentarzy.
+Przykłady obejmują typowe scenariusze przeglądu i współpracy w programie PowerPoint, takie jak przypisywanie komentarzy do autorów, odczytywanie tekstu i metadanych komentarzy, budowanie łańcuchów odpowiedzi oraz usuwanie wybranych komentarzy lub wszystkich komentarzy.
 
-W PowerPoint komentarze pojawiają się jako adnotacje na slajdach. Wybranie komentarza wyświetla jego tekst oraz powiązaną dyskusję.
+W programie PowerPoint komentarze pojawiają się jako adnotacje na slajdach. Wybranie komentarza wyświetla jego tekst i powiązaną dyskusję.
 
-Aby żądać wyświetlania lub ukrywania komentarzy przy otwieraniu prezentacji bez zmieniania samych komentarzy, zobacz [Pokaż lub ukryj komentarze przy otwieraniu prezentacji](/slides/pl/nodejs-java/presentation-view-properties/).
+Aby poprosić o wyświetlenie lub ukrycie komentarzy podczas otwierania prezentacji bez zmiany samych komentarzy, zobacz [Pokaż lub ukryj komentarze podczas otwierania prezentacji](/slides/pl/nodejs-java/presentation-view-properties/).
 
 ## **Dlaczego dodawać komentarze do prezentacji?**
 
@@ -39,14 +39,14 @@ Możesz używać komentarzy, aby przekazywać opinie i współpracować z kolega
 
 Aspose.Slides for Node.js via Java udostępnia następujące API do pracy z komentarzami:
 
-* Klasa [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) zapewnia dostęp do autorów komentarzy prezentacji.
-* Klasa [CommentCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/commentcollection/) reprezentuje komentarze powiązane z konkretnym autorem.
-* Klasa [Comment](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/comment/) dostarcza informacji o komentarzu, w tym jego autora, czas utworzenia, pozycję i tekst.
-* Klasa [CommentAuthor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/commentauthor/) dostarcza informacji o autorze, w tym jego imię, inicjały i powiązane komentarze.
+* The [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class, która zapewnia dostęp do autorów komentarzy prezentacji.
+* The [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/) class, która reprezentuje komentarze powiązane z pojedynczym autorem.
+* The [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/) class, która dostarcza informacji o komentarzu, w tym jego autora, czas utworzenia, pozycję i tekst.
+* The [CommentAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthor/) class, która dostarcza informacji o autorze, w tym jego imię i nazwisko, inicjały oraz powiązane komentarze.
 
 ## **Dodawanie komentarzy do slajdów**
 
-Poniższy przykład pokazuje, jak dodać komentarze do slajdów w prezentacji PowerPoint:
+Przykład tworzy dwa slajdy i rejestruje autora komentarza przy użyciu [addAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/addauthor/). Używa [addComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addcomment/) do umieszczenia jednego komentarza na każdym slajdzie, a następnie pobiera komentarze pierwszego slajdu dla tego autora przy pomocy [getSlideComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidecomments/). Konsola wyświetla tekst pierwszego komentarza dwukrotnie, demonstrując dostęp zarówno przez slajd, jak i autora, a zapisana prezentacja zawiera oba komentarze.
 
 ```javascript
 var aspose = aspose || {};
@@ -57,6 +57,7 @@ const presentation = new aspose.slides.Presentation();
 try {
     const firstSlide = presentation.getSlides().get_Item(0);
     const secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+
     const author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
     const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.2), java.newFloat(0.2));
     const createdTime = java.newInstanceSync("java.util.Date");
@@ -69,8 +70,7 @@ try {
         const firstComment = comments[0];
         console.log(firstComment.getText());
 
-        const authorComments = firstComment.getAuthor().getComments();
-        const commentText = authorComments.get_Item(0).getText();
+        const commentText = firstComment.getAuthor().getComments().get_Item(0).getText();
         console.log(commentText);
     }
 
@@ -80,9 +80,46 @@ try {
 }
 ```
 
-## **Dostęp do komentarzy slajdów**
+## **Znajdź lub utwórz autora komentarza**
 
-Poniższy przykład pokazuje, jak uzyskać dostęp do istniejących komentarzy w prezentacji PowerPoint:
+Gdy automatyczna recenzja przetwarza tę samą prezentację wielokrotnie, przeszukaj kolekcję zwróconą przez [getCommentAuthors](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getcommentauthors/) przed dodaniem autora. [findByNameAndInitials](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/findbynameandinitials/) dopasowuje zarówno nazwę, jak i inicjały i zwraca tablicę pasujących autorów lub pustą tablicę, jeśli nie ma dopasowań. Natomiast [findByName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/findbyname/) wyszukuje tylko po nazwie, niezależnie od inicjałów. Wywołanie [addAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/addauthor/) z nazwą i inicjałami już istniejącymi w kolekcji powoduje wyrzucenie wyjątku.
+
+Przykład wymaga pliku prezentacji z co najmniej jednym slajdem. W każdym z dwóch przebiegów ponownie używa pierwszego pasującego autora lub tworzy nowego tylko wtedy, gdy wynik jest pusty. Jeśli istnieje wiele dopasowań, wybiera pierwszy element tablicy bez łączenia ani usuwania pozostałych autorów. Następnie wywołuje [addComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addcomment/) dla wybranego autora i zapisuje prezentację. Drugi przebieg otwiera wynik pierwszego przebiegu i powtarza operację.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const authorName = "Reviewer";
+const authorInitials = "RV";
+
+let inputFile = "input.pptx";
+const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(20), java.newFloat(20));
+
+for (let pass = 1; pass <= 2; pass++) {
+    const presentation = new aspose.slides.Presentation(inputFile);
+    try {
+        const matches = presentation.getCommentAuthors().findByNameAndInitials(authorName, authorInitials);
+
+        const author = matches.length > 0 ? matches[0] : presentation.getCommentAuthors().addAuthor(authorName, authorInitials);
+        const createdTime = java.newInstanceSync("java.util.Date");
+        author.getComments().addComment("Please review this slide.", presentation.getSlides().get_Item(0), position, createdTime);
+
+        const outputFile = "review_pass_" + pass + ".pptx";
+        presentation.save(outputFile, aspose.slides.SaveFormat.Pptx);
+        inputFile = outputFile;
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+Drugi przebieg dodaje kolejny komentarz bez dodawania nowego autora ani usuwania istniejących komentarzy. Końcowy plik `review_pass_2.pptx` zawiera oba nowe komentarze obok wszelkich oryginalnych komentarzy. Ponowne użycie autora nie deduplikuje komentarzy: aby uniknąć wielokrotnego dodawania tego samego komentarza, należy przed dodaniem wprowadzić własną logikę wykrywania duplikatów.
+
+## **Dostęp do komentarzy slajdu**
+
+Przykład otwiera istniejącą prezentację i odczytuje kolekcję zwróconą przez [getCommentAuthors](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getcommentauthors/). Dla każdego autora iteruje po kolekcji zwróconej przez [getComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthor/getcomments/) i wypisuje numer slajdu, tekst komentarza, nazwę autora oraz czas utworzenia. Wejściowa prezentacja musi zawierać komentarze, aby uzyskać wyjście w konsoli.
 
 ```javascript
 var aspose = aspose || {};
@@ -111,9 +148,9 @@ try {
 
 ## **Odpowiadanie na komentarze**
 
-Komentarz nadrzędny to oryginalny komentarz znajdujący się na szczycie hierarchii odpowiedzi. Metody [Comment.getParentComment](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/comment/getparentcomment/) i [Comment.setParentComment](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/comment/setparentcomment/) umożliwiają pobranie lub ustawienie komentarza nadrzędnego.
+Komentarz nadrzędny to oryginalny komentarz na szczycie hierarchii odpowiedzi. Metody [Comment.getParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/getparentcomment/) i [Comment.setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/setparentcomment/) pozwalają pobrać lub ustawić rodzica komentarza.
 
-Poniższy przykład pokazuje, jak dodać odpowiedzi i przeanalizować powstałą hierarchię komentarzy:
+Przykład tworzy komentarze od dwóch autorów i używa [setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/setparentcomment/) do budowania odpowiedzi, w tym odpowiedzi na inną odpowiedź. Przekazanie `null` do [getSlideComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidecomments/) pobiera komentarze od wszystkich autorów; konsola wcięła każdy wpis zgodnie z jego głębokością w hierarchii odpowiedzi. Przykład zapisuje pełną dyskusję, wywołuje [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/remove/) na pierwszym komentarzu głównym i zapisuje drugą prezentację z usuniętym tym komentarzem i jego odpowiedziami.
 
 ```javascript
 var aspose = aspose || {};
@@ -123,27 +160,28 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10));
     const createdTime = java.newInstanceSync("java.util.Date");
 
-    const author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    const comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+    const originalAuthor = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    const rootComment = originalAuthor.getComments().addComment("comment 1", slide, position, createdTime);
 
-    const author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
-    const reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
-    reply1.setParentComment(comment1);
+    const reviewer = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    const firstReply = reviewer.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
+    firstReply.setParentComment(rootComment);
 
-    const reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
-    reply2.setParentComment(comment1);
+    const secondReply = reviewer.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
+    secondReply.setParentComment(rootComment);
 
-    const subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
-    subReply.setParentComment(reply2);
+    const subReply = originalAuthor.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
+    subReply.setParentComment(secondReply);
 
-    author2.getComments().addComment("comment 2", slide, position, createdTime);
-    const comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+    reviewer.getComments().addComment("comment 2", slide, position, createdTime);
+    const separateComment = reviewer.getComments().addComment("comment 3", slide, position, createdTime);
 
-    const reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
-    reply3.setParentComment(comment3);
+    const separateReply = originalAuthor.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
+    separateReply.setParentComment(separateComment);
 
     const comments = slide.getSlideComments(null);
     for (let index = 0; index < comments.length; index++) {
@@ -159,7 +197,7 @@ try {
 
     presentation.save("parent_comment.pptx", aspose.slides.SaveFormat.Pptx);
 
-    comment1.remove();
+    rootComment.remove();
     presentation.save("remove_comment.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -167,19 +205,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Gdy metoda [Comment.remove](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/comment/remove/) jest używana do usunięcia komentarza, wszystkie odpowiedzi na ten komentarz są również usuwane.
-* Jeśli metoda [Comment.setParentComment](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/comment/setparentcomment/) tworzy odniesienie cykliczne, zostaje zgłoszony [PptxEditException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pptxeditexception/).
+* Gdy metoda [Comment.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/remove/) jest używana do usunięcia komentarza, wszystkie odpowiedzi na ten komentarz są również usuwane.
+* Jeśli [Comment.setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/setparentcomment/) tworzy odwołanie cykliczne, zgłaszany jest [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Dodawanie nowoczesnych komentarzy**
 
-Nowoczesne komentarze mogą być powiązane ze slajdem, konkretnym kształtem lub zakresem tekstu wewnątrz [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/). Metoda [CommentCollection.addModernComment](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) przyjmuje argument [Shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/) oprócz koordynatów slajdu i znacznika komentarza.
+Nowoczesne komentarze mogą być powiązane z samym slajdem, konkretnym kształtem lub zakresem tekstu wewnątrz AutoShape. Metoda [CommentCollection.addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) przyjmuje dodatkowy argument [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) oprócz slajdu i współrzędnych znacznika komentarza.
 
-Gdy `null` jest przekazywane jako argument shape, komentarz jest komentarzem na poziomie slajdu. Jego znacznik jest pozycjonowany wg podanych współrzędnych, ale nie jest powiązany z konkretnym kształtem, więc [ModernComment.getShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/getshape/) zwraca `null`. Gdy podany jest [Shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/), komentarz jest zakotwiczony do tego kształtu. Współrzędne nadal definiują pozycję znacznika komentarza na slajdzie, a powiązanie z kształtem można odczytać przez [ModernComment.getShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/getshape/).
+Gdy dla argumentu shape przekazany jest `null`, komentarz jest komentarzem na poziomie slajdu. Jego znacznik jest pozycjonowany według podanych współrzędnych, ale nie jest powiązany z konkretnym kształtem, więc [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/) zwraca `null`. Gdy podana jest [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/), komentarz jest zakotwiczony do tego kształtu. Współrzędne nadal definiują pozycję znacznika komentarza na slajdzie, a powiązanie kształtu można odczytać przez [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/).
 
-### **Kotwiczenie nowoczesnego komentarza do kształtu**
+### **Zakotwiczanie nowoczesnego komentarza do kształtu**
 
-Poniższy przykład tworzy zarówno nowoczesny komentarz na poziomie slajdu, jak i nowoczesny komentarz zakotwiczony do konkretnego [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/). Następnie odczytuje powiązany kształt z każdego komentarza.
+Przykład wywołuje [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) dwukrotnie: raz z `null` jako kształtem dla komentarza na poziomie slajdu i raz z prostokątem jako kotwicą. Odczytanie [getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/) wypisuje `true` dla sprawdzenia null w komentarzu na poziomie slajdu i `Revenue title` dla zakotwiczonego komentarza. Oba komentarze są zapisywane wraz z prezentacją.
 
 ```javascript
 var aspose = aspose || {};
@@ -189,7 +227,9 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 300, 80);
     shape.setName("Revenue title");
     shape.getTextFrame().setText("Quarterly revenue");
@@ -209,11 +249,11 @@ try {
 }
 ```
 
-### **Kotwiczenie komentarzy do różnych typów kształtów**
+### **Zakotwiczanie komentarzy do różnych typów kształtów**
 
-Każdy obiekt slajdu pochodzący z [Shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/) może być użyty jako kotwica kształtu. Typowe przykłady to [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/connector/) i instancje [GraphicalObject](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/graphicalobject/) takie jak wykresy.
+Każdy obiekt slajdu pochodzący od [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) może być użyty jako kotwica kształtu. Typowe przykłady to [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connector/) oraz instancje [GraphicalObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobject/) takie jak wykresy.
 
-Poniższy przykład tworzy kilka typowych kształtów i powiązuje z każdym z nich nowoczesny komentarz.
+Przykład używa [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) do powiązania komentarza z każdym z pięciu typów kształtów: AutoShape, ramką obrazu, grupą, łącznikiem i wykresem. Obraz w ramce jest osadzony jako dane binarne, więc nie wymaga zewnętrznego pliku obrazu. Każdy komentarz ma własną pozycję znacznika, a zapisana prezentacja zachowuje wszystkie pięć powiązań kształtów.
 
 ```javascript
 var aspose = aspose || {};
@@ -223,11 +263,13 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
     const createdTime = java.newInstanceSync("java.util.Date");
 
     const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 180, 60);
     autoShape.getTextFrame().setText("AutoShape");
+
     const autoShapeCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(30), java.newFloat(30));
     author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
 
@@ -258,18 +300,18 @@ try {
 }
 ```
 
-### **Kotwiczenie komentarza do tekstu i ustawienie jego statusu**
+### **Zakotwiczanie komentarza do tekstu i ustawianie jego statusu**
 
-Dla nowoczesnego komentarza powiązanego z [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) i [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) uzyskują początkową pozycję zaznaczonego tekstu w ramce tekstowej kształtu. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) i [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) uzyskują długość zaznaczenia. Razem te wartości powiązują komentarz z określonym zakresem tekstu wewnątrz [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/).
+Dla nowoczesnego komentarza powiązanego z [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/), metody [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) i [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) uzyskują początkową pozycję wybranego tekstu w ramce tekstowej kształtu. Metody [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) i [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) określają długość zaznaczenia. Razem wartości te powiązują komentarz z określonym zakresem tekstu wewnątrz AutoShape.
 
-Metody [ModernComment.getStatus](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/getstatus/) i [ModernComment.setStatus](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/setstatus/) uzyskują wartość z wyliczenia [ModernCommentStatus](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncommentstatus/):
+Metody [ModernComment.getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/) i [ModernComment.setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setstatus/) zwracają wartość z wyliczenia [ModernCommentStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — nie zdefiniowano konkretnego statusu nowoczesnego komentarza.
+- `NotDefined` — nie zdefiniowano specyficznego statusu nowoczesnego komentarza.
 - `Active` — komentarz jest aktywny.
 - `Resolved` — komentarz został rozwiązany.
 - `Closed` — komentarz jest zamknięty.
 
-Poniższy przykład tworzy nowoczesny komentarz zakotwiczony do kształtu, powiązuje go z zaznaczeniem tekstu, oznacza jako rozwiązany, zapisuje prezentację i weryfikuje wartości po ponownym otwarciu pliku.
+Przykład zakotwicza nowoczesny komentarz do słów „quarterly revenue” w tekście prostokąta. Oblicza zerowo‑indeksowane rozpoczęcie zaznaczenia z tekstu i przekazuje je do [setTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionstart/), a następnie używa [setTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) do ustawienia liczby zaznaczonych znaków. Po wywołaniu [setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setstatus/) z wartością `Resolved` zapisuje i ponownie otwiera prezentację. Cztery sprawdzenia w konsoli powinny kolejno wypisać `true`, potwierdzając zachowanie kotwicy kształtu, zakresu tekstu i statusu.
 
 ```javascript
 var aspose = aspose || {};
@@ -284,6 +326,7 @@ const expectedSelectionStart = shapeText.indexOf(selectedText);
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 400, 100);
     shape.setName("Forecast text");
     shape.getTextFrame().setText(shapeText);
@@ -294,7 +337,7 @@ try {
     const comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, createdTime);
     comment.setTextSelectionStart(expectedSelectionStart);
     comment.setTextSelectionLength(selectedText.length);
-    comment.setStatus(aspose.slides.ModernCommentStatus.Resolved);
+    comment.setStatus(java.newByte(aspose.slides.ModernCommentStatus.Resolved));
 
     presentation.save(outputFile, aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -327,9 +370,9 @@ try {
 }
 ```
 
-### **Sprawdzanie istniejących nowoczesnych komentarzy**
+### **Inspekcja istniejących nowoczesnych komentarzy**
 
-Aby sprawdzić istniejącą prezentację, określ, które komentarze są instancjami [ModernComment](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/), a następnie zbadaj [ModernComment.getShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) i [ModernComment.getStatus](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/getstatus/). Kształt `null` wskazuje na komentarz na poziomie slajdu. Dla kotwicy [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) metody wyboru tekstu identyfikują powiązany zakres w ramce tekstowej kształtu.
+Przykład wymaga istniejącej prezentacji zawierającej nowoczesne komentarze i wypisuje ich tekst, status oraz szczegóły kotwicy. Aby je zbadać, sprawdź, które komentarze są instancjami [ModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/), a następnie przeanalizuj [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) oraz [ModernComment.getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/). `null` dla shape wskazuje na komentarz na poziomie slajdu. Dla kotwicy typu [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) metody wyboru tekstu identyfikują powiązany zakres w ramce tekstowej kształtu.
 
 ```javascript
 var aspose = aspose || {};
@@ -376,9 +419,11 @@ try {
 
 ## **Usuwanie komentarzy**
 
-### **Usunięcie wszystkich komentarzy i autorów komentarzy**
+Aspose.Slides for Node.js via Java umożliwia usunięcie wszystkich komentarzy i ich autorów z prezentacji lub usunięcie wybranych komentarzy przy zachowaniu pozostałych. Poniższe przykłady demonstrują oba podejścia i zapisują zaktualizowaną prezentację.
 
-Poniższy przykład pokazuje, jak usunąć wszystkie komentarze i autorów komentarzy z prezentacji:
+### **Usuwanie wszystkich komentarzy i autorów komentarzy**
+
+Przykład otwiera istniejącą prezentację i wywołuje [CommentCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/clear/) dla każdego autora, a następnie wywołuje [CommentAuthorCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentauthorcollection/clear/) w celu usunięcia samych autorów. Zapisana prezentacja nie zawiera ani komentarzy, ani autorów komentarzy. Użyj prezentacji z komentarzami, aby zobaczyć efekt usunięcia.
 
 ```javascript
 var aspose = aspose || {};
@@ -392,15 +437,16 @@ try {
     }
 
     authors.clear();
+
     presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Usunięcie konkretnych komentarzy**
+### **Usuwanie wybranych komentarzy**
 
-Poniższy przykład pokazuje, jak usunąć konkretne komentarze ze slajdu:
+Przykład tworzy dwa komentarze na jednym slajdzie i używa [getSlideComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidecomments/) do znalezienia komentarzy każdego autora. Zbiera komentarze, których tekst równa się „comment 1”, przed wywołaniem [CommentCollection.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/remove/), aby uniknąć modyfikacji kolekcji w trakcie wyboru. Zapisana prezentacja zachowuje tylko „comment 2”.
 
 ```javascript
 var aspose = aspose || {};
@@ -410,6 +456,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const author = presentation.getCommentAuthors().addAuthor("Author", "A");
     const createdTime = java.newInstanceSync("java.util.Date");
 
@@ -446,11 +493,11 @@ try {
 
 **Czy Aspose.Slides obsługuje status rozwiązany dla nowoczesnych komentarzy?**
 
-Tak. [ModernComment.getStatus](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/getstatus/) i [ModernComment.setStatus](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncomment/setstatus/) uzyskują wartość z [ModernCommentStatus](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/moderncommentstatus/), w tym `Resolved`. Status jest przechowywany w prezentacji i może być odczytany ponownie po ponownym otwarciu pliku.
+Tak. [ModernComment.getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/) i [ModernComment.setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setstatus/) zwracają wartość z wyliczenia [ModernCommentStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncommentstatus/), w tym `Resolved`. Status jest przechowywany w prezentacji i może być odczytany po ponownym otwarciu pliku.
 
-**Czy obsługiwane są wątki dyskusji (łańcuchy odpowiedzi) i czy istnieje limit zagnieżdżania?**
+**Czy obsługiwane są wątki dyskusji (łańcuchy odpowiedzi) i czy istnieje limit zagnieżdżenia?**
 
-Tak. Każdy komentarz może odwoływać się do swojego [parent comment](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/comment/getparentcomment/), co umożliwia tworzenie łańcuchów odpowiedzi. API nie definiuje konkretnego limitu głębokości zagnieżdzenia.
+Tak. Każdy komentarz może odnosić się do swojego [parent comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/getparentcomment/), umożliwiając tworzenie łańcuchów odpowiedzi. API nie definiuje konkretnego limitu głębokości zagnieżdżenia.
 
 **W jakim systemie współrzędnych definiowana jest pozycja znacznika komentarza na slajdzie?**
 

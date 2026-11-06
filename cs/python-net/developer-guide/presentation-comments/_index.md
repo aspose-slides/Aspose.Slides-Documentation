@@ -1,6 +1,6 @@
 ---
-title: Správa komentářů prezentací v Pythonu
-linktitle: Komentáře k prezentaci
+title: Správa komentářů v prezentaci v Pythonu
+linktitle: Komentáře prezentace
 type: docs
 weight: 100
 url: /cs/python-net/presentation-comments/
@@ -8,56 +8,56 @@ keywords:
 - komentář
 - moderní komentář
 - komentáře PowerPoint
-- komentáře prezentace
-- komentáře snímku
+- komentáře v prezentaci
+- komentáře snímků
 - přidat komentář
 - přístup k komentáři
 - upravit komentář
-- odpovědět na komentář
+- odpověď na komentář
 - odstranit komentář
 - smazat komentář
 - PowerPoint
 - prezentace
 - Python
 - Aspose.Slides
-description: "Spravovat komentáře v prezentacích pomocí Aspose.Slides pro Python prostřednictvím .NET: přidávat, číst, upravovat, odpovídat a odstraňovat komentáře v prezentacích PowerPoint."
+description: "Spravujte komentáře v prezentaci pomocí Aspose.Slides pro Python prostřednictvím .NET: přidávejte, čtěte, upravujte, odpovídejte na a odstraňujte komentáře v prezentacích PowerPoint."
 ---
 ## **Přehled**
 
 Tento článek vysvětluje, jak spravovat komentáře v prezentaci pomocí Aspose.Slides pro Python prostřednictvím .NET. Představuje hlavní typy související s komentáři a ukazuje, jak přidávat komentáře do snímků, přistupovat k existujícím komentářům, pracovat s odpověďmi a moderními komentáři a odstraňovat komentáře z prezentace.
 
-Příklady pokrývají běžné scénáře revize a spolupráce v PowerPointu, jako je přiřazování komentářů autorům, čtení textu a metadat komentářů, tvorba řetězců odpovědí a odstraňování vybraných nebo všech komentářů.
+Příklady pokrývají běžné scénáře revize a spolupráce v PowerPointu, jako je přiřazení komentářů autorům, čtení textu a metadat komentáře, vytváření řetězců odpovědí a odstraňování vybraných nebo všech komentářů.
 
-V PowerPointu se komentáře zobrazují jako anotace na snímcích. Výběr komentáře zobrazí jeho text a související diskusi.
+V PowerPointu se komentáře zobrazují jako anotace na snímcích. Výběrem komentáře se zobrazí jeho text a související diskuse.
 
-Pro požadavek, aby se při otevírání prezentace zobrazovaly nebo skrývaly komentáře bez změny samotných komentářů, viz [Show or Hide Comments When Opening a Presentation](/slides/cs/python-net/presentation-view-properties/).
+Chcete-li požadovat, aby se komentáře při otevření prezentace zobrazily nebo skryly, aniž byste měnili samotné komentáře, viz [Zobrazit nebo skrýt komentáře při otevření prezentace](/slides/cs/python-net/presentation-view-properties/).
 
 ## **Proč přidávat komentáře do prezentací?**
 
-Komentáře můžete použít k poskytování zpětné vazby a spolupráci s kolegy při revizi prezentací.
+Můžete použít komentáře k poskytování zpětné vazby a spolupráci s kolegy při revizi prezentací.
 
 Aspose.Slides pro Python prostřednictvím .NET poskytuje následující API pro práci s komentáři:
 
-* Třída [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) poskytuje přístup k autorům komentářů prezentace.
-* Třída [CommentCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/commentcollection/) představuje komentáře přiřazené konkrétnímu autorovi.
-* Třída [Comment](https://reference.aspose.com/slides/cs/python-net/aspose.slides/comment/) poskytuje informace o komentáři, včetně autora, času vytvoření, pozice a textu.
-* Třída [CommentAuthor](https://reference.aspose.com/slides/cs/python-net/aspose.slides/commentauthor/) poskytuje informace o autorovi, včetně jména, iniciál a přiřazených komentářů.
+* Třída [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), která poskytuje přístup k autorům komentářů v prezentaci.
+* Třída [CommentCollection](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/), která představuje komentáře spojené s jednotlivým autorem.
+* Třída [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/), která poskytuje informace o komentáři, včetně autora, času vytvoření, pozice a textu.
+* Třída [CommentAuthor](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/), která poskytuje informace o autorovi, včetně jména, iniciál a souvisejících komentářů.
 
-## **Přidat komentáře ke snímkům**
+## **Přidání komentářů do snímků**
 
-Následující příklad ukazuje, jak přidat komentáře ke snímkům v PowerPoint prezentaci:
+Příklad vytvoří dva snímky a zaregistruje autora komentáře pomocí [add_author](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/add_author/). Použije [add_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_comment/) k umístění jednoho komentáře na každý snímek, poté získá komentáře prvního snímku pro tohoto autora pomocí [get_slide_comments](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_slide_comments/). Konzole zobrazí text prvního komentáře dvakrát, což demonstruje přístup jak přes snímek, tak přes autora, a uložená prezentace obsahuje oba komentáře.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     first_slide = presentation.slides[0]
     second_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
+
     author = presentation.comment_authors.add_author("Jawad", "MF")
-    position = draw.PointF(0.2, 0.2)
+    position = slides.PointF(0.2, 0.2)
     created_time = datetime.now()
 
     author.comments.add_comment("Hello Jawad, this is a slide comment", first_slide, position, created_time)
@@ -74,9 +74,40 @@ with slides.Presentation() as presentation:
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Přístup ke komentářům na snímcích**
+## **Najít nebo vytvořit autora komentáře**
 
-Následující příklad ukazuje, jak přistupovat k existujícím komentářům v PowerPoint prezentaci:
+Když automatizovaná revize opakovaně zpracovává stejnou prezentaci, před přidáním autora prohledejte její kolekci [comment_authors](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/comment_authors/). Metoda [find_by_name_and_initials](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/find_by_name_and_initials/) porovnává jak jméno, tak iniciály a vrací pole odpovídajících autorů, nebo prázdné pole, pokud žádná shoda neexistuje. Naopak [find_by_name](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/find_by_name/) hledá jen podle jména, nezávisle na iniciálách. Volání [add_author](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/add_author/) se jménem a iniciálami, které již v kolekci existují, vyvolá výjimku.
+
+Příklad vyžaduje soubor prezentace s alespoň jedním snímkem. Během dvou průchodů znovu použije prvního shodného autora nebo vytvoří nového jen když je výsledek prázdný. Pokud existuje více shod, vybere první prvek pole bez slučování nebo odstraňování ostatních autorů. Poté zavolá [add_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_comment/) pro vybraného autora a uloží prezentaci. Druhý průchod otevře výstup první iterace a operaci zopakuje.
+
+```python
+from datetime import datetime
+
+import aspose.slides as slides
+
+author_name = "Reviewer"
+author_initials = "RV"
+
+input_file = "input.pptx"
+position = slides.PointF(20, 20)
+
+for pass_number in range(1, 3):
+    with slides.Presentation(input_file) as presentation:
+        matches = presentation.comment_authors.find_by_name_and_initials(author_name, author_initials)
+
+        author = matches[0] if len(matches) > 0 else presentation.comment_authors.add_author(author_name, author_initials)
+        author.comments.add_comment("Please review this slide.", presentation.slides[0], position, datetime.now())
+
+        output_file = f"review_pass_{pass_number}.pptx"
+        presentation.save(output_file, slides.export.SaveFormat.PPTX)
+        input_file = output_file
+```
+
+Druhý průchod přidá další komentář, aniž by přidal nového autora nebo odstranil existující komentáře. Výsledný soubor `review_pass_2.pptx` obsahuje oba nové komentáře vedle všech původních. Opětovné použití autora neodstraňuje duplicitní komentáře: pro zabránění opakovanému přidávání stejného komentáře implementujte samostatnou detekci duplicit před jeho přidáním.
+
+## **Přístup ke komentářům snímků**
+
+Příklad otevře existující prezentaci a načte její kolekci [comment_authors](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/comment_authors/). Pro každého autora iteruje přes [comments](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/comments/) a vypíše číslo snímku, text komentáře, jméno autora a čas vytvoření. Vstupní prezentace musí obsahovat komentáře, aby byl generován výstup do konzole.
 
 ```python
 import aspose.slides as slides
@@ -93,39 +124,39 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 ## **Odpovědi na komentáře**
 
-Rodičovský komentář je původní komentář v horní části hierarchie odpovědí. Vlastnost [parent_comment](https://reference.aspose.com/slides/cs/python-net/aspose.slides/comment/parent_comment/) třídy [Comment](https://reference.aspose.com/slides/cs/python-net/aspose.slides/comment/) umožňuje získat nebo nastavit rodiče komentáře.
+Rodičovský komentář je původní komentář na vrcholu hierarchie odpovědí. Vlastnost [parent_comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/) třídy [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) umožňuje získat nebo nastavit rodiče komentáře.
 
-Následující příklad ukazuje, jak přidat odpovědi a prozkoumat vzniklou hierarchii komentářů:
+Příklad vytvoří komentáře od dvou autorů a použije [parent_comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/) k vytvoření řetězců odpovědí, včetně odpovědi na další odpověď. Předání `None` metodě [get_slide_comments](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_slide_comments/) načte komentáře ze všech autorů; konzole odsazuje každý záznam podle jeho hloubky v hierarchii odpovědí. Příklad uloží kompletní diskusi, zavolá [remove](https://reference.aspose.com/slides/python-net/aspose.slides/comment/remove/) na první kořenový komentář a uloží druhou prezentaci, ve které jsou tento komentář a jeho odpovědi odstraněny.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    position = draw.PointF(10, 10)
+
+    position = slides.PointF(10, 10)
     created_time = datetime.now()
 
-    author1 = presentation.comment_authors.add_author("Author_1", "A.A.")
-    comment1 = author1.comments.add_comment("comment 1", slide, position, created_time)
+    original_author = presentation.comment_authors.add_author("Author_1", "A.A.")
+    root_comment = original_author.comments.add_comment("comment 1", slide, position, created_time)
 
-    author2 = presentation.comment_authors.add_author("Author_2", "B.B.")
-    reply1 = author2.comments.add_comment("reply 1 for comment 1", slide, position, created_time)
-    reply1.parent_comment = comment1
+    reviewer = presentation.comment_authors.add_author("Author_2", "B.B.")
+    first_reply = reviewer.comments.add_comment("reply 1 for comment 1", slide, position, created_time)
+    first_reply.parent_comment = root_comment
 
-    reply2 = author2.comments.add_comment("reply 2 for comment 1", slide, position, created_time)
-    reply2.parent_comment = comment1
+    second_reply = reviewer.comments.add_comment("reply 2 for comment 1", slide, position, created_time)
+    second_reply.parent_comment = root_comment
 
-    sub_reply = author1.comments.add_comment("subreply 3 for reply 2", slide, position, created_time)
-    sub_reply.parent_comment = reply2
+    sub_reply = original_author.comments.add_comment("subreply 3 for reply 2", slide, position, created_time)
+    sub_reply.parent_comment = second_reply
 
-    author2.comments.add_comment("comment 2", slide, position, created_time)
-    comment3 = author2.comments.add_comment("comment 3", slide, position, created_time)
+    reviewer.comments.add_comment("comment 2", slide, position, created_time)
+    separate_comment = reviewer.comments.add_comment("comment 3", slide, position, created_time)
 
-    reply3 = author1.comments.add_comment("reply 4 for comment 3", slide, position, created_time)
-    reply3.parent_comment = comment3
+    separate_reply = original_author.comments.add_comment("reply 4 for comment 3", slide, position, created_time)
+    separate_reply.parent_comment = separate_comment
 
     comments = slide.get_slide_comments(None)
     for current_comment in comments:
@@ -138,41 +169,42 @@ with slides.Presentation() as presentation:
 
     presentation.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
 
-    comment1.remove()
+    root_comment.remove()
     presentation.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Když je metoda [remove](https://reference.aspose.com/slides/cs/python-net/aspose.slides/comment/remove/) třídy [Comment](https://reference.aspose.com/slides/cs/python-net/aspose.slides/comment/) použita k odstranění komentáře, jsou také smazány všechny odpovědi na tento komentář.
-* Pokud vlastnost [parent_comment](https://reference.aspose.com/slides/cs/python-net/aspose.slides/comment/parent_comment/) vytvoří kruhový odkaz, je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pptxeditexception/).
+* Když je metoda [remove](https://reference.aspose.com/slides/python-net/aspose.slides/comment/remove/) třídy [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) použita k odstranění komentáře, jsou také odstraněny všechny odpovědi na tento komentář.
+* Pokud vlastnost [parent_comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/) vytvoří kruhový odkaz, je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Přidat moderní komentáře**
+## **Přidání moderních komentářů**
 
-Moderní komentáře lze přiřadit samotnému snímku, konkrétnímu tvaru nebo textovému rozsahu uvnitř AutoShape. Metoda [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/cs/python-net/aspose.slides/commentcollection/add_modern_comment/) přijímá argument [Shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shape/) kromě snímku a souřadnic značky komentáře.
+Moderní komentáře mohou být přiřazeny samotnému snímku, konkrétnímu tvaru nebo textovému rozsahu uvnitř AutoShape. Metoda [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_modern_comment/) přijímá argument [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) navíc k snímku a souřadnicím ukazatele komentáře.
 
-Když je jako argument tvaru předáno `None`, jedná se o komentář na úrovni snímku. Jeho značka je umístěna podle zadaných souřadnic, ale není přiřazena konkrétnímu tvaru, takže [ModernComment.shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/moderncomment/shape/) vrací `None`. Když je poskytnut [Shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shape/), je komentář ukotven k tomuto tvaru. Souřadnice nadále určují pozici značky komentáře na snímku, zatímco přiřazení tvaru lze získat pomocí [ModernComment.shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/moderncomment/shape/).
+Když je pro argument shape předáno `None`, jedná se o komentář úrovně snímku. Jeho ukazatel je umístěn podle zadaných souřadnic, ale není spojen s konkrétním tvarem, takže [ModernComment.shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/) vrací `None`. Když je předán [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/), je komentář ukotven k tomuto tvaru. Souřadnice i nadále určují pozici ukazatele komentáře na snímku, zatímco asociaci s tvarem lze získat přes [ModernComment.shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/).
 
-### **Ukotvit moderní komentář k tvaru**
+### **Ukotvení moderního komentáře k objektu Shape**
 
-Následující příklad vytvoří jak moderní komentář na úrovni snímku, tak moderní komentář ukotvený k určitému AutoShape. Pak načte přiřazený tvar z každého komentáře.
+Příklad dvakrát zavolá [add_modern_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_modern_comment/): jednou s tvarem `None` pro komentář úrovně snímku a podruhé s obdélníkem jako kotvou. Čtení [shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/) vypíše `True` pro kontrolu null u komentáře úrovně snímku a `Revenue title` pro ukotvený komentář. Oba komentáře jsou uloženy v prezentaci.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     author = presentation.comment_authors.add_author("Reviewer", "RV")
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 300, 80)
     shape.name = "Revenue title"
     shape.text_frame.text = "Quarterly revenue"
 
     created_time = datetime.now()
-    slide_comment_position = draw.PointF(20, 20)
-    shape_comment_position = draw.PointF(60, 60)
+    slide_comment_position = slides.PointF(20, 20)
+    shape_comment_position = slides.PointF(60, 60)
     slide_comment = author.comments.add_modern_comment("Review the overall slide layout.", slide, None, slide_comment_position, created_time)
     shape_comment = author.comments.add_modern_comment("Check this title.", slide, shape, shape_comment_position, created_time)
 
@@ -182,70 +214,70 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comments.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Ukotvit komentáře k různým typům tvarů**
+### **Ukotvení komentářů k různým typům Shape**
 
-Jakýkoli objekt snímku odvozený od [Shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shape/) může být použit jako ukotvení tvaru. Běžné příklady zahrnují [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/cs/python-net/aspose.slides/connector/) a [GraphicalObject](https://reference.aspose.com/slides/cs/python-net/aspose.slides/graphicalobject/) jako jsou například grafy.
+Jakýkoli objekt snímku odvozený od [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) může být použit jako kotva. Běžné příklady zahrnují [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/python-net/aspose.slides/connector/) a instance [GraphicalObject](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobject/) jako jsou grafy.
 
-Následující příklad vytvoří několik běžných typů tvarů a přiřadí k nim moderní komentář.
+Příklad použije [add_modern_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_modern_comment/) k přiřazení komentáře každému z pěti typů tvarů: AutoShape, rámec obrázku, skupina, spojovací prvek a graf. Obrázek používá vložená data obrázku, takže není vyžadován externí obrázek. Každý komentář má svou pozici ukazatele a uložená prezentace si zachová všech pět asociací s tvary.
 
 ```python
 import base64
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     author = presentation.comment_authors.add_author("Reviewer", "RV")
     created_time = datetime.now()
 
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 180, 60)
     auto_shape.text_frame.text = "AutoShape"
-    auto_shape_comment_position = draw.PointF(30, 30)
+
+    auto_shape_comment_position = slides.PointF(30, 30)
     author.comments.add_modern_comment("Comment on an AutoShape.", slide, auto_shape, auto_shape_comment_position, created_time)
 
     image_base64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg=="
     image_data = base64.b64decode(image_base64)
     image = presentation.images.add_image(image_data)
     picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 220, 20, 120, 80, image)
-    picture_comment_position = draw.PointF(230, 30)
+    picture_comment_position = slides.PointF(230, 30)
     author.comments.add_modern_comment("Comment on a picture.", slide, picture_frame, picture_comment_position, created_time)
 
     group_shape = slide.shapes.add_group_shape()
     group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 80, 40)
     group_shape.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 100, 0, 80, 40)
-    group_comment_position = draw.PointF(40, 150)
+    group_comment_position = slides.PointF(40, 150)
     author.comments.add_modern_comment("Comment on a group.", slide, group_shape, group_comment_position, created_time)
 
     connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 220, 150, 140, 40)
-    connector_comment_position = draw.PointF(240, 150)
+    connector_comment_position = slides.PointF(240, 150)
     author.comments.add_modern_comment("Comment on a connector.", slide, connector, connector_comment_position, created_time)
 
     chart = slide.shapes.add_chart(slides.charts.ChartType.CLUSTERED_COLUMN, 400, 20, 250, 180)
-    chart_comment_position = draw.PointF(420, 40)
+    chart_comment_position = slides.PointF(420, 40)
     author.comments.add_modern_comment("Comment on a graphical object.", slide, chart, chart_comment_position, created_time)
 
     presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Ukotvit komentář k textu a nastavit jeho stav**
+### **Ukotvení komentáře k textu a nastavení jeho stavu**
 
-Pro moderní komentář přiřazený k [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/) specifikuje [ModernComment.text_selection_start](https://reference.aspose.com/slides/cs/python-net/aspose.slides/moderncomment/text_selection_start/) počáteční pozici vybraného textu v textovém rámci tvaru, zatímco [ModernComment.text_selection_length](https://reference.aspose.com/slides/cs/python-net/aspose.slides/moderncomment/text_selection_length/) určuje délku výběru. Společně tyto vlastnosti přiřazují komentář konkrétnímu textovému rozsahu uvnitř AutoShape.
+U moderního komentáře spojeného s [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) určuje [ModernComment.text_selection_start](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_start/) počáteční pozici vybraného textu v textovém rámečku tvaru, zatímco [ModernComment.text_selection_length](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_length/) udává délku výběru. Tyto vlastnosti společně asociují komentář s konkrétním textovým rozsahem uvnitř AutoShape.
 
-Vlastnost [ModernComment.status](https://reference.aspose.com/slides/cs/python-net/aspose.slides/moderncomment/status/) lze číst nebo aktualizovat hodnotou z výčtu [ModernCommentStatus](https://reference.aspose.com/slides/cs/python-net/aspose.slides/moderncommentstatus/):
+Vlastnost [ModernComment.status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) lze číst nebo aktualizovat hodnotou z výčtu [ModernCommentStatus](https://reference.aspose.com/slides/python-net/aspose.slides/moderncommentstatus/):
 
 - `NOT_DEFINED` — není definován žádný konkrétní stav moderního komentáře.
 - `ACTIVE` — komentář je aktivní.
 - `RESOLVED` — komentář byl vyřešen.
 - `CLOSED` — komentář je uzavřen.
 
-Následující příklad vytvoří moderní komentář ukotvený k tvaru, přiřadí ho k výběru textu, označí jej jako vyřešený, uloží prezentaci a po opětovném otevření souboru ověří hodnoty.
+Příklad ukotví moderní komentář k slovům „quarterly revenue“ v textu obdélníku. Vypočítá nulově indexovaný [text_selection_start](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_start/) z textu a nastaví [text_selection_length](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_length/) na počet vybraných znaků. Po nastavení [status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) na `RESOLVED` prezentaci uloží a znovu otevře. Čtyři kontroly v konzoli by měly každá vypsat `True`, čímž potvrdí zachování ukotvení tvaru, textového rozsahu a stavu.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 output_file = "modern_comment_text_anchor.pptx"
@@ -255,12 +287,13 @@ expected_selection_start = shape_text.index(selected_text)
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 400, 100)
     shape.name = "Forecast text"
     shape.text_frame.text = shape_text
 
     author = presentation.comment_authors.add_author("Reviewer", "RV")
-    comment_position = draw.PointF(60, 60)
+    comment_position = slides.PointF(60, 60)
     comment = author.comments.add_modern_comment("Verify this forecast wording.", slide, shape, comment_position, datetime.now())
     comment.text_selection_start = expected_selection_start
     comment.text_selection_length = len(selected_text)
@@ -287,9 +320,9 @@ with slides.Presentation(output_file) as reopened_presentation:
         print("Resolved status preserved: " + str(status_matches))
 ```
 
-### **Prozkoumat existující moderní komentáře**
+### **Prozkoumání existujících moderních komentářů**
 
-Pro prozkoumání existující prezentace zjistěte, které komentáře jsou instance [ModernComment](https://reference.aspose.com/slides/cs/python-net/aspose.slides/moderncomment/), poté zkontrolujte [ModernComment.shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/cs/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/cs/python-net/aspose.slides/moderncomment/text_selection_length/) a [ModernComment.status](https://reference.aspose.com/slides/cs/python-net/aspose.slides/moderncomment/status/). Tvar `None` indikuje komentář na úrovni snímku. Pro ukotvení na [AutoShape] identifikují vlastnosti výběru textu přiřazený rozsah v textovém rámci tvaru.
+Příklad vyžaduje existující prezentaci obsahující moderní komentáře a vypíše jejich text, stav a podrobnosti o ukotvení. Pro zkoumání zjistěte, které komentáře jsou instance [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/), poté prozkoumejte [ModernComment.shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_length/) a [ModernComment.status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/). `None` tvar indikuje komentář úrovně snímku. Pro ukotvení k [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) vlastnosti výběru textu identifikují související rozsah v textovém rámečku tvaru.
 
 ```python
 import aspose.slides as slides
@@ -319,11 +352,13 @@ with slides.Presentation("comments.pptx") as presentation:
             print()
 ```
 
-## **Odstranit komentáře**
+## **Odstranění komentářů**
 
-### **Odstranit všechny komentáře a autory komentářů**
+Aspose.Slides pro Python prostřednictvím .NET umožňuje odstranit všechny komentáře a jejich autory z prezentace nebo smazat vybrané komentáře a zachovat ostatní. Následující příklady ukazují oba přístupy a ukládají aktualizovanou prezentaci.
 
-Následující příklad ukazuje, jak odstranit všechny komentáře a autory komentářů z prezentace:
+### **Odstranění všech komentářů a jejich autorů**
+
+Příklad otevře existující prezentaci a zavolá [CommentCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/clear/) pro každého autora, poté použije [CommentAuthorCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/clear/) k odstranění samotných autorů. Uložená prezentace neobsahuje ani komentáře, ani jejich autory. Použijte prezentaci obsahující komentáře, abyste viděli odstranění.
 
 ```python
 import aspose.slides as slides
@@ -333,26 +368,27 @@ with slides.Presentation("example.pptx") as presentation:
         author.comments.clear()
 
     presentation.comment_authors.clear()
+
     presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Odstranit konkrétní komentáře**
+### **Odstranění konkrétních komentářů**
 
-Následující příklad ukazuje, jak odstranit konkrétní komentáře ze snímku:
+Příklad vytvoří dva komentáře na jednom snímku a použije [get_slide_comments](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_slide_comments/) k nalezení komentářů od každého autora. Shromáždí komentáře, jejichž text je roven „comment 1“, před voláním [CommentCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/remove/), čímž se vyhne změnám kolekce během výběru. Uložená prezentace zachová jen „comment 2“.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     author = presentation.comment_authors.add_author("Author", "A")
     created_time = datetime.now()
 
-    first_comment_position = draw.PointF(0.2, 0.2)
-    second_comment_position = draw.PointF(0.3, 0.2)
+    first_comment_position = slides.PointF(0.2, 0.2)
+    second_comment_position = slides.PointF(0.3, 0.2)
     author.comments.add_comment("comment 1", slide, first_comment_position, created_time)
     author.comments.add_comment("comment 2", slide, second_comment_position, created_time)
 
@@ -372,14 +408,14 @@ with slides.Presentation() as presentation:
 
 ## **Často kladené otázky**
 
-**Podporuje Aspose.Slides stav resolved pro moderní komentáře?**
+**Podporuje Aspose.Slides stav vyřešen pro moderní komentáře?**
 
-Ano. [ModernComment.status](https://reference.aspose.com/slides/cs/python-net/aspose.slides/moderncomment/status/) lze číst a nastavit pomocí hodnoty z výčtu [ModernCommentStatus](https://reference.aspose.com/slides/cs/python-net/aspose.slides/moderncommentstatus/), včetně `RESOLVED`. Stav je uložen v prezentaci a lze jej znovu načíst po opětovném otevření souboru.
+Ano. [ModernComment.status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) lze číst a nastavit hodnotou z [ModernCommentStatus](https://reference.aspose.com/slides/python-net/aspose.slides/moderncommentstatus/), včetně `RESOLVED`. Stav je uložen v prezentaci a může být po opětovném otevření souboru znovu načten.
 
-**Jsou podporovány vláknové diskuse (řetězce odpovědí) a existuje omezení hloubky vnoření?**
+**Jsou podporovány vlákna diskusí (řetězce odpovědí) a existuje limit hloubky?**
 
-Ano. Každý komentář může odkazovat na svůj [parent comment](https://reference.aspose.com/slides/cs/python-net/aspose.slides/comment/parent_comment/), což umožňuje řetězce odpovědí. API nedefinuje konkrétní limit hloubky vnoření.
+Ano. Každý komentář může odkazovat na svůj [parent comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/), což umožňuje řetězce odpovědí. API nedefinuje konkrétní limit hloubky vnoření.
 
-**V jakém souřadnicovém systému je definována pozice značky komentáře na snímku?**
+**V jakém souřadnicovém systému je definována pozice markeru komentáře na snímku?**
 
-Pozice značky je definována pomocí desetinných souřadnic v souřadnicovém systému snímku, což umožňuje její přesné umístění na snímku.
+Pozice markeru je definována pomocí souřadnic s desetinnou čárkou v souřadnicovém systému snímku, což umožňuje přesné umístění na snímku.
