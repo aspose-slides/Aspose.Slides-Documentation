@@ -46,19 +46,19 @@ Aspose.Slides for Python via .NET provides the following APIs for working with c
 
 ## **Add Slide Comments**
 
-The following example shows how to add comments to slides in a PowerPoint presentation:
+The example creates two slides and registers a comment author with [add_author](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/add_author/). It uses [add_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_comment/) to place one comment on each slide, then retrieves the first slide's comments for that author with [get_slide_comments](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_slide_comments/). The console displays the first comment's text twice, demonstrating access through both the slide and the author, and the saved presentation contains both comments.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     first_slide = presentation.slides[0]
     second_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
+
     author = presentation.comment_authors.add_author("Jawad", "MF")
-    position = draw.PointF(0.2, 0.2)
+    position = slides.PointF(0.2, 0.2)
     created_time = datetime.now()
 
     author.comments.add_comment("Hello Jawad, this is a slide comment", first_slide, position, created_time)
@@ -75,9 +75,40 @@ with slides.Presentation() as presentation:
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Find or Create a Comment Author**
+
+When an automated review processes the same presentation repeatedly, search its [comment_authors](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/comment_authors/) collection before adding an author. [find_by_name_and_initials](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/find_by_name_and_initials/) matches both the name and initials and returns an array of matching authors, or an empty array if no matches exist. In contrast, [find_by_name](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/find_by_name/) searches by name alone, regardless of initials. Calling [add_author](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/add_author/) with a name and initials already present in the collection throws an exception.
+
+The example requires a presentation file with at least one slide. On each of two passes, it reuses the first matching author, or creates one only when the result is empty. If there are multiple matches, it selects the first array element without merging or removing the other authors. It then calls [add_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_comment/) for the selected author and saves the presentation. The second pass opens the first pass's output and repeats the operation.
+
+```python
+from datetime import datetime
+
+import aspose.slides as slides
+
+author_name = "Reviewer"
+author_initials = "RV"
+
+input_file = "input.pptx"
+position = slides.PointF(20, 20)
+
+for pass_number in range(1, 3):
+    with slides.Presentation(input_file) as presentation:
+        matches = presentation.comment_authors.find_by_name_and_initials(author_name, author_initials)
+
+        author = matches[0] if len(matches) > 0 else presentation.comment_authors.add_author(author_name, author_initials)
+        author.comments.add_comment("Please review this slide.", presentation.slides[0], position, datetime.now())
+
+        output_file = f"review_pass_{pass_number}.pptx"
+        presentation.save(output_file, slides.export.SaveFormat.PPTX)
+        input_file = output_file
+```
+
+The second pass adds another comment without adding another author or removing existing comments. The final file, `review_pass_2.pptx`, contains both new comments alongside any original comments. Reusing an author does not deduplicate comments: to avoid repeatedly adding the same comment, implement separate duplicate detection before adding it.
+
 ## **Access Slide Comments**
 
-The following example shows how to access existing comments in a PowerPoint presentation:
+The example opens an existing presentation and reads its [comment_authors](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/comment_authors/) collection. For each author, it iterates through [comments](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthor/comments/) and prints the slide number, comment text, author name, and creation time. The input presentation must contain comments to produce console output.
 
 ```python
 import aspose.slides as slides
@@ -96,37 +127,37 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 A parent comment is the original comment at the top of a reply hierarchy. The [parent_comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/) property of the [Comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/) class lets you get or set the parent of a comment.
 
-The following example shows how to add replies and inspect the resulting comment hierarchy:
+The example creates comments from two authors and uses [parent_comment](https://reference.aspose.com/slides/python-net/aspose.slides/comment/parent_comment/) to build replies, including a reply to another reply. Passing `None` to [get_slide_comments](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_slide_comments/) retrieves comments from all authors; the console indents each entry according to its depth in the reply hierarchy. The example saves the complete discussion, calls [remove](https://reference.aspose.com/slides/python-net/aspose.slides/comment/remove/) on the first root comment, and saves a second presentation with that comment and its replies removed.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    position = draw.PointF(10, 10)
+
+    position = slides.PointF(10, 10)
     created_time = datetime.now()
 
-    author1 = presentation.comment_authors.add_author("Author_1", "A.A.")
-    comment1 = author1.comments.add_comment("comment 1", slide, position, created_time)
+    original_author = presentation.comment_authors.add_author("Author_1", "A.A.")
+    root_comment = original_author.comments.add_comment("comment 1", slide, position, created_time)
 
-    author2 = presentation.comment_authors.add_author("Author_2", "B.B.")
-    reply1 = author2.comments.add_comment("reply 1 for comment 1", slide, position, created_time)
-    reply1.parent_comment = comment1
+    reviewer = presentation.comment_authors.add_author("Author_2", "B.B.")
+    first_reply = reviewer.comments.add_comment("reply 1 for comment 1", slide, position, created_time)
+    first_reply.parent_comment = root_comment
 
-    reply2 = author2.comments.add_comment("reply 2 for comment 1", slide, position, created_time)
-    reply2.parent_comment = comment1
+    second_reply = reviewer.comments.add_comment("reply 2 for comment 1", slide, position, created_time)
+    second_reply.parent_comment = root_comment
 
-    sub_reply = author1.comments.add_comment("subreply 3 for reply 2", slide, position, created_time)
-    sub_reply.parent_comment = reply2
+    sub_reply = original_author.comments.add_comment("subreply 3 for reply 2", slide, position, created_time)
+    sub_reply.parent_comment = second_reply
 
-    author2.comments.add_comment("comment 2", slide, position, created_time)
-    comment3 = author2.comments.add_comment("comment 3", slide, position, created_time)
+    reviewer.comments.add_comment("comment 2", slide, position, created_time)
+    separate_comment = reviewer.comments.add_comment("comment 3", slide, position, created_time)
 
-    reply3 = author1.comments.add_comment("reply 4 for comment 3", slide, position, created_time)
-    reply3.parent_comment = comment3
+    separate_reply = original_author.comments.add_comment("reply 4 for comment 3", slide, position, created_time)
+    separate_reply.parent_comment = separate_comment
 
     comments = slide.get_slide_comments(None)
     for current_comment in comments:
@@ -139,7 +170,7 @@ with slides.Presentation() as presentation:
 
     presentation.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
 
-    comment1.remove()
+    root_comment.remove()
     presentation.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -158,24 +189,25 @@ When `None` is passed for the shape argument, the comment is a slide-level comme
 
 ### **Anchor a Modern Comment to a Shape**
 
-The following example creates both a slide-level modern comment and a modern comment anchored to a specific AutoShape. It then reads the associated shape from each comment.
+The example calls [add_modern_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_modern_comment/) twice: once with a `None` shape for a slide-level comment and once with a rectangle as the anchor. Reading [shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/) prints `True` for the slide-level comment's null check and `Revenue title` for the anchored comment. Both comments are saved with the presentation.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     author = presentation.comment_authors.add_author("Reviewer", "RV")
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 300, 80)
     shape.name = "Revenue title"
     shape.text_frame.text = "Quarterly revenue"
 
     created_time = datetime.now()
-    slide_comment_position = draw.PointF(20, 20)
-    shape_comment_position = draw.PointF(60, 60)
+    slide_comment_position = slides.PointF(20, 20)
+    shape_comment_position = slides.PointF(60, 60)
     slide_comment = author.comments.add_modern_comment("Review the overall slide layout.", slide, None, slide_comment_position, created_time)
     shape_comment = author.comments.add_modern_comment("Check this title.", slide, shape, shape_comment_position, created_time)
 
@@ -189,44 +221,45 @@ with slides.Presentation() as presentation:
 
 Any slide object derived from [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) can be used as a shape anchor. Common examples include [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/python-net/aspose.slides/connector/), and [GraphicalObject](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobject/) instances such as charts.
 
-The following example creates several common shape types and associates a modern comment with each one.
+The example uses [add_modern_comment](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/add_modern_comment/) to associate a comment with each of five shape types: an AutoShape, a picture frame, a group, a connector, and a chart. The picture uses embedded image data, so no external image is required. Each comment has its own marker position, and the saved presentation retains all five shape associations.
 
 ```python
 import base64
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     author = presentation.comment_authors.add_author("Reviewer", "RV")
     created_time = datetime.now()
 
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 180, 60)
     auto_shape.text_frame.text = "AutoShape"
-    auto_shape_comment_position = draw.PointF(30, 30)
+
+    auto_shape_comment_position = slides.PointF(30, 30)
     author.comments.add_modern_comment("Comment on an AutoShape.", slide, auto_shape, auto_shape_comment_position, created_time)
 
     image_base64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg=="
     image_data = base64.b64decode(image_base64)
     image = presentation.images.add_image(image_data)
     picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 220, 20, 120, 80, image)
-    picture_comment_position = draw.PointF(230, 30)
+    picture_comment_position = slides.PointF(230, 30)
     author.comments.add_modern_comment("Comment on a picture.", slide, picture_frame, picture_comment_position, created_time)
 
     group_shape = slide.shapes.add_group_shape()
     group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 80, 40)
     group_shape.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 100, 0, 80, 40)
-    group_comment_position = draw.PointF(40, 150)
+    group_comment_position = slides.PointF(40, 150)
     author.comments.add_modern_comment("Comment on a group.", slide, group_shape, group_comment_position, created_time)
 
     connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 220, 150, 140, 40)
-    connector_comment_position = draw.PointF(240, 150)
+    connector_comment_position = slides.PointF(240, 150)
     author.comments.add_modern_comment("Comment on a connector.", slide, connector, connector_comment_position, created_time)
 
     chart = slide.shapes.add_chart(slides.charts.ChartType.CLUSTERED_COLUMN, 400, 20, 250, 180)
-    chart_comment_position = draw.PointF(420, 40)
+    chart_comment_position = slides.PointF(420, 40)
     author.comments.add_modern_comment("Comment on a graphical object.", slide, chart, chart_comment_position, created_time)
 
     presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
@@ -243,12 +276,11 @@ The [ModernComment.status](https://reference.aspose.com/slides/python-net/aspose
 - `RESOLVED` — the comment has been resolved.
 - `CLOSED` — the comment is closed.
 
-The following example creates a shape-anchored modern comment, associates it with a text selection, marks it as resolved, saves the presentation, and verifies the values after reopening the file.
+The example anchors a modern comment to the words "quarterly revenue" in a rectangle's text. It calculates the zero-based [text_selection_start](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_start/) from the text and sets [text_selection_length](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_length/) to the number of selected characters. After setting [status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) to `RESOLVED`, it saves and reopens the presentation. The four console checks should each print `True`, confirming that the shape anchor, text range, and status were preserved.
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 output_file = "modern_comment_text_anchor.pptx"
@@ -258,12 +290,13 @@ expected_selection_start = shape_text.index(selected_text)
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 400, 100)
     shape.name = "Forecast text"
     shape.text_frame.text = shape_text
 
     author = presentation.comment_authors.add_author("Reviewer", "RV")
-    comment_position = draw.PointF(60, 60)
+    comment_position = slides.PointF(60, 60)
     comment = author.comments.add_modern_comment("Verify this forecast wording.", slide, shape, comment_position, datetime.now())
     comment.text_selection_start = expected_selection_start
     comment.text_selection_length = len(selected_text)
@@ -292,7 +325,7 @@ with slides.Presentation(output_file) as reopened_presentation:
 
 ### **Inspect Existing Modern Comments**
 
-To inspect an existing presentation, check which comments are [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) instances, then examine [ModernComment.shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_length/), and [ModernComment.status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/). A `None` shape indicates a slide-level comment. For an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) anchor, the text-selection properties identify the associated range in the shape's text frame.
+The example requires an existing presentation containing modern comments and prints their text, status, and anchor details. To inspect it, check which comments are instances of [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/), then examine [ModernComment.shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_length/), and [ModernComment.status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/). A `None` shape indicates a slide-level comment. For an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) anchor, the text-selection properties identify the associated range in the shape's text frame.
 
 ```python
 import aspose.slides as slides
@@ -324,9 +357,11 @@ with slides.Presentation("comments.pptx") as presentation:
 
 ## **Remove Comments**
 
+Aspose.Slides for Python via .NET lets you remove all comments and their authors from a presentation or delete selected comments while keeping the rest. The following examples demonstrate both approaches and save the updated presentation.
+
 ### **Remove All Comments and Comment Authors**
 
-The following example shows how to remove all comments and comment authors from a presentation:
+The example opens an existing presentation and calls [CommentCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/clear/) for each author, then calls [CommentAuthorCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/commentauthorcollection/clear/) to remove the authors themselves. The saved presentation contains neither comments nor comment authors. Use a presentation containing comments to observe the removal.
 
 ```python
 import aspose.slides as slides
@@ -336,26 +371,27 @@ with slides.Presentation("example.pptx") as presentation:
         author.comments.clear()
 
     presentation.comment_authors.clear()
+
     presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **Remove Specific Comments**
 
-The following example shows how to remove specific comments from a slide:
+The example creates two comments on one slide and uses [get_slide_comments](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_slide_comments/) to find comments by each author. It collects comments whose text equals "comment 1" before calling [CommentCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/commentcollection/remove/), avoiding changes to the collection during selection. The saved presentation retains only "comment 2".
 
 ```python
 from datetime import datetime
 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     author = presentation.comment_authors.add_author("Author", "A")
     created_time = datetime.now()
 
-    first_comment_position = draw.PointF(0.2, 0.2)
-    second_comment_position = draw.PointF(0.3, 0.2)
+    first_comment_position = slides.PointF(0.2, 0.2)
+    second_comment_position = slides.PointF(0.3, 0.2)
     author.comments.add_comment("comment 1", slide, first_comment_position, created_time)
     author.comments.add_comment("comment 2", slide, second_comment_position, created_time)
 
