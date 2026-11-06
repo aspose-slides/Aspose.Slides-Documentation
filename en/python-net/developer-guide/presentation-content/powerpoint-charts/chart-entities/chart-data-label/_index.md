@@ -21,6 +21,51 @@ description: "Learn to add and format chart data labels in PowerPoint presentati
 
 Data labels display information about chart series and individual data points, helping readers identify values and understand the chart. This article explains how to format values, display percentages, read label text, control labels beyond the axis maximum, adjust category axis label spacing, and position pie chart labels.
 
+## **Count Visible Data Labels**
+
+Use [count_of_visible_data_labels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/count_of_visible_data_labels/) to check how many data labels are enabled for display before publishing a presentation. Unlike `len(labels)`, which returns the total number of labels in the collection, it takes the series defaults and individual label settings into account.
+
+This example creates a column chart with one series and three data points. It accesses the series' [labels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/labels/) collection and prints the visible count as the settings change: **0, 3, 2, 3**. The total count remains **3**.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    series_cell = workbook.get_cell(0, 0, 1, "Values")
+    series = chart.chart_data.series.add(series_cell, chart.type)
+
+    for i in range(3):
+        category_cell = workbook.get_cell(0, i + 1, 0, f"Category {i + 1}")
+        chart.chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, (i + 1) * 10)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    labels = series.labels
+    print(f"Total: {len(labels)}; visible: {labels.count_of_visible_data_labels}")  # Total: 3; visible: 0
+
+    labels.default_data_label_format.show_value = True
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Visible: 3
+
+    labels[1].data_label_format.show_value = False
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Visible: 2
+
+    labels[1].data_label_format.show_legend_key = True
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Visible: 3
+```
+
+The series' [default_data_label_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/default_data_label_format/) supplies the default settings. Enabling [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) there displays values for all three labels. Setting it to `False` through one label's [data_label_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/data_label_format/) overrides that setting for the selected label. Enabling [show_legend_key](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_legend_key/) makes that label count as visible again, even though its value remains hidden.
+
+The visible count reflects visibility settings. It does not measure whether labels overlap, are clipped, or are readable in the rendered chart.
+
 ## **Set Data Precision in Chart Data Labels**
 
 Use [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
