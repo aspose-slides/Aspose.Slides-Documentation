@@ -15,15 +15,63 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET kullanarak PowerPoint sunumlarına grafik veri etiketleri eklemeyi ve biçimlendirmeyi öğrenin, daha etkileyici slaytlar elde edin."
+description: "PowerPoint sunumlarında Aspose.Slides for .NET kullanarak grafik veri etiketlerini eklemeyi ve biçimlendirmeyi öğrenin, böylece daha etkileyici slaytlar oluşturabilirsiniz."
 ---
 ## **Giriş**
 
-Veri etiketleri, grafik serileri ve tek tek veri noktaları hakkında bilgi gösterir, okuyucuların değerleri tanımlamasına ve grafiği anlamasına yardımcı olur. Bu makale, değerleri biçimlendirme, yüzde görüntüleme, etiket metnini okuma, eksen maksimumunun ötesindeki etiketleri kontrol etme, kategori ekseni etiketi aralığını ayarlama ve pasta grafiği etiketlerini konumlandırma konularını açıklar.
+Veri etiketleri, grafik serileri ve bireysel veri noktaları hakkında bilgi gösterir, okuyucuların değerleri tanımlamasına ve grafiği anlamasına yardımcı olur. Bu makale, değerleri biçimlendirme, yüzde gösterimi, etiket metnini okuma, eksen maksimumunun ötesinde etiketleri kontrol etme, kategori ekseni etiketi aralığını ayarlama ve pasta grafik etiketlerini konumlandırma konularını açıklar.
+
+## **Görünür Veri Etiketlerini Sayma**
+
+Sunumu yayınlamadan önce kaç veri etiketinin görüntülenmeye etkin olduğunu kontrol etmek için [CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/) kullanın. Koleksiyondaki toplam etiket sayısını döndüren [Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/) farklı olarak, seri varsayılanlarını ve bireysel etiket ayarlarını da göz önünde bulundurur.
+
+Bu örnek bir seri ve üç veri noktasına sahip bir sütun grafiği oluşturur. Serinin [Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/) koleksiyonuna erişir ve ayarlar değiştikçe görünür sayıyı **0, 3, 2, 3** olarak yazdırır. Toplam sayı **3** olarak kalır.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesCell = workbook.GetCell(0, 0, 1, "Values");
+var series = chart.ChartData.Series.Add(seriesCell, chart.Type);
+
+for (int i = 0; i < 3; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, $"Category {i + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(0, i + 1, 1, (i + 1) * 10);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+}
+
+var labels = series.Labels;
+Console.WriteLine($"Total: {labels.Count}; visible: {labels.CountOfVisibleDataLabels}"); // Toplam: 3; görünür: 0
+
+labels.DefaultDataLabelFormat.ShowValue = true;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // Görünür: 3
+
+labels[1].DataLabelFormat.ShowValue = false;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // Görünür: 2
+
+labels[1].DataLabelFormat.ShowLegendKey = true;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // Görünür: 3
+```
+
+Serinin [DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/) varsayılan ayarları sağlar. Orada [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) etkinleştirildiğinde üç etiketin de değeri görüntülenir. Biri etiketin [DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/) üzerinden `false` olarak ayarlandığında bu ayar seçili etiket için geçersiz kılınır. [ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/) etkinleştirildiğinde etiket yeniden görünür sayılır, ancak değeri hâlâ gizli kalır.
+
+Görünür sayı, görünürlük ayarlarını yansıtır. Etiketlerin çakışıp çakışmadığını, kesilip kesilmediğini veya render edilmiş grafikte okunabilir olup olmadığını ölçmez.
 
 ## **Grafik Veri Etiketlerinde Veri Hassasiyetini Ayarlama**
 
-Seri değerlerini biçimlendirmek için [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) kullanın. Bu örnek, varsayılan verilerle bir çizgi grafik oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi, binlik ayırıcı ve iki ondalık basamak gösterir, temel değerleri değiştirmez.
+Seri değerlerini biçimlendirmek için [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) kullanın. Bu örnek varsayılan verilerle bir çizgi grafiği oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi, binlik ayırıcı ve iki ondalık basamak gösterir; temel değerler değişmez.
 
 ```csharp
 using Aspose.Slides;
@@ -43,11 +91,11 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-Grafiğin gömülü çalışma kitabındaki sayısal hücreleri biçimlendirmek için [Set Custom Number Formats for Workbook Cells](/slides/tr/net/chart-workbook/#set-custom-number-formats-for-workbook-cells) sayfasına bakın. Bu örnek aynı zamanda, değer etiketlerinin kaynak hücre biçimlerine uyarak saklanan sayısal değerleri koruduğunu gösterir.
+Grafiğin gömülü çalışma kitabındaki sayısal hücreleri biçimlendirmek için [Çalışma Kitabı Hücreleri için Özel Sayı Biçimlerini Ayarlama](/slides/tr/net/chart-workbook/#set-custom-number-formats-for-workbook-cells) bölümüne bakın. Bu örnek, saklanan sayısal değerleri korurken, kaynak hücre biçimlerini izleyen değer etiketlerini de gösterir.
 
 ## **Yüzdeyi Etiket Olarak Görüntüleme**
 
-Yığılmış sütun grafik için, her değeri kategori toplamının yüzde olarak hesaplayın ve metni [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) aracılığıyla atayın. Bu örnek varsayılan grafik verilerini kullanır ve yüzdeyi iki ondalık basamakla 8 punto yazı tipinde gösterir. Sıfır toplamlı kategoriler sıfıra bölmeyi önlemek için atlanır. Grafik verileri değişirse özel etiket metnini yeniden hesaplayın.
+Bir yığılmış sütun grafiği için, her değeri kategori toplamına göre yüzde olarak hesaplayın ve metni [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/)ʼa atayın. Bu örnek varsayılan grafik verilerini kullanır ve yüzdeyi 8 puanlık bir yazı tipinde iki ondalık basamakla gösterir. Toplamı sıfır olan kategoriler bölme hatasından kaçınmak için atlanır. Grafik verileri değişirse özel etiket metnini yeniden hesaplayın.
 
 ```csharp
 using System;
@@ -108,11 +156,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Grafik Veri Etiketlerinde Yüzde Simgesini Ayarlama**
+## **Grafik Veri Etiketlerinde Yüzde İşaretini Ayarlama**
 
-Değerler kesir olarak saklandığında, yüzdeyi görüntülemek için [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) kullanın. Etiket biçimini kaynak hücrelerden bağımsız olarak uygulamak için [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) özelliğini `false` olarak ayarlayın.
+Değerler kesir olarak depolanıyorsa, yüzde göstermek için [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) kullanın. Kaynak hücrelerden bağımsız olarak etiket biçimini uygulamak için [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/)ʼi `false` olarak ayarlayın.
 
-Bu örnek, dört kategori boyunca kırmızı ve mavi serilerle %100 yığılmış bir sütun grafik oluşturur. Her değer çifti 1’e toplamaktadır. `0.0%` etiket biçimi, 0.30 değerini 30.0% olarak gösterirken, dikey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 punto etiket metni kullanır.
+Bu örnek dört kategori boyunca kırmızı ve mavi seriler içeren %100 yığılmış bir sütun grafiği oluşturur. Her değer çifti 1’e kadar toplar. `0.0%` etiket biçimi, 0.30’ı 30.0% olarak gösterirken, düşey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 puanlık etiket metni kullanır.
 
 ```csharp
 using System.Drawing;
@@ -170,7 +218,7 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 
 ## **Veri Etiketlerinin Gerçek Metnini Okuma**
 
-Bir veri etiketinin ayarları tarafından üretilen metni almak için [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) kullanın. Bu, raporlar için etiketleri çıkarmak, sunum içeriğinde arama yapmak veya oluşturulan grafikleri doğrulamak için yararlıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değerini yüzde olarak biçimlendirir, bir diğeri ise [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) aracılığıyla özel metin kullanır.
+[GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) kullanarak bir veri etiketinin ayarları tarafından üretilen metni alın. Bu, raporlar için etiketleri çıkarmak, sunum içeriğini aramak veya oluşturulan grafikleri doğrulamak için yararlıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değerini yüzde olarak biçimler, diğeri ise [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/)ʼdan özel metin alır.
 
 ```csharp
 using System;
@@ -224,15 +272,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-Bir veri noktasında saklanan sayı `0.75` olarak kalır, etiketinde kategori ve seri adlarıyla birlikte `%75` gösterse bile. Özel metin, oluşturulan etiket metninin yerini alır. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) her iki durumda da sonuç etiket dizesini döndürür. Yalnızca görünür etiketleri çıkarmak istediğinizde, yukarıda gösterildiği gibi, [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) ayrı olarak kontrol edin.
+Bir veri noktasında saklanan sayı `0.75` olarak kalır; etiketinde kategori ve seri adlarıyla birlikte `75%` gösterse bile. Özel metin, oluşturulan etiket metninin yerini alır. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) her iki durumda da sonuç etiket dizesini döndürür. Yalnızca görünür etiketleri çıkarmak istediğinizde, yukarıda gösterildiği gibi [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/)ʼi ayrı olarak kontrol edin.
 
-## **Eksen Maksimumunun Ötesindeki Veri Etiketlerini Kontrol Etme**
+## **Eksen Maksimumunun Ötesinde Veri Etiketlerini Kontrol Etme**
 
-Bir eksen aralığını manuel olarak sınırladığınızda, bazı veri noktaları maksimumu aşabilir. Bu veri etiketlerinin gösterilip gösterilmeyeceğini kontrol etmek için [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) kullanın. Bu ayar etiket görünürlüğünü değiştirir; eksen aralığını veya temel veri değerlerini değiştirmez.
+Eksen aralığını manuel olarak sınırladığınızda, bazı veri noktaları maksimum değerini aşabilir. Bu veri noktalarının etiketlerinin gösterilip gösterilmeyeceğini kontrol etmek için [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) kullanın. Bu ayar etiket görünürlüğünü değiştirir; eksen aralığını veya temel veri değerlerini değiştirmez.
 
-Aşağıdaki örnek, 60 ve 120 değerlerine sahip 2D kümelenmiş bir sütun grafik oluşturur. Dikey eksende [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) özelliğini `false`, [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) özelliğini ise 100 olarak ayarlar. İlk slayt, maksimumun üzerindeki etiketlere izin verir; o slaytın bir kopyası ise bunları devre dışı bırakır. Her iki slayt da `DataLabelsOverMaximum.pptx` dosyasına kaydedilir.
+Aşağıdaki örnek 60 ve 120 değerlerine sahip bir 2D kümelenmiş sütun grafiği oluşturur. Düşey eksende [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/)ʼi `false` ve [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/)ʼi 100 olarak ayarlar. İlk slayt maksimumun ötesindeki etiketlere izin verir; o slaytın bir kopyası bunları devre dışı bırakır. Her iki slayt da `DataLabelsOverMaximum.pptx` içinde kaydedilir.
 
-[ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) ile değer etiketlerini etkinleştirin. Grafik düzeyindeki bu ayar, tek başına değer gösterimini açmaz veya bireysel bir etiketin devre dışı bırakılmış değer gösterimini geçersiz kılmaz. Bu örnek, tüm seri için değerleri etkinleştirir ve etiketleri her sütunun dış ucuna konumlandırmak için [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) kullanır.
+Değer etiketlerini [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) ile etkinleştirin. Grafik düzeyindeki ayar tek başına değer gösterimini etkinleştirmez ve bireysel bir etiketin devre dışı bırakılmış değer gösterimini geçersiz kılmaz. Bu örnek, tüm seri için değerleri etkinleştirir ve etiketleri her sütunun dış ucuna yerleştirmek için [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) kullanır.
 
 ```csharp
 using Aspose.Slides;
@@ -279,19 +327,19 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-Aşağıdaki görüntüler, Microsoft PowerPoint tarafından oluşturulan kaydedilmiş slaytları gösterir. `true` olduğunda, **120** etiketi üst sınırda görünür; `false` olduğunda gizlenir. **60** etiketi görünür kalır, eksen maksimumu **100** olarak kalır ve ikinci veri noktası her iki durumda da **120** olur.
+Aşağıdaki görseller, Microsoft PowerPoint tarafından render edilen kaydedilmiş slaytları gösterir. `true` ile etiket **120** üst sınırda görünür; `false` ile gizlenir. Etiket **60** görünür kalır, eksen maksimumu **100** olarak kalır ve ikinci veri noktası her iki durumda da **120** olarak kalır.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![PowerPoint grafiği, eksen maksimumu 100 ile değer etiketi 120'yi gösteriyor](data-labels-over-maximum-true.png) | ![PowerPoint grafiği, eksen maksimumu 100 ile değer etiketi 120'yi gizliyor](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Chart Type" %}}
-Bu örnek, değer ekseni olan 2D sütun grafiği kullanır. Değer ekseni olmayan grafikler, örneğin pasta ve halka grafikler, bu şekilde sınırlandırılabilecek bir eksen maksimumuna sahip değildir.
+{{% alert color="info" title="Grafik Türü" %}}
+Bu örnek bir değer ekseni olan 2D sütun grafiği kullanır. Değer ekseni olmayan grafikler, örneğin pasta ve halka grafikler, bu şekilde sınırlanacak bir eksen maksimumuna sahip değildir.
 {{% /alert %}}
 
-## **Etiketlerin Eksenle Olan Mesafesini Ayarlama**
+## **Bir Eksenden Etiket Mesafesini Ayarlama**
 
-[LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) kullanarak kategori ekseni etiketleri ile eksen arasındaki mesafeyi kontrol edin. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun yüzde olarak ifade edilmesidir. Bu örnek, kümelenmiş bir sütun grafik oluşturur ve yatay eksen etiketi kaymasını 500 olarak ayarlar. Bu ayar, bireysel veri noktalarına eklenmiş etiketlerden ziyade kategori ekseni etiketlerini etkiler.
+[Kategori ekseni etiketleri ile eksen arasındaki mesafeyi kontrol etmek için [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) kullanın. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun bir yüzdesidir. Bu örnek bir kümelenmiş sütun grafiği oluşturur ve yatay eksen etiket ötelemesini 500 olarak ayarlar. Bu ayar, bireysel veri noktalarına eklenmiş etiketler yerine kategori ekseni etiketlerini etkiler.
 
 ```csharp
 using Aspose.Slides;
@@ -309,9 +357,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **Etiket Konumunu Ayarlama**
 
-Pasta grafiğinde, veri etiketi konumlarını ayarlayarak boşlukları iyileştirin ve lider hatlar için yer açın.
+Bir pasta grafiğinde, veri etiketlerinin konumlarını ayarlayarak boşlukları iyileştirin ve lider çizgileri için alan yaratın.
 
-Bu örnek, ilk veri noktasının değerini gösterir, etiketini dilimin dışına yerleştirir ve [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) ve [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) kaydırmalarını ayarlar. Bu kaydırmalar sırasıyla grafiğin genişliği ve yüksekliğine göre orantılıdır.
+Bu örnek ilk veri noktasının değerini gösterir, etiketini dilimin dışına koyar ve [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) ve [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) kaydırmalarını ayarlar. Bu kaydırmalar, sırasıyla grafiğin genişliği ve yüksekliğine göre görelidir.
 
 ```csharp
 using Aspose.Slides;
@@ -333,23 +381,23 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![Ayarlanmış veri etiketi konumlu pasta grafik](pie-chart-adjusted-label.png)
+![Dilimin dışına ayarlanmış veri etiketi konumlu pasta grafiği](pie-chart-adjusted-label.png)
 
 ## **Lider Çizgileri Biçimlendirme**
 
-Pasta grafiği etiketleri dilimlerin dışına yerleştirildiğinde, lider çizgileri okuyucuların her değeri doğru dilime eşleştirmesine yardımcı olur. Zıt bir renk ve biraz daha kalın bir çizgi bu bağlantıları daha izlenebilir kılar, şeffaflık ve kesikli stil ise çizgileri görsel olarak rahatsız etmeyici tutar.
+Pasta grafiği etiketleri dilimlerinin dışına yerleştirildiğinde, lider çizgileri okuyucuların her değeri doğru dilime eşleştirmesine yardımcı olur. Zıt bir renk ve hafifçe daha kalın bir çizgi bu bağlantıları takip etmeyi kolaylaştırır; şeffaflık ve kesikli stil ise çizgileri görsel olarak rahatsız etmeyen bir hâle getirir.
 
-Lider çizgileri, serinin veri etiketi koleksiyonu seviyesinde biçimlendirmek için [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) kullanın. `series.Labels.LeaderLinesFormat.Line` içindeki ayarlar, bireysel bir etiketten ziyade koleksiyona uygulanır.
+Lider çizgileri, serinin veri etiketi koleksiyon seviyesinde biçimlendirmek için [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) kullanın. `series.Labels.LeaderLinesFormat.Line` içindeki ayarlar koleksiyona, tek bir etikete değil, uygulanır.
 
-Bu örnek, varsayılan verilerle bir pasta grafik oluşturur, değerleri dilimlerin dışına gösterir ve [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/) işlevini etkinleştirir. İki etiketi dilimlerinden daha uzağa taşımak için [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) ve [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) kaydırmaları, grafiğin genişliği ve yüksekliğinin kesirleri olarak ifade eder. Giriş sunumu gerekmez.
+Bu örnek varsayılan verilerle bir pasta grafiği oluşturur, değerleri dilimlerin dışına gösterir ve [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/)ʼi etkinleştirir. İki etiketi, grafiğin genişliği ve yüksekliğinin kesirleri olarak ifade edilen [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) ve [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) kaydırmalarıyla dilimlerinden daha uzakta konumlandırır. Giriş sunumuna ihtiyaç yoktur.
 
-Çizginin [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) özelliği, 255 üzerinden 191 alfa değeriyle %25 civarında şeffaflık sağlayan katı mavi bir renk ayarlar. [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) kalınlığı 2 puan olarak belirler ve [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) çizgiyi kesikli yapar.
+Çizginin [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) ayarı, alfa değeri 255 üzerinden 191 olan katı bir mavi renk belirler; bu da yaklaşık %25 şeffaflık sağlar. [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) kalınlığı 2 puan olarak ayarlar ve [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) çizgiyi kesikli yapar.
 
 ```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
-using Aspose.Slides.Export;
+using Aspise.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
@@ -379,17 +427,17 @@ line.DashStyle = LineDashStyle.Dash;
 presentation.Save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
 ```
 
-Lider çizgileri etkinleştirildiğinde, her etiket için bir çizgi görünür olacağı garanti değildir. Görünürlük, etiket yerleşimine ve grafiğin düzen davranışına bağlıdır. Bu örnekte, iki uzaklaştırılmış etiketin görünür lider çizgileri vardır; dilimlerine yakın kalan etiketlerin ise buna ihtiyacı yoktur.
+Lider çizgilerini etkinleştirmek, her etiket için bir çizgi görünmesini garantilemez. Görünürlük, etiket yerleşimine ve grafiğin yerleşim davranışına bağlıdır. Bu örnekte, iki kaydırılmış etiketin görünür lider çizgileri vardır; dilimlerine yakın kalan etiketlerin ise buna ihtiyacı yoktur.
 
-Aşağıdaki görüntü, Aspose.Slides ile oluşturulan kaydedilmiş `FormattedLeaderLines.pptx` dosyasını gösterir:
+Aşağıdaki görsel, Aspose.Slides ile render edilen kaydedilmiş `FormattedLeaderLines.pptx` dosyasını gösterir:
 
-![İki dış etiketi dilimlerine bağlayan mavi, yarı saydam kesikli lider çizgileriyle pasta grafiği](formatted-leader-lines.png)
+![Mavi, yarı şeffaf, kesikli lider çizgileriyle dış etiketleri dilimlerine bağlayan pasta grafiği](formatted-leader-lines.png)
 
-## **Sütun Grafiğinin Üstüne Birden Çok Veri Etiketi Satırı Ekleme**
+## **Sütun Grafiğinin Üstüne Birden Çok Satır Veri Etiketi Ekleme**
 
-Bu örnek, çizim alanının üstünde iki satır veri etiketi bulunan bir sütun grafik oluşturur. A Serisi görünür sütunları gösterirken, B ve C Serileri ek etiketleri sağlar. Bu sütunlar dolgu ve kenarlık kaldırılarak gizlenir. [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) özelliği, üç seriyi aynı kategori merkezleriyle hizalar.
+Bu örnek, çizim alanının üstünde iki satır veri etiketi bulunan bir sütun grafiği oluşturur. Seri A görünür sütunları gösterirken, Seri B ve Seri C ek etiketleri sağlar. Doldurma ve dış çizgi kaldırılarak sütunları gizlenir. [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) özelliği, üç seriyi aynı kategori merkezleriyle hizalar.
 
-[PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) ayarları, etiket satırları için alan ayırır. [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) varsayılan konumları hesapladıktan sonra, [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) ve [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) yatay hizalamayı korur ve etiketleri iki satırda düzenlemek için dikey kaydırmalar uygular. Sayılar, seri değerlerine bağlı veri etiketleri olarak kalır; yalnızca satır başlıkları ayrı metin şekilleridir.
+[PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) ayarları etiket satırları için alan ayırır. [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) varsayılan konumları hesapladıktan sonra, [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) ve [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) yatay hizalamayı korur ve iki satırda etiketleri düzenlemek için dikey öteleme uygular. Sayılar, seri değerlerine bağlı veri etiketleri olarak kalır; yalnızca satır başlıkları ayrı metin şekilleridir.
 
 ```csharp
 using System.Drawing;
@@ -451,7 +499,7 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
     }
 }
 
-// Üç seriyi aynı kategori merkezleriyle hizala.
+// Tüm üç seriyi aynı kategori merkezleriyle hizala.
 chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
 
 // Bu kompakt örnek için daha az ızgara çizgisi kullan.
@@ -474,13 +522,13 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
     for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
     {
         var dataLabel = series.DataPoints[categoryIndex].Label;
-        // Varsayılan yatay konumu koru. Y, 
-        // varsayılan etiket konumundan, grafik yüksekliğinin bir kesri olarak ifade edilen.
+        // Varsayılan yatay konumu koru. Y, şundan bir offsettir
+        // varsayılan etiket konumundan, grafik yüksekliği kesri olarak ifade edilir.
         dataLabel.X = 0;
         dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
     }
 
-    // Sadece satır başlığı ayrı bir metin şeklidir.
+    // Yalnızca satır başlığı ayrı bir metin şeklidir.
     var rowHeading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, chart.X, chart.Y + rowTop * chart.Height, 85, 18);
     rowHeading.FillFormat.FillType = FillType.NoFill;
     rowHeading.LineFormat.FillFormat.FillType = FillType.NoFill;
@@ -496,15 +544,15 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
 presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
 ```
 
-![Çizim alanının üstünde iki satır veri etiketi olan sütun grafik](multiple-rows-of-labels.png)
+![Çizim alanının üstünde iki satır veri etiketi bulunan sütun grafiği](multiple-rows-of-labels.png)
 
 ## **SSS**
 
-**Yoğun grafiklerde veri etiketlerinin çakışmasını nasıl önleyebilirim?**  
-Otomatik etiket yerleşimi, lider çizgileri ve küçültülmüş yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca ekstrem değerler ya da ana noktalar için etiket gösterin.
+**Yoğun grafiklerde veri etiketlerinin üst üste binmesini nasıl önleyebilirim?**  
+Otomatik etiket yerleşimini, lider çizgilerini ve küçültülmüş yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca uç değerler ya da ana noktalar için etiket gösterin.
 
 **Sıfır, negatif veya boş değerler için etiketleri yalnızca nasıl devre dışı bırakabilirim?**  
 Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif veya eksik değerler için gösterimi kapatın.
 
-**PDF/görsellere dışa aktarırken tutarlı bir etiket stili nasıl sağlanır?**  
-Yazı tipi ailesini ve boyutunu açıkça ayarlayın ve geri dönüşümden kaçınmak için yazı tipinin render ortamında mevcut olduğunu doğrulayın.
+**PDF/görüntülere dışa aktarırken tutarlı bir etiket stili nasıl sağlayabilirim?**  
+Yazı tipi ailesini ve boyutunu açıkça ayarlayın ve render ortamında yazı tipinin mevcut olduğunu doğrulayarak yedekleme (fallback) sorununu önleyin.

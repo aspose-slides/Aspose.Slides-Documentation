@@ -1,28 +1,73 @@
 ---
-title: Beheer grafiekdatatags in presentaties met Python
-linktitle: Gegevenslabel
+title: Beheer grafiekdatapuntenlabels in presentaties met Python
+linktitle: Datapuntlabel
 type: docs
 url: /nl/python-net/chart-data-label/
 keywords:
 - grafiek
-- gegevenslabel
+- datapuntlabel
 - gegevensprecisie
 - percentage
 - labelafstand
-- labellocatie
+- labelpositie
 - PowerPoint
 - presentatie
 - Python
 - Aspose.Slides
-description: "Leer hoe u grafiekdatatags kunt toevoegen en opmaken in PowerPoint‑presentaties met Aspose.Slides voor Python via .NET voor boeiendere dia's."
+description: "Leer hoe u grafiekdatapuntenlabels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor Python via .NET, voor boeiendere dia's."
 ---
-## **Inleiding**
+## **Introductie**
 
-Gegevenslabels tonen informatie over grafiekseries en individuele gegevenspunten, waardoor lezers waarden kunnen identificeren en de grafiek beter begrijpen. Dit artikel legt uit hoe u waarden kunt opmaken, percentages kunt weergeven, labeltekst kunt lezen, labels buiten de asmaximum kunt beheren, de afstand tussen categorieaslabels kunt aanpassen en taartgrafieklabels kunt positioneren.
+Datapuntenlabels tonen informatie over grafiekseries en individuele datapunten, waardoor lezers waarden kunnen identificeren en de grafiek beter begrijpen. Dit artikel legt uit hoe u waarden kunt opmaken, percentages kunt weergeven, labeltekst kunt uitlezen, labels buiten de as‑maximum kunt beheersen, de afstand tussen categorie‑as‑labels kunt aanpassen en taartgrafieklabels kunt positioneren.
 
-## **Precisie van gegevens instellen in grafiekdatatags**
+## **Aantal zichtbare datapuntenlabels tellen**
 
-Gebruik [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) om serieswaarden op te maken. Dit voorbeeld maakt een lijngrafiek met standaardgegevens, toont de gegevenstabel en schakelt waarde‑labels in voor de eerste serie. Het format `#,##0.00` geeft een duizendtallen‑scheidingsteken en twee decimalen weer zonder de onderliggende waarden te wijzigen.
+Gebruik [count_of_visible_data_labels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/count_of_visible_data_labels/) om te controleren hoeveel datapuntenlabels zijn ingeschakeld voor weergave voordat u een presentatie publiceert. In tegenstelling tot `len(labels)`, dat het totale aantal labels in de collectie retourneert, houdt dit rekening met de standaardinstellingen van de series en individuele labelinstellingen.
+
+Dit voorbeeld maakt een kolomgrafiek met één serie en drie datapunten. Het benadert de [labels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/labels/)‑collectie van de serie en drukt het zichtbare aantal af terwijl de instellingen wijzigen: **0, 3, 2, 3**. Het totale aantal blijft **3**.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    series_cell = workbook.get_cell(0, 0, 1, "Values")
+    series = chart.chart_data.series.add(series_cell, chart.type)
+
+    for i in range(3):
+        category_cell = workbook.get_cell(0, i + 1, 0, f"Category {i + 1}")
+        chart.chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, (i + 1) * 10)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    labels = series.labels
+    print(f"Total: {len(labels)}; visible: {labels.count_of_visible_data_labels}")  # Totaal: 3; zichtbaar: 0
+
+    labels.default_data_label_format.show_value = True
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Zichtbaar: 3
+
+    labels[1].data_label_format.show_value = False
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Zichtbaar: 2
+
+    labels[1].data_label_format.show_legend_key = True
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Zichtbaar: 3
+```
+
+De [default_data_label_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/default_data_label_format/) van de serie levert de standaardinstellingen. Het inschakelen van [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) daar toont waarden voor alle drie de labels. Het op `False` zetten via de [data_label_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/data_label_format/) van één label overschrijft die instelling voor het geselecteerde label. Het inschakelen van [show_legend_key](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_legend_key/) zorgt ervoor dat dat label weer als zichtbaar wordt geteld, ook al blijft de waarde verborgen.
+
+Het zichtbare aantal weerspiegelt de zichtbaarheidinstellingen. Het meet niet of labels overlappen, afgesneden worden of leesbaar zijn in de gerenderde grafiek.
+
+## **Precisie van waarden in grafiekdatapuntenlabels instellen**
+
+Gebruik [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) om serieswaarden op te maken. Dit voorbeeld maakt een lijngrafiek met standaardgegevens, toont de gegevenstabel en schakelt waardelabels in voor de eerste serie. Het formaat `#,##0.00` toont een duizendtallen‑scheidingsteken en twee decimalen zonder de onderliggende waarden te wijzigen.
 
 ```python
 import aspose.slides as slides
@@ -41,11 +86,11 @@ with slides.Presentation() as presentation:
     presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Om de numerieke cellen in het ingesloten werkboek van een grafiek op te maken, zie [Set Custom Number Formats for Workbook Cells](/slides/nl/python-net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dat voorbeeld toont ook waarde‑labels die de opmaak van hun broncellen volgen, terwijl de opgeslagen numerieke waarden behouden blijven.
+Om de numerieke cellen in een ingebedde werkmap van een grafiek op te maken, zie [Set Custom Number Formats for Workbook Cells](/slides/nl/python-net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dat voorbeeld toont ook waardelabels die de opmaak van hun broncel volgen, terwijl de opgeslagen numerieke waarden behouden blijven.
 
-## **Percentage weergeven als labels**
+## **Percentage als labels weergeven**
 
-Voor een gestapelde kolomgrafiek berekent u elke waarde als een percentage van het totaalaantal van de categorie en kent u de tekst toe aan [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Dit voorbeeld gebruikt de standaardgrafiekgegevens en toont percentages met twee decimalen in een lettertype van 8 punten. Categorieën met een totaal van nul worden overgeslagen om deling door nul te voorkomen. Herbereken de aangepaste labeltekst als de grafiekgegevens wijzigen.
+Voor een gestapelde kolomgrafiek berekent u elke waarde als een percentage van het totaalsom van de categorie en kent u de tekst toe aan [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Dit voorbeeld gebruikt de standaardgrafiekgegevens en toont percentages met twee decimalen in een lettertypegrootte van 8 punten. Categorieën met een totaal van nul worden overgeslagen om deling door nul te vermijden. Herbereken de aangepaste labeltekst als de grafiekgegevens wijzigen.
 
 ```python
 import aspose.slides as slides
@@ -92,11 +137,11 @@ with slides.Presentation() as presentation:
     presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Percentage‑teken instellen met grafiekdatatags**
+## **Procentteken instellen bij grafiekdatapuntenlabels**
 
-Wanneer waarden als breuken zijn opgeslagen, gebruik dan [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) . Stel [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) in op `False` om het label‑formaat onafhankelijk van de broncellen toe te passen.
+Wanneer waarden als breuken zijn opgeslagen, gebruikt u [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) om percentages weer te geven. Zet [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) op `False` om het labelformaat onafhankelijk van de broncellen toe te passen.
 
-Dit voorbeeld maakt een 100% gestapelde kolomgrafiek met rode en blauwe series over vier categorieën. Elk paar waarden telt op tot 1. Het labelformaat `0.0%` toont 0,30 als 30,0%, terwijl de verticale as twee decimalen gebruikt. Beide series gebruiken witte labeltekst van 10 punten.
+Dit voorbeeld maakt een 100 % gestapelde kolomgrafiek met rode en blauwe series over vier categorieën. Elk waardepaar telt op tot 1. Het labelformaat `0.0%` toont 0.30 als 30,0 %, terwijl de verticale as twee decimalen gebruikt. Beide series gebruiken witte labels met een lettergrootte van 10 punten.
 
 ```python
 import aspose.slides as slides
@@ -145,9 +190,9 @@ with slides.Presentation() as presentation:
     presentation.save("SetDataLabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **De feitelijke tekst van datalabels uitlezen**
+## **De feitelijke tekst van datapuntenlabels uitlezen**
 
-Gebruik [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) om de tekst te verkrijgen die door de instellingen van een datalabel wordt gegenereerd. Dit is handig bij het extraheren van labels voor rapporten, zoeken in presentatie‑inhoud of valideren van gegenereerde grafieken. In het voorbeeld hieronder combineert de standaard [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) elke categorienaam, serienaam en waarde. Eén punt formatteert zijn waarde als percentage, en een ander gebruikt aangepaste tekst van [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
+Gebruik [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) om de tekst op te halen die door de labelinstellingen wordt gegenereerd. Dit is handig bij het extraheren van labels voor rapporten, het doorzoeken van presentatie‑inhoud, of het valideren van gegenereerde grafieken. In het onderstaande voorbeeld combineert het standaard [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) elke categorienaam, serienaam en waarde. Eén punt formatteert zijn waarde als percentage, en een ander gebruikt aangepaste tekst uit [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
 
 ```python
 import aspose.slides as slides
@@ -198,15 +243,15 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-Het getal dat in een datapunten is opgeslagen blijft `0.75`, zelfs wanneer het label `75%` toont samen met de categorie‑ en serienamen. Aangepaste tekst vervangt de gegenereerde labeltekst. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) retourneert in beide gevallen de resulterende label‑string. Controleer [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) afzonderlijk, zoals hierboven getoond, wanneer u uitsluitend zichtbare labels wilt extraheren.
+Het getal dat in een datapunt is opgeslagen blijft `0.75`, ook al toont het label `75 %` samen met de categorie‑ en serienamen. Aangepaste tekst vervangt de automatisch gegenereerde labeltekst. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) retourneert in beide gevallen de resulterende label‑string. Controleer [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) afzonderlijk, zoals hierboven getoond, wanneer u alleen zichtbare labels wilt extraheren.
 
-## **Data‑labels buiten de asmaximum beheren**
+## **Datapuntenlabels buiten de as‑maximum beheren**
 
-Wanneer u handmatig een asbereik beperkt, kunnen sommige gegevenspunten de maximumwaarde overschrijden. Gebruik [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) om te bepalen of hun datalabels worden weergegeven. Deze instelling wijzigt de zichtbaarheid van labels; ze verandert de aslimiet of de onderliggende gegevenswaarden niet.
+Wanneer u handmatig een asbereik beperkt, kunnen sommige datapunten de maximumwaarde overschrijden. Gebruik [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) om te bepalen of hun labels worden getoond. Deze instelling wijzigt de label‑zichtbaarheid; ze verandert niet het asbereik of de onderliggende data‑waarden.
 
-Het voorbeeld hieronder maakt een 2D gegroepeerde kolomgrafiek met waarden van 60 en 120. Het stelt [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) in op `False` en [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) op 100 voor de verticale as. De eerste dia staat labels toe die de maximumwaarde overschrijden; een kopie van die dia schakelt ze uit. Beide dia’s worden opgeslagen in `DataLabelsOverMaximum.pptx`.
+Het voorbeeld hieronder maakt een 2D‑gegroepeerde kolomgrafiek met waarden van 60 en 120. Het zet [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) op `False` en [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) op 100 voor de verticale as. De eerste dia staat labels toe die over het maximum gaan; een kopie van die dia schakelt ze uit. Beide dia’s worden opgeslagen in `DataLabelsOverMaximum.pptx`.
 
-Schakel waarde‑labels in met [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). De instelling op grafiekniveau activeert niet automatisch de weergave van waarden en overschrijft geen individuele labelinstelling. Dit voorbeeld activeert waarden voor de volledige serie en gebruikt [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) om labels aan het buitenste uiteinde van elke kolom te plaatsen.
+Schakel waardelabels in met [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). De instelling op grafiekniveau zorgt niet zelf voor weergave van waarden en overschrijft niet een individueel label dat uitgeschakeld is. Dit voorbeeld schakelt waarden in voor de volledige serie en gebruikt [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) om labels aan het buitenste uiteinde van elke kolom te plaatsen.
 
 ```python
 import aspose.slides as slides
@@ -252,19 +297,21 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-De onderstaande afbeeldingen tonen de opgeslagen dia’s zoals gerenderd door Microsoft PowerPoint. Met `True` is het label **120** zichtbaar aan de bovengrens; met `False` is het verborgen. Het label **60** blijft zichtbaar, de asmaximum blijft **100**, en het tweede gegevenspunt blijft in beide gevallen **120**.
+De volgende afbeeldingen tonen de opgeslagen dia’s zoals gerenderd door Microsoft PowerPoint. Met `True` is het label **120** zichtbaar aan de bovenste grens; met `False` is het verborgen. Het label **60** blijft zichtbaar, de as‑maximum blijft **100**, en het tweede datapunt blijft **120** in beide gevallen.
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Dit voorbeeld gebruikt een 2D kolomgrafiek met een waardenas. Grafieken zonder waardenas, zoals taart‑ en donutsgrafieken, hebben geen asmaximum dat op deze manier kan worden beperkt.
+
+Dit voorbeeld gebruikt een 2D‑kolomgrafiek met een waardenas. Grafieken zonder waardenas, zoals taart‑ en donutgrafieken, hebben geen as‑maximum dat op deze manier beperkt kan worden.
+
 {{% /alert %}}
 
-## **Labelafstand vanaf een as instellen**
+## **Labelafstand tot een as instellen**
 
-Gebruik [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) om de afstand tussen categorieas‑labels en de as te regelen. De waarde is een percentage van de maximale lettergrootte van de aslabels. Dit voorbeeld maakt een gegroepeerde kolomgrafiek en stelt de horizontale as‑labeloffset in op 500. Deze instelling beïnvloedt categorieas‑labels in plaats van labels die aan individuele gegevenspunten zijn gekoppeld.
+Gebruik [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) om de afstand tussen categorie‑as‑labels en de as te regelen. De waarde is een percentage van de maximale lettergrootte van de as‑labels. Dit voorbeeld maakt een gegroepeerde kolomgrafiek en zet de horizontale as‑labeloffset op 500. Deze instelling beïnvloedt categorie‑as‑labels in plaats van labels gekoppeld aan individuele datapunten.
 
 ```python
 import aspose.slides as slides
@@ -279,11 +326,11 @@ with slides.Presentation() as presentation:
     presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Labellocatie aanpassen**
+## **Labelpositie aanpassen**
 
-Op een taartgrafiek past u de positie van datalabels aan om de afstand te verbeteren en ruimte te maken voor leidlijnen.
+Op een taartgrafiek kunt u de positie van datapuntenlabels aanpassen om de spatiëring te verbeteren en ruimte te maken voor verbindingslijnen.
 
-Dit voorbeeld toont de waarde van het eerste gegevenspunt, plaatst het label buiten de sector en past de [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/)‑ en [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/)‑offsets aan. Deze offsets zijn respectievelijk relatief ten opzichte van de grafiek‑breedte en -hoogte.
+Dit voorbeeld toont de waarde van het eerste datapunt, plaatst zijn label buiten de sector en past de [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/)‑ en [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/)‑offsets aan. Deze offsets zijn respectievelijk relatief aan de breedte en hoogte van de grafiek.
 
 ```python
 import aspose.slides as slides
@@ -304,17 +351,17 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Taartgrafiek met een aangepaste labelpositie](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Leidlijnen opmaken**
+## **Verbindingslijnen opmaken**
 
-Wanneer datalabels van een taartgrafiek buiten hun sectoren staan, helpen leidlijnen de lezer elke waarde aan de juiste sector te koppelen. Een contrasterende kleur en een iets dikkere lijn kunnen deze verbindingen makkelijker leesbaar maken, terwijl transparantie en een gestreepte stijl de lijnen visueel onopvallend houden.
+Wanneer taartgrafieklabels buiten hun sectoren staan, helpen verbindingslijnen lezers de juiste waarde aan de juiste sector te koppelen. Een contrasterende kleur en een iets dikkere lijn kunnen deze verbindingen duidelijker maken, terwijl transparantie en een gestreepte stijl de lijnen visueel onopvallend houden.
 
-Gebruik [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) om leidlijnen te formatteren op het niveau van de series‑datalabel‑collectie. De instellingen in `series.labels.leader_lines_format.line` gelden voor de collectie, niet voor een individueel label.
+Gebruik [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) om verbindingslijnen op te maken op het niveau van de labelcollectie van de serie. De instellingen in `series.labels.leader_lines_format.line` gelden voor de verzameling, niet voor een individueel label.
 
-Dit voorbeeld maakt een taartgrafiek met standaardgegevens, toont waarden buiten de sectoren en schakelt [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/) in. Het verplaatst twee labels verder van hun sectoren met behulp van [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) en [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) offsets, uitgedrukt als fracties van de grafiekbreedte en -hoogte. Er is geen invoerpresentatie nodig.
+Dit voorbeeld maakt een taartgrafiek met standaardgegevens, toont waarden buiten de sectoren en schakelt [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/) in. Het verplaatst twee labels verder van hun sectoren met behulp van [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/)‑ en [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/)‑offsets, uitgedrukt als breuken van de grafiekbreedte en -hoogte. Er is geen invoer‑presentatie vereist.
 
-De regel’s [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) stelt een solide blauwe kleur in met een alfa‑waarde van 191 van de 255, wat ongeveer 25 % transparantie oplevert. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) bepaalt de dikte op 2 punten, en [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) maakt de lijn gestreept.
+De [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) van de lijn zet een solide blauwe kleur met een alfa‑waarde van 191 van de 255, wat ongeveer 25 % transparantie geeft. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) stelt de dikte in op 2 punten, en [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) maakt de lijn gestreept.
 
 ```python
 import aspose.slides as slides
@@ -334,7 +381,7 @@ with slides.Presentation() as presentation:
     label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
     label_format.show_leader_lines = True
 
-    # Verplaats twee labels verder van hun sectoren.
+    # Verplaats twee labels verder weg van hun sectoren.
     series.labels[0].x = 0.10
     series.labels[0].y = -0.05
     series.labels[1].x = -0.10
@@ -349,17 +396,17 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedLeaderLines.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Het inschakelen van leidlijnen garandeert niet dat er voor elk label een lijn verschijnt. De zichtbaarheid hangt af van de labelplaatsing en het lay‑outgedrag van de grafiek. In dit voorbeeld hebben de twee verplaatste labels zichtbare leidlijnen; de labels die dicht bij hun sectoren blijven, hebben ze niet nodig.
+Het inschakelen van verbindingslijnen garandeert niet dat er voor elk label een lijn verschijnt. De zichtbaarheid hangt af van de labelplaatsing en het lay‑outgedrag van de grafiek. In dit voorbeeld hebben de twee verplaatste labels zichtbare verbindingslijnen; de labels die dicht bij hun sectoren blijven, hebben ze niet nodig.
 
-De volgende afbeelding toont de opgeslagen `FormattedLeaderLines.pptx` zoals gerenderd met Aspose.Slides:
+De volgende afbeelding toont de opgeslagen `FormattedLeaderLines.pptx` gerenderd met Aspose.Slides:
 
-![Taartgrafiek met blauwe, halftransparante, gestreepte leidlijnen die twee buitenste labels verbinden met hun sectoren](formatted-leader-lines.png)
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
-## **Meerdere rijen datalabels boven een kolomgrafiek toevoegen**
+## **Meerdere rijen datapuntenlabels boven een kolomgrafiek toevoegen**
 
-Dit voorbeeld maakt een kolomgrafiek met twee rijen datalabels boven het plotgebied. Serie A toont de zichtbare kolommen, terwijl Serie B en Serie C de extra labels leveren. Hun kolommen worden verborgen door de vulling en de contour te verwijderen. De [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/)‑eigenschap uitlijnt alle drie de series op dezelfde categoricenters.
+Dit voorbeeld maakt een kolomgrafiek met twee rijen datapuntenlabels boven het plotgebied. Serie A toont de zichtbare kolommen, terwijl Serie B en Serie C de extra labels leveren. Hun kolommen worden verborgen door de vulling en omtrek te verwijderen. De eigenschap [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) brengt alle drie de series op dezelfde categoriebenen.
 
-De [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/)‑instellingen reserveren ruimte voor de labelrijen. Na [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) de standaardposities berekent, behouden [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) en [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) de horizontale uitlijning en passen ze verticale offsets toe om de labels in twee rijen te rangschikken. De nummers blijven datalabels die gekoppeld zijn aan de seriewaarden; alleen de rij‑koppen zijn afzonderlijke tekstvormen.
+De instellingen van [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) reserveren ruimte voor de label‑rijen. Na [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) de standaardposities berekent, behouden [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) en [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) de horizontale uitlijning en passen ze verticale offsets toe om de labels in twee rijen te rangschikken. De cijfers blijven datapuntenlabels gekoppeld aan de seriewaarden; alleen de rij‑koppen zijn aparte tekstvormen.
 
 ```python
 import aspose.slides as slides
@@ -412,14 +459,14 @@ with slides.Presentation() as presentation:
             label_fill.solid_fill_color.color = drawing.Color.black
             label_format.position = charts.LegendDataLabelPosition.INSIDE_BASE
 
-    # Lijn alle drie series uit op dezelfde categoricentra.
+    # Lijn alle drie series uit met dezelfde categorie‑centra.
     chart.chart_data.series[0].parent_series_group.overlap = 100
 
     # Gebruik minder rasterlijnen voor dit compacte voorbeeld.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.major_unit = 10
 
-    # Reserveer ruimte boven het plot voor twee rijen datalabels.
+    # Reserveer ruimte boven de plot voor twee rijen datalabels.
     chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
     chart.plot_area.x = 0.15
     chart.plot_area.y = 0.32
@@ -453,18 +500,18 @@ with slides.Presentation() as presentation:
     presentation.save("multiple-rows-of-labels.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Kolomgrafiek met twee rijen datalabels boven het plotgebied](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Hoe kan ik voorkomen dat datalabels overlappen in dichte grafieken?**
+**Hoe kan ik voorkomen dat datapuntenlabels overlappen in dichte grafieken?**
 
-Combineer automatische labelplaatsing, leidlijnen en een kleiner lettertype; verberg indien nodig enkele velden (bijvoorbeeld de categorie) of toon alleen labels voor extreme waarden of belangrijke punten.
+Combineer automatische labelplaatsing, verbindingslijnen en een kleinere lettergrootte; verberg eventueel bepaalde velden (bijvoorbeeld de categorie) of toon alleen labels voor extreme of belangrijke punten.
 
-**Hoe kan ik labels uitschakelen alleen voor nul‑, negatieve‑ of lege waarden?**
+**Hoe kan ik labels uitschakelen alleen voor nul‑, negatieve of lege waarden?**
 
-Filter gegevenspunten vóór het inschakelen van labels en schakel de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
+Filter datapunten vóór het inschakelen van labels en schakel de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een vaste regel.
 
-**Hoe kan ik een consistente labelstijl garanderen bij export naar PDF/afbeeldingen?**
+**Hoe zorg ik voor een consistente labelstijl bij export naar PDF/afbeeldingen?**
 
-Stel expliciet de lettertypefamilie en -grootte in en controleer dat het lettertype beschikbaar is in de renderomgeving om een fallback te vermijden.
+Stel expliciet de lettertypefamilie en -grootte in en verifieer dat het lettertype beschikbaar is in de renderomgeving om fallback te voorkomen.

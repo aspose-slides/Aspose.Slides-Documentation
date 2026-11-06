@@ -1,5 +1,5 @@
 ---
-title: एन्ड्रॉइड पर प्रस्तुतियों में चार्ट डेटा लेबल प्रबंधित करें
+title: एन्ड्रॉइड पर प्रस्तुतियों में चार्ट डेटा लेबल्स प्रबंधित करें
 linktitle: डेटा लेबल
 type: docs
 url: /hi/androidjava/chart-data-label/
@@ -11,19 +11,68 @@ keywords:
 - लेबल दूरी
 - लेबल स्थान
 - PowerPoint
-- प्रेजेंटेशन
-- Android
-- Java
+- प्रस्तुति
+- एन्ड्रॉइड
+- जावा
 - Aspose.Slides
-description: "एंड्रॉइड के लिए जावा के माध्यम से Aspose.Slides का उपयोग करके पॉवरपॉइंट प्रस्तुतियों में चार्ट डेटा लेबल जोड़ना और फ़ॉर्मेट करना सीखें, ताकि अधिक आकर्षक स्लाइड्स बन सके।"
+description: "एन्ड्रॉइड के लिए जावा के माध्यम से Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल जोड़ने और फ़ॉर्मेट करने के तरीके सीखें, जिससे अधिक आकर्षक स्लाइड्स बनें।"
 ---
 ## **परिचय**
 
-डेटा लेबल चार्ट श्रृंखला और व्यक्तिगत डेटा बिंदुओं के बारे में जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट को समझने में मदद मिलती है। यह लेख बताता है कि मान को कैसे फ़ॉर्मेट करें, प्रतिशत कैसे दिखाएँ, लेबल टेक्स्ट कैसे पढ़ें, अक्ष अधिकतम से बाहर लेबल कैसे नियंत्रित करें, श्रेणी अक्ष लेबल अंतराल को कैसे समायोजित करें, और पाई चार्ट लेबल को कैसे स्थित करें।
+डेटा लेबल्स चार्ट सीरीज़ और व्यक्तिगत डेटा पॉइंट्स की जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट को समझने में सहायता मिलती है। यह लेख मानों के फ़ॉर्मेट, प्रतिशत प्रदर्शित करने, लेबल टेक्स्ट पढ़ने, एक्सिस अधिकतम के बाहर लेबल नियंत्रण, कैटेगरी एक्सिस लेबल स्पेसिंग समायोजित करने, और पाई चार्ट लेबल्स के स्थान निर्धारण के तरीकों को समझाता है।
 
-## **चार्ट डेटा लेबल में डेटा सटीकता सेट करें**
+## **दृश्यमान डेटा लेबल्स की गणना करें**
 
-Use [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
+प्रेजेंटेशन प्रकाशित करने से पहले कितने डेटा लेबल्स दिखाने के लिए सक्षम हैं, यह जांचने के लिए [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getCountOfVisibleDataLabels--) का उपयोग करें। यह [getCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getCount--) से अलग है, जो कलेक्शन में कुल लेबलों की संख्या लौटाता है; यह सीरीज़ डिफ़ॉल्ट और व्यक्तिगत लेबल सेटिंग्स को ध्यान में रखता है।
+
+यह उदाहरण एक कॉलम चार्ट बनाता है जिसमें एक सीरीज़ और तीन डेटा पॉइंट्स होते हैं। यह [getLabels](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getLabels--) के माध्यम से सीरीज़ की लेबल कलेक्शन तक पहुंचता है और सेटिंग बदलने पर दृश्य गणना को प्रिंट करता है: **0, 3, 2, 3**। कुल गणना **3** बनी रहती है।
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesCell = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+
+    for (int i = 0; i < 3; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    IDataLabelCollection labels = series.getLabels();
+    System.out.println("Total: " + labels.getCount() + "; visible: " + labels.getCountOfVisibleDataLabels()); // कुल: 3; दृश्यमान: 0
+
+    labels.getDefaultDataLabelFormat().setShowValue(true);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // दृश्यमान: 3
+
+    labels.get_Item(1).getDataLabelFormat().setShowValue(false);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // दृश्यमान: 2
+
+    labels.get_Item(1).getDataLabelFormat().setShowLegendKey(true);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // दृश्यमान: 3
+} finally {
+    presentation.dispose();
+}
+```
+
+सीरीज़ का [getDefaultDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getDefaultDataLabelFormat--) डिफ़ॉल्ट सेटिंग्स प्रदान करता है। वहाँ `true` को [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) में पास करने से सभी तीन लेबल्स के लिए मान प्रदर्शित होते हैं। किसी एक लेबल के [getDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getDataLabelFormat--) के माध्यम से `false` पास करने से चयनित लेबल के लिए यह सेटिंग ओवरराइड हो जाती है। `true` को [setShowLegendKey](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLegendKey-boolean-) में पास करने से वह लेबल फिर से दृश्यमान माना जाता है, जबकि उसका मान छिपा रहता है।
+
+दृश्यमान गणना दृश्यता सेटिंग्स को दर्शाती है। यह नहीं मापती कि लेबल ओवरलैप होते हैं, क्लिप होते हैं, या रेंडर किए गए चार्ट में पढ़ने योग्य हैं या नहीं।
+
+## **चार्ट डेटा लेबल्स में डेटा सटीकता सेट करें**
+
+सीरीज़ मानों को फ़ॉर्मेट करने के लिए [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) का उपयोग करें। यह उदाहरण डिफ़ॉल्ट डेटा वाला एक लाइन चार्ट बनाता है, उसका डेटा टेबल दिखाता है, और पहली सीरीज़ के लिए वैल्यू लेबल्स को सक्षम करता है। फ़ॉर्मेट `#,##0.00` हज़ार विभाजक और दो दशमलव स्थान दिखाता है बिना मूल मानों को बदले।
 
 ```java
 import com.aspose.slides.*;
@@ -45,11 +94,11 @@ try {
 }
 ```
 
-To format the numeric cells in a chart's embedded workbook, see [Set Custom Number Formats for Workbook Cells](/slides/hi/androidjava/chart-workbook/#set-custom-number-formats-for-workbook-cells). That example also shows value labels following their source cell formats while preserving the stored numeric values.
+चार्ट की एम्बेडेड वर्कबुक में संख्यात्मक सेल्स को फ़ॉर्मेट करने के लिए देखें [Set Custom Number Formats for Workbook Cells](/slides/hi/androidjava/chart-workbook/#set-custom-number-formats-for-workbook-cells)। वह उदाहरण भी दिखाता है कि स्रोत सेल फ़ॉर्मेट के अनुसार वैल्यू लेबल्स कैसे दिखते हैं जबकि संग्रहीत संख्यात्मक मान अपरिवर्तित रहते हैं।
 
-## **लेबल के रूप में प्रतिशत प्रदर्शित करें**
+## **प्रतिशत को लेबल्स के रूप में प्रदर्शित करें**
 
-For a stacked column chart, calculate each value as a percentage of its category total and assign the text to the text frame returned by [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
+स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी के कुल का प्रतिशत गणना करें और टेक्स्ट को [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) द्वारा लौटाए गए टेक्स्ट फ्रेम में असाइन करें। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और दो दशमलव स्थान के साथ 8‑पॉइंट फ़ॉन्ट में प्रतिशत प्रदर्शित करता है। शून्य कुल वाली श्रेणियों को विभाजन शून्य से बचने के लिए छोड़ दिया जाता है। चार्ट डेटा बदलने पर कस्टम लेबल टेक्स्ट पुनः गणना करें।
 
 ```java
 import com.aspose.slides.*;
@@ -106,11 +155,11 @@ try {
 }
 ```
 
-## **चार्ट डेटा लेबल में प्रतिशत चिह्न सेट करें**
+## **चार्ट डेटा लेबल्स के साथ प्रतिशत संकेत सेट करें**
 
-When values are stored as fractions, use [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) to display percentages. Pass `false` to [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) to apply the label format independently of the source cells.
+जब मान अंशों के रूप में संग्रहीत होते हैं, तो प्रतिशत प्रदर्शित करने के लिए [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) का उपयोग करें। लेबल फ़ॉर्मेट को स्रोत सेल्स से स्वतंत्र रूप से लागू करने के लिए [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) में `false` पास करें।
 
-This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
+यह उदाहरण चार श्रेणियों में लाल और नीले सीरीज़ के साथ 100 % स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान का जोड़ 1 होता है। लेबल फ़ॉर्मेट `0.0%` 0.30 को 30.0 % के रूप में दिखाता है, जबकि वर्टिकल एक्सिस दो दशमलव स्थान उपयोग करता है। दोनों सीरीज़ सफेद, 10‑पॉइंट लेबल टेक्स्ट उपयोग करती हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -165,9 +214,9 @@ try {
 }
 ```
 
-## **डेटा लेबल का वास्तविक टेक्स्ट पढ़ें**
+## **डेटा लेबल्स का वास्तविक टेक्स्ट पढ़ें**
 
-Use [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [data label format](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+डेटा लेबल की सेटिंग्स द्वारा उत्पन्न टेक्स्ट प्राप्त करने के लिए [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) का उपयोग करें। यह रिपोर्ट के लिए लेबल निकालने, प्रेजेंटेशन सामग्री खोजने, या जेनरेटेड चार्ट्स को वैलिडेट करने में उपयोगी है। नीचे दिए गए उदाहरण में, डिफ़ॉल्ट [data label format](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) प्रत्येक श्रेणी नाम, सीरीज़ नाम, और मान को संयोजित करता है। एक पॉइंट अपना मान प्रतिशत में फ़ॉर्मेट करता है, और दूसरा [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) से कस्टम टेक्स्ट उपयोग करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -227,15 +276,15 @@ try {
 }
 ```
 
-The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) returns the resulting label string in either case. Check [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) separately, as shown above, when you want to extract only visible labels.
+डेटा पॉइंट में संग्रहीत संख्या `0.75` रहती है, जबकि उसका लेबल `75%` दिखा सकता है साथ में श्रेणी और सीरीज़ नामों के। कस्टम टेक्स्ट जेनरेटेड लेबल टेक्स्ट को बदल देता है। [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) दोनों स्थितियों में परिणामी लेबल स्ट्रिंग लौटाता है। दृश्यमान लेबल्स को ही निकालना चाहते हैं तो ऊपर दिखाए अनुसार [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) को अलग से जांचें।
 
-## **अक्ष अधिकतम से बाहर डेटा लेबल नियंत्रित करें**
+## **एक्सिस अधिकतम से परे डेटा लेबल्स को नियंत्रित करें**
 
-When you limit an axis range manually, some data points may exceed its maximum. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
+जब आप एक्सिस रेंज को मैन्युअल रूप से सीमित करते हैं, तो कुछ डेटा पॉइंट्स उसकी अधिकतम से अधिक हो सकते हैं। यह निर्धारित करने के लिए कि उनके डेटा लेबल्स दिखाए जाएँ या नहीं, [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) का उपयोग करें। यह सेटिंग लेबल की दृश्यता को बदलती है; यह एक्सिस रेंज या मूल डेटा मानों को नहीं बदलती।
 
-The example below creates a 2D clustered column chart with values of 60 and 120. It passes `false` to [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) and sets the maximum to 100 with [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
+निचला उदाहरण 60 और 120 मानों के साथ 2D क्लस्टरड कॉलम चार्ट बनाता है। यह वर्टिकल एक्सिस पर [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) में `false` पास करता है और [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) से अधिकतम 100 सेट करता है। पहला स्लाइड अधिकतम के बाहर लेबल्स को अनुमति देता है; उसकी एक कॉपी में इसे अक्षम किया गया है। दोनों स्लाइड्स `DataLabelsOverMaximum.pptx` में सहेजी गई हैं।
 
-Enable value labels with [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) to place labels at the outside end of each column.
+[setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) के साथ वैल्यू लेबल्स सक्रिय करें। चार्ट-लेवल सेटिंग स्वयं वैल्यू डिस्प्ले को सक्षम नहीं करती और न ही व्यक्तिगत लेबल की डिसेबल्ड वैल्यू डिस्प्ले को ओवरराइड करती है। यह उदाहरण पूरी सीरीज़ के लिए वैल्यूज़ सक्रिय करता है और [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) का उपयोग करके प्रत्येक कॉलम के बाहर के छोर पर लेबल्स को रखता है।
 
 ```java
 import com.aspose.slides.*;
@@ -284,19 +333,19 @@ try {
 }
 ```
 
-The following images show the saved slides rendered by Microsoft PowerPoint. With `true`, the label **120** is visible at the upper boundary; with `false`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
+नीचे दिखाए गए इमेज़ Microsoft PowerPoint द्वारा सहेजे गए स्लाइड्स को रेंडर करते हैं। `true` के साथ लेबल **120** ऊपरी सीमा पर दृश्यमान है; `false` के साथ वह छिपा रहता है। लेबल **60** दृश्यमान रहता है, एक्सिस अधिकतम **100** बना रहता है, और दूसरा डेटा पॉइंट दोनों मामलों में **120** रहता है।
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![अक्ष अधिकतम 100 के साथ मान लेबल 120 दिखाने वाला पॉवरपॉइंट चार्ट](data-labels-over-maximum-true.png) | ![अक्ष अधिकतम 100 के साथ मान लेबल 120 को छिपाते हुए पॉवरपॉइंट चार्ट](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+यह उदाहरण वैल्यू एक्सिस वाले 2D कॉलम चार्ट का उपयोग करता है। वैल्यू एक्सिस न रखने वाले चार्ट, जैसे पाई और डोनट चार्ट, के पास इस तरह का एक्सिस अधिकतम नहीं होता।
 {{% /alert %}}
 
-## **अक्ष से लेबल की दूरी सेट करें**
+## **लेबल की एक्सिस से दूरी सेट करें**
 
-Use [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
+कैटेगरी एक्सिस लेबल्स और एक्सिस के बीच दूरी नियंत्रित करने के लिए [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) का उपयोग करें। मान एक्सिस लेबल्स के अधिकतम फ़ॉन्ट आकार का प्रतिशत है। यह उदाहरण क्लस्टरड कॉलम चार्ट बनाता है और हॉरिज़ॉन्टल एक्सिस लेबल ऑफ़सेट को 500 पर सेट करता है। यह सेटिंग कैटेगरी एक्सिस लेबल्स को प्रभावित करती है, न कि व्यक्तिगत डेटा पॉइंट्स से जुड़े लेबल्स को।
 
 ```java
 import com.aspose.slides.*;
@@ -316,9 +365,9 @@ try {
 
 ## **लेबल स्थान समायोजित करें**
 
-On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
+पाई चार्ट पर, डेटा लेबल की स्थिति को समायोजित करके स्पेसिंग बेहतर बनाएं और लीडर लाइनों के लिए जगह बनाएं।
 
-This example displays the value of the first data point, places its label outside the slice, and adjusts its horizontal and vertical offsets using [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) and [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). These offsets are relative to the chart width and height, respectively.
+यह उदाहरण पहले डेटा पॉइंट का मान दिखाता है, उसका लेबल स्लाइस के बाहर रखता है, और [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) और [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) का उपयोग करके क्षैतिज एवं ऊर्ध्वाधर ऑफ़सेट समायोजित करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -342,17 +391,17 @@ try {
 }
 ```
 
-![समायोजित डेटा लेबल स्थिति वाला पाई चार्ट](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
 ## **लीडर लाइनों को फ़ॉर्मेट करें**
 
-When pie chart labels sit outside their slices, leader lines help readers match each value to the correct slice. A contrasting color and a slightly thicker line can make these connections easier to follow, while transparency and a dashed style keep the lines visually unobtrusive.
+जब पाई चार्ट लेबल्स स्लाइसेस के बाहर होते हैं, तो लीडर लाइन्स पाठकों को प्रत्येक मान को सही स्लाइस से मिलाने में मदद करती हैं। कंट्रास्टिंग रंग और थोड़ा मोटी लाइन इन कनेक्शनों को आसानी से समझने योग्य बनाती है, जबकि ट्रांसपेरेंसी और डैश्ड शैली लाइन्स को दृश्यात्मक रूप से कम प्रमुख रखती है।
 
-Use [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) to format leader lines at the series' data label collection level. The settings in `series.getLabels().getLeaderLinesFormat().getLine()` apply to the collection, rather than to an individual label.
+सीरीज़ के डेटा लेबल कलेक्शन स्तर पर लीडर लाइन्स को फ़ॉर्मेट करने के लिए [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) का उपयोग करें। `series.getLabels().getLeaderLinesFormat().getLine()` में सेटिंग्स कलेक्शन पर लागू होती हैं, न कि व्यक्तिगत लेबल पर।
 
-This example creates a pie chart with default data, displays values outside the slices, and enables [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). It moves two labels farther from their slices using [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) and [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) offsets, expressed as fractions of the chart width and height. No input presentation is required.
+यह उदाहरण डिफ़ॉल्ट डेटा वाला पाई चार्ट बनाता है, स्लाइसेस के बाहर मान दिखाता है, और [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-) को सक्षम करता है। यह दो लेबल्स को उनके स्लाइसेस से अधिक दूरी पर ले जाता है, जिसमें ऑफ़सेट [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) और [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) से निर्धारित होते हैं, जो चार्ट की चौड़ाई और ऊँचाई के अंश होते हैं। कोई इनपुट प्रेजेंटेशन आवश्यक नहीं है।
 
-The line's [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) sets a solid blue color with an alpha value of 191 out of 255, giving approximately 25% transparency. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) sets the thickness to 2 points, and [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) makes the line dashed.
+लाइन की [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) एक ठोस नीला रंग 191/255 अल्फा वैल्यू के साथ सेट करती है, जिससे लगभग 25 % ट्रांसपेरेंसी मिलती है। [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) लाइन की मोटाई 2 पॉइंट सेट करता है, और [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) लाइन को डैश्ड बनाता है।
 
 ```java
 import com.aspose.slides.*;
@@ -372,7 +421,7 @@ try {
     labelFormat.setPosition(LegendDataLabelPosition.OutsideEnd);
     labelFormat.setShowLeaderLines(true);
 
-    // दो लेबलों को उनके स्लाइस से अधिक दूर ले जाएँ।
+    // अपने स्लाइसों से दो लेबल्स को अधिक दूरी पर ले जाएँ।
     series.getLabels().get_Item(0).setX(0.10f);
     series.getLabels().get_Item(0).setY(-0.05f);
     series.getLabels().get_Item(1).setX(-0.10f);
@@ -390,17 +439,17 @@ try {
 }
 ```
 
-Enabling leader lines does not guarantee that a line will appear for every label. Visibility depends on label placement and the chart's layout behavior. In this example, the two displaced labels have visible leader lines; the labels that remain close to their slices do not need them.
+लीडर लाइन्स को सक्षम करने से यह गारंटी नहीं होती कि प्रत्येक लेबल के लिए एक लाइन दिखेगी। दृश्यता लेबल प्लेसमेंट और चार्ट के लेआउट व्यवहार पर निर्भर करती है। इस उदाहरण में, दो हटाए गए लेबल्स के पास दृश्यमान लीडर लाइन्स हैं; स्लाइसेस के निकट रहने वाले लेबल्स को उनकी आवश्यकता नहीं होती।
 
-The following image shows the saved `FormattedLeaderLines.pptx` rendered with Aspose.Slides:
+निम्न छवि `FormattedLeaderLines.pptx` को Aspose.Slides द्वारा रेंडर किया गया दिखाती है:
 
-![नीले, अर्ध-पारदर्शी डैश्ड लीडर लाइनों के साथ पाई चार्ट, जो दो बाहरी लेबलों को उनके स्लाइस से जोड़ती हैं](formatted-leader-lines.png)
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
-## **कॉलम चार्ट के ऊपर कई पंक्तियों के डेटा लेबल जोड़ें**
+## **कॉलम चार्ट के ऊपर कई पंक्तियों के डेटा लेबल्स जोड़ें**
 
-This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) method aligns all three series with the same category centers.
+यह उदाहरण दो पंक्तियों के डेटा लेबल्स के साथ कॉलम चार्ट बनाता है, जो प्लॉट एरिया के ऊपर स्थित होते हैं। सीरीज़ A दृश्यमान कॉलम दिखाता है, जबकि सीरीज़ B और सीरीज़ C अतिरिक्त लेबल्स प्रदान करते हैं। उनके कॉलम फ़िल और आउटलाइन हटाकर छिपे हुए रहते हैं। [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) मेथड सभी तीन सीरीज़ को समान कैटेगरी सेंटर के साथ संरेखित करता है।
 
-The [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) settings reserve space for the label rows. After [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) calculates the default positions, [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) and [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
+[ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) सेटिंग्स लेबल पंक्तियों के लिए जगह आरक्षित करती हैं। [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) डिफ़ॉल्ट स्थितियों की गणना करने के बाद, [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) और [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) क्षैतिज संरेखण को बनाए रखते हैं और दो पंक्तियों में लेबल्स को व्यवस्थित करने के लिए ऊर्ध्वाधर ऑफ़सेट लागू करते हैं। संख्याएँ सीरीज़ मानों से जुड़ी डेटा लेबल्स रहती हैं; केवल पंक्ति शीर्षक अलग टेक्स्ट शैप्स होते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -444,7 +493,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // B और C के कॉलम को छुपाएँ, लेकिन उनके डेटा लेबल रखें।
+            // B और C के कॉलम को छिपाएँ, लेकिन उनके डेटा लेबल रखें।
             series.getFormat().getFill().setFillType(FillType.NoFill);
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -456,14 +505,14 @@ try {
         }
     }
 
-    // तीनों श्रृंखलाओं को समान श्रेणी केंद्रों के साथ संरेखित करें।
+    // सभी तीन सीरीज़ को समान कैटेगरी सेंटर के साथ संरेखित करें।
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap((byte) 100);
 
     // इस संक्षिप्त उदाहरण के लिए कम ग्रिडलाइन उपयोग करें।
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // प्लॉट के ऊपर दो पंक्तियों के डेटा लेबल के लिए जगह आरक्षित करें।
+    // प्लॉट के ऊपर दो पंक्तियों के डेटा लेबल्स के लिए जगह आरक्षित करें।
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
     chart.getPlotArea().setX(0.15f);
     chart.getPlotArea().setY(0.32f);
@@ -477,13 +526,13 @@ try {
 
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // डिफ़ॉल्ट क्षैतिज स्थिति बनाए रखें। Y की ऑफ़सेट है
-            // डिफ़ॉल्ट लेबल स्थिति से, जिसे चार्ट-ऊँचाई के अंश के रूप में व्यक्त किया गया है।
+            // डिफ़ॉल्ट क्षैतिज स्थिति को रखें। Y एक ऑफ़सेट है
+            // डिफ़ॉल्ट लेबल स्थिति से, जो चार्ट-ऊँचाई के अंश के रूप में व्यक्त किया गया है।
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
 
-        // केवल पंक्ति शीर्षक एक अलग टेक्स्ट शेप है।
+        // केवल पंर्ति शीर्षक एक अलग टेक्स्ट शैप है।
         IAutoShape rowHeading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
         rowHeading.getFillFormat().setFillType(FillType.NoFill);
         rowHeading.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
@@ -502,18 +551,18 @@ try {
 }
 ```
 
-![प्लॉट एरिया के ऊपर दो पंक्तियों के डेटा लेबल वाला कॉलम चार्ट](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं घने चार्ट पर डेटा लेबल के ओवरलैप को कैसे रोक सकता हूँ?**
+**घने चार्ट्स पर डेटा लेबल्स के ओवरलैप को कैसे रोकूँ?**
 
-ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइन्स, और फ़ॉन्ट आकार को घटाकर संयोजन करें; आवश्यक हो तो कुछ फ़ील्ड (जैसे श्रेणी) छिपाएँ या केवल अत्यधिक मानों या प्रमुख बिंदुओं के लिए लेबल दिखाएँ।
+ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइन्स, और छोटे फ़ॉन्ट साइज को मिलाकर उपयोग करें; आवश्यक हो तो कुछ फ़ील्ड्स (जैसे कैटेगरी) को छिपाएँ या केवल अत्यधिक मान या प्रमुख पॉइंट्स के लिए लेबल्स दिखाएँ।
 
-**मैं शून्य, नकारात्मक या खाली मानों के लिए केवल लेबल कैसे अक्षम करूं?**
+**शून्य, नकारात्मक या खाली मानों के लिए लेबल्स को कैसे अक्षम करूँ?**
 
-लेबल सक्षम करने से पहले डेटा बिंदुओं को फ़िल्टर करें और परिभाषित नियम के अनुसार 0, नकारात्मक या अनुपलब्ध मानों के लिए डिस्प्ले बंद करें।
+लेबल्स को सक्षम करने से पहले डेटा पॉइंट्स को फ़िल्टर करें और 0, नकारात्मक या अनुपलब्ध मानों के लिए डिस्प्ले को बंद करें, जैसा कि निर्धारित नियम के अनुसार हो।
 
-**PDF/इमेज में एक्सपोर्ट करते समय लेबल की सुसंगत शैली कैसे सुनिश्चित करूँ?**
+**PDF/इमेज में एक्सपोर्ट करने पर लेबल स्टाइल को स्थिर कैसे बनाऊँ?**
 
-फ़ॉन्ट फ़ैमिली और आकार को स्पष्ट रूप से सेट करें और रेंडरिंग पर्यावरण में फ़ॉन्ट उपलब्ध है यह सत्यापित करें ताकि फ़ॉलबैक न हो।
+फ़ॉन्ट फ़ैमिली और साइज को स्पष्ट रूप से सेट करें और यह सुनिश्चित करें कि रेंडरिंग पर्यावरण में वह फ़ॉन्ट उपलब्ध हो, ताकि फ़ॉलबैक से बचा जा सके।

@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie etykietami danych wykresu w prezentacjach przy użyciu Pythona
+title: Zarządzaj etykietami danych wykresu w prezentacjach przy użyciu Pythona
 linktitle: Etykieta danych
 type: docs
 url: /pl/python-net/chart-data-label/
@@ -14,15 +14,60 @@ keywords:
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Pythona via .NET, aby uzyskać bardziej angażujące slajdy."
+description: "Poznaj, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides for Python via .NET, aby uzyskać bardziej angażujące slajdy."
 ---
 ## **Wprowadzenie**
 
-Etykiety danych wyświetlają informacje o seriach wykresu i pojedynczych punktach danych, pomagając czytelnikom zidentyfikować wartości i zrozumieć wykres. Ten artykuł wyjaśnia, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiety, kontrolować etykiety poza maksymalnym zakresem osi, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresów kołowych.
+Etykiety danych wyświetlają informacje o seriach wykresu i poszczególnych punktach danych, pomagając czytelnikom zidentyfikować wartości i zrozumieć wykres. W tym artykule wyjaśniono, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiet, kontrolować etykiety poza maksymalną wartością osi, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresu kołowego.
+
+## **Zliczanie widocznych etykiet danych**
+
+Użyj [count_of_visible_data_labels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/count_of_visible_data_labels/), aby sprawdzić, ile etykiet danych jest włączonych do wyświetlania przed opublikowaniem prezentacji. W przeciwieństwie do `len(labels)`, który zwraca całkowitą liczbę etykiet w kolekcji, uwzględnia on domyślne ustawienia serii oraz indywidualne ustawienia etykiet.
+
+Ten przykład tworzy wykres słupkowy z jedną serią i trzema punktami danych. Uzyskuje dostęp do kolekcji [labels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/labels/) serii i wypisuje liczbę widocznych etykiet w miarę zmiany ustawień: **0, 3, 2, 3**. Całkowita liczba pozostaje **3**.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    series_cell = workbook.get_cell(0, 0, 1, "Values")
+    series = chart.chart_data.series.add(series_cell, chart.type)
+
+    for i in range(3):
+        category_cell = workbook.get_cell(0, i + 1, 0, f"Category {i + 1}")
+        chart.chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, (i + 1) * 10)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    labels = series.labels
+    print(f"Total: {len(labels)}; visible: {labels.count_of_visible_data_labels}")  # Razem: 3; widoczne: 0
+
+    labels.default_data_label_format.show_value = True
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Widoczne: 3
+
+    labels[1].data_label_format.show_value = False
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Widoczne: 2
+
+    labels[1].data_label_format.show_legend_key = True
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Widoczne: 3
+```
+
+Domyślny format etykiet danych serii — [default_data_label_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/default_data_label_format/) — dostarcza ustawienia domyślne. Włączenie [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) powoduje wyświetlanie wartości dla wszystkich trzech etykiet. Ustawienie go na `False` poprzez [data_label_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/data_label_format/) jednej etykiety nadpisuje to ustawienie dla wybranej etykiety. Włączenie [show_legend_key](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_legend_key/) sprawia, że etykieta znów liczy się jako widoczna, mimo że jej wartość pozostaje ukryta.
+
+Liczba widocznych odzwierciedla ustawienia widoczności. Nie mierzy ona, czy etykiety nakładają się na siebie, są przycięte lub czytelne w renderowanym wykresie.
 
 ## **Ustaw precyzję danych w etykietach wykresu**
 
-Użyj [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) do formatowania wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy i dwie miejsca po przecinku bez zmiany wartości podstawowych.
+Użyj [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/), aby sformatować wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy i dwie miejsca dziesiętne bez zmiany rzeczywistych wartości.
 
 ```python
 import aspose.slides as slides
@@ -41,11 +86,11 @@ with slides.Presentation() as presentation:
     presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Aby sformatować komórki numeryczne w osadzonym skoroszycie wykresu, zobacz [Ustaw niestandardowe formaty liczb dla komórek skoroszytu](/slides/pl/python-net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ten przykład również pokazuje etykiety wartości stosujące formaty ich komórek źródłowych przy zachowaniu przechowywanych wartości liczbowych.
+Aby sformatować komórki liczbowe w osadzonym skoroszycie wykresu, zobacz [Set Custom Number Formats for Workbook Cells](/slides/pl/python-net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ten przykład także pokazuje etykiety wartości przyjmujące formaty swoich komórek źródłowych przy zachowaniu przechowywanych wartości liczbowych.
 
-## **Wyświetl procent jako etykiety**
+## **Wyświetlaj procenty jako etykiety**
 
-Dla wykresu słupkowego skumulowanego oblicz każdą wartość jako procent całkowitej wartości kategorii i przypisz tekst do [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami po przecinku czcionką 8 punktów. Kategorie o sumie zerowej są pomijane, aby uniknąć dzielenia przez zero. Przelicz niestandardowy tekst etykiety, jeśli dane wykresu ulegną zmianie.
+W przypadku wykresu słupkowego skumulowanego, oblicz każdą wartość jako procent całkowitej sumy w swojej kategorii i przypisz tekst do [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami po przecinku czcionką 8 punktów. Kategorie o sumie zerowej są pomijane, aby uniknąć dzielenia przez zero. Przelicz niestandardowy tekst etykiety, jeśli dane wykresu ulegną zmianie.
 
 ```python
 import aspose.slides as slides
@@ -92,11 +137,11 @@ with slides.Presentation() as presentation:
     presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ustaw znak procenta w etykietach danych wykresu**
+## **Ustaw znak procenta w etykietach wykresu**
 
-Gdy wartości są przechowywane jako ułamki, użyj [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) do wyświetlania procentów. Ustaw [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) na `False`, aby zastosować format etykiety niezależnie od komórek źródłowych.
+Gdy wartości są przechowywane jako ułamki, użyj [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/), aby wyświetlać procenty. Ustaw [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) na `False`, aby zastosować format etykiety niezależnie od komórek źródłowych.
 
-Ten przykład tworzy wykres słupkowy skumulowany 100% z czerwonymi i niebieskimi seriami w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0,30 jako 30,0 %, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego tekstu etykiet o rozmiarze 10 punktów.
+Ten przykład tworzy wykres słupkowy skumulowany 100% z czerwonymi i niebieskimi seriami w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0,30 jako 30,0%, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego tekstu etykiety o wielkości 10 punktów.
 
 ```python
 import aspose.slides as slides
@@ -147,7 +192,7 @@ with slides.Presentation() as presentation:
 
 ## **Odczytaj rzeczywisty tekst etykiet danych**
 
-Użyj [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) aby pobrać tekst wygenerowany na podstawie ustawień etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, przeszukiwaniu treści prezentacji lub weryfikacji wygenerowanych wykresów. W poniższym przykładzie domyślny [format etykiety danych](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) łączy nazwę każdej kategorii, nazwę serii oraz wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa niestandardowego tekstu z [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
+Użyj [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/), aby pobrać tekst wygenerowany przez ustawienia etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, przeszukiwaniu zawartości prezentacji lub walidacji wygenerowanych wykresów. W poniższym przykładzie domyślny [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) łączy nazwę każdej kategorii, nazwę serii oraz wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa własnego tekstu z [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
 
 ```python
 import aspose.slides as slides
@@ -198,13 +243,13 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jego etykieta wyświetla `75%` wraz z nazwą kategorii i serii. Niestandardowy tekst zastępuje wygenerowany tekst etykiety. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) zwraca wynikowy ciąg etykiety w obu przypadkach. Sprawdzaj [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
+Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jej etykieta wyświetla `75%` wraz z nazwą kategorii i serii. Niestandardowy tekst zastępuje wygenerowany tekst etykiety. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) zwraca wynikowy ciąg etykiety w obu przypadkach. Sprawdzaj [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) oddzielnie, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
 
-## **Kontroluj etykiety danych poza maksymalnym zakresem osi**
+## **Kontroluj etykiety danych poza maksymalną wartością osi**
 
-Kiedy ręcznie ograniczasz zakres osi, niektóre punkty danych mogą przekraczać jej maksymalną wartość. Użyj [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) aby kontrolować, czy ich etykiety są wyświetlane. To ustawienie zmienia widoczność etykiet; nie zmienia zakresu osi ani podstawowych wartości danych.
+Kiedy ręcznie ograniczasz zakres osi, niektóre punkty danych mogą przekraczać jej maksymalną wartość. Użyj [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/), aby kontrolować, czy ich etykiety danych są wyświetlane. To ustawienie zmienia widoczność etykiet; nie zmienia zakresu osi ani wartości danych.
 
-Poniższy przykład tworzy dwuwymiarowy skumulowany wykres słupkowy z wartościami 60 i 120. Ustawia [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) na `False` i [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) na 100 na osi pionowej. Pierwszy slajd zezwala na etykiety poza maksimum; kopia tego slajdu wyłącza je. Oba slajdy są zapisane w pliku `DataLabelsOverMaximum.pptx`.
+Poniższy przykład tworzy dwuwymiarowy wykres słupkowy grupowany z wartościami 60 i 120. Ustawia [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) na `False` oraz [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) na 100 na osi pionowej. Na pierwszym slajdzie etykiety mogą wykraczać poza maksimum; kopia tego slajdu wyłącza je. Oba slajdy są zapisane w pliku `DataLabelsOverMaximum.pptx`.
 
 Włącz etykiety wartości za pomocą [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Ustawienie na poziomie wykresu nie włącza wyświetlania wartości samo w sobie ani nie nadpisuje wyłączonego wyświetlania wartości w pojedynczej etykiecie. Ten przykład włącza wartości dla całej serii i używa [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/), aby umieścić etykiety na zewnętrznym końcu każdego słupka.
 
@@ -252,19 +297,19 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Poniższe obrazy pokazują zapisane slajdy renderowane przez Microsoft PowerPoint. Przy `True` etykieta **120** jest widoczna na górnej granicy; przy `False` jest ukryta. Etykieta **60** pozostaje widoczna, maksimum osi pozostaje **100**, a drugi punkt danych pozostaje **120** w obu przypadkach.
+Poniższe obrazy przedstawiają zapisane slajdy renderowane w programie Microsoft PowerPoint. Przy `True` etykieta **120** jest widoczna na górnym brzegu; przy `False` jest ukryta. Etykieta **60** pozostaje widoczna, maksymalna wartość osi pozostaje **100**, a drugi punkt danych pozostaje **120** w obu przypadkach.
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Ten przykład używa dwuwymiarowego wykresu słupkowego z osią wartości. Wykresy bez osi wartości, takie jak wykresy kołowe i pierścieniowe, nie mają maksymalnego zakresu osi, który można w ten sposób ograniczyć.
+Ten przykład używa dwuwymiarowego wykresu słupkowego z osią wartości. Wykresy bez osi wartości, takie jak wykresy kołowe i pierścieniowe, nie mają maksymalnej wartości osi, którą można by ograniczyć w ten sposób.
 {{% /alert %}}
 
 ## **Ustaw odległość etykiety od osi**
 
-Użyj [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) aby kontrolować odległość pomiędzy etykietami osi kategorii a osią. Wartość jest procentem maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres słupkowy skumulowany i ustawia offset etykiety osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przypisane do pojedynczych punktów danych.
+Użyj [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/), aby kontrolować odległość między etykietami osi kategorii a osią. Wartość jest wyrażona jako procent maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres słupkowy grupowany i ustawia offset etykiet osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przypisane do poszczególnych punktów danych.
 
 ```python
 import aspose.slides as slides
@@ -281,9 +326,9 @@ with slides.Presentation() as presentation:
 
 ## **Dostosuj położenie etykiety**
 
-W wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić rozmieszczenie i zrobić miejsce na linie prowadzące.
+W wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić odstępy i zrobić miejsce dla linii prowadzących.
 
-Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza fragmentem i dostosowuje offsety [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) i [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/). Offsety te są względne do szerokości i wysokości wykresu odpowiednio.
+Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza kawałkiem i dostosowuje offsety [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) i [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/). Offsety te są odpowiednio względne do szerokości i wysokości wykresu.
 
 ```python
 import aspose.slides as slides
@@ -308,13 +353,13 @@ with slides.Presentation() as presentation:
 
 ## **Formatuj linie prowadzące**
 
-Gdy etykiety wykresu kołowego znajdują się poza fragmentami, linie prowadzące pomagają czytelnikom dopasować każdą wartość do właściwego fragmentu. Kontrastowy kolor i nieco grubsza linia mogą ułatwić śledzenie tych połączeń, natomiast przezroczystość i styl przerywany sprawiają, że linie są wizualnie dyskretne.
+Gdy etykiety wykresu kołowego znajdują się poza kawałkami, linie prowadzące pomagają czytelnikom dopasować każdą wartość do odpowiedniego kawałka. Kontrastowy kolor i nieco grubsza linia mogą ułatwić śledzenie tych połączeń, podczas gdy przezroczystość i styl przerywany sprawiają, że linie są wizualnie nieinwazyjne.
 
-Użyj [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) aby sformatować linie prowadzące na poziomie kolekcji etykiet danych serii. Ustawienia w `series.labels.leader_lines_format.line` mają zastosowanie do całej kolekcji, a nie do pojedynczej etykiety.
+Użyj [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/), aby sformatować linie prowadzące na poziomie kolekcji etykiet danych serii. Ustawienia w `series.labels.leader_lines_format.line` odnoszą się do całej kolekcji, a nie do pojedynczej etykiety.
 
-Ten przykład tworzy wykres kołowy z domyślnymi danymi, wyświetla wartości poza fragmentami i włącza [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). Przesuwa dwie etykiety dalej od ich fragmentów, używając offsetów [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) i [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/), wyrażonych jako ułamki szerokości i wysokości wykresu. Nie wymaga wejściowej prezentacji.
+Ten przykład tworzy wykres kołowy z domyślnymi danymi, wyświetla wartości poza kawałkami i włącza [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). Przesuwa dwie etykiety dalej od ich kawałków przy użyciu offsetów [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) i [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/), wyrażonych jako ułamki szerokości i wysokości wykresu. Nie wymaga wejściowej prezentacji.
 
-Format [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) linii ustawia jednolitą niebieską barwę z wartością alfa 191 z 255, co daje około 25 % przezroczystości. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) ustawia grubość na 2 punkty, a [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) sprawia, że linia jest przerywana.
+Format [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) linii ustawia jednolity niebieski kolor z wartością alfa 191 z 255, co daje około 25% przezroczystości. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) ustawia grubość na 2 punkty, a [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) sprawia, że linia jest przerywana.
 
 ```python
 import aspose.slides as slides
@@ -334,7 +379,7 @@ with slides.Presentation() as presentation:
     label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
     label_format.show_leader_lines = True
 
-    # Przesuń dwie etykiety dalej od ich fragmentów.
+    # Przesuń dwie etykiety dalej od ich kawałków.
     series.labels[0].x = 0.10
     series.labels[0].y = -0.05
     series.labels[1].x = -0.10
@@ -349,17 +394,17 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedLeaderLines.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Włączenie linii prowadzących nie gwarantuje, że linia pojawi się przy każdej etykiecie. Widoczność zależy od umiejscowienia etykiety i zachowania układu wykresu. W tym przykładzie dwie przesunięte etykiety mają widoczne linie prowadzące; etykiety pozostające blisko swoich fragmentów nie potrzebują ich.
+Włączenie linii prowadzących nie gwarantuje, że linia pojawi się przy każdej etykiecie. Widoczność zależy od położenia etykiet i zachowania układu wykresu. W tym przykładzie dwie przesunięte etykiety mają widoczne linie prowadzące; etykiety pozostające blisko swoich kawałków nie potrzebują ich.
 
-Poniższy obraz przedstawia zapisany plik `FormattedLeaderLines.pptx` renderowany przy użyciu Aspose.Slides:
+Poniższy obraz pokazuje zapisany plik `FormattedLeaderLines.pptx` renderowany przy użyciu Aspose.Slides:
 
-![Wykres kołowy z niebieskimi, półprzezroczystymi przerywanymi liniami prowadzącymi łączącymi dwie zewnętrzne etykiety z ich fragmentami](formatted-leader-lines.png)
+![Wykres kołowy z niebieskimi, półprzezroczystymi przerywanymi liniami prowadzącymi łączącymi dwie zewnętrzne etykiety z ich kawałkami](formatted-leader-lines.png)
 
 ## **Dodaj wiele wierszy etykiet danych nad wykresem słupkowym**
 
-Ten przykład tworzy wykres słupkowy z dwoma wierszami etykiet danych nad obszarem wykresu. Seria A wyświetla widoczne słupki, natomiast Serie B i C dostarczają dodatkowe etykiety. Ich słupki są ukryte poprzez usunięcie wypełnienia i obrysu. Właściwość [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) wyrównuje wszystkie trzy serie względem tych samych środków kategorii.
+Ten przykład tworzy wykres słupkowy z dwoma wierszami etykiet danych nad obszarem wykresu. Seria A wyświetla widoczne słupki, natomiast Serie B i C dostarczają dodatkowe etykiety. Ich słupki są ukryte poprzez usunięcie wypełnienia i konturu. Właściwość [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) wyrównuje wszystkie trzy serie względem tych samych środków kategorii.
 
-Ustawienia [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) rezerwują miejsce dla wierszy etykiet. Po obliczeniu domyślnych pozycji przez [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/), [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) i [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) zachowują wyrównanie poziome i stosują pionowe offsety, aby ułożyć etykiety w dwóch wierszach. Liczby pozostają etykietami danych powiązanymi z wartościami serii; tylko nagłówki wierszy są odrębnymi kształtami tekstowymi.
+Ustawienia [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) rezerwują miejsce dla wierszy etykiet. Po obliczeniu domyślnych pozycji przez [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/), [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) i [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) zachowują wyrównanie poziome i stosują offsety pionowe, aby rozmieszczać etykiety w dwóch wierszach. Liczby pozostają etykietami danych powiązanymi z wartościami serii; jedynie nagłówki wierszy są oddzielnymi kształtami tekstowymi.
 
 ```python
 import aspose.slides as slides
@@ -419,7 +464,7 @@ with slides.Presentation() as presentation:
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.major_unit = 10
 
-    # Zarezerwuj miejsce nad wykresem dla dwóch wierszy etykiet danych.
+    # Zarezerwuj miejsce nad obszarem wykresu dla dwóch wierszy etykiet danych.
     chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
     chart.plot_area.x = 0.15
     chart.plot_area.y = 0.32
@@ -438,7 +483,7 @@ with slides.Presentation() as presentation:
             data_label.x = 0
             data_label.y = row_top - data_label.actual_y / chart.height
 
-        # Tylko nagłówek wiersza jest oddzielnym kształtem tekstowym.
+        # Tylko nagłówek wiersza jest osobnym kształtem tekstowym.
         row_heading = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, chart.x, chart.y + row_top * chart.height, 85, 18)
         row_heading.fill_format.fill_type = slides.FillType.NO_FILL
         row_heading.line_format.fill_format.fill_type = slides.FillType.NO_FILL
@@ -459,12 +504,12 @@ with slides.Presentation() as presentation:
 
 **Jak mogę zapobiec nakładaniu się etykiet danych na gęstych wykresach?**
 
-Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (na przykład kategorię) lub wyświetlaj etykiety tylko dla wartości skrajnych lub kluczowych punktów.
+Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla wartości skrajnych lub kluczowych punktów.
 
 **Jak mogę wyłączyć etykiety tylko dla wartości zerowych, ujemnych lub pustych?**
 
-Filtruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości równych 0, ujemnych lub brakujących, zgodnie z określoną regułą.
+Przefiltruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości równych 0, wartości ujemnych lub brakujących zgodnie z określoną regułą.
 
-**Jak zapewnić spójny styl etykiet przy eksporcie do PDF/obrazów?**
+**Jak zapewnić spójny styl etykiet przy eksportowaniu do PDF/obrazów?**
 
-Jawnie ustaw rodzinę i rozmiar czcionki oraz sprawdź, czy czcionka jest dostępna w środowisku renderującym, aby uniknąć użycia zastępczych czcionek.
+Jawnie ustaw rodzinę i rozmiar czcionki oraz zweryfikuj, że czcionka jest dostępna w środowisku renderowania, aby uniknąć domyślnego zastępowania.

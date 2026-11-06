@@ -6,7 +6,7 @@ url: /hi/php-java/chart-data-label/
 keywords:
 - चार्ट
 - डेटा लेबल
-- डेटा परिशुद्धता
+- डेटा सटीकता
 - प्रतिशत
 - लेबल दूरी
 - लेबल स्थान
@@ -14,15 +14,65 @@ keywords:
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "PowerPoint प्रस्तुतियों में Aspose.Slides for PHP का उपयोग करके Java के माध्यम से चार्ट डेटा लेबल जोड़ने और फॉर्मेट करने के बारे में सीखें, जिससे अधिक आकर्षक स्लाइड बनें।"
+description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल जोड़ना और स्वरूपित करना सीखें ताकि अधिक आकर्षक स्लाइड्स बन सकें।"
 ---
 ## **परिचय**
 
-डेटा लेबल चार्ट श्रृंखलाओं और व्यक्तिगत डेटा बिंदुओं के बारे में जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट को समझने में मदद मिलती है। यह लेख बताता है कि मानों को कैसे फ़ॉर्मेट किया जाए, प्रतिशत कैसे प्रदर्शित करें, लेबल टेक्स्ट को कैसे पढ़ें, अक्ष अधिकतम से परे लेबल को कैसे नियंत्रित करें, श्रेणी अक्ष लेबल अंतराल को कैसे समायोजित करें, और पाई चार्ट लेबल को कैसे स्थित करें।
+डेटा लेबल चार्ट श्रृंखलाओं और व्यक्तिगत डेटा बिंदुओं के बारे में जानकारी प्रदर्शित करते हैं, जो पाठकों को मानों की पहचान करने और चार्ट को समझने में मदद करता है। यह लेख मानों को स्वरूपित करने, प्रतिशत प्रदर्शन करने, लेबल टेक्स्ट पढ़ने, अक्ष अधिकतम से परे लेबल नियंत्रित करने, श्रेणी अक्ष लेबल अंतराल समायोजित करने, और पाई चार्ट लेबल की स्थिति निर्धारित करने के बारे में बताता है।
 
-## **चार्ट डेटा लेबल में डेटा की परिशुद्धता सेट करें**
+## **दिखाए गए डेटा लेबल गिनें**
 
-सीरीज़ मानों को फ़ॉर्मेट करने के लिए [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) का उपयोग करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसका डेटा टेबल प्रदर्शित करता है, और पहली सीरीज़ के लिए मान लेबल को सक्षम करता है। फ़ॉर्मेट `#,##0.00` हजारों विभाजक और दो दशमलव स्थान दिखाता है बिना अंतर्निहित मानों को बदले।
+प्रस्तुति प्रकाशित करने से पहले यह जांचने के लिए कि कितने डेटा लेबल प्रदर्शन के लिए सक्षम हैं, [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getcountofvisibledatalabels/) का उपयोग करें। [getCount](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getcount/) के विपरीत, जो संग्रह में कुल लेबलों की संख्या लौटाता है, यह श्रृंखला डिफ़ॉल्ट और व्यक्तिगत लेबल सेटिंग्स को ध्यान में रखता है।
+
+यह उदाहरण एक श्रृंखला और तीन डेटा बिंदुओं के साथ एक कॉलम चार्ट बनाता है। यह श्रृंखला की लेबल संग्रह को [getLabels](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getlabels/) के माध्यम से एक्सेस करता है और सेटिंग बदलने पर दृश्य गिनती को प्रिंट करता है: **0, 3, 2, 3**। कुल गिनती **3** बनी रहती है।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $seriesCell = $workbook->getCell(0, 0, 1, "Values");
+    $series = $chart->getChartData()->getSeries()->add($seriesCell, $chart->getType());
+
+    for ($i = 0; $i < 3; $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, "Category " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, ($i + 1) * 10);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    $labels = $series->getLabels();
+    echo "Total: " . java_values($labels->getCount()) . "; visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // कुल: 3; दृश्य: 0
+
+    $labels->getDefaultDataLabelFormat()->setShowValue(true);
+    echo "Visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // दृश्यमान: 3
+
+    $labels->get_Item(1)->getDataLabelFormat()->setShowValue(false);
+    echo "Visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // दृश्यमान: 2
+
+    $labels->get_Item(1)->getDataLabelFormat()->setShowLegendKey(true);
+    echo "Visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // दृश्यमान: 3
+} finally {
+    $presentation->dispose();
+}
+```
+
+श्रृंखला की [getDefaultDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getdefaultdatalabelformat/) डिफ़ॉल्ट सेटिंग्स प्रदान करती है। वहाँ `true` को [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) में पास करने से सभी तीन लेबलों के लिए मान प्रदर्शित होते हैं। एक लेबल के [getDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getdatalabelformat/) के माध्यम से `false` पास करने से चयनित लेबल की यह सेटिंग ओवरराइड हो जाती है। [setShowLegendKey](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowlegendkey/) में `true` पास करने से वह लेबल फिर से दृश्य माना जाता है, भले ही उसका मान छिपा हो।
+
+दृश्यमान गिनती दृश्यता सेटिंग्स को दर्शाती है। यह नहीं मापती कि लेबल ओवरलैप हो रहे हैं, क्लिप हुए हैं या रेंडर किए गए चार्ट में पढ़ने योग्य हैं।
+
+## **चार्ट डेटा लेबल में डेटा सटीकता सेट करें**
+
+[setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) का उपयोग करके श्रृंखला मानों को स्वरूपित करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसकी डेटा टेबल दिखाता है, और पहली श्रृंखला के लिए वैल्यू लेबल सक्षम करता है। स्वरूप `#,##0.00` हज़ार विभाजक और दो दशमलव स्थान दिखाता है बिना मूल मानों को बदले।
 
 ```php
 use aspose\slides\Presentation;
@@ -46,11 +96,11 @@ try {
 }
 ```
 
-एक चार्ट की एम्बेडेड वर्कबुक में संख्यात्मक कोशिकाओं को फ़ॉर्मेट करने के लिए, देखें [Set Custom Number Formats for Workbook Cells](/slides/hi/php-java/chart-workbook/#set-custom-number-formats-for-workbook-cells)। वह उदाहरण दिखाता है कि मान लेबल स्रोत कोशिका फ़ॉर्मेट को कैसे अनुसरण करते हैं जबकि सहेजे गए संख्यात्मक मानों को बरकरार रखते हैं।
+चार्ट की एम्बेडेड वर्कबुक में संख्यात्मक सेल को स्वरूपित करने के लिए देखें [Set Custom Number Formats for Workbook Cells](/slides/hi/php-java/chart-workbook/#set-custom-number-formats-for-workbook-cells)। वह उदाहरण दिखाता है कि कैसे मान लेबल उनके स्रोत सेल स्वरूपों का पालन करते हैं जबकि संग्रहीत संख्यात्मक मान अपरिवर्तित रहते हैं।
 
-## **लेबल के रूप में प्रतिशत प्रदर्शित करें**
+## **प्रति शतांश को लेबल के रूप में दिखाएँ**
 
-स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी कुल के प्रतिशत के रूप में गणना करें और पाठ को उस टेक्स्ट फ्रेम को असाइन करें जो [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) द्वारा लौटाया जाता है। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8-पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत प्रदर्शित करता है। शून्य कुल वाली श्रेणियों को शून्य से विभाजन से बचने के लिए छोड़ दिया जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट को फिर से गणना करें।
+स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी कुल का प्रतिशत गणना करें और टेक्स्ट को [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) द्वारा लौटाए गए टेक्स्ट फ्रेम में असाइन करें। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8-पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत दिखाता है। शून्य कुल वाली श्रेणियों को शून्य से भाग देने से बचने के लिए छोड़ दिया जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट को पुनः गणना करें।
 
 ```php
 use aspose\slides\Presentation;
@@ -110,11 +160,11 @@ try {
 }
 ```
 
-## **चार्ट डेटा लेबल के साथ प्रतिशत संकेत सेट करें**
+## **चार्ट डेटा लेबल के साथ प्रतिशत चिह्न सेट करें**
 
-जब मान अंशों के रूप में संग्रहीत होते हैं, तो प्रतिशत प्रदर्शित करने के लिए [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) का उपयोग करें। लेबल फ़ॉर्मेट को स्रोत कोशिकाओं से स्वतंत्र रूप से लागू करने के लिए [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) को `false` पास करें।
+जब मान भिन्नों के रूप में संग्रहीत हों, तो प्रतिशत दर्शाने के लिए [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) का उपयोग करें। लेबल स्वरूप को स्रोत सेल से स्वतंत्र रूप से लागू करने के लिए [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) में `false` पास करें।
 
-यह उदाहरण चार श्रेणियों में लाल और नीली सीरीज़ के साथ 100% स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान युग्म का योग 1 होता है। लेबल फ़ॉर्मेट `0.0%` 0.30 को 30.0% के रूप में दिखाता है, जबकि ऊर्ध्वाधर अक्ष दो दशमलव स्थान उपयोग करता है। दोनों सीरीज़ सफ़ेद, 10‑पॉइंट लेबल टेक्स्ट का उपयोग करती हैं।
+यह उदाहरण चार श्रेणियों में लाल और नीले श्रृंखलाओं के साथ 100 % स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान का जोड़ा 1 के बराबर होता है। लेबल स्वरूप `0.0%` 0.30 को 30.0 % के रूप में दिखाता है, जबकि लंबवत अक्ष दो दशमलव स्थान उपयोग करता है। दोनों श्रृंखलाएँ सफेद, 10‑पॉइंट लेबल टेक्स्ट उपयोग करती हैं।
 
 ```php
 use aspose\slides\Presentation;
@@ -172,9 +222,9 @@ try {
 }
 ```
 
-## **डेटा लेबल के वास्तविक टेक्स्ट को पढ़ें**
+## **डेटा लेबल का वास्तविक टेक्स्ट पढ़ें**
 
-[getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) का उपयोग करके आप डेटा लेबल की सेटिंग्स द्वारा उत्पन्न टेक्स्ट प्राप्त कर सकते हैं। यह रिपोर्ट के लिए लेबल निकालते समय, प्रेजेंटेशन सामग्री खोजते समय, या उत्पन्न चार्ट को मान्य करते समय उपयोगी होता है। नीचे के उदाहरण में, डिफ़ॉल्ट [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) प्रत्येक श्रेणी नाम, श्रृंखला नाम, और मान को संयोजित करता है। एक बिंदु अपने मान को प्रतिशत के रूप में फ़ॉर्मेट करता है, और दूसरा [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) से कस्टम टेक्स्ट का प्रयोग करता है।
+डेटा लेबल की सेटिंग्स द्वारा उत्पन्न टेक्स्ट को पुनः प्राप्त करने के लिए [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) का उपयोग करें। यह रिपोर्ट के लिए लेबल निकालने, प्रस्तुति सामग्री खोजने, या उत्पन्न चार्ट को मान्य करने के समय उपयोगी है। नीचे के उदाहरण में, डिफ़ॉल्ट [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) प्रत्येक श्रेणी नाम, श्रृंखला नाम, और मान को संयोजित करता है। एक बिंदु अपना मान प्रतिशत के रूप में स्वरूपित करता है, और दूसरा [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) से कस्टम टेक्स्ट उपयोग करता है।
 
 ```php
 use aspose\slides\Presentation;
@@ -238,15 +288,15 @@ try {
 }
 ```
 
-डेटा बिंदु में संग्रहीत संख्या `0.75` बनी रहती है, भले ही उसका लेबल श्रेणी और श्रृंखला नाम के साथ `75%` दिखाए। कस्टम टेक्स्ट उत्पन्न लेबल टेक्स्ट को प्रतिस्थापित करता है। [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) दोनों स्थितियों में परिणामी लेबल स्ट्रिंग लौटाता है। ऊपर दिखाए अनुसार केवल दृश्यमान लेबल निकालना चाहें तो [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) को अलग से जांचें।
+डेटा बिंदु में संग्रहीत संख्या `0.75` बनी रहती है, भले ही उसका लेबल `75%` को श्रेणी और श्रृंखला नामों के साथ दिखाए। कस्टम टेक्स्ट उत्पन्न लेबल टेक्स्ट को प्रतिस्थापित करता है। [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) दोनों स्थितियों में परिणामी लेबल स्ट्रिंग लौटाता है। दृश्य लेबल केवल निकालने हों तो ऊपर दिखाए अनुसार [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) को अलग से जांचें।
 
-## **अक्ष अधिकतम से परे डेटा लेबल को नियंत्रित करें**
+## **अक्ष अधिकतम से परे डेटा लेबल नियंत्रित करें**
 
-जब आप मैन्युअली एक अक्ष रेंज को सीमित करते हैं, तो कुछ डेटा बिंदु उसके अधिकतम मान से अधिक हो सकते हैं। यह नियंत्रित करने के लिए कि उनके डेटा लेबल दिखाए जाएँ या नहीं, [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) का उपयोग करें। यह सेटिंग लेबल दृश्यता को बदलती है; यह अक्ष रेंज या अंतर्निहित डेटा मानों को नहीं बदलती।
+जब आप मैन्युअल रूप से अक्ष सीमा को सीमित करते हैं, तो कुछ डेटा बिंदु उसकी अधिकतम सीमा से आगे जा सकते हैं। क्या उनके डेटा लेबल दिखाए जाएँ, यह नियंत्रित करने के लिए [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) का उपयोग करें। यह सेटिंग लेबल की दृश्यता बदलती है; यह अक्ष सीमा या मूल डेटा मानों को नहीं बदलती।
 
-निचे दिया गया उदाहरण 60 और 120 मानों के साथ एक 2D क्लस्टर्ड कॉलम चार्ट बनाता है। यह [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) को `false` पास करता है और ऊर्ध्वाधर अक्ष पर [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) के साथ अधिकतम को 100 सेट करता है। पहला स्लाइड अधिकतम से परे लेबल की अनुमति देता है; उसी स्लाइड की एक प्रति उन्हें निष्क्रिय करती है। दोनों स्लाइड `DataLabelsOverMaximum.pptx` में सहेजे जाते हैं।
+नीचे का उदाहरण 60 और 120 मानों के साथ एक 2D क्लस्टर्ड कॉलम चार्ट बनाता है। यह लंबवत अक्ष पर [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) को `false` पास करता है और अधिकतम को 100 पर [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) से सेट करता है। पहली स्लाइड अधिकतम से परे लेबल की अनुमति देती है; उसकी एक प्रति उन्हें अक्षम करती है। दोनों स्लाइडें `DataLabelsOverMaximum.pptx` में सहेजी गई हैं।
 
-[setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) के साथ मान लेबल सक्षम करें। चार्ट‑स्तर की सेटिंग स्वयं मान प्रदर्शन को सक्षम नहीं करती या व्यक्तिगत लेबल के निष्क्रिय मान प्रदर्शन को ओवरराइड नहीं करती। यह उदाहरण पूरी श्रृंखला के लिए मान सक्षम करता है और प्रत्येक कॉलम के बाहरी सिरे पर लेबल रखने के लिए [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) का उपयोग करता है।
+[setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) के साथ मान लेबल सक्षम करें। चार्ट‑स्तर की यह सेटिंग स्वयं मान प्रदर्शन को सक्षम नहीं करती और न ही व्यक्तिगत लेबल के निष्क्रिय मान प्रदर्शन को ओवरराइड करती है। यह उदाहरण पूरे श्रृंखला के लिए मान सक्षम करता है और [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) का उपयोग करके प्रत्येक कॉलम के बाहरी सिरे पर लेबल रखता है।
 
 ```php
 use aspose\slides\Presentation;
@@ -298,19 +348,19 @@ try {
 }
 ```
 
-निम्न छवियां माइक्रोसॉफ्ट पावरपॉइंट द्वारा रेंडर किए गए सहेजे गए स्लाइड दिखाती हैं। `true` के साथ, लेबल **120** ऊपरी सीमा पर दिखाई देता है; `false` के साथ, यह छिपा रहता है। लेबल **60** दृश्यमान रहता है, अक्ष अधिकतम **100** पर बना रहता है, और दूसरा डेटा बिंदु दोनों मामलों में **120** ही रहता है।
+निम्न चित्र Microsoft PowerPoint द्वारा रेंडर की गई सहेजी स्लाइडें दर्शाते हैं। `true` के साथ, लेबल **120** ऊपरी सीमा पर दिखाई देता है; `false` के साथ, वह छिपा रहता है। लेबल **60** वैसा ही दिखाई रहता है, अक्ष अधिकतम **100** पर बना रहता है, और दूसरा डेटा बिंदु दोनों स्थितियों में **120** ही रहता है।
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![अक्ष अधिकतम 100 के साथ मान लेबल 120 दिखाने वाला पावरपॉइंट चार्ट](data-labels-over-maximum-true.png) | ![अक्ष अधिकतम 100 के साथ मान लेबल 120 को छिपाने वाला पावरपॉइंट चार्ट](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="चार्ट प्रकार" %}}
-यह उदाहरण वैल्यू एक्सिस वाला 2D कॉलम चार्ट उपयोग करता है। वैल्यू एक्सिस के बिना चार्ट, जैसे पाई और डोनट चार्ट, इस प्रकार की सीमा के लिए कोई एक्सिस अधिकतम नहीं रखते हैं।
+{{% alert color="info" title="Chart Type" %}}
+यह उदाहरण वैल्यू अक्ष वाले 2D कॉलम चार्ट का उपयोग करता है। वैल्यू अक्ष वाले नहीं वाले चार्ट, जैसे पाई और डोनट चार्ट, इस प्रकार अक्ष अधिकतम को सीमित नहीं करते।
 {{% /alert %}}
 
-## **एक्सिस से लेबल दूरी सेट करें**
+## **अक्ष से लेबल दूरी सेट करें**
 
-[setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) का उपयोग करके श्रेणी अक्ष लेबल और अक्ष के बीच की दूरी को नियंत्रित करें। मान अक्ष लेबल के अधिकतम फ़ॉन्ट आकार का प्रतिशत है। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा बिंदुओं से जुड़े लेबल के बजाय श्रेणी अक्ष लेबल को प्रभावित करती है।
+[setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) का उपयोग करके श्रेणी अक्ष लेबल और अक्ष के बीच की दूरी नियंत्रित करें। मान अक्ष लेबल की अधिकतम फ़ॉन्ट आकार का प्रतिशत होता है। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 पर सेट करता है। यह सेटिंग व्यक्तिगत डेटा बिंदुओं से जुड़े लेबल की बजाय श्रेणी अक्ष लेबल को प्रभावित करती है।
 
 ```php
 use aspose\slides\Presentation;
@@ -332,9 +382,9 @@ try {
 
 ## **लेबल स्थान समायोजित करें**
 
-पाई चार्ट पर, स्पेसिंग सुधारने और लीडर लाइनों के लिए जगह बनाने के लिए डेटा लेबल स्थितियों को समायोजित करें।
+पाई चार्ट पर, डेटा लेबल स्थितियों को समायोजित करें ताकि स्पेसिंग बेहतर हो और लीडर लाइनों के लिए जगह बन सके।
 
-यह उदाहरण पहले डेटा बिंदु का मान प्रदर्शित करता है, उसका लेबल स्लाइस के बाहर रखता है, और [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) तथा [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) का उपयोग करके उसके क्षैतिज और ऊर्ध्वाधर ऑफ़सेट को समायोजित करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
+यह उदाहरण पहले डेटा बिंदु का मान दिखाता है, उसका लेबल स्लाइस के बाहर रखता है, और क्षैतिज व ऊर्ध्वाधर ऑफ़सेट को क्रमशः [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) और [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) से समायोजित करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
 
 ```php
 use aspose\slides\Presentation;
@@ -361,17 +411,17 @@ try {
 }
 ```
 
-![सुधारित डेटा लेबल स्थिति वाला पाई चार्ट](pie-chart-adjusted-label.png)
+![समायोजित डेटा लेबल स्थिति वाला पाई चार्ट](pie-chart-adjusted-label.png)
 
-## **लीडर लाइनों को फ़ॉर्मेट करें**
+## **लीडर लाइनों का स्वरूप**
 
-जब पाई चार्ट लेबल अपने स्लाइस के बाहर स्थित होते हैं, तो लीडर लाइने प्रत्येक मान को सही स्लाइस से मिलाने में पाठकों की मदद करती हैं। कंट्रास्टिंग रंग और थोड़ा मोटी रेखा इन कनेक्शनों को आसानी से फॉलो करने योग्य बनाती है, जबकि पारदर्शिता और डैश्ड शैली लाइनों को दृश्यात्मक रूप से कम बाधित रखती है।
+जब पाई चार्ट लेबल अपने स्लाइस के बाहर स्थित होते हैं, तो लीडर लाइनों से पाठक प्रत्येक मान को सही स्लाइस से जोड़ सकते हैं। एक विपरीत रंग और थोड़ा मोटी रेखा इन कनेक्शनों को अधिक स्पष्ट बना सकती है, जबकि पारदर्शिता और डैश्ड स्टाइल लाइनों को दृश्य रूप से कम बाधक रखती हैं।
 
-सीरीज़ के डेटा लेबल कलेक्शन स्तर पर लीडर लाइनों को फ़ॉर्मेट करने के लिए [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) का उपयोग करें। `$series->getLabels()->getLeaderLinesFormat()->getLine()` में सेटिंग्स कलेक्शन पर लागू होती हैं, न कि व्यक्तिगत लेबल पर।
+[getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) का उपयोग करके श्रृंखला के डेटा लेबल संग्रह स्तर पर लीडर लाइनों को स्वरूपित करें। `$series->getLabels()->getLeaderLinesFormat()->getLine()` में सेटिंग्स संग्रह पर लागू होती हैं, न कि व्यक्तिगत लेबल पर।
 
-यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है, स्लाइस के बाहर मान प्रदर्शित करता है, और [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/) को सक्षम करता है। यह दो लेबल को उनके स्लाइस से अधिक दूरी पर ले जाता है, [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) और [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) ऑफ़सेट का उपयोग करके, जो चार्ट की चौड़ाई और ऊँचाई के अंश के रूप में व्यक्त होते हैं। इनपुट प्रेज़ेंटेशन की आवश्यकता नहीं है।
+यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है, स्लाइस के बाहर मान दिखाता है, और [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/) को सक्षम करता है। यह दो लेबल को उनके स्लाइस से अधिक दूर ले जाने के लिए [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) और [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) ऑफ़सेट का उपयोग करता है, जो चार्ट की चौड़ाई और ऊँचाई के अंश के रूप में व्यक्त होते हैं। कोई इनपुट प्रस्तुति आवश्यक नहीं है।
 
-लाइन के [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) से 255 में से 191 अल्फ़ा मान के साथ ठोस नीला रंग सेट होता है, जिससे लगभग 25% पारदर्शिता मिलती है। [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) से मोटाई 2 पॉइंट सेट होती है, और [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) से रेखा डैश्ड बनती है।
+लाइन का [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) एक ठोस नीला रंग सेट करता है जिसमें 255 में से 191 का अल्फा मान होता है, जो लगभग 25 % पारदर्शिता देता है। [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) रेखा की मोटाई को 2 पॉइंट सेट करता है, और [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) रेखा को डैश्ड बनाता है।
 
 ```php
 use aspose\slides\Presentation;
@@ -395,7 +445,7 @@ try {
     $labelFormat->setPosition(LegendDataLabelPosition::OutsideEnd);
     $labelFormat->setShowLeaderLines(true);
 
-    // दो लेबलों को उनके स्लाइसेस से अधिक दूर ले जाएँ।
+    // दो लेबलों को उनके स्लाइस से अधिक दूर ले जाएँ।
     $series->getLabels()->get_Item(0)->setX(0.10);
     $series->getLabels()->get_Item(0)->setY(-0.05);
     $series->getLabels()->get_Item(1)->setX(-0.10);
@@ -414,17 +464,17 @@ try {
 }
 ```
 
-लीडर लाइनों को सक्षम करना यह गारंटी नहीं देता कि हर लेबल के लिए एक लाइन दिखाई दे। दृश्यता लेबल की स्थिति और चार्ट के लेआउट व्यवहार पर निर्भर करती है। इस उदाहरण में, दो हटाए गए लेबलों के पास दृश्य लीडर लाइनें हैं; जो लेबल अपने स्लाइस के करीब रहते हैं, उन्हें उनकी आवश्यकता नहीं होती।
+लीडर लाइनों को सक्षम करने से यह गारंटी नहीं मिलती कि हर लेबल के लिए रेखा दिखाई देगी। दृश्यता लेबल की स्थिति और चार्ट के लेआउट व्यवहार पर निर्भर करती है। इस उदाहरण में, दो हटाए गए लेबल की लीडर लाइने दिखाई देती हैं; जो लेबल अपने स्लाइस के पास रहते हैं उन्हें इसकी आवश्यकता नहीं होती।
 
-Aspose.Slides के साथ रेंडर किए गए सहेजे गये `FormattedLeaderLines.pptx` को दिखाती है:
+निम्न छवि `FormattedLeaderLines.pptx` को Aspose.Slides के साथ रेंडर किया गया दिखाती है:
 
-![नीले, अर्धपारदर्शी, डैश्ड लीडर लाइनों के साथ पाई चार्ट, जो दो बाहरी लेबल को उनके स्लाइस से जोड़ती हैं](formatted-leader-lines.png)
+![नीले, अर्धपारदर्शी, डैश्ड लीडर लाइनों के साथ पाई चार्ट जो दो बाहरी लेबल को उनके स्लाइस से जोड़ती हैं](formatted-leader-lines.png)
 
 ## **कॉलम चार्ट के ऊपर कई पंक्तियों के डेटा लेबल जोड़ें**
 
-यह उदाहरण प्लॉट एरिया के ऊपर दो पंक्तियों के डेटा लेबल वाले कॉलम चार्ट बनाता है। सीरीज़ A दृश्यमान कॉलम दिखाती है, जबकि सीरीज़ B और सीरीज़ C अतिरिक्त लेबल प्रदान करती हैं। उनके कॉलम भराव और आउटलाइन हटाकर छिपाए गए हैं। [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) मेथड सभी तीन सीरीज़ को समान श्रेणी केंद्रों के साथ संरेखित करता है।
+यह उदाहरण दो पंक्तियों के डेटा लेबल के साथ एक कॉलम चार्ट बनाता है, जो प्लॉट एरिया के ऊपर स्थित होते हैं। श्रृंखला A दृश्यमान कॉलम दिखाती है, जबकि श्रृंखला B और C अतिरिक्त लेबल प्रदान करती हैं। उनके कॉलम को फ़िल और आउटलाइन हटाकर छिपाया जाता है। [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) मेथड सभी तीन श्रृंखलाओं को समान श्रेणी केंद्रों के साथ संरेखित करता है।
 
-[ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) सेटिंग्स लेबल पंक्तियों के लिए स्थान आरक्षित करती हैं। [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) द्वारा डिफ़ॉल्ट स्थितियों की गणना के बाद, [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) और [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) क्षैतिज संरेखण को बनाए रखते हैं और दो पंक्तियों में लेबल व्यवस्थित करने के लिए ऊर्ध्वाधर ऑफ़सेट लागू करते हैं। संख्याएं श्रृंखला मानों से जुड़ी डेटा लेबल बनी रहती हैं; केवल पंक्ति शीर्षक अलग टेक्स्ट शेप होते हैं।
+[ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) सेटिंग्स लेबल पंक्तियों के लिए स्थान आरक्षित करती हैं। [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) डिफ़ॉल्ट स्थितियों की गणना करने के बाद, [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) और [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) क्षैतिज संरेखण को बरकरार रखते हैं और लेबल को दो पंक्तियों में व्यवस्थित करने के लिए ऊर्ध्वाधर ऑफ़सेट लागू करते हैं। संख्याएँ श्रृंखला मानों से जुड़ी डेटा लेबल ही रहती हैं; केवल पंक्ति शीर्षक अलग टेक्स्ट शैलियों के रूप में होते हैं।
 
 ```php
 use aspose\slides\Presentation;
@@ -475,7 +525,7 @@ try {
         }
 
         if ($seriesIndex > 0) {
-            // B और C के कॉलम को छिपाएँ, लेकिन उनके डेटा लेबल को रखें।
+            // B और C की कॉलम को छिपाएँ, लेकिन उनके डेटा लेबल रखें।
             $series->getFormat()->getFill()->setFillType(FillType::NoFill);
             $series->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
             $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
@@ -488,14 +538,14 @@ try {
         }
     }
 
-    // तीनों श्रृंखलाओं को समान श्रेणी केंद्रों के साथ संरेखित करें।
+    // तीनों श्रृंखलाओं को एक ही श्रेणी केंद्रों के साथ संरेखित करें।
     $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setOverlap(100);
 
-    // इस संक्षिप्त उदाहरण के लिए कम ग्रिडलाइन का उपयोग करें।
+    // इस संक्षिप्त उदाहरण के लिए कम ग्रिडलाइन उपयोग करें।
     $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(10);
 
-    // डेटा लेबल की दो पंक्तियों के लिए प्लॉट के ऊपर स्थान आरक्षित करें।
+    // डेटा लेबल की दो पंक्तियों के लिए प्लॉट के ऊपर जगह आरक्षित करें।
     $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
     $chart->getPlotArea()->setX(0.15);
     $chart->getPlotArea()->setY(0.32);
@@ -512,14 +562,14 @@ try {
 
         for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
             $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
-            // डिफ़ॉल्ट क्षैतिज स्थिति बनाए रखें। Y एक ऑफ़सेट है
-            // डिफ़ॉल्ट लेबल स्थिति से, जिसे चार्ट-उँचाई के अंश के रूप में व्यक्त किया गया है।
+            // डिफ़ॉल्ट क्षैतिज स्थिति रखें। Y डिफ़ॉल्ट लेबल स्थिति से एक ऑफ़सेट है,
+            // जो चार्ट-ऊँचाई के अनुपात के रूप में व्यक्त होता है।
             $actualY = java_values($dataLabel->getActualY());
             $dataLabel->setX(0);
             $dataLabel->setY($rowTop - $actualY / $chartHeight);
         }
 
-        // केवल पंक्ति शीर्षक एक अलग टेक्स्ट आकार है।
+        // केवल पंक्ति शीर्षक एक अलग टेक्स्ट आकृति है।
         $rowHeading = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $chartX, $chartY + $rowTop * $chartHeight, 85, 18);
         $rowHeading->getFillFormat()->setFillType(FillType::NoFill);
         $rowHeading->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
@@ -538,15 +588,18 @@ try {
 }
 ```
 
-![प्लॉट एरिया के ऊपर दो पंक्तियों के डेटा लेबल वाला कॉलम चार्ट](multiple-rows-of-labels.png)
+![प्लॉट क्षेत्र के ऊपर दो पंक्तियों वाले डेटा लेबल वाला कॉलम चार्ट](multiple-rows-of-labels.png)
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**मैं घने चार्ट पर डेटा लेबल के ओवरलैप को कैसे रोक सकता हूँ?**  
-ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइन्स, और फ़ॉन्ट आकार घटाकर संयोजन करें; यदि आवश्यक हो तो कुछ फ़ील्ड छुपाएँ (जैसे श्रेणी) या केवल चरम मानों या प्रमुख बिंदुओं के लिए लेबल दिखाएँ।
+**मैं घने चार्ट में डेटा लेबल के ओवरलैप को कैसे रोक सकता हूँ?**
 
-**मैं लेबल को केवल शून्य, नकारात्मक या खाली मानों के लिए कैसे निष्क्रिय कर सकता हूँ?**  
-लेबल सक्षम करने से पहले डेटा बिंदुओं को फ़िल्टर करें और परिभाषित नियम के अनुसार 0, नकारात्मक या अनुपलब्ध मानों के लिए प्रदर्शन बंद करें।
+ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइनों और छोटे फ़ॉन्ट आकार को मिलाकर उपयोग करें; यदि आवश्यक हो तो कुछ फ़ील्ड (जैसे श्रेणी) को छिपाएँ या केवल चरम मान या प्रमुख बिंदुओं के लिए लेबल दिखाएँ।
 
-**PDF/छवियों में निर्यात करते समय मैं लेबल शैली की स्थिरता कैसे सुनिश्चित कर सकता हूँ?**  
-फ़ॉन्ट फ़ैमिली और आकार को स्पष्ट रूप से सेट करें और रेंडरिंग वातावरण में फ़ॉन्ट उपलब्ध है यह सत्यापित करें ताकि फ़ॉलबैक से बचा जा सके।
+**मैं शून्य, नकारात्मक या खाली मानों के लिए केवल लेबल कैसे अक्षम कर सकता हूँ?**
+
+लेबल सक्षम करने से पहले डेटा बिंदुओं को फ़िल्टर करें और परिभाषित नियम के अनुसार 0, नकारात्मक या अनुपलब्ध मानों के लिए प्रदर्शन बंद कर दें।
+
+**PDF/इमेज में निर्यात करते समय लेबल शैलियों को सुसंगत कैसे बनाए रखें?**
+
+फ़ॉन्ट परिवार और आकार को स्पष्ट रूप से सेट करें और रेंडरिंग पर्यावरण में फ़ॉन्ट उपलब्ध हो यह सत्यापित करें ताकि फ़ॉलबैक न हो।

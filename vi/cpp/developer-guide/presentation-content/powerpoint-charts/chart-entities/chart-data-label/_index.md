@@ -1,5 +1,5 @@
 ---
-title: Quản lý Nhãn Dữ liệu Biểu đồ trong Bản trình bày sử dụng C++
+title: Quản lý Nhãn Dữ liệu Biểu đồ trong Bản Trình Chiếu Sử dụng C++
 linktitle: Nhãn Dữ liệu
 type: docs
 url: /vi/cpp/chart-data-label/
@@ -11,18 +11,86 @@ keywords:
 - khoảng cách nhãn
 - vị trí nhãn
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - C++
 - Aspose.Slides
-description: "Học cách thêm và định dạng nhãn dữ liệu biểu đồ trong các bản trình bày PowerPoint bằng Aspose.Slides cho C++ để có các slide hấp dẫn hơn."
+description: "Tìm hiểu cách thêm và định dạng nhãn dữ liệu biểu đồ trong các bản trình chiếu PowerPoint bằng Aspose.Slides cho C++ để có các slide sinh động hơn."
 ---
 ## **Giới thiệu**
 
-Nhãn dữ liệu hiển thị thông tin về chuỗi biểu đồ và các điểm dữ liệu riêng lẻ, giúp người đọc xác định giá trị và hiểu biểu đồ. Bài viết này giải thích cách định dạng giá trị, hiển thị phần trăm, đọc văn bản nhãn, kiểm soát nhãn vượt quá giá trị tối đa của trục, điều chỉnh khoảng cách nhãn trục danh mục và định vị nhãn biểu đồ tròn.
+Nhãn dữ liệu hiển thị thông tin về chuỗi biểu đồ và các điểm dữ liệu riêng lẻ, giúp người đọc xác định giá trị và hiểu biểu đồ. Bài viết này giải thích cách định dạng giá trị, hiển thị phần trăm, đọc văn bản nhãn, điều khiển nhãn vượt quá giá trị tối đa của trục, điều chỉnh khoảng cách nhãn trục danh mục và đặt vị trí nhãn cho biểu đồ tròn.
 
-## **Đặt độ chính xác dữ liệu trong nhãn dữ liệu biểu đồ**
+## **Đếm Nhãn Dữ liệu Hiển thị**
 
-Sử dụng [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) để định dạng giá trị chuỗi. Ví dụ này tạo một biểu đồ đường với dữ liệu mặc định, hiển thị bảng dữ liệu và bật nhãn giá trị cho chuỗi đầu tiên. Định dạng `#,##0.00` hiển thị dấu phân cách hàng nghìn và hai chữ số thập phân mà không thay đổi giá trị gốc.
+Sử dụng [get_CountOfVisibleDataLabels](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_countofvisibledatalabels/) để kiểm tra có bao nhiêu nhãn dữ liệu được bật hiển thị trước khi xuất bản bản trình chiếu. Không giống như [get_Count](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_count/), trả về tổng số nhãn trong bộ sưu tập, phương thức này còn tính đến các mặc định của chuỗi và cài đặt nhãn cá nhân.
+
+Ví dụ này tạo một biểu đồ cột với một chuỗi và ba điểm dữ liệu. Nó truy cập bộ sưu tập [get_Labels](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_labels/) của chuỗi và in số lượng hiển thị khi các cài đặt thay đổi: **0, 3, 2, 3**. Tổng số vẫn là **3**.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto seriesCell = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Values"));
+auto series = chart->get_ChartData()->get_Series()->Add(seriesCell, chart->get_Type());
+
+for (auto i = 0; i < 3; i++)
+{
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, ObjectExt::Box(String::Format(u"Category {0}", i + 1)));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+    auto valueCell = workbook->GetCell(0, i + 1, 1, ObjectExt::Box((i + 1) * 10));
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
+
+auto labels = series->get_Labels();
+Console::WriteLine(String::Format(u"Total: {0}; visible: {1}", labels->get_Count(), labels->get_CountOfVisibleDataLabels())); // Tổng: 3; hiển thị: 0
+
+labels->get_DefaultDataLabelFormat()->set_ShowValue(true);
+Console::WriteLine(String::Format(u"Visible: {0}", labels->get_CountOfVisibleDataLabels())); // Hiển thị: 3
+
+labels->idx_get(1)->get_DataLabelFormat()->set_ShowValue(false);
+Console::WriteLine(String::Format(u"Visible: {0}", labels->get_CountOfVisibleDataLabels())); // Hiển thị: 2
+
+labels->idx_get(1)->get_DataLabelFormat()->set_ShowLegendKey(true);
+Console::WriteLine(String::Format(u"Visible: {0}", labels->get_CountOfVisibleDataLabels())); // Hiển thị: 3
+```
+
+[get_DefaultDataLabelFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_defaultdatalabelformat/) của chuỗi cung cấp các cài đặt mặc định. Gọi [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) với `true` sẽ hiển thị giá trị cho cả ba nhãn. Đặt `false` thông qua [get_DataLabelFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_datalabelformat/) của một nhãn sẽ ghi đè cài đặt đó cho nhãn đã chọn. Gọi [set_ShowLegendKey](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showlegendkey/) với `true` khiến nhãn đó lại được tính là hiển thị, mặc dù giá trị vẫn ẩn.
+
+Số lượng hiển thị phản ánh các cài đặt hiển thị. Nó không đo độ chồng chập, cắt bớt hay khả năng đọc được của các nhãn trong biểu đồ đã render.
+
+## **Đặt Độ Chính Xác Dữ Liệu trong Nhãn Dữ liệu Biểu đồ**
+
+Sử dụng [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) để định dạng giá trị của chuỗi. Ví dụ này tạo một biểu đồ đường với dữ liệu mặc định, hiển thị bảng dữ liệu và bật nhãn giá trị cho chuỗi đầu tiên. Định dạng `#,##0.00` hiển thị dấu phân cách hàng nghìn và hai chữ số thập phân mà không thay đổi giá trị gốc.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -57,11 +125,11 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
-Để định dạng các ô số trong workbook nhúng của biểu đồ, xem [Đặt Định dạng Số Tùy chỉnh cho các Ô Workbook](/slides/vi/cpp/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ví dụ đó cũng cho thấy nhãn giá trị tuân theo định dạng ô nguồn trong khi vẫn bảo toàn các giá trị số đã lưu.
+Để định dạng các ô số trong sổ làm việc nhúng của biểu đồ, xem [Set Custom Number Formats for Workbook Cells](/slides/vi/cpp/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ví dụ đó cũng cho thấy nhãn giá trị tuân theo định dạng ô nguồn trong khi giữ nguyên giá trị số đã lưu.
 
-## **Hiển thị phần trăm dưới dạng nhãn**
+## **Hiển Thị Phần Trăm dưới Dạng Nhãn**
 
-Đối với biểu đồ cột chồng, tính mỗi giá trị dưới dạng phần trăm của tổng danh mục và gán văn bản cho khung văn bản trả về bởi [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Ví dụ này sử dụng dữ liệu biểu đồ mặc định và hiển thị phần trăm với hai chữ số thập phân trong phông chữ 8 điểm. Các danh mục có tổng bằng không sẽ bị bỏ qua để tránh chia cho zero. Tính lại văn bản nhãn tùy chỉnh nếu dữ liệu biểu đồ thay đổi.
+Đối với biểu đồ cột chồng, tính mỗi giá trị dưới dạng phần trăm của tổng danh mục và gán văn bản cho khung văn bản trả về bởi [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Ví dụ này sử dụng dữ liệu biểu đồ mặc định và hiển thị phần trăm với hai chữ số thập phân trong phông chữ 8 điểm. Các danh mục có tổng bằng zero sẽ bị bỏ qua để tránh chia cho zero. Tính lại văn bản nhãn tùy chỉnh nếu dữ liệu biểu đồ thay đổi.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -149,11 +217,11 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Đặt ký hiệu phần trăm với Nhãn dữ liệu biểu đồ**
+## **Đặt Ký Hiệu Phần Trăm cho Nhãn Dữ liệu Biểu đồ**
 
-Khi giá trị được lưu dưới dạng phân số, sử dụng [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) để hiển thị phần trăm. Truyền `false` vào [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) để áp dụng định dạng nhãn một cách độc lập với các ô nguồn.
+Khi giá trị được lưu dưới dạng phân số, sử dụng [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) để hiển thị phần trăm. Đặt `false` cho [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) để áp dụng định dạng nhãn một cách độc lập với các ô nguồn.
 
-Ví dụ này tạo một biểu đồ cột chồng 100 % với các chuỗi màu đỏ và xanh lam qua bốn danh mục. Mỗi cặp giá trị cộng lại bằng 1. Định dạng nhãn `0.0%` hiển thị 0.30 dưới dạng 30.0 %, trong khi trục dọc sử dụng hai chữ số thập phân. Cả hai chuỗi đều sử dụng văn bản nhãn màu trắng, 10 điểm.
+Ví dụ này tạo một biểu đồ cột chồng 100% với các chuỗi đỏ và xanh dương trên bốn danh mục. Mỗi cặp giá trị cộng lại bằng 1. Định dạng nhãn `0.0%` hiển thị 0.30 thành 30.0%, trong khi trục dọc sử dụng hai chữ số thập phân. Cả hai chuỗi đều dùng văn bản nhãn màu trắng, 10 điểm.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -238,9 +306,9 @@ for (auto i = 0; i < 2; i++)
 presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Đọc Văn bản Thực tế của Nhãn Dữ liệu**
+## **Đọc Văn Bản Thực Sự của Nhãn Dữ liệu**
 
-Sử dụng [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) để lấy văn bản được tạo ra bởi cài đặt của nhãn dữ liệu. Điều này hữu ích khi trích xuất nhãn cho báo cáo, tìm kiếm nội dung bản trình bày hoặc xác thực các biểu đồ đã tạo. Trong ví dụ dưới, định dạng [nhãn dữ liệu mặc định](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) kết hợp mỗi tên danh mục, tên chuỗi và giá trị. Một điểm định dạng giá trị của nó dưới dạng phần trăm, và một điểm khác sử dụng văn bản tùy chỉnh từ [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+Sử dụng [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) để lấy văn bản mà cài đặt nhãn dữ liệu tạo ra. Điều này hữu ích khi trích xuất nhãn cho báo cáo, tìm kiếm nội dung bản trình chiếu hoặc xác thực các biểu đồ được tạo. Trong ví dụ dưới đây, định dạng [nhãn dữ liệu mặc định](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) kết hợp mỗi tên danh mục, tên chuỗi và giá trị. Một điểm định dạng giá trị dưới dạng phần trăm, và một điểm khác sử dụng văn bản tùy chỉnh từ [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -328,15 +396,15 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-Số lưu trong một điểm dữ liệu vẫn là `0.75`, ngay cả khi nhãn của nó hiển thị `75%` cùng với tên danh mục và chuỗi. Văn bản tùy chỉnh thay thế văn bản nhãn được tạo ra. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) trả về chuỗi nhãn kết quả trong cả hai trường hợp. Kiểm tra [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) riêng biệt, như đã minh họa ở trên, khi bạn muốn trích xuất chỉ các nhãn hiển thị.
+Số lưu trong điểm dữ liệu vẫn là `0.75`, ngay cả khi nhãn của nó hiển thị `75%` cùng với tên danh mục và chuỗi. Văn bản tùy chỉnh thay thế nhãn được tạo. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) trả về chuỗi nhãn kết quả trong cả hai trường hợp. Kiểm tra [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) riêng biệt, như đã minh họa ở trên, khi bạn muốn trích xuất chỉ các nhãn hiển thị.
 
-## **Kiểm soát Nhãn Dữ liệu Vượt quá Giá trị Tối đa của Trục**
+## **Điều Khiển Nhãn Dữ liệu Vượt Quá Giá Trị Tối Đa của Trục**
 
-Khi bạn giới hạn phạm vi trục theo cách thủ công, một số điểm dữ liệu có thể vượt quá giá trị tối đa của nó. Sử dụng [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) để kiểm soát việc hiển thị nhãn dữ liệu của chúng. Cài đặt này chỉ thay đổi tính hiển thị của nhãn; nó không thay đổi phạm vi trục hay các giá trị dữ liệu gốc.
+Khi bạn giới hạn phạm vi trục thủ công, một số điểm dữ liệu có thể vượt quá giá trị tối đa. Sử dụng [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) để kiểm soát việc hiển thị nhãn dữ liệu của chúng. Cài đặt này thay đổi khả năng hiển thị nhãn; nó không thay đổi phạm vi trục hay giá trị dữ liệu gốc.
 
-Ví dụ dưới tạo một biểu đồ cột nhóm 2D với các giá trị 60 và 120. Nó đặt [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) thành `false` và [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) thành 100 trên trục dọc. Bản slide đầu tiên cho phép nhãn vượt quá giá trị tối đa; một bản sao của slide đó tắt tính năng này. Cả hai slide đều được lưu trong `DataLabelsOverMaximum.pptx`.
+Ví dụ dưới tạo một biểu đồ cột cụm 2D với giá trị 60 và 120. Nó đặt [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) thành `false` và [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) thành 100 trên trục dọc. Bản trình chiếu đầu tiên cho phép hiển thị nhãn vượt quá tối đa; một bản sao của bản trình chiếu đó tắt tính năng này. Cả hai bản đều được lưu trong `DataLabelsOverMaximum.pptx`.
 
-Bật nhãn giá trị bằng [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Cài đặt ở mức biểu đồ không tự động bật hiển thị giá trị hay ghi đè lên việc tắt hiển thị giá trị của nhãn cá nhân. Ví dụ này bật giá trị cho toàn bộ chuỗi và sử dụng [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) để đặt nhãn ở cuối ngoài của mỗi cột.
+Bật nhãn giá trị với [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Cài đặt ở mức biểu đồ không tự động bật hiển thị giá trị hoặc ghi đè việc tắt hiển thị giá trị của một nhãn cá nhân. Ví dụ này bật giá trị cho toàn bộ chuỗi và sử dụng [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) để đặt nhãn ở cuối ngoài của mỗi cột.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -407,19 +475,19 @@ secondChart->set_ShowDataLabelsOverMaximum(false);
 presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
 ```
 
-Các hình ảnh sau hiển thị các slide đã lưu được render bằng Microsoft PowerPoint. Khi `true`, nhãn **120** hiển thị ở ranh giới trên; khi `false`, nó bị ẩn. Nhãn **60** vẫn hiển thị, giá trị trục tối đa vẫn là **100**, và điểm dữ liệu thứ hai vẫn là **120** trong cả hai trường hợp.
+Các hình ảnh sau hiển thị các slide đã lưu được render bởi Microsoft PowerPoint. Với `true`, nhãn **120** hiển thị ở đường biên trên; với `false`, nó bị ẩn. Nhãn **60** vẫn hiển thị, giá trị tối đa của trục vẫn **100**, và điểm dữ liệu thứ hai vẫn **120** trong cả hai trường hợp.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Ví dụ này sử dụng biểu đồ cột 2D có trục giá trị. Các biểu đồ không có trục giá trị, như biểu đồ tròn và bánh donut, không có giá trị tối đa của trục để giới hạn theo cách này.
+Ví dụ này sử dụng biểu đồ cột 2D có trục giá trị. Các biểu đồ không có trục giá trị, chẳng hạn như biểu đồ tròn và bánh donut, không có giá trị tối đa của trục để giới hạn theo cách này.
 {{% /alert %}}
 
-## **Đặt Khoảng cách Nhãn so với Trục**
+## **Đặt Khoảng Cách Nhãn Từ Trục**
 
-Sử dụng [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) để kiểm soát khoảng cách giữa nhãn trục danh mục và trục. Giá trị là phần trăm của kích thước phông chữ tối đa của các nhãn trục. Ví dụ này tạo một biểu đồ cột nhóm và đặt độ lệch nhãn trục ngang thành 500. Cài đặt này ảnh hưởng đến nhãn trục danh mục chứ không phải nhãn được gắn vào các điểm dữ liệu riêng lẻ.
+Sử dụng [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) để kiểm soát khoảng cách giữa nhãn trục danh mục và trục. Giá trị là phần trăm của kích thước phông chữ tối đa của các nhãn trục. Ví dụ này tạo một biểu đồ cột cụm và đặt độ lệch nhãn trục ngang thành 500. Cài đặt này ảnh hưởng đến nhãn trục danh mục thay vì các nhãn gắn vào điểm dữ liệu riêng lẻ.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -447,11 +515,11 @@ chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset(500);
 presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Điều chỉnh Vị trí Nhãn**
+## **Điều Chỉnh Vị Trí Nhãn**
 
-Trong biểu đồ tròn, điều chỉnh vị trí nhãn dữ liệu để cải thiện khoảng cách và tạo chỗ cho các đường dẫn.
+Trên biểu đồ tròn, điều chỉnh vị trí nhãn dữ liệu để cải thiện khoảng cách và tạo chỗ cho các đường nối.
 
-Ví dụ này hiển thị giá trị của điểm dữ liệu đầu tiên, đặt nhãn của nó ra ngoài miếng bánh và sử dụng [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) và [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) để điều chỉnh độ lệch. Các độ lệch này tương đối với chiều rộng và chiều cao của biểu đồ.
+Ví dụ này hiển thị giá trị của điểm dữ liệu đầu tiên, đặt nhãn ngoài phần bánh và sử dụng [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) và [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) để điều chỉnh độ lệch. Các độ lệch này tương đối với chiều rộng và chiều cao của biểu đồ tương ứng.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -489,17 +557,17 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![Đồ thị tròn với vị trí nhãn dữ liệu đã điều chỉnh](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Định dạng Đường dẫn Nhãn**
+## **Định Dạng Đường Nối**
 
-Khi nhãn biểu đồ tròn nằm ngoài các miếng bánh, các đường dẫn giúp người đọc ghép mỗi giá trị với miếng bánh tương ứng. Một màu tương phản và đường nét hơi dày hơn có thể làm cho các kết nối này dễ theo dõi hơn, trong khi độ trong suốt và kiểu đường nét đứt giữ cho chúng không làm rối mắt.
+Khi nhãn biểu đồ tròn nằm ngoài các phần bánh, các đường nối giúp người đọc liên kết mỗi giá trị với phần bánh tương ứng. Màu sắc tương phản và độ dày hơi lớn hơn có thể làm cho các kết nối này dễ theo dõi hơn, trong khi độ trong suốt và kiểu gạch đứt giữ cho các đường không gây mất tập trung.
 
-Sử dụng [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) để định dạng các đường dẫn ở mức bộ sưu tập nhãn dữ liệu của chuỗi. Các cài đặt trong `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` áp dụng cho toàn bộ bộ sưu tập, không phải cho từng nhãn riêng lẻ.
+Sử dụng [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) để định dạng đường nối ở cấp độ bộ sưu tập nhãn dữ liệu của chuỗi. Các cài đặt trong `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` áp dụng cho toàn bộ bộ sưu tập, không phải cho từng nhãn riêng lẻ.
 
-Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định, hiển thị giá trị ra ngoài các miếng bánh và bật đường dẫn bằng [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/). Nó di chuyển hai nhãn xa hơn các miếng bánh bằng các độ lệch [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) và [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/), được biểu diễn dưới dạng phần của chiều rộng và chiều cao biểu đồ. Không cần bản trình bày đầu vào.
+Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định, hiển thị giá trị ngoài các phần bánh và bật đường nối với [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/). Nó di chuyển hai nhãn ra xa hơn phần bánh bằng các độ lệch [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) và [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/), được biểu diễn dưới dạng phần của chiều rộng và chiều cao biểu đồ. Không cần bản trình chiếu đầu vào.
 
-Định dạng tô màu trả về bởi [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) được dùng để đặt màu xanh lam đặc với giá trị alpha 191 trong tổng số 255, tương đương khoảng 25 % độ trong suốt. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) đặt độ dày thành 2 điểm, và [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) làm cho đường nét thành kiểu đứt.
+Định dạng nền trả về bởi [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) được dùng để đặt màu xanh đậm đặc với giá trị alpha 191 trong số 255, tương đương khoảng 25 % trong suốt. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) đặt độ dày thành 2 điểm, và [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) làm cho đường nét gạch đứt.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -544,7 +612,7 @@ labelFormat->set_ShowValue(true);
 labelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
 labelFormat->set_ShowLeaderLines(true);
 
-// Di chuyển hai nhãn ra xa hơn các miếng bánh.
+// Di chuyển hai nhãn ra xa hơn các phần bánh.
 series->get_Label(0)->set_X(0.10f);
 series->get_Label(0)->set_Y(-0.05f);
 series->get_Label(1)->set_X(-0.10f);
@@ -559,15 +627,17 @@ line->set_DashStyle(LineDashStyle::Dash);
 presentation->Save(u"FormattedLeaderLines.pptx", SaveFormat::Pptx);
 ```
 
-Bật các đường dẫn không đảm bảo mỗi nhãn sẽ có một đường dẫn. Tính hiển thị phụ thuộc vào vị trí nhãn và hành vi bố cục của biểu đồ. Trong ví dụ này, hai nhãn được di chuyển có đường dẫn hiển thị; các nhãn còn lại ở gần miếng bánh không cần đường dẫn.
+Bật đường nối không có nghĩa là sẽ luôn có đường cho mọi nhãn. Khả năng hiển thị phụ thuộc vào vị trí nhãn và hành vi bố trí của biểu đồ. Trong ví dụ này, hai nhãn bị dịch sang ngoài có đường nối hiển thị; các nhãn còn gần phần bánh không cần chúng.
 
-![Đồ thị tròn với các đường dẫn nhãn màu xanh, bán trong suốt, dạng đứt nối hai nhãn ngoài với các miếng bánh của chúng](formatted-leader-lines.png)
+Hình ảnh sau hiển thị file `FormattedLeaderLines.pptx` đã được render bằng Aspose.Slides:
 
-## **Thêm Nhiều Hàng Nhãn Dữ liệu Phía Trên Biểu Đồ Cột**
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
-Ví dụ này tạo một biểu đồ cột với hai hàng nhãn dữ liệu phía trên khu vực vẽ. Chuỗi A hiển thị các cột có thể nhìn thấy, trong khi Chuỗi B và Chuỗi C cung cấp các nhãn bổ sung. Các cột của chúng bị ẩn bằng cách loại bỏ màu nền và viền. Phương thức [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) căn chỉnh cả ba chuỗi sao cho trung tâm danh mục trùng nhau.
+## **Thêm Nhiều Hàng Nhãn Dữ liệu ở Trên Biểu Đồ Cột**
 
-Cài đặt [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) dành chỗ cho các hàng nhãn. Sau khi [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) tính toán vị trí mặc định, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) và [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) duy trì căn chỉnh ngang và áp dụng độ lệch dọc để sắp xếp nhãn thành hai hàng. Các số vẫn là nhãn dữ liệu liên kết với giá trị của chuỗi; chỉ tiêu đề hàng là các hình dạng văn bản riêng biệt.
+Ví dụ này tạo một biểu đồ cột với hai hàng nhãn dữ liệu ở trên khu vực vẽ. Chuỗi A hiển thị các cột có thể nhìn thấy, trong khi Chuỗi B và Chuỗi C cung cấp các nhãn bổ sung. Các cột của chúng bị ẩn bằng cách loại bỏ nền và viền. Phương thức [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) căn chỉnh ba chuỗi sao cho chúng có chung trung tâm danh mục.
+
+Cài đặt [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) dành không gian cho các hàng nhãn. Sau khi [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) tính toán vị trí mặc định, các phương thức [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) và [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) giữ nguyên căn chỉnh ngang và áp dụng độ lệch dọc để sắp xếp nhãn thành hai hàng. Các số vẫn là nhãn dữ liệu liên kết với các giá trị chuỗi; chỉ tiêu đề hàng là các hình dạng văn bản riêng biệt.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -674,14 +744,14 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
     }
 }
 
-// Căn chỉnh cả ba chuỗi sao cho trung tâm danh mục trùng nhau.
+// Căn tất cả ba chuỗi với cùng trung tâm danh mục.
 chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
 
-// Sử dụng ít đường lưới hơn cho ví dụ gọn này.
+// Sử dụng ít đường chia hơn cho ví dụ gọn này.
 chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
 chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
 
-// Dành không gian phía trên vùng vẽ cho hai hàng nhãn dữ liệu.
+// Dành không gian trên biểu đồ cho hai hàng nhãn dữ liệu.
 chart->get_PlotArea()->set_LayoutTargetType(LayoutTargetType::Inner);
 chart->get_PlotArea()->set_X(0.15f);
 chart->get_PlotArea()->set_Y(0.32f);
@@ -698,7 +768,7 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
     {
         auto dataLabel = series->get_DataPoint(categoryIndex)->get_Label();
         // Giữ vị trí ngang mặc định. Y là độ lệch từ
-        // vị trí nhãn mặc định, biểu thị dưới dạng phân số chiều cao biểu đồ.
+        // vị trí nhãn mặc định, biểu diễn dưới dạng phần của chiều cao biểu đồ.
         dataLabel->set_X(0);
         dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
     }
@@ -719,18 +789,18 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
 presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
 ```
 
-![Biểu đồ cột với hai hàng nhãn dữ liệu phía trên khu vực vẽ](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
-## **FAQ**
+## **Câu Hỏi Thường Gặp**
 
-**Làm thế nào tôi có thể ngăn nhãn dữ liệu chồng lên nhau trên các biểu đồ dày đặc?**
+**Làm sao tôi có thể ngăn nhãn dữ liệu chồng lên nhau trên các biểu đồ dày đặc?**
 
-Kết hợp việc tự động đặt nhãn, các đường dẫn và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ, danh mục) hoặc chỉ hiển thị nhãn cho các giá trị cực đoan hoặc các điểm quan trọng.
+Kết hợp việc đặt nhãn tự động, đường nối và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ, danh mục) hoặc chỉ hiển thị nhãn cho các giá trị cực đoan hoặc điểm quan trọng.
 
-**Làm thế nào tôi có thể tắt nhãn chỉ cho các giá trị zero, âm hoặc trống?**
+**Làm sao tôi có thể tắt nhãn chỉ cho các giá trị zero, âm hoặc trống?**
 
 Lọc các điểm dữ liệu trước khi bật nhãn và tắt hiển thị cho các giá trị bằng 0, giá trị âm hoặc giá trị thiếu theo quy tắc đã định.
 
-**Làm thế nào tôi có thể đảm bảo kiểu nhãn nhất quán khi xuất ra PDF/hình ảnh?**
+**Làm sao tôi đảm bảo phong cách nhãn nhất quán khi xuất ra PDF/hình ảnh?**
 
-Đặt rõ ràng họ phông chữ và kích thước, đồng thời xác minh phông chữ có sẵn trong môi trường render để tránh việc dùng phông thay thế.
+Thiết lập rõ ràng họ phông chữ và kích thước, đồng thời xác minh phông chữ có sẵn trong môi trường render để tránh việc thay thế.

@@ -1,28 +1,73 @@
 ---
-title: Управляйте метками данных диаграмм в презентациях с помощью Python
-linktitle: Метка данных
+title: Управление подписями данных диаграммы в презентациях с помощью Python
+linktitle: Подпись данных
 type: docs
 url: /ru/python-net/chart-data-label/
 keywords:
 - диаграмма
-- метка данных
+- подпись данных
 - точность данных
 - процент
-- расстояние метки
-- расположение метки
+- расстояние подписи
+- положение подписи
 - PowerPoint
 - презентация
 - Python
 - Aspose.Slides
-description: "Узнайте, как добавлять и форматировать метки данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для Python через .NET для более увлекательных слайдов."
+description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint, используя Aspose.Slides для Python через .NET, чтобы сделать слайды более увлекательными."
 ---
 ## **Введение**
 
-Метки данных отображают информацию о рядах диаграммы и отдельных точках данных, помогая читателям определять значения и понимать диаграмму. В этой статье объясняется, как форматировать значения, отображать проценты, считывать текст метки, управлять метками за пределами максимума оси, регулировать расстояние между метками оси категорий и позиционировать метки круговой диаграммы.
+Подписи данных отображают информацию о сериях диаграммы и отдельных точках данных, помогая читателям определять значения и понимать диаграмму. В этой статье объясняется, как форматировать значения, отображать проценты, считывать текст подписи, управлять подписями за пределами максимума оси, настраивать интервал подписей оси категорий и позиционировать подписи на круговой диаграмме.
 
-## **Установка точности данных в метках диаграмм**
+## **Подсчет видимых подписей данных**
 
-Используйте [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) для форматирования значений ряда. Этот пример создаёт линейную диаграмму с данными по умолчанию, отображает её таблицу данных и включает метки значений для первого ряда. Формат `#,##0.00` выводит разделитель тысяч и два знака после запятой, не изменяя базовые значения.
+Use [count_of_visible_data_labels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/count_of_visible_data_labels/) to check how many data labels are enabled for display before publishing a presentation. Unlike `len(labels)`, which returns the total number of labels in the collection, it takes the series defaults and individual label settings into account.
+
+This example creates a column chart with one series and three data points. It accesses the series' [labels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/labels/) collection and prints the visible count as the settings change: **0, 3, 2, 3**. The total count remains **3**.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    series_cell = workbook.get_cell(0, 0, 1, "Values")
+    series = chart.chart_data.series.add(series_cell, chart.type)
+
+    for i in range(3):
+        category_cell = workbook.get_cell(0, i + 1, 0, f"Category {i + 1}")
+        chart.chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, (i + 1) * 10)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    labels = series.labels
+    print(f"Total: {len(labels)}; visible: {labels.count_of_visible_data_labels}")  # Total: 3; visible: 0
+
+    labels.default_data_label_format.show_value = True
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Visible: 3
+
+    labels[1].data_label_format.show_value = False
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Visible: 2
+
+    labels[1].data_label_format.show_legend_key = True
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Visible: 3
+```
+
+The series' [default_data_label_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/default_data_label_format/) supplies the default settings. Enabling [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) there displays values for all three labels. Setting it to `False` through one label's [data_label_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/data_label_format/) overrides that setting for the selected label. Enabling [show_legend_key](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_legend_key/) makes that label count as visible again, even though its value remains hidden.
+
+The visible count reflects visibility settings. It does not measure whether labels overlap, are clipped, or are readable in the rendered chart.
+
+## **Установить точность данных в подписях диаграммы**
+
+Use [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
 
 ```python
 import aspose.slides as slides
@@ -41,11 +86,11 @@ with slides.Presentation() as presentation:
     presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Чтобы отформатировать числовые ячейки во вложенной рабочей книге диаграммы, см. [Установить пользовательские числовые форматы для ячеек рабочей книги](/slides/ru/python-net/chart-workbook/#set-custom-number-formats-for-workbook-cells). В этом примере также показано, как метки значений используют форматы исходных ячеек, при этом сохраняются сохранённые числовые значения.
+To format the numeric cells in a chart's embedded workbook, see [Set Custom Number Formats for Workbook Cells](/slides/ru/python-net/chart-workbook/#set-custom-number-formats-for-workbook-cells). That example also shows value labels following their source cell formats while preserving the stored numeric values.
 
-## **Отображать процент в виде меток**
+## **Отображать проценты в виде подписей**
 
-Для сложенной столбчатой диаграммы вычислите каждое значение как процент от общей суммы категории и задайте текст в [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Этот пример использует данные диаграммы по умолчанию и отображает проценты с двумя знаками после запятой шрифтом размером 8 пунктов. Категории с нулевой общей суммой пропускаются, чтобы избежать деления на ноль. При изменении данных диаграммы пересчитайте пользовательский текст метки.
+For a stacked column chart, calculate each value as a percentage of its category total and assign the text to [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
 
 ```python
 import aspose.slides as slides
@@ -92,11 +137,11 @@ with slides.Presentation() as presentation:
     presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Установить знак процента в метках данных диаграммы**
+## **Установить знак процента в подписях диаграммы**
 
-Если значения хранятся в виде дробей, используйте [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) для отображения процентов. Установите [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) в `False`, чтобы применить формат метки независимо от исходных ячеек.
+When values are stored as fractions, use [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) to display percentages. Set [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) to `False` to apply the label format independently of the source cells.
 
-Этот пример создаёт 100% сложенную столбчатую диаграмму с красными и синими рядами по четырём категориям. Каждая пара значений суммируется до 1. Формат метки `0.0%` отображает 0.30 как 30.0%, тогда как вертикальная ось использует два знака после запятой. Оба ряда используют белый текст метки размером 10 пунктов.
+This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
 
 ```python
 import aspose.slides as slides
@@ -145,9 +190,9 @@ with slides.Presentation() as presentation:
     presentation.save("SetDataLabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Получить фактический текст меток данных**
+## **Считать фактический текст подписей данных**
 
-Используйте [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) для получения текста, сформированного настройками метки данных. Это полезно при извлечении меток для отчетов, поиске содержимого презентации или проверке сгенерированных диаграмм. В примере ниже стандартный [формат метки данных](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) соединяет имя категории, имя ряда и значение. Одна точка форматирует своё значение как процент, а другая использует пользовательский текст из [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
+Use [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
 
 ```python
 import aspose.slides as slides
@@ -198,15 +243,15 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-Число, хранимое в точке данных, остаётся `0.75`, даже когда его метка показывает `75%` вместе с именами категории и ряда. Пользовательский текст заменяет сгенерированный текст метки. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) возвращает полученную строку метки в любом случае. Проверяйте [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) отдельно, как показано выше, когда нужно извлекать только видимые метки.
+The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) returns the resulting label string in either case. Check [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) separately, as shown above, when you want to extract only visible labels.
 
-## **Управление метками данных за пределами максимума оси**
+## **Управление подписями данных за пределами максимума оси**
 
-Если вы ограничиваете диапазон оси вручную, некоторые точки данных могут превысить её максимум. Используйте [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) для контроля отображения их меток. Эта настройка меняет видимость меток; она не меняет диапазон оси и базовые значения данных.
+When you limit an axis range manually, some data points may exceed its maximum. Use [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
 
-В примере ниже создаётся 2D сгруппированная столбчатая диаграмма со значениями 60 и 120. На вертикальной оси устанавливается [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) в `False` и [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) в 100. На первом слайде разрешены метки за пределами максимума; копия этого слайда отключает их. Оба слайда сохраняются в `DataLabelsOverMaximum.pptx`.
+The example below creates a 2D clustered column chart with values of 60 and 120. It sets [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) to `False` and [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) to 100 on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
 
-Включите метки значений с помощью [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Настройка на уровне диаграммы не включает отображение значений сама по себе и не переопределяет отключённое отображение отдельной метки. Этот пример включает значения для всего ряда и использует [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) для размещения меток на внешнем конце каждого столбца.
+Enable value labels with [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) to place labels at the outside end of each column.
 
 ```python
 import aspose.slides as slides
@@ -252,19 +297,19 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Следующие изображения показывают сохранённые слайды, отрендеренные в Microsoft PowerPoint. При `True` метка **120** видна у верхней границы; при `False` она скрыта. Метка **60** остаётся видимой, максимум оси остаётся **100**, а вторая точка данных остаётся **120** в обоих случаях.
+The following images show the saved slides rendered by Microsoft PowerPoint. With `True`, the label **120** is visible at the upper boundary; with `False`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Этот пример использует 2D столбчатую диаграмму со значительной осью. Диаграммы без значительной оси, такие как круговые и кольцевые, не имеют максимума оси, который можно было бы ограничить таким способом.
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
 {{% /alert %}}
 
-## **Установить расстояние метки от оси**
+## **Установить расстояние подписи от оси**
 
-Используйте [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) для управления расстоянием между метками оси категорий и самой осью. Значение является процентом от максимального размера шрифта меток оси. Этот пример создаёт сгруппированную столбчатую диаграмму и задаёт смещение метки горизонтальной оси равным 500. Эта настройка влияет на метки оси категорий, а не на метки, привязанные к отдельным точкам данных.
+Use [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
 
 ```python
 import aspose.slides as slides
@@ -279,11 +324,11 @@ with slides.Presentation() as presentation:
     presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Регулировать расположение метки**
+## **Настроить расположение подписи**
 
-На круговой диаграмме регулируйте позицию меток данных, чтобы улучшить интервалы и освободить место для линий‑соединителей.
+On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
 
-Этот пример отображает значение первой точки данных, размещает её метку за пределами сектора и корректирует её смещения по [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) и [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/). Эти смещения задаются относительно ширины и высоты диаграммы соответственно.
+This example displays the value of the first data point, places its label outside the slice, and adjusts its [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) and [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) offsets. These offsets are relative to the chart width and height, respectively.
 
 ```python
 import aspose.slides as slides
@@ -304,17 +349,17 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Круговая диаграмма с отрегулированным положением метки данных](pie-chart-adjusted-label.png)
+![Круговая диаграмма с отрегулированным положением подписи данных](pie-chart-adjusted-label.png)
 
-## **Форматировать линейки‑соединители**
+## **Форматировать линии-выводы**
 
-Когда метки круговой диаграммы находятся за пределами своих секторов, линии‑соединители помогают читателю сопоставить каждое значение с соответствующим сектором. Контрастный цвет и слегка утолщённая линия делают эти соединения легче воспринимаемыми, а прозрачность и пунктирный стиль сохраняют их визуальную незаметность.
+When pie chart labels sit outside their slices, leader lines help readers match each value to the correct slice. A contrasting color and a slightly thicker line can make these connections easier to follow, while transparency and a dashed style keep the lines visually unobtrusive.
 
-Используйте [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) для форматирования линий‑соединителей на уровне коллекции меток данных ряда. Настройки в `series.labels.leader_lines_format.line` применяются к коллекции, а не к отдельной метке.
+Use [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) to format leader lines at the series' data label collection level. The settings in `series.labels.leader_lines_format.line` apply to the collection, rather than to an individual label.
 
-Этот пример создаёт круговую диаграмму с данными по умолчанию, отображает значения за пределами секторов и включает [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). Он удаляет две метки дальше от их секторов, используя смещения по [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) и [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/), выраженные в долях ширины и высоты диаграммы. Входная презентация не требуется.
+This example creates a pie chart with default data, displays values outside the slices, and enables [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). It moves two labels farther from their slices using [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) and [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) offsets, expressed as fractions of the chart width and height. No input presentation is required.
 
-Линия имеет [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/), задающий сплошной синий цвет с альфа‑значением 191 из 255, что даёт примерно 25 % прозрачности. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) устанавливает толщину в 2 пункта, а [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) делает линию пунктирной.
+The line's [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) sets a solid blue color with an alpha value of 191 out of 255, giving approximately 25% transparency. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) sets the thickness to 2 points, and [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) makes the line dashed.
 
 ```python
 import aspose.slides as slides
@@ -334,7 +379,7 @@ with slides.Presentation() as presentation:
     label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
     label_format.show_leader_lines = True
 
-    # Переместить две метки дальше от их секторов.
+    # Переместить две подписи дальше от их секторов.
     series.labels[0].x = 0.10
     series.labels[0].y = -0.05
     series.labels[1].x = -0.10
@@ -349,17 +394,17 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedLeaderLines.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Включение линий‑соединителей не гарантирует, что линия появится у каждой метки. Видимость зависит от расположения метки и поведения размещения диаграммы. В этом примере две смещённые метки имеют видимые линии‑соединители; метки, оставшиеся близко к своим секторам, их не требуют.
+Enabling leader lines does not guarantee that a line will appear for every label. Visibility depends on label placement and the chart's layout behavior. In this example, the two displaced labels have visible leader lines; the labels that remain close to their slices do not need them.
 
-Следующее изображение показывает сохранённый `FormattedLeaderLines.pptx`, отрендеренный с помощью Aspose.Slides:
+The following image shows the saved `FormattedLeaderLines.pptx` rendered with Aspose.Slides:
 
-![Круговая диаграмма с синими, полупрозрачными пунктирными линейками‑соединителями, соединяющими две внешние метки с их секторами](formatted-leader-lines.png)
+![Круговая диаграмма с синими полупрозрачными пунктирными линиями-выводами, соединяющими две внешние подписи со своими секторами](formatted-leader-lines.png)
 
-## **Добавить несколько строк меток данных над столбчатой диаграммой**
+## **Добавить несколько строк подписей над столбчатой диаграммой**
 
-Этот пример создаёт столбчатую диаграмму с двумя строками меток данных над областью построения. Ряд A отображает видимые столбцы, а ряды B и C предоставляют дополнительные метки. Их столбцы скрыты удалением заливки и контура. Свойство [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) выравнивает все три ряда по центрам категорий.
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) property aligns all three series with the same category centers.
 
-Настройки [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) резервируют место для строк меток. После того как [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) вычисляет позиции по умолчанию, [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) и [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) сохраняют горизонтальное выравнивание и применяют вертикальные смещения для размещения меток в две строки. Числа остаются метками данных, привязанными к значениям рядов; только заголовки строк являются отдельными текстовыми фигурами.
+The [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) settings reserve space for the label rows. After [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) calculates the default positions, [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) and [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
 
 ```python
 import aspose.slides as slides
@@ -412,10 +457,10 @@ with slides.Presentation() as presentation:
             label_fill.solid_fill_color.color = drawing.Color.black
             label_format.position = charts.LegendDataLabelPosition.INSIDE_BASE
 
-    # Выравнивание всех трех рядов по одинаковым центрам категорий.
+    # Выравнивание всех трех серий по одинаковым центрам категорий.
     chart.chart_data.series[0].parent_series_group.overlap = 100
 
-    # Использовать меньше сеток для этого компактного примера.
+    # Использовать меньше линий сетки в этом компактном примере.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.major_unit = 10
 
@@ -433,7 +478,7 @@ with slides.Presentation() as presentation:
 
         for category_index in range(len(categories)):
             data_label = series.data_points[category_index].label
-            # Сохранить позицию по умолчанию по горизонтали. Y — смещение от
+            # Сохранить положение по умолчанию по горизонтали. Y — это смещение от
             # позиции подписи по умолчанию, выраженное как доля высоты диаграммы.
             data_label.x = 0
             data_label.y = row_top - data_label.actual_y / chart.height
@@ -453,15 +498,18 @@ with slides.Presentation() as presentation:
     presentation.save("multiple-rows-of-labels.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Столбчатая диаграмма с двумя строками меток данных над областью построения](multiple-rows-of-labels.png)
+![Столбчатая диаграмма с двумя строками подписей над областью построения](multiple-rows-of-labels.png)
 
-## **FAQ**
+## **ЧаВО**
 
-**Как предотвратить наложение меток данных на насыщенных диаграммах?**  
-Комбинируйте автоматическое размещение меток, линии‑соединители и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или отображайте метки только для экстремальных значений или ключевых точек.
+**Как предотвратить перекрытие подписей данных на плотных диаграммах?**
 
-**Как отключить метки только для нулевых, отрицательных или пустых значений?**  
-Отфильтруйте точки данных перед включением меток и отключите отображение для значений 0, отрицательных значений или отсутствующих значений согласно заданному правилу.
+Combine automatic label placement, leader lines, and reduced font size; if necessary, hide some fields (for example, the category) or show labels only for extreme values or key points.
 
-**Как обеспечить единый стиль меток при экспорте в PDF/изображения?**  
-Явно задайте семейство шрифта и размер и убедитесь, что шрифт доступен в среде рендеринга, чтобы избежать подстановки.
+**Как отключить подписи только для нулевых, отрицательных или пустых значений?**
+
+Filter data points before enabling labels and turn off display for values of 0, negative values, or missing values according to a defined rule.
+
+**Как обеспечить единообразный стиль подписи при экспорте в PDF/изображения?**
+
+Explicitly set the font family and size and verify that the font is available in the rendering environment to avoid fallback.

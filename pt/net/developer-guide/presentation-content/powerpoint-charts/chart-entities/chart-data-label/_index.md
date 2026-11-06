@@ -7,7 +7,7 @@ keywords:
 - gráfico
 - rótulo de dados
 - precisão de dados
-- porcentagem
+- percentual
 - distância do rótulo
 - localização do rótulo
 - PowerPoint
@@ -15,15 +15,63 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a adicionar e formatar rótulos de dados de gráficos em apresentações do PowerPoint usando Aspose.Slides para .NET para slides mais envolventes."
+description: "Aprenda a adicionar e formatar rótulos de dados de gráficos em apresentações PowerPoint usando Aspose.Slides para .NET para slides mais envolventes."
 ---
 ## **Introdução**
 
-Os rótulos de dados exibem informações sobre as séries de gráficos e pontos de dados individuais, ajudando os leitores a identificar valores e a compreender o gráfico. Este artigo explica como formatar valores, exibir porcentagens, ler o texto dos rótulos, controlar rótulos além do máximo do eixo, ajustar o espaçamento dos rótulos do eixo de categoria e posicionar rótulos em gráficos de pizza.
+Os rótulos de dados exibem informações sobre as séries do gráfico e pontos de dados individuais, ajudando os leitores a identificar valores e compreender o gráfico. Este artigo explica como formatar valores, exibir percentuais, ler o texto do rótulo, controlar rótulos além do máximo do eixo, ajustar o espaçamento dos rótulos do eixo de categorias e posicionar rótulos em gráficos de pizza.
 
-## **Definir a precisão dos dados nos rótulos de dados do gráfico**
+## **Contar Rótulos de Dados Visíveis**
 
-Use [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) para formatar os valores da série. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita os rótulos de valor para a primeira série. O formato `#,##0.00` exibe um separador de milhar e duas casas decimais sem alterar os valores subjacentes.
+Use [CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/) para verificar quantos rótulos de dados estão habilitados para exibição antes de publicar uma apresentação. Ao contrário de [Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/), que devolve o número total de rótulos na coleção, ele leva em conta os padrões da série e as configurações individuais de cada rótulo.
+
+Este exemplo cria um gráfico de colunas com uma série e três pontos de dados. Ele acessa a coleção [Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/) da série e imprime a contagem visível conforme as configurações mudam: **0, 3, 2, 3**. A contagem total permanece **3**.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesCell = workbook.GetCell(0, 0, 1, "Values");
+var series = chart.ChartData.Series.Add(seriesCell, chart.Type);
+
+for (int i = 0; i < 3; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, $"Category {i + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(0, i + 1, 1, (i + 1) * 10);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+}
+
+var labels = series.Labels;
+Console.WriteLine($"Total: {labels.Count}; visible: {labels.CountOfVisibleDataLabels}"); // Total: 3; visível: 0
+
+labels.DefaultDataLabelFormat.ShowValue = true;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // Visível: 3
+
+labels[1].DataLabelFormat.ShowValue = false;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // Visível: 2
+
+labels[1].DataLabelFormat.ShowLegendKey = true;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // Visível: 3
+```
+
+A [DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/) da série fornece as configurações padrão. Habilitar [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) allí exibe valores para todos os três rótulos. Definir isso como `false` através da [DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/) de um rótulo substitui essa configuração para o rótulo selecionado. Habilitar [ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/) faz com que esse rótulo volte a contar como visível, ainda que seu valor permaneça oculto.
+
+A contagem visível reflete as configurações de visibilidade. Ela não mede se os rótulos se sobrepõem, são recortados ou são legíveis no gráfico renderizado.
+
+## **Definir Precisão dos Valores em Rótulos de Dados de Gráficos**
+
+Use [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) para formatar os valores da série. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita rótulos de valor para a primeira série. O formato `#,##0.00` exibe um separador de milhares e duas casas decimais sem alterar os valores subjacentes.
 
 ```csharp
 using Aspose.Slides;
@@ -43,11 +91,11 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-Para formatar as células numéricas na pasta de trabalho incorporada a um gráfico, veja [Definir Formatos Numéricos Personalizados para Células de Pasta de Trabalho](/slides/pt/net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Esse exemplo também mostra rótulos de valor seguindo os formatos das células de origem, preservando os valores numéricos armazenados.
+Para formatar as células numéricas na pasta de trabalho incorporada ao gráfico, veja [Set Custom Number Formats for Workbook Cells](/slides/pt/net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Esse exemplo também mostra rótulos de valor seguindo os formatos das células de origem, ao mesmo tempo que preserva os valores numéricos armazenados.
 
-## **Exibir Porcentagem como Rótulos**
+## **Exibir Percentual como Rótulos**
 
-Para um gráfico de colunas empilhadas, calcule cada valor como uma porcentagem do total da sua categoria e atribua o texto a [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Este exemplo usa os dados padrão do gráfico e exibe porcentagens com duas casas decimais em fonte de 8 pontos. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto do rótulo personalizado se os dados do gráfico mudarem.
+Para um gráfico de colunas empilhadas, calcule cada valor como percentual do total da sua categoria e atribua o texto a [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Este exemplo usa os dados padrão do gráfico e exibe percentuais com duas casas decimais em fonte de 8 pt. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto do rótulo personalizado se os dados do gráfico mudarem.
 
 ```csharp
 using System;
@@ -108,9 +156,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Definir Símbolo de Porcentagem nos Rótulos de Dados do Gráfico**
+## **Definir Sinal de Percentual com Rótulos de Dados de Gráficos**
 
-Quando os valores são armazenados como frações, use [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) para exibir porcentagens. Defina [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) como `false` para aplicar o formato do rótulo independentemente das células de origem. Este exemplo cria um gráfico de colunas empilhadas a 100% com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0.30 como 30.0%, enquanto o eixo vertical usa duas casas decimais. Ambas as séries utilizam texto de rótulo branco, tamanho 10 pontos.
+Quando os valores são armazenados como frações, use [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) para exibir percentuais. Defina [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) como `false` para aplicar o formato do rótulo independentemente das células de origem.
+
+Este exemplo cria um gráfico de colunas empilhadas 100 % com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0.30 como 30.0 %, enquanto o eixo vertical usa duas casas decimais. Ambas as séries usam texto de rótulo branco, tamanho 10 pt.
 
 ```csharp
 using System.Drawing;
@@ -168,7 +218,7 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 
 ## **Ler o Texto Real dos Rótulos de Dados**
 
-Use [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) para recuperar o texto gerado pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo de apresentações ou validar gráficos gerados. No exemplo abaixo, o [formato padrão de rótulo de dados](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) combina o nome de cada categoria, o nome da série e o valor. Um ponto formata seu valor como porcentagem e outro usa texto personalizado de [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+Use [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) para recuperar o texto produzido pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo de apresentações ou validar gráficos gerados. No exemplo abaixo, o formato padrão de [rótulo de dados](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) combina o nome da categoria, o nome da série e o valor. Um ponto formata seu valor como percentual e outro usa texto personalizado de [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -222,11 +272,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-O número armazenado em um ponto de dados permanece `0.75`, mesmo quando seu rótulo exibe `75%` junto com os nomes da categoria e da série. Texto personalizado substitui o texto do rótulo gerado. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) retorna a string do rótulo resultante em ambos os casos. Verifique [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) separadamente, como mostrado acima, quando desejar extrair apenas rótulos visíveis.
+O número armazenado em um ponto de dados permanece `0.75`, mesmo quando seu rótulo mostra `75 %` juntamente com os nomes da categoria e da série. Texto personalizado substitui o texto gerado do rótulo. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) devolve a string de rótulo resultante em qualquer dos casos. Verifique [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) separadamente, como mostrado acima, quando quiser extrair somente rótulos visíveis.
 
 ## **Controlar Rótulos de Dados Além do Máximo do Eixo**
 
-Quando você limita manualmente o intervalo de um eixo, alguns pontos de dados podem exceder seu máximo. Use [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) para controlar se seus rótulos de dados são exibidos. Essa configuração altera a visibilidade dos rótulos; não altera o intervalo do eixo nem os valores subjacentes dos dados. O exemplo abaixo cria um gráfico de colunas agrupadas 2D com valores de 60 e 120. Define [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) como `false` e [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) como 100 no eixo vertical. O primeiro slide permite rótulos além do máximo; uma cópia desse slide os desabilita. Ambos os slides são salvos em `DataLabelsOverMaximum.pptx`. Habilite rótulos de valor com [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). A configuração ao nível do gráfico não habilita a exibição de valores por si só nem sobrescreve a desativação da exibição de valor de um rótulo individual. Este exemplo habilita valores para toda a série e usa [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) para posicionar os rótulos na extremidade externa de cada coluna.
+Quando você limita manualmente o intervalo de um eixo, alguns pontos de dados podem exceder seu máximo. Use [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) para controlar se seus rótulos de dados são mostrados. Essa configuração altera a visibilidade dos rótulos; não altera o intervalo do eixo nem os valores subjacentes.
+
+O exemplo abaixo cria um gráfico de colunas agrupadas 2D com valores 60 e 120. Define [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) como `false` e [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) como 100 no eixo vertical. O primeiro slide permite rótulos além do máximo; uma cópia desse slide os desabilita. Ambos os slides são salvos em `DataLabelsOverMaximum.pptx`.
+
+Habilite rótulos de valor com [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). A configuração a nível de gráfico não habilita a exibição de valores por si só nem sobrescreve a exibição desabilitada de um rótulo individual. Este exemplo habilita valores para toda a série e usa [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) para colocar os rótulos na extremidade externa de cada coluna.
 
 ```csharp
 using Aspose.Slides;
@@ -273,19 +327,19 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-As imagens a seguir mostram os slides salvos renderizados pelo Microsoft PowerPoint. Com `true`, o rótulo **120** está visível no limite superior; com `false`, ele está oculto. O rótulo **60** permanece visível, o máximo do eixo permanece em **100** e o segundo ponto de dados permanece **120** em ambos os casos.
+As imagens a seguir mostram os slides salvos renderizados pelo Microsoft PowerPoint. Com `true`, o rótulo **120** está visível no limite superior; com `false`, ele está oculto. O rótulo **60** permanece visível, o máximo do eixo permanece **100** e o segundo ponto de dados continua **120** em ambos os casos.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![Gráfico do PowerPoint mostrando o rótulo de valor 120 com um máximo de eixo de 100](data-labels-over-maximum-true.png) | ![Gráfico do PowerPoint ocultando o rótulo de valor 120 com um máximo de eixo de 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Este exemplo usa um gráfico de colunas 2D com eixo de valores. Gráficos sem eixo de valores, como gráficos de pizza e rosquinha, não possuem um máximo de eixo para limitar dessa forma.
+Este exemplo usa um gráfico de colunas 2D com um eixo de valores. Gráficos sem eixo de valores, como gráficos de pizza e rosquinha, não possuem um máximo de eixo para limitar dessa forma.
 {{% /alert %}}
 
 ## **Definir Distância do Rótulo a partir de um Eixo**
 
-Use [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) para controlar a distância entre os rótulos do eixo de categoria e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento do rótulo do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categoria, e não os rótulos anexados a pontos de dados individuais.
+Use [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) para controlar a distância entre os rótulos do eixo de categorias e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento de rótulo do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categorias, não os rótulos vinculados a pontos de dados individuais.
 
 ```csharp
 using Aspose.Slides;
@@ -301,9 +355,11 @@ chart.Axes.HorizontalAxis.LabelOffset = 500;
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Ajustar Posição do Rótulo**
+## **Ajustar Localização do Rótulo**
 
-Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e criar espaço para linhas de referência. Este exemplo exibe o valor do primeiro ponto de dados, posiciona seu rótulo fora da fatia e ajusta seus deslocamentos [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) e [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/). Esses deslocamentos são relativos à largura e à altura do gráfico, respectivamente.
+Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e liberar espaço para linhas de conexão.
+
+Este exemplo exibe o valor do primeiro ponto de dados, coloca seu rótulo fora da fatia e ajusta os deslocamentos [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) e [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/). Esses deslocamentos são relativos à largura e à altura do gráfico, respectivamente.
 
 ```csharp
 using Aspose.Slides;
@@ -327,9 +383,15 @@ presentation.Save("presentation.pptx", SaveFormat.Pptx);
 
 ![Gráfico de pizza com posição de rótulo de dados ajustada](pie-chart-adjusted-label.png)
 
-## **Formatar Linhas de Referência**
+## **Formatar Linhas de Conexão**
 
-Quando os rótulos de um gráfico de pizza ficam fora de suas fatias, linhas de referência ajudam os leitores a identificar cada valor com a fatia correta. Uma cor contrastante e uma linha ligeiramente mais grossa podem tornar essas conexões mais fáceis de seguir, enquanto transparência e estilo tracejado mantêm as linhas visualmente discretas. Use [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) para formatar linhas de referência no nível da coleção de rótulos de dados da série. As configurações em `series.Labels.LeaderLinesFormat.Line` aplicam-se à coleção, em vez de a um rótulo individual. Este exemplo cria um gráfico de pizza com dados padrão, exibe valores fora das fatias e habilita [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/). Ele move dois rótulos mais longe de suas fatias usando os deslocamentos [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) e [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/), expressos como frações da largura e altura do gráfico. Nenhuma apresentação de entrada é necessária. O [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) da linha define uma cor azul sólida com um valor alfa de 191 de 255, proporcionando aproximadamente 25% de transparência. [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) define a espessura para 2 pontos, e [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) torna a linha tracejada.
+Quando os rótulos de gráficos de pizza ficam fora das fatias, as linhas de conexão ajudam os leitores a associar cada valor à fatia correta. Uma cor contrastante e uma linha ligeiramente mais grossa podem tornar essas conexões mais fáceis de seguir, enquanto transparência e estilo tracejado mantêm as linhas visualmente discretas.
+
+Use [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) para formatar linhas de conexão no nível da coleção de rótulos de dados da série. As configurações em `series.Labels.LeaderLinesFormat.Line` aplicam‑se à coleção, não a um rótulo individual.
+
+Este exemplo cria um gráfico de pizza com dados padrão, exibe valores fora das fatias e habilita [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/). Move dois rótulos mais longe de suas fatias usando os deslocamentos [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) e [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/), expressos como frações da largura e da altura do gráfico. Nenhuma apresentação de entrada é necessária.
+
+O [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) da linha define uma cor azul sólida com valor alfa 191 de 255, proporcionando aproximadamente 25 % de transparência. [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) define a espessura para 2 pontos, e [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) torna a linha tracejada.
 
 ```csharp
 using System.Drawing;
@@ -365,13 +427,17 @@ line.DashStyle = LineDashStyle.Dash;
 presentation.Save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
 ```
 
-Habilitar linhas de referência não garante que uma linha aparecerá para cada rótulo. A visibilidade depende da colocação dos rótulos e do comportamento de layout do gráfico. Neste exemplo, os dois rótulos deslocados têm linhas de referência visíveis; os rótulos que permanecem próximos às suas fatias não precisam delas. A imagem a seguir mostra o `FormattedLeaderLines.pptx` salvo renderizado com Aspose.Slides:
+Habilitar linhas de conexão não garante que uma linha apareça para cada rótulo. A visibilidade depende da colocação dos rótulos e do comportamento de layout do gráfico. Neste exemplo, os dois rótulos deslocados têm linhas de conexão visíveis; os rótulos que permanecem próximos às suas fatias não precisam delas.
 
-![Gráfico de pizza com linhas de referência azuis, semitransparentes e tracejadas conectando dois rótulos externos às suas fatias](formatted-leader-lines.png)
+A imagem a seguir mostra o `FormattedLeaderLines.pptx` salvo e renderizado com Aspose.Slides:
 
-## **Adicionar Múltiplas Linhas de Rótulos de Dados Acima de um Gráfico de Colunas**
+![Gráfico de pizza com linhas de conexão azuis, semitransparentes e tracejadas ligando dois rótulos externos às suas fatias](formatted-leader-lines.png)
 
-Este exemplo cria um gráfico de colunas com duas linhas de rótulos de dados acima da área de plotagem. A Série A exibe as colunas visíveis, enquanto as Séries B e C fornecem os rótulos adicionais. Suas colunas são ocultas removendo o preenchimento e o contorno. A propriedade [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) alinha as três séries ao mesmo centro de categoria. As configurações de [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) reservam espaço para as linhas de rótulos. Após [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) calcular as posições padrão, [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) e [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) preservam o alinhamento horizontal e aplicam deslocamentos verticais para organizar os rótulos em duas linhas. Os números permanecem rótulos de dados vinculados aos valores das séries; apenas os cabeçalhos das linhas são formas de texto separadas.
+## **Adicionar Várias Linhas de Rótulos de Dados Acima de um Gráfico de Colunas**
+
+Este exemplo cria um gráfico de colunas com duas linhas de rótulos de dados acima da área de plotagem. A Série A exibe as colunas visíveis, enquanto as Séries B e C fornecem os rótulos adicionais. Suas colunas são ocultas removendo o preenchimento e o contorno. A propriedade [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) alinha as três séries ao mesmo centro de categoria.
+
+As configurações de [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) reservam espaço para as linhas de rótulos. Após [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) calcular as posições padrão, [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) e [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) preservam o alinhamento horizontal e aplicam deslocamentos verticais para organizar os rótulos em duas linhas. Os números permanecem rótulos de dados vinculados aos valores das séries; apenas os cabeçalhos das linhas são formas de texto separadas.
 
 ```csharp
 using System.Drawing;
@@ -433,7 +499,7 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
     }
 }
 
-// Alinhar as três séries com os mesmos centros de categoria.
+// Alinhar as três séries ao mesmo centro de categoria.
 chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
 
 // Usar menos linhas de grade para este exemplo compacto.
@@ -462,7 +528,7 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
         dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
     }
 
-    // Apenas o cabeçalho da linha é uma forma de texto separada.
+    // Somente o título da linha é uma forma de texto separada.
     var rowHeading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, chart.X, chart.Y + rowTop * chart.Height, 85, 18);
     rowHeading.FillFormat.FillType = FillType.NoFill;
     rowHeading.LineFormat.FillFormat.FillType = FillType.NoFill;
@@ -482,11 +548,14 @@ presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Como posso impedir que os rótulos de dados se sobreponham em gráficos densos?**  
-Combine posicionamento automático de rótulos, linhas de referência e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou exiba rótulos apenas para valores extremos ou pontos‑chave.
+**Como posso impedir que os rótulos de dados se sobreponham em gráficos densos?**
 
-**Como posso desativar rótulos apenas para valores zero, negativos ou vazios?**  
+Combine posicionamento automático de rótulos, linhas de conexão e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou mostre rótulos apenas para valores extremos ou pontos chave.
+
+**Como posso desabilitar rótulos apenas para valores zero, negativos ou vazios?**
+
 Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores 0, valores negativos ou valores ausentes de acordo com uma regra definida.
 
-**Como garantir um estilo consistente de rótulo ao exportar para PDF/imagens?**  
-Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar substituições.
+**Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**
+
+Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar substituição.

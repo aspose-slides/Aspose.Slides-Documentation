@@ -1,5 +1,5 @@
 ---
-title: Gérer les libellés de données de graphiques dans les présentations sur Android
+title: Gérer les libellés de données de graphique dans les présentations sur Android
 linktitle: Libellé de données
 type: docs
 url: /fr/androidjava/chart-data-label/
@@ -15,15 +15,64 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Apprenez à ajouter et mettre en forme des libellés de données de graphiques dans les présentations PowerPoint en utilisant Aspose.Slides pour Android via Java pour des diapositives plus attrayantes."
+description: "Apprenez à ajouter et à formater les libellés de données de graphiques dans les présentations PowerPoint à l'aide d'Aspose.Slides pour Android via Java pour des diapositives plus engageantes."
 ---
 ## **Introduction**
 
-Les libellés de données affichent des informations sur les séries de graphique et les points de données individuels, aidant les lecteurs à identifier les valeurs et à comprendre le graphique. Cet article explique comment formater les valeurs, afficher les pourcentages, lire le texte du libellé, contrôler les libellés au‑delà du maximum de l’axe, ajuster l’espacement des libellés de l’axe des catégories et positionner les libellés des graphiques en secteurs.
+Les libellés de données affichent des informations sur les séries de graphique et les points de données individuels, aidant les lecteurs à identifier les valeurs et à comprendre le graphique. Cet article explique comment formater les valeurs, afficher les pourcentages, lire le texte des libellés, contrôler les libellés au‑delà du maximum de l’axe, ajuster l’espacement des libellés de l’axe des catégories et positionner les libellés des graphiques circulaires.
 
-## **Set Data Precision in Chart Data Labels**
+## **Compter les libellés de données visibles**
 
-Utilisez [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) pour formater les valeurs des séries. Cet exemple crée un graphique en courbes avec des données par défaut, affiche son tableau de données et active les libellés de valeur pour la première série. Le format `#,##0.00` affiche un séparateur de milliers et deux décimales sans modifier les valeurs sous‑jacent.
+Utilisez [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getCountOfVisibleDataLabels--) pour vérifier combien de libellés de données sont activés pour l’affichage avant la publication d’une présentation. Contrairement à [getCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getCount--), qui renvoie le nombre total de libellés dans la collection, cette méthode tient compte des paramètres par défaut de la série et des réglages individuels des libellés.
+
+Cet exemple crée un graphique en colonnes avec une série et trois points de données. Il accède à la collection de libellés de la série via [getLabels](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getLabels--) et affiche le nombre visible lorsque les paramètres changent : **0, 3, 2, 3**. Le nombre total reste **3**.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesCell = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+
+    for (int i = 0; i < 3; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    IDataLabelCollection labels = series.getLabels();
+    System.out.println("Total: " + labels.getCount() + "; visible: " + labels.getCountOfVisibleDataLabels()); // Total : 3 ; visible : 0
+
+    labels.getDefaultDataLabelFormat().setShowValue(true);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Visible : 3
+
+    labels.get_Item(1).getDataLabelFormat().setShowValue(false);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Visible : 2
+
+    labels.get_Item(1).getDataLabelFormat().setShowLegendKey(true);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Visible : 3
+} finally {
+    presentation.dispose();
+}
+```
+
+La [getDefaultDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getDefaultDataLabelFormat--) de la série fournit les paramètres par défaut. Passer `true` à [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) affiche les valeurs pour les trois libellés. Passer `false` via le [getDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getDataLabelFormat--) d’un libellé remplace ce paramètre pour le libellé sélectionné. Passer `true` à [setShowLegendKey](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLegendKey-boolean-) fait que ce libellé redevient visible, même si sa valeur reste masquée.
+
+Le nombre visible reflète les paramètres de visibilité. Il ne mesure pas si les libellés se chevauchent, sont tronqués ou restent lisibles dans le graphique rendu.
+
+## **Définir la précision des valeurs dans les libellés de données du graphique**
+
+Utilisez [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) pour formater les valeurs de la série. Cet exemple crée un graphique en lignes avec des données par défaut, affiche son tableau de données et active les libellés de valeur pour la première série. Le format `#,##0.00` affiche un séparateur de milliers et deux décimales sans modifier les valeurs sous‑jacentes.
 
 ```java
 import com.aspose.slides.*;
@@ -45,11 +94,11 @@ try {
 }
 ```
 
-Pour formater les cellules numériques du classeur intégré à un graphique, consultez [Set Custom Number Formats for Workbook Cells](/slides/fr/androidjava/chart-workbook/#set-custom-number-formats-for-workbook-cells). Cet exemple montre également les libellés de valeur suivant les formats de leurs cellules source tout en conservant les valeurs numériques stockées.
+Pour formater les cellules numériques dans le classeur intégré d’un graphique, consultez [Set Custom Number Formats for Workbook Cells](/slides/fr/androidjava/chart-workbook/#set-custom-number-formats-for-workbook-cells). Cet exemple montre également les libellés de valeur suivant les formats de leurs cellules sources tout en conservant les valeurs numériques enregistrées.
 
-## **Display Percentages as Labels**
+## **Afficher les pourcentages en tant que libellés**
 
-Pour un graphique à colonnes empilées, calculez chaque valeur comme un pourcentage du total de sa catégorie et attribuez le texte au cadre de texte renvoyé par [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Cet exemple utilise les données de graphique par défaut et affiche les pourcentages avec deux décimales dans une police de 8 points. Les catégories dont le total est zéro sont ignorées pour éviter une division par zéro. Recalculez le texte du libellé personnalisé si les données du graphique changent.
+Pour un graphique à colonnes empilées, calculez chaque valeur comme pourcentage du total de sa catégorie et attribuez le texte au cadre de texte renvoyé par [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Cet exemple utilise les données de graphique par défaut et affiche les pourcentages avec deux décimales dans une police de 8 points. Les catégories dont le total est nul sont ignorées afin d’éviter une division par zéro. Recalculez le texte du libellé personnalisé si les données du graphique changent.
 
 ```java
 import com.aspose.slides.*;
@@ -106,11 +155,11 @@ try {
 }
 ```
 
-## **Set the Percentage Sign with Chart Data Labels**
+## **Définir le symbole de pourcentage avec les libellés de données du graphique**
 
-Lorsque les valeurs sont stockées sous forme de fractions, utilisez [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) pour afficher les pourcentages. transmettez `false` à [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) pour appliquer le format du libellé indépendamment des cellules source.
+Lorsque les valeurs sont stockées sous forme de fractions, utilisez [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) pour afficher les pourcentages. Passez `false` à [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) afin d’appliquer le format du libellé indépendamment des cellules sources.
 
-Cet exemple crée un graphique à colonnes empilées à 100 % avec des séries rouge et bleue sur quatre catégories. Chaque paire de valeurs s’additionne à 1. Le format de libellé `0.0%` affiche 0,30 comme 30,0 %, tandis que l’axe vertical utilise deux décimales. Les deux séries utilisent un texte de libellé blanc, taille 10 points.
+Cet exemple crée un graphique à colonnes empilées à 100 % avec des séries rouge et bleue sur quatre catégories. Chaque paire de valeurs totalise 1. Le format de libellé `0.0%` affiche 0,30 comme 30,0 %, tandis que l’axe vertical utilise deux décimales. Les deux séries utilisent un texte de libellé blanc de 10 points.
 
 ```java
 import com.aspose.slides.*;
@@ -165,9 +214,9 @@ try {
 }
 ```
 
-## **Read the Actual Text of Data Labels**
+## **Lire le texte réel des libellés de données**
 
-Utilisez [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) pour récupérer le texte généré par les paramètres d’un libellé de données. Ceci est utile lors de l’extraction des libellés pour des rapports, de la recherche dans le contenu d’une présentation ou de la validation de graphiques générés. Dans l’exemple ci‑dessous, le [format de libellé de données](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) par défaut combine chaque nom de catégorie, nom de série et valeur. Un point formate sa valeur en pourcentage, et un autre utilise du texte personnalisé provenant de [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Utilisez [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) pour récupérer le texte produit par les paramètres d’un libellé de données. Ceci est utile lors de l’extraction des libellés pour des rapports, la recherche de contenu dans une présentation ou la validation de graphiques générés. Dans l’exemple ci‑dessous, le [format de libellé de données](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) par défaut combine le nom de chaque catégorie, le nom de la série et la valeur. Un point formate sa valeur en pourcentage, et un autre utilise du texte personnalisé provenant de [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -227,15 +276,15 @@ try {
 }
 ```
 
-Le nombre stocké dans un point de données reste `0.75`, même si son libellé affiche `75 %` avec les noms de catégorie et de série. Le texte personnalisé remplace le texte du libellé généré. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) renvoie la chaîne de libellé résultante dans les deux cas. Vérifiez [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) séparément, comme indiqué ci‑déjà, lorsque vous ne souhaitez extraire que les libellés visibles.
+Le nombre stocké dans un point de données reste `0.75`, même lorsque son libellé affiche `75 %` avec les noms de catégorie et de série. Un texte personnalisé remplace le texte de libellé généré. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) renvoie la chaîne de libellé résultante dans les deux cas. Vérifiez [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) séparément, comme indiqué ci‑dessus, lorsque vous ne souhaitez extraire que les libellés visibles.
 
-## **Control Data Labels Beyond the Axis Maximum**
+## **Contrôler les libellés de données au‑delà du maximum de l’axe**
 
-Lorsque vous limitez manuellement la plage d’un axe, certains points de données peuvent dépasser son maximum. Utilisez [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) pour contrôler si leurs libellés de données sont affichés. Ce paramètre modifie la visibilité des libellés ; il ne change pas la plage de l’axe ni les valeurs de données sous‑jacentes.
+Lorsque vous limitez manuellement la plage d’un axe, certains points de données peuvent dépasser ce maximum. Utilisez [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) pour déterminer si leurs libellés de données sont affichés. Ce paramètre modifie la visibilité des libellés ; il ne modifie pas la plage de l’axe ni les valeurs sous‑jacentes.
 
-L’exemple ci‑dessous crée un graphique à colonnes groupées 2D avec des valeurs de 60 et 120. Il transmet `false` à [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) et fixe le maximum à 100 avec [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) sur l’axe vertical. La première diapositive autorise les libellés au‑delà du maximum ; une copie de cette diapositive les désactive. Les deux diapositives sont enregistrées dans `DataLabelsOverMaximum.pptx`.
+L’exemple ci‑dessous crée un graphique à colonnes groupées 2D avec des valeurs de 60 et 120. Il passe `false` à [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) et fixe le maximum à 100 avec [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) sur l’axe vertical. La première diapositive autorise les libellés au‑delà du maximum ; une copie de cette diapositive les désactive. Les deux diapositives sont enregistrées dans `DataLabelsOverMaximum.pptx`.
 
-Activez les libellés de valeur avec [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Le paramètre au niveau du graphique n’active pas l’affichage de la valeur en lui‑même et ne remplace pas la désactivation de l’affichage d’une valeur pour un libellé individuel. Cet exemple active les valeurs pour l’ensemble de la série et utilise [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) pour placer les libellés à l’extrémité extérieure de chaque colonne.
+Activez les libellés de valeur avec [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Le paramètre au niveau du graphique n’active pas l’affichage des valeurs par lui‑même et ne remplace pas la désactivation d’un libellé individuel. Cet exemple active les valeurs pour la série entière et utilise [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) pour placer les libellés à l’extrémité extérieure de chaque colonne.
 
 ```java
 import com.aspose.slides.*;
@@ -284,19 +333,19 @@ try {
 }
 ```
 
-Les images suivantes montrent les diapositives enregistrées rendues par Microsoft PowerPoint. Avec `true`, le libellé **120** est visible à la limite supérieure ; avec `false`, il est masqué. Le libellé **60** reste visible, le maximum de l’axe reste à **100**, et le deuxième point de données demeure **120** dans les deux cas.
+Les images suivantes montrent les diapositives enregistrées rendues par Microsoft PowerPoint. Avec `true`, le libellé **120** est visible à la limite supérieure ; avec `false`, il est masqué. Le libellé **60** reste visible, le maximum de l’axe reste à **100**, et le deuxième point de données reste **120** dans les deux cas.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![Graphique PowerPoint affichant le libellé de valeur 120 avec un maximum d’axe de 100](data-labels-over-maximum-true.png) | ![Graphique PowerPoint masquant le libellé de valeur 120 avec un maximum d’axe de 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Cet exemple utilise un graphique à colonnes 2D avec un axe de valeur. Les graphiques sans axe de valeur, comme les graphiques en secteurs et en anneaux, n’ont pas de maximum d’axe à limiter de cette manière.
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
 {{% /alert %}}
 
-## **Set Label Distance from an Axis**
+## **Définir la distance du libellé par rapport à un axe**
 
-Utilisez [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) pour contrôler la distance entre les libellés de l’axe des catégories et l’axe. La valeur est un pourcentage de la taille maximale de police des libellés d’axe. Cet exemple crée un graphique à colonnes groupées et fixe le décalage des libellés de l’axe horizontal à 500. Ce paramètre affecte les libellés de l’axe des catégories plutôt que les libellés attachés aux points de données individuels.
+Utilisez [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) pour contrôler la distance entre les libellés de l’axe des catégories et l’axe. La valeur est un pourcentage de la taille de police maximale des libellés de l’axe. Cet exemple crée un graphique à colonnes groupées et fixe le décalage des libellés de l’axe horizontal à 500. Ce paramètre affecte les libellés de l’axe des catégories plutôt que les libellés attachés aux points de données individuels.
 
 ```java
 import com.aspose.slides.*;
@@ -314,11 +363,11 @@ try {
 }
 ```
 
-## **Adjust Label Location**
+## **Ajuster la position des libellés**
 
-Sur un graphique en secteurs, ajustez les positions des libellés de données pour améliorer l’espacement et laisser de la place aux lignes de repère.
+Sur un graphique circulaire, ajustez les positions des libellés de données pour améliorer l’espacement et laisser de la place aux lignes de repère.
 
-Cet exemple affiche la valeur du premier point de données, place son libellé à l’extérieur du secteur et ajuste ses décalages horizontaux et verticaux à l’aide de [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) et [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Ces décalages sont relatifs à la largeur et à la hauteur du graphique, respectivement.
+Cet exemple affiche la valeur du premier point de données, place son libellé à l’extérieur de la tranche et ajuste ses décalages horizontaux et verticaux à l’aide de [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) et [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Ces décalages sont relatifs à la largeur et à la hauteur du graphique, respectivement.
 
 ```java
 import com.aspose.slides.*;
@@ -342,17 +391,17 @@ try {
 }
 ```
 
-![Graphique en secteurs avec un libellé de données ajusté](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Format Leader Lines**
+## **Formater les lignes de repère**
 
-Lorsque les libellés d’un graphique en secteurs sont placés à l’extérieur de leurs secteurs, les lignes de repère aident les lecteurs à associer chaque valeur au bon secteur. Une couleur contrastée et une ligne légèrement plus épaisse peuvent faciliter la lecture de ces connexions, tandis que la transparence et un style pointillé maintiennent les lignes discrètes visuellement.
+Lorsque les libellés de graphiques circulaires sont placés à l’extérieur de leurs tranches, les lignes de repère aident les lecteurs à associer chaque valeur à la bonne tranche. Une couleur contrastée et une ligne légèrement plus épaisse peuvent rendre ces connexions plus faciles à suivre, tandis que la transparence et un style pointillé gardent les lignes discrètes.
 
-Utilisez [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) pour formater les lignes de repère au niveau de la collection de libellés de données de la série. Les paramètres dans `series.getLabels().getLeaderLinesFormat().getLine()` s’appliquent à la collection, plutôt qu’à un libellé individuel.
+Utilisez [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) pour formater les lignes de repère au niveau de la collection de libellés de données de la série. Les paramètres dans `series.getLabels().getLeaderLinesFormat().getLine()` s’appliquent à la collection, et non à un libellé individuel.
 
-Cet exemple crée un graphique en secteurs avec des données par défaut, affiche les valeurs à l’extérieur des secteurs et active [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). Il décale deux libellés plus loin de leurs secteurs à l’aide des décalages [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) et [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-), exprimés en fractions de la largeur et de la hauteur du graphique. Aucune présentation d’entrée n’est requise.
+Cet exemple crée un graphique circulaire avec des données par défaut, affiche les valeurs à l’extérieur des tranches et active [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). Il éloigne deux libellés de leurs tranches à l’aide des décalages [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) et [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-), exprimés en fractions de la largeur et de la hauteur du graphique. aucune présentation d’entrée n’est requise.
 
-Le [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) de la ligne définit une couleur bleue unie avec une valeur alpha de 191 sur 255, offrant environ 25 % de transparence. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) définit l’épaisseur à 2 points, et [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) rend la ligne pointillée.
+Le [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) de la ligne définit une couleur bleue solide avec une valeur alpha de 191 sur 255, soit environ 25 % de transparence. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) fixe l’épaisseur à 2 points, et [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) rend la ligne pointillée.
 
 ```java
 import com.aspose.slides.*;
@@ -372,7 +421,7 @@ try {
     labelFormat.setPosition(LegendDataLabelPosition.OutsideEnd);
     labelFormat.setShowLeaderLines(true);
 
-    // Déplacer deux libellés plus loin de leurs tranches.
+    // Déplacez deux libellés plus loin de leurs tranches.
     series.getLabels().get_Item(0).setX(0.10f);
     series.getLabels().get_Item(0).setY(-0.05f);
     series.getLabels().get_Item(1).setX(-0.10f);
@@ -390,17 +439,17 @@ try {
 }
 ```
 
-Activer les lignes de repère ne garantit pas qu’une ligne apparaisse pour chaque libellé. La visibilité dépend du placement des libellés et du comportement de mise en page du graphique. Dans cet exemple, les deux libellés déplacés ont des lignes de repère visibles ; les libellés restant proches de leurs secteurs n’en ont pas besoin.
+Activer les lignes de repère ne garantit pas qu’une ligne apparaisse pour chaque libellé. La visibilité dépend du placement du libellé et du comportement de mise en page du graphique. Dans cet exemple, les deux libellés déplacés ont des lignes de repère visibles ; les libellés restés proches de leurs tranches n’en ont pas besoin.
 
-L’image suivante montre le fichier `FormattedLeaderLines.pptx` enregistré, rendu avec Aspose.Slides :
+L’image suivante montre le fichier `FormattedLeaderLines.pptx` rendu avec Aspose.Slides :
 
-![Graphique en secteurs avec des lignes de repère bleues, semi‑transparentes et pointillées reliant deux libellés extérieurs à leurs secteurs](formatted-leader-lines.png)
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
-## **Add Multiple Rows of Data Labels Above a Column Chart**
+## **Ajouter plusieurs lignes de libellés de données au‑dessus d’un graphique à colonnes**
 
-Cet exemple crée un graphique à colonnes avec deux rangées de libellés de données au‑dessus de la zone de tracé. La série A affiche les colonnes visibles, tandis que les séries B et C fournissent les libellés supplémentaires. Leurs colonnes sont masquées en supprimant le remplissage et le contour. La méthode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) aligne les trois séries sur les mêmes centres de catégorie.
+Cet exemple crée un graphique à colonnes avec deux lignes de libellés de données au‑dessus de la zone de traçage. La Série A affiche les colonnes visibles, tandis que les Séries B et C fournissent les libellés supplémentaires. Leurs colonnes sont masquées en supprimant le remplissage et le contour. La méthode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) aligne les trois séries sur les mêmes centres de catégorie.
 
-Les paramètres du [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) réservent de l’espace pour les rangées de libellés. Après que [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) calcule les positions par défaut, [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) et [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) conservent l’alignement horizontal et appliquent des décalages verticaux pour disposer les libellés en deux rangées. Les nombres restent des libellés de données liés aux valeurs des séries ; seuls les en‑têtes de rangée sont des formes de texte distinctes.
+Les paramètres du [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) réservent de l’espace pour les lignes de libellés. Après le calcul des positions par défaut avec [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--), les méthodes [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) et [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) conservent l’alignement horizontal et appliquent des décalages verticaux pour disposer les libellés en deux lignes. Les nombres restent des libellés liés aux valeurs de la série ; seules les en‑têtes de ligne sont des formes de texte distinctes.
 
 ```java
 import com.aspose.slides.*;
@@ -444,7 +493,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // Masquer les colonnes de B et C, mais conserver leurs libellés de données.
+            // Masquer les colonnes de B et C, mais garder leurs libellés de données.
             series.getFormat().getFill().setFillType(FillType.NoFill);
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -463,7 +512,7 @@ try {
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // Réserver de l'espace au-dessus du tracé pour deux rangées de libellés de données.
+    // Réserver de l'espace au-dessus de la zone de tracé pour deux rangées de libellés de données.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
     chart.getPlotArea().setX(0.15f);
     chart.getPlotArea().setY(0.32f);
@@ -477,13 +526,13 @@ try {
 
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // Conserver la position horizontale par défaut.
-            // Y est un décalage par rapport à la position de libellé par défaut, exprimé comme une fraction de la hauteur du graphique.
+            // Conserver la position horizontale par défaut. Y est un décalage depuis
+            // la position par défaut du libellé, exprimé en fraction de la hauteur du graphique.
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
 
-        // Seul l'en-tête de ligne est une forme de texte séparée.
+        // Seul le titre de ligne est une forme de texte distincte.
         IAutoShape rowHeading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
         rowHeading.getFillFormat().setFillType(FillType.NoFill);
         rowHeading.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
@@ -502,18 +551,18 @@ try {
 }
 ```
 
-![Graphique à colonnes avec deux rangées de libellés de données au‑dessus de la zone de tracé](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Comment puis‑je éviter que les libellés de données se chevauchent sur des graphiques denses ?**
+**Comment empêcher les libellés de données de se chevaucher sur des graphiques denses ?**
 
 Combinez le placement automatique des libellés, les lignes de repère et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n’affichez les libellés que pour les valeurs extrêmes ou les points clés.
 
-**Comment puis‑je désactiver les libellés uniquement pour les valeurs zéro, négatives ou vides ?**
+**Comment désactiver les libellés uniquement pour les valeurs zéro, négatives ou vides ?**
 
 Filtrez les points de données avant d’activer les libellés et désactivez l’affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
 
 **Comment garantir un style de libellé cohérent lors de l’exportation en PDF/images ?**
 
-Définissez explicitement la famille et la taille de police et vérifiez que la police est disponible dans l’environnement de rendu afin d’éviter un remplacement.
+Définissez explicitement la famille et la taille de la police et vérifiez que la police est disponible dans l’environnement de rendu pour éviter tout recours à une police de remplacement.

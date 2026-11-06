@@ -1,5 +1,5 @@
 ---
-title: .NET におけるプレゼンテーションのチャート データ ラベルの管理
+title: .NET のプレゼンテーションにおけるチャート データラベルの管理
 linktitle: データラベル
 type: docs
 url: /ja/net/chart-data-label/
@@ -15,15 +15,63 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、PowerPoint プレゼンテーションにチャート データ ラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
+description: "Aspose.Slides for .NET を使用して PowerPoint プレゼンテーションにチャート データラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
 ---
-## **はじめに**
+## **概要**
 
-データ ラベルはチャートの系列や個々のデータ ポイントに関する情報を表示し、読者が値を特定しチャートを理解するのに役立ちます。本記事では、値の書式設定、パーセンテージの表示、ラベルテキストの取得、軸の最大値を超えたラベルの制御、カテゴリ軸ラベルの間隔調整、円グラフラベルの位置設定について説明します。
+データラベルはチャートの系列や個々のデータポイントに関する情報を表示し、読者が数値を特定しチャートを理解できるようにします。本記事では、数値の書式設定、パーセンテージの表示、ラベルテキストの取得、軸の最大値を超えるラベルの制御、カテゴリ軸ラベルの間隔調整、円グラフラベルの配置方法について説明します。
 
-## **チャート データ ラベルの数値精度を設定する**
+## **表示されているデータラベルの数**
 
-Use [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
+プレゼンテーションを公開する前に、表示が有効になっているデータラベルの数を確認するには、[CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/) を使用します。[Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/) がコレクション内のラベル総数を返すのに対し、こちらは系列の既定設定と個々のラベル設定を考慮します。
+
+この例は、1 系列・3 データポイントの縦棒グラフを作成します。系列の[Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/) コレクションにアクセスし、設定が変わるたびに表示ラベル数を出力します: **0, 3, 2, 3**。総数は **3** のままです。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesCell = workbook.GetCell(0, 0, 1, "Values");
+var series = chart.ChartData.Series.Add(seriesCell, chart.Type);
+
+for (int i = 0; i < 3; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, $"Category {i + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(0, i + 1, 1, (i + 1) * 10);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+}
+
+var labels = series.Labels;
+Console.WriteLine($"Total: {labels.Count}; visible: {labels.CountOfVisibleDataLabels}"); // 合計: 3; 表示数: 0
+
+labels.DefaultDataLabelFormat.ShowValue = true;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // 表示数: 3
+
+labels[1].DataLabelFormat.ShowValue = false;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // 表示数: 2
+
+labels[1].DataLabelFormat.ShowLegendKey = true;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // 表示数: 3
+```
+
+系列の[DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/) が既定設定を提供します。ここで[ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) を有効にすると、3 つすべてのラベルに値が表示されます。1 つのラベルの[DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/) で `false` に設定すると、そのラベルだけ設定が上書きされます。[ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/) を有効にすると、そのラベルは再び表示ラベルとしてカウントされます（値は非表示のまま）。
+
+表示ラベル数は可視性設定を反映します。ラベル同士が重なっているか、切り取られているか、描画されたチャートで読めるかどうかは測定しません。
+
+## **チャート データラベルの数値精度を設定する**
+
+系列の数値を書式設定するには、[NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) を使用します。この例はデフォルトデータの折れ線グラフを作成し、データテーブルを表示し、最初の系列の値ラベルを有効にします。書式 `#,##0.00` は千区切りと小数点以下 2 桁を表示し、元の数値は変更しません。
 
 ```csharp
 using Aspose.Slides;
@@ -43,11 +91,11 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-To format the numeric cells in a chart's embedded workbook, see [ワークブック セルのカスタム数値形式を設定](/slides/ja/net/chart-workbook/#set-custom-number-formats-for-workbook-cells). That example also shows value labels following their source cell formats while preserving the stored numeric values.
+チャートに埋め込まれたブックの数値セルを書式設定するには、[Set Custom Number Formats for Workbook Cells](/slides/ja/net/chart-workbook/#set-custom-number-formats-for-workbook-cells) を参照してください。この例では、ソースセルの書式に従ってラベルが表示され、数値はそのまま保持されます。
 
-## **ラベルとしてパーセンテージを表示する**
+## **パーセンテージをラベルとして表示する**
 
-For a stacked column chart, calculate each value as a percentage of its category total and assign the text to [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
+積み上げ縦棒グラフの場合、各値をカテゴリ合計に対するパーセンテージに換算し、[TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) にテキストを割り当てます。この例はデフォルトのチャートデータを使用し、2 桁の小数でパーセンテージを 8 ポイント フォントで表示します。合計が 0 のカテゴリは除外し、除算エラーを防止します。チャートデータが変わった場合は、カスタムラベルテキストを再計算してください。
 
 ```csharp
 using System;
@@ -108,11 +156,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **チャート データ ラベルでパーセンテージ記号を設定する**
+## **チャート データラベルにパーセンテージ記号を付ける**
 
-When values are stored as fractions, use [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) to display percentages. Set [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) to `false` to apply the label format independently of the source cells.
+値が分数で格納されている場合、[NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) を使用してパーセンテージとして表示します。[IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) を `false` に設定すると、ソースセルとは独立したラベル書式が適用されます。
 
-This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
+この例は 4 つのカテゴリにわたる赤と青の系列からなる 100% 積み上げ縦棒グラフを作成します。各ペアの合計は 1 です。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下 2 桁で表示します。両系列とも白色・10 ポイントのラベルテキストを使用します。
 
 ```csharp
 using System.Drawing;
@@ -168,9 +216,9 @@ for (int i = 0; i < seriesNames.Length; i++)
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **データ ラベルの実際のテキストを取得する**
+## **データラベルの実際のテキストを取得する**
 
-Use [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [データ ラベル形式](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+[GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) を使用すると、データラベル設定によって生成されたテキストを取得できます。レポート用ラベル抽出やプレゼンテーション内容検索、生成チャートの検証に便利です。以下の例では、デフォルトの[data label format](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) が「カテゴリ名 + 系列名 + 値」を組み合わせます。1 つのポイントは値をパーセンテージで表示し、別のポイントは[TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) から取得したカスタムテキストを使用します。
 
 ```csharp
 using System;
@@ -224,15 +272,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) returns the resulting label string in either case. Check [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) separately, as shown above, when you want to extract only visible labels.
+データポイントに格納されている数値は `0.75` のままで、ラベルが `75%` とカテゴリ名・系列名を併せて表示しても変わりません。カスタムテキストは生成されたラベルテキストを置き換えます。[GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) はどちらの場合でも最終的なラベル文字列を返します。表示ラベルだけを抽出したい場合は、上記のように[IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) を別途確認してください。
 
-## **軸の最大値を超えたデータ ラベルを制御する**
+## **軸の最大値を超えるデータラベルを制御する**
 
-When you limit an axis range manually, some data points may exceed its maximum. Use [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
+軸範囲を手動で制限すると、一部のデータポイントが最大値を超えることがあります。[ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) を使用して、これらのラベルを表示するかどうかを制御します。この設定はラベルの可視性のみを変更し、軸範囲や基になるデータ値は変更しません。
 
-The example below creates a 2D clustered column chart with values of 60 and 120. It sets [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) to `false` and [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) to 100 on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
+以下の例は、値が 60 と 120 の 2D クラスタ化縦棒グラフを作成します。縦軸の[IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) を `false`、[MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) を 100 に設定します。最初のスライドは最大値を超えるラベルを許可し、コピーしたスライドはそれを無効にします。両スライドは `DataLabelsOverMaximum.pptx` として保存されます。
 
-Enable value labels with [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) to place labels at the outside end of each column.
+[ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) で値ラベルを有効にします。チャートレベルの設定だけでは個々のラベルの表示は自動的に有効化されず、個別に無効化されたラベルの表示も上書きされません。この例では系列全体の値を有効にし、[Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) を使用して各列の外側端にラベルを配置します。
 
 ```csharp
 using Aspose.Slides;
@@ -279,19 +327,19 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-The following images show the saved slides rendered by Microsoft PowerPoint. With `true`, the label **120** is visible at the upper boundary; with `false`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
+以下の画像は Microsoft PowerPoint でレンダリングされた保存スライドです。`true` の場合、ラベル **120** が上端に表示されます。`false` の場合は非表示になります。ラベル **60** は常に表示され、軸の最大値は **100** のままで、2 番目のデータポイントは両方とも **120** のままです。
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![軸の最大値が100の状態で、値ラベル120を表示するPowerPointチャート](data-labels-over-maximum-true.png) | ![軸の最大値が100の状態で、値ラベル120を非表示にするPowerPointチャート](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+この例は値軸を持つ 2D 縦棒グラフを使用しています。円グラフやドーナツグラフのように値軸がないチャートは、ここで扱うような軸の最大値を制限する対象がありません。
 {{% /alert %}}
 
 ## **軸からのラベル距離を設定する**
 
-Use [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
+[LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) を使用して、カテゴリ軸ラベルと軸間の距離を制御します。値は軸ラベルの最大フォントサイズのパーセンテージで指定します。この例はクラスタ化縦棒グラフを作成し、水平軸ラベルオフセットを 500 に設定します。この設定は個々のデータポイントに付随するラベルではなく、カテゴリ軸ラベルに影響します。
 
 ```csharp
 using Aspose.Slides;
@@ -307,11 +355,11 @@ chart.Axes.HorizontalAxis.LabelOffset = 500;
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **ラベル位置を調整する**
+## **ラベル位置の調整**
 
-On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
+円グラフでは、データラベルの位置を調整して間隔を広げ、リーダーライン用のスペースを確保します。
 
-This example displays the value of the first data point, places its label outside the slice, and adjusts its [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) and [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) offsets. These offsets are relative to the chart width and height, respectively.
+この例は最初のデータポイントの値を表示し、ラベルをスライスの外側に配置し、[X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) と [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) のオフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さの割合で指定されます。
 
 ```csharp
 using Aspose.Slides;
@@ -333,17 +381,17 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![調整されたデータ ラベル位置を持つ円グラフ](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
 ## **リーダーラインの書式設定**
 
-When pie chart labels sit outside their slices, leader lines help readers match each value to the correct slice. A contrasting color and a slightly thicker line can make these connections easier to follow, while transparency and a dashed style keep the lines visually unobtrusive.
+円グラフのラベルがスライス外に配置される場合、リーダーラインは各値と正しいスライスを結び付けるのに役立ちます。コントラストのある色とやや太めのラインにすると視認性が向上し、透明度や破線スタイルを付けると目立ちすぎません。
 
-Use [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) to format leader lines at the series' data label collection level. The settings in `series.Labels.LeaderLinesFormat.Line` apply to the collection, rather than to an individual label.
+シリーズのデータラベルコレクションレベルでリーダーラインをフォーマットするには、[LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) を使用します。`series.Labels.LeaderLinesFormat.Line` の設定は個別ラベルではなくコレクション全体に適用されます。
 
-This example creates a pie chart with default data, displays values outside the slices, and enables [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/). It moves two labels farther from their slices using [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) and [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) offsets, expressed as fractions of the chart width and height. No input presentation is required.
+この例はデフォルトデータの円グラフを作成し、スライス外に値を表示し、[ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/) を有効にします。[X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) と [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) のオフセットで 2 つのラベルをスライスから遠ざけます。入力プレゼンテーションは不要です。
 
-The line's [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) sets a solid blue color with an alpha value of 191 out of 255, giving approximately 25% transparency. [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) sets the thickness to 2 points, and [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) makes the line dashed.
+ラインの[FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) は、アルファ値 191（255 中の約 25% の透明度）で半透明の青色を設定します。[Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) は太さを 2 ポイント、[DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) は破線にします。
 
 ```csharp
 using System.Drawing;
@@ -364,7 +412,7 @@ labelFormat.ShowValue = true;
 labelFormat.Position = LegendDataLabelPosition.OutsideEnd;
 labelFormat.ShowLeaderLines = true;
 
-// 2つのラベルをスライスからさらに離します。
+// 2 つのラベルをスライスからさらに遠くに移動する。
 series.Labels[0].X = 0.10f;
 series.Labels[0].Y = -0.05f;
 series.Labels[1].X = -0.10f;
@@ -379,17 +427,17 @@ line.DashStyle = LineDashStyle.Dash;
 presentation.Save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
 ```
 
-Enabling leader lines does not guarantee that a line will appear for every label. Visibility depends on label placement and the chart's layout behavior. In this example, the two displaced labels have visible leader lines; the labels that remain close to their slices do not need them.
+リーダーラインを有効にしても、すべてのラベルにラインが表示されるわけではありません。表示の有無はラベルの配置とチャートのレイアウト挙動に依存します。この例では、位置をずらした 2 つのラベルにのみリーダーラインが表示され、スライスに近いラベルは不要です。
 
-The following image shows the saved `FormattedLeaderLines.pptx` rendered with Aspose.Slides:
+以下の画像は、Aspose.Slides でレンダリングした保存済み `FormattedLeaderLines.pptx` の様子です。
 
-![円グラフの外側ラベルを2つ接続する、青く半透明で破線のリーダーライン付きイメージ](formatted-leader-lines.png)
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
-## **列チャートの上に複数行のデータ ラベルを追加する**
+## **縦棒グラフ上に複数行のデータラベルを追加する**
 
-This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) property aligns all three series with the same category centers.
+この例はプロット領域の上に 2 行のデータラベルを持つ縦棒グラフを作成します。Series A は可視列を表示し、Series B と Series C が追加ラベルを提供します。これらの系列は塗りつぶしと枠線を削除して非表示にします。[Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) プロパティにより、3 系列すべてが同じカテゴリ中心に揃います。
 
-The [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) settings reserve space for the label rows. After [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) calculates the default positions, [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) and [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
+[PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) の設定でラベル行のスペースを確保します。[ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) がデフォルト位置を計算した後、[X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) と [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) が水平位置を保持しつつ垂直オフセットを適用し、ラベルを 2 行に配置します。数値は系列の値にリンクしたデータラベルのままで、行見出しだけが別個のテキストシェイプです。
 
 ```csharp
 using System.Drawing;
@@ -438,7 +486,7 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // B と C の列を非表示にしますが、データ ラベルは残します。
+        // B と C の列を非表示にしますが、データ ラベルは保持します。
         series.Format.Fill.FillType = FillType.NoFill;
         series.Format.Line.FillFormat.FillType = FillType.NoFill;
         var labelFormat = series.Labels.DefaultDataLabelFormat;
@@ -451,14 +499,14 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
     }
 }
 
-// 3 つの系列すべてを同じカテゴリ中心に揃えます。
+// すべての系列を同じカテゴリ中心に揃えます。
 chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
 
-// このコンパクトな例のために目盛線を減らします。
+// このコンパクトな例では目盛線を少なくします。
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.MajorUnit = 10;
 
-// プロット上部にデータ ラベル用の 2 行分のスペースを確保します。
+// プロット領域の上部に 2 行のデータラベル用のスペースを確保します。
 chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
 chart.PlotArea.X = 0.15f;
 chart.PlotArea.Y = 0.32f;
@@ -474,8 +522,7 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
     for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
     {
         var dataLabel = series.DataPoints[categoryIndex].Label;
-        // デフォルトの水平位置を保持します。Y は以下からのオフセットです。
-        // デフォルト ラベル位置で、チャート高さの割合で表されます。
+        // デフォルトの水平位置を維持します。Y はデフォルトラベル位置からのオフセットで、チャート高さの割合として表されます。
         dataLabel.X = 0;
         dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
     }
@@ -496,18 +543,18 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
 presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
 ```
 
-![プロット領域の上に2行のデータ ラベルがある列チャート](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
-## **よくある質問**
+## **FAQ**
 
-**密集したチャートでデータラベルが重なるのを防ぐには？**
+**密集したチャートでデータラベルの重なりを防ぐにはどうすればよいですか？**
 
-自動ラベル配置、リーダーライン、フォントサイズの縮小を組み合わせ、必要に応じて一部の項目（例: カテゴリ）を非表示にするか、極端な値や重要ポイントのみにラベルを表示します。
+自動ラベル配置、リーダーライン、フォントサイズの縮小を組み合わせ、必要に応じて一部の項目（例: カテゴリ）を非表示にするか、極端な値や重要ポイントのみラベルを表示してください。
 
-**0、負、または空の値に対してのみラベルを無効にするには？**
+**ゼロ、負、または空の値に対してのみラベルを無効にするには？**
 
-ラベルを有効化する前にデータポイントをフィルタリングし、0、負の値、または欠損値に対して表示をオフにするルールを適用します。
+ラベルを有効化する前にデータポイントをフィルタリングし、0、負の値、または欠損値に対して表示をオフにするルールを適用してください。
 
-**PDF/画像へエクスポートする際にラベルスタイルを一貫させるには？**
+**PDF/画像にエクスポートする際にラベルスタイルを一貫させるには？**
 
-フォントファミリとサイズを明示的に設定し、レンダリング環境にフォントが存在することを確認してフォールバックを防止します。
+フォントファミリとサイズを明示的に設定し、レンダリング環境にそのフォントが存在することを確認してフォントのフォールバックを防止してください。

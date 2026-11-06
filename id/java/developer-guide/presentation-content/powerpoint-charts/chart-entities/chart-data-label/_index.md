@@ -18,11 +18,60 @@ description: "Pelajari cara menambahkan dan memformat label data diagram dalam p
 ---
 ## **Pendahuluan**
 
-Label data menampilkan informasi tentang seri grafik dan titik data individual, membantu pembaca mengidentifikasi nilai dan memahami grafik. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, mengontrol label di luar maksimum sumbu, menyesuaikan jarak label sumbu kategori, dan memposisikan label diagram pai.
+Label data menampilkan informasi tentang seri diagram dan titik data individual, membantu pembaca mengidentifikasi nilai dan memahami diagram. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, mengontrol label di luar maksimum sumbu, menyesuaikan jarak label sumbu kategori, dan memposisikan label diagram pai.
 
-## **Mengatur Presisi Data pada Label Data Grafik**
+## **Hitung Label Data yang Terlihat**
 
-Gunakan [setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) untuk memformat nilai seri. Contoh ini membuat diagram garis dengan data default, menampilkan tabel data, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua angka desimal tanpa mengubah nilai dasar.
+Gunakan [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getCountOfVisibleDataLabels--) untuk memeriksa berapa banyak label data yang diaktifkan untuk ditampilkan sebelum mempublikasikan presentasi. Tidak seperti [getCount](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getCount--), yang mengembalikan total jumlah label dalam koleksi, metode ini memperhitungkan nilai default seri dan pengaturan label individual.
+
+Contoh ini membuat diagram kolom dengan satu seri dan tiga titik data. Ia mengakses koleksi label seri melalui [getLabels](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getLabels--) dan mencetak jumlah yang terlihat saat pengaturan berubah: **0, 3, 2, 3**. Jumlah total tetap **3**.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesCell = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+
+    for (int i = 0; i < 3; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    IDataLabelCollection labels = series.getLabels();
+    System.out.println("Total: " + labels.getCount() + "; visible: " + labels.getCountOfVisibleDataLabels()); // Total: 3; terlihat: 0
+
+    labels.getDefaultDataLabelFormat().setShowValue(true);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Terlihat: 3
+
+    labels.get_Item(1).getDataLabelFormat().setShowValue(false);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Terlihat: 2
+
+    labels.get_Item(1).getDataLabelFormat().setShowLegendKey(true);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Terlihat: 3
+} finally {
+    presentation.dispose();
+}
+```
+
+Metode [getDefaultDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getDefaultDataLabelFormat--) pada seri menyediakan pengaturan default. Mengirim `true` ke [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) di sana menampilkan nilai untuk semua tiga label. Mengirim `false` melalui [getDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getDataLabelFormat--) pada satu label menimpa pengaturan itu untuk label yang dipilih. Mengirim `true` ke [setShowLegendKey](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowLegendKey-boolean-) membuat label tersebut kembali dihitung sebagai terlihat, meskipun nilainya tetap tersembunyi.
+
+Jumlah yang terlihat mencerminkan pengaturan visibilitas. Itu tidak mengukur apakah label saling tumpang, terpotong, atau dapat dibaca dalam diagram yang dirender.
+
+## **Atur Presisi Data dalam Label Diagram**
+
+Gunakan [setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) untuk memformat nilai seri. Contoh ini membuat diagram garis dengan data default, menampilkan tabel datanya, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua tempat desimal tanpa mengubah nilai dasarnya.
 
 ```java
 import com.aspose.slides.*;
@@ -44,11 +93,11 @@ try {
 }
 ```
 
-Untuk memformat sel numerik dalam workbook tersemat diagram, lihat [Set Custom Number Formats for Workbook Cells](/slides/id/java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Contoh tersebut juga menunjukkan label nilai mengikuti format sel sumbernya sambil mempertahankan nilai numerik yang disimpan.
+Untuk memformat sel numerik dalam buku kerja tersemat diagram, lihat [Set Custom Number Formats for Workbook Cells](/slides/id/java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Contoh itu juga menunjukkan label nilai mengikuti format sel sumbernya sambil mempertahankan nilai numerik yang disimpan.
 
-## **Menampilkan Persentase sebagai Label**
+## **Tampilkan Persentase sebagai Label**
 
-Untuk diagram kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategori dan tetapkan teks ke bingkai teks yang dikembalikan oleh [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Contoh ini menggunakan data diagram default dan menampilkan persentase dengan dua angka desimal dalam font 8 poin. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label khusus jika data diagram berubah.
+Untuk diagram kolom bertumpuk, hitung tiap nilai sebagai persentase dari total kategori dan tetapkan teks ke frame teks yang dikembalikan oleh [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Contoh ini menggunakan data diagram default dan menampilkan persentase dengan dua tempat desimal dalam font 8 poin. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label khusus jika data diagram berubah.
 
 ```java
 import com.aspose.slides.*;
@@ -105,11 +154,11 @@ try {
 }
 ```
 
-## **Mengatur Tanda Persentase dengan Label Data Grafik**
+## **Atur Tanda Persentase dengan Label Diagram**
 
-Ketika nilai disimpan sebagai pecahan, gunakan [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) untuk menampilkan persentase. Kirim `false` ke [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) untuk menerapkan format label secara terpisah dari sel sumber.
+Ketika nilai disimpan sebagai pecahan, gunakan [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) untuk menampilkan persentase. Berikan `false` ke [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) untuk menerapkan format label secara independen dari sel sumber.
 
-Contoh ini membuat diagram kolom bertumpuk 100% dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai menjumlahkan menjadi 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua angka desimal. Kedua seri menggunakan teks label berwarna putih dengan ukuran 10 poin.
+Contoh ini membuat diagram kolom 100% bertumpuk dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai berjumlah 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua tempat desimal. Kedua seri menggunakan teks label putih berukuran 10 poin.
 
 ```java
 import com.aspose.slides.*;
@@ -164,9 +213,9 @@ try {
 }
 ```
 
-## **Membaca Teks Sebenarnya dari Label Data**
+## **Baca Teks Aktual dari Label Data**
 
-Gunakan [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi diagram yang dihasilkan. Pada contoh di bawah, format [label data default](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) menggabungkan nama tiap kategori, nama seri, dan nilai. Satu poin memformat nilainya sebagai persentase, dan poin lainnya menggunakan teks khusus dari [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Gunakan [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi diagram yang dihasilkan. Pada contoh di bawah, format [data label default](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) menggabungkan setiap nama kategori, nama seri, dan nilai. Satu titik memformat nilainya sebagai persentase, dan yang lain menggunakan teks khusus dari [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -226,15 +275,15 @@ try {
 }
 ```
 
-Angka yang disimpan dalam titik data tetap `0.75`, meskipun labelnya menampilkan `75%` bersama nama kategori dan seri. Teks khusus menggantikan teks label yang dihasilkan. [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--) secara terpisah, seperti ditunjukkan di atas, bila Anda hanya ingin mengekstrak label yang terlihat.
+Angka yang disimpan dalam titik data tetap `0.75`, walaupun labelnya menampilkan `75%` bersama nama kategori dan seri. Teks khusus menggantikan teks label yang dihasilkan. [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) mengembalikan string label hasil dalam kedua kasus. Periksa [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--) secara terpisah, seperti ditunjukkan di atas, ketika Anda ingin mengekstrak hanya label yang terlihat.
 
-## **Mengontrol Label Data di Luar Maksimum Sumbu**
+## **Kendalikan Label Data di Luar Maksimum Sumbu**
 
-Ketika Anda membatasi rentang sumbu secara manual, beberapa titik data dapat melebihi maksimum sumbu. Gunakan [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) untuk mengontrol apakah label data mereka ditampilkan. Pengaturan ini mengubah visibilitas label; tidak mengubah rentang sumbu atau nilai data dasar.
+Ketika Anda membatasi rentang sumbu secara manual, beberapa titik data mungkin melampaui maksimum. Gunakan [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) untuk mengontrol apakah label data mereka ditampilkan. Pengaturan ini mengubah visibilitas label; tidak mengubah rentang sumbu atau nilai data dasar.
 
-Contoh di bawah membuat diagram kolom terklaster 2D dengan nilai 60 dan 120. Ia mengirim `false` ke [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) dan menetapkan maksimum menjadi 100 dengan [setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) pada sumbu vertikal. Slide pertama mengizinkan label di luar maksimum; salinan slide tersebut menonaktifkannya. Kedua slide disimpan dalam `DataLabelsOverMaximum.pptx`.
+Contoh di bawah membuat diagram kolom berkelompok 2D dengan nilai 60 dan 120. Ia memberikan `false` ke [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) dan menetapkan maksimum menjadi 100 dengan [setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) pada sumbu vertikal. Slide pertama memperbolehkan label melewati maksimum; salinan slide tersebut menonaktifkannya. Kedua slide disimpan dalam `DataLabelsOverMaximum.pptx`.
 
-Aktifkan label nilai dengan [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Pengaturan pada level diagram tidak mengaktifkan tampilan nilai secara mandiri atau menimpa tampilan nilai yang dinonaktifkan pada label individual. Contoh ini mengaktifkan nilai untuk seluruh seri dan menggunakan [setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) untuk menempatkan label di ujung luar setiap kolom.
+Aktifkan label nilai dengan [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Pengaturan tingkat diagram tidak mengaktifkan tampilan nilai secara otomatis atau menimpa tampilan nilai yang dinonaktifkan pada label individual. Contoh ini mengaktifkan nilai untuk seluruh seri dan menggunakan [setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) untuk menempatkan label di ujung luar masing-masing kolom.
 
 ```java
 import com.aspose.slides.*;
@@ -283,19 +332,19 @@ try {
 }
 ```
 
-Gambar berikut menampilkan slide yang disimpan yang dirender oleh Microsoft PowerPoint. Dengan `true`, label **120** terlihat pada batas atas; dengan `false`, label tersebut disembunyikan. Label **60** tetap terlihat, maksimum sumbu tetap **100**, dan titik data kedua tetap **120** dalam kedua kasus.
+Gambar berikut menunjukkan slide yang disimpan dan dirender oleh Microsoft PowerPoint. Dengan `true`, label **120** terlihat pada batas atas; dengan `false`, label tersebut tersembunyi. Label **60** tetap terlihat, maksimum sumbu tetap **100**, dan titik data kedua tetap **120** pada kedua kasus.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![Diagram PowerPoint menampilkan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-true.png) | ![Diagram PowerPoint menyembunyikan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Contoh ini menggunakan diagram kolom 2D dengan sumbu nilai. Diagram tanpa sumbu nilai, seperti diagram pai dan donat, tidak memiliki maksimum sumbu yang dapat dibatasi dengan cara ini.
+Contoh ini menggunakan diagram kolom 2D dengan sumbu nilai. Diagram tanpa sumbu nilai, seperti diagram pai dan donat, tidak memiliki maksimum sumbu untuk dibatasi dengan cara ini.
 {{% /alert %}}
 
-## **Mengatur Jarak Label dari Sumbu**
+## **Atur Jarak Label dari Sumbu**
 
-Gunakan [setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) untuk mengontrol jarak antara label sumbu kategori dan sumbu. Nilainya berupa persentase dari ukuran font maksimum label sumbu. Contoh ini membuat diagram kolom terklaster dan menetapkan offset label sumbu horizontal menjadi 500. Pengaturan ini memengaruhi label sumbu kategori, bukan label yang terlampir pada titik data individual.
+Gunakan [setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) untuk mengontrol jarak antara label sumbu kategori dan sumbu. Nilainya adalah persentase dari ukuran font maksimum label sumbu. Contoh ini membuat diagram kolom berkelompok dan menetapkan offset label sumbu horizontal menjadi 500. Pengaturan ini memengaruhi label sumbu kategori, bukan label yang terpasang pada titik data individual.
 
 ```java
 import com.aspose.slides.*;
@@ -313,11 +362,11 @@ try {
 }
 ```
 
-## **Menyesuaikan Lokasi Label**
+## **Sesuaikan Lokasi Label**
 
-Pada diagram pai, sesuaikan posisi label data untuk meningkatkan jarak dan memberi ruang bagi garis penunjuk.
+Pada diagram pai, sesuaikan posisi label data untuk meningkatkan jarak dan memberi ruang bagi garis penghubung.
 
-Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan menyesuaikan offset horizontal serta vertikal menggunakan [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) dan [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-). Offset tersebut relatif terhadap lebar dan tinggi diagram, masing‑masing.
+Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan menyesuaikan offset horizontal serta vertikal menggunakan [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) dan [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-). Offset ini relatif terhadap lebar dan tinggi diagram, masing‑masingnya.
 
 ```java
 import com.aspose.slides.*;
@@ -343,15 +392,15 @@ try {
 
 ![Diagram pai dengan posisi label data yang disesuaikan](pie-chart-adjusted-label.png)
 
-## **Memformat Garis Penunjuk**
+## **Format Garis Penghubung**
 
-Ketika label diagram pai berada di luar irisan, garis penunjuk membantu pembaca mencocokkan setiap nilai dengan irisan yang tepat. Warna kontras dan garis yang sedikit lebih tebal dapat membuat koneksi ini lebih mudah diikuti, sementara transparansi dan gaya putus‑putus membuat garis tidak mengganggu secara visual.
+Ketika label diagram pai berada di luar irisan mereka, garis penghubung membantu pembaca mencocokkan setiap nilai dengan irisan yang tepat. Warna yang kontras dan garis yang sedikit lebih tebal dapat memudahkan koneksi ini diikuti, sementara transparansi dan gaya putus‑putus membuat garis tidak mengganggu secara visual.
 
-Gunakan [getLeaderLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) untuk memformat garis penunjuk pada tingkat koleksi label data seri. Pengaturan dalam `series.getLabels().getLeaderLinesFormat().getLine()` berlaku untuk seluruh koleksi, bukan pada label individual.
+Gunakan [getLeaderLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) untuk memformat garis penghubung pada tingkat koleksi label data seri. Pengaturan dalam `series.getLabels().getLeaderLinesFormat().getLine()` diterapkan pada koleksi, bukan pada label individual.
 
-Contoh ini membuat diagram pai dengan data default, menampilkan nilai di luar irisan, dan mengaktifkan [setShowLeaderLines](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). Ia memindahkan dua label lebih jauh dari irisan mereka menggunakan offset [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) dan [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-), yang dinyatakan sebagai pecahan lebar dan tinggi diagram. Tidak diperlukan presentasi masukan.
+Contoh ini membuat diagram pai dengan data default, menampilkan nilai di luar irisan, dan mengaktifkan [setShowLeaderLines](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). Ia memindahkan dua label lebih jauh dari irisan mereka menggunakan offset [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) dan [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-), yang dinyatakan sebagai fraksi lebar dan tinggi diagram. Tidak diperlukan presentasi input.
 
-Format [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getFillFormat--) pada garis mengatur warna biru solid dengan nilai alfa 191 dari 255, memberikan transparansi sekitar 25%. [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) mengatur ketebalan menjadi 2 poin, dan [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) membuat garis menjadi putus‑putus.
+Format [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getFillFormat--) garis menetapkan warna biru solid dengan nilai alfa 191 dari 255, memberikan transparansi sekitar 25 %. [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) menetapkan ketebalan menjadi 2 poin, dan [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) membuat garis menjadi garis putus‑putus.
 
 ```java
 import com.aspose.slides.*;
@@ -389,17 +438,17 @@ try {
 }
 ```
 
-Mengaktifkan garis penunjuk tidak menjamin bahwa sebuah garis akan muncul untuk setiap label. Visibilitas tergantung pada penempatan label dan perilaku tata letak diagram. Pada contoh ini, dua label yang dipindahkan memiliki garis penunjuk yang terlihat; label yang tetap dekat dengan irisan mereka tidak memerlukannya.
+Mengaktifkan garis penghubung tidak menjamin setiap label akan memiliki garis. Visibilitas tergantung pada penempatan label dan perilaku tata letak diagram. Pada contoh ini, dua label yang dipindahkan memiliki garis penghubung yang terlihat; label yang tetap dekat dengan irisan mereka tidak memerlukannya.
 
-Gambar berikut menampilkan `FormattedLeaderLines.pptx` yang disimpan dan dirender dengan Aspose.Slides:
+Gambar berikut menunjukkan `FormattedLeaderLines.pptx` yang disimpan dan dirender dengan Aspose.Slides:
 
-![Diagram pai dengan garis penunjuk biru, setengah transparan, putus‑putus yang menghubungkan dua label luar ke irisan mereka](formatted-leader-lines.png)
+![Diagram pai dengan garis penghubung biru, semi‑transparan, putus‑putus menghubungkan dua label luar ke irisan mereka](formatted-leader-lines.png)
 
-## **Menambahkan Beberapa Baris Label Data di Atas Diagram Kolom**
+## **Tambahkan Beberapa Baris Label Data di Atas Diagram Kolom**
 
-Contoh ini membuat diagram kolom dengan dua baris label data di atas area plot. Seri A menampilkan kolom yang terlihat, sementara Seri B dan Seri C menyediakan label tambahan. Kolom mereka disembunyikan dengan menghapus isi dan kontur. Metode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) menyelaraskan ketiga seri dengan pusat kategori yang sama.
+Contoh ini membuat diagram kolom dengan dua baris label data di atas area plot. Seri A menampilkan kolom yang terlihat, sementara Seri B dan Seri C menyediakan label tambahan. Kolom mereka disembunyikan dengan menghapus isi dan garis luar. Metode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) menyelaraskan ketiga seri dengan pusat kategori yang sama.
 
-Pengaturan [ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) menyediakan ruang untuk baris label. Setelah [Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) menghitung posisi default, [DataLabel.setX dan DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) mempertahankan penjajaran horizontal dan menerapkan offset vertikal untuk menata label dalam dua baris. Angka-angka tetap menjadi label data yang terhubung ke nilai seri; hanya judul baris yang berupa bentuk teks terpisah.
+[ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) mengatur ruang untuk baris label. Setelah [Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) menghitung posisi default, [DataLabel.setX dan DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) mempertahankan penyelarasan horizontal dan menerapkan offset vertikal untuk menata label dalam dua baris. Angka-angka tetap label data yang terhubung ke nilai seri; hanya judul baris yang merupakan bentuk teks terpisah.
 
 ```java
 Presentation presentation = new Presentation();
@@ -442,7 +491,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // Sembunyikan kolom B dan C, tetapi pertahankan label data mereka.
+            // Sembunyikan kolom B dan C, tetapi tetap pertahankan label data mereka.
             series.getFormat().getFill().setFillType(FillType.NoFill);
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -461,11 +510,11 @@ try {
     chart.getChartData().getSeries().get_Item(0)
             .getParentSeriesGroup().setOverlap((byte) 100);
 
-    // Gunakan lebih sedikit garis kisi untuk contoh yang kompak ini.
+    // Gunakan lebih sedikit gridline untuk contoh yang kompak ini.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // Sediakan ruang di atas area plot untuk dua baris label data.
+    // Sisihkan ruang di atas area plot untuk dua baris label data.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
     chart.getPlotArea().setX(0.15f);
     chart.getPlotArea().setY(0.32f);
@@ -480,12 +529,12 @@ try {
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
             // Pertahankan posisi horizontal default. Y adalah offset dari
-            // posisi label default, yang dinyatakan sebagai fraksi tinggi diagram.
+            // posisi label default, dinyatakan sebagai fraksi tinggi diagram.
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
 
-        // Hanya heading baris yang merupakan bentuk teks terpisah.
+        // Hanya judul baris yang berupa bentuk teks terpisah.
         IAutoShape rowHeading = slide.getShapes().addAutoShape(
                 ShapeType.Rectangle, chart.getX(),
                 chart.getY() + rowTop * chart.getHeight(), 85, 18);
@@ -511,14 +560,14 @@ try {
 
 ## **FAQ**
 
-**Bagaimana cara mencegah label data saling tumpang tindih pada diagram yang padat?**
+**Bagaimana saya dapat mencegah label data saling tumpang pada diagram yang padat?**
 
-Gabungkan penempatan label otomatis, garis penunjuk, dan ukuran font yang lebih kecil; bila perlu, sembunyikan beberapa bidang (misalnya, kategori) atau hanya tampilkan label untuk nilai ekstrem atau titik kunci.
+Gabungkan penempatan label otomatis, garis penghubung, dan ukuran font yang lebih kecil; jika perlu, sembunyikan beberapa bidang (misalnya kategori) atau tampilkan label hanya untuk nilai ekstrem atau titik kunci.
 
 **Bagaimana cara menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
 
-Filter titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditetapkan.
+Filter titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditentukan.
 
-**Bagaimana cara memastikan gaya label konsisten ketika mengekspor ke PDF/gambar?**
+**Bagaimana saya dapat memastikan gaya label yang konsisten saat mengekspor ke PDF/gambar?**
 
-Tetapkan secara eksplisit keluarga dan ukuran font serta pastikan font tersedia di lingkungan render untuk menghindari fallback.
+Tentukan secara eksplisit keluarga dan ukuran font serta pastikan font tersedia di lingkungan render untuk menghindari fallback.

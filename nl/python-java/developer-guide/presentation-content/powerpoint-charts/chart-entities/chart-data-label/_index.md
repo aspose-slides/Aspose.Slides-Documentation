@@ -1,12 +1,12 @@
 ---
-title: Beheer diagramdatapuntenlabels in presentaties met Python
-linktitle: Datapuntlabel
+title: Beheer grafiekgegevenslabels in presentaties met Python
+linktitle: Gegevenslabel
 type: docs
 url: /nl/python-java/chart-data-label/
 keywords:
-- diagram
-- datapuntlabel
-- dataprecisie
+- grafiek
+- gegevenslabel
+- gegevensprecisie
 - percentage
 - labelafstand
 - labellocatie
@@ -15,15 +15,68 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Leer hoe u diagramdatapuntenlabels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor Python via Java voor boeiendere dia's."
+description: "Leer hoe u grafiekgegevenslabels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor Python via Java voor boeiendere dia's."
 ---
-## **Introductie**
+## **Inleiding**
 
-Datalabels tonen informatie over diagramreeksen en individuele gegevenspunten, waardoor lezers waarden kunnen identificeren en het diagram kunnen begrijpen. Dit artikel legt uit hoe waarden op te maken, percentages weer te geven, labeltekst te lezen, labels buiten het asmaximum te controleren, de afstand tussen categorische aslabels aan te passen en pijldiagramlabels te positioneren.
+Gegevenslabels geven informatie weer over grafiekseries en individuele gegevenspunten, zodat lezers waarden kunnen identificeren en de grafiek kunnen begrijpen. Dit artikel legt uit hoe waarden op te maken, percentages weer te geven, labeltekst uit te lezen, labels buiten de maximale as te controleren, de afstand tussen labels op de categorische as aan te passen en piegrafieklabels te positioneren.
 
-## **Precisie van gegevens instellen in diagramdatapuntenlabels**
+## **Aantal zichtbare gegevenslabels tellen**
 
-Gebruik [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) om reekswerte op te maken. Dit voorbeeld maakt een lijndiagram met standaardgegevens, toont de gegevenstabel en schakelt waardelabels in voor de eerste reeks. Het formaat `#,##0.00` toont een scheidingsteken voor duizenden en twee decimalen zonder de onderliggende waarden te wijzigen.
+Gebruik [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getCountOfVisibleDataLabels) om te controleren hoeveel gegevenslabels zijn ingeschakeld voor weergave vóór het publiceren van een presentatie. In tegenstelling tot [getCount](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getCount), dat het totale aantal labels in de collectie retourneert, houdt dit rekening met de standaardinstellingen van de series en individuele labelinstellingen.
+
+Dit voorbeeld maakt een kolomgrafiek met één serie en drie gegevenspunten. Het haalt de labelcollectie van de serie op via [getLabels](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getLabels) en drukt het zichtbare aantal af terwijl de instellingen veranderen: **0, 3, 2, 3**. Het totale aantal blijft **3**.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    series_cell = workbook.getCell(0, 0, 1, "Values")
+    series = chart.getChartData().getSeries().add(series_cell, chart.getType())
+
+    for i in range(3):
+        category_cell = workbook.getCell(0, i + 1, 0, f"Category {i + 1}")
+        chart.getChartData().getCategories().add(category_cell)
+        value_cell = workbook.getCell(0, i + 1, 1, jpype.JDouble((i + 1) * 10))
+        series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+    labels = series.getLabels()
+    print(f"Total: {labels.getCount()}; visible: {labels.getCountOfVisibleDataLabels()}")  # Totaal: 3; zichtbaar: 0
+
+    labels.getDefaultDataLabelFormat().setShowValue(True)
+    print(f"Visible: {labels.getCountOfVisibleDataLabels()}")  # Zichtbaar: 3
+
+    labels.get_Item(1).getDataLabelFormat().setShowValue(False)
+    print(f"Visible: {labels.getCountOfVisibleDataLabels()}")  # Zichtbaar: 2
+
+    labels.get_Item(1).getDataLabelFormat().setShowLegendKey(True)
+    print(f"Visible: {labels.getCountOfVisibleDataLabels()}")  # Zichtbaar: 3
+finally:
+    presentation.dispose()
+```
+
+De [getDefaultDataLabelFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getDefaultDataLabelFormat) van de serie levert de standaardinstellingen. Als `True` wordt doorgegeven aan [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue), worden waarden voor alle drie de labels weergegeven. Als `False` wordt doorgegeven via de [getDataLabelFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getDataLabelFormat) van één label, wordt die instelling voor het geselecteerde label overschreven. Als `True` wordt doorgegeven aan [setShowLegendKey](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLegendKey), telt dat label opnieuw als zichtbaar, hoewel de waarde verborgen blijft.
+
+Het zichtbare aantal weerspiegelt de zichtbaarheidinstellingen. Het meet niet of labels elkaar overlappen, worden afgesneden of leesbaar zijn in de gerenderde grafiek.
+
+## **Gegevensprecisie instellen in grafiekgegevenslabels**
+
+Gebruik [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) om de waarden van een serie op te maken. Dit voorbeeld maakt een lijngrafiek met standaardgegevens, toont de gegevenstabel en schakelt waarde‑labels in voor de eerste serie. Het opmaakpatroon `#,##0.00` geeft een duizendtallen‑scheidingsteken en twee decimalen weer zonder de onderliggende waarden te wijzigen.
 
 ```python
 import jpype
@@ -50,14 +103,14 @@ finally:
     presentation.dispose()
 ```
 
-Om de numerieke cellen in de ingebedde werkmap van een diagram op te maken, zie [Set Custom Number Formats for Workbook Cells](/slides/nl/python-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dat voorbeeld toont ook waardelabels die de opmaak van hun broncellen volgen, terwijl de opgeslagen numerieke waarden behouden blijven.
+Om de numerieke cellen in de ingesloten werkmap van een grafiek op te maken, zie [Stel aangepaste getalindelingen in voor werkbladcellen](/slides/nl/python-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dat voorbeeld toont ook dat waarde‑labels de indeling van hun broncel volgen terwijl de opgeslagen numerieke waarden behouden blijven.
 
-## **Percentage weergeven als labels**
+## **Percentage als labels weergeven**
 
-Voor een gestapeld kolomdiagram berekent u elke waarde als een percentage van het totaalaantal van de categorie en kent u de tekst toe aan het tekstframe dat wordt geretourneerd door [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Dit voorbeeld gebruikt de standaard diagramgegevens en toont percentages met twee decimalen in een lettertype van 8 punten. Categorieën met een totaal van nul worden overgeslagen om deling door nul te voorkomen. Hervorm de aangepaste labeltekst als de diagramgegevens veranderen.
+Voor een gestapelde kolomgrafiek bereken je elke waarde als een percentage van het totale van de categorie en wijs je de tekst toe aan het tekstkader dat wordt geretourneerd door [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Dit voorbeeld gebruikt de standaardgrafiekgegevens en toont percentages met twee decimalen in een lettertype van 8 pt. Categorieën met een totaal van nul worden overgeslagen om deling door nul te voorkomen. Herbereken de aangepaste labeltekst als de grafiekgegevens wijzigen.
 
 ```python
-import jpime
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -110,11 +163,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Percentage‑teken instellen met diagramdatapuntenlabels**
+## **Procentteken instellen met grafiekgegevenslabels**
 
-Wanneer waarden als breuken zijn opgeslagen, gebruikt u [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) om percentages weer te geven. Geef `False` door aan [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) om de labelopmaak onafhankelijk van de broncellen toe te passen.
+Wanneer waarden als breuken zijn opgeslagen, gebruik je [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) om percentages weer te geven. Geef `False` door aan [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) om het labelformaat onafhankelijk van de broncellen toe te passen.
 
-Dit voorbeeld maakt een 100 % gestapeld kolomdiagram met rode en blauwe reeksen over vier categorieën. Elk paar waarden telt op tot 1. Het labelformaat `0.0%` toont 0.30 als 30.0 %, terwijl de verticale as twee decimalen gebruikt. Beide reeksen gebruiken witte labeltekst van 10 punten.
+Dit voorbeeld maakt een 100 % gestapelde kolomgrafiek met rode en blauwe series over vier categorieën. Elk waardepaar telt op tot 1. Het labelformaat `0.0%` toont 0.30 als 30,0 %, terwijl de verticale as twee decimalen gebruikt. Beide series gebruiken witte labels van 10 pt.
 
 ```python
 import jpype
@@ -173,9 +226,9 @@ finally:
     presentation.dispose()
 ```
 
-## **De feitelijke tekst van datalabels lezen**
+## **De werkelijke tekst van gegevenslabels uitlezen**
 
-Gebruik [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) om de tekst op te halen die door de instellingen van een datalabel wordt geproduceerd. Dit is handig bij het extraheren van labels voor rapporten, het doorzoeken van presentatie‑inhoud of het valideren van gegenereerde diagrammen. In het onderstaande voorbeeld combineert het standaard [data label format](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) elke categorienaam, reeksnamen en waarde. Eén punt formatteert zijn waarde als percentage, en een ander gebruikt aangepaste tekst van [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Gebruik [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) om de tekst op te halen die door de instellingen van een gegevenslabel wordt gegenereerd. Dit is handig bij het extraheren van labels voor rapporten, het doorzoeken van presentatie‑inhoud of het valideren van gegenereerde grafieken. In het voorbeeld hieronder combineert de standaard [gegevenslabelindeling](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) elke categorienaam, serienaam en waarde. Eén punt formatteert de waarde als een percentage, en een ander gebruikt aangepaste tekst uit [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```python
 import jpype
@@ -236,15 +289,15 @@ finally:
     presentation.dispose()
 ```
 
-Het getal dat in een gegevenspunt is opgeslagen blijft `0.75`, zelfs wanneer het label `75 %` toont samen met de categorie‑ en reeksnamen. Aangepaste tekst vervangt de gegenereerde labeltekst. [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) retourneert de resulterende labelreeks in beide gevallen. Controleer [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) apart, zoals hierboven weergegeven, wanneer u alleen zichtbare labels wilt extraheren.
+Het getal dat in een gegevenspunt is opgeslagen blijft `0.75`, zelfs wanneer het label `75 %` weergeeft samen met de categorie‑ en serienamen. Aangepaste tekst vervangt de gegenereerde labeltekst. [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) retourneert de resulterende labelreeks in beide gevallen. Controleer [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) afzonderlijk, zoals hierboven getoond, wanneer je alleen zichtbare labels wilt extraheren.
 
-## **Datapuntenlabels buiten het asmaximum beheren**
+## **Gegevenslabels buiten de as‑maximum controleren**
 
-Wanneer u een asbereik handmatig beperkt, kunnen enkele gegevenspunten boven het maximum uitkomen. Gebruik [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) om te bepalen of hun datalabels worden getoond. Deze instelling wijzigt de zichtbaarheid van labels; ze wijzigt niet het asbereik of de onderliggende gegevenswaarden.
+Wanneer je een as‑bereik handmatig beperkt, kunnen sommige gegevenspunten de maximumwaarde overschrijden. Gebruik [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) om te bepalen of hun gegevenslabels worden getoond. Deze instelling verandert de zichtbaarheid van het label; hij verandert het as‑bereik of de onderliggende waarden niet.
 
-Het voorbeeld hieronder maakt een 2D gegroepeerd kolomdiagram met waarden 60 en 120. Het geeft `False` door aan [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) en stelt het maximum in op 100 met [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) op de verticale as. De eerste dia staat labels toe boven het maximum; een kopie van die dia schakelt ze uit. Beide dia's worden opgeslagen in `DataLabelsOverMaximum.pptx`.
+Het voorbeeld hieronder maakt een 2D gegroepeerde kolomgrafiek met waarden van 60 en 120. Het geeft `False` door aan [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) en stelt het maximum in op 100 met [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) op de verticale as. De eerste dia staat labels toe boven het maximum; een kopie van die dia schakelt ze uit. Beide dia's worden opgeslagen in `DataLabelsOverMaximum.pptx`.
 
-Schakel waardelabels in met [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). De diagram‑niveau‑instelling activeert de weergave van waarden niet op zichzelf en overschrijft ook niet de individuele labelinstelling die waarden verbergt. Dit voorbeeld activeert waarden voor de volledige reeks en gebruikt [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) om labels aan het buitenste einde van elke kolom te plaatsen.
+Schakel waarde‑labels in met [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). De instelling op grafiekniveau schakelt niet automatisch de weergave van waarden in en overschrijft geen individueel label waarvan de waarde‑weergave is uitgeschakeld. Dit voorbeeld schakelt waarden in voor de volledige serie en gebruikt [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) om labels aan het buitenste uiteinde van elke kolom te plaatsen.
 
 ```python
 import jpype
@@ -298,19 +351,19 @@ finally:
     presentation.dispose()
 ```
 
-De volgende afbeeldingen tonen de opgeslagen dia's, gerenderd door Microsoft PowerPoint. Met `True` is het label **120** zichtbaar bij de bovenste grens; met `False` is het verborgen. Het label **60** blijft zichtbaar, het asmaximum blijft op **100**, en het tweede gegevenspunt blijft **120** in beide gevallen.
+De volgende afbeeldingen tonen de opgeslagen dia’s zoals gerenderd door Microsoft PowerPoint. Met `True` is het label **120** zichtbaar bij de bovenste grens; met `False` is het verborgen. Het label **60** blijft zichtbaar, het as‑maximum blijft **100**, en het tweede gegevenspunt blijft **120** in beide gevallen.
 
 | setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
 | --- | --- |
-| ![PowerPoint-diagram dat het waardelabel 120 toont met een asmaximum van 100](data-labels-over-maximum-true.png) | ![PowerPoint-diagram dat het waardelabel 120 verbergt met een asmaximum van 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint‑grafiek die het waardelabel 120 toont met een as‑maximum van 100](data-labels-over-maximum-true.png) | ![PowerPoint‑grafiek die het waardelabel 120 verbergt met een as‑maximum van 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Grafiektype" %}}
-Dit voorbeeld gebruikt een 2D kolomdiagram met een waardenas. Diagrammen zonder een waardenas, zoals taart‑ en ringdiagrammen, hebben geen asmaximum dat op deze manier kan worden beperkt.
+{{% alert color="info" title="Chart Type" %}}
+Dit voorbeeld gebruikt een 2D kolomgrafiek met een waardenas. Grafieken zonder waardenas, zoals taart‑ en donuts‑grafieken, hebben geen as‑maximum dat op deze manier kan worden beperkt.
 {{% /alert %}}
 
-## **Labelafstand ten opzichte van een as instellen**
+## **Labelafstand tot een as instellen**
 
-Gebruik [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) om de afstand tussen categorische aslabels en de as te regelen. De waarde is een percentage van de maximale lettergrootte van de aslabels. Dit voorbeeld maakt een gegroepeerd kolomdiagram en stelt de horizontale as‑labeloffset in op 500. Deze instelling beïnvloedt categorische aslabels in plaats van labels die aan individuele gegevenspunten zijn gekoppeld.
+Gebruik [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) om de afstand tussen de labels van de categorische as en de as zelf te regelen. De waarde is een percentage van de maximale lettergrootte van de as‑labels. Dit voorbeeld maakt een gegroepeerde kolomgrafiek en stelt de horizontale as‑labelverschuiving in op 500. Deze instelling beïnvloedt de categorische as‑labels in plaats van de labels die aan individuele gegevenspunten zijn gekoppeld.
 
 ```python
 import jpype
@@ -333,11 +386,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Labelpositie aanpassen**
+## **Labellocatie aanpassen**
 
-Op een taartdiagram past u de posities van datalabels aan om de spatiëring te verbeteren en ruimte te creëren voor leidlijnen.
+Bij een taartgrafiek kun je de positie van gegevenslabels aanpassen om de spatiëring te verbeteren en ruimte te maken voor verbindingslijnen.
 
-Dit voorbeeld toont de waarde van het eerste gegevenspunt, plaatst het label buiten de part, en past de horizontale en verticale offset aan met behulp van [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) en [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY). Deze offsets zijn respectievelijk relatief ten opzichte van de diagram‑breedte en -hoogte.
+Dit voorbeeld toont de waarde van het eerste gegevenspunt, plaatst het label buiten het segment en past de horizontale en verticale verschuivingen aan met [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) en [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY). Deze verschuivingen zijn respectievelijk relatief ten opzichte van de grafiekbreedte en -hoogte.
 
 ```python
 import jpype
@@ -366,17 +419,17 @@ finally:
     presentation.dispose()
 ```
 
-![Pijldiagram met een aangepaste labelpositie](pie-chart-adjusted-label.png)
+![Taartgrafiek met een aangepast labelpositie](pie-chart-adjusted-label.png)
 
-## **Leidlijnen opmaken**
+## **Verbindingslijnen opmaken**
 
-Wanneer taart‑labels buiten hun partjes staan, helpen leidlijnen lezers elke waarde aan het juiste part te koppelen. Een contrasterende kleur en een iets dikkere lijn maken deze verbindingen makkelijker te volgen, terwijl transparantie en een gestreepte stijl de lijnen visueel onopvallend houden.
+Wanneer taartgrafieklabels buiten hun segmenten staan, helpen verbindingslijnen lezers de juiste waarde aan het juiste segment te koppelen. Een contrasterende kleur en een iets dikkere lijn maken deze verbindingen makkelijker te volgen, terwijl transparantie en een stippellijn de lijnen visueel onopvallend houden.
 
-Gebruik [getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat) om leidlijnen op te maken op het niveau van de datalabel‑collectie van de reeks. De instellingen in `series.getLabels().getLeaderLinesFormat().getLine()` gelden voor de collectie, niet voor een individueel label.
+Gebruik [getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat) om verbindingslijnen op te maken op het niveau van de gegevenslabelcollectie van de serie. De instellingen in `series.getLabels().getLeaderLinesFormat().getLine()` gelden voor de gehele collectie, niet voor een individueel label.
 
-Dit voorbeeld maakt een taartdiagram met standaardgegevens, toont waarden buiten de partjes, en activeert [setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines). Het verplaatst twee labels verder van hun partjes met behulp van [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) en [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) offsets, uitgedrukt als breuken van de diagram‑breedte en -hoogte. Er is geen invoerpresentatie nodig.
+Dit voorbeeld maakt een taartgrafiek met standaardgegevens, toont waarden buiten de segmenten en schakelt [setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines) in. Het verplaatst twee labels verder van hun segmenten met [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) en [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) verschuivingen, uitgedrukt als breuken van de grafiekbreedte en -hoogte. Er is geen invoerpresentatie vereist.
 
-De lijn‑[getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) stelt een solide blauwe kleur in met een alfa‑waarde van 191 van 255, waardoor ongeveer 25 % transparantie ontstaat. [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) stelt de dikte in op 2 punten, en [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) maakt de lijn gestreept.
+De [getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) van de lijn stelt een solide blauwe kleur in met een alfawaarde van 191 van de 255, wat ongeveer 25 % transparantie oplevert. [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) stelt de dikte in op 2 pt, en [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) maakt de lijn gestippeld.
 
 ```python
 import jpype
@@ -403,7 +456,7 @@ try:
     label_format.setPosition(LegendDataLabelPosition.OutsideEnd)
     label_format.setShowLeaderLines(True)
 
-    # Verplaats twee labels verder weg van hun partjes.
+    # Verplaats twee labels verder van hun segmenten.
     series.getLabels().get_Item(0).setX(0.10)
     series.getLabels().get_Item(0).setY(-0.05)
     series.getLabels().get_Item(1).setX(-0.10)
@@ -421,17 +474,17 @@ finally:
     presentation.dispose()
 ```
 
-Het inschakelen van leidlijnen garandeert niet dat er voor elk label een lijn verschijnt. Zichtbaarheid hangt af van de labelplaatsing en het layout‑gedrag van het diagram. In dit voorbeeld hebben de twee verplaatste labels zichtbare leidlijnen; de labels die dicht bij hun partjes blijven, hebben ze niet nodig.
+Het inschakelen van verbindingslijnen garandeert niet dat er voor elk label een lijn verschijnt. De zichtbaarheid hangt af van de labelplaatsing en het lay‑outgedrag van de grafiek. In dit voorbeeld hebben de twee verplaatste labels zichtbare verbindingslijnen; de labels die dicht bij hun segmenten blijven, hebben ze niet nodig.
 
-De volgende afbeelding toont het opgeslagen `FormattedLeaderLines.pptx` gerenderd met Aspose.Slides:
+De volgende afbeelding toont het opgeslagen `FormattedLeaderLines.pptx` zoals gerenderd met Aspose.Slides:
 
-![Pijldiagram met blauwe, halftransparante gestreepte leidlijnen die twee buitenste labels verbinden met hun partjes](formatted-leader-lines.png)
+![Taartgrafiek met blauwe, halftransparante, gestippelde verbindingslijnen die twee buitenste labels met hun segmenten verbinden](formatted-leader-lines.png)
 
-## **Meerdere rijen datalabels boven een kolomdiagram toevoegen**
+## **Meerdere rijen gegevenslabels boven een kolomgrafiek toevoegen**
 
-Dit voorbeeld maakt een kolomdiagram met twee rijen datalabels boven het plotgebied. Reeks A toont de zichtbare kolommen, terwijl Reeks B en Reeks C de extra labels leveren. Hun kolommen worden verborgen door de vulling en omtrek te verwijderen. De methode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) brengt alle drie de reeksen op één lijn met dezelfde categorische middelpunten.
+Dit voorbeeld maakt een kolomgrafiek met twee rijen gegevenslabels boven het plotgebied. Serie A toont de zichtbare kolommen, terwijl Serie B en Serie C de aanvullende labels leveren. Hun kolommen worden verborgen door de vulling en de omtrek te verwijderen. De methode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) zorgt dat alle drie de series dezelfde categoriemiddens delen.
 
-De instellingen van [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) reserveren ruimte voor de labelrijen. Na [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) de standaardposities berekent, behouden [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) en [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) de horizontale uitlijning en passen verticale offsets toe om de labels in twee rijen te rangschikken. De nummers blijven datalabels die gekoppeld zijn aan de reekswerte; alleen de rij‑koppen zijn afzonderlijke tekstvormen.
+De instellingen van [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) reserveren ruimte voor de labelrijen. Na het berekenen van de standaardposities met [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) behouden [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) en [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) de horizontale uitlijning en passen verticale verschuivingen toe om de labels in twee rijen te rangschikken. De getallen blijven gegevenslabels die gekoppeld zijn aan de seriewaarden; alleen de rij‑koppen zijn afzonderlijke tekstvormen.
 
 ```python
 import jpype
@@ -476,7 +529,7 @@ try:
             series.getDataPoints().addDataPointForBarSeries(value_cell)
 
         if series_index > 0:
-            # Verberg de kolommen van B en C, maar behoud hun datalabels.
+            # Verberg de kolommen van B en C, maar behoud hun gegevenslabels.
             series.getFormat().getFill().setFillType(FillType.NoFill)
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
             label_format = series.getLabels().getDefaultDataLabelFormat()
@@ -487,14 +540,14 @@ try:
             label_fill.getSolidFillColor().setColor(Color.BLACK)
             label_format.setPosition(LegendDataLabelPosition.InsideBase)
 
-    # Lijn alle drie reeksen uit op dezelfde categorische middelpunten.
+    # Lijn alle drie series uit op dezelfde categorische centra.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(jpype.JByte(100))
 
-    # Gebruik minder rasterlijntjes voor dit compacte voorbeeld.
+    # Gebruik minder rasterlijnen voor dit compacte voorbeeld.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setMajorUnit(10)
 
-    # Reserveer ruimte boven het plotgebied voor twee rijen datalabels.
+    # Reserveer ruimte boven de plot voor twee rijen gegevenslabels.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner)
     chart.getPlotArea().setX(0.15)
     chart.getPlotArea().setY(0.32)
@@ -509,11 +562,11 @@ try:
         for category_index in range(len(categories)):
             data_label = series.getDataPoints().get_Item(category_index).getLabel()
             # Houd de standaard horizontale positie. Y is een offset ten opzichte van
-            # de standaardlabelpositie, uitgedrukt als een fractie van de diagramhoogte.
+            # de standaard labelpositie, uitgedrukt als een fractie van de grafiekhoogte.
             data_label.setX(0)
             data_label.setY(row_top - data_label.getActualY() / chart.getHeight())
 
-        # Alleen de rij‑kop is een apart tekst‑object.
+        # Alleen de rij‑kop is een apart tekstobject.
         heading_y = chart.getY() + row_top * chart.getHeight()
         row_heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), heading_y, 85, 18)
         row_heading.getFillFormat().setFillType(FillType.NoFill)
@@ -531,18 +584,18 @@ finally:
     presentation.dispose()
 ```
 
-![Kolomdiagram met twee rijen datalabels boven het plotgebied](multiple-rows-of-labels.png)
+![Kolomgrafiek met twee rijen gegevenslabels boven het plotgebied](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Hoe kan ik voorkomen dat datalabels overlappen in dichte diagrammen?**
+**Hoe kan ik voorkomen dat gegevenslabels elkaar overlappen bij drukke grafieken?**
 
-Combineer automatische labelplaatsing, leidlijnen en een kleinere lettergrootte; verberg indien nodig enkele velden (bijvoorbeeld de categorie) of toon alleen labels voor extreme waarden of sleutelpunten.
+Combineer automatische labelplaatsing, verbindingslijnen en een kleinere lettergrootte; verberg indien nodig enkele velden (bijvoorbeeld de categorie) of toon alleen labels voor extreme of sleutelwaarden.
 
-**Hoe kan ik labels uitschakelen alleen voor nullen, negatieve of lege waarden?**
+**Hoe kan ik labels uitschakelen alleen voor nul, negatieve of lege waarden?**
 
-Filter gegevenspunten voordat u labels inschakelt en schakel de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
+Filter gegevenspunten vóór het inschakelen van labels en schakel de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
 
-**Hoe kan ik een consistente labelstijl garanderen bij export naar PDF/afbeeldingen?**
+**Hoe zorg ik voor een consistente labelstijl bij export naar PDF/afbeeldingen?**
 
-Stel expliciet de lettertypefamilie en -grootte in en controleer of het lettertype beschikbaar is in de renderomgeving om fallback te vermijden.
+Stel expliciet het lettertype en de grootte in en controleer dat het lettertype beschikbaar is in de renderomgeving om fallback te voorkomen.

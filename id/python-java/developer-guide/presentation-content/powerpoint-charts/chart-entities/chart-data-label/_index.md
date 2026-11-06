@@ -1,10 +1,10 @@
 ---
-title: Kelola Label Data Diagram dalam Presentasi Menggunakan Python
+title: Mengelola Label Data Bagan dalam Presentasi Menggunakan Python
 linktitle: Label Data
 type: docs
 url: /id/python-java/chart-data-label/
 keywords:
-- diagram
+- bagan
 - label data
 - presisi data
 - persentase
@@ -15,15 +15,69 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan memformat label data diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Python melalui Java untuk slide yang lebih menarik."
+description: "Pelajari cara menambahkan dan memformat label data bagan dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Python via Java untuk slide yang lebih menarik."
 ---
 ## **Pendahuluan**
 
-Label data menampilkan informasi tentang seri diagram dan titik data individu, membantu pembaca mengidentifikasi nilai dan memahami diagram. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, mengendalikan label di luar maksimum sumbu, menyesuaikan jarak label sumbu kategori, dan memposisikan label diagram pai.
+Label data menampilkan informasi tentang seri bagan dan titik data individual, membantu pembaca mengidentifikasi nilai dan memahami bagan. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, mengendalikan label di luar maksimum sumbu, menyesuaikan jarak label sumbu kategori, dan memposisikan label bagan pai.
 
-## **Mengatur Presisi Data pada Label Data Diagram**
+## **Hitung Label Data yang Terlihat**
 
-Gunakan [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) untuk memformat nilai seri. Contoh ini membuat diagram garis dengan data default, menampilkan tabel datanya, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua tempat desimal tanpa mengubah nilai dasar.
+Gunakan [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getCountOfVisibleDataLabels) untuk memeriksa berapa banyak label data yang diaktifkan untuk ditampilkan sebelum memublikasikan presentasi. Berbeda dengan [getCount](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getCount), yang mengembalikan total jumlah label dalam koleksi, ia memperhitungkan default seri dan pengaturan label individu.
+
+Contoh ini membuat bagan kolom dengan satu seri dan tiga titik data. Ia mengakses koleksi label seri melalui [getLabels](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getLabels) dan mencetak jumlah yang terlihat saat pengaturan berubah: **0, 3, 2, 3**. Jumlah total tetap **3**.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    series_cell = workbook.getCell(0, 0, 1, "Values")
+    series = chart.getChartData().getSeries().add(series_cell, chart.getType())
+
+    for i in range(3):
+        category_cell = workbook.getCell(0, i + 1, 0, f"Category {i + 1}")
+        chart.getChartData().getCategories().add(category_cell)
+        value_cell = workbook.getCell(0, i + 1, 1, jpype.JDouble((i + 1) * 10))
+        series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+    labels = series.getLabels()
+    print(f"Total: {labels.getCount()}; visible: {labels.getCountOfVisibleDataLabels()}")  # Total: 3; terlihat: 0
+
+    labels.getDefaultDataLabelFormat().setShowValue(True)
+    print(f"Visible: {labels.getCountOfVisibleDataLabels()}")  # Terlihat: 3
+
+    labels.get_Item(1).getDataLabelFormat().setShowValue(False)
+    print(f"Visible: {labels.getCountOfVisibleDataLabels()}")  # Terlihat: 2
+
+    labels.get_Item(1).getDataLabelFormat().setShowLegendKey(True)
+    print(f"Visible: {labels.getCountOfVisibleDataLabels()}")  # Terlihat: 3
+finally:
+    presentation.dispose()
+```
+
+
+Seri [getDefaultDataLabelFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getDefaultDataLabelFormat) menyediakan pengaturan default. Mengirim `True` ke [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) di sana menampilkan nilai untuk semua tiga label. Mengirim `False` melalui [getDataLabelFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getDataLabelFormat) satu label menimpa pengaturan itu untuk label yang dipilih. Mengirim `True` ke [setShowLegendKey](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLegendKey) membuat label tersebut dihitung sebagai terlihat lagi, meskipun nilainya tetap tersembunyi.
+
+Jumlah yang terlihat mencerminkan pengaturan visibilitas. Itu tidak mengukur apakah label saling tumpang tindih, terpotong, atau dapat dibaca dalam bagan yang dirender.
+
+## **Atur Presisi Data pada Label Data Bagan**
+
+Gunakan [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) untuk memformat nilai seri. Contoh ini membuat bagan garis dengan data default, menampilkan tabel datanya, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua tempat desimal tanpa mengubah nilai yang mendasarinya.
 
 ```python
 import jpype
@@ -50,11 +104,11 @@ finally:
     presentation.dispose()
 ```
 
-Untuk memformat sel numerik dalam workbook yang tertanam pada diagram, lihat [Atur Format Angka Kustom untuk Sel Workbook](/slides/id/python-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Contoh itu juga memperlihatkan label nilai yang mengikuti format sel sumbernya sambil mempertahankan nilai numerik yang disimpan.
+Untuk memformat sel numerik dalam buku kerja yang disematkan pada bagan, lihat [Atur Format Angka Kustom untuk Sel Buku Kerja](/slides/id/python-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Contoh itu juga menunjukkan label nilai mengikuti format sel sumber mereka sambil mempertahankan nilai numerik yang disimpan.
 
-## **Menampilkan Persentase sebagai Label**
+## **Tampilkan Persentase sebagai Label**
 
-Untuk diagram kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategori dan tetapkan teks ke kerangka teks yang dikembalikan oleh [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Contoh ini menggunakan data diagram default dan menampilkan persentase dengan dua tempat desimal dalam font 8 poin. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label kustom jika data diagram berubah.
+Untuk bagan kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategorinya dan tetapkan teks ke frame teks yang dikembalikan oleh [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Contoh ini menggunakan data bagan default dan menampilkan persentase dengan dua tempat desimal dalam font ukuran 8 poin. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label khusus jika data bagan berubah.
 
 ```python
 import jpype
@@ -110,11 +164,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Mengatur Tanda Persentase dengan Label Data Diagram**
+## **Atur Tanda Persentase dengan Label Data Bagan**
 
-Ketika nilai disimpan sebagai pecahan, gunakan [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) untuk menampilkan persentase. Berikan `False` ke [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) untuk menerapkan format label secara terpisah dari sel sumber.
+Ketika nilai disimpan sebagai pecahan, gunakan [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) untuk menampilkan persentase. Berikan `False` ke [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) untuk menerapkan format label secara independen dari sel sumber.
 
-Contoh ini membuat diagram kolom 100% bertumpuk dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai berjumlah 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua tempat desimal. Kedua seri menggunakan teks label putih 10 poin.
+Contoh ini membuat bagan kolom bertumpuk 100% dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai menjumlahkan menjadi 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua tempat desimal. Kedua seri menggunakan teks label putih berukuran 10 poin.
 
 ```python
 import jpype
@@ -173,9 +227,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Membaca Teks Aktual dari Label Data**
+## **Baca Teks Sebenarnya dari Label Data**
 
-Gunakan [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi diagram yang dihasilkan. Pada contoh di bawah, format [label data default](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) menggabungkan setiap nama kategori, nama seri, dan nilai. Satu titik memformat nilainya sebagai persentase, dan titik lain menggunakan teks kustom dari [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Gunakan [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi bagan yang dihasilkan. Pada contoh di bawah, [format label data](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) default menggabungkan setiap nama kategori, nama seri, dan nilai. Satu titik memformat nilainya sebagai persentase, dan yang lain menggunakan teks kustom dari [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```python
 import jpype
@@ -236,15 +290,15 @@ finally:
     presentation.dispose()
 ```
 
-Angka yang disimpan dalam titik data tetap `0.75`, meskipun labelnya menampilkan `75%` bersama nama kategori dan seri. Teks kustom menggantikan teks label yang dihasilkan. [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) secara terpisah, seperti yang ditunjukkan di atas, ketika Anda ingin mengekstrak hanya label yang terlihat.
+Angka yang disimpan dalam titik data tetap `0.75`, bahkan ketika labelnya menampilkan `75%` bersamaan dengan nama kategori dan seri. Teks kustom menggantikan teks label yang dihasilkan. [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) secara terpisah, seperti ditunjukkan di atas, ketika Anda ingin mengekstrak hanya label yang terlihat.
 
-## **Mengendalikan Label Data di Luar Maksimum Sumbu**
+## **Kendalikan Label Data di Luar Maksimum Sumbu**
 
-Ketika Anda membatasi rentang sumbu secara manual, beberapa titik data mungkin melebihi maksimalnya. Gunakan [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) untuk mengendalikan apakah label datanya ditampilkan. Pengaturan ini mengubah visibilitas label; tidak mengubah rentang sumbu atau nilai data dasar.
+Ketika Anda membatasi rentang sumbu secara manual, beberapa titik data mungkin melebihi maksimum sumbu. Gunakan [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) untuk mengontrol apakah label data mereka ditampilkan. Pengaturan ini mengubah visibilitas label; tidak mengubah rentang sumbu atau nilai data yang mendasarinya.
 
-Contoh di bawah membuat diagram kolom berkelompok 2D dengan nilai 60 dan 120. Ia memberikan `False` ke [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) dan menetapkan maksimum menjadi 100 dengan [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) pada sumbu vertikal. Slide pertama memungkinkan label di luar maksimum; salinan slide itu menonaktifkannya. Kedua slide disimpan dalam `DataLabelsOverMaximum.pptx`.
+Contoh di bawah membuat bagan kolom berkelompok 2D dengan nilai 60 dan 120. Ia memberikan `False` ke [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) dan mengatur maksimum menjadi 100 dengan [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) pada sumbu vertikal. Slide pertama memungkinkan label di luar maksimum; salinan slide itu menonaktifkannya. Kedua slide disimpan dalam `DataLabelsOverMaximum.pptx`.
 
-Aktifkan label nilai dengan [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Pengaturan tingkat diagram tidak secara otomatis menampilkan nilai atau menimpa penonaktifan tampilan nilai pada label individu. Contoh ini mengaktifkan nilai untuk seluruh seri dan menggunakan [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) untuk menempatkan label di ujung luar setiap kolom.
+Aktifkan label nilai dengan [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Pengaturan tingkat bagan tidak mengaktifkan tampilan nilai secara otomatis atau menimpa tampilan nilai yang dinonaktifkan pada label individu. Contoh ini mengaktifkan nilai untuk seluruh seri dan menggunakan [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) untuk menempatkan label di ujung luar setiap kolom.
 
 ```python
 import jpype
@@ -296,21 +350,22 @@ try:
     presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
+
 ```
 
-Gambar berikut menunjukkan slide yang disimpan yang dirender oleh Microsoft PowerPoint. Dengan `True`, label **120** terlihat di batas atas; dengan `False`, label tersebut disembunyikan. Label **60** tetap terlihat, maksimum sumbu tetap **100**, dan titik data kedua tetap **120** pada kedua kasus.
+Gambar berikut menampilkan slide yang disimpan yang dirender oleh Microsoft PowerPoint. Dengan `True`, label **120** terlihat pada batas atas; dengan `False`, label tersebut tersembunyi. Label **60** tetap terlihat, maksimum sumbu tetap **100**, dan titik data kedua tetap **120** dalam kedua kasus.
 
 | setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
 | --- | --- |
-| ![Diagram PowerPoint yang menampilkan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-true.png) | ![Diagram PowerPoint yang menyembunyikan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-false.png) |
+| ![Diagram PowerPoint menampilkan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-true.png) | ![Diagram PowerPoint menyembunyikan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Tipe Diagram" %}}
-Contoh ini menggunakan diagram kolom 2D dengan sumbu nilai. Diagram tanpa sumbu nilai, seperti diagram pai dan donat, tidak memiliki maksimum sumbu untuk dibatasi dengan cara ini.
+{{% alert color="info" title="Tipe Bagan" %}}
+Contoh ini menggunakan bagan kolom 2D dengan sumbu nilai. Bagan tanpa sumbu nilai, seperti bagan pai dan donat, tidak memiliki maksimum sumbu untuk dibatasi dengan cara ini.
 {{% /alert %}}
 
-## **Mengatur Jarak Label dari Sumbu**
+## **Atur Jarak Label dari Sumbu**
 
-Gunakan [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) untuk mengendalikan jarak antara label sumbu kategori dan sumbu. Nilainya berupa persentase dari ukuran font maksimum label sumbu. Contoh ini membuat diagram kolom berkelompok dan menetapkan offset label sumbu horizontal menjadi 500. Pengaturan ini memengaruhi label sumbu kategori, bukan label yang terpasang pada titik data individu.
+Gunakan [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) untuk mengontrol jarak antara label sumbu kategori dan sumbu. Nilainya berupa persentase dari ukuran font maksimum label sumbu. Contoh ini membuat bagan kolom berkelompok dan mengatur offset label sumbu horizontal menjadi 500. Pengaturan ini memengaruhi label sumbu kategori, bukan label yang terpasang pada titik data individual.
 
 ```python
 import jpype
@@ -333,11 +388,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Menyesuaikan Lokasi Label**
+## **Sesuaikan Lokasi Label**
 
-Pada diagram pai, sesuaikan posisi label data untuk meningkatkan jarak dan memberi ruang bagi garis pemimpin.
+Pada bagan pai, sesuaikan posisi label data untuk meningkatkan jarak dan memberi ruang bagi garis penghubung.
 
-Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan menyesuaikan offset horizontal serta vertikalnya menggunakan [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) dan [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY). Offset ini relatif terhadap lebar dan tinggi diagram, masing‑masing.
+Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan menyesuaikan offset horizontal serta vertikalnya menggunakan [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) dan [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY). Offset ini relatif terhadap lebar dan tinggi bagan, masing-masing.
 
 ```python
 import jpype
@@ -366,17 +421,17 @@ finally:
     presentation.dispose()
 ```
 
-![Diagram pai dengan posisi label data yang disesuaikan](pie-chart-adjusted-label.png)
+![Bagan pai dengan posisi label data yang disesuaikan](pie-chart-adjusted-label.png)
 
-## **Memformat Garis Pemimpin**
+## **Format Garis Penghubung**
 
-Ketika label diagram pai berada di luar irisan, garis pemimpin membantu pembaca mencocokkan setiap nilai dengan irisan yang tepat. Warna kontras dan garis yang sedikit lebih tebal dapat membuat koneksi ini lebih mudah diikuti, sementara transparansi dan gaya garis putus‑putus menjaga agar garis tidak terlalu mencolok.
+Ketika label bagan pai berada di luar irisan mereka, garis penghubung membantu pembaca mencocokkan setiap nilai dengan irisan yang tepat. Warna kontras dan garis yang sedikit lebih tebal dapat membuat koneksi ini lebih mudah diikuti, sementara transparansi dan gaya putus‑putus menjaga garis tetap tidak mengganggu secara visual.
 
-Gunakan [getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat) untuk memformat garis pemimpin pada tingkat koleksi label data seri. Pengaturan dalam `series.getLabels().getLeaderLinesFormat().getLine()` berlaku untuk koleksi, bukan untuk label individu.
+Gunakan [getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat) untuk memformat garis penghubung pada tingkat koleksi label data seri. Pengaturan dalam `series.getLabels().getLeaderLinesFormat().getLine()` berlaku untuk koleksi, bukan untuk label individual.
 
-Contoh ini membuat diagram pai dengan data default, menampilkan nilai di luar irisan, dan mengaktifkan [setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines). Ia memindahkan dua label lebih jauh dari irisan mereka menggunakan offset [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) dan [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY), yang diungkapkan sebagai pecahan lebar dan tinggi diagram. Tidak diperlukan presentasi input.
+Contoh ini membuat bagan pai dengan data default, menampilkan nilai di luar irisan, dan mengaktifkan [setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines). Ia memindahkan dua label lebih jauh dari irisan mereka menggunakan offset [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) dan [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY), yang dinyatakan sebagai pecahan lebar dan tinggi bagan. Tidak diperlukan presentasi masukan.
 
-[getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) pada garis mengatur warna biru solid dengan nilai alpha 191 dari 255, memberi transparansi sekitar 25%. [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) mengatur ketebalan menjadi 2 poin, dan [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) membuat garis menjadi putus‑putus.
+[getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) garis menyetel warna biru padat dengan nilai alfa 191 dari 255, memberikan transparansi sekitar 25%. [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) menyetel ketebalan menjadi 2 poin, dan [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) membuat garis menjadi putus‑putus.
 
 ```python
 import jpype
@@ -421,17 +476,17 @@ finally:
     presentation.dispose()
 ```
 
-Mengaktifkan garis pemimpin tidak menjamin bahwa sebuah garis akan muncul untuk setiap label. Visibilitas bergantung pada penempatan label dan perilaku tata letak diagram. Pada contoh ini, dua label yang dipindahkan memiliki garis pemimpin yang terlihat; label yang tetap dekat dengan irisan tidak memerlukannya.
+Mengaktifkan garis penghubung tidak menjamin bahwa garis akan muncul untuk setiap label. Visibilitas tergantung pada penempatan label dan perilaku tata letak bagan. Pada contoh ini, dua label yang dipindahkan memiliki garis penghubung yang terlihat; label yang tetap dekat dengan irisan mereka tidak memerlukannya.
 
-Gambar berikut menunjukkan `FormattedLeaderLines.pptx` yang disimpan dan dirender dengan Aspose.Slides:
+Gambar berikut menampilkan `FormattedLeaderLines.pptx` yang disimpan, dirender dengan Aspose.Slides:
 
-![Diagram pai dengan garis pemimpin biru, semi‑transparan, putus‑putus yang menghubungkan dua label luar ke irisan masing‑masing](formatted-leader-lines.png)
+![Bagan pai dengan garis penghubung biru, semi‑transparan, putus‑putus yang menghubungkan dua label di luar ke irisan mereka](formatted-leader-lines.png)
 
-## **Menambahkan Beberapa Baris Label Data di Atas Diagram Kolom**
+## **Tambahkan Beberapa Baris Label Data di Atas Bagan Kolom**
 
-Contoh ini membuat diagram kolom dengan dua baris label data di atas area plot. Seri A menampilkan kolom yang terlihat, sementara Seri B dan Seri C menyediakan label tambahan. Kolom mereka disembunyikan dengan menghapus isian dan outline. Metode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) menyelaraskan ketiga seri dengan pusat kategori yang sama.
+Contoh ini membuat bagan kolom dengan dua baris label data di atas area plot. Seri A menampilkan kolom yang terlihat, sementara Seri B dan Seri C menyediakan label tambahan. Kolom mereka disembunyikan dengan menghapus isian dan garis tepi. Metode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) menyelaraskan ketiga seri dengan pusat kategori yang sama.
 
-Pengaturan [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) menyisakan ruang untuk baris label. Setelah [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) menghitung posisi default, [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) dan [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) mempertahankan penjajaran horizontal dan menerapkan offset vertikal untuk menyusun label dalam dua baris. Angka tetap label data yang terhubung ke nilai seri; hanya judul baris yang menjadi bentuk teks terpisah.
+Pengaturan [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) memesan ruang untuk baris label. Setelah [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) menghitung posisi default, [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) dan [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) mempertahankan penyelarasan horizontal dan menerapkan offset vertikal untuk menata label dalam dua baris. Angka tetap menjadi label data yang terhubung ke nilai seri; hanya judul baris yang menjadi bentuk teks terpisah.
 
 ```python
 import jpype
@@ -487,14 +542,14 @@ try:
             label_fill.getSolidFillColor().setColor(Color.BLACK)
             label_format.setPosition(LegendDataLabelPosition.InsideBase)
 
-    # Ratakan ketiga seri dengan pusat kategori yang sama.
+    # Selaraskan ketiga seri dengan pusat kategori yang sama.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(jpype.JByte(100))
 
-    # Gunakan lebih sedikit garis kisi untuk contoh yang ringkas ini.
+    # Gunakan lebih sedikit garis kisi untuk contoh kompak ini.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setMajorUnit(10)
 
-    # Cadangkan ruang di atas area plot untuk dua baris label data.
+    # Cadangkan ruang di atas plot untuk dua baris label data.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner)
     chart.getPlotArea().setX(0.15)
     chart.getPlotArea().setY(0.32)
@@ -509,7 +564,7 @@ try:
         for category_index in range(len(categories)):
             data_label = series.getDataPoints().get_Item(category_index).getLabel()
             # Pertahankan posisi horizontal default. Y adalah offset dari
-            # posisi label default, yang dinyatakan sebagai pecahan tinggi diagram.
+            # posisi label default, dinyatakan sebagai fraksi tinggi bagan.
             data_label.setX(0)
             data_label.setY(row_top - data_label.getActualY() / chart.getHeight())
 
@@ -531,18 +586,18 @@ finally:
     presentation.dispose()
 ```
 
-![Diagram kolom dengan dua baris label data di atas area plot](multiple-rows-of-labels.png)
+![Bagan kolom dengan dua baris label data di atas area plot](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Bagaimana cara mencegah label data saling tumpang tindih pada diagram yang padat?**
+**Bagaimana saya dapat mencegah label data saling tumpang tindih pada bagan yang padat?**
 
-Gabungkan penempatan label otomatis, garis pemimpin, dan ukuran font yang diperkecil; jika perlu, sembunyikan beberapa bidang (misalnya kategori) atau tampilkan label hanya untuk nilai ekstrem atau titik penting.
+Gabungkan penempatan label otomatis, garis penghubung, dan ukuran font yang lebih kecil; jika perlu, sembunyikan beberapa bidang (misalnya, kategori) atau tampilkan label hanya untuk nilai ekstrem atau titik kunci.
 
-**Bagaimana cara menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
+**Bagaimana saya dapat menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
 
-Filter titik data sebelum mengaktifkan label dan nonaktifkan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditentukan.
+Saring titik data sebelum mengaktifkan label dan nonaktifkan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditentukan.
 
-**Bagaimana memastikan gaya label konsisten saat mengekspor ke PDF/gambar?**
+**Bagaimana saya dapat memastikan gaya label yang konsisten saat mengekspor ke PDF/gambar?**
 
-Tetapkan secara eksplisit keluarga font dan ukuran, serta verifikasi bahwa font tersedia di lingkungan rendering untuk menghindari fallback.
+Tetapkan secara eksplisit keluarga font dan ukuran serta verifikasi bahwa font tersedia di lingkungan rendering untuk menghindari fallback.
