@@ -14,15 +14,65 @@ keywords:
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides for PHP ผ่าน Java เพื่อสร้างสไลด์ที่น่าสนใจยิ่งขึ้น."
+description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ PHP ผ่าน Java เพื่อให้สไลด์น่าสนใจยิ่งขึ้น."
 ---
 ## **บทนำ**
 
-ป้ายข้อมูลจะแสดงข้อมูลเกี่ยวกับชุดข้อมูลของแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าต่าง ๆ และเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย การควบคุมป้ายเมื่อเกินค่าสูงสุดของแกน การปรับระยะห่างของป้ายแกนประเภท และการกำหนดตำแหน่งของป้ายในแผนภูมิวงกลม
+ป้ายข้อมูลแสดงข้อมูลเกี่ยวกับชุดข้อมูลในแผนภูมิและจุดข้อมูลรายรายการ ช่วยให้ผู้อ่านระบุค่าและเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย การควบคุมป้ายเหนือค่าสูงสุดของแกน การปรับระยะห่างของป้ายแกนประเภท และการกำหนดตำแหน่งป้ายของแผนภูมิวงกลม
 
-## **ตั้งค่าความแม่นยำของข้อมูลในป้ายแผนภูมิ**
+## **จำนวนป้ายข้อมูลที่มองเห็นได้**
 
-ใช้ [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) เพื่อจัดรูปแบบค่าของชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นพร้อมข้อมูลเริ่มต้น แสดงตารางข้อมูล และเปิดใช้งานป้ายค่าของชุดข้อมูลแรก รูปแบบ `#,##0.00` แสดงเครื่องหมายคั่นหลักพันและทศนิยมสองตำแหน่งโดยไม่เปลี่ยนค่าเดิม
+Use [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getcountofvisibledatalabels/) to check how many data labels are enabled for display before publishing a presentation. Unlike [getCount](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getcount/), which returns the total number of labels in the collection, it takes the series defaults and individual label settings into account.
+
+This example creates a column chart with one series and three data points. It accesses the series' label collection through [getLabels](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getlabels/) and prints the visible count as the settings change: **0, 3, 2, 3**. The total count remains **3**.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $seriesCell = $workbook->getCell(0, 0, 1, "Values");
+    $series = $chart->getChartData()->getSeries()->add($seriesCell, $chart->getType());
+
+    for ($i = 0; $i < 3; $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, "Category " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, ($i + 1) * 10);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    $labels = $series->getLabels();
+    echo "Total: " . java_values($labels->getCount()) . "; visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // รวม: 3; แสดง: 0
+
+    $labels->getDefaultDataLabelFormat()->setShowValue(true);
+    echo "Visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // แสดง: 3
+
+    $labels->get_Item(1)->getDataLabelFormat()->setShowValue(false);
+    echo "Visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // แสดง: 2
+
+    $labels->get_Item(1)->getDataLabelFormat()->setShowLegendKey(true);
+    echo "Visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // แสดง: 3
+} finally {
+    $presentation->dispose();
+}
+```
+
+The series' [getDefaultDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getdefaultdatalabelformat/) supplies the default settings. Passing `true` to [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) there displays values for all three labels. Passing `false` through one label's [getDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getdatalabelformat/) overrides that setting for the selected label. Passing `true` to [setShowLegendKey](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowlegendkey/) makes that label count as visible again, even though its value remains hidden.
+
+The visible count reflects visibility settings. It does not measure whether labels overlap, are clipped, or are readable in the rendered chart.
+
+## **ตั้งค่าความแม่นยำของตัวเลขในป้ายข้อมูลของแผนภูมิ**
+
+Use [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
 
 ```php
 use aspose\slides\Presentation;
@@ -46,11 +96,11 @@ try {
 }
 ```
 
-เพื่อจัดรูปแบบเซลล์เชิงตัวเลขในเวิร์กบุ๊กที่ฝังอยู่ของแผนภูมิ ให้ดูที่ [ตั้งค่ารูปแบบตัวเลขแบบกำหนดเองสำหรับเซลล์เวิร์กบุ๊ก](/slides/th/php-java/chart-workbook/#set-custom-number-formats-for-workbook-cells) ตัวอย่างนั้นยังแสดงป้ายค่าที่ทำตามรูปแบบเซลล์ต้นฉบับขณะรักษาค่าตัวเลขที่จัดเก็บไว้
+To format the numeric cells in a chart's embedded workbook, see [Set Custom Number Formats for Workbook Cells](/slides/th/php-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). That example also shows value labels following their source cell formats while preserving the stored numeric values.
 
-## **แสดงเปอร์เซ็นต์เป็นป้าย**
+## **แสดงเปอร์เซ็นต์เป็นป้ายข้อความ**
 
-สำหรับแผนภูมิคอลัมน์แบบซ้อนกัน ให้คำนวณแต่ละค่าเป็นเปอร์เซ็นต์ของผลรวมประเภทนั้นและกำหนดข้อความให้กับกรอบข้อความที่คืนค่าจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) ตัวอย่างนี้ใช้ข้อมูลแผนภูมิปริยายและแสดงเปอร์เซ็นต์สองตำแหน่งทศนิยมด้วยฟอนต์ขนาด 8 จุด ประเภทที่มีผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ หากข้อมูลแผนภูมิมีการเปลี่ยนแปลงให้คำนวณข้อความป้ายแบบกำหนดใหม่
+For a stacked column chart, calculate each value as a percentage of its category total and assign the text to the text frame returned by [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
 
 ```php
 use aspose\slides\Presentation;
@@ -110,11 +160,11 @@ try {
 }
 ```
 
-## **ตั้งสัญลักษณ์เปอร์เซ็นต์ในป้ายแผนภูมิ**
+## **กำหนดสัญลักษณ์เปอร์เซ็นต์ในป้ายข้อมูลของแผนภูมิ**
 
-เมื่อค่าถูกเก็บเป็นเศษส่วน ให้ใช้ [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) เพื่อแสดงเปอร์เซ็นต์ ส่งค่า `false` ไปยัง [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) เพื่อให้รูปแบบป้ายทำงานแยกจากเซลล์ต้นฉบับ
+When values are stored as fractions, use [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) to display percentages. Pass `false` to [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) to apply the label format independently of the source cells.
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบซ้อนกัน 100% ที่มีชุดข้อมูลสีแดงและสีน้ำเงินสี่ประเภท แต่ละคู่ค่ารวมกันเป็น 1 รูปแบบป้าย `0.0%` จะทำให้ 0.30 แสดงเป็น 30.0% ในขณะที่แกนแนวตั้งใช้ทศนิยมสองตำแหน่ง ทั้งสองชุดข้อมูลใช้ข้อความป้ายสีขาวขนาด 10 จุด
+This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
 
 ```php
 use aspose\slides\Presentation;
@@ -174,7 +224,7 @@ try {
 
 ## **อ่านข้อความจริงของป้ายข้อมูล**
 
-ใช้ [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าป้ายข้อมูล การทำเช่นนี้เป็นประโยชน์เมื่อดึงป้ายเพื่อทำรายงาน ค้นหาเนื้อหาในการนำเสนอ หรือยืนยันความถูกต้องของแผนภูมิที่สร้าง ตัวอย่างด้านล่างใช้ [รูปแบบป้ายข้อมูล](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) ปริยายที่รวมชื่อประเภท ชื่อชุดข้อมูล และค่า จุดหนึ่งจัดรูปแบบค่าเป็นเปอร์เซ็นต์ และอีกจุดหนึ่งใช้ข้อความกำหนดเองจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/)
+Use [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```php
 use aspose\slides\Presentation;
@@ -238,15 +288,15 @@ try {
 }
 ```
 
-ค่าที่จัดเก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายจะแสดง `75%` พร้อมกับชื่อประเภทและชุดข้อมูล ข้อความกำหนดเองจะทับข้อความป้ายที่สร้างขึ้น [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) จะคืนสตริงป้ายที่ได้ในทั้งสองกรณี ตรวจสอบ [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) แยกต่างหากตามที่แสดงด้านบนเมื่อคุณต้องการดึงเฉพาะป้ายที่มองเห็นได้
+The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) returns the resulting label string in either case. Check [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) separately, as shown above, when you want to extract only visible labels.
 
-## **ควบคุมป้ายข้อมูลเมื่อเกินค่าสูงสุดของแกน**
+## **ควบคุมป้ายข้อมูลเหนือค่าสูงสุดของแกน**
 
-เมื่อคุณกำหนดช่วงแกนด้วยตนเอง บางจุดข้อมูลอาจเกินค่าตัวสูงสุด ใช้ [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) เพื่อควบคุมว่าจะให้แสดงป้ายของจุดเหล่านั้นหรือไม่ การตั้งค่านี้เปลี่ยนการมองเห็นของป้ายเท่านั้น ไม่ได้เปลี่ยนช่วงแกนหรือค่าข้อมูลพื้นฐาน
+When you limit an axis range manually, some data points may exceed its maximum. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
 
-ตัวอย่างด้านล่างสร้างแผนภูมิคอลัมน์แบบคลัสเตอร์ 2D ที่มีค่า 60 และ 120 โดยส่งค่า `false` ไปยัง [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) แล้วกำหนดค่าสูงสุดเป็น 100 ด้วย [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) บนแกนแนวตั้ง สไลด์แรกอนุญาตให้แสดงป้ายเกินค่าสูงสุด; สไลด์สำเนาเดียวกันจะปิดการแสดงป้าย ทั้งสองสไลด์บันทึกเป็น `DataLabelsOverMaximum.pptx`
+The example below creates a 2D clustered column chart with values of 60 and 120. It passes `false` to [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) and sets the maximum to 100 with [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
 
-เปิดใช้ป้ายค่าด้วย [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). การตั้งค่าระดับแผนภูมิไม่ได้เปิดการแสดงค่าโดยอัตโนมัติ หรือเขียนทับการปิดการแสดงค่าของป้ายแต่ละอัน ตัวอย่างนี้เปิดค่าให้กับชุดข้อมูลทั้งหมดและใช้ [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) เพื่อตำแหน่งป้ายที่ปลายนอกของแต่ละคอลัมน์
+Enable value labels with [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) to place labels at the outside end of each column.
 
 ```php
 use aspose\slides\Presentation;
@@ -298,18 +348,19 @@ try {
 }
 ```
 
-ภาพต่อไปนี้แสดงสไลด์ที่บันทึกและแสดงผลโดย Microsoft PowerPoint ด้วยค่า `true` ป้าย **120** ปรากฏที่ขอบบน; ด้วยค่า `false` ป้ายจะถูกซ่อน ป้าย **60** ยังคงมองเห็นได้ และค่าสูงสุดของแกนยังคงเป็น **100** จุดข้อมูลที่สองยังคงเป็น **120** ในทั้งสองกรณี
+The following images show the saved slides rendered by Microsoft PowerPoint. With `true`, the label **120** is visible at the upper boundary; with `false`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![แผนภูมิ PowerPoint แสดงป้ายค่า 120 พร้อมค่าขีดสุดของแกนที่ 100](data-labels-over-maximum-true.png) | ![แผนภูมิ PowerPoint ซ่อนป้ายค่า 120 พร้อมค่าขีดสุดของแกนที่ 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
 {{% /alert %}}
 
-## **ตั้งค่าระยะห่างของป้ายจากแกน**
+## **กำหนดระยะห่างของป้ายจากแกน**
 
-ใช้ [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทกับแกน ค่าเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบคลัสเตอร์และตั้งค่าการชิดป้ายแกนแนวนอนได้เป็น 500 การตั้งค่านี้ส่งผลต่อป้ายแกนประเภท มากกว่าป้ายที่แนบกับจุดข้อมูลแต่ละจุด
+Use [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
 
 ```php
 use aspose\slides\Presentation;
@@ -331,9 +382,9 @@ try {
 
 ## **ปรับตำแหน่งป้าย**
 
-บนแผนภูมิก้วงกลม ปรับตำแหน่งป้ายข้อมูลเพื่อเพิ่มระยะห่างและทำให้มีพื้นที่สำหรับเส้นนำ
+On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
 
-ตัวอย่างนี้แสดงค่าสำหรับจุดข้อมูลแรก วางป้ายไว้ด้านนอกส่วนของแผนภูมิ และปรับค่าชดเชยแนวนอนและแนวตั้งด้วย [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) และ [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) ค่าชดเชยนี้เป็นสัดส่วนของความกว้างและความสูงของแผนภูมิ
+This example displays the value of the first data point, places its label outside the slice, and adjusts its horizontal and vertical offsets using [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) and [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/). These offsets are relative to the chart width and height, respectively.
 
 ```php
 use aspose\slides\Presentation;
@@ -360,17 +411,17 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![แผนภูมิวงกลมแสดงตำแหน่งป้ายข้อมูลที่ปรับแล้ว](pie-chart-adjusted-label.png)
 
-## **จัดรูปแบบเส้นนำ**
+## **ฟอร์แมตเส้นนำ**
 
-เมื่อป้ายแผนภูมิก้วงกลมอยู่ด้านนอกส่วนของแผนภูมิ เส้นนำช่วยให้ผู้อ่านเชื่อมโยงค่ากับส่วนที่ตรงกัน สีที่ตัดกันและเส้นที่หนาเล็กน้อยทำให้การเชื่อมต่ออ่านง่ายขึ้น ส่วนใสและสไตล์เป็นเส้นประช่วยให้เส้นไม่เด่นเกินไป
+When pie chart labels sit outside their slices, leader lines help readers match each value to the correct slice. A contrasting color and a slightly thicker line can make these connections easier to follow, while transparency and a dashed style keep the lines visually unobtrusive.
 
-ใช้ [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) เพื่อจัดรูปแบบเส้นนำระดับคอลเลกชันของป้ายข้อมูลของชุดข้อมูล การตั้งค่าใน `$series->getLabels()->getLeaderLinesFormat()->getLine()` จะส่งผลต่อคอลเลกชันทั้งหมด ไม่ได้กำหนดให้กับป้ายแต่ละอัน
+Use [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) to format leader lines at the series' data label collection level. The settings in `$series->getLabels()->getLeaderLinesFormat()->getLine()` apply to the collection, rather than to an individual label.
 
-ตัวอย่างนี้สร้างแผนภูมิก้วงกลมด้วยข้อมูลปริยาย แสดงค่าที่ด้านนอกส่วนของแผนภูมิและเปิดใช้งาน [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/) ย้ายป้ายสองอันให้อยู่ห่างจากส่วนของแผนภูมิมากขึ้นด้วยการตั้งค่า [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) และ [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) เป็นส่วนของความกว้างและความสูงของแผนภูมิ ไม่จำเป็นต้องมีการนำเสนออินพุต
+This example creates a pie chart with default data, displays values outside the slices, and enables [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/). It moves two labels farther from their slices using [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) and [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) offsets, expressed as fractions of the chart width and height. No input presentation is required.
 
-รูปแบบของเส้นโดยใช้ [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) ตั้งค่าสีฟ้าเข้มทึบพร้อมค่าอัลฟา 191 จาก 255 ให้ความโปร่งใสประมาณ 25% [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) ตั้งความหนาเป็น 2 จุด และ [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) ทำให้เส้นเป็นเส้นประ
+The line's [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) sets a solid blue color with an alpha value of 191 out of 255, giving approximately 25% transparency. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) sets the thickness to 2 points, and [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) makes the line dashed.
 
 ```php
 use aspose\slides\Presentation;
@@ -394,7 +445,7 @@ try {
     $labelFormat->setPosition(LegendDataLabelPosition::OutsideEnd);
     $labelFormat->setShowLeaderLines(true);
 
-    // ย้ายป้ายสองใบให้ห่างออกจากส่วนของแผนภูมิมากขึ้น.
+    // ย้ายป้ายสองอันให้ห่างออกจากส่วนของแผนภูมิ.
     $series->getLabels()->get_Item(0)->setX(0.10);
     $series->getLabels()->get_Item(0)->setY(-0.05);
     $series->getLabels()->get_Item(1)->setX(-0.10);
@@ -413,17 +464,17 @@ try {
 }
 ```
 
-การเปิดใช้เส้นนำไม่ได้รับประกันว่าจะมีเส้นสำหรับทุกป้าย การมองเห็นขึ้นกับตำแหน่งป้ายและพฤติกรรมการจัดวางของแผนภูมิ ในตัวอย่างนี้สองป้ายที่เคลื่อนที่ออกมามีเส้นนำที่มองเห็นได้; ป้ายที่ยังคงใกล้ส่วนของแผนภูมิไม่จำเป็นต้องมีเส้นนำ
+Enabling leader lines does not guarantee that a line will appear for every label. Visibility depends on label placement and the chart's layout behavior. In this example, the two displaced labels have visible leader lines; the labels that remain close to their slices do not need them.
 
-ภาพต่อไปนี้แสดงไฟล์ `FormattedLeaderLines.pptx` ที่บันทึกและแสดงผลด้วย Aspose.Slides:
+The following image shows the saved `FormattedLeaderLines.pptx` rendered with Aspose.Slides:
 
-![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+![แผนภูมิวงกลมที่มีเส้นนำสีน้ำเงิน กึ่งโปร่งแสง แบบประหลาดเชื่อมสองป้ายที่อยู่นอกกับส่วนของแผนภูมิ](formatted-leader-lines.png)
 
 ## **เพิ่มหลายแถวของป้ายข้อมูลเหนือแผนภูมิคอลัมน์**
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ที่มีสองแถวของป้ายข้อมูลเหนือพื้นที่การพล็อต Series A แสดงคอลัมน์ที่มองเห็นได้ ส่วน Series B และ Series C ให้ป้ายเพิ่มเติม คอลัมน์ของพวกเขาถูกซ่อนโดยการลบการเติมสีและเส้นขอบ วิธีการ [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) ทำให้ทั้งสามชุดข้อมูลจัดแนวศูนย์ประเภทเดียวกัน
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) method aligns all three series with the same category centers.
 
-การตั้งค่า [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) จองพื้นที่สำหรับแถวของป้าย หลังจากที่ [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) คำนวณตำแหน่งเริ่มต้น [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) และ [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) จะรักษาการจัดแนวนอนและปรับชดเชยแนวตั้งเพื่อจัดป้ายเป็นสองแถว ตัวเลขยังคงเป็นป้ายข้อมูลที่เชื่อมโยงกับค่าชุดข้อมูล; เพียงหัวข้อแถวที่เป็นรูปร่างข้อความแยกต่างหาก
+The [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) settings reserve space for the label rows. After [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) calculates the default positions, [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) and [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
 
 ```php
 use aspose\slides\Presentation;
@@ -474,7 +525,7 @@ try {
         }
 
         if ($seriesIndex > 0) {
-            // ซ่อนคอลัมน์ของ B และ C แต่คงป้ายข้อมูลไว้.
+            // ซ่อนคอลัมน์ของ B และ C แต่คงป้ายข้อมูลไว้
             $series->getFormat()->getFill()->setFillType(FillType::NoFill);
             $series->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
             $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
@@ -487,7 +538,7 @@ try {
         }
     }
 
-    // จัดแนวชุดข้อมูลทั้งสามให้ตรงกับศูนย์ประเภทเดียวกัน.
+    // จัดตำแหน่งชุดข้อมูลทั้งสามให้ตรงกับศูนย์กลางประเภทเดียวกัน.
     $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setOverlap(100);
 
     // ใช้เส้นกริดน้อยลงสำหรับตัวอย่างที่กระชับนี้.
@@ -511,14 +562,14 @@ try {
 
         for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
             $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
-            // คงตำแหน่งแนวนอนเริ่มต้นไว้. Y เป็นการชดเชยจาก
-            // ตำแหน่งป้ายเริ่มต้น, แสดงเป็นสัดส่วนของความสูงแผนภูมิ.
+            // รักษาตำแหน่งแนวนอนตามค่าเริ่มต้น. Y เป็นการชดเชยจาก
+            // ตำแหน่งป้ายเริ่มต้น, แสดงเป็นส่วนของความสูงของแผนภูมิ.
             $actualY = java_values($dataLabel->getActualY());
             $dataLabel->setX(0);
             $dataLabel->setY($rowTop - $actualY / $chartHeight);
         }
 
-        // เฉพาะหัวแถวเท่านั้นที่เป็นรูปร่างข้อความแยกต่างหาก.
+        // เฉพาะหัวแถวเป็นรูปทรงข้อความแยกต่างหาก.
         $rowHeading = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $chartX, $chartY + $rowTop * $chartHeight, 85, 18);
         $rowHeading->getFillFormat()->setFillType(FillType::NoFill);
         $rowHeading->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
@@ -537,19 +588,19 @@ try {
 }
 ```
 
-![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+![แผนภูมิคอลัมน์ที่มีสองแถวของป้ายข้อมูลเหนือพื้นที่พล็อต](multiple-rows-of-labels.png)
 
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะป้องกันไม่ให้ป้ายข้อมูลทับซ้อนกันในแผนภูมิเกาได้อย่างไร?**
+**ฉันจะป้องกันป้ายข้อมูลไม่ให้ทับซ้อนบนแผนภูมิที่แน่นได้อย่างไร?**
 
-รวมการวางป้ายอัตโนมัติ, เส้นนำ, และการลดขนาดฟอนต์; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น ประเภท) หรือแสดงป้ายเฉพาะค่าขีดสุดหรือจุดสำคัญเท่านั้น
+Combine automatic label placement, leader lines, and reduced font size; if necessary, hide some fields (for example, the category) or show labels only for extreme values or key points.
 
-**ฉันจะปิดการแสดงป้ายสำหรับค่าเป็นศูนย์, ลบ, หรือว่างได้อย่างไร?**
+**ฉันจะปิดการใช้งานป้ายสำหรับค่าศูนย์ ค่าลบ หรือค่าว่างได้อย่างไร?**
 
-กรองจุดข้อมูลก่อนเปิดป้ายและปิดการแสดงสำหรับค่าที่เป็น 0, ค่าลบ, หรือค่าที่หายไปตามกฎที่กำหนด
+Filter data points before enabling labels and turn off display for values of 0, negative values, or missing values according to a defined rule.
 
-**ฉันจะทำให้รูปแบบป้ายคงที่เมื่อนำออกเป็น PDF/รูปภาพได้อย่างไร?**
+**ฉันจะทำให้สไตล์ของป้ายคงที่เมื่อส่งออกเป็น PDF/ภาพได้อย่างไร?**
 
-ตั้งค่าครอบครัวและขนาดฟอนต์อย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นมีอยู่ในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง
+Explicitly set the font family and size and verify that the font is available in the rendering environment to avoid fallback.

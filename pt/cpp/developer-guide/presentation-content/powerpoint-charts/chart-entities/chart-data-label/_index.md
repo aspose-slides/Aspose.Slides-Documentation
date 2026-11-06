@@ -7,7 +7,7 @@ keywords:
 - gráfico
 - rótulo de dados
 - precisão de dados
-- percentual
+- porcentagem
 - distância do rótulo
 - localização do rótulo
 - PowerPoint
@@ -18,11 +18,79 @@ description: "Aprenda a adicionar e formatar rótulos de dados de gráficos em a
 ---
 ## **Introdução**
 
-Rótulos de dados exibem informações sobre as séries do gráfico e pontos de dados individuais, ajudando os leitores a identificar valores e entender o gráfico. Este artigo explica como formatar valores, exibir percentuais, ler o texto do rótulo, controlar rótulos além do máximo do eixo, ajustar o espaçamento dos rótulos do eixo de categorias e posicionar rótulos de gráficos de pizza.
+Rótulos de dados exibem informações sobre as séries de gráficos e pontos de dados individuais, ajudando os leitores a identificar valores e entender o gráfico. Este artigo explica como formatar valores, exibir porcentagens, ler o texto do rótulo, controlar rótulos além do máximo do eixo, ajustar o espaçamento dos rótulos do eixo de categorias e posicionar rótulos de gráfico de pizza.
 
-## **Definir Precisão dos Dados nos Rótulos do Gráfico**
+## **Contar Rótulos de Dados Visíveis**
 
-Use [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) para formatar os valores da série. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita os rótulos de valor para a primeira série. O formato `#,##0.00` exibe um separador de milhar e duas casas decimais sem alterar os valores subjacentes.
+Use [get_CountOfVisibleDataLabels](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_countofvisibledatalabels/) para verificar quantos rótulos de dados estão habilitados para exibição antes de publicar uma apresentação. Ao contrário de [get_Count](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_count/), que retorna o número total de rótulos na coleção, ele leva em conta os padrões da série e as configurações individuais de rótulo.
+
+Este exemplo cria um gráfico de colunas com uma série e três pontos de dados. Ele acessa a coleção [get_Labels](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_labels/) da série e imprime a contagem visível à medida que as configurações mudam: **0, 3, 2, 3**. A contagem total permanece **3**.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto seriesCell = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Values"));
+auto series = chart->get_ChartData()->get_Series()->Add(seriesCell, chart->get_Type());
+
+for (auto i = 0; i < 3; i++)
+{
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, ObjectExt::Box(String::Format(u"Category {0}", i + 1)));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+    auto valueCell = workbook->GetCell(0, i + 1, 1, ObjectExt::Box((i + 1) * 10));
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
+
+auto labels = series->get_Labels();
+Console::WriteLine(String::Format(u"Total: {0}; visible: {1}", labels->get_Count(), labels->get_CountOfVisibleDataLabels())); // Total: 3; visível: 0
+
+labels->get_DefaultDataLabelFormat()->set_ShowValue(true);
+Console::WriteLine(String::Format(u"Visible: {0}", labels->get_CountOfVisibleDataLabels())); // Visível: 3
+
+labels->idx_get(1)->get_DataLabelFormat()->set_ShowValue(false);
+Console::WriteLine(String::Format(u"Visible: {0}", labels->get_CountOfVisibleDataLabels())); // Visível: 2
+
+labels->idx_get(1)->get_DataLabelFormat()->set_ShowLegendKey(true);
+Console::WriteLine(String::Format(u"Visible: {0}", labels->get_CountOfVisibleDataLabels())); // Visível: 3
+```
+
+A série' [get_DefaultDataLabelFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_defaultdatalabelformat/) fornece as configurações padrão. Chamar [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) com `true` exibe valores para todos os três rótulos. Passar `false` por meio do [get_DataLabelFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_datalabelformat/) de um rótulo substitui essa configuração para o rótulo selecionado. Chamar [set_ShowLegendKey](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showlegendkey/) com `true` faz com que esse rótulo volte a contar como visível, embora seu valor permaneça oculto.
+
+A contagem visível reflete as configurações de visibilidade. Ela não mede se os rótulos se sobrepõem, são recortados ou são legíveis no gráfico renderizado.
+
+## **Definir Precisão dos Dados nos Rótulos de Dados do Gráfico**
+
+Use [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) para formatar os valores da série. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita rótulos de valor para a primeira série. O formato `#,##0.00` exibe um separador de milhares e duas casas decimais sem alterar os valores subjacentes.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -57,11 +125,11 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
-Para formatar as células numéricas na pasta de trabalho incorporada a um gráfico, veja [Set Custom Number Formats for Workbook Cells](/slides/pt/cpp/chart-workbook/#set-custom-number-formats-for-workbook-cells). Esse exemplo também mostra rótulos de valor seguindo os formatos das células de origem enquanto preserva os valores numéricos armazenados.
+Para formatar as células numéricas na pasta de trabalho incorporada ao gráfico, veja [Definir formatos numéricos personalizados para células da pasta de trabalho](/slides/pt/cpp/chart-workbook/#set-custom-number-formats-for-workbook-cells). Esse exemplo também mostra rótulos de valor seguindo os formatos das células de origem, preservando os valores numéricos armazenados.
 
-## **Exibir Percentual como Rótulos**
+## **Exibir Porcentagem como Rótulos**
 
-Para um gráfico de colunas empilhadas, calcule cada valor como percentual do total da sua categoria e atribua o texto ao quadro de texto retornado por [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Este exemplo usa os dados padrão do gráfico e exibe percentuais com duas casas decimais em fonte de 8 pontos. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto do rótulo personalizado se os dados do gráfico mudarem.
+Para um gráfico de colunas empilhadas, calcule cada valor como uma porcentagem do total da sua categoria e atribua o texto ao quadro de texto retornado por [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Este exemplo usa os dados padrão do gráfico e exibe porcentagens com duas casas decimais em fonte de 8 pontos. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto do rótulo personalizado se os dados do gráfico mudarem.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -149,11 +217,11 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Definir Sinal de Percentual nos Rótulos de Dados do Gráfico**
+## **Definir Símbolo de Porcentagem nos Rótulos de Dados do Gráfico**
 
-Quando os valores são armazenados como frações, use [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) para exibir percentuais. Passe `false` para [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) para aplicar o formato do rótulo independentemente das células de origem.
+Quando os valores são armazenados como frações, use [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) para exibir porcentagens. Passe `false` para [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) para aplicar o formato do rótulo independentemente das células de origem.
 
-Este exemplo cria um gráfico de colunas empilhadas 100% com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0,30 como 30,0%, enquanto o eixo vertical usa duas casas decimais. Ambas as séries usam texto de rótulo branco, tamanho 10 pontos.
+Este exemplo cria um gráfico de colunas empilhadas 100% com série vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0,30 como 30,0%, enquanto o eixo vertical usa duas casas decimais. Ambas as séries utilizam texto de rótulo branco, tamanho 10.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -240,7 +308,7 @@ presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 
 ## **Ler o Texto Real dos Rótulos de Dados**
 
-Use [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) para recuperar o texto gerado pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo de apresentações ou validar gráficos gerados. No exemplo abaixo, o [formato de rótulo de dados](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) padrão combina o nome de cada categoria, o nome da série e o valor. Um ponto formata seu valor como percentual, e outro usa texto personalizado de [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+Use [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) para recuperar o texto gerado pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo da apresentação ou validar gráficos gerados. No exemplo abaixo, o [formato de rótulo de dados](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) combina o nome de cada categoria, o nome da série e o valor. Um ponto formata seu valor como porcentagem, e outro usa texto personalizado de [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -328,15 +396,15 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-O número armazenado em um ponto de dados permanece `0.75`, mesmo quando seu rótulo mostra `75%` juntamente com os nomes da categoria e da série. Texto personalizado substitui o texto do rótulo gerado. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) retorna a string do rótulo resultante em ambos os casos. Verifique [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) separadamente, como mostrado acima, quando quiser extrair apenas rótulos visíveis.
+O número armazenado em um ponto de dados permanece `0.75`, mesmo quando seu rótulo mostra `75%` juntamente com os nomes da categoria e da série. Texto personalizado substitui o texto gerado do rótulo. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) retorna a string de rótulo resultante em ambos os casos. Verifique [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) separadamente, como mostrado acima, quando quiser extrair apenas rótulos visíveis.
 
 ## **Controlar Rótulos de Dados Além do Máximo do Eixo**
 
-Quando você limita manualmente o intervalo de um eixo, alguns pontos de dados podem exceder seu máximo. Use [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) para controlar se seus rótulos de dados são exibidos. Essa configuração altera a visibilidade dos rótulos; não altera o intervalo do eixo nem os valores subjacentes dos dados.
+Quando você limita manualmente o intervalo de um eixo, alguns pontos de dados podem exceder seu máximo. Use [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) para controlar se os rótulos de dados são exibidos. Essa configuração altera a visibilidade dos rótulos; não altera o intervalo do eixo nem os valores subjacentes dos dados.
 
 O exemplo abaixo cria um gráfico de colunas agrupadas 2D com valores 60 e 120. Ele define [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) como `false` e [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) como 100 no eixo vertical. O primeiro slide permite rótulos além do máximo; uma cópia desse slide os desabilita. Ambos os slides são salvos em `DataLabelsOverMaximum.pptx`.
 
-Habilite rótulos de valor com [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). A configuração ao nível do gráfico não habilita a exibição de valores por si só nem substitui a exibição desabilitada de um rótulo individual. Este exemplo habilita valores para toda a série e usa [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) para posicionar os rótulos na extremidade externa de cada coluna.
+Habilite rótulos de valor com [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). A configuração ao nível do gráfico não habilita a exibição de valores por si só nem substitui a exibição de valor desabilitada de um rótulo individual. Este exemplo habilita valores para toda a série e usa [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) para posicionar os rótulos no extremo externo de cada coluna.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -411,15 +479,15 @@ As imagens a seguir mostram os slides salvos renderizados pelo Microsoft PowerPo
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![Gráfico do PowerPoint mostrando o rótulo de valor 120 com um máximo do eixo de 100](data-labels-over-maximum-true.png) | ![Gráfico do PowerPoint ocultando o rótulo de valor 120 com um máximo do eixo de 100](data-labels-over-maximum-false.png) |
+| ![Gráfico do PowerPoint mostrando o rótulo de valor 120 com um máximo de eixo de 100](data-labels-over-maximum-true.png) | ![Gráfico do PowerPoint ocultando o rótulo de valor 120 com um máximo de eixo de 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Este exemplo usa um gráfico de colunas 2D com um eixo de valores. Gráficos sem eixo de valores, como gráficos de pizza e rosquinha, não têm um máximo de eixo a ser limitado dessa forma.
+Este exemplo usa um gráfico de colunas 2D com eixo de valores. Gráficos sem eixo de valores, como gráficos de pizza e rosquinha, não possuem um máximo de eixo para limitar desta forma.
 {{% /alert %}}
 
 ## **Definir Distância do Rótulo a partir de um Eixo**
 
-Use [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) para controlar a distância entre os rótulos do eixo de categorias e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento do rótulo do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categorias em vez dos rótulos ligados a pontos de dados individuais.
+Use [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) para controlar a distância entre os rótulos do eixo de categorias e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento do rótulo do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categorias, e não os rótulos anexados a pontos de dados individuais.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -449,9 +517,9 @@ presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 
 ## **Ajustar Localização do Rótulo**
 
-Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e criar espaço para linhas de ligação.
+Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e abrir espaço para linhas de ligação.
 
-Este exemplo exibe o valor do primeiro ponto de dados, coloca seu rótulo fora da fatia e usa [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) e [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) para ajustar seus deslocamentos. Esses deslocamentos são relativos à largura e altura do gráfico, respectivamente.
+Este exemplo exibe o valor do primeiro ponto de dados, posiciona seu rótulo fora da fatia e usa [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) e [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) para ajustar seus deslocamentos. Esses deslocamentos são relativos à largura e altura do gráfico, respectivamente.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -493,13 +561,13 @@ presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 ## **Formatar Linhas de Ligação**
 
-Quando os rótulos de um gráfico de pizza ficam fora de suas fatias, linhas de ligação ajudam os leitores a associar cada valor à fatia correta. Uma cor contrastante e uma linha levemente mais espessa podem tornar essas conexões mais fáceis de seguir, enquanto transparência e estilo tracejado mantêm as linhas visualmente discretas.
+Quando os rótulos de um gráfico de pizza ficam fora de suas fatias, as linhas de ligação ajudam os leitores a associar cada valor à fatia correta. Uma cor contrastante e uma linha ligeiramente mais grossa podem facilitar o seguimento dessas conexões, enquanto transparência e estilo tracejado mantêm as linhas visualmente discretas.
 
-Use [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) para formatar linhas de ligação no nível da coleção de rótulos de dados da série. As configurações em `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` se aplicam à coleção, e não a um rótulo individual.
+Use [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) para formatar linhas de ligação no nível da coleção de rótulos de dados da série. As configurações em `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` aplicam‑se à coleção, e não a um rótulo individual.
 
 Este exemplo cria um gráfico de pizza com dados padrão, exibe valores fora das fatias e habilita linhas de ligação com [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/). Ele move dois rótulos mais longe de suas fatias usando deslocamentos [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) e [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/), expressos como frações da largura e altura do gráfico. Nenhuma apresentação de entrada é necessária.
 
-O formato de preenchimento retornado por [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) é usado para definir uma cor azul sólido com um valor alfa de 191 de 255, proporcionando aproximadamente 25% de transparência. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) define a espessura para 2 pontos, e [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) torna a linha tracejada.
+O formato de preenchimento retornado por [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) é usado para definir uma cor azul sólida com um valor alfa de 191 de 255, proporcionando aproximadamente 25% de transparência. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) define a espessura para 2 pontos, e [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) torna a linha tracejada.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -544,7 +612,7 @@ labelFormat->set_ShowValue(true);
 labelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
 labelFormat->set_ShowLeaderLines(true);
 
-// Mover dois rótulos mais longe de suas fatias.
+// Mova dois rótulos mais longe de suas fatias.
 series->get_Label(0)->set_X(0.10f);
 series->get_Label(0)->set_Y(-0.05f);
 series->get_Label(1)->set_X(-0.10f);
@@ -559,17 +627,17 @@ line->set_DashStyle(LineDashStyle::Dash);
 presentation->Save(u"FormattedLeaderLines.pptx", SaveFormat::Pptx);
 ```
 
-Habilitar linhas de ligação não garante que uma linha aparecerá para cada rótulo. A visibilidade depende do posicionamento do rótulo e do comportamento de layout do gráfico. Neste exemplo, os dois rótulos deslocados têm linhas de ligação visíveis; os rótulos que permanecem próximos às suas fatias não precisam delas.
+Habilitar linhas de ligação não garante que uma linha aparecerá para cada rótulo. A visibilidade depende do posicionamento do rótulo e do comportamento de layout do gráfico. Neste exemplo, os dois rótulos deslocados possuem linhas de ligação visíveis; os rótulos que permanecem próximos às suas fatias não precisam delas.
 
-A imagem a seguir mostra o `FormattedLeaderLines.pptx` salvo, renderizado com Aspose.Slides:
+A imagem a seguir mostra o `FormattedLeaderLines.pptx` salvo renderizado com Aspose.Slides:
 
 ![Gráfico de pizza com linhas de ligação azuis, semitransparentes e tracejadas conectando dois rótulos externos às suas fatias](formatted-leader-lines.png)
 
-## **Adicionar Várias Linhas de Rótulos de Dados Acima de um Gráfico de Colunas**
+## **Adicionar Múltiplas Linhas de Rótulos de Dados Acima de um Gráfico de Colunas**
 
-Este exemplo cria um gráfico de colunas com duas linhas de rótulos de dados acima da área de plotagem. A Série A exibe as colunas visíveis, enquanto as Séries B e C fornecem os rótulos adicionais. Suas colunas são ocultadas removendo o preenchimento e o contorno. O método [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) alinha as três séries ao mesmo centro de categoria.
+Este exemplo cria um gráfico de colunas com duas linhas de rótulos de dados acima da área de plotagem. A Série A exibe as colunas visíveis, enquanto as Séries B e C fornecem os rótulos adicionais. Suas colunas são ocultas removendo o preenchimento e o contorno. O método [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) alinha as três séries ao mesmo centro de categoria.
 
-As configurações de [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) reservam espaço para as linhas de rótulos. Após [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) calcular as posições padrão, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) e [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) preservam o alinhamento horizontal e aplicam deslocamentos verticais para organizar os rótulos em duas linhas. Os números permanecem rótulos de dados vinculados aos valores das séries; apenas os cabeçalhos das linhas são formas de texto separadas.
+As configurações [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) reservam espaço para as linhas de rótulos. Após [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) calcular as posições padrão, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) e [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) preservam o alinhamento horizontal e aplicam deslocamentos vertical para organizar os rótulos em duas linhas. Os números permanecem como rótulos de dados vinculados aos valores das séries; apenas os cabeçalhos das linhas são formas de texto separadas.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -663,7 +731,7 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // Ocultar as colunas de B e C, mas manter seus rótulos de dados.
+        // Oculte as colunas de B e C, mas mantenha seus rótulos de dados.
         series->get_Format()->get_Fill()->set_FillType(FillType::NoFill);
         series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
         auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
@@ -676,14 +744,14 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
     }
 }
 
-// Alinhar as três séries com os mesmos centros de categoria.
+// Alinhe as três séries ao mesmo centro de categoria.
 chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
 
-// Usar menos linhas de grade neste exemplo compacto.
+// Use menos linhas de grade para este exemplo compacto.
 chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
 chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
 
-// Reservar espaço acima da área de plotagem para duas linhas de rótulos de dados.
+// Reserve espaço acima da área de plotagem para duas linhas de rótulos de dados.
 chart->get_PlotArea()->set_LayoutTargetType(LayoutTargetType::Inner);
 chart->get_PlotArea()->set_X(0.15f);
 chart->get_PlotArea()->set_Y(0.32f);
@@ -699,13 +767,13 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
     for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
     {
         auto dataLabel = series->get_DataPoint(categoryIndex)->get_Label();
-        // Manter a posição horizontal padrão. Y é um deslocamento de
-        // a posição padrão do rótulo, expressado como fração da altura do gráfico.
+        // Mantenha a posição horizontal padrão. Y é um deslocamento a partir de
+        // a posição padrão do rótulo, expressa como fração da altura do gráfico.
         dataLabel->set_X(0);
         dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
     }
 
-    // Apenas o título da linha é uma forma de texto separada.
+    // Apenas o cabeçalho da linha é uma forma de texto separada.
     auto rowHeading = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, chart->get_X(), chart->get_Y() + rowTop * chart->get_Height(), 85, 18);
     rowHeading->get_FillFormat()->set_FillType(FillType::NoFill);
     rowHeading->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -725,14 +793,11 @@ presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Como posso impedir que os rótulos de dados se sobreponham em gráficos densos?**
+**Como posso impedir que os rótulos de dados se sobreponham em gráficos densos?**  
+Combine posicionamento automático de rótulos, linhas de ligação e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou mostre rótulos apenas para valores extremos ou pontos chave.
 
-Combine posicionamento automático de rótulos, linhas de ligação e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou mostre rótulos apenas para valores extremos ou pontos‑chave.
-
-**Como posso desativar rótulos apenas para valores zero, negativos ou vazios?**
-
+**Como posso desativar rótulos apenas para valores zero, negativos ou vazios?**  
 Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores 0, valores negativos ou valores ausentes de acordo com uma regra definida.
 
-**Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**
-
-Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar substituições.
+**Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**  
+Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar fallback.

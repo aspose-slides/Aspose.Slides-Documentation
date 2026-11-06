@@ -1,5 +1,5 @@
 ---
-title: Управление подписями данных диаграммы в презентациях с помощью JavaScript
+title: Управление подписями данных диаграмм в презентациях с использованием JavaScript
 linktitle: Подпись данных
 type: docs
 url: /ru/nodejs-java/chart-data-label/
@@ -15,15 +15,64 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint с помощью JavaScript и Aspose.Slides для Node.js через Java, чтобы сделать слайды более интересными."
+description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint с помощью JavaScript и Aspose.Slides для Node.js через Java, чтобы создать более привлекательные слайды."
 ---
 ## **Введение**
 
-Подписи данных отображают информацию о сериях диаграммы и отдельных точках данных, помогая читателям идентифицировать значения и понимать диаграмму. Эта статья объясняет, как форматировать значения, отображать проценты, читать текст подписи, управлять подписями за пределами максимального значения оси, регулировать расстояние подписей оси категорий и позиционировать подписи круговой диаграммы.
+Подписи данных отображают информацию о сериях диаграммы и отдельных точках данных, помогая читателям идентифицировать значения и понимать диаграмму. В этой статье объясняется, как форматировать значения, отображать проценты, считывать текст подписи, управлять подписями за пределами максимума оси, регулировать интервал подписей оси категорий и позиционировать подписи на круговой диаграмме.
 
-## **Установка точности данных в подписьх диаграммы**
+## **Подсчёт видимых подписей данных**
 
-Используйте [setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) для форматирования значений серии. Этот пример создает линейную диаграмму с данными по умолчанию, отображает её таблицу данных и включает подписи значений для первой серии. Формат `#,##0.00` отображает разделитель тысяч и два десятичных знака без изменения исходных значений.
+Используйте [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getcountofvisibledatalabels/) чтобы проверить, сколько подписей данных включено для отображения перед публикацией презентации. В отличие от [getCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getcount/), который возвращает общее количество подписей в коллекции, он учитывает настройки по умолчанию для серий и отдельные настройки подписи.
+
+Этот пример создает столбчатую диаграмму с одной серией и тремя точками данных. Он получает доступ к коллекции подписей серии через [getLabels](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getlabels/) и выводит количество видимых подписей при изменении настроек: **0, 3, 2, 3**. Общее количество остаётся **3**.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const seriesCell = workbook.getCell(0, 0, 1, "Values");
+    const series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+
+    for (let i = 0; i < 3; i++) {
+        const categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        const valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    const labels = series.getLabels();
+    console.log("Total: " + labels.getCount() + "; visible: " + labels.getCountOfVisibleDataLabels()); // Всего: 3; видимых: 0
+
+    labels.getDefaultDataLabelFormat().setShowValue(true);
+    console.log("Visible: " + labels.getCountOfVisibleDataLabels()); // Видимых: 3
+
+    labels.get_Item(1).getDataLabelFormat().setShowValue(false);
+    console.log("Visible: " + labels.getCountOfVisibleDataLabels()); // Видимых: 2
+
+    labels.get_Item(1).getDataLabelFormat().setShowLegendKey(true);
+    console.log("Visible: " + labels.getCountOfVisibleDataLabels()); // Видимых: 3
+} finally {
+    presentation.dispose();
+}
+```
+
+Метод серии [getDefaultDataLabelFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getdefaultdatalabelformat/) предоставляет настройки по умолчанию. Передача `true` в [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) отображает значения для всех трёх подписей. Передача `false` через [getDataLabelFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getdatalabelformat/) отдельной подписи переопределяет эту настройку для выбранной подписи. Передача `true` в [setShowLegendKey](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowlegendkey/) заставляет эту подпись снова учитываться как видимая, хотя её значение остаётся скрытым.
+
+Количество видимых подписей отражает настройки видимости. Оно не измеряет, перекрываются ли подписи, обрезаны ли они или читаемы в отрисованной диаграмме.
+
+## **Установить точность данных в подписях диаграммы**
+
+Используйте [setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) для форматирования значений серии. Этот пример создает линейную диаграмму с данными по умолчанию, отображает её таблицу данных и включает подписи значений для первой серии. Формат `#,##0.00` выводит разделитель тысяч и две десятичные позиции без изменения исходных значений.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -45,11 +94,11 @@ try {
 }
 ```
 
-Чтобы отформатировать числовые ячейки во встроенной книге диаграммы, см. [Set Custom Number Formats for Workbook Cells](/slides/ru/nodejs-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Этот пример также показывает подписи значений, следящие за форматами их исходных ячеек, при сохранении хранимых числовых значений.
+Чтобы отформатировать числовые ячейки в встроенной книге диаграммы, см. [Set Custom Number Formats for Workbook Cells](/slides/ru/nodejs-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Этот пример также демонстрирует подписи значений, которые используют форматы исходных ячеек, при этом сохраняются сохранённые числовые значения.
 
-## **Отображение процентов в виде подписей**
+## **Отображать процент в виде подписей**
 
-Для сложенной столбчатой диаграммы вычислите каждое значение как процент от общей суммы категории и присвойте текст фрейму текста, возвращённому методом [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Этот пример использует данные диаграммы по умолчанию и отображает проценты с двумя десятичными знаками шрифтом 8 пунктов. Категории с нулевой суммой пропускаются, чтобы избежать деления на ноль. Пересчитайте пользовательский текст подписи, если данные диаграммы изменятся.
+Для сложенной столбчатой диаграммы вычислите каждое значение как процент от общего итога категории и присвойте текст фрейму текста, возвращённому методом [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Этот пример использует данные диаграммы по умолчанию и отображает проценты с двумя знаками после запятой шрифтом 8 пунктов. Категории с нулевым общим итогом пропускаются, чтобы избежать деления на ноль. Пересчитайте пользовательский текст подписи, если данные диаграммы изменятся.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -105,11 +154,11 @@ try {
 }
 ```
 
-## **Установка знака процента в подписях диаграммы**
+## **Установить знак процента в подписях диаграммы**
 
 Когда значения хранятся в виде дробей, используйте [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) для отображения процентов. Передайте `false` в [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/), чтобы применить формат подписи независимо от исходных ячеек.
 
-Этот пример создаёт 100% сложенную столбчатую диаграмму с красными и синими сериалами по четырём категориям. Каждая пара значений в сумме даёт 1. Формат подписи `0.0%` отображает 0.30 как 30.0%, тогда как вертикальная ось использует два десятичных знака. Обе серии используют белый текст подписи размером 10 пунктов.
+Этот пример создаёт 100%-ную сложенную столбчатую диаграмму с красной и синей сериями по четырём категориям. Каждая пара значений в сумме даёт 1. Формат подписи `0.0%` выводит 0.30 как 30.0%, тогда как вертикальная ось использует две десятичные позиции. Обе серии используют белый текст подписи размером 10 пунктов.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,9 +214,9 @@ try {
 }
 ```
 
-## **Чтение фактического текста подписи данных**
+## **Получить фактический текст подписей данных**
 
-Используйте [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) для получения текста, сформированного настройками подписи данных. Это полезно при извлечении подписей для отчетов, поиске содержимого презентации или проверке сгенерированных диаграмм. В примере ниже по умолчанию [data label format](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) комбинирует имя категории, имя серии и значение. Одна точка форматирует своё значение как процент, а другая использует пользовательский текст из [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
+Используйте [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) для получения текста, сформированного настройками подписи данных. Это полезно при извлечении подписей для отчетов, поиске содержимого презентации или проверке сгенерированных диаграмм. В примере ниже формат подписи по умолчанию [data label format](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) объединяет название каждой категории, имя серии и значение. Одна точка форматирует своё значение как процент, а другая использует пользовательский текст из [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -230,15 +279,15 @@ try {
 }
 ```
 
-Число, хранящееся в точке данных, остаётся `0.75`, даже когда её подпись показывает `75%` вместе с именами категории и серии. Пользовательский текст заменяет сгенерированный текст подписи. [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) возвращает полученную строку подписи в обоих случаях. Проверяйте [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) отдельно, как показано выше, когда нужно извлечь только видимые подписи.
+Число, хранящееся в точке данных, остаётся `0.75`, даже если её подпись показывает `75%` вместе с названиями категории и серии. Пользовательский текст заменяет сгенерированный текст подписи. [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) возвращает полученную строку подписи в любом случае. Проверяйте [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) отдельно, как показано выше, когда необходимо извлекать только видимые подписи.
 
-## **Управление подписями данных за пределами максимального значения оси**
+## **Управление подписями данных за пределами максимума оси**
 
-Если вы вручную ограничиваете диапазон оси, некоторые точки данных могут превышать её максимум. Используйте [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) для контроля отображения их подписей данных. Эта настройка меняет видимость подписи; она не меняет диапазон оси или исходные значения данных.
+Когда вы задаёте диапазон оси вручную, некоторые точки данных могут превышать её максимум. Используйте [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) для управления тем, отображаются ли их подписи данных. Эта настройка меняет видимость подписи; она не меняет диапазон оси или исходные значения данных.
 
-Пример ниже создаёт двумерную сгруппированную столбчатую диаграмму со значениями 60 и 120. Он передаёт `false` в [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) и задаёт максимум 100 с помощью [setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) на вертикальной оси. Первый слайд позволяет подписи выходить за пределы максимума; копия этого слайда отключает их. Оба слайда сохраняются в `DataLabelsOverMaximum.pptx`.
+В примере ниже создаётся 2‑D сгруппированная столбчатая диаграмма со значениями 60 и 120. В метод [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) передаётся `false`, а на вертикальной оси с помощью [setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) задаётся максимум 100. На первом слайде подписи позволяют выходить за пределы максимума; копия этого слайда отключает их. Оба слайда сохраняются в `DataLabelsOverMaximum.pptx`.
 
-Включите подписи значений с помощью [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). Настройка уровня диаграммы сама по себе не включает отображение значений и не переопределяет отключённое отображение значения отдельной подписи. Этот пример включает значения для всей серии и использует [setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) для размещения подписей с внешней стороны каждой колонки.
+Включите подписи значений с помощью [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). Настройка на уровне диаграммы сама по себе не включает отображение значений и не переопределяет отключённое отображение значения отдельной подписи. Этот пример включает значения для всей серии и использует [setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) для размещения подписей в наружном конце каждого столбца.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -287,19 +336,19 @@ try {
 }
 ```
 
-Ниже показаны сохранённые слайды, отрисованные Microsoft PowerPoint. При `true` подпись **120** видна у верхней границы; при `false` она скрыта. Подпись **60** остаётся видимой, максимум оси остаётся **100**, и в обоих случаях второй пункт данных остаётся **120**.
+Ниже показаны изображения сохранённых слайдов, отрисованных в Microsoft PowerPoint. При значении `true` подпись **120** видна у верхней границы; при `false` она скрыта. Подпись **60** остаётся видимой, максимум оси остаётся **100**, а вторая точка данных остаётся **120** в обоих случаях.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![Диаграмма PowerPoint, показывающая подпись значения 120 при максимуме оси 100](data-labels-over-maximum-true.png) | ![Диаграмма PowerPoint, скрывающая подпись значения 120 при максимуме оси 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Этот пример использует двумерную столбчатую диаграмму с осью значений. Диаграммы без оси значений, такие как круговые и кольцевые диаграммы, не имеют максимального значения оси, которое можно ограничить таким образом.
+В этом примере используется 2‑D столбчатая диаграмма с осью значений. Диаграммы без оси значений, такие как круговые и кольцевые диаграммы, не имеют максимума оси, который можно было бы ограничить таким образом.
 {{% /alert %}}
 
-## **Установка расстояния подписи от оси**
+## **Установить расстояние подписи от оси**
 
-Используйте [setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) для управления расстоянием между подписями оси категорий и самой осью. Значение задаётся в процентах от максимально возможного размера шрифта подписей оси. Этот пример создаёт сгруппированную столбчатую диаграмму и задаёт смещение подписи горизонтальной оси 500. Эта настройка влияет на подписи оси категорий, а не на подписи, присоединённые к отдельным точкам данных.
+Используйте [setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) для управления расстоянием между подписями оси категорий и самой осью. Значение задаётся в процентах от максимального размера шрифта подписей оси. Этот пример создаёт сгруппированную столбчатую диаграмму и устанавливает смещение подписи горизонтальной оси в 500. Эта настройка влияет на подписи оси категорий, а не на подписи, присоединённые к отдельным точкам данных.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -317,11 +366,11 @@ try {
 }
 ```
 
-## **Регулировка расположения подписи**
+## **Настроить расположение подписи**
 
-На круговой диаграмме отрегулируйте положения подписей данных, чтобы улучшить интервал и обеспечить место для вспомогательных линий.
+На круговой диаграмме отрегулируйте позиции подписей данных, чтобы улучшить расстояние и освободить место для выноски.
 
-Этот пример отображает значение первой точки данных, размещает её подпись за пределами сектора и регулирует её горизонтальное и вертикальное смещение с помощью [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) и [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/). Эти смещения задаются относительно ширины и высоты диаграммы соответственно.
+Этот пример отображает значение первой точки данных, размещает её подпись за пределами сектора и корректирует её горизонтальное и вертикальное смещения с помощью [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) и [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/). Эти смещения относительно ширины и высоты диаграммы соответственно.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -346,17 +395,17 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![Круговая диаграмма с отрегулированным положением подписи данных](pie-chart-adjusted-label.png)
 
-## **Форматирование вспомогательных линий**
+## **Форматировать линии‑выноски**
 
-Когда подписи круговой диаграммы расположены за пределами секторов, вспомогательные линии помогают читателям сопоставить каждое значение с соответствующим сектором. Контрастный цвет и слегка более толастая линия могут облегчить восприятие, а прозрачность и пунктирный стиль делают линии менее навязчивыми.
+Когда подписи круговой диаграммы находятся за пределами своих секторов, линии‑выноски помогают читателям сопоставить каждое значение с соответствующим сектором. Противоположный цвет и слегка более толстая линия делают эти соединения проще для восприятия, а прозрачность и пунктирный стиль делают линии менее заметными.
 
-Используйте [getLeaderLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getleaderlinesformat/) для форматирования вспомогательных линий на уровне коллекции подписей серии. Настройки в `series.getLabels().getLeaderLinesFormat().getLine()` применяются к коллекции, а не к отдельной подписи.
+Используйте [getLeaderLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getleaderlinesformat/) для форматирования линий‑выноски на уровне коллекции подписей данных серии. Настройки в `series.getLabels().getLeaderLinesFormat().getLine()` применяются к коллекции, а не к отдельной подписи.
 
-Этот пример создаёт круговую диаграмму с данными по умолчанию, отображает значения за пределами секторов и включает [setShowLeaderLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowleaderlines/). Он перемещает две подписи дальше от их секторов с помощью смещений [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) и [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/), выраженных долями ширины и высоты диаграммы. Входящая презентация не требуется.
+Этот пример создаёт круговую диаграмму с данными по умолчанию, отображает значения за пределами секторов и включает [setShowLeaderLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowleaderlines/). Он перемещает две подписи дальше от их секторов, используя смещения [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) и [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/), выраженные в долях ширины и высоты диаграммы. Входная презентация не требуется.
 
-Метод [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/getfillformat/) линии задаёт сплошной синий цвет с альфа‑значением 191 из 255, что даёт примерно 25 % прозрачности. [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setwidth/) задаёт толщину 2 пункта, а [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) делает линию пунктирной.
+Метод линии [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/getfillformat/) задаёт сплошной синий цвет с альфа‑значением 191 из 255, что даёт примерно 25 % прозрачности. [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setwidth/) устанавливает толщину в 2 пункта, а [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) делает линию пунктирной.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -395,17 +444,17 @@ try {
 }
 ```
 
-Включение вспомогательных линий не гарантирует, что линия будет отображаться для каждой подписи. Видимость зависит от размещения подписи и поведения компоновки диаграммы. В этом примере две смещённые подписи имеют видимые вспомогательные линии; подписи, оставшиеся близко к своим секторам, их не требуют.
+Включение линий‑выноски не гарантирует, что линия появится у каждой подписи. Видимость зависит от расположения подписи и поведения компоновки диаграммы. В этом примере две смещённые подписи имеют видимые линии‑выноски; подписи, остающиеся близко к своим секторам, их не требуют.
 
-Следующее изображение показывает сохранённый `FormattedLeaderLines.pptx`, отрендрированный с помощью Aspose.Slides:
+Следующее изображение показывает сохранённый `FormattedLeaderLines.pptx`, отрисованный с помощью Aspose.Slides:
 
-![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+![Круговая диаграмма с синими, полупрозрачными пунктирными линиями‑выносок, соединяющими две внешние подписи с их секторами](formatted-leader-lines.png)
 
-## **Добавление нескольких строк подписей над столбчатой диаграммой**
+## **Добавить несколько строк подписей данных над столбчатой диаграммой**
 
-Этот пример создаёт столбчатую диаграмму с двумя строками подписей над областью построения. Серия A отображает видимые столбцы, тогда как серии B и C предоставляют дополнительные подписи. Их столбцы скрыты путем удаления заливки и контура. Метод [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) выравнивает все три серии по центрам категорий.
+Этот пример создаёт столбчатую диаграмму с двумя строками подписей данных над областью построения. Серия A отображает видимые столбцы, тогда как серии B и C предоставляют дополнительные подписи. Их столбцы скрыты удалением заливки и контура. Метод [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) выравнивает все три серии по одинаковым центрам категорий.
 
-[ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) резервирует пространство для строк подписей. После того как [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) вычисляет позиции по умолчанию, [DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) и [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) сохраняют горизонтальное выравнивание и применяют вертикальные смещения для размещения подписей в две строки. Числа остаются подписями, связанными со значениями серии; только заголовки строк являются отдельными текстовыми фигурами.
+Настройки [ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) резервируют место для строк подписей. После расчёта стандартных позиций методом [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) методы [DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) и [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) сохраняют горизонтальное выравнивание и применяют вертикальные смещения для размещения подписей в две строки. Числа остаются подписями данных, связанными со значениями серий; только заголовки строк являются отдельными текстовыми фигурами.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -446,7 +495,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // Скрыть столбцы B и C, но оставить их подписи данных.
+            // Скрыть столбцы B и C, но оставить их подписи.
             series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             series.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -458,14 +507,14 @@ try {
         }
     }
 
-    // Выровнять все три серии по одинаковым центрам категорий.
+    // Выравнять все три серии по одинаковым центрам категорий.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(java.newByte(100));
 
     // Использовать меньше линий сетки для этого компактного примера.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // Зарезервировать пространство над областью построения для двух строк подписей данных.
+    // Зарезервировать место над областью построения для двух строк подписей.
     chart.getPlotArea().setLayoutTargetType(aspose.slides.LayoutTargetType.Inner);
     chart.getPlotArea().setX(java.newFloat(0.15));
     chart.getPlotArea().setY(java.newFloat(0.32));
@@ -479,13 +528,13 @@ try {
 
         for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             const dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // Сохранить горизонтальное положение по умолчанию. Y является смещением от
-            // позиции подписи по умолчанию, выраженного в долях высоты диаграммы.
+            // Сохранить положение по горизонтали по умолчанию. Y — смещение от
+            // позиции подписи по умолчанию, выраженное в долях высоты диаграммы.
             dataLabel.setX(0);
             dataLabel.setY(java.newFloat(rowTop - dataLabel.getActualY() / chart.getHeight()));
         }
 
-        // Только заголовок строки является отдельной текстовой фигурой.
+        // Только заголовок строки представляет собой отдельную текстовую фигуру.
         const rowHeading = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
         rowHeading.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
         rowHeading.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
@@ -504,18 +553,18 @@ try {
 }
 ```
 
-![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+![Столбчатая диаграмма с двумя строками подписей данных над областью построения](multiple-rows-of-labels.png)
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Как предотвратить наложение подписей данных на плотных диаграммах?**
+**Как предотвратить перекрытие подписей данных на плотных диаграммах?**
 
-Комбинируйте автоматическое размещение подписей, вспомогательные линии и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или отображайте подписи только для экстремальных значений или ключевых точек.
+Сочетайте автоматическое размещение подписей, линии‑выноски и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или отображайте подписи только для экстремальных значений или ключевых точек.
 
 **Как отключить подписи только для нулевых, отрицательных или пустых значений?**
 
-Отфильтруйте точки данных перед включением подписей и отключите отображение для значений 0, отрицательных значений или отсутствующих значений согласно заданному правилу.
+Отфильтруйте точки данных перед включением подписей и отключите отображение для значений 0, отрицательных значений или отсутствующих значений согласно определённому правилу.
 
-**Как обеспечить согласованный стиль подписи при экспорте в PDF/изображения?**
+**Как обеспечить единый стиль подписи при экспорте в PDF/изображения?**
 
-Явно задайте семейство шрифта и размер и проверьте, что шрифт доступен в среде рендеринга, чтобы избежать резервного использования шрифта.
+Явно задайте семейство шрифта и размер и проверьте, что шрифт доступен в среде рендеринга, чтобы избежать подстановки.

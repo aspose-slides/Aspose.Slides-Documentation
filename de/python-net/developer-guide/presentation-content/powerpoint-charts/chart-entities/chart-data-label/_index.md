@@ -14,15 +14,60 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammdatenbeschriftungen in PowerPoint‑Präsentationen mit Aspose.Slides für Python über .NET hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
+description: "Erfahren Sie, wie Sie Diagrammdatenbeschriftungen in PowerPoint-Präsentationen mit Aspose.Slides für Python via .NET hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
 ## **Einführung**
 
-Datenbeschriftungen zeigen Informationen zu Diagrammserien und einzelnen Datenpunkten an und helfen den Lesern, Werte zu identifizieren und das Diagramm zu verstehen. Dieser Artikel erklärt, wie Werte formatiert, Prozentsätze angezeigt, Beschriftungstext gelesen, Beschriftungen jenseits des Achsenmaximums gesteuert, der Abstand von Kategorienachsenbeschriftungen angepasst und Beschriftungen von Kreisdiagrammen positioniert werden.
+Datenbeschriftungen zeigen Informationen zu Diagrammserien und einzelnen Datenpunkten an und helfen den Lesern, Werte zu identifizieren und das Diagramm zu verstehen. Dieser Artikel erklärt, wie man Werte formatiert, Prozentsätze anzeigt, Beschriftungstext liest, Beschriftungen jenseits des Achsenmaximums steuert, den Abstand von Kategorienachsen‑Beschriftungen anpasst und Beschriftungen von Kreisdiagrammen positioniert.
 
-## **Datenpräzision in Diagrammbeschriftungen festlegen**
+## **Zählen sichtbarer Datenbeschriftungen**
 
-Verwenden Sie [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) zum Formatieren von Serienwerten. Dieses Beispiel erstellt ein Liniendiagramm mit Standarddaten, zeigt die Datentabelle an und aktiviert Wertebeschriftungen für die erste Serie. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen an, ohne die zugrunde liegenden Werte zu ändern.
+Use [count_of_visible_data_labels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/count_of_visible_data_labels/) to check how many data labels are enabled for display before publishing a presentation. Unlike `len(labels)`, which returns the total number of labels in the collection, it takes the series defaults and individual label settings into account.
+
+This example creates a column chart with one series and three data points. It accesses the series' [labels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/labels/) collection and prints the visible count as the settings change: **0, 3, 2, 3**. The total count remains **3**.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    series_cell = workbook.get_cell(0, 0, 1, "Values")
+    series = chart.chart_data.series.add(series_cell, chart.type)
+
+    for i in range(3):
+        category_cell = workbook.get_cell(0, i + 1, 0, f"Category {i + 1}")
+        chart.chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, (i + 1) * 10)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    labels = series.labels
+    print(f"Total: {len(labels)}; visible: {labels.count_of_visible_data_labels}")  # Gesamt: 3; sichtbar: 0
+
+    labels.default_data_label_format.show_value = True
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Sichtbar: 3
+
+    labels[1].data_label_format.show_value = False
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Sichtbar: 2
+
+    labels[1].data_label_format.show_legend_key = True
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Sichtbar: 3
+```
+
+The series' [default_data_label_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/default_data_label_format/) supplies the default settings. Enabling [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) there displays values for all three labels. Setting it to `False` through one label's [data_label_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/data_label_format/) overrides that setting for the selected label. Enabling [show_legend_key](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_legend_key/) makes that label count as visible again, even though its value remains hidden.
+
+The visible count reflects visibility settings. It does not measure whether labels overlap, are clipped, or are readable in the rendered chart.
+
+## **Datenpräzision in Diagrammdatenbeschriftungen festlegen**
+
+Use [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
 
 ```python
 import aspose.slides as slides
@@ -41,11 +86,11 @@ with slides.Presentation() as presentation:
     presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Um die numerischen Zellen in der eingebetteten Arbeitsmappe eines Diagramms zu formatieren, siehe [Benutzerdefinierte Zahlenformate für Arbeitsmappenzellen festlegen](/slides/de/python-net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dieses Beispiel zeigt außerdem, dass Wertebeschriftungen den Formaten ihrer Quellzellen folgen, während die gespeicherten numerischen Werte erhalten bleiben.
+To format the numeric cells in a chart's embedded workbook, see [Set Custom Number Formats for Workbook Cells](/slides/de/python-net/chart-workbook/#set-custom-number-formats-for-workbook-cells). That example also shows value labels following their source cell formats while preserving the stored numeric values.
 
 ## **Prozentsatz als Beschriftungen anzeigen**
 
-Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz seiner Kategorietotal und weisen den Text [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) zu. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer Schriftgröße von 8 Punkten an. Kategorien mit einer Gesamtsumme von null werden übersprungen, um eine Division durch Null zu vermeiden. Berechnen Sie den benutzerdefinierten Beschriftungstext neu, wenn sich die Diagrammdaten ändern.
+For a stacked column chart, calculate each value as a percentage of its category total and assign the text to [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
 
 ```python
 import aspose.slides as slides
@@ -94,9 +139,9 @@ with slides.Presentation() as presentation:
 
 ## **Prozentzeichen mit Diagrammbeschriftungen festlegen**
 
-Wenn Werte als Brüche gespeichert sind, verwenden Sie [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/), um Prozentsätze anzuzeigen. Setzen Sie [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) auf `False`, um das Beschriftungsformat unabhängig von den Quellzellen anzuwenden.
+When values are stored as fractions, use [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) to display percentages. Set [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) to `False` to apply the label format independently of the source cells.
 
-Dieses Beispiel erstellt ein 100 % gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. Jeder Werte‑Paar addiert sich zu 1. Das Beschriftungsformat `0.0%` zeigt 0.30 als 30.0 % an, während die vertikale Achse zwei Dezimalstellen verwendet. Beide Serien verwenden weiße Beschriftungen mit Schriftgröße 10 Punkten.
+This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
 
 ```python
 import aspose.slides as slides
@@ -147,7 +192,7 @@ with slides.Presentation() as presentation:
 
 ## **Den tatsächlichen Text von Datenbeschriftungen lesen**
 
-Verwenden Sie [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/), um den von den Einstellungen einer Datenbeschriftung erzeugten Text abzurufen. Dies ist nützlich beim Extrahieren von Beschriftungen für Berichte, beim Durchsuchen von Präsentationsinhalten oder bei der Validierung generierter Diagramme. Im Beispiel unten kombiniert das Standard-[Datenbeschriftungsformat](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) jede Kategoriename, Serienname und Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, ein anderer verwendet benutzerdefinierten Text aus [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
+Use [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
 
 ```python
 import aspose.slides as slides
@@ -198,15 +243,15 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, auch wenn ihre Beschriftung `75%` zusammen mit den Kategorie‑ und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den erzeugten Beschriftungstext. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) gibt in beiden Fällen die resultierende Beschriftungszeichenfolge zurück. Prüfen Sie [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) separat, wie oben gezeigt, wenn Sie nur sichtbare Beschriftungen extrahieren möchten.
+The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) returns the resulting label string in either case. Check [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) separately, as shown above, when you want to extract only visible labels.
 
 ## **Datenbeschriftungen jenseits des Achsenmaximums steuern**
 
-Wenn Sie einen Achsenbereich manuell begrenzen, können einige Datenpunkte das Maximum überschreiten. Verwenden Sie [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/), um zu steuern, ob deren Datenbeschriftungen angezeigt werden. Diese Einstellung ändert die Sichtbarkeit der Beschriftung; sie ändert weder den Achsenbereich noch die zugrunde liegenden Datenwerte.
+When you limit an axis range manually, some data points may exceed its maximum. Use [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
 
-Das untenstehende Beispiel erstellt ein 2D gruppiertes Säulendiagramm mit den Werten 60 und 120. Es setzt [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) auf `False` und [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) auf 100 für die vertikale Achse. Die erste Folie erlaubt Beschriftungen über dem Maximum; eine Kopie dieser Folie deaktiviert sie. Beide Folien werden in `DataLabelsOverMaximum.pptx` gespeichert.
+The example below creates a 2D clustered column chart with values of 60 and 120. It sets [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) to `False` and [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) to 100 on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
 
-Aktivieren Sie Wertebeschriftungen mit [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Die Diagrammbene‑Einstellung aktiviert die Anzeige von Werten nicht von selbst und überschreibt nicht die deaktivierte Anzeige einer einzelnen Beschriftung. Dieses Beispiel aktiviert Werte für die gesamte Serie und verwendet [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/), um Beschriftungen am äußeren Ende jeder Säule zu platzieren.
+Enable value labels with [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) to place labels at the outside end of each column.
 
 ```python
 import aspose.slides as slides
@@ -252,19 +297,19 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Die folgenden Bilder zeigen die gespeicherten Folien, die von Microsoft PowerPoint gerendert wurden. Bei `True` ist die Beschriftung **120** an der oberen Grenze sichtbar; bei `False` ist sie verborgen. Die Beschriftung **60** bleibt sichtbar, das Achsenmaximum bleibt bei **100**, und der zweite Datenpunkt bleibt in beiden Fällen **120**.
+The following images show the saved slides rendered by Microsoft PowerPoint. With `True`, the label **120** is visible at the upper boundary; with `False`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Chart Type" %}}
-Dieses Beispiel verwendet ein 2D Säulendiagramm mit einer Wertachse. Diagramme ohne Wertachse, wie Kreis- und Donutdiagramme, besitzen kein Achsenmaximum, das auf diese Weise begrenzt werden kann.
+{{% alert color="info" title="Diagrammtyp" %}}
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
 {{% /alert %}}
 
 ## **Abstand der Beschriftung von einer Achse festlegen**
 
-Verwenden Sie [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/), um den Abstand zwischen den Kategorienachsenbeschriftungen und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenbeschriftungen. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm und setzt den horizontalen Achsenbeschriftungsversatz auf 500. Diese Einstellung wirkt sich auf die Kategorienachsenbeschriftungen aus, nicht auf Beschriftungen, die einzelnen Datenpunkten zugeordnet sind.
+Use [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
 
 ```python
 import aspose.slides as slides
@@ -281,9 +326,9 @@ with slides.Presentation() as presentation:
 
 ## **Beschriftungsposition anpassen**
 
-Bei einem Kreisdiagramm passen Sie die Positionen der Datenbeschriftungen an, um den Abstand zu verbessern und Platz für Führungsleitungen zu schaffen.
+On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
 
-Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert seine Beschriftung außerhalb des Segmentes und passt seine [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) und [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) Versätze an. Diese Versätze beziehen sich jeweils auf die Diagrammbreite und -höhe.
+This example displays the value of the first data point, places its label outside the slice, and adjusts its [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) and [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) offsets. These offsets are relative to the chart width and height, respectively.
 
 ```python
 import aspose.slides as slides
@@ -306,15 +351,15 @@ with slides.Presentation() as presentation:
 
 ![Kreisdiagramm mit angepasster Datenbeschriftungsposition](pie-chart-adjusted-label.png)
 
-## **Führungsleitungen formatieren**
+## **Führungslinien formatieren**
 
-Wenn Kreisdiagrammbeschriftungen außerhalb ihrer Segmente liegen, helfen Führungsleitungen den Lesern, jeden Wert dem richtigen Segment zuzuordnen. Eine kontrastierende Farbe und eine leicht dickere Linie können diese Verbindungen leichter erkennbar machen, während Transparenz und ein gestricheltes Muster die Linien visuell unauffällig halten.
+When pie chart labels sit outside their slices, leader lines help readers match each value to the correct slice. A contrasting color and a slightly thicker line can make these connections easier to follow, while transparency and a dashed style keep the lines visually unobtrusive.
 
-Verwenden Sie [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/), um Führungsleitungen auf Ebene der Datenbeschriftungssammlung einer Serie zu formatieren. Die Einstellungen in `series.labels.leader_lines_format.line` gelten für die Sammlung und nicht für eine einzelne Beschriftung.
+Use [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) to format leader lines at the series' data label collection level. The settings in `series.labels.leader_lines_format.line` apply to the collection, rather than to an individual label.
 
-Dieses Beispiel erstellt ein Kreisdiagramm mit Standarddaten, zeigt Werte außerhalb der Segmente an und aktiviert [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). Es bewegt zwei Beschriftungen weiter von ihren Segmenten entfernt, indem es [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) und [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) Versätze verwendet, ausgedrückt als Bruchteil der Diagrammbreite und -höhe. Keine Eingabepräsentation ist erforderlich.
+This example creates a pie chart with default data, displays values outside the slices, and enables [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). It moves two labels farther from their slices using [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) and [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) offsets, expressed as fractions of the chart width and height. No input presentation is required.
 
-Das [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) der Linie legt eine durchgehende blaue Farbe mit einem Alphawert von 191 von 255 fest, was etwa 25 % Transparenz ergibt. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) setzt die Dicke auf 2 Punkte, und [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) macht die Linie gestrichelt.
+The line's [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) sets a solid blue color with an alpha value of 191 out of 255, giving approximately 25% transparency. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) sets the thickness to 2 points, and [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) makes the line dashed.
 
 ```python
 import aspose.slides as slides
@@ -349,17 +394,17 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedLeaderLines.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Das Aktivieren von Führungsleitungen garantiert nicht, dass für jede Beschriftung eine Linie erscheint. Die Sichtbarkeit hängt von der Beschriftungsposition und dem Layoutverhalten des Diagramms ab. In diesem Beispiel haben die beiden versetzten Beschriftungen sichtbare Führungsleitungen; die Beschriftungen, die nahe an ihren Segmenten bleiben, benötigen keine.
+Enabling leader lines does not guarantee that a line will appear for every label. Visibility depends on label placement and the chart's layout behavior. In this example, the two displaced labels have visible leader lines; the labels that remain close to their slices do not need them.
 
-Das folgende Bild zeigt die gespeicherte `FormattedLeaderLines.pptx`, die mit Aspose.Slides gerendert wurde:
+The following image shows the saved `FormattedLeaderLines.pptx` rendered with Aspose.Slides:
 
-![Kreisdiagramm mit blauen, halbtransparenten, gestrichelten Führungsleitungen, die zwei äußere Beschriftungen mit ihren Segmenten verbinden](formatted-leader-lines.png)
+![Kreisdiagramm mit blauen, halbtransparenten, gestrichelten Führungslinien, die zwei Außebeschriftungen mit ihren Segmenten verbinden](formatted-leader-lines.png)
 
 ## **Mehrere Zeilen von Datenbeschriftungen über einem Säulendiagramm hinzufügen**
 
-Dieses Beispiel erstellt ein Säulendiagramm mit zwei Zeilen von Datenbeschriftungen über dem Plotbereich. Serie A zeigt die sichtbaren Säulen, während Serie B und Serie C die zusätzlichen Beschriftungen bereitstellen. Ihre Säulen werden ausgeblendet, indem die Füllung und Kontur entfernt werden. Die [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/)‑Eigenschaft richtet alle drei Serien mit denselben Kategorienmitten aus.
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) property aligns all three series with the same category centers.
 
-Die [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/)‑Einstellungen reservieren Platz für die Beschriftungszeilen. Nach der Berechnung der Standardpositionen durch [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) erhalten [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) und [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) die horizontale Ausrichtung und wenden vertikale Versätze an, um die Beschriftungen in zwei Zeilen anzuordnen. Die Zahlen bleiben Datenbeschriftungen, die mit den Serienwerten verknüpft sind; nur die Zeilenüberschriften sind separate Textformen.
+The [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) settings reserve space for the label rows. After [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) calculates the default positions, [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) and [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
 
 ```python
 import aspose.slides as slides
@@ -401,7 +446,7 @@ with slides.Presentation() as presentation:
             series.data_points.add_data_point_for_bar_series(value_cell)
 
         if series_index > 0:
-            # Verstecke die Spalten von B und C, aber behalte ihre Datenbeschriftungen bei.
+            # Verstecke die Spalten von B und C, aber behalte ihre Datenbeschriftungen.
             series.format.fill.fill_type = slides.FillType.NO_FILL
             series.format.line.fill_format.fill_type = slides.FillType.NO_FILL
             label_format = series.labels.default_data_label_format
@@ -412,14 +457,14 @@ with slides.Presentation() as presentation:
             label_fill.solid_fill_color.color = drawing.Color.black
             label_format.position = charts.LegendDataLabelPosition.INSIDE_BASE
 
-    # Richte alle drei Serien auf dieselben Kategorienmittelwerte aus.
+    # Richte alle drei Serien mit den gleichen Kategoriezentren aus.
     chart.chart_data.series[0].parent_series_group.overlap = 100
 
     # Verwende weniger Gitterlinien für dieses kompakte Beispiel.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.major_unit = 10
 
-    # Reserviere Platz über dem Plot für zwei Reihen von Datenbeschriftungen.
+    # Reserviere Platz über dem Plot für zwei Zeilen von Datenbeschriftungen.
     chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
     chart.plot_area.x = 0.15
     chart.plot_area.y = 0.32
@@ -433,8 +478,8 @@ with slides.Presentation() as presentation:
 
         for category_index in range(len(categories)):
             data_label = series.data_points[category_index].label
-            # Behalte die Standard-Horizontalposition bei. Y ist ein Versatz von
-            # der Standardbeschriftungsposition, ausgedrückt als Bruch der Diagrammhöhe.
+            # Behalte die Standard‑Horizontalposition bei. Y ist ein Versatz von
+            # der Standard‑Beschriftungsposition, angegeben als Bruchteil der Diagrammhöhe.
             data_label.x = 0
             data_label.y = row_top - data_label.actual_y / chart.height
 
@@ -453,18 +498,18 @@ with slides.Presentation() as presentation:
     presentation.save("multiple-rows-of-labels.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Säulendiagramm mit zwei Zeilen von Datenbeschriftungen über dem Plotbereich](multiple-rows-of-labels.png)
+![Säulendiagramm mit zwei Zeilen von Datenbeschriftungen über dem Plot‑Bereich](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
 **Wie kann ich verhindern, dass Datenbeschriftungen in dichten Diagrammen überlappen?**
 
-Kombinieren Sie die automatische Beschriftungsplatzierung, Führungsleitungen und eine reduzierte Schriftgröße; bei Bedarf verbergen Sie einige Felder (z. B. die Kategorie) oder zeigen Sie Beschriftungen nur für extreme Werte oder Schlüsselpunkte an.
+Kombinieren Sie die automatische Beschriftungsplatzierung, Führungslinien und eine reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für extreme Werte bzw. Schlüsselpunkte anzeigen.
 
 **Wie kann ich Beschriftungen nur für Null‑, negative oder leere Werte deaktivieren?**
 
 Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer definierten Regel aus.
 
-**Wie kann ich einen konsistenten Beschriftungsstil beim Exportieren zu PDF/Bildern sicherstellen?**
+**Wie kann ich einen konsistenten Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**
 
-Legen Sie Schriftfamilie und -größe explizit fest und prüfen Sie, dass die Schrift im Rendering‑Umfeld verfügbar ist, um ein Fallback zu vermeiden.
+Setzen Sie explizit die Schriftfamilie und -größe und prüfen Sie, ob die Schrift im Rendering‑Umfeld verfügbar ist, um ein Zurückgreifen auf Ersatzschriften zu vermeiden.

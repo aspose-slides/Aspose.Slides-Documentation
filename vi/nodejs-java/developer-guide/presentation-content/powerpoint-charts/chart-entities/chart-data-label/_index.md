@@ -1,5 +1,5 @@
 ---
-title: Quản lý Nhãn Dữ liệu Biểu đồ trong Bài Thuyết Trình Sử dụng JavaScript
+title: Quản lý Nhãn Dữ liệu Biểu đồ trong Bản Trình bày bằng JavaScript
 linktitle: Nhãn Dữ liệu
 type: docs
 url: /vi/nodejs-java/chart-data-label/
@@ -11,19 +11,68 @@ keywords:
 - khoảng cách nhãn
 - vị trí nhãn
 - PowerPoint
-- bài thuyết trình
+- bản trình bày
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Học cách thêm và định dạng nhãn dữ liệu biểu đồ trong các bài thuyết trình PowerPoint bằng JavaScript và Aspose.Slides cho Node.js thông qua Java để có các slide sinh động hơn."
+description: "Tìm hiểu cách thêm và định dạng nhãn dữ liệu biểu đồ trong bản trình bày PowerPoint bằng JavaScript và Aspose.Slides cho Node.js thông qua Java để tạo các slide sinh động hơn."
 ---
 ## **Giới thiệu**
 
-Nhãn dữ liệu hiển thị thông tin về các chuỗi biểu đồ và các điểm dữ liệu riêng lẻ, giúp người đọc xác định giá trị và hiểu biểu đồ. Bài viết này giải thích cách định dạng giá trị, hiển thị phần trăm, đọc văn bản nhãn, kiểm soát nhãn vượt quá giá trị tối đa của trục, điều chỉnh khoảng cách nhãn trục danh mục, và định vị nhãn biểu đồ tròn.
+Các nhãn dữ liệu hiển thị thông tin về các chuỗi biểu đồ và các điểm dữ liệu riêng lẻ, giúp người đọc xác định giá trị và hiểu biểu đồ. Bài viết này giải thích cách định dạng giá trị, hiển thị phần trăm, đọc văn bản nhãn, kiểm soát nhãn vượt quá giới hạn trục, điều chỉnh khoảng cách nhãn trục danh mục và định vị nhãn biểu đồ tròn.
 
-## **Đặt Độ Chính Xác Dữ Liệu cho Nhãn Dữ Liệu Biểu Đồ**
+## **Đếm Nhãn Dữ liệu Hiển thị**
 
-Use [setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
+Sử dụng [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getcountofvisibledatalabels/) để kiểm tra có bao nhiêu nhãn dữ liệu được bật để hiển thị trước khi xuất bản một bản trình bày. Không giống như [getCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getcount/), trả về tổng số nhãn trong bộ sưu tập, nó còn tính đến các cài đặt mặc định của chuỗi và các cài đặt nhãn riêng lẻ.
+
+Ví dụ này tạo một biểu đồ cột với một chuỗi và ba điểm dữ liệu. Nó truy cập bộ sưu tập nhãn của chuỗi thông qua [getLabels](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getlabels/) và in ra số lượng nhãn hiển thị khi các cài đặt thay đổi: **0, 3, 2, 3**. Tổng số vẫn là **3**.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const seriesCell = workbook.getCell(0, 0, 1, "Values");
+    const series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+
+    for (let i = 0; i < 3; i++) {
+        const categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        const valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    const labels = series.getLabels();
+    console.log("Total: " + labels.getCount() + "; visible: " + labels.getCountOfVisibleDataLabels()); // Tổng: 3; hiển thị: 0
+
+    labels.getDefaultDataLabelFormat().setShowValue(true);
+    console.log("Visible: " + labels.getCountOfVisibleDataLabels()); // Hiển thị: 3
+
+    labels.get_Item(1).getDataLabelFormat().setShowValue(false);
+    console.log("Visible: " + labels.getCountOfVisibleDataLabels()); // Hiển thị: 2
+
+    labels.get_Item(1).getDataLabelFormat().setShowLegendKey(true);
+    console.log("Visible: " + labels.getCountOfVisibleDataLabels()); // Hiển thị: 3
+} finally {
+    presentation.dispose();
+}
+```
+
+Nhóm chuỗi [getDefaultDataLabelFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getdefaultdatalabelformat/) cung cấp các cài đặt mặc định. Truyền `true` cho [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) sẽ hiển thị giá trị cho cả ba nhãn. Truyền `false` thông qua [getDataLabelFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getdatalabelformat/) của một nhãn sẽ ghi đè cài đặt đó cho nhãn được chọn. Truyền `true` cho [setShowLegendKey](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowlegendkey/) khiến nhãn đó được tính là hiển thị lại, ngay cả khi giá trị của nó vẫn ẩn.
+
+Số lượng hiển thị phản ánh các cài đặt hiển thị. Nó không đo lường việc các nhãn có chồng lên nhau, bị cắt bớt, hay có thể đọc được trong biểu đồ đã render.
+
+## **Đặt Độ Chính Xác Dữ liệu trong Nhãn Dữ liệu Biểu đồ**
+
+Sử dụng [setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) để định dạng các giá trị của chuỗi. Ví dụ này tạo một biểu đồ đường với dữ liệu mặc định, hiển thị bảng dữ liệu của nó và bật nhãn giá trị cho chuỗi đầu tiên. Định dạng `#,##0.00` hiển thị dấu phân cách hàng nghìn và hai chữ số thập phân mà không thay đổi giá trị gốc.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -45,11 +94,11 @@ try {
 }
 ```
 
-To format the numeric cells in a chart's embedded workbook, see [Đặt Định Dạng Số Tùy Chỉnh cho Các Ô Bảng Tính](/slides/vi/nodejs-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). That example also shows value labels following their source cell formats while preserving the stored numeric values.
+Để định dạng các ô số trong workbook nhúng của biểu đồ, xem [Set Custom Number Formats for Workbook Cells](/slides/vi/nodejs-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ví dụ đó cũng cho thấy nhãn giá trị tuân theo định dạng ô nguồn trong khi giữ nguyên các giá trị số đã lưu.
 
-## **Hiển Thị Phần Trăm dưới dạng Nhãn**
+## **Hiển thị Phần Trăm dưới dạng Nhãn**
 
-For a stacked column chart, calculate each value as a percentage of its category total and assign the text to the text frame returned by [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
+Đối với biểu đồ cột chồng, tính mỗi giá trị dưới dạng phần trăm của tổng danh mục và gán văn bản vào khung văn bản trả về bởi [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Ví dụ này sử dụng dữ liệu biểu đồ mặc định và hiển thị phần trăm với hai chữ số thập phân trong phông chữ 8 điểm. Các danh mục có tổng bằng không sẽ bị bỏ qua để tránh phép chia cho 0. Tính lại văn bản nhãn tùy chỉnh nếu dữ liệu biểu đồ thay đổi.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -105,11 +154,11 @@ try {
 }
 ```
 
-## **Đặt Dấu Phần Trăm cho Nhãn Dữ Liệu Biểu Đồ**
+## **Đặt Dấu Phần Trăm trong Nhãn Dữ liệu Biểu đồ**
 
-When values are stored as fractions, use [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) to display percentages. Pass `false` to [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) to apply the label format independently of the source cells.
+Khi các giá trị được lưu dưới dạng phân số, sử dụng [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) để hiển thị phần trăm. Truyền `false` cho [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) để áp dụng định dạng nhãn một cách độc lập với các ô nguồn.
 
-This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
+Ví dụ này tạo một biểu đồ cột chồng 100% với các chuỗi màu đỏ và xanh lam qua bốn danh mục. Mỗi cặp giá trị cộng lại thành 1. Định dạng nhãn `0.0%` hiển thị 0.30 thành 30.0%, trong khi trục đứng sử dụng hai chữ số thập phân. Cả hai chuỗi đều dùng văn bản nhãn màu trắng, kích thước 10 điểm.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,9 +214,9 @@ try {
 }
 ```
 
-## **Đọc Văn Bản Thực Tế của Nhãn Dữ Liệu**
+## **Đọc Văn bản Thực tế của Nhãn Dữ liệu**
 
-Use [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [định dạng nhãn dữ liệu](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
+Sử dụng [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) để truy xuất văn bản được tạo ra bởi cài đặt của một nhãn dữ liệu. Điều này hữu ích khi trích xuất nhãn cho báo cáo, tìm kiếm nội dung bản trình bày hoặc xác thực các biểu đồ đã tạo. Trong ví dụ dưới đây, [định dạng nhãn dữ liệu](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) mặc định kết hợp mỗi tên danh mục, tên chuỗi và giá trị. Một điểm định dạng giá trị dưới dạng phần trăm, và một điểm khác sử dụng văn bản tùy chỉnh từ [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -230,15 +279,15 @@ try {
 }
 ```
 
-The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) returns the resulting label string in either case. Check [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) separately, as shown above, when you want to extract only visible labels.
+Số được lưu trong một điểm dữ liệu vẫn là `0.75`, ngay cả khi nhãn của nó hiển thị `75%` cùng với tên danh mục và tên chuỗi. Văn bản tùy chỉnh thay thế văn bản nhãn được tạo ra. [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) trả về chuỗi nhãn kết quả trong cả hai trường hợp. Kiểm tra [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) riêng biệt, như đã trình bày ở trên, khi bạn chỉ muốn trích xuất các nhãn có thể nhìn thấy.
 
-## **Kiểm Soát Nhãn Dữ Liệu Vượt Qua Giá Trị Tối Đa Của Trục**
+## **Kiểm soát Nhãn Dữ liệu Vượt quá Giới hạn Trục**
 
-When you limit an axis range manually, some data points may exceed its maximum. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
+Khi bạn giới hạn phạm vi trục theo cách thủ công, một số điểm dữ liệu có thể vượt quá giá trị tối đa của nó. Sử dụng [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) để kiểm soát việc hiển thị nhãn dữ liệu của chúng. Cài đặt này thay đổi tính hiển thị của nhãn; nó không thay đổi phạm vi trục hay các giá trị dữ liệu nền.
 
-The example below creates a 2D clustered column chart with values of 60 and 120. It passes `false` to [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) and sets the maximum to 100 with [setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
+Ví dụ dưới đây tạo một biểu đồ cột cụm 2D với các giá trị 60 và 120. Nó truyền `false` cho [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) và đặt giá trị tối đa thành 100 bằng [setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) trên trục dọc. Slide đầu tiên cho phép nhãn vượt quá tối đa; một bản sao của slide đó vô hiệu hoá chúng. Cả hai slide đều được lưu trong `DataLabelsOverMaximum.pptx`.
 
-Enable value labels with [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) to place labels at the outside end of each column.
+Bật nhãn giá trị bằng [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). Cài đặt ở mức biểu đồ không tự động bật hiển thị giá trị nor ghi đè việc tắt hiển thị giá trị của một nhãn riêng lẻ. Ví dụ này bật giá trị cho toàn bộ chuỗi và sử dụng [setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) để đặt nhãn ở cuối ngoài của mỗi cột.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -287,19 +336,19 @@ try {
 }
 ```
 
-The following images show the saved slides rendered by Microsoft PowerPoint. With `true`, the label **120** is visible at the upper boundary; with `false`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
+Các hình ảnh sau hiển thị các slide đã lưu được render bằng Microsoft PowerPoint. Với `true`, nhãn **120** hiển thị ở rìa trên; với `false`, nó bị ẩn. Nhãn **60** vẫn hiển thị, giá trị tối đa của trục vẫn ở **100**, và điểm dữ liệu thứ hai vẫn là **120** trong cả hai trường hợp.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+Ví dụ này sử dụng một biểu đồ cột 2D có trục giá trị. Các biểu đồ không có trục giá trị, chẳng hạn như biểu đồ tròn và biểu đồ bánh donut, không có giới hạn tối đa của trục để áp dụng cách này.
 {{% /alert %}}
 
-## **Đặt Khoảng Cách Nhãn Từ Trục**
+## **Đặt Khoảng cách Nhãn khỏi Trục**
 
-Use [setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
+Sử dụng [setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) để kiểm soát khoảng cách giữa các nhãn trục danh mục và trục. Giá trị là phần trăm của kích thước phông chữ tối đa của các nhãn trục. Ví dụ này tạo một biểu đồ cột cụm và đặt độ lệch nhãn trục ngang thành 500. Cài đặt này ảnh hưởng tới các nhãn trục danh mục hơn là các nhãn gắn vào các điểm dữ liệu riêng lẻ.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -317,11 +366,11 @@ try {
 }
 ```
 
-## **Điều Chỉnh Vị Trí Nhãn**
+## **Điều chỉnh Vị trí Nhãn**
 
-On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
+Trên biểu đồ tròn, điều chỉnh vị trí nhãn dữ liệu để cải thiện khoảng cách và tạo chỗ cho các đường dẫn.
 
-This example displays the value of the first data point, places its label outside the slice, and adjusts its horizontal and vertical offsets using [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) and [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/). These offsets are relative to the chart width and height, respectively.
+Ví dụ này hiển thị giá trị của điểm dữ liệu đầu tiên, đặt nhãn của nó ra ngoài lát cắt, và điều chỉnh độ lệch ngang và dọc bằng cách sử dụng [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) và [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/). Các độ lệch này tính tương đối theo chiều rộng và chiều cao của biểu đồ.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -346,17 +395,17 @@ try {
 }
 ```
 
-![Biểu đồ tròn với vị trí nhãn dữ liệu đã điều chỉnh](pie-chart-adjusted-label.png)
+![Biểu đồ tròn với vị trí nhãn dữ liệu được điều chỉnh](pie-chart-adjusted-label.png)
 
-## **Định Dạng Đường Dẫn**
+## **Định dạng Đường Dẫn**
 
-When pie chart labels sit outside their slices, leader lines help readers match each value to the correct slice. A contrasting color and a slightly thicker line can make these connections easier to follow, while transparency and a dashed style keep the lines visually unobtrusive.
+Khi các nhãn biểu đồ tròn nằm ngoài các lát cắt, các đường dẫn giúp người đọc ghép mỗi giá trị với lát cắt đúng. Một màu tương phản và đường nét hơi dày hơn có thể làm cho các kết nối này dễ theo dõi hơn, trong khi độ trong suốt và kiểu gạch chấm giữ cho các đường nét không làm mất tập trung.
 
-Use [getLeaderLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getleaderlinesformat/) to format leader lines at the series' data label collection level. The settings in `series.getLabels().getLeaderLinesFormat().getLine()` apply to the collection, rather than to an individual label.
+Sử dụng [getLeaderLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getleaderlinesformat/) để định dạng đường dẫn ở mức bộ sưu tập nhãn dữ liệu của chuỗi. Các cài đặt trong `series.getLabels().getLeaderLinesFormat().getLine()` áp dụng cho toàn bộ bộ sưu tập, thay vì từng nhãn riêng lẻ.
 
-This example creates a pie chart with default data, displays values outside the slices, and enables [setShowLeaderLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowleaderlines/). It moves two labels farther from their slices using [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) and [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) offsets, expressed as fractions of the chart width and height. No input presentation is required.
+Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định, hiển thị giá trị ngoài các lát cắt và bật [setShowLeaderLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowleaderlines/). Nó di chuyển hai nhãn ra xa hơn các lát cắt bằng cách sử dụng độ lệch [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) và [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/), biểu thị dưới dạng phần của chiều rộng và chiều cao biểu đồ. Không cần bản trình bày đầu vào.
 
-The line's [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/getfillformat/) sets a solid blue color with an alpha value of 191 out of 255, giving approximately 25% transparency. [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setwidth/) sets the thickness to 2 points, and [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) makes the line dashed.
+Độ đầy của đường [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/getfillformat/) đặt màu xanh đậm đặc với giá trị alpha 191 trong số 255, tạo ra khoảng 25 % độ trong suốt. [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setwidth/) đặt độ dày thành 2 điểm, và [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) làm cho đường nét dạng gạch chấm.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -376,7 +425,7 @@ try {
     labelFormat.setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
     labelFormat.setShowLeaderLines(true);
 
-    // Di chuyển hai nhãn xa hơn các lát cắt của chúng.
+    // Di chuyển hai nhãn ra xa hơn khỏi các lát cắt của chúng.
     series.getLabels().get_Item(0).setX(java.newFloat(0.10));
     series.getLabels().get_Item(0).setY(java.newFloat(-0.05));
     series.getLabels().get_Item(1).setX(java.newFloat(-0.10));
@@ -395,17 +444,17 @@ try {
 }
 ```
 
-Enabling leader lines does not guarantee that a line will appear for every label. Visibility depends on label placement and the chart's layout behavior. In this example, the two displaced labels have visible leader lines; the labels that remain close to their slices do not need them.
+Bật đường dẫn không đảm bảo rằng mỗi nhãn đều sẽ có đường dẫn. Tính hiển thị phụ thuộc vào vị trí nhãn và hành vi bố trí của biểu đồ. Trong ví dụ này, hai nhãn được di chuyển đều có đường dẫn hiển thị; các nhãn còn lại gần lát cắt không cần chúng.
 
-The following image shows the saved `FormattedLeaderLines.pptx` rendered with Aspose.Slides:
+Hình ảnh sau hiển thị file `FormattedLeaderLines.pptx` đã được render bằng Aspose.Slides:
 
-![Biểu đồ tròn với các đường dẫn màu xanh, bán trong suốt, dạng gạch nối nối hai nhãn ngoài vào các lát cắt của chúng](formatted-leader-lines.png)
+![Biểu đồ tròn với các đường dẫn xanh, bán trong suốt, dạng gạch nối kết hai nhãn ngoài với các lát cắt của chúng](formatted-leader-lines.png)
 
-## **Thêm Nhiều Hàng Nhãn Dữ Liệu Phía Trên Biểu Đồ Cột**
+## **Thêm Nhiều Hàng Nhãn Dữ liệu ở Trên Biểu đồ Cột**
 
-This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) method aligns all three series with the same category centers.
+Ví dụ này tạo một biểu đồ cột với hai hàng nhãn dữ liệu ở trên vùng vẽ. Chuỗi A hiển thị các cột có thể nhìn thấy, trong khi Chuỗi B và Chuỗi C cung cấp các nhãn bổ sung. Các cột của chúng bị ẩn bằng cách xóa màu nền và viền. Phương thức [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) căn chỉnh cả ba chuỗi sao cho trung tâm danh mục trùng nhau.
 
-The [ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) settings reserve space for the label rows. After [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) calculates the default positions, [DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) and [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
+Cài đặt của [ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) dành không gian cho các hàng nhãn. Sau khi [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) tính toán vị trí mặc định, [DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) và [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) duy trì căn chỉnh ngang và áp dụng độ lệch dọc để sắp xếp các nhãn thành hai hàng. Các số vẫn là nhãn dữ liệu liên kết với giá trị của chuỗi; chỉ tiêu đề hàng là các hình dạng văn bản riêng biệt.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -458,7 +507,7 @@ try {
         }
     }
 
-    // Căn chỉnh cả ba chuỗi sao cho chúng có cùng tâm danh mục.
+    // Căn chỉnh cả ba chuỗi sao cho trung tâm danh mục giống nhau.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(java.newByte(100));
 
     // Sử dụng ít đường lưới hơn cho ví dụ gọn này.
@@ -479,8 +528,8 @@ try {
 
         for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             const dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // Giữ vị trí ngang mặc định. Y là một độ dịch từ
-            // vị trí nhãn mặc định, được biểu diễn dưới dạng phần tỷ lệ chiều cao biểu đồ.
+            // Giữ vị trí ngang mặc định. Y là độ lệch từ
+            // vị trí nhãn mặc định, biểu thị dưới dạng phần tỷ của chiều cao biểu đồ.
             dataLabel.setX(0);
             dataLabel.setY(java.newFloat(rowTop - dataLabel.getActualY() / chart.getHeight()));
         }
@@ -504,18 +553,18 @@ try {
 }
 ```
 
-![Biểu đồ cột với hai hàng nhãn dữ liệu phía trên vùng vẽ](multiple-rows-of-labels.png)
+![Biểu đồ cột với hai hàng nhãn dữ liệu ở trên vùng vẽ](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Làm sao tôi có thể ngăn nhãn dữ liệu chồng lấp trên các biểu đồ dày đặc?**
+**Làm thế nào để ngăn các nhãn dữ liệu chồng lên nhau trên các biểu đồ dày đặc?**
 
-Kết hợp đặt nhãn tự động, đường dẫn và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ, danh mục) hoặc chỉ hiển thị nhãn cho các giá trị cực đoan hoặc điểm chính.
+Kết hợp việc tự động đặt nhãn, các đường dẫn và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ, danh mục) hoặc chỉ hiển thị nhãn cho các giá trị cực đoan hoặc các điểm quan trọng.
 
-**Làm sao tôi có thể tắt nhãn chỉ cho các giá trị bằng không, âm hoặc trống?**
+**Làm thế nào để vô hiệu hoá nhãn chỉ cho các giá trị bằng 0, âm hoặc trống?**
 
-Lọc các điểm dữ liệu trước khi bật nhãn và tắt hiển thị cho các giá trị bằng 0, giá trị âm hoặc giá trị thiếu theo quy tắc đã định.
+Lọc các điểm dữ liệu trước khi bật nhãn và tắt hiển thị cho các giá trị bằng 0, giá trị âm hoặc giá trị thiếu theo quy tắc đã định nghĩa.
 
-**Làm sao tôi có thể đảm bảo phong cách nhãn nhất quán khi xuất ra PDF/hình ảnh?**
+**Làm thế nào để đảm bảo kiểu nhãn nhất quán khi xuất ra PDF/hình ảnh?**
 
-Đặt rõ ràng họ phông chữ và kích thước, đồng thời xác minh phông chữ có sẵn trong môi trường render để tránh việc thay thế.
+Đặt rõ ràng họ phông chữ và kích thước, đồng thời xác minh phông chữ có sẵn trong môi trường render để tránh việc thay thế mặc định.

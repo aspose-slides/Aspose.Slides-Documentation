@@ -1,5 +1,5 @@
 ---
-title: Управление подписями данных диаграмм в презентациях с использованием C++
+title: Управление подписями данных диаграмм в презентациях с помощью C++
 linktitle: Подпись данных
 type: docs
 url: /ru/cpp/chart-data-label/
@@ -14,15 +14,83 @@ keywords:
 - презентация
 - C++
 - Aspose.Slides
-description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint с использованием Aspose.Slides для C++ для создания более увлекательных слайдов."
+description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для C++, чтобы сделать слайды более увлекательными."
 ---
 ## **Введение**
 
-Подписи данных отображают информацию о сериалах диаграммы и отдельных точках данных, помогая читателям определять значения и понимать график. В этой статье объясняется, как форматировать значения, отображать проценты, считывать текст подписи, управлять подписьми за пределами максимального значения оси, регулировать расстояние между подписями оси категорий и позиционировать подписи круговых диаграмм.
+Подписи данных отображают информацию о серии диаграммы и отдельном значении данных, помогая читателям идентифицировать значения и понимать диаграмму. Эта статья объясняет, как форматировать значения, отображать проценты, считывать текст подписи, управлять подписями за пределами максимума оси, регулировать интервал подписей категориальной оси и позиционировать подписи круговой диаграммы.
 
-## **Установка точности данных в подписях диаграммы**
+## **Подсчёт видимых подписей данных**
 
-Используйте [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) для форматирования значений сериала. Этот пример создаёт линейную диаграмму с данными по умолчанию, отображает её таблицу данных и включает подписи значений для первого сериала. Формат `#,##0.00` отображает разделитель тысяч и два знака после запятой без изменения исходных значений.
+Используйте [get_CountOfVisibleDataLabels](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_countofvisibledatalabels/) чтобы проверить, сколько подписей данных включено для отображения перед публикацией презентации. В отличие от [get_Count](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_count/), который возвращает общее количество подписей в коллекции, он учитывает настройки по умолчанию для серии и индивидуальные параметры подписи.
+
+Этот пример создаёт столбчатую диаграмму с одной серией и тремя точками данных. Он получает коллекцию [get_Labels](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_labels/) серии и выводит количество видимых подписей при изменении настроек: **0, 3, 2, 3**. Общее количество остаётся **3**.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto seriesCell = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Values"));
+auto series = chart->get_ChartData()->get_Series()->Add(seriesCell, chart->get_Type());
+
+for (auto i = 0; i < 3; i++)
+{
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, ObjectExt::Box(String::Format(u"Category {0}", i + 1)));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+    auto valueCell = workbook->GetCell(0, i + 1, 1, ObjectExt::Box((i + 1) * 10));
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
+
+auto labels = series->get_Labels();
+Console::WriteLine(String::Format(u"Total: {0}; visible: {1}", labels->get_Count(), labels->get_CountOfVisibleDataLabels())); // Всего: 3; видимых: 0
+
+labels->get_DefaultDataLabelFormat()->set_ShowValue(true);
+Console::WriteLine(String::Format(u"Visible: {0}", labels->get_CountOfVisibleDataLabels())); // Видимых: 3
+
+labels->idx_get(1)->get_DataLabelFormat()->set_ShowValue(false);
+Console::WriteLine(String::Format(u"Visible: {0}", labels->get_CountOfVisibleDataLabels())); // Видимых: 2
+
+labels->idx_get(1)->get_DataLabelFormat()->set_ShowLegendKey(true);
+Console::WriteLine(String::Format(u"Visible: {0}", labels->get_CountOfVisibleDataLabels())); // Видимых: 3
+```
+
+Метод [get_DefaultDataLabelFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_defaultdatalabelformat/) серии предоставляет настройки по умолчанию. Вызов [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) с `true` отображает значения для всех трёх подписей. Передача `false` через [get_DataLabelFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_datalabelformat/) отдельной подписи переопределяет эту настройку для выбранной подписи. Вызов [set_ShowLegendKey](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showlegendkey/) с `true` снова делает эту подпись видимой, хотя её значение остаётся скрытым.
+
+Количество видимых подписей отражает настройки видимости. Оно не измеряет, перекрываются ли подписи, обрезаются ли они или читаемы ли они в отрисованной диаграмме.
+
+## **Установить точность данных в подписях диаграммы**
+
+Используйте [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) , чтобы форматировать значения серии. Этот пример создаёт линейную диаграмму с данными по умолчанию, отображает её таблицу данных и включает подписи значений для первой серии. Формат `#,##0.00` выводит разделитель тысяч и два знака после запятой, не изменяя исходные значения.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -57,11 +125,11 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
-Чтобы отформатировать числовые ячейки в встроенной книге диаграммы, см. [Установить собственные числовые форматы для ячеек книги](/slides/ru/cpp/chart-workbook/#set-custom-number-formats-for-workbook-cells). В том примере также показано, как подписи значений следуют форматам исходных ячеек, при этом сохраняются числовые значения.
+Чтобы отформатировать числовые ячейки в встроенной книге диаграммы, см. [Set Custom Number Formats for Workbook Cells](/slides/ru/cpp/chart-workbook/#set-custom-number-formats-for-workbook-cells). Этот пример также показывает подписи значений, соответствующие форматам исходных ячеек, при сохранении сохранённых числовых значений.
 
-## **Отображение процентов в подписях**
+## **Отображать процент в качестве подписей**
 
-Для сложенной столбчатой диаграммы рассчитывайте каждое значение как процент от общей суммы категории и присваивайте текст фрейму текста, возвращаемому методом [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Этот пример использует данные диаграммы по умолчанию и выводит проценты с двумя знаками после запятой шрифтом 8 пунктов. Категории с нулевой суммой пропускаются, чтобы избежать деления на ноль. При изменении данных диаграммы пере вычисляйте пользовательский текст подписи.
+Для построенной столбчатой диаграммы вычислите каждое значение как процент от общей суммы категории и назначьте текст в текстовый фрейм, возвращаемый методом [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Этот пример использует данные диаграммы по умолчанию и отображает проценты с двумя знаками после запятой шрифтом 8 пунктов. Категории с суммой равной нулю пропускаются, чтобы избежать деления на ноль. Пересчитайте пользовательский текст подписи, если данные диаграммы изменятся.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -149,11 +217,11 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Установка знака процента в подписях диаграммы**
+## **Установить знак процента в подписях диаграммы**
 
-Когда значения сохраняются в виде дробей, используйте [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) для отображения процентов. Передайте `false` в [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/), чтобы применить формат подписи независимо от исходных ячеек.
+Когда значения хранятся в виде дробей, используйте [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) , чтобы отображать проценты. Передайте `false` в [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) , чтобы применить формат подписи независимо от исходных ячеек.
 
-В этом примере создаётся 100% сложенная столбчатая диаграмма с красными и синими сериями в четырёх категориях. Каждая пара значений в сумме даёт 1. Формат подписи `0.0%` отображает 0.30 как 30.0 %, в то время как вертикальная ось использует два знака после запятой. Обе серии используют белый текст подписи размером 10 пунктов.
+Этот пример создаёт 100% построенную столбчатую диаграмму с красными и синими сериями по четырём категориям. Каждая пара значений суммируется до 1. Формат подписи `0.0%` отображает 0.30 как 30.0%, а вертикальная ось использует два знака после запятой. Обе серии используют белый текст подписи размером 10 пунктов.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -238,9 +306,9 @@ for (auto i = 0; i < 2; i++)
 presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Чтение фактического текста подписи данных**
+## **Считать фактический текст подписей данных**
 
-Используйте [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) для получения текста, сформированного настройками подписи данных. Это полезно при извлечении подписей для отчётов, поиске содержимого презентаций или проверке сгенерированных диаграмм. В примере ниже формат подписи данных по умолчанию ([data label format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/)) объединяет имя категории, имя серии и значение. Одна точка форматирует своё значение как процент, а другая использует пользовательский текст из [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+Используйте [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) , чтобы получить текст, сформированный настройками подписи данных. Это полезно при извлечении подписей для отчётов, поиске содержимого презентации или проверке сгенерированных диаграмм. В приведённом ниже примере формат подписи по умолчанию [data label format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) объединяет имя каждой категории, имя серии и значение. Одна точка форматирует своё значение как процент, а другая использует пользовательский текст из [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -328,15 +396,15 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-Число, хранящееся в точке данных, остаётся `0.75`, даже если её подпись показывает `75 %` вместе с именами категории и серии. Пользовательский текст заменяет сгенерированный текст подписи. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) возвращает полученную строку подписи в любом случае. Проверяйте [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) отдельно, как показано выше, когда нужно извлечь только видимые подписи.
+Число, хранящееся в точке данных, остаётся `0.75`, даже если её подпись отображает `75%` вместе с именем категории и серии. Пользовательский текст заменяет сгенерированный текст подписи. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) возвращает полученную строку подписи в любом случае. Проверяйте [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) отдельно, как показано выше, когда необходимо извлечь только видимые подписи.
 
-## **Управление подписями данных за пределами максимального значения оси**
+## **Управление подписями данных за пределами максимума оси**
 
-Если вы вручную ограничиваете диапазон оси, некоторые точки данных могут превышать её максимум. Используйте [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) для управления тем, показываются ли их подписи. Эта настройка меняет видимость подписи; она не меняет диапазон оси и не изменяет исходные числовые значения.
+Если вы ограничиваете диапазон оси вручную, некоторые точки данных могут превышать её максимум. Используйте [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) , чтобы управлять тем, отображаются ли их подписи данных. Эта настройка изменяет видимость подписи; она не меняет диапазон оси или исходные значения данных.
 
-В примере ниже создаётся двумерная сгруппированная столбчатая диаграмма со значениями 60 и 120. Для вертикальной оси задаётся [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) = `false` и [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) = 100. На первом слайде подписи отображаются за пределами максимума; копия этого слайда отключает их. Оба слайда сохраняются в `DataLabelsOverMaximum.pptx`.
+Пример ниже создаёт 2‑D группированную столбчатую диаграмму со значениями 60 и 120. Он устанавливает [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) в `false` и [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) в 100 на вертикальной оси. На первом слайде подписи за пределами максимума разрешены; копия этого слайда отключает их. Оба слайда сохраняются в `DataLabelsOverMaximum.pptx`.
 
-Включите подписи значений с помощью [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Настройка уровня диаграммы не включает отображение значений автоматически и не переопределяет отключённое отображение отдельной подписи. Этот пример включает значения для всей серии и использует [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) для размещения подписей в наружном конце каждого столбца.
+Включите подписи значений с помощью [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Настройка уровня диаграммы не включает отображение значений сама по себе и не переопределяет отключённое отображение значения отдельной подписи. В этом примере включаются значения для всей серии и используется [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) , чтобы разместить подписи в наружном конце каждого столбца.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -407,21 +475,19 @@ secondChart->set_ShowDataLabelsOverMaximum(false);
 presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
 ```
 
-Следующие изображения показывают сохранённые слайды, отрисованные Microsoft PowerPoint. При `true` подпись **120** видна у верхней границы; при `false` она скрыта. Подпись **60** остаётся видимой, максимум оси остаётся **100**, а вторая точка данных остаётся **120** в обоих случаях.
+Ниже представлены изображения сохранённых слайдов, отрисованных Microsoft PowerPoint. При `true` подпись **120** видна у верхней границы; при `false` она скрыта. Подпись **60** остаётся видимой, максимум оси остаётся **100**, а второе значение данных остаётся **120** в обоих случаях.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![Диаграмма PowerPoint, показывающая подпись значения 120 при максимуме оси 100](data-labels-over-maximum-true.png) | ![Диаграмма PowerPoint, скрывающая подпись значения 120 при максимуме оси 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Тип диаграммы" %}}
-
-Этот пример использует двумерную столбчатую диаграмму с осью значений. Диаграммы без оси значений, такие как круговые и кольцевые, не имеют максимума оси, который можно ограничить таким образом.
-
+{{% alert color="info" title="Chart Type" %}}
+В этом примере используется 2D столбчатая диаграмма со значимой осью. Диаграммы без значимой оси, такие как круговые и пончиковые диаграммы, не имеют максимума оси, который можно ограничить таким способом.
 {{% /alert %}}
 
-## **Установка расстояния подписи от оси**
+## **Установить расстояние подписи от оси**
 
-Используйте [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) для управления расстоянием между подписями оси категорий и самой осью. Значение задаётся в процентах от максимального размера шрифта подписей оси. Этот пример создаёт сгруппированную столбчатую диаграмму и задаёт смещение подписи горизонтальной оси равным 500. Эта настройка влияет на подписи оси категорий, а не на подписи, привязанные к отдельным точкам данных.
+Используйте [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) , чтобы управлять расстоянием между подписями категориальной оси и осью. Значение представляет собой процент от максимального размера шрифта подписей оси. Этот пример создаёт группированную столбчатую диаграмму и устанавливает смещение подписи горизонтальной оси в 500. Эта настройка влияет на подписи категориальной оси, а не на подписи, привязанные к отдельным точкам данных.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -449,11 +515,11 @@ chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset(500);
 presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Регулировка расположения подписи**
+## **Настроить расположение подписи**
 
-На круговой диаграмме регулируйте позиции подписей данных, чтобы улучшить распределение и освободить место для линий‑выводов.
+На круговой диаграмме отрегулируйте позиции подписей данных, чтобы улучшить промежутки и освободить место для линий‑соединителей.
 
-Этот пример отображает значение первой точки данных, помещает её подпись за пределами сектора и использует [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) и [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) для смещения. Эти смещения задаются относительно ширины и высоты диаграммы соответственно.
+Этот пример отображает значение первой точки данных, размещает её подпись за пределами сектора и использует [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) и [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) , чтобы скорректировать её смещения. Эти смещения относятся соответственно к ширине и высоте диаграммы.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -493,15 +559,15 @@ presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 ![Круговая диаграмма с отрегулированным положением подписи данных](pie-chart-adjusted-label.png)
 
-## **Форматирование линий‑выводов**
+## **Форматировать линии‑соединители**
 
-Когда подписи круговой диаграммы находятся за пределами секторов, линии‑выводы помогают читателям сопоставить каждое значение с соответствующим сектором. Контрастный цвет и слегка утолщённая линия делают такие соединения более заметными, тогда как прозрачность и пунктирный стиль сохраняют линии визуально ненавязчивыми.
+Когда подписи круговой диаграммы расположены за пределами секторов, линии‑соединители помогают читателям сопоставить каждое значение с соответствующим сектором. Контрастный цвет и слегка утолщённая линия делают такие соединения проще для восприятия, тогда как прозрачность и пунктирный стиль сохраняют линии визуально ненавязчивыми.
 
-Используйте [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) для форматирования линий‑выводов на уровне коллекции подписей серии. Настройки в `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` применяются к коллекции, а не к отдельной подписи.
+Используйте [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) , чтобы отформатировать линии‑соединители на уровне коллекции подписей данных серии. Параметры в `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` применяются к коллекции, а не к отдельной подписи.
 
-В этом примере создаётся круговая диаграмма с данными по умолчанию, отображаются значения за пределами секторов и включаются линии‑выводы с помощью [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/). Две подписи отодвигаются от секторов с помощью смещений [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) и [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/), задаваемых как доли от ширины и высоты диаграммы. Исходная презентация не требуется.
+Этот пример создаёт круговую диаграмму с данными по умолчанию, отображает значения за пределами секторов и включает линии‑соединители с помощью [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/). Он перемещает две подписи дальше от их секторов, используя смещения [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) и [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) , выражённые в долях от ширины и высоты диаграммы. Входная презентация не требуется.
 
-Формат заливки, возвращаемый [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/), используется для установки сплошного синего цвета с альфа‑значением 191 из 255, что дает примерно 25 % прозрачности. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) задаёт толщину 2 пункта, а [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) делает линию пунктирной.
+Формат заливки, возвращаемый [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) , используется для установки сплошного синего цвета с альфа‑значением 191 из 255, что дает примерно 25% прозрачности. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) задаёт толщину 2 пункта, а [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) делает линию пунктирной.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -561,17 +627,17 @@ line->set_DashStyle(LineDashStyle::Dash);
 presentation->Save(u"FormattedLeaderLines.pptx", SaveFormat::Pptx);
 ```
 
-Включение линий‑выводов не гарантирует появление линии для каждой подписи. Видимость зависит от размещения подписи и поведения макета диаграммы. В данном примере две отодвинутые подписи имеют видимые линии‑выводы; подписи, оставшиеся близко к секторам, их не требуют.
+Включение линий‑соединителей не гарантирует, что линия появится для каждой подписи. Видимость зависит от размещения подписи и поведения компоновки диаграммы. В этом примере две смещённые подписи имеют видимые линии‑соединители; подписи, остающиеся близко к своим секторам, их не требуют.
 
-Следующее изображение показывает сохранённый `FormattedLeaderLines.pptx`, отрисованный Aspose.Slides:
+Следующее изображение показывает сохранённый `FormattedLeaderLines.pptx`, отрисованный с помощью Aspose.Slides:
 
-![Круговая диаграмма с синими, полупрозрачными пунктирными линиями‑выводами, соединяющими две внешние подписи с их секторами](formatted-leader-lines.png)
+![Круговая диаграмма с синими, полупрозрачными пунктирными линиями‑соединителями, соединяющими две внешние подписи с их секторами](formatted-leader-lines.png)
 
-## **Добавление нескольких строк подписей над столбчатой диаграммой**
+## **Добавить несколько строк подписей данных над столбчатой диаграммой**
 
-Этот пример создаёт столбчатую диаграмму с двумя строками подписей над областью построения. Серия A отображает видимые столбцы, а серии B и C предоставляют дополнительные подписи. Их столбцы скрыты удалением заливки и контура. Метод [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) выравнивает все три серии по одним и тем же центрам категорий.
+Этот пример создаёт столбчатую диаграмму с двумя строками подписей данных над областью построения. Серия A отображает видимые столбцы, а серии B и C предоставляют дополнительные подписи. Их столбцы скрыты удалением заливки и контура. Метод [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) выравнивает все три серии по тем же центрам категорий.
 
-Настройки [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) резервируют пространство для строк подписей. После вычисления позиций по умолчанию с помощью [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) методы [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) и [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) сохраняют горизонтальное выравнивание и применяют вертикальные смещения для размещения подписей в двух строках. Числа остаются подписями данных, привязанными к значениям серий; только заголовки строк представляют собой отдельные текстовые фигуры.
+Настройки [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) резервируют пространство для строк подписей. После того как [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) вычисляет позиции по умолчанию, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) и [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) сохраняют горизонтальное выравнивание и применяют вертикальные смещения для размещения подписей в двух строках. Числа остаются подписями данных, связанными со значениями серий; только заголовки строк являются отдельными текстовыми фигурами.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -678,14 +744,14 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
     }
 }
 
-// Выравнить все три серии по одним и тем же центрам категорий.
+// Выровнять все три серии по одним и тем же центрам категорий.
 chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
 
 // Использовать меньше линий сетки для этого компактного примера.
 chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
 chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
 
-// Зарезервировать пространство над областью построения для двух строк подписей данных.
+// Зарезервировать место над областью построения для двух рядов подписей данных.
 chart->get_PlotArea()->set_LayoutTargetType(LayoutTargetType::Inner);
 chart->get_PlotArea()->set_X(0.15f);
 chart->get_PlotArea()->set_Y(0.32f);
@@ -701,13 +767,13 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
     for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
     {
         auto dataLabel = series->get_DataPoint(categoryIndex)->get_Label();
-        // Сохранить положение по умолчанию по горизонтали. Y — смещение от
-        // исходного положения подписи, выраженного как доля высоты диаграммы.
+        // Сохранить положение по умолчанию по горизонтали. Y — это смещение от
+        // положения подписи по умолчанию, выраженное в долях высоты диаграммы.
         dataLabel->set_X(0);
         dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
     }
 
-    // Только заголовок строки является отдельным текстовым объектом.
+    // Только заголовок строки является отдельной текстовой фигурой.
     auto rowHeading = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, chart->get_X(), chart->get_Y() + rowTop * chart->get_Height(), 85, 18);
     rowHeading->get_FillFormat()->set_FillType(FillType::NoFill);
     rowHeading->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -723,18 +789,18 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
 presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
 ```
 
-![Столбчатая диаграмма с двумя строками подписей над областью построения](multiple-rows-of-labels.png)
+![Столбчатая диаграмма с двумя строками подписей данных над областью построения](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Как предотвратить наложение подписей данных на плотно заполненных диаграммах?**
+**Как предотвратить перекрытие подписей данных на плотных диаграммах?**
 
-Сочетайте автоматическое размещение подписей, линии‑выводы и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или показывайте подписи только для экстремальных значений или ключевых точек.
+Сочетайте автоматическое размещение подписей, линии‑соединители и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или отображайте подписи только для экстремальных значений или ключевых точек.
 
 **Как отключить подписи только для нулевых, отрицательных или пустых значений?**
 
-Отфильтруйте точки данных перед включением подписей и отключите отображение для значений = 0, отрицательных значений или отсутствующих значений в соответствии с определённым правилом.
+Отфильтруйте точки данных перед включением подписей и отключите их отображение для значений 0, отрицательных или отсутствующих значений в соответствии с заданным правилом.
 
 **Как обеспечить единый стиль подписи при экспорте в PDF/изображения?**
 
-Явно задайте семейство шрифта и размер и убедитесь, что шрифт доступен в среде рендеринга, чтобы избежать подстановки.
+Явно задайте семейство шрифта и размер, а также проверьте, что шрифт доступен в среде отрисовки, чтобы избежать использования резервного шрифта.

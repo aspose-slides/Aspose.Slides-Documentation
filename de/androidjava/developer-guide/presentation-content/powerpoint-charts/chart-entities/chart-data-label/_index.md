@@ -1,5 +1,5 @@
 ---
-title: Diagrammdatentexte in Präsentationen unter Android verwalten
+title: Diagrammdatenbeschriftungen in Präsentationen unter Android verwalten
 linktitle: Datenbeschriftung
 type: docs
 url: /de/androidjava/chart-data-label/
@@ -15,15 +15,64 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammdatentexte in PowerPoint-Präsentationen mit Aspose.Slides für Android via Java hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
+description: "Erfahren Sie, wie Sie Diagrammdatenbeschriftungen in PowerPoint-Präsentationen mit Aspose.Slides für Android über Java hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
 ## **Einleitung**
 
-Datentexte zeigen Informationen zu Diagrammserien und einzelnen Datenpunkten an und helfen dem Leser, Werte zu erkennen und das Diagramm zu verstehen. Dieser Artikel erklärt, wie man Werte formatiert, Prozentsätze anzeigt, den Text von Datentexten liest, Datentexte jenseits des Achsenmaximums steuert, den Abstand von Kategorienachsenbeschriftungen anpasst und Beschriftungen von Kreisdiagrammen positioniert.
+Datenbeschriftungen zeigen Informationen zu Diagrammserien und einzelnen Datenpunkten an und helfen den Lesern, Werte zu erkennen und das Diagramm zu verstehen. Dieser Artikel erklärt, wie man Werte formatiert, Prozentsätze anzeigt, Beschriftungstext liest, Beschriftungen über dem Achsenmaximum steuert, den Abstand von Kategorienachsenbeschriftungen anpasst und die Position von Kreisdiagrammbeschriftungen festlegt.
 
-## **Datenpräzision in Diagrammdatentexten festlegen**
+## **Sichtbare Datenbeschriftungen zählen**
 
-Verwenden Sie [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-), um Serienwerte zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standarddaten, zeigt seine Datentabelle an und aktiviert Wertebeschriftungen für die erste Serie. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen, ohne die zugrunde liegenden Werte zu ändern.
+Verwenden Sie [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getCountOfVisibleDataLabels--), um zu prüfen, wie viele Datenbeschriftungen vor der Veröffentlichung einer Präsentation zur Anzeige aktiviert sind. Im Gegensatz zu [getCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getCount--), das die Gesamtzahl der Beschriftungen in der Sammlung zurückgibt, berücksichtigt es die Serienstandardwerte und individuellen Beschriftungseinstellungen.
+
+Dieses Beispiel erstellt ein Säulendiagramm mit einer Serie und drei Datenpunkten. Es greift über [getLabels](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getLabels--) auf die Beschriftungssammlung der Serie zu und gibt die sichtbare Anzahl aus, während sich die Einstellungen ändern: **0, 3, 2, 3**. Die Gesamtzahl bleibt **3**.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesCell = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+
+    for (int i = 0; i < 3; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    IDataLabelCollection labels = series.getLabels();
+    System.out.println("Total: " + labels.getCount() + "; visible: " + labels.getCountOfVisibleDataLabels()); // Gesamt: 3; sichtbar: 0
+
+    labels.getDefaultDataLabelFormat().setShowValue(true);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Sichtbar: 3
+
+    labels.get_Item(1).getDataLabelFormat().setShowValue(false);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Sichtbar: 2
+
+    labels.get_Item(1).getDataLabelFormat().setShowLegendKey(true);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Sichtbar: 3
+} finally {
+    presentation.dispose();
+}
+```
+
+Die Serien‑[getDefaultDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getDefaultDataLabelFormat--) liefert die Standardeinstellungen. Das Übergeben von `true` an [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) zeigt die Werte für alle drei Beschriftungen an. Das Übergeben von `false` über das [getDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getDataLabelFormat--) einer Beschriftung überschreibt diese Einstellung für die ausgewählte Beschriftung. Das Übergeben von `true` an [setShowLegendKey](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLegendKey-boolean-) lässt diese Beschriftung wieder als sichtbar zählen, obwohl ihr Wert ausgeblendet bleibt.
+
+Die sichtbare Anzahl spiegelt die Sichtbarkeitseinstellungen wider. Sie misst nicht, ob Beschriftungen überlappen, abgeschnitten werden oder im gerenderten Diagramm lesbar sind.
+
+## **Datenpräzision in Diagrammbeschriftungen festlegen**
+
+Verwenden Sie [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-), um Serienwerte zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standarddaten, zeigt dessen Datentabelle an und aktiviert Wertebeschriftungen für die erste Serie. Das Format `#,##0.00` erzeugt ein Tausendertrennzeichen und zwei Dezimalstellen, ohne die zugrunde liegenden Werte zu ändern.
 
 ```java
 import com.aspose.slides.*;
@@ -45,11 +94,11 @@ try {
 }
 ```
 
-Um die numerischen Zellen in der eingebetteten Arbeitsmappe eines Diagramms zu formatieren, siehe [Set Custom Number Formats for Workbook Cells](/slides/de/androidjava/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dieses Beispiel zeigt außerdem, dass Wertebeschriftungen den Formaten ihrer Quellzelle folgen, während die gespeicherten numerischen Werte erhalten bleiben.
+Um die numerischen Zellen im eingebetteten Arbeitsbuch eines Diagramms zu formatieren, siehe [Benutzerdefinierte Zahlenformate für Arbeitsblattzellen festlegen](/slides/de/androidjava/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dieses Beispiel zeigt zudem, dass Wertebeschriftungen den Formaten ihrer Quellzellen folgen, während die gespeicherten numerischen Werte erhalten bleiben.
 
 ## **Prozentsätze als Beschriftungen anzeigen**
 
-Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz seiner Kategoriegesamtsumme und weisen den Text dem Textfeld zu, das von [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) zurückgegeben wird. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer 8‑Punkt‑Schrift an. Kategorien mit einer Gesamtsumme von Null werden übersprungen, um eine Division durch Null zu vermeiden. Berechnen Sie den benutzerdefinierten Beschriftungstext erneut, wenn sich die Diagrammdaten ändern.
+Bei einem gestapelten Säulendiagramm berechnen Sie jeden Wert als Prozentsatz seiner Gesamtkategorie und weisen den Text dem Textfeld zu, das von [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) zurückgegeben wird. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer 8‑Punkt‑Schrift an. Kategorien mit einem Gesamtsumme‑Wert von null werden übersprungen, um eine Division durch null zu vermeiden. Berechnen Sie den benutzerdefinierten Beschriftungstext neu, wenn sich die Diagrammdaten ändern.
 
 ```java
 import com.aspose.slides.*;
@@ -106,11 +155,11 @@ try {
 }
 ```
 
-## **Prozentzeichen mit Diagrammdatentexten festlegen**
+## **Prozentzeichen mit Diagrammbeschriftungen festlegen**
 
 Wenn Werte als Brüche gespeichert sind, verwenden Sie [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-), um Prozentsätze anzuzeigen. Übergeben Sie `false` an [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-), um das Beschriftungsformat unabhängig von den Quellzellen anzuwenden.
 
-Dieses Beispiel erstellt ein 100 % gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. Jeder Wertepaar summiert sich zu 1. Das Beschriftungsformat `0.0%` zeigt 0.30 als 30.0 % an, während die vertikale Achse zwei Dezimalstellen nutzt. Beide Serien verwenden weiße Beschriftungen mit 10 Punkt.
+Dieses Beispiel erstellt ein 100 % gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. Jeder Wertepaar addiert sich zu 1. Das Beschriftungsformat `0.0%` zeigt 0.30 als 30,0 % an, während die vertikale Achse zwei Dezimalstellen verwendet. Beide Serien verwenden weiße Beschriftungen mit 10 Punkt.
 
 ```java
 import com.aspose.slides.*;
@@ -165,9 +214,9 @@ try {
 }
 ```
 
-## **Den tatsächlichen Text von Datentexten lesen**
+## **Den tatsächlichen Text von Datenbeschriftungen lesen**
 
-Verwenden Sie [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) , um den von den Einstellungen eines Datentextes erzeugten Text abzurufen. Dies ist nützlich, wenn Sie Beschriftungen für Berichte extrahieren, Präsentationsinhalte durchsuchen oder generierte Diagramme validieren. Im folgenden Beispiel kombiniert das Standard‑[Datentextformat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) jeden Kategorienamen, Seriennamen und Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, ein anderer verwendet benutzerdefinierten Text von [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Verwenden Sie [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--), um den durch die Beschriftungseinstellungen erzeugten Text abzurufen. Dies ist nützlich beim Extrahieren von Beschriftungen für Berichte, beim Durchsuchen von Präsentationsinhalten oder beim Validieren generierter Diagramme. Im nachfolgenden Beispiel kombiniert das Standard‑[data label format](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) den Kategorienamen, den Seriennamen und den Wert. Ein Datenpunkt formatiert seinen Wert als Prozentsatz, ein anderer verwendet benutzerdefinierten Text aus [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -227,15 +276,15 @@ try {
 }
 ```
 
-Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, selbst wenn seine Beschriftung `75%` zusammen mit den Kategorien‑ und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den generierten Beschriftungstext. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) gibt in beiden Fällen die resultierende Beschriftungszeichenfolge zurück. Prüfen Sie [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) separat, wie oben gezeigt, wenn Sie nur sichtbare Beschriftungen extrahieren möchten.
+Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, selbst wenn seine Beschriftung `75 %` zusammen mit den Kategorien‑ und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den generierten Beschriftungstext. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) liefert in beiden Fällen die resultierende Beschriftungszeichenkette. Prüfen Sie [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) separat, wie oben gezeigt, wenn Sie nur sichtbare Beschriftungen extrahieren möchten.
 
-## **Datentexte jenseits des Achsenmaximums steuern**
+## **Datenbeschriftungen über dem Achsenmaximum steuern**
 
-Wenn Sie einen Achsenbereich manuell begrenzen, können einige Datenpunkte dessen Maximum überschreiten. Verwenden Sie [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-), um zu steuern, ob ihre Datentexte angezeigt werden. Diese Einstellung ändert die Sichtbarkeit der Beschriftungen; sie ändert weder das Achsenmaximum noch die zugrunde liegenden Datenwerte.
+Wenn Sie einen Achsenbereich manuell begrenzen, können einige Datenpunkte dessen Maximum überschreiten. Verwenden Sie [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-), um zu steuern, ob deren Datenbeschriftungen angezeigt werden. Diese Einstellung ändert die Sichtbarkeit der Beschriftungen; sie ändert nicht den Achsenbereich oder die zugrunde liegenden Datenwerte.
 
-Das nachfolgende Beispiel erstellt ein 2D‑gruppiertes Säulendiagramm mit Werten 60 und 120. Es übergibt `false` an [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) und setzt das Maximum auf 100 mit [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) auf der vertikalen Achse. Die erste Folie erlaubt Beschriftungen jenseits des Maximums; eine Kopie dieser Folie deaktiviert sie. Beide Folien werden in `DataLabelsOverMaximum.pptx` gespeichert.
+Das nachfolgende Beispiel erstellt ein 2D‑gruppiertes Säulendiagramm mit den Werten 60 und 120. Es übergibt `false` an [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) und setzt das Maximum auf 100 mit [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) auf der vertikalen Achse. Die erste Folie erlaubt Beschriftungen über dem Maximum; eine Kopie dieser Folie deaktiviert sie. Beide Folien werden in `DataLabelsOverMaximum.pptx` gespeichert.
 
-Aktivieren Sie Wertebeschriftungen mit [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Die Einstellung auf Diagrammebene aktiviert die Wertanzeige nicht von selbst und überschreibt keine individualisierte Deaktivierung. Dieses Beispiel aktiviert Werte für die gesamte Serie und verwendet [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-), um Beschriftungen am äußeren Ende jeder Säule zu platzieren.
+Aktivieren Sie Wertebeschriftungen mit [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Die Diagrammebene aktiviert die Anzeige von Werten nicht automatisch und überschreibt nicht die deaktivierte Anzeige eines einzelnen Labels. Dieses Beispiel aktiviert Werte für die gesamte Serie und verwendet [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-), um Beschriftungen am äußeren Ende jeder Säule zu platzieren.
 
 ```java
 import com.aspose.slides.*;
@@ -284,19 +333,17 @@ try {
 }
 ```
 
-Die folgenden Bilder zeigen die gespeicherten Folien, gerendert von Microsoft PowerPoint. Bei `true` ist die Beschriftung **120** an der oberen Grenze sichtbar; bei `false` ist sie ausgeblendet. Die Beschriftung **60** bleibt sichtbar, das Achsenmaximum bleibt **100** und der zweite Datenpunkt bleibt in beiden Fällen **120**.
-
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint-Diagramm, das das Werteetikett 120 bei einem Achsenmaximum von 100 zeigt](data-labels-over-maximum-true.png) | ![PowerPoint-Diagramm, das das Werteetikett 120 bei einem Achsenmaximum von 100 ausblendet](data-labels-over-maximum-false.png) |
+| ![PowerPoint-Diagramm, das die Wertebeschriftung 120 mit einem Achsenmaximum von 100 anzeigt](data-labels-over-maximum-true.png) | ![PowerPoint-Diagramm, das die Wertebeschriftung 120 mit einem Achsenmaximum von 100 ausblendet](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Diagrammtyp" %}}
-Dieses Beispiel verwendet ein 2D‑Säulendiagramm mit einer Wertachse. Diagramme ohne Wertachse, wie Kreis‑ und Donut‑Diagramme, besitzen kein Achsenmaximum, das auf diese Weise begrenzt werden könnte.
+{{% alert color="info" title="Chart Type" %}}
+Dieses Beispiel verwendet ein 2D‑Säulendiagramm mit einer Werteachse. Diagramme ohne Werteachse, wie Kreis‑ und Donut‑Diagramme, besitzen kein Achsenmaximum, das auf diese Weise begrenzt werden könnte.
 {{% /alert %}}
 
-## **Abstand des Textes von einer Achse festlegen**
+## **Abstand von Beschriftungen zu einer Achse festlegen**
 
-Verwenden Sie [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-), um den Abstand zwischen Kategoriekachsenbeschriftungen und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenbeschriftungen. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm und setzt den horizontalen Achsenbeschriftungs‑Offset auf 500. Diese Einstellung wirkt sich auf Kategoriekachsenbeschriftungen aus, nicht auf an einzelne Datenpunkte angehängte Beschriftungen.
+Verwenden Sie [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-), um den Abstand zwischen Kategorienachsenbeschriftungen und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenbeschriftungen. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm und setzt den horizontalen Achsenbeschriftungs‑Offset auf 500. Diese Einstellung wirkt sich auf Kategorienachsenbeschriftungen aus, nicht auf Beschriftungen, die einzelnen Datenpunkten zugeordnet sind.
 
 ```java
 import com.aspose.slides.*;
@@ -316,9 +363,9 @@ try {
 
 ## **Beschriftungsposition anpassen**
 
-Bei einem Kreisdiagramm passen Sie die Position von Datentexten an, um den Abstand zu verbessern und Platz für Verbindungslinien zu schaffen.
+Bei einem Kreisdiagramm können Sie die Position von Datenbeschriftungen anpassen, um den Abstand zu verbessern und Platz für Führungsleitungen zu schaffen.
 
-Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert seine Beschriftung außerhalb des Segmentes und passt seine horizontalen und vertikalen Offsets mit [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) und [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) an. Diese Offsets beziehen sich jeweils auf die Diagrammbreite und -höhe.
+Dieses Beispiel zeigt den Wert des ersten Datenpunkts, legt seine Beschriftung außerhalb des Segments ab und passt seine horizontalen und vertikalen Offsets mit [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) und [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) an. Diese Offsets beziehen sich jeweils auf die Breite bzw. Höhe des Diagramms.
 
 ```java
 import com.aspose.slides.*;
@@ -342,17 +389,17 @@ try {
 }
 ```
 
-![Kreisdiagramm mit angepasster Datentextposition](pie-chart-adjusted-label.png)
+![Kreisdiagramm mit angepasster Datenbeschriftungsposition](pie-chart-adjusted-label.png)
 
-## **Verbindungslinien formatieren**
+## **Führungsleitungen formatieren**
 
-Wenn Kreisdiagrammbeschriftungen außerhalb ihrer Segmente liegen, helfen Verbindungslinien dem Leser, jeden Wert dem richtigen Segment zuzuordnen. Eine kontrastierende Farbe und eine leicht dickere Linie können diese Verbindungen leichter nachvollziehbar machen, während Transparenz und ein gestricheltes Muster die Linien visuell unauffällig halten.
+Wenn Kreisdiagrammbeschriftungen außerhalb ihrer Segmente platziert sind, helfen Führungsleitungen den Lesern, jeden Wert dem richtigen Segment zuzuordnen. Eine kontrastierende Farbe und eine leicht dickere Linie können diese Verbindungen leichter nachvollziehbar machen, während Transparenz und ein Strichstil die Linien unauffällig halten.
 
-Verwenden Sie [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) , um Verbindungslinien auf Ebene der Datentextsammlung einer Serie zu formatieren. Die Einstellungen in `series.getLabels().getLeaderLinesFormat().getLine()` gelten für die gesamte Sammlung, nicht für einzelne Beschriftungen.
+Verwenden Sie [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) zum Formatieren von Führungsleitungen auf Ebene der Datenbeschriftungssammlung einer Serie. Die Einstellungen in `series.getLabels().getLeaderLinesFormat().getLine()` gelten für die gesamte Sammlung, nicht für einzelne Beschriftungen.
 
-Dieses Beispiel erstellt ein Kreisdiagramm mit Standarddaten, zeigt Werte außerhalb der Segmente an und aktiviert [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). Es verschiebt zwei Beschriftungen weiter von ihren Segmenten weg, indem es [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) und [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) Offsets verwendet, ausgedrückt als Bruchteile der Diagrammbreite und -höhe. Keine Eingabepräsentation ist erforderlich.
+Dieses Beispiel erstellt ein Kreisdiagramm mit Standarddaten, zeigt Werte außerhalb der Segmente an und aktiviert [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). Es verschiebt zwei Beschriftungen weiter von ihren Segmenten mittels [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) und [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) Offsets, ausgedrückt als Bruchteile der Diagrammbreite und -höhe. Keine Eingabepräsentation ist erforderlich.
 
-Die [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) der Linie setzt eine feste blaue Farbe mit einem Alphawert von 191 von 255, was etwa 25 % Transparenz ergibt. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) legt die Dicke auf 2 Punkt fest, und [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) macht die Linie gestrichelt.
+Die [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) der Linie setzt eine solide blaue Farbe mit einem Alphawert von 191 von 255, was etwa 25 % Transparenz ergibt. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) legt die Stärke auf 2 Punkt fest, und [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) macht die Linie gestrichelt.
 
 ```java
 import com.aspose.slides.*;
@@ -372,7 +419,7 @@ try {
     labelFormat.setPosition(LegendDataLabelPosition.OutsideEnd);
     labelFormat.setShowLeaderLines(true);
 
-    // Verschieben Sie zwei Beschriftungen weiter von ihren Segmenten.
+    // Verschieben Sie zwei Beschriftungen weiter von ihren Segmenten entfernt.
     series.getLabels().get_Item(0).setX(0.10f);
     series.getLabels().get_Item(0).setY(-0.05f);
     series.getLabels().get_Item(1).setX(-0.10f);
@@ -390,17 +437,17 @@ try {
 }
 ```
 
-Das Aktivieren von Verbindungslinien garantiert nicht, dass für jede Beschriftung eine Linie erscheint. Die Sichtbarkeit hängt von der Beschriftungsposition und dem Layoutverhalten des Diagramms ab. In diesem Beispiel haben die beiden versetzten Beschriftungen sichtbare Verbindungslinien; die Beschriftungen, die nahe an ihren Segmenten bleiben, benötigen keine.
+Das Aktivieren von Führungsleitungen garantiert nicht, dass für jede Beschriftung eine Linie erscheint. Die Sichtbarkeit hängt von der Beschriftungsposition und dem Layoutverhalten des Diagramms ab. In diesem Beispiel haben die beiden versetzten Beschriftungen sichtbare Führungsleitungen; die Beschriftungen, die nahe bei ihren Segmenten bleiben, benötigen keine.
 
 Das folgende Bild zeigt die gespeicherte `FormattedLeaderLines.pptx`, gerendert mit Aspose.Slides:
 
-![Kreisdiagramm mit blauen, halbtransparenten, gestrichelten Verbindungslinien, die zwei äußere Beschriftungen mit ihren Segmenten verbinden](formatted-leader-lines.png)
+![Kreisdiagramm mit blauen, halbtransparenten, gestrichelten Führungsleitungen, die zwei äußere Beschriftungen mit ihren Segmenten verbinden](formatted-leader-lines.png)
 
-## **Mehrere Reihen von Datentexten über einem Säulendiagramm hinzufügen**
+## **Mehrere Zeilen von Datenbeschriftungen über einem Säulendiagramm hinzufügen**
 
-Dieses Beispiel erstellt ein Säulendiagramm mit zwei Reihen von Datentexten über dem Plot‑Bereich. Serie A zeigt die sichtbaren Säulen, während Serie B und Serie C die zusätzlichen Beschriftungen bereitstellen. Ihre Säulen werden ausgeblendet, indem Füllung und Kontur entfernt werden. Die Methode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) richtet alle drei Serien an denselben Kategorien‑Mittelpunkten aus.
+Dieses Beispiel erstellt ein Säulendiagramm mit zwei Reihen von Datenbeschriftungen über dem Plotbereich. Serie A zeigt die sichtbaren Säulen, während Serie B und Serie C die zusätzlichen Beschriftungen bereitstellen. Ihre Säulen werden ausgeblendet, indem Füllung und Kontur entfernt werden. Die Methode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) richtet alle drei Serien an denselben Kategorien­zentren aus.
 
-Die Einstellungen von [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) reservieren Platz für die Beschriftungsreihen. Nach [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) berechnet die Standardpositionen, bewahren [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) und [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) die horizontale Ausrichtung und wenden vertikale Offsets an, um die Beschriftungen in zwei Reihen anzuordnen. Die Zahlen bleiben Datentexte, die mit den Serienwerten verknüpft sind; nur die Zeilenüberschriften sind separate Textformen.
+Die Einstellungen des [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) reservieren Platz für die Beschriftungsreihen. Nach der Berechnung der Standardpositionen durch [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) bewahren [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) und [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) die horizontale Ausrichtung und wenden vertikale Offsets an, um die Beschriftungen in zwei Reihen anzuordnen. Die Zahlen bleiben Datenbeschriftungen, die mit den Serienwerten verknüpft sind; nur die Zeilenüberschriften sind separate Textformen.
 
 ```java
 import com.aspose.slides.*;
@@ -444,7 +491,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // Verstecken Sie die Spalten von B und C, aber behalten Sie deren Datentexte.
+            // Verstecken Sie die Spalten von B und C, behalten aber deren Datenbeschriftungen.
             series.getFormat().getFill().setFillType(FillType.NoFill);
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -456,14 +503,14 @@ try {
         }
     }
 
-    // Richten Sie alle drei Serien mit denselben Kategorienzentren aus.
+    // Richten Sie alle drei Serien an denselben Kategorienzentren aus.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap((byte) 100);
 
     // Verwenden Sie weniger Gitternetzlinien für dieses kompakte Beispiel.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // Reservieren Sie Platz über dem Plot für zwei Reihen von Datentexten.
+    // Reservieren Sie Platz über dem Plot für zwei Reihen von Datenbeschriftungen.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
     chart.getPlotArea().setX(0.15f);
     chart.getPlotArea().setY(0.32f);
@@ -477,8 +524,8 @@ try {
 
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // Behalten Sie die Standard‑Horizontale‑Position bei. Y ist ein Offset von
-            // der Standard‑Beschriftungsposition, ausgedrückt als Bruchteil der Diagrammhöhe.
+            // Behalten Sie die Standard-Horizontalposition bei. Y ist ein Versatz von
+            // der Standardbeschriftungsposition, ausgedrückt als Bruchteil der Diagrammhöhe.
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
@@ -502,18 +549,18 @@ try {
 }
 ```
 
-![Säulendiagramm mit zwei Reihen von Datentexten über dem Plot‑Bereich](multiple-rows-of-labels.png)
+![Säulendiagramm mit zwei Reihen von Datenbeschriftungen über dem Plotbereich](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Wie kann ich verhindern, dass Datentexte bei dichten Diagrammen überlappen?**
+**Wie kann ich verhindern, dass Datenbeschriftungen in dichten Diagrammen überlappen?**
 
-Kombinieren Sie automatische Beschriftungsplatzierung, Verbindungslinien und kleinere Schriftgröße; falls nötig, blenden Sie einige Felder (z. B. die Kategorie) aus oder zeigen Sie Beschriftungen nur für Extreme‑ oder Schlüsselwerte an.
+Kombinieren Sie automatische Beschriftungsplatzierung, Führungsleitungen und kleinere Schriftgrößen; bei Bedarf Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für Extremwerte bzw. Schlüssel­punkte anzeigen.
 
-**Wie kann ich Beschriftungen nur für Null‑, Negative‑ oder Leere‑Werte deaktivieren?**
+**Wie kann ich Beschriftungen nur für Null-, negative oder leere Werte deaktivieren?**
 
 Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer definierten Regel aus.
 
-**Wie kann ich einen konsistenten Beschriftungsstil beim Export in PDF/Bilder sicherstellen?**
+**Wie kann ich einen konsistenten Beschriftungsstil beim Exportieren zu PDF/Bildern sicherstellen?**
 
-Setzen Sie explizit die Schriftfamilie und -größe und vergewissern Sie sich, dass die Schrift in der Rendering‑Umgebung verfügbar ist, um Fallbacks zu vermeiden.
+Setzen Sie explizit Schriftfamilie und -größe und prüfen Sie, dass die Schriftart in der Renderumgebung verfügbar ist, um ein Fallback zu vermeiden.

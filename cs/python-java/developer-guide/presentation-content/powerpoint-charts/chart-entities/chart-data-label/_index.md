@@ -1,5 +1,5 @@
 ---
-title: Správa datových popisků v grafech v prezentacích pomocí Pythonu
+title: Spravovat datové popisky grafů v prezentacích pomocí Pythonu
 linktitle: Datový popisek
 type: docs
 url: /cs/python-java/chart-data-label/
@@ -15,15 +15,68 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Naučte se přidávat a formátovat datové popisky v grafech v prezentacích PowerPoint pomocí Aspose.Slides pro Python prostřednictvím Javy pro poutavější snímky."
+description: "Naučte se přidávat a formátovat datové popisky grafů v prezentacích PowerPoint pomocí Aspose.Slides pro Python prostřednictvím Javy pro poutavější snímky."
 ---
 ## **Úvod**
 
-Popisky dat zobrazují informace o sériích grafu a jednotlivých datových bodech, pomáhají čtenářům identifikovat hodnoty a pochopit graf. Tento článek vysvětluje, jak formátovat hodnoty, zobrazovat procenta, číst text popisku, řídit popisky mimo maximální hodnotu osy, upravit rozestupy popisků kategoriální osy a umístit popisky koláčových grafů.
+Datové popisky zobrazují informace o sériích grafu a jednotlivých datech, pomáhají čtenářům identifikovat hodnoty a pochopit graf. Tento článek vysvětluje, jak formátovat hodnoty, zobrazovat procenta, číst text popisku, řídit popisky mimo maximální hodnotu osy, upravit rozestupy popisků osy kategorií a umístit popisky koláčových grafů.
+
+## **Počet viditelných datových popisků**
+
+Použijte [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getCountOfVisibleDataLabels) k ověření, kolik datových popisků je povoleno k zobrazení před publikací prezentace. Na rozdíl od [getCount](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getCount), který vrací celkový počet popisků v kolekci, bere v úvahu výchozí nastavení sérií a individuální nastavení popisků.
+
+Tento příklad vytváří sloupcový graf s jednou sérií a třemi datovými body. Přistupuje ke kolekci popisků série pomocí [getLabels](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getLabels) a vypisuje viditelný počet při změně nastavení: **0, 3, 2, 3**. Celkový počet zůstává **3**.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    series_cell = workbook.getCell(0, 0, 1, "Values")
+    series = chart.getChartData().getSeries().add(series_cell, chart.getType())
+
+    for i in range(3):
+        category_cell = workbook.getCell(0, i + 1, 0, f"Category {i + 1}")
+        chart.getChartData().getCategories().add(category_cell)
+        value_cell = workbook.getCell(0, i + 1, 1, jpype.JDouble((i + 1) * 10))
+        series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+    labels = series.getLabels()
+    print(f"Total: {labels.getCount()}; visible: {labels.getCountOfVisibleDataLabels()}")  # Celkem: 3; viditelné: 0
+
+    labels.getDefaultDataLabelFormat().setShowValue(True)
+    print(f"Visible: {labels.getCountOfVisibleDataLabels()}")  # Viditelné: 3
+
+    labels.get_Item(1).getDataLabelFormat().setShowValue(False)
+    print(f"Visible: {labels.getCountOfVisibleDataLabels()}")  # Viditelné: 2
+
+    labels.get_Item(1).getDataLabelFormat().setShowLegendKey(True)
+    print(f"Visible: {labels.getCountOfVisibleDataLabels()}")  # Viditelné: 3
+finally:
+    presentation.dispose()
+```
+
+Série [getDefaultDataLabelFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getDefaultDataLabelFormat) poskytuje výchozí nastavení. Předání `True` metodě [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) zde zobrazí hodnoty pro všechny tři popisky. Předání `False` přes [getDataLabelFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getDataLabelFormat) jednoho popisku přepíše toto nastavení pro vybraný popisek. Předání `True` metodě [setShowLegendKey](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLegendKey) způsobí, že se tento popisek opět počítá jako viditelný, i když jeho hodnota zůstává skryta.
+
+Viditelný počet odráží nastavení viditelnosti. Neměří, zda se popisky překrývají, jsou oříznuty nebo čitelné v vykresleném grafu.
 
 ## **Nastavení přesnosti dat v popiscích grafu**
 
-Použijte [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) k formátování hodnot sérií. Tento příklad vytváří čárový graf s výchozími daty, zobrazuje jeho datovou tabulku a povoluje popisky hodnot pro první sérii. Formát `#,##0.00` zobrazuje oddělovač tisíců a dvě desetinná místa, aniž by měnil podkladové hodnoty.
+Použijte [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) k formátování hodnot sérií. Tento příklad vytváří čárový graf s výchozími daty, zobrazí jeho datovou tabulku a povolí hodnotové popisky pro první sérii. Formát `#,##0.00` zobrazuje oddělovač tisíců a dvě desetinná místa, aniž by měnil podkladové hodnoty.
 
 ```python
 import jpype
@@ -50,11 +103,11 @@ finally:
     presentation.dispose()
 ```
 
-Chcete-li formátovat číselné buňky v vloženém sešitu grafu, podívejte se na [Nastavit vlastní číselné formáty pro buňky sešitu](/slides/cs/python-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ten příklad také ukazuje popisky hodnot, které následují formáty jejich zdrojových buněk, a přitom zachovávají uložené číselné hodnoty.
+Pro formátování číselných buněk v vložené sešitu grafu viz [Nastavit vlastní formáty čísel pro buňky sešitu](/slides/cs/python-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ten příklad také ukazuje, že hodnotové popisky následují formáty zdrojových buněk při zachování uložených číselných hodnot.
 
-## **Zobrazit procenta jako popisky**
+## **Zobrazení procent jako popisků**
 
-U sloupcového grafu se zásobníkem vypočítejte každou hodnotu jako procento celkového součtu její kategorie a přiřaďte text do textového rámce vráceného metodou [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Tento příklad používá výchozí data grafu a zobrazuje procenta se dvěma desetinnými místy v písmu o velikosti 8 bodů. Kategorie s celkovým součtem nula jsou přeskočeny, aby se předešlo dělení nulou. Vypočítejte znovu vlastní text popisku, pokud se data grafu změní.
+Pro sloupcový graf se zásobníkem vypočítejte každou hodnotu jako procento celkové hodnoty své kategorie a přiřaďte text do textového rámce vráceného metodou [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Tento příklad používá výchozí data grafu a zobrazí procenta se dvěma desetinnými místy ve 8‑bodovém písmu. Kategorie s celkovou hodnotou nula jsou přeskočeny, aby se zabránilo dělení nulou. Při změně dat grafu přepočítejte vlastní text popisku.
 
 ```python
 import jpype
@@ -110,11 +163,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Nastavení znaménka procenta v popiscích grafu**
+## **Nastavení procentního znaménka v popiscích grafu**
 
-Když jsou hodnoty uloženy jako zlomky, použijte [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) k zobrazení procent. Při předání `False` metodě [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) se formát popisku použije nezávisle na zdrojových buňkách.
+Když jsou hodnoty uloženy jako zlomky, použijte [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) k zobrazení procent. Předáním `False` metodě [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) použijete formát popisku nezávisle na zdrojových buňkách.
 
-Tento příklad vytváří sloupcový graf se 100% zásobníkem s červenou a modrou sérií ve čtyřech kategoriích. Každý pár hodnot sečte na 1. Formát popisku `0.0%` zobrazí 0.30 jako 30,0 %, zatímco svislá osa používá dvě desetinná místa. Obě série používají bílý popisek o velikosti 10 bodů.
+Tento příklad vytváří 100 % zásobníkový sloupcový graf s červenou a modrou sérií napříč čtyřmi kategoriemi. Každý pár hodnot sečte na 1. Formát popisku `0.0%` zobrazí 0.30 jako 30,0 %, zatímco svislá osa používá dvě desetinná místa. Obě série používají bílé popisky o velikosti 10 bodů.
 
 ```python
 import jpype
@@ -173,9 +226,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Přečíst skutečný text popisků dat**
+## **Načtení skutečného textu datových popisků**
 
-Použijte [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) k získání textu vytvořeného nastavením popisku dat. To je užitečné při extrahování popisků do zpráv, hledání obsahu prezentace nebo ověřování vygenerovaných grafů. V níže uvedeném příkladu výchozí [formát popisku dat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) kombinuje název kategorie, název série a hodnotu. Jeden bod formátuje svou hodnotu jako procento a další používá vlastní text z [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Použijte [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) k získání textu vytvořeného nastavením datového popisku. To je užitečné při extrahování popisků pro zprávy, vyhledávání obsahu prezentací nebo ověřování vygenerovaných grafů. V níže uvedeném příkladu výchozí [formát datového popisku](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) kombinuje název každé kategorie, název série a hodnotu. Jeden bod formátuje svou hodnotu jako procento a jiný používá vlastní text z [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```python
 import jpype
@@ -236,15 +289,15 @@ finally:
     presentation.dispose()
 ```
 
-Číslo uložené v datovém bodu zůstává `0.75`, i když jeho popisek zobrazuje `75 %` spolu s názvy kategorie a série. Vlastní text nahrazuje generovaný text popisku. [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) vrací vzniklý řetězec popisku v obou případech. Zkontrolujte [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) samostatně, jak je ukázáno výše, když chcete získat pouze viditelné popisky.
+Číslo uložené v datovém bodě zůstává `0.75`, i když jeho popisek zobrazuje `75 %` spolu s názvy kategorie a série. Vlastní text nahrazuje vygenerovaný text popisku. [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) vrací výsledný řetězec popisku v obou případech. Zkontrolujte [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) samostatně, jak je ukázáno výše, pokud chcete extrahovat pouze viditelné popisky.
 
-## **Řízení popisků dat mimo maximální hodnotu osy**
+## **Řízení datových popisků mimo maximální hodnotu osy**
 
-Když omezíte rozsah osy ručně, některé datové body mohou přesáhnout její maximum. Použijte [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) k řízení, zda se jejich popisky dat zobrazí. Toto nastavení mění viditelnost popisků; nemění rozsah osy ani podkladové hodnoty dat.
+Když omezíte rozsah osy ručně, některé datové body mohou překročit její maximum. Použijte [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) k řízení, zda jsou jejich datové popisky zobrazeny. Toto nastavení mění viditelnost popisků; nemění rozsah osy ani podkladové datové hodnoty.
 
-Příklad níže vytváří 2D seskupený sloupcový graf s hodnotami 60 a 120. Předá `False` metodě [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) a nastaví maximum na 100 pomocí [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) na svislé ose. První snímek povoluje popisky mimo maximum; kopie toho snímku je zakazuje. Oba snímky jsou uloženy v `DataLabelsOverMaximum.pptx`.
+Níže uvedený příklad vytváří 2D sloupcový graf se shluky s hodnotami 60 a 120. Předá `False` metodě [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) a nastaví maximum na 100 pomocí [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) na svislé ose. První snímek umožňuje popisky nad maximem; kopie tohoto snímku je zakáže. Oba snímky jsou uloženy v `DataLabelsOverMaximum.pptx`.
 
-Povolte popisky hodnot pomocí [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Nastavení na úrovni grafu samo o sobě nezpůsobí zobrazení hodnot ani nepřepíše zakázané zobrazení hodnot u jednotlivých popisků. Tento příklad povoluje hodnoty pro celou sérii a používá [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) k umístění popisků na vnější konec každého sloupce.
+Povolte hodnotové popisky pomocí [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Nastavení na úrovni grafu samo o sobě nezpůsobí zobrazení hodnot ani nepřepíše zakázané zobrazení hodnot u jednotlivých popisků. Tento příklad povoluje hodnoty pro celou sérii a používá [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) k umístění popisků na vnější konec každého sloupce.
 
 ```python
 import jpype
@@ -298,19 +351,19 @@ finally:
     presentation.dispose()
 ```
 
-Následující obrázky ukazují uložené snímky vykreslené v Microsoft PowerPoint. S `True` je popisek **120** viditelný na horní hraně; s `False` je skrytý. Popisek **60** zůstává viditelný, maximum osy zůstává na **100** a druhý datový bod zůstává **120** v obou případech.
+Následující obrázky ukazují uložené snímky vykreslené v Microsoft PowerPoint. S `True` je popisek **120** viditelný u horní hranice; s `False` je skrytý. Popisek **60** zůstává viditelný, maximum osy zůstává na **100** a druhý datový bod zůstává **120** v obou případech.
 
 | setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
 | --- | --- |
-| ![Graf PowerPoint zobrazující popisek hodnoty 120 s maximem osy 100](data-labels-over-maximum-true.png) | ![Graf PowerPoint skrývající popisek hodnoty 120 s maximem osy 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Tento příklad používá 2D sloupcový graf s hodnotovou osou. Grafy bez hodnotové osy, jako jsou koláčové a prstencové grafy, nemají maximální hodnotu osy, kterou by šlo takto omezit.
+Tento příklad používá 2D sloupcový graf s hodnotovou osou. Grafy bez hodnotové osy, jako jsou koláčové a prstencové grafy, nemají maximální hodnotu osy, kterou by šlo tímto způsobem omezit.
 {{% /alert %}}
 
 ## **Nastavení vzdálenosti popisku od osy**
 
-Použijte [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) k řízení vzdálenosti mezi popisky kategoriální osy a osou. Hodnota je procento maximální velikosti písma popisků osy. Tento příklad vytváří seskupený sloupcový graf a nastavuje posun popisků vodorovné osy na 500. Toto nastavení ovlivňuje popisky kategoriální osy, nikoli popisky připojené k jednotlivým datovým bodům.
+Použijte [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) k řízení vzdálenosti mezi popisky osy kategorií a osou. Hodnota je procento maximální velikosti písma popisků osy. Tento příklad vytváří sloupcový graf se shluky a nastaví odsazení popisků vodorovné osy na 500. Toto nastavení ovlivňuje popisky osy kategorií, nikoli popisky připojené k jednotlivým datovým bodům.
 
 ```python
 import jpype
@@ -335,9 +388,9 @@ finally:
 
 ## **Úprava umístění popisku**
 
-V koláčovém grafu upravte polohy datových popisků, aby se zlepšil rozestup a vytvořilo místo pro čáry spojnice.
+U koláčového grafu upravte polohy datových popisků tak, aby se zlepšilo rozestupování a vytvořil prostor pro vodící čáry.
 
-Tento příklad zobrazuje hodnotu prvního datového bodu, umisťuje jeho popisek mimo výseč a upravuje jeho vodorovný a svislý posun pomocí [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) a [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY). Tyto posuny jsou relativní k šířce a výšce grafu.
+Tento příklad zobrazuje hodnotu prvního datového bodu, umisťuje jeho popisek mimo výseč a upravuje jeho vodorovné a svislé odsazení pomocí [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) a [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY). Tato odsazení jsou relativní k šířce a výšce grafu.
 
 ```python
 import jpype
@@ -368,15 +421,15 @@ finally:
 
 ![Koláčový graf s upravenou polohou datového popisku](pie-chart-adjusted-label.png)
 
-## **Formátování čar spojnice**
+## **Formátování vodicích čar**
 
-Když jsou popisky koláčového grafu umístěny mimo výseče, čáry spojnice pomáhají čtenářům přiřadit každou hodnotu ke správné výseči. Kontrastní barva a mírně silnější čára mohou usnadnit sledování těchto spojení, zatímco průhlednost a čárkovaný styl udržují čáry vizuálně nenápadné.
+Když jsou popisky koláčového grafu umístěny mimo jejich výseče, vodící čáry pomáhají čtenářům přiřadit každou hodnotu ke správné výseči. Kontrastní barva a mírně silnější čára mohou usnadnit sledování těchto spojení, zatímco průhlednost a čárkový styl udržují čáry vizuálně nenápadné.
 
-Použijte [getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat) k formátování čar spojnice na úrovni kolekce datových popisků série. Nastavení v `series.getLabels().getLeaderLinesFormat().getLine()` se vztahují na celou kolekci, nikoli na jednotlivý popisek.
+Použijte [getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat) k formátování vodicích čar na úrovni kolekce datových popisků série. Nastavení v `series.getLabels().getLeaderLinesFormat().getLine()` se vztahují na kolekci, nikoli na jednotlivý popisek.
 
-Tento příklad vytváří koláčový graf s výchozími daty, zobrazuje hodnoty mimo výseče a povoluje [setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines). Posouvá dva popisky dále od jejich výsečí pomocí posunů [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) a [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY), vyjádřených jako zlomky šířky a výšky grafu. Vstupní prezentace není vyžadována.
+Tento příklad vytváří koláčový graf s výchozími daty, zobrazuje hodnoty mimo výseče a povoluje [setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines). Posouvá dva popisky dál od jejich výsečí pomocí odsazení [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) a [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY), vyjádřených jako zlomky šířky a výšky grafu. Není vyžadována žádná vstupní prezentace.
 
-[getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) nastavení čáry nastaví plnou modrou barvu s alfa hodnotou 191 z 255, což odpovídá přibližně 25 % průhlednosti. [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) nastaví tloušťku na 2 body a [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) udělá čáru čárkovanou.
+Formát řádku [getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) nastaví plnou modrou barvu s alfa hodnotou 191 z 255, což poskytuje přibližně 25 % průhlednost. [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) nastaví tloušťku na 2 body a [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) udělá čáru čárkovanou.
 
 ```python
 import jpype
@@ -403,7 +456,7 @@ try:
     label_format.setPosition(LegendDataLabelPosition.OutsideEnd)
     label_format.setShowLeaderLines(True)
 
-    # Posuňte dva popisky dále od jejich výsečí.
+    # Posunout dva popisky dál od jejich výsečí.
     series.getLabels().get_Item(0).setX(0.10)
     series.getLabels().get_Item(0).setY(-0.05)
     series.getLabels().get_Item(1).setX(-0.10)
@@ -421,17 +474,17 @@ finally:
     presentation.dispose()
 ```
 
-Povolení čar spojnice nezaručuje, že čára bude zobrazena u každého popisku. Viditelnost závisí na umístění popisku a chování rozvržení grafu. V tomto příkladu mají dva posunuté popisky viditelné čáry spojnice; popisky, které zůstávají blízko svých výsečí, je nepotřebují.
+Povolení vodicích čar nezaručuje, že se čára objeví u každého popisku. Viditelnost závisí na umístění popisku a chování rozvržení grafu. V tomto příkladu mají dva posunuté popisky viditelné vodicí čáry; popisky, které zůstávají blízko svých výsečí, je nepotřebují.
 
-Následující obrázek ukazuje uložený soubor `FormattedLeaderLines.pptx` vykreslený pomocí Aspose.Slides:
+Následující obrázek ukazuje uložený `FormattedLeaderLines.pptx` vykreslený pomocí Aspose.Slides:
 
-![Koláčový graf s modrými, poloprůhlednými čárkovanými čarami spojnice spojujícími dva vnější popisky s jejich výsečemi](formatted-leader-lines.png)
+![Koláčový graf s modrými, poloprůhlednými čárkovanými vodícími čarami spojujícími dva vnější popisky s jejich výsečemi](formatted-leader-lines.png)
 
 ## **Přidání více řádků datových popisků nad sloupcový graf**
 
-Tento příklad vytváří sloupcový graf se dvěma řádky datových popisků nad oblastí vykreslování. Série A zobrazuje viditelné sloupce, zatímco Série B a Série C poskytují další popisky. Jejich sloupce jsou skryté odstraněním výplně a obrysu. Metoda [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) zarovnává všechny tři série na stejná střediska kategorií.
+Tento příklad vytváří sloupcový graf se dvěma řádky datových popisků nad oblastí grafu. Série A zobrazuje viditelné sloupce, zatímco Série B a Série C poskytují další popisky. Jejich sloupce jsou skryty odstraněním výplně a obrysu. Metoda [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) zarovnává všechny tři série ke stejným středům kategorií.
 
-Nastavení [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) vyhrazuje prostor pro řádky popisků. Po výpočtu výchozích pozic metodou [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) zachovají [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) a [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) vodorovné zarovnání a použijí svislé posuny k uspořádání popisků do dvou řádků. Čísla zůstávají datovými popisky propojenými s hodnotami sérií; pouze nadpisy řádků jsou samostatné textové tvary.
+Nastavení [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) rezervuje místo pro řádky popisků. Po výpočtu výchozích pozic metodou [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout), [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) a [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) zachovávají vodorovné zarovnání a aplikují svislá odsazení k uspořádání popisků ve dvou řadách. Čísla zůstávají datovými popisky propojenými s hodnotami sérií; pouze záhlaví řádků jsou samostatné textové tvary.
 
 ```python
 import jpype
@@ -476,7 +529,7 @@ try:
             series.getDataPoints().addDataPointForBarSeries(value_cell)
 
         if series_index > 0:
-            # Skryjte sloupce B a C, ale ponechte jejich datové popisky.
+            # Skrýt sloupce B a C, ale ponechat jejich datové popisky.
             series.getFormat().getFill().setFillType(FillType.NoFill)
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
             label_format = series.getLabels().getDefaultDataLabelFormat()
@@ -487,14 +540,14 @@ try:
             label_fill.getSolidFillColor().setColor(Color.BLACK)
             label_format.setPosition(LegendDataLabelPosition.InsideBase)
 
-    # Zarovnejte všechny tři řady na stejná střediska kategorií.
+    # Zarovnat všechny tři série ke stejným středům kategorií.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(jpype.JByte(100))
 
-    # Použijte méně mřížkových čar pro tento kompaktní příklad.
+    # Použít méně mřížkových čar pro tento kompaktní příklad.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setMajorUnit(10)
 
-    # Rezervujte prostor nad vykreslenou oblastí pro dva řádky datových popisků.
+    # Rezervovat místo nad vykreslenou oblastí pro dva řádky datových popisků.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner)
     chart.getPlotArea().setX(0.15)
     chart.getPlotArea().setY(0.32)
@@ -508,12 +561,12 @@ try:
 
         for category_index in range(len(categories)):
             data_label = series.getDataPoints().get_Item(category_index).getLabel()
-            # Zachovejte výchozí horizontální pozici. Y je posun od
+            # Zachovat výchozí vodorovnou pozici. Y je posun od
             # výchozí pozice popisku, vyjádřené jako zlomek výšky grafu.
             data_label.setX(0)
             data_label.setY(row_top - data_label.getActualY() / chart.getHeight())
 
-        # Pouze nadpis řádku je samostatný textový tvar.
+        # Pouze záhlaví řádku je samostatný textový tvar.
         heading_y = chart.getY() + row_top * chart.getHeight()
         row_heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), heading_y, 85, 18)
         row_heading.getFillFormat().setFillType(FillType.NoFill)
@@ -531,18 +584,18 @@ finally:
     presentation.dispose()
 ```
 
-![Sloupcový graf se dvěma řádky datových popisků nad oblastí vykreslování](multiple-rows-of-labels.png)
+![Sloupcový graf se dvěma řádky datových popisků nad oblastí grafu](multiple-rows-of-labels.png)
 
-## **Často kladené otázky**
+## **FAQ**
 
 **Jak mohu zabránit překrývání datových popisků v hustých grafech?**
 
-Kombinujte automatické umístění popisků, čáry spojnice a zmenšení velikosti písma; v případě potřeby skryjte některá pole (například kategorii) nebo zobrazujte popisky jen pro extrémní hodnoty či klíčové body.
+Kombinujte automatické umístění popisků, vodící čáry a zmenšenou velikost písma; v případě potřeby skryjte některá pole (například kategorii) nebo zobrazte popisky jen pro extrémní hodnoty či klíčové body.
 
-**Jak mohu zakázat popisky pouze pro nulové, záporné nebo prázdné hodnoty?**
+**Jak mohu zakázat popisky jen pro nulové, záporné nebo prázdné hodnoty?**
 
-Filtrování datových bodů před povolením popisků a vypnutí zobrazování pro hodnoty 0, záporné hodnoty nebo chybějící hodnoty podle definovaného pravidla.
+Filtrování datových bodů před povolením popisků a vypnutí zobrazení pro hodnoty 0, záporné hodnoty nebo chybějící hodnoty podle definovaného pravidla.
 
-**Jak mohu zajistit konzistentní styl popisků při exportu do PDF/obrázků?**
+**Jak zajistit konzistentní styl popisků při exportu do PDF/obrázků?**
 
-Explicitně nastavte rodinu písma a velikost a ověřte, že písmo je k dispozici v prostředí vykreslování, aby nedošlo k náhradě.
+Explicitně nastavte rodinu písma a velikost a ověřte, že je písmo dostupné v prostředí renderování, aby nedošlo k náhradnímu písmu.

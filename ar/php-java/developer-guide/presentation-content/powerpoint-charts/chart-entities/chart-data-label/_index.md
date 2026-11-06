@@ -9,22 +9,65 @@ keywords:
 - دقة البيانات
 - نسبة مئوية
 - مسافة التسمية
-- موقع التسمية
+- موضع التسمية
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides لـ PHP عبر Java للحصول على شرائح أكثر جذبًا."
+description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides للـ PHP عبر Java لإنشاء شرائح أكثر جاذبية."
 ---
 ## **المقدمة**
 
-تُظهر تسميات البيانات معلومات حول سلاسل المخطط ونقاط البيانات الفردية، مما يساعد القارئ على التعرف على القيم وفهم المخطط. يشرح هذا المقال كيفية تنسيق القيم، وعرض النسب المئوية، وقراءة نص التسمية، والتحكم في التسميات بما يتجاوز الحد الأقصى للمحور، وضبط تباعد تسميات محور الفئات، وتحديد موضع تسميات المخطط الدائري.
+تظهر تسميات البيانات معلومات حول سلاسل المخطط ونقاط البيانات الفردية، مما يساعد القراء على تحديد القيم وفهم المخطط. تشرح هذه المقالة كيفية تنسيق القيم، وعرض النسب المئوية، وقراءة نص التسمية، والتحكم في التسميات التي تتجاوز الحد الأقصى للمحور، وضبط تباعد تسميات محور الفئة، وتحديد موقع تسميات المخطط الدائري.
 
-## **تعيين دقة البيانات في تسميات بيانات المخطط**
+## **عدد تسميات البيانات الظاهرة**
 
-استخدم [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) لتنسيق قيم السلسلة. يوضح هذا المثال إنشاء مخطط خطي ببيانات افتراضية، عرض جدول البيانات الخاص به، وتمكين تسميات القيم للسلسلة الأولى. التنسيق `#,##0.00` يعرض الفاصل الفاصلّ للآلاف ومكانين عشريين دون تغيير القيم الأساسية.
+استخدم [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getcountofvisibledatalabels/) للتحقق من عدد تسميات البيانات التي تم تمكينها للعرض قبل نشر العرض التقديمي. على عكس [getCount](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getcount/)، الذي يُرجع العدد الإجمالي للتسميات في المجموعة، فإنه يأخذ قيم الافتراضيات الخاصة بالسلسلة وإعدادات كل تسمية على حدة في الاعتبار. إن هذا المثال يُنشئ مخططًا عموديًا بسلسلة واحدة وثلاث نقاط بيانات. يصل إلى مجموعة تسميات السلسلة عبر [getLabels](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getlabels/) ويطبع عدد التسميات الظاهرة مع تغير الإعدادات: **0, 3, 2, 3**. ويظل العدد الإجمالي **3**.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $seriesCell = $workbook->getCell(0, 0, 1, "Values");
+    $series = $chart->getChartData()->getSeries()->add($seriesCell, $chart->getType());
+
+    for ($i = 0; $i < 3; $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, "Category " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, ($i + 1) * 10);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    $labels = $series->getLabels();
+    echo "Total: " . java_values($labels->getCount()) . "; visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // الإجمالي: 3; الظاهر: 0
+
+    $labels->getDefaultDataLabelFormat()->setShowValue(true);
+    echo "Visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // الظاهر: 3
+
+    $labels->get_Item(1)->getDataLabelFormat()->setShowValue(false);
+    echo "Visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // الظاهر: 2
+
+    $labels->get_Item(1)->getDataLabelFormat()->setShowLegendKey(true);
+    echo "Visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // الظاهر: 3
+} finally {
+    $presentation->dispose();
+}
+```
+توفر [getDefaultDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getdefaultdatalabelformat/) للسلسلة الإعدادات الافتراضية. تمرير `true` إلى [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) يعرض القيم لجميع التسميات الثلاث. تمرير `false` عبر [getDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getdatalabelformat/) لتسمية واحدة يتجاوز ذلك الإعداد للتسمية المحددة. تمرير `true` إلى [setShowLegendKey](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowlegendkey/) يجعل تلك التسمية تُحسب مرة أخرى كظاهرة، رغم أن قيمتها لا تزال مخفية. يعكس عدد التسميات الظاهرة إعدادات الإظهار. ولا يقيس ما إذا كانت التسميات متداخلة أو مقصوصة أو مقروءة في المخطط المُصنّع.
+
+## **ضبط دقة البيانات في تسميات مخطط البيانات**
+
+استخدم [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) لتنسيق قيم السلسلة. ينشئ هذا المثال مخططًا خطيًا ببيانات افتراضية، يعرض جدول البيانات الخاص به، ويفعل تسميات القيم للسلسلة الأولى. يعرض التنسيق `#,##0.00` فاصل آلاف ومكانين عشريين دون تغيير القيم الأساسية. ```php
 use aspose\slides\Presentation;
 use aspose\slides\ChartType;
 use aspose\slides\SaveFormat;
@@ -44,15 +87,11 @@ try {
 } finally {
     $presentation->dispose();
 }
-```
+``` لتنسيق الخلايا الرقمية في دفتر عمل مدمج بالمخطط، راجع [تعيين تنسيقات أرقام مخصصة لخلايا دفتر العمل](/slides/ar/php-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). يُظهر ذلك المثال أيضًا تسميات القيم التي تتبع تنسيقات الخلايا المصدر مع الحفاظ على القيم الرقمية المخزنة.
 
-لتنسيق الخلايا الرقمية في دفتر عمل المدمج بالمخطط، راجع [Set Custom Number Formats for Workbook Cells](/slides/ar/php-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). يوضح ذلك المثال أيضًا أن تسميات القيم تتبع تنسيقات الخلايا المصدرية مع الحفاظ على القيم الرقمية المخزنة.
+## **عرض النسبة المئوية كوسوم**
 
-## **عرض النسبة المئوية كتسميات**
-
-للمخطط العمودي المتراكم، احسب كل قيمة كنسبة مئوية من إجمالي الفئة الخاصة بها وعيّن النص إلى إطار النص الذي يُرجعه [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمكانين عشريين بخط بحجم 8 نقاط. تُفتَتَح الفئات التي يكون مجموعها صفرًا لتجنب القسمة على الصفر. أعد حساب نص التسمية المخصص إذا تغيّرت بيانات المخطط.
-
-```php
+في مخطط عمودي مكدس، احسب كل قيمة كنسبة مئوية من إجمالي الفئة الخاصة بها وعيّن النص إلى إطار النص الذي تُعيده [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمكانين عشريين باستخدام خط بحجم 8 نقاط. يتم تخطي الفئات التي إجماليها صفر لتجنب القسمة على الصفر. أعد حساب نص التسمية المخصص إذا تغيرت بيانات المخطط. ```php
 use aspose\slides\Presentation;
 use aspose\slides\ChartType;
 use aspose\slides\Portion;
@@ -110,13 +149,9 @@ try {
 }
 ```
 
-## **تعيين علامة النسبة المئوية في تسميات بيانات المخطط**
+## **إضافة علامة النسبة المئوية لتسميات المخطط**
 
-عند تخزين القيم ككسرات، استخدم [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) لعرض النسب المئوية. مرّر `false` إلى [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) لتطبيق تنسيق التسمية بشكل مستقل عن خلايا المصدر.
-
-ينشئ هذا المثال مخططًا عموديًا متراكمًا بنسبة 100% بسلسلتين (حمراء وزرقاء) عبر أربع فئات. كل زوج من القيم يساوي 1. تنسيق التسمية `0.0%` يعرض 0.30 كـ30.0%، بينما يستخدم المحور الرأسي مكانين عشريين. تستخدم السلسلتان نص تسمية أبيض بحجم 10 نقاط.
-
-```php
+عندما يتم تخزين القيم ككسور، استخدم [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) لعرض النسب المئوية. مرّر `false` إلى [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) لتطبيق تنسيق التسمية بصورة مستقلة عن خلايا المصدر. ينشئ هذا المثال مخطط عمودي مكدس 100% مع سلاسل حمراء وزرقاء عبر أربع فئات. كل زوج من القيم يضيف إلى 1. يعرض تنسيق التسمية `0.0%` القيمة 0.30 كـ 30.0%، بينما يستخدم المحور العمودي مكانين عشريين. كلا السلسلتين يستخدمان نص تسمية أبيض بحجم 10 نقاط. ```php
 use aspose\slides\Presentation;
 use aspose\slides\ChartType;
 use aspose\slides\FillType;
@@ -174,9 +209,7 @@ try {
 
 ## **قراءة النص الفعلي لتسميات البيانات**
 
-استخدم [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) لاسترداد النص الناتج عن إعدادات تسمية البيانات. يكون هذا مفيدًا عند استخراج التسميات للتقارير، أو البحث في محتوى العرض التقديمي، أو التحقق من صحة المخططات المولدة. في المثال أدناه، يجمع تنسيق [تسمية البيانات](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) الافتراضي كلًا من اسم الفئة، اسم السلسلة، والقيمة. ينسق أحد النقاط قيمته كنسبة مئوية، والآخر يستخدم نصًا مخصصًا من [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/).
-
-```php
+استخدم [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) لاسترداد النص الناتج عن إعدادات تسمية البيانات. هذا مفيد عند استخراج التسميات للتقارير، أو البحث في محتوى العروض التقديمية، أو التحقق من صحة المخططات المُنشأة. في المثال أدناه، يجمع تنسيق [تنسيق تسمية البيانات](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) الافتراضي كل من اسم الفئة، واسم السلسلة، والقيمة. نقطة واحدة تنسق قيمتها كنسبة مئوية، وأخرى تستخدم نصًا مخصصًا من [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/). ```php
 use aspose\slides\Presentation;
 use aspose\slides\ChartType;
 
@@ -236,19 +269,11 @@ try {
 } finally {
     $presentation->dispose();
 }
-```
+``` يبقى الرقم المخزن في نقطة البيانات `0.75`، حتى عندما تُظهر تسميتها `75%` مع أسماء الفئة والسلسلة. النص المخصص يستبدل نص التسمية المُولد. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) تُعيد سلسلة التسمية الناتجة في كلتا الحالتين. تحقّق من [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) بشكل منفصل، كما هو موضح أعلاه، عندما تريد استخراج التسميات الظاهرة فقط.
 
-الرقم المخزن في نقطة البيانات يبقى `0.75`، حتى عندما تُظهر التسمية `75%` مع أسماء الفئة والسلسلة. يستبدل النص المخصص نص التسمية المولدة. تُعيد [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) سلسلة التسمية الناتجة في الحالتين. تحقق من [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) بشكل منفصل، كما هو موضح أعلاه، عندما تريد استخراج التسميات الظاهرة فقط.
+## **التحكم في تسميات البيانات التي تتجاوز الحد الأقصى للمحور**
 
-## **التحكم في تسميات البيانات بما يتجاوز الحد الأقصى للمحور**
-
-عند تحديد نطاق المحور يدويًا، قد تتجاوز بعض نقاط البيانات الحد الأقصى له. استخدم [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) للتحكم فيما إذا كانت تسميات بياناتها تُظهر. هذا الإعداد يغيّر رؤية التسمية؛ لا يغيّر نطاق المحور أو القيم الأساسية.
-
-ينشئ المثال أدناه مخططًا عموديًا مجموعًا ثنائي الأبعاد بقيم 60 و120. يمرّر `false` إلى [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) ويعيّن الحد الأقصى إلى 100 باستخدام [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) على المحور الرأسي. الشريحة الأولى تسمح بالتسميات وراء الحد الأقصى؛ نسخة من تلك الشريحة تعطلها. يتم حفظ كلتا الشريحتين في `DataLabelsOverMaximum.pptx`.
-
-فعّل تسميات القيم باستخدام [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). إعداد مستوى المخطط لا يفعّل عرض القيم بنفسه ولا يتجاوز إلغاء تمكين عرض القيمة لتسمية فردية. يُفعّل هذا المثال القيم لكامل السلسلة ويستخدم [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) لوضع التسميات في الطرف الخارجي لكل عمود.
-
-```php
+عند تحديد مجال المحور يدويًا، قد تتجاوز بعض نقاط البيانات قيمته القصوى. استخدم [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) للتحكم فيما إذا كانت تسميات بياناتها تُظهر. هذا الإعداد يغيّر إظهار التسمية؛ لكنه لا يغيّر نطاق المحور أو قيم البيانات الأساسية. ينشئ المثال أدناه مخططًا عموديًا مجموعًا ثنائي الأبعاد بقيم 60 و120. يمرّر `false` إلى [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) ويضبط الحد الأقصى إلى 100 باستخدام [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) على المحور العمودي. الشريحة الأولى تسمح بالتسميات التي تتجاوز الحد الأقصى؛ نسخة من تلك الشريحة تعطلها. كلا الشريحتين تم حفظهما في `DataLabelsOverMaximum.pptx`. فعّل تسميات القيم باستخدام [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). إعداد مستوى المخطط لا يُفعّل عرض القيم بحد ذاته ولا يتجاوز إلغاء عرض القيمة لتسمية فردية. يمكّن هذا المثال القيم لكامل السلسلة ويستخدم [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) لوضع التسميات في الطرف الخارجي لكل عمود. ```php
 use aspose\slides\Presentation;
 use aspose\slides\ChartType;
 use aspose\slides\LegendDataLabelPosition;
@@ -296,23 +321,19 @@ try {
 } finally {
     $presentation->dispose();
 }
-```
-
-تُظهر الصور التالية الشرائح المحفوظة التي تم عرضها بواسطة Microsoft PowerPoint. مع `true`، تكون التسمية **120** مرئية عند الحد العلوي؛ مع `false` تُخفى. تظل التسمية **60** مرئية، يبقى الحد الأقصى للمحور **100**، وتبقى نقطة البيانات الثانية **120** في الحالتين.
+``` تُظهر الصور التالية الشرائح المحفوظة التي تم عرضها بواسطة Microsoft PowerPoint. عند استخدام `true`، تكون التسمية **120** مرئية عند الحد العلوي؛ وعند استخدام `false`، تكون مخفية. تظل التسمية **60** مرئية، ويبقى الحد الأقصى للمحور عند **100**، وتظل نقطة البيانات الثانية **120** في كلتا الحالتين.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-يستخدم هذا المثال مخططًا عموديًا ثنائي الأبعاد مع محور قيم. المخططات التي لا تحتوي على محور قيم، مثل المخططات الدائرية وخطوط الدونات، لا تمتلك حدًا أقصى للمحور لتقييده بهذه الطريقة.
+يستخدم هذا المثال مخططًا عموديًا ثنائي الأبعاد مع محور قيم. المخططات التي لا تحتوي على محور قيم، مثل المخططات الدائرية ومخططات الدونات، لا تملك حدًا أقصى للمحور لتقييده بهذه الطريقة.
 {{% /alert %}}
 
-## **تعيين مسافة التسمية عن المحور**
+## **تحديد مسافة التسمية عن المحور**
 
-استخدم [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) للتحكم في المسافة بين تسميات محور الفئات والمحور. القيمة هي نسبة مئوية من الحد الأقصى لحجم الخط لتسميات المحور. يخلق هذا المثال مخططًا عموديًا مجموعًا ويعيّن إزاحة تسمية المحور الأفقي إلى 500. يؤثر هذا الإعداد على تسميات محور الفئات وليس على التسميات المرتبطة بنقاط البيانات الفردية.
-
-```php
+استخدم [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) للتحكم في المسافة بين تسميات محور الفئة والمحور. القيمة هي نسبة مئوية من الحد الأقصى لحجم خط تسميات المحور. ينشئ هذا المثال مخططًا عموديًا مجموعًا ويضبط إزاحة تسميات المحور الأفقي إلى 500. يؤثر هذا الإعداد على تسميات محور الفئة بدلاً من التسميات المرتبطة بنقاط البيانات الفردية. ```php
 use aspose\slides\Presentation;
 use aspose\slides\ChartType;
 use aspose\slides\SaveFormat;
@@ -330,13 +351,9 @@ try {
 }
 ```
 
-## **ضبط موضع التسمية**
+## **ضبط موقع التسمية**
 
-في المخطط الدائري، اضبط مواضع تسميات البيانات لتحسين التباعد وإتاحة مساحة لخطوط الربط.
-
-يعرض هذا المثال قيمة نقطة البيانات الأولى، يضع تسميتها خارج الشريحة، ويضبط الإزاحات الأفقية والرأسية باستخدام [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) و[setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/). تُعَد هذه الإزاحات نسبةً إلى عرض وارتفاع المخطط على التوالي.
-
-```php
+في مخطط دائري، اضبط مواضع تسميات البيانات لتحسين التباعد وإتاحة مساحة لخطوط الربط. يعرض هذا المثال قيمة نقطة البيانات الأولى، يضع تسميتها خارج الشريحة، ويضبط إزاحتها الأفقية والعمودية باستخدام [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) و[setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/). هذه الإزاحات نسبية إلى عرض المخطط وارتفاعه على التوالي. ```php
 use aspose\slides\Presentation;
 use aspose\slides\ChartType;
 use aspose\slides\LegendDataLabelPosition;
@@ -360,20 +377,11 @@ try {
     $presentation->dispose();
 }
 ```
-
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![مخطط دائري مع موضع تسمية بيانات معدل](pie-chart-adjusted-label.png)
 
 ## **تنسيق خطوط الربط**
 
-عندما تكون تسميات المخطط الدائري خارج الشرائح، تساعد خطوط الربط القارئ على مطابقة كل قيمة مع الشريحة الصحيحة. يمكن للون متباين وخط سميك قليلاً جعل هذه الروابط أسهل في المتابعة، بينما تجعل الشفافية والنمط المتقطع الخطوط أقل إزعاجًا بصريًا.
-
-استخدم [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) لتنسيق خطوط الربط على مستوى مجموعة تسميات البيانات للسلسلة. تُطبق الإعدادات في `$series->getLabels()->getLeaderLinesFormat()->getLine()` على المجموعة ككل، وليس على تسمية فردية.
-
-ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية، يعرض القيم خارج الشرائح، ويفعل [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/). يبعد اثنين من التسميات عن شرائحها باستخدام إزاحات [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) و[setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) المُعبر عنها ككسر من عرض وارتفاع المخطط. لا يلزم عرض تقديمي إدخالي.
-
-تُحدد طريقة [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) للخط لونًا أزرقًا صلبًا بعلوة شفافية 191 من 255، أي تقريبًا 25٪ شفافية. تُعيّن [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) السمك إلى نقطتين، وتُحوِّل [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) الخط إلى نمط متقطع.
-
-```php
+عندما تكون تسميات المخطط الدائري خارج الشرائح، تساعد خطوط الربط القارئ على مطابقة كل قيمة مع الشريحة الصحيحة. يمكن للون المتباين وخط سميك قليلاً أن يجعل هذه الروابط أسهل في المتابعة، بينما الشفافية والنمط المتقطع يجعلان الخطوط غير ملحوظة بصريًا. استخدم [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) لتنسيق خطوط الربط على مستوى مجموعة تسميات البيانات للسلسلة. الإعدادات في `$series->getLabels()->getLeaderLinesFormat()->getLine()` تُطبق على المجموعة، بدلاً من تسمية فردية. ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية، يعرض القيم خارج الشرائح، ويفعل [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/). ينقل التسميتين بعيدًا عن الشرائح باستخدام إزاحات [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) و[setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/)، معبرًا عنها كسُكّات من عرض وارتفاع المخطط. لا يتطلب تقديم عرض تقديمي كمدخل. تحدد [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) للخط لونًا أزرق صلبًا بقيمة ألفا 191 من 255، مما يمنح شفافية تقريبية بنسبة 25%. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) يضبط السمك إلى 2 نقطة، و[setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) يجعل الخط متقطعًا. ```php
 use aspose\slides\Presentation;
 use aspose\slides\ChartType;
 use aspose\slides\LegendDataLabelPosition;
@@ -395,7 +403,7 @@ try {
     $labelFormat->setPosition(LegendDataLabelPosition::OutsideEnd);
     $labelFormat->setShowLeaderLines(true);
 
-    // تحريك تسميتين بعيدًا أكثر عن شريحاتهما.
+    // نقل تسميتين بعيدًا أكثر عن شرائحهما.
     $series->getLabels()->get_Item(0)->setX(0.10);
     $series->getLabels()->get_Item(0)->setY(-0.05);
     $series->getLabels()->get_Item(1)->setX(-0.10);
@@ -412,21 +420,11 @@ try {
 } finally {
     $presentation->dispose();
 }
-```
+``` تفعيل خطوط الربط لا يضمن ظهور خط لكل تسمية. الإظهار يعتمد على وضعية التسمية وسلوك تخطيط المخطط. في هذا المثال، لدى التسميتين المنقولتين خطوط ربط مرئية؛ التسميات التي تبقى قريبة من شرائحها لا تحتاجها. الصورة التالية تُظهر ملف `FormattedLeaderLines.pptx` المحفوظ المُصوَّر باستخدام Aspose.Slides: ![مخطط دائري بخطوط ربط زرقاء، شبه شفافة ومقطعة، تربط تسميتين خارجيتين بشرائحهما](formatted-leader-lines.png)
 
-تنشيط خطوط الربط لا يضمن ظهور خط لكل تسمية. تعتمد الرؤية على موضع التسمية وسلوك تخطيط المخطط. في هذا المثال، تحتوي التسميتين المنقوّتين على خطوط ربط مرئية؛ ولا تحتاج التسميات التي تظل قريبة من شرائحها إلى خطوط ربط.
+## **إضافة عدة صفوف من تسميات البيانات فوق مخطط عمودي**
 
-تُظهر الصورة التالية ملف `FormattedLeaderLines.pptx` المحفوظ معروضًا باستخدام Aspose.Slides:
-
-![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
-
-## **إضافة صفوف متعددة من تسميات البيانات أعلى مخطط عمودي**
-
-ينشئ هذا المثال مخططًا عموديًا مع صفين من تسميات البيانات فوق مساحة الرسم. تُظهر السلسلة A الأعمدة الظاهرة، بينما توفر السلسلتان B وC التسميات الإضافية. تُخفى أعمدتها بإزالة التعبئة والحد. تُحاذِ طريقة [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) جميع السلاسل الثلاثة مع مراكز فئات متطابقة.
-
-تُخصص إعدادات [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) مساحة لصفوف التسميات. بعد أن تحسب [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) المواضع الافتراضية، تحتفظ [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) و[DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) بمحاذاة أفقية وتطبقان إزاحات رأسية لترتيب التسميات في صفين. تظل الأرقام تسميات بيانات مرتبطة بقيم السلسلة؛ فقط رؤوس الصفوف هي أشكال نصية منفصلة.
-
-```php
+ينشئ هذا المثال مخططًا عموديًا مع صفين من تسميات البيانات فوق مساحة الرسم. السلسلة A تعرض الأعمدة الظاهرة، بينما السلسلتان B وC توفران التسميات الإضافية. أعمدتهم مخفية بعملية إزالة التعبئة والحد. طريقة [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) تُحاذِ الـ3 سلاسل إلى نفس مراكز الفئات. إعدادات [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) تحجز مساحة لصفوف التسميات. بعد أن تحسب [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) المواضع الافتراضية، تحتفظ [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) و[DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) بالمحاذاة الأفقية وتطبق إزاحات رأسية لترتيب التسميات في صفين. تظل الأرقام تسميات بيانات مرتبطة بقيم السلسلة؛ فقط عناوين الصفوف هي أشكال نصية منفصلة. ```php
 use aspose\slides\Presentation;
 use aspose\slides\ChartType;
 use aspose\slides\FillType;
@@ -475,7 +473,7 @@ try {
         }
 
         if ($seriesIndex > 0) {
-            // إخفاء أعمدة B و C، ولكن الحفاظ على تسميات البيانات الخاصة بها.
+            // إخفاء أعمدة B و C، مع الحفاظ على تسميات البيانات الخاصة بهما.
             $series->getFormat()->getFill()->setFillType(FillType::NoFill);
             $series->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
             $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
@@ -488,10 +486,10 @@ try {
         }
     }
 
-    // محاذاة السلاسل الثلاثة جميعًا مع مراكز الفئات نفسها.
+    // محاذاة السلاسل الثلاثة مع مراكز الفئات نفسها.
     $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setOverlap(100);
 
-    // استخدام عدد أقل من خطوط الشبكة لهذا المثال المدمج.
+    // استخدام خطوط شبكية أقل لهذا المثال المدمج.
     $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(10);
 
@@ -512,14 +510,14 @@ try {
 
         for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
             $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
-            // الحفاظ على الموضع الأفقي الافتراضي. Y هو إزاحة من
+            // الاحتفاظ بالموضع الأفقي الافتراضي. Y هو إزاحة من
             // موضع التسمية الافتراضي، معبرًا عنه ككسر من ارتفاع المخطط.
             $actualY = java_values($dataLabel->getActualY());
             $dataLabel->setX(0);
             $dataLabel->setY($rowTop - $actualY / $chartHeight);
         }
 
-        // عنوان الصف هو الشكل النصي المنفصل الوحيد.
+        // فقط عنوان الصف هو شكل نص منفصل.
         $rowHeading = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $chartX, $chartY + $rowTop * $chartHeight, 85, 18);
         $rowHeading->getFillFormat()->setFillType(FillType::NoFill);
         $rowHeading->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
@@ -537,19 +535,15 @@ try {
     $presentation->dispose();
 }
 ```
-
-![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+![مخطط عمودي مع صفين من تسميات البيانات فوق مساحة الرسم](multiple-rows-of-labels.png)
 
 ## **الأسئلة المتكررة**
 
-**كيف يمكن منع تداخل تسميات البيانات في المخططات الكثيفة؟**
+**كيف يمكنني منع تداخل تسميات البيانات في المخططات الكثيفة؟**  
+اجمع بين وضعية التسميات التلقائية، وخطوط الربط، وتقليل حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للقيم المتطرفة أو النقاط الرئيسية.
 
-اجمع بين وضع التسمية التلقائي، خطوط الربط، وتقليل حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثلاً الفئة) أو اظهر التسميات فقط للقيم المتطرفة أو النقاط الرئيسية.
+**كيف يمكنني تعطيل التسميات للقيم الصفرية أو السلبية أو الفارغة فقط؟**  
+قم بترشيح نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم الصفرية أو السلبية أو القيم المفقودة وفق قاعدة محددة.
 
-**كيف يمكن تعطيل التسميات للقيم الصفرية أو السالبة أو الفارغة فقط؟**
-
-قُم بتصفية نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم 0 أو القيم السالبة أو القيم المفقودة وفق قاعدة محددة.
-
-**كيف أضمن تناسق نمط التسمية عند التصدير إلى PDF/صور؟**
-
-حدد صراحةً عائلة الخط وحجمه وتأكد من توفّر الخط في بيئة العرض لتجنّب الاستخدام الاحتياطي للخط.
+**كيف يمكنني ضمان نمط تسمية موحد عند التصدير إلى PDF/صور؟**  
+حدد صراحةً عائلة الخط وحجمه وتأكد من توفر الخط في بيئة التصيير لتجنب الاعتماد على خط بديل.

@@ -1,5 +1,5 @@
 ---
-title: إدارة تسميات بيانات المخطط في العروض التقديمية باستخدام .NET
+title: إدارة تسميات بيانات المخطط في العروض التقديمية بـ .NET
 linktitle: تسمية البيانات
 type: docs
 url: /ar/net/chart-data-label/
@@ -7,7 +7,7 @@ keywords:
 - مخطط
 - تسمية البيانات
 - دقة البيانات
-- النسبة المئوية
+- نسبة مئوية
 - مسافة التسمية
 - موقع التسمية
 - PowerPoint
@@ -15,15 +15,63 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides لـ .NET للحصول على شرائح أكثر جاذبية."
+description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides لـ .NET لمزيد من الشرائح الجذابة."
 ---
 ## **المقدمة**
 
-تُظهر تسميات البيانات معلومات حول سلاسل المخطط والنقاط البيانات الفردية، مما يساعد القارئ على تحديد القيم وفهم المخطط. يشرح هذا المقال كيفية تنسيق القيم، عرض النسب المئوية، قراءة نص التسمية، التحكم في التسميات خارج الحد الأقصى للمحور، تعديل تباعد تسميات محور الفئة، وتحديد موضع تسميات مخطط الفطيرة.
+تُظهر تسميات البيانات معلومات حول سلاسل المخطط ونقاط البيانات الفردية، مما يساعد القراء على تحديد القيم وفهم المخطط. توضح هذه المقالة كيفية تنسيق القيم، وعرض النسب المئوية، وقراءة نص التسمية، والتحكم في التسميات خارج الحد الأقصى للمحور، وضبط تباعد تسميات محور الفئة، وتحديد موضع تسميات المخطط الدائري.
 
-## **تعيين دقة البيانات في تسميات مخطط البيانات**
+## **Count Visible Data Labels**
 
-استخدام [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) لتنسيق قيم السلسلة. يخلق هذا المثال مخططًا خطيًا ببيانات افتراضية، يعرض جدول البيانات الخاص به، ويفعل تسميات القيم للسلسلة الأولى. التنسيق `#,##0.00` يُظهر فاصل الآلاف ومكانين عشريين دون تغيير القيم الأساسية.
+استخدم [CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/) للتحقق من عدد تسميات البيانات التي تم تمكين عرضها قبل نشر العرض التقديمي. على عكس [Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/)، الذي يعيد العدد الإجمالي للتسميات في المجموعة، فإنه يأخذ الإعدادات الافتراضية للسلسلة وإعدادات كل تسمية على حدة في الاعتبار.
+
+ينشئ هذا المثال مخطط عمودي يحتوي على سلسلة واحدة وثلاث نقاط بيانات. يصل إلى مجموعة [Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/) الخاصة بالسلسلة ويطبع عدد التسميات الظاهرة مع تغير الإعدادات: **0, 3, 2, 3**. يبقى العدد الإجمالي **3**.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesCell = workbook.GetCell(0, 0, 1, "Values");
+var series = chart.ChartData.Series.Add(seriesCell, chart.Type);
+
+for (int i = 0; i < 3; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, $"Category {i + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+    var valueCell = workbook.GetCell(0, i + 1, 1, (i + 1) * 10);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+}
+
+var labels = series.Labels;
+Console.WriteLine($"Total: {labels.Count}; visible: {labels.CountOfVisibleDataLabels}"); // الإجمالي: 3; مرئي: 0
+
+labels.DefaultDataLabelFormat.ShowValue = true;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // مرئي: 3
+
+labels[1].DataLabelFormat.ShowValue = false;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // مرئي: 2
+
+labels[1].DataLabelFormat.ShowLegendKey = true;
+Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // مرئي: 3
+```
+
+توفر خاصية [DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/) الإعدادات الافتراضية للسلسلة. تمكين [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) هناك يعرض القيم لجميع التسميات الثلاث. ضبطه على `false` عبر خاصية [DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/) لتسمية واحدة يتجاوز هذا الإعداد للتسمية المحددة. تمكين [ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/) يجعل تلك التسمية تُعد ظاهرة مرة أخرى، على الرغم من أن قيمتها تظل مخفية.
+
+يعكس العدد الظاهر إعدادات الظهور. لا يقيس ما إذا كانت التسميات تتداخل، أو تُقَص، أو قابلة للقراءة في المخطط المُظهر.
+
+## **Set Data Precision in Chart Data Labels**
+
+استخدم [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) لتنسيق قيم السلسلة. يخلق هذا المثال مخططًا خطيًا ببيانات افتراضية، يعرض جدول البيانات الخاص به، ويُمكّن تسميات القيم للسلسلة الأولى. التنسيق `#,##0.00` يُظهر الفاصل الآلفي ومكانين عشريين دون تغيير القيم الأساسية.
 
 ```csharp
 using Aspose.Slides;
@@ -43,11 +91,11 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-لتنسيق الخلايا الرقمية في دفتر عمل مدمج بالمخطط، راجع [تحديد تنسيقات الأرقام المخصصة لخلايا المصنف](/slides/ar/net/chart-workbook/#set-custom-number-formats-for-workbook-cells). يوضح ذلك المثال أيضًا تسميات القيم التي تتبع تنسيقات خلايا المصدر مع الحفاظ على القيم الرقمية المخزنة.
+لتنسيق الخلايا الرقمية في دفتر العمل المدمج للمخطط، راجع [Set Custom Number Formats for Workbook Cells](/slides/ar/net/chart-workbook/#set-custom-number-formats-for-workbook-cells). يُظهر ذلك المثال أيضًا تسميات القيم وفقًا لتنسيقات الخلايا المصدر مع الحفاظ على القيم الرقمية المخزنة.
 
-## **عرض النسبة المئوية كتسميات**
+## **Display Percentage as Labels**
 
-لإنشاء مخطط عمودي متراكم، احسب كل قيمة كنسبة مئوية من مجموع الفئة الخاصة بها وعيّن النص إلى [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمكانين عشريين بخط بحجم 8 نقاط. يتم تخطي الفئات التي مجموعها صفر لتجنب القسمة على الصفر. أعد حساب نص التسمية المخصص إذا تغيرت بيانات المخطط.
+للحصول على مخطط عمودي مكدس، احسب كل قيمة كنسبة مئوية من إجمالي فئتها وعيّن النص إلى [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمكانين عشريين بحجم خط 8 نقاط. يتم تخطي الفئات التي مجموعها صفر لتجنب القسمة على صفر. أعد حساب نص التسمية المخصص إذا تغيرت بيانات المخطط.
 
 ```csharp
 using System;
@@ -108,11 +156,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **تعيين علامة النسبة المئوية مع تسميات بيانات المخطط**
+## **Set Percentage Sign with Chart Data Labels**
 
-عند تخزين القيم ككسرات، استخدم [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) لعرض النسب المئوية. اضبط [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) على `false` لتطبيق تنسيق التسمية بشكل مستقل عن خلايا المصدر.
+عند تخزين القيم ككسرات، استخدم [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) لعرض النسب المئوية. عيّن [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) إلى `false` لتطبيق تنسيق التسمية بشكل مستقل عن الخلايا المصدر.
 
-يُنشئ هذا المثال مخططًا عموديًا متراكمًا بنسبة 100٪ يحتوي على سلسلتين (أحمر وأزرق) عبر أربع فئات. كل زوج من القيم يساوي 1. يظهر تنسيق التسمية `0.0%` القيمة 0.30 كـ 30.0٪، بينما يستخدم المحور العمودي مكانين عشريين. تستخدم السلسلتان نصًا أبيضًا بحجم 10 نقاط للتسمية.
+يُنشئ هذا المثال مخطط عمودي مكدس 100٪ بسلسلتين حمراء وزرقاء عبر أربع فئات. كل زوج من القيم يضيف إلى 1. يُظهر تنسيق التسمية `0.0%` القيمة 0.30 كـ 30.0٪، بينما يستخدم المحور الرأسي مكانين عشريين. تستخدم السلسلتان نصًا أبيضًا بحجم 10 نقاط.
 
 ```csharp
 using System.Drawing;
@@ -168,9 +216,9 @@ for (int i = 0; i < seriesNames.Length; i++)
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **قراءة النص الفعلي لتسميات البيانات**
+## **Read the Actual Text of Data Labels**
 
-استخدم [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) لاسترجاع النص الناتج عن إعدادات تسمية البيانات. يكون هذا مفيدًا عند استخراج التسميات للتقارير، البحث في محتوى العرض، أو التحقق من صحة المخططات المُنشأة. في المثال أدناه، يجمع تنسيق [تنسيق تسمية البيانات الافتراضي](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) كلًا من اسم الفئة، اسم السلسلة، والقيمة. تقوم نقطة واحدة بتنسيق قيمتها كنسبة مئوية، وتستخدم أخرى نصًا مخصصًا من [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+استخدم [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) لاسترداد النص الناتج عن إعدادات تسمية البيانات. يكون ذلك مفيدًا عند استخراج التسميات للتقارير أو البحث في محتوى العرض التقديمي أو التحقق من صحة المخططات المُولدة. في المثال أدناه، يجمع تنسيق [data label format](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) الافتراضي بين اسم الفئة، واسم السلسلة، والقيمة. تُنسيق نقطة واحدة قيمتها كنسبة مئوية، وأخرى تستخدم نصًا مخصصًا من [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -224,15 +272,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-القيمة المخزنة في نقطة البيانات تظل `0.75`، حتى عندما تظهر تسميتها `75%` مع أسماء الفئة والسلسلة. النص المخصص يحل محل النص المُنشأ للتسمية. تُعيد [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) سلسلة التسمية الناتجة في الحالتين. تحقق من [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) بشكل منفصل، كما هو موضح أعلاه، عندما ترغب في استخراج التسميات المرئية فقط.
+يظل الرقم المخزن في نقطة البيانات `0.75`، حتى عندما تُظهر تسميتها `75%` مع أسماء الفئة والسلسلة. النص المخصص يستبدل النص المُولد للتسمية. تُعيد [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) سلسلة التسمية الناتجة في كلتا الحالتين. تحقّق من [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) بشكل منفصل، كما هو موضح أعلاه، عندما تريد استخراج التسميات الظاهرة فقط.
 
-## **التحكم في تسميات البيانات خارج الحد الأقصى للمحور**
+## **Control Data Labels Beyond the Axis Maximum**
 
-عند تحديد نطاق المحور يدويًا، قد تتجاوز بعض نقاط البيانات حدّه الأقصى. استخدم [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) للتحكم فيما إذا كانت تسميات بياناتها معروضة. هذا الإعداد يغيّر رؤية التسميات؛ لا يغيّر نطاق المحور أو القيم الأساسية للبيانات.
+عند تحديد نطاق المحور يدويًا، قد تتجاوز بعض نقاط البيانات الحد الأقصى. استخدم [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) للتحكم فيما إذا كانت تسميات البيانات تُعرض. يغيّر هذا الإعداد ظهور التسمية؛ ولا يغير نطاق المحور أو القيم الأساسية للبيانات.
 
-ينشئ المثال أدناه مخططًا عموديًا مجموعةً ثنائية الأبعاد بقيم 60 و120. يضبط [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) إلى `false` و[MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) إلى 100 على المحور العمودي. الشريحة الأولى تسمح بالتسميات التي تتجاوز الحد الأقصى؛ نسخة تلك الشريحة تعطلها. تُحفظ كلتا الشريحتين في `DataLabelsOverMaximum.pptx`.
+ينشئ المثال أدناه مخطط عمودي مُجمّع ثنائي الأبعاد بقيم 60 و 120. يعيّن [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) إلى `false` و [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) إلى 100 على المحور الرأسي. الشريحة الأولى تسمح بالتسميات التي تتجاوز الحد الأقصى؛ نسخة من تلك الشريحة تُعطلها. تُحفظ كلتا الشريحتين في `DataLabelsOverMaximum.pptx`.
 
-فعّل تسميات القيم باستخدام [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). لا يقوم إعداد المستوى المخطط بتمكين عرض القيم بمفرده ولا يتجاوز إلغاء عرض القيمة لتسمية فردية. يُفعّل هذا المثال القيم لجميع السلسلة ويستخدم [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) لوضع التسميات في الطرف الخارجي لكل عمود.
+فعّل تسميات القيم باستخدام [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). لا يُمكّن الإعداد على مستوى المخطط عرض القيم بحد ذاته ولا يتجاوز إعداد إلغاء تمكين عرض قيمة تسمية فردية. يُمكّن هذا المثال القيم للسلسلة بأكملها ويستخدم [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) لوضع التسميات عند الطرف الخارجي لكل عمود.
 
 ```csharp
 using Aspose.Slides;
@@ -279,19 +327,19 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-تُظهر الصور التالية الشرائح المحفوظة التي تم عرضها بواسطة Microsoft PowerPoint. عند `true`، تكون التسمية **120** مرئية عند الحد العلوي؛ عند `false`، تكون مخفية. تظل التسمية **60** مرئية، يبقى الحد الأقصى للمحور **100**، وتبقى نقطة البيانات الثانية **120** في الحالتين.
+تُظهر الصور التالية الشريحات المحفوظة التي عُرضت بواسطة Microsoft PowerPoint. مع `true`، تكون التسمية **120** ظاهرة عند الحد العلوي؛ ومع `false` تُخفى. تظل التسمية **60** ظاهرة، ويبقى الحد الأقصى للمحور **100**، وتظل نقطة البيانات الثانية **120** في كلتا الحالتين.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![مخطط PowerPoint يُظهر تسمية القيمة 120 مع حد أقصى للمحور يساوي 100](data-labels-over-maximum-true.png) | ![مخطط PowerPoint يُخفي تسمية القيمة 120 مع حد أقصى للمحور يساوي 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-يستخدم هذا المثال مخططًا عموديًا ثلاثي الأبعاد مع محور قيم. المخططات التي لا تحتوي على محور قيم، مثل مخططات الفطيرة والدونات، لا تملك حدًا أقصى للمحور يمكن تقييده بهذه الطريقة.
+هذا المثال يستخدم مخطط عمودي ثنائي الأبعاد مع محور قيم. المخططات التي لا تحتوي على محور قيم، مثل المخططات الدائرية ومخططات الحلقة، لا تملك حدًا أقصى للمحور لتقييده بهذه الطريقة.
 {{% /alert %}}
 
-## **تعيين مسافة التسمية من المحور**
+## **Set Label Distance from an Axis**
 
-استخدم [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) للتحكم في المسافة بين تسميات محور الفئة والمحور. القيمة هي نسبة مئوية من الحد الأقصى لحجم خط تسميات المحور. يُنشئ هذا المثال مخططًا عموديًا مجموعةً ويضبط إزاحة تسمية محور الأفقي إلى 500. يؤثر هذا الإعداد على تسميات محور الفئة بدلاً من التسميات المرتبطة بنقاط البيانات الفردية.
+استخدم [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) للتحكم في المسافة بين تسميات محور الفئة والمحور. القيمة هي نسبة مئوية من الحد الأقصى لحجم خط تسميات المحور. ينشئ هذا المثال مخطط عمودي مُجمّع ويضبط إزاحة تسمية محور الأفقي إلى 500. يؤثر هذا الإعداد على تسميات محور الفئة بدلاً من التسميات المرتبطة بنقاط البيانات الفردية.
 
 ```csharp
 using Aspose.Slides;
@@ -307,11 +355,11 @@ chart.Axes.HorizontalAxis.LabelOffset = 500;
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **ضبط موقع التسمية**
+## **Adjust Label Location**
 
-في مخطط الفطيرة، اضبط مواضع تسميات البيانات لتحسين التباعد وإتاحة مساحة لخطوط الدليل.
+في مخطط دائري، اضبط مواضع تسميات البيانات لتحسين التباعد وإتاحة مساحة لخطوط الاتصال.
 
-يعرض هذا المثال قيمة نقطة البيانات الأولى، يضع تسميتها خارج الشريحة، ويضبط إزاحتيها [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) و[Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/). هذه الإزاحات نسبية لعرض المخطط وارتفاعه، على التوالي.
+يعرض هذا المثال قيمة نقطة البيانات الأولى، يضع تسميتها خارج الشريحة، ويضبط إزاحات [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) و [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) لها. تُعبّر هذه الإزاحات عن نسب من عرض وارتفاع المخطط على التوالي.
 
 ```csharp
 using Aspose.Slides;
@@ -333,17 +381,17 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![مخطط فطيرة مع موضع تسمية بيانات مُعدَّل](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **تنسيق خطوط الدليل**
+## **Format Leader Lines**
 
-عندما تكون تسميات مخطط الفطيرة خارج القطع، تساعد خطوط الدليل القارئ على ربط كل قيمة بالقطعة الصحيحة. يمكن أن يجعل اللون المتباين والخط السميك قليلاً هذه الروابط أسهل للمتابعة، بينما تُبقي الشفافية والنمط المتقطع الخطوط غير مرئية بصريًا.
+عندما تكون تسميات المخطط الدائري خارج شرائحها، تساعد خطوط الربط القارئ على مطابقة كل قيمة مع الشريحة الصحيحة. يمكن أن يجعل اللون المتباين والخط السميك قليلًا هذه الاتصالات أسهل للمتابعة، بينما يبقي الشفافية والنمط المتقطع الخطوط غير بارزة بصريًا.
 
-استخدم [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) لتنسيق خطوط الدليل على مستوى مجموعة تسميات بيانات السلسلة. تُطبق الإعدادات في `series.Labels.LeaderLinesFormat.Line` على المجموعة ككل، وليس على تسمية فردية.
+استخدم [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) لتنسيق خطوط الربط على مستوى مجموعة تسميات البيانات للسلسلة. تُطبق الإعدادات في `series.Labels.LeaderLinesFormat.Line` على المجموعة بأكملها، وليس على تسمية فردية.
 
-يُنشئ هذا المثال مخطط فطيرة ببيانات افتراضية، يعرض القيم خارج القطع، ويفعل [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/). ينقل تسميتين أبعد عن قطعهما باستخدام إزاحتي [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) و[Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)، معبرًا عنها ككسر من عرض وارتفاع المخطط. لا يلزم عرض تقديمي كمدخل.
+ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية، يعرض القيم خارج الشرائح، ويُمكّن [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/). يبعد تسميتين أكثر عن شرائحهما باستخدام إزاحات [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) و [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) معبرًا عنها ككسور من عرض وارتفاع المخطط. لا يلزم وجود عرض تقديمي إدخالي.
 
-تحدد [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) للخط لونًا أزرق صلبًا بقيمة ألفا 191 من أصل 255، ما يمنح شفافية تقريبية بنسبة 25٪. يضبط [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) سمك الخط إلى نقطتين، وتُحوِّل [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) الخط إلى نمط متقطع.
+يُعيّن [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) للخط لونًا أزرق صلبًا بقيمة ألفا 191 من 255، ما يُعطي شفافية تقريبًا 25٪. يُحدّد [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) السماكة إلى نقطتين، وتُحوّل [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) الخط إلى متقطع.
 
 ```csharp
 using System.Drawing;
@@ -364,7 +412,7 @@ labelFormat.ShowValue = true;
 labelFormat.Position = LegendDataLabelPosition.OutsideEnd;
 labelFormat.ShowLeaderLines = true;
 
-// تحريك تسميتين بعيدًا عن قطعهما.
+// نقل تسميتين بعيدًا أكثر عن شرائحهما.
 series.Labels[0].X = 0.10f;
 series.Labels[0].Y = -0.05f;
 series.Labels[1].X = -0.10f;
@@ -379,16 +427,17 @@ line.DashStyle = LineDashStyle.Dash;
 presentation.Save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
 ```
 
-تفعيل خطوط الدليل لا يضمن ظهور خط لكل تسمية. تعتمد الرؤية على موضع التسمية وسلوك تخطيط المخطط. في هذا المثال، تحتوي التسامتان المنقّلتان على خطوط دليل مرئية؛ أما التسميات القريبة من قطعها فلا تحتاج إليها.
+إن تفعيل خطوط الربط لا يضمن ظهور خط لكل تسمية. تعتمد الرؤية على موضع التسمية وسلوك تخطيط المخطط. في هذا المثال، للتسميات المنقولة يوجد خطوط ربط مرئية؛ ولا تحتاج التسميات القريبة من الشرائح إلى خطوط.
 
-الصورة التالية تُظهر ملف `FormattedLeaderLines.pptx` المحفوظ والمُعروض باستخدام Aspose.Slides:
-![مخطط فطيرة بخطوط دليل زرقاء، شبه شفافة ومتقطعة، تربط تسميتين خارجيتين بقطعهما](formatted-leader-lines.png)
+تُظهر الصورة التالية ملف `FormattedLeaderLines.pptx` المُحَفَظ والذي عُرض بواسطة Aspose.Slides:
 
-## **إضافة عدة صفوف من تسميات البيانات فوق مخطط عمودي**
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
-ينشئ هذا المثال مخططًا عموديًا مع صفين من تسميات البيانات فوق منطقة الرسم. تعرض السلسلة A الأعمدة المرئية، بينما توفر السلسلة B والسلسلة C التسميات الإضافية. تُخفى أعمدتها بإزالة التعبئة والحد. تُطبق الخاصية [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) محاذاة جميع السلاسل الثلاثة إلى مراكز الفئة نفسها.
+## **Add Multiple Rows of Data Labels Above a Column Chart**
 
-تُخصص إعدادات [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) مساحة لصفوف التسميات. بعد أن تُحسب المواضع الافتراضية بواسطة [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/)، تُحافظ إزاحتا [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) و[Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) على المحاذاة الأفقية وتُطبق إزاحات رأسية لترتيب التسميات في صفين. تظل الأرقام تسميات بيانات مرتبطة بقيم السلسلة؛ فقط رؤوس الصفوف هي أشكال نصية منفصلة.
+ينشئ هذا المثال مخططًا عموديًا مع صفين من تسميات البيانات فوق منطقة الرسم. تعرض السلسلة A الأعمدة الظاهرة، بينما توفر السلسلة B والسلسلة C التسميات الإضافية. تُخفى أعمدتها بإزالة التعبئة والحد. تُ-align الخاصية [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) جميع السلاسل الثلاثة مع مراكز الفئة نفسها.
+
+تُخصص إعدادات [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) مساحة لصفوف التسميات. بعد أن تحسب [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) المواضع الافتراضية، تحافظ [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) و [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) على المحاذاة الأفقية وتُطبق إزاحات رأسية لتنظيم التسميات في صفين. تظل الأرقام تسميات بيانات مرتبطة بقيم السلسلة؛ فقط عناوين الصفوف هي أشكال نصية منفصلة.
 
 ```csharp
 using System.Drawing;
@@ -437,7 +486,7 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // إخفاء أعمدة B و C، مع الحفاظ على تسميات البيانات.
+        // إخفاء أعمدة B و C، مع الاحتفاظ بتسميات البيانات.
         series.Format.Fill.FillType = FillType.NoFill;
         series.Format.Line.FillFormat.FillType = FillType.NoFill;
         var labelFormat = series.Labels.DefaultDataLabelFormat;
@@ -457,7 +506,7 @@ chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.MajorUnit = 10;
 
-// حجز مساحة فوق المنطقة الرسومية لصفين من تسميات البيانات.
+// حجز مساحة فوق منطقة الرسم لصفين من تسميات البيانات.
 chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
 chart.PlotArea.X = 0.15f;
 chart.PlotArea.Y = 0.32f;
@@ -473,13 +522,13 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
     for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
     {
         var dataLabel = series.DataPoints[categoryIndex].Label;
-        // احتفظ بالموقع الأفقي الافتراضي. Y هو إزاحة من
-        // الموقع الافتراضي للتسمية، معبرًا عنه ككسر من ارتفاع المخطط.
+        // احتفظ بالموضع الأفقي الافتراضي. Y هو إزاحة من
+        // الموضع الافتراضي للتسمية، معبرًا عنها ككسر من ارتفاع المخطط.
         dataLabel.X = 0;
         dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
     }
 
-    // فقط عنوان الصف هو شكل نص منفصل.
+    // عنوان الصف هو الشكل النصي المستقل الوحيد.
     var rowHeading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, chart.X, chart.Y + rowTop * chart.Height, 85, 18);
     rowHeading.FillFormat.FillType = FillType.NoFill;
     rowHeading.LineFormat.FillFormat.FillType = FillType.NoFill;
@@ -495,18 +544,18 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
 presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
 ```
 
-![مخطط عمودي مع صفين من تسميات البيانات فوق منطقة الرسم](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
-## **الأسئلة الشائعة**
+## **FAQ**
 
 **كيف يمكنني منع تداخل تسميات البيانات في المخططات الكثيفة؟**
 
-استخدم وضع التسمية التلقائي، خطوط الدليل، وتقليل حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للقيم المتطرفة أو النقاط الرئيسية.
+اجمع بين وضعية التسميات التلقائية، وخطوط الربط، وتقليل حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للقيم المتطرفة أو النقاط الرئيسية.
 
-**كيف يمكنني تعطيل التسميات للقيات الصفرية أو السلبية أو الفارغة فقط؟**
+**كيف يمكنني إيقاف تشغيل التسميات للقيم الصفرية أو السلبية أو الفارغة فقط؟**
 
-قم بترشيح نقاط البيانات قبل تفعيل التسميات وأوقف العرض للقيم التي تساوي 0 أو القيم السلبية أو القيم المفقودة وفق قاعدة محددة.
+قُم بتصفية نقاط البيانات قبل تمكين التسميات وأوقف عرض القيم التي تساوي 0 أو القيم السلبية أو القيم المفقودة وفقًا لقاعدة محددة.
 
-**كيف يمكنني ضمان تناسق نمط التسمية عند التصدير إلى PDF/صور؟**
+**كيف أضمن نمط تسميات موحد عند التصدير إلى PDF/صور؟**
 
-حدد عائلة الخط وحجمه صراحةً وتأكد من توفر الخط في بيئة العرض لتجنب الاستخدام البديل.
+حدِّد صراحةً عائلة الخط وحجمه وتأكد من توفر الخط في بيئة العرض لتفادي اللجوء إلى خطوط بديلة.

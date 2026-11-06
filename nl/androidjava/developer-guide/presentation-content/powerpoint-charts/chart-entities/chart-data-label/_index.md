@@ -1,12 +1,12 @@
 ---
-title: Beheer grafiekdatabelabelen in presentaties op Android
-linktitle: Databelabel
+title: Beheer diagram-gegevenslabels in presentaties op Android
+linktitle: Gegevenslabel
 type: docs
 url: /nl/androidjava/chart-data-label/
 keywords:
-- grafiek
-- databelabel
-- dataprecisie
+- diagram
+- gegevenslabel
+- gegevensprecisie
 - percentage
 - labelafstand
 - labellocatie
@@ -15,15 +15,64 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Leer hoe u grafiekdatabelabelen kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor Android via Java voor meer boeiende dia's."
+description: "Leer hoe u diagram-gegevenslabels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor Android via Java voor meer boeiende dia's."
 ---
-## **Inleiding**
+## **Introductie**
 
-Databelabelen tonen informatie over grafiekreeksen en individuele datapunten, zodat lezers waarden kunnen identificeren en de grafiek kunnen begrijpen. Dit artikel legt uit hoe u waarden opmaakt, percentages toont, labeltekst uitleest, labels buiten de as‑maximum regelt, de afstand tussen categoriebenamingen en de as aanpast en labels van een taartgrafiek positioneert.
+Gegevenslabels tonen informatie over diagramreeksen en individuele gegevenspunten, waardoor lezers waarden kunnen identificeren en het diagram beter begrijpen. Dit artikel legt uit hoe u waarden formatteert, percentages weergeeft, labeltekst leest, labels buiten de as‑maximum beheert, de spreiding van categorie‑as‑labels aanpast en taartdiagram‑labels positioneert.
 
-## **Dataprecisie instellen in grafiekdatabelabelen**
+## **Aantal zichtbare gegevenslabels**
 
-Gebruik [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) om reekswerte op te maken. Dit voorbeeld maakt een lijngrafiek met standaardgegevens, toont de bijbehorende gegevens‑tabel en activeert waardelabels voor de eerste reeks. Het formaat `#,##0.00` geeft een duizendtallen‑scheidingsteken en twee decimalen weer zonder de onderliggende waarden te wijzigen.
+Gebruik [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getCountOfVisibleDataLabels--) om te controleren hoeveel gegevenslabels zijn ingeschakeld voor weergave vóór het publiceren van een presentatie. In tegenstelling tot [getCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getCount--), dat het totale aantal labels in de collectie retourneert, houdt het rekening met de standaardinstellingen van de reeks en de individuele labelinstellingen.
+
+Dit voorbeeld maakt een kolomdiagram met één reeks en drie gegevenspunten. Het benadert de labelcollectie van de reeks via [getLabels](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getLabels--) en drukt het zichtbare aantal af terwijl de instellingen veranderen: **0, 3, 2, 3**. Het totale aantal blijft **3**.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesCell = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+
+    for (int i = 0; i < 3; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    IDataLabelCollection labels = series.getLabels();
+    System.out.println("Total: " + labels.getCount() + "; visible: " + labels.getCountOfVisibleDataLabels()); // Totaal: 3; zichtbaar: 0
+
+    labels.getDefaultDataLabelFormat().setShowValue(true);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Zichtbaar: 3
+
+    labels.get_Item(1).getDataLabelFormat().setShowValue(false);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Zichtbaar: 2
+
+    labels.get_Item(1).getDataLabelFormat().setShowLegendKey(true);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Zichtbaar: 3
+} finally {
+    presentation.dispose();
+}
+```
+
+De reeks' [getDefaultDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getDefaultDataLabelFormat--) levert de standaardinstellingen. Het doorgeven van `true` aan [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) toont waarden voor alle drie de labels. Het doorgeven van `false` via de [getDataLabelFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getDataLabelFormat--) van één label overschrijft die instelling voor het geselecteerde label. Het doorgeven van `true` aan [setShowLegendKey](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLegendKey-boolean-) zorgt ervoor dat dat label weer als zichtbaar wordt geteld, zelfs al blijft de waarde verborgen.
+
+Het zichtbare aantal weerspiegelt de zichtbaarheidinstellingen. Het meet niet of labels overlappen, worden afgesneden of leesbaar zijn in het gerenderde diagram.
+
+## **Gegevensprecisie instellen in diagramgegevenslabels**
+
+Gebruik [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) om de waarden van een reeks te formatteren. Dit voorbeeld maakt een lijndiagram met standaardgegevens, toont de gegevenstabel en schakelt waarde‑labels in voor de eerste reeks. Het formaat `#,##0.00` toont een duizendtal‑scheidingsteken en twee decimalen zonder de onderliggende waarden te wijzigen.
 
 ```java
 import com.aspose.slides.*;
@@ -45,11 +94,11 @@ try {
 }
 ```
 
-Om de numerieke cellen in een ingesloten werkblad van een grafiek op te maken, zie [Aangepaste getalnotaties voor werkbladcellen instellen](/slides/nl/androidjava/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dat voorbeeld laat ook zien dat waardelabels de opmaak van hun broncellen volgen terwijl de opgeslagen numerieke waarden behouden blijven.
+Om de numerieke cellen in een ingebed werkboek van een diagram te formatteren, zie [Set Custom Number Formats for Workbook Cells](/slides/nl/androidjava/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dat voorbeeld toont ook waarde‑labels die de opmaak van hun broncellen volgen, terwijl de opgeslagen numerieke waarden behouden blijven.
 
-## **Percentages als labels tonen**
+## **Percentages weergeven als labels**
 
-Voor een gestapelde kolomgrafiek berekent u elke waarde als een percentage van het categorie‑totaal en kent u de tekst toe aan het tekstframe dat wordt geretourneerd door [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Dit voorbeeld gebruikt de standaardgrafiekgegevens en toont percentages met twee decimalen in een lettertype van 8 punten. Categorieën met een totaal van nul worden overgeslagen om deling door nul te vermijden. Herbereken de aangepaste labeltekst als de grafiekgegevens wijzigen.
+Voor een gestapeld kolomdiagram berekent u elke waarde als een percentage van de totalsom van de categorie en kent u de tekst toe aan het tekstraam dat wordt geretourneerd door [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Dit voorbeeld gebruikt de standaard diagramgegevens en toont percentages met twee decimalen in een lettertype van 8 punten. Categorieën met een totaalsom van nul worden overgeslagen om deling door nul te voorkomen. Herbereken de aangepaste labeltekst als de diagramgegevens wijzigen.
 
 ```java
 import com.aspose.slides.*;
@@ -106,11 +155,11 @@ try {
 }
 ```
 
-## **Het procentteken instellen bij grafiekdatabelabelen**
+## **Het procentteken instellen met diagramgegevenslabels**
 
-Wanneer waarden als breuken zijn opgeslagen, gebruikt u [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) om percentages weer te geven. Geef `false` door aan [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) om het label‑formaat onafhankelijk van de broncellen toe te passen.
+Wanneer waarden als breuken worden opgeslagen, gebruik [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) om percentages weer te geven. Geef `false` door aan [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) om het labelformaat onafhankelijk van de broncellen toe te passen.
 
-Dit voorbeeld maakt een 100 % gestapelde kolomgrafiek met rode en blauwe reeksen over vier categorieën. Elk paar waarden telt op tot 1. Het label‑formaat `0.0%` toont 0.30 als 30.0 %, terwijl de verticale as twee decimalen gebruikt. Beide reeksen gebruiken witte labeltekst van 10 punten.
+Dit voorbeeld maakt een 100 % gestapeld kolomdiagram met rode en blauwe reeksen over vier categorieën. Elk waardepaar telt op tot 1. Het labelformaat `0.0%` toont 0,30 als 30,0 %, terwijl de verticale as twee decimalen gebruikt. Beide reeksen gebruiken witte, 10‑punts labeltekst.
 
 ```java
 import com.aspose.slides.*;
@@ -165,9 +214,9 @@ try {
 }
 ```
 
-## **De werkelijke tekst van databelabelen uitlezen**
+## **De werkelijke tekst van gegevenslabels lezen**
 
-Gebruik [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) om de tekst op te halen die door de instellingen van een databelabel wordt gegenereerd. Dit is handig bij het extraheren van labels voor rapporten, het doorzoeken van presentatie‑inhoud of het valideren van gegenereerde grafieken. In het voorbeeld hieronder combineert het standaard [data label format](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) elke categorienaam, reeksku naam en waarde. Eén punt formatteert de waarde als percentage, een ander gebruikt aangepaste tekst van [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Gebruik [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) om de tekst op te halen die door de instellingen van een gegevenslabel wordt geproduceerd. Dit is nuttig bij het extraheren van labels voor rapporten, het doorzoeken van presentatie‑inhoud, of het valideren van gegenereerde diagrammen. In het onderstaande voorbeeld combineert het standaard [data label format](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) de naam van elke categorie, de reeksnamen en de waarde. Eén punt formatteert zijn waarde als percentage, en een andere gebruikt aangepaste tekst uit [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -227,15 +276,15 @@ try {
 }
 ```
 
-Het getal dat in een datapunt is opgeslagen blijft `0.75`, zelfs wanneer het label `75 %` toont samen met de categorie‑ en reeksnamen. Aangepaste tekst vervangt de gegenereerde labeltekst. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) retourneert in beide gevallen de resulterende label‑string. Controleer [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) apart, zoals hierboven getoond, wanneer u alleen zichtbare labels wilt extraheren.
+Het in een gegevenspunt opgeslagen getal blijft `0.75`, zelfs wanneer het label `75 %` toont samen met de categorie‑ en reeksnamen. Aangepaste tekst vervangt de gegenereerde labeltekst. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) retourneert de resulterende labelreeks in beide gevallen. Controleer [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) apart, zoals hierboven getoond, wanneer u alleen zichtbare labels wilt extraheren.
 
-## **Databelabelen buiten het as‑maximum regelen**
+## **Gegevenslabels beheren buiten de as‑maximum**
 
-Wanneer u een asbereik handmatig beperkt, kunnen sommige datapunten het maximum overschrijden. Gebruik [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) om te bepalen of hun databelabelen worden weergegeven. Deze instelling wijzigt de zichtbaarheid van labels; ze wijzigt niet het as‑bereik of de onderliggende gegevenswaarden.
+Wanneer u handmatig een asbereik beperkt, kunnen sommige gegevenspunten de maximumwaarde overschrijden. Gebruik [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) om te bepalen of hun gegevenslabels worden getoond. Deze instelling wijzigt de zichtbaarheid van het label; het verandert niet het asbereik of de onderliggende gegevenswaarden.
 
-Het voorbeeld hieronder maakt een 2D‑geclusterde kolomgrafiek met waarden van 60 en 120. Het geeft `false` door aan [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) en stelt het maximum in op 100 met [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) op de verticale as. De eerste dia staat labels toe buiten het maximum; een kopie van die dia schakelt ze uit. Beide dia’s worden opgeslagen in `DataLabelsOverMaximum.pptx`.
+Het onderstaande voorbeeld maakt een 2D gegroepeerd kolomdiagram met waarden van 60 en 120. Het geeft `false` door aan [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) en stelt het maximum in op 100 met [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) op de verticale as. De eerste dia staat labels toe die het maximum overschrijden; een kopie van die dia schakelt ze uit. Beide dia's worden opgeslagen in `DataLabelsOverMaximum.pptx`.
 
-Schakel waardelabels in met [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). De instelling op graafigekniveau activeert niet automatisch de weergave van waarden en overschrijft geen individuele uitgeschakelde weergave. Dit voorbeeld activeert waarden voor de volledige reeks en gebruikt [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) om labels aan het buitenste einde van elke kolom te plaatsen.
+Schakel waarde‑labels in met [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). De instelling op diagramniveau activeert de weergave van waarden niet op zichzelf of overschrijft niet de uitgeschakelde weergave van een individueel label. Dit voorbeeld schakelt waarden in voor de hele reeks en gebruikt [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) om de labels aan het buitenste einde van elke kolom te plaatsen.
 
 ```java
 import com.aspose.slides.*;
@@ -284,21 +333,19 @@ try {
 }
 ```
 
-De volgende afbeeldingen tonen de opgeslagen dia’s die door Microsoft PowerPoint zijn gerenderd. Met `true` is het label **120** zichtbaar bij de bovenste grens; met `false` is het verborgen. Het label **60** blijft zichtbaar, het as‑maximum blijft op **100**, en het tweede datapunt blijft **120** in beide gevallen.
+De volgende afbeeldingen tonen de opgeslagen dia's, gerenderd door Microsoft PowerPoint. Met `true` is het label **120** zichtbaar bij de bovenste grens; met `false` is het verborgen. Het label **60** blijft zichtbaar, het as‑maximum blijft **100**, en het tweede gegevenspunt blijft **120** in beide gevallen.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint-diagram dat het waardelabel 120 toont met een as‑maximum van 100](data-labels-over-maximum-true.png) | ![PowerPoint-diagram dat het waardelabel 120 verbergt met een as‑maximum van 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Grafiektype" %}}
-
-Dit voorbeeld gebruikt een 2D‑kolomgrafiek met een waardenas. Grafieken zonder waardenas, zoals taart‑ en donutsgrafieken, hebben geen as‑maximum dat op deze manier kan worden beperkt.
-
+Dit voorbeeld gebruikt een 2D kolomdiagram met een waardenas. Diagrammen zonder waardenas, zoals taart‑ en donut‑diagrammen, hebben geen as‑maximum dat op deze manier kan worden beperkt.
 {{% /alert %}}
 
-## **Afstand van label tot een as instellen**
+## **Labelafstand van een as instellen**
 
-Gebruik [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) om de afstand tussen categoriebenamingen en de as te regelen. De waarde is een percentage van de maximale lettergrootte van de as‑labels. Dit voorbeeld maakt een gegroepeerde kolomgrafiek en stelt de horizontale as‑label‑offset in op 500. Deze instelling beïnvloedt de categoriebenamingen in plaats van labels die aan individuele datapunte­n zijn gekoppeld.
+Gebruik [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) om de afstand tussen categorie‑as‑labels en de as te regelen. De waarde is een percentage van de maximale lettergrootte van de as‑labels. Dit voorbeeld maakt een gegroepeerd kolomdiagram en stelt de horizontale as‑labeloffset in op 500. Deze instelling beïnvloedt categorie‑as‑labels in plaats van labels die aan individuele gegevenspunten zijn gekoppeld.
 
 ```java
 import com.aspose.slides.*;
@@ -318,9 +365,9 @@ try {
 
 ## **Labelpositie aanpassen**
 
-Op een taartgrafiek past u de positie van databelabelen aan om de tussenruimte te verbeteren en plaats te maken voor leider‑lijnen.
+Bij een taartdiagram past u de positie van gegevenslabels aan om de spatiëring te verbeteren en ruimte te maken voor verbindingslijnen.
 
-Dit voorbeeld toont de waarde van het eerste datapunt, plaatst het label buiten de partitie en past de horizontale en verticale verschuivingen aan met behulp van [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) en [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Deze verschuivingen zijn respectievelijk een fractie van de breedte en hoogte van de grafiek.
+Dit voorbeeld toont de waarde van het eerste gegevenspunt, plaatst het label buiten de part, en past de horizontale en verticale offset aan met behulp van [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) en [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Deze offsets zijn respectievelijk relatief ten opzichte van de breedte en hoogte van het diagram.
 
 ```java
 import com.aspose.slides.*;
@@ -344,17 +391,17 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![Taartdiagram met een aangepaste labelpositie](pie-chart-adjusted-label.png)
 
-## **Leiders‑lijnen opmaken**
+## **Leidlijnen opmaken**
 
-Wanneer taartgrafieklabels buiten hun partities staan, helpen leiders‑lijnen lezers elke waarde aan de juiste partitie te koppelen. Een contrasterende kleur en een iets dikkere lijn maken deze verbindingen makkelijker te volgen, terwijl transparantie en een gestippelde stijl de lijnen visueel onopvallend houden.
+Wanneer taartdiagram‑labels buiten hun partjes staan, helpen leidlijnen lezers elke waarde aan het juiste partje te koppelen. Een contrasterende kleur en een iets dikkere lijn kunnen deze verbindingen makkelijker leesbaar maken, terwijl transparantie en een gestippelde stijl de lijnen visueel onopvallend houden.
 
-Gebruik [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) om leiders‑lijnen op te maken op het niveau van de databelabel‑collectie van de reeks. De instellingen in `series.getLabels().getLeaderLinesFormat().getLine()` gelden voor de collectie, niet voor een individueel label.
+Gebruik [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) om leider‑lijnen op te maken op het niveau van de labelcollectie van de reeks. De instellingen in `series.getLabels().getLeaderLinesFormat().getLine()` gelden voor de collectie, niet voor een individueel label.
 
-Dit voorbeeld maakt een taartgrafiek met standaardgegevens, toont waarden buiten de partities en activeert [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). Het verplaatst twee labels verder van hun partities met behulp van [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) en [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) verschuivingen, uitgedrukt als fracties van de grafiekbreedte en -hoogte. Er is geen invoer‑presentatie nodig.
+Dit voorbeeld maakt een taartdiagram met standaardgegevens, toont waarden buiten de partjes en schakelt [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-) in. Het verplaatst twee labels verder van hun partjes met behulp van [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) en [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) offsets, uitgedrukt als breuken van de diagrambreedte en -hoogte. Er is geen invoerpresentatie vereist.
 
-Linie‑[getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) stelt een effen blauwe kleur in met een alfa‑waarde van 191 op 255, wat ongeveer 25 % transparantie oplevert. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) stelt de dikte in op 2 punten, en [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) maakt de lijn gestippeld.
+De [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) van de lijn stelt een effen blauwe kleur in met een alfawaarde van 191 van 255, wat ongeveer 25 % transparantie geeft. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) stelt de dikte in op 2 punten, en [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) maakt de lijn gestippeld.
 
 ```java
 import com.aspose.slides.*;
@@ -374,7 +421,7 @@ try {
     labelFormat.setPosition(LegendDataLabelPosition.OutsideEnd);
     labelFormat.setShowLeaderLines(true);
 
-    // Verplaats twee labels verder weg van hun partities.
+    // Verplaats twee labels verder weg van hun partjes.
     series.getLabels().get_Item(0).setX(0.10f);
     series.getLabels().get_Item(0).setY(-0.05f);
     series.getLabels().get_Item(1).setX(-0.10f);
@@ -392,17 +439,17 @@ try {
 }
 ```
 
-Het inschakelen van leiders‑lijnen garandeert niet dat er voor elk label een lijn verschijnt. Zichtbaarheid hangt af van de labelplaatsing en het lay‑outgedrag van de grafiek. In dit voorbeeld hebben de twee verplaatste labels zichtbare leiders‑lijnen; de labels die dicht bij hun partities blijven, hebben ze niet nodig.
+Het inschakelen van leidlijnen garandeert niet dat er voor elk label een lijn verschijnt. De zichtbaarheid hangt af van de labelplaatsing en het layoutgedrag van het diagram. In dit voorbeeld hebben de twee verplaatste labels zichtbare leidlijnen; de labels die dicht bij hun partjes blijven, hebben ze niet nodig.
 
-De volgende afbeelding toont de opgeslagen `FormattedLeaderLines.pptx` gerenderd met Aspose.Slides:
+De volgende afbeelding toont het opgeslagen `FormattedLeaderLines.pptx` gerenderd met Aspose.Slides:
 
-![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+![Taartdiagram met blauwe, semitransparante gestippelde leidlijnen die twee buitenste labels met hun partjes verbinden](formatted-leader-lines.png)
 
-## **Meerdere rijen databelabelen boven een kolomgrafiek toevoegen**
+## **Meerdere rijen gegevenslabels boven een kolomdiagram toevoegen**
 
-Dit voorbeeld maakt een kolomgrafiek met twee rijen databelabelen boven het teken‑gebied. Serie A toont de zichtbare kolommen, terwijl Serie B en Serie C de extra labels leveren. Hun kolommen worden verborgen door de opvulling en contour te verwijderen. De methode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) zorgt ervoor dat alle drie de reeksen dezelfde categorie‑centra delen.
+Dit voorbeeld maakt een kolomdiagram met twee rijen gegevenslabels boven het plotgebied. Reeks A toont de zichtbare kolommen, terwijl reeksen B en C de extra labels leveren. Hun kolommen zijn verborgen door de vulling en omlijning te verwijderen. De methode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) stemt alle drie de reeksen af op dezelfde categorie‑centra.
 
-De instellingen van [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) reserveren ruimte voor de label‑rijen. Na het berekenen van de standaardposities door [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--), behouden [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) en [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) de horizontale uitlijning en passen ze verticale verschuivingen toe om de labels in twee rijen te rangschikken. De getallen blijven databelabelen die gekoppeld zijn aan de reekswerte; alleen de rij‑koppen zijn aparte tekstvormen.
+De instellingen van [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) reserveren ruimte voor de labelrijen. Nadat [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) de standaardposities heeft berekend, behouden [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) en [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) de horizontale uitlijning en passen ze verticale offsets toe om de labels in twee rijen te rangschikken. De cijfers blijven gegevenslabels die aan de reekswerwaarden gekoppeld zijn; alleen de rijnamen zijn aparte tekstvormen.
 
 ```java
 import com.aspose.slides.*;
@@ -446,7 +493,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // Verberg de kolommen van B en C, maar behoud hun databelabelen.
+            // Verberg de kolommen van B en C, maar behoud hun gegevenslabels.
             series.getFormat().getFill().setFillType(FillType.NoFill);
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -458,14 +505,14 @@ try {
         }
     }
 
-    // Lijn alle drie reeksen uit op dezelfde categoriecentra.
+    // Lijn alle drie de reeksen uit op dezelfde categoriecentra.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap((byte) 100);
 
     // Gebruik minder rasterlijnen voor dit compacte voorbeeld.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // Reserveer ruimte boven het plotgebied voor twee rijen databelabelen.
+    // Reserveer ruimte boven het plot voor twee rijen gegevenslabels.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
     chart.getPlotArea().setX(0.15f);
     chart.getPlotArea().setY(0.32f);
@@ -479,8 +526,8 @@ try {
 
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // Bewaar de standaard horizontale positie. Y is een verschuiving van
-            // de standaard labelpositie, uitgedrukt als een fractie van de grafiekhoogte.
+            // Bewaar de standaard horizontale positie. Y is een offset ten opzichte van
+            // de standaard labelpositie, uitgedrukt als een fractie van de diagramhoogte.
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
@@ -504,18 +551,18 @@ try {
 }
 ```
 
-![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+![Kolomdiagram met twee rijen gegevenslabels boven het plotgebied](multiple-rows-of-labels.png)
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Hoe kan ik voorkomen dat databelabelen overlappen in dichte grafieken?**
+**Hoe kan ik voorkomen dat gegevenslabels overlappen in dichte diagrammen?**
 
-Combineer automatische labelplaatsing, leiders‑lijnen en een kleinere lettergrootte; verberg eventueel sommige velden (bijvoorbeeld de categorie) of toon alleen labels voor uiterste waarden of sleutelpunten.
+Combineer automatische labelplaatsing, leidlijnen en een kleinere lettergrootte; verberg indien nodig enkele velden (bijvoorbeeld de categorie) of toon labels alleen voor extreme waarden of belangrijke punten.
 
-**Hoe kan ik labels uitschakelen alleen voor nul, negatieve of lege waarden?**
+**Hoe kan ik labels alleen uitschakelen voor nul-, negatieve of lege waarden?**
 
-Filter datapunten voordat u labels inschakelt en schakelt de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
+Filter gegevenspunten voordat u labels inschakelt en schakel de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
 
-**Hoe zorg ik voor een consistente labelstijl bij export naar PDF/afbeeldingen?**
+**Hoe kan ik een consistente labelstijl garanderen bij exporteren naar PDF/afbeeldingen?**
 
-Stel expliciet het lettertype en de grootte in en controleer dat het lettertype beschikbaar is in de renderomgeving om een fallback te voorkomen.
+Stel expliciet het lettertype en de grootte in en controleer of het lettertype beschikbaar is in de renderomgeving om terugval te voorkomen.

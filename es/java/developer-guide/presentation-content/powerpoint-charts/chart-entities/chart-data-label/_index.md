@@ -8,21 +8,70 @@ keywords:
 - etiqueta de datos
 - precisión de datos
 - porcentaje
-- distancia de etiqueta
-- ubicación de etiqueta
+- distancia de la etiqueta
+- ubicación de la etiqueta
 - PowerPoint
 - presentación
 - Java
 - Aspose.Slides
-description: "Aprenda a añadir y dar formato a las etiquetas de datos de gráficos en presentaciones de PowerPoint usando Aspose.Slides para Java para diapositivas más atractivas."
+description: "Aprenda a añadir y dar formato a las etiquetas de datos de los gráficos en presentaciones de PowerPoint usando Aspose.Slides para Java para diapositivas más atractivas."
 ---
 ## **Introducción**
 
-Las etiquetas de datos muestran información sobre las series del gráfico y puntos de datos individuales, ayudando a los lectores a identificar los valores y a comprender el gráfico. Este artículo explica cómo dar formato a los valores, mostrar porcentajes, leer el texto de la etiqueta, controlar las etiquetas más allá del máximo del eje, ajustar el espaciado de las etiquetas del eje de categorías y posicionar las etiquetas de los gráficos de sectores.
+Las etiquetas de datos muestran información sobre las series del gráfico y los puntos de datos individuales, ayudando a los lectores a identificar valores y comprender el gráfico. Este artículo explica cómo dar formato a los valores, mostrar porcentajes, leer el texto de la etiqueta, controlar las etiquetas más allá del máximo del eje, ajustar el espaciado de las etiquetas del eje de categorías y posicionar las etiquetas de los gráficos circulares.
 
-## **Establecer la precisión de los datos en las etiquetas del gráfico**
+## **Contar etiquetas de datos visibles**
 
-Utilice [setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) para dar formato a los valores de la serie. Este ejemplo crea un gráfico de líneas con datos predeterminados, muestra su tabla de datos y habilita las etiquetas de valor para la primera serie. El formato `#,##0.00` muestra un separador de miles y dos decimales sin modificar los valores subyacentes.
+Utilice [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getCountOfVisibleDataLabels--) para comprobar cuántas etiquetas de datos están habilitadas para mostrarse antes de publicar una presentación. A diferencia de [getCount](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getCount--), que devuelve el número total de etiquetas en la colección, tiene en cuenta los valores predeterminados de la serie y la configuración individual de cada etiqueta.
+
+Este ejemplo crea un gráfico de columnas con una serie y tres puntos de datos. Accede a la colección de etiquetas de la serie mediante [getLabels](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getLabels--) e imprime el recuento visible a medida que cambian los ajustes: **0, 3, 2, 3**. El recuento total sigue siendo **3**.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesCell = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+
+    for (int i = 0; i < 3; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    IDataLabelCollection labels = series.getLabels();
+    System.out.println("Total: " + labels.getCount() + "; visible: " + labels.getCountOfVisibleDataLabels()); // Total: 3; visible: 0
+
+    labels.getDefaultDataLabelFormat().setShowValue(true);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Visible: 3
+
+    labels.get_Item(1).getDataLabelFormat().setShowValue(false);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Visible: 2
+
+    labels.get_Item(1).getDataLabelFormat().setShowLegendKey(true);
+    System.out.println("Visible: " + labels.getCountOfVisibleDataLabels()); // Visible: 3
+} finally {
+    presentation.dispose();
+}
+```
+
+El método [getDefaultDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getDefaultDataLabelFormat--) de la serie suministra la configuración predeterminada. Pasar `true` a [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) muestra valores para las tres etiquetas. Pasar `false` a través del [getDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getDataLabelFormat--) de una etiqueta anula esa configuración para la etiqueta seleccionada. Pasar `true` a [setShowLegendKey](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowLegendKey-boolean-) vuelve a contar esa etiqueta como visible, aunque su valor permanezca oculto.
+
+El recuento visible refleja la configuración de visibilidad. No mide si las etiquetas se superponen, se recortan o son legibles en el gráfico renderizado.
+
+## **Establecer precisión de datos en etiquetas de datos del gráfico**
+
+Utilice [setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) para dar formato a los valores de la serie. Este ejemplo crea un gráfico de líneas con datos predeterminados, muestra su tabla de datos y habilita etiquetas de valores para la primera serie. El formato `#,##0.00` muestra un separador de miles y dos decimales sin cambiar los valores subyacentes.
 
 ```java
 import com.aspose.slides.*;
@@ -44,11 +93,11 @@ try {
 }
 ```
 
-Para dar formato a las celdas numéricas en el libro de trabajo incrustado del gráfico, consulte [Establecer formatos de número personalizados para celdas del libro](/slides/es/java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ese ejemplo también muestra etiquetas de valor que siguen el formato de sus celdas de origen mientras se preservan los valores numéricos almacenados.
+Para dar formato a las celdas numéricas en el libro incrustado del gráfico, consulte [Set Custom Number Formats for Workbook Cells](/slides/es/java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ese ejemplo también muestra etiquetas de valores que siguen el formato de la celda origen mientras conservan los valores numéricos almacenados.
 
 ## **Mostrar porcentaje como etiquetas**
 
-Para un gráfico de columnas apiladas, calcule cada valor como un porcentaje del total de su categoría y asigne el texto al marco de texto devuelto por [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Este ejemplo utiliza los datos predeterminados del gráfico y muestra los porcentajes con dos decimales en una fuente de 8 puntos. Las categorías con un total de cero se omiten para evitar la división por cero. Recalcule el texto de la etiqueta personalizada si los datos del gráfico cambian.
+Para un gráfico de columnas apiladas, calcule cada valor como porcentaje del total de su categoría y asigne el texto al marco de texto devuelto por [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Este ejemplo utiliza los datos predeterminados del gráfico y muestra porcentajes con dos decimales en una fuente de 8 puntos. Las categorías con un total de cero se omiten para evitar una división por cero. Recalcule el texto de la etiqueta personalizada si los datos del gráfico cambian.
 
 ```java
 import com.aspose.slides.*;
@@ -105,11 +154,11 @@ try {
 }
 ```
 
-## **Establecer el signo de porcentaje con las etiquetas de datos del gráfico**
+## **Establecer signo de porcentaje con etiquetas de datos del gráfico**
 
-Cuando los valores se almacenan como fracciones, utilice [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) para mostrar porcentajes. Pase `false` a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) para aplicar el formato de la etiqueta independientemente de las celdas de origen.
+Cuando los valores se almacenan como fracciones, utilice [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) para mostrarlos como porcentajes. Pase `false` a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) para aplicar el formato de la etiqueta de forma independiente de las celdas origen.
 
-Este ejemplo crea un gráfico de columnas apiladas al 100 % con series roja y azul en cuatro categorías. Cada pareja de valores suma 1. El formato de etiqueta `0.0%` muestra 0.30 como 30.0 %, mientras que el eje vertical utiliza dos decimales. Ambas series utilizan texto de etiqueta blanco de 10 puntos.
+Este ejemplo crea un gráfico de columnas apiladas al 100 % con series roja y azul en cuatro categorías. Cada par de valores suma 1. El formato de etiqueta `0.0%` muestra 0.30 como 30.0 %, mientras que el eje vertical usa dos decimales. Ambas series utilizan texto de etiqueta blanco de 10 puntos.
 
 ```java
 import com.aspose.slides.*;
@@ -166,7 +215,7 @@ try {
 
 ## **Leer el texto real de las etiquetas de datos**
 
-Utilice [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) para obtener el texto generado por la configuración de una etiqueta de datos. Esto resulta útil al extraer etiquetas para informes, buscar contenido de presentaciones o validar gráficos generados. En el ejemplo siguiente, el [formato de etiqueta de datos](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) predeterminado combina el nombre de cada categoría, el nombre de la serie y el valor. Un punto formatea su valor como porcentaje, y otro utiliza texto personalizado de [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Utilice [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) para recuperar el texto generado por la configuración de una etiqueta de datos. Resulta útil al extraer etiquetas para informes, buscar contenido en la presentación o validar gráficos generados. En el ejemplo siguiente, el formato predeterminado de la [etiqueta de datos](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) combina el nombre de la categoría, el nombre de la serie y el valor. Un punto formatea su valor como porcentaje, y otro usa texto personalizado de [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -226,15 +275,15 @@ try {
 }
 ```
 
-El número almacenado en un punto de datos sigue siendo `0.75`, incluso cuando su etiqueta muestra `75%` junto al nombre de la categoría y la serie. El texto personalizado reemplaza el texto generado de la etiqueta. [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) devuelve la cadena de etiqueta resultante en ambos casos. Verifique [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--) por separado, como se muestra arriba, cuando desee extraer solo las etiquetas visibles.
+El número almacenado en un punto de datos permanece `0.75`, aun cuando su etiqueta muestre `75 %` junto con los nombres de categoría y serie. El texto personalizado reemplaza el texto generado de la etiqueta. [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) devuelve la cadena resultante de la etiqueta en cualquier caso. Compruebe [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--) por separado, como se muestra arriba, cuando necesite extraer solo etiquetas visibles.
 
-## **Controlar las etiquetas de datos más allá del máximo del eje**
+## **Controlar etiquetas de datos más allá del máximo del eje**
 
-Cuando limita manualmente el rango de un eje, algunos puntos de datos pueden superar su máximo. Utilice [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) para controlar si se muestran sus etiquetas de datos. Esta configuración cambia la visibilidad de las etiquetas; no modifica el rango del eje ni los valores subyacentes de los datos.
+Cuando limita manualmente el rango de un eje, algunos puntos de datos pueden superar su máximo. Utilice [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) para decidir si sus etiquetas de datos se muestran. Esta configuración cambia la visibilidad de la etiqueta; no modifica el rango del eje ni los valores subyacentes.
 
-El ejemplo siguiente crea un gráfico de columnas agrupadas 2D con valores de 60 y 120. Pasa `false` a [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) y establece el máximo en 100 con [setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) en el eje vertical. La primera diapositiva permite etiquetas más allá del máximo; una copia de esa diapositiva las desactiva. Ambas diapositivas se guardan en `DataLabelsOverMaximum.pptx`.
+El ejemplo siguiente crea un gráfico de columnas agrupadas 2D con valores de 60 y 120. Pasa `false` a [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) y establece el máximo en 100 con [setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) en el eje vertical. La primera diapositiva permite etiquetas más allá del máximo; una copia de esa diapositiva las deshabilita. Ambas diapositivas se guardan en `DataLabelsOverMaximum.pptx`.
 
-Habilite las etiquetas de valor con [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). La configuración a nivel de gráfico no activa la visualización de valores por sí sola ni sobrescribe la visualización desactivada de un valor en una etiqueta individual. Este ejemplo habilita los valores para toda la serie y utiliza [setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) para colocar las etiquetas en el extremo exterior de cada columna.
+Habilite etiquetas de valores con [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). La configuración a nivel de gráfico no activa la visualización de valores por sí sola ni sobrescribe la visualización desactivada de una etiqueta individual. Este ejemplo habilita valores para toda la serie y usa [setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) para colocar las etiquetas en el extremo exterior de cada columna.
 
 ```java
 import com.aspose.slides.*;
@@ -283,19 +332,19 @@ try {
 }
 ```
 
-Las siguientes imágenes muestran las diapositivas guardadas renderizadas por Microsoft PowerPoint. Con `true`, la etiqueta **120** es visible en el límite superior; con `false`, está oculta. La etiqueta **60** permanece visible, el máximo del eje se mantiene en **100**, y el segundo punto de datos sigue siendo **120** en ambos casos.
+Las imágenes siguientes muestran las diapositivas guardadas renderizadas por Microsoft PowerPoint. Con `true`, la etiqueta **120** es visible en el límite superior; con `false`, está oculta. La etiqueta **60** permanece visible, el máximo del eje se mantiene en **100** y el segundo punto de datos sigue siendo **120** en ambos casos.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![Gráfico de PowerPoint que muestra la etiqueta de valor 120 con un máximo de eje de 100](data-labels-over-maximum-true.png) | ![Gráfico de PowerPoint que oculta la etiqueta de valor 120 con un máximo de eje de 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Tipo de gráfico" %}}
-Este ejemplo utiliza un gráfico de columnas 2D con un eje de valores. Los gráficos sin eje de valores, como los de sectores y rosquilla, no tienen un máximo de eje que se pueda limitar de esta manera.
+Este ejemplo usa un gráfico de columnas 2D con un eje de valores. Los gráficos sin eje de valores, como los circulares y de rosquilla, no disponen de un máximo de eje que limitar de esta manera.
 {{% /alert %}}
 
-## **Establecer la distancia de la etiqueta desde un eje**
+## **Establecer distancia de la etiqueta respecto a un eje**
 
-Utilice [setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) para controlar la distancia entre las etiquetas del eje de categorías y el eje. El valor es un porcentaje del tamaño máximo de fuente de las etiquetas del eje. Este ejemplo crea un gráfico de columnas agrupadas y establece el desplazamiento de la etiqueta del eje horizontal a 500. Esta configuración afecta a las etiquetas del eje de categorías más que a las etiquetas asociadas a puntos de datos individuales.
+Utilice [setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) para controlar la distancia entre las etiquetas del eje de categorías y el eje. El valor es un porcentaje del tamaño máximo de fuente de las etiquetas del eje. Este ejemplo crea un gráfico de columnas agrupadas y establece el desplazamiento de etiqueta del eje horizontal en 500. Esta configuración afecta a las etiquetas del eje de categorías más que a las etiquetas asociadas a puntos de datos individuales.
 
 ```java
 import com.aspose.slides.*;
@@ -313,11 +362,11 @@ try {
 }
 ```
 
-## **Ajustar la ubicación de la etiqueta**
+## **Ajustar ubicación de la etiqueta**
 
-En un gráfico de sectores, ajuste las posiciones de las etiquetas de datos para mejorar el espaciado y dejar espacio para las líneas guía.
+En un gráfico circular, ajuste la posición de las etiquetas de datos para mejorar el espaciado y dejar espacio a las líneas guía.
 
-Este ejemplo muestra el valor del primer punto de datos, coloca su etiqueta fuera del sector y ajusta sus desplazamientos horizontal y vertical mediante [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) y [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-). Estos desplazamientos son relativos al ancho y al alto del gráfico, respectivamente.
+Este ejemplo muestra el valor del primer punto de datos, coloca su etiqueta fuera de la porción y ajusta sus desplazamientos horizontal y vertical mediante [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) y [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-). Estos desplazamientos son relativos al ancho y alto del gráfico, respectivamente.
 
 ```java
 import com.aspose.slides.*;
@@ -341,17 +390,17 @@ try {
 }
 ```
 
-![Gráfico de sectores con una posición de etiqueta de datos ajustada](pie-chart-adjusted-label.png)
+![Gráfico circular con una etiqueta de datos ajustada](pie-chart-adjusted-label.png)
 
-## **Dar formato a las líneas guía**
+## **Formatear líneas guía**
 
-Cuando las etiquetas de un gráfico de sectores se sitúan fuera de sus sectores, las líneas guía ayudan a los lectores a relacionar cada valor con el sector correcto. Un color de contraste y una línea ligeramente más gruesa pueden hacer que estas conexiones sean más fáciles de seguir, mientras que la transparencia y un estilo discontinuo mantienen las líneas visualmente discretas.
+Cuando las etiquetas de los gráficos circulares se sitúan fuera de sus porciones, las líneas guía ayudan a los lectores a asociar cada valor con la porción correcta. Un color contrastante y una línea ligeramente más gruesa pueden facilitar la conexión, mientras que la transparencia y un estilo punteado mantienen las líneas discretas.
 
-Utilice [getLeaderLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) para dar formato a las líneas guía a nivel de la colección de etiquetas de datos de la serie. Los ajustes en `series.getLabels().getLeaderLinesFormat().getLine()` se aplican a la colección, en lugar de a una etiqueta individual.
+Utilice [getLeaderLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) para dar formato a las líneas guía a nivel de la colección de etiquetas de datos de la serie. La configuración en `series.getLabels().getLeaderLinesFormat().getLine()` se aplica a la colección, no a una etiqueta individual.
 
-Este ejemplo crea un gráfico de sectores con datos predeterminados, muestra los valores fuera de los sectores y habilita [setShowLeaderLines](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). Mueve dos etiquetas más lejos de sus sectores utilizando desplazamientos [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) y [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-), expresados como fracciones del ancho y alto del gráfico. No se requiere una presentación de entrada.
+Este ejemplo crea un gráfico circular con datos predeterminados, muestra valores fuera de las porciones y habilita [setShowLeaderLines](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). Mueve dos etiquetas más lejos de sus porciones mediante desplazamientos [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) y [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-) expresados como fracciones del ancho y alto del gráfico. No se requiere una presentación de entrada.
 
-El [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getFillFormat--) de la línea establece un color azul sólido con un valor alfa de 191 sobre 255, proporcionando aproximadamente un 25 % de transparencia. [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) establece el grosor a 2 puntos, y [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) convierte la línea en discontinua.
+El [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getFillFormat--) de la línea establece un color azul sólido con un valor alfa de 191 de 255, lo que equivale a aproximadamente un 25 % de transparencia. [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) define el grosor en 2 puntos, y [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) hace que la línea sea punteada.
 
 ```java
 import com.aspose.slides.*;
@@ -371,7 +420,7 @@ try {
     labelFormat.setPosition(LegendDataLabelPosition.OutsideEnd);
     labelFormat.setShowLeaderLines(true);
 
-    // Mueve dos etiquetas más lejos de sus sectores.
+    // Mueve dos etiquetas más lejos de sus porciones.
     series.getLabels().get_Item(0).setX(0.10f);
     series.getLabels().get_Item(0).setY(-0.05f);
     series.getLabels().get_Item(1).setX(-0.10f);
@@ -389,17 +438,17 @@ try {
 }
 ```
 
-Habilitar las líneas guía no garantiza que aparezca una línea para cada etiqueta. La visibilidad depende de la ubicación de la etiqueta y del comportamiento de diseño del gráfico. En este ejemplo, las dos etiquetas desplazadas tienen líneas guía visibles; las etiquetas que permanecen cerca de sus sectores no las necesitan.
+Habilitar líneas guía no garantiza que aparezca una línea para cada etiqueta. La visibilidad depende de la posición de la etiqueta y del comportamiento de diseño del gráfico. En este ejemplo, las dos etiquetas desplazadas tienen líneas guía visibles; las etiquetas que permanecen cerca de sus porciones no las necesitan.
 
-La siguiente imagen muestra el archivo `FormattedLeaderLines.pptx` guardado, renderizado con Aspose.Slides:
+La imagen siguiente muestra el archivo `FormattedLeaderLines.pptx` guardado y renderizado con Aspose.Slides:
 
-![Gráfico de sectores con líneas guía azules, semitransparentes y discontinuas que conectan dos etiquetas externas con sus sectores](formatted-leader-lines.png)
+![Gráfico circular con líneas guía azules, semitransparentes y punteadas que conectan dos etiquetas externas con sus porciones](formatted-leader-lines.png)
 
-## **Añadir varias filas de etiquetas de datos sobre un gráfico de columnas**
+## **Agregar varias filas de etiquetas de datos sobre un gráfico de columnas**
 
-Este ejemplo crea un gráfico de columnas con dos filas de etiquetas de datos sobre el área de trazado. La Serie A muestra las columnas visibles, mientras que las Series B y C proporcionan las etiquetas adicionales. Sus columnas se ocultan al eliminar el relleno y el contorno. El método [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) alinea las tres series con los mismos centros de categoría.
+Este ejemplo crea un gráfico de columnas con dos filas de etiquetas de datos sobre el área de trazado. La Serie A muestra las columnas visibles, mientras que las Series B y C aportan las etiquetas adicionales. Sus columnas se ocultan eliminando el relleno y el contorno. El método [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) alinea las tres series con los mismos centros de categoría.
 
-Los ajustes del [ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) reservan espacio para las filas de etiquetas. Después de que [Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) calcule las posiciones predeterminadas, [DataLabel.setX and DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) conservan la alineación horizontal y aplican desplazamientos verticales para organizar las etiquetas en dos filas. Los números siguen siendo etiquetas de datos vinculadas a los valores de la serie; sólo los encabezados de fila son formas de texto separadas.
+Los ajustes del [ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) reservan espacio para las filas de etiquetas. Después de que [Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) calcula las posiciones predeterminadas, [DataLabel.setX y DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) conservan la alineación horizontal y aplican desplazamientos verticales para distribuir las etiquetas en dos filas. Los números siguen siendo etiquetas de datos vinculadas a los valores de la serie; solo los encabezados de fila son formas de texto independientes.
 
 ```java
 Presentation presentation = new Presentation();
@@ -442,7 +491,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // Ocultar las columnas de B y C, pero mantener sus etiquetas de datos.
+            // Ocultar las columnas de B y C, pero conservar sus etiquetas de datos.
             series.getFormat().getFill().setFillType(FillType.NoFill);
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -461,7 +510,7 @@ try {
     chart.getChartData().getSeries().get_Item(0)
             .getParentSeriesGroup().setOverlap((byte) 100);
 
-    // Utilizar menos líneas de cuadrícula para este ejemplo compacto.
+    // Usar menos líneas de cuadrícula para este ejemplo compacto.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
@@ -479,13 +528,13 @@ try {
 
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // Mantener la posición horizontal predeterminada. Y es un desplazamiento desde
+            // Mantener la posición horizontal predeterminada. Y es un desplazamiento de
             // la posición predeterminada de la etiqueta, expresado como una fracción de la altura del gráfico.
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
 
-        // Solo el encabezado de fila es una forma de texto separada.
+        // Sólo el encabezado de fila es una forma de texto separada.
         IAutoShape rowHeading = slide.getShapes().addAutoShape(
                 ShapeType.Rectangle, chart.getX(),
                 chart.getY() + rowTop * chart.getHeight(), 85, 18);
@@ -511,11 +560,11 @@ try {
 
 ## **Preguntas frecuentes**
 
-**¿Cómo puedo evitar que las etiquetas de datos se superpongan en gráficos densos?**  
-Combine el posicionamiento automático de etiquetas, las líneas guía y una reducción del tamaño de la fuente; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas sólo para los valores extremos o puntos clave.
+**¿Cómo puedo evitar que las etiquetas de datos se solapen en gráficos densos?**  
+Combine la colocación automática de etiquetas, líneas guía y una reducción del tamaño de fuente; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas sólo para valores extremos o puntos clave.
 
 **¿Cómo puedo desactivar etiquetas sólo para valores cero, negativos o vacíos?**  
-Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores de 0, valores negativos o valores ausentes según una regla definida.
+Filtre los puntos de datos antes de habilitar etiquetas y desactive la visualización para valores iguales a 0, negativos o ausentes según una regla definida.
 
-**¿Cómo puedo garantizar un estilo de etiqueta coherente al exportar a PDF/imágenes?**  
-Establezca explícitamente la familia y el tamaño de la fuente y verifique que la fuente esté disponible en el entorno de renderizado para evitar sustituciones.
+**¿Cómo puedo garantizar un estilo de etiqueta coherente al exportar a PDF/imagenes?**  
+Establezca explícitamente la familia y el tamaño de fuente y verifique que la fuente esté disponible en el entorno de renderizado para evitar sustituciones.

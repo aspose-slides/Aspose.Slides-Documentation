@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie etykietami danych wykresu w prezentacjach przy użyciu PHP
-linktitle: Etykieta danych
+title: "Zarządzanie etykietami danych wykresu w prezentacjach przy użyciu PHP"
+linktitle: "Etykieta danych"
 type: docs
 url: /pl/php-java/chart-data-label/
 keywords:
@@ -14,15 +14,65 @@ keywords:
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla PHP poprzez Java, aby uzyskać bardziej angażujące slajdy."
+description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla PHP poprzez Javę, aby uzyskać bardziej atrakcyjne slajdy."
 ---
 ## **Wprowadzenie**
 
-Etykiety danych wyświetlają informacje o seriach wykresu i pojedynczych punktach danych, pomagając czytelnikom zidentyfikować wartości i zrozumieć wykres. Ten artykuł wyjaśnia, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiet, kontrolować etykiety poza maksymalną wartością osi, regulować odstępy etykiet osi kategorialnej oraz pozycjonować etykiety wykresu kołowego.
+Data labels wyświetlają informacje o seriach wykresu i pojedynczych punktach danych, pomagając czytelnikom identyfikować wartości i rozumieć wykres. Ten artykuł wyjaśnia, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiet, kontrolować etykiety poza maksymalnym zakresem osi, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresu kołowego.
 
-## **Ustaw precyzję danych w etykietach danych wykresu**
+## **Liczba widocznych etykiet danych**
 
-Użyj [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/), aby sformatować wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy i dwa miejsca po przecinku, nie zmieniając wartości podstawowych.
+Użyj [getCountOfVisibleDataLabels](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getcountofvisibledatalabels/) aby sprawdzić ile etykiet danych jest włączonych do wyświetlenia przed publikacją prezentacji. W odróżnieniu od [getCount](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getcount/), które zwraca całkowitą liczbę etykiet w kolekcji, uwzględnia on domyślne ustawienia serii i indywidualne ustawienia etykiet.
+
+Ten przykład tworzy wykres kolumnowy z jedną serią i trzema punktami danych. Uzyskuje dostęp do kolekcji etykiet serii poprzez [getLabels](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getlabels/) i wypisuje liczbę widocznych etykiet w miarę zmian ustawień: **0, 3, 2, 3**. Całkowita liczba pozostaje **3**.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $seriesCell = $workbook->getCell(0, 0, 1, "Values");
+    $series = $chart->getChartData()->getSeries()->add($seriesCell, $chart->getType());
+
+    for ($i = 0; $i < 3; $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, "Category " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, ($i + 1) * 10);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    $labels = $series->getLabels();
+    echo "Total: " . java_values($labels->getCount()) . "; visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // Łącznie: 3; widoczne: 0
+
+    $labels->getDefaultDataLabelFormat()->setShowValue(true);
+    echo "Visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // Widoczne: 3
+
+    $labels->get_Item(1)->getDataLabelFormat()->setShowValue(false);
+    echo "Visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // Widoczne: 2
+
+    $labels->get_Item(1)->getDataLabelFormat()->setShowLegendKey(true);
+    echo "Visible: " . java_values($labels->getCountOfVisibleDataLabels()) . PHP_EOL; // Widoczne: 3
+} finally {
+    $presentation->dispose();
+}
+```
+
+Metoda [getDefaultDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getdefaultdatalabelformat/) serii dostarcza domyślne ustawienia. Przekazanie `true` do [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) powoduje wyświetlanie wartości dla wszystkich trzech etykiet. Przekazanie `false` poprzez [getDataLabelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getdatalabelformat/) jednej etykiety nadpisuje to ustawienie dla wybranej etykiety. Przekazanie `true` do [setShowLegendKey](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowlegendkey/) sprawia, że ta etykieta znowu liczy się jako widoczna, mimo że jej wartość pozostaje ukryta.
+
+Liczba widocznych etykiet odzwierciedla ustawienia widoczności. Nie mierzy ona, czy etykiety zachodzą na siebie, są przycięte lub czytelne w renderowanym wykresie.
+
+## **Ustaw precyzję danych w etykietach wykresu**
+
+Użyj [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) aby sformatować wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy oraz dwie cyfry po przecinku bez zmiany pierwotnych wartości.
 
 ```php
 use aspose\slides\Presentation;
@@ -46,11 +96,11 @@ try {
 }
 ```
 
-Aby sformatować komórki liczbowe w osadzonym skoroszycie wykresu, zobacz [Set Custom Number Formats for Workbook Cells](/slides/pl/php-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ten przykład także pokazuje etykiety wartości, które zachowują formaty komórek źródłowych przy jednoczesnym zachowaniu przechowywanych wartości liczbowych.
+Aby sformatować komórki liczbowe w osadzonym skoroszycie wykresu, zobacz [Ustaw niestandardowe formaty liczb dla komórek skoroszytu](/slides/pl/php-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ten przykład również pokazuje etykiety wartości korzystające z formatów komórek źródłowych przy zachowaniu przechowywanych wartości liczbowych.
 
-## **Wyświetl procent jako etykietę**
+## **Wyświetlanie procentu jako etykiet**
 
-Dla wykresu słupkowego skumulowanego oblicz każdą wartość jako procent sumy swojej kategorii i przypisz tekst do ramki tekstowej zwróconej przez [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami po przecinku w czcionce o rozmiarze 8 punktów. Kategorie o sumie zerowej są pomijane, aby uniknąć dzielenia przez zero. Przelicz ponownie niestandardowy tekst etykiety, jeśli dane wykresu ulegną zmianie.
+Dla wykresu kolumnowego skumulowanego, oblicz każdy wartość jako procent całkowitej sumy w swojej kategorii i przydziel tekst do ramki tekstowej zwróconej przez [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami po przecinku czcionką 8 punktów. Kategorie o sumie zero są pomijane, aby uniknąć dzielenia przez zero. Przelicz ponownie niestandardowy tekst etykiety, jeśli dane wykresu ulegną zmianie.
 
 ```php
 use aspose\slides\Presentation;
@@ -110,11 +160,11 @@ try {
 }
 ```
 
-## **Ustaw znak procenta w etykietach danych wykresu**
+## **Ustaw znak procenta w etykietach wykresu**
 
-Gdy wartości są przechowywane jako ułamki, użyj [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/), aby wyświetlać procenty. Przekaż `false` do [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/), aby zastosować format etykiety niezależnie od komórek źródłowych.
+Gdy wartości są przechowywane jako ułamki, użyj [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) aby wyświetlać procenty. Przekaż `false` do [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/), aby zastosować format etykiety niezależnie od komórek źródłowych.
 
-Ten przykład tworzy wykres słupkowy skumulowany 100 % z czerwonymi i niebieskimi seriami w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0,30 jako 30,0 %, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego tekstu etykiet o rozmiarze 10 punktów.
+Ten przykład tworzy wykres kolumnowy skumulowany 100% z serią czerwoną i niebieską w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0.30 jako 30.0%, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego tekstu etykiety o rozmiarze 10 punktów.
 
 ```php
 use aspose\slides\Presentation;
@@ -174,7 +224,7 @@ try {
 
 ## **Odczytaj rzeczywisty tekst etykiet danych**
 
-Użyj [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/), aby pobrać tekst wygenerowany przez ustawienia etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, przeszukiwaniu zawartości prezentacji lub walidacji wygenerowanych wykresów. W poniższym przykładzie domyślny [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) łączy nazwę każdej kategorii, nazwę serii oraz wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa niestandardowego tekstu z [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/).
+Użyj [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) aby pobrać tekst wygenerowany na podstawie ustawień etykiety danych. Jest to przydatne przy wyodrządzaniu etykiet do raportów, przeszukiwaniu zawartości prezentacji lub walidacji wygenerowanych wykresów. W poniższym przykładzie domyślny [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) łączy nazwę każdej kategorii, nazwę serii i wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa własnego tekstu z [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```php
 use aspose\slides\Presentation;
@@ -238,15 +288,15 @@ try {
 }
 ```
 
-Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jego etykieta wyświetla `75%` wraz z nazwami kategorii i serii. Niestandardowy tekst zastępuje wygenerowany tekst etykiety. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) zwraca powstały ciąg etykiety w obu przypadkach. Sprawdź [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
+Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jego etykieta wyświetla `75%` wraz z nazwą kategorii i serii. Własny tekst zastępuje wygenerowany tekst etykiety. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) zwraca wynikowy ciąg etykiety w obu przypadkach. Sprawdź [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) osobno, tak jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
 
-## **Kontroluj etykiety danych poza maksymalnym zakresem osi**
+## **Sterowanie etykietami danych poza maksymalnym zakresem osi**
 
-Kiedy ręcznie ograniczasz zakres osi, niektóre punkty danych mogą przekraczać jej maksymalną wartość. Użyj [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/), aby kontrolować, czy ich etykiety danych są wyświetlane. To ustawienie zmienia widoczność etykiet; nie zmienia zakresu osi ani podstawowych wartości danych.
+Gdy ręcznie ograniczasz zakres osi, niektóre punkty danych mogą przekraczać jej maksymalną wartość. Użyj [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) aby kontrolować, czy ich etykiety danych są wyświetlane. To ustawienie zmienia widoczność etykiet; nie zmienia zakresu osi ani wartości danych.
 
-Poniższy przykład tworzy dwuwymiarowy wykres słupkowy grupowany z wartościami 60 i 120. Przekazuje `false` do [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) i ustawia maksimum na 100 przy pomocy [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) na osi pionowej. Pierwszy slajd pozwala na etykiety poza maksimum; kopia tego slajdu wyłącza je. Oba slajdy są zapisane w pliku `DataLabelsOverMaximum.pptx`.
+Poniższy przykład tworzy dwuwymiarowy wykres kolumnowy zgrupowany z wartościami 60 i 120. Przekazuje `false` do [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) i ustawia maksymalną wartość na 100 przy pomocy [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) na osi pionowej. Pierwszy slajd pozwala na etykiety poza maksymalnym zakresem; kopia tego slajdu wyłącza je. Oba slajdy są zapisane w pliku `DataLabelsOverMaximum.pptx`.
 
-Włącz etykiety wartości za pomocą [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Ustawienie na poziomie wykresu nie włącza samodzielnie wyświetlania wartości ani nie nadpisuje wyłączonego wyświetlania wartości w poszczególnej etykiecie. Ten przykład włącza wartości dla całej serii i używa [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/), aby umieścić etykiety na zewnętrznym końcu każdego słupka.
+Włącz etykiety wartości przy pomocy [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Ustawienie na poziomie wykresu nie włącza wyświetlania wartości samo w sobie ani nie nadpisuje wyłączonego wyświetlania wartości dla pojedynczej etykiety. Ten przykład włącza wartości dla całej serii i używa [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) aby umieścić etykiety na zewnętrznym końcu każdej kolumny.
 
 ```php
 use aspose\slides\Presentation;
@@ -298,19 +348,19 @@ try {
 }
 ```
 
-Poniższe obrazy przedstawiają zapisane slajdy wyrenderowane w programie Microsoft PowerPoint. Etykieta **120** jest widoczna na górnej granicy; przy `false` jest ukryta. Etykieta **60** pozostaje widoczna, maksimum osi pozostaje **100**, a drugi punkt danych pozostaje **120** w obu przypadkach.
+Poniższe obrazy przedstawiają zapisane slajdy renderowane w programie Microsoft PowerPoint. Z `true` etykieta **120** jest widoczna na górnym brzegu; z `false` jest ukryta. Etykieta **60** pozostaje widoczna, maksymalna wartość osi pozostaje **100**, a drugi punkt danych pozostaje **120** w obu przypadkach.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![Wykres PowerPoint pokazujący etykietę wartości 120 przy maksymalnej wartości osi 100](data-labels-over-maximum-true.png) | ![Wykres PowerPoint ukrywający etykietę wartości 120 przy maksymalnej wartości osi 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Ten przykład używa dwuwymiarowego wykresu słupkowego z osią wartości. Wykresy bez osi wartości, takie jak wykresy kołowe i pierścieniowe, nie mają maksymalnej wartości osi, którą można by w ten sposób ograniczyć.
+Ten przykład używa dwuwymiarowego wykresu kolumnowego z osią wartości. Wykresy bez osi wartości, takie jak wykresy kołowe i pierścieniowe, nie mają maksymalnego zakresu osi, który można w ten sposób ograniczyć.
 {{% /alert %}}
 
 ## **Ustaw odległość etykiety od osi**
 
-Użyj [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/), aby kontrolować odległość między etykietami osi kategorialnej a osią. Wartość jest procentem maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres słupkowy grupowany i ustawia offset etykiet osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorialnej, a nie na etykiety przypisane do pojedynczych punktów danych.
+Użyj [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) aby kontrolować odległość między etykietami osi kategorii a samą osią. Wartość jest procentem maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres kolumnowy zgrupowany i ustawia offset etykiet osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przypisane do poszczególnych punktów danych.
 
 ```php
 use aspose\slides\Presentation;
@@ -332,9 +382,9 @@ try {
 
 ## **Dostosuj położenie etykiet**
 
-Na wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić odstępy i zrobić miejsce dla linii pomocniczych.
+W wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić rozmieszczenie i zrobić miejsce na linie łączące.
 
-Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza wycinką i reguluje jej przesunięcia poziome i pionowe przy użyciu [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) i [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/). Te przesunięcia są odpowiednio względem szerokości i wysokości wykresu.
+Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza wycinką i dostosowuje poziome oraz pionowe offsety przy użyciu [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) i [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/). Offsety te są względne odpowiednio do szerokości i wysokości wykresu.
 
 ```php
 use aspose\slides\Presentation;
@@ -361,17 +411,17 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![Wykres kołowy z dostosowaną pozycją etykiety danych](pie-chart-adjusted-label.png)
 
-## **Formatuj linie pomocnicze**
+## **Formatuj linie prowadzące**
 
-Na wykresie kołowym, gdy etykiety znajdują się poza wycinkami, linie pomocnicze pomagają czytelnikowi dopasować każdą wartość do właściwej wycinki. Kontrastowy kolor i nieco grubsza linia mogą ułatwić śledzenie połączeń, a przezroczystość oraz styl przerywany utrzymują linie w tle.
+Gdy etykiety wykresu kołowego znajdują się poza wycinkami, linie prowadzące pomagają czytelnikom dopasować każdą wartość do właściwej wycinki. Kolor kontrastowy i nieco grubsza linia mogą ułatwić śledzenie tych połączeń, natomiast przezroczystość i styl przerywany sprawiają, że linie są wizualnie nieinwazyjne.
 
-Użyj [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/), aby formatować linie pomocnicze na poziomie kolekcji etykiet danych serii. Ustawienia w `$series->getLabels()->getLeaderLinesFormat()->getLine()` mają zastosowanie do całej kolekcji, a nie do pojedynczej etykiety.
+Użyj [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) aby sformatować linie prowadzące na poziomie kolekcji etykiet danych serii. Ustawienia w `$series->getLabels()->getLeaderLinesFormat()->getLine()` mają zastosowanie do całej kolekcji, a nie do pojedynczej etykiety.
 
-Ten przykład tworzy wykres kołowy z domyślnymi danymi, wyświetla wartości poza wycinkami i włącza [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/). Przesuwa dwie etykiety dalej od ich wycinków, używając przesunięć [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) i [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/), wyrażonych jako ułamki szerokości i wysokości wykresu. Nie jest wymagana żadna prezentacja wejściowa.
+Ten przykład tworzy wykres kołowy z domyślnymi danymi, wyświetla wartości poza wycinkami i włącza [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/). Przesuwa dwie etykiety dalej od ich wycinków, używając offsetów [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) i [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/), wyrażonych jako ułamki szerokości i wysokości wykresu. Nie wymaga prezentacji wejściowej.
 
-Metoda linii [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) ustawia jednolity niebieski kolor z wartością alfa 191 na 255, co daje około 25 % przezroczystości. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) ustawia grubość na 2 punkty, a [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) sprawia, że linia jest przerywana.
+Metoda [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) linii ustawia jednolity niebieski kolor z wartością alfa 191 z 255, co daje około 25% przezroczystości. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) ustawia grubość na 2 punkty, a [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) sprawia, że linia jest przerywana.
 
 ```php
 use aspose\slides\Presentation;
@@ -414,17 +464,17 @@ try {
 }
 ```
 
-Włączenie linii pomocniczych nie gwarantuje, że linia pojawi się przy każdej etykiecie. Widoczność zależy od rozmieszczenia etykiet i zachowania układu wykresu. W tym przykładzie dwie przemieszczone etykiety mają widoczne linie pomocnicze; etykiety pozostające blisko wycinków nie potrzebują ich.
+Włączenie linii prowadzących nie gwarantuje, że linia pojawi się dla każdej etykiety. Widoczność zależy od umiejscowienia etykiety i zachowania układu wykresu. W tym przykładzie dwie przesunięte etykiety mają widoczne linie prowadzące; etykiety pozostające blisko swoich wycinków nie potrzebują ich.
 
-Poniższy obraz przedstawia zapisany plik `FormattedLeaderLines.pptx` wyrenderowany przy użyciu Aspose.Slides:
+Poniższy obraz przedstawia zapisany plik `FormattedLeaderLines.pptx` renderowany za pomocą Aspose.Slides:
 
-![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+![Wykres kołowy z niebieskimi, półprzezroczystymi, przerywanymi liniami prowadzącymi łączącymi dwie zewnętrzne etykiety z ich wycinkami](formatted-leader-lines.png)
 
-## **Dodaj wiele wierszy etykiet danych nad wykresem słupkowym**
+## **Dodaj wiele wierszy etykiet danych nad wykresem kolumnowym**
 
-Ten przykład tworzy wykres słupkowy z dwoma rzędami etykiet danych nad obszarem wykresu. Seria A wyświetla widoczne słupki, podczas gdy Seria B i Seria C dostarczają dodatkowe etykiety. Ich słupki są ukryte poprzez usunięcie wypełnienia i konturu. Metoda [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) wyrównuje wszystkie trzy serie względem tych samych środków kategorii.
+Ten przykład tworzy wykres kolumnowy z dwoma wierszami etykiet danych nad obszarem wykresu. Seria A wyświetla widoczne kolumny, natomiast Serie B i C dostarczają dodatkowe etykiety. Ich kolumny są ukryte poprzez usunięcie wypełnienia i obramowania. Metoda [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) wyrównuje wszystkie trzy serie do tych samych środków kategorii.
 
-Ustawienia [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) rezerwują miejsce na rzędy etykiet. Po obliczeniu domyślnych pozycji przez [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/), [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) i [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) zachowują wyrównanie poziome i stosują przesunięcia pionowe, aby ułożyć etykiety w dwóch rzędach. Liczby pozostają etykietami danych powiązanymi z wartościami serii; jedynie nagłówki wierszy są oddzielnymi kształtami tekstowymi.
+Ustawienia [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) rezerwują miejsce dla wierszy etykiet. Po obliczeniu domyślnych pozycji przez [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/), [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) i [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) zachowują wyrównanie poziome i stosują pionowe offsety, aby ułożyć etykiety w dwóch wierszach. Liczby pozostają etykietami danych powiązanymi z wartościami serii; jedynie nagłówki wierszy są oddzielnymi kształtami tekstowymi.
 
 ```php
 use aspose\slides\Presentation;
@@ -475,7 +525,7 @@ try {
         }
 
         if ($seriesIndex > 0) {
-            // Ukryj słupki B i C, ale zachowaj ich etykiety danych.
+            // Ukryj kolumny B i C, ale zachowaj ich etykiety danych.
             $series->getFormat()->getFill()->setFillType(FillType::NoFill);
             $series->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
             $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
@@ -488,14 +538,14 @@ try {
         }
     }
 
-    // Wyrównaj wszystkie trzy serie względem tych samych środków kategorii.
+    // Wyrównaj wszystkie trzy serie tak, aby miały te same środki kategorii.
     $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setOverlap(100);
 
-    // Użyj mniejszej liczby linii siatki w tym zwartym przykładzie.
+    // Użyj mniejszej liczby linii siatki w tym zwartych przykładzie.
     $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(10);
 
-    // Zarezerwuj miejsce nad obszarem wykresu dla dwóch rzędów etykiet danych.
+    // Zarezerwuj miejsce nad obszarem wykresu na dwa wiersze etykiet danych.
     $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
     $chart->getPlotArea()->setX(0.15);
     $chart->getPlotArea()->setY(0.32);
@@ -512,7 +562,7 @@ try {
 
         for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
             $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
-            // Zachowaj domyślną pozycję poziomą. Y jest przesunięciem od
+            // Zachowaj domyślną pozycję poziomą. Y jest offsetem od
             // domyślnej pozycji etykiety, wyrażonego jako ułamek wysokości wykresu.
             $actualY = java_values($dataLabel->getActualY());
             $dataLabel->setX(0);
@@ -538,18 +588,18 @@ try {
 }
 ```
 
-![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+![Wykres kolumnowy z dwoma wierszami etykiet danych nad obszarem wykresu](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
 **Jak mogę zapobiec nakładaniu się etykiet danych na gęstych wykresach?**
 
-Połącz automatyczne rozmieszczanie etykiet, linie pomocnicze i zmniejszony rozmiar czcionki; w razie potrzeby ukryj niektóre pola (na przykład kategorię) lub pokaż etykiety tylko dla wartości skrajnych lub kluczowych punktów.
+Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla wartości skrajnych lub kluczowych punktów.
 
 **Jak mogę wyłączyć etykiety tylko dla wartości zerowych, ujemnych lub pustych?**
 
-Przefiltruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości 0, ujemnych lub brakujących zgodnie z określoną regułą.
+Przefiltruj punkty danych przed włączeniem etykiet i wyłącz ich wyświetlanie dla wartości 0, wartości ujemnych lub brakujących danych zgodnie z określoną regułą.
 
-**Jak mogę zapewnić spójny styl etykiet przy eksporcie do PDF/obrazów?**
+**Jak zapewnić spójny styl etykiet przy eksporcie do PDF/obrazów?**
 
-Wyraźnie ustaw rodzinę i rozmiar czcionki oraz zweryfikuj, że czcionka jest dostępna w środowisku renderowania, aby uniknąć zastąpienia.
+Jawnie ustaw rodzinę i rozmiar czcionki oraz zweryfikuj, że czcionka jest dostępna w środowisku renderującym, aby uniknąć domyślnego zastąpienia.

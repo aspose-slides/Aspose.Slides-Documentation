@@ -14,15 +14,61 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: "Aprenda a añadir y dar formato a las etiquetas de datos de los gráficos en presentaciones de PowerPoint usando Aspose.Slides para Python a través de .NET para diapositivas más atractivas."
+description: "Aprenda a añadir y dar formato a las etiquetas de datos de gráficos en presentaciones de PowerPoint utilizando Aspose.Slides para Python a través de .NET para diapositivas más atractivas."
 ---
 ## **Introducción**
 
-Las etiquetas de datos muestran información sobre las series del gráfico y los puntos de datos individuales, ayudando a los lectores a identificar valores y comprender el gráfico. Este artículo explica cómo dar formato a los valores, mostrar porcentajes, leer el texto de las etiquetas, controlar las etiquetas más allá del máximo del eje, ajustar el espaciado de las etiquetas del eje de categorías y ubicar las etiquetas de los gráficos de sectores.
+Las etiquetas de datos muestran información sobre las series del gráfico y los puntos de datos individuales, ayudando a los lectores a identificar valores y comprender el gráfico. Este artículo explica cómo dar formato a los valores, mostrar porcentajes, leer el texto de la etiqueta, controlar las etiquetas más allá del máximo del eje, ajustar el espaciado de las etiquetas del eje de categorías y posicionar las etiquetas de los gráficos de sectores.
 
-## **Establecer la precisión de los datos en las etiquetas de datos del gráfico**
+## **Contar etiquetas de datos visibles**
 
-Utilice [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) para dar formato a los valores de la serie. Este ejemplo crea un gráfico de líneas con datos predeterminados, muestra su tabla de datos y habilita las etiquetas de valores para la primera serie. El formato `#,##0.00` muestra un separador de miles y dos decimales sin modificar los valores subyacentes.
+Utilice [count_of_visible_data_labels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/count_of_visible_data_labels/) para comprobar cuántas etiquetas de datos están habilitadas para mostrarse antes de publicar una presentación. A diferencia de `len(labels)`, que devuelve el número total de etiquetas en la colección, tiene en cuenta los valores predeterminados de la serie y la configuración individual de cada etiqueta.
+
+Este ejemplo crea un gráfico de columnas con una serie y tres puntos de datos. Accede a la colección de [labels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/labels/) de la serie y muestra la cuenta visible a medida que cambian los ajustes: **0, 3, 2, 3**. El recuento total sigue siendo **3**.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    series_cell = workbook.get_cell(0, 0, 1, "Values")
+    series = chart.chart_data.series.add(series_cell, chart.type)
+
+    for i in range(3):
+        category_cell = workbook.get_cell(0, i + 1, 0, f"Category {i + 1}")
+        chart.chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, (i + 1) * 10)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    labels = series.labels
+    print(f"Total: {len(labels)}; visible: {labels.count_of_visible_data_labels}")  # Total: 3; visible: 0
+
+    labels.default_data_label_format.show_value = True
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Visible: 3
+
+    labels[1].data_label_format.show_value = False
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Visible: 2
+
+    labels[1].data_label_format.show_legend_key = True
+    print(f"Visible: {labels.count_of_visible_data_labels}")  # Visible: 3
+```
+
+
+El [default_data_label_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/default_data_label_format/) de la serie proporciona la configuración predeterminada. Habilitar [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) allí muestra valores para las tres etiquetas. Establecerlo a `False` mediante el [data_label_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/data_label_format/) de una etiqueta anula esa configuración para la etiqueta seleccionada. Habilitar [show_legend_key](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_legend_key/) hace que esa etiqueta vuelva a contarse como visible, aunque su valor siga oculto.
+
+El recuento visible refleja los ajustes de visibilidad. No mide si las etiquetas se superponen, se recortan o son legibles en el gráfico renderizado.
+
+## **Establecer precisión de los datos en las etiquetas de los gráficos**
+
+Utilice [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) para dar formato a los valores de la serie. Este ejemplo crea un gráfico de líneas con datos predeterminados, muestra su tabla de datos y habilita las etiquetas de valor para la primera serie. El formato `#,##0.00` muestra un separador de miles y dos decimales sin modificar los valores subyacentes.
 
 ```python
 import aspose.slides as slides
@@ -41,11 +87,11 @@ with slides.Presentation() as presentation:
     presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Para dar formato a las celdas numéricas en el libro de trabajo incrustado del gráfico, consulte [Set Custom Number Formats for Workbook Cells](/slides/es/python-net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ese ejemplo también muestra las etiquetas de valor siguiendo los formatos de sus celdas de origen mientras se preservan los valores numéricos almacenados.
+Para dar formato a las celdas numéricas en el libro de trabajo incrustado de un gráfico, vea [Set Custom Number Formats for Workbook Cells](/slides/es/python-net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ese ejemplo también muestra etiquetas de valor siguiendo los formatos de sus celdas de origen mientras preserva los valores numéricos almacenados.
 
-## **Mostrar porcentajes como etiquetas**
+## **Mostrar porcentaje como etiquetas**
 
-Para un gráfico de columnas apiladas, calcule cada valor como porcentaje del total de su categoría y asigne el texto a [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Este ejemplo usa los datos predeterminados del gráfico y muestra los porcentajes con dos decimales en una fuente de 8 puntos. Las categorías con un total de cero se omiten para evitar la división por cero. Recalcule el texto de la etiqueta personalizada si los datos del gráfico cambian.
+Para un gráfico de columnas apiladas, calcule cada valor como porcentaje del total de su categoría y asigne el texto a [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Este ejemplo utiliza los datos del gráfico predeterminados y muestra porcentajes con dos decimales en una fuente de 8 puntos. Las categorías cuyo total sea cero se omiten para evitar la división por cero. Recalcule el texto personalizado de la etiqueta si los datos del gráfico cambian.
 
 ```python
 import aspose.slides as slides
@@ -92,11 +138,11 @@ with slides.Presentation() as presentation:
     presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Establecer el signo de porcentaje en las etiquetas de datos del gráfico**
+## **Establecer signo de porcentaje con etiquetas de datos del gráfico**
 
-Cuando los valores se almacenan como fracciones, utilice [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) para mostrar porcentajes. Establezca [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) en `False` para aplicar el formato de la etiqueta de forma independiente de las celdas de origen.
+Cuando los valores se almacenan como fracciones, utilice [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) para mostrarlos como porcentajes. Establezca [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) a `False` para aplicar el formato de la etiqueta de forma independiente de las celdas de origen.
 
-Este ejemplo crea un gráfico de columnas apiladas al 100 % con series roja y azul en cuatro categorías. Cada par de valores suma 1. El formato de etiqueta `0.0%` muestra 0.30 como 30.0 %, mientras que el eje vertical usa dos decimales. Ambas series utilizan texto de etiqueta blanco de 10 pt.
+Este ejemplo crea un gráfico de columnas apiladas al 100 % con series roja y azul en cuatro categorías. Cada par de valores suma 1. El formato de etiqueta `0.0%` muestra 0.30 como 30.0 %, mientras que el eje vertical usa dos decimales. Ambas series utilizan texto de etiqueta blanco de 10 puntos.
 
 ```python
 import aspose.slides as slides
@@ -147,7 +193,7 @@ with slides.Presentation() as presentation:
 
 ## **Leer el texto real de las etiquetas de datos**
 
-Utilice [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) para obtener el texto producido por la configuración de una etiqueta de datos. Esto es útil al extraer etiquetas para informes, buscar contenido en una presentación o validar gráficos generados. En el ejemplo siguiente, el [formato de etiqueta de datos](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) predeterminado combina el nombre de cada categoría, el nombre de la serie y el valor. Un punto formatea su valor como porcentaje, y otro utiliza texto personalizado de [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
+Utilice [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) para obtener el texto generado por la configuración de una etiqueta de datos. Esto es útil al extraer etiquetas para informes, buscar contenido en presentaciones o validar gráficos generados. En el ejemplo siguiente, el [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) predeterminado combina el nombre de cada categoría, el nombre de la serie y el valor. Un punto formatea su valor como porcentaje, y otro utiliza texto personalizado de [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
 
 ```python
 import aspose.slides as slides
@@ -198,15 +244,15 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-El número almacenado en un punto de datos sigue siendo `0.75`, incluso cuando su etiqueta muestra `75%` junto con los nombres de categoría y serie. El texto personalizado reemplaza el texto de etiqueta generado. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) devuelve la cadena de etiqueta resultante en ambos casos. Compruebe [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) por separado, como se muestra arriba, cuando desee extraer solo las etiquetas visibles.
+El número almacenado en un punto de datos sigue siendo `0.75`, aunque su etiqueta muestre `75 %` junto con los nombres de categoría y serie. El texto personalizado sustituye al texto generado de la etiqueta. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) devuelve la cadena de etiqueta resultante en ambos casos. Compruebe [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) por separado, como se muestra arriba, cuando solo quiera extraer etiquetas visibles.
 
 ## **Controlar etiquetas de datos más allá del máximo del eje**
 
-Cuando limita manualmente el rango de un eje, algunos puntos de datos pueden superar su máximo. Utilice [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) para controlar si se muestran sus etiquetas de datos. Esta configuración cambia la visibilidad de la etiqueta; no modifica el rango del eje ni los valores subyacentes de los datos.
+Cuando limita manualmente el rango de un eje, algunos puntos de datos pueden superar su máximo. Utilice [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) para controlar si sus etiquetas de datos se muestran. Esta configuración cambia la visibilidad de la etiqueta; no modifica el rango del eje ni los valores subyacentes.
 
-El ejemplo siguiente crea un gráfico de columnas agrupadas 2D con valores de 60 y 120. Establece [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) en `False` y [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) en 100 en el eje vertical. La primera diapositiva permite etiquetas más allá del máximo; una copia de esa diapositiva las desactiva. Ambas diapositivas se guardan en `DataLabelsOverMaximum.pptx`.
+El ejemplo siguiente crea un gráfico de columnas agrupadas 2D con valores de 60 y 120. Establece [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) a `False` y [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) a 100 en el eje vertical. La primera diapositiva permite etiquetas más allá del máximo; una copia de esa diapositiva las desactiva. Ambas diapositivas se guardan en `DataLabelsOverMaximum.pptx`.
 
-Active las etiquetas de valor con [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). La configuración a nivel de gráfico no habilita la visualización de valores por sí sola ni anula la visualización desactivada de una etiqueta individual. Este ejemplo habilita los valores para toda la serie y utiliza [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) para colocar las etiquetas en el extremo exterior de cada columna.
+Habilite las etiquetas de valor con [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). La configuración a nivel de gráfico no habilita la visualización de valores por sí sola ni anula la visualización de valores desactivada en una etiqueta individual. Este ejemplo habilita los valores para toda la serie y utiliza [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) para colocar las etiquetas en el extremo exterior de cada columna.
 
 ```python
 import aspose.slides as slides
@@ -252,21 +298,21 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Las siguientes imágenes muestran las diapositivas guardadas renderizadas por Microsoft PowerPoint. Con `True`, la etiqueta **120** es visible en el límite superior; con `False` está oculta. La etiqueta **60** sigue visible, el máximo del eje permanece en **100** y el segundo punto de datos sigue siendo **120** en ambos casos.
+Las imágenes siguientes muestran las diapositivas guardadas renderizadas por Microsoft PowerPoint. Con `True`, la etiqueta **120** es visible en el límite superior; con `False`, está oculta. La etiqueta **60** sigue visible, el máximo del eje permanece en **100** y el segundo punto de datos sigue siendo **120** en ambos casos.
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
-| ![Gráfico de PowerPoint que muestra la etiqueta de valor 120 con un máximo del eje de 100](data-labels-over-maximum-true.png) | ![Gráfico de PowerPoint que oculta la etiqueta de valor 120 con un máximo del eje de 100](data-labels-over-maximum-false.png) |
+| ![Gráfico de PowerPoint que muestra la etiqueta de valor 120 con un máximo de eje de 100](data-labels-over-maximum-true.png) | ![Gráfico de PowerPoint que oculta la etiqueta de valor 120 con un máximo de eje de 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Tipo de gráfico" %}}
+{{% alert color="info" title="Chart Type" %}}
 
-Este ejemplo usa un gráfico de columnas 2D con un eje de valores. Los gráficos sin eje de valores, como los gráficos de sectores y de anillos, no tienen un máximo de eje que limitar de esta manera.
+Este ejemplo utiliza un gráfico de columnas 2D con un eje de valores. Los gráficos sin eje de valores, como los de sectores y rosquillas, no disponen de un máximo de eje que limitar de esta forma.
 
 {{% /alert %}}
 
-## **Establecer la distancia de la etiqueta desde un eje**
+## **Establecer distancia de la etiqueta respecto a un eje**
 
-Utilice [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) para controlar la distancia entre las etiquetas del eje de categorías y el eje. El valor es un porcentaje del tamaño máximo de fuente de las etiquetas del eje. Este ejemplo crea un gráfico de columnas agrupadas y establece el desplazamiento de la etiqueta del eje horizontal en 500. Esta configuración afecta a las etiquetas del eje de categorías más que a las etiquetas adjuntas a puntos de datos individuales.
+Utilice [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) para controlar la distancia entre las etiquetas del eje de categorías y el eje. El valor es un porcentaje del tamaño máximo de fuente de las etiquetas del eje. Este ejemplo crea un gráfico de columnas agrupadas y establece el desplazamiento de la etiqueta del eje horizontal a 500. Esta configuración afecta a las etiquetas del eje de categorías más que a las etiquetas asociadas a puntos de datos individuales.
 
 ```python
 import aspose.slides as slides
@@ -281,11 +327,11 @@ with slides.Presentation() as presentation:
     presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ajustar la ubicación de la etiqueta**
+## **Ajustar ubicación de la etiqueta**
 
-En un gráfico de sectores, ajuste las posiciones de las etiquetas de datos para mejorar el espacio y dejar lugar a las líneas guía.
+En un gráfico de sectores, ajuste la posición de las etiquetas de datos para mejorar el espaciado y dejar espacio a las líneas de guía.
 
-Este ejemplo muestra el valor del primer punto de datos, coloca su etiqueta fuera de la porción y ajusta sus desplazamientos [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) y [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/). Estos desplazamientos son relativos al ancho y la altura del gráfico, respectivamente.
+Este ejemplo muestra el valor del primer punto de datos, coloca su etiqueta fuera del sector y ajusta sus desplazamientos [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) y [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/). Estos desplazamientos son relativos al ancho y al alto del gráfico, respectivamente.
 
 ```python
 import aspose.slides as slides
@@ -306,17 +352,17 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Gráfico de sectores con posición de etiqueta de datos ajustada](pie-chart-adjusted-label.png)
+![Gráfico de sectores con una posición de etiqueta de datos ajustada](pie-chart-adjusted-label.png)
 
-## **Dar formato a las líneas guía**
+## **Formato de líneas de guía**
 
-Cuando las etiquetas de un gráfico de sectores se sitúan fuera de sus porciones, las líneas guía ayudan a los lectores a asociar cada valor con la porción correcta. Un color contrastante y una línea ligeramente más gruesa pueden hacer que estas conexiones sean más fáciles de seguir, mientras que la transparencia y un estilo de línea discontinua mantienen las líneas visualmente discretas.
+Cuando las etiquetas de un gráfico de sectores se sitúan fuera de sus sectores, las líneas de guía ayudan a los lectores a asociar cada valor con el sector correcto. Un color contrastante y una línea ligeramente más gruesa pueden facilitar estas conexiones, mientras que la transparencia y un estilo discontinuo mantienen las líneas visualmente discretas.
 
-Utilice [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) para dar formato a las líneas guía a nivel de la colección de etiquetas de datos de la serie. Los ajustes en `series.labels.leader_lines_format.line` se aplican a la colección, en lugar de a una etiqueta individual.
+Utilice [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) para formatear las líneas de guía a nivel de la colección de etiquetas de datos de la serie. Los ajustes en `series.labels.leader_lines_format.line` se aplican a la colección, no a una etiqueta individual.
 
-Este ejemplo crea un gráfico de sectores con datos predeterminados, muestra los valores fuera de las porciones y habilita [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). Mueve dos etiquetas más lejos de sus porciones usando los desplazamientos [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) y [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/), expresados como fracciones del ancho y la altura del gráfico. No se requiere una presentación de entrada.
+Este ejemplo crea un gráfico de sectores con datos predeterminados, muestra valores fuera de los sectores y habilita [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). Mueve dos etiquetas más lejos de sus sectores mediante los desplazamientos [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) y [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/), expresados como fracciones del ancho y alto del gráfico. No se requiere ninguna presentación de entrada.
 
-El [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) de la línea establece un color azul sólido con un valor alfa de 191 sobre 255, lo que proporciona aproximadamente un 25 % de transparencia. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) establece el grosor en 2 pt, y [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) hace que la línea sea discontinua.
+El [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) de la línea establece un color azul sólido con un valor alfa de 191 sobre 255, lo que proporciona aproximadamente un 25 % de transparencia. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) define el grosor en 2 puntos, y [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) convierte la línea en discontinua.
 
 ```python
 import aspose.slides as slides
@@ -336,7 +382,7 @@ with slides.Presentation() as presentation:
     label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
     label_format.show_leader_lines = True
 
-    # Mover dos etiquetas más lejos de sus sectores.
+    # Mueve dos etiquetas más lejos de sus sectores.
     series.labels[0].x = 0.10
     series.labels[0].y = -0.05
     series.labels[1].x = -0.10
@@ -351,17 +397,17 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedLeaderLines.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Activar las líneas guía no garantiza que aparezca una línea para cada etiqueta. La visibilidad depende de la ubicación de la etiqueta y del comportamiento de diseño del gráfico. En este ejemplo, las dos etiquetas desplazadas tienen líneas guía visibles; las etiquetas que permanecen cerca de sus porciones no las necesitan.
+Habilitar las líneas de guía no garantiza que aparezca una línea para cada etiqueta. La visibilidad depende de la ubicación de la etiqueta y del comportamiento de diseño del gráfico. En este ejemplo, las dos etiquetas desplazadas tienen líneas de guía visibles; las etiquetas que permanecen cerca de sus sectores no las necesitan.
 
-La siguiente imagen muestra el `FormattedLeaderLines.pptx` guardado renderizado con Aspose.Slides:
+La imagen siguiente muestra el archivo `FormattedLeaderLines.pptx` guardado y renderizado con Aspose.Slides:
 
-![Gráfico de sectores con líneas guía azules, semitransparentes y discontinuas que conectan dos etiquetas externas con sus porciones](formatted-leader-lines.png)
+![Gráfico de sectores con líneas de guía azules, semitransparentes y discontinuas que conectan dos etiquetas externas con sus sectores](formatted-leader-lines.png)
 
 ## **Agregar varias filas de etiquetas de datos encima de un gráfico de columnas**
 
-Este ejemplo crea un gráfico de columnas con dos filas de etiquetas de datos encima del área de trazado. La serie A muestra las columnas visibles, mientras que las series B y C proporcionan las etiquetas adicionales. Sus columnas se ocultan eliminando el relleno y el contorno. La propiedad [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) alinea las tres series con los mismos centros de categoría.
+Este ejemplo crea un gráfico de columnas con dos filas de etiquetas de datos sobre el área de trazado. La Serie A muestra las columnas visibles, mientras que las Series B y C aportan las etiquetas adicionales. Sus columnas se ocultan eliminando el relleno y el contorno. La propiedad [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) alinea las tres series con los mismos centros de categoría.
 
-Los ajustes de [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) reservan espacio para las filas de etiquetas. Después de que [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) calcula las posiciones predeterminadas, [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) y [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) conservan la alineación horizontal y aplican desplazamientos verticales para organizar las etiquetas en dos filas. Los números siguen siendo etiquetas de datos vinculadas a los valores de la serie; solo los encabezados de fila son formas de texto separadas.
+Los ajustes de [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) reservan espacio para las filas de etiquetas. Después de que [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) calcule las posiciones predeterminadas, los desplazamientos [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) y [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) conservan la alineación horizontal y aplican desplazamientos verticales para disponer las etiquetas en dos filas. Los números siguen siendo etiquetas de datos vinculadas a los valores de la serie; solo los encabezados de fila son formas de texto independientes.
 
 ```python
 import aspose.slides as slides
@@ -417,11 +463,11 @@ with slides.Presentation() as presentation:
     # Alinear las tres series con los mismos centros de categoría.
     chart.chart_data.series[0].parent_series_group.overlap = 100
 
-    # Utilizar menos líneas de la cuadrícula para este ejemplo compacto.
+    # Usar menos líneas de cuadrícula para este ejemplo compacto.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.major_unit = 10
 
-    # Reservar espacio encima del trazado para dos filas de etiquetas de datos.
+    # Reservar espacio sobre el área del gráfico para dos filas de etiquetas de datos.
     chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
     chart.plot_area.x = 0.15
     chart.plot_area.y = 0.32
@@ -457,16 +503,16 @@ with slides.Presentation() as presentation:
 
 ![Gráfico de columnas con dos filas de etiquetas de datos encima del área de trazado](multiple-rows-of-labels.png)
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Cómo puedo evitar que las etiquetas de datos se superpongan en gráficos densos?**
 
-Combine la colocación automática de etiquetas, líneas guía y reducción del tamaño de fuente; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para valores extremos o puntos clave.
+Combine la ubicación automática de etiquetas, líneas de guía y una reducción del tamaño de fuente; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para valores extremos o puntos clave.
 
 **¿Cómo puedo desactivar etiquetas solo para valores cero, negativos o vacíos?**
 
 Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores de 0, valores negativos o valores ausentes según una regla definida.
 
-**¿Cómo puedo garantizar un estilo de etiqueta coherente al exportar a PDF/imágenes?**
+**¿Cómo puedo garantizar un estilo de etiqueta constante al exportar a PDF/imagenes?**
 
 Establezca explícitamente la familia y el tamaño de fuente y verifique que la fuente esté disponible en el entorno de renderizado para evitar sustituciones.

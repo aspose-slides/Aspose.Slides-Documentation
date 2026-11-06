@@ -1,29 +1,78 @@
 ---
-title: JavaScript を使用してプレゼンテーションのチャート データラベルを管理する
-linktitle: データラベル
+title: JavaScript を使用してプレゼンテーションでチャート データ ラベルを管理する
+linktitle: データ ラベル
 type: docs
 url: /ja/nodejs-java/chart-data-label/
 keywords:
 - チャート
-- データラベル
+- データ ラベル
 - データ精度
 - パーセンテージ
-- ラベル距離
-- ラベル位置
+- ラベルの距離
+- ラベルの位置
 - PowerPoint
 - プレゼンテーション
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScript と Aspose.Slides for Node.js（Java 経由）を使用して、PowerPoint プレゼンテーションにチャート データラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
+description: "JavaScript と Aspose.Slides for Node.js を使用して、PowerPoint プレゼンテーションにチャート データ ラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
 ---
-## **はじめに**
+## **紹介**
 
-データラベルはチャートの系列や個々のデータ点に関する情報を表示し、読者が値を識別しチャートを理解するのに役立ちます。この記事では、値の書式設定、パーセンテージの表示、ラベルテキストの取得、軸最大値を超えるラベルの制御、カテゴリ軸ラベルの間隔調整、円グラフラベルの配置方法について説明します。
+データ ラベルはチャートの系列や個々のデータ ポイントに関する情報を表示し、読者が値を特定しチャートを理解するのに役立ちます。本記事では、値の書式設定、パーセンテージの表示、ラベル テキストの取得、軸の最大値を超えるラベルの制御、カテゴリ軸ラベルの間隔調整、円グラフ ラベルの配置方法について説明します。
 
-## **チャートデータラベルの数値精度を設定する**
+## **表示可能なデータ ラベルの数**
 
-[setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) を使用して系列の値の書式設定を行います。この例は既定のデータで折れ線グラフを作成し、データテーブルを表示し、最初の系列に値ラベルを有効にします。書式 `#,##0.00` は千区切りと小数点以下2桁を表示しますが、基になる値は変更しません。
+プレゼンテーションを公開する前に、[getCountOfVisibleDataLabels](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getcountofvisibledatalabels/) を使用して、表示が有効になっているデータ ラベルの数を確認します。[getCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getcount/) がコレクション内のラベル総数を返すのとは異なり、こちらは系列のデフォルト設定と個別ラベル設定を考慮します。
+
+この例では、1 つの系列と 3 つのデータ ポイントを持つ縦棒グラフを作成します。[getLabels](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getlabels/) を介して系列のラベル コレクションにアクセスし、設定が変わるたびに表示可能なカウントを出力します：**0, 3, 2, 3**。総数は **3** のままです。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const seriesCell = workbook.getCell(0, 0, 1, "Values");
+    const series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+
+    for (let i = 0; i < 3; i++) {
+        const categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        const valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    const labels = series.getLabels();
+    console.log("Total: " + labels.getCount() + "; visible: " + labels.getCountOfVisibleDataLabels()); // 合計: 3; 表示: 0
+
+    labels.getDefaultDataLabelFormat().setShowValue(true);
+    console.log("Visible: " + labels.getCountOfVisibleDataLabels()); // 表示: 3
+
+    labels.get_Item(1).getDataLabelFormat().setShowValue(false);
+    console.log("Visible: " + labels.getCountOfVisibleDataLabels()); // 表示: 2
+
+    labels.get_Item(1).getDataLabelFormat().setShowLegendKey(true);
+    console.log("Visible: " + labels.getCountOfVisibleDataLabels()); // 表示: 3
+} finally {
+    presentation.dispose();
+}
+```
+
+系列の[getDefaultDataLabelFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getdefaultdatalabelformat/) がデフォルト設定を提供します。`true` を [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) に渡すと、3 つすべてのラベルに値が表示されます。1 つのラベルの[getDataLabelFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getdatalabelformat/) で `false` を設定すると、そのラベルだけ設定が上書きされます。[setShowLegendKey](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowlegendkey/) に `true` を渡すと、値は非表示のままですがラベルは再び表示対象となります。
+
+表示可能なカウントは可視性設定を反映します。ラベルが重なっているか、切り取られているか、レンダリングされたチャートで読み取れるかは測定しません。
+
+## **チャート データ ラベルの数値精度を設定**
+
+シリーズの値を書式設定するには、[setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) を使用します。この例では、デフォルト データを持つ折れ線グラフを作成し、データ表を表示し、最初のシリーズに対して値ラベルを有効にします。書式 `#,##0.00` は千位区切りと小数点以下 2 桁を表示しますが、基になる値は変更しません。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -45,11 +94,11 @@ try {
 }
 ```
 
-チャートに埋め込みされたワークブックの数値セルを書式設定するには、[Set Custom Number Formats for Workbook Cells](/slides/ja/nodejs-java/chart-workbook/#set-custom-number-formats-for-workbook-cells) を参照してください。この例では、ソースセルの書式に従った値ラベルが表示され、保存された数値はそのまま保持されます。
+チャートに埋め込まれたブックレットの数値セルの書式設定については、[Set Custom Number Formats for Workbook Cells](/slides/ja/nodejs-java/chart-workbook/#set-custom-number-formats-for-workbook-cells) を参照してください。その例では、ソース セルの書式に従いながら、格納された数値はそのまま保持されます。
 
-## **パーセンテージをラベルとして表示する**
+## **パーセンテージをラベルとして表示**
 
-積み上げ縦棒グラフの場合、各値をカテゴリ合計に対するパーセンテージに計算し、[getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) が返すテキストフレームに文字列を割り当てます。この例は既定のチャートデータを使用し、8ポイントフォントで小数点以下2桁のパーセンテージを表示します。合計がゼロのカテゴリは除外して除算エラーを回避します。チャートデータが変更された場合はカスタムラベルテキストを再計算してください。
+積み上げ縦棒グラフの場合、各値をカテゴリ合計に対するパーセンテージとして計算し、[getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) が返すテキスト フレームにテキストを割り当てます。この例はデフォルトのチャート データを使用し、2 桁の小数でパーセンテージを表示し、フォントを 8 ポイントに設定します。合計が 0 のカテゴリは除外してゼロ除算を回避します。チャート データが変更された場合は、カスタム ラベル テキストを再計算してください。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -105,11 +154,11 @@ try {
 }
 ```
 
-## **チャートデータラベルにパーセンテージ記号を設定する**
+## **チャート データ ラベルにパーセンテージ記号を設定**
 
-値が分数で保存されている場合、[setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) を使用してパーセンテージ表示にします。[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) に `false` を渡すと、ラベル書式をソースセルとは独立して適用できます。
+値が分数として格納されている場合、[setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) を使用してパーセンテージを表示します。[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) に `false` を渡すと、ラベルの書式がソース セルとは独立して適用されます。
 
-この例は 4 つのカテゴリに対して赤と青の系列を持つ 100% 積み上げ縦棒グラフを作成します。各ペアの値の合計は 1 です。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下2桁を使用します。両系列とも白色の 10 ポイントラベルテキストです。
+この例では、4 つのカテゴリにわたって赤と青の系列を持つ 100% 積み上げ縦棒グラフを作成します。各ペアの値の合計は 1 です。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下 2 桁を使用します。両系列とも白色の 10 ポイント ラベル テキストを使用します。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,9 +214,9 @@ try {
 }
 ```
 
-## **データラベルの実際のテキストを取得する**
+## **データ ラベルの実際のテキストを取得**
 
-[getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) を使用して、データラベル設定によって生成されたテキストを取得します。レポート用のラベル抽出、プレゼンテーション内容の検索、生成されたチャートの検証に便利です。以下の例では、既定の[data label format](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) が各カテゴリ名、系列名、値を組み合わせます。あるポイントは値をパーセンテージで表示し、別のポイントは[getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) から取得したカスタムテキストを使用します。
+[data label format](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) が各カテゴリ名、系列名、値を組み合わせて生成したテキストを取得するには、[getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) を使用します。これはレポート用にラベルを抽出したり、プレゼンテーションの内容を検索したり、生成されたチャートを検証したりする際に便利です。以下の例では、デフォルトのデータ ラベル書式がカテゴリ名、系列名、値を結合し、あるポイントは値をパーセンテージとして書式設定し、別のポイントは[getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) から取得したカスタム テキストを使用します。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -230,15 +279,15 @@ try {
 }
 ```
 
-データ点に保存されている数値は `0.75` のままで、ラベルにはカテゴリ名と系列名に加えて `75%` と表示されます。カスタムテキストは生成されたラベルテキストを置き換えます。[getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) はいずれの場合でも最終的なラベル文字列を返します。表示ラベルだけを抽出したい場合は、上記と同様に [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) を別途確認してください。
+データ ポイントに格納されている数値は `0.75` のままで、ラベルが `75%` とカテゴリ名と系列名を併せて表示していても変わりません。カスタム テキストは生成されたラベル テキストを置き換えます。[getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) はどちらの場合でも結果のラベル文字列を返します。表示されているラベルのみを抽出したい場合は、上記のように [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) を別途確認してください。
 
-## **軸最大値を超えるデータラベルを制御する**
+## **軸の最大値を超えるデータ ラベルの制御**
 
-軸範囲を手動で制限すると、一部のデータ点が最大値を超えることがあります。[setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) を使用して、これらのデータラベルを表示するかどうかを制御します。この設定はラベルの表示/非表示を変更しますが、軸範囲や基になるデータ値は変更しません。
+軸範囲を手動で制限すると、一部のデータ ポイントが最大値を超えることがあります。[setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) を使用して、これらのラベルを表示するかどうかを制御します。この設定はラベルの可視性を変更しますが、軸範囲や基になるデータ値は変更しません。
 
-以下の例は、値が 60 と 120 の 2D クラスタ化縦棒グラフを作成します。縦軸に対して [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) に `false` を渡し、[setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) で最大値を 100 に設定しています。最初のスライドは最大値を超えるラベルを許可し、コピーしたスライドはそれを無効にしています。両スライドは `DataLabelsOverMaximum.pptx` として保存されます。
+以下の例では、値が 60 と 120 の 2D クラスタ化縦棒グラフを作成します。縦軸の [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) に `false` を渡し、[setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) で最大値を 100 に設定します。最初のスライドは最大値を超えるラベルを許可し、コピーしたスライドはそれを無効にします。両スライドは `DataLabelsOverMaximum.pptx` として保存されます。
 
-[setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) で値ラベルを有効にします。チャートレベルの設定だけでは個別ラベルの表示が自動的に有効になるわけでも、無効化されたラベルの表示を上書きするわけでもありません。この例は系列全体の値を有効にし、[setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) を使用して各列の外側端にラベルを配置します。
+[value labels] を有効にするには [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) を使用します。チャート レベルの設定だけで値の表示が有効になるわけでも、個々のラベルの非表示設定を上書きするわけでもありません。この例では系列全体に値を有効にし、[setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) を使用して各列の外側端にラベルを配置します。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -287,19 +336,19 @@ try {
 }
 ```
 
-以下の画像は Microsoft PowerPoint でレンダリングされた保存済みスライドを示しています。`true` の場合、ラベル **120** が上端に表示されます。`false` の場合は非表示になります。ラベル **60** は常に表示され、軸最大値は **100** のままで、2 番目のデータ点はどちらの場合も **120** のままです。
+以下の画像は Microsoft PowerPoint でレンダリングされた保存スライドを示しています。`true` の場合、ラベル **120** が上限境界で表示され、`false` の場合は非表示になります。ラベル **60** は常に表示され、軸の最大値は **100** のままで、2 番目のデータ ポイントは両ケースで **120** のままです。
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![軸最大値 100 に対して値ラベル 120 を表示した PowerPoint チャート](data-labels-over-maximum-true.png) | ![軸最大値 100 に対して値ラベル 120 を非表示にした PowerPoint チャート](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-この例は値軸を持つ 2D 縦棒グラフを使用しています。円グラフやドーナツグラフのように値軸がないチャートには、このように軸最大値を制限する概念がありません。
+この例は値軸を持つ 2D 縦棒グラフを使用しています。円グラフやドーナツ グラフのように値軸がないチャートには、このように軸最大値を制限する概念がありません。
 {{% /alert %}}
 
-## **軸からのラベル距離を設定する**
+## **軸からのラベル間隔を設定**
 
-[setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) を使用して、カテゴリ軸ラベルと軸との間隔を制御します。値は軸ラベルの最大フォントサイズに対するパーセンテージです。この例はクラスタ化縦棒グラフを作成し、水平軸ラベルのオフセットを 500 に設定します。この設定は個々のデータ点に付随するラベルではなく、カテゴリ軸ラベルに影響します。
+[setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) を使用して、カテゴリ軸ラベルと軸との間隔を制御します。値は軸ラベルの最大フォント サイズのパーセンテージです。この例では、クラスタ化縦棒グラフを作成し、水平軸のラベルオフセットを 500 に設定します。この設定は個別データ ポイントに付随するラベルではなく、カテゴリ軸ラベルに影響します。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -319,9 +368,9 @@ try {
 
 ## **ラベル位置の調整**
 
-円グラフでは、ラベルの位置を調整して間隔を広げ、リーダーラインの余裕を作ります。
+円グラフでは、データ ラベルの位置を調整して間隔を確保し、リーダーラインの余白を作ります。
 
-この例は最初のデータ点の値を表示し、ラベルをスライスの外側に配置し、[setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) と [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) を使用して水平・垂直オフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さに対する相対値です。
+この例では、最初のデータ ポイントの値を表示し、ラベルをスライスの外側に配置し、[setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) と [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) で水平・垂直オフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さに対する相対値です。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -346,17 +395,17 @@ try {
 }
 ```
 
-![調整されたデータラベル位置の円グラフ](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
 ## **リーダーラインの書式設定**
 
-円グラフのラベルがスライスの外側にある場合、リーダーラインは各値と正しいスライスを結び付けるのに役立ちます。対照的な色とやや太めの線にすると視認性が向上し、透明度と破線スタイルにすると視覚的に目立ちすぎません。
+円グラフのラベルがスライスの外側にある場合、リーダーラインは各値と正しいスライスを結び付けるのに役立ちます。対照的な色とやや太めの線は視認性を高め、透明度と破線スタイルは視覚的な邪魔になりません。
 
-[getLeaderLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getleaderlinesformat/) を使用して、系列のデータラベルコレクションレベルでリーダーラインをフォーマットします。`series.getLabels().getLeaderLinesFormat().getLine()` の設定は個別ラベルではなくコレクション全体に適用されます。
+Series のデータ ラベル コレクションレベルでリーダーラインをフォーマットするには、[getLeaderLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getleaderlinesformat/) を使用します。`series.getLabels().getLeaderLinesFormat().getLine()` の設定は個々のラベルではなく、コレクション全体に適用されます。
 
-この例は既定データの円グラフを作成し、スライスの外側に値を表示し、[setShowLeaderLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowleaderlines/) を有効にします。2 つのラベルをスライスから遠ざけるために、[setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) と [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) でオフセットを設定します。オフセットはチャートの幅と高さの比率で指定します。入力プレゼンテーションは不要です。
+この例では、デフォルト データを持つ円グラフを作成し、スライスの外側に値を表示し、[setShowLeaderLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowleaderlines/) を有効にします。[setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) と [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) のオフセットで 2 つのラベルをスライスから遠ざけます。入力プレゼンテーションは不要です。
 
-線の [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/getfillformat/) は、アルファ値 191（255 中） の青色実体を設定し、約 25% の透明度を実現します。[setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setwidth/) は太さを 2 ポイントに、[setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) は破線に設定します。
+線の [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/getfillformat/) は、アルファ値 191（255 中）の濃い青色を設定し、約 25% の透明度を実現します。[setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setwidth/) で太さを 2 ポイントに、[setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) で破線にします。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -376,7 +425,7 @@ try {
     labelFormat.setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
     labelFormat.setShowLeaderLines(true);
 
-    // 二つのラベルをスライスから遠くに移動する。
+    // 2つのラベルをスライスからさらに離す。
     series.getLabels().get_Item(0).setX(java.newFloat(0.10));
     series.getLabels().get_Item(0).setY(java.newFloat(-0.05));
     series.getLabels().get_Item(1).setX(java.newFloat(-0.10));
@@ -395,17 +444,17 @@ try {
 }
 ```
 
-リーダーラインを有効にしても、すべてのラベルに線が表示されるとは限りません。表示はラベル配置とチャートのレイアウト動作に依存します。この例では、離れた位置にある 2 つのラベルにリーダーラインが表示され、スライスに近いラベルは不要です。
+リーダーラインを有効にしても、すべてのラベルに線が表示されるわけではありません。可視性はラベルの配置とチャートのレイアウト動作に依存します。この例では、離れた 2 つのラベルにリーダーラインが表示され、スライスに近いラベルは不要です。
 
-以下の画像は Aspose.Slides でレンダリングされた保存済み `FormattedLeaderLines.pptx` を示しています。
+以下の画像は Aspose.Slides でレンダリングされた保存ファイル `FormattedLeaderLines.pptx` を示しています。
 
-![円グラフの外側ラベルを 2 つの青色・半透明・破線リーダーラインでスライスに接続した画像](formatted-leader-lines.png)
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
-## **縦棒グラフ上部に複数行のデータラベルを追加する**
+## **縦棒グラフの上部に複数行のデータ ラベルを追加**
 
-この例はプロット領域の上に 2 行のデータラベルを持つ縦棒グラフを作成します。Series A は可視列を表示し、Series B と Series C は追加ラベルを提供します。これらの列は塗りつぶしと枠線を除去して非表示にします。[ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) メソッドにより、3 系列すべてが同じカテゴリ中心に揃えられます。
+この例では、プロット領域の上部に 2 行のデータ ラベルを持つ縦棒グラフを作成します。Series A は可視列を表示し、Series B と Series C が追加ラベルを提供します。これらの列は塗りつぶしと輪郭を除去して非表示にします。[ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) メソッドは 3 系列すべてを同じカテゴリ中心に揃えます。
 
-[ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) 設定でラベル行用のスペースを確保します。[Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) がデフォルト位置を計算した後、[DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) と [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) で水平位置を保持しつつ垂直オフセットを付加して 2 行に配置します。数値は系列の値にリンクしたデータラベルのままで、行見出しだけが別個のテキストシェイプとなります。
+[ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) の設定でラベル行のスペースを確保します。[Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) がデフォルト位置を計算した後、[DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) と [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) で水平位置を維持し、垂直オフセットを適用して 2 行に配置します。数値は系列値にリンクされたデータ ラベルのままで、行の見出しだけが別個のテキスト シェイプです。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -446,7 +495,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // B と C の列を非表示にし、データラベルは保持する。
+            // B と C の列を非表示にし、データ ラベルは保持します。
             series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             series.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -458,14 +507,14 @@ try {
         }
     }
 
-    // 3 つの系列すべてを同じカテゴリ中心に揃える。
+    // 3 つの系列すべてを同じカテゴリ中心に揃えます。
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(java.newByte(100));
 
-    // このコンパクトな例では目盛線を少なくする。
+    // このコンパクトな例のためにグリッド線を減らします。
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // プロット上部に 2 行分のデータラベル用スペースを確保する。
+    // プロット上部にデータ ラベル用の 2 行分のスペースを確保します。
     chart.getPlotArea().setLayoutTargetType(aspose.slides.LayoutTargetType.Inner);
     chart.getPlotArea().setX(java.newFloat(0.15));
     chart.getPlotArea().setY(java.newFloat(0.32));
@@ -479,13 +528,13 @@ try {
 
         for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             const dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // デフォルトの水平位置を保持する。Y は次からのオフセットです
-            // デフォルトのラベル位置からのオフセットで、チャートの高さの比率として表されます。
+            // デフォルトの水平位置を保持します。Y はデフォルト ラベル位置からのオフセットで、
+            // チャートの高さの割合で表されます。
             dataLabel.setX(0);
             dataLabel.setY(java.newFloat(rowTop - dataLabel.getActualY() / chart.getHeight()));
         }
 
-        // 行見出しだけが別個のテキストシェイプです。
+        // 行見出しだけが別個のテキスト シェイプです。
         const rowHeading = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
         rowHeading.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
         rowHeading.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
@@ -504,18 +553,18 @@ try {
 }
 ```
 
-![プロット領域上部に 2 行のデータラベルを持つ縦棒グラフ](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**密なチャートでデータラベルが重なるのを防ぐにはどうすればよいですか？**
+**密集したチャートでラベルの重なりを防ぐにはどうすればよいですか？**
 
-自動ラベル配置、リーダーライン、フォントサイズの縮小を組み合わせます。必要に応じて一部の項目（例: カテゴリ）を非表示にするか、極端な値や重要ポイントのみラベルを表示します。
+自動ラベル配置、リーダーライン、フォント サイズの縮小を組み合わせ、必要に応じて一部の項目（例: カテゴリ）を非表示にするか、極端な値や重要ポイントのみラベルを表示します。
 
-**ゼロ、負の数、または空の値に対してラベルだけを無効にするにはどうすればよいですか？**
+**ゼロ、負、または空の値に対してラベルだけを無効にするにはどうすればよいですか？**
 
-ラベルを有効にする前にデータ点をフィルタリングし、0、負の数、または欠損値に対して表示をオフにするルールを適用します。
+ラベルを有効にする前にデータ ポイントをフィルタリングし、0、負数、または欠損値に対して表示をオフにするルールを設定します。
 
-**PDF/画像へエクスポートするときにラベルスタイルを一貫させるにはどうすればよいですか？**
+**PDF/画像へエクスポートする際にラベルのスタイルを一貫させるには？**
 
-フォントファミリーとサイズを明示的に設定し、レンダリング環境にそのフォントが存在することを確認してフォントのフォールバックを防ぎます。
+フォント ファミリとサイズを明示的に設定し、レンダリング環境にそのフォントが利用可能であることを確認してフォールバックを防ぎます。
