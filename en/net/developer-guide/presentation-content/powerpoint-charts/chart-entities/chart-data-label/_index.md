@@ -549,6 +549,43 @@ presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
 
 ![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
+## **Change Data Label Shapes**
+
+Aspose.Slides for .NET 26.11 adds [IDataLabel.LabelShapeType](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/labelshapetype/) for one label and [IDataLabelCollection.DefaultLabelShapeType](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultlabelshapetype/) for all current labels in a series. These change the label's shape, not its point marker. For the separate callout setting, see [Data Label Callouts](/slides/net/callout/).
+
+The collection assignment updates existing labels, so apply individual overrides **after** the collection setting. This complete example requires [Aspose.Slides for .NET](/slides/net/installation/) 26.11 or later. It creates visible value labels, selects ellipses for the first series and then makes its first label rectangular.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
+var labels = chart.ChartData.Series[0].Labels;
+labels.DefaultDataLabelFormat.ShowValue = true;
+labels.DefaultLabelShapeType = ShapeType.Ellipse;
+labels[0].LabelShapeType = ShapeType.Rectangle;
+
+foreach (var label in labels)
+{
+    var format = label.DataLabelFormat.Format;
+    format.Fill.FillType = FillType.Solid;
+    format.Fill.SolidFillColor.Color = Color.LightYellow;
+    format.Line.FillFormat.FillType = FillType.Solid;
+    format.Line.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+}
+
+presentation.Save("label-shapes.pptx", SaveFormat.Pptx);
+
+// Reset the explicit shape choices on all current labels.
+labels.DefaultLabelShapeType = ShapeType.NotDefined;
+presentation.Save("label-shapes-reset.pptx", SaveFormat.Pptx);
+```
+
+Assigning the collection shape again also replaces earlier individual shape choices. [NotDefined](https://reference.aspose.com/slides/net/aspose.slides/shapetype/) clears the explicit shape selection; it does not hide the labels or clear their other formatting. Set the desired shapes after populating the series rather than assuming that points added later inherit an earlier assignment. Rectangle and Ellipse are used here; inspect the rendered result when choosing other shape types.
+
 ## **FAQ**
 
 **How can I prevent data labels from overlapping on dense charts?**

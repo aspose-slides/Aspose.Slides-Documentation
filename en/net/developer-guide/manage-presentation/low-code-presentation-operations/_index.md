@@ -39,7 +39,7 @@ The following table summarizes the available helpers:
 | [Merger](https://reference.aspose.com/slides/net/aspose.slides.lowcode/merger/) | Combining complete presentation files of the same format. |
 | [ForEach](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/) | Running an action for every slide, shape, paragraph, or text portion. |
 | [Collect](https://reference.aspose.com/slides/net/aspose.slides.lowcode/collect/) | Retrieving shapes from the entire presentation for repeated processing or analysis. |
-| [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) | Removing unused masters and layouts and reducing embedded font data. |
+| [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) | Removing unused masters/layouts, reducing embedded font data and compressing pictures. |
 
 ## **Convert a Presentation**
 
@@ -146,6 +146,50 @@ presentation.Save("compressed.pptx", SaveFormat.Pptx);
 
 Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/slides/net/slide-master/) and [Embedded Font](/slides/net/embedded-font/).
 
+### **Compress the Whole Presentation**
+
+Aspose.Slides for .NET 26.11 adds [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/). It combines removal of unused layout/master slides, subsetting of embedded fonts to used characters, and picture compression at 150 DPI. Use the individual operations above when you need to control which changes are applied.
+
+Install [Aspose.Slides for .NET](/slides/net/installation/) 26.11 or later and provide `input.pptx`. Save to a separate file: removed layouts, font characters and cropped picture pixels may be needed for later editing.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
+
+using var presentation = new Presentation("input.pptx");
+Compress.CompressPresentation(presentation);
+presentation.Save("compressed.pptx", SaveFormat.Pptx);
+```
+
+### **Compress Images at a Chosen Resolution**
+
+Use [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/) to process eligible pictures without also removing layouts or subsetting fonts. This example uses 96 DPI; select another [PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression/) value for your output needs.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
+
+using var presentation = new Presentation("input.pptx");
+Compress.CompressImages(presentation, PicturesCompression.Dpi96);
+presentation.Save("compressed-images.pptx", SaveFormat.Pptx);
+```
+
+Both helpers use the following picture-processing scope:
+
+| Content | Treatment |
+| --- | --- |
+| Raster pictures and shape picture fills on normal, master and layout slides, including grouped shapes | Eligible for compression. |
+| Pictures already at or below the requested resolution | Not upscaled. Cropped areas can still be removed. |
+| Cropped picture areas | Hidden pixels are permanently removed and crop offsets are reset. |
+| Slide backgrounds and table-cell fills | Not processed by these helpers. |
+| Chart/SmartArt internals, GIF and vector formats such as SVG, EMF and WMF | Outside the documented image-compression scope. |
+
+In 26.11, [PicturesCompression.DocumentResolution](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression/) avoids resolution-based downsampling of an uncropped picture, but **does not preserve cropped pixels**. A cropped picture can still be rewritten with its hidden areas removed. Neither helper exposes a preserve-crop option. For individual control, see the [per-picture compression example](/slides/net/examples/optimization-batch/compression/).
+
+Compare the output's appearance and file size before replacing the original. Savings depend on the source pictures, their displayed size and unused content; compression does not guarantee a smaller file. See [Embedded Fonts](/slides/net/embedded-font/) for the implications of font subsetting.
+
 ## **FAQ**
 
 **When should I use the low-code API instead of the full object model?**
@@ -166,7 +210,7 @@ Use [ForEach.Shape](https://reference.aspose.com/slides/net/aspose.slides.lowcod
 
 **Does Compress always make the presentation file smaller?**
 
-Not necessarily. The result depends on whether the presentation contains unused layouts, unused masters, or embedded fonts with unused characters. If none of those are present, the corresponding [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) operations may not reduce the file size.
+Not necessarily. Savings depend on unused layouts/masters, embedded fonts with unused characters, and pictures that benefit from compression. The [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) helpers may leave the size unchanged or produce a larger file for some inputs. Compare both size and rendered quality, and keep the original.
 
 **Are changes made by ForEach or Compress saved automatically?**
 

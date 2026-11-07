@@ -141,6 +141,8 @@ finally
 }
 ```
 
+To let a matching registered font take priority during export without removing the embedded font, see [Prefer Registered Fonts over Embedded Fonts](/slides/net/font-selection-sequence/#prefer-registered-fonts-over-embedded-fonts) (.NET 26.11 or later).
+
 ## **FAQ**
 
 **Do custom fonts affect export to all formats (PDF, PNG, SVG, HTML)?**

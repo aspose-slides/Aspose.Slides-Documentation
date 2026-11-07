@@ -54,7 +54,7 @@ preview.Save("compressed.png", ImageFormat.Png);
 
 ### **Is this a single whole-file optimization switch?**
 
-Image compression is applied to the relevant pictures. Combine it with save settings and unused-content cleanup for the workflow your presentation needs.
+Aspose.Slides for .NET 26.11 adds [Compress.CompressPresentation](/slides/net/low-code-presentation-operations/#compress-the-whole-presentation), which combines unused layout/master removal, embedded-font subsetting and 150-DPI picture compression. It permanently removes cropped picture areas. For picture-only processing, use Compress.CompressImages; for finer control, keep the per-picture workflow above. These new helpers are specific to the stated .NET version; check the corresponding guide for other SDKs.
 
 ### **Does image compression change editable text or charts?**
 

@@ -64,7 +64,7 @@ image.Save("external-chart-workbook.png", ImageFormat.Png);
 
 ### **Can I read every cached value when the linked file is missing?**
 
-The data-access API has limitations without the external workbook. Keep the linked file available when your workflow needs to read or update its values.
+Aspose.Slides for .NET 26.11 can [read stored chart values directly](/slides/net/chart-workbook/#read-cached-chart-values-without-a-workbook) without opening the linked workbook. This includes ordinary values, X/Y values, bubble sizes and category values when those caches exist. Cached data may be absent or stale; it is not a complete workbook. Refreshing from the source still requires an available supported workbook. For other SDKs and versions, check their corresponding chart guide.
 
 ### **What happens if the external workbook is moved?**
 

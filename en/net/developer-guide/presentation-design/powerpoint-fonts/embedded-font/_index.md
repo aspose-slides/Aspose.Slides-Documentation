@@ -242,6 +242,8 @@ presentation.Save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 
 Keep the original file if recipients may need to add text later. Characters removed during compression are no longer available from the embedded font, even if you originally embedded all characters.
 
+To let a matching registered font take priority during export without removing the embedded font, see [Prefer Registered Fonts over Embedded Fonts](/slides/net/font-selection-sequence/#prefer-registered-fonts-over-embedded-fonts) (.NET 26.11 or later).
+
 ## **FAQ**
 
 **How can I check whether an embedded font will still be substituted during rendering?**

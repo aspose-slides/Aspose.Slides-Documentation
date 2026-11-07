@@ -64,6 +64,45 @@ slide.Shapes.AddVideoFrame(50, 150, 300, 150, "video.avi");
 presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
 ```
 
+## **Set Video Volume Precisely**
+
+In Aspose.Slides for .NET 26.11 or later, [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) sets a floating-point percentage from 0 to 100. Use it when the [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) presets are too coarse. For example, `75.5f` requests 75.5% volume.
+
+This example requires [Aspose.Slides for .NET](/slides/net/installation/) 26.11 or later and a local `video.mp4`. It embeds the video, explicitly initializes playback, saves the presentation, and reads the stored percentage back.
+
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var volume = 75.5f;
+if (float.IsNaN(volume) || float.IsInfinity(volume) || volume < 0 || volume > 100)
+{
+    Console.WriteLine("Use a finite volume from 0 to 100.");
+    return;
+}
+
+using (var presentation = new Presentation())
+{
+    var videoBytes = File.ReadAllBytes("video.mp4");
+    var video = presentation.Videos.AddVideo(videoBytes);
+    var frame = presentation.Slides[0].Shapes.AddVideoFrame(50, 50, 320, 180, video);
+    frame.PlayMode = VideoPlayModePreset.Auto;
+    frame.VolumeValue = volume;
+    presentation.Save("video-volume.pptx", SaveFormat.Pptx);
+}
+
+using var saved = new Presentation("video-volume.pptx");
+var savedFrame = saved.Slides[0].Shapes.OfType<IVideoFrame>().First();
+Console.WriteLine(savedFrame.VolumeValue);
+```
+
+Validate input yourself; do not rely on the setter to reject values outside the documented range. The Low, Medium and Loud presets correspond to 20, 50 and 80 in 26.11. Setting a preset can replace an earlier percentage, so assign the percentage last when you need an exact value. Use [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) for the explicit mute setting; a numeric zero and the preset enum are not interchangeable states.
+
+Explicitly set [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) when configuring a linked video too, and keep its media file available to the viewer. Saving and reopening verifies the stored setting; actual playback and loudness depend on the presentation player and its audio settings.
+
 ## **Create a Video Frame with Video from a Web Source**
 
 Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) supports online videos in presentations. You can create a video frame that links to an online video, such as a YouTube video.

@@ -113,6 +113,44 @@ Generic text-processing code may receive an [ITextFrame](https://reference.aspos
 
 For a text frame owned by an auto shape or another text-bearing shape, `ParentShape` contains the owner and [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) is `null`. Check the returned value before accessing it. To identify both shape and table-cell owners, including shapes associated with SmartArt nodes, see [Search and Replace Text](/slides/net/search-and-replace-text/).
 
+## **Get the Shape's Text Rectangle**
+
+Starting with Aspose.Slides for .NET 26.11, [ITextFrame.GetTextRect](https://reference.aspose.com/slides/net/aspose.slides/itextframe/gettextrect/) returns the text area defined by the parent shape's geometry. Its coordinates and dimensions are in points, relative to that shape's top-left corner. For example, an ellipse has a smaller text rectangle than its outer bounds.
+
+This rectangle describes the shape, not the rendered characters. Changing the text or text-frame margins does not turn it into a measurement of occupied text. Use [paragraph bounds](/slides/net/paragraph-bounds/) or [portion bounds](/slides/net/portion-bounds/) for rendered-text measurements.
+
+After [installing Aspose.Slides for .NET](/slides/net/installation/) 26.11 or later, run this example to draw the geometry text rectangle in red. The shapes are unrotated and ungrouped, so adding their X/Y position is sufficient to place the overlay on the slide.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+foreach (var shapeType in new[] { ShapeType.Rectangle, ShapeType.Ellipse })
+{
+    var x = shapeType == ShapeType.Rectangle ? 50 : 300;
+    var shape = slide.Shapes.AddAutoShape(shapeType, x, 200, 200, 100);
+    shape.AddTextFrame("Text area");
+    var rectangle = shape.TextFrame.GetTextRect();
+    Console.WriteLine($"{shapeType}: {rectangle}");
+
+    var overlayX = shape.X + rectangle.X;
+    var overlayY = shape.Y + rectangle.Y;
+    var outline = slide.Shapes.AddAutoShape(ShapeType.Rectangle, overlayX, overlayY, rectangle.Width, rectangle.Height);
+    outline.FillFormat.FillType = FillType.NoFill;
+    outline.LineFormat.FillFormat.FillType = FillType.Solid;
+    outline.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+}
+
+presentation.Save("text-rectangles.pptx", SaveFormat.Pptx);
+```
+
+For the 200 × 100 point shapes above, the rectangle returns `(0, 0, 200, 100)`; the ellipse returns approximately `(29.289, 14.645, 141.421, 70.711)`. The method also reads a custom geometry's declared text rectangle. It does not apply slide-space rotation or group transforms; account for those separately when positioning an overlay. A text frame without a geometry shape, such as a table-cell text frame, can throw `InvalidOperationException`.
+
 ## **Add Columns to a Text Box**
 
 The [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/) property divides the text frame into columns, while [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/) sets the gap between columns in points. Both settings belong to [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/) and can be changed through the text frame of an existing text box. Text reflows between columns inside the same shape; it does not continue into another shape.

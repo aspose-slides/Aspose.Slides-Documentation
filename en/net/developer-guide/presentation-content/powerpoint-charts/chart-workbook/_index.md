@@ -528,6 +528,100 @@ else
 }
 ```
 
+## **Refresh Chart Data from Source Workbooks**
+
+Aspose.Slides for .NET 26.11 adds [IChartData.RefreshData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/refreshdata/) for one chart and [IPresentation.RefreshChartsData](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/refreshchartsdata/) for the presentation. Use them after source workbook values change. External workbooks must be accessible and supported.
+
+With [Aspose.Slides for .NET](/slides/net/installation/) 26.11 or later installed, this example refreshes the first chart on the first slide of `charts.pptx`. Its source workbook must be available. Save the result to retain the updated chart data.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("charts.pptx");
+var chart = presentation.Slides[0].Shapes.OfType<IChart>().FirstOrDefault();
+if (chart == null)
+{
+    Console.WriteLine("The first slide must contain a chart.");
+    return;
+}
+
+chart.ChartData.RefreshData();
+presentation.Save("refreshed-chart.pptx", SaveFormat.Pptx);
+```
+
+To refresh all charts, use a separate presentation instance as follows. Passing `false` makes a refresh failure propagate to the caller; it does not roll back charts already refreshed.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("charts.pptx");
+presentation.RefreshChartsData(skipFailedCharts: false);
+presentation.Save("refreshed-charts.pptx", SaveFormat.Pptx);
+```
+
+The parameter defaults to `true`: [RefreshChartsData](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/refreshchartsdata/) skips a failed chart and continues with others. It returns no per-chart results, so a completed call does not prove that every chart refreshed. Use individual [RefreshData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/refreshdata/) calls if you need to identify each failing chart.
+
+Refresh reloads source data. It is separate from formula calculation, chart layout validation and updating an OLE preview. Inspect live cell-backed values to check a refresh in memory. A [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedvalue/) can still describe the previously saved chart until you save and reopen the presentation.
+
+### **Read Cached Chart Values without a Workbook**
+
+In .NET 26.11, cached-value accessors read the values stored with the chart without opening its workbook. They are useful when the linked file is unavailable and you only need the chart's last stored data. This is different from reconstructing a workbook using the recovery option below.
+
+| Object | Cached accessor |
+| --- | --- |
+| Ordinary series data point | [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedvalue/) |
+| Scatter or bubble data point | [CachedXValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedxvalue/), [CachedYValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedyvalue/) |
+| Bubble data point | [CachedBubbleSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedbubblesize/) |
+| Chart category | [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/cachedvalue/) |
+
+Each accessor returns [ICachedChartValue](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/). [Data](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/data/) exposes the stored object; [ToString](https://reference.aspose.com/slides/net/aspose.slides.charts/cachedchartvalue/tostring/) provides text; [ToDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/todouble/) returns `NaN` for an absent or nonnumeric value. A cache can be missing or stale, including on a newly created chart that has not been saved. Do not assume that every field exists or contains a number.
+
+This example reads all those fields from `cached-chart.pptx`, a saved presentation containing charts. A missing external workbook is acceptable because the code does not access [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) or live workbook cells.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation("cached-chart.pptx");
+foreach (var slide in presentation.Slides)
+foreach (var shape in slide.Shapes)
+{
+    if (shape is not IChart chart)
+        continue;
+
+    foreach (var category in chart.ChartData.Categories)
+        PrintCache("Category", category.CachedValue);
+
+    foreach (var series in chart.ChartData.Series)
+    foreach (var point in series.DataPoints)
+    {
+        PrintCache("Value", point.CachedValue);
+        PrintCache("X", point.CachedXValue);
+        PrintCache("Y", point.CachedYValue);
+        PrintCache("Bubble size", point.CachedBubbleSize);
+    }
+}
+
+static void PrintCache(string name, ICachedChartValue value)
+{
+    var number = value.ToDouble();
+    if (value.Data == null)
+        Console.WriteLine($"{name}: no cached value");
+    else if (double.IsNaN(number))
+        Console.WriteLine($"{name}: {value} (not numeric)");
+    else
+        Console.WriteLine($"{name}: {number}");
+}
+```
+
+Use refresh when you need current source data; use cached reads when the stored snapshot is sufficient. The cache is not a complete copy of the workbook and cannot supply changes made after it was last updated.
+
 ### **Recover a Workbook from the Chart Cache**
 
 If a chart uses an external workbook that is missing or unavailable, Aspose.Slides can reconstruct the chart workbook from the data cached in the presentation. Create [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), configure its [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/), and set [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) to `true` before opening the presentation.
@@ -564,7 +658,7 @@ else
 }
 ```
 
-If the external workbook is unavailable and recovery is disabled, Aspose.Slides throws an [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Enable recovery only when using the cached chart data is an acceptable fallback, because the cache may not contain changes made to the external workbook after the presentation was last updated.
+If code accesses the external workbook while it is unavailable and recovery is disabled, Aspose.Slides throws an [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Enable recovery only when using the cached chart data is an acceptable fallback, because the cache may not contain changes made to the external workbook after the presentation was last updated.
 
 ## **FAQ**
 
