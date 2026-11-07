@@ -1,6 +1,6 @@
 ---
 title: Prezentációk tömörítése
-description: Csökkentse a prezentáció méretét képtömörítéssel és mentse a beállításokat.
+description: Csökkentse a prezentáció méretét a képek tömörítésével és a nem használt tartalom eltávolításával.
 type: docs
 url: /hu/features/compress-presentations/
 weight: 250
@@ -9,66 +9,50 @@ feature_group: operations
 translationKey: slides-feature-compress-presentations
 feature_catalogue_version: 3
 feature_guides:
+- /slides/net/low-code-presentation-operations/
 - /slides/net/image/
 ---
 ## **Áttekintés**
 
-Tömörítse a képeket, távolítsa el a már nem szükséges levágott képrészleteket, és válasszon prezentációs tömörítési beállításokat a mentés előtt. Ez nagy fényképeket vagy ismétlődő médiát tartalmazó diák esetében hasznos. A megtakarított mennyiség a tartalomtól és a választott beállításoktól függ.
+Tömörítse a képeket, távolítsa el a levágott képrészeket, ha már nincs rájuk szükség, és válasszon prezentációs tömörítési beállításokat a mentés előtt. Ez hasznos nagy fényképeket vagy ismétlődő médiát tartalmazó diaképek esetén. A megtakarított mennyiség a tartalomtól és a választott beállításoktól függ.
 
 ## **Használati példa**
 
-Ez a C# példa az Aspose.Slides for .NET-et használja. Láthatóan egy 1600 × 900 pixeles gradient PNG-t hoz létre, beilleszti egy kis képkeretbe, és menti a *before.pptx* fájlt. Ezután a képet 96 DPI célfelbontásra tömöríti, és menti a *compressed.pptx* fájlt. Hasonlítsa össze a két fájl méretét és előnézetét: a megtakarítás a bemeneti képtől és a megjelenített mérettől függ.
+Ez a C# példa betölti a `input.pptx` fájlt, tömöríti a prezentációt, és elmenti `compressed.pptx` néven.
 
-A beállításhoz tekintse meg a [Telepítse az Aspose.Slides for .NET-et](/slides/hu/net/installation/).
+Használja az Aspose.Slides for .NET 26.11 vagy újabb verziót. A beállításhoz lásd a [Aspose.Slides for .NET telepítése](/slides/hu/net/installation/).
 
 ```csharp
-using System;
-using System.Drawing;
-using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-using (var bitmap = new Bitmap(1600, 900))
-{
-    for (var y = 0; y < bitmap.Height; y++)
-        for (var x = 0; x < bitmap.Width; x++)
-            bitmap.SetPixel(x, y, Color.FromArgb(x % 256, y % 256, (x + y) % 256));
-    bitmap.Save("large.png", System.Drawing.Imaging.ImageFormat.Png);
-}
-using var presentation = new Presentation();
-var title = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 500, 60);
-title.TextFrame.Text = "Photo";
-var bytes = File.ReadAllBytes("large.png");
-var image = presentation.Images.AddImage(bytes);
-var picture = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 40, 120, 240, 135, image);
-presentation.Save("before.pptx", SaveFormat.Pptx);
-var compressed = picture.PictureFormat.CompressImage(true, 96f);
-Console.WriteLine($"Picture compressed: {compressed}");
+using var presentation = new Presentation("input.pptx");
+Compress.CompressPresentation(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
-using var preview = presentation.Slides[0].GetImage(1f, 1f);
-preview.Save("compressed.png", ImageFormat.Png);
 ```
 
 ## **GYIK**
 
-### **Ez egyetlen, teljes fájlra vonatkozó optimalizációs kapcsoló?**
+### **Ez egy egységes, egész fájlt érintő optimalizációs kapcsoló?**
 
-Az Aspose.Slides for .NET 26.11 hozzáadja a [Compress.CompressPresentation](/slides/hu/net/low-code-presentation-operations/#compress-the-whole-presentation) funkciót, amely egyesíti a nem használt elrendezés/mester eltávolítását, a beágyazott betűkészletek alhalmazolását és a 150 DPI-os kép tömörítést. Tartósan eltávolítja a levágott képterületeket. Képek csak feldolgozásához használja a Compress.CompressImages‑t; finomabb vezérléshez tartsa meg a fent említett képenkénti munkafolyamatot. Ezek az új segédfüggvények a megadott .NET verzióra vonatkoznak; ellenőrizze a megfelelő útmutatót más SDK‑khoz.
+Az Aspose.Slides for .NET 26.11 hozzáadja a [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/), amely egyesíti a nem használt elrendezés/mester eltávolítást, a beágyazott betűkészlet részhalmazosítását és a 150 DPI‑s kép tömörítést. Véglegesen eltávolítja a levágott képrészeket. Kép‑csak feldolgozáshoz használja a [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/); finomabb vezérléshez tekintse meg az [egyes kép tömörítési példát](/slides/hu/net/examples/optimization-batch/compression/). Ezek az új segédfüggvények az adott .NET verzióra jellemzők; más SDK‑k esetén nézze meg a megfelelő útmutatót.
 
-### **A kép tömörítése módosítja a szerkeszthető szöveget vagy diagramokat?**
+### **A kép tömörítése megváltoztatja a szerkeszthető szöveget vagy diagramokat?**
 
-A kép tömörítése a képadatokra irányul, nem a szerkeszthető szövegre vagy diagram adatokra. Ellenőrizze a képeket, mivel az átméretezés vagy újratömörítés csökkentheti a részletességet.
+A kép tömörítése a képadatokra vonatkozik, nem a szerkeszthető szövegre vagy diagram adatokra. Ellenőrizze a képeket, mivel az átméretezés vagy újbóli tömörítés csökkentheti azok részletességét.
 
-### **Hogyan válasszak felbontást a prezentációs képekhez?**
+### **Hogyan válasszam ki a felbontást a prezentációs képekhez?**
 
-Válasszon célt a megjelenített kép mérete és a tervezett képernyő- vagy nyomtatási használat alapján. Nagy kijelzők, nyomtatás és részletes diagramok esetén tartson meg több felbontást, és hasonlítsa össze a megjelenített kimenetet, mielőtt eldobná az eredetit.
+Válasszon célt a megjelenített kép mérete és a kívánt képernyő vagy nyomtatási használat alapján. Nagy kijelzőkhöz, nyomtatáshoz és részletes diagramokhoz tartson meg több felbontást, és hasonlítsa össze a megjelenített eredményt, mielőtt eldobná az eredetit.
 
 ## **Útmutatók**
 
-- [Képkezelés optimalizálása a prezentációkban .NET-ben](/slides/hu/net/image/)
+- [A teljes prezentáció tömörítése .NET-ben](/slides/hu/net/low-code-presentation-operations/#compress-the-whole-presentation)
+- [Képkezelés optimalizálása prezentációkban .NET-ben](/slides/hu/net/image/)
 
 Kapcsolódó funkció: [Használaton kívüli mesterek, elrendezések és média eltávolítása](/slides/hu/features/remove-unused-content/).
 
-## Futtatható .NET példák
+## Futtható .NET példák
 
 - [Prezentáció méretének csökkentése](/slides/hu/net/examples/optimization-batch/compression/)
