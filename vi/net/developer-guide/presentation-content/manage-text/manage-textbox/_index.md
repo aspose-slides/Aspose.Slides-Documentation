@@ -1,5 +1,5 @@
 ---
-title: Quản lý Hộp Văn Bản trong Bản Trình chiếu trên .NET
+title: Quản lý các hộp văn bản trong bản trình chiếu trên .NET
 linktitle: Quản lý Hộp Văn Bản
 type: docs
 weight: 20
@@ -18,19 +18,19 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tạo, xác định, định dạng và cập nhật hộp văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho .NET."
+description: "Tạo, nhận dạng, định dạng và cập nhật các hộp văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho .NET."
 ---
 ## **Giới thiệu**
 
-Trong Aspose.Slides for .NET, văn bản trên slide được lưu trong các khung văn bản thuộc về các hình dạng. Giao diện [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) đại diện cho hình dạng chứa văn bản phổ biến nhất và cung cấp văn bản của nó thông qua thuộc tính [IAutoShape.TextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/textframe/).
+Trong Aspose.Slides for .NET, văn bản trên slide được lưu trong các khung văn bản thuộc về các hình dạng. Giao diện [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) đại diện cho hình dạng chứa văn bản phổ biến nhất và cung cấp văn bản của nó thông qua thuộc tính [IAutoShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/).
 
 {{% alert color="info" title="Note" %}}
-Mỗi hình tự động đều thực hiện [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/), nhưng không phải mọi hình đều là hình tự động hoặc hỗ trợ khung văn bản. Khi xử lý một bản trình chiếu hiện có, hãy kiểm tra xem một hình có thực hiện `IAutoShape` hay không trước khi truy cập văn bản của nó.
+Mỗi auto shape thực hiện [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), nhưng không phải mọi shape đều là auto shape hoặc hỗ trợ khung văn bản. Khi xử lý một bản trình chiếu hiện có, hãy kiểm tra xem một shape có thực hiện `IAutoShape` hay không trước khi truy cập vào văn bản của nó.
 {{% /alert %}}
 
 ## **Tạo một Hộp Văn Bản trên Slide**
 
-Để tạo một hộp văn bản, thêm một hình tự động vào slide, thêm văn bản vào khung văn bản của nó và lưu bản trình chiếu. Ví dụ sau tạo một hộp văn bản hình chữ nhật:
+Để tạo một hộp văn bản, thêm một auto shape vào slide, thêm văn bản vào khung văn bản của nó và lưu bản trình chiếu. Ví dụ sau tạo một hộp văn bản hình chữ nhật:
 
 ```csharp
 using Aspose.Slides;
@@ -44,15 +44,15 @@ textBox.AddTextFrame("Aspose TextBox");
 presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-Các tọa độ và kích thước được truyền vào [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection/addautoshape/) được đo bằng điểm. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/addtextframe/) khởi tạo khung văn bản với văn bản được cung cấp.
+Các tọa độ và kích thước truyền vào [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/) được đo bằng điểm. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) khởi tạo khung văn bản với văn bản được cung cấp.
 
-## **Kiểm tra Hình Hộp Văn Bản**
+## **Kiểm tra Hình dạng Hộp Văn Bản**
 
-Sử dụng thuộc tính [AutoShape.IsTextBox](https://reference.aspose.com/slides/vi/net/aspose.slides/autoshape/istextbox/) để xác định xem một hình tự động có được coi là hộp văn bản hay không. Điều này hữu ích khi một bản trình chiếu chứa cả các hình tự động có văn bản và các hình tự động chỉ có đồ họa.
+Sử dụng thuộc tính [AutoShape.IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) để xác định xem một auto shape có được coi là hộp văn bản hay không. Điều này hữu ích khi một bản trình chiếu chứa cả các auto shape chứa văn bản và các auto shape chỉ là đồ họa.
 
 ![Một hộp văn bản và một hình dạng](istextbox.png)
 
-Ví dụ sau kiểm tra mọi hình tự động trong một bản trình chiếu:
+Ví dụ sau kiểm tra mọi auto shape trong một bản trình chiếu:
 
 ```csharp
 using System;
@@ -76,7 +76,7 @@ foreach (var currentSlide in presentation.Slides)
 }
 ```
 
-Một hình tự động mới được thêm vào sẽ không được xem là hộp văn bản cho đến khi nó chứa văn bản không rỗng. Bạn có thể cung cấp văn bản đó thông qua [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/addtextframe/) hoặc [ITextFrame.Text](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/text/). Thêm hoặc gán một chuỗi rỗng sẽ để `IsTextBox` ở trạng thái `false`:
+Một auto shape mới được thêm vào không được coi là hộp văn bản cho đến khi nó chứa văn bản không rỗng. Bạn có thể cung cấp văn bản đó thông qua [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) hoặc [ITextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/itextframe/text/). Thêm hoặc gán một chuỗi rỗng sẽ để `IsTextBox` là `false`:
 
 ```csharp
 using System;
@@ -102,19 +102,57 @@ shape4.TextFrame.Text = "";
 Console.WriteLine(shape4.IsTextBox);
 ```
 
-Hai lời gọi đầu tiên in ra `True`; hai lời gọi cuối in ra `False`.
+Hai lời gọi đầu tiên in ra `True`; hai lời gọi cuối cùng in ra `False`.
 
-## **Tìm Hình Sở Hữu Khung Văn Bản**
+## **Tìm Hình dạng Sở hữu Khung Văn Bản**
 
-Mã xử lý văn bản chung có thể nhận một [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) mà không biết đối tượng bản trình chiếu nào chứa nó. Hãy sử dụng thuộc tính chỉ đọc [ITextFrame.ParentShape](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/parentshape/) để quay lại hình sở hữu [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/).
+Mã xử lý văn bản chung có thể nhận được một [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) mà không biết đối tượng trình chiếu nào chứa nó. Sử dụng thuộc tính chỉ đọc [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) để điều hướng trở lại [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) sở hữu nó.
 
-Đối với khung văn bản được sở hữu bởi một hình tự động hoặc một hình dạng khác chứa văn bản, `ParentShape` chứa chủ sở hữu và [ITextFrame.ParentCell](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/parentcell/) có giá trị `null`. Kiểm tra giá trị trả về trước khi truy cập. Để xác định cả chủ sở hữu hình và ô bảng, bao gồm các hình liên kết với nút SmartArt, xem [Tìm và Thay Thế Văn Bản](/slides/vi/net/search-and-replace-text/).
+Đối với một khung văn bản thuộc sở hữu của auto shape hoặc một hình dạng chứa văn bản khác, `ParentShape` chứa chủ sở hữu và [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) là `null`. Kiểm tra giá trị trả về trước khi truy cập. Để xác định cả chủ sở hữu hình dạng và ô bảng, bao gồm các hình dạng liên kết với nút SmartArt, hãy xem [Search and Replace Text](/slides/vi/net/search-and-replace-text/).
+
+## **Lấy Hình chữ nhật Văn bản của Hình dạng**
+
+Bắt đầu với Aspose.Slides for .NET 26.11, [ITextFrame.GetTextRect](https://reference.aspose.com/slides/net/aspose.slides/itextframe/gettextrect/) trả về vùng văn bản được định nghĩa bởi hình học của hình cha. Các tọa độ và kích thước của nó được tính bằng điểm, so với góc trên‑trái của hình đó. Ví dụ, một hình ellipse có hình chữ nhật văn bản nhỏ hơn so với giới hạn bên ngoài của nó.
+
+Hình chữ nhật này mô tả hình dạng, không phải các ký tự đã được vẽ. Thay đổi văn bản hoặc lề của khung văn bản không làm cho nó trở thành phép đo của văn bản đã chiếm. Sử dụng [paragraph bounds](/slides/vi/net/paragraph-bounds/) hoặc [portion bounds](/slides/vi/net/portion-bounds/) để đo kích thước văn bản đã được vẽ.
+
+Sau khi [installing Aspose.Slides for .NET](/slides/vi/net/installation/) 26.11 hoặc mới hơn, chạy ví dụ này để vẽ hình chữ nhật văn bản hình học bằng màu đỏ. Các hình không được xoay và không được nhóm, vì vậy việc cộng vị trí X/Y của chúng đủ để đặt lớp phủ lên slide.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+foreach (var shapeType in new[] { ShapeType.Rectangle, ShapeType.Ellipse })
+{
+    var x = shapeType == ShapeType.Rectangle ? 50 : 300;
+    var shape = slide.Shapes.AddAutoShape(shapeType, x, 200, 200, 100);
+    shape.AddTextFrame("Text area");
+    var rectangle = shape.TextFrame.GetTextRect();
+    Console.WriteLine($"{shapeType}: {rectangle}");
+
+    var overlayX = shape.X + rectangle.X;
+    var overlayY = shape.Y + rectangle.Y;
+    var outline = slide.Shapes.AddAutoShape(ShapeType.Rectangle, overlayX, overlayY, rectangle.Width, rectangle.Height);
+    outline.FillFormat.FillType = FillType.NoFill;
+    outline.LineFormat.FillFormat.FillType = FillType.Solid;
+    outline.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+}
+
+presentation.Save("text-rectangles.pptx", SaveFormat.Pptx);
+```
+
+Đối với các hình 200 × 100 điểm ở trên, hình chữ nhật trả về `(0, 0, 200, 100)`; ellipse trả về khoảng `(29.289, 14.645, 141.421, 70.711)`. Phương thức này cũng đọc hình chữ nhật văn bản được khai báo của hình học tùy chỉnh. Nó không áp dụng việc xoay không gian slide hoặc biến đổi nhóm; hãy tính đến chúng riêng khi định vị lớp phủ. Một khung văn bản không có hình học, như khung văn bản ô bảng, có thể gây ra `InvalidOperationException`.
 
 ## **Thêm Cột vào Hộp Văn Bản**
 
-Thuộc tính [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/columncount/) chia khung văn bản thành các cột, trong khi [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/columnspacing/) thiết lập khoảng cách giữa các cột bằng điểm. Cả hai thiết lập này thuộc về [ITextFrameFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/) và có thể thay đổi thông qua khung văn bản của một hộp văn bản hiện có. Văn bản được sắp lại giữa các cột trong cùng một hình; nó không tiếp tục sang hình khác.
+Thuộc tính [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/) chia khung văn bản thành các cột, trong khi [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/) đặt khoảng cách giữa các cột tính bằng điểm. Cả hai thiết lập này thuộc về [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/) và có thể thay đổi thông qua khung văn bản của một hộp văn bản hiện có. Văn bản được luân chuyển lại giữa các cột trong cùng một hình dạng; nó không tiếp tục sang một hình dạng khác.
 
-Ví dụ sau tạo một hộp văn bản ba cột với khoảng cách 10 điểm giữa các cột, lưu bản trình chiếu và đọc lại các cài đặt đã lưu từ tệp kết quả:
+Ví dụ sau tạo một hộp văn bản ba cột với 10 điểm giữa các cột, lưu bản trình chiếu, và đọc lại các thiết lập đã lưu từ tệp xuất:
 
 ```csharp
 using System;
@@ -138,20 +176,18 @@ var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
 Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
-## **Trích xuất Văn Bản từ Các Cột Riêng Lẻ**
+## **Trích xuất Văn bản từ Các Cột Riêng Lẻ**
 
-Sử dụng [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/vi/net/aspose.slides/textframe/splittextbycolumns/) để lấy văn bản được gán cho mỗi cột hiển thị trong một khung văn bản hiện có. Phương thức trả về một chuỗi cho mỗi cột, theo thứ tự đọc dựa trên cột. Một khung văn bản một cột tạo ra một mảng với một phần tử, và một cột rỗng được biểu diễn bằng một chuỗi rỗng. Các chuỗi chỉ chứa văn bản thuần; định dạng cấp phần không được bảo lưu.
+Sử dụng [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/net/aspose.slides/textframe/splittextbycolumns/) để lấy văn bản được gán cho mỗi cột nhìn thấy trong một khung văn bản hiện có. Phương thức này trả về một chuỗi cho mỗi cột, theo thứ tự đọc dựa trên cột. Một khung văn bản một cột sẽ tạo một mảng chứa một phần tử, và một cột trống được biểu diễn bằng một chuỗi rỗng. Các chuỗi chỉ chứa văn bản thuần; định dạng cấp phần không được giữ lại.
 
-Điều này hữu ích khi bạn cần:
+- Trích xuất văn bản trong khi duy trì thứ tự đọc dựa trên cột.
+- Lập chỉ mục hoặc so sánh nội dung của các slide đa cột.
+- Xuất mỗi cột ra một tệp riêng, trường cơ sở dữ liệu, hoặc đích khác.
+- Kiểm tra cách văn bản được phân phối lại sau khi thay đổi [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/), phông chữ hoặc kích thước khung văn bản.
 
-- Trích xuất văn bản đồng thời bảo lưu thứ tự đọc dựa trên cột.
-- Đánh chỉ mục hoặc so sánh nội dung của các slide đa cột.
-- Xuất mỗi cột ra một tệp riêng, trường cơ sở dữ liệu hoặc đích khác.
-- Kiểm tra cách văn bản được phân phối lại sau khi thay đổi [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/columnspacing/), phông chữ hoặc kích thước khung văn bản.
+Phương thức này báo cáo văn bản được phân phối trong [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) hiện tại; nó không tự động chuyển văn bản giữa các hình dạng hoặc hộp văn bản riêng biệt. Phân phối cột có thể phụ thuộc vào phông chữ có sẵn và các cài đặt bố cục văn bản khác, vì vậy hãy chắc chắn rằng các phông chữ cần thiết có sẵn khi kết quả nhất quán là quan trọng.
 
-Phương thức báo cáo văn bản phân phối trong [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) hiện tại; nó không tự động chuyển văn bản giữa các hình hoặc hộp văn bản riêng biệt. Phân phối cột có thể phụ thuộc vào phông chữ có sẵn và các thiết lập bố cục văn bản khác, vì vậy hãy đảm bảo các phông chữ cần thiết có sẵn khi kết quả nhất quán là quan trọng.
-
-Ví dụ sau tải một bản trình chiếu, tìm hình tự động đa cột đầu tiên có khung văn bản, đọc số cột đã cấu hình và ghi văn bản từ mỗi cột ra một tệp riêng. Các hình không cung cấp khung văn bản sẽ bị bỏ qua.
+Ví dụ sau tải một bản trình chiếu, tìm auto shape đa cột đầu tiên có khung văn bản, đọc số cột đã cấu hình, và ghi văn bản từ mỗi cột vào một tệp riêng. Các hình không có khung văn bản sẽ bị bỏ qua.
 
 ```csharp
 using System;
@@ -196,11 +232,9 @@ else
 }
 ```
 
-## **Cập nhật Văn Bản**
+## **Cập nhật Văn bản**
 
-Để cập nhật văn bản trong toàn bộ bản trình chiếu, lặp qua các slide và hình dạng, chọn các hình tự động, sau đó chỉnh sửa các phần văn bản của chúng. Làm việc ở mức phần cho phép bạn thay đổi cả văn bản và định dạng ký tự.
-
-Ví dụ sau thay thế mọi lần xuất hiện của `years` bằng `months` trong văn bản của hình tự động và làm in đậm mỗi phần bị ảnh hưởng:
+Để cập nhật văn bản trong toàn bộ bản trình chiếu, lặp qua các slide và hình dạng, chọn các auto shape, sau đó chỉnh sửa các phần văn bản của chúng. Làm việc ở mức phần cho phép bạn thay đổi cả văn bản và định dạng ký tự.
 
 ```csharp
 using Aspose.Slides;
@@ -231,13 +265,11 @@ foreach (var slide in presentation.Slides)
 presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-Quá trình duyệt này chỉ cập nhật văn bản trong các hình tự động. Văn bản được lưu trong bảng, biểu đồ, SmartArt hoặc các hình nhóm yêu cầu duyệt các bộ sưu tập riêng của các đối tượng đó.
+Quá trình duyệt này chỉ cập nhật văn bản trong các auto shape. Văn bản lưu trong bảng, biểu đồ, SmartArt hoặc các hình dạng được nhóm yêu cầu duyệt qua các bộ sưu tập riêng của các đối tượng đó.
 
-## **Thêm Hộp Văn Bản với Siêu Liên Kết**
+## **Thêm Hộp Văn Bản với Siêu liên kết**
 
-Một siêu liên kết có thể được gán cho một phần văn bản cụ thể, vì vậy chỉ phần văn bản đó sẽ hoạt động như một liên kết có thể nhấp. Sử dụng [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) để liên kết phần đó với một URL bên ngoài.
-
-Ví dụ sau tạo văn bản có liên kết và lưu nó vào một bản trình chiếu:
+Một siêu liên kết có thể được gán cho một phần văn bản cụ thể, do đó chỉ văn bản đó hoạt động như liên kết có thể nhấp. Sử dụng [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) để liên kết phần đó với URL bên ngoài.
 
 ```csharp
 using Aspose.Slides;
@@ -254,12 +286,12 @@ textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://ww
 presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**What is the difference between a text box and a text placeholder on a master or layout slide?**
+**Sự khác biệt giữa hộp văn bản và trình giữ chỗ văn bản trên slide master hoặc layout là gì?**
 
-Một [placeholder](/slides/vi/net/manage-placeholder/) có thể kế thừa vị trí và định dạng từ một [master slide](https://reference.aspose.com/slides/vi/net/aspose.slides/masterslide/) hoặc [layout slide](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutslide/). Một hộp văn bản thông thường là một hình độc lập trên slide nơi nó được tạo và không nhận hành vi của trình giữ chỗ khi bố cục thay đổi.
+Một [placeholder](/slides/vi/net/manage-placeholder/) có thể kế thừa vị trí và định dạng từ một [master slide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) hoặc [layout slide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/). Một hộp văn bản thông thường là một hình dạng độc lập trên slide nơi nó được tạo và không nhận hành vi của trình giữ chỗ khi layout thay đổi.
 
-**How can I replace text without changing text in charts, tables, or SmartArt?**
+**Làm sao tôi có thể thay thế văn bản mà không thay đổi văn bản trong biểu đồ, bảng hoặc SmartArt?**
 
-Hạn chế việc duyệt chỉ các hình dạng thực hiện [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/), như đã trình bày trong ví dụ Cập nhật Văn Bản. Các biểu đồ, bảng và SmartArt lưu văn bản trong mô hình đối tượng riêng của chúng, vì vậy chúng sẽ không bị thay đổi bởi vòng lặp đó.
+Giới hạn quá trình duyệt chỉ tới các hình dạng thực hiện [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), như đã minh họa trong ví dụ Cập nhật Văn bản. Biểu đồ, bảng và SmartArt lưu văn bản trong mô hình đối tượng riêng của chúng, vì vậy chúng không bị thay đổi bởi vòng lặp đó.

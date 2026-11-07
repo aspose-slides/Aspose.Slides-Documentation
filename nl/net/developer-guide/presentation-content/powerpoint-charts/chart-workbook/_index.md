@@ -1,14 +1,14 @@
 ---
-title: Beheer grafiek-werkboeken in presentaties in .NET
-linktitle: Grafiek-werkboek
+title: Beheer grafiekwerkboeken in presentaties in .NET
+linktitle: Grafiekwerkboek
 type: docs
 weight: 70
 url: /nl/net/chart-workbook/
 keywords:
-- grafiek-werkboek
+- grafiekwerkboek
 - grafiekgegevens
-- werkbladcel
-- gegevenslabel
+- werkboekcel
+- datalabel
 - werkblad
 - gegevensbron
 - extern werkboek
@@ -20,31 +20,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ontdek Aspose.Slides voor .NET: beheer moeiteloos grafiek-werkboeken in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
+description: "Ontdek Aspose.Slides voor .NET: beheer moeiteloos grafiekwerkboeken in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u met grafiek‑werkbladen in Aspose.Slides kunt werken. Het toont hoe u grafiekgegevens kunt lezen en schrijven via werkblad‑streams, werkbladcellen kunt gebruiken als gegevenslabels, toegang krijgt tot werkbladcollecties en het gegevenstype voor grafiekwaarden kunt opgeven.
+Dit artikel legt uit hoe u met grafiek‑werkboeken werkt in Aspose.Slides. Het toont hoe u grafiekgegevens kunt lezen en schrijven via werkboek‑streams, werkboekcellen kunt gebruiken als grafiekdatalabels, toegang krijgt tot werkbladcollecties en het type gegevensbron voor grafiekwaarden kunt opgeven.
 
-Het behandelt ook het gebruik van externe werkbladen als gegevensbron voor grafieken. De voorbeelden laten zien hoe u een extern werkblad maakt en toewijst, het pad van een extern werkblad dat aan een grafiek is gekoppeld opvraagt, en grafiekgegevens bewerkt wanneer het werkblad beschikbaar is.
+Het behandelt ook het werken met externe werkboeken als gegevensbron voor grafieken. De voorbeelden laten zien hoe u een extern werkboek maakt en toewijst, het pad van een extern werkboek opvraagt dat aan een grafiek is gekoppeld, en grafiekgegevens bewerkt wanneer het werkboek beschikbaar is.
 
-Voor werkbladcellen die ontbrekende gegevens vertegenwoordigen, zie [De weergave van lege cellen regelen](/slides/nl/net/chart-series/) voor het verschil tussen een lege cel en nul, en een lijngrafiek‑vergelijking van de beschikbare weergavemodi.
+Voor werkboekcellen die ontbrekende gegevens vertegenwoordigen, zie [Controleer de weergave van lege cellen](/slides/nl/net/chart-series/) voor het verschil tussen een lege cel en nul, en een lijngrafiekvergelijking van de beschikbare weergavemodi.
 
-## **Gegevens van verborgen rijen en kolommen opnemen**
+## **Gegevens opnemen van verborgen rijen en kolommen**
 
-Gebruik [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) om te bepalen of een grafiek gegevens plot uit verborgen werkbladrijen en -kolommen. Stel in op `true` om alleen zichtbare cellen te plotten, of op `false` om zowel zichtbare als verborgen cellen op te nemen. Deze instelling beïnvloedt alleen het plotten van de grafiek; hij verbergt of maakt geen verborgen rijen of kolommen zichtbaar.
+Gebruik [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) om te bepalen of een grafiek gegevens plot vanuit verborgen werkblad‑rijen en -kolommen. Stel in op `true` om alleen zichtbare cellen te plotten, of op `false` om zowel zichtbare als verborgen cellen op te nemen. Deze instelling beïnvloedt alleen het plotten van de grafiek; hij verbergt of toont geen werkblad‑rijen of -kolommen.
 
-De [voorbeeldpresentatie](hidden-source-data.pptx) bevat een kolomgrafiek als eerste vorm op de eerste dia. Het ingebedde werkblad, `Sheet1`, bevat het volgende bronbereik, `A1:C4`. Rij 3 en kolom C zijn verborgen, maar hun cellen bevatten nog steeds waarden.
+De [voorbeeldpresentatie](hidden-source-data.pptx) bevat een kolomgrafiek als het eerste object op de eerste dia. Het ingebedde werkblad, `Sheet1`, bevat het bronbereik `A1:C4`. Rij 3 en kolom C zijn verborgen, maar hun cellen bevatten nog steeds waarden.
 
-| Werkbladrij | A: Maand | B: Detailhandel | C: Groothandel (verborgen kolom) |
+| Werkblad‑rij | A: Maand | B: Retail | C: Wholesale (verborgen kolom) |
 | --- | --- | --- | --- |
-| 2 | januari | 10 | 30 |
-| 3 (verborgen rij) | februari | 40 | 60 |
-| 4 | maart | 20 | 50 |
+| 2 | January | 10 | 30 |
+| 3 (verborgen rij) | February | 40 | 60 |
+| 4 | March | 20 | 50 |
 
-Toegang tot broncellen via [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) en lees [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) om hun verborgen status te inspecteren. Deze eigenschap is alleen‑lezend. In dit bestand is B2 zichtbaar, B3 behoort tot de verborgen rij en C2 tot de verborgen kolom; het voorbeeld print respectievelijk `False`, `True` en `True`.
+Toegang tot broncellen via [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) en lees [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) om de verborgen status te inspecteren. Deze eigenschap is alleen‑lezen. In dit bestand is B2 zichtbaar, B3 behoort tot de verborgen rij en C2 tot de verborgen kolom; het voorbeeld geeft respectievelijk `False`, `True` en `True` weer.
 
-Voor dit voorbeeld moet u de grafiekgegevens vernieuwen nadat u de plot‑instelling hebt gewijzigd: behoud het ingebedde werkblad met [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) en laad het opnieuw met [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). Wanneer u alle cellen opneemt, gebruik dan ook [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) om het volledige bereik te herstellen, inclusief de verborgen februari‑categorie. Alleen de vlag wijzigen is onvoldoende om de in het voorbeeld gecachte grafiekgegevens en categorielabels te vernieuwen.
+Voor dit voorbeeld moet u de grafiekgegevens vernieuwen nadat u de plot‑instelling hebt gewijzigd: behoud het ingebedde werkboek met [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) en laad het opnieuw met [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). Wanneer u alle cellen opneemt, gebruik dan ook [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) om het volledige bereik te herstellen, inclusief de verborgen februari‑categorie. Alleen de vlag wijzigen is niet voldoende om de in‑cache grafiekgegevens en categoriëlables van dit voorbeeld te verversen.
 
 ```csharp
 using System;
@@ -67,7 +67,7 @@ if (slide.Shapes[0] is IChart chart)
     {
         chart.PlotVisibleCellsOnly = visibleOnly;
 
-        // Vernieuw de grafiekgegevens van het ingebedde werkboek.
+        // Ververs de grafiekgegevens vanuit het ingebedde werkboek.
         workbookStream.Position = 0;
         chart.ChartData.WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
@@ -85,21 +85,21 @@ else
 }
 ```
 
-Het voorbeeld slaat twee versies van de presentatie op: één met alleen de zichtbare detailhandelwaarden (10 en 20) en één met alle zes waarden. De afbeeldingen hieronder zijn gerenderd vanuit de opgeslagen presentaties na het opnieuw openen; beide bestanden behouden hun ingestelde plot‑optie. Rij 3 en kolom C blijven verborgen in beide ingebedde werkbladen.
+Het voorbeeld slaat twee versies van de presentatie op: één met alleen de zichtbare retail‑waarden (10 en 20) en één met alle zes waarden. De onderstaande afbeeldingen zijn gerenderd vanuit de opgeslagen presentaties na het heropenen; beide bestanden behouden hun toegewezen plot‑instelling. Rij 3 en kolom C blijven verborgen in beide ingebedde werkboeken.
 
 | Alleen zichtbare cellen (`true`) | Alle cellen (`false`) |
 | --- | --- |
-| ![Alleen zichtbare cellen: detailhandelwaarden 10 en 20 voor januari en maart.](hidden_cells_True.png) | ![Alle cellen: detailhandel‑ en groothandelwaarden voor januari, februari en maart.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-Een verborgen cel met een waarde verschilt van een lege cel. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) bepaalt hoe ontbrekende waarden worden weergegeven; hij neemt geen verborgen brongegevens op of sluit ze uit. Zie [De weergave van lege cellen regelen](/slides/nl/net/chart-series/#control-the-display-of-empty-cells) voor een voorbeeld.
+Een verborgen cel met een waarde is anders dan een lege cel. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) bepaalt hoe ontbrekende waarden worden weergegeven; het omvat of sluit geen verborgen brongegevens uit. Zie [Controleer de weergave van lege cellen](/slides/nl/net/chart-series/#control-the-display-of-empty-cells) voor een voorbeeld.
 
 ## **Het gegevensbereik van een grafiek ophalen**
 
-Voordat u werkbladgegevens in een bestaande presentatie bijwerkt, inspecteert u de bronbereiken om te bepalen welke werkbladcellen elke grafiek gebruikt. De methode [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) retourneert het huidige gegevensbereik als een werkblad‑gekwalificeerde formule, bijvoorbeeld `Sheet1!$A$1:$D$5`. Hier is `Sheet1` de werkbladnaam, `!` scheidt deze van het celbereik, en `$A$1:$D$5` duidt de cellen A1 tot en met D5 aan, inclusief. De dollartekens geven absolute rij‑ en kolomreferenties aan.
+Voordat u werkboekgegevens bijwerkt in een bestaande presentatie, inspecteert u de bronbereiken om te bepalen welke werkbladcellen elke grafiek gebruikt. De methode [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) retourneert het huidige gegevensbereik als een werkblad‑gekwalificeerde formule, bijvoorbeeld `Sheet1!$A$1:$D$5`. Hier is `Sheet1` de werkbladnaam, `!` scheidt deze van het celbereik, en `$A$1:$D$5` identificeert de cellen A1 tot en met D5, inclusief. De dollartekens geven absolute rij‑ en kolomreferenties aan.
 
-De methode leest het huidige bereik zonder de grafiek of het werkblad te wijzigen. Als de grafiek geen werkblad als gegevensbron gebruikt, wordt een [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) opgegooid. Zie voor meer informatie de [ChartData API‑referentie](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
+De methode leest het huidige bereik zonder de grafiek of het werkboek te wijzigen. Als de grafiek geen werkboek als gegevensbron gebruikt, wordt een [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) opgegooid. Voor meer informatie, zie de [ChartData API‑referentie](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
 
-Dit voorbeeld opent een presentatie en controleert de vormen direct op elke dia op grafieken. Het print de naam en het bronbereik van elke grafiek. Als een grafiek geen werkblad gebruikt, wordt een bericht geprint en wordt doorgaan met de volgende grafiek.
+Dit voorbeeld opent een presentatie en controleert de objecten direct op elke dia op grafieken. Het toont de naam en het bronbereik van elke grafiek. Als een grafiek geen werkboek gebruikt, geeft het een bericht weer en gaat verder met de volgende grafiek.
 
 ```csharp
 using System;
@@ -128,11 +128,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **Grafiekgegevens lezen en schrijven vanuit een werkblad**
+## **Grafiekgegevens lezen en schrijven vanuit een werkboek**
 
-Aspose.Slides for .NET biedt de methoden [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) en [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) waarmee u grafiek‑werkbladen (die grafiekgegevens bevatten die met Aspose.Cells bewerkt zijn) kunt lezen en schrijven. **Opmerking**: de grafiekgegevens moeten op dezelfde manier zijn georganiseerd of een vergelijkbare structuur hebben als de bron.
+Aspose.Slides for .NET biedt de methoden [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) en [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) waarmee u werkboeken met grafiekgegevens kunt lezen en schrijven (bevat grafiekgegevens bewerkt met Aspose.Cells). **Opmerking** dat de grafiekgegevens op dezelfde manier moeten zijn georganiseerd of een vergelijkbare structuur moeten hebben als de bron.
 
-Dit voorbeeld gebruikt een presentatie met een grafiek als eerste vorm op de eerste dia. Het leest het ingebedde werkblad in een stream, wist de bestaande series en categorieën, en schrijft hetzelfde werkblad terug. De wijzigingen blijven in het geheugen; het voorbeeld slaat de presentatie niet op.
+Dit voorbeeld gebruikt een presentatie met een grafiek als eerste object op de eerste dia. Het leest het ingebedde werkboek in een stream, wist de bestaande series en categorieën, en schrijft hetzelfde werkboek terug. De wijzigingen blijven in het geheugen; het voorbeeld slaat de presentatie niet op.
 
 ```csharp
 using System;
@@ -160,9 +160,9 @@ else
 }
 ```
 
-### **Grafieklay‑out valideren na wijziging van het werkblad**
+### **Grafieklay‑out valideren na werkboekwijziging**
 
-Wanneer u een ingebed werkblad vervangt door een aangepast werkblad, behoudt de grafiek de oorspronkelijke series‑ en categorieverzamelingen. Deze mismatch kan ervoor zorgen dat [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) faalt met een index‑out‑of‑range‑fout. Wis de bestaande series en categorieën voordat u het bijgewerkte werkblad terugschrijft naar de grafiek. Dit voorbeeld gebruikt een grafiek die de eerste vorm is op de eerste dia. Het commentaar geeft aan waar de bewerking van het werkblad zou plaatsvinden; het uitvoerbare voorbeeld schrijft het oorspronkelijke werkblad terug en valideert de lay‑out in het geheugen.
+Wanneer u een ingebed werkboek vervangt door een aangepast werkboek, behoudt de grafiek de oorspronkelijke series‑ en categorieverzamelingen. Deze mismatch kan er toe leiden dat [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) faalt met een index‑out‑of‑range‑fout. Wis de bestaande series en categorieën vóór het schrijven van het bijgewerkte werkboek terug naar de grafiek. Dit voorbeeld gebruikt een grafiek die het eerste object is op de eerste dia. De commentaarmarkering geeft aan waar de bewerking van het werkboek zou plaatsvinden; het uitvoerbare voorbeeld schrijft het originele werkboek terug en valideert de lay‑out in het geheugen.
 
 ```csharp
 using System;
@@ -178,7 +178,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
     var chartData = chart.ChartData;
     using var workbookStream = chartData.ReadWorkbookStream();
 
-    // Wijzig hier de werkbladstream, bijvoorbeeld met Aspose.Cells.
+    // Wijzig de workbookstream hier, bijvoorbeeld met Aspose.Cells.
 
     chartData.Series.Clear();
     chartData.Categories.Clear();
@@ -193,15 +193,15 @@ else
 }
 ```
 
-Het wissen van de verzamelingen verwijdert verouderde gegevensreferenties voordat het werkblad wordt weggeschreven. Bouw eventuele benodigde series‑ en categorietoewijzingen opnieuw op voor het bijgewerkte werkblad voordat u de grafiek gebruikt.
+Het wissen van de collecties verwijdert verouderde gegevensverwijzingen voordat het werkboek wordt weggeschreven. Bouw eventuele vereiste series‑ en categorietoewijzingen opnieuw voor het bijgewerkte werkboek voordat u de grafiek gebruikt.
 
-## **Aangepaste getalnotaties voor werkbladcellen instellen**
+## **Aangepaste getalformaten instellen voor werkboekcellen**
 
-Gebruik [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) om te bepalen hoe numerieke waarden verschijnen in het ingebedde werkblad van een grafiek. Bijvoorbeeld, een rapport kan een conversieratio als percentage met vier decimalen en een coëfficiënt met vijf decimalen moeten weergeven. Houd beide waarden numeriek zodat ze beschikbaar blijven voor berekeningen en grafiekplotting.
+Gebruik [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) om te bepalen hoe numerieke waarden verschijnen in het ingebedde werkboek van een grafiek. Bijvoorbeeld, een rapport kan een conversieratio willen weergeven als percentage met vier decimalen en een coëfficiënt met vijf decimalen. Houd beide waarden numeriek zodat ze beschikbaar blijven voor berekeningen en grafiekplotting.
 
-Een getalnotatie wijzigt alleen de weergave, niet de opgeslagen waarde. Het formaat `0.0000%` toont `0.125` als `12.5000%`; het vervangt niet het opgeslagen getal door `12.5`. Evenzo toont `0.00000` `0.1234567` als `0.12346` zonder de opgeslagen waarde af te ronden. Als het aangepaste formaat een lege tekenreeks (`""`) is, wordt in plaats daarvan [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/) gebruikt.
+Een getalformaat wijzigt alleen de weergave, niet de opgeslagen waarde. Het formaat `0.0000%` toont `0.125` als `12.5000%`; het vervangt niet het opgeslagen getal door `12.5`. Evenzo toont `0.00000` `0.1234567` als `0.12346` zonder de opgeslagen waarde af te ronden. Als het aangepaste formaat een lege tekenreeks (`""`) is, wordt [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/) gebruikt.
 
-Het volgende voorbeeld creëert een kolomgrafiek en krijgt toegang tot de cellen via [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/). Op werkblad 0 bevat B2 de conversieratio en C2 de coëfficiënt. Beide cellen leveren grafiekwaarden. Het voorbeeld schakelt ook waardelabels in die gekoppeld zijn aan de bron­formaten.
+Het volgende voorbeeld maakt een kolomgrafiek en krijgt toegang tot de cellen via [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/). Op werkblad 0 bevat B2 de conversieratio en C2 de coëfficiënt. Beide cellen leveren grafiekwaarden. Het voorbeeld schakelt ook waardelabels in die gekoppeld zijn aan de bronformaten.
 
 ```csharp
 using Aspose.Slides;
@@ -251,19 +251,19 @@ foreach (var series in chart.ChartData.Series)
 presentation.Save("CustomCellFormats.pptx", SaveFormat.Pptx);
 ```
 
-Werkbladcel‑formaten staan los van de formaten die direct op grafiekassen of gegevenslabels worden ingesteld. In dit voorbeeld geeft elk label de waarde van de broncel weer omdat [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) is ingeschakeld, en volgt het bron‑getalformaat omdat [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) `true` is. Na het opslaan en opnieuw openen van de presentatie geven de labels `12.5000%` en `0.12346` weer, zoals hieronder te zien is. De verticale as gebruikt zijn eigen [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) van `0.00`, met [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) ingesteld op `false`.
+Werkboekcelformaten staan los van de formatten die direct op grafiekassen of datalabels worden ingesteld. In dit voorbeeld toont elk label de waarde van de broncel omdat [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) is ingeschakeld, en volgt het brongetalformaat omdat [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) `true` is. Na het opslaan en heropenen van de presentatie tonen de labels `12.5000%` en `0.12346`, zoals hieronder weergegeven. De verticale as gebruikt zijn eigen [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) `0.00`, met [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) ingesteld op `false`.
 
-Om een gegevenslabel onafhankelijk te formatteren, zet u de bron‑koppelvlag op `false` en kent u een eigen [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) toe. Dit verandert niet het formaat van de werkbladcel. Bijvoorbeeld, een onafhankelijk labelformaat van `0.00` toont de eerste waarde als `0.13`, terwijl B2 nog steeds `12.5000%` toont. Zie [Grafiek‑gegevenslabels](/slides/nl/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) voor directe label‑formattering.
+Om een datalabel onafhankelijk te formatteren, zet u de bron‑link‑vlag op `false` en kent u een [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) toe. Dit wijzigt niet het formaat van de werkboekcel. Bijvoorbeeld, een onafhankelijke label‑opmaak `0.00` toont de eerste waarde als `0.13`, terwijl B2 nog steeds `12.5000%` toont. Zie [Grafiekdatelabels](/slides/nl/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) voor directe labelopmaak.
 
-De afbeelding hieronder is gerenderd vanuit de opgeslagen presentatie na het opnieuw openen:
+De afbeelding hieronder is gerenderd vanuit de opgeslagen presentatie na het heropenen:
 
-![Kolomgrafiek met bron‑gekoppelde labels die 12.5000% en 0.12346 tonen en een onafhankelijk geformatteerde numerieke as.](custom-cell-formats.png)
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
 
-## **Een werkbladcel als grafiek‑gegevenslabel gebruiken**
+## **Een werkboekcel als grafiekdatalabel instellen**
 
-U kunt tekst uit werkbladcellen gebruiken als grafiek‑gegevenslabels.
+U kunt tekst uit werkboekcellen gebruiken als grafiekdatalabels.
 
-Dit voorbeeld voegt een bubbelgrafiek met standaardgegevens toe aan de eerste dia van een bestaande presentatie. Het gebruikt cellen A10:A12 op werkblad 0 voor de eerste drie labels in de eerste serie, schakelt labels uit cellen in, en slaat de bijgewerkte presentatie op.
+Dit voorbeeld voegt een bubbelformulegrafiek met standaardgegevens toe aan de eerste dia van een bestaande presentatie. Het gebruikt de cellen A10:A12 op werkblad 0 voor de eerste drie labels in de eerste serie, schakelt labels vanuit cellen in, en slaat de bijgewerkte presentatie op.
 
 ```csharp
 using Aspose.Slides;
@@ -287,7 +287,7 @@ presentation.Save("resultchart.pptx", SaveFormat.Pptx);
 
 ## **Werkbladen beheren**
 
-De eigenschap [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) geeft toegang tot de werkbladen in een grafiek‑werkboek. Dit voorbeeld creëert een taartgrafiek met standaardgegevens en print elke werkbladnaam naar de console.
+De eigenschap [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) biedt toegang tot de werkbladen in een grafiekwerkboek. Dit voorbeeld maakt een taartgrafiek met standaardgegevens en toont elke werkbladnaam op de console.
 
 ```csharp
 using System;
@@ -306,11 +306,11 @@ for (var i = 0; i < workbook.Worksheets.Count; i++)
 }
 ```
 
-## **Gegevenstype van de bron opgeven**
+## **Gegevensbrontype opgeven**
 
-Waarde‑punten van een serie kunnen ook rechtstreeks als numerieke literal‑waarden worden opgeslagen. Zie [Serieswaarden instellen met numerieke literal‑waarden](/slides/nl/net/chart-series/#set-series-values-using-numeric-literals) voor een volledig voorbeeld dat ze opslaat en leest. Het gegevenstype van puntwaarden staat los van de interne of externe werkboekconfiguratie van de grafiek; het gebruik van numerieke literal‑waarden verwijdert niet automatisch het ingebedde werkboek.
+Waarde‑punten van series kunnen ook rechtstreeks als numerieke letterlijke waarden worden opgeslagen. Zie [Serieswaarden instellen met numerieke letterlijke waarden](/slides/nl/net/chart-series/#set-series-values-using-numeric-literals) voor een volledig voorbeeld dat ze opslaat en leest. Het brontype van puntwaarden is gescheiden van de interne of externe werkboekconfiguratie van de grafiek; het gebruik van numerieke letterlijke waarden verwijdert op zichzelf het ingebedde werkboek niet.
 
-Dit voorbeeld maakt een 3D‑kolomgrafiek met standaardgegevens en stelt twee serienaam‑waarden in met verschillende gegevensbronnen. De eerste naam gebruikt een string‑literal; de tweede gebruikt cel C1 op werkblad 0. De enumeratie [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) selecteert de bron voor elke naam. Het voorbeeld slaat de presentatie op met de bijgewerkte serienaam‑waarden.
+Dit voorbeeld maakt een 3D‑kolomgrafiek met standaardgegevens en stelt twee serienamen in met verschillende gegevensbronnen. De eerste naam gebruikt een tekenreeks‑literal; de tweede gebruikt cel C1 op werkblad 0. De enumeratie [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) selecteert de bron voor elke naam. Het voorbeeld slaat de presentatie op met de bijgewerkte serienamen.
 
 ```csharp
 using Aspose.Slides;
@@ -334,9 +334,9 @@ cellName.Data = nameCell;
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **Niet‑ondersteunde formaten van ingebedde werkbladen detecteren**
+## **Niet‑ondersteunde ingebedde werkboekformaten detecteren**
 
-Aspose.Slides ondersteunt het Excel‑binaire werkboek‑formaat (.xlsb) niet wanneer het in sommige grafieken is ingebed. U kunt de eigenschap [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) op [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) combineren met de enumeratie [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan. Dit voorbeeld inspecteert de vormen op de eerste dia van een bestaande presentatie, slaat niet‑grafiek‑vormen over, en print een diagnostisch bericht voor elke grafiek met een ingebed .xlsb‑werkboek.
+Aspose.Slides ondersteunt het Excel‑binaire werkboek‑formaat (.xlsb) dat in sommige grafieken kan worden ingebed niet. U kunt de eigenschap [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) op [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) gebruiken samen met de enumeratie [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan. Dit voorbeeld inspecteert de objecten op de eerste dia van een bestaande presentatie, slaat niet‑grafiek‑objecten over, en geeft een diagnostisch bericht weer voor elke grafiek met een ingebed .xlsb‑werkboek.
 
 ```csharp
 using System;
@@ -363,19 +363,19 @@ foreach (var shape in slide.Shapes)
         continue;
     }
 
-    // Lees of wijzig ondersteunde grafiek-werkboekgegevens hier.
+    // Lees of wijzig ondersteunde grafiekwerkboekgegevens hier.
 }
 ```
 
-## **Extern werkblad**
+## **Extern werkboek**
 
-Aspose.Slides ondersteunt het gebruik van externe werkbladen als gegevensbron voor grafieken.
+Aspose.Slides ondersteunt het gebruik van externe werkboeken als gegevensbron voor grafieken.
 
-### **Een extern werkblad maken**
+### **Een extern werkboek maken**
 
-Gebruik [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) en [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) om een ingebed grafiek‑werkboek naar een bestand te exporteren en de grafiek aan dat externe werkboek te koppelen.
+Gebruik [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) en [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) om een ingebed grafiekwerkboek naar een bestand te exporteren en de grafiek aan dat externe werkboek te koppelen.
 
-Dit voorbeeld maakt een taartgrafiek met standaardgegevens en exporteert het werkboek. Het sluit de output‑stream vóór het toewijzen van het externe werkboek als gegevensbron, en slaat vervolgens de gekoppelde presentatie op.
+Dit voorbeeld maakt een taartgrafiek met standaardgegevens en exporteert het bijbehorende werkboek. Het sluit de uitgaande stream voordat het externe werkboek als gegevensbron voor de grafiek wordt toegewezen, en slaat vervolgens de gekoppelde presentatie op.
 
 ```csharp
 using System.IO;
@@ -399,13 +399,13 @@ chart.ChartData.SetExternalWorkbook(workbookPath);
 presentation.Save("externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-### **Een extern werkblad instellen**
+### **Een extern werkboek instellen**
 
-Met de methode [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) kunt u een extern werkboek toewijzen aan een grafiek als gegevensbron. Deze methode kan ook worden gebruikt om een pad naar het externe werkboek bij te werken (als het bestand is verplaatst).
+Met de methode [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) kunt u een extern werkboek aan een grafiek toewijzen als diens gegevensbron. Deze methode kan ook worden gebruikt om een pad naar het externe werkboek bij te werken (als het bestand is verplaatst).
 
-Hoewel u de gegevens in werkbladen die op een externe locatie of bron staan niet kunt bewerken, kunt u dergelijke werkbladen wel als externe gegevensbron gebruiken. Als een relatief pad voor een extern werkboek wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
+Hoewel u de gegevens in werkboeken die op externe locaties of bronnen staan niet kunt bewerken, kunt u die werkboeken wel als externe gegevensbron gebruiken. Als een relatief pad voor een extern werkboek wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
 
-Dit voorbeeld gebruikt een extern werkboek waarvan het werkblad `Sheet1` een serienaam in B1, categorienamen in A2:A4 en numerieke waarden in B2:B4 bevat. Het voorbeeld maakt een taartgrafiek, koppelt het werkboek, en gebruikt [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) om A1:B4 te mappen naar één serie en drie categorieën. Het slaat de presentatie met de gekoppelde grafiek op.
+Dit voorbeeld gebruikt een extern werkboek waarvan werkblad `Sheet1` een serienaam bevat in B1, categorienamen in A2:A4 en numerieke waarden in B2:B4. Het voorbeeld maakt een taartgrafiek, koppelt het werkboek en gebruikt [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) om A1:B4 toe te wijzen aan één serie en drie categorieën. Het slaat de presentatie met de gekoppelde grafiek op.
 
 ```csharp
 using System.IO;
@@ -428,10 +428,10 @@ presentation.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 
 De parameter `updateChartData` van [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) bepaalt of het werkboek wordt geladen.
 
-* Wanneer `updateChartData` `false` is, wordt alleen het werkboekpad bijgewerkt. De grafiekgegevens worden niet geladen of bijgewerkt vanuit het doel‑werkboek, zodat het werkboek afwezig kan zijn.
-* Wanneer `updateChartData` `true` is, worden de grafiekgegevens bijgewerkt vanuit het doel‑werkboek.
+* Wanneer `updateChartData` `false` is, wordt alleen het pad van het werkboek bijgewerkt. De grafiekgegevens worden niet geladen of bijgewerkt vanuit het doelwerkboek, zodat het werkboek niet beschikbaar kan zijn.
+* Wanneer `updateChartData` `true` is, worden de grafiekgegevens bijgewerkt vanuit het doelwerkboek.
 
-Het volgende voorbeeld kent een tijdelijke URL toe met `updateChartData` ingesteld op `false`. Het behoudt de standaardgegevens van de taartgrafiek en slaat de presentatie op zonder het onbeschikbare werkboek te laden.
+Het volgende voorbeeld kent een plaatsaanduiding‑URL toe met `updateChartData` ingesteld op `false`. Het behoudt de standaardgegevens van de taartgrafiek en slaat de presentatie op zonder het niet‑beschikbare werkboek te laden.
 
 ```csharp
 using Aspose.Slides;
@@ -447,11 +447,11 @@ chart.ChartData.SetExternalWorkbook("https://example.com/unavailable-workbook.xl
 presentation.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 ```
 
-### **Het pad van het externe gegevens‑werkboek van een grafiek ophalen**
+### **Het pad van het externe gegevensbron‑werkboek van een grafiek ophalen**
 
-Om te bepalen welk werkboek aan een grafiek is gekoppeld, controleert u of de grafiek een externe gegevensbron gebruikt en haalt u het werkboekpad op.
+Om te bepalen welk werkboek aan een grafiek is gekoppeld, controleert u of de grafiek een externe gegevensbron gebruikt en haalt u het pad van het werkboek op.
 
-Dit voorbeeld inspecteert de eerste vorm op de eerste dia van een presentatie met een gekoppeld extern werkboek. Als het een grafiek is die naar een extern werkboek verwijst, print het voorbeeld [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) naar de console. Daarna wordt een kopie van de presentatie opgeslagen.
+Dit voorbeeld inspecteert het eerste object op de eerste dia van een presentatie met een gekoppeld extern werkboek. Als het een grafiek is die verbonden is met een extern werkboek, toont het voorbeeld [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) in de console. Vervolgens slaat het een kopie van de presentatie op.
 
 ```csharp
 using System;
@@ -485,9 +485,9 @@ presentation.Save("Result.pptx", SaveFormat.Pptx);
 
 ### **Grafiekgegevens bewerken**
 
-U kunt de gegevens in externe werkbladen bewerken op dezelfde manier als u de inhoud van interne werkbladen wijzigt. Wanneer een extern werkboek niet kan worden geladen, wordt een uitzondering opgegooid.
+U kunt de gegevens in externe werkboeken bewerken op dezelfde manier als u de inhoud van interne werkboeken wijzigt. Wanneer een extern werkboek niet kan worden geladen, wordt een uitzondering opgegooid.
 
-Dit voorbeeld gebruikt een grafiek die de eerste vorm is op de eerste dia en gekoppeld is aan een toegankelijk extern werkboek. Het stelt de cel‑gebaseerde waarde van het eerste datapunt in de eerste serie in op 100 en slaat de bijgewerkte presentatie op. Het bewerken van celwaarden kan het gekoppelde externe XLSX‑bestand updaten; gebruik een kopie als u het oorspronkelijke werkboek wilt behouden.
+Dit voorbeeld gebruikt een grafiek die het eerste object is op de eerste dia en gekoppeld is aan een toegankelijk extern werkboek. Het stelt de cel‑achtergrondwaarde van het eerste gegevenspunt in de eerste serie in op 100 en slaat de bijgewerkte presentatie op. Het bewerken van celwaarden kan het gekoppelde externe XLSX‑bestand bijwerken; gebruik dus een kopie als u het originele werkboek moet behouden.
 
 ```csharp
 using System;
@@ -526,11 +526,105 @@ else
 }
 ```
 
-### **Een werkboek herstellen uit de grafiek‑cache**
+## **Grafiekgegevens verversen vanuit bronwerkboeken**
 
-Als een grafiek een extern werkboek gebruikt dat ontbreekt of niet beschikbaar is, kan Aspose.Slides het grafiek‑werkboek reconstrueren vanuit de in de presentatie gecachte gegevens. Maak een [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) aan, configureer de [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/), en zet [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) op `true` voordat u de presentatie opent.
+Aspose.Slides for .NET 26.11 voegt [IChartData.RefreshData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/refreshdata/) toe voor één grafiek en [IPresentation.RefreshChartsData](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/refreshchartsdata/) voor de presentatie. Gebruik deze nadat waarden in het bronwerkboek zijn gewijzigd. Externe werkboeken moeten toegankelijk en ondersteund zijn.
 
-Het volgende C#‑voorbeeld herstelt werkboekgegevens voor een grafiek die de eerste vorm is op de eerste dia en verwijst naar een niet‑beschikbaar extern werkboek. Het benadert de herstelde gegevens via [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) en [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+Met [Aspose.Slides for .NET](/slides/nl/net/installation/) 26.11 of later geïnstalleerd, ververst dit voorbeeld de eerste grafiek op de eerste dia van `charts.pptx`. Het bronwerkboek moet beschikbaar zijn. Sla het resultaat op om de bijgewerkte grafiekgegevens te behouden.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("charts.pptx");
+var chart = presentation.Slides[0].Shapes.OfType<IChart>().FirstOrDefault();
+if (chart == null)
+{
+    Console.WriteLine("The first slide must contain a chart.");
+    return;
+}
+
+chart.ChartData.RefreshData();
+presentation.Save("refreshed-chart.pptx", SaveFormat.Pptx);
+```
+
+Om alle grafieken te verversen, gebruikt u een aparte presentatiewinstand als volgt. Het doorgeven van `false` zorgt ervoor dat een verversingsfout wordt doorgegeven aan de oproeper; het maakt geen rollback van al verversde grafieken.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("charts.pptx");
+presentation.RefreshChartsData(skipFailedCharts: false);
+presentation.Save("refreshed-charts.pptx", SaveFormat.Pptx);
+```
+
+De parameter heeft als standaardwaarde `true`: [RefreshChartsData](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/refreshchartsdata/) slaat een mislukte grafiek over en gaat door met de rest. Het retourneert geen per‑grafiek resultaten, dus een geslaagde oproep bewijst niet dat elke grafiek is verversd. Gebruik individuele [RefreshData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/refreshdata/)‑oproepen als u elke falende grafiek moet identificeren.
+
+Verversen laadt brongegevens opnieuw. Het is gescheiden van formules berekenen, grafieklay‑out valideren en een OLE‑voorbeeld bijwerken. Inspecteer live cel‑achtergrondwaarden om een verversing in het geheugen te controleren. Een [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedvalue/) kan nog steeds de eerder opgeslagen grafiek beschrijven totdat u de presentatie opslaat en opnieuw opent.
+
+### **Gecachete grafiekwaarden lezen zonder een werkboek**
+
+In .NET 26.11 lezen gecachete‑waarde‑accessors de waarden die met de grafiek zijn opgeslagen zonder het werkboek te openen. Ze zijn nuttig wanneer het gekoppelde bestand niet beschikbaar is en u alleen de laatst opgeslagen gegevens van de grafiek nodig hebt. Dit verschilt van het reconstrueren van een werkboek met de hersteloptie hieronder.
+
+| Object | Gecachete accessor |
+| --- | --- |
+| Gewoon series‑datapunt | [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedvalue/) |
+| Scatter‑ of bubbelformule‑datapunt | [CachedXValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedxvalue/), [CachedYValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedyvalue/) |
+| Bubbel‑datapunt | [CachedBubbleSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedbubblesize/) |
+| Grafiekkategorie | [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/cachedvalue/) |
+
+Elke accessor retourneert een [ICachedChartValue](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/). [Data](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/data/) legt het opgeslagen object bloot; [ToString](https://reference.aspose.com/slides/net/aspose.slides.charts/cachedchartvalue/tostring/) levert tekst; [ToDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/todouble/) geeft `NaN` terug voor een ontbrekende of niet‑numerieke waarde. Een cache kan ontbreken of verouderd zijn, ook bij een nieuw aangemaakte grafiek die nog niet is opgeslagen. Ga er niet vanuit dat elk veld bestaat of een getal bevat.
+
+Dit voorbeeld leest al deze velden uit `cached-chart.pptx`, een opgeslagen presentatie met grafieken. Een ontbrekend extern werkboek is acceptabel omdat de code geen toegang krijgt tot [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) of levende werkboekcellen.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation("cached-chart.pptx");
+foreach (var slide in presentation.Slides)
+foreach (var shape in slide.Shapes)
+{
+    if (shape is not IChart chart)
+        continue;
+
+    foreach (var category in chart.ChartData.Categories)
+        PrintCache("Category", category.CachedValue);
+
+    foreach (var series in chart.ChartData.Series)
+    foreach (var point in series.DataPoints)
+    {
+        PrintCache("Value", point.CachedValue);
+        PrintCache("X", point.CachedXValue);
+        PrintCache("Y", point.CachedYValue);
+        PrintCache("Bubble size", point.CachedBubbleSize);
+    }
+}
+
+static void PrintCache(string name, ICachedChartValue value)
+{
+    var number = value.ToDouble();
+    if (value.Data == null)
+        Console.WriteLine($"{name}: no cached value");
+    else if (double.IsNaN(number))
+        Console.WriteLine($"{name}: {value} (not numeric)");
+    else
+        Console.WriteLine($"{name}: {number}");
+}
+```
+
+Gebruik verversen wanneer u actuele brongegevens nodig hebt; gebruik gecachte lecties wanneer het opgeslagen momentopname voldoende is. De cache is geen volledige kopie van het werkboek en kan geen wijzigingen leveren die na de laatste update zijn aangebracht.
+
+### **Een werkboek herstellen vanuit de grafiekcache**
+
+Als een grafiek een extern werkboek gebruikt dat ontbreekt of niet beschikbaar is, kan Aspose.Slides het grafiekwerkboek reconstrueren uit de in de presentatie gecachte gegevens. Maak een [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) aan, configureer de [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/), en stel [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) in op `true` vóór het openen van de presentatie.
+
+Het volgende C#‑voorbeeld herstelt werkboekgegevens voor een grafiek die het eerste object is op de eerste dia en verwijst naar een niet‑beschikbaar extern werkboek. Het krijgt toegang tot de herstelde gegevens via [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) en [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
 ```csharp
 using System;
@@ -554,7 +648,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
 {
     var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
 
-    // Lees of wijzig hier de herstelde werkboekgegevens.
+    // Lees of wijzig de herstelde werkboekgegevens hier.
 }
 else
 {
@@ -562,30 +656,30 @@ else
 }
 ```
 
-Als het externe werkboek niet beschikbaar is en herstel uitgeschakeld is, gooit Aspose.Slides een [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Schakel herstel alleen in wanneer het gebruik van de gecachte grafiekgegevens een aanvaardbare fallback is, want de cache bevat mogelijk niet de wijzigingen die in het externe werkboek zijn aangebracht sinds de laatste presentatie‑update.
+Als code toegang probeert te krijgen tot het externe werkboek terwijl het niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Schakel herstel alleen in wanneer het gebruik van de gecachete grafiekgegevens een acceptabele fallback is, want de cache kan wijzigingen missen die na de laatste presentatie‑update in het externe werkboek zijn aangebracht.
 
 ## **FAQ**
 
-**Kan ik bepalen of een specifieke grafiek gekoppeld is aan een extern of een ingebed werkboek?**
+**Kan ik bepalen of een specifieke grafiek is gekoppeld aan een extern of ingebed werkboek?**
 
-Ja. Een grafiek heeft een [data source type](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) en een [path to an external workbook](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); als de bron een extern werkboek is, kunt u het volledige pad lezen om te bevestigen dat een extern bestand wordt gebruikt.
+Ja. Een grafiek heeft een [data source type](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) en een [path to an external workbook](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); als de bron een extern werkboek is, kunt u het volledige pad lezen om zeker te zijn dat een extern bestand wordt gebruikt.
 
-**Worden relatieve paden naar externe werkbladen ondersteund, en hoe worden ze opgeslagen?**
+**Worden relatieve paden naar externe werkboeken ondersteund, en hoe worden ze opgeslagen?**
 
-Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. De presentatie slaat het absolute pad op in het PPTX‑bestand, dus het verplaatsen van het werkboek kan vereisen dat de koppeling wordt bijgewerkt.
+Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. De presentatie slaat het absolute pad op in het PPTX‑bestand, dus het verplaatsen van het werkboek kan een update van de koppeling vereisen.
 
-**Kan ik werkbladen gebruiken die zich op netwerklocaties of gedeelde schijven bevinden?**
+**Kan ik werkboeken gebruiken die zich op netwerk‑resources/‑shares bevinden?**
 
-Ja, dergelijke werkbladen kunnen als externe gegevensbron worden gebruikt. Het direct bewerken van externe werkbladen vanuit Aspose.Slides wordt echter niet ondersteund – ze kunnen alleen als bron dienen.
+Ja, dergelijke werkboeken kunnen worden gebruikt als externe gegevensbron. Het direct bewerken van externe werkboeken vanuit Aspose.Slides wordt echter niet ondersteund – ze kunnen alleen als bron worden gebruikt.
 
 **Overschrijft Aspose.Slides het externe XLSX‑bestand bij het opslaan van de presentatie?**
 
-De presentatie slaat een [link to the external file](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) op. Het bewerken van cel‑gebaseerde grafiekgegevens kan ook het gekoppelde lokale XLSX‑bestand updaten. Gebruik een kopie van het werkboek als het origineel ongewijzigd moet blijven.
+De presentatie slaat een [link to the external file](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) op. Het bewerken van cel‑achtergrond‑grafiekgegevens kan ook het gekoppelde lokale XLSX‑bestand bijwerken. Gebruik een kopie van het werkboek als het origineel ongewijzigd moet blijven.
 
-**Wat moet ik doen als het externe bestand met een wachtwoord is beveiligd?**
+**Wat moet ik doen als het externe bestand met een wachtwoord beschermd is?**
 
-Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gangbare aanpak is om de beveiliging vooraf te verwijderen of een gedecodeerde kopie te maken (bijvoorbeeld met [Aspose.Cells](https://reference.aspose.com/cells/net/)) en die kopie te koppelen.
+Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gangbare aanpak is het wachtwoord vooraf te verwijderen of een ontcijferde kopie (bijvoorbeeld met [Aspose.Cells](https://reference.aspose.com/cells/net/)) te maken en naar die kopie te koppelen.
 
 **Kunnen meerdere grafieken naar hetzelfde externe werkboek verwijzen?**
 
-Ja. Elke grafiek slaat zijn eigen koppeling op. Als ze allemaal naar hetzelfde bestand wijzen, wordt een wijziging van dat bestand in elke grafiek weerspiegeld de volgende keer dat de gegevens worden geladen.
+Ja. Elke grafiek slaat zijn eigen koppeling op. Als ze allemaal naar hetzelfde bestand wijzen, wordt een update van dat bestand in elke grafiek gereflecteerd bij de volgende gegevenslading.

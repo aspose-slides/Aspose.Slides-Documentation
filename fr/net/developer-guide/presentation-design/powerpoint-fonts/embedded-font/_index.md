@@ -5,8 +5,8 @@ type: docs
 weight: 40
 url: /fr/net/embedded-font/
 keywords:
-- ajouter police
-- intégrer police
+- ajouter une police
+- intégrer une police
 - intégration de police
 - obtenir police intégrée
 - ajouter police intégrée
@@ -21,17 +21,17 @@ description: "Gérez les polices intégrées dans PowerPoint avec Aspose.Slides 
 ---
 ## **Introduction**
 
-L’intégration de polices stocke les données de police à l’intérieur d’une présentation PowerPoint. lorsqu’un visualiseur prend en charge les polices intégrées, il peut afficher le texte avec ces polices même si elles ne sont pas installées sur le système cible. Cela permet de préserver les sauts de ligne, l’espacement du texte et la mise en page des diapositives.
+L'intégration des polices stocke les données de police à l'intérieur d'une présentation PowerPoint. Lorsqu'un visualiseur prend en charge les polices intégrées, il peut afficher le texte en utilisant ces polices même si elles ne sont pas installées sur le système cible. Cela aide à conserver les sauts de ligne, l'espacement du texte et la mise en page des diapositives.
 
-Aspose.Slides for .NET vous permet de récupérer, d’ajouter et de supprimer les polices intégrées via la propriété [FontsManager](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/fontsmanager/) d’une [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/). Vous pouvez également réduire la taille des données de police intégrées en supprimant les caractères que la présentation n’utilise pas.
+Aspose.Slides for .NET vous permet de récupérer, d'ajouter et de supprimer des polices intégrées via la propriété [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) d'une [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Vous pouvez également réduire la taille des données de police intégrées en supprimant les caractères que la présentation n'utilise pas.
 
-Les exemples ci‑dessous fonctionnent avec des fichiers PPTX. Avant d’intégrer une police, assurez‑vous que ses données de police sont disponibles pour Aspose.Slides et que sa licence autorise l’intégration.
+Les exemples ci‑dessous fonctionnent avec des fichiers PPTX. Avant d’intégrer une police, assurez‑vous que ses données de police sont disponibles pour Aspose.Slides et que sa licence autorise l'intégration.
 
-## **Get and Remove Embedded Fonts**
+## **Obtenir et supprimer les polices intégrées**
 
-Utilisez [GetEmbeddedFonts](https://reference.aspose.com/slides/fr/net/aspose.slides/fontsmanager/getembeddedfonts/) pour lister les polices stockées dans une présentation. Pour en supprimer une, passez une police de cette liste à [RemoveEmbeddedFont](https://reference.aspose.com/slides/fr/net/aspose.slides/fontsmanager/removeembeddedfont/), puis enregistrez la présentation.
+Utilisez [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) pour lister les polices stockées dans une présentation. Pour en supprimer une, transmettez une police de cette liste à [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont/), puis enregistrez la présentation.
 
-L’exemple suivant répertorie les polices intégrées dans `EmbeddedFonts.pptx` et supprime Calibri si elle est présente :
+L'exemple suivant répertorie les polices intégrées dans `EmbeddedFonts.pptx` et supprime Calibri si elle est présente :
 
 ```csharp
 using System;
@@ -59,24 +59,24 @@ else
 }
 ```
 
-Supprimer une police intégrée supprime ses données de police stockées ; cela ne modifie pas la police attribuée au texte. Si la police est installée sur le système cible, le texte peut toujours l’utiliser. Sinon, le rendu peut nécessiter une [substitution de police](/slides/fr/net/font-substitution/), ce qui peut affecter la mise en page.
+Supprimer une police intégrée supprime ses données de police stockées ; cela ne change pas la police affectée au texte. Si la police est installée sur le système cible, le texte peut toujours l'utiliser. Sinon, le rendu peut nécessiter une [substitution de police](/slides/fr/net/font-substitution/), ce qui peut affecter la mise en page.
 
-## **Inspect Font Data and Embedding Permissions**
+## **Inspecter les données de police et les autorisations d'intégration**
 
-Utilisez l’interface [IFontsManager](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/) pour inspecter les polices avant de les intégrer. Appelez [IFontsManager.GetFonts](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/getfonts/) pour récupérer les polices utilisées dans la présentation. Pour chaque police, transmettez un objet [IFontData](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontdata/) et la valeur requise [FontStyleType](https://reference.aspose.com/slides/fr/net/aspose.slides/fontstyletype/) à [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/getfontbytes/). La méthode renvoie les données binaires pour ce style de police, ou `null` lorsque la police ou le style demandé n’est pas disponible. Ne transmettez pas un résultat `null` à [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), car cette méthode nécessite un tableau d’octets.
+Utilisez l'interface [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) pour inspecter les polices avant de les intégrer. Appelez [IFontsManager.GetFonts](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfonts/) pour récupérer les polices utilisées dans la présentation. Pour chaque police, transmettez un objet [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) et la valeur requise [FontStyleType](https://reference.aspose.com/slides/net/aspose.slides/fontstyletype/) à [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontbytes/). La méthode renvoie les données binaires pour ce style de police, ou `null` lorsque la police ou le style demandé n'est pas disponible. Ne transmettez pas un résultat `null` à [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), car cette méthode nécessite un tableau d'octets.
 
-[EmbeddingLevel](https://reference.aspose.com/slides/fr/net/aspose.slides/embeddinglevel/) est une énumération à drapeaux qui indique les restrictions d’intégration stockées dans la police :
+[EmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/embeddinglevel/) est une énumération de drapeaux qui indique les restrictions d'intégration stockées dans la police :
 
-- `Installable` autorise l’intégration et l’installation permanente sur un autre système, sous réserve de la licence de la police.
-- `Restricted` interdit l’intégration sauf autorisation du propriétaire légal de la police lorsqu’il s’agit du seul drapeau d’autorisation d’utilisation.
-- `PreviewPrint` autorise une utilisation temporaire pour la visualisation et l’impression ; un document contenant la police doit être en lecture seule.
-- `Editable` autorise une utilisation temporaire et permet au document d’être modifié et enregistré.
-- `NoSubsetting` est une restriction supplémentaire qui interdit l’intégration d’un sous‑ensemble de glyphes. Intégrez tous les caractères lorsque ce drapeau est présent.
-- `BitmapOnly` est une restriction supplémentaire qui n’autorise que l’intégration de strikes bitmap, pas des données de contours. Si la police ne possède aucun strike bitmap, elle ne peut pas être intégrée.
+- `Installable` autorise l'intégration et l'installation permanente sur un autre système, sous réserve de la licence de la police.
+- `Restricted` interdit l'intégration sauf si une permission est obtenue auprès du propriétaire légal de la police lorsqu'il s'agit du seul drapeau d'autorisation d'utilisation.
+- `PreviewPrint` autorise une utilisation temporaire pour la visualisation et l'impression ; un document contenant la police doit être en lecture seule.
+- `Editable` autorise une utilisation temporaire et permet au document d'être modifié et enregistré.
+- `NoSubsetting` est une restriction supplémentaire qui interdit l'intégration d'un sous‑ensemble des glyphes. Intégrez tous les caractères lorsque ce drapeau est présent.
+- `BitmapOnly` est une restriction supplémentaire qui autorise uniquement l'intégration des passages bitmap, pas des données de tracé. Si la police ne possède aucun passage bitmap, elle ne peut pas être intégrée.
 
-Les quatre premières valeurs décrivent l’autorisation d’utilisation, tandis que `NoSubsetting` et `BitmapOnly` peuvent être combinés avec elles. Vérifiez les modificateurs à l’aide d’opérations bitwise. Comme `Installable` vaut zéro, n’utilisez pas `HasFlag` pour le détecter ; masquez les bits d’autorisation d’utilisation et comparez le résultat avec `Installable`. Les polices actuelles doivent définir au plus un bit d’autorisation d’utilisation. Pour la compatibilité avec les anciennes polices qui en définissent plusieurs, l’assistant ci‑dessous sélectionne l’autorisation la moins restrictive : `Editable`, puis `PreviewPrint`, puis `Restricted`.
+Les quatre premières valeurs décrivent les autorisations d'utilisation, tandis que `NoSubsetting` et `BitmapOnly` peuvent être combinés avec elles. Vérifiez les modificateurs avec des opérations bit à bit. Parce que `Installable` vaut zéro, n'utilisez pas `HasFlag` pour le détecter ; masquez les bits d'autorisation d'utilisation et comparez le résultat avec `Installable`. Les polices actuelles doivent définir au plus un bit d'autorisation d'utilisation. Pour la compatibilité avec les polices plus anciennes qui définissent plusieurs bits, l'utilitaire ci‑dessous sélectionne l'autorisation la moins restrictive : `Editable`, puis `PreviewPrint`, puis `Restricted`.
 
-L’exemple suivant analyse les données régulières, gras, italique et gras‑italique disponibles pour chaque police renvoyée par `GetFonts`. Il ignore les styles indisponibles, les polices restreintes, les polices bitmap‑only, les polices limitées à l’aperçu et à l’impression parce que la sortie reste éditable, ainsi que les polices déjà intégrées. Si un style disponible possède `NoSubsetting`, il intègre tous les caractères pour cette famille de polices.
+L'exemple suivant audit les données normales, gras, italique et gras‑italique disponibles pour chaque police renvoyée par `GetFonts`. Il ignore les styles indisponibles, les polices restreintes, les polices bitmap‑only, les polices limitées à l'aperçu et à l'impression car la sortie reste modifiable, et les polices déjà intégrées. Si un style disponible possède `NoSubsetting`, il intègre tous les caractères pour cette famille de polices.
 
 ```csharp
 using System;
@@ -186,16 +186,16 @@ foreach (var item in embeddingPlan)
 presentation.Save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Cette inspection rapporte les restrictions encodées dans chaque fichier de police. Elle ne constitue pas une licence, ne prouve pas que vous avez acquis la police légalement, et ne remplace pas la vérification du contrat de licence de la police avant de distribuer une copie intégrée.
+Cette inspection rapporte les restrictions codées dans chaque fichier de police. Elle ne confère pas de licence, ne prouve pas que vous avez obtenu la police légalement, et ne remplace pas la vérification du contrat de licence de la police avant de distribuer une copie intégrée.
 
-## **Add Embedded Fonts**
+## **Ajouter des polices intégrées**
 
-Utilisez [AddEmbeddedFont](https://reference.aspose.com/slides/fr/net/aspose.slides/fontsmanager/addembeddedfont/) pour intégrer une police. Ses surcharges acceptent soit un objet [IFontData](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontdata/), soit un tableau d’octets contenant les données de la police. L’énumération [EmbedFontCharacters](https://reference.aspose.com/slides/fr/net/aspose.slides.export/embedfontcharacters/) contrôle quels caractères sont inclus :
+Utilisez [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) pour intégrer une police. Ses surcharges acceptent soit un objet [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/)..., soit un tableau d'octets contenant les données de la police. L'énumération [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) contrôle quels caractères sont inclus :
 
-- [All](https://reference.aspose.com/slides/fr/net/aspose.slides.export/embedfontcharacters/) intègre tous les caractères de la police. Utilisez cette option lorsque les destinataires doivent éditer la présentation et saisir du nouveau texte.
-- [OnlyUsed](https://reference.aspose.com/slides/fr/net/aspose.slides.export/embedfontcharacters/) intègre uniquement les caractères utilisés dans la présentation afin de réduire la taille du fichier. Choisissez cette option pour une présentation terminée destinée principalement à la visualisation.
+- [All](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) intègre tous les caractères de la police. Utilisez cette option lorsque les destinataires doivent modifier la présentation et saisir du nouveau texte.
+- [OnlyUsed](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) intègre uniquement les caractères utilisés dans la présentation afin de réduire la taille du fichier. Choisissez cette option pour une présentation terminée principalement destinée à la visualisation.
 
-L’exemple suivant utilise [GetFonts](https://reference.aspose.com/slides/fr/net/aspose.slides/fontsmanager/getfonts/) pour récupérer les polices utilisées dans `Fonts.pptx` et intègre celles qui ne sont pas déjà intégrées. Les polices à ajouter doivent être disponibles sur la machine exécutant le code. Les polices déjà intégrées conservent leurs jeux de caractères actuels.
+L'exemple suivant utilise [GetFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) pour récupérer les polices utilisées dans `Fonts.pptx` et intègre celles qui ne sont pas déjà intégrées. Les polices à ajouter doivent être disponibles sur la machine exécutant le code. Les polices intégrées existantes conservent leurs jeux de caractères actuels.
 
 ```csharp
 using System;
@@ -223,11 +223,11 @@ foreach (var font in allFonts)
 presentation.Save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-## **Compress Embedded Fonts**
+## **Compresser les polices intégrées**
 
-[CompressEmbeddedFonts](https://reference.aspose.com/slides/fr/net/aspose.slides.lowcode/compress/compressembeddedfonts/) réduit les données de police intégrées en supprimant les caractères inutilisés. Elle agit sur les polices déjà intégrées, ainsi la réduction de taille dépend de la quantité de données de police inutilisées présentes dans la présentation.
+[CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) réduit les données de police intégrées en supprimant les caractères inutilisés. Il agit sur les polices déjà intégrées, de sorte que la réduction de taille dépend de la quantité de données de police inutilisées contenues dans la présentation.
 
-L’exemple suivant compresse les polices dans `EmbeddedFonts.pptx` et enregistre le résultat dans un fichier distinct :
+L'exemple suivant compresse les polices dans `EmbeddedFonts.pptx` et enregistre le résultat dans un fichier séparé :
 
 ```csharp
 using Aspose.Slides;
@@ -239,14 +239,16 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Conservez le fichier original si les destinataires peuvent avoir besoin d’ajouter du texte plus tard. Les caractères supprimés lors de la compression ne sont plus disponibles dans la police intégrée, même si vous aviez initialement intégré tous les caractères.
+Conservez le fichier original si les destinataires peuvent avoir besoin d'ajouter du texte ultérieurement. Les caractères supprimés lors de la compression ne sont plus disponibles dans la police intégrée, même si vous aviez initialement intégré tous les caractères.
+
+Pour laisser une police enregistrée correspondante prendre la priorité lors de l'exportation sans supprimer la police intégrée, voir [Préférer les polices enregistrées aux polices intégrées](/slides/fr/net/font-selection-sequence/#prefer-registered-fonts-over-embedded-fonts) (.NET 26.11 ou ultérieur).
 
 ## **FAQ**
 
-**How can I check whether an embedded font will still be substituted during rendering?**
+**Comment puis‑je vérifier si une police intégrée sera toujours substituée lors du rendu ?**
 
-Appelez [GetSubstitutions](https://reference.aspose.com/slides/fr/net/aspose.slides/fontsmanager/getsubstitutions/) dans l’environnement où vous effectuez le rendu de la présentation pour voir quelles polices Aspose.Slides remplacera. Vérifiez également les paramètres de [substitution de police](/slides/fr/net/font-substitution/) et les règles de [fallback de police](/slides/fr/net/fallback-font/). Le fallback gère les caractères manquants, de sorte qu’intégrer une police ne résout pas les caractères que la police elle‑même ne contient pas.
+Appelez [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) dans l'environnement où vous rendez la présentation pour voir quelles polices Aspose.Slides remplacera. Vérifiez également les paramètres de [substitution de police](/slides/fr/net/font-substitution/) et les règles de [repli de police](/slides/fr/net/fallback-font/). Le repli gère les caractères manquants, ainsi l'intégration d'une police ne résout pas les caractères que la police elle‑même ne contient pas.
 
-**Should I embed common fonts such as Arial and Calibri?**
+**Dois‑je intégrer les polices courantes telles qu'Arial et Calibri ?**
 
-Basez la décision sur l’environnement cible. Si les polices requises sont disponibles sur chaque machine qui ouvre ou rend la présentation, les intégrer peut augmenter inutilement la taille du fichier. Si les destinataires ou les serveurs peuvent ne pas disposer de ces polices, les intégrer peut aider à préserver l’apparence prévue, à condition que leurs licences le permettent.
+Basez la décision sur l'environnement cible. Si les polices requises sont disponibles sur chaque machine qui ouvre ou rend la présentation, les intégrer peut augmenter inutilement la taille du fichier. Si les destinataires ou les serveurs peuvent manquer ces polices, les intégrer peut aider à préserver l'apparence prévue, à condition que leurs licences le permettent.

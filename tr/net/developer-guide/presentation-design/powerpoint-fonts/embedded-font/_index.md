@@ -1,5 +1,5 @@
 ---
-title: .NET'te Sunumlarda Yazı Tiplerini Gömme
+title: Sunumlarda .NET için Yazı Tiplerini Gömme
 linktitle: Gömülü Yazı Tipleri
 type: docs
 weight: 40
@@ -8,30 +8,30 @@ keywords:
 - yazı tipi ekle
 - yazı tipi gömme
 - yazı tipi gömme
-- gömülü yazı tipini al
+- gömülü yazı tipi al
 - gömülü yazı tipi ekle
-- gömülü yazı tipini kaldır
+- gömülü yazı tipi kaldır
 - gömülü yazı tipini sıkıştır
 - PowerPoint
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile PowerPoint'te gömülü yazı tiplerini yönetin. Metin görünümünü korumak ve dosya boyutunu azaltmak için C# kullanarak fontları ekleyin, alın, kaldırın ve sıkıştırın."
+description: "Aspose.Slides for .NET ile PowerPoint’te gömülü yazı tiplerini yönetin. Metin görünümünü korumak ve dosya boyutunu azaltmak için C# kullanarak yazı tiplerini ekleyin, alın, kaldırın ve sıkıştırın."
 ---
 ## **Giriş**
 
-Yazı tiplerini gömmek, font verilerini bir PowerPoint sunumu içinde depolar. Görüntüleyici gömülü fontları desteklediğinde, bu fontlar hedef sistemde yüklü olmasa bile metni o fontlarla gösterebilir. Bu, satır sonları, metin aralığı ve slayt düzeninin korunmasına yardımcı olur.
+Gömülü yazı tipleri, yazı tipi verilerini bir PowerPoint sunumu içinde depolar. Bir görüntüleyici gömülü yazı tiplerini destekliyorsa, bu tipler hedef sistemde yüklü olmasa bile metni o yazı tipleriyle gösterebilir. Bu, satır sonları, metin aralığı ve slayt düzeninin korunmasına yardımcı olur.
 
-Aspose.Slides for .NET, bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) nesnesinin [FontsManager](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/fontsmanager/) özelliği aracılığıyla gömülü fontları almanıza, eklemenize ve kaldırmanıza olanak tanır. Ayrıca, sunumun kullanmadığı karakterleri kaldırarak gömülü font verisinin boyutunu azaltabilirsiniz.
+Aspose.Slides for .NET, bir [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) nesnesinin [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) özelliği aracılığıyla gömülü yazı tiplerini almanıza, eklemenize ve kaldırmanıza olanak tanır. Ayrıca, sunumun kullanmadığı karakterleri kaldırarak gömülü yazı tipi verisinin boyutunu azaltabilirsiniz.
 
-Aşağıdaki örnekler PPTX dosyalarıyla çalışır. Bir fontu gömmeden önce, font verisinin Aspose.Slides tarafından erişilebilir olduğundan ve lisansının gömme izni verdiğinden emin olun.
+Aşağıdaki örnekler PPTX dosyalarıyla çalışır. Bir yazı tipini gömmeden önce, yazı tipi verisinin Aspose.Slides tarafından erişilebilir olduğundan ve lisansınızın gömmeyi izin verdiğinden emin olun.
 
 ## **Gömülü Yazı Tiplerini Al ve Kaldır**
 
-Sunumda depolanan fontları listelemek için [GetEmbeddedFonts](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsmanager/getembeddedfonts/) kullanın. Birini kaldırmak için o listeden bir fontu [RemoveEmbeddedFont](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsmanager/removeembeddedfont/) metoduna gönderin ve ardından sunumu kaydedin.
+Bir sunumda depolanmış yazı tiplerini listelemek için [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) yöntemini kullanın. Birini kaldırmak için, listeden bir yazı tipini [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont/) metoduna gönderin ve ardından sunumu kaydedin.
 
-Aşağıdaki örnek `EmbeddedFonts.pptx` dosyasındaki gömülü fontları listeler ve Calibri mevcutsa kaldırır:
+Aşağıdaki örnek, `EmbeddedFonts.pptx` içindeki gömülü yazı tiplerini listeler ve Calibri mevcutsa kaldırır:
 
 ```csharp
 using System;
@@ -59,24 +59,24 @@ else
 }
 ```
 
-Bir gömülü fontu kaldırmak, depolanmış font verisini siler; metne atanmış fontu değiştirmez. Font hedef sistemde yüklüyse, metin hâlâ bu fontu kullanabilir. Aksi takdirde, render sırasında [yazı tipi ikamesi](/slides/tr/net/font-substitution/) gerekebilir ve bu da düzeni etkileyebilir.
+Gömülü bir yazı tipini kaldırmak, saklanan yazı tipi verisini siler; metne atanan yazı tipini değiştirmez. Yazı tipi hedef sistemde yüklüyse, metin hâlâ o yazı tipini kullanabilir. Aksi takdirde, render işlemi [font substitution](/slides/tr/net/font-substitution/) gerektirebilir ve bu da düzeni etkileyebilir.
 
-## **Yazı Tipi Verilerini ve Gömme İzinlerini İnceleme**
+## **Yazı Tipi Verilerini ve Gömme İzinlerini İncele**
 
-Fontları gömmeden önce incelemek için [IFontsManager](https://reference.aspose.com/slides/tr/net/aspose.slides/ifontsmanager/) arayüzünü kullanın. Sunumda kullanılan fontları almak için [IFontsManager.GetFonts](https://reference.aspose.com/slides/tr/net/aspose.slides/ifontsmanager/getfonts/) metodunu çağırın. Her font için bir [IFontData](https://reference.aspose.com/slides/tr/net/aspose.slides/ifontdata/) nesnesi ve gerekli [FontStyleType](https://reference.aspose.com/slides/tr/net/aspose.slides/fontstyletype/) değeri ile [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/tr/net/aspose.slides/ifontsmanager/getfontbytes/) metodunu çağırın. Metod, o font stilinin ikili verisini döndürür; istenen font veya stil mevcut değilse `null` döner. `null` sonucu [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/tr/net/aspose.slides/ifontsmanager/getfontembeddinglevel/) metoduna göndermeyin, çünkü bu metod bir bayt dizisi bekler.
+Gömmeden önce yazı tiplerini incelemek için [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) arayüzünü kullanın. Sunumda kullanılan yazı tiplerini almak için [IFontsManager.GetFonts](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfonts/) metodunu çağırın. Her bir yazı tipi için bir [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) nesnesi ve gerekli [FontStyleType](https://reference.aspose.com/slides/net/aspose.slides/fontstyletype/) değerini [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontbytes/) metoduna gönderin. Metod, ilgili yazı tipi stilinin ikili verisini döndürür; istenen yazı tipi veya stil mevcut değilse `null` döner. `null` sonucu [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontembeddinglevel/) metoduna göndermeyin, çünkü bu metod bir byte dizisi bekler.
 
-[EmbeddingLevel](https://reference.aspose.com/slides/tr/net/aspose.slides/embeddinglevel/) fontta saklanan gömme kısıtlamalarını raporlayan bir bayrak (flags) enumerasyonudur:
+[EmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/embeddinglevel/) yazı tipinde depolanan gömme kısıtlamalarını raporlayan bir bayrak (flags) enum’ıdır:
 
-- `Installable` gömme ve başka bir sisteme kalıcı kurulum izni verir; font lisansına tabidir.
-- `Restricted` yalnızca tek kullanım izni bayrağı olduğunda, fontun yasal sahibinden izin alınmadıkça gömülmesini yasaklar.
-- `PreviewPrint` geçici olarak görüntüleme ve yazdırma izni verir; belge yalnızca okunabilir olmalıdır.
-- `Editable` geçici kullanım izni verir ve belgenin düzenlenip kaydedilmesine izin tanır.
-- `NoSubsetting` yalnızca bir alt küme karakterin gömülmesini yasaklayan ek bir kısıtlamadır. Bu bayrak mevcutsa tüm karakterler gömülmelidir.
-- `BitmapOnly` yalnızca bitmap vuruşlarının gömülmesine izin veren ek bir kısıtlamadır; hat taslak verileri gömülemez. Font bitmap vuruşu içermiyorsa gömülemez.
+- `Installable` gömmeye ve başka bir sisteme kalıcı kurulum izni verir; bu, yazı tipi lisansına bağlıdır.
+- `Restricted` yalnızca tek kullanım‑izin bayrağı olduğu zaman, yazı tipinin yasal sahibinden izin alınmadıkça gömme yasaktır.
+- `PreviewPrint` geçici olarak görüntüleme ve yazdırma izin verir; yazıyı içeren belge salt okunur olmalıdır.
+- `Editable` geçici kullanım izni verir ve belgenin düzenlenip kaydedilmesine olanak tanır.
+- `NoSubsetting` ek bir kısıtlamadır; sadece bir alt küme karakterin gömülmesini yasaklar. Bu bayrak mevcutsa tüm karakterler gömülmelidir.
+- `BitmapOnly` ek bir kısıtlamadır; yalnızca bitmap vuruşlarının gömülmesine izin verir, kontur (outline) verisi gömülmez. Yazı tipinin bitmap vuruşu yoksa gömülemez.
 
-İlk dört değer kullanım iznini tanımlarken, `NoSubsetting` ve `BitmapOnly` bunlarla birleştirilebilir. Bayrakları bitwise işlemlerle kontrol edin. `Installable` sıfır olduğundan, onu tespit etmek için `HasFlag` kullanmayın; kullanım‑izin bitlerini maskeleyip sonucu `Installable` ile karşılaştırın. Mevcut fontlar en fazla bir kullanım‑izin biti ayarlamalıdır. Daha eski fontların birden çok izin biti ayarladığı durumlar için aşağıdaki yardımcı, en az kısıtlayıcı izni seçer: `Editable`, ardından `PreviewPrint`, ardından `Restricted`.
+İlk dört değer kullanım iznini tanımlar, `NoSubsetting` ve `BitmapOnly` ise bunlarla birlikte kullanılabilir. Modifikatörleri bit düzeyinde işlemlerle kontrol edin. `Installable` değeri sıfır olduğundan, onu tespit etmek için `HasFlag` kullanmayın; kullanım‑izin bitlerini maskeleyip sonucu `Installable` ile karşılaştırın. Geçerli yazı tipleri en fazla bir kullanım‑izin bitine sahiptir. Daha eski yazı tiplerinde birden fazla izin biti bulunabilir; aşağıdaki yardımcı kod en az kısıtlayıcı izni seçer: önce `Editable`, ardından `PreviewPrint`, sonra `Restricted`.
 
-Aşağıdaki örnek, `GetFonts` tarafından döndürülen her font için normal, kalın, italik ve kalın‑italik verilerini denetler. Kullanılamayan stilleri, kısıtlı fontları, yalnızca bitmap olan fontları, ön izleme ve yazdırma ile sınırlı olan (çünkü çıktı hâlâ düzenlenebilir) fontları ve zaten gömülü olan fontları atlar. Herhangi bir mevcut stil `NoSubsetting` içeriyorsa, o font ailesi için tüm karakterler gömülür.
+Aşağıdaki örnek, `GetFonts` tarafından döndürülen her yazı tipi için normal, kalın, italik ve kalın‑italik verilerini inceler. Kullanılamayan stilleri, kısıtlı yazı tiplerini, yalnızca bitmap olanları, yalnızca ön izleme‑yazdırma izinli olanları (çıktı hâlâ düzenlenebilir olduğundan) ve zaten gömülü olanları atlar. Herhangi bir kullanılabilir stilde `NoSubsetting` bulunursa, o yazı tipi ailesi için tüm karakterler gömülür.
 
 ```csharp
 using System;
@@ -186,16 +186,16 @@ foreach (var item in embeddingPlan)
 presentation.Save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Bu denetim, her font dosyasında kodlanmış kısıtlamaları raporlar. Lisans vermez, fontu yasal olarak edindiğinizi kanıtlamaz ve gömülü bir kopya dağıtmadan önce fontun lisans anlaşmasını kontrol etmenizi gereksiz kılmaz.
+Bu inceleme, her yazı tipi dosyasında kodlanmış kısıtlamaları raporlar. Lisans vermek, yazı tipini yasal olarak temin ettiğinizi kanıtlamak ya da gömülü bir kopyayı dağıtmadan önce lisans sözleşmesini kontrol etmenizi yerine geçmez.
 
-## **Gömülü Yazı Tipleri Ekleme**
+## **Gömülü Yazı Tiplerini Ekle**
 
-Bir fontu gömmek için [AddEmbeddedFont](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsmanager/addembeddedfont/) metodunu kullanın. Aşırı yüklemeleri, bir [IFontData](https://reference.aspose.com/slides/tr/net/aspose.slides/ifontdata/) nesnesi ya da font verisini içeren bir bayt dizisi kabul eder. [EmbedFontCharacters](https://reference.aspose.com/slides/tr/net/aspose.slides.export/embedfontcharacters/) enumerasyonu, hangi karakterlerin dahil edileceğini kontrol eder:
+Bir yazı tipini gömmek için [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) metodunu kullanın. Aşırı yüklemeleri, bir [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) nesnesi ya da yazı tipi verisini içeren bir byte dizisi kabul eder. [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) enum’ı hangi karakterlerin dahil edileceğini kontrol eder:
 
-- [All](https://reference.aspose.com/slides/tr/net/aspose.slides.export/embedfontcharacters/) fonttaki tüm karakterleri gömer. Alıcıların sunumu düzenlemesi ve yeni metin eklemesi gerektiğinde bu seçeneği kullanın.
-- [OnlyUsed](https://reference.aspose.com/slides/tr/net/aspose.slides.export/embedfontcharacters/) sadece sunumda kullanılan karakterleri gömer; dosya boyutunu azaltır. Öncelikle sadece görüntülenmesi amaçlanan tamamlanmış bir sunum için bu seçeneği tercih edin.
+- [All](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) yazı tipindeki tüm karakterleri gömer. Alıcıların sunumu düzenlemesi ve yeni metin girmesi gerektiğinde bu seçeneği kullanın.
+- [OnlyUsed](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) yalnızca sunumda kullanılan karakterleri gömer, dosya boyutunu küçültür. Bu seçeneği, yalnızca görüntülenmesi amaçlanan tamamlanmış bir sunum için tercih edin.
 
-Aşağıdaki örnek, `Fonts.pptx` içinde kullanılan fontları almak için [GetFonts](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsmanager/getfonts/) metodunu kullanır ve hâlâ gömülmemiş olanları gömer. Eklenecek fontların kod çalıştıran makinede mevcut olması gerekir. Mevcut gömülü fontlar mevcut karakter kümelerini korur.
+Aşağıdaki örnek, `Fonts.pptx` içinde kullanılan yazı tiplerini [GetFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) ile alır ve hâlen gömülmemiş olanları gömer. Eklenmek istenen yazı tiplerinin kod çalıştırılan makinede bulunması gerekir. Mevcut gömülü yazı tipleri karakter setlerini korur.
 
 ```csharp
 using System;
@@ -223,11 +223,11 @@ foreach (var font in allFonts)
 presentation.Save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-## **Gömülü Yazı Tiplerini Sıkıştırma**
+## **Gömülü Yazı Tiplerini Sıkıştır**
 
-[CompressEmbeddedFonts](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/compress/compressembeddedfonts/) gömülü font verisini kullanılmayan karakterleri kaldırarak küçültür. Zaten gömülü fontlar üzerinde çalışır; bu nedenle boyut azalması, sunumun ne kadar kullanılmayan font verisi içerdiğine bağlıdır.
+[CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) kullanılmayan karakterleri kaldırarak gömülü yazı tipi verisini küçültür. Bu işlem hâlihazırda gömmüş olduğunuz yazı tipleri üzerinde çalışır; bu nedenle boyut azalması, sunumda ne kadar kullanılmayan font verisi olduğuna bağlıdır.
 
-Aşağıdaki örnek `EmbeddedFonts.pptx` içindeki fontları sıkıştırır ve sonucu ayrı bir dosya olarak kaydeder:
+Aşağıdaki örnek, `EmbeddedFonts.pptx` içindeki yazı tiplerini sıkıştırır ve sonucu ayrı bir dosya olarak kaydeder:
 
 ```csharp
 using Aspose.Slides;
@@ -239,14 +239,16 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Alıcıların daha sonra metin eklemesi gerekebileceği durumlarda orijinal dosyayı saklayın. Sıkıştırma sırasında kaldırılan karakterler, gömülü fonttan artık erişilemez; başlangıçta tüm karakterleri gömmüşseniz bile bu durum geçerlidir.
+Alıcıların daha sonra metin eklemesi gerekebileceği durumlarda orijinal dosyayı saklayın. Sıkıştırma sırasında kaldırılan karakterler, gömülü fonttan artık kullanılamaz, hatta başlangıçta tüm karakterleri gömmüş olsanız bile.
 
-## **SSS**
+Kayıtlı bir yazı tipinin dışa aktarım sırasında gömülü yazı tipini kaldırmadan öncelik kazanmasını istiyorsanız, [Prefer Registered Fonts over Embedded Fonts](/slides/tr/net/font-selection-sequence/#prefer-registered-fonts-over-embedded-fonts) bölümüne bakın (.NET 26.11 veya daha yeni sürümler).
 
-**Gömülü bir yazı tipinin render sırasında hâlâ değiştirileceğini nasıl kontrol edebilirim?**
+## **FAQ**
 
-Render yaptığınız ortamda [GetSubstitutions](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsmanager/getsubstitutions/) metodunu çağırarak Aspose.Slides'ın hangi fontları değiştireceğini görebilirsiniz. Ayrıca [yazı tipi ikamesi](/slides/tr/net/font-substitution/) ayarlarını ve [yazı tipi geri dönüşü](/slides/tr/net/fallback-font/) kurallarını kontrol edin. Geri dönüş, eksik karakterleri ele alır; bu nedenle bir fontu gömmek, fontun kendi içinde bulunmadığı karakterleri çözmez.  
+**Bir gömülü yazı tipinin render sırasında hâlâ ikame (substitution) edilip edilmeyeceğini nasıl kontrol edebilirim?**
+
+Sunumu render ettiğiniz ortamda [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) metodunu çağırarak Aspose.Slides’in hangi yazı tiplerini değiştireceğini görebilirsiniz. Ayrıca [font substitution](/slides/tr/net/font-substitution/) ayarlarını ve [font fallback](/slides/tr/net/fallback-font/) kurallarını kontrol edin. Fallback eksik karakterleri ele alır; bu nedenle bir yazı tipini gömmek, fontun kendisinde bulunmayan karakterleri çözmez.
 
 **Arial ve Calibri gibi yaygın yazı tiplerini gömmeliyim mi?**
 
-Karar, hedef ortamına dayanmalıdır. Gerekli fontlar, sunumu açan veya render eden her makinede mevcutsa, gömmek gereksiz dosya boyutu ekleyebilir. Alıcıların veya sunucuların bu fontları bulundurma ihtimali düşükse, lisansları izin veriyorsa gömmek istenen görünümü korumaya yardımcı olur.
+Karar, hedef ortamınıza bağlıdır. Gerekli yazı tipleri sunumu açan veya render eden her makinede mevcutsa, gömmek gereksiz dosya büyüklüğüne neden olur. Alıcıların veya sunucuların bu yazı tiplerine erişimi olmayabilir; bu durumda, lisansları izin veriyorsa, gömmek istenen görünümü korumaya yardımcı olur.

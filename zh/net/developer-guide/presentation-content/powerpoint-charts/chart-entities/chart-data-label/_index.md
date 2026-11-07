@@ -19,13 +19,13 @@ description: "了解如何使用 Aspose.Slides for .NET 在 PowerPoint 演示文
 ---
 ## **介绍**
 
-数据标签显示图表系列和各个数据点的信息，帮助读者识别数值并理解图表。本文阐述了如何格式化数值、显示百分比、读取标签文本、控制轴最大值之外的标签、调整分类轴标签间距以及定位饼图标签。
+数据标签显示有关图表系列和单个数据点的信息，帮助读者识别数值并理解图表。本文解释如何格式化数值、显示百分比、读取标签文本、控制轴最大值之外的标签、调整类别轴标签间距以及定位饼图标签。
 
-## **统计可见数据标签**
+## **计数可见数据标签**
 
-使用[CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/)来检查在发布演示文稿之前有多少数据标签被启用显示。不同于返回集合中标签总数的[Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/)，它会考虑系列默认设置和各个标签的设置。
+使用[CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/)在发布演示文稿之前检查有多少数据标签已启用显示。不同于返回集合中标签总数的[Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/)，它会考虑系列默认设置和各标签的单独设置。
 
-此示例创建了一个包含一个系列和三个数据点的柱状图。它访问系列的[Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/)集合，并在设置更改时打印可见计数：**0, 3, 2, 3**。总计数保持为**3**。
+此示例创建一个包含一个系列和三个数据点的柱形图。它访问系列的[Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/)集合，并在设置更改时打印可见计数：**0, 3, 2, 3**。总计数保持为**3**。
 
 ```csharp
 using System;
@@ -65,13 +65,13 @@ labels[1].DataLabelFormat.ShowLegendKey = true;
 Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // 可见: 3
 ```
 
-系列的[DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/)提供默认设置。在此启用[ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/)会显示所有三个标签的数值。通过单个标签的[DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/)将其设置为`false`会覆盖该标签的设置。启用[ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/)会使该标签再次计入可见标签，尽管其数值仍被隐藏。
+系列的[DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/)提供默认设置。在此启用[ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/)会显示所有三个标签的值。通过某个标签的[DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/)将其设置为 `false` 会覆盖该标签的设置。启用[ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/)会使该标签再次计为可见，即使其值仍被隐藏。
 
-可见计数反映了可见性设置。它并不衡量标签是否重叠、被裁剪或在渲染后的图表中是否可读。
+可见计数反映了可见性设置。它并不衡量标签是否重叠、被裁剪或在渲染的图表中是否可读。
 
-## **设置图表数据标签的数值精度**
+## **设置图表数据标签的数据精度**
 
-使用[NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/)来格式化系列数值。此示例创建了一个带默认数据的折线图，显示其数据表，并为第一系列启用数值标签。格式`#,##0.00`显示千位分隔符和两位小数，而不更改底层数值。
+使用[NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/)来格式化系列数值。此示例创建一个带默认数据的折线图，显示其数据表，并为第一系列启用数值标签。格式 `#,##0.00` 显示千位分隔符和两位小数且不改变底层数值。
 
 ```csharp
 using Aspose.Slides;
@@ -91,11 +91,11 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-要格式化图表嵌入工作簿中的数字单元格，请参阅[设置工作簿单元格的自定义数字格式](/slides/zh/net/chart-workbook/#set-custom-number-formats-for-workbook-cells)。该示例还展示了数值标签遵循其源单元格格式，同时保留存储的数字值。
+要格式化图表嵌入工作簿中的数值单元格，请参阅[Set Custom Number Formats for Workbook Cells](/slides/zh/net/chart-workbook/#set-custom-number-formats-for-workbook-cells)。该示例还展示了数值标签遵循其来源单元格格式，同时保留存储的数值。
 
 ## **将百分比显示为标签**
 
-对于堆叠柱形图，计算每个数值相对于其类别总计的百分比，并将文本分配给[TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/)。此示例使用默认图表数据，并以 8 磅字体显示两位小数的百分比。总计为零的类别将被跳过，以避免除以零。如果图表数据更改，需要重新计算自定义标签文本。
+对于堆积柱形图，将每个数值计算为其类别总和的百分比，并将文本分配给[TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/)。此示例使用默认图表数据，并以 8 磅字体显示两位小数的百分比。总计为零的类别会被跳过，以避免除以零。如果图表数据更改，需要重新计算自定义标签文本。
 
 ```csharp
 using System;
@@ -158,9 +158,9 @@ presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 
 ## **在图表数据标签中设置百分号**
 
-当数值以分数形式存储时，使用[NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/)来显示百分比。将[IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/)设为`false`，即可使标签格式独立于源单元格。
+当数值以分数存储时，使用[NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/)显示为百分比。将[IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/)设为 `false`，即可独立于来源单元格应用标签格式。
 
-此示例创建了一个 100% 堆叠柱形图，包含四个类别的红色和蓝色系列。每对数值之和为 1。标签格式`0.0%`将 0.30 显示为 30.0%，而垂直轴使用两位小数。两个系列的标签文本均为白色、10 磅。
+此示例创建一个 100% 堆积柱形图，包含红色和蓝色系列，跨四个类别。每对数值相加为 1。标签格式 `0.0%` 将 0.30 显示为 30.0%，而纵坐标轴使用两位小数。两个系列均使用白色、10 磅的标签文字。
 
 ```csharp
 using System.Drawing;
@@ -218,7 +218,7 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 
 ## **读取数据标签的实际文本**
 
-使用[GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/)检索数据标签设置生成的文本。这在提取报告标签、搜索演示文稿内容或验证生成的图表时很有用。在下面的示例中，默认的[data label format](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/)将每个类别名称、系列名称和数值组合在一起。一个点将其值格式化为百分比，另一个则使用来自[TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/)的自定义文本。
+使用[GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/)检索数据标签设置生成的文本。这在提取报告标签、搜索演示文稿内容或验证生成的图表时非常有用。在下示例中，默认的[data label format](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/)将每个类别名称、系列名称和数值组合在一起。一个点将其数值格式化为百分比，另一个使用来自[TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/)的自定义文本。
 
 ```csharp
 using System;
@@ -272,15 +272,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-数据点中存储的数值仍为`0.75`，即使其标签显示`75%`以及类别和系列名称。自定义文本会替代生成的标签文本。[GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/)在两种情况下都会返回相应的标签字符串。当只想提取可见标签时，请如上所示单独检查[IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/)。
+数据点中存储的数值仍为 `0.75`，即使其标签显示为 `75%` 且附带类别和系列名称。自定义文本会替代生成的标签文本。[GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/)在两种情况下都返回结果标签字符串。若只想提取可见标签，请像上面所示单独检查[IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/)。
 
 ## **控制轴最大值之外的数据标签**
 
-手动限制坐标轴范围时，某些数据点可能超出其最大值。使用[ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/)来控制是否显示这些数据标签。此设置仅改变标签的可见性，不会更改坐标轴范围或底层数据值。
+当手动限制坐标轴范围时，某些数据点可能超过其最大值。使用[ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/)来控制是否显示这些数据标签。此设置仅改变标签可见性，不会改变坐标轴范围或底层数据值。
 
-下面的示例创建了一个值为 60 和 120 的二维聚类柱形图。它在纵坐标轴上将[IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/)设为`false`，并将[MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/)设为 100。第一张幻灯片允许标签超出最大值；该幻灯片的副本则禁用此功能。两张幻灯片均保存为`DataLabelsOverMaximum.pptx`。
+下面的示例创建一个包含 60 和 120 数值的 2D 簇状柱形图。它在纵坐标轴上将[IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/)设为 `false`，并将[MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/)设为 100。第一张幻灯片允许标签超过最大值；该幻灯片的副本则禁用此功能。两张幻灯片均保存为 `DataLabelsOverMaximum.pptx`。
 
-使用[ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/)启用数值标签。图表级别的设置本身并不会启用数值显示，也不会覆盖单个标签已禁用的数值显示。此示例为整个系列启用数值，并使用[Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/)将标签放置在每根柱子的外端。
+通过[ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/)启用数值标签。图表级别的设置本身并不会启用数值显示，也不会覆盖单个标签被禁用的数值显示。此示例为整个系列启用数值，并使用[Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/)将标签放置在每根柱子的外侧末端。
 
 ```csharp
 using Aspose.Slides;
@@ -327,19 +327,19 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-以下图像显示了 Microsoft PowerPoint 渲染的已保存幻灯片。`true` 时，标签**120**在上边界可见；`false` 时，该标签被隐藏。标签**60**保持可见，坐标轴最大值仍为**100**，第二个数据点在两种情况下均为**120**。
+下图显示了 Microsoft PowerPoint 渲染的保存幻灯片。`true` 时，标签 **120** 在上边界可见；`false` 时，该标签被隐藏。标签 **60** 保持可见，轴最大值仍为 **100**，第二个数据点在两种情况下均为 **120**。
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![PowerPoint 图表显示轴最大值为 100 时的数值标签 120](data-labels-over-maximum-true.png) | ![PowerPoint 图表隐藏轴最大值为 100 时的数值标签 120](data-labels-over-maximum-false.png) |
+| ![PowerPoint 图表显示值标签 120，轴最大值为 100](data-labels-over-maximum-true.png) | ![PowerPoint 图表隐藏值标签 120，轴最大值为 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-此示例使用带数值轴的二维柱形图。不带数值轴的图表，如饼图和环形图，则没有可用于此方式限制的坐标轴最大值。
+此示例使用带数值轴的 2D 柱形图。没有数值轴的图表，如饼图和环形图，无法以此方式设置轴最大值限制。
 {{% /alert %}}
 
 ## **设置标签与坐标轴的距离**
 
-使用[LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/)来控制分类坐标轴标签与坐标轴之间的距离。该值是坐标轴标签最大字体大小的百分比。此示例创建一个聚类柱形图，并将水平坐标轴标签偏移设为 500。此设置影响分类坐标轴标签，而不是附加到各个数据点的标签。
+使用[LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/)控制类别轴标签与坐标轴之间的距离。该值为轴标签最大字号的百分比。此示例创建一个簇状柱形图，并将水平轴标签偏移设置为 500。此设置影响类别轴标签，而不是附加到单个数据点的标签。
 
 ```csharp
 using Aspose.Slides;
@@ -357,9 +357,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **调整标签位置**
 
-在饼图中，调整数据标签位置以改善间距并为引导线留出空间。
+在饼图上，调整数据标签位置以改善间距并为引导线留出空间。
 
-此示例显示第一个数据点的数值，将其标签放置在扇形外部，并调整其[X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/)和[Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)偏移量。这些偏移量分别相对于图表的宽度和高度。
+此示例显示第一个数据点的数值，将其标签置于切片外部，并调整其[X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/)和[Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)偏移。这些偏移分别相对于图表的宽度和高度。
 
 ```csharp
 using Aspose.Slides;
@@ -381,17 +381,17 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![已调整数据标签位置的饼图](pie-chart-adjusted-label.png)
+![调整后数据标签位置的饼图](pie-chart-adjusted-label.png)
 
-## **设置引导线格式**
+## **格式化引导线**
 
-当饼图标签位于扇形外部时，引导线帮助读者将每个数值对应到正确的扇形。使用对比色和稍粗的线条可以让这些连接更易于辨认，而透明度和虚线样式则使线条在视觉上不突兀。
+当饼图标签位于切片外部时，引导线帮助读者将每个数值对应到正确的切片。使用对比色和稍粗的线条可以使这些连接更易于辨认，而透明度和虚线样式则使线条在视觉上不显突兀。
 
-使用[LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/)在系列的数据标签集合层面设置引导线格式。`series.Labels.LeaderLinesFormat.Line`中的设置适用于整个集合，而不是单个标签。
+使用[LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/)在系列的数据标签集合层面格式化引导线。`series.Labels.LeaderLinesFormat.Line` 中的设置适用于整个集合，而非单个标签。
 
-此示例创建一个带默认数据的饼图，显示扇形外部的数值，并启用[ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/)。它使用[X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/)和[Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)偏移量（以图表宽高的比例表示）将两个标签向外移动。无需输入演示文稿。
+此示例创建一个默认数据的饼图，在切片外显示数值，并启用[ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/)。它使用[X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/)和[Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)偏移，将两个标签 farther from their slices，偏移以图表宽高的比例表示。无需输入演示文稿。
 
-线条的[FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/)将颜色设为纯蓝色，Alpha 值为 191（255 中的约 25% 透明度）。[Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/)将粗细设为 2 磅，[DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/)使线条呈虚线。
+线条的[FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/)将颜色设置为实心蓝色，透明度为 191/255（约 25% 透明）。[Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/)将粗细设为 2 磅，[DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/)将线条设为虚线。
 
 ```csharp
 using System.Drawing;
@@ -412,7 +412,7 @@ labelFormat.ShowValue = true;
 labelFormat.Position = LegendDataLabelPosition.OutsideEnd;
 labelFormat.ShowLeaderLines = true;
 
-// 将两个标签向外移动，使其离切片更远。
+// 将两个标签向远离它们的切片方向移动。
 series.Labels[0].X = 0.10f;
 series.Labels[0].Y = -0.05f;
 series.Labels[1].X = -0.10f;
@@ -427,17 +427,17 @@ line.DashStyle = LineDashStyle.Dash;
 presentation.Save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
 ```
 
-启用引导线并不保证每个标签都会出现线条。可见性取决于标签位置和图表的布局行为。在本例中，两个被移动的标签拥有可见的引导线；靠近扇形的标签则不需要。
+启用引导线并不保证每个标签都会出现线条。可见性取决于标签位置和图表的布局行为。在此示例中，两个偏离的标签显示了引导线；靠近切片的标签则不需要。
 
-下图显示了使用 Aspose.Slides 渲染的已保存 `FormattedLeaderLines.pptx`：
+下图显示了使用 Aspose.Slides 渲染的保存的 `FormattedLeaderLines.pptx`：
 
-![带蓝色半透明虚线引导线的饼图，将两个外部标签连接到相应扇形](formatted-leader-lines.png)
+![带有蓝色半透明虚线引导线，将两个外部标签连接到切片的饼图](formatted-leader-lines.png)
 
 ## **在柱形图上方添加多行数据标签**
 
-此示例创建一个柱形图，在绘图区域上方放置两行数据标签。系列 A 显示可见的柱子，而系列 B 和系列 C 提供额外的标签。通过移除填充和轮廓将它们的柱子隐藏。[Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/)属性使所有三个系列在同一类别中心对齐。
+此示例创建一个柱形图，在绘图区上方添加两行数据标签。Series A 显示可见的柱子，而 Series B 和 Series C 提供额外的标签。通过去除填充和轮廓将它们的柱子隐藏。[Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/)属性使所有三个系列在同一类别中心对齐。
 
-[PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/)设置为标签行预留空间。调用[ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/)计算默认位置后，[X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/)和[Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)保持水平对齐并应用垂直偏移，将标签排列成两行。数字仍是链接到系列数值的数据标签；仅行标题是单独的文本形状。
+[PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/)设置为标签行预留空间。经过[ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/)计算默认位置后，[X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/)和[Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)保持水平对齐，并采用垂直偏移将标签排列为两行。这些数字仍是链接到系列值的数据标签；只有行标题是独立的文本形状。
 
 ```csharp
 using System.Drawing;
@@ -486,7 +486,7 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // 隐藏 B 和 C 系列的柱形，但保留它们的数据标签。
+        // 隐藏 B 和 C 的柱形，但保留它们的数据标签。
         series.Format.Fill.FillType = FillType.NoFill;
         series.Format.Line.FillFormat.FillType = FillType.NoFill;
         var labelFormat = series.Labels.DefaultDataLabelFormat;
@@ -502,11 +502,11 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
 // 将所有三个系列对齐到相同的类别中心。
 chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
 
-// 在此简洁示例中使用更少的网格线。
+// 在此紧凑示例中使用更少的网格线。
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.MajorUnit = 10;
 
-// 为绘图区上方预留空间，以放置两行数据标签。
+// 为绘图区上方保留空间以放置两行数据标签。
 chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
 chart.PlotArea.X = 0.15f;
 chart.PlotArea.Y = 0.32f;
@@ -522,8 +522,8 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
     for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
     {
         var dataLabel = series.DataPoints[categoryIndex].Label;
-        // 保持默认的水平位置。Y 是相对于
-        // 默认标签位置的偏移，以图表高度的比例表示。
+        // 保持默认的水平位置。
+        // Y 是相对于默认标签位置的偏移，以图表高度的比例表示。
         dataLabel.X = 0;
         dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
     }
@@ -544,15 +544,52 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
 presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
 ```
 
-![绘图区域上方有两行数据标签的柱形图](multiple-rows-of-labels.png)
+![绘图区上方有两行数据标签的柱形图](multiple-rows-of-labels.png)
+
+## **更改数据标签形状**
+
+Aspose.Slides for .NET 26.11 为单个标签新增了[IDataLabel.LabelShapeType](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/labelshapetype/)，并为系列中所有当前标签新增了[IDataLabelCollection.DefaultLabelShapeType](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultlabelshapetype/)。这些更改标签的形状，而不是点标记。关于单独的标注设置，请参阅[Data Label Callouts](/slides/zh/net/callout/)。
+
+集合赋值会更新已有标签，因此在集合设置之后再应用单独的覆盖。此完整示例需要 [Aspose.Slides for .NET](/slides/zh/net/installation/) 26.11 或更高版本。它创建可见的数值标签，为第一系列选择椭圆形，然后将其第一个标签设为矩形。
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
+var labels = chart.ChartData.Series[0].Labels;
+labels.DefaultDataLabelFormat.ShowValue = true;
+labels.DefaultLabelShapeType = ShapeType.Ellipse;
+labels[0].LabelShapeType = ShapeType.Rectangle;
+
+foreach (var label in labels)
+{
+    var format = label.DataLabelFormat.Format;
+    format.Fill.FillType = FillType.Solid;
+    format.Fill.SolidFillColor.Color = Color.LightYellow;
+    format.Line.FillFormat.FillType = FillType.Solid;
+    format.Line.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+}
+
+presentation.Save("label-shapes.pptx", SaveFormat.Pptx);
+
+// 重置所有当前标签的显式形状选择。
+labels.DefaultLabelShapeType = ShapeType.NotDefined;
+presentation.Save("label-shapes-reset.pptx", SaveFormat.Pptx);
+```
+
+再次为集合分配形状也会替换之前的单独形状选择。[NotDefined](https://reference.aspose.com/slides/net/aspose.slides/shapetype/)会清除显式的形状选择；它不会隐藏标签或清除其他格式。应在填充系列后设置所需形状，而不是假设后添加的点会继承之前的分配。此处使用 Rectangle 和 Ellipse；选择其他形状类型时请检查渲染结果。
 
 ## **常见问题**
 
-**如何防止密集图表中的数据标签重叠？**  
-结合自动标签放置、引导线以及减小字体大小；如有必要，可隐藏某些字段（例如类别），或仅为极值或关键点显示标签。
+**如何防止在密集图表中数据标签重叠？**  
+结合自动标签放置、引导线以及调小字体大小；如有必要，可隐藏某些字段（例如类别），或仅对极值或关键点显示标签。
 
 **如何仅对零、负数或空值禁用标签？**  
-在启用标签前过滤数据点，并根据预定义规则关闭对数值为 0、负数或缺失值的标签显示。
+在启用标签之前筛选数据点，并根据定义的规则关闭对数值为 0、负数或缺失值的显示。
 
-**在导出为 PDF/图片时，如何确保标签样式一致？**  
-显式设置字体族和大小，并确认渲染环境中该字体可用，以避免回退。
+**在导出为 PDF/图像时，如何确保标签样式一致？**  
+显式设置字体系列和大小，并确认渲染环境中存在该字体以避免回退。

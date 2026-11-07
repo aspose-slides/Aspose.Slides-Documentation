@@ -1,38 +1,37 @@
 ---
-title: Vkládání písem do prezentací v .NET
-linktitle: Vložená písma
+title: Vkládání fontů do prezentací v .NET
+linktitle: Vložené fonty
 type: docs
 weight: 40
 url: /cs/net/embedded-font/
 keywords:
-- přidat písmo
-- vložit písmo
-- vkládání písma
-- získat vložené písmo
-- přidat vložené písmo
-- odebrat vložené písmo
-- komprimovat vložené písmo
+- přidat font
+- vložit font
+- vkládání fontu
+- získat vložený font
+- přidat vložený font
+- odstranit vložený font
+- komprimovat vložený font
 - PowerPoint
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Spravujte vložená písma v PowerPointu pomocí Aspose.Slides pro .NET. Použijte C# k přidání, získání, odebrání a kompresi písem, abyste zachovali vzhled textu a snížili velikost souboru."
+description: "Spravujte vložené fonty v PowerPointu pomocí Aspose.Slides pro .NET. Použijte C# k přidání, načtení, odebrání a kompresi fontů pro zachování vzhledu textu a snížení velikosti souboru."
 ---
 ## **Úvod**
 
-Vkládání písem ukládá data písem uvnitř prezentace PowerPoint. Když prohlížeč podporuje vložená písma, může zobrazit text pomocí těchto písem, i když nejsou nainstalována v cílovém systému. To pomáhá zachovat konce řádků, rozestupy textu a rozvržení snímků.
+Vkládání fontů ukládá data fontu uvnitř prezentace PowerPoint. Když prohlížeč podporuje vložené fonty, může zobrazovat text pomocí těchto fontů, i když nejsou nainstalovány v cílovém systému. To pomáhá zachovat zalomení řádků, mezery mezi textem a rozložení snímků.
 
-Aspose.Slides pro .NET umožňuje získávat, přidávat a odstraňovat vložená písma pomocí vlastnosti [FontsManager](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/fontsmanager/) třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/). Můžete také zmenšit velikost dat vložených písem odstraněním znaků, které prezentace nepoužívá.
+Aspose.Slides pro .NET vám umožňuje načíst, přidat a odstranit vložené fonty pomocí vlastnosti [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) objektu [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Můžete také snížit velikost dat vložených fontů odstraněním znaků, které prezentace nepoužívá.
 
-Níže uvedené příklady pracují se soubory PPTX. Před vložením písma se ujistěte, že data písma jsou dostupná pro Aspose.Slides a že licence umožňuje vložení.
+Níže uvedené příklady pracují se soubory PPTX. Před vložením fontu se ujistěte, že jeho data jsou k dispozici pro Aspose.Slides a že jeho licence povoluje vkládání.
 
-## **Získání a odebrání vložených písem**
+## **Získání a odebrání vložených fontů**
 
-Použijte [GetEmbeddedFonts](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsmanager/getembeddedfonts/) k vypsání písem uložených v prezentaci. Chcete‑li odebrat některé, předejte písmo z tohoto seznamu metodě [RemoveEmbeddedFont](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsmanager/removeembeddedfont/), poté prezentaci uložte.
+Použijte [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) k vypsání fontů uložených v prezentaci. Chcete‑li některý odstranit, předajte font z tohoto seznamu metodě [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont/) a poté prezentaci uložte.
 
-Následující příklad vypíše vložená písma v souboru `EmbeddedFonts.pptx` a pokud je přítomno, odstraní písmo Calibri:
-
+Následující příklad vypíše vložené fonty v souboru `EmbeddedFonts.pptx` a odstraní Calibri, pokud je přítomen:
 ```csharp
 using System;
 using Aspose.Slides;
@@ -59,25 +58,24 @@ else
 }
 ```
 
-Odstranění vloženého písma smaže jeho uložená data; nezmění to písmo přiřazené textu. Pokud je písmo nainstalováno v cílovém systému, text jej může nadále používat. V opačném případě může renderování vyžadovat [font substitution](/slides/cs/net/font-substitution/), což může ovlivnit rozvržení.
+Odstranění vloženého fontu odstraní jeho uložená data fontu; nemění to přiřazený font textu. Pokud je font nainstalován v cílovém systému, text jej může nadále používat. V opačném případě může vykreslování vyžadovat [font substitution](/slides/cs/net/font-substitution/), což může ovlivnit rozložení.
 
-## **Kontrola dat písem a oprávnění k vkládání**
+## **Prozkoumání dat fontu a oprávnění k vkládání**
 
-Použijte rozhraní [IFontsManager](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/) k prozkoumání písem před jejich vložením. Zavolejte [IFontsManager.GetFonts](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getfonts/) pro získání písem použitých v prezentaci. Pro každé písmo předávejte objekt [IFontData](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontdata/) a požadovanou hodnotu [FontStyleType](https://reference.aspose.com/slides/cs/net/aspose.slides/fontstyletype/) metodě [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getfontbytes/). Metoda vrací binární data pro daný styl písma nebo `null`, pokud požadované písmo či styl nejsou dostupné. Výsledek `null` nepředávejte metodě [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), protože tato metoda vyžaduje pole bytů.
+Použijte rozhraní [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) k prozkoumání fontů před jejich vložením. Zavolejte [IFontsManager.GetFonts](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfonts/) pro získání fontů použitých v prezentaci. Pro každý font předajte objekt [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) a požadovanou hodnotu [FontStyleType](https://reference.aspose.com/slides/net/aspose.slides/fontstyletype/) metodě [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontbytes/). Metoda vrací binární data pro daný styl fontu, nebo `null`, pokud požadovaný font či styl není dostupný. Nepředávejte výsledek `null` metodě [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), protože tato metoda vyžaduje pole bajtů.
 
-[EmbeddingLevel](https://reference.aspose.com/slides/cs/net/aspose.slides/embeddinglevel/) je výčtový typ s příznaky, který uvádí omezení vkládání uložená v písmu:
+[EmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/embeddinglevel/) je výčtová hodnota s příznaky, která uvádí omezení vkládání uložená ve fontu:
 
-- `Installable` umožňuje vkládání a trvalou instalaci na jiném systému, za předpokladu licence písma.
-- `Restricted` zakazuje vkládání, pokud není získáno povolení od právního vlastníka písma, a to, když je to jediný příznak oprávnění k použití.
-- `PreviewPrint` povoluje dočasné použití pro prohlížení a tisk; dokument obsahující písmo musí být jen pro čtení.
+- `Installable` umožňuje vkládání a trvalou instalaci na jiném systému, pokud to licence fontu povoluje.
+- `Restricted` zakazuje vkládání, pokud není získáno povolení od právního vlastníka fontu, a to pokud je to jediné oprávnění k užití.
+- `PreviewPrint` povoluje dočasné použití pro prohlížení a tisk; dokument obsahující font musí být jen pro čtení.
 - `Editable` povoluje dočasné použití a umožňuje dokument upravovat a ukládat.
-- `NoSubsetting` je další omezení, které zakazuje vkládání jen podmnožiny glifů. Pokud je tento příznak přítomen, vložte všechny znaky.
-- `BitmapOnly` je další omezení, které umožňuje vkládat pouze bitmapové varianty, ne outline data. Pokud písmo nemá bitmapové varianty, nelze jej vložit.
+- `NoSubsetting` je další omezení, které zakazuje vložit pouze podmnožinu glifů. V takovém případě vložte všechny znaky.
+- `BitmapOnly` je další omezení, které umožňuje vložit pouze bitmapové sady, ne konturová data. Pokud font nemá bitmapové sady, nelze jej vložit.
 
-Prvních čtyři hodnoty popisují oprávnění k použití, zatímco `NoSubsetting` a `BitmapOnly` lze s nimi kombinovat. Modifikátory kontrolujte pomocí bitových operací. Protože `Installable` má hodnotu nula, nepoužívejte `HasFlag` k jeho detekci; maskujte bity oprávnění k použití a porovnejte výsledek s `Installable`. Aktuální písma by měla nastavit nejvýše jeden bit oprávnění k použití. Pro kompatibilitu se staršími písmy, která nastavují více než jeden, níže uvedený pomocník vybírá nejméně restriktivní oprávnění: `Editable`, pak `PreviewPrint`, pak `Restricted`.
+Prvních čtyři hodnoty popisují oprávnění k použití, zatímco `NoSubsetting` a `BitmapOnly` lze kombinovat s nimi. Modifikátory kontrolujte pomocí bitových operací. Protože `Installable` má hodnotu nula, nepoužívejte `HasFlag` k jeho detekci; maskujte bity oprávnění k použití a porovnávejte výsledek s `Installable`. Aktuální fonty by měly nastavit nejvýše jeden bit oprávnění. Pro kompatibilitu se staršími fonty, které nastavily více než jeden, níže uvedený pomocník vybírá nejméně omezující oprávnění: `Editable`, poté `PreviewPrint`, poté `Restricted`.
 
-Následující příklad kontroluje data normálního, tučného, kurzívního a tučně‑kurzívního stylu dostupná pro každé písmo vrácené metodou `GetFonts`. Přeskakuje nedostupné styly, omezená písma, písma pouze bitmapová, písma omezená na náhled a tisk, protože výstup zůstává editovatelný, a písma, která jsou již vložená. Pokud má některý dostupný styl příznak `NoSubsetting`, vloží všechny znaky pro danou rodinu písem.
-
+Následující příklad kontroluje běžná, tučná, kurzívní a tučně‑kurzívní data dostupná pro každý font vrácený metodou `GetFonts`. Přeskakuje nedostupné styly, omezené fonty, fonty jen bitmapové, fonty omezené na náhled a tisk, protože výstup zůstává editovatelný, a fonty, které jsou již vloženy. Pokud má některý dostupný styl `NoSubsetting`, vloží všechny znaky pro danou rodinu fontů.
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -186,17 +184,16 @@ foreach (var item in embeddingPlan)
 presentation.Save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Tato kontrola hlásí omezení zakódovaná v každém souboru písma. Neposkytuje licenci, neprokazuje, že jste písmo získali legálně, a nenahrazuje kontrolu licenční smlouvy písma před distribucí vložené kopie.
+Toto prozkoumání hlásí omezení zakódovaná v každém souboru fontu. Nedává licence, neprokazuje, že jste font získali legálně, ani nenahrazuje kontrolu licenční smlouvy fontu před distribucí vložené kopie.
 
-## **Přidání vložených písem**
+## **Přidání vložených fontů**
 
-Použijte [AddEmbeddedFont](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsmanager/addembeddedfont/) k vložení písma. Jeho přetížení přijímají buď objekt [IFontData](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontdata/), nebo pole bytů obsahující data písma. Výčtový typ [EmbedFontCharacters](https://reference.aspose.com/slides/cs/net/aspose.slides.export/embedfontcharacters/) určuje, které znaky jsou zahrnuty:
+Použijte [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) k vložení fontu. Jeho přetížení přijímají buď objekt [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) nebo pole bajtů obsahující data fontu. Výčtová hodnota [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) určuje, které znaky jsou zahrnuty:
 
-- [All](https://reference.aspose.com/slides/cs/net/aspose.slides.export/embedfontcharacters/) vloží všechny znaky písma. Použijte tuto možnost, když příjemci potřebují upravovat prezentaci a zadávat nový text.
-- [OnlyUsed](https://reference.aspose.com/slides/cs/net/aspose.slides.export/embedfontcharacters/) vloží pouze znaky použité v prezentaci, aby se snížila velikost souboru. Zvolte tuto možnost pro hotovou prezentaci, která je primárně určena k prohlížení.
+- [All](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) vloží všechny znaky fontu. Použijte tuto možnost, když příjemci potřebují prezentaci upravovat a zadávat nový text.
+- [OnlyUsed](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) vloží pouze znaky použité v prezentaci, čímž se zmenší velikost souboru. Zvolte tuto možnost pro finální prezentaci určenou převážně k prohlížení.
 
-Následující příklad používá [GetFonts](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsmanager/getfonts/) k získání písem použitých v souboru `Fonts.pptx` a vloží ta, která nejsou již vložená. Písma k přidání musí být dostupná na počítači, na kterém kód běží. Stávající vložená písma si zachovají své aktuální sady znaků.
-
+Následující příklad používá [GetFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) k získání fontů použité v souboru `Fonts.pptx` a vloží ty, které ještě nejsou vloženy. Fonty k přidání musí být dostupné na počítači, na kterém kód běží. Existující vložené fonty si zachovají své aktuální sady znaků.
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -223,12 +220,11 @@ foreach (var font in allFonts)
 presentation.Save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-## **Komprese vložených písem**
+## **Komprese vložených fontů**
 
-[CompressEmbeddedFonts](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/compressembeddedfonts/) snižuje data vložených písem odstraněním nepoužívaných znaků. Funguje na písmách, která jsou již vložená, takže úspora velikosti závisí na množství nepoužitých dat písma v prezentaci.
+[CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) snižuje data vložených fontů odebráním nepoužitých znaků. Operuje na již vložených fontech, takže úspora velikosti závisí na tom, kolik nepoužitých dat fontu v prezentaci je.
 
-Následující příklad komprimuje písma v souboru `EmbeddedFonts.pptx` a výsledek uloží jako samostatný soubor:
-
+Následující příklad komprimuje fonty v souboru `EmbeddedFonts.pptx` a výsledek uloží jako samostatný soubor:
 ```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -239,14 +235,16 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Ponechte původní soubor, pokud příjemci mohou později potřebovat přidávat text. Znaky odebrané během komprese již nejsou dostupné z vloženého písma, i když jste původně vložili všechny znaky.
+Uchovejte původní soubor, pokud příjemci mohou později potřebovat přidávat text. Znaky odebrané během komprese již nejsou dostupné z vloženého fontu, i když jste původně vložili všechny znaky.
+
+Aby během exportu získal odpovídající registrovaný font přednost před vloženým fontem, aniž by byl odstraněn, viz [Prefer Registered Fonts over Embedded Fonts](/slides/cs/net/font-selection-sequence/#prefer-registered-fonts-over-embedded-fonts) (.NET 26.11 nebo novější).
 
 ## **Často kladené otázky**
 
-**Jak mohu zjistit, zda bude vložené písmo během renderování stále nahrazeno?**
+**Jak mohu zjistit, zda bude vložený font při vykreslování stále nahrazen?**
 
-Zavolejte [GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsmanager/getsubstitutions/) v prostředí, ve kterém renderujete prezentaci, abyste zjistili, která písma Aspose.Slides nahradí. Také zkontrolujte nastavení [font substitution](/slides/cs/net/font-substitution/) a pravidla [font fallback](/slides/cs/net/fallback-font/). Fallback se stará o chybějící znaky, takže vložení písma nevyřeší znaky, které samotné písmo neobsahuje.
+Zavolejte [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) v prostředí, kde prezentaci vykreslujete, aby jste zjistili, které fonty Aspose.Slides nahradí. Také zkontrolujte nastavení [font substitution](/slides/cs/net/font-substitution/) a pravidla [font fallback](/slides/cs/net/fallback-font/). Fallback ošetřuje chybějící znaky, takže vložení fontu nevyřeší znaky, které font samotný neobsahuje.
 
-**Mám vložit běžná písma jako Arial a Calibri?**
+**Mám vložit běžné fonty jako Arial a Calibri?**
 
-Rozhodnutí se odvíjí od cílového prostředí. Pokud jsou požadovaná písma dostupná na každém zařízení, které prezentaci otevírá nebo renderuje, jejich vložení může zbytečně zvětšit velikost souboru. Pokud příjemci nebo servery tato písma nemusí mít, jejich vložení může pomoci zachovat zamýšlený vzhled, za předpokladu, že licence to umožňují.
+Rozhodnutí vycházejte z cílového prostředí. Pokud jsou požadované fonty dostupné na každém počítači, který prezentaci otevírá nebo vykresluje, jejich vložení může zbytečně zvětšit velikost souboru. Pokud příjemci nebo servery mohou tyto fonty postrádat, jejich vložení může pomoci zachovat zamýšlený vzhled, pokud to licence fontů umožňují.

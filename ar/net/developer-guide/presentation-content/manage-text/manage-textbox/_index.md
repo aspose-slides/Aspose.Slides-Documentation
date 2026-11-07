@@ -1,6 +1,6 @@
 ---
-title: إدارة صناديق النص في العروض التقديمية باستخدام .NET
-linktitle: إدارة صندوق النص
+title: "إدارة صناديق النص في العروض التقديمية في .NET"
+linktitle: "إدارة صندوق النص"
 type: docs
 weight: 20
 url: /ar/net/manage-textbox/
@@ -18,19 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "إنشاء وتحديد وتنسيق وتحديث صناديق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ .NET."
+description: "إنشاء وتحديد وتنسيق وتحديث صناديق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for .NET."
 ---
 ## **المقدمة**
 
-في Aspose.Slides for .NET، يتم تخزين نص الشريحة في إطارات النص التي تنتمي إلى الأشكال. تمثل الواجهة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) الشكل الأكثر شيوعًا الذي يحمل النص وتكشف عن نصه عبر الخاصية [IAutoShape.TextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/textframe/).
+في Aspose.Slides for .NET، يتم تخزين نص الشريحة في إطارات نصية تنتمي إلى الأشكال. تمثل الواجهة [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) الشكل الأكثر شيوعًا الذي يحمل نصًا وتكشف نصه عبر الخاصية [IAutoShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/).
 
 {{% alert color="info" title="ملاحظة" %}}
-كل شكل تلقائي ينفذ [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/)، ولكن ليس كل شكل هو شكل تلقائي أو يدعم إطار نص. عند معالجة عرض تقديمي موجود، تحقق من أن الشكل ينفذ `IAutoShape` قبل الوصول إلى نصه.
+
+كل شكل تلقائي ينفذ [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/)، لكن ليس كل شكل هو شكل تلقائي أو يدعم إطار نص. عند معالجة عرض تقديمي موجود، تحقق من أن الشكل ينفذ `IAutoShape` قبل الوصول إلى نصه.
+
 {{% /alert %}}
 
-## **إنشاء مربع نص على الشريحة**
+## **إنشاء صندوق نص على شريحة**
 
-لإنشاء مربع نص، قم بإضافة شكل تلقائي إلى شريحة، أضف نصًا إلى إطار النص الخاص به، واحفظ العرض التقديمي. المثال التالي ينشئ مربع نص مستطيل:
+لإنشاء صندوق نص، أضف شكلاً تلقائيًا إلى شريحة، أضف نصًا إلى إطار نصه، واحفظ العرض التقديمي. المثال التالي ينشئ صندوق نص مستطيل:
 
 ```csharp
 using Aspose.Slides;
@@ -44,13 +46,13 @@ textBox.AddTextFrame("Aspose TextBox");
 presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-الإحداثيات والأبعاد الممرَّرة إلى [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/addautoshape/) تُقاس بالنقاط. تقوم [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/addtextframe/) بتهيئة إطار النص بالنص المزوَّد.
+الإحداثيات والأبعاد التي تم تمريرها إلى [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/) تُقاس بالنقاط. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) يُهيئ إطار النص بالنص المقدم.
 
-## **التحقق من كون الشكل مربع نص**
+## **التحقق من شكل صندوق النص**
 
-استخدم الخاصية [AutoShape.IsTextBox](https://reference.aspose.com/slides/ar/net/aspose.slides/autoshape/istextbox/) لتحديد ما إذا كان الشكل التلقائي يُعامل كمربع نص. هذا مفيد عندما يحتوي العرض التقديمي على أشكال تلقائية تحمل نصًا وأخرى رسومية بحتة.
+استخدم خاصية [AutoShape.IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) لتحديد ما إذا كان الشكل التلقائي يُعامل كصندوق نص. هذا مفيد عندما يحتوي العرض التقديمي على أشكال تلقائية تحمل نصًا وأخرى رسومية بحتة.
 
-![مربع نص وشكل](istextbox.png)
+![صندوق نص وشكل](istextbox.png)
 
 المثال التالي يفحص كل شكل تلقائي في عرض تقديمي:
 
@@ -76,7 +78,7 @@ foreach (var currentSlide in presentation.Slides)
 }
 ```
 
-لا يُعتبر الشكل التلقائي المضاف حديثًا مربع نص حتى يحتوي على نص غير فارغ. يمكنك توفير ذلك النص عبر [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/addtextframe/) أو [ITextFrame.Text](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/text/). إضافة أو تعيين سلسلة فارغة يترك `IsTextBox` مضبوطًا على `false`:
+لا يُعتبر الشكل التلقائي المضاف حديثًا صندوق نص حتى يحتوي على نص غير فارغ. يمكنك توفير ذلك النص عبر [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) أو [ITextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/itextframe/text/). إضافة أو تعيين سلسلة فارغة يترك `IsTextBox` مضبوطة على `false`:
 
 ```csharp
 using System;
@@ -102,19 +104,57 @@ shape4.TextFrame.Text = "";
 Console.WriteLine(shape4.IsTextBox);
 ```
 
-الاستدعاءان الأولان يطبعان `True`؛ والاستدعاءان الأخيران يطبعان `False`.
+النداءان الأوليان يطبعان `True`؛ الأخيران يطبعان `False`.
 
-## **إيجاد الشكل الذي يمتلك إطار نص**
+## **العثور على الشكل الذي يمتلك إطار نص**
 
-قد يتلقى كود معالجة النص العامة كائنًا من النوع [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) دون معرفة أي كائن عرض تقديمي يحتويه. استخدم الخاصية للقراءة فقط [ITextFrame.ParentShape](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/parentshape/) للعودة إلى [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/) المالك.
+قد يتلقى كود معالجة النص العام كائنًا من نوع [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) دون معرفة أي كائن عرض تقديمي يحتويه. استخدم الخاصية للقراءة فقط [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) للعودة إلى الشكل المالكة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/).
 
-لإطار نص مملوك لشكل تلقائي أو شكل آخر يحمل نصًا، يحتوي `ParentShape` على المالك وتكون [ITextFrame.ParentCell](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/parentcell/) `null`. تحقق من القيمة المرجعة قبل الوصول إليها. لتحديد كل من مالكي الشكل وخلية الجدول، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع [Search and Replace Text](/slides/ar/net/search-and-replace-text/).
+بالنسبة لإطار نص مملوك لشكل تلقائي أو شكل آخر يحمل نصًا، يحتوي `ParentShape` على المالك وتكون [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) `null`. تحقق من القيمة المرجعة قبل الوصول إليها. لتحديد كل من مالكي الشكل وخلايا الجدول، بما في ذلك الأشكال المرتبطة بعقد SmartArt، انظر [Search and Replace Text](/slides/ar/net/search-and-replace-text/).
 
-## **إضافة أعمدة إلى مربع النص**
+## **الحصول على مستطيل نص الشكل**
 
-خاصية [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/columncount/) تقسم إطار النص إلى أعمدة، بينما [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/columnspacing/) تحدد الفجوة بين الأعمدة بالنقاط. كلا الإعدادين ينتميان إلى [ITextFrameFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/) ويمكن تغييرهما عبر إطار النص لمربع نص موجود. يعيد تدفق النص بين الأعمدة داخل الشكل نفسه؛ لا يستمر في شكل آخر.
+بدءًا من Aspose.Slides for .NET 26.11، تُعيد الدالة [ITextFrame.GetTextRect](https://reference.aspose.com/slides/net/aspose.slides/itextframe/gettextrect/) مساحة النص المحددة بواسطة هندسة الشكل الأب. إحداثياتها وأبعادها بالنقاط،相 بالنسبة إلى الزاوية اليسرى العليا لذلك الشكل. على سبيل المثال، تكون للمقوس مستطيل نص أصغر من حدودها الخارجية.
 
-المثال التالي ينشئ مربع نص ثلاثي الأعمدة مع 10 نقاط بين الأعمدة، يحفظ العرض التقديمي، ويقرأ الإعدادات المخزنة مرة أخرى من ملف الإخراج:
+هذا المستطيل يصف الشكل، وليس الأحرف المُرسَمة. تغيير النص أو هوامش إطار النص لا يجعله قياسًا للنص المحتل. استخدم [paragraph bounds](/slides/ar/net/paragraph-bounds/) أو [portion bounds](/slides/ar/net/portion-bounds/) لقياسات النص المُرسَم.
+
+بعد [installing Aspose.Slides for .NET](/slides/ar/net/installation/) 26.11 أو أحدث، شغِّل هذا المثال لرسم مستطيل نص الهندسة باللون الأحمر. الأشكال غير مُدوَّرة وغير مُجمَّعة، لذا إضافة موضع X/Y يكفي لوضع التراكب على الشريحة.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+foreach (var shapeType in new[] { ShapeType.Rectangle, ShapeType.Ellipse })
+{
+    var x = shapeType == ShapeType.Rectangle ? 50 : 300;
+    var shape = slide.Shapes.AddAutoShape(shapeType, x, 200, 200, 100);
+    shape.AddTextFrame("Text area");
+    var rectangle = shape.TextFrame.GetTextRect();
+    Console.WriteLine($"{shapeType}: {rectangle}");
+
+    var overlayX = shape.X + rectangle.X;
+    var overlayY = shape.Y + rectangle.Y;
+    var outline = slide.Shapes.AddAutoShape(ShapeType.Rectangle, overlayX, overlayY, rectangle.Width, rectangle.Height);
+    outline.FillFormat.FillType = FillType.NoFill;
+    outline.LineFormat.FillFormat.FillType = FillType.Solid;
+    outline.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+}
+
+presentation.Save("text-rectangles.pptx", SaveFormat.Pptx);
+```
+
+بالنسبة للأشكال ذات 200 × 100 نقطة أعلاه، يُعيد المستطيل `(0, 0, 200, 100)`؛ ويُعيد المقوس تقريبًا `(29.289, 14.645, 141.421, 70.711)`. الطريقة تقرأ أيضاً مستطيل النص المعلن لهندسة مخصصة. لا تُطبّق دوران مساحة الشريحة أو تحويلات المجموعة؛ احسب هذه التحويلات منفصلًا عند تموضع التراكب. قد يلقي إطار نص بدون شكل هندسي، مثل إطار نص خلية جدول، استثناء `InvalidOperationException`.
+
+## **إضافة أعمدة إلى صندوق النص**
+
+خاصية [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/) تقسم إطار النص إلى أعمدة، بينما خاصية [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/) تُحدد الفجوة بين الأعمدة بالنقاط. كلا الإعدادين ينتميان إلى [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/) ويمكن تعديلهما عبر إطار النص في صندوق نص موجود. يعاد تدفق النص بين الأعمدة داخل نفس الشكل؛ ولا يتواصل إلى شكل آخر.
+
+المثال التالي ينشئ صندوق نص بثلاثة أعمدة مع 10 نقاط بين الأعمدة، يحفظ العرض التقديمي، ويقرأ الإعدادات المخزنة من ملف الإخراج:
 
 ```csharp
 using System;
@@ -140,17 +180,17 @@ Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.Co
 
 ## **استخراج النص من الأعمدة الفردية**
 
-استخدم [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/ar/net/aspose.slides/textframe/splittextbycolumns/) لاسترجاع النص المخصص لكل عمود مرئي في إطار نص موجود. تُرجع الطريقة سلسلة واحدة لكل عمود، بترتيب القراءة القائم على الأعمدة. ينتج إطار نص عمود واحد مصفوفة ذات عنصر واحد، والعمود الفارغ يُمثَّل بسلسلة فارغة. السلاسل تحتوي على نص عادي فقط؛ لا يتم الحفاظ على تنسيق المستويات الجزئية.
+استخدم الدالة [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/net/aspose.slides/textframe/splittextbycolumns/) لاسترجاع النص المعين لكل عمود بصري في إطار نص موجود. تُعيد الدالة سلسلة واحدة لكل عمود، بترتيب القراءة حسب الأعمدة. ينتج إطار نص بعمود واحد مصفوفة بعنصر واحد، والعمود الفارغ يُمثَّل بسلسلة فارغة. تحتوي السلاسل على نص عادي فقط؛ لا يُحافظ على تنسيق المستوى الجزئي.
 
 هذا مفيد عندما تحتاج إلى:
-- استخراج النص مع الحفاظ على ترتيب القراءة القائم على الأعمدة.
+- استخراج النص مع الحفاظ على ترتيب القراءة حسب الأعمدة.
 - فهرسة أو مقارنة محتوى الشرائح متعددة الأعمدة.
-- تصدير كل عمود إلى ملف منفصل، أو حقل قاعدة بيانات، أو وجهة أخرى.
-- فحص كيفية إعادة توزيع النص بعد تغيير [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/columncount/)، [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/columnspacing/)، الخط، أو حجم إطار النص.
+- تصدير كل عمود إلى ملف منفصل أو حقل قاعدة بيانات أو وجهة أخرى.
+- فحص كيفية إعادة توزيع النص بعد تغيير [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/)، [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/)، الخط، أو حجم إطار النص.
 
-الطريقة تُبلغ عن النص الموزع داخل [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) الحالي؛ لا تقوم تلقائيًا بتدفق النص بين أشكال أو مربعات نص منفصلة. قد يعتمد توزيع الأعمدة على الخطوط المتوفرة وإعدادات تخطيط النص الأخرى، لذا تأكد من توفر الخطوط المطلوبة عندما تكون النتائج المتسقة مهمة.
+تُبلغ الطريقة النص الموزَّع داخل [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) الحالي؛ ولا تُعيد تدفق النص تلقائيًا بين أشكال أو صناديق نص منفصلة. قد يعتمد توزيع الأعمدة على الخطوط المتوفرة وإعدادات تخطيط النص الأخرى، لذا تأكد من توفر الخطوط المطلوبة عندما تكون النتائج المتسقة مهمة.
 
-المثال التالي يحمل عرض تقديمي، يجد أول شكل تلقائي متعدد الأعمدة يحتوي على إطار نص، يقرأ عدد الأعمدة المُكوَّن، ويكتب النص من كل عمود إلى ملف منفصل. تُهمل الأشكال التي لا توفّر إطار نص.
+المثال التالي يحمل عرضًا تقديميًا، يجد أول شكل تلقائي متعدد الأعمدة يحتوي على إطار نص، يقرأ عدد الأعمدة المكوَّن، ويكتب نص كل عمود إلى ملف منفصل. تُهمل الأشكال التي لا توفر إطار نص.
 
 ```csharp
 using System;
@@ -197,9 +237,9 @@ else
 
 ## **تحديث النص**
 
-لتحديث النص في جميع أنحاء عرض تقديمي، كرّر عبر الشرائح والأشكال، اختر الأشكال التلقائية، ثم حرّر أجزاء نصها. العمل على مستوى الجزء يتيح لك تغيير كلًا من النص وتنسيق الأحرف.
+لتحديث النص في جميع أنحاء العرض التقديمي، قم بالتكرار عبر الشرائح والأشكال، اختر الأشكال التلقائية، ثم حرّر أجزاء نصها. العمل على مستوى الجزء يتيح لك تغيير كل من النص وتنسيق الأحرف.
 
-المثال التالي يستبدل كل تواجد لكلمة `years` بـ `months` في نص الشكل التلقائي ويجعل كل جزء متأثر غامقًا:
+المثال التالي يستبدل كل ظهور لكلمة `years` بـ `months` في نص الشكل التلقائي ويجعل كل جزء متأثر غامقًا:
 
 ```csharp
 using Aspose.Slides;
@@ -230,13 +270,13 @@ foreach (var slide in presentation.Slides)
 presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-هذا التجول يحدّث النص فقط في الأشكال التلقائية. النص المخزن في الجداول أو المخططات أو SmartArt أو الأشكال المجمعة يتطلب التجول في مجموعات تلك الكائنات الخاصة.
+هذا الاستعراض يُحدّث النص فقط في الأشكال التلقائية. النص المخزن في الجداول أو المخططات أو SmartArt أو الأشكال المجمَّعة يتطلب استعراض مجموعات تلك الكائنات الخاصة.
 
-## **إضافة مربع نص مع ارتباط تشعبي**
+## **إضافة صندوق نص مع ارتباط تشعبي**
 
-يمكن تعيين ارتباط تشعبي إلى جزء نصي محدد، بحيث يكون ذلك النص فقط هو القابل للنقر. استخدم [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) لربط الجزء بعنوان URL خارجي.
+يمكن تعيين ارتباط تشعبي إلى جزء نص معين، بحيث يكون فقط ذلك النص هو الرابط القابل للنقر. استخدم [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) لربط الجزء بعنوان URL خارجي.
 
-المثال التالي ينشئ نصًا مرتبطًا ويحفظه إلى عرض تقديمي:
+المثال التالي يُنشئ نصًا مرتبطًا ويحفظه إلى عرض تقديمي:
 
 ```csharp
 using Aspose.Slides;
@@ -255,10 +295,10 @@ presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 
 ## **الأسئلة الشائعة**
 
-**ما هو الفرق بين مربع النص وعلامة النص النائبة على الشريحة الرئيسية أو شريحة التخطيط؟**
+**ما الفرق بين صندوق النص وعناصر النائب النصي على شريحة رئيسية أو تخطيطية؟**
 
-يمكن لـ [placeholder](/slides/ar/net/manage-placeholder/) أن يرث موقعه وتنسيقه من [master slide](https://reference.aspose.com/slides/ar/net/aspose.slides/masterslide/) أو [layout slide](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutslide/). مربع النص العادي هو شكل مستقل على الشريحة التي تم إنشاؤه فيها ولا يكتسب سلوك العنصر النائب عندما يتغير التخطيط.
+يمكن لعناصر [placeholder](/slides/ar/net/manage-placeholder/) أن تورث موقعها وتنسيقها من [master slide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) أو [layout slide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/). صندوق النص العادي هو شكل مستقل على الشريحة التي تم إنشاؤه فيها ولا يكتسب سلوك العنصر النائب عندما يتغير التخطيط.
 
 **كيف يمكنني استبدال النص دون تغيير النص في المخططات أو الجداول أو SmartArt؟**
 
-حدد التجول إلى الأشكال التي تنفّذ [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/)، كما هو موضح في مثال تحديث النص. المخططات والجداول وSmartArt تخزن النص في نماذج كائناتها الخاصة، لذا لا يتم تعديلها بهذه الحلقة.
+قصر الاستعراض على الأشكال التي تنفذ [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)، كما هو موضح في مثال تحديث النص. تخزن المخططات والجداول وSmartArt النص في نماذج كائناتها الخاصة، لذا لا يتم تعديلها بهذه الحلقة.

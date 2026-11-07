@@ -1,16 +1,16 @@
 ---
-title: مدیریت فریم‌های ویدئویی در ارائه‌ها با .NET
-linktitle: فریم ویدئویی
+title: مدیریت فریم‌های ویدیو در ارائه‌ها با .NET
+linktitle: فریم ویدیو
 type: docs
 weight: 10
 url: /fa/net/video-frame/
 keywords:
 - افزودن ویدیو
 - ایجاد ویدیو
-- جاسازی ویدیو
+- تعبیه ویدیو
 - استخراج ویدیو
-- دریافت ویدیو
-- فریم ویدئویی
+- بازیابی ویدیو
+- فریم ویدیو
 - منبع وب
 - PowerPoint
 - OpenDocument
@@ -18,21 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "یاد بگیرید چگونه به‌صورت برنامه‌نویسی فریم‌های ویدئویی را در اسلایدهای PowerPoint و OpenDocument با استفاده از Aspose.Slides برای .NET اضافه و استخراج کنید. راهنمای سریع عملی."
+description: "یاد بگیرید چگونه به‌صورت برنامه‌نویسی فریم‌های ویدیو را در اسلایدهای PowerPoint و OpenDocument با استفاده از Aspose.Slides برای .NET اضافه و استخراج کنید. راهنمای سریع گام‌به‌گام."
 ---
-## **معرفی**
+## **مقدمه**
 
-ویدیوها می‌توانند به توضیح ایده‌ها و جذب مخاطب کمک کنند. Aspose.Slides for .NET به شما امکان می‌دهد فریم‌های ویدئویی را به اسلایدها اضافه کنید، تنظیمات پخش را تنظیم کنید، زیرنویس‌ها را مدیریت کنید و داده‌های ویدئوی جاسازی شده را استخراج کنید.
+ویدیوها می‌توانند به توضیح ایده‌ها کمک کرده و مخاطبان را جذب کنند. Aspose.Slides for .NET به شما امکان اضافه کردن فریم‌های ویدیو به اسلایدها، تنظیم تنظیمات پخش، مدیریت زیرنویس‌ها و استخراج داده‌های ویدیوهای تعبیه‌شده را می‌دهد.
 
-PowerPoint از ویدیوهای محلی و لینک‌های ویدیوهای آنلاین، مانند ویدیوهای YouTube پشتیبانی می‌کند.
+PowerPoint از ویدیوهای محلی و پیوندهای به ویدیوهای آنلاین، مانند ویدیوهای YouTube، پشتیبانی می‌کند.
 
-برای نمایش داده‌های ویدئویی و فریم‌های ویدئویی، Aspose.Slides رابط [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) و رابط [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) و سایر انواع مرتبط را فراهم می‌کند.
+برای نمایش داده‌های ویدیو و فریم‌های ویدیو، Aspose.Slides رابط‌های [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) و [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) و انواع مرتبط دیگر را فراهم می‌کند.
 
-## **ایجاد یک فریم ویدئویی جاسازی شده**
+## **ایجاد یک فریم ویدیو تعبیه‌شده**
 
-اگر فایل ویدئویی که می‌خواهید به اسلاید خود اضافه کنید به صورت محلی ذخیره شده باشد، می‌توانید فریم ویدئویی ایجاد کنید تا ویدیو را در ارائه خود جاسازی کنید.
+اگر فایل ویدیویی که می‌خواهید به اسلاید خود اضافه کنید به صورت محلی ذخیره شده باشد، می‌توانید یک فریم ویدیو ایجاد کنید تا ویدیو را در ارائه خود تعبیه کنید.
 
-این مثال یک ویدئوی محلی را در اولین اسلاید یک ارائه موجود جاسازی می‌کند و نتیجه را ذخیره می‌نماید. مختصات و ابعاد فریم برحسب نقاط هستند. جریان (stream) تا پایان ذخیره باز می‌ماند زیرا [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) آن را قفل می‌ماند در حالی که ارائه از آن استفاده می‌کند.
+این مثال یک ویدیو محلی را در اولین اسلاید یک ارائه موجود تعبیه می‌کند و نتیجه را ذخیره می‌نماید. مختصات و ابعاد فریم بر حسب پوینت هستند. جریان (stream) تا پایان ذخیره باز می‌ماند چون [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) آن را در هنگام استفاده ارائه قفل نگه می‌دارد.
 
 ```csharp
 using System.IO;
@@ -49,7 +49,7 @@ slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
-می‌توانید مسیر ویدئوی محلی را مستقیماً به [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/) نیز پاس بدهید. این مثال ویدیو را در اولین اسلاید یک ارائه جدید جاسازی می‌کند. ویدیو باید تا زمان ذخیرهٔ ارائه دسترس‌پذیر بماند.
+همچنین می‌توانید مسیر ویدیو محلی را مستقیماً به [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/) پاس دهید. این مثال ویدیو را در اولین اسلاید یک ارائه جدید تعبیه می‌کند. ویدیو باید تا زمان ذخیره ارائه در دسترس بماند.
 
 ```csharp
 using Aspose.Slides;
@@ -63,11 +63,50 @@ slide.Shapes.AddVideoFrame(50, 150, 300, 150, "video.avi");
 presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
 ```
 
-## **ایجاد یک فریم ویدئویی با ویدیو از منبع وب**
+## **تنظیم دقیق حجم ویدیو**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) از ویدیوهای آنلاین در ارائه‌ها پشتیبانی می‌کند. می‌توانید فریم ویدئویی ایجاد کنید که به یک ویدیو آنلاین، مانند یک ویدیو YouTube، لینک دارد.
+در Aspose.Slides for .NET نسخه 26.11 یا بعد از آن، [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) درصدی با مقدار شناور از 0 تا 100 تنظیم می‌کند. وقتی پیش‌تنظیم‌های [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) بیش از حد کلی هستند، از آن استفاده کنید. برای مثال، `75.5f` حجم 75.5٪ را درخواست می‌کند.
 
-این مثال یک لینک ویدیو YouTube و تصویر کوچک آن را به اولین اسلاید اضافه می‌کند. شناسهٔ ویدیو را جایگزین کنید تا از ویدیو دیگری استفاده کنید. تنظیم [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) پخش خودکار را درخواست می‌کند. دانلود تصویر کوچک و پخش ویدیو نیاز به دسترسی به اینترنت دارد. نمایشگر ارائه نیز باید پخش ویدیوهای آنلاین را پشتیبانی کند.
+این مثال به [Aspose.Slides for .NET](/slides/fa/net/installation/) نسخه 26.11 یا بعد از آن و یک فایل `video.mp4` محلی نیاز دارد. ویدیو را تعبیه می‌کند، به صراحت پخش را مقداردهی اولیه مینماید، ارائه را ذخیره می‌کند و درصد ذخیره‌شده را برمی‌خواند.
+
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var volume = 75.5f;
+if (float.IsNaN(volume) || float.IsInfinity(volume) || volume < 0 || volume > 100)
+{
+    Console.WriteLine("Use a finite volume from 0 to 100.");
+    return;
+}
+
+using (var presentation = new Presentation())
+{
+    var videoBytes = File.ReadAllBytes("video.mp4");
+    var video = presentation.Videos.AddVideo(videoBytes);
+    var frame = presentation.Slides[0].Shapes.AddVideoFrame(50, 50, 320, 180, video);
+    frame.PlayMode = VideoPlayModePreset.Auto;
+    frame.VolumeValue = volume;
+    presentation.Save("video-volume.pptx", SaveFormat.Pptx);
+}
+
+using var saved = new Presentation("video-volume.pptx");
+var savedFrame = saved.Slides[0].Shapes.OfType<IVideoFrame>().First();
+Console.WriteLine(savedFrame.VolumeValue);
+```
+
+ورودی را خودتان اعتبارسنجی کنید؛ به تنظیم‌کننده برای رد مقادیر خارج از دامنه مستند شده تکیه نکنید. پیش‌تنظیم‌های کم، متوسط و بلند در نسخه 26.11 مطابق با 20، 50 و 80 هستند. تنظیم یک پیش‌تنظیم می‌تواند درصد قبلی را جایگزین کند، بنابراین وقتی به مقدار دقیق نیاز دارید، درصد را در انتها اختصاص دهید. برای تنظیم صریح بی‌صدا از [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) استفاده کنید؛ صفر عددی و مقدار enum پیش‌تنظیم حالت‌های قابل تعویض نیستند.
+
+همچنین هنگام پیکربندی یک ویدیو پیوندی، [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) را به‌صورت صریح تنظیم کنید و فایل رسانه‌ای آن را برای بیننده در دسترس نگه دارید. ذخیره و بازگشایی تنظیم ذخیره‌شده را تأیید می‌کند؛ پخش واقعی و صدای آن به پخش‌کننده ارائه و تنظیمات صوتی آن بستگی دارد.
+
+## **ایجاد فریم ویدیو با ویدیو از منبع وب**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) ویدیوهای آنلاین را در ارائه‌ها پشتیبانی می‌کند. می‌توانید فریم ویدیو ایجاد کنید که به یک ویدیو آنلاین مانند یک ویدیو YouTube پیوند دارد.
+
+این مثال پیوند ویدیو YouTube و تصویر بندانگشتی را به اولین اسلاید اضافه می‌کند. شناسه ویدیو را تغییر دهید تا از ویدیو دیگری استفاده کنید. تنظیم [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) درخواست پخش خودکار می‌کند. دانلود تصویر بندانگشتی و پخش ویدیو نیاز به دسترسی به اینترنت دارد. نمایشگر ارائه نیز باید از پخش ویدیوهای آنلاین پشتیبانی کند.
 
 ```csharp
 using System.Net.Http;
@@ -92,11 +131,11 @@ videoFrame.PictureFormat.Picture.Image = thumbnail;
 presentation.Save("online_video.pptx", SaveFormat.Pptx);
 ```
 
-## **پخش یک ویدیو در حالت تمام‌صفحه**
+## **پخش ویدیو در حالت تمام صفحه**
 
-در یک ارائهٔ آموزشی، می‌توانید یک نمایش نرم‌افزاری را در حالت تمام‌صفحه پخش کنید تا مخاطب جزئیات را ببیند. برای فعال‌سازی این رفتار در طول پخش، [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) را به `true` تنظیم کنید.
+در یک ارائه آموزشی، می‌توانید یک نمایش نرم‌افزار را در حالت تمام صفحه پخش کنید تا مخاطبان جزئیات را ببینند. برای فعال کردن این رفتار در طول پخش، [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) را روی `true` تنظیم کنید.
 
-این مثال یک ارائه را باز می‌کند، اولین [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) را در اولین اسلاید پیدا می‌کند و پخش تمام‌صفحه را فعال می‌سازد. ارائهٔ ورودی باید حداقل یک اسلاید با فریم ویدئویی موجود در اولین اسلاید داشته باشد.
+این مثال یک ارائه را باز می‌کند، اولین [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) را در اولین اسلاید پیدا می‌کند و پخش تمام صفحه را فعال می‌نماید. ارائه ورودی باید حداقل یک اسلاید داشته باشد که در اولین اسلاید یک فریم ویدیو موجود داشته باشد.
 
 ```csharp
 using Aspose.Slides;
@@ -117,13 +156,13 @@ foreach (var shape in slide.Shapes)
 presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
 ```
 
-پخش تمام‌صفحه کنترل می‌کند که ویدیو چگونه نمایش داده شود. به‌ طور مستقل، [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) تعیین می‌کند که آیا پخش به‌صورت خودکار یا با کلیک آغاز شود و [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) تعیین می‌کند که آیا تکرار شود یا نه. برای انتخاب رفتار شروع، حالت پخش را به [VideoPlayModePreset.Auto یا VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) تنظیم کنید. مثال تنظیمات شروع و حلقهٔ موجود را حفظ می‌کند.
+پخش تمام صفحه نحوه نمایش ویدیو را کنترل می‌کند. به‌صورت مستقل، [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) تعیین می‌کند که آیا به‌صورت خودکار یا با کلیک شروع شود و [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) تعیین می‌کند که آیا تکرار شود. برای انتخاب رفتار شروع، حالت پخش را به [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) تنظیم کنید. مثال تنظیمات شروع و حلقه موجود را حفظ می‌کند.
 
-## **بازگرداندن یک ویدیو پس از پخش**
+## **پس از پخش، ویدیو را به ابتدا برگردانید**
 
-در یک ارائهٔ آموزشی، بازگرداندن یک ویدئو نمایشی به ابتدای آن باعث می‌شود برای ارائه‌کننده دوباره قابل پخش باشد. برای بازگرداندن ویدیو به ابتدای آن پس از اتمام پخش، [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) را به `true` تنظیم کنید.
+در یک ارائه آموزشی، بازگرداندن ویدیو نمایش به ابتدای خود آن را برای اجرا دوباره توسط ارائه‌دهنده آماده می‌کند. برای بازگرداندن ویدیو به ابتدا پس از اتمام پخش، [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) را روی `true` تنظیم کنید.
 
-این مثال یک ارائه را باز می‌کند، اولین [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) را در اولین اسلاید پیدا می‌کند و بازگرداندن را فعال می‌سازد. حلقه‌گذاری را غیرفعال می‌کند تا پخش بتواند به پایان برسد و پخش را برای شروع با کلیک تنظیم می‌کند. ارائهٔ ورودی باید حداقل یک اسلاید با فریم ویدئویی موجود در اولین اسلاید داشته باشد.
+این مثال یک ارائه را باز می‌کند، اولین [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) را در اولین اسلاید پیدا می‌کند و بازگرداندن را فعال می‌سازد. حلقه را غیرفعال می‌کند تا پخش بتواند تمام شود و پخش را برای شروع با کلیک تنظیم می‌کند. ارائه ورودی باید حداقل یک اسلاید داشته باشد که در اولین اسلاید یک فریم ویدیو موجود داشته باشد.
 
 ```csharp
 using Aspose.Slides;
@@ -146,15 +185,15 @@ foreach (var shape in slide.Shapes)
 presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
 ```
 
-بازگرداندن ویدیو را به ابتدای آن برمی‌گرداند بدون این‌که دوباره شروع شود. در مقابل، فعال‌سازی [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) پخش را به‌صورت خودکار تکرار می‌کند. وقتی می‌خواهید ویدیو به پایان برسد و آمادهٔ پخش مجدد بماند، حلقه را غیرفعال نگه دارید. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) به‌طور مستقل کنترل می‌کند که پخش به‌صورت خودکار یا با کلیک آغاز شود؛ این مثال از [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) استفاده می‌کند تا ارائه‌کننده زمان شروع پخش را کنترل کند. همان‌طور که در مثال نشان داده شده، حالت پخش پس از تنظیم حلقه تنظیم می‌شود. بازگرداندن به‌طور مستقل از [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) کار می‌کند.
+بازگرداندن ویدیو را به ابتدا برمی‌گرداند بدون اینکه دوباره شروع شود. برعکس، فعال‌سازی [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) پخش را به‌صورت خودکار تکرار می‌کند. وقتی می‌خواهید ویدیو تمام شود و آماده اجرای مجدد بماند، حلقه را غیرفعال نگه دارید. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) به‌صورت مستقل کنترل می‌کند که پخش به‌صورت خودکار یا با کلیک آغاز شود؛ این مثال از [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) استفاده می‌کند تا ارائه‌دهنده زمان شروع پخش را کنترل کند. همان‌طور که در مثال نشان داده شده، حالت پخش را پس از تنظیم حلقه اعمال کنید. بازگرداندن به‌صورت مستقل از [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) عمل می‌کند.
 
-## **برش یک فریم ویدئویی**
+## **برش یک فریم ویدیو**
 
-از [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) و [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) برای حذف بخشی از ابتدا یا انتهای ویدیو هنگام پخش استفاده کنید. هر دو مقدار برحسب میلی‌ثانیه هستند. برش تنظیمات پخش را بدون تغییر داده‌های ویدئوی جاسازی‌شده تغییر می‌دهد.
+از [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) و [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) برای حذف بخشی از ابتدای یا انتهای ویدیو هنگام پخش استفاده کنید. هر دو مقدار بر حسب میلی‌ثانیه هستند. برش تنظیمات پخش را بدون تغییر داده‌های ویدیو تعبیه‌شده تغییر می‌دهد.
 
 **تنظیمات برش**
 
-این مثال یک ویدئوی محلی را جاسازی می‌کند و در طول پخش ۲.۵ ثانیهٔ اول و یک ثانیهٔ آخر را نادیده می‌گیرد. از ویدیویی طولانی‌تر از ۳.۵ ثانیه استفاده کنید تا بخشی قابل پخش باقی بماند.
+این مثال یک ویدیو محلی را تعبیه می‌کند و در حین پخش ۲٫۵ ثانیه اول و یک ثانیه آخر را حذف می‌کند. از ویدئویی طولانی‌تر از ۳٫۵ ثانیه استفاده کنید تا یک بخش قابل پخش باقی بماند.
 
 ```csharp
 using System.IO;
@@ -176,7 +215,7 @@ presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 
 **خواندن تنظیمات برش**
 
-این مثال مقادیر برش اولین فریم ویدئویی در اولین اسلاید را برحسب میلی‌ثانیه چاپ می‌کند. ارائه باید حداقل یک اسلاید داشته باشد. اگر آن اسلاید فریم ویدئویی نداشته باشد، هیچ چیزی چاپ نمی‌شود. مثال قبلی مقادیر ۲۵۰۰ و ۱۰۰۰ تولید می‌کند.
+این مثال مقادیر برش اولین فریم ویدیو در اولین اسلاید را بر حسب میلی‌ثانیه چاپ می‌کند. ارائه باید حداقل یک اسلاید داشته باشد. اگر آن اسلاید فریم ویدیو نداشته باشد، هیچ چیزی چاپ نمی‌شود. مثال قبلی مقادیر ۲۵۰۰ و ۱۰۰۰ را تولید می‌کند.
 
 ```csharp
 using System;
@@ -196,13 +235,13 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-## **مدیریت زیرنویس‌های ویدئویی**
+## **مدیریت زیرنویس‌های ویدیو**
 
-Aspose.Slides به شما امکان مدیریت زیرنویس‌های بسته برای فریم‌های ویدئویی در ارائه‌های PowerPoint را می‌دهد. زیرنویس‌ها به فرم‌ت فرمت WebVTT ذخیره می‌شوند و از طریق ویژگی [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) در دسترس هستند.
+Aspose.Slides به شما امکان مدیریت زیرنویس‌های بسته برای فریم‌های ویدیو در ارائه‌های PowerPoint را می‌دهد. زیرنویس‌ها در قالب WebVTT ذخیره شده و از طریق ویژگی [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) در دسترس هستند.
 
-**افزودن زیرنویس به فریم ویدئویی**
+**اضافه کردن زیرنویس‌ها به فریم ویدیو**
 
-این مثال یک ویدئوی محلی را جاسازی می‌کند و یک مسیر زیرنویس WebVTT با برچسب English اضافه می‌کند. زمان‌بندی زیرنویس باید با ویدیو همخوانی داشته باشد. ارائهٔ ذخیره‌شده شامل هر دو ویدیو و زیرنویس‌های آن است.
+این مثال یک ویدیو محلی را تعبیه می‌کند و یک مسیر زیرنویس WebVTT با برچسب English اضافه می‌نماید. زمان‌برچسب‌های زیرنویس باید با ویدیو مطابقت داشته باشند. ارائه ذخیره‌شده شامل هر دو ویدیو و زیرنویس‌های آن است.
 
 ```csharp
 using System.IO;
@@ -221,11 +260,11 @@ videoFrame.CaptionTracks.Add("English", "track.vtt");
 presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 ```
 
-رابط [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) همچنین یک بارگذاری اضافه فراهم می‌کند که به شما امکان اضافه‌کردن زیرنویس‌ها از یک جریان را می‌دهد.
+رابط [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) همچنین یک overload دارد که به شما اجازه می‌دهد زیرنویس‌ها را از یک جریان (stream) اضافه کنید.
 
-**استخراج زیرنویس‌ها از فریم ویدئویی**
+**استخراج زیرنویس‌ها از فریم ویدیو**
 
-این مثال تمام مسیرهای زیرنویس را از فریم‌های ویدئویی در اولین اسلاید به‌صورت فایل‌های جداگانهٔ WebVTT ذخیره می‌کند. شماره‌های متوالی فایل‌های خروجی را متمایز نگه می‌دارند. کنسول تعداد مسیرهای استخراج‌شده را گزارش می‌کند. ارائه باید حداقل یک اسلاید داشته باشد.
+این مثال تمام مسیرهای زیرنویس از فریم‌های ویدیو در اولین اسلاید را به صورت فایل‌های جداگانه WebVTT ذخیره می‌کند. شماره‌های ترتیبی فایل‌های خروجی را متمایز نگه می‌دارند. کنسول تعداد مسیرهای استخراج‌شده را گزارش می‌کند. ارائه باید حداقل یک اسلاید داشته باشد.
 
 ```csharp
 using System;
@@ -252,11 +291,11 @@ foreach (var shape in slide.Shapes)
 Console.WriteLine($"Caption tracks extracted: {trackCount}");
 ```
 
-هر شیء [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) شناسهٔ زیرنویس، برچسب، دادهٔ باینری و متن زیرنویس را به‌صورت رشتهٔ UTF-8 نمایش می‌دهد.
+هر شیء [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) شناسه زیرنویس، برچسب، داده‌های باینری و متن زیرنویس را به صورت رشته UTF-8 نشان می‌دهد.
 
-**حذف زیرنویس‌ها از فریم ویدئویی**
+**حذف زیرنویس‌ها از فریم ویدیو**
 
-این مثال تمام زیرنویس‌ها را از فریم ویدئویی در اولین موقعیت شکل در اولین اسلاید حذف می‌کند و نتیجه را ذخیره می‌نماید. فرض می‌کند اسلاید و شکل وجود دارند و شکل یک فریم ویدئویی است.
+این مثال تمام زیرنویس‌ها را از فریم ویدیو در اولین موقعیت شکل روی اولین اسلاید حذف می‌کند و نتیجه را ذخیره می‌نماید. فرض می‌کند که اسلاید و شکل وجود دارند و شکل یک فریم ویدیو است.
 
 ```csharp
 using System;
@@ -272,13 +311,13 @@ videoFrame.CaptionTracks.Clear();
 presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 ```
 
-اگر فقط نیاز به حذف یک مسیر زیرنویس دارید، به‌جای [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/) از متدهای [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) یا [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) استفاده کنید.
+اگر نیاز به حذف فقط یک مسیر زیرنویس دارید، به‌جای [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/) از متدهای [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) یا [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) استفاده کنید.
 
-## **استخراج ویدئو از یک اسلاید**
+## **استخراج ویدیو از اسلاید**
 
-به‌جز افزودن ویدئو به اسلایدها، Aspose.Slides به شما امکان استخراج ویدئوهای جاسازی‌شده در ارائه‌ها را می‌دهد.
+علاوه بر اضافه کردن ویدیوها به اسلایدها، Aspose.Slides به شما امکان استخراج ویدیوهای تعبیه‌شده در ارائه‌ها را می‌دهد.
 
-این مثال ویدئوهای جاسازی‌شده را از هر اسلاید به فایل‌های باینری شماره‌گذاری‌شده جداگانه استخراج می‌کند. ویدئوهای لینک‌شده به‌دلیل عدم وجود دادهٔ جاسازی‌شده نادیده گرفته می‌شوند. کنسول نوع MIME هر ویدئو و تعداد کل را چاپ می‌کند. خروجی از پسوند عمومی `.bin` استفاده می‌کند؛ در صورت نیاز آن را به‌گونه‌ای تغییر دهید که با نوع رسانهٔ گزارش‌شده منطبق باشد.
+این مثال ویدیوهای تعبیه‌شده را از هر اسلاید استخراج کرده و به فایل‌های باینری جداگانه و شماره‌دار ذخیره می‌کند. ویدیوهای پیوندی نادیده گرفته می‌شوند زیرا داده تعبیه‌شده ندارند. کنسول نوع MIME هر ویدیو و تعداد کل را چاپ می‌کند. خروجی از پسوند عمومی `.bin` استفاده می‌کند؛ در صورت نیاز آن را با نوع رسانه گزارش‌شده مطابقت دهید.
 
 ```csharp
 using System;
@@ -312,20 +351,20 @@ foreach (var slide in presentation.Slides)
 Console.WriteLine($"Embedded videos extracted: {videoCount}");
 ```
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**کدام پارامترهای پخش ویدئو می‌توانند برای یک فریم ویدئویی تغییر کنند؟**
+**کدام پارامترهای پخش ویدیو می‌توانند برای یک فریم ویدیو تغییر کنند؟**
 
-می‌توانید حالت [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (خودکار یا با کلیک) و [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) را کنترل کنید. این گزینه‌ها از طریق ویژگی‌های شیء [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/) در دسترس هستند.
+می‌توانید [حالت پخش](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (خودکار یا با کلیک) و [حلقه‌سازی](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) را کنترل کنید. این گزینه‌ها از طریق ویژگی‌های شیء [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/) قابل دسترسی هستند.
 
-**آیا افزودن یک ویدئو بر اندازه فایل PPTX تاثیر می‌گذارد؟**
+**آیا اضافه کردن یک ویدیو بر اندازه فایل PPTX تاثیر می‌گذارد؟**
 
-بله. وقتی یک ویدئوی محلی را جاسازی می‌کنید، دادهٔ باینری در سند گنجانده می‌شود، بنابراین اندازهٔ ارائه به تناسب حجم فایل افزایش می‌یابد. وقتی به یک ویدئوی آنلاین لینک می‌دهید و تصویر پیش‌نمایش اضافه می‌کنید، ارائه تنها لینک و تصویر پیش‌نمایش را ذخیره می‌کند نه دادهٔ ویدئو، بنابراین افزایش اندازه معمولاً کمتر است.
+بله. وقتی یک ویدیو محلی را تعبیه می‌کنید، داده‌های باینری در سند گنجانده می‌شود، بنابراین اندازه ارائه متناسب با حجم فایل افزایش می‌یابد. وقتی به یک ویدیو آنلاین پیوند می‌دهید و تصویر بندانگشتی اضافه می‌کنید، ارائه فقط پیوند و تصویر پیش‌نمایش را ذخیره می‌کند و نه داده‌های ویدیو، لذا افزایش اندازه معمولاً کمتر است.
 
-**آیا می‌توانم ویدئو را در یک فریم ویدئویی موجود بدون تغییر موقعیت و اندازهٔ آن جایگزین کنم؟**
+**آیا می‌توانم ویدیو را در یک فریم ویدیو موجود بدون تغییر موقعیت و اندازه آن جایگزین کنم؟**
 
-بله. می‌توانید محتوای [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) را داخل فریم تعویض کنید در حالی که هندسهٔ شکل حفظ می‌شود؛ این سناریو برای به‌روزرسانی رسانه در یک طرح موجود رایج است.
+بله. می‌توانید [محتوای ویدیو](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) را درون فریم جابجا کنید در حالی که شکل هندسه آن حفظ می‌شود؛ این یک سناریوی رایج برای به‌روزرسانی رسانه در یک طرح موجود است.
 
-**آیا می‌توان نوع محتوا (MIME) یک ویدئوی جاسازی شده را تعیین کرد؟**
+**آیا می‌توان نوع محتوا (MIME) یک ویدیو تعبیه‌شده را تعیین کرد؟**
 
-بله. یک ویدئوی جاسازی‌شده دارای یک [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) است که می‌توانید آن را بخوانید و استفاده کنید، برای مثال هنگام ذخیره‌سازی روی دیسک.
+بله. یک ویدیو تعبیه‌شده دارای یک [نوع محتوا](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) است که می‌توانید آن را بخوانید و استفاده کنید، برای مثال هنگام ذخیره‌سازی به دیسک.

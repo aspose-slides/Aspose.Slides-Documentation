@@ -1,5 +1,5 @@
 ---
-title: จัดการป้ายข้อมูลแผนภูมิในงานนำเสนอด้วย .NET
+title: จัดการป้ายข้อมูลแผนภูมิในการนำเสนอด้วย .NET
 linktitle: ป้ายข้อมูล
 type: docs
 url: /th/net/chart-data-label/
@@ -11,21 +11,21 @@ keywords:
 - ระยะห่างของป้าย
 - ตำแหน่งป้าย
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ .NET เพื่อให้สไลด์น่าสนใจยิ่งขึ้น."
+description: "เรียนรู้วิธีการเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ .NET เพื่อให้สไลด์น่าสนใจมากขึ้น."
 ---
 ## **บทนำ**
 
-ป้ายข้อมูลจะแสดงข้อมูลเกี่ยวกับชุดข้อมูลของแผนภูมิและจุดข้อมูลแต่ละจุด เพื่อช่วยให้ผู้อ่านระบุค่าต่าง ๆ และเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย ควบคุมป้ายที่อยู่นอกขีดสูงสุดของแกน ปรับระยะห่างของป้ายแกนหมวดหมู่ และตำแหน่งของป้ายแผนภูมิวงกลม
+ป้ายข้อมูลจะแสดงข้อมูลเกี่ยวกับซีรีส์ของแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าและเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีจัดรูปแบบค่า แสดงร้อยละ อ่านข้อความป้าย ควบคุมป้ายเหนือค่ามากสุดของแกน ปรับช่องว่างของป้ายแกนประเภท และกำหนดตำแหน่งป้ายของแผนภูมิวงกลม
 
-## **นับป้ายข้อมูลที่มองเห็นได้**
+## **Count Visible Data Labels**
 
-ใช้ [CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/) เพื่อตรวจสอบว่ามีป้ายข้อมูลที่เปิดใช้งานสำหรับแสดงกี่รายการก่อนเผยแพร่การนำเสนอ ต่างจาก [Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/) ซึ่งให้จำนวนป้ายทั้งหมดในคอลเลกชัน แต่จะพิจารณาค่าตั้งต้นของชุดและการตั้งค่าป้ายแต่ละรายการ
+ใช้ [CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/) เพื่อตรวจสอบว่ามีป้ายข้อมูลกี่รายการที่เปิดให้แสดงก่อนเผยแพร่งานนำเสนอ แตกต่างจาก [Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/) ซึ่งคืนค่าจำนวนป้ายทั้งหมดในคอลเลกชัน วิธีนี้จะพิจารณาค่าพื้นฐานของซีรีส์และการตั้งค่าป้ายแต่ละรายการด้วย
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ที่มีหนึ่งชุดและสามจุดข้อมูล มันเข้าถึงคอลเลกชัน [Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/) ของชุดและพิมพ์จำนวนที่มองเห็นได้เมื่อตั้งค่าเปลี่ยน: **0, 3, 2, 3**. จำนวนทั้งหมดคงที่ที่ **3**.
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ที่มีซีรีส์หนึ่งและจุดข้อมูลสามจุด เข้าถึงคอลเลกชัน [Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/) ของซีรีส์และพิมพ์จำนวนที่มองเห็นได้เมื่อการตั้งค่าเปลี่ยน: **0, 3, 2, 3** จำนวนทั้งหมดคงเป็น **3**  
 
 ```csharp
 using System;
@@ -53,7 +53,7 @@ for (int i = 0; i < 3; i++)
 }
 
 var labels = series.Labels;
-Console.WriteLine($"Total: {labels.Count}; visible: {labels.CountOfVisibleDataLabels}"); // ทั้งหมด: 3; มองเห็น: 0
+Console.WriteLine($"Total: {labels.Count}; visible: {labels.CountOfVisibleDataLabels}"); // รวม: 3; มองเห็น: 0
 
 labels.DefaultDataLabelFormat.ShowValue = true;
 Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // มองเห็น: 3
@@ -65,13 +65,13 @@ labels[1].DataLabelFormat.ShowLegendKey = true;
 Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // มองเห็น: 3
 ```
 
-อ็อบเจ็กต์ [DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/) ของชุดให้การตั้งค่าตั้งต้น การเปิดใช้งาน [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) จะทำให้แสดงค่าของป้ายทั้งสามรายการ การตั้งค่าเป็น `false` ผ่าน [DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/) ของป้ายหนึ่งจะเขียนทับการตั้งค่านั้นสำหรับป้ายที่เลือก การเปิดใช้งาน [ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/) ทำให้ป้ายดังกล่าวนับเป็นมองเห็นได้อีกครั้ง แม้ว่าค่าจะยังคงถูกซ่อนอยู่
+[DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/) ของซีรีส์ให้การตั้งค่าพื้นฐาน การเปิดใช้งาน [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) ที่นั่นจะแสดงค่าของป้ายทั้งสาม รายการตั้งค่าเป็น `false` ผ่าน [DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/) ของป้ายหนึ่งรายการจะลบการตั้งค่านี้สำหรับป้ายที่เลือก การเปิดใช้งาน [ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/) ทำให้ป้ายดังกล่าวนับเป็นที่มองเห็นได้อีกครั้ง แม้ว่าค่าจะยังคงถูกซ่อนอยู่
 
 จำนวนที่มองเห็นได้สะท้อนการตั้งค่าการมองเห็นเท่านั้น ไม่ได้วัดว่าป้ายทับกัน ถูกตัด หรืออ่านได้ในแผนภูมิที่แสดงผล
 
-## **ตั้งค่าความแม่นยำของข้อมูลในป้ายแผนภูมิ**
+## **Set Data Precision in Chart Data Labels**
 
-ใช้ [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) เพื่อจัดรูปแบบค่าของชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลตั้งต้น แสดงตารางข้อมูล และเปิดใช้งานป้ายค่าตัวเลขสำหรับชุดแรก รูปแบบ `#,##0.00` แสดงคั่นหลักพันและทศนิยมสองตำแหน่งโดยไม่เปลี่ยนค่าพื้นฐาน
+ใช้ [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) เพื่อจัดรูปแบบค่าของซีรีส์ ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้น แสดงตารางข้อมูลและเปิดป้ายค่าของซีรีส์แรก รูปแบบ `#,##0.00` จะแสดงคั่นหลักพันและทศนิยมสองตำแหน่งโดยไม่เปลี่ยนค่าฐานข้อมูล  
 
 ```csharp
 using Aspose.Slides;
@@ -91,11 +91,11 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-หากต้องการจัดรูปแบบเซลล์ตัวเลขในสมุดงานฝังของแผนภูมิ ดูที่ [Set Custom Number Formats for Workbook Cells](/slides/th/net/chart-workbook/#set-custom-number-formats-for-workbook-cells) ตัวอย่างนั้นยังแสดงให้เห็นว่าป้ายค่าตามรูปแบบของเซลล์ต้นทางพร้อมกับคงค่าตัวเลขที่จัดเก็บไว้
+เพื่อจัดรูปแบบเซลล์ตัวเลขในหนังสือทำงานที่ฝังอยู่ของแผนภูมิ ดูที่ [Set Custom Number Formats for Workbook Cells](/slides/th/net/chart-workbook/#set-custom-number-formats-for-workbook-cells) ตัวอย่างนั้นยังแสดงว่าป้ายค่าจะสืบตามรูปแบบเซลล์ต้นทางในขณะที่ยังคงเก็บค่าตัวเลขไว้เดิม
 
-## **แสดงเปอร์เซ็นต์เป็นป้าย**
+## **Display Percentage as Labels**
 
-สำหรับแผนภูมิคอลัมน์ซ้อน ให้คำนวณค่าตามเปอร์เซ็นต์ของผลรวมหมวดหมู่นั้นและกำหนดข้อความไปยัง [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) ตัวอย่างนี้ใช้ข้อมูลแผนภูมิตั้งต้นและแสดงเปอร์เซ็นต์ด้วยทศนิยมสองตำแหน่งในฟอนต์ขนาด 8 จุด หมวดหมู่ที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ หากข้อมูลแผนภูมิเปลี่ยนให้คำนวณข้อความป้ายแบบกำหนดใหม่
+สำหรับแผนภูมิคอลัมน์แบบเรียงซ้อน ให้คำนวณแต่ละค่าเป็นเปอร์เซ็นต์ของผลรวมหมวดหมู่และกำหนดข้อความให้กับ [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) ตัวอย่างนี้ใช้ข้อมูลแผนภูมิเริ่มต้นและแสดงเปอร์เซ็นต์ด้วยทศนิยมสองตำแหน่งในฟอนต์ขนาด 8 จุด หมวดหมู่ที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ หากข้อมูลแผนภูมิมีการเปลี่ยนแปลงต้องคำนวณข้อความป้ายใหม่  
 
 ```csharp
 using System;
@@ -156,11 +156,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งสัญลักษณ์เปอร์เซ็นต์กับป้ายแผนภูมิ**
+## **Set Percentage Sign with Chart Data Labels**
 
-เมื่อค่าถูกเก็บเป็นเศษส่วน ให้ใช้ [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) เพื่อแสดงเปอร์เซ็นต์ ตั้งค่า [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) เป็น `false` เพื่อใช้รูปแบบป้ายโดยไม่เชื่อมโยงกับเซลล์ต้นทาง
+เมื่อค่าถูกเก็บเป็นเศษส่วน ให้ใช้ [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) เพื่อแสดงเป็นเปอร์เซ็นต์ ตั้งค่า [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) เป็น `false` เพื่อให้รูปแบบป้ายทำงานแยกจากเซลล์ต้นทาง
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ซ้อน 100% พร้อมชุดสีแดงและสีน้ำเงินในสี่หมวดหมู่ แต่ละคู่ค่ารวมเป็น 1 รูปแบบป้าย `0.0%` แสดง 0.30 เป็น 30.0% ในขณะที่แกนแนวตั้งใช้ทศนิยมสองตำแหน่ง ทั้งสองชุดใช้ข้อความป้ายสีขาวขนาด 10 จุด
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ 100% แบบเรียงซ้อนที่มีซีรีส์สีแดงและสีน้ำเงินสี่หมวด หมายเหตุแต่ละคู่ค่ารวมกันเป็น 1 รูปแบบป้าย `0.0%` จะทำให้ 0.30 แสดงเป็น 30.0% ส่วนแกนแนวตั้งใช้ทศนิยมสองตำแหน่ง ทั้งสองซีรีส์ใช้ข้อความป้ายสีขาว ขนาด 10 จุด  
 
 ```csharp
 using System.Drawing;
@@ -216,9 +216,9 @@ for (int i = 0; i < seriesNames.Length; i++)
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **อ่านข้อความจริงของป้ายข้อมูล**
+## **Read the Actual Text of Data Labels**
 
-ใช้ [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าของป้ายข้อมูล ซึ่งเป็นประโยชน์เมื่อสกัดป้ายสำหรับรายงาน ค้นหาเนื้อหาในการนำเสนอ หรือยืนยันความถูกต้องของแผนภูมิที่สร้างขึ้น ในตัวอย่างด้านล่าง รูปแบบป้ายข้อมูลตั้งต้น [data label format](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) รวมชื่อหมวดหมู่ ชื่อชุดข้อมูลและค่า จุดหนึ่งจัดรูปแบบค่าของมันเป็นเปอร์เซ็นต์ และอีกจุดหนึ่งใช้ข้อความกำหนดเองจาก [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/)
+ใช้ [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าป้ายข้อมูล วิธีนี้มีประโยชน์เมื่อดึงป้ายเพื่อรายงาน ค้นหาเนื้อหาในงานนำเสนอ หรือยืนยันแผนภูมิที่สร้างขึ้น ในตัวอย่างด้านล่าง รูปแบบ [data label format](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) เริ่มต้นรวมชื่อหมวด ชื่อซีรีส์ และค่า จุดหนึ่งจัดรูปแบบค่าของมันเป็นเปอร์เซ็นต์ อีกจุดหนึ่งใช้ข้อความกำหนดเองจาก [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/)  
 
 ```csharp
 using System;
@@ -272,15 +272,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-ค่าที่จัดเก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายของมันจะแสดง `75%` พร้อมชื่อหมวดหมู่และชุดค่า ข้อความกำหนดเองจะแทนที่ข้อความป้ายที่สร้างขึ้น [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) จะคืนสตริงป้ายผลลัพธ์ในทั้งสองกรณี ตรวจสอบ [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) แยกต่างหาก ตามที่แสดงด้านบนเมื่อคุณต้องการสกัดป้ายที่มองเห็นได้เท่านั้น
+ค่าที่ถูกเก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายจะแสดง `75%` พร้อมกับชื่อหมวดและชื่อซีรีส์ ข้อความกำหนดเองจะทับข้อความป้ายที่สร้างโดยอัตโนมัติ [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) จะส่งกลับสตริงป้ายในทั้งสองกรณี ตรวจสอบ [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) แยกต่างหากตามที่แสดงในส่วนก่อนหน้าเมื่อคุณต้องการดึงป้ายที่มองเห็นได้เท่านั้น
 
-## **ควบคุมป้ายข้อมูลที่อยู่นอกขีดสูงสุดของแกน**
+## **Control Data Labels Beyond the Axis Maximum**
 
-เมื่อคุณกำหนดช่วงแกนด้วยตนเอง บางจุดข้อมูลอาจเกินค่ามากสุดของมัน ใช้ [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) เพื่อควบคุมว่าป้ายข้อมูลของพวกมันจะแสดงหรือไม่ การตั้งค่านี้เปลี่ยนการมองเห็นของป้าย แต่ไม่ได้เปลี่ยนช่วงแกนหรือค่าข้อมูลพื้นฐาน
+เมื่อคุณกำหนดช่วงแกนด้วยตนเอง บางจุดข้อมูลอาจเกินค่ามากสุด ใช้ [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) เพื่อควบคุมว่าป้ายข้อมูลของพวกเขาจะถูกแสดงหรือไม่ การตั้งค่านี้เปลี่ยนการมองเห็นของป้ายเท่านั้น ไม่ได้เปลี่ยนช่วงแกนหรือค่าข้อมูลพื้นฐาน
 
-ตัวอย่างด้านล่างสร้างแผนภูมิคอลัมน์คลัสเตอร์ 2D ที่มีค่าที่ 60 และ 120 ตั้งค่า [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) เป็น `false` และ [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) เป็น 100 บนแกนแนวตั้ง สไลด์แรกอนุญาตให้ป้ายอยู่นอกค่ามากสุด; สำเนาของสไลด์นั้นปิดการทำงานของป้าย ทั้งสองสไลด์บันทึกเป็น `DataLabelsOverMaximum.pptx`
+ตัวอย่างด้านล่างสร้างแผนภูมิคอลัมน์แบบคลัสเตอร์ 2D ที่มีค่า 60 และ 120 ตั้งค่า [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) เป็น `false` และ [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) เป็น 100 บนแกนแนวตั้ง สไลด์แรกเปิดให้ป้ายแสดงเกินค่ามากสุด; สำเนาของสไลด์นั้นปิดคุณสมบัตินี้ สไลด์ทั้งสองบันทึกเป็น `DataLabelsOverMaximum.pptx`
 
-เปิดใช้งานป้ายค่าด้วย [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) การตั้งค่าที่ระดับแผนภูมิไม่ได้เปิดการแสดงค่าด้วยตัวเองหรือเขียนทับการปิดการแสดงค่าของป้ายแต่ละรายการ ตัวอย่างนี้เปิดค่าทั้งชุดและใช้ [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) เพื่อตำแหน่งป้ายที่ปลายนอกของแต่ละคอลัมน์
+เปิดป้ายค่าโดยใช้ [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) การตั้งค่าระดับแผนภูมิไม่ทำให้ค่าถูกแสดงโดยอัตโนมัติหรือเขียนทับการปิดการแสดงค่าของป้ายแต่ละรายการ ตัวอย่างนี้เปิดค่าจากซีรีส์ทั้งหมดและใช้ [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) เพื่อวางป้ายที่ปลายนอกของแต่ละคอลัมน์  
 
 ```csharp
 using Aspose.Slides;
@@ -327,19 +327,19 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-ภาพต่อไปนี้แสดงสไลด์ที่บันทึกและแสดงผลโดย Microsoft PowerPoint เมื่อค่า `true` ป้าย **120** จะมองเห็นได้ที่ขอบบน; เมื่อค่า `false` จะถูกซ่อน ป้าย **60** ยังคงมองเห็นได้ ขีดสูงสุดของแกนคงที่ที่ **100** และจุดข้อมูลที่สองคงเป็น **120** ในทั้งสองกรณี
+ภาพต่อไปแสดงสไลด์ที่บันทึกแล้วโดย Microsoft PowerPoint เมื่อ `true` ป้าย **120** จะมองเห็นได้ที่ขอบบน; เมื่อ `false` ป้ายจะถูกซ่อน ป้าย **60** ยังคงมองเห็นได้ ค่าแกนสูงสุดคงที่ที่ **100** และจุดข้อมูลที่สองยังคงเป็น **120** ในทั้งสองกรณี  
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-ตัวอย่างนี้ใช้แผนภูมิคอลัมน์ 2D พร้อมแกนค่า แผนภูมิที่ไม่มีแกนค่า เช่น แผนภูมิวัดและแผนภูมิลูกตา โดยไม่มีขีดสูงสุดของแกนให้จำกัดในลักษณะนี้
+ตัวอย่างนี้ใช้แผนภูมิคอลัมน์ 2D ที่มีแกนค่า แผนภูมิที่ไม่มีแกนค่า เช่น แผนภูมิวงกลมหรือโดนัท จะไม่มีค่ามากสุดของแกนให้จำกัดแบบนี้
 {{% /alert %}}
 
-## **ตั้งค่าระยะห่างของป้ายจากแกน**
+## **Set Label Distance from an Axis**
 
-ใช้ [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) เพื่อควบคุมระยะห่างระหว่างป้ายแกนหมวดหมู่และแกน ค่าเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์คลัสเตอร์และตั้งค่า offset ของป้ายแกนแนวนอนเป็น 500 การตั้งค่านี้มีผลต่อป้ายแกนหมวดหมู่อย่างเดียว ไม่ใช่ป้ายที่แนบกับจุดข้อมูลแต่ละจุด
+ใช้ [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทและแกน ค่าเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบคลัสเตอร์และตั้งค่าออฟเซ็ตป้ายแกนแนวนอนเป็น 500 การตั้งค่านี้ส่งผลต่อป้ายแกนประเภท ไม่ใช่ป้ายที่ผูกติดกับจุดข้อมูลแต่ละจุด  
 
 ```csharp
 using Aspose.Slides;
@@ -355,11 +355,11 @@ chart.Axes.HorizontalAxis.LabelOffset = 500;
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **ปรับตำแหน่งป้าย**
+## **Adjust Label Location**
 
-ในแผนภูมิวงกลม ปรับตำแหน่งป้ายข้อมูลเพื่อเพิ่มระยะห่างและทำให้มีพื้นที่สำหรับเส้นนำ
+บนแผนภูมิวงกลม ปรับตำแหน่งป้ายข้อมูลเพื่อเพิ่มระยะห่างและให้พื้นที่สำหรับเส้นเชื่อม
 
-ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายของมันด้านนอกส่วน และปรับค่า offset [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) และ [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) ของมัน ค่า offset เหล่านี้สัมพันธ์กับความกว้างและความสูงของแผนภูมิตามลำดับ
+ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายออกนอกส่วนของชิ้น และปรับออฟเซ็ต [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) และ [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) ของมัน ออฟเซ็ตเหล่านี้อ้างอิงจากความกว้างและความสูงของแผนภูมิตามลำดับ  
 
 ```csharp
 using Aspose.Slides;
@@ -381,17 +381,17 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![แผนภูวิงกลมที่มีตำแหน่งป้ายข้อมูลปรับแล้ว](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **จัดรูปแบบเส้นนำ**
+## **Format Leader Lines**
 
-เมื่อป้ายแผนภูมิวงกลมอยู่ด้านนอกส่วนของมัน เส้นนำช่วยผู้อ่านจับคู่ค่ากับส่วนที่ถูกต้อง สีที่ตัดกันและเส้นที่หนานิดหน่อยทำให้การเชื่อมต่อเหล่านี้ง่ายต่อการตาม ในขณะที่ความโปร่งใสและสไตล์เส้นประทำให้เส้นดูไม่รุกรานสายตา
+เมื่อป้ายแผนภูมิวงกลมอยู่ด้านนอกชิ้นเส้นเชื่อมช่วยให้ผู้อ่านจับคู่ค่ากับชิ้นที่ถูกต้อง สีที่ตัดกันและเส้นที่หนาขึ้นเล็กน้อยทำให้การเชื่อมต่ออ่านง่ายขึ้น ขณะเดียวกันความโปร่งใสและสไตล์จุดประจายทำให้เส้นไม่รบกายต่อสายตา
 
-ใช้ [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) เพื่อจัดรูปแบบเส้นนำที่ระดับคอลเลกชันป้ายข้อมูลของชุด การตั้งค่าใน `series.Labels.LeaderLinesFormat.Line` จะใช้กับคอลเลกชันทั้งหมด ไม่ใช่กับป้ายแต่ละรายการ
+ใช้ [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) เพื่อจัดรูปแบบเส้นเชื่อมระดับคอลเลกชันป้ายข้อมูลของซีรีส์ การตั้งค่าใน `series.Labels.LeaderLinesFormat.Line` จะใช้กับคอลเลกชันทั้งชุด ไม่ใช่กับป้ายแต่ละอัน
 
-ตัวอย่างนี้สร้างแผนภูมิวงกลมด้วยข้อมูลตั้งต้น แสดงค่าด้านนอกส่วน และเปิดใช้งาน [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/) ย้ายป้ายสองอันให้ห่างจากส่วนของมันมากขึ้นโดยใช้ offset [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) และ [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) ซึ่งเป็นเศษส่วนของความกว้างและความสูงของแผนภูมิ ไม่จำเป็นต้องมีการนำเสนอเข้ามา
+ตัวอย่างนี้สร้างแผนภูมิวงกลมด้วยข้อมูลเริ่มต้น แสดงค่าที่นอกชิ้น และเปิดใช้งาน [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/) ย้ายป้ายสองอันให้ห่างจากชิ้นมากขึ้นโดยใช้ออฟเซ็ต [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) และ [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) เป็นส่วนของความกว้างและความสูงของแผนภูมิ ไม่ต้องมีงานนำเสนออินพุต
 
-รูปแบบ [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) ของเส้นกำหนดสีฟ้าเข้มที่มีค่าอัลฟา 191 จาก 255 ซึ่งให้ความโปร่งใสประมาณ 25% [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) ตั้งความหนาเป็น 2 จุด และ [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) ทำให้เส้นเป็นแบบประ
+[FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) ของเส้นตั้งค่าสีฟ้าทึบพร้อมค่าอัลฟา 191 จาก 255 ให้ความโปร่งใสประมาณ 25% [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) ตั้งความหนาเป็น 2 จุด และ [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) ทำให้เส้นเป็นจุดประจาย  
 
 ```csharp
 using System.Drawing;
@@ -412,7 +412,7 @@ labelFormat.ShowValue = true;
 labelFormat.Position = LegendDataLabelPosition.OutsideEnd;
 labelFormat.ShowLeaderLines = true;
 
-// ย้ายป้ายสองอันให้ห่างออกไปจากส่วนของมันมากขึ้น.
+// ย้ายป้ายสองอันให้ห่างออกจากส่วนของมันมากขึ้น.
 series.Labels[0].X = 0.10f;
 series.Labels[0].Y = -0.05f;
 series.Labels[1].X = -0.10f;
@@ -427,17 +427,17 @@ line.DashStyle = LineDashStyle.Dash;
 presentation.Save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
 ```
 
-การเปิดใช้งานเส้นนำไม่ได้รับประกันว่าจะมีเส้นสำหรับทุกป้าย ความมองเห็นขึ้นกับตำแหน่งป้ายและพฤติกรรมการจัดวางของแผนภูมิ ในตัวอย่างนี้ ป้ายสองอันที่ย้ายตำแหน่งมีเส้นนำที่มองเห็นได้; ป้ายที่ยังอยู่ใกล้ส่วนของมันไม่ต้องการเส้น
+การเปิดใช้เส้นเชื่อมไม่ได้รับประกันว่าจะมีเส้นสำหรับทุกป้าย การมองเห็นขึ้นอยู่กับตำแหน่งป้ายและพฤติกรรมการจัดวางของแผนภูมิ ในตัวอย่างนี้สองป้ายที่ย้ายตำแหน่งจะมีเส้นเชื่อมที่มองเห็นได้; ป้ายที่อยู่ใกล้ชิ้นไม่จำเป็นต้องมีเส้น
 
-ภาพต่อไปนี้แสดงไฟล์ `FormattedLeaderLines.pptx` ที่บันทึกและแสดงผลด้วย Aspose.Slides:
+ภาพต่อไปแสดงไฟล์ `FormattedLeaderLines.pptx` ที่บันทึกแล้วและเรนเดอร์ด้วย Aspose.Slides:
 
-![แผนภูวิงกลมที่มีเส้นนำสีน้ำเงินแบบโปร่งแสงและเส้นประเชื่อมสองป้ายด้านนอกกับส่วนของมัน](formatted-leader-lines.png)
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
-## **เพิ่มหลายแถวของป้ายข้อมูลเหนือแผนภูมิคอลัมน์**
+## **Add Multiple Rows of Data Labels Above a Column Chart**
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ที่มีสองแถวของป้ายข้อมูลเหนือพื้นที่พลอต ชุด A แสดงคอลัมน์ที่มองเห็นได้ ส่วนชุด B และ C ให้ป้ายเพิ่มเติม คอลัมน์ของพวกมันถูกซ่อนโดยการลบสีเติมและเส้นขอบ คุณสมบัติ [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) ทำให้ชุดทั้งสามจัดตำแหน่งศูนย์หมวดหมู่เดียวกัน
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ที่มีสองแถวของป้ายข้อมูลอยู่เหนือพื้นที่พล็อต ซีรีส์ A แสดงคอลัมน์ที่มองเห็นได้ ส่วนซีรีส์ B และ C ให้ป้ายเพิ่มเติม คอลัมน์ของพวกมันถูกซ่อนโดยลบการเติมสีและรูปลายเส้น คุณสมบัติ [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) ทำให้ทั้งสามซีรีส์ลับกับศูนย์กลางหมวดเดียวกัน
 
-การตั้งค่า [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) จัดสรรพื้นที่สำหรับแถวป้าย หลังจากที่ [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) คำนวณตำแหน่งเริ่มต้น [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) และ [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) จะรักษาการจัดแนวตามแนวนอนและใช้ offset แนวตั้งเพื่อจัดป้ายเป็นสองแถว ตัวเลขยังคงเป็นป้ายข้อมูลที่เชื่อมโยงกับค่าในชุด; เฉพาะหัวแถวเป็นรูปร่างข้อความแยก
+การตั้งค่า [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) จะสงวนพื้นที่ให้กับแถวป้าย หลังจากที่ [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) คำนวณตำแหน่งเริ่มต้นแล้ว [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) และ [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) จะรักษาการจัดแนวนอนและใช้ค่าออฟเซ็ตแนวตั้งเพื่อจัดแถวป้ายสองแถว ตัวเลขยังคงเป็นป้ายข้อมูลที่เชื่อมโยงกับค่าของซีรีส์; เพียงหัวข้อแถวที่เป็นรูปร่างข้อความแยกต่างหาก  
 
 ```csharp
 using System.Drawing;
@@ -486,7 +486,7 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // ซ่อนคอลัมน์ของ B และ C แต่ยังคงแสดงป้ายข้อมูลของพวกมันไว้.
+        // ซ่อนคอลัมน์ของ B และ C แต่ยังคงป้ายข้อมูลไว้.
         series.Format.Fill.FillType = FillType.NoFill;
         series.Format.Line.FillFormat.FillType = FillType.NoFill;
         var labelFormat = series.Labels.DefaultDataLabelFormat;
@@ -499,14 +499,14 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
     }
 }
 
-// จัดตำแหน่งชุดข้อมูลทั้งสามให้ตรงกับศูนย์กลางของหมวดหมู่เดียวกัน.
+// จัดตำแหน่งซีรีส์ทั้งสามให้ตรงกับศูนย์กลางหมวดเดียวกัน.
 chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
 
-// ใช้เส้นกริดน้อยลงสำหรับตัวอย่างที่กระชับนี้.
+// ใช้เส้นกริดน้อยลงสำหรับตัวอย่างแบบกระชับนี้.
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.MajorUnit = 10;
 
-// สำรองพื้นที่เหนือพื้นที่พลอตสำหรับสองแถวของป้ายข้อมูล.
+// สงวนพื้นที่เหนือกราฟสำหรับแถวป้ายข้อมูลสองแถว.
 chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
 chart.PlotArea.X = 0.15f;
 chart.PlotArea.Y = 0.32f;
@@ -522,7 +522,7 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
     for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
     {
         var dataLabel = series.DataPoints[categoryIndex].Label;
-        // คงตำแหน่งแนวนอนเริ่มต้น. Y เป็นการเยื้องจาก
+        // รักษาตำแหน่งแนวนอนเริ่มต้นไว้. Y เป็นการออฟเซ็ตจาก
         // ตำแหน่งป้ายเริ่มต้น, แสดงเป็นสัดส่วนของความสูงแผนภูมิ.
         dataLabel.X = 0;
         dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
@@ -544,15 +544,55 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
 presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
 ```
 
-![แผนภูมิคอลัมน์ที่มีสองแถวของป้ายข้อมูลเหนือพื้นที่พลอต](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
-## **คำถามที่พบบ่อย**
+## **Change Data Label Shapes**
 
-**ฉันจะป้องกันไม่ให้ป้ายข้อมูลทับซ้อนบนแผนภูมิที่หนาแน่นได้อย่างไร?**  
-ใช้การจัดวางป้ายอัตโนมัติ เส้นนำ และขนาดฟอนต์ที่เล็กลงร่วมกัน; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น หมวดหมู่) หรือแสดงป้ายเฉพาะค่าตรงขอบหรือจุดสำคัญเท่านั้น
+Aspose.Slides for .NET 26.11 เพิ่ม [IDataLabel.LabelShapeType](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/labelshapetype/) สำหรับป้ายเดียวและ [IDataLabelCollection.DefaultLabelShapeType](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultlabelshapetype/) สำหรับป้ายทั้งหมดในซีรีส์ การเปลี่ยนแปลงนี้จะปรับรูปทรงของป้าย ไม่ใช่เครื่องหมายจุด สำหรับการตั้งค่า callout แยกต่างหาก ดูที่ [Data Label Callouts](/slides/th/net/callout/)
 
-**ฉันจะปิดการใช้งานป้ายเฉพาะค่าศูนย์ ค่าติดลบ หรือค่าที่ว่างเปล่าได้อย่างไร?**  
-กรองจุดข้อมูลก่อนเปิดใช้งานป้ายและปิดการแสดงค่าที่เป็น 0 ค่าติดลบ หรือค่าที่หายไปตามกฎที่กำหนด
+การกำหนดค่าคอลเลกชันจะอัปเดตป้ายที่มีอยู่ ดังนั้นให้นำการตั้งค่าแบบเฉพาะเจาะจงไปใช้ **หลัง** การตั้งค่าคอลเลกชัน ตัวอย่างสมบูรณ์นี้ต้องการ [Aspose.Slides for .NET](/slides/th/net/installation/) 26.11 หรือใหม่กว่า จะสร้างป้ายค่าที่มองเห็นได้ เลือกรูปวงรีสำหรับซีรีส์แรก แล้วทำให้ป้ายแรกของซีรีส์นั้นเป็นสี่เหลี่ยม  
 
-**ฉันจะทำให้สไตล์ของป้ายคงที่เมื่อส่งออกเป็น PDF/รูปภาพได้อย่างไร?**  
-กำหนดประเภทและขนาดฟอนต์อย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นมีอยู่ในสภาพแวดล้อมการแสดงผลเพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
+var labels = chart.ChartData.Series[0].Labels;
+labels.DefaultDataLabelFormat.ShowValue = true;
+labels.DefaultLabelShapeType = ShapeType.Ellipse;
+labels[0].LabelShapeType = ShapeType.Rectangle;
+
+foreach (var label in labels)
+{
+    var format = label.DataLabelFormat.Format;
+    format.Fill.FillType = FillType.Solid;
+    format.Fill.SolidFillColor.Color = Color.LightYellow;
+    format.Line.FillFormat.FillType = FillType.Solid;
+    format.Line.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+}
+
+presentation.Save("label-shapes.pptx", SaveFormat.Pptx);
+
+// รีเซ็ตการเลือกรูปทรงที่กำหนดไว้ล่วงหน้าสำหรับป้ายทั้งหมดที่มีอยู่.
+labels.DefaultLabelShapeType = ShapeType.NotDefined;
+presentation.Save("label-shapes-reset.pptx", SaveFormat.Pptx);
+```
+
+การกำหนดรูปทรงคอลเลกชันอีกครั้งจะทับการเลือกรูปทรงแบบเดิม [NotDefined](https://reference.aspose.com/slides/net/aspose.slides/shapetype/) จะล้างการเลือกรูปทรงโดยเจาะจง; ไม่ได้ทำให้ป้ายหายหรือเคลียร์การจัดรูปแบบอื่น ๆ ตั้งค่ารูปทรงที่ต้องการหลังจากเติมข้อมูลซีรีส์แทนการคาดการณ์ว่าจุดที่เพิ่มภายหลังจะสืบรับการตั้งค่าก่อนหน้า รูปสี่เหลี่ยมและวงรีถูกใช้ที่นี่; ตรวจสอบผลลัพธ์ที่เรนเดอร์เมื่อเลือกประเภทรูปทรงอื่น
+
+## **FAQ**
+
+**How can I prevent data labels from overlapping on dense charts?**
+
+ผสานการจัดวางป้ายอัตโนมัติ, เส้นเชื่อม, และการลดขนาดฟอนต์; หากจำเป็นให้ซ่อนฟิลด์บางส่วน (เช่น หมวด) หรือแสดงป้ายเฉพาะค่าข extremos หรือจุดสำคัญ
+
+**How can I disable labels only for zero, negative, or empty values?**
+
+กรองจุดข้อมูลก่อนเปิดป้ายและปิดการแสดงค่าที่เป็น 0, ค่าติดลบ, หรือค่าที่ขาดหายตามกฎที่กำหนด
+
+**How can I ensure a consistent label style when exporting to PDF/images?**
+
+กำหนดฟอนต์และขนาดอย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นมีอยู่ในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง

@@ -15,17 +15,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammdatenbeschriftungen in PowerPoint‑Präsentationen mit Aspose.Slides für .NET hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
+description: "Erfahren Sie, wie Sie Diagrammdatenbeschriftungen in PowerPoint-Präsentationen mit Aspose.Slides für .NET hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
 ## **Einleitung**
 
-Datenbeschriftungen zeigen Informationen zu Diagrammserien und einzelnen Datenpunkten an und helfen dem Leser, Werte zu identifizieren und das Diagramm zu verstehen. Dieser Artikel erklärt, wie man Werte formatiert, Prozentsätze anzeigt, Beschriftungstext liest, Beschriftungen jenseits des Achsenmaximums steuert, den Abstand von Kategorienachsenbeschriftungen anpasst und Kuchen­diagrammbeschriftungen positioniert.
+Datenbeschriftungen zeigen Informationen zu Diagrammserien und einzelnen Datenpunkten an und helfen den Lesern, Werte zu identifizieren und das Diagramm zu verstehen. Dieser Artikel erklärt, wie man Werte formatiert, Prozentsätze anzeigt, den Beschriftungstext liest, Beschriftungen außerhalb des Achsenmaximums steuert, den Abstand von Kategorienachsenbeschriftungen anpasst und Beschriftungen von Kreisdiagrammen positioniert.
 
-## **Sichtbare Datenbeschriftungen zählen**
+## **Anzahl sichtbarer Datenbeschriftungen**
 
-Verwenden Sie [CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/), um zu prüfen, wie viele Datenbeschriftungen vor der Veröffentlichung einer Präsentation zur Anzeige aktiviert sind. Im Gegensatz zu [Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/), das die Gesamtzahl der Beschriftungen in der Sammlung zurückgibt, berücksichtigt es die Standardeinstellungen der Serie und die individuellen Beschriftungseinstellungen.
+Verwenden Sie [CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/), um zu prüfen, wie viele Datenbeschriftungen für die Anzeige aktiviert sind, bevor Sie eine Präsentation veröffentlichen. Im Gegensatz zu [Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/), das die Gesamtzahl der Beschriftungen in der Sammlung zurückgibt, berücksichtigt es die Vorgaben der Serie und die einzelnen Beschriftungseinstellungen.
 
-Dieses Beispiel erstellt ein Säulendiagramm mit einer Serie und drei Datenpunkten. Es greift auf die [Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/)‑Sammlung der Serie zu und gibt die sichtbare Anzahl aus, während die Einstellungen geändert werden: **0, 3, 2, 3**. Die Gesamtsumme bleibt **3**.
+Dieses Beispiel erstellt ein Säulendiagramm mit einer Serie und drei Datenpunkten. Es greift auf die [Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/) Sammlung der Serie zu und gibt die sichtbare Anzahl aus, während sich die Einstellungen ändern: **0, 3, 2, 3**. Die Gesamtanzahl bleibt **3**.
 
 ```csharp
 using System;
@@ -65,13 +65,13 @@ labels[1].DataLabelFormat.ShowLegendKey = true;
 Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // Sichtbar: 3
 ```
 
-Die [DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/)‑Eigenschaft der Serie liefert die Standardeinstellungen. Durch Aktivieren von [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) dort werden Werte für alle drei Beschriftungen angezeigt. Wird sie über die [DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/)‑Eigenschaft einer einzelnen Beschriftung auf `false` gesetzt, überschreibt das die Einstellung für die ausgewählte Beschriftung. Das Aktivieren von [ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/) lässt diese Beschriftung wieder als sichtbar zählen, obwohl ihr Wert verborgen bleibt.
+Die [DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/) der Serie liefert die Standardeinstellungen. Das Aktivieren von [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) dort zeigt Werte für alle drei Beschriftungen an. Das Setzen auf `false` über das [DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/) einer einzelnen Beschriftung überschreibt diese Einstellung für die ausgewählte Beschriftung. Das Aktivieren von [ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/) lässt diese Beschriftung wieder als sichtbar zählen, obwohl ihr Wert verborgen bleibt.
 
 Die sichtbare Anzahl spiegelt die Sichtbarkeitseinstellungen wider. Sie misst nicht, ob Beschriftungen überlappen, abgeschnitten oder im gerenderten Diagramm lesbar sind.
 
 ## **Datenpräzision in Diagrammdatenbeschriftungen festlegen**
 
-Verwenden Sie [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/), um Serienwerte zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standarddaten, zeigt die Datentabelle an und aktiviert Wertebeschriftungen für die erste Serie. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen, ohne die zugrunde liegenden Werte zu ändern.
+Verwenden Sie [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/), um Serienwerte zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standarddaten, zeigt dessen Datentabelle an und aktiviert Wertebeschriftungen für die erste Serie. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen an, ohne die zugrunde liegenden Werte zu ändern.
 
 ```csharp
 using Aspose.Slides;
@@ -91,11 +91,11 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-Um die numerischen Zellen in der eingebetteten Arbeitsmappe eines Diagramms zu formatieren, siehe [Set Custom Number Formats for Workbook Cells](/slides/de/net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dieses Beispiel zeigt ebenfalls, dass Wertebeschriftungen den Formaten der Quellzelle folgen, während die gespeicherten numerischen Werte erhalten bleiben.
+Um die numerischen Zellen in der eingebetteten Arbeitsmappe eines Diagramms zu formatieren, siehe [Set Custom Number Formats for Workbook Cells](/slides/de/net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dieses Beispiel zeigt außerdem, dass Wertebeschriftungen den Formaten ihrer Quellzelle folgen, während die gespeicherten numerischen Werte erhalten bleiben.
 
 ## **Prozentsatz als Beschriftungen anzeigen**
 
-Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz seiner Kategoriensumme und weisen den Text [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) zu. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer 8‑Punkt‑Schrift. Kategorien mit einer Gesamtsumme von Null werden übersprungen, um eine Division durch Null zu vermeiden. Berechnen Sie den benutzerdefinierten Beschriftungstext neu, wenn sich die Diagrammdaten ändern.
+Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz seiner Kategorieg Totales und weisen den Text [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) zu. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer 8‑Punkt‑Schrift an. Kategorien mit einer Gesamtsumme von Null werden übersprungen, um eine Division durch Null zu vermeiden. Berechnen Sie den benutzerdefinierten Beschriftungstext neu, wenn sich die Diagrammdaten ändern.
 
 ```csharp
 using System;
@@ -156,11 +156,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Prozentzeichen bei Diagrammdatenbeschriftungen festlegen**
+## **Prozentzeichen mit Diagrammdatenbeschriftungen festlegen**
 
 Wenn Werte als Brüche gespeichert sind, verwenden Sie [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/), um Prozentsätze anzuzeigen. Setzen Sie [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) auf `false`, um das Beschriftungsformat unabhängig von den Quellzellen anzuwenden.
 
-Dieses Beispiel erstellt ein 100 % gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. Jede Wertepaarung summiert sich zu 1. Das Beschriftungsformat `0.0%` zeigt 0.30 als 30,0 % an, während die vertikale Achse zwei Dezimalstellen verwendet. Beide Serien verwenden weiße Beschriftungen mit 10 Punkt.
+Dieses Beispiel erstellt ein 100 %-gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. Jeder Werte‑Paar summiert sich zu 1. Das Beschriftungsformat `0.0%` zeigt 0,30 als 30,0 % an, während die vertikale Achse zwei Dezimalstellen verwendet. Beide Serien verwenden weiße Beschriftungen mit 10 Punkt.
 
 ```csharp
 using System.Drawing;
@@ -218,7 +218,7 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 
 ## **Den tatsächlichen Text von Datenbeschriftungen lesen**
 
-Verwenden Sie [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/), um den Text abzurufen, der durch die Einstellungen einer Datenbeschriftung erzeugt wird. Dies ist nützlich, wenn Beschriftungen für Berichte extrahiert, Präsentationsinhalte durchsucht oder generierte Diagramme validiert werden sollen. Im unten stehenden Beispiel kombiniert das Standard‑[Datenbeschriftungsformat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) jeden Kategorienamen, Seriennamen und Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, ein anderer verwendet benutzerdefinierten Text aus [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+Verwenden Sie [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/), um den durch die Einstellungen einer Datenbeschriftung erzeugten Text abzurufen. Das ist nützlich, wenn Beschriftungen für Berichte extrahiert, Präsentationsinhalte durchsucht oder erzeugte Diagramme validiert werden. Im nachstehenden Beispiel kombiniert das Standard‑[data label format](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) jeden Kategorienamen, Seriennamen und Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, ein anderer verwendet benutzerdefinierten Text aus [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -272,15 +272,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, selbst wenn ihre Beschriftung `75 %` zusammen mit dem Kategorienamen und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den generierten Beschriftungstext. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) liefert in beiden Fällen die resultierende Beschriftungszeichenfolge. Prüfen Sie [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) separat, wie oben gezeigt, wenn Sie nur sichtbare Beschriftungen extrahieren möchten.
+Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, selbst wenn ihre Beschriftung `75%` zusammen mit den Kategorien‑ und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den erzeugten Beschriftungstext. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) gibt die resultierende Beschriftungszeichenfolge in beiden Fällen zurück. Prüfen Sie [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) separat, wie oben gezeigt, wenn Sie nur sichtbare Beschriftungen extrahieren möchten.
 
-## **Datenbeschriftungen jenseits des Achsenmaximums steuern**
+## **Datenbeschriftungen über das Achsenmaximum hinaus steuern**
 
-Wenn Sie einen Achsenbereich manuell begrenzen, können einige Datenpunkte dessen Maximum überschreiten. Verwenden Sie [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/), um zu steuern, ob deren Datenbeschriftungen angezeigt werden. Diese Einstellung ändert die Sichtbarkeit der Beschriftung; sie ändert weder das Achsenmaximum noch die zugrunde liegenden Datenwerte.
+Wenn Sie einen Achsenbereich manuell begrenzen, können einige Datenpunkte das Maximum überschreiten. Verwenden Sie [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/), um zu steuern, ob deren Datenbeschriftungen angezeigt werden. Diese Einstellung ändert die Sichtbarkeit der Beschriftungen; sie ändert nicht den Achsenbereich oder die zugrunde liegenden Datenwerte.
 
-Das folgende Beispiel erstellt ein 2‑D‑Cluster‑Säulendiagramm mit Werten von 60 und 120. Es setzt [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) auf `false` und [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) auf 100 für die vertikale Achse. Die erste Folie erlaubt Beschriftungen über dem Maximum; eine Kopie dieser Folie deaktiviert sie. Beide Folien werden in `DataLabelsOverMaximum.pptx` gespeichert.
+Das nachstehende Beispiel erstellt ein 2D gruppiertes Säulendiagramm mit den Werten 60 und 120. Es setzt [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) auf `false` und [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) auf 100 für die vertikale Achse. Die erste Folie erlaubt Beschriftungen über dem Maximum; eine Kopie dieser Folie deaktiviert sie. Beide Folien werden in `DataLabelsOverMaximum.pptx` gespeichert.
 
-Aktivieren Sie Wertebeschriftungen mit [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Die diagrammweite Einstellung aktiviert die Werteanzeige nicht von allein und überschreibt nicht die deaktivierte Anzeige einer einzelnen Beschriftung. Dieses Beispiel aktiviert Werte für die gesamte Serie und verwendet [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/), um Beschriftungen am äußeren Ende jeder Säule zu platzieren.
+Aktivieren Sie Wertebeschriftungen mit [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Die Einstellung auf Diagrammebene aktiviert die Wertanzeige nicht von selbst und überschreibt nicht die deaktivierte Wertanzeige einer einzelnen Beschriftung. Dieses Beispiel aktiviert Werte für die gesamte Serie und verwendet [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/), um die Beschriftungen am äußeren Ende jeder Säule zu platzieren.
 
 ```csharp
 using Aspose.Slides;
@@ -327,19 +327,19 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-Die folgenden Bilder zeigen die gespeicherten Folien, gerendert von Microsoft PowerPoint. Bei `true` ist die Beschriftung **120** an der oberen Grenze sichtbar; bei `false` wird sie verborgen. Die Beschriftung **60** bleibt sichtbar, das Achsenmaximum bleibt bei **100**, und der zweite Datenpunkt bleibt in beiden Fällen **120**.
+Die folgenden Bilder zeigen die gespeicherten Folien, die von Microsoft PowerPoint gerendert wurden. Bei `true` ist die Beschriftung **120** an der oberen Grenze sichtbar; bei `false` ist sie verborgen. Die Beschriftung **60** bleibt sichtbar, das Achsenmaximum bleibt bei **100**, und der zweite Datenpunkt bleibt in beiden Fällen **120**.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![PowerPoint-Diagramm, das die Wertebeschriftung 120 mit einem Achsenmaximum von 100 zeigt](data-labels-over-maximum-true.png) | ![PowerPoint-Diagramm, das die Wertebeschriftung 120 mit einem Achsenmaximum von 100 ausblendet](data-labels-over-maximum-false.png) |
+| ![PowerPoint-Diagramm, das die Wertebeschriftung 120 mit einem Achsenmaximum von 100 zeigt](data-labels-over-maximum-true.png) | ![PowerPoint-Diagramm, das die Wertebeschriftung 120 mit einem Achsenmaximum von 100 verbirgt](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Dieses Beispiel verwendet ein 2‑D‑Säulendiagramm mit einer Werte‑Achse. Diagramme ohne Werte‑Achse, wie Kuchen‑ und Donut‑Diagramme, besitzen kein Achsenmaximum, das auf diese Weise begrenzt werden könnte.
+Dieses Beispiel verwendet ein 2D‑Säulendiagramm mit einer Werteachse. Diagramme ohne Werteachse, wie Kreis‑ und Donut‑Diagramme, haben kein Achsenmaximum, das auf diese Weise begrenzt werden kann.
 {{% /alert %}}
 
 ## **Beschriftungsabstand von einer Achse festlegen**
 
-Verwenden Sie [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/), um den Abstand zwischen Kategorienachsen‑Beschriftungen und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenbeschriftungen. Dieses Beispiel erstellt ein Cluster‑Säulendiagramm und setzt den horizontalen Achsen‑Beschriftungs‑Offset auf 500. Diese Einstellung wirkt sich auf Kategorienachsen‑Beschriftungen aus, nicht auf Beschriftungen, die einzelnen Datenpunkten zugewiesen sind.
+Verwenden Sie [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/), um den Abstand zwischen den Kategorienachsenbeschriftungen und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenbeschriftungen. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm und setzt den horizontalen Achsenbeschriftungs‑Offset auf 500. Diese Einstellung wirkt sich auf die Kategorienachsenbeschriftungen aus, nicht auf Beschriftungen, die einzelnen Datenpunkten zugeordnet sind.
 
 ```csharp
 using Aspose.Slides;
@@ -357,9 +357,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **Beschriftungsposition anpassen**
 
-Bei einem Kuchendiagramm passen Sie die Position der Datenbeschriftungen an, um den Abstand zu verbessern und Platz für Führungs‑Linien zu schaffen.
+Bei einem Kreisdiagramm passen Sie die Positionen der Datenbeschriftungen an, um den Abstand zu verbessern und Platz für Führungs‑Linien zu schaffen.
 
-Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert seine Beschriftung außerhalb des Segments und passt die [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/)‑ und [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)‑Offsets an. Diese Offsets beziehen sich jeweils auf die Diagrammbreite und -höhe.
+Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert dessen Beschriftung außerhalb des Sektors und passt seine [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) und [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) Offsets an. Diese Offsets beziehen sich jeweils auf die Diagrammbreite bzw. -höhe.
 
 ```csharp
 using Aspose.Slides;
@@ -381,17 +381,17 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![Kuchendiagramm mit angepasster Datenbeschriftungsposition](pie-chart-adjusted-label.png)
+![Kreisdiagramm mit angepasster Datenbeschriftungsposition](pie-chart-adjusted-label.png)
 
 ## **Führungs‑Linien formatieren**
 
-Wenn Kuchendiagrammbeschriftungen außerhalb ihrer Segmente liegen, helfen Führungs‑Linien dem Leser, jeden Wert dem richtigen Segment zuzuordnen. Eine kontrastierende Farbe und eine etwas dickere Linie können diese Verbindungen leichter nachvollziehbar machen, während Transparenz und ein gestricheltes Muster die Linien unauffällig halten.
+Wenn Kreisdiagrammbeschriftungen außerhalb ihrer Sektoren liegen, helfen Führungs‑Linien den Lesern, jeden Wert dem richtigen Sektor zuzuordnen. Eine kontrastierende Farbe und eine leicht dickere Linie können diese Verbindungen leichter nachvollziehbar machen, während Transparenz und ein gestricheltes Muster die Linien visuell unaufdringlich halten.
 
-Verwenden Sie [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/), um Führungs‑Linien auf Ebene der Datenbeschriftungssammlung einer Serie zu formatieren. Die Einstellungen in `series.Labels.LeaderLinesFormat.Line` gelten für die gesamte Sammlung, nicht für einzelne Beschriftungen.
+Verwenden Sie [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/), um Führungs‑Linien auf Ebene der Datenbeschriftungssammlung einer Serie zu formatieren. Die Einstellungen in `series.Labels.LeaderLinesFormat.Line` gelten für die Sammlung, nicht für eine einzelne Beschriftung.
 
-Dieses Beispiel erstellt ein Kuchendiagramm mit Standarddaten, zeigt Werte außerhalb der Segmente an und aktiviert [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/). Es verschiebt zwei Beschriftungen weiter von ihren Segmenten mittels [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/)‑ und [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)‑Offsets, angegeben als Bruchteile der Diagrammbreite bzw. -höhe. Keine Eingabe‑Präsentation ist erforderlich.
+Dieses Beispiel erstellt ein Kreisdiagramm mit Standarddaten, zeigt Werte außerhalb der Sektoren an und aktiviert [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/). Es verschiebt zwei Beschriftungen weiter von ihren Sektoren mithilfe von [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) und [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) Offsets, ausgedrückt als Bruchteile der Diagrammbreite und -höhe. Keine Eingabepräsentation ist erforderlich.
 
-Das [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) der Linie setzt eine durchsichtige blaue Farbe mit einem Alpha‑Wert von 191 von 255, also etwa 25 % Transparenz. [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) legt die Stärke auf 2 Punkt fest, und [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) macht die Linie gestrichelt.
+Das [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) der Linie legt eine solide blaue Farbe mit einem Alphawert von 191 von 255 fest, was etwa 25 % Transparenz ergibt. [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) setzt die Dicke auf 2 Punkte, und [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) macht die Linie gestrichelt.
 
 ```csharp
 using System.Drawing;
@@ -412,7 +412,7 @@ labelFormat.ShowValue = true;
 labelFormat.Position = LegendDataLabelPosition.OutsideEnd;
 labelFormat.ShowLeaderLines = true;
 
-// Verschiebe zwei Beschriftungen weiter von ihren Segmenten.
+// Verschiebe zwei Beschriftungen weiter von ihren Sektoren.
 series.Labels[0].X = 0.10f;
 series.Labels[0].Y = -0.05f;
 series.Labels[1].X = -0.10f;
@@ -427,17 +427,17 @@ line.DashStyle = LineDashStyle.Dash;
 presentation.Save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
 ```
 
-Das Aktivieren von Führungs‑Linien garantiert nicht, dass für jede Beschriftung eine Linie erscheint. Die Sichtbarkeit hängt von der Platzierung der Beschriftung und dem Layout‑Verhalten des Diagramms ab. In diesem Beispiel haben die beiden verschobenen Beschriftungen sichtbare Führungs‑Linien; die Beschriftungen, die nah an ihren Segmenten bleiben, benötigen keine.
+Das Aktivieren von Führungs‑Linien garantiert nicht, dass für jede Beschriftung eine Linie erscheint. Die Sichtbarkeit hängt von der Platzierung der Beschriftungen und dem Layoutverhalten des Diagramms ab. In diesem Beispiel haben die beiden verschobenen Beschriftungen sichtbare Führungs‑Linien; die Beschriftungen, die nahe bei ihren Sektoren bleiben, benötigen keine.
 
-Das folgende Bild zeigt das gespeicherte `FormattedLeaderLines.pptx`, gerendert mit Aspose.Slides:
+Das folgende Bild zeigt das gespeicherte `FormattedLeaderLines.pptx`, das mit Aspose.Slides gerendert wurde:
 
-![Kuchendiagramm mit blauen, halbtransparenten, gestrichelten Führungs‑Linien, die zwei äußere Beschriftungen mit ihren Segmenten verbinden](formatted-leader-lines.png)
+![Kreisdiagramm mit blauen, halbtransparenten, gestrichelten Führungs‑Linien, die zwei äußere Beschriftungen mit ihren Sektoren verbinden](formatted-leader-lines.png)
 
 ## **Mehrere Zeilen von Datenbeschriftungen über einem Säulendiagramm hinzufügen**
 
-Dieses Beispiel erstellt ein Säulendiagramm mit zwei Zeilen von Datenbeschriftungen über dem Diagrammbereich. Serie A zeigt die sichtbaren Säulen, während Serie B und Serie C die zusätzlichen Beschriftungen liefern. Ihre Säulen werden ausgeblendet, indem Füllung und Kontur entfernt werden. Die [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/)-Eigenschaft richtet alle drei Serien an denselben Kategorienzentren aus.
+Dieses Beispiel erstellt ein Säulendiagramm mit zwei Zeilen von Datenbeschriftungen über dem Diagrammbereich. Serie A zeigt die sichtbaren Spalten, während Serie B und Serie C die zusätzlichen Beschriftungen bereitstellen. Ihre Spalten werden ausgeblendet, indem Füllung und Kontur entfernt werden. Die [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/)‑Eigenschaft richtet alle drei Serien an denselben Kategorienzentren aus.
 
-Die [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/)-Einstellungen reservieren Platz für die Beschriftungszeilen. Nach der Berechnung der Standardpositionen durch [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) erhalten [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) und [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) die horizontale Ausrichtung und wenden vertikale Offsets an, um die Beschriftungen in zwei Zeilen anzuordnen. Die Zahlen bleiben Datenbeschriftungen, die mit den Serienwerten verknüpft sind; nur die Zeilenüberschriften sind separate Textformen.
+Die [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/)‑Einstellungen reservieren Platz für die Beschriftungszeilen. Nachdem [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) die Standardpositionen berechnet hat, bewahren [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) und [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) die horizontale Ausrichtung und wenden vertikale Offsets an, um die Beschriftungen in zwei Zeilen anzuordnen. Die Zahlen bleiben Datenbeschriftungen, die mit den Serienwerten verknüpft sind; nur die Zeilenüberschriften sind separate Textformen.
 
 ```csharp
 using System.Drawing;
@@ -486,7 +486,7 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // Blende die Spalten von B und C aus, behalte aber deren Datenbeschriftungen.
+        // Verstecke die Spalten von B und C, aber behalte deren Datenbeschriftungen.
         series.Format.Fill.FillType = FillType.NoFill;
         series.Format.Line.FillFormat.FillType = FillType.NoFill;
         var labelFormat = series.Labels.DefaultDataLabelFormat;
@@ -499,14 +499,14 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
     }
 }
 
-// Richte alle drei Serien an den gleichen Kategorienmitten aus.
+// Richten Sie alle drei Serien an denselben Kategorienzentren aus.
 chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
 
-// Verwende weniger Gitternetzlinien für dieses kompakte Beispiel.
+// Verwenden Sie weniger Gitternetzlinien für dieses kompakte Beispiel.
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.MajorUnit = 10;
 
-// Reserviere Platz über dem Plot für zwei Reihen von Datenbeschriftungen.
+// Reservieren Sie Platz über dem Diagrammbereich für zwei Zeilen von Datenbeschriftungen.
 chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
 chart.PlotArea.X = 0.15f;
 chart.PlotArea.Y = 0.32f;
@@ -522,8 +522,8 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
     for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
     {
         var dataLabel = series.DataPoints[categoryIndex].Label;
-        // Behalte die Standard-Horizontal-Position bei. Y ist ein Versatz von
-        // der Standard-Beschriftungsposition, ausgedrückt als Bruchteil der Diagrammhöhe.
+        // Behalte die Standard‑Horizontale‑Position bei. Y ist ein Offset von
+        // der Standard‑Beschriftungsposition, ausgedrückt als Bruchteil der Diagrammhöhe.
         dataLabel.X = 0;
         dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
     }
@@ -546,16 +546,53 @@ presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
 
 ![Säulendiagramm mit zwei Zeilen von Datenbeschriftungen über dem Diagrammbereich](multiple-rows-of-labels.png)
 
+## **Datenbeschriftungsformen ändern**
+
+Aspose.Slides für .NET 26.11 fügt [IDataLabel.LabelShapeType](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/labelshapetype/) für eine Beschriftung und [IDataLabelCollection.DefaultLabelShapeType](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultlabelshapetype/) für alle aktuellen Beschriftungen in einer Serie hinzu. Diese ändern die Form der Beschriftung, nicht das Punkt‑Symbol. Für die separate Callout‑Einstellung siehe [Data Label Callouts](/slides/de/net/callout/).
+
+Die Zuweisung der Sammlung aktualisiert bestehende Beschriftungen, daher sollten individuelle Überschreibungen **nach** der Sammlungs‑Einstellung erfolgen. Dieses vollständige Beispiel erfordert [Aspose.Slides for .NET](/slides/de/net/installation/) 26.11 oder neuer. Es erstellt sichtbare Wertebeschriftungen, wählt Ellipsen für die erste Serie und macht dann deren erste Beschriftung rechteckig.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
+var labels = chart.ChartData.Series[0].Labels;
+labels.DefaultDataLabelFormat.ShowValue = true;
+labels.DefaultLabelShapeType = ShapeType.Ellipse;
+labels[0].LabelShapeType = ShapeType.Rectangle;
+
+foreach (var label in labels)
+{
+    var format = label.DataLabelFormat.Format;
+    format.Fill.FillType = FillType.Solid;
+    format.Fill.SolidFillColor.Color = Color.LightYellow;
+    format.Line.FillFormat.FillType = FillType.Solid;
+    format.Line.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+}
+
+presentation.Save("label-shapes.pptx", SaveFormat.Pptx);
+
+// Setze die expliziten Formauswahlen aller aktuellen Beschriftungen zurück.
+labels.DefaultLabelShapeType = ShapeType.NotDefined;
+presentation.Save("label-shapes-reset.pptx", SaveFormat.Pptx);
+```
+
+Das erneute Zuweisen der Sammlungsform ersetzt ebenfalls frühere individuelle Formauswahlen. [NotDefined](https://reference.aspose.com/slides/net/aspose.slides/shapetype/) löscht die explizite Formauswahl; es blendet die Beschriftungen nicht aus und löscht nicht deren andere Formatierungen. Legen Sie die gewünschten Formen nach dem Befüllen der Serie fest, anstatt anzunehmen, dass später hinzugefügte Punkte eine frühere Zuweisung erben. Rechteck und Ellipse werden hier verwendet; prüfen Sie das gerenderte Ergebnis, wenn Sie andere Formtypen auswählen.
+
 ## **FAQ**
 
-**Wie kann ich verhindern, dass Datenbeschriftungen bei dichten Diagrammen überlagern?**
+**Wie kann ich verhindern, dass Datenbeschriftungen bei dichten Diagrammen überlappen?**
 
-Kombinieren Sie automatische Beschriftungsplatzierung, Führungs‑Linien und reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für extreme Werte bzw. Schlüssel­punkte anzeigen.
+Kombinieren Sie die automatische Beschriftungsplatzierung, Führungs‑Linien und reduzierte Schriftgröße; falls nötig, blenden Sie einige Felder (z. B. die Kategorie) aus oder zeigen Sie Beschriftungen nur für extreme Werte oder Schlüsselpunkte an.
 
-**Wie kann ich Beschriftungen nur für Null‑, Negative‑ oder Leere‑Werte deaktivieren?**
+**Wie kann ich Beschriftungen nur für null, negative oder leere Werte deaktivieren?**
 
 Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer definierten Regel aus.
 
-**Wie stelle ich einen einheitlichen Beschriftungsstil beim Exportieren in PDF/Bilder sicher?**
+**Wie kann ich einen konsistenten Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**
 
-Setzen Sie explizit Schriftfamilie und -größe und prüfen Sie, dass die Schriftart in der Rendering‑Umgebung verfügbar ist, um Rückfälle zu vermeiden.
+Setzen Sie explizit die Schriftfamilie und -größe und prüfen Sie, dass die Schrift im Rendering‑Umfeld verfügbar ist, um ein Zurückfallen auf Ersatzschriften zu vermeiden.

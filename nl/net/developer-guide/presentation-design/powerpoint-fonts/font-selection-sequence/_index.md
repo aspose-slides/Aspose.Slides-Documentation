@@ -1,13 +1,13 @@
 ---
-title: Lettertype‑selectievolgorde in Aspose.Slides voor .NET
-linktitle: Lettertype‑selectie
+title: Lettertype-selectiesequentie in Aspose.Slides voor .NET
+linktitle: Lettertype-selectie
 type: docs
 weight: 80
 url: /nl/net/font-selection-sequence/
 keywords:
-- lettertype‑selectie
-- lettertype substitutie
-- lettertype vervanging
+- lettertype-selectie
+- lettertype-substitutie
+- lettertype-vervanging
 - substitutieregel
 - beschikbaar lettertype
 - ontbrekend lettertype
@@ -17,46 +17,77 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ontdek hoe Aspose.Slides voor .NET lettertypen selecteert, waardoor PPT, PPTX en ODP‑bestanden helder en consequent worden weergegeven — verbeter uw dia's nu."
+description: "Ontdek hoe Aspose.Slides voor .NET lettertypen selecteert, waardoor PPT, PPTX en ODP-bestanden scherp en consistent worden gepresenteerd — verbeter nu uw dia's."
 ---
 ## **Overzicht**
 
-Wanneer een presentatie wordt geladen, gerenderd of geconverteerd naar een ander formaat, controleert Aspose.Slides of de in de presentatie gebruikte lettertypen beschikbaar zijn in het besturingssysteem. Als een vereist lettertype ontbreekt, selecteert Aspose.Slides een vervangend lettertype dat zo dicht mogelijk bij datgene komt dat PowerPoint zou gebruiken.
+Wanneer een presentatie wordt geladen, gerenderd of geconverteerd naar een ander formaat, houdt Aspose.Slides rekening met de ingebedde lettertypen en de lettertypen die beschikbaar zijn voor de applicatie. Als een vereist lettertype niet beschikbaar is, selecteert Aspose.Slides een vervangend lettertype dat zo dicht mogelijk bij het lettertype komt dat PowerPoint zou gebruiken.
 
-Aspose.Slides zoekt eerst naar het geselecteerde lettertype in het besturingssysteem. Als het lettertype wordt gevonden, wordt het gebruikt. Als het niet wordt gevonden, wordt een geschikt vervangend lettertype toegepast. Wanneer lettertype‑substitutieregels zijn gedefinieerd via `FontSubstRule`, worden die regels ook in aanmerking genomen.
+Beschikbare lettertypen kunnen systeemlettertypen, door de applicatie geladen lettertypen en ingebedde lettertypen in de presentatie omvatten. Voor een overeenkomend ingebed en geregistreerd lettertype bepaalt de .NET 26.11‑voorkeur die hieronder wordt beschreven welke prioriteit heeft. Font‑substitutieregels gedefinieerd via [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) vormen een apart mechanisme.
 
-U kunt ook lettertypen toevoegen tijdens de uitvoering van de applicatie, ingebedde lettertypen uit een presentatie gebruiken, of externe lettertypen laden voor uitvoerbestanden zoals PDF‑bestanden.
+U kunt ook lettertypen toevoegen tijdens de uitvoering van de applicatie, ingebedde lettertypen uit een presentatie gebruiken, of externe lettertypen laden voor outputdocumenten zoals PDF‑bestanden.
 
 ## **Lettertype‑selectie**
 
-Bepaalde regels zijn van toepassing op lettertypen in een presentatie wanneer de presentatie wordt geladen, gerenderd of geconverteerd naar een ander formaat. Bijvoorbeeld, wanneer u probeert een presentatie (de dia's) te converteren naar afbeeldingen, worden de lettertypen van de presentatie gecontroleerd om te verifiëren dat de gekozen lettertypen beschikbaar zijn in het besturingssysteem. Als de lettertypen ontbreken, worden ze vervangen — zie [**Lettertypevervanging**](https://docs.aspose.com/slides/nl/net/font-replacement/) en [**Lettertype‑substitutie**](https://docs.aspose.com/slides/nl/net/font-substitution/).
+Tekst kan een themalettertype refereren, zoals `+mn-lt`, in plaats van een expliciete familienaam. Zie [Resolve Theme Font References](/slides/nl/net/presentation-theme/#resolve-theme-font-references) om de door het toepasselijke thema gespecificeerde familie op te halen. Het oplossen van die referentie is gescheiden van het controleren van de beschikbaarheid van het lettertype en het toepassen van substitutie tijdens het renderen of glyph‑fallback; het identificeert niet het lettertypebestand dat uiteindelijk wordt gebruikt om de tekst weer te geven.
 
-Dit is het proces dat Aspose.Slides volgt bij het omgaan met lettertypen:
+Wanneer u dia's rendert of een presentatie converteert, controleer dan of de gevraagde lettertypen ingebed zijn of beschikbaar zijn vanuit geregistreerde bronnen. Ontbrekende lettertypen kunnen vervanging of substitutie vereisen; zie [**Lettertype‑vervanging**](/slides/nl/net/font-replacement/) en [**Lettertype‑substitutie**](/slides/nl/net/font-substitution/).
 
-1. Aspose.Slides zoekt naar lettertypen in het besturingssysteem om het lettertype te vinden dat overeenkomt met het gekozen lettertype van de presentatie.  
-2. Als het gekozen lettertype wordt gevonden, gebruikt Aspose.Slides het. Anders gebruikt Aspose.Slides een vervangend lettertype dat zo dicht mogelijk bij wat PowerPoint zou gebruiken ligt.  
-3. Als er lettertypevervangingsregels zijn ingesteld via [FontSubstRule](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsubstrule/), worden die toegepast.  
+Bij het onderzoeken van lettertype‑selectie:
 
-Aspose.Slides stelt u in staat lettertypen toe te voegen aan de runtime van de applicatie en vervolgens die lettertypen te gebruiken. Zie [**Aangepaste lettertypen**](https://docs.aspose.com/slides/nl/net/custom-font/).
+1. Los de gevraagde familie en stijl op, inclusief eventuele themareferentie.
+2. Controleer ingebedde lettertypen en geregistreerde bronnen, inclusief systeemlettertypen en door de applicatie geladen lettertypen. Gebruik de onderstaande voorkeur wanneer overeenkomende ingebedde en geregistreerde versies met elkaar concurreren.
+3. Bekijk [lettertype‑substitutieregels](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) en glyph‑fallback als het gevraagde lettertype of de tekens niet beschikbaar zijn.
 
-Wanneer extra lettertypen in een presentatie worden geplaatst, worden ze [**Ingesloten lettertypen**](https://docs.aspose.com/slides/nl/net/embedded-font/) genoemd.
+Aspose.Slides stelt u in staat om lettertypen toe te voegen tijdens de uitvoering van de applicatie en die vervolgens te gebruiken. Zie [**Aangepaste lettertypen**](/slides/nl/net/custom-font/).
 
-Aspose.Slides maakt het mogelijk lettertypen toe te voegen die *alleen* op uitvoerdocumenten worden toegepast. Bijvoorbeeld, als een presentatie die u wilt converteren naar PDF lettertypen bevat die ontbreken op uw systeem en in de ingesloten lettertypen, kunt u de benodigde lettertypen toevoegen of laden als **externe lettertypen**.
+Wanneer extra lettertypen in een presentatie worden geplaatst, worden ze [**Ingebedde lettertypen**](/slides/nl/net/embedded-font/) genoemd.
 
-{{% alert title="Note" color="primary" %}} 
-We distribueren geen lettertypen, noch betaald noch gratis. Onze API stelt u in staat externe lettertypen te laden en in documenten in te sluiten, maar u doet dit met lettertypen op eigen verantwoordelijkheid.
+Aspose.Slides stelt u in staat om lettertypen toe te voegen die alleen op outputdocumenten worden toegepast. Bijvoorbeeld, als een presentatie die u naar PDF wilt converteren lettertypen bevat die ontbreken op uw systeem en in de ingebedde lettertypen, kunt u de benodigde lettertypen toevoegen of laden als **externe lettertypen**.
+
+{{% alert title="Note" color="info" %}} 
+We distribueren geen lettertypen, noch betaald noch gratis. Onze API stelt u in staat om externe lettertypen te laden en in documenten in te sluiten, maar u doet dit met lettertypen naar eigen inzicht en verantwoordelijkheid.
 {{% /alert %}}
 
-## **FAQ**
+## **Voorkeur geven aan geregistreerde lettertypen boven ingebedde lettertypen**
+
+Vanaf .NET 26.11 laat [IFontsManager.PreferRegisteredFontsOverEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/preferregisteredfontsoverembedded/) een overeenkomend geregistreerd lettertype prioriteit krijgen boven een ingebed lettertype tijdens export. De standaardwaarde is `false`. Overeenstemming gebruikt de lettertype‑naam en stijl; een andere familienaam is geen vervangende overeenkomst. Geregistreerde lettertypen kunnen afkomstig zijn van het systeem of van [expliciet geladen lettertype‑bronnen](/slides/nl/net/custom-font/).
+
+Het volgende voorbeeld gebruikt het **Aspose.Slides.NET6.CrossPlatform 26.11**‑pakket op .NET 8. Volg de [installatie‑handleiding](/slides/nl/net/installation/) voor uw omgeving. Lever `embedded-fonts.pptx` met een ingebed lettertype en `preferred.ttf` met dezelfde familienaam en stijl. De twee lettertype‑bestanden moeten duidelijk verschillen als u de output wilt vergelijken.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var fontBytes = File.ReadAllBytes("preferred.ttf");
+FontsLoader.LoadExternalFont(fontBytes);
+using var presentation = new Presentation("embedded-fonts.pptx");
+
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = false;
+presentation.Save("embedded-preference.pdf", SaveFormat.Pdf);
+
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = true;
+presentation.Save("registered-preference.pdf", SaveFormat.Pdf);
+
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = false;
+presentation.Save("restored-preference.pdf", SaveFormat.Pdf);
+```
+
+Deze instelling wijzigt de prioriteit van lettertypen tijdens de export; het hernoemt het lettertype van de tekst niet, verwijdert geen ingebedde lettertype‑gegevens en embedt het geregistreerde bestand niet opnieuw. Het is een runtime‑instelling: stel het opnieuw in na het heropenen van een presentatie. Als er geen overeenkomend geregistreerd lettertype beschikbaar is, levert het inschakelen van de voorkeur er geen; controleer het resulterende lettertype en de lay-out in uw doelsysteem.
+
+PNG‑ en PDF‑output met expliciet geladen reguliere lettertypen werd gecontroleerd voor de bovenstaande configuratie. Controleer uw eigen lettertype‑bestanden, stijlen, SDK‑build en output‑formaten voordat u op identieke resultaten rekent. Lettertype‑metingen kunnen regeleinden en positionering wijzigen. Gebruik [lettertype‑vervanging](/slides/nl/net/font-replacement/) of [substitutie](/slides/nl/net/font-substitution/) wanneer u een andere familie nodig hebt, en [operaties voor ingebedde lettertypen](/slides/nl/net/embedded-font/) wanneer u de in de presentatie opgeslagen lettertypen wilt wijzigen.
+
+## **Veelgestelde vragen**
 
 **Hoe kan ik bepalen welke lettertypen daadwerkelijk in een presentatie worden gebruikt vóór conversie?**
 
-Aspose.Slides stelt u in staat de gebruikte lettertypen te bekijken via de [lettertypebeheerder](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/fontsmanager/), zodat u kunt beslissen of u wilt [insluiten](/slides/nl/net/embedded-font/), [vervangen](/slides/nl/net/font-replacement/) of [externe bronnen](/slides/nl/net/custom-font/) toevoegen. Dit helpt om ongewenste substituties tijdens het renderen en exporteren te voorkomen.
+Aspose.Slides stelt u in staat de gebruikte lettertypen te inspecteren via de [lettertype‑beheerder](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/), zodat u kunt beslissen of u wilt [inbedden](/slides/nl/net/embedded-font/), [vervangen](/slides/nl/net/font-replacement/), of [externe bronnen](/slides/nl/net/custom-font/) toevoegen. Dit helpt u ongewenste substituties tijdens het renderen en exporteren te voorkomen.
 
 **Kan ik extra lettertype‑mappen toevoegen zonder ze te installeren op het besturingssysteem?**
 
-Ja. U kunt [externe lettertype‑bronnen](/slides/nl/net/custom-font/) registreren, zoals mappen of in‑memory‑streams, voor renderen en exporteren. Dit verwijdert de afhankelijkheid van de lettertypen van het host‑systeem en houdt de lay‑out voorspelbaar.
+Ja. U kunt [externe lettertype‑bronnen](/slides/nl/net/custom-font/) zoals mappen of in‑memory‑streams registreren voor rendering en export. Dit verwijdert de afhankelijkheid van host‑systeemlettertypen en houdt de lay-out voorspelbaar.
 
-**Hoe voorkom ik een stilvallende terugval naar een ongeschikt lettertype wanneer een glyf ontbreekt?**
+**Hoe voorkom ik een stille fallback naar een ongeschikt lettertype wanneer een glyph ontbreekt?**
 
-Definieer vooraf expliciete [lettertypevervanging](/slides/nl/net/font-replacement/) en lettertype‑[fallback‑regels](/slides/nl/net/fallback-font/). Door gebruikte lettertypen te analyseren en een gecontroleerde prioriteit voor substituten in te stellen, zorgt u voor consistente tipografie en voorkomt u onverwachte resultaten.
+Definieer expliciete [lettertype‑vervanging](/slides/nl/net/font-replacement/) en font [fallback‑regels](/slides/nl/net/fallback-font/) vooraf. Door gebruikte lettertypen te analyseren en een gecontroleerde prioriteit voor substituten in te stellen, zorgt u voor consistente typografie en voorkomt u onverwachte resultaten.

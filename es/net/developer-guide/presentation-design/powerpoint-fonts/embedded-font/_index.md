@@ -21,15 +21,15 @@ description: "Gestiona fuentes incrustadas en PowerPoint con Aspose.Slides para 
 ---
 ## **Introducción**
 
-Incrustar fuentes almacena los datos de la fuente dentro de una presentación de PowerPoint. Cuando un visor admite fuentes incrustadas, puede mostrar el texto usando esas fuentes aunque no estén instaladas en el sistema de destino. Esto ayuda a conservar los saltos de línea, el espaciado del texto y el diseño de la diapositiva.
+Incrustar fuentes almacena los datos de la fuente dentro de una presentación de PowerPoint. Cuando un visor admite fuentes incrustadas, puede mostrar el texto utilizando esas fuentes aunque no estén instaladas en el sistema de destino. Esto ayuda a preservar los saltos de línea, el espaciado del texto y el diseño de la diapositiva.
 
-Aspose.Slides para .NET le permite obtener, añadir y eliminar fuentes incrustadas a través de la propiedad [FontsManager](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/fontsmanager/) de una [Presentation](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/). También puede reducir el tamaño de los datos de fuentes incrustadas eliminando los caracteres que la presentación no utiliza.
+Aspose.Slides for .NET le permite obtener, añadir y eliminar fuentes incrustadas a través de la propiedad [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) de una [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). También puede reducir el tamaño de los datos de fuentes incrustadas eliminando los caracteres que la presentación no utiliza.
 
-Los ejemplos siguientes trabajan con archivos PPTX. Antes de incrustar una fuente, asegúrese de que sus datos de fuente estén disponibles para Aspose.Slides y de que su licencia permita la incrustación.
+Los ejemplos a continuación funcionan con archivos PPTX. Antes de incrustar una fuente, asegúrese de que sus datos de fuente estén disponibles para Aspose.Slides y de que su licencia permita la incrustación.
 
 ## **Obtener y eliminar fuentes incrustadas**
 
-Utilice [GetEmbeddedFonts](https://reference.aspose.com/slides/es/net/aspose.slides/fontsmanager/getembeddedfonts/) para enumerar las fuentes almacenadas en una presentación. Para eliminar una, pase una fuente de esa lista a [RemoveEmbeddedFont](https://reference.aspose.com/slides/es/net/aspose.slides/fontsmanager/removeembeddedfont/), y luego guarde la presentación.
+Utilice [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) para enumerar las fuentes almacenadas en una presentación. Para eliminar una, pase una fuente de esa lista a [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont/), y luego guarde la presentación.
 
 El siguiente ejemplo enumera las fuentes incrustadas en `EmbeddedFonts.pptx` y elimina Calibri si está presente:
 
@@ -59,24 +59,24 @@ else
 }
 ```
 
-Eliminar una fuente incrustada elimina sus datos de fuente almacenados; no cambia la fuente asignada al texto. Si la fuente está instalada en el sistema de destino, el texto aún puede usarla. De lo contrario, la renderización puede requerir [sustitución de fuentes](/slides/es/net/font-substitution/), lo que puede afectar el diseño.
+Eliminar una fuente incrustada elimina sus datos de fuente almacenados; no cambia la fuente asignada al texto. Si la fuente está instalada en el sistema de destino, el texto aún puede usarla. De lo contrario, la representación puede requerir [sustitución de fuentes](/slides/es/net/font-substitution/), lo que puede afectar el diseño.
 
 ## **Inspeccionar datos de fuentes y permisos de incrustación**
 
-Utilice la interfaz [IFontsManager](https://reference.aspose.com/slides/es/net/aspose.slides/ifontsmanager/) para inspeccionar las fuentes antes de incrustarlas. Llame a [IFontsManager.GetFonts](https://reference.aspose.com/slides/es/net/aspose.slides/ifontsmanager/getfonts/) para obtener las fuentes utilizadas en la presentación. Para cada fuente, pase un objeto [IFontData](https://reference.aspose.com/slides/es/net/aspose.slides/ifontdata/) y el valor requerido de [FontStyleType](https://reference.aspose.com/slides/es/net/aspose.slides/fontstyletype/) a [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/es/net/aspose.slides/ifontsmanager/getfontbytes/). El método devuelve los datos binarios de ese estilo de fuente, o `null` cuando la fuente o estilo solicitado no está disponible. No pase un resultado `null` a [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/es/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), ya que ese método requiere un array de bytes.
+Utilice la interfaz [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) para inspeccionar fuentes antes de incrustarlas. Llame a [IFontsManager.GetFonts](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfonts/) para obtener las fuentes utilizadas en la presentación. Para cada fuente, pase un objeto [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) y el valor requerido de [FontStyleType](https://reference.aspose.com/slides/net/aspose.slides/fontstyletype/) a [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontbytes/). El método devuelve los datos binarios de ese estilo de fuente, o `null` cuando la fuente o el estilo solicitados no están disponibles. No pase un resultado `null` a [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), porque ese método requiere un arreglo de bytes.
 
-[EmbeddingLevel](https://reference.aspose.com/slides/es/net/aspose.slides/embeddinglevel/) es una enumeración de banderas que informa de las restricciones de incrustación almacenadas en la fuente:
+[EmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/embeddinglevel/) es una enumeración de banderas que informa de las restricciones de incrustación almacenadas en la fuente:
 
 - `Installable` permite la incrustación y la instalación permanente en otro sistema, sujeto a la licencia de la fuente.
 - `Restricted` prohíbe la incrustación a menos que se obtenga permiso del propietario legal de la fuente cuando es la única bandera de permiso de uso.
-- `PreviewPrint` permite el uso temporal para visualización e impresión; un documento que contiene la fuente debe ser de solo lectura.
+- `PreviewPrint` permite el uso temporal para la visualización e impresión; un documento que contenga la fuente debe ser de solo lectura.
 - `Editable` permite el uso temporal y permite que el documento se edite y guarde.
-- `NoSubsetting` es una restricción adicional que prohíbe incrustar solo un subconjunto de los glifos. Incruste todos los caracteres cuando esta bandera está presente.
-- `BitmapOnly` es una restricción adicional que permite incrustar solo versiones bitmap, no datos de contorno. Si la fuente no tiene versiones bitmap, no puede ser incrustada.
+- `NoSubsetting` es una restricción adicional que prohíbe incrustar solo un subconjunto de los glifos. Incruste todos los caracteres cuando esta bandera esté presente.
+- `BitmapOnly` es una restricción adicional que permite incrustar solo versiones bitmap, no datos de contorno. Si la fuente no tiene versiones bitmap, no puede incrustarse.
 
-Los primeros cuatro valores describen el permiso de uso, mientras que `NoSubsetting` y `BitmapOnly` pueden combinarse con ellos. Verifique los modificadores con operaciones a nivel de bits. Como `Installable` es cero, no utilice `HasFlag` para detectarlo; enmascare los bits de permiso de uso y compare el resultado con `Installable`. Las fuentes actuales deben establecer como máximo un bit de permiso de uso. Para compatibilidad con fuentes antiguas que establecen más de uno, el ayudante a continuación selecciona el permiso menos restrictivo: `Editable`, luego `PreviewPrint`, luego `Restricted`.
+Los primeros cuatro valores describen el permiso de uso, mientras que `NoSubsetting` y `BitmapOnly` pueden combinarse con ellos. Compruebe los modificadores con operaciones bit a bit. Debido a que `Installable` es cero, no use `HasFlag` para detectarlo; enmascare los bits de permiso de uso y compare el resultado con `Installable`. Las fuentes actuales deberían establecer como máximo un bit de permiso de uso. Para compatibilidad con fuentes más antiguas que establecen más de uno, el asistente a continuación selecciona el permiso menos restrictivo: `Editable`, luego `PreviewPrint`, luego `Restricted`.
 
-El siguiente ejemplo revisa los datos regular, negrita, cursiva y negrita‑cursiva disponibles para cada fuente devuelta por `GetFonts`. Omite estilos no disponibles, fuentes restringidas, fuentes solo bitmap, fuentes limitadas a vista previa e impresión porque la salida sigue siendo editable, y fuentes que ya están incrustadas. Si algún estilo disponible tiene `NoSubsetting`, incrusta todos los caracteres para esa familia de fuentes.
+El siguiente ejemplo audita los datos regular, negrita, cursiva y negrita‑cursiva disponibles para cada fuente devuelta por `GetFonts`. Omite estilos no disponibles, fuentes restringidas, fuentes solo bitmap, fuentes limitadas a vista previa e impresión porque la salida sigue siendo editable, y fuentes que ya están incrustadas. Si algún estilo disponible tiene `NoSubsetting`, se incrustan todos los caracteres de esa familia de fuentes.
 
 ```csharp
 using System;
@@ -186,16 +186,16 @@ foreach (var item in embeddingPlan)
 presentation.Save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Esta inspección informa de las restricciones codificadas en cada archivo de fuente. No concede una licencia, no prueba que haya obtenido la fuente legalmente, ni sustituye la verificación del acuerdo de licencia de la fuente antes de distribuir una copia incrustada.
+Esta inspección informa de las restricciones codificadas en cada archivo de fuente. No concede una licencia, no prueba que haya obtenido la fuente legalmente, ni sustituye la comprobación del acuerdo de licencia de la fuente antes de distribuir una copia incrustada.
 
 ## **Añadir fuentes incrustadas**
 
-Utilice [AddEmbeddedFont](https://reference.aspose.com/slides/es/net/aspose.slides/fontsmanager/addembeddedfont/) para incrustar una fuente. Sus sobrecargas aceptan ya sea un objeto [IFontData](https://reference.aspose.com/slides/es/net/aspose.slides/ifontdata/) o un array de bytes que contiene los datos de la fuente. La enumeración [EmbedFontCharacters](https://reference.aspose.com/slides/es/net/aspose.slides.export/embedfontcharacters/) controla qué caracteres se incluyen:
+Utilice [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) para incrustar una fuente. Sus sobrecargas aceptan ya sea un objeto [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) o un arreglo de bytes que contiene los datos de la fuente. La enumeración [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) controla qué caracteres se incluyen:
 
-- [All] incrusta todos los caracteres de la fuente. Use esta opción cuando los destinatarios necesiten editar la presentación e introducir texto nuevo.
-- [OnlyUsed] incrusta solo los caracteres usados en la presentación para reducir el tamaño del archivo. Elija esta opción para una presentación terminada que se destine principalmente a la visualización.
+- [All](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) incrusta todos los caracteres de la fuente. Use esta opción cuando los destinatarios necesiten editar la presentación e introducir texto nuevo.
+- [OnlyUsed](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) incrusta solo los caracteres usados en la presentación para reducir el tamaño del archivo. Elija esta opción para una presentación terminada que está principalmente destinada a la visualización.
 
-El siguiente ejemplo utiliza [GetFonts](https://reference.aspose.com/slides/es/net/aspose.slides/fontsmanager/getfonts/) para obtener las fuentes usadas en `Fonts.pptx` e incrusta aquellas que aún no están incrustadas. Las fuentes a añadir deben estar disponibles en la máquina que ejecuta el código. Las fuentes incrustadas existentes conservan sus juegos de caracteres actuales.
+El siguiente ejemplo usa [GetFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) para obtener las fuentes utilizadas en `Fonts.pptx` y incrusta aquellas que aún no están incrustadas. Las fuentes a añadir deben estar disponibles en la máquina que ejecuta el código. Las fuentes incrustadas existentes conservan sus conjuntos de caracteres actuales.
 
 ```csharp
 using System;
@@ -225,7 +225,7 @@ presentation.Save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 
 ## **Comprimir fuentes incrustadas**
 
-[CompressEmbeddedFonts](https://reference.aspose.com/slides/es/net/aspose.slides.lowcode/compress/compressembeddedfonts/) reduce los datos de fuentes incrustadas eliminando los caracteres no usados. Actúa sobre fuentes que ya están incrustadas, por lo que la reducción de tamaño depende de cuánto datos de fuente sin usar contenga la presentación.
+[CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) reduce los datos de fuentes incrustadas eliminando los caracteres no usados. Funciona sobre fuentes que ya están incrustadas, por lo que la reducción de tamaño depende de cuántos datos de fuente no utilizados contenga la presentación.
 
 El siguiente ejemplo comprime las fuentes en `EmbeddedFonts.pptx` y guarda el resultado como un archivo separado:
 
@@ -239,14 +239,16 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Conserve el archivo original si los destinatarios pueden necesitar añadir texto más tarde. Los caracteres eliminados durante la compresión ya no están disponibles en la fuente incrustada, incluso si inicialmente se incrustaron todos los caracteres.
+Conserve el archivo original si los destinatarios pueden necesitar añadir texto más tarde. Los caracteres eliminados durante la compresión ya no están disponibles en la fuente incrustada, incluso si originalmente incrustó todos los caracteres.
+
+Para que una fuente registrada coincidente tenga prioridad durante la exportación sin eliminar la fuente incrustada, vea [Preferir fuentes registradas sobre fuentes incrustadas](/slides/es/net/font-selection-sequence/#prefer-registered-fonts-over-embedded-fonts) (.NET 26.11 o posterior).
 
 ## **Preguntas frecuentes**
 
-**¿Cómo puedo comprobar si una fuente incrustada seguirá siendo sustituida durante la renderización?**
+**¿Cómo puedo comprobar si una fuente incrustada seguirá siendo sustituida durante la representación?**
 
-Llame a [GetSubstitutions](https://reference.aspose.com/slides/es/net/aspose.slides/fontsmanager/getsubstitutions/) en el entorno donde renderiza la presentación para ver qué fuentes reemplazará Aspose.Slides. También revise la configuración de [sustitución de fuentes](/slides/es/net/font-substitution/) y las reglas de [fuentes de reserva](/slides/es/net/fallback-font/). El fallback gestiona los caracteres faltantes, por lo que incrustar una fuente no soluciona los caracteres que la propia fuente no contiene.
+Llame a [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) en el entorno donde renderiza la presentación para ver qué fuentes reemplazará Aspose.Slides. También compruebe la configuración de [sustitución de fuentes](/slides/es/net/font-substitution/) y las reglas de [fallback de fuentes](/slides/es/net/fallback-font/). El fallback gestiona los caracteres que faltan, por lo que incrustar una fuente no resuelve los caracteres que la propia fuente no contiene.
 
-**¿Debo incrustar fuentes comunes como Arial y Calibri?**
+**¿Debería incrustar fuentes comunes como Arial y Calibri?**
 
-Base la decisión en el entorno de destino. Si las fuentes requeridas están disponibles en cada máquina que abre o renderiza la presentación, incrustarlas puede añadir un tamaño de archivo innecesario. Si los destinatarios o los servidores pueden carecer de esas fuentes, incrustarlas puede ayudar a preservar la apariencia prevista, siempre que sus licencias lo permitan.
+Base la decisión en el entorno de destino. Si las fuentes requeridas están disponibles en cada máquina que abre o renderiza la presentación, incrustarlas puede añadir un tamaño de archivo innecesario. Si los destinatarios o servidores pueden no tener esas fuentes, incrustarlas puede ayudar a preservar la apariencia prevista, siempre que sus licencias lo permitan.

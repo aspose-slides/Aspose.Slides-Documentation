@@ -1,48 +1,48 @@
 ---
-title: عملیات ارائه کد‑کم در .NET
-linktitle: API کد‑کم
+title: عملیات ارائه کم‌کد در .NET
+linktitle: API کم‌کد
 type: docs
 weight: 50
 url: /fa/net/low-code-presentation-operations/
 keywords:
-  - API ارائه کد‑کم
-  - تبدیل ارائه
-  - ترکیب ارائه‌ها
-  - تکرار اسلایدها
-  - تکرار اشکال
-  - تکرار متن
-  - جمع‌آوری اشکال
-  - فشرده‌سازی ارائه
-  - حذف مسترهای استفاده‌نشده
-  - حذف چینش‌های استفاده‌نشده
-  - فشرده‌سازی فونت‌های جاسازی‌شده
-  - PowerPoint
-  - OpenDocument
-  - ارائه
-  - .NET
-  - C#
-  - Aspose.Slides
-description: از API کد‑کم Aspose.Slides در .NET برای تبدیل و ترکیب ارائه‌ها، تکرار محتوا، جمع‌آوری اشکال و کاهش حجم ارائه استفاده کنید.
+- API ارائه کم‌کد
+- تبدیل ارائه
+- ادغام ارائه‌ها
+- تکرار اسلایدها
+- تکرار اشکال
+- تکرار متن
+- جمع‌آوری اشکال
+- فشرده‌سازی ارائه
+- حذف اسلایدهای مستر استفاده‌نشده
+- حذف اسلایدهای لایه استفاده‌نشده
+- فشرده‌سازی فونت‌های جاسازی‌شده
+- PowerPoint
+- OpenDocument
+- ارائه
+- .NET
+- C#
+- Aspose.Slides
+description: "از API کم‌کد Aspose.Slides در .NET برای تبدیل و ادغام ارائه‌ها، تکرار محتوا، جمع‌آوری اشکال و کاهش اندازهٔ ارائه استفاده کنید."
 ---
-## **نمای کلی**
+## **مرور کلی**
 
-فضای نام [Aspose.Slides.LowCode](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/) کلاس‌های کمکی استاتیک برای عملیات‌های معمول ارائه فراهم می‌کند. این کمکی‌ها گردش کارهای متداول مدل شیء را در متدهای متمرکز می‌پیچند، به طوری که می‌توانید فایل‌ها را تبدیل یا ترکیب کنید، عناصر ارائه را پردازش کنید، اشکال را جمع‌آوری کنید و محتوای استفاده‌نشده را با کد کمتر حذف کنید.
+فضای‌نامی [Aspose.Slides.LowCode](https://reference.aspose.com/slides/net/aspose.slides.lowcode/) کلاس‌های کمکی ایستای برای عملیات رایج ارائه را فراهم می‌کند. این کمکی‌ها گردش‌کارهای معمول مدل شی را در روش‌های متمرکز می‌پیچند تا بتوانید فایل‌ها را تبدیل یا ترکیب کنید، عناصر ارائه را پردازش کنید، اشکال را جمع‌آوری کنید و محتوای استفاده‌نشده را با کد کمتر حذف کنید.
 
-کمک‌کننده‌های کدکم زمانی مفید هستند که عملیات روی یک فایل یا ارائه کامل اعمال شود و گردش کار پیش‌فرض با نیازهای شما منطبق باشد. هنگام نیاز به کنترل دقیق روی اسلایدهای تک تک، مسترها، چینش‌ها، اشکال، تنظیمات خروجی یا روابط بین عناصر ارائه، از مدل شیء کامل [Aspose.Slides](https://reference.aspose.com/slides/fa/net/aspose.slides/) استفاده کنید.
+کمکی‌های کدنویسی‌کم در زمانی که عملیات بر تمام فایل یا ارائه اعمال می‌شود و گردش‌کار پیش‌فرض با نیازهای شما مطابقت دارد، بیشترین مفیدیت را دارند. زمانی که به کنترل دقیق بر اسلایدهای منفرد، مسترها، لایه‌ها، اشکال، تنظیمات خروجی یا روابط بین عناصر ارائه نیاز دارید، از مدل کامل شیء [Aspose.Slides](https://reference.aspose.com/slides/net/aspose.slides/) استفاده کنید.
 
-جدول زیر خلاصه‌ای از کمک‌کننده‌های موجود را نشان می‌دهد:
+جدول زیر خلاصه‌ای از کمکی‌های موجود را ارائه می‌دهد:
 
-| کمک‌کننده | موارد استفاده |
+| کمکی‌کننده | موارد استفاده |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/convert/) | تبدیل یک ارائه به قالب دیگر با فراخوانی مستقیم فایل‑به‑فایل. |
-| [Merger](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/merger/) | ترکیب فایل‌های ارائه کامل از همان قالب. |
-| [ForEach](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/foreach/) | اجرا کردن یک عمل برای هر اسلاید، شکل، پاراگراف یا بخش متنی. |
-| [Collect](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/collect/) | بازیابی اشکال از کل ارائه برای پردازش یا تجزیه و تحلیل مکرر. |
-| [Compress](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/compress/) | حذف مسترها و چینش‌های استفاده‌نشده و کاهش داده‌های فونت‌های جاسازی‌شده. |
+| [Convert](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/) | تبدیل یک ارائه به قالب دیگر با فراخوانی مستقیم فایل به فایل. |
+| [Merger](https://reference.aspose.com/slides/net/aspose.slides.lowcode/merger/) | ترکیب فایل‌های ارائه کامل با همان قالب. |
+| [ForEach](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/) | اجرای یک اقدام برای هر اسلاید، شکل، پاراگراف یا بخش متنی. |
+| [Collect](https://reference.aspose.com/slides/net/aspose.slides.lowcode/collect/) | بازیابی اشکال از کل ارائه برای پردازش یا تحلیل مکرر. |
+| [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) | حذف مستر/لایه‌های استفاده‌نشده، کاهش داده‌های فونت جاسازی‌شده و فشرده‌سازی تصاویر. |
 
-## **تبدیل ارائه**
+## **تبدیل یک ارائه**
 
-زمانی که پسوند فایل خروجی برای انتخاب قالب خروجی کافی باشد، از [Convert.AutoByExtension](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/convert/autobyextension/) استفاده کنید. این متد ارائه منبع را باز می‌کند، قالب مورد نیاز را از مسیر خروجی تعیین می‌کند و نتیجه را می‌نویسد.
+از [Convert.AutoByExtension](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/autobyextension/) زمانی استفاده کنید که پسوند فایل خروجی به تنهایی برای انتخاب قالب خروجی کافی باشد. این روش ارائه منبع را باز می‌کند، قالب مورد نیاز را از مسیر خروجی تعیین می‌کند و نتیجه را می‌نویسد.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -50,11 +50,11 @@ using Aspose.Slides.LowCode;
 Convert.AutoByExtension("input.pptx", "output.pdf");
 ```
 
-کلاس [Convert](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/convert/) همچنین متدهای اختصاصی برای خروجی PDF، SVG، JPEG، PNG و TIFF ارائه می‌دهد. وقتی نیاز به بازرسی یا اصلاح ارائه قبل از خروجی یا پیکربندی گزینه‌ای دارید که توسط کمک‌کننده منتخب در دسترس نیست، از مدل شیء کامل استفاده کنید. برای گردش کارها و گزینه‌های خاص قالب، به صفحه [Convert Presentation](/slides/fa/net/convert-presentation/) مراجعه کنید.
+کلاس [Convert](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/) همچنین روش‌های اختصاصی برای خروجی PDF، SVG، JPEG، PNG و TIFF فراهم می‌کند. زمانی که نیاز به بازرسی یا اصلاح ارائه قبل از خروجی یا پیکربندی گزینه‌ای دارید که توسط کمکی انتخاب‌شده در دسترس نیست، از مدل کامل شیء استفاده کنید. برای گردش‌کارها و گزینه‌های اختصاصی قالب، به [Convert Presentation](/slides/fa/net/convert-presentation/) مراجعه کنید.
 
 ## **ترکیب ارائه‌ها**
 
-برای ترکیب فایل‌های ارائه کامل با یک فراخوانی، از [Merger.Process](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/merger/process/) استفاده کنید. ارائه‌های ورودی باید همان قالب فایل را داشته باشند.
+از [Merger.Process](https://reference.aspose.com/slides/net/aspose.slides.lowcode/merger/process/) برای ترکیب فایل‌های ارائه کامل در یک فراخوانی استفاده کنید. ارائه‌های ورودی باید همان قالب فایل را داشته باشند.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -63,13 +63,13 @@ var inputFiles = new[] { "part-1.pptx", "part-2.pptx" };
 Merger.Process(inputFiles, "merged.pptx");
 ```
 
-این کمک‌کننده زمانی مناسب است که همه اسلایدها باید به‌صورت پیوسته به یک نتیجه اضافه شوند بدون اینکه نیاز به انتخاب یا نگاشت آنها به‌صورت فردی باشد. وقتی نیاز به ترکیب اسلایدهای انتخابی، اعمال مستر یا چینش مقصد، حفظ بخش‌ها به‌صورت صریح یا سازگاری اندازه اسلایدهای مختلف دارید، از مدل شیء کامل استفاده کنید. برای این سناریوها به صفحه [Merge Presentations](/slides/fa/net/merge-presentation/) مراجعه کنید.
+این کمکی زمانی مناسب است که همه اسلایدها بدون انتخاب یا نگاشت جداگانه به یک نتیجه اضافه شوند. زمانی که نیاز به ترکیب اسلایدهای منتخب، اعمال مستر یا لایه مقصد، حفظ صریح بخش‌ها یا سازگار کردن اندازه‌های اسلاید متفاوت دارید، از مدل کامل شیء استفاده کنید. برای این سناریوها به [Merge Presentations](/slides/fa/net/merge-presentation/) مراجعه کنید.
 
 ## **تکرار بر عناصر ارائه**
 
-کلاس [ForEach](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/foreach/) برای هر نوع عنصر درخواست‌شده یک فراخوانی‑پس‌زمینه (callback) اجرا می‌کند. این کار از حلقه‌های تو در توی مجموعه‌ها جلوگیری می‌کند و برای بازرسی یا تغییر فرمت در سطح کل ارائه مناسب است.
+کلاس [ForEach](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/) برای هر نوع عنصر درخواست‌شده یک کال‌بک فراخوانی می‌کند. این کار از حلقه‌های تو در تو جلوگیری می‌کند و برای بازرسی یا تغییرات سراسری ارائه مناسب است.
 
-مثال زیر از [ForEach.Slide](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/foreach/slide/)، [ForEach.Shape](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/foreach/shape/)، [ForEach.Paragraph](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/foreach/paragraph/) و [ForEach.Portion](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/foreach/portion/) برای بازرسی عناصر مربوطه استفاده می‌کند:
+مثال زیر از [ForEach.Slide](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/slide/)، [ForEach.Shape](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/shape/)، [ForEach.Paragraph](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/paragraph/)، و [ForEach.Portion](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/portion/) برای بازرسی عناصر مربوطه استفاده می‌کند:
 
 ```csharp
 using System;
@@ -99,11 +99,11 @@ ForEach.Portion(presentation, (portion, paragraph, slide, index) =>
 });
 ```
 
-به‌طور پیش‌فرض، عبور از اشکال و متن در سطح کل ارائه شامل اسلایدهای عادی، مستر و چینش می‌شود. نسخه‌های overload با پارامتر `includeNotes` می‌توانند اسلایدهای یادداشت‌ها را نیز پردازش کنند. وقتی ترتیب عبور، خروج زودهنگام، فیلتر کردن قبل از فراخوانی یا کنترل دقیق والد‑فرزند مهم است، از حلقه‌های مستقیم مجموعه استفاده کنید.
+به‌صورت پیش‌فرض، عبور سراسری بر اشکال و متن شامل اسلایدهای عادی، مستر و لایه می‌شود. بارگذاری‌های دارای پارامتر `includeNotes` می‌توانند اسلایدهای یادداشت‌ها را نیز پردازش کنند. وقتی ترتیب عبور، خروج زودهنگام، فیلتر قبل از فراخوانی کال‌بک یا کنترل دقیق والد‑فرزند مهم است، از حلقه‌های مستقیم استفاده کنید.
 
 ## **جمع‌آوری اشکال**
 
-وقتی به یک مجموعه از تمام اشکال یک ارائه نیاز دارید نه یک فراخوانی برای هر شکل، از [Collect.Shapes](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/collect/shapes/) استفاده کنید. این کار وقتی مفید است که همان مجموعه برای فیلتر کردن، شمارش یا پردازش مکرر استفاده شود.
+از [Collect.Shapes](https://reference.aspose.com/slides/net/aspose.slides.lowcode/collect/shapes/) زمانی استفاده کنید که به مجموعه‌ای از تمام اشکال در یک ارائه نیاز دارید نه یک کال‌بک برای هر شکل. این کار هنگامی مفید است که همان مجموعه چندین بار فیلتر، شمارش یا پردازش شود.
 
 ```csharp
 using System;
@@ -119,15 +119,15 @@ foreach (var shape in shapes)
 }
 ```
 
-اگر هر شکل می‌تواند بلافاصله در فراخوانی پردازش شود و نیازی به حفظ نتیجه جمع‌آوری‌شده ندارید، به‌جای آن از [ForEach.Shape](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/foreach/shape/) استفاده کنید.
+به‌جای آن وقتی هر شکل می‌تواند بلافاصله در کال‌بک پردازش شود و نیازی به نگهداری نتیجه جمع‌آوری‌شده ندارید، از [ForEach.Shape](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/shape/) استفاده کنید.
 
 ## **فشرده‌سازی محتوای ارائه**
 
-کلاس [Compress](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/compress/) می‌تواند عناصر ساختاری استفاده‌نشده را حذف کند و داده‌های فونت جاسازی‌شده را کاهش دهد:
+کلاس [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) می‌تواند عناصر ساختاری استفاده‌نشده را حذف و داده‌های فونت جاسازی‌شده را کاهش دهد:
 
-- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) اسلایدهای چینش که توسط هیچ اسلاید عادی ارجاع داده نشده‌اند، حذف می‌کند.
-- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) مسترهایی که دیگر استفاده نمی‌شوند، حذف می‌کند.
-- [Compress.CompressEmbeddedFonts](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/compress/compressembeddedfonts/) کاراکترهای استفاده‌نشده را از فونت‌های جاسازی‌شده حذف می‌کند.
+- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) اسلایدهای لایه‌ای را که هیچ اسلاید عادی به آن‌ها ارجاع نمی‌دهد حذف می‌کند.
+- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) مسترهای استفاده‌نشده را حذف می‌کند.
+- [Compress.CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) کاراکترهای استفاده‌نشده را از فونت‌های جاسازی‌شده حذف می‌کند.
 
 ```csharp
 using Aspose.Slides;
@@ -143,33 +143,77 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
 ```
 
-ابتدا چینش‌های استفاده‌نشده را حذف کنید، سپس مسترهای استفاده‌نشده؛ به‌طوری که مستری که پس از پاکسازی چینش‌ها دیگر ارجاع داده نمی‌شود، نیز حذف شود. اگر ممکن است بعداً به مسترها، چینش‌ها یا داده‌های کامل فونت‌های جاسازی‌شده اصلی نیاز داشته باشید، ارائه بهینه‌شده را در فایل جدید ذخیره کنید. برای جزئیات بیشتر، به صفحات [Slide Master](/slides/fa/net/slide-master/) و [Embedded Font](/slides/fa/net/embedded-font/) مراجعه کنید.
+قبل از حذف مسترها، لایه‌های استفاده‌نشده را حذف کنید تا مستری که پس از پاک‌سازی لایه‌ها ارجاع‌نشدنی می‌شود نیز حذف شود. ارائه بهینه‌شده را در فایلی جدید ذخیره کنید اگر ممکن است به مسترها، لایه‌ها یا داده‌های کامل فونت‌های جاسازی‌شده اولیه later نیاز داشته باشید. برای جزئیات بیشتر به [Slide Master](/slides/fa/net/slide-master/) و [Embedded Font](/slides/fa/net/embedded-font/) مراجعه کنید.
 
-## **سوالات متداول**
+### **فشرده‌سازی کل ارائه**
 
-**چه زمانی باید به‌جای مدل شیء کامل از API کد‑کم استفاده کنم؟**
+Aspose.Slides for .NET 26.11 متد [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/) را اضافه می‌کند. این متد ترکیب حذف اسلایدهای لایه/مستر استفاده‌نشده، زیرمجموعه‌سازی فونت‌های جاسازی‌شده به کاراکترهای مورد استفاده و فشرده‌سازی تصاویر با 150 DPI را انجام می‌دهد. برای کنترل دقیق اینکه کدام تغییرات اعمال شوند، از عملیات‌های جداگانه بالا استفاده کنید.
 
-وقتی یک عملیات استاندارد بر روی یک فایل یا ارائه کامل اعمال می‌شود و نیازی به کنترل دقیق بر عناصر تک‌تک نیست، از کمک‌کننده‌های کد‑کم استفاده کنید. وقتی بخواهید اسلایدهای خاصی را انتخاب کنید، روابط مستر و چینش را کنترل کنید، وضعیت میانی را بازرسی کنید یا رفتارهایی را تنظیم کنید که کمک‌کننده در معرضشان قرار نمی‌دهد، از مدل شیء کامل استفاده کنید.
+نسخه 26.11 یا بعد‌تر [Aspose.Slides for .NET](/slides/fa/net/installation/) را نصب کنید و `input.pptx` را ارائه دهید. به فایلی جداگانه ذخیره کنید: لایه‌های حذف‌شده، کاراکترهای فونت و پیکسل‌های تصویر برش‌خورده ممکن است برای ویرایش‌های بعدی مورد نیاز باشند.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
+
+using var presentation = new Presentation("input.pptx");
+Compress.CompressPresentation(presentation);
+presentation.Save("compressed.pptx", SaveFormat.Pptx);
+```
+
+### **فشرده‌سازی تصاویر با وضوح انتخابی**
+
+از [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/) برای پردازش تصاویر واجد شرایط بدون حذف لایه‌ها یا زیرمجموعه‌سازی فونت‌ها استفاده کنید. این مثال با وضوح 96 DPI است؛ برای نیازهای خروجی مقدار دیگری از [PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression/) انتخاب کنید.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
+
+using var presentation = new Presentation("input.pptx");
+Compress.CompressImages(presentation, PicturesCompression.Dpi96);
+presentation.Save("compressed-images.pptx", SaveFormat.Pptx);
+```
+
+هر دو کمکی از دامنه پردازش تصویر زیر استفاده می‌کنند:
+
+| محتوا | رفتار |
+| --- | --- |
+| تصاویر رستر و پرکننده‌های تصویر شکل در اسلایدهای عادی، مستر و لایه، شامل اشکال گروهی | واجد شرایط فشرده‌سازی. |
+| تصاویری که در حال حاضر برابر یا زیر وضوح درخواست‌شده هستند | بزرگ‌نمایی نمی‌شوند. نواحی برش‌خورده هنوز می‌توانند حذف شوند. |
+| نواحی تصویر برش‌خورده | پیکسل‌های مخفی به‌صورت دائمی حذف و آفست‌های برش بازنشانی می‌شوند. |
+| پس‌زمینه‌های اسلاید و پرکننده‌های سلول جدول | توسط این کمکی‌ها پردازش نمی‌شوند. |
+| داخلی نمودار/SmartArt، GIF و فرمت‌های برداری مانند SVG، EMF و WMF | خارج از دامنه فشرده‌سازی تصویر مستند شده‌اند. |
+
+در نسخه 26.11، [PicturesCompression.DocumentResolution](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression/) از زیرنمونه‌سازی بر پایه وضوح برای تصویر غیربرش‌خورده جلوگیری می‌کند، اما **پیکسل‌های برش‌خورده را حفظ نمی‌کند**. تصویر برش‌خورده همچنان می‌تواند با حذف نواحی مخفی بازنویسی شود. هیچ‌یک از کمکی‌ها گزینه حفظ برش را ارائه نمی‌دهند. برای کنترل فردی، به مثال [فشرده‌سازی به‌صورت تک‑تصویر](/slides/fa/net/examples/optimization-batch/compression/) مراجعه کنید.
+
+ظاهر خروجی و اندازه فایل را قبل از جایگزینی اصلی مقایسه کنید. صرفه‌جویی‌ها به تصاویر منبع، اندازه نمایش آن‌ها و محتوای استفاده‌نشده بستگی دارد؛ فشرده‌سازی تضمین‌کنندهٔ کوچک‌تر شدن فایل نیست. برای پیامدهای زیرمجموعه‌سازی فونت به [Embedded Fonts](/slides/fa/net/embedded-font/) نگاه کنید.
+
+## **سؤالات متداول**
+
+**کی باید به جای مدل کامل شیء از API کدنویسی‌کم استفاده کنم؟**
+
+وقتی یک عملیات استاندارد بر روی یک فایل یا ارائه کامل اعمال می‌شود و نیازی به کنترل دقیق بر عناصر منفرد نیست، از کمکی‌های کدنویسی‌کم استفاده کنید. وقتی نیاز به انتخاب اسلایدهای خاص، کنترل روابط مستر و لایه، بازرسی وضعیت میانی یا پیکربندی رفتاری دارید که کمکی آن را افشا نمی‌کند، از مدل کامل شیء استفاده کنید.
 
 **آیا Merger می‌تواند ارائه‌ها را در قالب‌های فایل متفاوت ترکیب کند؟**
 
-خیر. [Merger.Process](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/merger/process/) نیاز دارد که ارائه‌های ورودی دارای یک قالب باشند. ابتدا فایل‌های ورودی را به قالب مشترک تبدیل کنید، برای مثال با [Convert.AutoByExtension](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/convert/autobyextension/)، سپس فایل‌های تبدیل‌شده را ترکیب کنید.
+خیر. [Merger.Process](https://reference.aspose.com/slides/net/aspose.slides.lowcode/merger/process/) نیاز به ارائه‌های ورودی با همان قالب دارد. ابتدا فایل‌های ورودی را به قالب مشترک تبدیل کنید، برای مثال با [Convert.AutoByExtension](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/autobyextension/)، سپس فایل‌های تبدیل‌شده را ترکیب کنید.
 
-**آیا ForEach مستر، چینش و اسلایدهای یادداشت‌ها را پردازش می‌کند؟**
+**آیا ForEach مستر، لایه و اسلایدهای یادداشت را پردازش می‌کند؟**
 
-[ForEach.Slide](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/foreach/slide/) فقط اسلایدهای عادی ارائه را تکرار می‌کند. عملیات‌های سطح‑کل [ForEach.Shape](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/foreach/shape/)، [ForEach.Paragraph](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/foreach/paragraph/) و [ForEach.Portion](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/foreach/portion/) به‌طور پیش‌فرض اسلایدهای عادی، مستر و چینش را شامل می‌شوند. برای شامل کردن اسلایدهای یادداشت‌ها، overloadهای آنها را با `includeNotes` برابر `true` فراخوانی کنید.
+[ForEach.Slide](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/slide/) فقط اسلایدهای عادی ارائه را می‌گرداند. عملیات سراسری [ForEach.Shape](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/shape/)، [ForEach.Paragraph](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/paragraph/) و [ForEach.Portion](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/portion/) به‌طور پیش‌فرض اسلایدهای عادی، مستر و لایه را شامل می‌شوند. برای شامل کردن اسلایدهای یادداشت، از بارگذاری‌هایشان با مقدار `includeNotes` برابر `true` استفاده کنید.
 
-**اختلاف بین ForEach.Shape و Collect.Shapes چیست؟**
+**تفاوت بین ForEach.Shape و Collect.Shapes چیست؟**
 
-از [ForEach.Shape](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/foreach/shape/) برای پردازش هر شکل بلافاصله از طریق یک فراخوانی‑پس‌زمینه استفاده کنید. وقتی به یک نتیجه قابل شمارش، فیلتر یا عبور چندبار نیاز دارید، از [Collect.Shapes](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/collect/shapes/) استفاده کنید.
+از [ForEach.Shape](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/shape/) برای پردازش هر شکل بلافاصله از طریق کال‌بک استفاده کنید. وقتی به نتیجه‌ای قابل شمارش، فیلتر یا پیمایش چندباره نیاز دارید، از [Collect.Shapes](https://reference.aspose.com/slides/net/aspose.slides.lowcode/collect/shapes/) استفاده کنید.
 
-**آیا Compress همیشه حجم فایل ارائه را کوچکتر می‌کند؟**
+**آیا Compress همیشه اندازه فایل ارائه را کوچکتر می‌کند؟**
 
-لزوماً نه. نتیجه به این بستگی دارد که آیا ارائه شامل چینش‌های استفاده‌نشده، مسترهای استفاده‌نشده یا فونت‌های جاسازی‌شده با کاراکترهای استفاده‌نشده باشد یا نه. اگر هیچ‌یک از این موارد موجود نباشد، عملیات‌های [Compress](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/compress/) ممکن است حجم فایل را کاهش ندهند.
+صرفاً نیست. صرفه‌جویی به لایه‌ها/مسترهای استفاده‌نشده، فونت‌های جاسازی‌شده با کاراکترهای بی‌استفاده و تصاویری که از فشرده‌سازی بهره می‌برند وابسته است. کمکی‌های [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) ممکن است اندازه را ثابت بگذارند یا حتی برای برخی ورودی‌ها بزرگ‌تر شوند. هر دو اندازه و کیفیت رندر شده را مقایسه کنید و نسخه اصلی را نگه دارید.
 
-**آیا تغییرات ایجادشده توسط ForEach یا Compress به‌صورت خودکار ذخیره می‌شوند؟**
+**آیا تغییرات انجام‌شده توسط ForEach یا Compress به‌صورت خودکار ذخیره می‌شود؟**
 
-نه. این کمک‌کننده‌ها بر روی شیء [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) بارگذاری‌شده در حافظه کار می‌کنند. پس از تغییر عناصر در فراخوانی [ForEach](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/foreach/) یا اجرای [Compress](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/compress/)، برای نوشتن نتیجه باید متد [Presentation.Save](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/save/) را فراخوانی کنید.
+خیر. این کمکی‌ها بر روی شیء [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) بارگذاری‌شده در حافظه کار می‌کنند. پس از تغییر عناصر در کال‌بک [ForEach](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/) یا اجرای [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/)، برای نوشتن نتیجه [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) را فراخوانی کنید.
 
 ## **مقالات مرتبط**
 

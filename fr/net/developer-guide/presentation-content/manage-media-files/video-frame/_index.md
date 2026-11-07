@@ -1,6 +1,6 @@
 ---
-title: Gérer les images vidéo dans les présentations en .NET
-linktitle: Image vidéo
+title: Gérer les cadres vidéo dans les présentations en .NET
+linktitle: Cadre vidéo
 type: docs
 weight: 10
 url: /fr/net/video-frame/
@@ -10,7 +10,7 @@ keywords:
 - intégrer une vidéo
 - extraire une vidéo
 - récupérer une vidéo
-- image vidéo
+- cadre vidéo
 - source web
 - PowerPoint
 - OpenDocument
@@ -18,21 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Apprenez à ajouter et extraire programatiquement des images vidéo dans les diapositives PowerPoint et OpenDocument en utilisant Aspose.Slides pour .NET. Guide pratique rapide."
+description: "Apprenez à ajouter et extraire programmétiquement des cadres vidéo dans les diapositives PowerPoint et OpenDocument à l’aide d’Aspose.Slides pour .NET. Guide pratique rapide."
 ---
 ## **Introduction**
 
-Les vidéos peuvent aider à expliquer des idées et captiver un public. Aspose.Slides for .NET vous permet d’ajouter des images vidéo aux diapositives, d’ajuster les paramètres de lecture, de gérer les sous‑titres et d’extraire les données vidéo embarquées.
+Les vidéos peuvent aider à expliquer des idées et à capter l’attention du public. Aspose.Slides for .NET vous permet d’ajouter des cadres vidéo aux diapositives, de régler les paramètres de lecture, de gérer les sous‑titres et d’extraire les données vidéo intégrées.
 
 PowerPoint prend en charge les vidéos locales et les liens vers des vidéos en ligne, comme les vidéos YouTube.
 
-Pour représenter les données vidéo et les images vidéo, Aspose.Slides propose les interfaces [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/), [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) et d’autres types pertinents.
+Pour représenter les données vidéo et les cadres vidéo, Aspose.Slides fournit l’interface [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/), l’interface [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) et d’autres types pertinents.
 
-## **Create an Embedded Video Frame**
+## **Créer un cadre vidéo intégré**
 
-Si le fichier vidéo que vous souhaitez ajouter à votre diapositive est stocké localement, vous pouvez créer une image vidéo pour intégrer la vidéo dans votre présentation.
+Si le fichier vidéo que vous souhaitez ajouter à votre diapositive est stocké localement, vous pouvez créer un cadre vidéo pour intégrer la vidéo dans votre présentation.
 
-Cet exemple intègre une vidéo locale sur la première diapositive d’une présentation existante et enregistre le résultat. Les coordonnées et les dimensions de l’image sont exprimées en points. Le flux reste ouvert jusqu’à la fin de l’enregistrement car [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) le maintient verrouillé pendant que la présentation l’utilise.
+Cet exemple intègre une vidéo locale sur la première diapositive d’une présentation existante et enregistre le résultat. Les coordonnées et les dimensions du cadre sont exprimées en points. Le flux reste ouvert jusqu’à la fin de l’enregistrement parce que [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) le maintient verrouillé pendant que la présentation l’utilise.
 
 ```csharp
 using System.IO;
@@ -49,7 +49,7 @@ slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
-Vous pouvez également passer le chemin d’une vidéo locale directement à [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). Cet exemple intègre la vidéo sur la première diapositive d’une nouvelle présentation. La vidéo doit rester accessible jusqu’à ce que la présentation soit enregistrée.
+Vous pouvez également transmettre directement le chemin d’une vidéo locale à [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). Cet exemple intègre la vidéo sur la première diapositive d’une nouvelle présentation. La vidéo doit rester accessible jusqu’à ce que la présentation soit enregistrée.
 
 ```csharp
 using Aspose.Slides;
@@ -63,11 +63,50 @@ slide.Shapes.AddVideoFrame(50, 150, 300, 150, "video.avi");
 presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
 ```
 
-## **Create a Video Frame with Video from a Web Source**
+## **Définir le volume vidéo avec précision**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) prend en charge les vidéos en ligne dans les présentations. Vous pouvez créer une image vidéo qui lie à une vidéo en ligne, comme une vidéo YouTube.
+Dans Aspose.Slides for .NET 26.11 ou version ultérieure, [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) définit un pourcentage à virgule flottante de 0 à 100. Utilisez‑le lorsque les préréglages [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) sont trop grossiers. Par exemple, `75.5f` demande un volume de 75,5 %.
 
-Cet exemple ajoute un lien vidéo YouTube et une miniature à la première diapositive. Remplacez l’identifiant de la vidéo pour en utiliser une autre. Le paramètre [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) demande une lecture automatique. Le téléchargement de la miniature et la lecture de la vidéo nécessitent un accès Internet. Le visualiseur de présentation doit également prendre en charge la lecture de vidéos en ligne.
+Cet exemple nécessite [Aspose.Slides for .NET](/slides/fr/net/installation/) 26.11 ou version ultérieure et une vidéo locale `video.mp4`. Il intègre la vidéo, initialise explicitement la lecture, enregistre la présentation et lit le pourcentage stocké.
+
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var volume = 75.5f;
+if (float.IsNaN(volume) || float.IsInfinity(volume) || volume < 0 || volume > 100)
+{
+    Console.WriteLine("Use a finite volume from 0 to 100.");
+    return;
+}
+
+using (var presentation = new Presentation())
+{
+    var videoBytes = File.ReadAllBytes("video.mp4");
+    var video = presentation.Videos.AddVideo(videoBytes);
+    var frame = presentation.Slides[0].Shapes.AddVideoFrame(50, 50, 320, 180, video);
+    frame.PlayMode = VideoPlayModePreset.Auto;
+    frame.VolumeValue = volume;
+    presentation.Save("video-volume.pptx", SaveFormat.Pptx);
+}
+
+using var saved = new Presentation("video-volume.pptx");
+var savedFrame = saved.Slides[0].Shapes.OfType<IVideoFrame>().First();
+Console.WriteLine(savedFrame.VolumeValue);
+```
+
+Validez vous‑même les entrées ; ne comptez pas sur le mutateur pour rejeter les valeurs en dehors de l’intervalle documenté. Les préréglages Low, Medium et Loud correspondent respectivement à 20, 50 et 80 dans la version 26.11. L’affectation d’un préréglage peut remplacer un pourcentage antérieur, il faut donc attribuer le pourcentage en dernier lorsque vous avez besoin d’une valeur exacte. Utilisez [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) pour le réglage de muet explicite ; un zéro numérique et l’énumération du préréglage ne sont pas des états interchangeables.
+
+Définissez explicitement [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) lors de la configuration d’une vidéo liée également, et maintenez son fichier média disponible pour le visionneur. L’enregistrement et la réouverture vérifient le paramètre stocké ; la lecture réelle et le niveau sonore dépendent du lecteur de présentation et de ses paramètres audio.
+
+## **Créer un cadre vidéo à partir d’une source Web**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) prend en charge les vidéos en ligne dans les présentations. Vous pouvez créer un cadre vidéo qui lie à une vidéo en ligne, comme une vidéo YouTube.
+
+Cet exemple ajoute un lien YouTube et une miniature à la première diapositive. Remplacez l’identifiant vidéo pour utiliser une autre vidéo. Le paramètre [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) demande une lecture automatique. Le téléchargement de la miniature et la lecture de la vidéo nécessitent un accès Internet. Le visionneur de présentation doit également prendre en charge la lecture de vidéos en ligne.
 
 ```csharp
 using System.Net.Http;
@@ -92,11 +131,11 @@ videoFrame.PictureFormat.Picture.Image = thumbnail;
 presentation.Save("online_video.pptx", SaveFormat.Pptx);
 ```
 
-## **Play a Video in Full-Screen Mode**
+## **Lire une vidéo en mode plein écran**
 
-Dans une présentation de formation, vous pouvez lire une démonstration logicielle en mode plein écran afin que le public puisse voir les détails. Définissez [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) à `true` pour activer ce comportement pendant la lecture.
+Dans une présentation de formation, vous pouvez lire une démonstration logicielle en plein écran afin que le public voie les détails. Réglez [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) sur `true` pour activer ce comportement pendant la lecture.
 
-Cet exemple ouvre une présentation, trouve le premier [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) sur la première diapositive et active la lecture en plein écran. La présentation d’entrée doit contenir au moins une diapositive avec une image vidéo existante sur la première diapositive.
+Cet exemple ouvre une présentation, trouve le premier [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) sur la première diapositive et active la lecture en plein écran. La présentation d’entrée doit contenir au moins une diapositive avec un cadre vidéo existant sur la première diapositive.
 
 ```csharp
 using Aspose.Slides;
@@ -117,13 +156,13 @@ foreach (var shape in slide.Shapes)
 presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
 ```
 
-La lecture en plein écran contrôle la façon dont la vidéo est affichée. Indépendamment, [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) détermine si elle démarre automatiquement ou au clic, et [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) indique si elle se répète. Pour choisir le comportement de démarrage, définissez le mode de lecture sur [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). L’exemple préserve les paramètres de démarrage et de boucle existants.
+La lecture en plein écran contrôle la façon dont la vidéo est affichée. De façon indépendante, [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) détermine si elle démarre automatiquement ou au clic, et [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) détermine si elle se répète. Pour choisir le comportement de démarrage, définissez le mode de lecture sur [VideoPlayModePreset.Auto ou VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). L’exemple préserve les réglages existants de démarrage et de boucle.
 
-## **Rewind a Video After Playback**
+## **Rembobiner une vidéo après la lecture**
 
-Dans une présentation de formation, ramener une vidéo de démonstration à son début la rend prête à être rejouée par le présentateur. Définissez [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) à `true` pour ramener la vidéo au début après la fin de la lecture.
+Dans une présentation de formation, revenir le début d’une vidéo de démonstration la rend prête à être relancée par le présentateur. Réglez [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) sur `true` pour ramener la vidéo au début après la fin de la lecture.
 
-Cet exemple ouvre une présentation, trouve le premier [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) sur la première diapositive et active le rembobinage. Il désactive la boucle afin que la lecture puisse se terminer et définit le démarrage de la lecture au clic. La présentation d’entrée doit contenir au moins une diapositive avec une image vidéo existante sur la première diapositive.
+Cet exemple ouvre une présentation, trouve le premier [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) sur la première diapositive et active le rembobinage. Il désactive la boucle afin que la lecture puisse se terminer et configure le démarrage de la lecture au clic. La présentation d’entrée doit contenir au moins une diapositive avec un cadre vidéo existant sur la première diapositive.
 
 ```csharp
 using Aspose.Slides;
@@ -146,15 +185,15 @@ foreach (var shape in slide.Shapes)
 presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
 ```
 
-Le rembobinage ramène la vidéo à son début sans la relancer. En revanche, activer [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) répète la lecture automatiquement. Gardez la boucle désactivée lorsque vous souhaitez que la vidéo se termine et reste prête à être rejouée. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) contrôle indépendamment le démarrage automatique ou au clic ; cet exemple utilise [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) afin que le présentateur décide du moment où la lecture commence. Définissez le mode de lecture après le paramètre de boucle, comme le montre l’exemple. Le rembobinage fonctionne indépendamment de [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
+Le rembobinage ramène la vidéo à son début sans la relancer. En revanche, l’activation de [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) répète la lecture automatiquement. Gardez la boucle désactivée lorsque vous voulez que la vidéo se termine et reste prête à être relancée. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) contrôle indépendamment le démarrage automatique ou au clic ; cet exemple utilise [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) afin que le présentateur décide du moment du lancement. Réglez le mode de lecture après le paramètre de boucle, comme le montre l’exemple. Le rembobinage fonctionne indépendamment de [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
 
-## **Trim a Video Frame**
+## **Rogner un cadre vidéo**
 
-Utilisez [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) et [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) pour ignorer une partie du début ou de la fin d’une vidéo pendant la lecture. Les deux valeurs sont exprimées en millisecondes. Le rognage modifie les paramètres de lecture sans modifier les données vidéo embarquées.
+Utilisez [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) et [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) pour ignorer une partie du début ou de la fin d’une vidéo pendant la lecture. Les deux valeurs sont exprimées en millisecondes. Le rognage modifie les paramètres de lecture sans altérer les données vidéo intégrées.
 
-**Set Trim Settings**
+**Définir les paramètres de rognage**
 
-Cet exemple intègre une vidéo locale et saute les 2,5 secondes initiales ainsi que la dernière seconde pendant la lecture. Utilisez une vidéo de plus de 3,5 secondes afin qu’un segment lisible reste.
+Cet exemple intègre une vidéo locale et saute les 2,5 secondes initiales ainsi que la dernière seconde pendant la lecture. Utilisez une vidéo d’une durée supérieure à 3,5 secondes afin qu’un segment lisible demeure.
 
 ```csharp
 using System.IO;
@@ -174,9 +213,9 @@ videoFrame.TrimFromEnd = 1000f;
 presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 ```
 
-**Read Trim Settings**
+**Lire les paramètres de rognage**
 
-Cet exemple affiche les valeurs de rognage de la première image vidéo sur la première diapositive en millisecondes. La présentation doit contenir au moins une diapositive. Si cette diapositive n’a aucune image vidéo, rien n’est affiché. L’exemple précédent génère les valeurs 2500 et 1000.
+Cet exemple affiche les valeurs de rognage du premier cadre vidéo sur la première diapositive, en millisecondes. La présentation doit contenir au moins une diapositive. Si cette diapositive ne possède aucun cadre vidéo, rien n’est affiché. L’exemple précédent génère les valeurs 2500 et 1000.
 
 ```csharp
 using System;
@@ -196,13 +235,13 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-## **Manage Video Captions**
+## **Gérer les sous‑titres vidéo**
 
-Aspose.Slides vous permet de gérer les sous‑titres masqués pour les images vidéo dans les présentations PowerPoint. Les sous‑titres sont stockés au format WebVTT et sont exposés via la propriété [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/).
+Aspose.Slides vous permet de gérer les sous‑titres fermés pour les cadres vidéo dans les présentations PowerPoint. Les sous‑titres sont stockés au format WebVTT et sont exposés via la propriété [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/).
 
-**Add Captions to a Video Frame**
+**Ajouter des sous‑titres à un cadre vidéo**
 
-Cet exemple intègre une vidéo locale et ajoute une piste de sous‑titres WebVTT intitulée English. Les horodatages des sous‑titres doivent correspondre à la vidéo. La présentation enregistrée comprend à la fois la vidéo et ses sous‑titres.
+Cet exemple intègre une vidéo locale et ajoute une piste de sous‑titres WebVTT étiquetée English. Les horodatages des sous‑titres doivent correspondre à la vidéo. La présentation enregistrée comprend à la fois la vidéo et ses sous‑titres.
 
 ```csharp
 using System.IO;
@@ -223,9 +262,9 @@ presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 
 L’interface [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) propose également une surcharge qui vous permet d’ajouter des sous‑titres à partir d’un flux.
 
-**Extract Captions from a Video Frame**
+**Extraire les sous‑titres d’un cadre vidéo**
 
-Cet exemple enregistre toutes les pistes de sous‑titres des images vidéo de la première diapositive en fichiers WebVTT séparés. Des numéros séquentiels permettent de distinguer les fichiers de sortie. La console indique le nombre de pistes extraites. La présentation doit contenir au moins une diapositive.
+Cet exemple enregistre toutes les pistes de sous‑titres des cadres vidéo de la première diapositive en fichiers WebVTT séparés. Les numéros séquentiels maintiennent les fichiers de sortie distincts. La console indique le nombre de pistes extraites. La présentation doit contenir au moins une diapositive.
 
 ```csharp
 using System;
@@ -254,9 +293,9 @@ Console.WriteLine($"Caption tracks extracted: {trackCount}");
 
 Chaque objet [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) expose l’identifiant du sous‑titre, le libellé, les données binaires et le texte du sous‑titre sous forme de chaîne UTF‑8.
 
-**Remove Captions from a Video Frame**
+**Supprimer les sous‑titres d’un cadre vidéo**
 
-Cet exemple supprime tous les sous‑titres de l’image vidéo à la première position de forme sur la première diapositive et enregistre le résultat. Il suppose que la diapositive et la forme existent et que la forme est une image vidéo.
+Cet exemple supprime tous les sous‑titres du cadre vidéo à la première position de forme sur la première diapositive et enregistre le résultat. Il suppose que la diapositive et la forme existent et que la forme soit un cadre vidéo.
 
 ```csharp
 using System;
@@ -274,11 +313,11 @@ presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 
 Si vous devez supprimer uniquement une piste de sous‑titres, utilisez les méthodes [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) ou [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) au lieu de [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
 
-## **Extract Video from a Slide**
+## **Extraire la vidéo d’une diapositive**
 
-En plus d’ajouter des vidéos aux diapositives, Aspose.Slides vous permet d’extraire les vidéos incorporées dans les présentations.
+En plus d’ajouter des vidéos aux diapositives, Aspose.Slides vous permet d’extraire les vidéos intégrées aux présentations.
 
-Cet exemple extrait les vidéos incorporées de chaque diapositive dans des fichiers binaires séparés et numérotés. Les vidéos liées sont ignorées car elles ne contiennent pas de données incorporées. La console affiche le type MIME de chaque vidéo ainsi que le nombre total. La sortie utilise l’extension générique `.bin` ; modifiez‑la pour correspondre au type de média rapporté si nécessaire.
+Cet exemple extrait les vidéos intégrées de chaque diapositive dans des fichiers binaires numérotés distincts. Les vidéos liées sont ignorées car elles ne contiennent aucune donnée intégrée. La console affiche le type MIME de chaque vidéo et le nombre total. La sortie utilise l’extension générique `.bin` ; modifiez‑la pour correspondre au type de média signalé si nécessaire.
 
 ```csharp
 using System;
@@ -314,18 +353,18 @@ Console.WriteLine($"Embedded videos extracted: {videoCount}");
 
 ## **FAQ**
 
-**Which video playback parameters can be changed for a video frame?**
+**Quels paramètres de lecture vidéo peuvent être modifiés pour un cadre vidéo ?**
 
-Vous pouvez contrôler le [mode de lecture](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (auto ou au clic) et le [bouclage](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Ces options sont disponibles via les propriétés de l’objet [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/).
+Vous pouvez contrôler le [mode de lecture](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (automatique ou au clic) et la [boucle](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Ces options sont disponibles via les propriétés de l’objet [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/).
 
-**Does adding a video affect the PPTX file size?**
+**L’ajout d’une vidéo affecte‑t‑il la taille du fichier PPTX ?**
 
-Oui. Lorsque vous intégrez une vidéo locale, les données binaires sont incluses dans le document, ce qui fait croître la taille de la présentation proportionnellement à la taille du fichier. Lorsque vous liez à une vidéo en ligne et ajoutez une miniature, la présentation stocke le lien et l’image d’aperçu plutôt que les données vidéo, ainsi l’augmentation de taille est généralement moindre.
+Oui. Lorsque vous intégrez une vidéo locale, les données binaires sont incluses dans le document, ce qui augmente la taille de la présentation proportionnellement à la taille du fichier. Lorsque vous créez un lien vers une vidéo en ligne et ajoutez une miniature, la présentation ne stocke que le lien et l’image de prévisualisation, ce qui entraîne généralement une augmentation de taille moindre.
 
-**Can I replace the video in an existing video frame without changing its position and size?**
+**Puis‑je remplacer la vidéo dans un cadre vidéo existant sans modifier sa position et sa taille ?**
 
-Oui. Vous pouvez échanger le [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) à l’intérieur de l’image tout en conservant la géométrie de la forme ; c’est un cas d’usage courant pour mettre à jour les médias dans une mise en page existante.
+Oui. Vous pouvez échanger le [contenu vidéo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) à l’intérieur du cadre tout en conservant la géométrie de la forme ; c’est un scénario fréquent pour mettre à jour les médias dans une mise en page existante.
 
-**Can the content type (MIME) of an embedded video be determined?**
+**Le type de contenu (MIME) d’une vidéo intégrée peut‑il être déterminé ?**
 
-Oui. Une vidéo incorporée possède un [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) que vous pouvez lire et utiliser, par exemple lors de l’enregistrement sur disque.
+Oui. Une vidéo intégrée possède un [type de contenu](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) que vous pouvez lire et utiliser, par exemple lors de l’enregistrement sur disque.

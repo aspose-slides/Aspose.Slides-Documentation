@@ -1,48 +1,48 @@
 ---
-title: .NET'te Düşük Kodlu Sunum İşlemleri
-linktitle: Düşük Kodlu API
+title: ".NET'te Düşük Kodlu Sunum İşlemleri"
+linktitle: "Düşük Kodlu API"
 type: docs
 weight: 50
 url: /tr/net/low-code-presentation-operations/
 keywords:
-- düşük kodlu sunum API'si
-- sunumu dönüştür
-- sunumları birleştir
-- slaytları yinele
-- şekilleri yinele
-- metni yinele
-- şekilleri topla
-- sunumu sıkıştır
-- kullanılmayan ana slaytları kaldır
-- kullanılmayan düzen slaytlarını kaldır
-- gömülü yazı tiplerini sıkıştır
-- PowerPoint
-- OpenDocument
-- sunum
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides düşük kodlu API'sini .NET'te kullanarak sunumları dönüştürün ve birleştirin, içerikte döngü yapın, şekilleri toplayın ve sunum boyutunu küçültün."
+- "düşük kodlu sunum API'si"
+- "sunumu dönüştür"
+- "sunumları birleştir"
+- "slaytları yinele"
+- "şekilleri yinele"
+- "metni yinele"
+- "şekilleri topla"
+- "sunumu sıkıştır"
+- "kullanılmayan master slaytları kaldır"
+- "kullanılmayan layout slaytları kaldır"
+- "gömülü fontları sıkıştır"
+- "PowerPoint"
+- "OpenDocument"
+- "sunum"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides düşük kodlu API'sini .NET'te kullanarak sunumları dönüştürün ve birleştirin, içeriği yineleyin, şekilleri toplayın ve sunum boyutunu azaltın."
 ---
 ## **Genel Bakış**
 
-[Aspose.Slides.LowCode](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/) ad alanı, yaygın sunum işlemleri için statik yardımcı sınıflar sağlar. Bu yardımcılar, sık kullanılan nesne‑model iş akışlarını odaklanmış yöntemlerde sarar, böylece dosyaları dönüştürebilir veya birleştirebilir, sunum öğelerini işleyebilir, şekilleri toplayabilir ve kullanılmayan içeriği daha az kodla kaldırabilirsiniz.
+The [Aspose.Slides.LowCode](https://reference.aspose.com/slides/net/aspose.slides.lowcode/) namespace provides static helper classes for common presentation operations. These helpers wrap frequently used object-model workflows in focused methods, so you can convert or merge files, process presentation elements, collect shapes, and remove unused content with less code.
 
-Low‑code yardımcıları, işlem tüm bir dosya veya sunuma uygulandığında ve varsayılan iş akışı gereksinimlerinize uygun olduğunda en faydalıdır. Bireysel slaytlar, ana slaytlar, düzenler, şekiller, dışa aktarma ayarları veya sunum öğeleri arasındaki ilişkiler üzerinde ince ayar yapmanız gerektiğinde tam [Aspose.Slides nesne modeli](https://reference.aspose.com/slides/tr/net/aspose.slides/) kullanın.
+Low-code yardımcıları, işlem bir bütün dosya veya sunuma uygulandığında ve varsayılan iş akışı gereksinimlerinize uyduğunda en faydalıdır. Bireysel slaytlar, masterlar, düzenler, şekiller, dışa aktarma ayarları veya sunum öğeleri arasındaki ilişkiler üzerinde ince ayar denetimine ihtiyaç duyduğunuzda tam [Aspose.Slides object model](https://reference.aspose.com/slides/net/aspose.slides/) kullanın.
 
-Aşağıdaki tablo mevcut yardımcıların özetini verir:
+The following table summarizes the available helpers:
 
-| Yardımcı | Ne için kullanılır |
+| Yardımcı | Kullanım Amacı |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/convert/) | Doğrudan dosya‑dosya çağrısı ile bir sunumu başka bir biçime dönüştürmek. |
-| [Merger](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/merger/) | Aynı biçimdeki tam sunum dosyalarını birleştirmek. |
-| [ForEach](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/foreach/) | Her slayt, şekil, paragraf veya metin bölümünde bir eylem yürütmek. |
-| [Collect](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/collect/) | Tekrarlayan işleme veya analiz için tüm sunumdan şekilleri almak. |
-| [Compress](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/compress/) | Kullanılmayan ana slaytları ve düzenleri kaldırmak ve gömülü yazı tipi verisini azaltmak. |
+| [Convert](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/) | Sunumu doğrudan dosya‑dosya çağrısıyla başka bir formata dönüştürme. |
+| [Merger](https://reference.aspose.com/slides/net/aspose.slides.lowcode/merger/) | Aynı formatta tam sunum dosyalarını birleştirme. |
+| [ForEach](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/) | Her slayt, şekil, paragraf veya metin bölümü için bir eylem çalıştırma. |
+| [Collect](https://reference.aspose.com/slides/net/aspose.slides.lowcode/collect/) | Tekrar işleme veya analiz için tüm sunumdan şekilleri alma. |
+| [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) | Kullanılmayan master/layouları kaldırma, gömülü font verisini azaltma ve resimleri sıkıştırma. |
 
-## **Sunumu Dönüştür**
+## **Bir Sunumu Dönüştürme**
 
-[Convert.AutoByExtension](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/convert/autobyextension/) çıktının dosya uzantısının dışa aktarma formatını seçmek için yeterli olduğu durumlarda kullanılır. Yöntem kaynak sunumu açar, çıktı yolundan gerekli biçimi belirler ve sonucu yazar.
+Use [Convert.AutoByExtension](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/autobyextension/) when the output file extension is sufficient to select the export format. The method opens the source presentation, determines the required format from the output path, and writes the result.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -50,11 +50,11 @@ using Aspose.Slides.LowCode;
 Convert.AutoByExtension("input.pptx", "output.pdf");
 ```
 
-[Convert](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/convert/) sınıfı ayrıca PDF, SVG, JPEG, PNG ve TIFF çıktısı için özel yöntemler sunar. Dışa aktarmadan önce sunumu incelemeniz veya değiştirmeniz, ya da seçili yardımcıda sunulmayan bir dışa aktarma seçeneği yapılandırmanız gerekiyorsa tam nesne modelini kullanın. Biçime özgü iş akışları ve seçenekler için [Sunumu Dönüştür](/slides/tr/net/convert-presentation/) sayfasına bakın.
+The [Convert](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Sunumu Dönüştürme](/slides/tr/net/convert-presentation/) for format-specific workflows and options.
 
-## **Sunumları Birleştir**
+## **Sunumları Birleştirme**
 
-[Merger.Process](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/merger/process/) aynı formatta olan tam sunum dosyalarını tek bir çağrı ile birleştirmek için kullanılır. Girdi sunumlarının aynı dosya biçiminde olması gerekir.
+Use [Merger.Process](https://reference.aspose.com/slides/net/aspose.slides.lowcode/merger/process/) to combine complete presentation files with one call. The input presentations must have the same file format.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -63,13 +63,13 @@ var inputFiles = new[] { "part-1.pptx", "part-2.pptx" };
 Merger.Process(inputFiles, "merged.pptx");
 ```
 
-Bu yardımcı, tüm slaytların tek bir sonuçta ardışık olarak eklenmesi gerektiğinde uygundur; slaytları ayrı ayrı seçmek veya yeniden eşlemek gerekmez. Belirli slaytları birleştirmeniz, hedef ana slayt veya düzen uygulamanız, bölümleri açıkça korumanız veya farklı slayt boyutlarını uyumlaştırmanız gerektiğinde tam nesne modelini kullanın. Bu senaryolar için [Sunumları Birleştir](/slides/tr/net/merge-presentation/) sayfasına bakın.
+The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Sunumları Birleştirme](/slides/tr/net/merge-presentation/) for those scenarios.
 
 ## **Sunum Öğeleri Üzerinde Döngü**
 
-[ForEach](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/foreach/) sınıfı, istenen sunum öğesi türü için bir geri çağırma (callback) tetikler. İç içe koleksiyon döngülerini önler ve sunum genelinde denetim veya biçimlendirme değişiklikleri için kullanışlıdır.
+The [ForEach](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/) class invokes a callback for each requested type of presentation element. It avoids nested collection loops and is convenient for presentation-wide inspection or formatting changes.
 
-Aşağıdaki örnek, ilgili öğeleri incelemek için [ForEach.Slide](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/foreach/slide/), [ForEach.Shape](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/foreach/paragraph/) ve [ForEach.Portion](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/foreach/portion/) yöntemlerini kullanır:
+The following example uses [ForEach.Slide](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/slide/), [ForEach.Shape](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/paragraph/), and [ForEach.Portion](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/portion/) to inspect the corresponding elements:
 
 ```csharp
 using System;
@@ -99,11 +99,11 @@ ForEach.Portion(presentation, (portion, paragraph, slide, index) =>
 });
 ```
 
-Varsayılan olarak, sunum genelinde şekil ve metin dolaşımı normal, ana ve düzen slaytlarını içerir. `includeNotes` parametresiyle aşırı yüklenmiş sürümler not slaytlarını da işleyebilir. Dolaşım sırası, erken çıkış, geri çağırmadan önce filtreleme veya ayrıntılı ebeveyn‑çocuk kontrolü önemli ise doğrudan koleksiyon döngüleri kullanın.
+By default, presentation-wide shape and text traversal includes normal, master, and layout slides. Overloads with an `includeNotes` parameter can also process notes slides. Use direct collection loops when traversal order, early exit, filtering before callback invocation, or detailed parent-child control is important.
 
-## **Şekilleri Topla**
+## **Şekilleri Toplama**
 
-[Collect.Shapes](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/collect/shapes/) bir sunumdaki tüm şekillerin koleksiyonuna ihtiyacınız olduğunda kullanılır; bu, aynı kümenin birden fazla kez filtrelenmesi, sayılması veya işlenmesi gerektiğinde faydalıdır.
+Use [Collect.Shapes](https://reference.aspose.com/slides/net/aspose.slides.lowcode/collect/shapes/) when you need a collection of all shapes in a presentation rather than a callback for each shape. This is useful when the same set will be filtered, counted, or processed more than once.
 
 ```csharp
 using System;
@@ -119,15 +119,15 @@ foreach (var shape in shapes)
 }
 ```
 
-Her şekil anında işlenebiliyorsa ve toplanan sonucu saklamanıza gerek yoksa, [ForEach.Shape](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/foreach/shape/) kullanın.
+Use [ForEach.Shape](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/shape/) instead when each shape can be handled immediately and you do not need to retain the collected result.
 
-## **Sunum İçeriğini Sıkıştır**
+## **Sunum İçeriğini Sıkıştırma**
 
-[Compress](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/compress/) sınıfı kullanılmayan yapısal öğeleri kaldırabilir ve gömülü yazı tipi verisini azaltabilir:
+The [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) class can remove unused structural elements and reduce embedded font data:
 
-- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) hiçbir normal slaytın referans vermediği düzen slaytlarını kaldırır.
-- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) artık kullanılmayan ana slaytları kaldırır.
-- [Compress.CompressEmbeddedFonts](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/compress/compressembeddedfonts/) gömülü yazı tiplerinden kullanılmayan karakterleri kaldırır.
+- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) removes layout slides that no normal slide references.
+- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) removes master slides that are no longer used.
+- [Compress.CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) removes unused characters from embedded fonts.
 
 ```csharp
 using Aspose.Slides;
@@ -143,38 +143,82 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
 ```
 
-Kullanılmayan düzenleri, kullanılmayan ana slaytlardan önce kaldırın; böylece düzen temizliği sonrasında referansı kaybeden bir ana slayt da kaldırılabilir. Orijinal ana slaytlar, düzenler veya tam gömülü yazı tipi verisine daha sonra ihtiyaç duyulabilecekse, optimize edilmiş sunumu yeni bir dosyaya kaydedin. Daha fazla ayrıntı için [Slide Master](/slides/tr/net/slide-master/) ve [Embedded Font](/slides/tr/net/embedded-font/) sayfalarına bakın.
+Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/slides/tr/net/slide-master/) and [Embedded Font](/slides/tr/net/embedded-font/).
+
+### **Tüm Sunumu Sıkıştırma**
+
+Aspose.Slides for .NET 26.11 adds [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/). It combines removal of unused layout/master slides, subsetting of embedded fonts to used characters, and picture compression at 150 DPI. Use the individual operations above when you need to control which changes are applied.
+
+Install [Aspose.Slides for .NET](/slides/tr/net/installation/) 26.11 or later and provide `input.pptx`. Save to a separate file: removed layouts, font characters and cropped picture pixels may be needed for later editing.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
+
+using var presentation = new Presentation("input.pptx");
+Compress.CompressPresentation(presentation);
+presentation.Save("compressed.pptx", SaveFormat.Pptx);
+```
+
+### **Seçilen Çözünürlükte Resimleri Sıkıştırma**
+
+Use [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/) to process eligible pictures without also removing layouts or subsetting fonts. This example uses 96 DPI; select another [PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression/) value for your output needs.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
+
+using var presentation = new Presentation("input.pptx");
+Compress.CompressImages(presentation, PicturesCompression.Dpi96);
+presentation.Save("compressed-images.pptx", SaveFormat.Pptx);
+```
+
+Both helpers use the following picture-processing scope:
+
+| İçerik | İşlem |
+| --- | --- |
+| Normal, master ve layout slaytlarda raster resimler ve şekil resmi doldurmaları, gruplanmış şekiller dahil | Sıkıştırma için uygundur. |
+| İstenen çözünürlüğün altında veya ona eşit olan resimler | Yeniden büyütülmez. Kırpılan bölgeler hâlâ kaldırılabilir. |
+| Kırpılmış resim alanları | Gizli pikseller kalıcı olarak kaldırılır ve kırpma ötelemesi sıfırlanır. |
+| Slayt arka planları ve tablo hücresi doldurmaları | Bu yardımcılar tarafından işlenmez. |
+| Grafik/SmartArt iç yapıları, GIF ve SVG, EMF, WMF gibi vektör formatları | Belirtilen görüntü sıkıştırma kapsamı dışındadır. |
+
+In 26.11, [PicturesCompression.DocumentResolution](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression/) avoids resolution-based downsampling of an uncropped picture, but **does not preserve cropped pixels**. A cropped picture can still be rewritten with its hidden areas removed. Neither helper exposes a preserve-crop option. For individual control, see the [per-picture compression example](/slides/tr/net/examples/optimization-batch/compression/).
+
+Compare the output's appearance and file size before replacing the original. Savings depend on the source pictures, their displayed size and unused content; compression does not guarantee a smaller file. See [Embedded Fonts](/slides/tr/net/embedded-font/) for the implications of font subsetting.
 
 ## **SSS**
 
-**Low‑code API’yi tam nesne modeline ne zaman tercih etmeliyim?**
+**Low-code API'sini tam nesne modeli yerine ne zaman kullanmalıyım?**
 
-Standart bir işlem tüm dosya veya sunuma uygulanıyorsa ve bireysel öğeler üzerinde ayrıntılı kontrol gerektirmiyorsa low‑code yardımcıları kullanın. Belirli slaytları seçmeniz, ana‑düzen ilişkilerini kontrol etmeniz, ara durumu incelemeniz veya yardımcı tarafından sunulmayan bir davranışı yapılandırmanız gerektiğinde tam nesne modelini tercih edin.
+Low-code yardımcılarını, standart bir işlemin tüm dosya veya sunuma uygulanması ve bireysel öğeler üzerinde ayrıntılı kontrol gerektirmemesi durumunda kullanın. Belirli slaytları seçmek, master ve layout ilişkilerini kontrol etmek, ara durumu incelemek veya yardımcı tarafından sunulmayan bir davranışı yapılandırmak gerektiğinde tam nesne modelini kullanın.
 
-**Merger farklı dosya biçimlerindeki sunumları birleştirebilir mi?**
+**Merger farklı dosya formatlarındaki sunumları birleştirebilir mi?**
 
-Hayır. [Merger.Process](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/merger/process/) giriş sunumlarının aynı biçimde olmasını ister. Önce giriş dosyalarını ortak bir biçime dönüştürün; örneğin [Convert.AutoByExtension](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/convert/autobyextension/) ile, ardından dönüştürülmüş dosyaları birleştirin.
+Hayır. [Merger.Process](https://reference.aspose.com/slides/net/aspose.slides.lowcode/merger/process/) aynı formatta giriş sunumları gerektirir. Önce giriş dosyalarını ortak bir formata dönüştürün, örneğin [Convert.AutoByExtension](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/autobyextension/) ile, ardından dönüştürülmüş dosyaları birleştirin.
 
-**ForEach ana, düzen ve not slaytlarını işler mi?**
+**ForEach master, layout ve not slaytlarını işler mi?**
 
-[ForEach.Slide](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/foreach/slide/) normal sunum slaytları üzerinde döner. Sunum genelinde [ForEach.Shape](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/foreach/paragraph/) ve [ForEach.Portion](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/foreach/portion/) işlemleri varsayılan olarak normal, ana ve düzen slaytlarını içerir. Not slaytlarını da dahil etmek için `includeNotes` parametresiyle aşırı yüklenmiş sürümlerini kullanın.
+[ForEach.Slide](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/slide/) normal sunum slaytlarını döner. Sunum genelinde [ForEach.Shape](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/paragraph/), ve [ForEach.Portion](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/portion/) işlemleri varsayılan olarak normal, master ve layout slaytlarını içerir. Not slaytlarını dahil etmek için `includeNotes` parametresi `true` olarak ayarlanan aşırı yüklemelerini kullanın.
 
 **ForEach.Shape ile Collect.Shapes arasındaki fark nedir?**
 
-[ForEach.Shape](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/foreach/shape/) her şekli anında bir geri çağırma ile işler. [Collect.Shapes](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/collect/shapes/) ise saklanabilir, filtrelenebilir, sayılabilir ve birden çok kez dolaşılabilir bir IEnumerable sonucu döndürür.
+[ForEach.Shape](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/shape/) her şekli anında bir geri çağırma ile işlemek için kullanın. [Collect.Shapes](https://reference.aspose.com/slides/net/aspose.slides.lowcode/collect/shapes/) ise tutulabilir, filtrelenebilir, sayılabilir veya birden fazla kez gezilebilir bir enumerable sonuç gerektiğinde kullanılır.
 
 **Compress her zaman sunum dosyasını küçültür mü?**
 
-Zorunlu değil. Sonuç, sunumda kullanılmayan düzenler, kullanılmayan ana slaytlar veya kullanılmayan karakterlere sahip gömülü yazı tipleri olup olmamasına bağlıdır. Bu öğeler yoksa ilgili [Compress](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/compress/) işlemleri dosya boyutunu azaltmayabilir.
+Zorunlu değildir. Tasarruf, kullanılmayan layout/master’lar, kullanılmayan karakterlere sahip gömülü fontlar ve sıkıştırmadan fayda sağlayan resimler gibi faktörlere bağlıdır. [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) yardımcıları bazı girdilerde dosya boyutunu aynı tutabilir veya hatta artırabilir. Hem boyutu hem de render kalitesini karşılaştırın ve orijinali saklayın.
 
-**ForEach veya Compress ile yapılan değişiklikler otomatik olarak kaydedilir mi?**
+**ForEach veya Compress tarafından yapılan değişiklikler otomatik olarak kaydedilir mi?**
 
-Hayır. Bu yardımcılar, bellekte yüklü olan [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) nesnesi üzerinde çalışır. Bir [ForEach](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/foreach/) geri çağırması içinde öğeleri değiştirdikten veya [Compress](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/compress/) çalıştırdıktan sonra sonucu yazmak için [Presentation.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/save/) çağırmanız gerekir.
+Hayır. Bu yardımcılar bellekte yüklü [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) nesnesi üzerinde çalışır. Bir [ForEach](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/) geri çağırması içinde öğeleri değiştirdikten veya [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) çalıştırdıktan sonra sonucu yazmak için [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metodunu çağırın.
 
 ## **İlgili Makaleler**
 
-- [Sunumu Dönüştür](/slides/tr/net/convert-presentation/)
-- [Sunumları Birleştir](/slides/tr/net/merge-presentation/)
+- [Sunumu Dönüştürme](/slides/tr/net/convert-presentation/)
+- [Sunumları Birleştirme](/slides/tr/net/merge-presentation/)
 - [Slide Master](/slides/tr/net/slide-master/)
 - [Manage Text Box](/slides/tr/net/manage-textbox/)
 - [Embedded Font](/slides/tr/net/embedded-font/)

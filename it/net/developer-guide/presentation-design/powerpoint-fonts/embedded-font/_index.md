@@ -1,37 +1,38 @@
 ---
-title: Incorporare i caratteri nelle presentazioni in .NET
-linktitle: Caratteri incorporati
+title: Incorporare i font nelle presentazioni in .NET
+linktitle: Font incorporati
 type: docs
 weight: 40
 url: /it/net/embedded-font/
 keywords:
-- aggiungi carattere
-- incorpora carattere
-- incorporamento dei caratteri
-- recupera carattere incorporato
-- aggiungi carattere incorporato
-- rimuovi carattere incorporato
-- comprimi carattere incorporato
+- aggiungere font
+- incorporare font
+- incorporamento di font
+- recuperare font incorporato
+- aggiungere font incorporato
+- rimuovere font incorporato
+- comprimere font incorporato
 - PowerPoint
 - presentazione
 - .NET
 - C#
 - Aspose.Slides
-description: "Gestisci i caratteri incorporati in PowerPoint con Aspose.Slides per .NET. Usa C# per aggiungere, recuperare, rimuovere e comprimere i caratteri per preservare l'aspetto del testo e ridurre le dimensioni del file."
+description: "Gestisci i font incorporati in PowerPoint con Aspose.Slides per .NET. Usa C# per aggiungere, recuperare, rimuovere e comprimere i font per preservare l'aspetto del testo e ridurre le dimensioni del file."
 ---
 ## **Introduzione**
 
-L'incorporamento dei caratteri memorizza i dati del carattere all'interno di una presentazione PowerPoint. Quando un visualizzatore supporta i caratteri incorporati, può visualizzare il testo usando tali caratteri anche se non sono installati sul sistema di destinazione. Questo aiuta a preservare le interruzioni di riga, la spaziatura del testo e il layout delle diapositive.
+L’incorporamento dei font memorizza i dati del font all’interno di una presentazione PowerPoint. Quando un visualizzatore supporta i font incorporati, può visualizzare il testo usando tali font anche se non sono installati sul sistema di destinazione. Questo aiuta a preservare le interruzioni di riga, la spaziatura del testo e il layout delle diapositive.
 
-Aspose.Slides for .NET consente di recuperare, aggiungere e rimuovere i caratteri incorporati tramite la proprietà [FontsManager](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/fontsmanager/) di una [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/). È inoltre possibile ridurre le dimensioni dei dati dei caratteri incorporati rimuovendo i caratteri che la presentazione non utilizza.
+Aspose.Slides per .NET consente di recuperare, aggiungere e rimuovere font incorporati tramite la proprietà [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) di una [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). È inoltre possibile ridurre le dimensioni dei dati del font incorporato rimuovendo i caratteri non usati nella presentazione.
 
-Gli esempi seguenti funzionano con file PPTX. Prima di incorporare un carattere, assicurati che i dati del carattere siano disponibili per Aspose.Slides e che la sua licenza consenta l'incorporamento.
+Gli esempi seguenti funzionano con file PPTX. Prima di incorporare un font, assicurarsi che i dati del font siano disponibili per Aspose.Slides e che la licenza consenta l’incorporamento.
 
-## **Recuperare e rimuovere i caratteri incorporati**
+## **Ottenere e rimuovere i font incorporati**
 
-Usa [GetEmbeddedFonts](https://reference.aspose.com/slides/it/net/aspose.slides/fontsmanager/getembeddedfonts/) per elencare i caratteri memorizzati in una presentazione. Per rimuoverne uno, passa un carattere da quell'elenco a [RemoveEmbeddedFont](https://reference.aspose.com/slides/it/net/aspose.slides/fontsmanager/removeembeddedfont/), quindi salva la presentazione.
+Utilizzare [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) per elencare i font memorizzati in una presentazione. Per rimuoverne uno, passare un font da tale elenco a [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont/), quindi salvare la presentazione.
 
-Il seguente esempio elenca i caratteri incorporati in `EmbeddedFonts.pptx` e rimuove Calibri se presente:
+Il seguente esempio elenca i font incorporati in `EmbeddedFonts.pptx` e rimuove Calibri se presente:
+
 ```csharp
 using System;
 using Aspose.Slides;
@@ -58,23 +59,25 @@ else
 }
 ```
 
-Rimuovere un carattere incorporato elimina i dati del carattere memorizzati; non cambia il carattere assegnato al testo. Se il carattere è installato sul sistema di destinazione, il testo può comunque usarlo. Altrimenti, il rendering potrebbe richiedere la [sostituzione dei caratteri](/slides/it/net/font-substitution/), che può influire sul layout.
+La rimozione di un font incorporato elimina i dati del font memorizzati; non modifica il font assegnato al testo. Se il font è installato sul sistema di destinazione, il testo può comunque usarlo. In caso contrario, il rendering potrebbe richiedere la [font substitution](/slides/it/net/font-substitution/), il che può influire sul layout.
 
-## **Ispezionare i dati dei caratteri e le autorizzazioni di incorporamento**
+## **Ispezionare i dati del font e i permessi di incorporamento**
 
-Usa l'interfaccia [IFontsManager](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/) per ispezionare i caratteri prima di incorporarli. Chiama [IFontsManager.GetFonts](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getfonts/) per recuperare i caratteri usati nella presentazione. Per ogni carattere, passa un oggetto [IFontData](https://reference.aspose.com/slides/it/net/aspose.slides/ifontdata/) e il valore richiesto di [FontStyleType](https://reference.aspose.com/slides/it/net/aspose.slides/fontstyletype/) a [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getfontbytes/). Il metodo restituisce i dati binari per quello stile di carattere, o `null` quando il carattere o lo stile richiesto non è disponibile. Non passare un risultato `null` a [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), perché quel metodo richiede un array di byte.
+Utilizzare l’interfaccia [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) per ispezionare i font prima di incorporarli. Chiamare [IFontsManager.GetFonts](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfonts/) per recuperare i font usati nella presentazione. Per ogni font, passare un oggetto [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) e il valore richiesto di [FontStyleType](https://reference.aspose.com/slides/net/aspose.slides/fontstyletype/) a [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontbytes/). Il metodo restituisce i dati binari per quello stile di font, o `null` quando il font o lo stile richiesto non è disponibile. Non passare un risultato `null` a [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), poiché quel metodo richiede un array di byte.
 
-[EmbeddingLevel](https://reference.aspose.com/slides/it/net/aspose.slides/embeddinglevel/) è un'enumerazione a flag che riporta le restrizioni di incorporamento memorizzate nel carattere:
-- `Installable` consente l'incorporamento e l'installazione permanente su un altro sistema, soggetto alla licenza del carattere.
-- `Restricted` vieta l'incorporamento a meno che non venga ottenuta l'autorizzazione dal proprietario legale del carattere quando è l'unico flag di autorizzazione all'uso.
-- `PreviewPrint` consente l'uso temporaneo per visualizzazione e stampa; un documento contenente il carattere deve essere di sola lettura.
-- `Editable` consente l'uso temporaneo e permette al documento di essere modificato e salvato.
-- `NoSubsetting` è una restrizione aggiuntiva che vieta l'incorporamento solo di un sottoinsieme di glifi. Incorpora tutti i caratteri quando questo flag è presente.
-- `BitmapOnly` è una restrizione aggiuntiva che consente l'incorporamento solo di versioni bitmap, non dei dati vettoriali. Se il carattere non ha versioni bitmap, non può essere incorporato.
+[EmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/embeddinglevel/) è un’enumerazione a flag che riporta le restrizioni di incorporamento memorizzate nel font:
 
-I primi quattro valori descrivono l'autorizzazione all'uso, mentre `NoSubsetting` e `BitmapOnly` possono essere combinati con essi. Verifica i modificatori con operazioni bitwise. Poiché `Installable` è zero, non usare `HasFlag` per rilevarlo; maschera i bit di autorizzazione all'uso e confronta il risultato con `Installable`. I caratteri attuali dovrebbero impostare al massimo un bit di autorizzazione all'uso. Per compatibilità con caratteri più vecchi che impostano più di un bit, l'utilità sottostante seleziona l'autorizzazione meno restrittiva: `Editable`, poi `PreviewPrint`, poi `Restricted`.
+- `Installable` consente l’incorporamento e l’installazione permanente su un altro sistema, soggetto alla licenza del font.
+- `Restricted` vieta l’incorporamento a meno che non venga ottenuta l’autorizzazione dal proprietario legale del font quando è l’unico flag di permesso di utilizzo.
+- `PreviewPrint` consente l’uso temporaneo per visualizzazione e stampa; un documento contenente il font deve essere di sola lettura.
+- `Editable` consente l’uso temporaneo e permette di modificare e salvare il documento.
+- `NoSubsetting` è una restrizione aggiuntiva che vieta l’incorporamento di un sottoinsieme di glifi. Incorporare tutti i caratteri quando questo flag è presente.
+- `BitmapOnly` è una restrizione aggiuntiva che consente di incorporare solo le versioni bitmap, non i dati di contorno. Se il font non dispone di versioni bitmap, non può essere incorporato.
 
-Il seguente esempio verifica i dati regolari, grassetto, corsivo e grassetto‑corsivo disponibili per ogni carattere restituito da `GetFonts`. Salta gli stili non disponibili, i caratteri limitati, i caratteri bitmap‑only, i caratteri limitati a anteprima e stampa perché l'output rimane modificabile, e i caratteri già incorporati. Se qualche stile disponibile ha `NoSubsetting`, incorpora tutti i caratteri per quella famiglia di caratteri.
+I primi quattro valori descrivono il permesso di utilizzo, mentre `NoSubsetting` e `BitmapOnly` possono essere combinati con essi. Verificare i modificatori con operazioni bitwise. Poiché `Installable` è zero, non usare `HasFlag` per rilevarlo; mascherare i bit di permesso di utilizzo e confrontare il risultato con `Installable`. I font attuali dovrebbero impostare al massimo un bit di permesso di utilizzo. Per compatibilità con font più vecchi che impostano più di uno, l’aiuto qui sotto seleziona il permesso meno restrittivo: `Editable`, poi `PreviewPrint`, poi `Restricted`.
+
+Il seguente esempio verifica i dati regolari, grassetto, corsivo e grassetto‑corsivo disponibili per ogni font restituito da `GetFonts`. Salta gli stili non disponibili, i font con restrizioni, i font solo bitmap, i font limitati a anteprima e stampa perché l’output rimane modificabile, e i font già incorporati. Se qualche stile disponibile ha `NoSubsetting`, incorpora tutti i caratteri per quella famiglia di font.
+
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -183,15 +186,17 @@ foreach (var item in embeddingPlan)
 presentation.Save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Questa ispezione segnala le restrizioni codificate in ogni file di carattere. Non concede una licenza, non dimostra che il carattere sia stato ottenuto legalmente, né sostituisce il controllo del contratto di licenza del carattere prima di distribuire una copia incorporata.
+Questa ispezione denuncia le restrizioni codificate in ogni file di font. Non concede una licenza, non dimostra che il font è stato ottenuto legalmente e non sostituisce la verifica del contratto di licenza del font prima di distribuire una copia incorporata.
 
-## **Aggiungere caratteri incorporati**
+## **Aggiungere font incorporati**
 
-Usa [AddEmbeddedFont](https://reference.aspose.com/slides/it/net/aspose.slides/fontsmanager/addembeddedfont/) per incorporare un carattere. Le sue sovraccarichi accettano sia un oggetto [IFontData](https://reference.aspose.com/slides/it/net/aspose.slides/ifontdata/) sia un array di byte contenente i dati del carattere. L'enumerazione [EmbedFontCharacters](https://reference.aspose.com/slides/it/net/aspose.slides.export/embedfontcharacters/) controlla quali caratteri sono inclusi:
-- [All](https://reference.aspose.com/slides/it/net/aspose.slides.export/embedfontcharacters/) incorpora tutti i caratteri nel font. Usa questa opzione quando i destinatari devono modificare la presentazione e inserire nuovo testo.
-- [OnlyUsed](https://reference.aspose.com/slides/it/net/aspose.slides.export/embedfontcharacters/) incorpora solo i caratteri usati nella presentazione per ridurre la dimensione del file. Scegli questa opzione per una presentazione finita destinata principalmente alla visualizzazione.
+Utilizzare [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) per incorporare un font. Le sue sovraccariche accettano un oggetto [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) oppure un array di byte contenente i dati del font. L’enumerazione [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) controlla quali caratteri includere:
 
-Il seguente esempio utilizza [GetFonts](https://reference.aspose.com/slides/it/net/aspose.slides/fontsmanager/getfonts/) per recuperare i caratteri usati in `Fonts.pptx` e incorpora quelli non ancora incorporati. I caratteri da aggiungere devono essere disponibili sulla macchina che esegue il codice. I caratteri già incorporati mantengono i loro set di caratteri attuali.
+- [All](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) incorpora tutti i caratteri del font. Usare questa opzione quando i destinatari hanno bisogno di modificare la presentazione e inserire nuovo testo.
+- [OnlyUsed](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) incorpora solo i caratteri usati nella presentazione per ridurre le dimensioni del file. Scegliere questa opzione per una presentazione finita destinata principalmente alla visualizzazione.
+
+Il seguente esempio usa [GetFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) per recuperare i font usati in `Fonts.pptx` e incorpora quelli non ancora incorporati. I font da aggiungere devono essere disponibili sulla macchina che esegue il codice. I font già incorporati mantengono i set di caratteri correnti.
+
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -218,11 +223,12 @@ foreach (var font in allFonts)
 presentation.Save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-## **Comprimere i caratteri incorporati**
+## **Comprimere i font incorporati**
 
-[CompressEmbeddedFonts](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/compress/compressembeddedfonts/) riduce i dati dei caratteri incorporati rimuovendo i caratteri inutilizzati. Opera sui caratteri già incorporati, quindi la riduzione delle dimensioni dipende da quanti dati di carattere inutilizzati contiene la presentazione.
+[CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) riduce i dati dei font incorporati rimuovendo i caratteri inutilizzati. Opera sui font già incorporati, quindi la riduzione delle dimensioni dipende da quanti dati di font inutilizzati contiene la presentazione.
 
-Il seguente esempio comprime i caratteri in `EmbeddedFonts.pptx` e salva il risultato in un file separato:
+Il seguente esempio comprime i font in `EmbeddedFonts.pptx` e salva il risultato in un file separato:
+
 ```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -233,14 +239,16 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Conserva il file originale se i destinatari potrebbero aver bisogno di aggiungere testo in seguito. I caratteri rimossi durante la compressione non sono più disponibili dal carattere incorporato, anche se inizialmente hai incorporato tutti i caratteri.
+Conservare il file originale se i destinatari potrebbero aver bisogno di aggiungere testo in seguito. I caratteri rimossi durante la compressione non sono più disponibili dal font incorporato, anche se originariamente erano stati incorporati tutti i caratteri.
+
+Per consentire a un font registrato corrispondente di avere priorità durante l’esportazione senza rimuovere il font incorporato, vedere [Prefer Registered Fonts over Embedded Fonts](/slides/it/net/font-selection-sequence/#prefer-registered-fonts-over-embedded-fonts) (.NET 26.11 o versioni successive).
 
 ## **FAQ**
 
-**Come posso verificare se un carattere incorporato verrà comunque sostituito durante il rendering?**
+**Come posso verificare se un font incorporato verrà comunque sostituito durante il rendering?**
 
-Chiama [GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/fontsmanager/getsubstitutions/) nell'ambiente in cui renderizzi la presentazione per vedere quali caratteri Aspose.Slides sostituirà. Controlla anche le impostazioni di [sostituzione dei caratteri](/slides/it/net/font-substitution/) e le regole di [fallback dei caratteri](/slides/it/net/fallback-font/). Il fallback gestisce i caratteri mancanti, quindi l'incorporamento di un carattere non risolve i caratteri che il carattere stesso non contiene.
+Chiamare [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) nell’ambiente in cui si rende la presentazione per vedere quali font Aspose.Slides sostituirà. Controllare anche le impostazioni di [font substitution](/slides/it/net/font-substitution/) e le regole di [font fallback](/slides/it/net/fallback-font/). Il fallback gestisce i caratteri mancanti, quindi incorporare un font non risolve i caratteri che il font stesso non contiene.
 
-**Devo incorporare caratteri comuni come Arial e Calibri?**
+**Devo incorporare font comuni come Arial e Calibri?**
 
-Basare la decisione sull'ambiente di destinazione. Se i caratteri richiesti sono disponibili su ogni macchina che apre o rende la presentazione, incorporarli potrebbe aggiungere una dimensione di file non necessaria. Se i destinatari o i server potrebbero non disporre di quei caratteri, incorporarli può aiutare a preservare l'aspetto previsto, a condizione che le loro licenze lo consentano.
+Basare la decisione sull’ambiente di destinazione. Se i font richiesti sono disponibili su ogni macchina che apre o rende la presentazione, incorporarli può aggiungere dimensioni inutili al file. Se i destinatari o i server potrebbero non disporre di tali font, incorporarli può aiutare a preservare l’aspetto previsto, purché le loro licenze lo consentano.

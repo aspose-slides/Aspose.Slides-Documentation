@@ -22,15 +22,15 @@ description: "Szövegdobozok létrehozása, azonosítása, formázása és friss
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for .NET-ben a dia szövege szövegkeretekben tárolódik, amelyek alakzatokhoz tartoznak. Az [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) interfész képviseli a leggyakoribb szöveget tartalmazó alakzatot, és a szövegét a [IAutoShape.TextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/textframe/) tulajdonságon keresztül teszi elérhetővé.
+Az Aspose.Slides for .NET-ben a diavetítés szövege szövegdobozokban (text frames) tárolódik, amelyek alakzatokhoz tartoznak. Az [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) interfész képviseli a leggyakoribb szöveget tartalmazó alakzatot, és a szövegét a [IAutoShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) tulajdonságon keresztül teszi elérhetővé.
 
 {{% alert color="info" title="Note" %}}
-Minden auto alakzat megvalósítja az [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/) interfészt, de nem minden alakzat auto alakzat, vagy támogat szövegkeretet. Egy meglévő prezentáció feldolgozásakor ellenőrizze, hogy egy alakzat implementálja-e a `IAutoShape`-t, mielőtt hozzáférne a szövegéhez.
+Minden automatikus alakzat megvalósítja a [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) interfészt, de nem minden alakzat automatikus alakzat, vagy támogatja a szövegdobozt. Egy meglévő prezentáció feldolgozásakor ellenőrizze, hogy az alakzat megvalósítja‑e a `IAutoShape`‑t, mielőtt hozzáférne a szövegéhez.
 {{% /alert %}}
 
 ## **Szövegdoboz létrehozása egy dián**
 
-Szövegdoboz létrehozásához adjon egy auto alakzatot a diához, szöveget az alakzat szövegkeretéhez, majd mentse a prezentációt. Az alábbi példa egy téglalap alakú szövegdobozt hoz létre:
+Szövegdoboz létrehozásához adjunk egy automatikus alakzatot a diára, szöveget a szövegdobozához, majd mentsük a prezentációt. A következő példa egy téglalap alakú szövegdobozt hoz létre:
 
 ```csharp
 using Aspose.Slides;
@@ -44,15 +44,15 @@ textBox.AddTextFrame("Aspose TextBox");
 presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-Az [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/addautoshape/)‑nek átadott koordinátákat és méreteket pontban mérik. Az [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/addtextframe/) inicializálja a szövegkeretet a megadott szöveggel.
+Az [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/)‑nek átadott koordinátákat és méreteket pontban mérik. Az [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) inicializálja a szövegdobozt a megadott szöveggel.
 
 ## **Szövegdoboz alakzat ellenőrzése**
 
-Használja az [AutoShape.IsTextBox](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/istextbox/) tulajdonságot annak meghatározására, hogy egy auto alakzat szövegdobozként legyen kezelve. Ez akkor hasznos, ha egy prezentáció szöveget tartalmazó és kizárólag grafikus auto alakzatokat egyaránt tartalmaz.
+Használja a [AutoShape.IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) tulajdonságot annak meghatározásához, hogy egy automatikus alakzat szövegdobozként van‑e kezelve. Ez akkor hasznos, amikor egy prezentáció szöveget tartalmazó és tisztán grafikus automatikus alakzatokat egyaránt tartalmaz.
 
 ![Egy szövegdoboz és egy alakzat](istextbox.png)
 
-Az alábbi példa minden auto alakzatot átvizsgál a prezentációban:
+A következő példa minden automatikus alakzatot ellenőriz egy prezentációban:
 
 ```csharp
 using System;
@@ -76,7 +76,7 @@ foreach (var currentSlide in presentation.Slides)
 }
 ```
 
-Egy újonnan hozzáadott auto alakzat nem tekinthető szövegdoboznak, amíg nem tartalmaz nem üres szöveget. A szöveget megadhatja az [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/addtextframe/) vagy az [ITextFrame.Text](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/text/) segítségével. Üres karakterlánc hozzáadása vagy hozzárendelése esetén az `IsTextBox` értéke `false` marad:
+Hozzáadott új automatikus alakzat csak akkor tekinthető szövegdoboznak, ha nem üres szöveget tartalmaz. A szöveget megadhatja az [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) vagy a [ITextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/itextframe/text/) segítségével. Üres karakterlánc hozzáadása vagy hozzárendelése `IsTextBox`‑et `false`‑ra állítja:
 
 ```csharp
 using System;
@@ -104,17 +104,55 @@ Console.WriteLine(shape4.IsTextBox);
 
 Az első két hívás `True`‑t, az utolsó két hívás `False`‑t ír ki.
 
-## **A szövegkeretet birtokló alakzat megtalálása**
+## **Szövegdobozt birtokló alakzat megtalálása**
 
-Általános szövegfeldolgozó kód kaphat egy [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/) példányt anélkül, hogy tudná, melyik prezentációs objektum tartalmazza azt. Használja a csak olvasható [ITextFrame.ParentShape](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/parentshape/) tulajdonságot a tulajdonos [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/) visszakereséséhez.
+Az általános szövegfeldolgozó kód megkaphat egy [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) objektumot anélkül, hogy tudná, mely prezentációs objektum tartalmazza. Használja a csak‑olvasható [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) tulajdonságot a tulajdonos [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) visszanavigálásához.
 
-Auto alakzathoz vagy más szöveget tartalmazó alakzathoz tartozó szövegkeret esetén a `ParentShape` a tulajdonost tartalmazza, míg az [ITextFrame.ParentCell](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/parentcell/) értéke `null`. Az érték felhasználása előtt ellenőrizze azt. A forma‑ és táblacella‑tulajdonosok, beleértve a SmartArt‑csomópontokhoz kapcsolódó alakzatokat, azonosításához lásd a [Szöveg keresése és cseréje](/slides/hu/net/search-and-replace-text/) oldalt.
+Egy automatikus alakzat vagy más szöveget tartalmazó alakzat által birtokolt szövegdoboz esetén a `ParentShape` tartalmazza a tulajdonost, és az [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) `null`. Ellenőrizze a visszaadott értéket, mielőtt hozzáférne. A alakzat és a táblacella tulajdonosok, beleértve a SmartArt‑csomópontokhoz társított alakzatok azonosításához lásd a [Search and Replace Text](/slides/hu/net/search-and-replace-text/) oldalt.
+
+## **Az alakzat szövegtéglalapjának lekérése**
+
+Az Aspose.Slides for .NET 26.11‑től kezdve a [ITextFrame.GetTextRect](https://reference.aspose.com/slides/net/aspose.slides/itextframe/gettextrect/) visszaadja a szövegterületet, amelyet a szülő alakzat geometriája definiál. Koordinátái és méretei pontban vannak, a alakzat bal‑felső sarkához képest. Például egy ellipszis szövegtéglalapja kisebb, mint a külső határa.
+
+Ez a téglalap az alakzatot írja le, nem a megjelenített karaktereket. A szöveg vagy a szövegdoboz margóinak módosítása nem alakítja mérőeszközzé az elfoglalt szöveget. A megjelenített szöveg méréséhez használja a [paragraph bounds](/slides/hu/net/paragraph-bounds/) vagy a [portion bounds](/slides/hu/net/portion-bounds/) oldalakat.
+
+A [installing Aspose.Slides for .NET](/slides/hu/net/installation/) 26.11 vagy újabb verzió telepítése után futtassa ezt a példát, hogy pirossal rajzolja meg a geometriai szövegtéglalapot. Az alakzatok nincsenek elforgatva és nem csoportosítva, ezért az X/Y pozíciójuk hozzáadásával elegendő a fedőréteg elhelyezése a dián.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+foreach (var shapeType in new[] { ShapeType.Rectangle, ShapeType.Ellipse })
+{
+    var x = shapeType == ShapeType.Rectangle ? 50 : 300;
+    var shape = slide.Shapes.AddAutoShape(shapeType, x, 200, 200, 100);
+    shape.AddTextFrame("Text area");
+    var rectangle = shape.TextFrame.GetTextRect();
+    Console.WriteLine($"{shapeType}: {rectangle}");
+
+    var overlayX = shape.X + rectangle.X;
+    var overlayY = shape.Y + rectangle.Y;
+    var outline = slide.Shapes.AddAutoShape(ShapeType.Rectangle, overlayX, overlayY, rectangle.Width, rectangle.Height);
+    outline.FillFormat.FillType = FillType.NoFill;
+    outline.LineFormat.FillFormat.FillType = FillType.Solid;
+    outline.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+}
+
+presentation.Save("text-rectangles.pptx", SaveFormat.Pptx);
+```
+
+A fenti 200 × 100 point méretű alakzatok esetén a téglalap `(0, 0, 200, 100)` értéket ad vissza; az ellipszis körülbelül `(29.289, 14.645, 141.421, 70.711)`. A metódus egy egyedi geometria deklarált szövegtéglalapját is olvassa. Nem alkalmazza a diaterület forgatását vagy a csoporttranszformációkat; ezeket külön kell figyelembe venni a fedőréteg elhelyezésekor. A geometriai alakzat nélküli szövegdoboz, például egy táblacella szövegdoboz, `InvalidOperationException`‑t dobhat.
 
 ## **Oszlopok hozzáadása egy szövegdobozhoz**
 
-Az [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframeformat/columncount/) tulajdonság oszlopokra osztja a szövegkeretet, míg az [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframeformat/columnspacing/) beállítja az oszlopok közti hézagot pontban. Mindkét beállítás az [ITextFrameFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframeformat/) része, és módosítható egy meglévő szövegdoboz szövegkeretén keresztül. A szöveg az ugyanazon alakzaton belül áramlik az oszlopok között; nem folytatódik egy másik alakzatba.
+Az [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/) tulajdonság oszlopokra osztja a szövegdobozt, míg az [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/) pontban állítja be az oszlopok közötti távolságot. Mindkét beállítás az [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/) része, és egy meglévő szövegdoboz szövegdobozán keresztül módosítható. A szöveg újraosztása az oszlopok között az ugyanabban az alakzatban történik; nem folytatódik egy másik alakzatra.
 
-Az alábbi példa háromoszlopos szövegdobozt hoz létre 10 pont oszloptávolsággal, menti a prezentációt, majd visszaolvassa a mentett beállításokat a kimeneti fájlból:
+Az alábbi példa egy háromoszlopos szövegdobozt hoz létre, 10 pont távolsággal az oszlopok között, elmenti a prezentációt, és visszaolvassa a tárolt beállításokat a kimeneti fájlból:
 
 ```csharp
 using System;
@@ -140,18 +178,17 @@ Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.Co
 
 ## **Szöveg kinyerése az egyes oszlopokból**
 
-Használja a [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/hu/net/aspose.slides/textframe/splittextbycolumns/) metódust a meglévő szövegkeret egyes vizuális oszlopaihoz rendelt szöveg lekérésére. A metódus minden oszlophoz egy karakterláncot ad vissza, oszlop‑alapú olvasási sorrendben. Egy egyoszlopos szövegkeret egy elemmel rendelkező tömböt eredményez, egy üres oszlop pedig egy üres karakterlánccal jelenik meg. A karakterláncok csak egyszerű szöveget tartalmaznak; a rész‑szintű formázás nem kerül megőrzésre.
+Használja a [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/net/aspose.slides/textframe/splittextbycolumns/) metódust, hogy visszakapja egy meglévő szövegdoboz minden vizuális oszlopához rendelt szöveget. A metódus minden oszlophoz egy karakterláncot ad vissza, oszlop alapú olvasási sorrendben. Egy egyoszlopos szövegdoboz egy elemű tömböt eredményez, és egy üres oszlop üres karakterláncként jelenik meg. A karakterláncok csak egyszerű szöveget tartalmaznak; a részlet‑szintű formázás nem kerül megőrzésre.
 
-Ez akkor hasznos, ha a következőkre van szükség:
-
-- Szöveg kinyerése az oszlop‑alapú olvasási sorrend megőrzésével.
+Ez akkor hasznos, ha szükség van a következőkre:
+- Szöveg kinyerése úgy, hogy megmaradjon az oszlop‑alapú olvasási sorrend.
 - Többoszlopos diák tartalmának indexelése vagy összehasonlítása.
-- Minden oszlop exportálása külön fájlba, adatbázismezőbe vagy más célba.
-- Annak vizsgálata, hogy a szöveg hogyan oszlik újra a [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframeformat/columncount/), a [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframeformat/columnspacing/), a betűtípus vagy a szövegkeret méretének módosítása után.
+- Az egyes oszlopok exportálása külön fájlba, adatbázismezőbe vagy más célra.
+- Megvizsgálni, hogyan oszlik újra a szöveg a [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/), a betűtípus vagy a szövegdoboz méretének módosítása után.
 
-A metódus a jelenlegi [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/)‑ben elosztott szöveget jelenti; nem folyik automatikusan szöveg áramlás külön alakzatok vagy szövegdobozok között. Az oszlopeloszlás függhet a rendelkezésre álló betűtípusoktól és egyéb szöveg‑elrendezési beállításoktól, ezért ügyeljen arra, hogy a szükséges betűtípusok elérhetők legyenek, ha konzisztens eredményekre van szükség.
+A metódus a jelenlegi [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/)‑ben elosztott szöveget adja vissza; nem folyik automatikusan szöveg át más külön alakzatokra vagy szövegdobozokra. Az oszlopelrendezés függhet a rendelkezésre álló betűtípusoktól és egyéb szöveg‑elrendezési beállításoktól, ezért biztosítsa, hogy a szükséges betűtípusok elérhetők legyenek, ha konzisztens eredmény fontos.
 
-Az alábbi példa betölti a prezentációt, megtalálja az első többoszlopos auto alakzatot szövegkerettel, kiolvassa a beállított oszlopszámot, és minden oszlop szövegét külön fájlba írja. A szövegkeretet nem biztosító alakzatok kihagyásra kerülnek.
+Az alábbi példa betölt egy prezentációt, megtalálja az első többoszlopos automatikus alakzatot szövegdobozzal, kiolvassa a konfigurált oszlopszámot, és az egyes oszlopok szövegét külön fájlba írja. A szövegdoboz nélküli alakzatok ki lesznek hagyva.
 
 ```csharp
 using System;
@@ -198,9 +235,9 @@ else
 
 ## **Szöveg frissítése**
 
-A szöveg frissítéséhez a prezentációban iteráljon a diákon és az alakzatokon, válassza ki az auto alakzatokat, majd szerkessze azok szövegrészeit. A rész‑szintű szerkesztés lehetővé teszi a szöveg és a karakterformázás együttes módosítását.
+A szöveg frissítéséhez egy egész prezentációban iteráljon a diákon és alakzatokon, válassza ki az automatikus alakzatokat, majd szerkessze a szöveg‑részeiket. A részlet‑szinten történő munka lehetővé teszi a szöveg és a karakterformázás egyidejű módosítását.
 
-Az alábbi példa minden `years` előfordulást `months`‑re cserél az auto‑alakzatok szövegében, és a módosított részeket félkövérrel formázza:
+Az alábbi példa minden `years` előfordulást `months`‑re cserél az automatikus alakzat szövegében, és minden érintett részt félkövérre állít:
 
 ```csharp
 using Aspose.Slides;
@@ -231,13 +268,13 @@ foreach (var slide in presentation.Slides)
 presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-Ez a bejárás csak az auto alakzatok szövegét módosítja. A táblákban, diagramokban, SmartArt‑ban vagy csoportos alakzatokban tárolt szöveg frissítéséhez ezeknek az objektumoknak a saját gyűjteményeit is be kell járni.
+Ez a bejárás csak az automatikus alakzatok szövegét frissíti. A táblákban, diagramokban, SmartArt‑ban vagy csoportos alakzatokban tárolt szöveg a megfelelő objektumgyűjtemények bejárását igényli.
 
 ## **Szövegdoboz hozzáadása hiperhivatkozással**
 
-Hipertárcát egy adott szövegrészhez lehet rendelni, így csak az adott szöveg lesz kattintható. Használja az [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/hu/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) metódust a rész külső URL‑hez való kötéséhez.
+Egy hiperhivatkozást egy adott szövegrészhez lehet rendelni, így csak az a szöveg lesz kattintható link. Használja az [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/)‑t a rész külső URL‑hez való társításához.
 
-Az alábbi példa hivatkozással ellátott szöveget hoz létre, majd elmenti a prezentációba:
+Az alábbi példa összekapcsolt szöveget hoz létre, és egy prezentációba menti:
 
 ```csharp
 using Aspose.Slides;
@@ -256,10 +293,10 @@ presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 
 ## **GYIK**
 
-**Mi a különbség egy szövegdoboz és egy szöveghelytartó között egy mester‑ vagy elrendezésdian?**
+**Mi a különbség egy szövegdoboz és egy szöveghelyettesítő (placeholder) között egy mester vagy elrendezés dián?**
 
-Egy [helytartó](/slides/hu/net/manage-placeholder/) örökölheti a pozícióját és formázását egy [mester diától](https://reference.aspose.com/slides/hu/net/aspose.slides/masterslide/) vagy [elrendezésdiától](https://reference.aspose.com/slides/hu/net/aspose.slides/layoutslide/). Egy szokásos szövegdoboz független alakzat a dián, ahol létrehozták, és nem veszi át a helytartó viselkedését, ha az elrendezés megváltozik.
+A [placeholder](/slides/hu/net/manage-placeholder/) örökölheti pozícióját és formázását egy [master slide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) vagy [layout slide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) alapján. Egy szabályos szövegdoboz egy független alakzat a dián, ahol létre lett hozva, és nem veszi fel a placeholder viselkedést, ha az elrendezés megváltozik.
 
-**Hogyan cserélhetem le a szöveget anélkül, hogy a diagramokban, táblázatokban vagy SmartArt‑ban lévő szöveget megváltoztatnám?**
+**Hogyan cserélhetem ki a szöveget anélkül, hogy a diagramok, táblázatok vagy SmartArt szövegét módosítanám?**
 
-Korlátozza a bejárást csak azokra az alakzatokra, amelyek implementálják a [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) interfészt, ahogyan az **Szöveg frissítése** példában szerepel. A diagramok, táblázatok és SmartArt saját objektummodellben tárolják a szöveget, ezért azt a ciklus nem módosítja.
+Korlátozza a bejárást azokra az alakzatokra, amelyek megvalósítják a [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)-t, ahogy azt az Szöveg frissítése példában láthatja. A diagramok, táblázatok és a SmartArt saját objektummodelljükben tárolják a szöveget, ezért az a ciklus nem módosítja őket.

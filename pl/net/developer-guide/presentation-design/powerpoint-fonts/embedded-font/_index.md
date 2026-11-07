@@ -7,7 +7,7 @@ url: /pl/net/embedded-font/
 keywords:
 - dodaj czcionkę
 - osadź czcionkę
-- osadzanie czcionek
+- osadzanie czcionki
 - pobierz osadzoną czcionkę
 - dodaj osadzoną czcionkę
 - usuń osadzoną czcionkę
@@ -17,21 +17,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Zarządzaj osadzonymi czcionkami w PowerPoint przy użyciu Aspose.Slides dla .NET. Używaj C#, aby dodawać, pobierać, usuwać i kompresować czcionki, zachowując wygląd tekstu i zmniejszając rozmiar pliku."
+description: "Zarządzaj osadzonymi czcionkami w PowerPoint przy użyciu Aspose.Slides dla .NET. Użyj C#, aby dodać, pobrać, usunąć i skompresować czcionki, aby zachować wygląd tekstu i zmniejszyć rozmiar pliku."
 ---
-## **Wstęp**
+## **Wprowadzenie**
 
-Osadzanie czcionek zapisuje dane czcionki wewnątrz prezentacji PowerPoint. Gdy przeglądarka obsługuje osadzone czcionki, może wyświetlać tekst przy użyciu tych czcionek, nawet jeśli nie są one zainstalowane w systemie docelowym. Pomaga to zachować podziały linii, odstępy tekstu i układ slajdów.
+Osadzanie czcionek zapisuje dane czcionki wewnątrz prezentacji PowerPoint. Gdy przeglądarka obsługuje osadzone czcionki, może wyświetlać tekst przy użyciu tych czcionek, nawet jeśli nie są zainstalowane w docelowym systemie. Pomaga to zachować podziały wierszy, odstępy tekstu i układ slajdów.
 
-Aspose.Slides for .NET umożliwia pobieranie, dodawanie i usuwanie osadzonych czcionek za pośrednictwem właściwości [FontsManager](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/fontsmanager/) obiektu [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/). Możesz także zmniejszyć rozmiar danych osadzonych czcionek, usuwając znaki, których prezentacja nie używa.
+Aspose.Slides for .NET umożliwia pobieranie, dodawanie i usuwanie osadzonych czcionek za pośrednictwem właściwości [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) obiektu [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Można również zmniejszyć rozmiar danych osadzonych czcionek, usuwając znaki, których prezentacja nie używa.
 
-Poniższe przykłady działają na plikach PPTX. Przed osadzeniem czcionki upewnij się, że jej dane są dostępne dla Aspose.Slides i że jej licencja zezwala na osadzanie.
+Poniższe przykłady działają z plikami PPTX. Przed osadzeniem czcionki upewnij się, że jej dane są dostępne dla Aspose.Slides i że licencja zezwala na osadzanie.
 
 ## **Pobieranie i usuwanie osadzonych czcionek**
 
-Użyj [GetEmbeddedFonts](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsmanager/getembeddedfonts/) , aby wyświetlić listę czcionek zapisanych w prezentacji. Aby usunąć jedną z nich, przekaż czcionkę z tej listy do [RemoveEmbeddedFont](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsmanager/removeembeddedfont/), a następnie zapisz prezentację.
+Użyj [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) aby wyświetlić listę czcionek zapisanych w prezentacji. Aby usunąć jedną, przekaż czcionkę z tej listy do [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont/), a następnie zapisz prezentację.
 
-Poniższy przykład wymienia osadzone czcionki w pliku `EmbeddedFonts.pptx` i usuwa Calibri, jeśli jest obecna:
+Poniższy przykład wyświetla osadzone czcionki w pliku `EmbeddedFonts.pptx` i usuwa Calibri, jeśli jest obecna:
 
 ```csharp
 using System;
@@ -59,24 +59,24 @@ else
 }
 ```
 
-Usunięcie osadzonej czcionki usuwa jej zapisane dane; nie zmienia to czcionki przypisanej do tekstu. Jeśli czcionka jest zainstalowana w systemie docelowym, tekst może ją nadal używać. W przeciwnym razie renderowanie może wymagać [font substitution](/slides/pl/net/font-substitution/), co może wpłynąć na układ.
+Usunięcie osadzonej czcionki usuwa jej zapisane dane czcionki; nie zmienia to czcionki przypisanej do tekstu. Jeśli czcionka jest zainstalowana w docelowym systemie, tekst może nadal jej używać. W przeciwnym razie renderowanie może wymagać [font substitution](/slides/pl/net/font-substitution/), co może wpłynąć na układ.
 
-## **Inspekcja danych czcionki i uprawnień do osadzania**
+## **Sprawdzanie danych czcionki i uprawnień do osadzania**
 
-Użyj interfejsu [IFontsManager](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/) , aby sprawdzić czcionki przed ich osadzeniem. Wywołaj [IFontsManager.GetFonts](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getfonts/) , aby pobrać czcionki użyte w prezentacji. Dla każdej czcionki przekaż obiekt [IFontData](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontdata/) oraz wymaganą wartość [FontStyleType](https://reference.aspose.com/slides/pl/net/aspose.slides/fontstyletype/) do [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getfontbytes/). Metoda zwraca dane binarne dla tego stylu czcionki lub `null`, gdy żądana czcionka lub styl są niedostępne. Nie przekazuj wyniku `null` do [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), ponieważ ta metoda wymaga tablicy bajtów.
+Użyj interfejsu [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) aby sprawdzić czcionki przed ich osadzeniem. Wywołaj [IFontsManager.GetFonts](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfonts/), aby pobrać czcionki użyte w prezentacji. Dla każdej czcionki przekaż obiekt [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) oraz wymaganą wartość [FontStyleType](https://reference.aspose.com/slides/net/aspose.slides/fontstyletype/), do metody [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontbytes/). Metoda zwraca dane binarne dla tego stylu czcionki lub `null`, gdy żądana czcionka lub styl nie są dostępne. Nie przekazuj wyniku `null` do [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), ponieważ ta metoda wymaga tablicy bajtów.
 
-[EmbeddingLevel](https://reference.aspose.com/slides/pl/net/aspose.slides/embeddinglevel/) jest wyliczeniem flagowym, które raportuje ograniczenia osadzania zapisane w czcionce:
+[EmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/embeddinglevel/) jest wyliczeniem flag, które raportuje ograniczenia osadzania zapisane w czcionce:
 
 - `Installable` zezwala na osadzanie i trwałą instalację w innym systemie, zgodnie z licencją czcionki.
-- `Restricted` zabrania osadzania, chyba że uzyskano pozwolenie od prawnego właściciela czcionki, gdy jest to jedyna flaga uprawnień użytkowania.
-- `PreviewPrint` zezwala na tymczasowe użycie do podglądu i drukowania; dokument zawierający czcionkę musi być tylko do odczytu.
-- `Editable` zezwala na tymczasowe użycie i umożliwia edytowanie oraz zapisywanie dokumentu.
-- `NoSubsetting` jest dodatkowym ograniczeniem, które zabrania osadzania tylko podzbioru glifów. Gdy flaga jest obecna, osadzaj wszystkie znaki.
-- `BitmapOnly` jest dodatkowym ograniczeniem, które zezwala jedynie na osadzanie bitmapowych wariantów czcionki, nie danych wektorowych. Jeśli czcionka nie ma bitmapowych wariantów, nie może być osadzona.
+- `Restricted` zakazuje osadzania, chyba że uzyskano zgodę od prawnego właściciela czcionki, gdy jest to jedyna flaga uprawnień użycia.
+- `PreviewPrint` zezwala na tymczasowe użycie do przeglądania i drukowania; dokument zawierający czcionkę musi być tylko do odczytu.
+- `Editable` zezwala na tymczasowe użycie oraz umożliwia edycję i zapis dokumentu.
+- `NoSubsetting` jest dodatkowym ograniczeniem, które zabrania osadzania jedynie podzbioru glifów. Należy osadzić wszystkie znaki, gdy ta flaga jest obecna.
+- `BitmapOnly` jest dodatkowym ograniczeniem, które zezwala na osadzenie wyłącznie bitmap, a nie danych konturów. Jeśli czcionka nie posiada bitmap, nie może być osadzona.
 
-Pierwsze cztery wartości opisują uprawnienia użytkowania, natomiast `NoSubsetting` i `BitmapOnly` mogą być z nimi łączone. Sprawdzaj modyfikatory przy użyciu operacji bitowych. Ponieważ `Installable` ma wartość zero, nie używaj `HasFlag` do wykrywania tej flagi; zastosuj maskę bitów uprawnień użytkowania i porównaj wynik z `Installable`. Aktualne czcionki powinny ustawiać co najwyżej jedną flagę uprawnień użytkowania. Dla zgodności ze starszymi czcionkami, które ustawiają więcej niż jedną, poniższy pomocnik wybiera najmniej restrykcyjne uprawnienie: `Editable`, potem `PreviewPrint`, potem `Restricted`.
+Pierwsze cztery wartości opisują uprawnienia użycia, natomiast `NoSubsetting` i `BitmapOnly` mogą być z nimi łączone. Sprawdzaj modyfikatory przy użyciu operacji bitowych. Ponieważ `Installable` ma wartość zero, nie używaj `HasFlag` do jej wykrywania; maskuj bity uprawnień użycia i porównaj wynik z `Installable`. Aktualne czcionki powinny ustawiać co najwyżej jedną flagę uprawnień użycia. Dla kompatybilności ze starszymi czcionkami, które ustawiają więcej niż jedną, poniższy pomocnik wybiera najmniej restrykcyjne uprawnienie: `Editable`, następnie `PreviewPrint`, następnie `Restricted`.
 
-Poniższy przykład audytuje dane zwykłe, pogrubione, pochylone i pogrubione‑pochylone dostępne dla każdej czcionki zwróconej przez `GetFonts`. Pomija style niedostępne, czcionki ograniczone, czcionki tylko bitmapowe, czcionki ograniczone do podglądu i druku, ponieważ wynik pozostaje edytowalny, oraz czcionki już osadzone. Jeśli jakikolwiek dostępny styl ma flagę `NoSubsetting`, zostają osadzone wszystkie znaki danej rodziny czcionek.
+Poniższy przykład audytuje normalne, pogrubione, kursywą i pogrubione‑kursywą dane dostępne dla każdej czcionki zwróconej przez `GetFonts`. Pomija style niedostępne, czcionki ograniczone, czcionki bitmap‑only, czcionki ograniczone do podglądu i druku, ponieważ wynik pozostaje edytowalny, oraz czcionki już osadzone. Jeśli którykolwiek dostępny styl ma `NoSubsetting`, osadza wszystkie znaki dla tej rodziny czcionki.
 
 ```csharp
 using System;
@@ -186,16 +186,16 @@ foreach (var item in embeddingPlan)
 presentation.Save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Ta inspekcja raportuje ograniczenia zakodowane w każdym pliku czcionki. Nie przyznaje licencji, nie dowodzi, że uzyskałeś czcionkę legalnie, ani nie zastępuje sprawdzania umowy licencyjnej czcionki przed rozpowszechnianiem osadzonej kopii.
+Ta inspekcja raportuje ograniczenia zakodowane w każdym pliku czcionki. Nie przyznaje licencji, nie dowodzi, że czcionka została pozyskana legalnie, ani nie zastępuje sprawdzania umowy licencyjnej czcionki przed dystrybucją osadzonej kopii.
 
 ## **Dodawanie osadzonych czcionek**
 
-Użyj [AddEmbeddedFont](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsmanager/addembeddedfont/) , aby osadzić czcionkę. Przeciążenia przyjmują albo obiekt [IFontData](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontdata/) , albo tablicę bajtów zawierającą dane czcionki. Wyliczenie [EmbedFontCharacters](https://reference.aspose.com/slides/pl/net/aspose.slides.export/embedfontcharacters/) kontroluje, które znaki są uwzględniane:
+Użyj [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/), aby osadzić czcionkę. Przeciążenia akceptują albo obiekt [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/), albo tablicę bajtów zawierającą dane czcionki. Wyliczenie [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) kontroluje, które znaki są włączane:
 
-- [All](https://reference.aspose.com/slides/pl/net/aspose.slides.export/embedfontcharacters/) osadza wszystkie znaki w czcionce. Użyj tej opcji, gdy odbiorcy muszą edytować prezentację i wprowadzać nowy tekst.
-- [OnlyUsed](https://reference.aspose.com/slides/pl/net/aspose.slides.export/embedfontcharacters/) osadza tylko znaki użyte w prezentacji, aby zmniejszyć rozmiar pliku. Wybierz tę opcję dla gotowej prezentacji przeznaczonej głównie do podglądu.
+- [All](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) osadza wszystkie znaki czcionki. Użyj tej opcji, gdy odbiorcy muszą edytować prezentację i wprowadzać nowy tekst.
+- [OnlyUsed](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) osadza tylko znaki użyte w prezentacji, aby zmniejszyć rozmiar pliku. Wybierz tę opcję dla gotowej prezentacji przeznaczonej głównie do wyświetlania.
 
-Poniższy przykład używa [GetFonts](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsmanager/getfonts/) , aby pobrać czcionki użyte w `Fonts.pptx` i osadzi te, które nie są jeszcze osadzone. Czcionki do dodania muszą być dostępne na maszynie uruchamiającej kod. Istniejące osadzone czcionki zachowują swoje bieżące zestawy znaków.
+Poniższy przykład używa [GetFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/), aby pobrać czcionki użyte w `Fonts.pptx` i osadzi te, które nie są jeszcze osadzone. Czcionki do dodania muszą być dostępne na maszynie uruchamiającej kod. Istniejące osadzone czcionki zachowują swoje bieżące zestawy znaków.
 
 ```csharp
 using System;
@@ -223,9 +223,9 @@ foreach (var font in allFonts)
 presentation.Save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-## **Kompresja osadzonych czcionek**
+## **Kompresowanie osadzonych czcionek**
 
-[CompressEmbeddedFonts](https://reference.aspose.com/slides/pl/net/aspose.slides.lowcode/compress/compressembeddedfonts/) zmniejsza dane osadzonych czcionek, usuwając nieużywane znaki. Działa na czcionkach, które już są osadzone, więc redukcja rozmiaru zależy od ilości nieużywanych danych czcionki w prezentacji.
+[CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) zmniejsza dane osadzonych czcionek, usuwając nieużywane znaki. Działa na czcionkach, które już są osadzone, więc redukcja rozmiaru zależy od ilości nieużywanych danych czcionki w prezentacji.
 
 Poniższy przykład kompresuje czcionki w `EmbeddedFonts.pptx` i zapisuje wynik jako osobny plik:
 
@@ -239,14 +239,16 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Zachowaj oryginalny plik, jeśli odbiorcy mogą później potrzebować dodać tekst. Znaki usunięte podczas kompresji nie będą już dostępne w osadzonej czcionce, nawet jeśli pierwotnie osadzono wszystkie znaki.
+Zachowaj oryginalny plik, jeśli odbiorcy mogą później potrzebować dodać tekst. Znaki usunięte podczas kompresji nie są już dostępne z osadzonej czcionki, nawet jeśli początkowo osadzono wszystkie znaki.
+
+Aby pozwolić dopasowanej zarejestrowanej czcionce mieć pierwszeństwo podczas eksportu bez usuwania osadzonej czcionki, zobacz [Prefer Registered Fonts over Embedded Fonts](/slides/pl/net/font-selection-sequence/#prefer-registered-fonts-over-embedded-fonts) (.NET 26.11 lub nowszy).
 
 ## **FAQ**
 
-**Jak mogę sprawdzić, czy osadzona czcionka będzie nadal podstawiana podczas renderowania?**
+**Jak mogę sprawdzić, czy osadzona czcionka nadal będzie zastępowana podczas renderowania?**
 
-Wywołaj [GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsmanager/getsubstitutions/) w środowisku, w którym renderujesz prezentację, aby zobaczyć, które czcionki Aspose.Slides zamieni. Sprawdź także ustawienia [font substitution](/slides/pl/net/font-substitution/) oraz reguły [font fallback](/slides/pl/net/fallback-font/). Fallback obsługuje brakujące znaki, więc osadzenie czcionki nie rozwiązuje znaków, których sama czcionka nie zawiera.
+Wywołaj [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) w środowisku, w którym renderujesz prezentację, aby zobaczyć, które czcionki Aspose.Slides zastąpi. Sprawdź także ustawienia [font substitution](/slides/pl/net/font-substitution/) oraz reguły [font fallback](/slides/pl/net/fallback-font/). Fallback obsługuje brakujące znaki, więc osadzenie czcionki nie rozwiązuje znaków, których czcionka sama nie zawiera.
 
 **Czy powinienem osadzać popularne czcionki, takie jak Arial i Calibri?**
 
-Decyzję należy podjąć w oparciu o docelowe środowisko. Jeśli wymagane czcionki są dostępne na każdym komputerze, który otwiera lub renderuje prezentację, ich osadzanie może niepotrzebnie zwiększyć rozmiar pliku. Jeśli odbiorcy lub serwery mogą nie mieć tych czcionek, ich osadzenie może pomóc zachować zamierzony wygląd, pod warunkiem że licencje na nie to dopuszczają.
+Decyzję opieraj na docelowym środowisku. Jeśli wymagane czcionki są dostępne na każdym komputerze, który otwiera lub renderuje prezentację, ich osadzenie może niepotrzebnie zwiększyć rozmiar pliku. Jeśli odbiorcy lub serwery mogą nie mieć tych czcionek, ich osadzenie może pomóc zachować zamierzony wygląd, o ile licencje na nie to pozwalają.
