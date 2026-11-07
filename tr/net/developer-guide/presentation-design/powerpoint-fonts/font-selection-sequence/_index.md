@@ -1,62 +1,92 @@
 ---
-title: Aspose.Slides for .NET'de Yazı Tipi Seçim Sırası
-linktitle: Yazı Tipi Seçimi
+title: "Aspose.Slides for .NET'te Yazı Tipi Seçim Sırası"
+linktitle: "Yazı Tipi Seçimi"
 type: docs
 weight: 80
 url: /tr/net/font-selection-sequence/
 keywords:
-- yazı tipi seçimi
-- yazı tipi yerine koyma
-- yazı tipi değiştirme
-- yerine koyma kuralı
-- mevcut yazı tipi
-- eksik yazı tipi
+- "yazı tipi seçimi"
+- "yazı tipi ikamesi"
+- "yazı tipi değişimi"
+- "ikame kuralı"
+- "mevcut yazı tipi"
+- "eksik yazı tipi"
 - PowerPoint
 - OpenDocument
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'in PPT, PPTX ve ODP dosyalarını net ve tutarlı bir şekilde sunmasını sağlayan yazı tipi seçim sürecini keşfedin—slaytlarınızı şimdi geliştirin."
+description: "Aspose.Slides for .NET'in nasıl yazı tipleri seçtiğini keşfedin, PPT, PPTX ve ODP dosyalarının net ve tutarlı sunumunu sağlayarak slaytlarınızı şimdi geliştirin."
 ---
 ## **Genel Bakış**
 
-Bir sunum yüklendiğinde, işlendğinde veya başka bir biçime dönüştürüldüğünde, Aspose.Slides sunumda kullanılan yazı tiplerinin işletim sisteminde bulunup bulunmadığını kontrol eder. Gerekli bir yazı tipi eksikse, Aspose.Slides PowerPoint'in kullanacağına mümkün olduğunca yakın bir yedek yazı tipini seçer.
+Bir sunum yüklendiğinde, işlenirken veya başka bir formata dönüştürüldüğünde, Aspose.Slides gömülü yazı tiplerini ve uygulama tarafından kullanılabilir yazı tiplerini dikkate alır. Gerekli bir yazı tipi mevcut değilse, Aspose.Slides PowerPoint'in kullanacağı yazı tipine mümkün olduğunca yakın bir yedek yazı tipi seçer.
 
-Aspose.Slides önce seçilen yazı tipini işletim sisteminde arar. Yazı tipi bulunursa, kullanılır. Bulunamazsa, uygun bir yedek uygulanır. `FontSubstRule` aracılığıyla yazı tipi değiştirme kuralları tanımlandığında, bu kurallar da dikkate alınır.
+Mevcut yazı tipleri sistem yazı tiplerini, uygulama tarafından yüklenen yazı tiplerini ve sunuma gömülü yazı tiplerini içerebilir. Aşağıda açıklanan .NET 26.11 tercihinin kontrol ettiği eşleşen gömülü ve kayıtlı yazı tiplerinden hangisinin öncelikli olacağını belirler. [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) aracılığıyla tanımlanan yazı tipi ikame kuralları ayrı bir mekanizmadır.
 
 Uygulama çalışma zamanında da yazı tipleri ekleyebilir, bir sunumdan gömülü yazı tiplerini kullanabilir veya PDF dosyaları gibi çıktı belgeleri için harici yazı tipleri yükleyebilirsiniz.
 
 ## **Yazı Tipi Seçimi**
 
-Sunum yüklendiğinde, işlendiğinde veya başka bir biçime dönüştürüldüğünde yazı tiplerine belirli kurallar uygulanır. Örneğin, bir sunumu (slaytlarını) görüntülere dönüştürmeye çalıştığınızda, sunumdaki yazı tipleri işletim sisteminde mevcut olup olmadığını doğrulamak için kontrol edilir. Yazı tiplerinin eksik olduğu doğrulanırsa, değiştirilir — bakınız [**Yazı Tipi Değiştirme**](https://docs.aspose.com/slides/tr/net/font-replacement/) ve [**Yazı Tipi Yerine Koyma**](https://docs.aspose.com/slides/tr/net/font-substitution/).
+Metin, açık bir aile adı yerine `+mn-lt` gibi bir tema yazı tipine başvurabilir. Uygulanabilir tema tarafından belirtilen aileyi elde etmek için [Tema Yazı Tipi Referanslarını Çöz](/slides/tr/net/presentation-theme/#resolve-theme-font-references) sayfasına bakın. Bu referansı çözmek, yazı tipi kullanılabilirliğini kontrol etmek ve işleme zamanı ikamesi ya da glif geri dönüşümü uygulamaktan ayrı bir işlemdir; metni oluşturmak için sonunda kullanılan yazı tipi dosyasını tanımlamaz.
 
-Aspose.Slides'in yazı tipleriyle çalışırken izlediği süreç şudur:
+Slaytları işlerken veya bir sunumu dönüştürürken, istenen yazı tiplerinin gömülü olduğundan veya kayıtlı kaynaklardan temin edilebildiğinden emin olun. Eksik yazı tipleri değiştirme veya ikame gerektirebilir; [**Yazı Tipi Değiştirme**](/slides/tr/net/font-replacement/) ve [**Yazı Tipi İkamesi**](/slides/tr/net/font-substitution/) sayfalarına bakın.
 
-1. Aspose.Slides, sunumun seçtiği yazı tipine uyan yazı tipini bulmak için işletim sisteminde yazı tiplerini arar. 
-2. Seçilen yazı tipi bulunursa, Aspose.Slides onu kullanır. Aksi takdirde, Aspose.Slides PowerPoint'in kullanacağına mümkün olduğunca yakın bir yedek yazı tipini kullanır.
-3. Yazı tipi değiştirme kuralları [FontSubstRule](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsubstrule/) aracılığıyla ayarlandıysa, uygulanır. 
+Yazı tipi seçiminde araştırma yaparken:
+1. Talep edilen aile ve stili, tema referansı dahil, çözün.
+2. Gömülü yazı tiplerini ve kayıtlı kaynakları, sistem yazı tipleri ve uygulama tarafından yüklenen yazı tipleri dahil, kontrol edin. Eşleşen gömülü ve kayıtlı sürümler rekabet ederken aşağıdaki tercihi kullanın.
+3. Talep edilen yazı tipi veya karakterler mevcut değilse [yazı tipi ikame kuralları](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) ve glif geri dönüşümünü inceleyin.
 
-Aspose.Slides, uygulama çalışma zamanına yazı tipleri eklemenize ve bu yazı tiplerini kullanmanıza olanak tanır. Bkz. [**Özel Yazı Tipleri**](https://docs.aspose.com/slides/tr/net/custom-font/). 
+Aspose.Slides, uygulama çalışma zamanına yazı tipleri eklemenize ve ardından bu yazı tiplerini kullanmanıza olanak tanır. [**Özel Yazı Tipleri**](/slides/tr/net/custom-font/) sayfasına bakın.
 
-Bir sunuma ek yazı tipleri yerleştirildiğinde, bunlara [**Gömülü Yazı Tipleri**](https://docs.aspose.com/slides/tr/net/embedded-font/) denir.
+Sunuma ek yazı tipleri yerleştirildiğinde, bunlara [**Gömülü Yazı Tipleri**](/slides/tr/net/embedded-font/) denir.
 
-Aspose.Slides, yalnızca çıktı belgelerine uygulanacak yazı tipleri eklemenize olanak tanır. Örneğin, PDF'ye dönüştürmek istediğiniz bir sunum, sisteminizde ve gömülü yazı tiplerinde eksik olan yazı tipleri içeriyorsa, gerekli yazı tiplerini **harici yazı tipleri** olarak ekleyebilir veya yükleyebilirsiniz.
+Aspose.Slides yalnızca çıktı belgelerine uygulanacak yazı tipleri eklemenize olanak tanır. Örneğin, PDF'ye dönüştürmek istediğiniz bir sunum sisteminizde ve gömülü yazı tiplerinde eksik yazı tipleri içeriyorsa, gerekli yazı tiplerini **harici yazı tipleri** olarak ekleyebilir veya yükleyebilirsiniz.
 
-{{% alert title="Note" color="primary" %}} 
-Biz hiçbir yazı tipi dağıtmıyoruz, ister ücretli ister ücretsiz olsun. API'miz harici yazı tiplerini yüklemenize ve belgeler içinde gömmenize izin verir, ancak bunu kendi takdirinize ve sorumluluğunuza göre yaparsınız.
+{{% alert title="Note" color="info" %}} 
+Biz herhangi bir yazı tipi dağıtmıyoruz, ister ücretli ister ücretsiz. API'miz, harici yazı tiplerini yüklemenize ve belgelerde gömmenize izin verir, fakat bunu yazı tiplerini kendi takdiriniz ve sorumluluğunuz dahilinde yaparsınız.
 {{% /alert %}}
+
+## **Kayıtlı Yazı Tiplerini Gömülü Yazı Tiplerine Üstün Tut**
+
+.NET 26.11'den itibaren, [IFontsManager.PreferRegisteredFontsOverEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/preferregisteredfontsoverembedded/) eşleşen bir kayıtlı yazı tipinin dışa aktarım sırasında gömülü bir yazı tipine göre öncelik almasını sağlar. Varsayılan değer `false`'tır. Eşleşme, yazı tipi adı ve stilini kullanır; farklı bir aile adı değiştirme eşleşmesi değildir. Kayıtlı yazı tipleri sistemden veya [açıkça yüklenen yazı tipi kaynakları](/slides/tr/net/custom-font/) gelerek yüklenebilir.
+
+**Aspose.Slides.NET6.CrossPlatform 26.11** paketini .NET 8 üzerinde kullanır. Ortamınız için [kurulum kılavuzu](/slides/tr/net/installation/) sayfasını izleyin. `embedded-fonts.pptx` dosyasını gömülü bir yazı tipiyle ve aynı aile adı ve stili olan `preferred.ttf` dosyasını sağlayın. Çıktıyı karşılaştırmak istiyorsanız iki yazı tipi dosyası görünür şekilde farklı olmalıdır.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var fontBytes = File.ReadAllBytes("preferred.ttf");
+FontsLoader.LoadExternalFont(fontBytes);
+using var presentation = new Presentation("embedded-fonts.pptx");
+
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = false;
+presentation.Save("embedded-preference.pdf", SaveFormat.Pdf);
+
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = true;
+presentation.Save("registered-preference.pdf", SaveFormat.Pdf);
+
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = false;
+presentation.Save("restored-preference.pdf", SaveFormat.Pdf);
+```
+
+Bu ayar, dışa aktarım sırasında yazı tipi önceliğini değiştirir; metnin yazı tipini yeniden adlandırmaz, gömülü yazı tipi verisini kaldırmaz veya kayıtlı dosyayı yeniden gömme yapmaz. Bu çalışma zamanı ayarıdır: bir sunumu yeniden açtıktan sonra tekrar ayarlayın. Eşleşen bir kayıtlı yazı tipi mevcut değilse, tercihi etkinleştirmek bir yazı tipi sağlamaz; hedef ortamınızda ortaya çıkan yazı tipini ve yerleşimi doğrulayın.
+
+Yukarıdaki yapılandırma için açıkça yüklenmiş normal yazı tipleriyle PNG ve PDF çıktısı kontrol edildi. Aynı sonuçlara güvenmeden önce kendi yazı tipi dosyalarınızı, stillerinizi, SDK derlemenizi ve çıktı formatlarınızı kontrol edin. Yazı tipi ölçümleri satır sonlarını ve konumlandırmayı değiştirebilir. Farklı bir aileye ihtiyacınız olduğunda [yazı tipi değiştirme](/slides/tr/net/font-replacement/) veya [ikame](/slides/tr/net/font-substitution/) kullanın ve sunumda depolanan yazı tiplerini değiştirmeniz gerektiğinde [gömülü yazı tipi işlemleri](/slides/tr/net/embedded-font/) kullanın.
 
 ## **SSS**
 
-**Bir sunumda dönüştürmeden önce hangi yazı tiplerinin gerçekten kullanıldığını nasıl belirleyebilirim?**
+**Sunumda dönüştürmeden önce gerçekte hangi yazı tiplerinin kullanıldığını nasıl belirleyebilirim?**
 
-Aspose.Slides, [font manager](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/fontsmanager/) aracılığıyla kullanılan yazı tiplerini incelemenizi sağlar, böylece [gömmek](/slides/tr/net/embedded-font/), [değiştirmek](/slides/tr/net/font-replacement/) veya [harici kaynaklar](/slides/tr/net/custom-font/) eklemeye karar verebilirsiniz. Bu, işleme ve dışa aktarma sırasında istenmeyen yerine koymaları önlemenize yardımcı olur.
+Aspose.Slides, kullanılan yazı tiplerini [yazı tipi yöneticisi](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) aracılığıyla incelemenizi sağlar, böylece [göm](/slides/tr/net/embedded-font/), [değiştir](/slides/tr/net/font-replacement/) veya [harici kaynaklar](/slides/tr/net/custom-font/) eklemeye karar verebilirsiniz. Bu, işleme ve dışa aktarım sırasında istenmeyen ikameleri önlemenize yardımcı olur.
 
-**Ek yazı tipi dizinlerini işletim sistemine kurmadan ekleyebilir miyim?**
+**Ekstra yazı tipi dizinlerini işletim sistemine kurmadan ekleyebilir miyim?**
 
-Evet. İşleme ve dışa aktarma için klasörler veya bellek içi akışlar gibi [harici yazı tipi kaynaklarını](/slides/tr/net/custom-font/) kaydedebilirsiniz. Bu, ana sistem yazı tiplerine bağımlılığı ortadan kaldırır ve yerleşimin öngörülebilir olmasını sağlar.
+Evet. Klasörler veya bellek içi akışlar gibi [harici yazı tipi kaynakları](/slides/tr/net/custom-font/) kaydedebilir ve bunları işleme ve dışa aktarım için kullanabilirsiniz. Bu, ana sistem yazı tiplerine bağımlılığı ortadan kaldırır ve yerleşimin öngörülebilir olmasını sağlar.
 
-**Bir glif eksik olduğunda uygunsuz bir yazı tipine sessizce gerilemeyi nasıl önleyebilirim?**
+**Bir glif eksik olduğunda uygun olmayan bir yazı tipine sessiz geri dönüşümünü nasıl önleyebilirim?**
 
-Önceden açık [yazı tipi değiştirme](/slides/tr/net/font-replacement/) ve yazı tipi [gerileme kurallarını](/slides/tr/net/fallback-font/) tanımlayın. Kullanılan yazı tiplerini analiz ederek ve yerine koyucular için kontrollü bir öncelik belirleyerek, tutarlı tipografi sağlayabilir ve beklenmedik sonuçların ortaya çıkmasını önleyebilirsiniz.
+Önceden açık [yazı tipi değiştirme](/slides/tr/net/font-replacement/) ve yazı tipi [geri dönüşüm kuralları](/slides/tr/net/fallback-font/) tanımlayın. Kullanılan yazı tiplerini analiz edip ikameler için kontrol edilen bir öncelik belirleyerek tutarlı tipografi sağlarsınız ve beklenmedik sonuçların önüne geçersiniz.

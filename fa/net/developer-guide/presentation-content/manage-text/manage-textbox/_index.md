@@ -6,8 +6,8 @@ weight: 20
 url: /fa/net/manage-textbox/
 keywords:
 - جعبه متن
-- چارچوب متن
-- افزودن متن
+- قاب متن
+- اضافه کردن متن
 - به‌روزرسانی متن
 - ایجاد جعبه متن
 - بررسی جعبه متن
@@ -20,19 +20,17 @@ keywords:
 - Aspose.Slides
 description: "ایجاد، شناسایی، قالب‌بندی و به‌روزرسانی جعبه‌های متن در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای .NET."
 ---
-## **معرفی**
+## **مقدمه**
 
-در Aspose.Slides برای .NET، متن اسلاید در چارچوب‌های متنی (text frames) که به شکل‌ها (shapes) تعلق دارند، ذخیره می‌شود. رابط [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) متداول‌ترین شکل حامل متن را نمایان می‌سازد و متن آن را از طریق ویژگی [IAutoShape.TextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/textframe/) در دسترس قرار می‌دهد.
+در Aspose.Slides برای .NET، متن اسلاید در چارچوب‌های متنی که به شکل‌ها تعلق دارند ذخیره می‌شود. اینترفیس [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) رایج‌ترین شکل حامل متن را نشان می‌دهد و متن آن را از طریق ویژگی [IAutoShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) در دسترس قرار می‌دهد.
 
-{{% alert color="info" title="نکته" %}}
-
-هر شکل خودکار، [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) را پیاده‌سازی می‌کند، اما هر شکل خودکار نیست یا چارچوب متن ندارد. هنگام پردازش یک ارائه موجود، قبل از دسترسی به متن، بررسی کنید که شکل پیاده‌سازی `IAutoShape` را داشته باشد.
-
+{{% alert color="info" title="Note" %}}
+هر شکل خودکار [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) را پیاده‌سازی می‌کند، اما هر شکلی خودکار نیست یا چارچوب متنی پشتیبانی نمی‌کند. هنگام پردازش یک ارائه موجود، قبل از دسترسی به متن، بررسی کنید که شکل `IAutoShape` را پیاده‌سازی می‌کند.
 {{% /alert %}}
 
 ## **ایجاد یک جعبه متن در اسلاید**
 
-برای ایجاد یک جعبه متن، یک شکل خودکار به اسلاید اضافه کنید، متن را به چارچوب متن آن اضافه کنید و ارائه را ذخیره کنید. مثال زیر یک جعبه متن مستطیلی ایجاد می‌کند:
+برای ایجاد یک جعبه متن، یک شکل خودکار را به اسلاید اضافه کنید، متن را به چارچوب متنی آن اضافه کنید و ارائه را ذخیره کنید. مثال زیر یک جعبه متن مستطیلی ایجاد می‌کند:
 
 ```csharp
 using Aspose.Slides;
@@ -46,15 +44,15 @@ textBox.AddTextFrame("Aspose TextBox");
 presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-مختصات و ابعادی که به متد [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/addautoshape/) ارسال می‌شوند، بر حسب پوینت‌اند. متد [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/addtextframe/) چارچوب متن را با متن فراهم‌شده مقداردهی اولیه می‌کند.
+مختصات و ابعاد پاس داده شده به [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/) بر حسب نقطه‌اند. متد [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) چارچوب متن را با متنی که فراهم می‌کنید مقداردهی اولیه می‌کند.
 
-## **بررسی یک شکل جعبه متن**
+## **بررسی اینکه یک شکل Text Box است**
 
-از ویژگی [AutoShape.IsTextBox](https://reference.aspose.com/slides/fa/net/aspose.slides/autoshape/istextbox/) استفاده کنید تا تعیین کنید آیا یک شکل خودکار به عنوان جعبه متن در نظر گرفته می‌شود یا نه. این ویژگی زمانی مفید است که ارائه شامل هر دو شکل خودکار متن‌دار و صرفاً گرافیکی باشد.
+از ویژگی [AutoShape.IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) برای تعیین اینکه آیا یک شکل خودکار به عنوان جعبه متن در نظر گرفته می‌شود استفاده کنید. این ویژگی زمانی مفید است که یک ارائه شامل هر دو شکل خودکار حامل متن و شکل‌های گرافیکی صرفاً باشد.
 
-![A text box and a shape](istextbox.png)
+![یک جعبه متن و یک شکل](istextbox.png)
 
-مثال زیر تمام اشکال خودکار موجود در یک ارائه را بررسی می‌کند:
+مثال زیر هر شکل خودکار را در یک ارائه بررسی می‌کند:
 
 ```csharp
 using System;
@@ -78,7 +76,7 @@ foreach (var currentSlide in presentation.Slides)
 }
 ```
 
-یک شکل خودکار تازه اضافه‌شده تا زمانی که متن غیر خالی داشته باشد، به عنوان جعبه متن شناخته نمی‌شود. می‌توانید آن متن را از طریق [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/addtextframe/) یا [ITextFrame.Text](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/text/) فراهم کنید. افزودن یا اختصاص یک رشته خالی مقدار `IsTextBox` را روی `false` می‌گذارد:
+یک شکل خودکار تازه اضافه‌شده تا زمانی که متن غیر خالی داشته باشد، به عنوان جعبه متن محسوب نمی‌شود. می‌توانید متن را از طریق [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) یا [ITextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/itextframe/text/) فراهم کنید. افزودن یا اختصاص یک رشته خالی `IsTextBox` را به `false` نگه می‌دارد:
 
 ```csharp
 using System;
@@ -106,17 +104,55 @@ Console.WriteLine(shape4.IsTextBox);
 
 دو فراخوانی اول `True` چاپ می‌کنند؛ دو فراخوانی آخر `False`.
 
-## **یافتن شکل مالک چارچوب متن**
+## **یافتن شکلی که چارچوب متن را دارد**
 
-کدهای عمومی پردازش متن ممکن است یک [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) را بدون دانستن شیء ارائه‌ای که آن را در بر دارد، دریافت کنند. از ویژگی فقط‑خواندنی [ITextFrame.ParentShape](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/parentshape/) برای بازگشت به [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) مالک آن استفاده کنید.
+کدهای عمومی پردازش متن ممکن است یک [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) را دریافت کنند بدون اینکه بدانند کدام شی ارائه آن را شامل می‌شود. از ویژگی فقط‑خواندنی [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) برای بازگشت به [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) مالک استفاده کنید.
 
-برای چارچوب متنی که توسط یک شکل خودکار یا شکل متن‌دار دیگر مالکیت می‌شود، `ParentShape` حامل مالک است و [ITextFrame.ParentCell](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/parentcell/) مقدار `null` دارد. قبل از دسترسی به مقدار بازگردانده‌شده، آن را بررسی کنید. برای شناسایی هم مالک شکل و هم جدول‑سلول، از جمله اشکالی که با گره‌های SmartArt مرتبط هستند، به بخش [جستجو و جایگزینی متن](/slides/fa/net/search-and-replace-text/) مراجعه کنید.
+برای یک چارچوب متنی که توسط یک شکل خودکار یا شکل دیگری حامل متن مالکیت می‌شود، `ParentShape` شامل صاحب است و [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) مقدار `null` دارد. قبل از دسترسی به مقدار بازگردانده‌شده آن را بررسی کنید. برای شناسایی هر دو صاحب شکل و سلول جدول، شامل شکل‌های مرتبط با گره‌های SmartArt، به [Search and Replace Text](/slides/fa/net/search-and-replace-text/) مراجعه کنید.
+
+## **دریافت مستطیل متن شکل**
+
+از Aspose.Slides برای .NET نسخه 26.11 به بعد، متد [ITextFrame.GetTextRect](https://reference.aspose.com/slides/net/aspose.slides/itextframe/gettextrect/) ناحیه متنی تعریف‌شده توسط هندسه شکل والد را بر می‌گرداند. مختصات و ابعاد آن بر حسب نقطه‌اند و نسبت به گوشه بالای چپ همان شکل هستند. به عنوان مثال، یک بیضی مستطیل متن کوچکتری نسبت به مرزهای بیرونی خود دارد.
+
+این مستطیل توصیف‌کننده شکل است، نه کاراکترهای رندرشده. تغییر متن یا حاشیه‌های چارچوب متن آن را به معیاری برای متن اشغال‌شده تبدیل نمی‌کند. برای اندازه‌گیری متن رندرشده از [paragraph bounds](/slides/fa/net/paragraph-bounds/) یا [portion bounds](/slides/fa/net/portion-bounds/) استفاده کنید.
+
+پس از [installing Aspose.Slides for .NET](/slides/fa/net/installation/) نسخه 26.11 یا بالاتر، این مثال را اجرا کنید تا مستطیل متن هندسی را با رنگ قرمز رسم کنید. شکل‌ها چرخش ندارند و گروه‌بندی نشده‌اند، بنابراین افزودن موقعیت X/Y کافی است تا overlay روی اسلاید قرار گیرد.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+foreach (var shapeType in new[] { ShapeType.Rectangle, ShapeType.Ellipse })
+{
+    var x = shapeType == ShapeType.Rectangle ? 50 : 300;
+    var shape = slide.Shapes.AddAutoShape(shapeType, x, 200, 200, 100);
+    shape.AddTextFrame("Text area");
+    var rectangle = shape.TextFrame.GetTextRect();
+    Console.WriteLine($"{shapeType}: {rectangle}");
+
+    var overlayX = shape.X + rectangle.X;
+    var overlayY = shape.Y + rectangle.Y;
+    var outline = slide.Shapes.AddAutoShape(ShapeType.Rectangle, overlayX, overlayY, rectangle.Width, rectangle.Height);
+    outline.FillFormat.FillType = FillType.NoFill;
+    outline.LineFormat.FillFormat.FillType = FillType.Solid;
+    outline.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+}
+
+presentation.Save("text-rectangles.pptx", SaveFormat.Pptx);
+```
+
+برای شکل‌های 200 × 100 نقطه‌ای که در بالا آمده‌اند، مستطیل `(0, 0, 200, 100)` را بر می‌گرداند؛ بیضی تقریباً `(29.289, 14.645, 141.421, 70.711)` بر می‌گرداند. این متد همچنین مستطیل متن اعلام‌شده برای هندسه سفارشی را می‌خواند. چرخش فضای اسلاید یا تبدیل‌های گروهی را اعمال نمی‌کند؛ برای موقعیت‌دهی overlay باید آنها را جداگانه در نظر بگیرید. یک چارچوب متن بدون شکل هندسی، مانند چارچوب متن سلول جدول، می‌تواند `InvalidOperationException` را به‌وجود آورد.
 
 ## **افزودن ستون‌ها به یک جعبه متن**
 
-ویژگی [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/columncount/) چارچوب متن را به ستون‌ها تقسیم می‌کند، در حالی که [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/columnspacing/) فاصله بین ستون‌ها را بر حسب پوینت تنظیم می‌نماید. هر دو تنظیم متعلق به [ITextFrameFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/) هستند و می‌توان آن‌ها را با استفاده از چارچوب متن یک جعبه متن موجود تغییر داد. متن بین ستون‌ها در همان شکل بازپخش می‌شود؛ به شکل دیگری ادامه نمی‌یابد.
+ویژگی [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/) چارچوب متن را به ستون‌ها تقسیم می‌کند، در حالی که [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/) فاصله بین ستون‌ها را بر حسب نقطه تنظیم می‌کند. هر دو تنظیم متعلق به [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/) هستند و می‌توان از طریق چارچوب متن یک جعبه متن موجود تغییر داد. متن بین ستون‌های داخل همان شکل جریان می‌یابد؛ به شکل دیگری ادامه نمی‌یابد.
 
-مثال زیر یک جعبه متن سه‑ستونی با فاصله 10 پوینت بین ستون‌ها ایجاد می‌کند، ارائه را ذخیره می‌نماید و تنظیمات ذخیره‌شده را از فایل خروجی می‌خواند:
+مثال زیر یک جعبه متن سه‌ستونه با فاصله 10 نقطه‌ای بین ستون‌ها ایجاد می‌کند، ارائه را ذخیره می‌کند و تنظیمات ذخیره‌شده را از فایل خروجی می‌خواند:
 
 ```csharp
 using System;
@@ -142,18 +178,18 @@ Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.Co
 
 ## **استخراج متن از ستون‌های جداگانه**
 
-از متد [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/fa/net/aspose.slides/textframe/splittextbycolumns/) برای دریافت متنی که به هر ستون بصری در یک چارچوب متن موجود اختصاص یافته استفاده کنید. این متد برای هر ستون یک رشته برمی‌گرداند، به ترتیب خواندن مبتنی بر ستون. یک چارچوب متن تک‌ستونی آرایه‌ای با یک عنصر تولید می‌کند و ستونی خالی توسط یک رشته خالی نمایان می‌شود. رشته‌ها فقط شامل متن ساده هستند؛ قالب‌بندی سطح بخش حفظ نمی‌شود.
+از [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/net/aspose.slides/textframe/splittextbycolumns/) برای بازیابی متنی که به هر ستون بصری در یک چارچوب متن موجود اختصاص یافته استفاده کنید. این متد برای هر ستون یک رشته بر می‌گرداند، به ترتیب خواندن بر پایه ستون. یک چارچوب متن تک‌ستونی یک آرایه با یک عنصر تولید می‌کند و ستون خالی با رشته خالی نشان داده می‌شود. رشته‌ها فقط شامل متن ساده هستند؛ قالب‌بندی سطح بخش حفظ نمی‌شود.
 
-این ویژگی زمانی مفید است که نیاز داشته باشید:
+این قابلیت زمانی مفید است که بخواهید:
 
-- متن را استخراج کنید در حالی که ترتیب خواندن مبتنی بر ستون حفظ می‌شود.
-- محتوای اسلایدهای چندستونی را ایندکس یا مقایسه کنید.
+- متن را هنگام حفظ ترتیب خواندن بر پایه ستون استخراج کنید.
+- محتوای اسلایدهای چندستونه را فهرست یا مقایسه کنید.
 - هر ستون را به فایل، فیلد پایگاه داده یا مقصد دیگری جداگانه صادر کنید.
-- بررسی کنید که پس از تغییر [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/columncount/)، [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/columnspacing/)، قلم یا اندازه چارچوب متن، متن چگونه بازتوزیع می‌شود.
+- بررسی کنید که پس از تغییر [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/)، [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/)، فونت یا اندازه چارچوب متن، متن چگونه بازتوزیع می‌شود.
 
-متد متن توزیع‌شده در [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) جاری را گزارش می‌دهد؛ به‌طور خودکار متن را بین اشکال یا جعبه‌های متن جداگانه جریان نمی‌دهد. توزیع ستون می‌تواند به قلم‌های موجود و تنظیمات دیگر چیدمان متن وابسته باشد، بنابراین هنگام نیاز به نتایج ثابت، اطمینان حاصل کنید که قلم‌های مورد نیاز در دسترس هستند.
+این متد متن توزیع‌شده در [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) فعلی را گزارش می‌کند؛ به‌طور خودکار متن را بین شکل‌ها یا جعبه‌های متن جداگانه جریان نمی‌دهد. توزیع ستون می‌تواند به فونت‌های موجود و سایر تنظیمات طرح‌بندی متن وابسته باشد، بنابراین اطمینان حاصل کنید که فونت‌های مورد نیاز هنگام نیاز به نتایج سازگار در دسترس باشند.
 
-مثال زیر یک ارائه را بارگذاری می‌کند، اولین شکل خودکار چندستونی با چارچوب متن را پیدا می‌کند، تعداد ستون‌های پیکربندی‌شده آن را می‌خواند و متن هر ستون را در یک فایل جداگانه می‌نویسد. شکل‌هایی که چارچوب متنی ندارند نادیده گرفته می‌شوند:
+مثال زیر یک ارائه را بارگذاری می‌کند، اولین شکل خودکار چندستونی با چارچوب متن را پیدا می‌کند، تعداد ستون‌های پیکربندی‌شده را می‌خواند و متن هر ستون را به یک فایل جداگانه می‌نویسد. شکل‌هایی که چارچوب متنی ندارند نادیده گرفته می‌شوند.
 
 ```csharp
 using System;
@@ -200,9 +236,9 @@ else
 
 ## **به‌روزرسانی متن**
 
-برای به‌روزرسانی متن در تمام ارائه، اسلایدها و اشکال را پیمایش کنید، اشکال خودکار را انتخاب کنید و سپس بخش‌های متنی آن‌ها را ویرایش کنید. کار بر سطح بخش امکان تغییر هم متن و هم قالب‌بندی کاراکترها را می‌دهد.
+برای به‌روزرسانی متن در سراسر یک ارائه، اسلایدها و شکل‌ها را پیمایشی کنید، شکل‌های خودکار را انتخاب کنید و سپس بخش‌های متنی آن‌ها را ویرایش کنید. کار بر سطح بخش به شما اجازه می‌دهد هم متن و هم قالب‌بندی کاراکترها را تغییر دهید.
 
-مثال زیر تمام وقوع‌های `years` را با `months` در متن اشکال خودکار جایگزین می‌کند و هر بخش مؤثر را به صورت بولد در می‌آورد:
+مثال زیر هر رخداد `years` را در متن شکل‌های خودکار با `months` جایگزین می‌کند و هر بخش تأثیر‌گذاری‌شده را بولد می‌نماید:
 
 ```csharp
 using Aspose.Slides;
@@ -233,13 +269,13 @@ foreach (var slide in presentation.Slides)
 presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-این پیمایش فقط متن را در اشکال خودکار به‌روز می‌کند. متنی که در جداول، نمودارها، SmartArt یا اشکال گروهی ذخیره شده است، نیاز به پیمایش مجموعه‌های مربوطه آن اشیاء دارد.
+این پیمایش فقط متن در شکل‌های خودکار را به‌روزرسانی می‌کند. متنی که در جداول، نمودارها، SmartArt یا شکل‌های گروهی ذخیره شده است، نیاز به پیمایش مجموعه‌های خود آن اشیاء دارد.
 
-## **افزودن جعبه متن با پیوند**
+## **افزودن یک جعبه متن با پیوند**
 
-یک پیوند می‌تواند به بخش متنی خاصی اختصاص یابد، به طوری که فقط آن متن به عنوان لینک قابل کلیک باشد. از متد [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/fa/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) برای مرتبط کردن بخش با یک URL خارجی استفاده کنید.
+یک پیوند می‌تواند به بخش متنی مشخصی اختصاص یابد، به‌طوری که فقط آن متن به عنوان پیوند قابل کلیک باشد. از [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) برای ارتباط بخش با یک URL خارجی استفاده کنید.
 
-مثال زیر متن لینک‌دار ایجاد کرده و آن را در یک ارائه ذخیره می‌کند:
+مثال زیر متن پیوندی ایجاد می‌کند و آن را در یک ارائه ذخیره می‌نماید:
 
 ```csharp
 using Aspose.Slides;
@@ -258,10 +294,10 @@ presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 
 ## **پرسش‌های متداول**
 
-**تفاوت جعبه متن و متغیر متن (placeholder) در اسلاید مستر یا طرح‌بندی چیست؟**
+**تفاوت جعبه متن با placeholder متن در اسلاید master یا layout چیست؟**
 
-یک [placeholder](/slides/fa/net/manage-placeholder/) می‌تواند موقعیت و قالب‌بندی خود را از یک [master slide](https://reference.aspose.com/slides/fa/net/aspose.slides/masterslide/) یا [layout slide](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutslide/) به ارث ببرد. یک جعبه متن معمولی یک شکل مستقل در اسلایدی است که در آن ایجاد شده و در هنگام تغییر طرح‌بندی، رفتار placeholder را کسب نمی‌کند.
+یک [placeholder](/slides/fa/net/manage-placeholder/) می‌تواند موقعیت و قالب‌بندی خود را از یک [master slide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) یا [layout slide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) ارث‌بگیرد. یک جعبه متن معمولی یک شکل مستقل در اسلایدی است که در آن ایجاد شده و هنگام تغییر طرح، رفتار placeholder را دریافت نمی‌کند.
 
-**چگونه می‌توانم متن را بدون تغییر متن در نمودارها، جداول یا SmartArt جایگزین کنم؟**
+**چگونه می‌توان متن را بدون تغییر متن در نمودارها، جداول یا SmartArt جایگزین کرد؟**
 
-پیمایش را محدود به اشکالی کنید که پیاده‌سازی [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) را دارند، همان‌طور که در مثال به‌روزرسانی متن نشان داده شد. نمودارها، جداول و SmartArt متن خود را در مدل‌های شیء مخصوص خود نگهداری می‌کنند، بنابراین توسط این حلقه تغییر نمی‌یابند.
+پیمایش را به شکل‌هایی که [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) را پیاده‌سازی می‌کنند محدود کنید، همان‌طور که در مثال به‌روزرسانی متن نشان داده شد. نمودارها، جداول و SmartArt متن خود را در مدل‌های شیء خود ذخیره می‌کنند، بنابراین توسط این حلقه تغییر نمی‌یابند.

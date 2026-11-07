@@ -1,14 +1,14 @@
 ---
 title: Sekwencja wyboru czcionek w Aspose.Slides dla .NET
-linktitle: Wybór czcionek
+linktitle: Wybór czcionki
 type: docs
 weight: 80
 url: /pl/net/font-selection-sequence/
 keywords:
-- wybór czcionek
-- substytucja czcionek
-- zastąpienie czcionek
-- reguła substytucji
+- wybór czcionki
+- podstawianie czcionki
+- zastąpienie czcionki
+- reguła podstawiania
 - dostępna czcionka
 - brakująca czcionka
 - PowerPoint
@@ -21,42 +21,73 @@ description: "Odkryj, jak Aspose.Slides dla .NET wybiera czcionki, zapewniając 
 ---
 ## **Przegląd**
 
-Kiedy prezentacja jest ładowana, renderowana lub konwertowana do innego formatu, Aspose.Slides sprawdza, czy czcionki użyte w prezentacji są dostępne w systemie operacyjnym. Jeśli wymagana czcionka brakuje, Aspose.Slides wybiera czcionkę zastępczą, która jest jak najbardziej zbliżona do tej, której użyłby PowerPoint.
+When a presentation is loaded, rendered, or converted to another format, Aspose.Slides considers its embedded fonts and the fonts available to the application. If a required font is unavailable, Aspose.Slides selects a replacement font that is as close as possible to the one PowerPoint would use.
 
-Aspose.Slides najpierw wyszukuje wybraną czcionkę w systemie operacyjnym. Jeśli czcionka zostanie znaleziona, jest używana. Jeśli nie, stosowana jest odpowiednia czcionka zastępcza. Gdy reguły zastępowania czcionek są określone przy pomocy `FontSubstRule`, są one również brane pod uwagę.
+Available fonts can include system fonts, fonts loaded by the application and fonts embedded in the presentation. For a matching embedded and registered font, the .NET 26.11 preference described below controls which takes priority. Font substitution rules defined through [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) are a separate mechanism.
 
-Można także dodać czcionki w czasie działania aplikacji, używać czcionek osadzonych w prezentacji lub wczytywać zewnętrzne czcionki dla dokumentów wyjściowych, takich jak pliki PDF.
+You can also add fonts at application runtime, use embedded fonts from a presentation, or load external fonts for output documents such as PDF files.
 
-## **Wybór czcionek**
+## **Wybór czcionki**
 
-Na czcionki w prezentacji obowiązują pewne reguły podczas ładowania, renderowania lub konwersji do innego formatu. Na przykład przy konwersji prezentacji (jej slajdów) do obrazów, czcionki prezentacji są sprawdzane pod kątem dostępności w systemie operacyjnym. Jeśli czcionki zostaną potwierdzone jako nieobecne, są zamieniane — zobacz [**Zastąpienie czcionek**](https://docs.aspose.com/slides/pl/net/font-replacement/) i [**Substitucja czcionek**](https://docs.aspose.com/slides/pl/net/font-substitution/).
+Text can reference a theme font, such as `+mn-lt`, rather than an explicit family name. See [Rozwiązywanie odwołań do czcionek motywu](/slides/pl/net/presentation-theme/#resolve-theme-font-references) to obtain the family specified by the applicable theme. Resolving that reference is separate from checking font availability and applying rendering-time substitution or glyph fallback; it does not identify the font file ultimately used to render the text.
 
-Oto proces, którego Aspose.Slides używa przy obsłudze czcionek:
+When rendering slides or converting a presentation, check that the requested fonts are embedded or available from registered sources. Missing fonts can require replacement or substitution; see [**Zamiana czcionek**](/slides/pl/net/font-replacement/) and [**Podstawianie czcionek**](/slides/pl/net/font-substitution/).
 
-1. Aspose.Slides wyszukuje czcionki w systemie operacyjnym, aby znaleźć czcionkę pasującą do wybranej w prezentacji. 
-2. Jeśli wybrana czcionka zostanie znaleziona, Aspose.Slides ją używa. W przeciwnym razie Aspose.Slides korzysta z czcionki zastępczej, jak najbardziej zbliżonej do tej, której użyłby PowerPoint.
-3. Jeśli reguły zastępowania czcionek zostały ustawione przy pomocy [FontSubstRule](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsubstrule/), są one stosowane. 
+When investigating font selection:
 
-Aspose.Slides umożliwia dodanie czcionek w czasie działania aplikacji i ich późniejsze użycie. Zobacz [**Czcionki niestandardowe**](https://docs.aspose.com/slides/pl/net/custom-font/). 
+1. Resolve the requested family and style, including any theme reference.
+2. Check embedded fonts and registered sources, including system fonts and fonts loaded by the application. Use the preference below when matching embedded and registered versions compete.
+3. Review [reguły podstawiania czcionek](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) and glyph fallback if the requested font or characters are unavailable.
 
-Gdy dodatkowe czcionki są umieszczane w prezentacji, nazywane są one [**Czcionkami osadzonymi**](https://docs.aspose.com/slides/pl/net/embedded-font/).
+Aspose.Slides allows you to add fonts to application runtime and then use those fonts. See [**Czcionki niestandardowe**](/slides/pl/net/custom-font/).
 
-Aspose.Slides pozwala dodać czcionki, które są stosowane *wyłącznie* w dokumentach wyjściowych. Na przykład, jeśli prezentacja, którą chcesz przekonwertować do PDF, zawiera czcionki brakujące w twoim systemie i brak osadzonych czcionek, możesz dodać lub wczytać potrzebne czcionki jako **czcionki zewnętrzne**. 
+When additional fonts are placed within a presentation, they are called [**Czcionki osadzone**](/slides/pl/net/embedded-font/).
 
-{{% alert title="Uwaga" color="primary" %}} 
-Nie rozpowszechniamy żadnych czcionek, ani płatnych, ani darmowych. Nasze API umożliwia wczytywanie czcionek zewnętrznych i osadzanie ich w dokumentach, ale robisz to na własną decyzję i odpowiedzialność. 
+Aspose.Slides allows you to add fonts that are applied to *only* output documents. For example, if a presentation you are looking to convert to PDF contains fonts missing from your system and embedded fonts, you can add or load the needed fonts as **external fonts**. 
+
+{{% alert title="Note" color="info" %}} 
+We do not distribute any fonts, either paid or free. Our API allows you to load external fonts and embed them in documents, but you do so with fonts at your discretion and responsibility.
 {{% /alert %}}
+
+## **Preferowanie czcionek zarejestrowanych nad czcionkami osadzonymi**
+
+Starting with .NET 26.11, [IFontsManager.PreferRegisteredFontsOverEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/preferregisteredfontsoverembedded/) lets a matching registered font take priority over an embedded font during export. The default is `false`. Matching uses the font name and style; a different family name is not a replacement match. Registered fonts can come from the system or [explicitly loaded font sources](/slides/pl/net/custom-font/).
+
+The following example uses the **Aspose.Slides.NET6.CrossPlatform 26.11** package on .NET 8. Follow the [przewodnik instalacji](/slides/pl/net/installation/) for your environment. Provide `embedded-fonts.pptx` with an embedded font and `preferred.ttf` with the same family name and style. The two font files should differ visibly if you want to compare the output.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var fontBytes = File.ReadAllBytes("preferred.ttf");
+FontsLoader.LoadExternalFont(fontBytes);
+using var presentation = new Presentation("embedded-fonts.pptx");
+
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = false;
+presentation.Save("embedded-preference.pdf", SaveFormat.Pdf);
+
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = true;
+presentation.Save("registered-preference.pdf", SaveFormat.Pdf);
+
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = false;
+presentation.Save("restored-preference.pdf", SaveFormat.Pdf);
+```
+
+This setting changes font precedence during the export; it does not rename the text's font, remove embedded font data or re-embed the registered file. It is a runtime setting: set it again after reopening a presentation. If no matching registered font is available, enabling the preference does not supply one; verify the resulting font and layout in your target environment.
+
+PNG and PDF output with explicitly loaded regular fonts were checked for the configuration above. Check your own font files, styles, SDK build and output formats before depending on identical results. Font metrics can change line breaks and positioning. Use [zamiana czcionek](/slides/pl/net/font-replacement/) or [podstawianie](/slides/pl/net/font-substitution/) when you need a different family, and [operacje na czcionkach osadzonych](/slides/pl/net/embedded-font/) when you need to change the fonts stored in the presentation.
 
 ## **FAQ**
 
-**Jak mogę określić, które czcionki są faktycznie używane w prezentacji przed konwersją?**
+**Jak mogę określić, które czcionki są faktycznie użyte w prezentacji przed konwersją?**
 
-Aspose.Slides umożliwia przeglądanie używanych czcionek za pośrednictwem [menedżera czcionek](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/fontsmanager/), dzięki czemu możesz zdecydować, czy [osadzić](/slides/pl/net/embedded-font/), [zamienić](/slides/pl/net/font-replacement/) lub dodać [zewnętrzne źródła](/slides/pl/net/custom-font/). To pomaga zapobiegać niechcianym substytucjom podczas renderowania i eksportu.
+Aspose.Slides umożliwia sprawdzenie używanych czcionek za pomocą [menedżera czcionek](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/), dzięki czemu możesz zdecydować, czy [osadzić](/slides/pl/net/embedded-font/), [zastąpić](/slides/pl/net/font-replacement/), czy dodać [zewnętrzne źródła](/slides/pl/net/custom-font/). To pomaga zapobiec niechcianym podstawieniom podczas renderowania i eksportu.
 
 **Czy mogę dodać dodatkowe katalogi czcionek bez instalowania ich w systemie operacyjnym?**
 
-Tak. Możesz zarejestrować [zewnętrzne źródła czcionek](/slides/pl/net/custom-font/), takie jak foldery lub strumienie w pamięci, do renderowania i eksportu. Dzięki temu unikasz zależności od czcionek systemowych i utrzymujesz przewidywalny układ.
+Tak. Możesz zarejestrować [zewnętrzne źródła czcionek](/slides/pl/net/custom-font/), takie jak foldery lub strumienie w pamięci, do renderowania i eksportu. To usuwa zależność od czcionek systemowych i utrzymuje układ przewidywalnym.
 
 **Jak zapobiec cichej zmianie na nieodpowiednią czcionkę, gdy brakuje glifu?**
 
-Zdefiniuj wcześniej wyraźne [zastąpienie czcionek](/slides/pl/net/font-replacement/) oraz reguły [fallback czcionek](/slides/pl/net/fallback-font/). Analizując używane czcionki i ustawiając kontrolowaną priorytetyzację zamienników, zapewniasz spójną typografię i unikniesz nieoczekiwanych rezultatów.
+Zdefiniuj explicite [zamiana czcionek](/slides/pl/net/font-replacement/) i font [reguły zastępowania](/slides/pl/net/fallback-font/) z wyprzedzeniem. Analizując używane czcionki i ustawiając kontrolowany priorytet dla zamienników, zapewniasz spójną typografię i unikasz nieoczekiwanych rezultatów.

@@ -1,37 +1,37 @@
 ---
-title: Bädda in typsnitt i presentationer i .NET
-linktitle: Inbäddade typsnitt
+title: Inbädda teckensnitt i presentationer i .NET
+linktitle: Inbäddade teckensnitt
 type: docs
 weight: 40
 url: /sv/net/embedded-font/
 keywords:
-- lägga till typsnitt
-- bädda in typsnitt
-- inbäddning av typsnitt
-- hämta inbäddat typsnitt
-- lägga till inbäddat typsnitt
-- ta bort inbäddat typsnitt
-- komprimera inbäddat typsnitt
+- lägg till teckensnitt
+- inbädda teckensnitt
+- inbäddning av teckensnitt
+- hämta inbäddat teckensnitt
+- lägg till inbäddat teckensnitt
+- ta bort inbäddat teckensnitt
+- komprimera inbäddat teckensnitt
 - PowerPoint
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Hantera inbäddade typsnitt i PowerPoint med Aspose.Slides för .NET. Använd C# för att lägga till, hämta, ta bort och komprimera typsnitt för att bevara textens utseende och minska filstorleken."
+description: "Hantera inbäddade teckensnitt i PowerPoint med Aspose.Slides för .NET. Använd C# för att lägga till, hämta, ta bort och komprimera teckensnitt för att bevara textens utseende och minska filstorleken."
 ---
 ## **Introduktion**
 
-Att bädda in typsnitt lagrar typsnittsdata i en PowerPoint-presentation. När en visare stöder inbäddade typsnitt kan den visa text med dessa typsnitt även om de inte är installerade på målsystemet. Detta hjälper till att bevara radbrytningar, textavstånd och bildlayout.
+Inbäddade teckensnitt lagrar teckensnittsinformation i en PowerPoint-presentation. När en visare stödjer inbäddade teckensnitt kan den visa text med dessa teckensnitt även om de inte är installerade på målsystemet. Detta hjälper till att bevara radbrytningar, textavstånd och bildlayout.
 
-Aspose.Slides for .NET låter dig hämta, lägga till och ta bort inbäddade typsnitt via egenskapen [FontsManager](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/fontsmanager/) i en [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/). Du kan också minska storleken på inbäddade typsnittsdata genom att ta bort tecken som presentationen inte använder.
+Aspose.Slides för .NET låter dig hämta, lägga till och ta bort inbäddade teckensnitt via egenskapen [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) för en [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Du kan också minska storleken på inbäddade teckensnittsinformation genom att ta bort tecken som presentationen inte använder.
 
-Exemplen nedan fungerar med PPTX-filer. Innan du bäddar in ett typsnitt, se till att dess typsnittsdata är tillgänglig för Aspose.Slides och att licensen tillåter inbäddning.
+Exemplen nedan fungerar med PPTX‑filer. Innan du inbäddar ett teckensnitt, se till att dess teckensnittsdata är tillgänglig för Aspose.Slides och att licensen tillåter inbäddning.
 
-## **Hämta och ta bort inbäddade typsnitt**
+## **Hämta och ta bort inbäddade teckensnitt**
 
-Använd [GetEmbeddedFonts](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsmanager/getembeddedfonts/) för att lista de typsnitt som lagras i en presentation. För att ta bort ett, skicka ett typsnitt från den listan till [RemoveEmbeddedFont](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsmanager/removeembeddedfont/), och spara sedan presentationen.
+Använd [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) för att lista teckensnitten som lagras i en presentation. För att ta bort ett, skicka ett teckensnitt från den listan till [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont/), och spara sedan presentationen.
 
-Följande exempel listar de inbäddade typsnitten i `EmbeddedFonts.pptx` och tar bort Calibri om det finns:
+Följande exempel listar de inbäddade teckensnitten i `EmbeddedFonts.pptx` och tar bort Calibri om det finns:
 
 ```csharp
 using System;
@@ -59,24 +59,24 @@ else
 }
 ```
 
-Att ta bort ett inbäddat typsnitt tar bort dess lagrade typsnittsdata; det ändrar inte det typsnitt som tilldelats texten. Om typsnittet är installerat på målsystemet kan texten fortfarande använda det. Annars kan rendering kräva [font substitution](/slides/sv/net/font-substitution/), vilket kan påverka layouten.
+Att ta bort ett inbäddat teckensnitt tar bort dess lagrade teckensnittsdata; det ändrar inte det teckensnitt som är tilldelat texten. Om teckensnittet är installerat på målsystemet kan texten fortfarande använda det. Annars kan renderingen kräva [teckensnittssubstitution](/slides/sv/net/font-substitution/), vilket kan påverka layouten.
 
-## **Inspektera typsnittsdata och inbäddningsbehörigheter**
+## **Inspektera teckensnittsdata och inbäddningsbehörigheter**
 
-Använd gränssnittet [IFontsManager](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/) för att inspektera typsnitt innan de bäddas in. Anropa [IFontsManager.GetFonts](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getfonts/) för att hämta de typsnitt som används i presentationen. För varje typsnitt, skicka ett [IFontData](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontdata/)‑objekt och det erforderliga [FontStyleType](https://reference.aspose.com/slides/sv/net/aspose.slides/fontstyletype/)‑värdet till [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getfontbytes/). Metoden returnerar de binära data för den typsnittsstilen, eller `null` när det begärda typsnittet eller stilen är otillgänglig. Skicka inte ett `null`‑resultat till [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), eftersom den metoden kräver en byte‑array.
+Använd gränssnittet [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) för att inspektera teckensnitt innan de inbäddas. Anropa [IFontsManager.GetFonts](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfonts/) för att hämta de teckensnitt som används i presentationen. För varje teckensnitt, skicka ett [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/)‑objekt och det erforderliga [FontStyleType](https://reference.aspose.com/slides/net/aspose.slides/fontstyletype/)-värdet till [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontbytes/). Metoden returnerar de binära data för den teckensnittsstilen, eller `null` när det begärda teckensnittet eller stilen inte är tillgänglig. Skicka inte ett `null`‑resultat till [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), eftersom den metoden kräver en byte‑array.
 
-[EmbeddingLevel](https://reference.aspose.com/slides/sv/net/aspose.slides/embeddinglevel/) är en flagg‑enumeration som rapporterar inbäddningsrestriktionerna som lagras i typsnittet:
+[EmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/embeddinglevel/) är en flagg‑enumeration som rapporterar inbäddningsrestriktionerna som lagras i teckensnittet:
 
-- `Installable` tillåter inbäddning och permanent installation på ett annat system, med förbehåll för typsnittets licens.
-- `Restricted` förbjuder inbäddning om inte tillstånd erhålls från typsnittets juridiska ägare när det är det enda användnings‑behörighets‑flaggan.
-- `PreviewPrint` tillåter tillfällig användning för visning och utskrift; ett dokument som innehåller typsnittet måste vara skrivskyddat.
-- `Editable` tillåter tillfällig användning och gör det möjligt att redigera och spara dokumentet.
-- `NoSubsetting` är en extra restriktion som förbjuder att bara en delmängd av tecknen inbäddas. Bädda in alla tecken när denna flagga är närvarande.
-- `BitmapOnly` är en extra restriktion som endast tillåter bitmap‑strikes att bäddas in, inte konturdata. Om typsnittet saknar bitmap‑strikes kan det inte bäddas in.
+- `Installable` tillåter inbäddning och permanent installation på ett annat system, i enlighet med teckensnittets licens.
+- `Restricted` förbjuder inbäddning om inte tillstånd erhålls från teckensnittets juridiska ägare när det är det enda användningsbehörighets‑flaggan.
+- `PreviewPrint` tillåter tillfällig användning för visning och utskrift; ett dokument som innehåller teckensnittet måste vara skrivskyddat.
+- `Editable` tillåter tillfällig användning och möjliggör att dokumentet kan redigeras och sparas.
+- `NoSubsetting` är en ytterligare restriktion som förbjuder att bara en delmängd av glyferna inbäddas. Inbädda alla tecken när denna flagga är närvarande.
+- `BitmapOnly` är en ytterligare restriktion som bara tillåter att bitmap‑strikes inbäddas, inte konturdata. Om teckensnittet saknar bitmap‑strikes kan det inte inbäddas.
 
-De första fyra värdena beskriver användarbehörighet, medan `NoSubsetting` och `BitmapOnly` kan kombineras med dem. Kontrollera modifierarna med bitvisa operationer. Eftersom `Installable` är noll, använd inte `HasFlag` för att upptäcka den; maskera användarbehörighets‑bitarna och jämför resultatet med `Installable`. Aktuella typsnitt bör sätta högst en användarbehörighets‑bit. För kompatibilitet med äldre typsnitt som sätter fler än en, väljer hjälpfunktionen nedan den minst restriktiva behörigheten: `Editable`, sedan `PreviewPrint`, sedan `Restricted`.
+De första fyra värdena beskriver användningsbehörighet, medan `NoSubsetting` och `BitmapOnly` kan kombineras med dem. Kontrollera modifierarna med bitvisa operationer. Eftersom `Installable` är noll, använd inte `HasFlag` för att detektera den; maska användningsbehörighets‑bitarna och jämför resultatet med `Installable`. Aktuella teckensnitt bör sätta högst en användningsbehörighets‑bit. För kompatibilitet med äldre teckensnitt som sätter mer än en, väljer hjälpfunktionen nedan den minst restriktiva behörigheten: `Editable`, sedan `PreviewPrint`, sedan `Restricted`.
 
-Följande exempel granskar de vanliga, fetstil, kursiv och fet‑kursiva data som är tillgängliga för varje typsnitt som returneras av `GetFonts`. Det hoppar över otillgängliga stilar, begränsade typsnitt, endast‑bitmap‑typsnitt, typsnitt begränsade till förhandsgranskning och utskrift eftersom resultatet förblir redigerbart, samt typsnitt som redan är inbäddade. Om någon tillgänglig stil har `NoSubsetting` bäddas alla tecken in för den typsnittsfamiljen.
+Följande exempel granskar de vanliga, fet, kursiv och fet‑kursiv‑data som är tillgängliga för varje teckensnitt som returneras av `GetFonts`. Det hoppar över otillgängliga stilar, begränsade teckensnitt, bitmap‑endast teckensnitt, teckensnitt som är begränsade till förhandsvisning och utskrift eftersom utskriften förblir redigerbar, samt teckensnitt som redan är inbäddade. Om någon tillgänglig stil har `NoSubsetting` inbäddas alla tecken för den teckensnittsfamiljen.
 
 ```csharp
 using System;
@@ -186,16 +186,16 @@ foreach (var item in embeddingPlan)
 presentation.Save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Denna inspektion rapporterar de restriktioner som kodats i varje typsnittsfil. Den ger ingen licens, bevisar inte att du har skaffat typsnittet lagligt, eller ersätter kontrollen av typsnittets licensavtal innan du distribuerar en inbäddad kopia.
+Denna inspektion rapporterar de restriktioner som är kodade i varje teckensnittsfil. Den beviljar ingen licens, bevisar inte att du skaffat teckensnittet lagligt, eller ersätter kontrollen av teckensnittets licensavtal innan du distribuerar en inbäddad kopia.
 
-## **Lägg till inbäddade typsnitt**
+## **Lägg till inbäddade teckensnitt**
 
-Använd [AddEmbeddedFont](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsmanager/addembeddedfont/) för att bädda in ett typsnitt. Dess överlagringar accepterar antingen ett [IFontData](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontdata/)‑objekt eller en byte‑array som innehåller typsnittsdata. Enumerationen [EmbedFontCharacters](https://reference.aspose.com/slides/sv/net/aspose.slides.export/embedfontcharacters/) styr vilka tecken som inkluderas:
+Använd [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) för att inbädda ett teckensnitt. Dess overload‑versioner accepterar antingen ett [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/)‑objekt eller en byte‑array som innehåller teckensnittsdata. Enumerationen [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) styr vilka tecken som inkluderas:
 
-- [All](https://reference.aspose.com/slides/sv/net/aspose.slides.export/embedfontcharacters/) bäddar in alla tecken i typsnittet. Använd detta alternativ när mottagare behöver redigera presentationen och skriva in ny text.
-- [OnlyUsed](https://reference.aspose.com/slides/sv/net/aspose.slides.export/embedfontcharacters/) bäddar in endast de tecken som används i presentationen för att minska filstorleken. Välj detta alternativ för en färdig presentation som huvudsakligen är avsedd för visning.
+- [All](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) inbäddar alla tecken i teckensnittet. Använd detta alternativ när mottagarna behöver redigera presentationen och skriva in ny text.
+- [OnlyUsed](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) inbäddar endast de tecken som används i presentationen för att minska filstorleken. Välj detta alternativ för en färdig presentation som huvudsakligen är avsedd för visning.
 
-Följande exempel använder [GetFonts](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsmanager/getfonts/) för att hämta de typsnitt som används i `Fonts.pptx` och bäddar in de som ännu inte är inbäddade. De typsnitt som ska läggas till måste vara tillgängliga på maskinen som kör koden. Befintliga inbäddade typsnitt behåller sina nuvarande teckenuppsättningar.
+Följande exempel använder [GetFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) för att hämta teckensnitten som används i `Fonts.pptx` och inbäddar de som ännu inte är inbäddade. Teckensnitten som ska läggas till måste vara tillgängliga på maskinen som kör koden. Befintliga inbäddade teckensnitt behåller sina nuvarande teckenuppsättningar.
 
 ```csharp
 using System;
@@ -223,11 +223,11 @@ foreach (var font in allFonts)
 presentation.Save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-## **Komprimera inbäddade typsnitt**
+## **Komprimera inbäddade teckensnitt**
 
-[CompressEmbeddedFonts](https://reference.aspose.com/slides/sv/net/aspose.slides.lowcode/compress/compressembeddedfonts/) minskar inbäddade typsnittsdata genom att ta bort oanvända tecken. Den arbetar på typsnitt som redan är inbäddade, så storleksreduktionen beror på hur mycket oanvända typsnittsdata presentationen innehåller.
+[CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) minskar inbäddade teckensnittsdata genom att ta bort oanvända tecken. Den fungerar på teckensnitt som redan är inbäddade, så storleksminskningen beror på hur mycket oanvänd teckensnittsdata presentationen innehåller.
 
-Följande exempel komprimerar typsnitten i `EmbeddedFonts.pptx` och sparar resultatet som en separat fil:
+Följande exempel komprimerar teckensnitten i `EmbeddedFonts.pptx` och sparar resultatet som en separat fil:
 
 ```csharp
 using Aspose.Slides;
@@ -239,14 +239,16 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Behåll originalfilen om mottagare kan behöva lägga till text senare. Tecken som tas bort under komprimeringen är inte längre tillgängliga från det inbäddade typsnittet, även om du ursprungligen bäddade in alla tecken.
+Behåll originalfilen om mottagarna kan behöva lägga till text senare. Tecken som tas bort under komprimeringen är inte längre tillgängliga från det inbäddade teckensnittet, även om du ursprungligen inbäddade alla tecken.
+
+För att låta ett matchande registrerat teckensnitt ha prioritet vid export utan att ta bort det inbäddade teckensnittet, se [Föredra registrerade teckensnitt framför inbäddade teckensnitt](/slides/sv/net/font-selection-sequence/#prefer-registered-fonts-over-embedded-fonts) (.NET 26.11 eller senare).
 
 ## **FAQ**
 
-**Hur kan jag kontrollera om ett inbäddat typsnitt fortfarande kommer att ersättas under rendering?**
+**Hur kan jag kontrollera om ett inbäddat teckensnitt fortfarande kommer att ersättas under rendering?**
 
-Anropa [GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsmanager/getsubstitutions/) i den miljö där du renderar presentationen för att se vilka typsnitt Aspose.Slides kommer att ersätta. Kontrollera även inställningarna för [font substitution](/slides/sv/net/font-substitution/) och [font fallback](/slides/sv/net/fallback-font/) regler. Fallback hanterar saknade tecken, så inbäddning av ett typsnitt löser inte tecken som typsnittet själv inte innehåller.
+Anropa [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) i den miljö där du renderar presentationen för att se vilka teckensnitt Aspose.Slides kommer att ersätta. Kontrollera även inställningarna för [teckensnittssubstitution](/slides/sv/net/font-substitution/) och reglerna för [teckensnittsfallback](/slides/sv/net/fallback-font/). Fallback hanterar saknade tecken, så inbäddning av ett teckensnitt löser inte tecken som teckensnittet självt inte innehåller.
 
-**Ska jag bädda in vanliga typsnitt såsom Arial och Calibri?**
+**Bör jag inbädda vanliga teckensnitt som Arial och Calibri?**
 
-Basera beslutet på målmiljön. Om de erforderliga typsnitten är tillgängliga på varje maskin som öppnar eller renderar presentationen kan inbäddning av dem öka filstorleken onödigt. Om mottagare eller servrar kan sakna dessa typsnitt kan inbäddning hjälpa till att bevara det avsedda utseendet, förutsatt att deras licenser tillåter det.
+Basera beslutet på målmiljön. Om de erforderliga teckensnitten är tillgängliga på varje maskin som öppnar eller renderar presentationen kan inbäddning öka filstorleken onödigt. Om mottagare eller servrar kan sakna dessa teckensnitt kan inbäddning hjälpa till att bevara det avsedda utseendet, förutsatt att deras licenser tillåter det.

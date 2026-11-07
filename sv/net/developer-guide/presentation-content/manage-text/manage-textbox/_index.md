@@ -22,12 +22,10 @@ description: "Skapa, identifiera, formatera och uppdatera textrutor i PowerPoint
 ---
 ## **Introduktion**
 
-I Aspose.Slides för .NET lagras bildtext i textramar som tillhör former. Gränssnittet [IAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape/) representerar den vanligaste textbärande formen och exponerar dess text via egenskapen [IAutoShape.TextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape/textframe/) .
+I Aspose.Slides for .NET lagras bildtext i textramar som tillhör former. Gränssnittet [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) representerar den vanligaste textbärande formen och exponerar dess text via egenskapen [IAutoShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/).
 
 {{% alert color="info" title="Note" %}}
-
-Varje autoform implementerar [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/), men inte varje form är en autoform eller stöder en textram. När du bearbetar en befintlig presentation, kontrollera att en form implementerar `IAutoShape` innan du får åtkomst till dess text.
-
+Varje autoform implementerar [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), men inte varje form är en autoform eller stöder en textram. När du bearbetar en befintlig presentation, kontrollera att en form implementerar `IAutoShape` innan du kommer åt dess text.
 {{% /alert %}}
 
 ## **Skapa en textruta på en bild**
@@ -46,15 +44,15 @@ textBox.AddTextFrame("Aspose TextBox");
 presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-Koordinaterna och dimensionerna som skickas till [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/addautoshape/) mäts i punkter. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape/addtextframe/) initierar textramen med den angivna texten.
+Koordinaterna och dimensionerna som skickas till [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/) mäts i punkt. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) initierar textramen med den angivna texten.
 
 ## **Kontrollera om en form är en textruta**
 
-Använd egenskapen [AutoShape.IsTextBox](https://reference.aspose.com/slides/sv/net/aspose.slides/autoshape/istextbox/) för att avgöra om en autoform behandlas som en textruta. Detta är användbart när en presentation innehåller både textbärande och rena grafiska autoformer.
+Använd egenskapen [AutoShape.IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) för att avgöra om en autoform behandlas som en textruta. Detta är användbart när en presentation innehåller både textbärande och enbart grafiska autoformer.
 
-![A text box and a shape](istextbox.png)
+![En textruta och en form](istextbox.png)
 
-Följande exempel inspekterar varje autoform i en presentation:
+Följande exempel undersöker varje autoform i en presentation:
 
 ```csharp
 using System;
@@ -78,7 +76,7 @@ foreach (var currentSlide in presentation.Slides)
 }
 ```
 
-En nylagd autoform betraktas inte som en textruta förrän den innehåller icke‑tom text. Du kan leverera den texten via [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape/addtextframe/) eller [ITextFrame.Text](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/text/). Att lägga till eller tilldela en tom sträng lämnar `IsTextBox` satt till `false`:
+En ny tillagd autoform betraktas inte som en textruta förrän den innehåller icke‑tom text. Du kan tillhandahålla den texten via [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) eller [ITextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/itextframe/text/). Att lägga till eller tilldela en tom sträng lämnar `IsTextBox` inställt på `false`:
 
 ```csharp
 using System;
@@ -108,15 +106,53 @@ De två första anropen skriver ut `True`; de två sista skriver ut `False`.
 
 ## **Hitta formen som äger en textram**
 
-Generisk textbearbetningskod kan få en [ITextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/) utan att veta vilket presentationsobjekt som innehåller den. Använd den skrivskyddade egenskapen [ITextFrame.ParentShape](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/parentshape/) för att navigera tillbaka till dess ägande [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/).
+Generisk textbearbetningskod kan få en [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) utan att veta vilket presentationsobjekt som innehåller den. Använd den skrivskyddade egenskapen [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) för att navigera tillbaka till dess ägande [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/).
 
-För en textram som ägs av en autoform eller en annan textbärande form innehåller `ParentShape` ägaren och [ITextFrame.ParentCell](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/parentcell/) är `null`. Kontrollera det returnerade värdet innan du får åtkomst till det. För att identifiera både form‑ och tabellcell‑ägare, inklusive former som är kopplade till SmartArt‑noder, se [Search and Replace Text](/slides/sv/net/search-and-replace-text/).
+För en textram som ägs av en autoform eller en annan textbärande form innehåller `ParentShape` ägaren och [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) är `null`. Kontrollera det returnerade värdet innan du använder det. För att identifiera både form‑ och tabellcell‑ägare, inklusive former relaterade till SmartArt‑noder, se [Sök och ersätt text](/slides/sv/net/search-and-replace-text/).
+
+## **Hämta formens textrektangel**
+
+Från och med Aspose.Slides for .NET 26.11 returnerar [ITextFrame.GetTextRect](https://reference.aspose.com/slides/net/aspose.slides/itextframe/gettextrect/) textområdet som definieras av den överordnade formens geometri. Dess koordinater och dimensioner är i punkt, relativt formens övre vänstra hörn. Till exempel har en ellips en mindre textrektangel än dess yttre gränser.
+
+Denna rektangel beskriver formen, inte de renderade tecknen. Att ändra texten eller marginalerna för textramen gör den inte till ett mått på upptagen text. Använd [paragrafgränser](/slides/sv/net/paragraph-bounds/) eller [delgränser](/slides/sv/net/portion-bounds/) för mått på renderad text.
+
+Efter att ha [installera Aspose.Slides for .NET](/slides/sv/net/installation/) 26.11 eller senare, kör detta exempel för att rita geometrins textrektangel i rött. Formerna är oregerade och ogrupperade, så att lägga till deras X/Y‑position är tillräckligt för att placera överlägget på bilden.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+foreach (var shapeType in new[] { ShapeType.Rectangle, ShapeType.Ellipse })
+{
+    var x = shapeType == ShapeType.Rectangle ? 50 : 300;
+    var shape = slide.Shapes.AddAutoShape(shapeType, x, 200, 200, 100);
+    shape.AddTextFrame("Text area");
+    var rectangle = shape.TextFrame.GetTextRect();
+    Console.WriteLine($"{shapeType}: {rectangle}");
+
+    var overlayX = shape.X + rectangle.X;
+    var overlayY = shape.Y + rectangle.Y;
+    var outline = slide.Shapes.AddAutoShape(ShapeType.Rectangle, overlayX, overlayY, rectangle.Width, rectangle.Height);
+    outline.FillFormat.FillType = FillType.NoFill;
+    outline.LineFormat.FillFormat.FillType = FillType.Solid;
+    outline.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+}
+
+presentation.Save("text-rectangles.pptx", SaveFormat.Pptx);
+```
+
+För de 200 × 100 punkt stora formerna ovan returnerar rektangeln `(0, 0, 200, 100)`; ellipsen returnerar ungefär `(29.289, 14.645, 141.421, 70.711)`. Metoden läser också en anpassad geometris deklarerade textrektangel. Den tillämpar inte bildrotation eller grupptransformeringar; ta hänsyn till dessa separat när du placerar ett överlägg. En textram utan en geometriform, såsom en tabellcellstextram, kan kasta `InvalidOperationException`.
 
 ## **Lägg till kolumner i en textruta**
 
-Egenskapen [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframeformat/columncount/) delar textramen i kolumner, medan [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframeformat/columnspacing/) anger avståndet mellan kolumner i punkter. Båda inställningarna tillhör [ITextFrameFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframeformat/) och kan ändras via textramen i en befintlig textruta. Text flödar om mellan kolumner inom samma form; den fortsätter inte in i en annan form.
+Egenskapen [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/) delar textramen i kolumner, medan [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/) anger avståndet mellan kolumner i punkt. Båda inställningarna tillhör [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/) och kan ändras via textramen i en befintlig textruta. Texten flödar om mellan kolumner inom samma form; den fortsätter inte i en annan form.
 
-Följande exempel skapar en textruta med tre kolumner och 10 punkters avstånd mellan kolumner, sparar presentationen och läser tillbaka de lagrade inställningarna från utdatafilen:
+Följande exempel skapar en trekolumnig textruta med 10 punkt mellan kolumnerna, sparar presentationen och läser de lagrade inställningarna från output‑filen:
 
 ```csharp
 using System;
@@ -142,18 +178,17 @@ Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.Co
 
 ## **Extrahera text från enskilda kolumner**
 
-Använd [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/sv/net/aspose.slides/textframe/splittextbycolumns/) för att hämta texten som tilldelats varje visuell kolumn i en befintlig textram. Metoden returnerar en sträng för varje kolumn, i kolumnbaserad läsordning. En enkollumn‑textram ger en array med ett element, och en tom kolumn representeras av en tom sträng. Strängarna innehåller endast vanlig text; formatering på portionsnivå bevaras inte.
+Använd [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/net/aspose.slides/textframe/splittextbycolumns/) för att hämta texten som tilldelats varje visuell kolumn i en befintlig textram. Metoden returnerar en sträng för varje kolumn, i kolumnbaserad läsordning. En enkollumnig textram ger en array med ett element, och en tom kolumn representeras av en tom sträng. Strängarna innehåller endast vanlig text; formatering på delnivå bevaras inte.
 
 Detta är användbart när du behöver:
+- Extrahera text samtidigt som du bevarar dess kolumnbaserade läsordning.
+- Indexera eller jämföra innehållet i flerkolumns bilder.
+- Exportera varje kolumn till en separat fil, databasfält eller annan destination.
+- Inspektera hur text omfördelas efter att ha ändrat [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/), typsnittet eller textramens storlek.
 
-- Extrahera text samtidigt som dess kolumnbaserade läsordning bevaras.
-- Indexera eller jämföra innehållet i bilder med flera kolumner.
-- Exportera varje kolumn till en separat fil, databaskolumn eller annat mål.
-- Undersöka hur text omfördelas efter att ha ändrat [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframeformat/columnspacing/), teckensnittet eller textramens storlek.
+Metoden rapporterar texten som distribueras inom den aktuella [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/); den flödar inte automatiskt text mellan separata former eller textrutor. Kolumnfördelning kan bero på tillgängliga typsnitt och andra textlayout‑inställningar, så se till att de nödvändiga typsnitten är tillgängliga när konsekventa resultat är viktiga.
 
-Metoden rapporterar den text som är distribuerad inom den aktuella [ITextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/); den flödar inte automatiskt text mellan separata former eller textrutor. Kolumnfördelning kan bero på tillgängliga teckensnitt och andra textlayout‑inställningar, så se till att de erforderliga teckensnitten finns tillgängliga när konsistenta resultat är viktiga.
-
-Följande exempel laddar en presentation, hittar den första autoformen med flera kolumner och en textram, läser dess konfigurerade kolumnantal och skriver texten från varje kolumn till en separat fil. Former som inte tillhandahåller en textram hoppas över.
+Följande exempel laddar en presentation, hittar den första flerkolumniga autoformen med en textram, läser dess konfigurerade kolumnantal och skriver texten från varje kolumn till en separat fil. Former som inte tillhandahåller en textram hoppas över.
 
 ```csharp
 using System;
@@ -200,9 +235,9 @@ else
 
 ## **Uppdatera text**
 
-För att uppdatera text i hela en presentation, iterera genom bilderna och formerna, välj autoformer och redigera sedan deras textdelar. Att arbeta på portionsnivå låter dig ändra både text och teckenformatering.
+För att uppdatera text i hela en presentation, iterera genom bilderna och formerna, välj autoformer och redigera sedan deras textdelar. Att arbeta på delnivå låter dig ändra både text och teckenformatering.
 
-Följande exempel ersätter varje förekomst av `years` med `months` i autoform‑text och gör varje berörd del fetstil:
+Följande exempel ersätter varje förekomst av `years` med `months` i autoformtext och gör varje påverkad del fet:
 
 ```csharp
 using Aspose.Slides;
@@ -233,11 +268,11 @@ foreach (var slide in presentation.Slides)
 presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-Denna traversal uppdaterar endast text i autoformer. Text som lagras i tabeller, diagram, SmartArt eller grupperade former kräver traversal av dessa objekts egna samlingar.
+Denna traversering uppdaterar endast text i autoformer. Text lagrad i tabeller, diagram, SmartArt eller grupperade former kräver traversering av dessa objekts egna samlingar.
 
-## **Lägg till en textruta med hyperlänk**
+## **Lägg till en textruta med en hyperlänk**
 
-En hyperlänk kan tilldelas en specifik textdel, så att endast den texten fungerar som den klickbara länken. Använd [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/sv/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) för att associera delen med en extern URL.
+En hyperlänk kan tilldelas en specifik textdel så att endast den texten fungerar som den klickbara länken. Använd [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) för att associera delen med en extern URL.
 
 Följande exempel skapar länkad text och sparar den i en presentation:
 
@@ -256,12 +291,12 @@ textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://ww
 presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Vad är skillnaden mellan en textruta och en text‑platshållare på en master‑ eller layout‑bild?**
+**Vad är skillnaden mellan en textruta och en platshållare på en master‑ eller layoutbild?**
 
-En [placeholder](/slides/sv/net/manage-placeholder/) kan ärva sin position och formatering från en [master slide](https://reference.aspose.com/slides/sv/net/aspose.slides/masterslide/) eller [layout slide](https://reference.aspose.com/slides/sv/net/aspose.slides/layoutslide/). En vanlig textruta är en självständig form på den bild där den skapades och får inte platshållarbeteende när layouten ändras.
+Ett [platshållare](/slides/sv/net/manage-placeholder/) kan ärva sin position och formatering från en [master‑bild](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) eller en [layout‑bild](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/). En vanlig textruta är en oberoende form på den bild där den skapades och får inte platshållar‑beteende när layouten ändras.
 
 **Hur kan jag ersätta text utan att ändra text i diagram, tabeller eller SmartArt?**
 
-Begränsa traversal till former som implementerar [IAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape/), som visas i exemplet för Uppdatera text. Diagram, tabeller och SmartArt lagrar text i sina egna objektmodeller, så de ändras inte av den loopen.
+Begränsa traverseringen till former som implementerar [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), som visas i exemplet Uppdatera text. Diagram, tabeller och SmartArt lagrar text i sina egna objektmodeller, så de ändras inte av den loopen.

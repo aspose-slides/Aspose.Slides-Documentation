@@ -1,15 +1,15 @@
 ---
-title: "Quy trình chọn phông chữ trong Aspose.Slides cho .NET"
-linktitle: "Chọn phông chữ"
+title: Chuỗi lựa chọn phông chữ trong Aspose.Slides cho .NET
+linktitle: Lựa chọn phông chữ
 type: docs
 weight: 80
 url: /vi/net/font-selection-sequence/
 keywords:
-- chọn phông chữ
+- lựa chọn phông chữ
 - thay thế phông chữ
 - thay đổi phông chữ
 - quy tắc thay thế
-- phông chữ có sẵn
+- phông chữ khả dụng
 - phông chữ thiếu
 - PowerPoint
 - OpenDocument
@@ -17,46 +17,77 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Khám phá cách Aspose.Slides cho .NET chọn phông chữ, đảm bảo bản trình bày PPT, PPTX và ODP sắc nét, nhất quán — nâng cao slide của bạn ngay."
+description: "Khám phá cách Aspose.Slides cho .NET lựa chọn phông chữ, đảm bảo hiển thị PPT, PPTX và ODP sắc nét, nhất quán — cải thiện slide của bạn ngay."
 ---
 ## **Tổng quan**
 
-Khi một bản trình bày được tải, render hoặc chuyển đổi sang định dạng khác, Aspose.Slides kiểm tra xem các phông chữ được sử dụng trong bản trình bày có có sẵn trong hệ điều hành hay không. Nếu một phông chữ bắt buộc bị thiếu, Aspose.Slides sẽ chọn một phông chữ thay thế càng gần càng tốt với phông chữ mà PowerPoint sẽ sử dụng.
+Khi một bản trình bày được tải, hiển thị hoặc chuyển đổi sang định dạng khác, Aspose.Slides xem xét các phông chữ được nhúng và các phông chữ có sẵn cho ứng dụng. Nếu phông chữ yêu cầu không có, Aspose.Slides sẽ chọn một phông chữ thay thế gần nhất có thể với phông chữ mà PowerPoint sẽ sử dụng.
 
-Aspose.Slides đầu tiên tìm kiếm phông chữ đã chọn trong hệ điều hành. Nếu phông chữ được tìm thấy, nó sẽ được sử dụng. Nếu không tìm thấy, một phông chữ thay thế phù hợp sẽ được áp dụng. Khi các quy tắc thay thế phông chữ được định nghĩa qua `FontSubstRule`, các quy tắc đó cũng sẽ được tính đến.
+Các phông chữ khả dụng có thể bao gồm phông chữ hệ thống, phông chữ được tải bởi ứng dụng và phông chữ được nhúng trong bản trình bày. Đối với một phông chữ nhúng và đã đăng ký phù hợp, tùy chọn .NET 26.11 được mô tả bên dưới sẽ kiểm soát ưu tiên. Các quy tắc thay thế phông chữ được định nghĩa thông qua [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) là một cơ chế riêng.
 
-Bạn cũng có thể thêm phông chữ tại thời gian chạy của ứng dụng, sử dụng phông chữ nhúng từ một bản trình bày, hoặc tải phông chữ bên ngoài cho các tài liệu đầu ra như tệp PDF.
+Bạn cũng có thể thêm phông chữ tại thời điểm chạy của ứng dụng, sử dụng phông chữ nhúng từ bản trình bày, hoặc tải phông chữ bên ngoài cho các tài liệu xuất như tệp PDF.
 
-## **Lựa chọn phông chữ**
+## **Lựa chọn Phông chữ**
 
-Một số quy tắc áp dụng cho phông chữ trong bản trình bày khi bản trình bày được tải, render hoặc chuyển đổi sang định dạng khác. Ví dụ, khi bạn cố gắng chuyển đổi một bản trình bày (các slide của nó) sang hình ảnh, các phông chữ của bản trình bày sẽ được kiểm tra để xác nhận rằng các phông chữ đã chọn có sẵn trong hệ điều hành. Nếu các phông chữ được xác nhận là thiếu, chúng sẽ được thay thế — xem [**Font Replacement**](https://docs.aspose.com/slides/vi/net/font-replacement/) và [**Font Substitution**](https://docs.aspose.com/slides/vi/net/font-substitution/).
+Văn bản có thể tham chiếu đến một phông chữ chủ đề, chẳng hạn `+mn-lt`, thay vì một tên họ phông chữ cụ thể. Xem [Resolve Theme Font References](/slides/vi/net/presentation-theme/#resolve-theme-font-references) để lấy họ phông chữ được chỉ định bởi chủ đề áp dụng. Việc giải quyết tham chiếu này là riêng biệt so với việc kiểm tra tính khả dụng của phông chữ và áp dụng thay thế thời gian hiển thị hoặc dự phòng glyph; nó không xác định tệp phông chữ cuối cùng được sử dụng để hiển thị văn bản.
 
-Đây là quy trình Aspose.Slides thực hiện khi xử lý phông chữ:
+Khi hiển thị các slide hoặc chuyển đổi bản trình bày, kiểm tra xem các phông chữ yêu cầu đã được nhúng hoặc khả dụng từ các nguồn đã đăng ký chưa. Các phông chữ thiếu có thể yêu cầu thay thế hoặc thay thế phụ; xem [**Thay thế phông chữ**](/slides/vi/net/font-replacement/) và [**Thay thế phông chữ**](/slides/vi/net/font-substitution/).
 
-1. Aspose.Slides tìm kiếm các phông chữ trong hệ điều hành để tìm phông chữ khớp với phông chữ đã chọn của bản trình bày. 
-2. Nếu phông chữ đã chọn được tìm thấy, Aspose.Slides sẽ sử dụng nó. Nếu không, Aspose.Slides sẽ sử dụng một phông chữ thay thế càng gần càng tốt với phông chữ mà PowerPoint sẽ sử dụng.
-3. Nếu các quy tắc thay thế phông chữ đã được đặt qua [FontSubstRule](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsubstrule/), chúng sẽ được áp dụng. 
+Khi điều tra quá trình lựa chọn phông chữ:
 
-Aspose.Slides cho phép bạn thêm phông chữ vào thời gian chạy của ứng dụng và sau đó sử dụng các phông chữ đó. Xem [**Custom fonts**](https://docs.aspose.com/slides/vi/net/custom-font/). 
+1. Giải quyết họ và kiểu phông chữ yêu cầu, bao gồm bất kỳ tham chiếu chủ đề nào.
+2. Kiểm tra phông chữ nhúng và các nguồn đã đăng ký, bao gồm phông chữ hệ thống và phông chữ được tải bởi ứng dụng. Sử dụng tùy chọn dưới đây khi phiên bản nhúng và đã đăng ký trùng khớp cạnh tranh.
+3. Xem lại [các quy tắc thay thế phông chữ](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) và dự phòng glyph nếu phông chữ hoặc ký tự yêu cầu không có.
 
-Khi các phông chữ bổ sung được đặt trong một bản trình bày, chúng được gọi là [**Embedded fonts**](https://docs.aspose.com/slides/vi/net/embedded-font/).
+Aspose.Slides cho phép bạn thêm phông chữ vào thời điểm chạy của ứng dụng và sau đó sử dụng các phông chữ đó. Xem [**Phông chữ tùy chỉnh**](/slides/vi/net/custom-font/).
 
-Aspose.Slides cho phép bạn thêm phông chữ chỉ áp dụng cho *các tài liệu đầu ra*. Ví dụ, nếu một bản trình bày bạn đang chuyển đổi sang PDF chứa các phông chữ thiếu trên hệ thống và các phông chữ nhúng, bạn có thể thêm hoặc tải các phông chữ cần thiết dưới dạng **external fonts**. 
+Khi các phông chữ bổ sung được đặt trong một bản trình bày, chúng được gọi là [**Phông chữ nhúng**](/slides/vi/net/embedded-font/).
 
-{{% alert title="Note" color="primary" %}} 
-Chúng tôi không phân phối bất kỳ phông chữ nào, dù là trả phí hay miễn phí. API của chúng tôi cho phép bạn tải phông chữ bên ngoài và nhúng chúng vào tài liệu, nhưng bạn phải tự chịu trách nhiệm và quyết định về việc sử dụng các phông chữ đó.
+Aspose.Slides cho phép bạn thêm phông chữ chỉ được áp dụng cho *các tài liệu xuất*. Ví dụ, nếu một bản trình bày mà bạn muốn chuyển đổi sang PDF chứa các phông chữ thiếu trên hệ thống và các phông chữ nhúng, bạn có thể thêm hoặc tải các phông chữ cần thiết dưới dạng **external fonts**. 
+
+{{% alert title="Note" color="info" %}} 
+We do not distribute any fonts, either paid or free. Our API allows you to load external fonts and embed them in documents, but you do so with fonts at your discretion and responsibility.
 {{% /alert %}}
+
+## **Ưu tiên Phông chữ Đã Đăng ký hơn Phông chữ Nhúng**
+
+Bắt đầu với .NET 26.11, [IFontsManager.PreferRegisteredFontsOverEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/preferregisteredfontsoverembedded/) cho phép một phông chữ đã đăng ký phù hợp được ưu tiên hơn phông chữ nhúng trong quá trình xuất. Mặc định là `false`. Việc khớp sử dụng tên và kiểu phông chữ; một họ khác không phải là một sự thay thế phù hợp. Các phông chữ đã đăng ký có thể đến từ hệ thống hoặc [các nguồn phông chữ được tải rõ ràng](/slides/vi/net/custom-font/).
+
+Ví dụ sau sử dụng gói **Aspose.Slides.NET6.CrossPlatform 26.11** trên .NET 8. Thực hiện theo [hướng dẫn cài đặt](/slides/vi/net/installation/) cho môi trường của bạn. Cung cấp `embedded-fonts.pptx` có phông chữ nhúng và `preferred.ttf` có cùng tên họ và kiểu. Hai tệp phông chữ nên khác nhau rõ rệt nếu bạn muốn so sánh kết quả.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var fontBytes = File.ReadAllBytes("preferred.ttf");
+FontsLoader.LoadExternalFont(fontBytes);
+using var presentation = new Presentation("embedded-fonts.pptx");
+
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = false;
+presentation.Save("embedded-preference.pdf", SaveFormat.Pdf);
+
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = true;
+presentation.Save("registered-preference.pdf", SaveFormat.Pdf);
+
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = false;
+presentation.Save("restored-preference.pdf", SaveFormat.Pdf);
+```
+
+Cài đặt này thay đổi thứ tự ưu tiên phông chữ trong quá trình xuất; nó không đổi tên phông chữ của văn bản, không xóa dữ liệu phông chữ nhúng hoặc nhúng lại tệp đã đăng ký. Đây là cài đặt thời gian chạy: đặt lại sau khi mở lại bản trình bày. Nếu không có phông chữ đã đăng ký phù hợp, việc bật tùy chọn không cung cấp một phông chữ; hãy xác minh phông chữ và bố cục kết quả trong môi trường đích của bạn.
+
+Đầu ra PNG và PDF với các phông chữ thường được tải rõ ràng đã được kiểm tra cho cấu hình trên. Kiểm tra các tệp phông chữ, kiểu, bản dựng SDK và định dạng đầu ra của bạn trước khi phụ thuộc vào kết quả giống hệt. Các chỉ số phông chữ có thể thay đổi ngắt dòng và vị trí. Sử dụng [font replacement](/slides/vi/net/font-replacement/) hoặc [substitution](/slides/vi/net/font-substitution/) khi bạn cần một họ khác, và [embedded-font operations](/slides/vi/net/embedded-font/) khi bạn cần thay đổi các phông chữ lưu trong bản trình bày.
 
 ## **Câu hỏi thường gặp**
 
-**Làm thế nào tôi có thể xác định các phông chữ thực tế được sử dụng trong một bản trình bày trước khi chuyển đổi?**
+**Làm thế nào tôi có thể xác định những phông chữ thực sự được sử dụng trong một bản trình bày trước khi chuyển đổi?**
 
-Aspose.Slides cho phép bạn kiểm tra các phông chữ được sử dụng qua [trình quản lý phông chữ](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/fontsmanager/), vì vậy bạn có thể quyết định có nên [nhúng](/slides/vi/net/embedded-font/), [thay thế](/slides/vi/net/font-replacement/) hoặc thêm [nguồn bên ngoài](/slides/vi/net/custom-font/). Điều này giúp ngăn ngừa các sự thay thế không mong muốn trong quá trình render và xuất.
+Aspose.Slides cho phép bạn kiểm tra các phông chữ được sử dụng thông qua [trình quản lý phông chữ](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/), vì vậy bạn có thể quyết định có nên [embed](/slides/vi/net/embedded-font/), [replace](/slides/vi/net/font-replacement/), hoặc thêm [các nguồn phông chữ bên ngoài](/slides/vi/net/custom-font/). Điều này giúp ngăn ngừa các sự thay thế không mong muốn trong quá trình hiển thị và xuất.
 
 **Tôi có thể thêm các thư mục phông chữ bổ sung mà không cài đặt chúng trên hệ điều hành không?**
 
-Có. Bạn có thể đăng ký [nguồn phông chữ bên ngoài](/slides/vi/net/custom-font/) như thư mục hoặc luồng bộ nhớ trong để render và xuất. Điều này loại bỏ phụ thuộc vào phông chữ hệ thống máy chủ và giữ cho bố cục dự đoán được.
+Có. Bạn có thể đăng ký [các nguồn phông chữ bên ngoài](/slides/vi/net/custom-font/) như thư mục hoặc luồng bộ nhớ trong để hiển thị và xuất. Điều này loại bỏ phụ thuộc vào phông chữ hệ thống và giữ cho bố cục dự đoán được.
 
-**Làm sao để ngăn ngừa việc tự động chuyển sang phông chữ không phù hợp khi một glyph bị thiếu?**
+**Làm sao tôi ngăn được việc tự động dự phòng sang một phông chữ không phù hợp khi một glyph bị thiếu?**
 
-Định nghĩa trước các [thay thế phông chữ](/slides/vi/net/font-replacement/) và [quy tắc dự phòng](/slides/vi/net/fallback-font/). Bằng cách phân tích các phông chữ đã sử dụng và thiết lập mức ưu tiên kiểm soát cho các phông chữ thay thế, bạn đảm bảo tính nhất quán về kiểu chữ và tránh kết quả không mong muốn.
+Định nghĩa rõ ràng [font replacement](/slides/vi/net/font-replacement/) và [các quy tắc dự phòng](/slides/vi/net/fallback-font/) trước. Bằng cách phân tích các phông chữ đã sử dụng và đặt ưu tiên kiểm soát cho các phông chữ thay thế, bạn đảm bảo tính nhất quán về kiểu chữ và tránh các kết quả không mong muốn.

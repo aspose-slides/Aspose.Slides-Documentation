@@ -18,19 +18,19 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "สร้าง, ระบุ, จัดรูปแบบ, และอัปเดตกล่องข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ .NET."
+description: "สร้าง, ระบุ, จัดรูปแบบ, และอัปเดตกล่องข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides for .NET."
 ---
 ## **บทนำ**
 
-ใน Aspose.Slides for .NET ข้อความบนสไลด์จะถูกเก็บไว้ในกรอบข้อความที่เป็นส่วนหนึ่งของรูปร่าง อินเทอร์เฟซ [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) แสดงถึงรูปร่างที่มีข้อความบ่อยที่สุดและเปิดเผยข้อความของมันผ่านคุณสมบัติ [IAutoShape.TextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/textframe/)。
+ใน Aspose.Slides for .NET ข้อความสไลด์จะถูกเก็บในกรอบข้อความซึ่งเป็นส่วนหนึ่งของรูปร่าง อินเทอร์เฟซ [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) แสดงถึงรูปร่างที่มีข้อความทั่วไปที่สุดและเปิดเผยข้อความของมันผ่านคุณสมบัติ [IAutoShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) 
 
-{{% alert color="info" title="Note" %}}
-รูปร่างอัตโนมัติทุกตัวทำการ implements [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/) แต่ไม่ใช่รูปร่างทุกตัวเป็นรูปร่างอัตโนมัติหรือรองรับกรอบข้อความ เมื่อตรวจสอบการประมวลผลพรีเซนเทชันที่มีอยู่ ให้ตรวจสอบว่ารูปร่างทำการ implements `IAutoShape` ก่อนเข้าถึงข้อความของมัน.
+{{% alert color="info" title="หมายเหตุ" %}}
+รูปร่างอัตโนมัติทุกตัวจะทำการเขียนตามอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), แต่ไม่ใช่ทุกรูปร่างเป็นรูปร่างอัตโนมัติหรือสนับสนุนกรอบข้อความ เมื่อประมวลผลงานนำเสนอที่มีอยู่ ให้ตรวจสอบว่ารูปร่างทำการเขียนตาม `IAutoShape` ก่อนเข้าถึงข้อความของมัน.
 {{% /alert %}}
 
 ## **สร้างกล่องข้อความบนสไลด์**
 
-เพื่อสร้างกล่องข้อความ ให้เพิ่มรูปร่างอัตโนมัติลงในสไลด์ เพิ่มข้อความในกรอบข้อความของมัน และบันทึกพรีเซนเทชัน ตัวอย่างต่อไปนี้สร้างกล่องข้อความสี่เหลี่ยมผืนผ้า:
+ในการสร้างกล่องข้อความ ให้เพิ่มรูปร่างอัตโนมัติลงบนสไลด์ เพิ่มข้อความลงในกรอบข้อความของมัน แล้วบันทึกงานนำเสนอ ตัวอย่างต่อไปนี้สร้างกล่องข้อความสี่เหลี่ยม:
 
 ```csharp
 using Aspose.Slides;
@@ -44,15 +44,15 @@ textBox.AddTextFrame("Aspose TextBox");
 presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-พิกัดและมิติที่ส่งไปยัง [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/addautoshape/) จะวัดเป็นหน่วย point. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/addtextframe/) จะเริ่มต้นกรอบข้อความด้วยข้อความที่ระบุ.
+พิกัดและขนาดที่ส่งไปยัง [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/) จะถูกวัดเป็นจุด [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) จะเริ่มต้นกรอบข้อความด้วยข้อความที่ได้รับ.
 
-## **ตรวจสอบรูปร่างเป็นกล่องข้อความ**
+## **ตรวจสอบว่ารูปร่างเป็นกล่องข้อความหรือไม่**
 
-ใช้คุณสมบัติ [AutoShape.IsTextBox](https://reference.aspose.com/slides/th/net/aspose.slides/autoshape/istextbox/) เพื่อกำหนดว่ารูปร่างอัตโนมัติได้รับการจัดให้เป็นกล่องข้อความหรือไม่ สิ่งนี้มีประโยชน์เมื่อพรีเซนเทชันมีทั้งรูปร่างอัตโนมัติที่มีข้อความและรูปร่างกราฟิกอย่างเดียว
+ใช้คุณสมบัติ [AutoShape.IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) เพื่อตรวจสอบว่ารูปร่างอัตโนมัติถูกถือเป็นกล่องข้อความหรือไม่ สิ่งนี้มีประโยชน์เมื่องานนำเสนอมีทั้งรูปร่างที่มีข้อความและรูปร่างกราฟิกอย่างเดียว.
 
 ![กล่องข้อความและรูปร่าง](istextbox.png)
 
-ตัวอย่างต่อไปนี้ตรวจสอบรูปร่างอัตโนมัติทุกตัวในพรีเซนเทชัน:
+ตัวอย่างต่อไปนี้ตรวจสอบรูปร่างอัตโนมัติทุกตัวในงานนำเสนอ:
 
 ```csharp
 using System;
@@ -76,7 +76,7 @@ foreach (var currentSlide in presentation.Slides)
 }
 ```
 
-รูปร่างอัตโนมัติที่เพิ่งเพิ่มใหม่จะไม่ถือว่าเป็นกล่องข้อความจนกว่าจะมีข้อความที่ไม่ว่างเปล่า คุณสามารถใส่ข้อความนั้นผ่าน [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/addtextframe/) หรือ [ITextFrame.Text](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/text/) การเพิ่มหรือกำหนดสตริงว่างจะทำให้ `IsTextBox` มีค่าเป็น `false`:
+รูปร่างอัตโนมัติที่เพิ่มเข้ามาใหม่จะไม่ถูกพิจารณาว่าเป็นกล่องข้อความจนกว่าจะมีข้อความที่ไม่ว่างเปล่า คุณสามารถกำหนดข้อความนั้นผ่าน [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) หรือ [ITextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/itextframe/text/) การเพิ่มหรือกำหนดสตริงว่างจะทำให้ `IsTextBox` มีค่า `false`:
 
 ```csharp
 using System;
@@ -102,19 +102,57 @@ shape4.TextFrame.Text = "";
 Console.WriteLine(shape4.IsTextBox);
 ```
 
-สองการเรียกแรกพิมพ์ค่า `True`; สองการเรียกสุดท้ายพิมพ์ค่า `False`.
+การเรียกสองครั้งแรกพิมพ์ `True`; สองครั้งสุดท้ายพิมพ์ `False`.
 
 ## **ค้นหารูปร่างที่เป็นเจ้าของกรอบข้อความ**
 
-โค้ดการประมวลผลข้อความทั่วไปอาจได้รับ [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/) โดยไม่ทราบว่าออบเจกต์พรีเซนเทชันใดเป็นเจ้าของ ใช้คุณสมบัติแบบอ่านอย่างเดียว [ITextFrame.ParentShape](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/parentshape/) เพื่อนำทางกลับไปยัง [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/) ที่เป็นเจ้าของของมัน
+โค้ดประมวลผลข้อความทั่วไปอาจได้รับ [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) โดยไม่รู้ว่ามีวัตถุงานนำเสนอใดเป็นเจ้าของ ใช้คุณสมบัติอ่านอย่างเดียว [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) เพื่อย้อนกลับไปยัง [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) ที่เป็นเจ้าของ
 
-สำหรับกรอบข้อความที่เป็นของรูปร่างอัตโนมัติหรือรูปร่างที่มีข้อความอื่น `ParentShape` จะมีเจ้าของและ [ITextFrame.ParentCell](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/parentcell/) จะเป็น `null` ตรวจสอบค่าที่ส่งคืนก่อนเข้าถึง เพื่อระบุทั้งเจ้าของรูปร่างและเซลล์ตาราง รวมถึงรูปร่างที่เชื่อมกับโหนด SmartArt ดูที่ [Search and Replace Text](/slides/th/net/search-and-replace-text/).
+สำหรับกรอบข้อความที่เป็นของรูปร่างอัตโนมัติหรือรูปร่างที่มีข้อความอื่น `ParentShape` จะบรรจุเจ้าของและ [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) จะเป็น `null` ตรวจสอบค่าที่คืนมาก่อนเข้าถึง เพื่อระบุทั้งเจ้าของรูปร่างและเซลล์ตาราง รวมถึงรูปร่างที่เชื่อมกับโหนด SmartArt ดู [Search and Replace Text](/slides/th/net/search-and-replace-text/)
+
+## **รับสี่เหลี่ยมข้อความของรูปร่าง**
+
+ตั้งแต่ Aspose.Slides for .NET 26.11, [ITextFrame.GetTextRect](https://reference.aspose.com/slides/net/aspose.slides/itextframe/gettextrect/) จะคืนพื้นที่ข้อความที่กำหนดโดยเรขาคณิตของรูปร่างแม่ พิกัดและขนาดอยู่ในหน่วยจุดและอิงจากมุมบนซ้ายของรูปร่างนั้น ตัวอย่างเช่น รูปวงรีจะมีสี่เหลี่ยมข้อความที่เล็กกว่าขอบนอกของมัน
+
+สี่เหลี่ยมนี้อธิบายรูปร่าง ไม่ใช่อักขระที่เรนเดอร์ การเปลี่ยนข้อความหรือระยะขอบของกรอบข้อความไม่ทำให้มันกลายเป็นการวัดข้อความที่ครอบครอง ใช้ [paragraph bounds](/slides/th/net/paragraph-bounds/) หรือ [portion bounds](/slides/th/net/portion-bounds/) สำหรับการวัดข้อความที่เรนเดร
+
+หลังจาก [installing Aspose.Slides for .NET](/slides/th/net/installation/) 26.11 หรือใหม่กว่า ให้รันตัวอย่างนี้เพื่อวาดสี่เหลี่ยมข้อความของเรขาคณิตด้วยสีแดง รูปร่างไม่มีการหมุนและไม่มีการจัดกลุ่ม ดังนั้นการเพิ่มตำแหน่ง X/Y ของพวกมันจึงเพียงพอที่จะวางภาพซ้อนบนสไลด์
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+foreach (var shapeType in new[] { ShapeType.Rectangle, ShapeType.Ellipse })
+{
+    var x = shapeType == ShapeType.Rectangle ? 50 : 300;
+    var shape = slide.Shapes.AddAutoShape(shapeType, x, 200, 200, 100);
+    shape.AddTextFrame("Text area");
+    var rectangle = shape.TextFrame.GetTextRect();
+    Console.WriteLine($"{shapeType}: {rectangle}");
+
+    var overlayX = shape.X + rectangle.X;
+    var overlayY = shape.Y + rectangle.Y;
+    var outline = slide.Shapes.AddAutoShape(ShapeType.Rectangle, overlayX, overlayY, rectangle.Width, rectangle.Height);
+    outline.FillFormat.FillType = FillType.NoFill;
+    outline.LineFormat.FillFormat.FillType = FillType.Solid;
+    outline.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+}
+
+presentation.Save("text-rectangles.pptx", SaveFormat.Pptx);
+```
+
+สำหรับรูปร่างขนาด 200 × 100 จุดที่แสดงข้างต้น สี่เหลี่ยมจะคืนค่า `(0, 0, 200, 100)`; รูปวงรีประมาณ `(29.289, 14.645, 141.421, 70.711)` วิธีนี้ยังอ่านสี่เหลี่ยมข้อความที่ประกาศไว้ของเรขาคณิตย์ที่กำหนดเอง ไม่นำการหมุนของสไลด์หรือการแปลงกลุ่มมาใช้; ต้องคำนึงถึงเหล่านั้นแยกต่างหากเมื่อกำหนดตำแหน่งภาพซ้อน กรอบข้อความที่ไม่มีรูปร่างเรขาคณิตย์ เช่น กรอบข้อความในเซลล์ตาราง อาจทำให้เกิด `InvalidOperationException`.
 
 ## **เพิ่มคอลัมน์ให้กับกล่องข้อความ**
 
-คุณสมบัติ [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/columncount/) แบ่งกรอบข้อความเป็นคอลัมน์ ส่วน [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/columnspacing/) ตั้งค่าระยะห่างระหว่างคอลัมน์เป็นหน่วย point การตั้งค่าสองอย่างนี้เป็นส่วนของ [ITextFrameFormat](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/) และสามารถเปลี่ยนได้ผ่านกรอบข้อความของกล่องข้อความที่มีอยู่แล้ว ข้อความจะไหลใหม่ระหว่างคอลัมน์ภายในรูปร่างเดียวกัน; จะไม่ต่อไปยังรูปร่างอื่น
+คุณสมบัติ [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/) แบ่งกรอบข้อความเป็นคอลัมน์, ส่วน [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/) ตั้งระยะห่างระหว่างคอลัมน์เป็นหน่วยจุด การตั้งค่าสองอย่างนี้เป็นของ [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/) และสามารถเปลี่ยนได้ผ่านกรอบข้อความของกล่องข้อความที่มีอยู่ ข้อความจะไหลใหม่ระหว่างคอลัมน์ภายในรูปร่างเดียวกัน ไม่ไหลต่อไปยังรูปร่างอื่น
 
-ตัวอย่างต่อไปนี้สร้างกล่องข้อความสามคอลัมน์โดยมีระยะห่าง 10 point ระหว่างคอลัมน์, บันทึกพรีเซนเทชัน, และอ่านการตั้งค่าที่เก็บไว้จากไฟล์ผลลัพธ์:
+ตัวอย่างต่อไปนี้สร้างกล่องข้อความสามคอลัมน์โดยมีช่องว่าง 10 จุดระหว่างคอลัมน์ บันทึกงานนำเสนอและอ่านการตั้งค่าที่เก็บไว้จากไฟล์ผลลัพธ์:
 
 ```csharp
 using System;
@@ -138,19 +176,20 @@ var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
 Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
-## **สกัดข้อความจากคอลัมน์แต่ละคอลัมน์**
+## **สกัดข้อความจากคอลัมน์แยกกัน**
 
-ใช้ [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/th/net/aspose.slides/textframe/splittextbycolumns/) เพื่อดึงข้อความที่กำหนดให้แต่ละคอลัมน์ที่มองเห็นได้ในกรอบข้อความที่มีอยู่ วิธีการนี้คืนค่า string หนึ่งสำหรับแต่ละคอลัมน์ตามลำดับการอ่านแบบคอลัมน์ กรอบข้อความแบบคอลัมน์เดียวจะผลิตอาเรย์ที่มีองค์ประกอบหนึ่ง และคอลัมน์ที่ว่างเปล่าจะเป็นสตริงว่าง ข้อความที่คืนมาจะเป็นข้อความธรรมดาเท่านั้น; การจัดรูปแบบระดับส่วนจะไม่ถูกเก็บรักษา
+ใช้ [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/net/aspose.slides/textframe/splittextbycolumns/) เพื่อดึงข้อความที่กำหนดให้แต่ละคอลัมน์แบบมองเห็นในกรอบข้อความที่มีอยู่ วิธีนี้คืนสตริงหนึ่งค่าต่อคอลัมน์ ตามลำดับการอ่านตามคอลัมน์ กรอบข้อความแบบคอลัมน์เดียวจะให้อาร์เรย์ที่มีหนึ่งรายการ และคอลัมน์ที่ว่างเปล่าจะแทนด้วยสตริงว่าง สตริงเหล่านี้มีเฉพาะข้อความธรรมดา; การฟอร์แมตระดับส่วน (portion) จะไม่ถูกรักษา
 
 สิ่งนี้มีประโยชน์เมื่อคุณต้องการ:
-- สกัดข้อความพร้อมคงลำดับการอ่านแบบคอลัมน์
+
+- สกัดข้อความขณะรักษาลำดับการอ่านตามคอลัมน์ไว้
 - ทำดัชนีหรือเปรียบเทียบเนื้อหาของสไลด์หลายคอลัมน์
-- ส่งออกแต่ละคอลัมน์เป็นไฟล์แยก, ฟิลด์ฐานข้อมูล, หรือเป้าหมายอื่น
-- ตรวจสอบว่าข้อความถูกกระจายใหม่อย่างไรหลังจากเปลี่ยน [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/columnspacing/), ฟอนต์, หรือขนาดของกรอบข้อความ
+- ส่งออกแต่ละคอลัมน์ไปยังไฟล์แยกต่างหาก, ฟิลด์ฐานข้อมูล หรือปลายทางอื่น
+- ตรวจสอบว่าข้อความถูกแจกจ่ายใหม่อย่างไรหลังจากเปลี่ยน [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/), ฟอนต์ หรือขนาดของกรอบข้อความ
 
-วิธีการนี้รายงานข้อความที่กระจายใน [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/) ปัจจุบัน; มันจะไม่ได้ไหลข้อความอัตโนมัติระหว่างรูปร่างหรือกล่องข้อความแยกต่างหาก การกระจายคอลัมน์อาจขึ้นกับฟอนต์ที่มีและการตั้งค่าเลย์เอาต์ข้อความอื่นๆ ดังนั้นควรตรวจสอบว่าฟอนต์ที่ต้องการพร้อมใช้งานเมื่อผลลัพธ์ที่สอดคล้องกันเป็นสิ่งสำคัญ
+วิธีนี้รายงานข้อความที่กระจายอยู่ภายใน [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) ปัจจุบัน; มันไม่ไหลอัตโนมัติระหว่างรูปร่างหรือกล่องข้อความแยกต่างหาก การกระจายคอลัมน์อาจขึ้นกับฟอนต์ที่มีอยู่และการตั้งค่าเค้าโครงข้อความอื่นๆ ดังนั้นควรตรวจสอบว่าฟอนต์ที่ต้องการพร้อมใช้งานเมื่อผลลัพธ์ที่สม่ำเสมอสำคัญ
 
-ตัวอย่างต่อไปนี้โหลดพรีเซนเทชัน, ค้นหารูปร่างอัตโนมัติหลายคอลัมน์แรกที่มีกรอบข้อความ, อ่านจำนวนคอลัมน์ที่กำหนด, และเขียนข้อความจากแต่ละคอลัมน์เป็นไฟล์แยก รูปร่างที่ไม่มีกรอบข้อความจะถูกข้าม
+ตัวอย่างต่อไปนี้โหลดงานนำเสนอ, ค้นหาอัตโนมัติรูปร่างหลายคอลัมน์แรกที่มีกรอบข้อความ, อ่านจำนวนคอลัมน์ที่ตั้งค่า, แล้วเขียนข้อความจากทุกคอลัมน์ลงในไฟล์แยก รูปร่างที่ไม่มีกรอบข้อความจะถูกข้าม
 
 ```csharp
 using System;
@@ -197,9 +236,9 @@ else
 
 ## **อัปเดตข้อความ**
 
-เพื่ออัปเดตข้อความทั่วทั้งพรีเซนเทชัน ให้วนผ่านสไลด์และรูปร่าง, เลือกรูปร่างอัตโนมัติ, แล้วแก้ไขส่วนข้อความของพวกมัน การทำงานระดับส่วนช่วยให้คุณเปลี่ยนทั้งข้อความและการจัดรูปแบบตัวอักษร
+เพื่ออัปเดตข้อความทั่วทั้งงานนำเสนอ ให้วนลูปผ่านสไลด์และรูปร่าง, เลือกรูปร่างอัตโนมัติ, แล้วแก้ไขส่วนข้อความของพวกมัน การทำงานระดับส่วนทำให้คุณสามารถเปลี่ยนข้อความและการฟอร์แมตของอักขระได้พร้อมกัน
 
-ตัวอย่างต่อไปนี้แทนที่ทุกการปรากฏของ `years` ด้วย `months` ในข้อความของรูปร่างอัตโนมัติและทำให้ส่วนที่ได้รับผลกระทบทั้งหมดเป็นตัวหนา:
+ตัวอย่างต่อไปนี้แทนที่ทุกครั้งของ `years` ด้วย `months` ในข้อความของรูปร่างอัตโนมัติและทำให้ส่วนที่ได้รับผลกระทบเป็นตัวหนา:
 
 ```csharp
 using Aspose.Slides;
@@ -230,13 +269,13 @@ foreach (var slide in presentation.Slides)
 presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-การวนนี้อัปเดตข้อความเฉพาะในรูปร่างอัตโนมัติ ข้อความที่จัดเก็บในตาราง, แผนภูมิ, SmartArt, หรือรูปร่างที่จัดกลุ่มต้องการการวนผ่านคอลเลกชันของออบเจกต์เหล่านั้น
+การวนลูปนี้อัปเดตข้อความเฉพาะในรูปร่างอัตโนมัติ ข้อความที่เก็บในตาราง, แผนภูมิ, SmartArt หรือรูปร่างเป็นกลุ่มต้องการการวนลูปผ่านคอลเลกชันของวัตถุเหล่านั้นเอง
 
-## **เพิ่มกล่องข้อความพร้อมไฮเปอร์ลิงก์**
+## **เพิ่มกล่องข้อความพร้อมลิงก์**
 
-ไฮเปอร์ลิงก์สามารถกำหนดให้กับส่วนข้อความเฉพาะได้ ดังนั้นจึงเป็นข้อความนั้นเท่านั้นที่ทำหน้าที่เป็นลิงก์ที่คลิกได้ ใช้ [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) เพื่อลิงก์ส่วนนั้นกับ URL ภายนอก
+ลิงก์สามารถกำหนดให้กับส่วนข้อความเฉพาะได้ ดังนั้นเฉพาะข้อความนั้นจะทำหน้าที่เป็นลิงก์ที่คลิกได้ ใช้ [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) เพื่อเชื่อมต่อส่วนกับ URL ภายนอก
 
-ตัวอย่างต่อไปนี้สร้างข้อความที่มีลิงก์และบันทึกลงในพรีเซนเทชัน:
+ตัวอย่างต่อไปนี้สร้างข้อความที่เชื่อมโยงและบันทึกลงในงานนำเสนอ:
 
 ```csharp
 using Aspose.Slides;
@@ -255,10 +294,10 @@ presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 
 ## **คำถามที่พบบ่อย**
 
-**ความแตกต่างระหว่างกล่องข้อความและตัวแบบข้อความบนสไลด์มาสเตอร์หรือเลย์เอาต์คืออะไร?**
+**กล่องข้อความกับตัวแทนตำแหน่งข้อความบนสไลด์แม่หรือแบบเลย์เอาต์ต่างกันอย่างไร?**
 
-[placeholder](/slides/th/net/manage-placeholder/) สามารถสืบทอดตำแหน่งและการจัดรูปแบบจาก [master slide](https://reference.aspose.com/slides/th/net/aspose.slides/masterslide/) หรือ [layout slide](https://reference.aspose.com/slides/th/net/aspose.slides/layoutslide/) กล่องข้อความธรรมดาเป็นรูปร่างอิสระบนสไลด์ที่สร้างขึ้นและจะไม่รับพฤติกรรมของ placeholder เมื่อตัวแบบมีการเปลี่ยนแปลง
+ตัว [placeholder](/slides/th/net/manage-placeholder/) สามารถสืบทอดตำแหน่งและการจัดรูปแบบจาก [master slide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) หรือ [layout slide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) สไลด์ปกติเป็นรูปร่างอิสระบนสไลด์ที่สร้างขึ้นและจะไม่รับพฤติกรรมตัวแทนตำแหน่งเมื่อรูปแบบเปลี่ยนแปลง.
 
-**ฉันจะทำอย่างไรเพื่อตัวแทนข้อความโดยไม่เปลี่ยนข้อความในแผนภูมิ, ตาราง, หรือ SmartArt?**
+**ฉันจะทำให้ข้อความถูกแทนที่โดยไม่กระทบข้อความในแผนภูมิ, ตาราง หรือ SmartArt อย่างไร?**
 
-จำกัดการวนเพียงรูปร่างที่ทำการ implements [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ตามที่แสดงในตัวอย่างอัปเดตข้อความ แผนภูมิ, ตาราง, และ SmartArt เก็บข้อความในโมเดลออบเจกต์ของตัวเอง ดังนั้นพวกมันจะไม่ถูกแก้ไขโดยลูปนั้น
+จำกัดการวนลูปให้กับรูปร่างที่ทำตาม [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ตามที่แสดงในตัวอย่างอัปเดตข้อความ แผนภูมิ, ตาราง, และ SmartArt เก็บข้อความในโมเดลวัตถุของตนเอง ดังนั้นจึงไม่ถูกแก้ไขโดยลูปนั้น.

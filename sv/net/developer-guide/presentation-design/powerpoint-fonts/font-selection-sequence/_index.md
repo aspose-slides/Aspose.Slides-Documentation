@@ -1,62 +1,93 @@
 ---
-title: Teckensnittsurvalsekvens i Aspose.Slides för .NET
-linktitle: Teckensnittsurval
+title: Typsnittsalternativsekvens i Aspose.Slides för .NET
+linktitle: Typsnittsalternativ
 type: docs
 weight: 80
 url: /sv/net/font-selection-sequence/
 keywords:
-- teckensnittsurval
-- teckensnittssubstitution
-- teckensnittsersättning
+- typsnittsalternativ
+- typsnittssubstitution
+- typsnittsersättning
 - substitutionsregel
-- tillgängligt teckensnitt
-- saknat teckensnitt
+- tillgängligt typsnitt
+- saknat typsnitt
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Upptäck hur Aspose.Slides för .NET väljer teckensnitt, vilket säkerställer skarp och konsekvent presentation av PPT-, PPTX- och ODP-filer — förbättra dina bildspel nu."
+description: "Upptäck hur Aspose.Slides för .NET väljer typsnitt, vilket säkerställer skarp och konsekvent presentation av PPT-, PPTX- och ODP-filer—förbättra dina bildspel nu."
 ---
 ## **Översikt**
 
-När en presentation laddas, renderas eller konverteras till ett annat format kontrollerar Aspose.Slides om de teckensnitt som används i presentationen finns tillgängliga i operativsystemet. Om ett nödvändigt teckensnitt saknas väljer Aspose.Slides ett ersättningsteckensnitt som ligger så nära som möjligt det som PowerPoint skulle använda.
+När en presentation laddas, renderas eller konverteras till ett annat format, tar Aspose.Slides hänsyn till dess inbäddade typsnitt och de typsnitt som finns tillgängliga för applikationen. Om ett behövt typsnitt saknas väljer Aspose.Slides ett ersättningstypsnitt som är så nära som möjligt det som PowerPoint skulle använda.
 
-Aspose.Slides söker först efter det valda teckensnittet i operativsystemet. Om teckensnittet hittas används det. Om det inte hittas tillämpas ett lämpligt ersättningsteckensnitt. När teckensnittssubstitutionsregler definieras via `FontSubstRule` tas även dessa regler i beaktande.
+Tillgängliga typsnitt kan omfatta systemtypsnitt, typsnitt som laddas av applikationen och typsnitt som är inbäddade i presentationen. För ett matchande inbäddat och registrerat typsnitt styr .NET 26.11‑inställningen som beskrivs nedan vilken som har prioritet. Typsnittssubstitueringsregler som definieras via [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) är en separat mekanism.
 
-Du kan också lägga till teckensnitt vid körning av programmet, använda inbäddade teckensnitt från en presentation eller läsa in externa teckensnitt för utdokument, såsom PDF-filer.
+Du kan också lägga till typsnitt vid applikationens körning, använda inbäddade typsnitt från en presentation eller ladda externa typsnitt för utdatafiler såsom PDF-filer.
 
-## **Fontval**
+## **Typsnittsval**
 
-Vissa regler gäller för teckensnitt i en presentation när presentationen laddas, renderas eller konverteras till ett annat format. Till exempel, när du försöker konvertera en presentation (dess bildspel) till bilder, kontrolleras presentationens teckensnitt för att verifiera att de valda teckensnitten finns i operativsystemet. Om teckensnitten bekräftas saknas, ersätts de — se [**Fontbyte**](https://docs.aspose.com/slides/sv/net/font-replacement/) och [**Fontsubstitution**](https://docs.aspose.com/slides/sv/net/font-substitution/).
+Text kan referera till ett tematypsnitt, till exempel `+mn-lt`, istället för ett explicit familjenamn. Se [Resolve Theme Font References](/slides/sv/net/presentation-theme/#resolve-theme-font-references) för att få familjen som anges av det aktuella temat. Att lösa upp den referensen är separerat från att kontrollera typsnittstillgänglighet och tillämpa renderings‑tidens ersättning eller glyph‑fallback; den identifierar inte den typsnittsfil som slutligen används för att rendera texten.
 
-Detta är den process som Aspose.Slides följer när det hanterar teckensnitt:
+När du renderar bilder eller konverterar en presentation, kontrollera att de begärda typsnitten är inbäddade eller tillgängliga från registrerade källor. Saknade typsnitt kan kräva ersättning eller substitution; se [**Font Replacement**](/slides/sv/net/font-replacement/) och [**Font Substitution**](/slides/sv/net/font-substitution/).
 
-1. Aspose.Slides söker efter teckensnitt i operativsystemet för att hitta det teckensnitt som matchar presentationens valda teckensnitt. 
-2. Om det valda teckensnittet hittas använder Aspose.Slides det. Annars använder Aspose.Slides ett ersättningsteckensnitt som ligger så nära som möjligt det som PowerPoint skulle använda.
-3. Om regler för fontbyte har ställts in via [FontSubstRule](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsubstrule/), tillämpas de. 
+När du undersöker typsnittsval:
 
-Aspose.Slides låter dig lägga till teckensnitt i programmet vid körning och sedan använda dessa teckensnitt. Se [**Anpassade teckensnitt**](https://docs.aspose.com/slides/sv/net/custom-font/). 
+1. Lös upp den begärda familjen och stilen, inklusive eventuell temareferens.
+2. Kontrollera inbäddade typsnitt och registrerade källor, inklusive systemtypsnitt och typsnitt som laddas av applikationen. Använd inställningen nedan när matchande inbäddade och registrerade versioner konkurrerar.
+3. Granska [typsnitts substitueringsregler](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) och glyph‑fallback om det begärda typsnittet eller tecknen inte är tillgängliga.
 
-När extra teckensnitt placeras i en presentation kallas de [**Inbäddade teckensnitt**](https://docs.aspose.com/slides/sv/net/embedded-font/).
+Aspose.Slides låter dig lägga till typsnitt vid applikationens körning och sedan använda dessa typsnitt. Se [**Custom fonts**](/slides/sv/net/custom-font/).
 
-Aspose.Slides låter dig lägga till teckensnitt som endast tillämpas på utskriftsdokument. Till exempel, om en presentation du vill konvertera till PDF innehåller teckensnitt som saknas i ditt system och inbäddade teckensnitt, kan du lägga till eller läsa in de behövda teckensnitten som **externa teckensnitt**. 
+När ytterligare typsnitt placeras i en presentation kallas de [**Embedded fonts**](/slides/sv/net/embedded-font/).
 
-{{% alert title="Note" color="primary" %}} 
-Vi distribuerar inga teckensnitt, varken betalda eller gratis. Vårt API låter dig läsa in externa teckensnitt och bädda in dem i dokument, men du gör detta med teckensnitt på eget ansvar. 
+Aspose.Slides låter dig lägga till typsnitt som endast tillämpas på *utdokument*. Till exempel, om en presentation du vill konvertera till PDF innehåller typsnitt som saknas i ditt system och inbäddade typsnitt, kan du lägga till eller ladda de nödvändiga typsnitten som **external fonts**.
+
+{{% alert title="Note" color="info" %}} 
+Vi distribuerar inga typsnitt, varken betalda eller gratis. Vårt API låter dig läsa in externa typsnitt och bädda in dem i dokument, men du gör det med typsnitt på ditt eget gottfinnande och ansvar.
 {{% /alert %}}
 
-## **Vanliga frågor**
+## **Föredra registrerade typsnitt framför inbäddade typsnitt**
 
-**Hur kan jag avgöra vilka teckensnitt som faktiskt används i en presentation innan konvertering?**
+Från och med .NET 26.11 låter [IFontsManager.PreferRegisteredFontsOverEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/preferregisteredfontsoverembedded/) ett matchande registrerat typsnitt ha prioritet framför ett inbäddat typsnitt vid export. Standardvärdet är `false`. Matchning använder typsnittsnamnet och stilen; ett annat familjenamn är inte en ersättningsmatch. Registrerade typsnitt kan komma från systemet eller [explicit inlästa typsnittskällor](/slides/sv/net/custom-font/).
 
-Aspose.Slides låter dig inspektera de använda teckensnitten via [font manager](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/fontsmanager/), så att du kan besluta om du vill [bädda in](/slides/sv/net/embedded-font/), [ersätta](/slides/sv/net/font-replacement/), eller lägga till [externa källor](/slides/sv/net/custom-font/). Detta hjälper dig att förhindra oönskade substitutioner under rendering och export.
+Följande exempel använder paketet **Aspose.Slides.NET6.CrossPlatform 26.11** på .NET 8. Följ [installationsguide](/slides/sv/net/installation/) för din miljö. Tillhandahåll `embedded-fonts.pptx` med ett inbäddat typsnitt och `preferred.ttf` med samma familjenamn och stil. De två typsnittsfilena bör skilja sig synligt om du vill jämföra resultatet.
 
-**Kan jag lägga till extra teckensnittskataloger utan att installera dem i operativsystemet?**
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Ja. Du kan registrera [externa teckensnittskällor](/slides/sv/net/custom-font/) såsom mappar eller strömmar i minnet för rendering och export. Detta tar bort beroendet av värdsystemets teckensnitt och håller layouten förutsägbar.
+var fontBytes = File.ReadAllBytes("preferred.ttf");
+FontsLoader.LoadExternalFont(fontBytes);
+using var presentation = new Presentation("embedded-fonts.pptx");
 
-**Hur förhindrar jag en tyst återgång till ett olämpligt teckensnitt när en glyf saknas?**
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = false;
+presentation.Save("embedded-preference.pdf", SaveFormat.Pdf);
 
-Definiera explicit [teckensnittsersättning](/slides/sv/net/font-replacement/) och font [fallback-regler](/slides/sv/net/fallback-font/) i förväg. Genom att analysera använda teckensnitt och sätta en kontrollerad prioritet för ersättningar säkerställer du enhetlig typografi och undviker oväntade resultat.
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = true;
+presentation.Save("registered-preference.pdf", SaveFormat.Pdf);
+
+presentation.FontsManager.PreferRegisteredFontsOverEmbedded = false;
+presentation.Save("restored-preference.pdf", SaveFormat.Pdf);
+```
+
+Denna inställning ändrar typsnittsprioriteten under export; den byter inte namn på textens typsnitt, tar inte bort inbäddade typsnittsdata eller återbäddar den registrerade filen. Det är en runtime‑inställning: ställ in den igen efter att ha öppnat en presentation på nytt. Om inget matchande registrerat typsnitt är tillgängligt ger inte aktiveringen av preferensen ett sådant; verifiera det resulterande typsnittet och layouten i din målmiljö.
+
+PNG‑ och PDF‑utdata med explicit inlästa vanliga typsnitt kontrollerades för konfigurationen ovan. Kontrollera dina egna typsnitts‑filer, stilar, SDK‑byggnad och utdataformat innan du förlitar dig på identiska resultat. Typsnittsmått kan förändra radbrytningar och positionering. Använd [typsnittsersättning](/slides/sv/net/font-replacement/) eller [substitution](/slides/sv/net/font-substitution/) när du behöver en annan familj, och [operationer för inbäddade typsnitt](/slides/sv/net/embedded-font/) när du behöver ändra de typsnitt som lagras i presentationen.
+
+## **FAQ**
+
+**Hur kan jag avgöra vilka typsnitt som faktiskt används i en presentation före konvertering?**
+
+Aspose.Slides låter dig inspektera de använda typsnitten via [typsnittshanteraren](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/), så att du kan besluta om du ska [bädda in](/slides/sv/net/embedded-font/), [ersätta](/slides/sv/net/font-replacement/), eller lägga till [externa källor](/slides/sv/net/custom-font/). Detta hjälper dig att förhindra oönskade substitutioner under rendering och export.
+
+**Kan jag lägga till extra typsnittskataloger utan att installera dem på operativsystemet?**
+
+Ja. Du kan registrera [externa typsnittskällor](/slides/sv/net/custom-font/) såsom mappar eller minnesströmmar för rendering och export. Detta tar bort beroendet av värdsystemets typsnitt och håller layouten förutsägbar.
+
+**Hur förhindrar jag en tyst fallback till ett olämpligt typsnitt när en glyph saknas?**
+
+Definiera explicit [typsnittsersättning](/slides/sv/net/font-replacement/) och typsnitt [fallback‑regler](/slides/sv/net/fallback-font/) i förväg. Genom att analysera använda typsnitt och sätta en kontrollerad prioritet för ersättningar säkerställer du konsekvent typografi och undviker oväntade resultat.

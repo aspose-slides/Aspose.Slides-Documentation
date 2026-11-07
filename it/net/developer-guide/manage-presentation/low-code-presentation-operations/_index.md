@@ -8,13 +8,13 @@ keywords:
 - API presentazione low-code
 - convertire presentazione
 - unire presentazioni
-- iterare slide
+- iterare diapositive
 - iterare forme
 - iterare testo
 - raccogliere forme
 - comprimere presentazione
-- rimuovere master slide inutilizzati
-- rimuovere layout slide inutilizzati
+- rimuovere master diapositive inutilizzati
+- rimuovere layout diapositive inutilizzati
 - comprimere font incorporati
 - PowerPoint
 - OpenDocument
@@ -22,27 +22,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Usa l'API low-code di Aspose.Slides in .NET per convertire e unire presentazioni, iterare tra i contenuti, raccogliere forme e ridurre le dimensioni della presentazione."
+description: "Utilizza l'API low-code di Aspose.Slides in .NET per convertire e unire presentazioni, iterare il contenuto, raccogliere forme e ridurre le dimensioni della presentazione."
 ---
 ## **Panoramica**
 
-Lo spazio dei nomi [Aspose.Slides.LowCode](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/) fornisce classi helper statiche per operazioni comuni sulle presentazioni. Queste helper incapsulano flussi di lavoro del modello oggetto frequentemente usati in metodi specifici, così è possibile convertire o unire file, elaborare elementi della presentazione, raccogliere forme e rimuovere contenuti inutilizzati con meno codice.
+Il namespace [Aspose.Slides.LowCode](https://reference.aspose.com/slides/net/aspose.slides.lowcode/) fornisce classi helper statiche per operazioni comuni su presentazioni. Questi helper avvolgono i flussi di lavoro più frequenti del modello di oggetti in metodi mirati, così è possibile convertire o unire file, elaborare gli elementi della presentazione, raccogliere forme e rimuovere contenuti inutilizzati con meno codice.
 
-Le helper low-code sono più utili quando l'operazione si applica a un intero file o presentazione e il flusso di lavoro predefinito soddisfa i requisiti. Utilizza l'intero [Aspose.Slides object model](https://reference.aspose.com/slides/it/net/aspose.slides/) quando è necessario un controllo dettagliato su slide individuali, master, layout, forme, impostazioni di esportazione o relazioni tra gli elementi della presentazione.
+I helper low‑code sono più utili quando l’operazione si applica a un intero file o a una presentazione e il flusso di lavoro predefinito corrisponde alle tue esigenze. Usa il modello di oggetti completo di [Aspose.Slides](https://reference.aspose.com/slides/net/aspose.slides/) quando hai bisogno di un controllo dettagliato su singole diapositive, master, layout, forme, impostazioni di esportazione o relazioni tra gli elementi della presentazione.
 
-La tabella seguente riepiloga le helper disponibili:
+La tabella seguente riassume gli helper disponibili:
 
-| Helper | Use it for |
+| Helper | Scopo |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/convert/) | Convertire una presentazione in un altro formato con una chiamata diretta file‑a‑file. |
-| [Merger](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/merger/) | Combinare file di presentazione completi dello stesso formato. |
-| [ForEach](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/foreach/) | Eseguire un'azione per ogni slide, forma, paragrafo o porzione di testo. |
-| [Collect](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/collect/) | Recuperare le forme dall'intera presentazione per elaborazioni o analisi ripetute. |
-| [Compress](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/compress/) | Rimuovere master e layout inutilizzati e ridurre i dati dei caratteri incorporati. |
+| [Convert](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/) | Convertire una presentazione in un altro formato con una chiamata file‑a‑file. |
+| [Merger](https://reference.aspose.com/slides/net/aspose.slides.lowcode/merger/) | Unire file di presentazione completi dello stesso formato. |
+| [ForEach](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/) | Eseguire un’azione per ogni diapositiva, forma, paragrafo o porzione di testo. |
+| [Collect](https://reference.aspose.com/slides/net/aspose.slides.lowcode/collect/) | Recuperare le forme dall’intera presentazione per elaborazioni o analisi ripetute. |
+| [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) | Rimuovere master/layout inutilizzati, ridurre i dati dei font incorporati e comprimere le immagini. |
 
-## **Convertire una Presentazione**
+## **Convertire una presentazione**
 
-Utilizza [Convert.AutoByExtension](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/convert/autobyextension/) quando l'estensione del file di output è sufficiente per selezionare il formato di esportazione. Il metodo apre la presentazione di origine, determina il formato richiesto dal percorso di output e scrive il risultato.
+Utilizza [Convert.AutoByExtension](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/autobyextension/) quando l’estensione del file di output è sufficiente a selezionare il formato di esportazione. Il metodo apre la presentazione di origine, determina il formato richiesto dal percorso di output e scrive il risultato.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -50,11 +50,11 @@ using Aspose.Slides.LowCode;
 Convert.AutoByExtension("input.pptx", "output.pdf");
 ```
 
-La classe [Convert](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/convert/) fornisce anche metodi dedicati per l'output PDF, SVG, JPEG, PNG e TIFF. Utilizza l'intero modello oggetto quando è necessario ispezionare o modificare la presentazione prima dell'esportazione o configurare un'opzione di esportazione non esposta dalla helper selezionata. Vedi [Convert Presentation](/slides/it/net/convert-presentation/) per flussi di lavoro e opzioni specifiche per formato.
+La classe [Convert](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/) fornisce anche metodi dedicati per output PDF, SVG, JPEG, PNG e TIFF. Usa il modello di oggetti completo quando devi ispezionare o modificare la presentazione prima dell’esportazione o configurare un’opzione di esportazione non esposta dall’helper selezionato. Vedi [Convert Presentation](/slides/it/net/convert-presentation/) per flussi di lavoro e opzioni specifici per formato.
 
-## **Unire le Presentazioni**
+## **Unire presentazioni**
 
-Utilizza [Merger.Process](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/merger/process/) per combinare file di presentazione completi con una sola chiamata. Le presentazioni di input devono avere lo stesso formato di file.
+Usa [Merger.Process](https://reference.aspose.com/slides/net/aspose.slides.lowcode/merger/process/) per combinare file di presentazione completi con una sola chiamata. Le presentazioni di input devono avere lo stesso formato di file.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -63,13 +63,13 @@ var inputFiles = new[] { "part-1.pptx", "part-2.pptx" };
 Merger.Process(inputFiles, "merged.pptx");
 ```
 
-La helper è appropriata quando tutte le slide devono essere aggiunte a un unico risultato senza selezionarle o rimapparle singolarmente. Utilizza l'intero modello oggetto quando è necessario unire slide selezionate, applicare un master o layout di destinazione, preservare esplicitamente le sezioni o conciliare dimensioni di slide diverse. Vedi [Merge Presentations](/slides/it/net/merge-presentation/) per questi scenari.
+L’helper è appropriato quando tutte le diapositive devono essere aggiunte a un risultato unico senza selezionarle o rimapparle individualmente. Usa il modello di oggetti completo quando devi unire diapositive selezionate, applicare un master o layout di destinazione, preservare sezioni in modo esplicito o conciliare dimensioni di diapositive diverse. Vedi [Merge Presentations](/slides/it/net/merge-presentation/) per questi scenari.
 
-## **Iterare Attraverso gli Elementi della Presentazione**
+## **Iterare attraverso gli elementi della presentazione**
 
-La classe [ForEach](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/foreach/) invoca una callback per ogni tipo richiesto di elemento della presentazione. Evita i cicli annidati sulle collezioni ed è comoda per ispezioni o modifiche di formattazione a livello di presentazione.
+La classe [ForEach](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/) invoca un callback per ogni tipo richiesto di elemento della presentazione. Evita cicli di raccolta annidati ed è comoda per ispezioni o modifiche di formattazione a livello di presentazione.
 
-L'esempio seguente utilizza [ForEach.Slide](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/foreach/slide/), [ForEach.Shape](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/foreach/paragraph/), e [ForEach.Portion](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/foreach/portion/) per ispezionare gli elementi corrispondenti:
+L’esempio seguente utilizza [ForEach.Slide](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/slide/), [ForEach.Shape](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/paragraph/) e [ForEach.Portion](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/portion/) per ispezionare gli elementi corrispondenti:
 
 ```csharp
 using System;
@@ -99,11 +99,11 @@ ForEach.Portion(presentation, (portion, paragraph, slide, index) =>
 });
 ```
 
-Per impostazione predefinita, l'attraversamento di forme e testo a livello di presentazione include slide normali, master e layout. Le overload con un parametro `includeNotes` possono anche elaborare le slide delle note. Utilizza cicli di collezione diretti quando l'ordine di attraversamento, l'uscita anticipata, il filtraggio prima della chiamata della callback o il controllo dettagliato genitore‑figlio è importante.
+Per impostazione predefinita, l’attraversamento di forme e testo a livello di presentazione include diapositive normali, master e layout. Le versioni con un parametro `includeNotes` possono anche elaborare le diapositive delle note. Usa cicli di raccolta diretti quando l’ordine di attraversamento, l’uscita anticipata, il filtraggio prima della chiamata del callback o il controllo dettagliato genitore‑figlio sono importanti.
 
-## **Raccogliere Forme**
+## **Raccogliere forme**
 
-Utilizza [Collect.Shapes](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/collect/shapes/) quando ti serve una collezione di tutte le forme in una presentazione invece di una callback per ogni forma. È utile quando lo stesso insieme sarà filtrato, contato o elaborato più volte.
+Usa [Collect.Shapes](https://reference.aspose.com/slides/net/aspose.slides.lowcode/collect/shapes/) quando ti serve una collezione di tutte le forme in una presentazione anziché un callback per ogni forma. È utile quando lo stesso set verrà filtrato, contato o elaborato più volte.
 
 ```csharp
 using System;
@@ -119,15 +119,15 @@ foreach (var shape in shapes)
 }
 ```
 
-Usa invece [ForEach.Shape](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/foreach/shape/) quando ogni forma può essere gestita immediatamente e non è necessario conservare il risultato raccolto.
+Utilizza [ForEach.Shape](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/shape/) invece quando ogni forma può essere gestita immediatamente e non è necessario conservare il risultato raccolto.
 
-## **Comprimere il Contenuto della Presentazione**
+## **Comprimere il contenuto della presentazione**
 
-La classe [Compress](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/compress/) può rimuovere elementi strutturali inutilizzati e ridurre i dati dei caratteri incorporati:
+La classe [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) può rimuovere elementi strutturali inutilizzati e ridurre i dati dei font incorporati:
 
-- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) rimuove le slide di layout che nessuna slide normale fa riferimento.
-- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) rimuove i master slide che non sono più utilizzati.
-- [Compress.CompressEmbeddedFonts](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/compress/compressembeddedfonts/) rimuove i caratteri inutilizzati dai font incorporati.
+- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) rimuove le diapositive di layout a cui nessuna diapositiva normale fa riferimento.
+- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) rimuove i master non più utilizzati.
+- [Compress.CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) rimuove i caratteri inutilizzati dai font incorporati.
 
 ```csharp
 using Aspose.Slides;
@@ -143,38 +143,82 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
 ```
 
-Rimuovi i layout inutilizzati prima dei master inutilizzati in modo che un master che diventa non referenziato dopo la pulizia dei layout possa essere rimosso. Salva la presentazione ottimizzata in un nuovo file se potresti aver bisogno più tardi dei master, dei layout originali o dei dati completi dei font incorporati. Per maggiori dettagli, vedi [Slide Master](/slides/it/net/slide-master/) e [Embedded Font](/slides/it/net/embedded-font/).
+Rimuovi i layout inutilizzati prima dei master inutilizzati, così un master che diventa non referenziato dopo la pulizia dei layout può essere rimosso. Salva la presentazione ottimizzata in un nuovo file se potresti aver bisogno in seguito dei master, dei layout originali o dei dati completi dei font incorporati. Per maggiori dettagli, vedi [Slide Master](/slides/it/net/slide-master/) e [Embedded Font](/slides/it/net/embedded-font/).
+
+### **Comprimere l'intera presentazione**
+
+Aspose.Slides for .NET 26.11 aggiunge [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/). Combina la rimozione di layout/master inutilizzati, il subset dei font incorporati ai caratteri utilizzati e la compressione delle immagini a 150 DPI. Usa le operazioni individuali sopra quando devi controllare quali modifiche sono applicate.
+
+Installa [Aspose.Slides for .NET](/slides/it/net/installation/) 26.11 o versioni successive e fornisci `input.pptx`. Salva in un file separato: layout rimossi, caratteri dei font e pixel delle immagini ritagliate potrebbero essere necessari per modifiche successive.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
+
+using var presentation = new Presentation("input.pptx");
+Compress.CompressPresentation(presentation);
+presentation.Save("compressed.pptx", SaveFormat.Pptx);
+```
+
+### **Comprimere le immagini a una risoluzione scelta**
+
+Usa [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/) per elaborare le immagini idonee senza rimuovere layout o ridurre i font. Questo esempio utilizza 96 DPI; seleziona un altro valore di [PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression/) per le esigenze di output.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
+
+using var presentation = new Presentation("input.pptx");
+Compress.CompressImages(presentation, PicturesCompression.Dpi96);
+presentation.Save("compressed-images.pptx", SaveFormat.Pptx);
+```
+
+Entrambi gli helper usano il seguente ambito di elaborazione delle immagini:
+
+| Contenuto | Trattamento |
+| --- | --- |
+| Immagini raster e riempimenti di forma con immagine su diapositive normali, master e layout, incluse forme raggruppate | Idonee per compressione. |
+| Immagini già alla risoluzione richiesta o inferiore | Non ingrandite. Le aree ritagliate possono comunque essere rimosse. |
+| Aree di immagine ritagliate | I pixel nascosti sono rimossi definitivamente e gli offset di ritaglio vengono azzerati. |
+| Sfondi delle diapositive e riempimenti di celle di tabella | Non elaborate da questi helper. |
+| Interni di grafici/SmartArt, GIF e formati vettoriali come SVG, EMF e WMF | Fuori dall’ambito documentato di compressione delle immagini. |
+
+Nella versione 26.11, [PicturesCompression.DocumentResolution](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression/) evita il downsampling basato sulla risoluzione di un’immagine non ritagliata, ma **non preserva i pixel ritagliati**. Un’immagine ritagliata può comunque essere riscritta con le aree nascoste rimosse. Nessuno dei due helper espone un’opzione per preservare il ritaglio. Per un controllo individuale, vedi l’[esempio di compressione per immagine](/slides/it/net/examples/optimization-batch/compression/).
+
+Confronta l’aspetto e la dimensione del file risultante prima di sostituire l’originale. I risparmi dipendono dalle immagini di origine, dalla loro dimensione visualizzata e dal contenuto inutilizzato; la compressione non garantisce un file più piccolo. Vedi [Embedded Fonts](/slides/it/net/embedded-font/) per le implicazioni del subset dei font.
 
 ## **FAQ**
 
-**Quando dovrei usare l'API low‑code invece del modello oggetto completo?**
+**Quando dovrei usare l’API low‑code invece del modello di oggetti completo?**
 
-Utilizza le helper low‑code quando un'operazione standard si applica a un file o una presentazione completa e non richiede un controllo dettagliato sugli elementi individuali. Usa il modello oggetto completo quando è necessario selezionare slide specifiche, controllare le relazioni tra master e layout, ispezionare lo stato intermedio o configurare un comportamento che la helper non espone.
+Usa gli helper low‑code quando un’operazione standard si applica a un file o a una presentazione completa e non richiede un controllo dettagliato su elementi singoli. Usa il modello di oggetti completo quando devi selezionare diapositive specifiche, controllare le relazioni tra master e layout, ispezionare lo stato intermedio o configurare un comportamento non esposto dall’helper.
 
 **Il Merger può combinare presentazioni in formati di file diversi?**
 
-No. [Merger.Process](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/merger/process/) richiede che le presentazioni di input siano nello stesso formato. Converti prima i file di input in un formato comune, ad esempio con [Convert.AutoByExtension](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/convert/autobyextension/), e poi unisci i file convertiti.
+No. [Merger.Process](https://reference.aspose.com/slides/net/aspose.slides.lowcode/merger/process/) richiede che le presentazioni di input siano nello stesso formato. Convertili prima in un formato comune, ad esempio con [Convert.AutoByExtension](https://reference.aspose.com/slides/net/aspose.slides.lowcode/convert/autobyextension/), e quindi unisci i file convertiti.
 
-**ForEach elabora master, layout e slide delle note?**
+**Il ForEach elabora le diapositive master, layout e di note?**
 
-[ForEach.Slide](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/foreach/slide/) itera attraverso le slide di presentazione normali. Le operazioni a livello di presentazione di [ForEach.Shape](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/foreach/paragraph/) e [ForEach.Portion](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/foreach/portion/) includono per impostazione predefinita le slide normali, master e layout. Usa le loro overload con il parametro `includeNotes` impostato a `true` per includere le slide delle note.
+[ForEach.Slide](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/slide/) itera sulle diapositive normali della presentazione. Le operazioni a livello di presentazione di [ForEach.Shape](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/paragraph/) e [ForEach.Portion](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/portion/) includono diapositive normali, master e layout per impostazione predefinita. Usa le loro versioni con `includeNotes` impostato a `true` per includere le diapositive delle note.
 
 **Qual è la differenza tra ForEach.Shape e Collect.Shapes?**
 
-Utilizza [ForEach.Shape](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/foreach/shape/) per elaborare ogni forma immediatamente tramite una callback. Usa [Collect.Shapes](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/collect/shapes/) quando ti serve un risultato enumerabile che può essere conservato, filtrato, contato o attraversato più volte.
+Usa [ForEach.Shape](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/shape/) per elaborare ogni forma immediatamente tramite un callback. Usa [Collect.Shapes](https://reference.aspose.com/slides/net/aspose.slides.lowcode/collect/shapes/) quando ti serve un risultato enumerabile che può essere conservato, filtrato, contato o attraversato più volte.
 
-**Compress riduce sempre la dimensione del file della presentazione?**
+**Compress rende sempre il file della presentazione più piccolo?**
 
-Non necessariamente. Il risultato dipende dal fatto che la presentazione contenga layout inutilizzati, master inutilizzati o font incorporati con caratteri non usati. Se nessuno di questi è presente, le relative operazioni di [Compress](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/compress/) potrebbero non ridurre la dimensione del file.
+Non necessariamente. Il risparmio dipende da layout/master inutilizzati, font incorporati con caratteri non usati e immagini che beneficiano della compressione. Gli helper [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) possono lasciare la dimensione invariata o produrre un file più grande per alcuni input. Confronta sia la dimensione sia la qualità resa e conserva l’originale.
 
 **Le modifiche apportate da ForEach o Compress vengono salvate automaticamente?**
 
-No. Queste helper operano sull'oggetto [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/) caricato in memoria. Dopo aver modificato gli elementi in una callback di [ForEach](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/foreach/) o aver eseguito [Compress](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/compress/), chiama [Presentation.Save](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/save/) per scrivere il risultato.
+No. Questi helper operano sull’oggetto [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) caricato in memoria. Dopo aver modificato gli elementi in un callback di [ForEach](https://reference.aspose.com/slides/net/aspose.slides.lowcode/foreach/) o aver eseguito [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/), chiama [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) per scrivere il risultato.
 
-## **Articoli Correlati**
+## **Articoli correlati**
 
-- [Convertire la Presentazione](/slides/it/net/convert-presentation/)
-- [Unire le Presentazioni](/slides/it/net/merge-presentation/)
-- [Master diapositive](/slides/it/net/slide-master/)
-- [Gestire Casella di Testo](/slides/it/net/manage-textbox/)
-- [Font Incorporato](/slides/it/net/embedded-font/)
+- [Convert Presentation](/slides/it/net/convert-presentation/)
+- [Merge Presentations](/slides/it/net/merge-presentation/)
+- [Slide Master](/slides/it/net/slide-master/)
+- [Manage Text Box](/slides/it/net/manage-textbox/)
+- [Embedded Font](/slides/it/net/embedded-font/)

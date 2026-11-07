@@ -1,38 +1,36 @@
 ---
-title: "PowerPoint ve OpenDocument Sunumlarında .NET ile Metin Kutularını Yönetme"
-linktitle: "Metin Kutusunu Yönet"
+title: Sunumlarda .NET ile Metin Kutularını Yönetme
+linktitle: Metin Kutusunu Yönet
 type: docs
 weight: 20
 url: /tr/net/manage-textbox/
 keywords:
-- "metin kutusu"
-- "metin çerçevesi"
-- "metin ekle"
-- "metni güncelle"
-- "metin kutusu oluştur"
-- "metin kutusunu kontrol et"
-- "metin sütunu ekle"
-- "köprü ekle"
-- "PowerPoint"
-- "sunum"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Aspose.Slides for .NET kullanarak PowerPoint ve OpenDocument sunumlarında metin kutularını oluşturun, tanımlayın, biçimlendirin ve güncelleyin."
+- metin kutusu
+- metin çerçevesi
+- metin ekle
+- metni güncelle
+- metin kutusu oluştur
+- metin kutusunu kontrol et
+- metin sütunu ekle
+- köprü ekle
+- PowerPoint
+- sunum
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET kullanarak PowerPoint ve OpenDocument sunumlarında metin kutularını oluşturma, tanımlama, biçimlendirme ve güncelleme."
 ---
-## **Introduction**
+## **Giriş**
 
-Aspose.Slides for .NET'te slayt metni, şekillere ait metin çerçevelerinde saklanır. [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) arabirimi en yaygın metin taşıyan şekli temsil eder ve metnini [IAutoShape.TextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/textframe/) özelliği aracılığıyla sunar.
+Aspose.Slides for .NET'te slayt metni, şekillere ait metin çerçevelerinde depolanır. [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) arayüzü en yaygın metin içeren şekli temsil eder ve metnini [IAutoShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) özelliği aracılığıyla ortaya çıkar.
 
 {{% alert color="info" title="Note" %}}
-
-Her otomatik şekil [IShape](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/) uygular, ancak her şekil bir otomatik şekil değildir veya bir metin çerçevesi desteklemez. Mevcut bir sunumu işlerken, metnine erişmeden önce bir şeklin `IAutoShape` uygular olduğundan emin olun.
-
+Her otomatik şekil [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) arayüzünü uygular, ancak her şekil bir otomatik şekil değildir ve bir metin çerçevesini desteklemeyebilir. Mevcut bir sunumu işlerken, metnine erişmeden önce şeklin `IAutoShape` arayüzünü uyguladığını kontrol edin.
 {{% /alert %}}
 
-## **Create a Text Box on a Slide**
+## **Bir Slaytta Metin Kutusu Oluşturma**
 
-Bir metin kutusu oluşturmak için bir otomatik şekil slayta ekleyin, metin çerçevesine metin ekleyin ve sunumu kaydedin. Aşağıdaki örnek dikdörtgen bir metin kutusu oluşturur:
+Bir metin kutusu oluşturmak için slayta bir otomatik şekil ekleyin, metin çerçevesine metin ekleyin ve sunumu kaydedin. Aşağıdaki örnek dikdörtgen bir metin kutusu oluşturur:
 
 ```csharp
 using Aspose.Slides;
@@ -46,15 +44,15 @@ textBox.AddTextFrame("Aspose TextBox");
 presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-[IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/addautoshape/) metoduna geçirilen koordinatlar ve boyutlar puan cinsindendir. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/addtextframe/) metin çerçevesini sağlanan metinle başlatır.
+[IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/)'a geçirilen koordinatlar ve boyutlar nokta cinsindendir. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) metin çerçevesini verilen metinle başlatır.
 
-## **Check for a Text Box Shape**
+## **Metin Kutusu Şekli İçin Kontrol**
 
-Bir otomatik şeklin metin kutusu olarak ele alınıp alınmadığını belirlemek için [AutoShape.IsTextBox](https://reference.aspose.com/slides/tr/net/aspose.slides/autoshape/istextbox/) özelliğini kullanın. Bu, bir sunumun hem metin taşıyan hem de sadece grafiksel otomatik şekiller içerdiği durumlarda faydalıdır.
+[AutoShape.IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) özelliğini kullanarak bir otomatik şeklin metin kutusu olarak kabul edilip edilmediğini belirleyebilirsiniz. Bu, bir sunumun hem metin içeren hem de yalnızca grafiksel otomatik şekiller içermesi durumunda faydalıdır.
 
-![A text box and a shape](istextbox.png)
+![Bir metin kutusu ve bir şekil](istextbox.png)
 
-Aşağıdaki örnek, bir sunumdaki her otomatik şekli inceler:
+Aşağıdaki örnek bir sunumdaki her otomatik şekli inceler:
 
 ```csharp
 using System;
@@ -78,7 +76,7 @@ foreach (var currentSlide in presentation.Slides)
 }
 ```
 
-Yeni eklenen bir otomatik şekil, içinde boş olmayan metin bulunduğunda metin kutusu olarak kabul edilir. Bu metni [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/addtextframe/) veya [ITextFrame.Text](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/text/) aracılığıyla sağlayabilirsiniz. Boş bir dize eklemek veya atamak, `IsTextBox` özelliğini `false` olarak bırakır:
+Yeni eklenen bir otomatik şekil, içinde boş olmayan bir metin bulunana kadar metin kutusu olarak değerlendirilmez. Bu metni [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) veya [ITextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/itextframe/text/) aracılığıyla sağlayabilirsiniz. Boş bir dize eklemek veya atamak, `IsTextBox` değerinin `false` kalmasına neden olur:
 
 ```csharp
 using System;
@@ -104,19 +102,57 @@ shape4.TextFrame.Text = "";
 Console.WriteLine(shape4.IsTextBox);
 ```
 
-İlk iki çağrı `True` yazdırır; son iki çağrı `False` yazdırır.
+İlk iki çağrı `True`, son iki çağrı `False` yazdırır.
 
-## **Find the Shape That Owns a Text Frame**
+## **Metin Çerçevesine Sahip Şekli Bulma**
 
-Genel metin işleme kodu, hangi sunum nesnesinin içinde bulunduğunu bilmeden bir [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) alabilir. Sahibi olan [IShape](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/) nesnesine geri dönmek için sadece‑okunur [ITextFrame.ParentShape](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/parentshape/) özelliğini kullanın.
+Genel bir metin işleme kodu, hangi sunum nesnesinin içinde olduğunu bilmeden bir [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) alabilir. Sahibi olan [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) nesnesine geri dönmek için yalnızca okunabilir olan [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) özelliğini kullanın.
 
-Bir otomatik şekil veya başka bir metin taşıyan şekil tarafından sahip olunan bir metin çerçevesi için `ParentShape` sahibi içerir ve [ITextFrame.ParentCell](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/parentcell/) `null` olur. Erişmeden önce döndürülen değeri kontrol edin. Şekil ve tablo‑hücre sahiplerini, SmartArt düğümleriyle ilişkili şekilleri de içerecek şekilde tanımlamak için [Search and Replace Text](/slides/tr/net/search-and-replace-text/) bölümüne bakın.
+Bir metin çerçevesi bir otomatik şekil ya da başka bir metin içeren şekil tarafından sahiplenildiğinde, `ParentShape` sahibi içerir ve [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) `null` olur. Erişmeden önce döndürülen değeri kontrol edin. Şekil ve tablo hücresi sahiplerini, SmartArt düğümleriyle ilişkili şekilleri de tanımlamak için [Search and Replace Text](/slides/tr/net/search-and-replace-text/) bölümüne bakın.
 
-## **Add Columns to a Text Box**
+## **Şeklin Metin Dikdörtgenini Al**
 
-[ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframeformat/columncount/) özelliği metin çerçevesini sütunlara bölürken, [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframeformat/columnspacing/) sütunlar arasındaki boşluğu puan cinsinden ayarlar. Her iki ayar da [ITextFrameFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframeformat/) içinde bulunur ve mevcut bir metin kutusunun metin çerçevesi üzerinden değiştirilebilir. Metin aynı şekil içinde sütunlar arasında akış sağlar; başka bir şekle devam etmez.
+Aspose.Slides for .NET 26.11 sürümünden itibaren, [ITextFrame.GetTextRect](https://reference.aspose.com/slides/net/aspose.slides/itextframe/gettextrect/) ana şeklin geometrisi tarafından tanımlanan metin alanını döndürür. Koordinatları ve boyutları nokta cinsindendir ve o şeklin sol‑üst köşesine göre görecelidir. Örneğin, bir elips dış sınırlarından daha küçük bir metin dikdörtgenine sahiptir.
 
-Aşağıdaki örnek, sütunlar arasında 10 puan boşluk bırakarak üç sütunlu bir metin kutusu oluşturur, sunumu kaydeder ve ayarları çıktı dosyasından geri okur:
+Bu dikdörtgen şekli tanımlar, işlenen karakterleri değil. Metni ya da metin‑çerçeve kenar boşluklarını değiştirmek, onu doldurulan metnin ölçümü haline getirmez. İşlenen metin ölçümleri için [paragraph bounds](/slides/tr/net/paragraph-bounds/) veya [portion bounds](/slides/tr/net/portion-bounds/) kullanın.
+
+[Aspose.Slides for .NET](/slides/tr/net/installation/) 26.11 veya sonraki sürümünü kurduktan sonra, bu örneği çalıştırarak geometrinin metin dikdörtgenini kırmızı olarak çizin. Şekiller döndürülmemiş ve gruplandırılmamış olduğundan, X/Y konumlarını eklemek, bindirmeyi slayta yerleştirmek için yeterlidir.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+foreach (var shapeType in new[] { ShapeType.Rectangle, ShapeType.Ellipse })
+{
+    var x = shapeType == ShapeType.Rectangle ? 50 : 300;
+    var shape = slide.Shapes.AddAutoShape(shapeType, x, 200, 200, 100);
+    shape.AddTextFrame("Text area");
+    var rectangle = shape.TextFrame.GetTextRect();
+    Console.WriteLine($"{shapeType}: {rectangle}");
+
+    var overlayX = shape.X + rectangle.X;
+    var overlayY = shape.Y + rectangle.Y;
+    var outline = slide.Shapes.AddAutoShape(ShapeType.Rectangle, overlayX, overlayY, rectangle.Width, rectangle.Height);
+    outline.FillFormat.FillType = FillType.NoFill;
+    outline.LineFormat.FillFormat.FillType = FillType.Solid;
+    outline.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+}
+
+presentation.Save("text-rectangles.pptx", SaveFormat.Pptx);
+```
+
+Yukarıdaki 200 × 100 noktalık şekiller için dikdörtgen `(0, 0, 200, 100)` döndürür; elips yaklaşık olarak `(29.289, 14.645, 141.421, 70.711)` döndürür. Yöntem ayrıca özel bir geometrinin bildirilen metin dikdörtgenini okur. Slayt‑alanı dönüşleri veya grup dönüşümlerini uygulamaz; bindirme konumlandırılırken bunları ayrı olarak hesaba katın. Geometri şekli olmayan bir metin çerçevesi (ör. tablo‑hücre metin çerçevesi) `InvalidOperationException` hatası oluşturabilir.
+
+## **Metin Kutusuna Sütun Ekleme**
+
+[ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/) özelliği metin çerçevesini sütunlara böler, [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/) ise sütunlar arasındaki boşluğu nokta cinsinden ayarlar. Her iki ayar da [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/) içinde yer alır ve mevcut bir metin kutusunun metin çerçevesi üzerinden değiştirilebilir. Metin aynı şekil içinde sütunlar arasında akış sağlar; başka bir şekle geçmez.
+
+Aşağıdaki örnek, sütunlar arasında 10 nokta boşlukla üç sütunlu bir metin kutusu oluşturur, sunumu kaydeder ve ayarları çıktıyı dosyasından geri okur:
 
 ```csharp
 using System;
@@ -140,20 +176,20 @@ var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
 Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
-## **Extract Text from Individual Columns**
+## **Tek Tek Sütunlardan Metin Çıkarma**
 
-Mevcut bir metin çerçevesindeki her görsel sütuna atanmış metni almak için [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/tr/net/aspose.slides/textframe/splittextbycolumns/) metodunu kullanın. Metot, sütun‑bazlı okuma sırasına göre her sütun için bir dize döndürür. Tek sütunlu bir metin çerçevesi tek öğeli bir dizi üretir ve boş bir sütun boş dizeyle temsil edilir. Dize yalnızca düz metin içerir; bölüm‑seviyesindeki biçimlendirme korunmaz.
+[TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/net/aspose.slides/textframe/splittextbycolumns/) yöntemini kullanarak mevcut bir metin çerçevesindeki her görsel sütuna atanmış metni alabilirsiniz. Yöntem her sütun için bir dize döndürür; sütun‑tabanlı okuma sırasına göre. Tek sütunlu bir metin çerçevesi bir elemanlı bir dizi üretir, boş bir sütun ise boş dize ile temsil edilir. Dönüş değerleri yalnızca düz metin içerir; bölüm‑seviyesi biçimlendirme korunmaz.
 
-Bu özellik aşağıdaki durumlarda faydalıdır:
+Bu, aşağıdaki durumlarda faydalıdır:
 
-- Metni sütun‑bazlı okuma sırasını koruyarak çıkarmak.
-- Çok‑sütunlu slaytların içeriğini dizine eklemek veya karşılaştırmak.
+- Metni, sütun‑tabanlı okuma sırasını koruyarak çıkarmak.
+- Çok sütunlu slaytların içeriğini indekslemek veya karşılaştırmak.
 - Her sütunu ayrı bir dosyaya, veritabanı alanına veya başka bir hedefe aktarmak.
-- [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframeformat/columnspacing/), yazı tipi veya metin‑çerçeve boyutu değiştirildiğinde metnin nasıl yeniden dağıtıldığını incelemek.
+- [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/), yazı tipini veya metin‑çerçeve boyutunu değiştirdikten sonra metnin nasıl yeniden dağıtıldığını incelemek.
 
-Metot, mevcut [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) içindeki dağıtılan metni rapor eder; ayrı şekiller veya metin kutuları arasında otomatik akış sağlamaz. Sütun dağılımı kullanılabilir yazı tiplerine ve diğer metin‑dizayn ayarlarına bağlı olabilir; tutarlı sonuçların önemli olduğu durumlarda gereken yazı tiplerinin mevcut olduğundan emin olun.
+Yöntem, mevcut [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) içinde dağıtılan metni raporlar; ayrı şekiller ya da metin kutuları arasında otomatik akış sağmaz. Sütun dağılımı kullanılabilir yazı tiplerine ve diğer metin‑dizayn ayarlarına bağlı olabilir; tutarlı sonuçların önemli olduğu durumlarda gerekli yazı tiplerinin mevcut olduğundan emin olun.
 
-Aşağıdaki örnek bir sunumu yükler, metin çerçevesine sahip ilk çok‑sütunlu otomatik şekli bulur, yapılandırılmış sütun sayısını okur ve her sütundan metni ayrı bir dosyaya yazar. Metin çerçevesi sağlamayan şekiller atlanır.
+Aşağıdaki örnek bir sunumu yükler, metin çerçevesi olan ilk çok‑sütunlu otomatik şekli bulur, yapılandırılmış sütun sayısını okur ve her sütunun metnini ayrı bir dosyaya yazar. Metin çerçevesi sağlamayan şekiller atlanır.
 
 ```csharp
 using System;
@@ -198,11 +234,11 @@ else
 }
 ```
 
-## **Update Text**
+## **Metni Güncelleme**
 
-Bir sunumda metni güncellemek için slaytları ve şekilleri döngüye alın, otomatik şekilleri seçin ve ardından metin bölümlerini düzenleyin. Bölüm seviyesinde çalışmak, hem metni hem de karakter biçimlendirmesini değiştirmenize olanak tanır.
+Bir sunumdaki tüm metni güncellemek için slaytları ve şekilleri döngüye alın, otomatik şekilleri seçin ve ardından metin bölümlerini düzenleyin. Bölüm seviyesinde çalışmak, hem metni hem de karakter biçimlendirmesini değiştirmenize olanak tanır.
 
-Aşağıdaki örnek, otomatik‑şekil metnindeki tüm `years` ifadelerini `months` ile değiştirir ve etkilenen her bölümü kalın yapar:
+Aşağıdaki örnek, otomatik‑şekil metnindeki her `years` ifadesini `months` ile değiştirir ve etkilenen her bölümü kalın yapar:
 
 ```csharp
 using Aspose.Slides;
@@ -233,13 +269,13 @@ foreach (var slide in presentation.Slides)
 presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-Bu gezinme yalnızca otomatik şekillerdeki metni günceller. Tablolarda, grafiklerde, SmartArt’ta veya gruplanmış şekillerde saklanan metin, bu nesnelerin kendi koleksiyonları içinde gezilerek güncellenmelidir.
+Bu geçiş yalnızca otomatik şekillerdeki metni günceller. Tablolarda, grafiklerde, SmartArt’ta veya gruplandırılmış şekillerde saklanan metin, ilgili nesnelerin kendi koleksiyonları üzerinden dolaşılmasını gerektirir.
 
-## **Add a Text Box with a Hyperlink**
+## **Bir Metin Kutusuna Köprü Ekleme**
 
-Bir köprü belirli bir metin bölümüne atanabilir; böylece sadece o metin tıklanabilir bağlantı olur. Bölümü harici bir URL ile ilişkilendirmek için [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/tr/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) kullanın.
+Bir köprü, yalnızca belirli bir metin bölümüne atanabilir; böylece sadece o metin tıklanabilir bir bağlantı olur. Bölümü dış URL’ye bağlamak için [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) yöntemini kullanın.
 
-Aşağıdaki örnek bağlantılı metin oluşturur ve bir sunuma kaydeder:
+Aşağıdaki örnek, bağlantılı metin oluşturur ve bir sunuma kaydeder:
 
 ```csharp
 using Aspose.Slides;
@@ -256,12 +292,12 @@ textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://ww
 presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **SSS**
 
-**What is the difference between a text box and a text placeholder on a master or layout slide?**
+**Bir ana / yerleşim slaytındaki metin kutusu ile metin yer tutucusu arasındaki fark nedir?**
 
-Bir [placeholder](/slides/tr/net/manage-placeholder/) konumunu ve biçimini bir [master slide](https://reference.aspose.com/slides/tr/net/aspose.slides/masterslide/) veya [layout slide](https://reference.aspose.com/slides/tr/net/aspose.slides/layoutslide/) üzerinden devralabilir. Normal bir metin kutusu, oluşturulduğu slaytta bağımsız bir şekildir ve düzen değiştiğinde placeholder davranışı kazanmaz.
+Bir [yer tutucu](/slides/tr/net/manage-placeholder/) konum ve biçimlendirmesini bir [ana slayttan](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) veya [yerleşim slaytından](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) miras alabilir. Normal bir metin kutusu, oluşturulduğu slaytta bağımsız bir şekildir ve yerleşim değiştiğinde yer tutucu davranışı kazanmaz.
 
-**How can I replace text without changing text in charts, tables, or SmartArt?**
+**Grafiklerde, tablolarda veya SmartArt’ta metni değiştirmeden metni nasıl değiştirebilirim?**
 
-Geçişi, [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) uygulayan şekillerle sınırlayın; bu, Metni Güncelle örneğinde gösterildiği gibi yapılır. Grafikler, tablolar ve SmartArt, kendi nesne modellerinde metin depolar; bu döngü tarafından değiştirilmezler.
+Metin güncelleme örneğinde gösterildiği gibi gezinmeyi yalnızca [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) uygulayan şekillerle sınırlayın. Grafikler, tablolar ve SmartArt, kendi nesne modellerinde metin depolar; bu döngü onları değiştirmez.

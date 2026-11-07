@@ -1,6 +1,6 @@
 ---
-title: จัดการเฟรมวิดีโอในงานนำเสนอด้วย .NET
-linktitle: เฟรมวิดีโอ
+title: จัดการกรอบวิดีโอในการนำเสนอด้วย .NET
+linktitle: กรอบวิดีโอ
 type: docs
 weight: 10
 url: /th/net/video-frame/
@@ -10,7 +10,7 @@ keywords:
 - ฝังวิดีโอ
 - สกัดวิดีโอ
 - ดึงวิดีโอ
-- เฟรมวิดีโอ
+- กรอบวิดีโอ
 - แหล่งเว็บ
 - PowerPoint
 - OpenDocument
@@ -18,21 +18,18 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่มและสกัดเฟรมวิดีโอในสไลด์ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET คำแนะนำวิธีทำอย่างรวดเร็ว"
+description: "เรียนรู้วิธีการเพิ่มและสกัดกรอบวิดีโอในสไลด์ PowerPoint และ OpenDocument อย่างโปรแกรมมิงด้วย Aspose.Slides for .NET. คู่มือวิธีทำอย่างรวดเร็ว."
 ---
-## **บทนำ**
+## **คำนำ**
 
-วิดีโอสามารถช่วยอธิบายแนวคิดและดึงดูดผู้ชมได้ Aspose.Slides for .NET ทำให้คุณสามารถเพิ่มเฟรมวิดีโอลงในสไลด์ ปรับการตั้งค่าการเล่น จัดการคำบรรยาย และดึงข้อมูลวิดีโอที่ฝังไว้ได้
+วิดีโอสามารถช่วยอธิบายแนวคิดและดึงดูดผู้ชมได้. Aspose.Slides for .NET ให้คุณเพิ่มกรอบวิดีโอลงสไลด์ ปรับการตั้งค่าการเล่น จัดการคำบรรยาย และดึงข้อมูลวิดีโอที่ฝังอยู่ออกมา.  
+PowerPoint รองรับวิดีโอที่อยู่ในเครื่องและลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอ YouTube.  
+เพื่อแสดงข้อมูลวิดีโอและกรอบวิดีโอ Aspose.Slides มีส่วนต่อประสาน [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) อินเทอร์เฟซ, [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) อินเทอร์เฟซ, และประเภทที่เกี่ยวข้องอื่น ๆ.
 
-PowerPoint รองรับวิดีโอในเครื่องและลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอ YouTube
+## **สร้างกรอบวิดีโอที่ฝังไว้**
 
-เพื่อแทนข้อมูลวิดีโอและเฟรมวิดีโอ Aspose.Slides มีส่วนต่อประสาน [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) , [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) และชนิดที่เกี่ยวข้องอื่นๆ
-
-## **สร้างเฟรมวิดีโอที่ฝังไว้**
-
-หากไฟล์วิดีโอที่คุณต้องการเพิ่มลงในสไลด์ถูกเก็บไว้ในเครื่อง คุณสามารถสร้างเฟรมวิดีโอเพื่อฝังวิดีโอในงานนำเสนอของคุณ
-
-ตัวอย่างนี้ฝังวิดีโอในเครื่องลงในสไลด์แรกของงานนำเสนอที่มีอยู่และบันทึกผลลัพธ์ พิกัดและขนาดของเฟรมหน่วยเป็นจุด สตรีมจะเปิดค้างจนกว่าการบันทึกจะเสร็จสิ้น เพราะ [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) จะล็อกสตรีมขณะงานนำเสนอใช้งานอยู่
+หากไฟล์วิดีโอที่คุณต้องการเพิ่มลงในสไลด์ถูกจัดเก็บไว้ในเครื่อง คุณสามารถสร้างกรอบวิดีโอเพื่อฝังวิดีโอลงในการนำเสนอได้.  
+ตัวอย่างนี้ฝังวิดีโอในเครื่องลงในสไลด์แรกของการนำเสนอที่มีอยู่และบันทึกผลลัพธ์. พิกัดและขนาดของกรอบใช้หน่วยจุด. สตรีมจะเปิดค้างไว้จนกว่าการบันทึกเสร็จสิ้นเนื่องจาก [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) ทำให้ถูกล็อกในขณะที่การนำเสนอใช้งาน.
 
 ```csharp
 using System.IO;
@@ -49,7 +46,7 @@ slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
-คุณสามารถส่งพาธวิดีโอในเครื่องโดยตรงไปยัง [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/) ตัวอย่างนี้ฝังวิดีโอลงในสไลด์แรกของงานนำเสนอใหม่ วิดีโอจะต้องสามารถเข้าถึงได้จนกว่างานนำหน้าจะถูกบันทึก
+คุณสามารถส่งเส้นทางไฟล์วิดีโอในเครื่องโดยตรงไปยัง [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/) ได้ด้วยเช่นกัน. ตัวอย่างนี้ฝังวิดีโอลงในสไลด์แรกของการนำเสนอใหม่. วิดีโอต้องสามารถเข้าถึงได้จนกว่าการนำเสนอจะถูกบันทึก.
 
 ```csharp
 using Aspose.Slides;
@@ -63,11 +60,48 @@ slide.Shapes.AddVideoFrame(50, 150, 300, 150, "video.avi");
 presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
 ```
 
-## **สร้างเฟรมวิดีโอด้วยวิดีโอจากแหล่งบนเว็บ**
+## **ตั้งระดับเสียงวิดีโออย่างแม่นยำ**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) รองรับวิดีโอออนไลน์ในงานนำเสนอ คุณสามารถสร้างเฟรมวิดีโอที่ลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอ YouTube
+ใน Aspose.Slides for .NET 26.11 หรือใหม่กว่า, [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) ตั้งค่าร้อยละแบบทศนิยมจาก 0 ถึง 100. ใช้เมื่อตัวตั้งค่า [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) มีความหยาบเกินไป. ตัวอย่างเช่น `75.5f` หมายถึงระดับเสียง 75.5%.
 
-ตัวอย่างนี้เพิ่มลิงก์วิดีโอ YouTube และรูปภาพย่อลงในสไลด์แรก แทนที่ตัวระบุวิดีโอเพื่อใช้วิดีโออื่น การตั้งค่า [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) ขอการเล่นอัตโนมัติ การดาวน์โหลดรูปภาพย่อและการเล่นวิดีโอต้องเชื่อมต่ออินเทอร์เน็ต ตัวดูงานนำเสนอจะต้องสนับสนุนการเล่นวิดีโอออนไลน์ด้วย
+ตัวอย่างนี้ต้องการ [Aspose.Slides for .NET](/slides/th/net/installation/) 26.11 หรือใหม่กว่าและไฟล์ `video.mp4` ในเครื่อง. ตัวอย่างฝังวิดีโอ, เริ่มต้นการเล่นอย่างชัดเจน, บันทึกการนำเสนอ, และอ่านร้อยละที่บันทึกไว้กลับมา.
+
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var volume = 75.5f;
+if (float.IsNaN(volume) || float.IsInfinity(volume) || volume < 0 || volume > 100)
+{
+    Console.WriteLine("Use a finite volume from 0 to 100.");
+    return;
+}
+
+using (var presentation = new Presentation())
+{
+    var videoBytes = File.ReadAllBytes("video.mp4");
+    var video = presentation.Videos.AddVideo(videoBytes);
+    var frame = presentation.Slides[0].Shapes.AddVideoFrame(50, 50, 320, 180, video);
+    frame.PlayMode = VideoPlayModePreset.Auto;
+    frame.VolumeValue = volume;
+    presentation.Save("video-volume.pptx", SaveFormat.Pptx);
+}
+
+using var saved = new Presentation("video-volume.pptx");
+var savedFrame = saved.Slides[0].Shapes.OfType<IVideoFrame>().First();
+Console.WriteLine(savedFrame.VolumeValue);
+```
+
+ตรวจสอบค่าที่ใส่ด้วยตนเอง; อย่าพึ่งพา setter เพื่อตรวจสอบค่าที่อยู่นอกช่วงที่ระบุ. ค่าตั้งล่วงหน้า Low, Medium และ Loud ตรงกับ 20, 50 และ 80 ในเวอร์ชัน 26.11. การตั้งค่าล่วงหน้าจะเขียนทับเปอร์เซ็นต์ที่ตั้งไว้ก่อนหน้า ดังนั้นให้กำหนดเปอร์เซ็นต์เป็นขั้นตอนสุดท้ายเมื่อจำเป็นต้องการค่าที่แม่นยำ. ใช้ [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) สำหรับการปิดเสียงอย่างชัดเจน; ศูนย์เชิงตัวเลขและค่าล่วงหน้า enum ไม่สามารถใช้แทนกันได้.  
+กำหนดค่า [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) อย่างชัดเจนเมื่อกำหนดค่าวิดีโอแบบเชื่อมโยงด้วย, และให้ไฟล์สื่อพร้อมใช้งานสำหรับผู้ดู. การบันทึกและเปิดใหม่ตรวจสอบค่าที่บันทึก; การเล่นจริงและระดับเสียงขึ้นอยู่กับโปรแกรมแสดงผลการนำเสนอและการตั้งค่าเสียงของมัน.
+
+## **สร้างกรอบวิดีโอด้วยวิดีโอจากแหล่งเว็บ**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) รองรับวิดีโอออนไลน์ในงานนำเสนอ. คุณสามารถสร้างกรอบวิดีโอที่เชื่อมโยงไปยังวิดีโอออนไลน์ เช่น วิดีโอ YouTube.  
+ตัวอย่างนี้เพิ่มลิงก์วิดีโอ YouTube และภาพย thumbnail ลงในสไลด์แรก. แก้ไขตัวระบุวิดีโอเพื่อใช้วิดีโออื่น. การตั้งค่า [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) ขอให้เล่นอัตโนมัติ. การดาวน์โหลด thumbnail และการเล่นวิดีโอต้องการการเชื่อมต่ออินเทอร์เน็ต. ตัวดูการนำเสนอจะต้องรองรับการเล่นวิดีโอออนไลน์ด้วย.
 
 ```csharp
 using System.Net.Http;
@@ -92,11 +126,10 @@ videoFrame.PictureFormat.Picture.Image = thumbnail;
 presentation.Save("online_video.pptx", SaveFormat.Pptx);
 ```
 
-## **เล่นวิดีโอในโหมดเต็มจอ**
+## **เล่นวิดีโอในโหมดเต็มหน้าจอ**
 
-ในการนำเสนอการฝึกอบรม คุณสามารถเล่นการสาธิตซอฟต์แวร์ในโหมดเต็มจอบนหน้าจอเพื่อให้ผู้ชมมองเห็นรายละเอียดได้ ตั้งค่า [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) เป็น `true` เพื่อเปิดใช้พฤติกรรมนี้ขณะการเล่น
-
-ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) แรกบนสไลด์แรก และเปิดใช้งานการเล่นเต็มจอ งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีเฟรมวิดีโออยู่บนสไลด์แรก
+ในงานนำเสนอการฝึกอบรม คุณสามารถเล่นการสาธิตซอฟต์แวร์ในโหมดเต็มหน้าจอเพื่อให้ผู้ชมเห็นรายละเอียด. ตั้งค่า [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) เป็น `true` เพื่อเปิดพฤติกรรมนี้ระหว่างการเล่น.  
+ตัวอย่างนี้เปิดการนำเสนอ, ค้นหา [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) ตัวแรกบนสไลด์แรก, และเปิดการเล่นเต็มหน้าจอ. การนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีกรอบวิดีโออยู่บนสไลด์แรก.
 
 ```csharp
 using Aspose.Slides;
@@ -117,13 +150,12 @@ foreach (var shape in slide.Shapes)
 presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
 ```
 
-การเล่นเต็มจอควบคุมการแสดงผลของวิดีโอ อย่างอิสระ [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) ควบคุมว่าจะเริ่มอัตโนมัติหรือเมื่อคลิก และ [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) ควบคุมว่าจะวนซ้ำหรือไม่ เพื่อเลือกพฤติกรรมการเริ่มต้น ให้ตั้งค่าโหมดการเล่นเป็น [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) ตัวอย่างจะรักษาการตั้งค่าเริ่มต้นและลูปที่มีอยู่
+การเล่นเต็มหน้าจอกำหนดว่าวิดีโอจะแสดงอย่างไร. แยกจากนั้น, [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) ควบคุมว่าจะเริ่มอัตโนมัติหรือคลิก, และ [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) ควบคุมการทำซ้ำ. เพื่อกำหนดพฤติกรรมการเริ่ม, ตั้งค่าโหมดเล่นเป็น [VideoPlayModePreset.Auto หรือ VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). ตัวอย่างนี้คงค่าการเริ่มและการวนซ้ำเดิมไว้.
 
-## **ถอยกลับวิดีโหลังจากการเล่น**
+## **หวนกลับวิดีหลังการเล่น**
 
-ในการนำเสนอการฝึกอบรม การคืนวิดีโอสาธิตกลับไปที่จุดเริ่มต้นทำให้พร้อมสำหรับผู้บรรยายที่จะเล่นใหม่ตั้งค่า [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) เป็น `true` เพื่อคืนวิดีโอกลับไปที่จุดเริ่มต้นหลังจากการเล่นเสร็จสิ้น
-
-ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) แรกบนสไลด์แรกและเปิดใช้งานการถอยกลับ มันปิดการวนลูปเพื่อให้การเล่นเสร็จสิ้นและตั้งค่าให้เริ่มเมื่อคลิก งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีเฟรมวิดีโอบนสไลด์แรก
+ในงานนำเสนอการฝึกอบรม การนำวิดีโอสาธิตกลับไปที่จุดเริ่มต้นทำให้พร้อมให้ผู้นำเสนอเล่นใหม่. ตั้งค่า [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) เป็น `true` เพื่อให้วิดีโอกลับไปที่จุดเริ่มต้นหลังการเล่นเสร็จ.  
+ตัวอย่างนี้เปิดการนำเสนอ, ค้นหา [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) ตัวแรกบนสไลด์แรก, และเปิดการหวนกลับ. ตัวอย่างปิดการวนซ้ำเพื่อให้การเล่นเสร็จและตั้งค่าให้เริ่มด้วยคลิก. การนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีกรอบวิดีโออยู่บนสไลด์แรก.
 
 ```csharp
 using Aspose.Slides;
@@ -146,15 +178,15 @@ foreach (var shape in slide.Shapes)
 presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
 ```
 
-การถอยกลับจะคืนวิดีโอกลับไปที่จุดเริ่มต้นโดยไม่เริ่มใหม่ ในทางตรงกันข้าม การเปิดใช้งาน [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) จะทำให้การเล่นวนซ้ำโดยอัตโนมัติ ให้ปิดการวนลูปเมื่อคุณต้องการให้วิดีโอจบและพร้อมสำหรับการเล่นใหม่ [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) ควบคุมการเริ่มต้นอัตโนมัติหรือเมื่อคลิกอย่างอิสระ ตัวอย่างนี้ใช้ [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) เพื่อให้ผู้บรรยายควบคุมเวลาเริ่มการเล่น ตั้งค่าโหมดการเล่นหลังจากตั้งค่าลูปตามที่แสดงในตัวอย่าง การถอยกลับทำงานอิสระจาก [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/)
+การหวนกลับทำให้วิดีโอกลับไปที่จุดเริ่มต้นโดยไม่เริ่มใหม่. ตรงข้ามกับการเปิดใช้งาน [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) ที่ทำให้การเล่นวนซ้ำอัตโนมัติ. ให้ปิดการวนซ้ำเมื่อคุณต้องการให้วิดีโอเล่นจนจบและพร้อมเล่นใหม่. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) ควบคุมการเริ่มอัตโนมัติหรือคลิก; ตัวอย่างนี้ใช้ [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) เพื่อให้ผู้นำเสนอควบคุมเวลาเริ่ม. ตั้งค่าโหมดเล่นหลังจากตั้งค่าการวนซ้ำ, ตามที่แสดงในตัวอย่าง. การหวนกลับทำงานแยกจาก [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
 
-## **ตัดส่วนของเฟรมวิดีโอ**
+## **ตัดวิดีโอกรอบ**
 
-ใช้ [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) และ [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) เพื่อตัดส่วนเริ่มหรือส่วนท้ายของวิดีโอระหว่างการเล่น ทั้งสองค่าเป็นมิลลิวินาที การตัดเปลี่ยนการตั้งค่าการเล่นโดยไม่แก้ไขข้อมูลวิดีโอที่ฝังไว้
+ใช้ [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) และ [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) เพื่อตัดส่วนเริ่มหรือส่วนท้ายของวิดีโอระหว่างการเล่น. ทั้งสองค่ามีหน่วยเป็นมิลลิวินาที. การตัดเปลี่ยนการตั้งค่าการเล่นโดยไม่แก้ไขข้อมูลวิดีโอที่ฝังอยู่.
 
 **ตั้งค่าการตัด**
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องและข้าม 2.5 วินาทีแรกและ 1 วินาทีสุดท้ายระหว่างการเล่น ใช้วิดีโอที่ยาวกว่า 3.5 วินาทีเพื่อให้ส่วนที่ทำการเล่นเหลืออยู่
+ตัวอย่างนี้ฝังวิดีโอในเครื่องและตัดส่วนแรก 2.5 วินาทีและส่วนสุดท้าย 1 วินาทีระหว่างการเล่น. ใช้วิดีโอที่ยาวกว่า 3.5 วินาทีเพื่อให้เหลือส่วนที่เล่นได้.
 
 ```csharp
 using System.IO;
@@ -176,7 +208,7 @@ presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 
 **อ่านค่าการตัด**
 
-ตัวอย่างนี้พิมพ์ค่าการตัดของเฟรมวิดีโอแรกบนสไลด์แรกเป็นมิลลิวินาที งานนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์ หากสไลด์นั้นไม่มีเฟรมวิดีโอ จะไม่มีการพิมพ์ ตัวอย่างก่อนหน้าจะให้ค่า 2500 และ 1000
+ตัวอย่างนี้พิมพ์ค่าการตัดของกรอบวิดีโอตัวแรกบนสไลด์แรกเป็นมิลลิวินาที. การนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์. หากสไลด์ไม่มีกรอบวิดีโอ จะไม่พิมพ์อะไร. ตัวอย่างก่อนหน้านี้ให้ค่า 2500 และ 1000.
 
 ```csharp
 using System;
@@ -198,11 +230,11 @@ foreach (var shape in slide.Shapes)
 
 ## **จัดการคำบรรยายวิดีโอ**
 
-Aspose.Slides ให้คุณจัดการคำบรรยายปิดสำหรับเฟรมวิดีโอในงานนำเสนอ PowerPoint คำบรรยายจะถูกเก็บในรูปแบบ WebVTT และเปิดเผยผ่านคุณสมบัติ [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/)
+Aspose.Slides ให้คุณจัดการคำบรรยายปิดสำหรับกรอบวิดีโอในงานนำเสนอ PowerPoint. คำบรรยายจะถูกเก็บในรูปแบบ WebVTT และเข้าถึงได้ผ่านคุณสมบัติ [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/).
 
-**เพิ่มคำบรรยายลงในเฟรมวิดีโอ**
+**เพิ่มคำบรรยายให้กรอบวิดีโอ**
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องและเพิ่มแทร็กคำบรรยาย WebVTT ที่มีป้ายชื่อ English เวลาตำแหน่งคำบรรยายต้องตรงกับวิดีโอ งานนำเสนอที่บันทึกจะรวมทั้งวิดีโอและคำบรรยายไว้ด้วย
+ตัวอย่างนี้ฝังวิดีโอในเครื่องและเพิ่มแทร็กคำบรรยาย WebVTT ชื่อ English. เวลาในคำบรรยายต้องตรงกับวิดีโอ. การนำเสนอที่บันทึกจะมีทั้งวิดีโอและคำบรรยายรวมกัน.
 
 ```csharp
 using System.IO;
@@ -221,11 +253,11 @@ videoFrame.CaptionTracks.Add("English", "track.vtt");
 presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 ```
 
-อินเทอร์เฟซ [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) ยังมี overload ที่ให้คุณเพิ่มคำบรรยายจากสตรีมได้
+อินเทอร์เฟซ [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) ยังมีโอเวอร์โหลดที่ให้คุณเพิ่มคำบรรยายจากสตรีมได้.
 
-**สกัดคำบรรยายจากเฟรมวิดีโอ**
+**สกัดคำบรรยายจากกรอบวิดีโอ**
 
-ตัวอย่างนี้บันทึกแทร็กคำบรรยายทั้งหมดจากเฟรมวิดีโอบนสไลด์แรกเป็นไฟล์ WebVTT แยกต่างหาก ตัวเลขต่อเนื่องทำให้ไฟล์ผลลัพธ์ไม่ซ้ำกัน คอนโซลจะแสดงจำนวนแทร็กที่สกัด งานนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์
+ตัวอย่างนี้บันทึกแทร็กคำบรรยายทั้งหมดจากกรอบวิดีโอบนสไลด์แรกเป็นไฟล์ WebVTT แยกต่างหาก. ตัวเลขลำดับช่วยให้ไฟล์ผลลัพธ์ไม่ซ้ำกัน. คอนโซลรายงานจำนวนแทร็กที่สกัดออก. การนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์.
 
 ```csharp
 using System;
@@ -252,11 +284,11 @@ foreach (var shape in slide.Shapes)
 Console.WriteLine($"Caption tracks extracted: {trackCount}");
 ```
 
-แต่ละวัตถุ [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) จะเปิดเผยตัวระบุคำบรรยาย ป้ายชื่อ ข้อมูลไบนารี และข้อความคำบรรยายในรูปแบบสตริง UTF-8
+แต่ละอ็อบเจกต์ [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) เปิดเผยตัวระบุคำบรรยาย, ป้ายกำกับ, ข้อมูลไบต์, และข้อความคำบรรยายในรูปแบบสตริง UTF-8.
 
-**ลบคำบรรยายจากเฟรมวิดีโอ**
+**ลบคำบรรยายจากกรอบวิดีโอ**
 
-ตัวอย่างนี้ลบคำบรรยายทั้งหมดจากเฟรมวิดีโอที่ตำแหน่งรูปร่างแรกบนสไลด์แรกและบันทึกผลลัพธ์ สมมติว่ามีสไลด์และรูปร่างอยู่และรูปร่างเป็นเฟรมวิดีโอ
+ตัวอย่างนี้ลบคำบรรยายทั้งหมดจากกรอบวิดีโอที่ตำแหน่งรูปร่างแรกบนสไลด์แรกและบันทึกผลลัพธ์. สมมติว่ามีสไลด์และรูปร่างอยู่และรูปร่างเป็นกรอบวิดีโอ.
 
 ```csharp
 using System;
@@ -272,13 +304,12 @@ videoFrame.CaptionTracks.Clear();
 presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 ```
 
-หากคุณต้องการลบแทร็กคำบรรยายเพียงหนึ่งรายการ ให้ใช้เมธอด [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) หรือ [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) แทน [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/)
+หากต้องการลบเฉพาะแทร็กคำบรรยายหนึ่งแทร็ก ให้ใช้เมธอด [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) หรือ [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) แทน [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
 
 ## **สกัดวิดีโอจากสไลด์**
 
-นอกเหนือจากการเพิ่มวิดีโอลงในสไลด์แล้ว Aspose.Slides ยังให้คุณสกัดวิดีโอที่ฝังอยู่ในงานนำเสนอ
-
-ตัวอย่างนี้สกัดวิดีโอที่ฝังอยู่จากทุกสไลด์ไปเป็นไฟล์ไบนารีที่มีเลขลำดับแยกกัน วิดีโอที่เชื่อมโยงจะถูกข้ามเพราะไม่มีข้อมูลฝัง คอนโซลจะพิมพ์ประเภท MIME ของแต่ละวิดีโอและจำนวนทั้งหมด ผลลัพธ์ใช้ส่วนขยาย `.bin` ทั่วไป; หากต้องการให้ตรงกับประเภทสื่อที่รายงานให้เปลี่ยนส่วนขยายตามความจำเป็น
+นอกจากการเพิ่มวิดีโอลงสไลด์แล้ว Aspose.Slides ยังให้คุณสกัดวิดีโอที่ฝังอยู่ในงานนำเสนอได้.  
+ตัวอย่างนี้สกัดวิดีโอที่ฝังอยู่จากทุกสไลด์เป็นไฟล์ไบนารีที่มีหมายเลขลำดับแยกกัน. วิดีโอที่เชื่อมโยงจะถูกข้ามเพราะไม่มีข้อมูลฝัง. คอนโซลพิมพ์ชนิด MIME ของแต่ละวิดีโอและจำนวนรวม. ผลลัพธ์ใช้ส่วนขยาย `.bin`; คุณสามารถเปลี่ยนให้ตรงกับชนิดสื่อที่รายงานได้เมื่อจำเป็น.
 
 ```csharp
 using System;
@@ -312,20 +343,20 @@ foreach (var slide in presentation.Slides)
 Console.WriteLine($"Embedded videos extracted: {videoCount}");
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**พารามิเตอร์การเล่นวิดีโอที่สามารถเปลี่ยนแปลงได้สำหรับเฟรมวิดีโอคืออะไร?**
+**พารามิเตอร์การเล่นวิดีโอใดที่สามารถเปลี่ยนแปลงได้สำหรับกรอบวิดีโอ?**
 
-คุณสามารถควบคุม [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (อัตโนมัติหรือเมื่อคลิก) และ [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) ตัวเลือกเหล่านี้พร้อมให้ใช้ผ่านคุณสมบัติต่างๆ ของอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/)
+คุณสามารถควบคุม [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (อัตโนมัติหรือคลิก) และ [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). ตัวเลือกเหล่านี้เผยให้เห็นผ่านคุณสมบัติของอ็อบเจกต์ [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/).
 
-**การเพิ่มวิดีโอจะส่งผลต่อขนาดไฟล์ PPTX หรือไม่?**
+**การเพิ่มวิดีโอทำให้ไฟล์ PPTX มีขนาดใหญ่ขึ้นหรือไม่?**
 
-ใช่ เมื่อคุณฝังวิดีโอในเครื่อง ข้อมูลไบนารีจะถูกรวมในเอกสาร ดังนั้นขนาดงานนำเสนอจะเพิ่มตามขนาดไฟล์ หากคุณลิงก์ไปยังวิดีโอออนไลน์และเพิ่มรูปภาพย่อ งานนำเสนอจะบันทึกแค่ลิงก์และภาพพรีวิวแทนข้อมูลวิดีโอ ทำให้การเพิ่มขนาดมักจะน้อยกว่า
+ใช่. เมื่อคุณฝังวิดีโอในเครื่อง ข้อมูลไบต์จะถูกรวมอยู่ในเอกสาร ดังนั้นขนาดการนำเสนอจะเพิ่มตามขนาดไฟล์. เมื่อเชื่อมโยงวิดีโอออนไลน์และเพิ่มภาพย thumbnail การนำเสนอจะเก็บลิงก์และรูปภาพพรีวิวแทนข้อมูลวิดีโอ ดังนั้นขนาดที่เพิ่มมักจะน้อยกว่า.
 
-**ฉันสามารถแทนที่วิดีโอในเฟรมที่มีอยู่โดยไม่เปลี่ยนตำแหน่งและขนาดได้หรือไม่?**
+**ฉันสามารถเปลี่ยนวิดีโอในกรอบวิดีโอที่มีอยู่โดยไม่เปลี่ยนตำแหน่งและขนาดได้หรือไม่?**
 
-ใช่ คุณสามารถสลับ [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) ภายในเฟรมได้โดยคงรูปทรงเดิมไว้ นี่เป็นสถานการณ์ทั่วไปสำหรับการอัปเดตสื่อในเค้าโครงที่มีอยู่
+ได้. คุณสามารถสลับ [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) ภายในกรอบโดยคงรูปร่างเดิมไว้; นี่เป็นสถานการณ์ทั่วไปสำหรับการอัปเดตสื่อในเลย์เอาต์ที่มีอยู่.
 
-**สามารถตรวจสอบชนิดเนื้อหา (MIME) ของวิดีโอที่ฝังอยู่ได้หรือไม่?**
+**สามารถระบุประเภทเนื้อหา (MIME) ของวิดีโอที่ฝังอยู่ได้หรือไม่?**
 
-ใช่ วิดีโอที่ฝังอยู่มี [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) ที่คุณสามารถอ่านและนำไปใช้ได้ ตัวอย่างเช่นเมื่อบันทึกลงดิสก์
+ได้. วิดีโอที่ฝังอยู่มี [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) ที่คุณสามารถอ่านและใช้, ตัวอย่างเช่นเมื่อบันทึกลงดิสก์.

@@ -22,15 +22,15 @@ description: "使用 Aspose.Slides for .NET 在 PowerPoint 與 OpenDocument 簡�
 ---
 ## **簡介**
 
-在 Aspose.Slides for .NET 中，投影片文字儲存在屬於圖形的文字框中。[IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/) 介面代表最常見的含文字圖形，並透過 [IAutoShape.TextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/textframe/) 屬性公開其文字。
+在 Aspose.Slides for .NET 中，投影片文字儲存在屬於形狀的文字框中。 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) 介面代表最常見的帶文字形狀，並透過其 [IAutoShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) 屬性公開文字。
 
-{{% alert color="info" title="注意" %}}
-每個自動圖形皆實作 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/)，但不是所有圖形都是自動圖形或支援文字框。處理現有簡報時，請先確認圖形實作 `IAutoShape`，再存取其文字。
+{{% alert color="info" title="Note" %}}
+每個自動形狀都實作 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/)，但並非所有形狀都是自動形狀或支援文字框。處理現有簡報時，請先檢查形狀是否實作 `IAutoShape`，再存取其文字。
 {{% /alert %}}
 
 ## **在投影片上建立文字方塊**
 
-要建立文字方塊，先將自動圖形加入投影片，於其文字框加入文字，然後儲存簡報。以下範例建立一個矩形文字方塊：
+要建立文字方塊，先在投影片上新增自動形狀，將文字加入其文字框，然後儲存簡報。以下範例建立一個矩形文字方塊：
 
 ```csharp
 using Aspose.Slides;
@@ -44,15 +44,15 @@ textBox.AddTextFrame("Aspose TextBox");
 presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-傳遞給 [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/addautoshape/) 的座標與尺寸以點為單位。[IAutoShape.AddTextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/addtextframe/) 會以提供的文字初始化文字框。
+傳遞給 [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/) 的座標與尺寸以點為單位。[IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) 會以提供的文字初始化文字框。
 
-## **檢查文字方塊圖形**
+## **檢查文字方塊形狀**
 
-使用 [AutoShape.IsTextBox](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/autoshape/istextbox/) 屬性判斷自動圖形是否被視為文字方塊。當簡報同時包含含文字與純圖形的自動圖形時，此功能相當有用。
+使用 [AutoShape.IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) 屬性判斷自動形狀是否被視為文字方塊。當簡報同時包含帶文字與純圖形的自動形狀時，這很有用。
 
-![文字方塊與圖形](istextbox.png)
+![文字方塊與形狀](istextbox.png)
 
-以下範例檢查簡報中的每個自動圖形：
+以下範例檢查簡報中每個自動形狀：
 
 ```csharp
 using System;
@@ -76,7 +76,7 @@ foreach (var currentSlide in presentation.Slides)
 }
 ```
 
-新加入的自動圖形在包含非空文字之前不會被視為文字方塊。您可以透過 [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/addtextframe/) 或 [ITextFrame.Text](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/text/) 提供文字。加入或指派空字串會使 `IsTextBox` 為 `false`：
+新加入的自動形狀在未包含非空文字時不會被視為文字方塊。您可以透過 [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) 或 [ITextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/itextframe/text/) 提供文字。加入或指派空字串會使 `IsTextBox` 為 `false`：
 
 ```csharp
 using System;
@@ -102,19 +102,57 @@ shape4.TextFrame.Text = "";
 Console.WriteLine(shape4.IsTextBox);
 ```
 
-前兩次呼叫會印出 `True`；後兩次則印出 `False`。
+前兩次呼叫會輸出 `True`；後兩次會輸出 `False`。
 
-## **尋找擁有文字框的圖形**
+## **找出擁有文字框的形狀**
 
-通用文字處理程式碼可能收到一個 [ITextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/)，卻不知道是哪個簡報物件擁有它。使用唯讀的 [ITextFrame.ParentShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/parentshape/) 屬性可返回其擁有者的 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/)。
+一般的文字處理程式碼可能會取得 [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/)，但不知道它屬於哪個簡報物件。使用唯讀的 [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) 屬性可回溯到其擁有的 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/)。
 
-對於由自動圖形或其他含文字圖形擁有的文字框，`ParentShape` 包含所有者，而 [ITextFrame.ParentCell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/parentcell/) 為 `null`。在存取之前先檢查返回值。若需同時識別圖形與表格儲存格的擁有者（包括與 SmartArt 節點關聯的圖形），請參閱 [Search and Replace Text](/slides/zh-hant/net/search-and-replace-text/)。
+若文字框屬於自動形狀或其他帶文字形狀，`ParentShape` 會包含擁有者，而 [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) 為 `null`。在存取前請先檢查回傳值。若要辨識形狀與表格儲存格的擁有者（包含與 SmartArt 節點相關的形狀），請參考 [搜尋與取代文字](/slides/zh-hant/net/search-and-replace-text/)。
 
-## **在文字方塊中加入欄位**
+## **取得形狀的文字矩形**
 
-[ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat/columncount/) 屬性將文字框分割成多個欄位，而 [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat/columnspacing/) 則以點為單位設定欄位間的間距。這兩個設定皆屬於 [ITextFrameFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat/)，可透過既有文字方塊的文字框進行變更。文字在同一圖形內的欄位之間重新流動；不會延伸至其他圖形。
+自 Aspose.Slides for .NET 26.11 版起，[ITextFrame.GetTextRect](https://reference.aspose.com/slides/net/aspose.slides/itextframe/gettextrect/) 會回傳由父形狀幾何定義的文字區域。其座標與尺寸以點為單位，相對於該形狀的左上角。例如，橢圓的文字矩形比其外圍更小。
 
-以下範例建立一個三欄文字方塊，欄位間距為 10 點，儲存簡報，並從輸出檔案讀回儲存的設定：
+此矩形描述形狀本身，而非實際呈現的字元。變更文字或文字框邊距不會使其成為已佔用文字的測量。請使用 [段落邊界](/slides/zh-hant/net/paragraph-bounds/) 或 [區段邊界](/slides/zh-hant/net/portion-bounds/) 取得渲染文字的測量值。
+
+在 [安裝 Aspose.Slides for .NET](/slides/zh-hant/net/installation/) 26.11 或之後的版本安裝完成後，執行此範例以紅色繪製幾何文字矩形。形狀未旋轉且未群組，只需加上它們的 X/Y 位置即可將覆蓋層放置於投影片上。
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+foreach (var shapeType in new[] { ShapeType.Rectangle, ShapeType.Ellipse })
+{
+    var x = shapeType == ShapeType.Rectangle ? 50 : 300;
+    var shape = slide.Shapes.AddAutoShape(shapeType, x, 200, 200, 100);
+    shape.AddTextFrame("Text area");
+    var rectangle = shape.TextFrame.GetTextRect();
+    Console.WriteLine($"{shapeType}: {rectangle}");
+
+    var overlayX = shape.X + rectangle.X;
+    var overlayY = shape.Y + rectangle.Y;
+    var outline = slide.Shapes.AddAutoShape(ShapeType.Rectangle, overlayX, overlayY, rectangle.Width, rectangle.Height);
+    outline.FillFormat.FillType = FillType.NoFill;
+    outline.LineFormat.FillFormat.FillType = FillType.Solid;
+    outline.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+}
+
+presentation.Save("text-rectangles.pptx", SaveFormat.Pptx);
+```
+
+對於上述 200 × 100 點的形狀，矩形會回傳 `(0, 0, 200, 100)`；橢圓則約為 `(29.289, 14.645, 141.421, 70.711)`。此方法亦會讀取自訂幾何聲明的文字矩形。它不會套用投影片空間的旋轉或群組變換；在定位覆蓋層時需自行考慮這些因素。沒有幾何形狀的文字框（例如表格儲存格文字框）可能拋出 `InvalidOperationException`。
+
+## **在文字方塊中加入欄**
+
+[ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/) 屬性將文字框分割為多個欄，而 [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/) 則以點為單位設定欄與欄之間的間距。這兩個設定皆屬於 [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/)，可透過既有文字方塊的文字框進行變更。文字會在同一形狀內的欄之間重新排版；不會流至其他形狀。
+
+以下範例建立一個三欄文字方塊，欄間距為 10 點，儲存簡報，並從輸出檔案讀回設定值：
 
 ```csharp
 using System;
@@ -138,20 +176,19 @@ var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
 Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
-## **從各單獨欄位擷取文字**
+## **從個別欄位擷取文字**
 
-使用 [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/textframe/splittextbycolumns/) 可取得既有文字框中每個視覺欄位的文字。此方法會依欄位閱讀順序為每個欄位回傳一個字串。單欄文字框會產生僅含一個元素的陣列，空欄位則以空字串表示。回傳的字串僅包含純文字；不會保留片段層級的格式資訊。
+使用 [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/net/aspose.slides/textframe/splittextbycolumns/) 取得現有文字框中每個可視欄位的文字。此方法會依欄位閱讀順序為每個欄位回傳一個字串。單欄文字框會產生僅含一個元素的陣列，空欄位則以空字串表示。回傳的字串僅包含純文字；不會保留區段層級的格式設定。
 
-此功能在以下情境特別有用：
-
+當您需要以下情況時此功能很有用：
 - 在保留欄位閱讀順序的同時擷取文字。
-- 索引或比較多欄投影片的內容。
-- 將每個欄位匯出至獨立檔案、資料庫欄位或其他目的地。
-- 檢查在變更 [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat/columncount/)、[ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat/columnspacing/)、字型或文字框大小後，文字如何重新分配。
+- 為多欄投影片的內容建立索引或進行比較。
+- 將每個欄位匯出至個別檔案、資料庫欄位或其他目的地。
+- 檢查在變更 [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/)、[ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/)、字型或文字框大小後，文字如何重新分配。
 
-此方法僅報告目前 [ITextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/) 內的文字分配情況，並不會自動在不同圖形或文字方塊之間流動文字。欄位分配可能受可用字型及其他文字排版設定影響，若結果一致性很重要，請確保必要的字型已安裝。
+此方法回報目前 [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) 內的文字分布；不會自動在不同形狀或文字方塊之間流動文字。欄位分佈可能受可用字型及其他文字版面設定影響，因此在需要一致結果時，請確保所需字型可用。
 
-以下範例載入簡報，找到第一個具有多欄文字框的自動圖形，讀取其設定的欄位數，並將每個欄位的文字寫入獨立檔案。未提供文字框的圖形會被略過。
+以下範例載入簡報，找到第一個具有文字框的多欄自動形狀，讀取其設定的欄數，並將每個欄位的文字寫入個別檔案。不提供文字框的形狀會被略過。
 
 ```csharp
 using System;
@@ -198,9 +235,9 @@ else
 
 ## **更新文字**
 
-要在整個簡報中更新文字，遍歷投影片與圖形，選取自動圖形，然後編輯其文字片段。以片段層級操作可同時變更文字與字元格式。
+要在整個簡報中更新文字，可遍歷投影片與形狀，挑選自動形狀，然後編輯其文字區段。在區段層級作業可同時變更文字與字元格式設定。
 
-以下範例將自動圖形文字中的所有 `years` 替換為 `months`，並將受影響的片段設為粗體：
+以下範例將自動形狀文字中所有出現的 `years` 替換為 `months`，並將每個受影響的區段設為粗體：
 
 ```csharp
 using Aspose.Slides;
@@ -231,13 +268,13 @@ foreach (var slide in presentation.Slides)
 presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-此遍歷僅會更新自動圖形中的文字。儲存在表格、圖表、SmartArt 或群組圖形中的文字，需要遍歷這些物件各自的集合。
+此遍歷僅會更新自動形狀中的文字。儲存在表格、圖表、SmartArt 或群組形狀中的文字則需遍歷那些物件各自的集合。
 
 ## **加入帶有超連結的文字方塊**
 
-超連結可以指派給特定的文字片段，只有該片段會成為可點擊的連結。使用 [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) 可將片段與外部 URL 相關聯。
+超連結可以指派給特定的文字區段，只有該文字會成為可點擊的連結。使用 [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) 將區段與外部 URL 間關聯。
 
-以下範例建立帶有超連結的文字，並將其儲存至簡報：
+以下範例建立連結文字並儲存至簡報：
 
 ```csharp
 using Aspose.Slides;
@@ -254,12 +291,12 @@ textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://ww
 presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
-## **常見問答**
+## **常見問題**
 
-**文字方塊與母片或版面投影片上的文字佔位區有何差異？**
+**文字方塊與母片或版面投影片上的文字佔位符有何差異？**
 
-[placeholder](/slides/zh-hant/net/manage-placeholder/) 可以從 [master slide](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/masterslide/) 或 [layout slide](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/layoutslide/) 繼承其位置與格式。一般的文字方塊則是建立所在投影片上的獨立圖形，版面變更時不會取得佔位區的行為。
+[A佔位符](/slides/zh-hant/net/manage-placeholder/) 可以從 [母片](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) 或 [版面投影片](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) 繼承其位置與格式。一般的文字方塊是創建於投影片上的獨立形狀，當版面變更時不會取得佔位符的行為。
 
-**如何在不變更圖表、表格或 SmartArt 中文字的情況下取代文字？**
+**如何在不更改圖表、表格或 SmartArt 文字的情況下取代文字？**
 
-將遍歷限制於實作 `IAutoShape` 的圖形，如「更新文字」範例所示。圖表、表格與 SmartArt 皆在各自的物件模型中儲存文字，因而不會被該迴圈修改。
+將遍歷限制於實作 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) 的形狀，如同在「更新文字」範例所示。圖表、表格與 SmartArt 會在各自的物件模型中儲存文字，因此不會被該迴圈修改。

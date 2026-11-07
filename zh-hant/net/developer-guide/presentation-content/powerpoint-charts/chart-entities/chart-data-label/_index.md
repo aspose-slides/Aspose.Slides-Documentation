@@ -1,5 +1,5 @@
 ---
-title: 在 .NET 中管理簡報的圖表資料標籤
+title: 在 .NET 簡報中管理圖表資料標籤
 linktitle: 資料標籤
 type: docs
 url: /zh-hant/net/chart-data-label/
@@ -15,17 +15,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何在 PowerPoint 簡報中使用 Aspose.Slides for .NET 新增與格式化圖表資料標籤，打造更具吸引力的投影片。"
+description: "了解如何在 PowerPoint 簡報中使用 Aspose.Slides for .NET 新增與格式化圖表資料標籤，以打造更具吸引力的投影片。"
 ---
 ## **簡介**
 
-資料標籤會顯示有關圖表系列和個別資料點的資訊，協助讀者辨識數值並了解圖表。本文說明如何格式化數值、顯示百分比、讀取標籤文字、控制軸上限之外的標籤、調整類別軸標籤間距，以及設定圓形圖標籤的位置。
+資料標籤顯示圖表系列和單一資料點的資訊，協助讀者辨識數值並了解圖表。本文說明如何格式化數值、顯示百分比、讀取標籤文字、在軸最大值之外控制標籤、調整類別軸標籤間距，以及設定圓餅圖標籤的位置。
 
-## **計算可見資料標籤數量**
+## **計算可見的資料標籤**
 
-使用 [CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/) 來檢查在發佈簡報前有多少資料標籤已啟用顯示。與返回集合中標籤總數的 [Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/) 不同，它會考慮系列預設值和個別標籤設定。
+使用 [CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/) 來檢查在發佈簡報之前有多少資料標籤被啟用顯示。不同於 [Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/) 會回傳集合中標籤的總數，它會考慮系列的預設值和個別標籤設定。
 
-此範例建立一個具有單一系列與三個資料點的柱狀圖。它存取系列的 [Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/) 集合，並在設定變更時列印可見計數：**0, 3, 2, 3**。總計數仍為 **3**。
+此範例建立一個具有一個系列和三個資料點的直條圖。它存取該系列的 [Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/) 集合，並在設定變更時列印可見計數：**0, 3, 2, 3**。總計數仍為 **3**。
 
 ```csharp
 using System;
@@ -65,13 +65,13 @@ labels[1].DataLabelFormat.ShowLegendKey = true;
 Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // 可見: 3
 ```
 
-系列的 [DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/) 提供預設設定。啟用其中的 [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) 會顯示所有三個標籤的值。透過單一標籤的 [DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/) 將其設為 `false` 會覆寫該標籤的設定。啟用 [ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/) 會使該標籤再次計入可見，即使其值仍被隱藏。
+系列的 [DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/) 提供預設設定。啟用 [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) 會為所有三個標籤顯示值。透過單一標籤的 [DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/) 將其設定為 `false` 會覆寫該標籤的設定。啟用 [ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/) 使該標籤再次被計為可見，即使其值仍被隱藏。
 
-可見計數反映可見性設定。它不會衡量標籤是否重疊、被裁切，或在渲染後的圖表中是否可讀。
+可見計數僅反映可視性設定，並不衡量標籤是否重疊、被裁切或在渲染的圖表中是否易於閱讀。
 
-## **設定圖表資料標籤的數值精度**
+## **設定圖表資料標籤的精度**
 
-使用 [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) 來格式化系列值。此範例建立一個使用預設資料的折線圖，顯示其資料表，並為第一個系列啟用值標籤。格式 `#,##0.00` 會顯示千位分隔符和兩位小數，而不會改變底層數值。
+使用 [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) 來格式化系列值。此範例建立一個具有預設資料的折線圖，顯示其資料表，並為第一個系列啟用值標籤。格式 `#,##0.00` 會顯示千位分隔符號和兩位小數，卻不會更改底層值。
 
 ```csharp
 using Aspose.Slides;
@@ -91,11 +91,11 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-若要格式化圖表內嵌活頁簿中的數值儲存格，請參閱 [Set Custom Number Formats for Workbook Cells](/slides/zh-hant/net/chart-workbook/#set-custom-number-formats-for-workbook-cells)。該範例同時展示了值標籤遵循來源儲存格格式，同時保留儲存的數值。
+若要格式化圖表內嵌工作簿中的數值儲存格，請參閱 [Set Custom Number Formats for Workbook Cells](/slides/zh-hant/net/chart-workbook/#set-custom-number-formats-for-workbook-cells)。該範例亦顯示值標籤遵循來源儲存格的格式，同時保留儲存的數值。
 
-## **以百分比作為標籤顯示**
+## **以百分比顯示為標籤**
 
-對於堆疊柱狀圖，將每個值計算為其類別總和的百分比，並將文字指派給 [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/)。此範例使用預設圖表資料，並以 8 點字型顯示保留兩位小數的百分比。總和為零的類別會被跳過，以避免除以零。若圖表資料變更，需重新計算自訂標籤文字。
+對於堆疊直條圖，將每個值計算為其類別總和的百分比，並將文字指派給 [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/)。此範例使用預設圖表資料，並以 8 點字型顯示兩位小數的百分比。總和為零的類別會被略過，以避免除以零。如圖表資料變更，請重新計算自訂標籤文字。
 
 ```csharp
 using System;
@@ -156,11 +156,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **在圖表資料標籤上設定百分比符號**
+## **在圖表資料標籤中設定百分號**
 
-當值以分數形式儲存時，使用 [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) 以百分比顯示。將 [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) 設為 `false`，即可使標籤格式獨立於來源儲存格。
+當值以分數儲存時，使用 [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) 來顯示百分比。將 [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) 設為 `false` 即可讓標籤格式獨立於來源儲存格。
 
-此範例建立一個 100% 堆疊柱狀圖，包含紅色與藍色系列，橫跨四個類別。每對值加總為 1。標籤格式 `0.0%` 會將 0.30 顯示為 30.0%，而垂直軸則使用兩位小數。兩個系列的標籤文字皆為白色、10 點。
+此範例建立一個 100% 堆疊直條圖，包含紅色和藍色系列，分布在四個類別。每對值的總和皆為 1。標籤格式 `0.0%` 會將 0.30 顯示為 30.0%，而垂直軸則使用兩位小數。兩個系列皆使用白色、10 點的標籤文字。
 
 ```csharp
 using System.Drawing;
@@ -218,7 +218,7 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 
 ## **讀取資料標籤的實際文字**
 
-使用 [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) 來取得資料標籤設定所產生的文字。這在為報告擷取標籤、搜尋簡報內容或驗證產生的圖表時相當有用。以下範例中，預設的 [data label format](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) 結合了每個類別名稱、系列名稱與數值。某一資料點將其值格式化為百分比，另一個則使用來自 [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) 的自訂文字。
+使用 [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) 取得資料標籤設定所產生的文字。這在為報告抽取標籤、搜尋簡報內容或驗證產生的圖表時很有用。在下方範例中，預設的 [data label format](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) 結合每個類別名稱、系列名稱與值。某個資料點將其值格式化為百分比，另一個則使用來自 [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) 的自訂文字。
 
 ```csharp
 using System;
@@ -272,15 +272,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-資料點中儲存的數值仍為 `0.75`，即使其標籤顯示 `75%` 並包含類別與系列名稱。自訂文字會取代產生的標籤文字。無論哪種情況，[GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) 都會回傳結果標籤字串。若只想擷取可見標籤，請如上所示單獨檢查 [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/)。
+資料點中儲存的數字仍為 `0.75`，即使其標籤顯示 `75%` 並附帶類別與系列名稱。自訂文字會取代產生的標籤文字。[GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) 無論哪種情況皆會回傳最終的標籤字串。若只想抽取可見的標籤，請如上所示單獨檢查 [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/)。
 
-## **在軸上限之外控制資料標籤**
+## **在軸最大值之外控制資料標籤**
 
-當手動限制軸範圍時，某些資料點可能超過其最大值。使用 [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) 來控制是否顯示它們的資料標籤。此設定會變更標籤可見性；不會改變軸範圍或底層資料值。
+當手動限制軸範圍時，某些資料點可能超過其最大值。使用 [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) 來控制是否顯示其資料標籤。此設定會變更標籤的可見性，卻不會改變軸範圍或底層資料值。
 
-以下範例建立一個具有 60 與 120 值的 2D 群組柱狀圖。它將垂直軸的 [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) 設為 `false`，並將 [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) 設為 100。第一張投影片允許標籤超過最大值；其複製版則停用此功能。兩張投影片皆儲存為 `DataLabelsOverMaximum.pptx`。
+以下範例建立一個 2D 簇狀直條圖，值為 60 與 120。它在垂直軸上將 [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) 設為 `false`，並將 [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) 設為 100。第一張投影片允許標籤超過最大值；其副本則停用此功能。兩張投影片都儲存為 `DataLabelsOverMaximum.pptx`。
 
-使用 [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) 來啟用值標籤。圖表層級的設定不會自行啟用值顯示，也不會覆寫個別標籤已停用的值顯示。此範例為整個系列啟用值，並使用 [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) 將標籤放置於每個柱狀的外側端點。
+使用 [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) 來啟用值標籤。圖表層級的設定不會自行啟用值顯示，也不會覆寫個別標籤已停用的值顯示。此範例為整個系列啟用值，並使用 [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) 將標籤置於每個直條的外側端點。
 
 ```csharp
 using Aspose.Slides;
@@ -327,19 +327,19 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-以下影像顯示 Microsoft PowerPoint 呈現的已儲存投影片。設定為 `true` 時，標籤 **120** 會在上邊界可見；設定為 `false` 時則隱藏。標籤 **60** 仍保持可見，軸上限仍為 **100**，且第二個資料點在兩種情況下皆為 **120**。
+以下圖像顯示 Microsoft PowerPoint 渲染的已儲存投影片。設定為 `true` 時，標籤 **120** 會在上界可見；設定為 `false` 時則隱藏。標籤 **60** 仍保持可見，軸最大值仍為 **100**，且第二個資料點在兩種情況下皆為 **120**。
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint 圖表顯示軸最大值為 100 時的值標籤 120](data-labels-over-maximum-true.png) | ![PowerPoint 圖表在軸最大值為 100 時隱藏值標籤 120](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-此範例使用具有值軸的 2D 柱狀圖。沒有值軸的圖表，例如圓形圖與環形圖，沒有此類可限制的軸上限。
+此範例使用具有值軸的 2D 直條圖。不具備值軸的圖表（例如圓餅圖和環形圖）沒有此類軸最大值可供限制。
 {{% /alert %}}
 
-## **設定標籤與軸的距離**
+## **設定標籤與軸之間的距離**
 
-使用 [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) 來控制類別軸標籤與軸之間的距離。該值為軸標籤最大字型大小的百分比。此範例建立一個群組柱狀圖，並將水平軸標籤偏移設定為 500。此設定會影響類別軸標籤，而非附加於個別資料點的標籤。
+使用 [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) 來控制類別軸標籤與軸之間的距離。該值為軸標籤最大字型大小的百分比。此範例建立一個簇狀直條圖，並將水平軸標籤偏移設定為 500。此設定會影響類別軸標籤，而不是附加於單一資料點的標籤。
 
 ```csharp
 using Aspose.Slides;
@@ -357,9 +357,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **調整標籤位置**
 
-在圓形圖上，調整資料標籤位置以改善間距並為指示線留出空間。
+在圓餅圖上，調整資料標籤位置以改善間距並為引線騰出空間。
 
-此範例顯示第一個資料點的數值，將其標籤放置於切片外部，並調整其 [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) 與 [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) 偏移。這些偏移分別相對於圖表的寬度與高度。
+此範例顯示第一個資料點的值，將其標籤放置於切片外側，並調整其 [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) 與 [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) 偏移。這些偏移分別相對於圖表的寬度與高度。
 
 ```csharp
 using Aspose.Slides;
@@ -381,17 +381,17 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![調整後資料標籤位置的圓形圖](pie-chart-adjusted-label.png)
+![調整資料標籤位置的圓餅圖](pie-chart-adjusted-label.png)
 
-## **設定引線格式**
+## **格式化引線**
 
-當圓形圖的標籤位於切片外側時，引線可協助讀者將每個數值對應到正確的切片。使用對比色且稍微較粗的線條可讓連結更易辨識，而透明度與虛線樣式則可使線條在視覺上不那麼突兀。
+當圓餅圖標籤位於切片外側時，引線可協助讀者將每個值對應到正確的切片。使用對比色且稍微較粗的線條可以讓這些連接更易於辨識，而加入透明度與虛線樣式則可使線條在視覺上不突兀。
 
-使用 [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) 於系列的資料標籤集合層級設定引線格式。`series.Labels.LeaderLinesFormat.Line` 中的設定會套用於整個集合，而非單一標籤。
+使用 [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) 在系列的資料標籤集合層級格式化引線。`series.Labels.LeaderLinesFormat.Line` 中的設定會套用至整個集合，而非單一標籤。
 
-此範例建立一個使用預設資料的圓形圖，將值顯示於切片外部，並啟用 [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/)。它使用 [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) 與 [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) 偏移，將兩個標籤從切片移得更遠，偏移值以圖表寬度與高度的比例表示。無需輸入簡報檔案。
+此範例建立一個具有預設資料的圓餅圖，將值顯示於切片外部，並啟用 [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/)。它使用 [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) 與 [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) 偏移（以圖表寬度與高度的比例表示）將兩個標籤移離切片更遠。此範例不需要輸入簡報。
 
-該線條的 [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) 設為實心藍色，alpha 值為 191（255 為滿值），約有 25% 透明度。[Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) 設定粗細為 2 點，且 [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) 使線條呈虛線。
+線條的 [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) 設為實心藍色，alpha 值為 191（在 255 之中），約為 25% 透明度。[Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) 將粗細設定為 2 點，[DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) 則使線條呈虛線。
 
 ```csharp
 using System.Drawing;
@@ -412,7 +412,7 @@ labelFormat.ShowValue = true;
 labelFormat.Position = LegendDataLabelPosition.OutsideEnd;
 labelFormat.ShowLeaderLines = true;
 
-// 將兩個標籤移離它們的切片更遠。
+// 將兩個標籤從其切片向外移動更遠。
 series.Labels[0].X = 0.10f;
 series.Labels[0].Y = -0.05f;
 series.Labels[1].X = -0.10f;
@@ -427,17 +427,17 @@ line.DashStyle = LineDashStyle.Dash;
 presentation.Save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
 ```
 
-啟用引線並不保證每個標籤都會出現線條。可見性取決於標籤位置與圖表的版面配置行為。於此範例中，兩個被移動的標籤具有可見的引線；靠近切片的標籤則不需要。
+啟用引線並不保證每個標籤都會出現線條。可見性取決於標籤的放置方式與圖表的版面配置。在此範例中，兩個被移動的標籤具有可見的引線；靠近切片的標籤則不需要引線。
 
-以下影像顯示使用 Aspose.Slides 渲染的已儲存 `FormattedLeaderLines.pptx`：
+下圖顯示以 Aspose.Slides 呈現的已儲存 `FormattedLeaderLines.pptx`：
 
-![帶有藍色、半透明虛線引線，將兩個外側標籤連接至切片的圓形圖](formatted-leader-lines.png)
+![圓餅圖，使用藍色半透明虛線引線將兩個外部標籤連接至其切片](formatted-leader-lines.png)
 
-## **在柱狀圖上方加入多列資料標籤**
+## **在直條圖上方加入多列資料標籤**
 
-此範例建立一個柱狀圖，於繪圖區上方放置兩列資料標籤。系列 A 顯示可見的柱狀，Series B 與 Series C 則提供額外的標籤。透過移除填滿與輪廓，將它們的柱狀隱藏。[Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) 屬性使三個系列的類別中心對齊。
+此範例建立一個直條圖，於繪圖區上方放置兩列資料標籤。系列 A 顯示可見的直條，而系列 B 與系列 C 提供額外的標籤。透過移除填色與輪廓將它們的直條隱藏。[Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) 屬性將三個系列對齊於相同的類別中心。
 
-[PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) 設定保留標籤列的空間。經由 [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) 計算預設位置後，[X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) 與 [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) 保持水平對齊，並套用垂直偏移以將標籤排列成兩列。這些數字仍是連結至系列值的資料標籤；僅列標題為獨立的文字圖形。
+[PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) 設定保留標籤列的空間。於 [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) 計算預設位置後，[X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) 與 [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) 保持水平對齊，並套用垂直偏移以將標籤排列成兩列。這些數字仍是連結至系列值的資料標籤；僅列標題為獨立的文字圖形。
 
 ```csharp
 using System.Drawing;
@@ -486,7 +486,7 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // 隱藏 B 與 C 的柱狀，但保留其資料標籤。
+        // 隱藏 B 與 C 的柱狀，但保留它們的資料標籤。
         series.Format.Fill.FillType = FillType.NoFill;
         series.Format.Line.FillFormat.FillType = FillType.NoFill;
         var labelFormat = series.Labels.DefaultDataLabelFormat;
@@ -502,11 +502,11 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
 // 將所有三個系列對齊至相同的類別中心。
 chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
 
-// 此緊湊範例使用較少的格線。
+// 在此緊湊範例中使用較少的格線。
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.MajorUnit = 10;
 
-// 在圖表上方保留空間以放置兩列資料標籤。
+// 在繪圖區上方保留空間以放置兩列資料標籤。
 chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
 chart.PlotArea.X = 0.15f;
 chart.PlotArea.Y = 0.32f;
@@ -522,13 +522,13 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
     for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
     {
         var dataLabel = series.DataPoints[categoryIndex].Label;
-        // 保持預設的水平位置。Y 為相對於
+        // 保留預設的水平位置。Y 是相對於
         // 預設標籤位置的偏移，以圖表高度的比例表示。
         dataLabel.X = 0;
         dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
     }
 
-    // 僅行標題是單獨的文字圖形。
+    // 只有列標題是獨立的文字圖形。
     var rowHeading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, chart.X, chart.Y + rowTop * chart.Height, 85, 18);
     rowHeading.FillFormat.FillType = FillType.NoFill;
     rowHeading.LineFormat.FillFormat.FillType = FillType.NoFill;
@@ -544,18 +544,52 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
 presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
 ```
 
-![在繪圖區上方有兩列資料標籤的柱狀圖](multiple-rows-of-labels.png)
+![直條圖，繪圖區上方有兩列資料標籤](multiple-rows-of-labels.png)
+
+## **變更資料標籤形狀**
+
+Aspose.Slides for .NET 26.11 新增了 [IDataLabel.LabelShapeType](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/labelshapetype/) 可於單一標籤設定，及 [IDataLabelCollection.DefaultLabelShapeType](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultlabelshapetype/) 可於系列中所有現有標籤設定。這些會變更標籤的形狀，而非其資料點標記。若需設定獨立的標註，請參閱 [Data Label Callouts](/slides/zh-hant/net/callout/)。
+
+集合指派會更新現有標籤，因此請在集合設定之 **後** 再套用個別覆寫。此完整範例需要 [Aspose.Slides for .NET](/slides/zh-hant/net/installation/) 26.11 或更新版本。它會建立可見的值標籤，為第一個系列選取橢圓形，然後將其第一個標籤改為矩形。
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
+var labels = chart.ChartData.Series[0].Labels;
+labels.DefaultDataLabelFormat.ShowValue = true;
+labels.DefaultLabelShapeType = ShapeType.Ellipse;
+labels[0].LabelShapeType = ShapeType.Rectangle;
+
+foreach (var label in labels)
+{
+    var format = label.DataLabelFormat.Format;
+    format.Fill.FillType = FillType.Solid;
+    format.Fill.SolidFillColor.Color = Color.LightYellow;
+    format.Line.FillFormat.FillType = FillType.Solid;
+    format.Line.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+}
+
+presentation.Save("label-shapes.pptx", SaveFormat.Pptx);
+
+// 重設目前所有標籤的明確形狀選擇。
+labels.DefaultLabelShapeType = ShapeType.NotDefined;
+presentation.Save("label-shapes-reset.pptx", SaveFormat.Pptx);
+```
+
+再次指派集合形狀也會取代先前的個別形狀選擇。[NotDefined](https://reference.aspose.com/slides/net/aspose.slides/shapetype/) 會清除明確的形狀選取；它不會隱藏標籤或清除其他格式設定。請在填充系列之後再設定所需形狀，而不是假設之後新增的點會繼承先前的指派。此處使用 Rectangle 與 Ellipse；在選擇其他形狀類型時，請檢查渲染結果。
 
 ## **常見問題**
 
-**如何防止資料標籤在密集圖表上重疊？**
+**如何防止在密集圖表中資料標籤重疊？**  
+結合自動標籤放置、引線與縮小字型；如有需要，可隱藏某些欄位（例如類別），或僅為極端值或關鍵點顯示標籤。
 
-結合自動標籤放置、引線與縮小字型大小；如有需要，可隱藏部分欄位（例如類別），或僅針對極端值或關鍵點顯示標籤。
+**如何僅對零、負值或空值停用標籤？**  
+在啟用標籤之前先篩選資料點，並依據定義的規則關閉 0、負值或缺失值的顯示。
 
-**如何僅對零、負值或空值停用標籤？**
-
-在啟用標籤前先篩選資料點，並依照設定的規則關閉對值為 0、負值或缺失值的顯示。
-
-**如何確保匯出為 PDF/影像時標籤樣式一致？**
-
-明確設定字型族與字型大小，並確認渲染環境中已安裝該字型，以避免使用備用字型。
+**如何在匯出為 PDF/影像時確保標籤樣式一致？**  
+明確設定字型族與大小，並確認該字型在渲染環境中可用，以避免回退。

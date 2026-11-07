@@ -1,5 +1,5 @@
 ---
-title: Textfelder in Präsentationen mit .NET verwalten
+title: Textfelder in Präsentationen in .NET verwalten
 linktitle: Textfeld verwalten
 type: docs
 weight: 20
@@ -22,15 +22,17 @@ description: "Textfelder in PowerPoint- und OpenDocument-Präsentationen mit Asp
 ---
 ## **Einführung**
 
-In Aspose.Slides für .NET wird der Folientext in Textrahmen gespeichert, die zu Formen gehören. Das [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) Interface stellt die am häufigsten vorkommende texttragende Form dar und stellt ihren Text über die [IAutoShape.TextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/textframe/) Eigenschaft bereit.
+In Aspose.Slides for .NET wird Folientext in Textrahmen gespeichert, die zu Formen gehören. Das [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)‑Interface stellt die am häufigsten vorkommende texttragende Form dar und stellt ihren Text über die [IAutoShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/)‑Eigenschaft bereit.
 
 {{% alert color="info" title="Note" %}}
-Jede Autoform implementiert [IShape](https://reference.aspose.com/slides/de/net/aspose.slides/ishape/), aber nicht jede Form ist eine Autoform oder unterstützt einen Textrahmen. Beim Verarbeiten einer vorhandenen Präsentation sollte geprüft werden, ob eine Form `IAutoShape` implementiert, bevor auf ihren Text zugegriffen wird.
+
+Jede Auto‑Form implementiert [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), aber nicht jede Form ist eine Auto‑Form oder unterstützt einen Textrahmen. Beim Verarbeiten einer vorhandenen Präsentation prüfen Sie, ob eine Form `IAutoShape` implementiert, bevor Sie auf ihren Text zugreifen.
+
 {{% /alert %}}
 
-## **Erstellen einer Textbox auf einer Folie**
+## **Eine Textbox auf einer Folie erstellen**
 
-Um eine Textbox zu erstellen, fügen Sie einer Folie eine Autoform hinzu, fügen Sie ihrem Textrahmen Text hinzu und speichern Sie die Präsentation. Das folgende Beispiel erstellt eine rechteckige Textbox:
+Um eine Textbox zu erstellen, fügen Sie einer Folie eine Auto‑Form hinzu, fügen Sie ihrem Textrahmen Text hinzu und speichern Sie die Präsentation. Das folgende Beispiel erzeugt eine rechteckige Textbox:
 
 ```csharp
 using Aspose.Slides;
@@ -44,15 +46,15 @@ textBox.AddTextFrame("Aspose TextBox");
 presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-Die an [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/ishapecollection/addautoshape/) übergebenen Koordinaten und Abmessungen werden in Punkten gemessen. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/addtextframe/) initialisiert den Textrahmen mit dem übergebenen Text.
+Die an [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/) übergebenen Koordinaten und Abmessungen werden in Punkten angegeben. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) initialisiert den Textrahmen mit dem bereitgestellten Text.
 
-## **Prüfen, ob eine Form eine Textbox ist**
+## **Überprüfen, ob eine Form eine Textbox ist**
 
-Verwenden Sie die [AutoShape.IsTextBox](https://reference.aspose.com/slides/de/net/aspose.slides/autoshape/istextbox/) Eigenschaft, um festzustellen, ob eine Autoform als Textbox behandelt wird. Dies ist nützlich, wenn eine Präsentation sowohl texttragende als auch rein grafische Autoformen enthält.
+Verwenden Sie die [AutoShape.IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/)‑Eigenschaft, um festzustellen, ob eine Auto‑Form als Textbox behandelt wird. Das ist nützlich, wenn eine Präsentation sowohl texttragende als auch rein grafische Auto‑Formen enthält.
 
-![Eine Textbox und eine Form](istextbox.png)
+![A text box and a shape](istextbox.png)
 
-Das folgende Beispiel untersucht jede Autoform in einer Präsentation:
+Das folgende Beispiel inspiziert jede Auto‑Form in einer Präsentation:
 
 ```csharp
 using System;
@@ -76,7 +78,7 @@ foreach (var currentSlide in presentation.Slides)
 }
 ```
 
-Eine neu hinzugefügte Autoform wird erst dann als Textbox angesehen, wenn sie nicht leeren Text enthält. Sie können diesen Text über [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/addtextframe/) oder [ITextFrame.Text](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/text/) bereitstellen. Das Hinzufügen oder Zuordnen eines leeren Strings lässt `IsTextBox` auf `false` setzen:
+Eine neu hinzugefügte Auto‑Form wird erst dann als Textbox betrachtet, wenn sie nicht‑leeren Text enthält. Sie können diesen Text über [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) oder [ITextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/itextframe/text/) bereitstellen. Das Hinzufügen oder Zuweisen einer leeren Zeichenfolge lässt `IsTextBox` auf `false` gesetzt:
 
 ```csharp
 using System;
@@ -102,19 +104,57 @@ shape4.TextFrame.Text = "";
 Console.WriteLine(shape4.IsTextBox);
 ```
 
-Die ersten beiden Aufrufe geben `True` aus; die letzten beiden geben `False` aus.
+Die ersten beiden Aufrufe geben `True` aus; die letzten beiden `False`.
 
-## **Die Form finden, die einen Textrahmen besitzt**
+## **Ermitteln der Form, die einen Textrahmen besitzt**
 
-Allgemeiner Textverarbeitungscode kann ein [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) erhalten, ohne zu wissen, welches Präsentationsobjekt ihn enthält. Verwenden Sie die schreibgeschützte [ITextFrame.ParentShape](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/parentshape/) Eigenschaft, um zurück zu der zugehörigen [IShape](https://reference.aspose.com/slides/de/net/aspose.slides/ishape/) zu navigieren.
+Generischer Text‑Verarbeitungscode kann ein [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) erhalten, ohne zu wissen, welches Präsentationsobjekt ihn enthält. Verwenden Sie die schreibgeschützte [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/)‑Eigenschaft, um zu seiner übergeordneten [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) zurückzuwandern.
 
-Für einen Textrahmen, der einer Autoform oder einer anderen texttragenden Form gehört, enthält `ParentShape` den Besitzer und [ITextFrame.ParentCell](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/parentcell/) ist `null`. Prüfen Sie den zurückgegebenen Wert, bevor Sie darauf zugreifen. Um sowohl Form- als auch Tabellenzellenbesitzer zu identifizieren, einschließlich Formen, die zu SmartArt‑Knoten gehören, siehe [Search and Replace Text](/slides/de/net/search-and-replace-text/).
+Für einen Textrahmen, der einer Auto‑Form oder einer anderen texttragenden Form gehört, enthält `ParentShape` den Eigentümer und [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) ist `null`. Prüfen Sie den zurückgegebenen Wert, bevor Sie darauf zugreifen. Um sowohl Form‑ als auch Tabellenzellen‑Eigentümer zu identifizieren, einschließlich Formen, die mit SmartArt‑Knoten verknüpft sind, siehe [Search and Replace Text](/slides/de/net/search-and-replace-text/).
+
+## **Abrufen des Textrechtecks der Form**
+
+Ab Aspose.Slides for .NET 26.11 gibt [ITextFrame.GetTextRect](https://reference.aspose.com/slides/net/aspose.slides/itextframe/gettextrect/) das Text‑Gebiet zurück, das durch die Geometrie der übergeordneten Form definiert ist. Seine Koordinaten und Abmessungen werden in Punkten relativ zur oberen linken Ecke dieser Form angegeben. Zum Beispiel hat eine Ellipse ein kleineres Textrechteck als ihre äußeren Begrenzungen.
+
+Dieses Rechteck beschreibt die Form, nicht die gerenderten Zeichen. Das Ändern des Textes oder der Text‑Rahmen‑Abstände verwandelt es nicht in ein Maß für belegten Text. Verwenden Sie [paragraph bounds](/slides/de/net/paragraph-bounds/) oder [portion bounds](/slides/de/net/portion-bounds/) für Messungen des gerenderten Textes.
+
+Nach dem [installing Aspose.Slides for .NET](/slides/de/net/installation/) 26.11 oder höher führen Sie dieses Beispiel aus, um das Geometrie‑Textrechteck rot zu zeichnen. Die Formen sind nicht rotiert und nicht gruppiert, sodass das Hinzufügen ihrer X/Y‑Position ausreicht, um das Overlay auf der Folie zu platzieren.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+foreach (var shapeType in new[] { ShapeType.Rectangle, ShapeType.Ellipse })
+{
+    var x = shapeType == ShapeType.Rectangle ? 50 : 300;
+    var shape = slide.Shapes.AddAutoShape(shapeType, x, 200, 200, 100);
+    shape.AddTextFrame("Text area");
+    var rectangle = shape.TextFrame.GetTextRect();
+    Console.WriteLine($"{shapeType}: {rectangle}");
+
+    var overlayX = shape.X + rectangle.X;
+    var overlayY = shape.Y + rectangle.Y;
+    var outline = slide.Shapes.AddAutoShape(ShapeType.Rectangle, overlayX, overlayY, rectangle.Width, rectangle.Height);
+    outline.FillFormat.FillType = FillType.NoFill;
+    outline.LineFormat.FillFormat.FillType = FillType.Solid;
+    outline.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+}
+
+presentation.Save("text-rectangles.pptx", SaveFormat.Pptx);
+```
+
+Für die oben gezeigten Formen von 200 × 100 Punkten liefert das Rechteck `(0, 0, 200, 100)`; die Ellipse liefert ungefähr `(29.289, 14.645, 141.421, 70.711)`. Die Methode liest zudem das deklarierte Textrechteck einer benutzerdefinierten Geometrie. Sie berücksichtigt keine Folien‑Rotation oder Gruppen‑Transformationen; diese müssen beim Positionieren eines Overlays separat beachtet werden. Ein Textrahmen ohne Geometrieform, wie ein Tabellenzellen‑Textrahmen, kann eine `InvalidOperationException` auslösen.
 
 ## **Spalten zu einer Textbox hinzufügen**
 
-Die [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/de/net/aspose.slides/itextframeformat/columncount/) Eigenschaft teilt den Textrahmen in Spalten, während [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/de/net/aspose.slides/itextframeformat/columnspacing/) den Abstand zwischen den Spalten in Punkten festlegt. Beide Einstellungen gehören zu [ITextFrameFormat](https://reference.aspose.com/slides/de/net/aspose.slides/itextframeformat/) und können über den Textrahmen einer vorhandenen Textbox geändert werden. Der Text fließt zwischen den Spalten innerhalb derselben Form um; er wird nicht in eine andere Form fortgesetzt.
+Die [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/)‑Eigenschaft teilt den Textrahmen in Spalten, während [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/) den Abstand zwischen den Spalten in Punkten festlegt. Beide Einstellungen gehören zu [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/) und können über den Textrahmen einer bestehenden Textbox geändert werden. Der Text fließt innerhalb derselben Form zwischen den Spalten um; er setzt nicht in eine andere Form fort.
 
-Das folgende Beispiel erstellt eine Textbox mit drei Spalten und einem Abstand von 10 Punkten zwischen den Spalten, speichert die Präsentation und liest die gespeicherten Einstellungen aus der Ausgabedatei zurück:
+Das folgende Beispiel erstellt eine dreispaltige Textbox mit 10 Punkten Abstand zwischen den Spalten, speichert die Präsentation und liest die gespeicherten Einstellungen aus der Ausgabedatei:
 
 ```csharp
 using System;
@@ -140,17 +180,18 @@ Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.Co
 
 ## **Text aus einzelnen Spalten extrahieren**
 
-Verwenden Sie [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/de/net/aspose.slides/textframe/splittextbycolumns/), um den jedem visuellen Spaltenbereich zugeordneten Text in einem bestehenden Textrahmen abzurufen. Die Methode gibt für jede Spalte einen String zurück, in spaltenbasierter Lesereihenfolge. Ein einspaltiger Textrahmen liefert ein Array mit einem Element, und eine leere Spalte wird durch einen leeren String repräsentiert. Die Strings enthalten ausschließlich reinen Text; formatierungsbezogene Informationen auf Teilzeichenebene werden nicht beibehalten.
+Verwenden Sie [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/net/aspose.slides/textframe/splittextbycolumns/), um den jedem visuellen Spalteninhalt zugeordneten Text in einem bestehenden Textrahmen abzurufen. Die Methode gibt für jede Spalte einen String in spaltenbasierter Lesereihenfolge zurück. Ein einspaltiger Textrahmen liefert ein Array mit einem Element, und eine leere Spalte wird durch einen leeren String dargestellt. Die Strings enthalten ausschließlich Klartext; Formatierungen auf Portionsebene werden nicht beibehalten.
 
-Dies ist nützlich, wenn Sie:
-- Text extrahieren und dabei die spaltenbasierte Lesereihenfolge beibehalten möchten.
-- Inhalte mehrspaltiger Folien indexieren oder vergleichen wollen.
+Das ist nützlich, wenn Sie:
+
+- Text extrahieren und dabei seine spaltenbasierte Lesereihenfolge beibehalten möchten.
+- Den Inhalt mehrspaltiger Folien indexieren oder vergleichen möchten.
 - Jede Spalte in eine separate Datei, Datenbankfeld oder ein anderes Ziel exportieren möchten.
-- Untersuchen wollen, wie sich Text nach dem Ändern von [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/de/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/de/net/aspose.slides/itextframeformat/columnspacing/), der Schriftart oder der Größe des Textrahmens umverteilt.
+- Prüfen wollen, wie sich der Text nach Änderungen von [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/), der Schriftart oder der Textrahmengröße verteilt.
 
-Die Methode gibt den Text zurück, der im aktuellen [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) verteilt ist; sie fließt nicht automatisch Text zwischen separaten Formen oder Textboxen. Die Spaltenverteilung kann von verfügbaren Schriftarten und anderen Textlayout‑Einstellungen abhängen, stellen Sie also sicher, dass die erforderlichen Schriftarten verfügbar sind, wenn konsistente Ergebnisse wichtig sind.
+Die Methode berichtet über den Text, der im aktuellen [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) verteilt ist; sie fließt nicht automatisch zwischen getrennten Formen oder Textboxen. Die Spaltenverteilung kann von verfügbaren Schriftarten und anderen Text‑Layout‑Einstellungen abhängen, daher sollten die erforderlichen Schriftarten vorhanden sein, wenn konsistente Ergebnisse wichtig sind.
 
-Das folgende Beispiel lädt eine Präsentation, findet die erste mehrspaltige Autoform mit einem Textrahmen, liest deren konfigurierten Spaltenzähler und schreibt den Text jeder Spalte in eine separate Datei. Formen, die keinen Textrahmen bereitstellen, werden übersprungen.
+Das folgende Beispiel lädt eine Präsentation, findet die erste mehrspaltige Auto‑Form mit Textrahmen, liest die konfigurierte Spaltenanzahl und schreibt den Text jeder Spalte in eine separate Datei. Formen, die keinen Textrahmen bereitstellen, werden übersprungen.
 
 ```csharp
 using System;
@@ -197,9 +238,9 @@ else
 
 ## **Text aktualisieren**
 
-Um Text in einer gesamten Präsentation zu aktualisieren, iterieren Sie über die Folien und Formen, wählen Autoformen aus und bearbeiten dann deren Textteile. Das Arbeiten auf Teil‑Ebene ermöglicht das Ändern von Text und Zeichenformatierung.
+Um Text in einer gesamten Präsentation zu aktualisieren, iterieren Sie über die Folien und Formen, wählen Auto‑Formen aus und bearbeiten deren Text‑Portionen. Das Arbeiten auf Portionsebene ermöglicht das Ändern sowohl des Textes als auch der Zeichenformatierung.
 
-Das folgende Beispiel ersetzt jedes Vorkommen von `years` durch `months` in Autoform‑Text und macht jeden betroffenen Teil fett:
+Das folgende Beispiel ersetzt jedes Vorkommen von `years` durch `months` im Text von Auto‑Formen und macht jede betroffene Portion fett:
 
 ```csharp
 using Aspose.Slides;
@@ -230,13 +271,13 @@ foreach (var slide in presentation.Slides)
 presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-Dieser Durchlauf aktualisiert Text nur in Autoformen. In Tabellen, Diagrammen, SmartArt oder Gruppierungen gespeicherter Text erfordert die Traversierung der jeweiligen Objektsammlungen.
+Diese Durchquerung aktualisiert Text nur in Auto‑Formen. Text, der in Tabellen, Diagrammen, SmartArt oder gruppierten Formen gespeichert ist, erfordert die Durchquerung der jeweiligen Objekt‑Sammlungen.
 
 ## **Eine Textbox mit Hyperlink hinzufügen**
 
-Einem bestimmten Textteil kann ein Hyperlink zugewiesen werden, sodass nur dieser Text als anklickbarer Link fungiert. Verwenden Sie [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/de/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), um den Teil mit einer externen URL zu verknüpfen.
+Einem bestimmten Text­abschnitt kann ein Hyperlink zugewiesen werden, sodass nur dieser Text als anklickbarer Link fungiert. Verwenden Sie [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), um den Abschnitt mit einer externen URL zu verknüpfen.
 
-Das folgende Beispiel erstellt verknüpften Text und speichert ihn in einer Präsentation:
+Das folgende Beispiel erstellt verlinkten Text und speichert ihn in einer Präsentation:
 
 ```csharp
 using Aspose.Slides;
@@ -255,10 +296,10 @@ presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Was ist der Unterschied zwischen einer Textbox und einem Text‑Platzhalter auf einer Master‑ oder Layout‑Folie?**
+**Was ist der Unterschied zwischen einer Textbox und einem Textplatzhalter auf einer Master‑ oder Layoutfolie?**
 
-Ein [placeholder](/slides/de/net/manage-placeholder/) kann seine Position und Formatierung von einer [master slide](https://reference.aspose.com/slides/de/net/aspose.slides/masterslide/) oder [layout slide](https://reference.aspose.com/slides/de/net/aspose.slides/layoutslide/) erben. Eine reguläre Textbox ist eine eigenständige Form auf der Folie, auf der sie erstellt wurde, und übernimmt kein Platzhalter‑Verhalten, wenn sich das Layout ändert.
+Ein [placeholder](/slides/de/net/manage-placeholder/) kann seine Position und Formatierung von einer [master slide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) oder [layout slide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) erben. Eine reguläre Textbox ist eine eigenständige Form auf der Folie, auf der sie erstellt wurde, und übernimmt kein Platzhalter‑Verhalten, wenn das Layout geändert wird.
 
 **Wie kann ich Text ersetzen, ohne Text in Diagrammen, Tabellen oder SmartArt zu ändern?**
 
-Begrenzen Sie die Traversierung auf Formen, die [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) implementieren, wie im Beispiel „Text aktualisieren“ gezeigt. Diagramme, Tabellen und SmartArt speichern Text in eigenen Objektmodellen und werden durch diese Schleife nicht geändert.
+Beschränken Sie die Durchquerung auf Formen, die [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) implementieren, wie im Beispiel „Text aktualisieren“ gezeigt. Diagramme, Tabellen und SmartArt speichern Text in eigenen Objektmodellen, sodass sie von dieser Schleife nicht verändert werden.

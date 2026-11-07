@@ -1,6 +1,6 @@
 ---
-title: تضمين الخطوط في العروض التقديمية في .NET
-linktitle: خطوط مضمّنة
+title: دمج الخطوط في العروض التقديمية في .NET
+linktitle: الخطوط المدمجة
 type: docs
 weight: 40
 url: /ar/net/embedded-font/
@@ -8,30 +8,31 @@ keywords:
 - إضافة خط
 - تضمين خط
 - تضمين الخط
-- الحصول على خط مضمّن
-- إضافة خط مضمّن
-- إزالة خط مضمّن
-- ضغط خط مضمّن
+- الحصول على خط مدمج
+- إضافة خط مدمج
+- إزالة خط مدمج
+- ضغط خط مدمج
 - PowerPoint
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "إدارة الخطوط المضمّنة في PowerPoint باستخدام Aspose.Slides لـ .NET. استخدم C# لإضافة الخطوط واسترجاعها وإزالتها وضغطها للحفاظ على مظهر النص وتقليل حجم الملف."
+description: "إدارة الخطوط المدمجة في PowerPoint باستخدام Aspose.Slides لـ .NET. استخدم C# لإضافة، استرجاع، إزالة، وضغط الخطوط للحفاظ على مظهر النص وتقليل حجم الملف."
 ---
 ## **المقدمة**
 
-تضمين الخطوط يخزن بيانات الخط داخل عرض تقديمي ببرنامج PowerPoint. عندما يدعم عارض الخطوط المضمّنة، يمكنه عرض النص باستخدام تلك الخطوط حتى وإن لم تكن مثبتة على نظام الوجهة. يساعد ذلك في الحفاظ على فواصل الأسطر وتباعد النص وتخطيط الشريحة.
+يخزن تضمين الخطوط بيانات الخط داخل عرض بوربوينت. عندما يدعم المشاهد الخطوط المضمَّنة، يمكنه عرض النص باستخدام تلك الخطوط حتى وإن لم تكن مثبتة على النظام المستهدف. يساعد ذلك في الحفاظ على فواصل الأسطر، وتباعد النص، وتنسيق الشريحة.
 
-تتيح لك مكتبة Aspose.Slides لـ .NET استرجاع الخطوط المضمّنة وإضافتها وإزالتها عبر خاصية [FontsManager](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/fontsmanager/) لكائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/). يمكنك أيضًا تقليل حجم بيانات الخط المضمّن عن طريق إزالة الأحرف التي لا يستخدمها العرض التقديمي.
+يتيح لك Aspose.Slides for .NET استرجاع، إضافة، وإزالة الخطوط المضمَّنة عبر الخاصية [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) لكائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). يمكنك أيضًا تقليل حجم بيانات الخط المضمَّن بإزالة الأحرف التي لا يستخدمها العرض.
 
-الأمثلة أدناه تعمل مع ملفات PPTX. قبل تضمين خط، تأكد من أن بيانات الخط متاحة لـ Aspose.Slides وأن ترخيصه يسمح بالتضمين.
+تعمل الأمثلة أدناه مع ملفات PPTX. قبل تضمين أي خط، تأكد من توافر بيانات الخط لـ Aspose.Slides وأن ترخيصه يسمح بالتضمين.
 
-## **الحصول على الخطوط المضمّنة وإزالتها**
+## **جلب وإزالة الخطوط المضمَّنة**
 
-استخدم [GetEmbeddedFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/getembeddedfonts/) لسرد الخطوط المخزنة في عرض تقديمي. لإزالة واحدة، مرّر خطًا من تلك القائمة إلى [RemoveEmbeddedFont](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/removeembeddedfont/)، ثم احفظ العرض التقديمي.
+استخدم [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) لسرد الخطوط المخزَّنة في العرض. لإزالة أحدها، مرِّر خطًا من تلك القائمة إلى [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont/)، ثم احفظ العرض.
 
-المثال التالي يسرد الخطوط المضمّنة في الملف `EmbeddedFonts.pptx` ويزيل خط Calibri إذا كان موجودًا:
+يُدرج المثال التالي الخطوط المضمَّنة في `EmbeddedFonts.pptx` ويزيل خط Calibri إذا كان موجودًا:
+
 ```csharp
 using System;
 using Aspose.Slides;
@@ -58,24 +59,25 @@ else
 }
 ```
 
-إزالة خط مضمّن تحذف بيانات الخط المخزنة؛ ولا تغير الخط المعين للنص. إذا كان الخط مثبتًا على نظام الوجهة، يظل بإمكان النص استخدامه. وإلا قد يتطلب العرض [استبدال الخط](/slides/ar/net/font-substitution/)، مما قد يؤثر على التخطيط.
+إزالة خط مضمَّن تحذف بيانات الخط المخزَّنة؛ لا تغير الخط المعيّن للنص. إذا كان الخط مثبتًا على النظام المستهدف، سيظل النص يستخدمه. وإلا، قد يتطلب العرض [font substitution](/slides/ar/net/font-substitution/)، مما قد يؤثر على التخطيط.
 
-## **فحص بيانات الخط وأذونات التضمين**
+## **فحص بيانات الخط وأذونات الإدراج**
 
-استخدم واجهة [IFontsManager](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/) لفحص الخطوط قبل تضمينها. استدعِ [IFontsManager.GetFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getfonts/) لاسترجاع الخطوط المستخدمة في العرض التقديمي. لكل خط، مرّر كائن [IFontData](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontdata/) والقيمة المطلوبة من [FontStyleType](https://reference.aspose.com/slides/ar/net/aspose.slides/fontstyletype/) إلى [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getfontbytes/). تُعيد الطريقة البيانات الثنائية لذلك النمط من الخط، أو `null` عندما يكون الخط أو النمط المطلوب غير متوفر. لا تمرّر نتيجة `null` إلى [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getfontembeddinglevel/)، لأن هذه الطريقة تتطلب مصفوفة بايت.
+استخدم الواجهة [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) لفحص الخطوط قبل تضمينها. استدعِ [IFontsManager.GetFonts](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfonts/) لاسترجاع الخطوط المستخدمة في العرض. لكل خط، مرِّر كائنًا من نوع [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) والقيمة المطلوبة من [FontStyleType](https://reference.aspose.com/slides/net/aspose.slides/fontstyletype/) إلى [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontbytes/). تُعيد الطريقة البيانات الثنائية لذلك نمط من الخط، أو `null` عندما يكون الخط أو النمط غير متاح. لا تُمرِّر نتيجة `null` إلى [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontembeddinglevel/)، لأن تلك الطريقة تتطلّب مصفوفة بايت.
 
-[EmbeddingLevel](https://reference.aspose.com/slides/ar/net/aspose.slides/embeddinglevel/) هو تعداد علميات يُبلغ عن قيود التضمين المخزنة في الخط:
+[EmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/embeddinglevel/) هو تعداد Flag يُظهر قيود الإدراج المخزَّنة في الخط:
 
-- `Installable` يسمح بالتضمين والتثبيت الدائم على نظام آخر، وفقًا لترخيص الخط.
-- `Restricted` يحظر التضمين ما لم يتم الحصول على إذن من صاحب الخط القانوني عندما يكون هذا هو علم الإذن الوحيد.
-- `PreviewPrint` يسمح بالاستخدام المؤقت للعرض والطباعة؛ يجب أن يكون المستند الذي يحتوي على الخط للقراءة فقط.
-- `Editable` يسمح بالاستخدام المؤقت ويسمح بتحرير وحفظ المستند.
-- `NoSubsetting` هو قيد إضافي يمنع تضمين جزء فقط من الأحرف. يجب تضمين جميع الأحرف عندما يكون هذا العلم موجودًا.
-- `BitmapOnly` هو قيد إضافي يسمح بتضمين ضربات البت ماب فقط، وليس بيانات المخطط. إذا لم يحتوي الخط على ضربات بت ماب، لا يمكن تضمينه.
+- `Installable` يسمح بالإدراج والتثبيت الدائم على نظام آخر، وفقًا لترخيص الخط.
+- `Restricted` يمنع الإدراج ما لم تُحصل على إذن من صاحب الحقوق القانونية للخط عندما يكون هذا هو علم الاستخدام الوحيد.
+- `PreviewPrint` يسمح بالاستخدام المؤقت للعرض والطباعة؛ يجب أن يكون المستند الذي يحتوي الخط للقراءة فقط.
+- `Editable` يسمح بالاستخدام المؤقت ويتيح تحرير المستند وحفظه.
+- `NoSubsetting` هو قيد إضافي يمنع إدراج جزء فقط من الحروف. يُضمَّن جميع الأحرف عندما يكون هذا العلم موجودًا.
+- `BitmapOnly` هو قيد إضافي يسمح بتضمين ضربات البِت ماب فقط، وليس بيانات المخطط. إذا لم يحتوي الخط على ضربات بِت ماب، لا يمكن إدراجه.
 
-القيم الأربعة الأولى تصف أذونات الاستخدام، بينما يمكن الجمع بين `NoSubsetting` و `BitmapOnly` معها. تحقق من المعدّلات باستخدام عمليات بتية. لأن قيمة `Installable` هي صفر، لا تستخدم `HasFlag` لاكتشافها؛ بل قم بتمويه بتات أذونات الاستخدام ومقارنة النتيجة بـ `Installable`. يجب على الخطوط الحالية تعيين بت واحد كحد أقصى لأذونات الاستخدام. للتوافق مع الخطوط القديمة التي تعين أكثر من بت واحد، يختار المساعد أدناه أقل إذن تقييدًا: `Editable`، ثم `PreviewPrint`، ثم `Restricted`.
+القيم الأربعة الأولى تصف إذن الاستخدام، بينما يمكن دمج `NoSubsetting` و`BitmapOnly` معهما. تحقّق من المُعدِّلات باستخدام عمليات bitwise. نظرًا لأن `Installable` يساوي الصفر، لا تستخدم `HasFlag` لاكتشافه؛ قم بقناع بتات إذن الاستخدام وقارن النتيجة مع `Installable`. يجب أن تُعيّن الخطوط الحالية بحد أقصى علم إذن واحد. للتوافق مع الخطوط القديمة التي تعيّن أكثر من علم، يختار المساعد أدناه الأقل تقييدًا: `Editable` ثم `PreviewPrint` ثم `Restricted`.
 
-المثال التالي يراجع بيانات الخط العادي، السميك، المائل، والسميك المائل المتاحة لكل خط يُرجعها `GetFonts`. يتخطى الأنماط غير المتوفرة، الخطوط المقيدة، الخطوط التي تدعم البت ماب فقط، الخطوط المحدودة للعرض والطباعة لأن المخرجات تبقى قابلة للتحرير، والخطوط التي تم تضمينها بالفعل. إذا كان لأي نمط متاح علم `NoSubsetting`، فسيتم تضمين جميع الأحرف لتلك العائلة من الخطوط.
+يُجري المثال التالي تدقيقًا للبيانات العادية، السميكة، المائلة، والسميكة-المائلة المتوفرة لكل خط تُرجعهم الدالة `GetFonts`. يتخطى الأنماط غير المتوفرة، الخطوط المقيدة، الخطوط التي هي BitmapOnly، الخطوط المحدودة للمعاينة والطباعة لأن الناتج يظل قابلًا للتحرير، والخطوط المُضمَّنة بالفعل. إذا كان لأي نمط متوفر `NoSubsetting`، يُضمَّن جميع الأحرف لتلك العائلة الخطية.
+
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -184,16 +186,17 @@ foreach (var item in embeddingPlan)
 presentation.Save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 ```
 
-هذا الفحص يُبلغ عن القيود المشفرة في كل ملف خط. لا يمنحك ترخيصًا، ولا يثبت أنك حصلت على الخط قانونيًا، ولا يحل محل فحص اتفاقية ترخيص الخط قبل توزيع نسخة مضمّنة.
+هذا الفحص يُبلغ عن القيود المُرمَّزة في كل ملف خط. لا يمنح ترخيصًا، ولا يثبت أنك حصلت على الخط بصورة قانونية، ولا يُستبدل فحص اتفاقية ترخيص الخط قبل توزيع نسخة مضمَّنة.
 
-## **إضافة خطوط مضمّنة**
+## **إضافة خطوط مضمَّنة**
 
-استخدم [AddEmbeddedFont](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/addembeddedfont/) لتضمين خط. تدعم التحميلات الزائدة إما كائن [IFontData](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontdata/) أو مصفوفة بايت تحتوي على بيانات الخط. تعداد [EmbedFontCharacters](https://reference.aspose.com/slides/ar/net/aspose.slides.export/embedfontcharacters/) يتحكم في الأحرف التي يتم تضمينها:
+استخدم [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) لتضمين خط. تُقبل التحميلات إما ككائن [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) أو مصفوفة بايت تحتوي على بيانات الخط. يحدد تعداد [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) الأحرف التي تُضمَّن:
 
-- [All](https://reference.aspose.com/slides/ar/net/aspose.slides.export/embedfontcharacters/) يضمّن جميع الأحرف في الخط. استخدم هذا الخيار عندما يحتاج المتلقون إلى تحرير العرض وإدخال نص جديد.
-- [OnlyUsed](https://reference.aspose.com/slides/ar/net/aspose.slides.export/embedfontcharacters/) يضمّن فقط الأحرف المستخدمة في العرض لتقليل حجم الملف. اختر هذا الخيار لعرض نهائي موجه أساسًا للعرض.
+- [All](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) يُضمَّن جميع الأحرف في الخط. استخدم هذا الخيار عندما يحتاج المستلمون إلى تعديل العرض وإدخال نص جديد.
+- [OnlyUsed](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) يُضمَّن فقط الأحرف المستخدمة في العرض لتقليل حجم الملف. اختر هذا الخيار للعرض النهائي الذي يهدف أساسًا إلى العرض فقط.
 
-المثال التالي يستخدم [GetFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/getfonts/) لاسترجاع الخطوط المستخدمة في الملف `Fonts.pptx` ويضمّن تلك التي لم تُضمّن بعد. يجب أن تكون الخطوط المطلوب إضافتها متوفرة على الجهاز الذي يشغل الكود. الخطوط المضمّنة الحالية تحتفظ بمجموعة أحرفها الحالية.
+يستخدم المثال التالي [GetFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) لاسترجاع الخطوط المستخدمة في `Fonts.pptx` ويضمِّن تلك التي لم تُضمَّن بعد. يجب أن تكون الخطوط المُضافة متوفرة على الجهاز الذي يُشغَّل الكود. تحتفظ الخطوط المضمَّنة الموجودة بمجموعة الأحرف الحالية.
+
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -220,11 +223,12 @@ foreach (var font in allFonts)
 presentation.Save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-## **ضغط الخطوط المضمّنة**
+## **ضغط الخطوط المضمَّنة**
 
-[CompressEmbeddedFonts](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/compressembeddedfonts/) يقلل بيانات الخط المضمّن بإزالة الأحرف غير المستخدمة. يعمل على الخطوط التي تم تضمينها مسبقًا، لذا يعتمد تقليل الحجم على كمية بيانات الخط غير المستخدمة في العرض.
+يُقلِّل [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) بيانات الخط المضمَّن بإزالة الأحرف غير المستخدمة. يعمل على الخطوط التي تم تضمينها بالفعل، لذا يعتمد تقليل الحجم على كمية بيانات الخط غير المستخدمة في العرض.
 
-المثال التالي يضغط الخطوط في الملف `EmbeddedFonts.pptx` ويحفظ النتيجة كملف منفصل:
+يُضغط المثال التالي الخطوط في `EmbeddedFonts.pptx` ويحفظ النتيجة كملف منفصل:
+
 ```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -235,14 +239,16 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-احتفظ بالملف الأصلي إذا كان المتلقون قد يحتاجون لإضافة نص لاحقًا. الأحرف التي أزيلت أثناء الضغط لا تعود متاحة من الخط المضمّن، حتى وإن كنت قد ضمنت جميع الأحرف أصلاً.
+احتفظ بالملف الأصلي إذا كان المستلمون قد يحتاجون لإضافة نص لاحقًا. الأحرف التي أزيلت أثناء الضغط لا تعود متوفرة من الخط المضمَّن، حتى وإن كنت قد ضَمَّنت جميع الأحرف أصلاً.
 
-## **الأسئلة المتكررة**
+لإعطاء أولوية للخط المسجل المتطابق أثناء التصدير دون إزالة الخط المضمَّن، راجع [Prefer Registered Fonts over Embedded Fonts](/slides/ar/net/font-selection-sequence/#prefer-registered-fonts-over-embedded-fonts) (.NET 26.11 أو أحدث).
 
-**كيف يمكنني التحقق مما إذا كان الخط المضمّن سيظل يُستبدل أثناء العرض؟**
+## **الأسئلة الشائعة**
 
-استدعِ [GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/getsubstitutions/) في البيئة التي تعرض فيها العرض التقديمي لتعرف أي الخطوط سيستبدلها Aspose.Slides. تحقق أيضًا من إعدادات [استبدال الخط](/slides/ar/net/font-substitution/) وقواعد [الخط الاحتياطي](/slides/ar/net/fallback-font/). يتعامل الخط الاحتياطي مع الأحرف المفقودة، لذا لا يحل تضمين الخط مشكلة الأحرف التي لا يحتويها الخط نفسه.
+**كيف يمكنني التحقق مما إذا كان سيتم استبدال الخط المضمَّن أثناء العرض؟**
 
-**هل يجب عليّ تضمين الخطوط الشائعة مثل Arial و Calibri؟**
+استدعِ [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) في البيئة التي تُظهر فيها العرض لتعرف أي خطوط سيستبدلها Aspose.Slides. كما يجب مراجعة إعدادات [font substitution](/slides/ar/net/font-substitution/) وقواعد [font fallback](/slides/ar/net/fallback-font/). يتعامل fallback مع الأحرف الناقصة، لذا لا يحل تضمين الخط مشكلة الأحرف التي لا يحتويها الخط نفسه.
 
-اعتمد اتخاذ القرار على بيئة الهدف. إذا كانت الخطوط المطلوبة متوفرة على كل جهاز يفتح أو يعرض العرض التقديمي، قد يؤدي تضمينها إلى زيادة حجم الملف دون ضرورة. إذا كان من الممكن أن يفتقر المتلقون أو الخوادم إلى تلك الخطوط، يمكن لتضمينها أن يساعد في الحفاظ على المظهر المقصود، بشرط أن تسمح التراخيص بذلك.
+**هل ينبغي عليّ تضمين خطوط شائعة مثل Arial وCalibri؟**
+
+اتّخذ القرار بناءً على بيئة الهدف. إذا كانت الخطوط المطلوبة متوفرة على كل جهاز يفتح أو يعرض العرض، قد يزيد التضمين من حجم الملف دون فائدة. إذا كان من المحتمل أن يفتقر المستلمون أو الخوادم إلى تلك الخطوط، يمكن للتضمين أن يساعد في الحفاظ على المظهر المقصود، بشرط أن تسمح تراخيصها بذلك.

@@ -1,5 +1,5 @@
 ---
-title: Quản lý khung video trong bản trình chiếu bằng .NET
+title: Quản lý Khung Video trong Bản Trình Bày trên .NET
 linktitle: Khung Video
 type: docs
 weight: 10
@@ -14,25 +14,25 @@ keywords:
 - nguồn web
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bản trình bày
 - .NET
 - C#
 - Aspose.Slides
-description: "Tìm hiểu cách thêm và trích xuất khung video một cách lập trình trong các slide PowerPoint và OpenDocument sử dụng Aspose.Slides cho .NET. Hướng dẫn nhanh."
+description: "Học cách thêm và trích xuất khung video trong các slide PowerPoint và OpenDocument bằng cách lập trình sử dụng Aspose.Slides cho .NET. Hướng dẫn nhanh chóng."
 ---
 ## **Giới thiệu**
 
-Video có thể giúp giải thích ý tưởng và thu hút khán giả. Aspose.Slides for .NET cho phép bạn thêm khung video vào các slide, điều chỉnh cài đặt phát lại, quản lý phụ đề và trích xuất dữ liệu video được nhúng.
+Video có thể giúp giải thích ý tưởng và thu hút khán giả. Aspose.Slides for .NET cho phép bạn thêm khung video vào các slide, điều chỉnh cài đặt phát lại, quản lý phụ đề, và trích xuất dữ liệu video được nhúng.
 
-PowerPoint hỗ trợ video cục bộ và liên kết tới video trực tuyến, chẳng hạn như video YouTube.
+PowerPoint hỗ trợ video cục bộ và liên kết đến video trực tuyến, chẳng hạn như video trên YouTube.
 
-Để biểu diễn dữ liệu video và khung video, Aspose.Slides cung cấp giao diện [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) , giao diện [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) và các kiểu liên quan khác.
+Để biểu diễn dữ liệu video và khung video, Aspose.Slides cung cấp giao diện [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) , giao diện [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) , và các kiểu liên quan khác.
 
-## **Tạo Khung Video Nhúng**
+## **Tạo khung video nhúng**
 
-Nếu tệp video bạn muốn thêm vào slide được lưu trữ cục bộ, bạn có thể tạo một khung video để nhúng video vào bản trình chiếu của mình.
+Nếu tệp video bạn muốn thêm vào slide được lưu trữ cục bộ, bạn có thể tạo một khung video để nhúng video vào bản trình bày của mình.
 
-Ví dụ này nhúng một video cục bộ vào slide đầu tiên của một bản trình chiếu hiện có và lưu kết quả. Tọa độ và kích thước của khung tính bằng điểm. Luồng vẫn mở cho đến khi lưu xong vì [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) giữ nó khóa trong khi bản trình chiếu sử dụng.
+Ví dụ này nhúng video cục bộ vào slide đầu tiên của bản trình bày hiện có và lưu kết quả. Tọa độ và kích thước khung tính bằng điểm. Luồng dữ liệu vẫn mở cho đến khi lưu hoàn tất vì [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) giữ nó khóa trong khi bản trình bày sử dụng.
 
 ```csharp
 using System.IO;
@@ -49,7 +49,7 @@ slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
-Bạn cũng có thể truyền đường dẫn video cục bộ trực tiếp cho [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). Ví dụ này nhúng video vào slide đầu tiên của một bản trình chiếu mới. Video phải vẫn có thể truy cập được cho đến khi bản trình chiếu được lưu.
+Bạn cũng có thể truyền trực tiếp đường dẫn video cục bộ vào [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). Ví dụ này nhúng video vào slide đầu tiên của một bản trình bày mới. Video phải vẫn khả dụng cho đến khi bản trình bày được lưu.
 
 ```csharp
 using Aspose.Slides;
@@ -63,11 +63,50 @@ slide.Shapes.AddVideoFrame(50, 150, 300, 150, "video.avi");
 presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
 ```
 
-## **Tạo Khung Video với Video từ Nguồn Web**
+## **Đặt âm lượng video một cách chính xác**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) hỗ trợ video trực tuyến trong bản trình chiếu. Bạn có thể tạo một khung video liên kết tới video trực tuyến, chẳng hạn như video YouTube.
+Trong Aspose.Slides for .NET 26.11 trở lên, [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) đặt một phần trăm kiểu floating‑point từ 0 tới 100. Sử dụng nó khi các cài đặt [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) quá thô. Ví dụ, `75.5f` yêu cầu âm lượng 75.5%.
 
-Ví dụ này thêm liên kết video YouTube và ảnh thu nhỏ vào slide đầu tiên. Thay thế định danh video để sử dụng video khác. Cài đặt [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) yêu cầu phát tự động. Tải ảnh thu nhỏ và phát video cần có kết nối internet. Trình xem bản trình chiếu cũng phải hỗ trợ phát video trực tuyến.
+Ví dụ này yêu cầu [Aspose.Slides for .NET](/slides/vi/net/installation/) 26.11 trở lên và một tệp `video.mp4` cục bộ. Nó nhúng video, khởi tạo phát lại một cách rõ ràng, lưu bản trình bày và đọc lại phần trăm đã lưu.
+
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var volume = 75.5f;
+if (float.IsNaN(volume) || float.IsInfinity(volume) || volume < 0 || volume > 100)
+{
+    Console.WriteLine("Use a finite volume from 0 to 100.");
+    return;
+}
+
+using (var presentation = new Presentation())
+{
+    var videoBytes = File.ReadAllBytes("video.mp4");
+    var video = presentation.Videos.AddVideo(videoBytes);
+    var frame = presentation.Slides[0].Shapes.AddVideoFrame(50, 50, 320, 180, video);
+    frame.PlayMode = VideoPlayModePreset.Auto;
+    frame.VolumeValue = volume;
+    presentation.Save("video-volume.pptx", SaveFormat.Pptx);
+}
+
+using var saved = new Presentation("video-volume.pptx");
+var savedFrame = saved.Slides[0].Shapes.OfType<IVideoFrame>().First();
+Console.WriteLine(savedFrame.VolumeValue);
+```
+
+Xác thực đầu vào của bạn; không dựa vào setter để từ chối các giá trị ngoài phạm vi được ghi trong tài liệu. Các cài đặt Low, Medium và Loud tương ứng với 20, 50 và 80 trong phiên bản 26.11. Đặt một cài đặt sẵn có có thể thay thế phần trăm trước đó, vì vậy hãy gán phần trăm cuối cùng khi bạn cần giá trị chính xác. Sử dụng [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) để tắt tiếng một cách rõ ràng; số không và enum preset không phải là các trạng thái thay thế nhau.
+
+Cài đặt rõ ràng [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) khi cấu hình video liên kết cũng vậy, và giữ tệp media của nó có sẵn cho người xem. Lưu và mở lại xác nhận cài đặt đã lưu; việc phát thực tế và độ lớn âm thanh phụ thuộc vào trình phát bản trình bày và cài đặt âm thanh của nó.
+
+## **Tạo khung video với video từ nguồn web**
+
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) hỗ trợ video trực tuyến trong các bản trình bày. Bạn có thể tạo một khung video liên kết tới video trực tuyến, chẳng hạn như video trên YouTube.
+
+Ví dụ này thêm liên kết và hình thu nhỏ video YouTube vào slide đầu tiên. Thay thế định danh video để sử dụng video khác. Cài đặt [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) yêu cầu phát tự động. Tải xuống hình thu nhỏ và phát video yêu cầu có kết nối internet. Trình xem bản trình bày cũng phải hỗ trợ phát video trực tuyến.
 
 ```csharp
 using System.Net.Http;
@@ -92,11 +131,11 @@ videoFrame.PictureFormat.Picture.Image = thumbnail;
 presentation.Save("online_video.pptx", SaveFormat.Pptx);
 ```
 
-## **Phát Video ở Chế Độ Toàn Màn Hình**
+## **Phát video ở chế độ toàn màn hình**
 
-Trong một bản trình chiếu đào tạo, bạn có thể phát bản demo phần mềm ở chế độ toàn màn hình để khán giả xem chi tiết. Đặt [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) thành `true` để bật hành vi này khi phát lại.
+Trong bản trình bày đào tạo, bạn có thể phát bản demo phần mềm ở chế độ toàn màn hình để khán giả nhìn thấy chi tiết. Đặt [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) thành `true` để bật hành vi này khi phát.
 
-Ví dụ này mở một bản trình chiếu, tìm khung [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) đầu tiên trên slide đầu tiên, và bật phát toàn màn hình. Bản trình chiếu đầu vào phải có ít nhất một slide có khung video hiện có trên slide đầu tiên.
+Ví dụ này mở một bản trình bày, tìm [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) đầu tiên trên slide đầu tiên, và bật phát toàn màn hình. Bản trình bày đầu vào phải chứa ít nhất một slide có khung video hiện có trên slide đầu tiên.
 
 ```csharp
 using Aspose.Slides;
@@ -117,13 +156,13 @@ foreach (var shape in slide.Shapes)
 presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
 ```
 
-Phát toàn màn hình kiểm soát cách video được hiển thị. Tùy độc lập, [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) điều khiển video có bắt đầu tự động hay khi nhấp, và [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) điều khiển việc video có lặp lại hay không. Để chọn hành vi khởi đầu, đặt chế độ phát thành [VideoPlayModePreset.Auto hoặc VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). Ví dụ giữ nguyên các cài đặt khởi đầu và vòng lặp hiện có.
+Phát toàn màn hình kiểm soát cách video được hiển thị. Một cách độc lập, [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) kiểm soát việc video bắt đầu tự động hay khi nhấn, và [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) kiểm soát việc lặp lại. Để chọn hành vi khởi động, đặt chế độ phát thành [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). Ví dụ này giữ nguyên các cài đặt bắt đầu và vòng lặp hiện có.
 
-## **Quay Lại Video Sau Khi Phát**
+## **Quay lại video sau khi phát**
 
-Trong bản trình chiếu đào tạo, đưa video demo trở lại đầu giúp người thuyết trình có thể phát lại. Đặt [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) thành `true` để đưa video về đầu sau khi phát xong.
+Trong bản trình bày đào tạo, việc đưa video demo trở lại đầu giúp người thuyết trình có thể phát lại nhanh chóng. Đặt [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) thành `true` để video trở lại đầu sau khi phát xong.
 
-Ví dụ này mở một bản trình chiếu, tìm khung [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) đầu tiên trên slide đầu tiên, và bật tính năng quay lại. Nó tắt vòng lặp để phát có thể kết thúc và đặt phát bắt đầu khi nhấp. Bản trình chiếu đầu vào phải chứa ít nhất một slide có khung video hiện có trên slide đầu tiên.
+Ví dụ này mở một bản trình bày, tìm [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) đầu tiên trên slide đầu tiên, và bật chức năng quay lại. Nó tắt vòng lặp để phát có thể kết thúc và đặt phát bắt đầu khi nhấn. Bản trình bày đầu vào phải chứa ít nhất một slide có khung video hiện có trên slide đầu tiên.
 
 ```csharp
 using Aspose.Slides;
@@ -146,15 +185,15 @@ foreach (var shape in slide.Shapes)
 presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
 ```
 
-Quay lại đưa video về đầu mà không bắt đầu lại. Ngược lại, bật [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) sẽ tự động lặp lại phát. Giữ vòng lặp bị tắt khi bạn muốn video kết thúc và sẵn sàng phát lại. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) kiểm soát độc lập việc khởi động tự động hoặc khi nhấp; ví dụ này sử dụng [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) để người thuyết trình kiểm soát thời điểm bắt đầu phát. Đặt chế độ phát sau khi cài đặt vòng lặp, như trong ví dụ. Quay lại hoạt động độc lập với [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
+Quay lại video đưa video về đầu mà không tự động phát lại. Ngược lại, bật [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) sẽ lặp lại phát tự động. Hãy giữ vòng lặp tắt khi bạn muốn video kết thúc và sẵn sàng để phát lại. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) độc lập điều khiển khởi động tự động hay khi nhấn; ví dụ này sử dụng [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) để người thuyết trình kiểm soát thời điểm phát. Đặt chế độ phát sau khi đã đặt vòng lặp, như trong ví dụ. Quay lại hoạt động độc lập với [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
 
-## **Cắt Đoạn Khung Video**
+## **Cắt khung video**
 
-Sử dụng [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) và [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) để bỏ qua phần đầu hoặc cuối của video khi phát. Cả hai giá trị đều tính bằng mili giây. Việc cắt bớt thay đổi cài đặt phát lại mà không thay đổi dữ liệu video được nhúng.
+Sử dụng [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) và [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) để bỏ qua phần đầu hoặc cuối của video khi phát. Cả hai giá trị tính bằng mili giây. Cắt thay đổi cài đặt phát mà không thay đổi dữ liệu video được nhúng.
 
-**Đặt Cài Đặt Cắt**
+**Đặt cài đặt cắt**
 
-Ví dụ này nhúng một video cục bộ và bỏ qua 2,5 giây đầu và 1 giây cuối khi phát. Sử dụng video dài hơn 3,5 giây để còn lại một đoạn có thể phát được.
+Ví dụ này nhúng video cục bộ và bỏ qua 2,5 giây đầu và 1 giây cuối khi phát. Hãy sử dụng video dài hơn 3,5 giây để còn lại một đoạn có thể phát.
 
 ```csharp
 using System.IO;
@@ -174,9 +213,9 @@ videoFrame.TrimFromEnd = 1000f;
 presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 ```
 
-**Đọc Cài Đặt Cắt**
+**Đọc cài đặt cắt**
 
-Ví dụ này in ra các giá trị cắt của khung video đầu tiên trên slide đầu tiên, tính bằng mili giây. Bản trình chiếu phải có ít nhất một slide. Nếu slide đó không có khung video, không có gì được in. Ví dụ trước đưa ra các giá trị 2500 và 1000.
+Ví dụ này in giá trị cắt của khung video đầu tiên trên slide đầu tiên tính bằng mili giây. Bản trình bày phải chứa ít nhất một slide. Nếu slide đó không có khung video, sẽ không có gì được in. Ví dụ trước tạo ra các giá trị 2500 và 1000.
 
 ```csharp
 using System;
@@ -196,13 +235,13 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-## **Quản Lý Phụ Đề Video**
+## **Quản lý phụ đề video**
 
-Aspose.Slides cho phép bạn quản lý phụ đề đóng cho các khung video trong bản trình chiếu PowerPoint. Phụ đề được lưu ở định dạng WebVTT và được truy cập qua thuộc tính [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/).
+Aspose.Slides cho phép bạn quản lý phụ đề đóng cho khung video trong bản trình bày PowerPoint. Phụ đề được lưu dưới định dạng WebVTT và được truy cập qua thuộc tính [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/).
 
-**Thêm Phụ Đề vào Khung Video**
+**Thêm phụ đề vào khung video**
 
-Ví dụ này nhúng một video cục bộ và thêm một track phụ đề WebVTT có nhãn English. Các dấu thời gian phụ đề nên khớp với video. Bản trình chiếu đã lưu bao gồm cả video và phụ đề.
+Ví dụ này nhúng video cục bộ và thêm một track phụ đề WebVTT có nhãn English. Các dấu thời gian phụ đề phải khớp với video. Bản trình bày đã lưu bao gồm cả video và phụ đề của nó.
 
 ```csharp
 using System.IO;
@@ -223,9 +262,9 @@ presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 
 Giao diện [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) cũng cung cấp một overload cho phép bạn thêm phụ đề từ một luồng.
 
-**Trích Xuất Phụ Đề từ Khung Video**
+**Trích xuất phụ đề từ khung video**
 
-Ví dụ này lưu tất cả các track phụ đề từ các khung video trên slide đầu tiên thành các tệp WebVTT riêng biệt. Các số thứ tự liên tiếp giữ cho các tệp đầu ra không trùng nhau. Console báo số lượng track đã trích xuất. Bản trình chiếu phải có ít nhất một slide.
+Ví dụ này lưu tất cả các track phụ đề từ các khung video trên slide đầu tiên dưới dạng các tệp WebVTT riêng biệt. Các số thứ tự giữ cho các tệp đầu ra không trùng nhau. Console báo số lượng track đã được trích xuất. Bản trình bày phải chứa ít nhất một slide.
 
 ```csharp
 using System;
@@ -252,11 +291,11 @@ foreach (var shape in slide.Shapes)
 Console.WriteLine($"Caption tracks extracted: {trackCount}");
 ```
 
-Mỗi đối tượng [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) cung cấp định danh phụ đề, nhãn, dữ liệu nhị phân và nội dung phụ đề dưới dạng chuỗi UTF-8.
+Mỗi đối tượng [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) tiết lộ định danh phụ đề, nhãn, dữ liệu nhị phân và nội dung phụ đề dưới dạng chuỗi UTF‑8.
 
-**Xóa Phụ Đề khỏi Khung Video**
+**Xóa phụ đề khỏi khung video**
 
-Ví dụ này xóa tất cả phụ đề khỏi khung video tại vị trí shape đầu tiên trên slide đầu tiên và lưu kết quả. Nó giả định rằng slide và shape tồn tại và shape đó là một khung video.
+Ví dụ này xóa tất cả phụ đề khỏi khung video ở vị trí shape đầu tiên trên slide đầu tiên và lưu kết quả. Giả định slide và shape tồn tại và shape là một khung video.
 
 ```csharp
 using System;
@@ -272,13 +311,13 @@ videoFrame.CaptionTracks.Clear();
 presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 ```
 
-Nếu bạn chỉ cần xóa một track phụ đề, sử dụng phương thức [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) hoặc [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) thay vì [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
+Nếu bạn chỉ cần xóa một track phụ đề, sử dụng các phương thức [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) hoặc [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) thay vì [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
 
-## **Trích Xuất Video từ Slide**
+## **Trích xuất video từ slide**
 
-Ngoài việc thêm video vào slide, Aspose.Slides cho phép bạn trích xuất video được nhúng trong bản trình chiếu.
+Ngoài việc thêm video vào slide, Aspose.Slides cho phép bạn trích xuất video được nhúng trong các bản trình bày.
 
-Ví dụ này trích xuất các video được nhúng từ mọi slide thành các tệp nhị phân riêng biệt, được đánh số. Các video liên kết bị bỏ qua vì không có dữ liệu nhúng. Console in ra MIME type của mỗi video và tổng số. Đầu ra sử dụng phần mở rộng `.bin` chung; thay đổi nó để phù hợp với loại phương tiện được báo cáo khi cần.
+Ví dụ này trích xuất video được nhúng từ mọi slide thành các tệp nhị phân có số thứ tự riêng. Video liên kết bị bỏ qua vì chúng không có dữ liệu nhúng. Console in ra loại MIME của mỗi video và tổng số. Đầu ra sử dụng phần mở rộng `.bin` chung; thay đổi nó để phù hợp với loại media được báo cáo khi cần.
 
 ```csharp
 using System;
@@ -312,20 +351,20 @@ foreach (var slide in presentation.Slides)
 Console.WriteLine($"Embedded videos extracted: {videoCount}");
 ```
 
-## **Câu Hỏi Thường Gặp**
+## **Câu hỏi thường gặp**
 
-**Các tham số phát lại video nào có thể thay đổi cho một khung video?**
+**Tham số phát lại video nào có thể được thay đổi cho khung video?**
 
-Bạn có thể kiểm soát [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (tự động hoặc khi nhấp) và [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Các tùy chọn này khả dụng thông qua các thuộc tính của đối tượng [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/).
+Bạn có thể kiểm soát [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (tự động hoặc khi nhấn) và [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Các tùy chọn này có sẵn thông qua các thuộc tính của đối tượng [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/).
 
-**Việc thêm video có làm tăng kích thước tệp PPTX không?**
+**Việc thêm video có ảnh hưởng đến kích thước tệp PPTX không?**
 
-Có. Khi bạn nhúng video cục bộ, dữ liệu nhị phân sẽ được đưa vào tài liệu, vì vậy kích thước bản trình chiếu tăng tỷ lệ với kích thước tệp. Khi bạn liên kết tới video trực tuyến và thêm ảnh thu nhỏ, bản trình chiếu chỉ lưu liên kết và ảnh xem trước thay vì dữ liệu video, vì vậy mức tăng kích thước thường nhỏ hơn.
+Có. Khi bạn nhúng video cục bộ, dữ liệu nhị phân được bao gồm trong tài liệu, do đó kích thước bản trình bày tăng tỷ lệ với kích thước tệp. Khi bạn liên kết tới video trực tuyến và thêm hình thu nhỏ, bản trình bày chỉ lưu liên kết và ảnh preview thay vì dữ liệu video, nên tăng kích thước thường ít hơn.
 
-**Tôi có thể thay thế video trong một khung video hiện có mà không thay đổi vị trí và kích thước không?**
+**Tôi có thể thay thế video trong khung video hiện có mà không thay đổi vị trí và kích thước không?**
 
-Có. Bạn có thể thay thế [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) trong khung mà không thay đổi vị trí và kích thước của shape; đây là trường hợp thường gặp khi cập nhật phương tiện trong bố cục hiện có.
+Có. Bạn có thể hoán đổi [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) trong khung trong khi giữ nguyên hình học của shape; đây là kịch bản phổ biến để cập nhật media trong bố cục hiện có.
 
 **Có thể xác định loại nội dung (MIME) của video được nhúng không?**
 
-Có. Video được nhúng có một [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó lên đĩa.
+Có. Video được nhúng có một [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó ra đĩa.

@@ -1,5 +1,5 @@
 ---
-title: Nhúng phông chữ trong bản trình chiếu bằng .NET
+title: Nhúng phông chữ trong bản trình chiếu trong .NET
 linktitle: Phông chữ đã nhúng
 type: docs
 weight: 40
@@ -17,21 +17,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Quản lý các phông chữ đã nhúng trong PowerPoint bằng Aspose.Slides cho .NET. Sử dụng C# để thêm, lấy, xóa và nén phông chữ nhằm giữ nguyên giao diện văn bản và giảm kích thước tệp."
+description: "Quản lý phông chữ đã nhúng trong PowerPoint với Aspose.Slides cho .NET. Sử dụng C# để thêm, lấy, xóa và nén phông chữ nhằm bảo tồn giao diện văn bản và giảm kích thước tệp."
 ---
-## **Introduction**
+## **Giới thiệu**
 
-Nhúng phông chữ lưu trữ dữ liệu phông chữ bên trong một bản trình chiếu PowerPoint. Khi một trình xem hỗ trợ phông chữ nhúng, nó có thể hiển thị văn bản bằng các phông chữ đó ngay cả khi chúng không được cài đặt trên hệ thống đích. Điều này giúp giữ nguyên ngắt dòng, khoảng cách văn bản và bố cục slide.
+Embedding fonts stores font data inside a PowerPoint presentation. When a viewer supports embedded fonts, it can display text using those fonts even if they are not installed on the target system. This helps preserve line breaks, text spacing, and slide layout.
 
-Aspose.Slides for .NET cho phép bạn truy xuất, thêm và xóa phông chữ nhúng thông qua thuộc tính [FontsManager](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/fontsmanager/) của một [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/). Bạn cũng có thể giảm kích thước dữ liệu phông chữ nhúng bằng cách loại bỏ các ký tự mà bản trình chiếu không sử dụng.
+Aspose.Slides for .NET lets you retrieve, add, and remove embedded fonts through the [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) property of a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). You can also reduce the size of embedded font data by removing characters that the presentation does not use.
 
-Các ví dụ dưới đây làm việc với tập tin PPTX. Trước khi nhúng phông chữ, hãy chắc chắn dữ liệu phông chữ của nó có sẵn cho Aspose.Slides và giấy phép của nó cho phép nhúng.
+The examples below work with PPTX files. Before embedding a font, make sure its font data is available to Aspose.Slides and its license permits embedding.
 
-## **Lấy và Xóa Phông chữ Nhúng**
+## **Lấy và Xóa Phông Chữ Đã Nhúng**
 
-Sử dụng [GetEmbeddedFonts](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsmanager/getembeddedfonts/) để liệt kê các phông chữ được lưu trong một bản trình chiếu. Để xóa một phông chữ, truyền phông chữ đó từ danh sách vào [RemoveEmbeddedFont](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsmanager/removeembeddedfont/), sau đó lưu bản trình chiếu.
+Use [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) to list the fonts stored in a presentation. To remove one, pass a font from that list to [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont/), then save the presentation.
 
-Ví dụ sau liệt kê các phông chữ nhúng trong `EmbeddedFonts.pptx` và xóa Calibri nếu nó tồn tại:
+The following example lists the embedded fonts in `EmbeddedFonts.pptx` and removes Calibri if it is present:
 
 ```csharp
 using System;
@@ -59,24 +59,24 @@ else
 }
 ```
 
-Xóa một phông chữ nhúng sẽ xóa dữ liệu phông chữ đã lưu; nó không thay đổi phông chữ được gán cho văn bản. Nếu phông chữ được cài đặt trên hệ thống đích, văn bản vẫn có thể sử dụng nó. Nếu không, việc render có thể yêu cầu [font substitution](/slides/vi/net/font-substitution/), điều này có thể ảnh hưởng đến bố cục.
+Removing an embedded font removes its stored font data; it does not change the font assigned to the text. If the font is installed on the target system, the text can still use it. Otherwise, rendering may require [font substitution](/slides/vi/net/font-substitution/), which can affect the layout.
 
-## **Kiểm tra Dữ liệu Phông chữ và Quyền Nhúng**
+## **Kiểm Tra Dữ Liệu Phông Chữ và Quyền Nhúng**
 
-Sử dụng giao diện [IFontsManager](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsmanager/) để kiểm tra phông chữ trước khi nhúng chúng. Gọi [IFontsManager.GetFonts](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsmanager/getfonts/) để lấy các phông chữ được sử dụng trong bản trình chiếu. Với mỗi phông chữ, truyền một đối tượng [IFontData](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontdata/) và giá trị [FontStyleType](https://reference.aspose.com/slides/vi/net/aspose.slides/fontstyletype/) cần thiết vào [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsmanager/getfontbytes/). Phương thức này trả về dữ liệu nhị phân cho kiểu phông chữ đó, hoặc `null` khi phông chữ hoặc kiểu yêu cầu không có sẵn. Đừng truyền kết quả `null` vào [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), vì phương thức này yêu cầu một mảng byte.
+Use the [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) interface to inspect fonts before embedding them. Call [IFontsManager.GetFonts](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfonts/) to retrieve the fonts used in the presentation. For each font, pass an [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) object and the required [FontStyleType](https://reference.aspose.com/slides/net/aspose.slides/fontstyletype/) value to [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontbytes/). The method returns the binary data for that font style, or `null` when the requested font or style is unavailable. Do not pass a `null` result to [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), because that method requires a byte array.
 
-[EmbeddingLevel](https://reference.aspose.com/slides/vi/net/aspose.slides/embeddinglevel/) là một enum kiểu cờ báo cáo các hạn chế nhúng được lưu trong phông chữ:
+[EmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/embeddinglevel/) is a flags enumeration that reports the embedding restrictions stored in the font:
 
-- `Installable` cho phép nhúng và cài đặt vĩnh viễn trên hệ thống khác, tùy thuộc vào giấy phép của phông chữ.
-- `Restricted` cấm nhúng trừ khi được phép từ chủ sở hữu pháp lý của phông chữ khi nó là cờ quyền sử dụng duy nhất.
-- `PreviewPrint` cho phép sử dụng tạm thời để xem và in; tài liệu chứa phông chữ phải ở chế độ chỉ đọc.
-- `Editable` cho phép sử dụng tạm thời và cho phép tài liệu được chỉnh sửa và lưu.
-- `NoSubsetting` là một hạn chế bổ sung ngăn việc nhúng chỉ một phần con của các glyph. Khi cờ này có mặt, phải nhúng toàn bộ ký tự.
-- `BitmapOnly` là một hạn chế bổ sung cho phép chỉ nhúng các bitmap strike, không phải dữ liệu outline. Nếu phông chữ không có bitmap strike, nó không thể được nhúng.
+- `Installable` permits embedding and permanent installation on another system, subject to the font license.
+- `Restricted` prohibits embedding unless permission is obtained from the font's legal owner when it is the only usage-permission flag.
+- `PreviewPrint` permits temporary use for viewing and printing; a document containing the font must be read-only.
+- `Editable` permits temporary use and allows the document to be edited and saved.
+- `NoSubsetting` is an additional restriction that prohibits embedding only a subset of the glyphs. Embed all characters when this flag is present.
+- `BitmapOnly` is an additional restriction that permits only bitmap strikes to be embedded, not outline data. If the font has no bitmap strikes, it cannot be embedded.
 
-Bốn giá trị đầu mô tả quyền sử dụng, trong khi `NoSubsetting` và `BitmapOnly` có thể kết hợp với chúng. Kiểm tra các bộ điều chỉnh bằng phép toán bitwise. Vì `Installable` bằng zero, không dùng `HasFlag` để phát hiện; hãy áp dụng mặt nạ cho các bit quyền sử dụng và so sánh kết quả với `Installable`. Các phông chữ hiện nay nên đặt tối đa một bit quyền sử dụng. Để tương thích với các phông chữ cũ đặt nhiều hơn một bit, hàm trợ giúp dưới đây chọn quyền ít hạn chế nhất: `Editable`, sau đó `PreviewPrint`, rồi `Restricted`.
+The first four values describe usage permission, while `NoSubsetting` and `BitmapOnly` can be combined with them. Check the modifiers with bitwise operations. Because `Installable` is zero, do not use `HasFlag` to detect it; mask the usage-permission bits and compare the result with `Installable`. Current fonts should set at most one usage-permission bit. For compatibility with older fonts that set more than one, the helper below selects the least restrictive permission: `Editable`, then `PreviewPrint`, then `Restricted`.
 
-Ví dụ sau kiểm tra dữ liệu thường, đậm, nghiêng và đậm-ngoặc cho mỗi phông chữ được trả về bởi `GetFonts`. Nó bỏ qua các kiểu không có, phông chữ bị hạn chế, phông chữ chỉ bitmap, phông chữ giới hạn ở preview và print vì kết quả vẫn có thể chỉnh sửa, và các phông chữ đã được nhúng. Nếu bất kỳ kiểu nào có sẵn có `NoSubsetting`, nó sẽ nhúng toàn bộ ký tự cho họ phông chữ đó.
+The following example audits the regular, bold, italic, and bold-italic data available for every font returned by `GetFonts`. It skips unavailable styles, restricted fonts, bitmap-only fonts, fonts limited to preview and print because the output remains editable, and fonts that are already embedded. If any available style has `NoSubsetting`, it embeds all characters for that font family.
 
 ```csharp
 using System;
@@ -186,16 +186,16 @@ foreach (var item in embeddingPlan)
 presentation.Save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Kiểm tra này báo cáo các hạn chế được mã hoá trong từng tệp phông chữ. Nó không cấp giấy phép, không chứng minh rằng bạn đã có phông chữ một cách hợp pháp, và không thay thế việc kiểm tra thỏa thuận giấy phép của phông chữ trước khi phân phối bản sao đã nhúng.
+This inspection reports the restrictions encoded in each font file. It does not grant a license, prove that you obtained the font legally, or replace checking the font's license agreement before distributing an embedded copy.
 
-## **Thêm Phông chữ Nhúng**
+## **Thêm Phông Chữ Đã Nhúng**
 
-Sử dụng [AddEmbeddedFont](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsmanager/addembeddedfont/) để nhúng một phông chữ. Các overload của nó chấp nhận hoặc một đối tượng [IFontData](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontdata/), hoặc một mảng byte chứa dữ liệu phông chữ. Enum [EmbedFontCharacters](https://reference.aspose.com/slides/vi/net/aspose.slides.export/embedfontcharacters/) điều khiển các ký tự được bao gồm:
+Use [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) to embed a font. Its overloads accept either an [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) object or a byte array containing the font data. The [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) enumeration controls which characters are included:
 
-- [All](https://reference.aspose.com/slides/vi/net/aspose.slides.export/embedfontcharacters/) nhúng tất cả các ký tự trong phông chữ. Sử dụng tùy chọn này khi người nhận cần chỉnh sửa bản trình chiếu và nhập văn bản mới.
-- [OnlyUsed](https://reference.aspose.com/slides/vi/net/aspose.slides.export/embedfontcharacters/) chỉ nhúng các ký tự được sử dụng trong bản trình chiếu để giảm kích thước tệp. Chọn tùy chọn này cho bản trình chiếu đã hoàn thành, chủ yếu để xem.
+- [All](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) embeds all characters in the font. Use this option when recipients need to edit the presentation and enter new text.
+- [OnlyUsed](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) embeds only the characters used in the presentation to reduce file size. Choose this option for a finished presentation that is primarily intended for viewing.
 
-Ví dụ sau sử dụng [GetFonts](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsmanager/getfonts/) để lấy các phông chữ được dùng trong `Fonts.pptx` và nhúng những phông chữ chưa được nhúng. Các phông chữ cần thêm phải có sẵn trên máy chạy mã. Các phông chữ đã nhúng hiện có sẽ giữ lại bộ ký tự hiện tại của chúng.
+The following example uses [GetFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) to retrieve the fonts used in `Fonts.pptx` and embeds those that are not already embedded. The fonts to add must be available on the machine running the code. Existing embedded fonts retain their current character sets.
 
 ```csharp
 using System;
@@ -223,11 +223,11 @@ foreach (var font in allFonts)
 presentation.Save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-## **Nén Phông chữ Nhúng**
+## **Nén Phông Chữ Đã Nhúng**
 
-[CompressEmbeddedFonts](https://reference.aspose.com/slides/vi/net/aspose.slides.lowcode/compress/compressembeddedfonts/) giảm dữ liệu phông chữ nhúng bằng cách loại bỏ các ký tự không dùng. Nó hoạt động trên các phông chữ đã được nhúng, vì vậy mức giảm kích thước phụ thuộc vào lượng dữ liệu phông chữ không dùng trong bản trình chiếu.
+[CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) reduces embedded font data by removing unused characters. It operates on fonts that are already embedded, so the size reduction depends on how much unused font data the presentation contains.
 
-Ví dụ sau nén các phông chữ trong `EmbeddedFonts.pptx` và lưu kết quả dưới dạng tệp riêng:
+The following example compresses the fonts in `EmbeddedFonts.pptx` and saves the result as a separate file:
 
 ```csharp
 using Aspose.Slides;
@@ -239,14 +239,16 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-Giữ lại tệp gốc nếu người nhận có thể cần thêm văn bản sau này. Các ký tự bị loại bỏ trong quá trình nén sẽ không còn khả dụng từ phông chữ đã nhúng, ngay cả khi bạn đã nhúng toàn bộ ký tự từ đầu.
+Keep the original file if recipients may need to add text later. Characters removed during compression are no longer available from the embedded font, even if you originally embedded all characters.
 
-## **Câu hỏi thường gặp**
+To let a matching registered font take priority during export without removing the embedded font, see [Ưu tiên Phông Chữ Đăng Ký hơn Phông Chữ Đã Nhúng](/slides/vi/net/font-selection-sequence/#prefer-registered-fonts-over-embedded-fonts) (.NET 26.11 or later).
 
-**Làm thế nào tôi có thể kiểm tra xem một phông chữ nhúng có vẫn bị thay thế trong quá trình render không?**
+## **Câu Hỏi Thường Gặp**
 
-Gọi [GetSubstitutions](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsmanager/getsubstitutions/) trong môi trường bạn render bản trình chiếu để xem Aspose.Slides sẽ thay thế những phông chữ nào. Cũng kiểm tra cài đặt [font substitution](/slides/vi/net/font-substitution/) và quy tắc [font fallback](/slides/vi/net/fallback-font/). Fallback xử lý các ký tự thiếu, vì vậy việc nhúng phông chữ không giải quyết các ký tự mà phông chữ đó không có.
+**Làm thế nào tôi có thể kiểm tra xem một phông chữ đã nhúng có vẫn sẽ bị thay thế trong quá trình render không?**
+
+Call [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) in the environment where you render the presentation to see which fonts Aspose.Slides will replace. Also check [font substitution](/slides/vi/net/font-substitution/) settings and [font fallback](/slides/vi/net/fallback-font/) rules. Fallback handles missing characters, so embedding a font does not resolve characters that the font itself does not contain.
 
 **Tôi có nên nhúng các phông chữ phổ biến như Arial và Calibri không?**
 
-Căn cứ quyết định dựa trên môi trường mục tiêu. Nếu các phông chữ cần thiết có sẵn trên mọi máy mở hoặc render bản trình chiếu, việc nhúng chúng có thể làm tăng kích thước tệp không cần thiết. Nếu người nhận hoặc máy chủ có thể thiếu các phông chữ đó, việc nhúng chúng có thể giúp giữ nguyên giao diện mong muốn, với điều kiện giấy phép cho phép.
+Base the decision on the target environment. If the required fonts are available on every machine that opens or renders the presentation, embedding them may add unnecessary file size. If recipients or servers may lack those fonts, embedding them can help preserve the intended appearance, provided their licenses allow it.

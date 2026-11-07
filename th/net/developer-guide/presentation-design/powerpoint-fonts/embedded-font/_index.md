@@ -1,35 +1,37 @@
 ---
-title: ฝังแบบอักษรในงานนำเสนอใน .NET
-linktitle: แบบอักษรที่ฝังไว้
+title: ฝังฟอนต์ในงานนำเสนอใน .NET
+linktitle: ฟอนต์ที่ฝังไว้
 type: docs
 weight: 40
 url: /th/net/embedded-font/
 keywords:
-- เพิ่มแบบอักษร
-- ฝังแบบอักษร
-- การฝังแบบอักษร
-- รับแบบอักษรที่ฝังไว้
-- เพิ่มแบบอักษรที่ฝังไว้
-- ลบแบบอักษรที่ฝังไว้
-- บีบอัดแบบอักษรที่ฝังไว้
+- เพิ่มฟอนต์
+- ฝังฟอนต์
+- การฝังฟอนต์
+- ดึงฟอนต์ที่ฝังไว้
+- เพิ่มฟอนต์ที่ฝังไว้
+- ลบฟอนต์ที่ฝังไว้
+- บีบอัดฟอนต์ที่ฝังไว้
 - PowerPoint
 - งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "จัดการแบบอักษรที่ฝังไว้ใน PowerPoint ด้วย Aspose.Slides for .NET ใช้ C# เพื่อเพิ่ม ดึงออก ลบและบีบอัดแบบอักษร เพื่อรักษาลักษณะของข้อความและลดขนาดไฟล์"
+description: "จัดการฟอนต์ที่ฝังไว้ใน PowerPoint ด้วย Aspose.Slides สำหรับ .NET ใช้ C# เพื่อเพิ่ม, ดึง, ลบ และบีบอัดฟอนต์เพื่อรักษารูปลักษณ์ของข้อความและลดขนาดไฟล์."
 ---
 ## **บทนำ**
 
-การฝังแบบอักษรจะเก็บข้อมูลแบบอักษรไว้ภายในงานนำเสนอ PowerPoint เมื่อโปรแกรมแสดงผลรองรับแบบอักษรที่ฝังไว้ มันสามารถแสดงข้อความโดยใช้แบบอักษรเหล่านั้นแม้ว่าจะไม่ได้ติดตั้งบนระบบเป้าหมาย การทำเช่นนี้ช่วยรักษาการขึ้นบรรทัด การเว้นวรรคของข้อความ และการจัดรูปแบบสไลด์
+การฝังฟอนต์จะเก็บข้อมูลฟอนต์ไว้ภายในงานนำเสนอ PowerPoint เมื่อโปรแกรมแสดงผลรองรับฟอนต์ที่ฝังไว้ มันสามารถแสดงข้อความด้วยฟอนต์เหล่านั้นแม้ว่าจะไม่ได้ติดตั้งบนระบบเป้าหมาย การทำเช่นนี้ช่วยรักษาการแบ่งบรรทัด, ระยะห่างของข้อความ, และรูปแบบสไลด์ได้
 
-Aspose.Slides for .NET ให้คุณเรียกคืน เพิ่ม และลบแบบอักษรที่ฝังอยู่ผ่านคุณสมบัติ [FontsManager](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/fontsmanager/) ของ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) คุณยังสามารถลดขนาดข้อมูลแบบอักษรที่ฝังได้โดยลบอักขระที่งานนำเสนอไม่ใช้
+Aspose.Slides for .NET ให้คุณดึง, เพิ่ม, และลบฟอนต์ที่ฝังไว้ผ่านคุณสมบัติ [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) ของ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) คุณยังสามารถลดขนาดข้อมูลฟอนต์ที่ฝังได้โดยลบอักขระที่งานนำเสนอไม่ได้ใช้
 
-## **รับและลบแบบอักษรที่ฝังอยู่**
+ตัวอย่างต่อไปทำงานกับไฟล์ PPTX ก่อนทำการฝังฟอนต์ ให้ตรวจสอบว่าข้อมูลฟอนต์พร้อมใช้งานกับ Aspose.Slides และใบอนุญาตของคุณอนุญาตให้ฝังฟอนต์ได้
 
-ใช้ [GetEmbeddedFonts](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager/getembeddedfonts/) เพื่อแสดงรายการแบบอักษรที่เก็บไว้ในงานนำเสนอ เพื่อทำการลบให้ส่งแบบอักษรจากรายการนั้นให้กับ [RemoveEmbeddedFont](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager/removeembeddedfont/) แล้วบันทึกงานนำเสนอ
+## **ดึงและลบฟอนต์ที่ฝังไว้**
 
-ตัวอย่างต่อไปนี้จะแสดงรายการแบบอักษรที่ฝังอยู่ใน `EmbeddedFonts.pptx` และลบ Calibri หากพบ:
+ใช้ [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) เพื่อแสดงรายการฟอนต์ที่เก็บอยู่ในงานนำเสนอ เพื่อลบฟอนต์หนึ่ง ให้ส่งฟอนต์จากรายการนั้นไปยัง [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont/), แล้วบันทึกงานนำเสนอ
+
+ตัวอย่างต่อไปแสดงรายการฟอนต์ที่ฝังอยู่ใน `EmbeddedFonts.pptx` และลบ Calibri หากพบ:
 
 ```csharp
 using System;
@@ -57,24 +59,24 @@ else
 }
 ```
 
-การลบแบบอักษรที่ฝังอยู่จะลบข้อมูลแบบอักษรที่เก็บไว้; ไม่ได้เปลี่ยนแบบอักษรที่กำหนดให้กับข้อความ หากแบบอักษรติดตั้งบนระบบเป้าหมาย ข้อความยังคงใช้ได้ มิฉะนั้น การเรนเดอร์อาจต้องอาศัย [font substitution](/slides/th/net/font-substitution/) ซึ่งอาจส่งผลต่อการจัดรูปแบบ
+การลบฟอนต์ที่ฝังไว้จะลบข้อมูลฟอนต์ที่เก็บไว้; มันไม่ได้เปลี่ยนฟอนต์ที่กำหนดให้กับข้อความ หากฟอนต์ติดตั้งอยู่บนระบบเป้าหมาย ข้อความยังคงใช้ฟอนต์นั้นได้ มิฉะนั้น การแสดงผลอาจต้องอาศัย [font substitution](/slides/th/net/font-substitution/), ซึ่งอาจส่งผลต่อการจัดวาง
 
-## **ตรวจสอบข้อมูลแบบอักษรและสิทธิการฝัง**
+## **ตรวจสอบข้อมูลฟอนต์และสิทธิ์การฝัง**
 
-ใช้อินเตอร์เฟส [IFontsManager](https://reference.aspose.com/slides/th/net/aspose.slides/ifontsmanager/) เพื่อตรวจสอบแบบอักษรก่อนการฝัง เรียก [IFontsManager.GetFonts](https://reference.aspose.com/slides/th/net/aspose.slides/ifontsmanager/getfonts/) เพื่อรับแบบอักษรที่ใช้ในงานนำเสนอ สำหรับแต่ละแบบอักษร ให้ส่งอ็อบเจ็กต์ [IFontData](https://reference.aspose.com/slides/th/net/aspose.slides/ifontdata/) และค่าที่ต้องการของ [FontStyleType](https://reference.aspose.com/slides/th/net/aspose.slides/fontstyletype/) ไปยัง [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/th/net/aspose.slides/ifontsmanager/getfontbytes/) เมธอดจะคืนข้อมูลไบต์ของสไตล์แบบอักษรนั้น หรือ `null` หากแบบอักษรหรือสไตล์ที่ร้องขอไม่พร้อมใช้งาน อย่าส่งผลลัพธ์ `null` ไปยัง [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/th/net/aspose.slides/ifontsmanager/getfontembeddinglevel/) เพราะเมธอดนั้นต้องการอาร์เรย์ไบต์
+ใช้อินเตอร์เฟส [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) เพื่อตรวจสอบฟอนต์ก่อนทำการฝัง เรียก [IFontsManager.GetFonts](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfonts/) เพื่อดึงฟอนต์ที่ใช้งานในงานนำเสนอ สำหรับฟอนต์แต่ละตัว ให้ส่งอ็อบเจ็กต์ [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) และค่า [FontStyleType](https://reference.aspose.com/slides/net/aspose.slides/fontstyletype/) ที่ต้องการไปยัง [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontbytes/) เมธ็อดจะคืนค่าข้อมูลไบนารีของสไตล์ฟอนต์นั้น หรือ `null` หากฟอนต์หรือสไตล์ที่ร้องขอไม่มีอยู่ อย่าส่งผลลัพธ์ `null` ไปยัง [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getfontembeddinglevel/) เพราะเมธ็อดนั้นต้องการอาร์เรย์ไบต์
 
-[EmbeddingLevel](https://reference.aspose.com/slides/th/net/aspose.slides/embeddinglevel/) เป็น enumeration แบบ flags ที่รายงานข้อจำกัดการฝังที่เก็บไว้ในแบบอักษร:
+[EmbeddingLevel](https://reference.aspose.com/slides/net/aspose.slides/embeddinglevel/) เป็นการกำหนดค่าแบบ flags ที่รายงานข้อจำกัดการฝังที่เก็บไว้ในฟอนต์:
 
-- `Installable` อนุญาตให้ฝังและติดตั้งถาวรบนระบบอื่น ภายใต้เงื่อนไขของสัญญาอนุญาตแบบอักษร
-- `Restricted` ห้ามฝังเว้นแต่จะได้รับอนุญาตจากเจ้าของลิขสิทธิ์ของแบบอักษรเมื่อเป็น flag การใช้สิทธิ์เดียว
-- `PreviewPrint` อนุญาตให้ใช้ชั่วคราวเพื่อดูและพิมพ์; เอกสารที่มีแบบอักษรนี้ต้องเป็นแบบอ่านอย่างเดียว
-- `Editable` อนุญาตให้ใช้ชั่วคราวและให้เอกสารสามารถแก้ไขและบันทึกได้
-- `NoSubsetting` เป็นข้อจำกัดเพิ่มเติมที่ห้ามฝังเพียงส่วนย่อยของ glyphs. ให้ฝังอักขระทั้งหมดเมื่อมี flag นี้
-- `BitmapOnly` เป็นข้อจำกัดเพิ่มเติมที่อนุญาตให้ฝังเฉพาะ bitmap strikes เท่านั้น ไม่ใช่ข้อมูล outline หากแบบอักษรไม่มี bitmap strikes จะไม่สามารถฝังได้
+- `Installable` อนุญาตให้ฝังและติดตั้งถาวรบนระบบอื่น ๆ ตามเงื่อนไขของใบอนุญาตฟอนต์
+- `Restricted` ห้ามฝังยกเว้นได้รับอนุญาตจากเจ้าของลิขสิทธิ์ฟอนต์เมื่อเป็น flag การใช้สิทธิ์เดียว
+- `PreviewPrint` อนุญาตการใช้ชั่วคราวเพื่อดูและพิมพ์; เอกสารที่มีฟอนต์ต้องเป็นแบบอ่านอย่างเดียว
+- `Editable` อนุญาตการใช้ชั่วคราวและให้เอกสารสามารถแก้ไขและบันทึกได้
+- `NoSubsetting` เป็นข้อจำกัดเพิ่มเติมที่ห้ามฝังเพียงส่วนย่อยของ glyphs; ฝังอักขระทั้งหมดเมื่อ flag นี้ปรากฏ
+- `BitmapOnly` เป็นข้อจำกัดเพิ่มเติมที่อนุญาตฝังเฉพาะ bitmap strikes เท่านั้น, ไม่ใช่ข้อมูล outlines; หากฟอนต์ไม่มี bitmap strikes จะไม่สามารถฝังได้
 
-ค่าสี่ค่าแรกอธิบายสิทธิ์การใช้งาน ส่วน `NoSubsetting` และ `BitmapOnly` สามารถรวมกับพวกมันได้ ตรวจสอบ modifiers ด้วยการดำเนินการบิต หาก `Installable` มีค่าเป็นศูนย์ อย่าใช้ `HasFlag` เพื่อตรวจจับ; ให้ทำการ mask บิตสิทธิ์การใช้งานและเปรียบเทียบผลกับ `Installable` แบบอักษรปัจจุบันควรตั้งบิตสิทธิ์การใช้งานไม่เกินหนึ่งบิต สำหรับความเข้ากันได้กับแบบอักษรเก่าที่ตั้งมากกว่าหนึ่งบิต ตัวช่วยด้านล่างจะเลือกสิทธิ์ที่ผ่อนผันที่สุด: `Editable` แล้วตามด้วย `PreviewPrint` แล้ว `Restricted`
+สี่ค่าแรกอธิบายสิทธิ์การใช้, ส่วน `NoSubsetting` และ `BitmapOnly` สามารถผสานรวมกับพวกมันได้ ตรวจสอบ modifiers ด้วยการดำเนินการแบบบิต หาก `Installable` มีค่าเป็นศูนย์, อย่าใช้ `HasFlag` เพื่อตรวจจับ; ให้มาสก์บิตสิทธิ์การใช้และเปรียบเทียบผลลัพธ์กับ `Installable` ฟอนต์ปัจจุบันควรกำหนดบิตสิทธิ์การใช้ไม่เกินหนึ่งบิต สำหรับความเข้ากันได้กับฟอนต์เก่าที่กำหนดหลายบิต ตัวช่วยด้านล่างจะเลือกสิทธิ์ที่ผ่อนที่สุด: `Editable`, ตามด้วย `PreviewPrint`, แล้ว `Restricted`
 
-ตัวอย่างต่อไปนี้ตรวจสอบข้อมูลแบบอักษรปกติ หนา ตัวเอียง และหนาตัวเอียงสำหรับทุกแบบอักษรที่ `GetFonts` คืนค่า จะข้ามสไตล์ที่ไม่พร้อมใช้งาน แบบอักษรที่ถูกจำกัด bitmap‑only แบบอักษรที่จำกัดการพรีวิวและพิมพ์เนื่องจากผลลัพธ์ยังคงแก้ไขได้ และแบบอักษรที่ฝังอยู่แล้ว หากสไตล์ใดมี `NoSubsetting` จะฝังอักขระทั้งหมดของตระกูลแบบอักษรนั้น
+ตัวอย่างต่อไปทำการตรวจสอบข้อมูลปกติ, ตัวหนา, ตัวเอียง, และตัวหนา‑เอียงสำหรับฟอนต์ทุกตัวที่คืนจาก `GetFonts` จะข้ามสไตล์ที่ไม่มี, ฟอนต์ที่ถูกจำกัด, ฟอนต์ bitmap‑only, ฟอนต์ที่จำกัดเฉพาะ preview‑print เพราะผลลัพธ์ยังคงแก้ไขได้, และฟอนต์ที่ฝังไว้แล้ว หากสไตล์ใดมี `NoSubsetting` จะฝังอักขระทั้งหมดสำหรับฟอนต์ชุดนั้น
 
 ```csharp
 using System;
@@ -184,16 +186,16 @@ foreach (var item in embeddingPlan)
 presentation.Save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 ```
 
-การตรวจสอบนี้รายงานข้อจำกัดที่เข้ารหัสในแต่ละไฟล์แบบอักษร ไม่ได้ให้สิทธิ์ ใบอนุญาต หรือพิสูจน์ว่าคุณได้แบบอักษรมาจากแหล่งที่ถูกต้อง รวมถึงไม่ทดแทนการตรวจสอบสัญญาอนุญาตของแบบอักษรก่อนแจกจ่ายสำเนาที่ฝัง
+การตรวจสอบนี้รายงานข้อจำกัดที่เข้ารหัสในแต่ละไฟล์ฟอนต์ ไม่ได้ให้ใบอนุญาต, แสดงว่าคุณได้มาฟอนต์อย่างถูกต้องตามกฎหมาย, หรือแทนที่การตรวจสอบสัญญาใบอนุญาตของฟอนต์ก่อนกระจายสำเนาที่ฝังไว้
 
-## **เพิ่มแบบอักษรที่ฝังอยู่**
+## **เพิ่มฟอนต์ที่ฝังไว้**
 
-ใช้ [AddEmbeddedFont](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager/addembeddedfont/) เพื่อฝังแบบอักษร การ overload ของมันรับอ็อบเจ็กต์ [IFontData](https://reference.aspose.com/slides/th/net/aspose.slides/ifontdata/) หรืออาร์เรย์ไบต์ที่มีข้อมูลแบบอักษร enumeration [EmbedFontCharacters](https://reference.aspose.com/slides/th/net/aspose.slides.export/embedfontcharacters/) ควบคุมว่าอักขระใดจะถูกรวม:
+ใช้ [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) เพื่อฝังฟอนต์ overloads ของมันรับอ็อบเจ็กต์ [IFontData](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/) หรืออาร์เรย์ไบต์ที่มีข้อมูลฟอนต์ ตัวกำหนดค่า [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) ควบคุมว่ารวมอักขระใดบ้าง:
 
-- [All](https://reference.aspose.com/slides/th/net/aspose.slides.export/embedfontcharacters/) ฝังอักขระทั้งหมดในแบบอักษร ใช้ตัวเลือกนี้เมื่อผู้รับต้องการแก้ไขงานนำเสนอและใส่ข้อความใหม่
-- [OnlyUsed](https://reference.aspose.com/slides/th/net/aspose.slides.export/embedfontcharacters/) ฝังเฉพาะอักขระที่ใช้ในงานนำเสนอเพื่อให้ไฟล์มีขนาดเล็กลง เลือกตัวเลือกนี้สำหรับงานนำเสนอที่เสร็จสมบูรณ์และมีเป้าหมายหลักคือการดูเท่านั้น
+- [All](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) ฝังอักขระทั้งหมดในฟอนต์ ใช้ตัวเลือกนี้เมื่อผู้รับต้องการแก้ไขงานนำเสนอและพิมพ์ข้อความใหม่
+- [OnlyUsed](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) ฝังเฉพาะอักขระที่ใช้ในงานนำเสนอเพื่อลดขนาดไฟล์เลือกตัวเลือกนี้สำหรับงานนำเสนอที่เสร็จสมบูรณ์และมีจุดประสงค์หลักเพื่อการดู
 
-ตัวอย่างต่อไปนี้ใช้ [GetFonts](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager/getfonts/) เพื่อดึงแบบอักษรที่ใช้ใน `Fonts.pptx` แล้วฝังแบบอักษรที่ยังไม่ได้ฝังอยู่ แบบอักษรที่ต้องเพิ่มต้องพร้อมใช้งานบนเครื่องที่รันโค้ด แบบอักษรที่ฝังอยู่เดิมจะคงชุดอักขระปัจจุบันไว้
+ตัวอย่างต่อไปใช้ [GetFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) เพื่อดึงฟอนต์ที่ใช้ใน `Fonts.pptx` แล้วฝังฟอนต์ที่ยังไม่ถูกฝัง ฟอนต์ที่เพิ่มต้องพร้อมใช้งานบนเครื่องที่รันโค้ด ฟอนต์ที่ฝังไว้แล้วจะคงชุดอักขระปัจจุบันไว้
 
 ```csharp
 using System;
@@ -221,11 +223,11 @@ foreach (var font in allFonts)
 presentation.Save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-## **บีบอัดแบบอักษรที่ฝังอยู่**
+## **บีบอัดฟอนต์ที่ฝังไว้**
 
-[CompressEmbeddedFonts](https://reference.aspose.com/slides/th/net/aspose.slides.lowcode/compress/compressembeddedfonts/) ลดข้อมูลแบบอักษรที่ฝังโดยการลบอักขระที่ไม่ได้ใช้ มันทำงานกับแบบอักษรที่ฝังแล้ว ดังนั้นการลดขนาดจึงขึ้นอยู่กับข้อมูลแบบอักษรที่ไม่ได้ใช้ในงานนำเสนอเท่าใด
+[CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) ลดข้อมูลฟอนต์ที่ฝังโดยลบอักขระที่ไม่ได้ใช้ มันทำงานกับฟอนต์ที่ฝังแล้ว ดังนั้นการลดขนาดขึ้นอยู่กับข้อมูลฟอนต์ที่ไม่ได้ใช้ในงานนำเสนอเท่าใด
 
-ตัวอย่างต่อไปนี้บีบอัดแบบอักษรใน `EmbeddedFonts.pptx` แล้วบันทึกผลลัพธ์เป็นไฟล์แยก
+ตัวอย่างต่อไปบีบอัดฟอนต์ใน `EmbeddedFonts.pptx` และบันทึกผลลัพธ์เป็นไฟล์แยก
 
 ```csharp
 using Aspose.Slides;
@@ -237,14 +239,16 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
-ควรรักษาไฟล์ต้นฉบับไว้หากผู้รับอาจต้องเพิ่มข้อความในภายหลัง อักขระที่ลบระหว่างการบีบอัดจะไม่สามารถใช้จากแบบอักษรที่ฝังได้ แม้ว่าคุณจะฝังอักขระทั้งหมดไว้ตั้งแต่แรกก็ตาม
+เก็บไฟล์ต้นฉบับไว้หากผู้รับอาจต้องเพิ่มข้อความในภายหลัง อักขระที่ถูกลบระหว่างการบีบอัดจะไม่สามารถใช้ได้จากฟอนต์ที่ฝังไว้ แม้ว่าคุณจะฝังอักขระทั้งหมดตั้งต้นก็ตาม
+
+หากต้องการให้ฟอนต์ที่ลงทะเบียนไว้ตรงกันมีลำดับความสำคัญในการส่งออกโดยไม่ลบฟอนต์ที่ฝังไว้ ดูที่ [Prefer Registered Fonts over Embedded Fonts](/slides/th/net/font-selection-sequence/#prefer-registered-fonts-over-embedded-fonts) (.NET 26.11 หรือใหม่กว่า)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะตรวจสอบได้อย่างไรว่าแบบอักษรที่ฝังอยู่จะยังถูกทดแทนระหว่างการเรนเดอร์หรือไม่?**
+**ฉันจะตรวจสอบได้อย่างไรว่าฟอนต์ที่ฝังไว้จะยังคงถูกแทนที่ระหว่างการเรนเดอร์หรือไม่?**
 
-ให้เรียก [GetSubstitutions](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager/getsubstitutions/) ในสภาพแวดล้อมที่คุณเรนเดอร์งานนำเสนอเพื่อดูว่า Aspose.Slides จะเปลี่ยนแบบอักษรใดบ้าง นอกจากนี้ตรวจสอบการตั้งค่า [font substitution](/slides/th/net/font-substitution/) และกฎ [font fallback](/slides/th/net/fallback-font/) ด้วย Fallback จัดการอักขระที่ขาดหายไป ดังนั้นการฝังแบบอักษรไม่ได้แก้ปัญหาอักขระที่แบบอักษรนั้นไม่มีอยู่
+เรียก [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) ในสภาพแวดล้อมที่คุณเรนเดอร์งานนำเสนอเพื่อดูฟอนต์ที่ Aspose.Slides จะเปลี่ยน นอกจากนี้ตรวจสอบการตั้งค่า [font substitution](/slides/th/net/font-substitution/) และกฎ [font fallback](/slides/th/net/fallback-font/) ด้วย Fallback จัดการอักขระที่ขาดหายไป ดังนั้นการฝังฟอนต์ไม่ได้แก้ปัญหาอักขระที่ฟอนต์นั้นไม่มี
 
-**ผมควรฝังแบบอักษรทั่วไปเช่น Arial และ Calibri หรือไม่?**
+**ฉันควรฝังฟอนต์ทั่วไปเช่น Arial และ Calibri หรือไม่?**
 
-ให้พิจารณาตามสภาพแวดล้อมเป้าหมาย หากแบบอักษรที่ต้องการมีอยู่บนทุกเครื่องที่เปิดหรือเรนเดอร์งานนำเสนอ การฝังอาจเพิ่มขนาดไฟล์โดยไม่จำเป็น หากผู้รับหรือเซิร์ฟเวอร์อาจไม่มีแบบอักษรเหล่านั้น การฝังจะช่วยรักษาลักษณะที่ต้องการไว้ได้ อย่างไรก็ตามต้องตรวจสอบว่าลิขสิทธิ์ของแบบอักษรอนุญาตให้ฝังหรือไม่.
+ให้ตัดสินใจตามสภาพแวดล้อมเป้าหมาย หากฟอนต์ที่ต้องการมีอยู่ในทุกเครื่องที่เปิดหรือเรนเดอร์งานนำเสนอ การฝังอาจเพิ่มขนาดไฟล์โดยไม่จำเป็น หากผู้รับหรือเซิร์ฟเวอร์อาจไม่มีฟอนต์เหล่านั้น การฝังสามารถช่วยรักษารูปแบบที่ตั้งใจไว้ได้ ตราบใดที่ใบอนุญาตของฟอนต์อนุญาตให้ทำเช่นนั้น.

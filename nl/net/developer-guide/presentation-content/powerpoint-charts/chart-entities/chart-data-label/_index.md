@@ -1,12 +1,12 @@
 ---
-title: Beheer grafiekgegevenslabels in presentaties in .NET
-linktitle: Gegevenslabel
+title: Beheer grafiekdatapuntlabels in presentaties in .NET
+linktitle: Datapuntlabel
 type: docs
 url: /nl/net/chart-data-label/
 keywords:
 - grafiek
-- gegevenslabel
-- gegevensprecisie
+- datapuntlabel
+- dataprecisie
 - percentage
 - labelafstand
 - labellocatie
@@ -15,17 +15,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer hoe u grafiekgegevenslabels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor .NET voor meer boeiende dia's."
+description: "Leer hoe u grafiekdatapuntlabels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor .NET voor meer boeiende dia's."
 ---
 ## **Inleiding**
 
-Gegevenslabels tonen informatie over grafiekreeksen en individuele gegevenspunten, waardoor lezers waarden kunnen identificeren en de grafiek beter begrijpen. Dit artikel legt uit hoe u waarden opmaakt, percentages weergeeft, labeltekst leest, labels buiten de as‑maximum regelt, de afstand tussen labels op de categorische as aanpast en labels van een cirkeldiagram positioneert.
+Datapuntenlabels geven informatie weer over grafiekseries en individuele datapunten, waardoor lezers waarden kunnen identificeren en de grafiek beter begrijpen. Dit artikel legt uit hoe u waarden opmaakt, percentages weergeeft, labeltekst uitleest, labels buiten de asmaximum regelt, de tussenruimte van assenlabels aanpast en labels van een cirkeldiagram positioneert.
 
-## **Aantal zichtbare gegevenslabels tellen**
+## **Aantal zichtbare datalabels tellen**
 
-Gebruik [CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/) om te controleren hoeveel gegevenslabels zijn ingeschakeld voor weergave vóór het publiceren van een presentatie. In tegenstelling tot [Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/), die het totale aantal labels in de collectie retourneert, houdt deze methode rekening met de standaardwaarden van de serie en individuele labelinstellingen.
+Gebruik [CountOfVisibleDataLabels](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/countofvisibledatalabels/) om te controleren hoeveel datalabels zijn ingeschakeld voor weergave vóór het publiceren van een presentatie. In tegenstelling tot [Count](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/count/), dat het totale aantal labels in de collectie retourneert, houdt dit rekening met de standaardinstellingen van de serie en individuele labelinstellingen.
 
-Dit voorbeeld maakt een kolomgrafiek met één serie en drie gegevenspunten. Het benadert de [Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/)‑collectie van de serie en drukt het zichtbare aantal af terwijl de instellingen veranderen: **0, 3, 2, 3**. Het totale aantal blijft **3**.
+Dit voorbeeld maakt een kolomgrafiek met één serie en drie datapunten. Het benadert de [Labels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/labels/)‑collectie van de serie en drukt de zichtbare telling af terwijl de instellingen veranderen: **0, 3, 2, 3**. Het totale aantal blijft **3**.
 
 ```csharp
 using System;
@@ -65,13 +65,13 @@ labels[1].DataLabelFormat.ShowLegendKey = true;
 Console.WriteLine($"Visible: {labels.CountOfVisibleDataLabels}"); // Zichtbaar: 3
 ```
 
-De [DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/) van de serie levert de standaardinstellingen. Het inschakelen van [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) daar toont waarden voor alle drie de labels. Als u het op `false` zet via de [DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/) van één label, overschrijft dat de instelling voor het geselecteerde label. Het inschakelen van [ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/) zorgt ervoor dat dat label weer als zichtbaar telt, ook al blijft de waarde verborgen.
+De [DefaultDataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultdatalabelformat/) van de serie levert de standaardinstellingen. Het inschakelen van [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) daar toont waarden voor alle drie de labels. Door het op `false` te zetten via de [DataLabelFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/datalabelformat/) van één label, wordt die instelling voor het geselecteerde label overschreven. Het inschakelen van [ShowLegendKey](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showlegendkey/) zorgt ervoor dat dat label weer als zichtbaar wordt geteld, hoewel de waarde verborgen blijft.
 
-Het zichtbare aantal weerspiegelt de zichtbaarheidsinstellingen. Het meet niet of labels overlappen, worden afgesneden of leesbaar zijn in de gerenderde grafiek.
+De zichtbare telling weerspiegelt de zichtbaarheidsinstellingen. Het meet niet of labels overlappen, afgesneden zijn of leesbaar in de gerenderde grafiek.
 
-## **Precisie van waarden in grafiekgegevenslabels instellen**
+## **Precisie van waarden in grafiekdatapuntlabels instellen**
 
-Gebruik [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) om de waarden van een serie op te maken. Dit voorbeeld maakt een lijngrafiek met standaardgegevens, toont de gegevens‑tabel en schakelt waardelabels in voor de eerste serie. Het formaat `#,##0.00` toont een duizendtalseparator en twee decimalen zonder de onderliggende waarden te wijzigen.
+Gebruik [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) om de waarden van een serie op te maken. Dit voorbeeld maakt een lijngrafiek met standaardgegevens, toont de datatabel en schakelt waardelabels in voor de eerste serie. Het formaat `#,##0.00` toont een duizendtallenscheidingsteken en twee decimalen zonder de onderliggende waarden te wijzigen.
 
 ```csharp
 using Aspose.Slides;
@@ -91,11 +91,11 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-Om de numerieke cellen in een ingebed werkboek van een grafiek op te maken, zie [Aangepaste getalformaten instellen voor werkboekcellen](/slides/nl/net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dat voorbeeld toont ook dat waardelabels de opmaak van hun broncellen overnemen terwijl de opgeslagen numerieke waarden behouden blijven.
+Om de numerieke cellen in het ingebedde werkboek van een grafiek op te maken, zie [Set Custom Number Formats for Workbook Cells](/slides/nl/net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dat voorbeeld laat ook zien hoe waardelabels de opmaak van hun broncellen overnemen terwijl de opgeslagen numerieke waarden behouden blijven.
 
-## **Percentage weergeven als labels**
+## **Percentage als label weergeven**
 
-Voor een gestapelde kolomgrafiek berekent u elke waarde als percentage van het totaal van die categorie en kent u de tekst toe aan [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Dit voorbeeld gebruikt de standaardgrafiekgegevens en toont percentages met twee decimalen in een lettertypegrootte van 8 pt. Categorieën met een totaal van nul worden overgeslagen om deling door nul te voorkomen. Herbereken de aangepaste labeltekst als de grafiekgegevens wijzigen.
+Voor een gestapelde kolomgrafiek berekent u elke waarde als een percentage van het totaaltal van zijn categorie en kent u de tekst toe aan [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Dit voorbeeld gebruikt de standaardgrafiekgegevens en toont percentages met twee decimalen in een lettertype van 8 punten. Categorieën met een totaal van nul worden overgeslagen om deling door nul te voorkomen. Herbereken de aangepaste labeltekst als de grafiekgegevens wijzigen.
 
 ```csharp
 using System;
@@ -156,11 +156,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Procentteken instellen bij grafiekgegevenslabels**
+## **Percentage‑teken instellen bij grafiekdatapuntlabels**
 
-Wanneer waarden als breuken zijn opgeslagen, gebruikt u [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) om percentages weer te geven. Zet [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) op `false` om het labelformaat onafhankelijk van de broncellen toe te passen.
+Wanneer waarden als breuken zijn opgeslagen, gebruikt u [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) om percentages weer te geven. Stel [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) in op `false` om het labelformaat onafhankelijk van de broncellen toe te passen.
 
-Dit voorbeeld maakt een 100 % gestapelde kolomgrafiek met rode en blauwe series over vier categorieën. Elk paar waardes telt op tot 1. Het labelformaat `0.0%` toont 0,30 als 30,0 %, terwijl de verticale as twee decimalen gebruikt. Beide series gebruiken witte labels met een lettergrootte van 10 pt.
+Dit voorbeeld maakt een 100 % gestapelde kolomgrafiek met rode en blauwe series over vier categorieën. Elk paar waarden telt op tot 1. Het labelformaat `0.0%` toont 0.30 als 30.0 %, terwijl de verticale as twee decimalen gebruikt. Beide series gebruiken witte, 10‑punt labeltekst.
 
 ```csharp
 using System.Drawing;
@@ -216,9 +216,9 @@ for (int i = 0; i < seriesNames.Length; i++)
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **De eigenlijke tekst van gegevenslabels lezen**
+## **De feitelijke tekst van datapuntlabels uitlezen**
 
-Gebruik [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) om de tekst op te halen die door de instellingen van een gegevenslabel wordt geproduceerd. Dit is handig bij het extraheren van labels voor rapporten, het doorzoeken van presentatie‑inhoud of het valideren van gegenereerde grafieken. In het onderstaande voorbeeld combineert het standaard‑[gegevenslabelformaat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) elke categorienaam, serienaam en waarde. Eén punt formatteert zijn waarde als percentage, en een ander gebruikt aangepaste tekst van [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+Gebruik [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) om de door een labelinstelling gegenereerde tekst op te halen. Dit is handig bij het extraheren van labels voor rapporten, het doorzoeken van presentatie‑inhoud of het valideren van gegenereerde grafieken. In het onderstaande voorbeeld combineert het standaard [data label format](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) elke categorienaam, serienaam en waarde. Eén punt formatteert zijn waarde als een percentage, en een ander gebruikt aangepaste tekst uit [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -272,15 +272,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-Het getal dat in een gegevenspunt is opgeslagen blijft `0.75`, zelfs wanneer het label `75 %` toont naast de categorie‑ en serienamen. Aangepaste tekst vervangt de automatisch gegenereerde labeltekst. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) retourneert in beide gevallen de resulterende label‑string. Controleer [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) apart, zoals hierboven getoond, wanneer u alleen zichtbare labels wilt extraheren.
+Het getal dat is opgeslagen in een datapunt blijft `0.75`, zelfs wanneer het label `75%` toont naast de categorie‑ en serienamen. Aangepaste tekst vervangt de gegenereerde labeltekst. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) retourneert in beide gevallen de resulterende labelreeks. Controleer [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) apart, zoals hierboven getoond, wanneer u alleen zichtbare labels wilt extraheren.
 
-## **Gegevenslabels buiten het as‑maximum regelen**
+## **Datapuntlabels buiten de asmaximum regelen**
 
-Wanneer u een as‑bereik handmatig beperkt, kunnen enkele gegevenspunten het maximum overschrijden. Gebruik [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) om te bepalen of hun gegevenslabels wel of niet worden weergegeven. Deze instelling wijzigt alleen de zichtbaarheid van de labels; ze verandert het as‑bereik of de onderliggende gegevenswaarden niet.
+Wanneer u een asbereik handmatig beperkt, kunnen sommige datapunten de maximumwaarde overschrijden. Gebruik [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) om te bepalen of hun datapuntlabels worden getoond. Deze instelling wijzigt de label‑zichtbaarheid; ze verandert niet het asbereik of de onderliggende gegevenswaarden.
 
-Het voorbeeld hieronder maakt een 2D gegroepeerde kolomgrafiek met waardes 60 en 120. Het zet [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) op `false` en [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) op 100 voor de verticale as. De eerste dia staat labels toe die buiten het maximum vallen; een kopie van die dia schakelt ze uit. Beide dia’s worden opgeslagen in `DataLabelsOverMaximum.pptx`.
+Het voorbeeld hieronder maakt een 2D gegroepeerde kolomgrafiek met waarden 60 en 120. Het stelt [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) in op `false` en [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) op 100 voor de verticale as. De eerste dia staat labels toe voorbij het maximum; een kopie van die dia schakelt ze uit. Beide dia's worden opgeslagen in `DataLabelsOverMaximum.pptx`.
 
-Schakel waardelabels in met [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). De instelling op grafiekniveau schakelt de weergave van waarden niet automatisch in en overschrijft ook niet een individueel label waarvan de weergave is uitgeschakeld. Dit voorbeeld schakelt waarden in voor de volledige serie en gebruikt [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) om labels aan het buitenste einde van elke kolom te plaatsen.
+Schakel waardelabels in met [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). De instelling op diagramniveau activeert de weergave van waarden niet zelfstandig en overschrijft geen afzonderlijk uitgeschakeld label. Dit voorbeeld schakelt waarden in voor de volledige serie en gebruikt [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) om labels aan het buitenuiteinde van elke kolom te plaatsen.
 
 ```csharp
 using Aspose.Slides;
@@ -327,21 +327,21 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-De volgende afbeeldingen tonen de opgeslagen dia’s zoals gerenderd door Microsoft PowerPoint. Met `true` is het label **120** zichtbaar bij de bovenste grens; met `false` is het verborgen. Het label **60** blijft zichtbaar, het as‑maximum blijft **100**, en het tweede gegevenspunt blijft in beide gevallen **120**.
+De volgende afbeeldingen tonen de opgeslagen dia’s gerenderd door Microsoft PowerPoint. Met `true` is het label **120** zichtbaar bij de bovenste grens; met `false` is het verborgen. Het label **60** blijft zichtbaar, het as‑maximum blijft op **100**, en het tweede datapunt blijft **120** in beide gevallen.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![PowerPoint‑grafiek die het waardelabel 120 toont met een as‑maximum van 100](data-labels-over-maximum-true.png) | ![PowerPoint‑grafiek die het waardelabel 120 verbergt met een as‑maximum van 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Grafiektype" %}}
 
-Dit voorbeeld gebruikt een 2D kolomgrafiek met een waardenas. Grafieken zonder waardenas, zoals taart‑ en donutgrafieken, hebben geen as‑maximum dat op deze manier kan worden beperkt.
+Dit voorbeeld gebruikt een 2D kolomgrafiek met een waardenas. Grafieken zonder waardenas, zoals taart‑ en donutgrafieken, hebben geen asmaximum dat op deze manier kan worden beperkt.
 
 {{% /alert %}}
 
-## **Afstand van labels tot een as instellen**
+## **Labelafstand tot een as instellen**
 
-Gebruik [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) om de afstand tussen de labels van de categorische as en de as zelf te regelen. De waarde is een percentage van de maximale lettergrootte van de as‑labels. Dit voorbeeld maakt een gegroepeerde kolomgrafiek en stelt de horizontale as‑labeloffset in op 500. Deze instelling beïnvloedt de categorische as‑labels in plaats van de labels die aan individuele gegevenspunten zijn gekoppeld.
+Gebruik [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) om de afstand tussen categorielabels en de as te regelen. De waarde is een percentage van de maximale lettergrootte van de aslabels. Dit voorbeeld maakt een gegroepeerde kolomgrafiek en stelt de horizontale as‑labeloffset in op 500. Deze instelling beïnvloedt de categorielabels en niet de labels die aan individuele datapunten zijn gekoppeld.
 
 ```csharp
 using Aspose.Slides;
@@ -357,11 +357,11 @@ chart.Axes.HorizontalAxis.LabelOffset = 500;
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Labelpositie aanpassen**
+## **Labellocatie aanpassen**
 
-Bij een taartgrafiek past u de posities van gegevenslabels aan om de tussenruimte te verbeteren en ruimte te creëren voor leiderslijnen.
+Op een taartgrafiek kunt u de positie van datapuntlabels aanpassen om de tussenruimte te verbeteren en ruimte te maken voor leidingslijnen.
 
-Dit voorbeeld toont de waarde van het eerste gegevenspunt, plaatst het label buiten het taartsegment en past de [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/)‑ en [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)‑offsets aan. Deze offsets zijn relatief ten opzichte van respectievelijk de breedte en hoogte van de grafiek.
+Dit voorbeeld toont de waarde van het eerste datapunt, plaatst zijn label buiten de sector en past de [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/)‑ en [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)‑offsets aan. Deze offsets zijn relatief ten opzichte van respectievelijk de breedte en hoogte van de grafiek.
 
 ```csharp
 using Aspose.Slides;
@@ -383,17 +383,17 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![Taartgrafiek met een aangepast labelpositie](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Leiderslijnen opmaken**
+## **Leidingslijnen opmaken**
 
-Wanneer taart‑grafieklabels buiten hun segmenten staan, helpen leiderslijnen lezers elke waarde aan het juiste segment te koppelen. Een contrasterende kleur en een iets dikkere lijn kunnen deze verbindingen gemakkelijker leesbaar maken, terwijl transparantie en een gestreepte stijl de lijnen visueel onopvallend houden.
+Wanneer taartgrafieklabels buiten hun sectoren staan, helpen leidingslijnen lezers om elke waarde aan de juiste sector te koppelen. Een contrasterende kleur en een iets dikkere lijn maken die verbindingen gemakkelijker te volgen, terwijl transparantie en een gestippelde stijl de lijnen visueel onopvallend houden.
 
-Gebruik [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) om leiderslijnen op het niveau van de gegevenslabel‑collectie van de serie op te maken. De instellingen in `series.Labels.LeaderLinesFormat.Line` gelden voor de gehele collectie, niet voor een individueel label.
+Gebruik [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) om leidingslijnen op serie‑niveau van de datapuntlabel‑collectie op te maken. De instellingen in `series.Labels.LeaderLinesFormat.Line` gelden voor de gehele collectie, niet voor een individueel label.
 
-Dit voorbeeld maakt een taartgrafiek met standaardgegevens, toont waarden buiten de segmenten en schakelt [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/) in. Het verplaatst twee labels verder van hun segmenten met behulp van [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/)‑ en [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)‑offsets, uitgedrukt als breuken van de grafiekbreedte en -hoogte. Er is geen invoerpresentatie vereist.
+Dit voorbeeld maakt een taartgrafiek met standaardgegevens, toont waarden buiten de sectoren en schakelt [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/) in. Het verplaatst twee labels verder van hun sectoren met behulp van [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/)‑ en [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)‑offsets, uitgedrukt als breuken van de breedte en hoogte van de grafiek. Er is geen invoerpresentatie vereist.
 
-Lijn‑[FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) zet een doorzichtige blauwe kleur met een alfa‑waarde van 191 van de 255, wat ongeveer 25 % transparantie oplevert. [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) bepaalt de dikte op 2 pt, en [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) maakt de lijn gestreept.
+De [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) van de lijn stelt een solide blauwe kleur in met een alfa‑waarde van 191 van 255, wat ongeveer 25 % transparantie oplevert. [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) zet de dikte op 2 punten, en [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) maakt de lijn gestippeld.
 
 ```csharp
 using System.Drawing;
@@ -414,7 +414,7 @@ labelFormat.ShowValue = true;
 labelFormat.Position = LegendDataLabelPosition.OutsideEnd;
 labelFormat.ShowLeaderLines = true;
 
-// Verplaats twee labels verder van hun segmenten.
+// Verplaats twee labels verder van hun sectoren.
 series.Labels[0].X = 0.10f;
 series.Labels[0].Y = -0.05f;
 series.Labels[1].X = -0.10f;
@@ -429,17 +429,17 @@ line.DashStyle = LineDashStyle.Dash;
 presentation.Save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
 ```
 
-Het inschakelen van leiderslijnen garandeert niet dat er voor elk label een lijn verschijnt. De zichtbaarheid hangt af van de labelplaatsing en het layout‑gedrag van de grafiek. In dit voorbeeld hebben de twee verplaatste labels zichtbare leiderslijnen; de labels die dicht bij hun segmenten blijven, hebben ze niet nodig.
+Het inschakelen van leidingslijnen garandeert niet dat er voor elk label een lijn verschijnt. De zichtbaarheid hangt af van de labelplaatsing en het layout‑gedrag van de grafiek. In dit voorbeeld hebben de twee verplaatste labels zichtbare leidingslijnen; de labels die dicht bij hun sectoren blijven, hebben ze niet nodig.
 
-De volgende afbeelding toont de opgeslagen `FormattedLeaderLines.pptx` zoals gerenderd met Aspose.Slides:
+De volgende afbeelding toont het opgeslagen `FormattedLeaderLines.pptx` gerenderd met Aspose.Slides:
 
-![Taartgrafiek met blauwe, halfdoorzichtige, gestreepte leiderslijnen die twee buitenste labels aan hun segmenten verbinden](formatted-leader-lines.png)
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
-## **Meerdere rijen gegevenslabels boven een kolomgrafiek toevoegen**
+## **Meerdere rijen datapuntlabels boven een kolomgrafiek toevoegen**
 
-Dit voorbeeld maakt een kolomgrafiek met twee rijen gegevenslabels boven het plotgebied. Serie A toont de zichtbare kolommen, terwijl Serie B en Serie C de extra labels leveren. Hun kolommen worden verborgen door de opvulling en omtrek te verwijderen. De [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/)‑eigenschap brengt alle drie de series uit op dezelfde categorische centra.
+Dit voorbeeld maakt een kolomgrafiek met twee rijen datapuntlabels boven het plot‑gebied. Serie A toont de zichtbare kolommen, terwijl Serie B en Serie C de extra labels leveren. Hun kolommen worden verborgen door de vulling en omtrek te verwijderen. De [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/)‑eigenschap brengt alle drie series op dezelfde categoriebenedenlijnen.
 
-De [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/)‑instellingen reserveren ruimte voor de label‑rijen. Na [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) berekent de standaardposities, behouden [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) en [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) de horizontale uitlijning en passen verticale offsets toe om de labels in twee rijen te rangschikken. De nummers blijven gegevenslabels gekoppeld aan de seriewaarden; alleen de rij‑koppen zijn aparte tekstvormen.
+De [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/)‑instellingen reserveren ruimte voor de labelrijen. Na het berekenen van de standaardposities met [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) behouden [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/)‑ en [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/)‑offsets de horizontale uitlijning en passen ze verticale offset toe om de labels in twee rijen te rangschikken. De cijfers blijven datapuntlabels gekoppeld aan de seriewaarden; alleen de rij‑koppen zijn aparte tekstvormen.
 
 ```csharp
 using System.Drawing;
@@ -488,7 +488,7 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // Verberg de kolommen van B en C, maar behoud hun gegevenslabels.
+        // Verberg de kolommen van B en C, maar behoud hun datapuntlabels.
         series.Format.Fill.FillType = FillType.NoFill;
         series.Format.Line.FillFormat.FillType = FillType.NoFill;
         var labelFormat = series.Labels.DefaultDataLabelFormat;
@@ -501,14 +501,14 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
     }
 }
 
-// Lijn alle drie series uit met dezelfde categorische centra.
+// Lijn alle drie series uit met dezelfde categoriebenedenlijnen.
 chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
 
 // Gebruik minder rasterlijnen voor dit compacte voorbeeld.
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.MajorUnit = 10;
 
-// Reserveer ruimte boven de plot voor twee rijen gegevenslabels.
+// Reserveer ruimte boven het plotgebied voor twee rijen datapuntlabels.
 chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
 chart.PlotArea.X = 0.15f;
 chart.PlotArea.Y = 0.32f;
@@ -524,13 +524,13 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
     for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
     {
         var dataLabel = series.DataPoints[categoryIndex].Label;
-        // Houd de standaard horizontale positie. Y is een verschuiving ten opzichte van
+        // Houd de standaard horizontale positie. Y is een offset ten opzichte van
         // de standaard labelpositie, uitgedrukt als een fractie van de grafiekhoogte.
         dataLabel.X = 0;
         dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
     }
 
-    // Alleen de rij‑kop is een aparte tekstvorm.
+    // Alleen de rij‑kop is een apart tekstobject.
     var rowHeading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, chart.X, chart.Y + rowTop * chart.Height, 85, 18);
     rowHeading.FillFormat.FillType = FillType.NoFill;
     rowHeading.LineFormat.FillFormat.FillType = FillType.NoFill;
@@ -546,18 +546,55 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
 presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
 ```
 
-![Kolomgrafiek met twee rijen gegevenslabels boven het plotgebied](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+
+## **Vorm van datapuntlabels wijzigen**
+
+Aspose.Slides for .NET 26.11 voegt [IDataLabel.LabelShapeType](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/labelshapetype/) toe voor één label en [IDataLabelCollection.DefaultLabelShapeType](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelcollection/defaultlabelshapetype/) voor alle huidige labels in een serie. Deze wijzigen de vorm van het label, niet de puntmarkering. Voor de afzonderlijke balloon‑instelling, zie [Data Label Callouts](/slides/nl/net/callout/).
+
+De toewijzing op collectieniveau werkt bestaande labels bij, dus pas individuele overschrijvingen **na** de collectietoewijzing toe. Dit volledige voorbeeld vereist [Aspose.Slides for .NET](/slides/nl/net/installation/) 26.11 of later. Het maakt zichtbare waardelabels, selecteert ellipsen voor de eerste serie en maakt vervolgens het eerste label rechthoekig.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
+var labels = chart.ChartData.Series[0].Labels;
+labels.DefaultDataLabelFormat.ShowValue = true;
+labels.DefaultLabelShapeType = ShapeType.Ellipse;
+labels[0].LabelShapeType = ShapeType.Rectangle;
+
+foreach (var label in labels)
+{
+    var format = label.DataLabelFormat.Format;
+    format.Fill.FillType = FillType.Solid;
+    format.Fill.SolidFillColor.Color = Color.LightYellow;
+    format.Line.FillFormat.FillType = FillType.Solid;
+    format.Line.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+}
+
+presentation.Save("label-shapes.pptx", SaveFormat.Pptx);
+
+// Reset de expliciete vormkeuzes op alle huidige labels.
+labels.DefaultLabelShapeType = ShapeType.NotDefined;
+presentation.Save("label-shapes-reset.pptx", SaveFormat.Pptx);
+```
+
+Het opnieuw toewijzen van de collectievorm vervangt ook eerdere individuele vormkeuzes. [NotDefined](https://reference.aspose.com/slides/net/aspose.slides/shapetype/) wist de expliciete vormselectie; het verbergt de labels niet en wist hun andere opmaak niet. Stel de gewenste vormen in nadat de serie is gepopuleerd in plaats van aan te nemen dat later toegevoegde punten een eerdere toewijzing overerven. Rectangle en Ellipse worden hier gebruikt; inspecteer het gerenderde resultaat bij het kiezen van andere vormtypen.
 
 ## **FAQ**
 
-**Hoe kan ik voorkomen dat gegevenslabels overlappen in dichte grafieken?**
+**Hoe kan ik voorkomen dat datapuntlabels overlappen in dichte grafieken?**
 
-Combineer automatische labelplaatsing, leiderslijnen en een kleinere lettergrootte; verberg indien nodig enkele velden (bijvoorbeeld de categorie) of toon alleen labels voor extreme waarden of sleutelpunten.
+Combineer automatische labelplaatsing, leidingslijnen en een kleinere lettergrootte; schakel eventueel sommige velden (bijv. de categorie) uit of toon labels alleen voor extreme of belangrijke waarden.
 
-**Hoe kan ik labels uitschakelen alleen voor nul‑, negatieve‑ of lege waarden?**
+**Hoe kan ik labels alleen uitschakelen voor nul‑, negatieve of lege waarden?**
 
-Filter gegevenspunten voordat u labels inschakelt en schakel de weergave uit voor waarden van 0, negatieve waardes of missende waardes volgens een vooraf gedefinieerde regel.
+Filter datapunten voordat u labels inschakelt en schakel de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
 
-**Hoe kan ik een consistente labelstijl garanderen bij export naar PDF/afbeeldingen?**
+**Hoe zorg ik voor een consistente labelstijl bij export naar PDF/afbeeldingen?**
 
-Stel expliciet het lettertype en de grootte in en controleer dat het lettertype beschikbaar is in de renderomgeving om terugval te voorkomen.
+Stel expliciet het lettertype en de grootte in en controleer of het lettertype beschikbaar is in de renderomgeving om fallback te voorkomen.
