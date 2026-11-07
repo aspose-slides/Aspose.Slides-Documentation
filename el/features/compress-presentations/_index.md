@@ -1,74 +1,58 @@
 ---
 title: Συμπίεση παρουσιάσεων
-description: Μειώστε το μέγεθος της παρουσίασης με συμπίεση εικόνας και αποθηκεύστε ρυθμίσεις.
+description: Μείωση του μεγέθους της παρουσίασης με συμπίεση εικόνων και αφαίρεση αχρησιμοποίητου περιεχομένου.
 type: docs
 url: /el/features/compress-presentations/
 weight: 250
 feature_id: compress-presentations
 feature_group: λειτουργίες
-translationKey: slides-feature-συμπίεση-παρουσιάσεων
+translationKey: slides-feature-compress-presentations
 feature_catalogue_version: 3
 feature_guides:
+- /slides/net/low-code-presentation-operations/
 - /slides/net/image/
 ---
 ## **Επισκόπηση**
 
-Συμπιέστε εικόνες, αφαιρέστε περιοχές εικόνας που έχουν περικοπεί όταν δεν χρειάζονται πλέον, και επιλέξτε ρυθμίσεις συμπίεσης παρουσίασης πριν την αποθήκευση. Αυτό είναι χρήσιμο για παρουσιάσεις με μεγάλες φωτογραφίες ή επαναλαμβανόμενο μέσο. Το ποσό που εξοικονομείται εξαρτάται από το περιεχόμενο και τις ρυθμίσεις που επιλέγετε.
+Συμπιέστε τις εικόνες, αφαιρέστε τις κομμένες περιοχές εικόνων όταν δεν χρειάζονται πλέον, και επιλέξτε τις ρυθμίσεις συμπίεσης της παρουσίασης πριν την αποθήκευση. Αυτό είναι χρήσιμο για παρουσιάσεις με μεγάλα φωτογραφικά αρχεία ή επαναλαμβανόμενα μέσα. Το ποσό που εξοικονομείται εξαρτάται από το περιεχόμενο και τις ρυθμίσεις που επιλέγετε.
 
 ## **Παράδειγμα χρήσης**
 
-Αυτό το παράδειγμα C# χρησιμοποιεί το Aspose.Slides for .NET. Δημιουργεί οπτικά ένα gradient PNG 1600 × 900 εικονοστοιχεία, το εισάγει σε ένα μικρό πλαίσιο εικόνας και αποθηκεύει *before.pptx*. Στη συνέχεια συμπιέζει αυτή την εικόνα σε στόχο ανάλυσης 96 DPI και αποθηκεύει *compressed.pptx*. Συγκρίνετε τα μεγέθη αρχείων και τις προεπισκοπήσεις: η εξοικονόμηση εξαρτάται από την είσοδο εικόνας και το εμφανιζόμενο μέγεθος.
+Αυτό το παράδειγμα C# φορτώνει το `input.pptx`, συμπιέζει την παρουσίαση και το αποθηκεύει ως `compressed.pptx`.
 
-Για τη ρύθμιση, δείτε [Εγκατάσταση Aspose.Slides for .NET](/slides/el/net/installation/).
+Χρησιμοποιήστε το Aspose.Slides for .NET 26.11 ή νεότερο. Για εγκατάσταση, δείτε [Εγκατάσταση Aspose.Slides for .NET](/slides/el/net/installation/).
 
 ```csharp
-using System;
-using System.Drawing;
-using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-using (var bitmap = new Bitmap(1600, 900))
-{
-    for (var y = 0; y < bitmap.Height; y++)
-        for (var x = 0; x < bitmap.Width; x++)
-            bitmap.SetPixel(x, y, Color.FromArgb(x % 256, y % 256, (x + y) % 256));
-    bitmap.Save("large.png", System.Drawing.Imaging.ImageFormat.Png);
-}
-using var presentation = new Presentation();
-var title = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 500, 60);
-title.TextFrame.Text = "Photo";
-var bytes = File.ReadAllBytes("large.png");
-var image = presentation.Images.AddImage(bytes);
-var picture = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 40, 120, 240, 135, image);
-presentation.Save("before.pptx", SaveFormat.Pptx);
-var compressed = picture.PictureFormat.CompressImage(true, 96f);
-Console.WriteLine($"Picture compressed: {compressed}");
+using var presentation = new Presentation("input.pptx");
+Compress.CompressPresentation(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
-using var preview = presentation.Slides[0].GetImage(1f, 1f);
-preview.Save("compressed.png", ImageFormat.Png);
 ```
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
 ### **Είναι αυτό ένας μοναδικός διακόπτης βελτιστοποίησης ολόκληρου αρχείου;**
 
-Το Aspose.Slides for .NET 26.11 προσθέτει το [Compress.CompressPresentation](/slides/el/net/low-code-presentation-operations/#compress-the-whole-presentation), το οποίο συνδυάζει την αφαίρεση αχρησιμοποίητων διάταξης/master, την υποσύνολο των ενσωματωμένων γραμματοσειρών και τη συμπίεση εικόνας στα 150 DPI. Αφαιρεί μόνιμα τις περικομμένες περιοχές εικόνας. Για επεξεργασία μόνο εικόνας, χρησιμοποιήστε το Compress.CompressImages· για πιο λεπτομερή έλεγχο, διατηρήστε τη ροή εργασίας ανά εικόνα παραπάνω. Αυτοί οι νέοι βοηθοί είναι συγκεκριμένοι για την αναφερόμενη έκδοση .NET· ελέγξτε τον αντίστοιχο οδηγό για άλλα SDK.
+Το Aspose.Slides for .NET 26.11 προσθέτει το [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/), το οποίο συνδυάζει την κατάργηση αχρησιμοποίητων διατάξεων/κατα κυρίαρχων, την υποομάδα ενσωματωμένων γραμματοσειρών και τη συμπίεση εικόνων 150 DPI. Αφαιρεί μόνιμα τις κομμένες περιοχές εικόνων. Για επεξεργασία μόνο εικόνων, χρησιμοποιήστε το [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/); για πιο ακριβή έλεγχο, δείτε το [παράδειγμα συμπίεσης μεμονωμένης εικόνας](/slides/el/net/examples/optimization-batch/compression/). Αυτοί οι νέοι βοηθοί είναι ειδικοί για τη συγκεκριμένη έκδοση .NET· ελέγξτε τον αντίστοιχο οδηγό για άλλα SDK.
 
-### **Αλλάζει η συμπίεση εικόνας το επεξεργάσιμο κείμενο ή τα διαγράμματα;**
+### **Η συμπίεση εικόνας αλλάζει επεξεργάσιμο κείμενο ή γραφήματα;**
 
-Η συμπίεση εικόνας στοχεύει στα δεδομένα της εικόνας, όχι στο επεξεργάσιμο κείμενο ή τα δεδομένα των διαγραμμάτων. Εξετάστε τις εικόνες, επειδή η αλλαγή μεγέθους ή η επανσυμπίεση μπορεί να μειώσει τις λεπτομέρειές τους.
+Η συμπίεση εικόνας στοχεύει τα δεδομένα της εικόνας, όχι το επεξεργάσιμο κείμενο ή τα δεδομένα των διαγραμμάτων. Εξετάστε τις εικόνες, επειδή η αλλαγή μεγέθους ή η επανασυμπίεση μπορεί να μειώσει τις λεπτομέρειές τους.
 
 ### **Πώς πρέπει να επιλέξω ανάλυση για τις εικόνες παρουσίασης;**
 
-Επιλέξτε ένα στόχο βάσει του εμφανιζόμενου μεγέθους εικόνας και της προοριζόμενης χρήσης σε οθόνη ή εκτύπωση. Διατηρήστε μεγαλύτερη ανάλυση για μεγάλες οθόνες, εκτύπωση και λεπτομερή διαγράμματα, και συγκρίνετε το αποτέλεσμα πριν διαγράψετε το αρχικό.
+Επιλέξτε έναν στόχο με βάση το εμφανιζόμενο μέγεθος της εικόνας και τη προοριζόμενη χρήση σε οθόνη ή εκτύπωση. Διατηρήστε μεγαλύτερη ανάλυση για μεγάλες οθόνες, εκτύπωση και λεπτομερή διαγράμματα, και συγκρίνετε το παραγόμενο αποτέλεσμα πριν απορρίψετε το αρχικό.
 
 ## **Οδηγοί**
 
-- [Βελτιστοποίηση Διαχείρισης Εικόνων σε Παρουσιάσεις στο .NET](/slides/el/net/image/)
+- [Συμπίεση ολόκληρης παρουσίασης σε .NET](/slides/el/net/low-code-presentation-operations/#compress-the-whole-presentation)
+- [Βελτιστοποίηση διαχείρισης εικόνων σε παρουσιάσεις σε .NET](/slides/el/net/image/)
 
-Σχετική λειτουργία: [Αφαίρεση αχρησιμοποίητων master, layout και μέσων](/slides/el/features/remove-unused-content/).
+Σχετικό χαρακτηριστικό: [Αφαίρεση αχρησιμοποίητων master, layout και μέσων](/slides/el/features/remove-unused-content/).
 
 ## Εκτελέσιμα παραδείγματα .NET
 
-- [Μείωση Μεγέθους Παρουσίασης](/slides/el/net/examples/optimization-batch/compression/)
+- [Μείωση μεγέθους παρουσίασης](/slides/el/net/examples/optimization-batch/compression/)

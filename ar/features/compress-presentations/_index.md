@@ -1,74 +1,58 @@
 ---
 title: ضغط العروض التقديمية
-description: تقليل حجم العرض من خلال ضغط الصور وحفظ الإعدادات.
+description: تقليل حجم العرض التقديمي عبر ضغط الصور وإزالة المحتوى غير المستخدم.
 type: docs
 url: /ar/features/compress-presentations/
 weight: 250
 feature_id: compress-presentations
-feature_group: العمليات
+feature_group: operations
 translationKey: slides-feature-compress-presentations
 feature_catalogue_version: 3
 feature_guides:
+- /slides/net/low-code-presentation-operations/
 - /slides/net/image/
 ---
 ## **نظرة عامة**
 
-ضغط الصور، وإزالة مناطق الصورة المقصوصة عندما لم تعد ضرورية، واختيار إعدادات ضغط العرض قبل الحفظ. هذا مفيد للعرض الذي يحتوي على صور كبيرة أو وسائط مكررة. مقدار التوفير يعتمد على المحتوى والإعدادات التي تختارها.
+ضغط الصور، إزالة مناطق الصورة المقصوصة عندما لا تكون ضرورية بعد الآن، واختيار إعدادات ضغط العرض التقديمي قبل الحفظ. هذا مفيد للشرائح التي تحتوي على صور كبيرة أو وسائط متكررة. مقدار التوفير يعتمد على المحتوى والإعدادات التي تختارها.
 
 ## **مثال على الاستخدام**
 
-يستخدم مثال C# هذا Aspose.Slides for .NET. يولد بصورة واضحة صورة PNG متدرجة بحجم 1600 × 900 بكسل، يدخلها في إطار صورة صغير، ويحفظ *before.pptx*. ثم يضغط تلك الصورة إلى دقة هدف 96 DPI ويحفظ *compressed.pptx*. قارن حجم الملفين والمعاينات: يعتمد التوفير على الصورة المدخلة وحجم العرض.
+هذا المثال المكتوب بـ C# يقوم بتحميل `input.pptx`، ضغط العرض التقديمي، وحفظه كـ `compressed.pptx`.
 
-لإعداد، راجع [تثبيت Aspose.Slides for .NET](/slides/ar/net/installation/).
+استخدم Aspose.Slides for .NET 26.11 أو أحدث. للحصول على الإعدادات، راجع [تثبيت Aspose.Slides لـ .NET](/slides/ar/net/installation/).
 
 ```csharp
-using System;
-using System.Drawing;
-using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-using (var bitmap = new Bitmap(1600, 900))
-{
-    for (var y = 0; y < bitmap.Height; y++)
-        for (var x = 0; x < bitmap.Width; x++)
-            bitmap.SetPixel(x, y, Color.FromArgb(x % 256, y % 256, (x + y) % 256));
-    bitmap.Save("large.png", System.Drawing.Imaging.ImageFormat.Png);
-}
-using var presentation = new Presentation();
-var title = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 500, 60);
-title.TextFrame.Text = "Photo";
-var bytes = File.ReadAllBytes("large.png");
-var image = presentation.Images.AddImage(bytes);
-var picture = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 40, 120, 240, 135, image);
-presentation.Save("before.pptx", SaveFormat.Pptx);
-var compressed = picture.PictureFormat.CompressImage(true, 96f);
-Console.WriteLine($"Picture compressed: {compressed}");
+using var presentation = new Presentation("input.pptx");
+Compress.CompressPresentation(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
-using var preview = presentation.Slides[0].GetImage(1f, 1f);
-preview.Save("compressed.png", ImageFormat.Png);
 ```
 
 ## **الأسئلة المتكررة**
 
-### **هل هذا مفتاح تحسين الملف الكامل الوحيد؟**
+### **هل هذا مفتاح تحسين كامل للملف الواحد؟**
 
-يضيف Aspose.Slides for .NET 26.11 [Compress.CompressPresentation](/slides/ar/net/low-code-presentation-operations/#compress-the-whole-presentation) الذي يجمع بين إزالة التخطيطات/القوالب غير المستخدمة، وتقسيم الخطوط المضمّنة، وضغط الصور بدقة 150 DPI. إنه يزيل بصورة دائمة مناطق الصورة المقصوصة. للمعالجة التي تقتصر على الصور فقط، استخدم Compress.CompressImages؛ للحصول على تحكم أدق، احتفظ بسير العمل لكل صورة كما هو مذكور أعلاه. هذه المساعدات الجديدة مخصصة لإصدار .NET المذكور؛ تحقق من الدليل المقابل للـ SDKs الأخرى.
+Aspose.Slides for .NET 26.11 يضيف [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/)، الذي يجمع بين إزالة التخطيطات/القوالب غير المستخدمة، تقليل الخطوط المدمجة وضغط الصور بدقة 150 DPI. يزيل بشكل دائم مناطق الصورة المقصوصة. للمعالجة التي تقتصر على الصور فقط، استخدم [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/); للحصول على تحكم أدق، راجع [مثال ضغط الصورة الفردية](/slides/ar/net/examples/optimization-batch/compression/). هذه الأدوات الجديدة مخصصة للإصدار المذكور من .NET؛ تحقق من الدليل المقابل للـ SDKs الأخرى.
 
-### **هل يغيّر ضغط الصورة النص القابل للتعديل أو المخططات؟**
+### **هل تغير ضغط الصور النص القابل للتحرير أو المخططات؟**
 
-يستهدف ضغط الصورة بيانات الصورة، وليس النص القابل للتعديل أو بيانات المخططات. راجع الصور لأن إعادة التحجيم أو إعادة الضغط قد يقلل من تفاصيلها.
+ضغط الصور يستهدف بيانات الصورة فقط، وليس النص القابل للتحرير أو بيانات المخططات. راجع الصور لأن تغيير الحجم أو إعادة الضغط قد يقلل من تفاصيلها.
 
-### **كيف يجب أن أختار دقة صور العرض؟**
+### **كيف يجب أن أختار الدقة لصور العرض التقديمي؟**
 
-اختر الهدف بناءً على حجم الصورة المعروضة والاستخدام المقصود للشاشة أو الطباعة. احتفظ بدقة أعلى للشاشات الكبيرة، والطباعة، والرسوم البيانية التفصيلية، وقارن المخرجات المُصغرة قبل حذف الأصل.
+اختر الهدف بناءً على حجم الصورة المعروض والاستخدام المقصود للشاشة أو الطباعة. حافظ على دقة أعلى للعرض على شاشات كبيرة، والطباعة، والرسوم البيانية التفصيلية، وقارن النتيجة المعروضة قبل حذف الأصل.
 
-## **الأدلة**
+## **أدلة**
 
+- [ضغط العرض التقديمي بالكامل في .NET](/slides/ar/net/low-code-presentation-operations/#compress-the-whole-presentation)
 - [تحسين إدارة الصور في العروض التقديمية في .NET](/slides/ar/net/image/)
 
 الميزة ذات الصلة: [إزالة القوالب، التخطيطات والوسائط غير المستخدمة](/slides/ar/features/remove-unused-content/).
 
 ## أمثلة .NET القابلة للتنفيذ
 
-- [تقليل حجم العرض](/slides/ar/net/examples/optimization-batch/compression/)
+- [تقليل حجم العرض التقديمي](/slides/ar/net/examples/optimization-batch/compression/)

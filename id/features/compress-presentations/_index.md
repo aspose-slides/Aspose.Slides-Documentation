@@ -1,6 +1,6 @@
 ---
 title: Kompres presentasi
-description: Kurangi ukuran presentasi dengan kompresi gambar dan simpan pengaturan.
+description: Kurangi ukuran presentasi dengan mengompres gambar dan menghapus konten yang tidak terpakai.
 type: docs
 url: /id/features/compress-presentations/
 weight: 250
@@ -9,64 +9,50 @@ feature_group: operasi
 translationKey: slides-feature-compress-presentations
 feature_catalogue_version: 3
 feature_guides:
+- /slides/net/low-code-presentation-operations/
 - /slides/net/image/
 ---
 ## **Gambaran Umum**
 
-Kompres gambar, hapus area gambar yang dipotong ketika tidak lagi diperlukan, dan pilih pengaturan kompresi presentasi sebelum menyimpan. Ini berguna untuk dek dengan foto berukuran besar atau media yang berulang. Jumlah penghematan tergantung pada konten dan pengaturan yang Anda pilih.
+Kompres gambar, hapus area gambar yang dipotong ketika tidak lagi diperlukan, dan pilih pengaturan kompresi presentasi sebelum menyimpan. Ini berguna untuk deck dengan foto berukuran besar atau media berulang. Jumlah yang dihemat tergantung pada konten dan pengaturan yang Anda pilih.
 
 ## **Contoh Penggunaan**
 
-Contoh C# ini menggunakan Aspose.Slides for .NET. Secara visual menghasilkan PNG gradasi berukuran 1600 × 900 piksel, menyisipkannya ke dalam bingkai gambar kecil, dan menyimpan *before.pptx*. Kemudian gambar tersebut dikompres ke resolusi target 96 DPI dan disimpan sebagai *compressed.pptx*. Bandingkan ukuran file dan pratinjau keduanya: penghematan tergantung pada gambar input dan ukuran tampilan. Untuk penyiapan, lihat [Instal Aspose.Slides for .NET](/slides/id/net/installation/).
+Contoh C# ini memuat `input.pptx`, mengompres presentasi, dan menyimpannya sebagai `compressed.pptx`.
+
+Gunakan Aspose.Slides for .NET 26.11 atau yang lebih baru. Untuk penyiapan, lihat [Pasang Aspose.Slides untuk .NET](/slides/id/net/installation/).
 
 ```csharp
-using System;
-using System.Drawing;
-using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-using (var bitmap = new Bitmap(1600, 900))
-{
-    for (var y = 0; y < bitmap.Height; y++)
-        for (var x = 0; x < bitmap.Width; x++)
-            bitmap.SetPixel(x, y, Color.FromArgb(x % 256, y % 256, (x + y) % 256));
-    bitmap.Save("large.png", System.Drawing.Imaging.ImageFormat.Png);
-}
-using var presentation = new Presentation();
-var title = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 500, 60);
-title.TextFrame.Text = "Photo";
-var bytes = File.ReadAllBytes("large.png");
-var image = presentation.Images.AddImage(bytes);
-var picture = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 40, 120, 240, 135, image);
-presentation.Save("before.pptx", SaveFormat.Pptx);
-var compressed = picture.PictureFormat.CompressImage(true, 96f);
-Console.WriteLine($"Picture compressed: {compressed}");
+using var presentation = new Presentation("input.pptx");
+Compress.CompressPresentation(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
-using var preview = presentation.Slides[0].GetImage(1f, 1f);
-preview.Save("compressed.png", ImageFormat.Png);
 ```
 
 ## **FAQ**
 
-### **Apakah ini saklar optimasi satu file keseluruhan?**
+### **Apakah ini saklar optimalisasi satu berkas secara keseluruhan?**
 
-Aspose.Slides for .NET 26.11 menambahkan [Compress.CompressPresentation](/slides/id/net/low-code-presentation-operations/#compress-the-whole-presentation), yang menggabungkan penghapusan tata letak/master yang tidak terpakai, subsetting font yang disematkan, dan kompresi gambar 150 DPI. Itu secara permanen menghapus area gambar yang dipotong. Untuk pemrosesan hanya gambar, gunakan Compress.CompressImages; untuk kontrol yang lebih halus, pertahankan alur kerja per-gambar di atas. Pembantu baru ini khusus untuk versi .NET yang disebutkan; periksa panduan yang sesuai untuk SDK lain.
+Aspose.Slides for .NET 26.11 menambahkan [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/), yang menggabungkan penghapusan layout/master yang tidak terpakai, subsetting font tersemat, dan kompresi gambar 150 DPI. Ini secara permanen menghapus area gambar yang dipotong. Untuk pemrosesan hanya gambar, gunakan [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/); untuk kontrol lebih detail, lihat [contoh kompresi gambar individual](/slides/id/net/examples/optimization-batch/compression/). Pembantu baru ini spesifik untuk versi .NET yang disebutkan; periksa panduan yang sesuai untuk SDK lainnya.
 
 ### **Apakah kompresi gambar mengubah teks yang dapat diedit atau diagram?**
 
-Kompresi gambar menargetkan data gambar, bukan teks yang dapat diedit atau data diagram. Tinjau gambar karena mengubah ukuran atau kompresi ulang dapat mengurangi detailnya.
+Kompresi gambar menargetkan data gambar, bukan teks yang dapat diedit atau data diagram. Tinjau gambar karena mengubah ukuran atau mengompres kembali dapat mengurangi detailnya.
 
-### **Bagaimana saya harus memilih resolusi untuk gambar presentasi?**
+### **Bagaimana cara memilih resolusi untuk gambar presentasi?**
 
-Pilih target berdasarkan ukuran gambar yang ditampilkan dan penggunaan pada layar atau cetakan yang dimaksud. Pertahankan resolusi lebih tinggi untuk tampilan besar, pencetakan, dan diagram detail, dan bandingkan hasil render sebelum membuang yang asli.
+Pilih target berdasarkan ukuran gambar yang ditampilkan dan penggunaan layar atau cetak yang diinginkan. Pertahankan resolusi lebih tinggi untuk tampilan besar, pencetakan, dan diagram detail, serta bandingkan hasil render sebelum membuang yang asli.
 
 ## **Panduan**
 
+- [Kompres Seluruh Presentasi di .NET](/slides/id/net/low-code-presentation-operations/#compress-the-whole-presentation)
 - [Optimalkan Manajemen Gambar dalam Presentasi di .NET](/slides/id/net/image/)
 
-Fitur terkait: [Hapus master, tata letak, dan media yang tidak terpakai](/slides/id/features/remove-unused-content/).
+Fitur terkait: [Hapus master, tata letak, dan media yang tidak digunakan](/slides/id/features/remove-unused-content/).
 
-## Contoh .NET yang Dapat Dijalankan
+## Contoh .NET yang Dapat Dijalan
 
 - [Kurangi Ukuran Presentasi](/slides/id/net/examples/optimization-batch/compression/)

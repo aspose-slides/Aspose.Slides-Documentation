@@ -1,6 +1,6 @@
 ---
 title: Comprimir presentaciones
-description: Reducir el tamaño de la presentación con compresión de imágenes y guardar la configuración.
+description: Reducir el tamaño de la presentación comprimiendo imágenes y eliminando contenido no usado.
 type: docs
 url: /es/features/compress-presentations/
 weight: 250
@@ -9,66 +9,50 @@ feature_group: operations
 translationKey: slides-feature-compress-presentations
 feature_catalogue_version: 3
 feature_guides:
+- /slides/net/low-code-presentation-operations/
 - /slides/net/image/
 ---
-## **Resumen**
+## **Visión general**
 
-Comprime imágenes, elimina áreas recortadas que ya no son necesarias y elige la configuración de compresión de la presentación antes de guardar. Esto es útil para presentaciones con fotografías grandes o medios repetidos. La cantidad ahorrada depende del contenido y de la configuración que elijas.
+Comprima imágenes, elimine áreas recortadas de las imágenes cuando ya no sean necesarias y elija la configuración de compresión de la presentación antes de guardar. Esto es útil para presentaciones con fotografías grandes o medios repetidos. La cantidad ahorrada depende del contenido y de la configuración que elija.
 
 ## **Ejemplo de uso**
 
-Este ejemplo en C# utiliza Aspose.Slides para .NET. Genera visiblemente un PNG de degradado de 1600 × 900 píxeles, lo inserta en un pequeño marco de imagen y guarda *before.pptx*. Luego comprime esa imagen a una resolución objetivo de 96 DPI y guarda *compressed.pptx*. Compara ambos tamaños de archivo y vistas previas: el ahorro depende de la imagen de origen y del tamaño mostrado.
+Este ejemplo en C# carga `input.pptx`, comprime la presentación y la guarda como `compressed.pptx`.
 
-Para la configuración, consulta [Instalar Aspose.Slides para .NET](/slides/es/net/installation/).
+Utilice Aspose.Slides for .NET 26.11 o posterior. Para la configuración, consulte [Instalar Aspose.Slides for .NET](/slides/es/net/installation/).
 
 ```csharp
-using System;
-using System.Drawing;
-using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-using (var bitmap = new Bitmap(1600, 900))
-{
-    for (var y = 0; y < bitmap.Height; y++)
-        for (var x = 0; x < bitmap.Width; x++)
-            bitmap.SetPixel(x, y, Color.FromArgb(x % 256, y % 256, (x + y) % 256));
-    bitmap.Save("large.png", System.Drawing.Imaging.ImageFormat.Png);
-}
-using var presentation = new Presentation();
-var title = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 500, 60);
-title.TextFrame.Text = "Photo";
-var bytes = File.ReadAllBytes("large.png");
-var image = presentation.Images.AddImage(bytes);
-var picture = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 40, 120, 240, 135, image);
-presentation.Save("before.pptx", SaveFormat.Pptx);
-var compressed = picture.PictureFormat.CompressImage(true, 96f);
-Console.WriteLine($"Picture compressed: {compressed}");
+using var presentation = new Presentation("input.pptx");
+Compress.CompressPresentation(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
-using var preview = presentation.Slides[0].GetImage(1f, 1f);
-preview.Save("compressed.png", ImageFormat.Png);
 ```
 
 ## **Preguntas frecuentes**
 
-### **¿Es este un interruptor de optimización de todo el archivo?**
+### **¿Es este un conmutador único de optimización de archivo completo?**
 
-Aspose.Slides para .NET 26.11 añade [Compress.CompressPresentation](/slides/es/net/low-code-presentation-operations/#compress-the-whole-presentation), que combina la eliminación de diseños/maestras no utilizados, el sub-conjunto de fuentes incrustadas y la compresión de imágenes a 150 DPI. Elimina permanentemente las áreas recortadas de las imágenes. Para procesar solo imágenes, usa Compress.CompressImages; para un control más fino, mantén el flujo de trabajo por imagen descrito arriba. Estos nuevos ayudantes son específicos para la versión .NET indicada; consulta la guía correspondiente para otros SDK.
+Aspose.Slides for .NET 26.11 añade [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/), que combina la eliminación de disposiciones/maestros no usados, la subconfiguración de fuentes incrustadas y la compresión de imágenes a 150 DPI. Elimina permanentemente las áreas recortadas de las imágenes. Para el procesamiento solo de imágenes, use [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/); para un control más fino, consulte el [ejemplo de compresión de imagen individual](/slides/es/net/examples/optimization-batch/compression/). Estos nuevos asistentes son específicos de la versión .NET indicada; consulte la guía correspondiente para otros SDK.
 
-### **¿La compresión de imágenes altera el texto o los gráficos editables?**
+### **¿La compresión de imágenes cambia el texto editable o los gráficos?**
 
-La compresión de imágenes afecta los datos de la imagen, no el texto editable ni los datos de los gráficos. Revisa las imágenes porque el cambio de tamaño o la recompresión pueden reducir su nivel de detalle.
+La compresión de imágenes se dirige a los datos de las imágenes, no al texto editable ni a los datos de los gráficos. Revise las imágenes porque el redimensionado o la recompresión pueden reducir su detalle.
 
 ### **¿Cómo debo elegir una resolución para las imágenes de la presentación?**
 
-Elige una resolución objetivo basada en el tamaño mostrado de la imagen y el uso previsto en pantalla o impresión. Conserva mayor resolución para pantallas grandes, impresiones y diagramas detallados, y compara el resultado renderizado antes de descartar el original.
+Elija un objetivo en función del tamaño de la imagen mostrada y del uso previsto en pantalla o impresión. Mantenga mayor resolución para pantallas grandes, impresión y diagramas detallados, y compare el resultado renderizado antes de descartar el original.
 
 ## **Guías**
 
+- [Comprimir toda la presentación en .NET](/slides/es/net/low-code-presentation-operations/#compress-the-whole-presentation)
 - [Optimizar la gestión de imágenes en presentaciones en .NET](/slides/es/net/image/)
 
-Funcionalidad relacionada: [Eliminar maestros, diseños y medios sin usar](/slides/es/features/remove-unused-content/).
+Funcionalidad relacionada: [Eliminar maestros, disposiciones y medios no usados](/slides/es/features/remove-unused-content/).
 
-## Runnable .NET examples
+## Ejemplos ejecutables .NET
 
 - [Reducir el tamaño de la presentación](/slides/es/net/examples/optimization-batch/compression/)
