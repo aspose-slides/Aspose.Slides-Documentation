@@ -149,6 +149,13 @@ try {
 
 Applying a destination layout changes the inherited layout relationship; it does not redesign the source slide content. If the source and destination layouts have different placeholder structures, inspect the result to confirm that the inherited formatting and placeholder behavior are appropriate.
 
+
+<!-- visual-explanation:merge-presentation:start -->
+[![Three actual renders use the blue source banner, orange destination-master banner, or green destination-layout banner while retaining the content panel.](visual-merge-presentation-9d5f131d779a.svg)](visual-merge-presentation-9d5f131d779a.svg)
+
+*Illustrative .NET 26.11 fixture comparing source design, a selected destination master with a matching layout, and an explicit destination layout. The panel retains its explicit geometry and looks the same in this fixture. The selected master or layout must belong to the destination; changing inheritance does not redesign every object.*
+<!-- visual-explanation:merge-presentation:end -->
+
 ## **Merge Presentations with Different Slide Sizes**
 
 Presentations with different slide dimensions can be merged, but cloning a slide into a presentation with another slide size does not automatically redesign its content for the new canvas. Shapes may therefore appear shifted, scaled unexpectedly, or outside the visible slide area.

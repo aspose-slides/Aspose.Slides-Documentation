@@ -50,6 +50,13 @@ Aspose.Slides allows you to add fonts that are applied to *only* output document
 We do not distribute any fonts, either paid or free. Our API allows you to load external fonts and embed them in documents, but you do so with fonts at your discretion and responsibility.
 {{% /alert %}}
 
+
+<!-- visual-explanation:font-selection-sequence:start -->
+[![A font selection schematic separates theme resolution, unavailable families and missing glyphs.](visual-font-selection-sequence-c58594a31127.svg)](visual-font-selection-sequence-c58594a31127.svg)
+
+*The embedded-font preference applies when both embedded and registered sources match. Missing families and missing glyphs have separate remedies.*
+<!-- visual-explanation:font-selection-sequence:end -->
+
 ## **Prefer Registered Fonts over Embedded Fonts**
 
 Starting with .NET 26.11, [IFontsManager.PreferRegisteredFontsOverEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/preferregisteredfontsoverembedded/) lets a matching registered font take priority over an embedded font during export. The default is `false`. Matching uses the font name and style; a different family name is not a replacement match. Registered fonts can come from the system or [explicitly loaded font sources](/slides/net/custom-font/).

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 520">
+<title id="title">OLE preview and workbook storage</title>
+<desc id="description">An embedded object stores workbook bytes, while a linked object stores an external relationship. Either preview is distinct from the workbook payload.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">OLE preview and workbook storage</text>
+<text x="26" y="61" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="88" width="330" height="291" rx="10" fill="#f8fafc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="117" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">PPTX: embedded object</text>
+<rect x="42" y="137" width="298" height="220" rx="10" fill="#fff" stroke="#275eb0" stroke-width="1.5"/>
+<text x="58" y="164" font-size="17" font-weight="bold" text-anchor="start" fill="#275eb0">OLE frame</text>
+<rect x="404" y="88" width="330" height="291" rx="10" fill="#f8fafc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="420" y="117" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">PPTX: linked object</text>
+<rect x="420" y="137" width="298" height="220" rx="10" fill="#fff" stroke="#04776f" stroke-width="1.5"/>
+<text x="436" y="164" font-size="17" font-weight="bold" text-anchor="start" fill="#04776f">OLE frame</text>
+<rect x="58" y="182" width="266" height="65" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="74" y="211" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Icon + title</text>
+<text x="74" y="240" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Visible representation</text>
+<rect x="58" y="271" width="266" height="65" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="74" y="300" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Workbook bytes</text>
+<text x="74" y="329" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Stored inside the PPTX</text>
+<rect x="436" y="182" width="266" height="65" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="452" y="211" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Slide preview</text>
+<text x="452" y="240" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">If present</text>
+<rect x="436" y="271" width="266" height="65" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="452" y="300" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">External relationship</text>
+<text x="452" y="329" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Path to the workbook</text>
+<path d="M569,360 L569,414" fill="none" stroke="#04776f" stroke-width="2" stroke-dasharray="5 4"/>
+<polygon points="569.0,414.0 565.1,405.9 572.9,405.9" fill="#04776f"/>
+<rect x="420" y="420" width="298" height="76" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="436" y="449" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">External workbook</text>
+<text x="436" y="478" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">The linked file must be available.</text>
+<text x="26" y="435" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">Activation opens workbook data</text>
+<text x="26" y="459" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">in a compatible OLE host.</text>
+<text x="26" y="483" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">The preview is a separate image.</text>
+</g>
+</svg>

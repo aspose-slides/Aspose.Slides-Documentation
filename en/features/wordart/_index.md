@@ -41,6 +41,13 @@ portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
 presentation.Save("wordart.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:wordart:start -->
+[![Creative title appears as ordinary text, as an upward WordArt arch, and as a rotated line.](visual-wordart-b80ede696fa1.svg)](visual-wordart-b80ede696fa1.svg)
+
+*The WordArt transform bends the text into an upward arch. Rotating the box tilts the straight line of text.*
+<!-- visual-explanation:wordart:end -->
+
 ## **FAQ**
 
 ### **Can the words still be edited after applying the effect?**

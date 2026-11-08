@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 555">
+<title id="title">The anchor and comment marker are different</title>
+<desc id="description">A modern comment can belong to a slide, a shape or a text range. Its marker position is separate from that relationship.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">The anchor and comment marker are different</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="105" width="270" height="100" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="134" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Slide anchor</text>
+<text x="322" y="136" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Shape association: absent</text>
+<text x="322" y="161" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Marker still has slide coordinates</text>
+<path d="M300,153 L314,153" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="314.0,153.0 305.9,156.9 305.9,149.1" fill="#275eb0"/>
+<rect x="26" y="245" width="270" height="100" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="274" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Shape anchor</text>
+<text x="322" y="276" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Shape association: selected shape</text>
+<text x="322" y="301" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Marker position does not define the anchor</text>
+<path d="M300,293 L314,293" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="314.0,293.0 305.9,296.9 305.9,289.1" fill="#275eb0"/>
+<rect x="26" y="385" width="270" height="100" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="414" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Text-range anchor</text>
+<text x="322" y="416" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">AutoShape + start + length</text>
+<text x="322" y="441" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Select a range inside the shape’s text</text>
+<path d="M300,433 L314,433" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="314.0,433.0 305.9,436.9 305.9,429.1" fill="#275eb0"/>
+</g>
+</svg>

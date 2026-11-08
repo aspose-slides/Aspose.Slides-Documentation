@@ -128,6 +128,13 @@ finally {
 }
 ```
 
+
+<!-- visual-explanation:resizing-shapes-on-slide:start -->
+[![A4 resizing scales X and width by 1.083, and Y and height by 1.333. The original circle becomes taller than it is wide.](visual-resizing-shapes-on-slide-7f076c67ada4.svg)](visual-resizing-shapes-on-slide-7f076c67ada4.svg)
+
+*Horizontal and vertical ratios scale their respective positions and dimensions. Here the unequal ratios turn a circle into an ellipse.*
+<!-- visual-explanation:resizing-shapes-on-slide:end -->
+
 ## **FAQ**
 
 **Why are shapes distorted or cut off after resizing a slide?**

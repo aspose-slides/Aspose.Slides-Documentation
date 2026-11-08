@@ -223,6 +223,13 @@ To allow you to perform PowerPoint to video conversion tasks, Aspose.Slides prov
 
 When animations are generated, a `NewAnimation` event is generated for each subsequent animation, which has the presentation animation player parameter. The latter is a class that represents a player for a separate animation.
 
+
+<!-- visual-explanation:convert-powerpoint-to-video:start -->
+[![Presentation animation data is rendered to numbered PNGs, then a separate encoder writes the selected video format with coordinated frame rates.](visual-convert-powerpoint-to-video-f34cee01f867.svg)](visual-convert-powerpoint-to-video-f34cee01f867.svg)
+
+*Conceptual pipeline with matched rates for intended pacing. The article’s samples configure rendering at 33 FPS but request AVI output at 24 FPS. Coordinate the encoder’s image-sequence input and output rates with the rendered frames; this diagram does not measure those samples’ resulting playback.*
+<!-- visual-explanation:convert-powerpoint-to-video:end -->
+
 To work with the presentation animation player, the `getDuration` (the full duration of the animation) method and `setTimePosition` method are used. Each animation position is set within the *0 to duration* range, and then the `getFrame` method will return a BufferedImage that corresponds to the animation state at that moment:
 
 ```javascript

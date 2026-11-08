@@ -174,6 +174,13 @@ To preserve the intended appearance, capture the resolved position, size, and ro
 
 Inherited shape geometry may also need to be assigned explicitly through [GeometryShape::setShapeType](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setShapeType). For a rectangular text placeholder, this means assigning [ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/); restoring only the fill and line may not restore the visible rectangle. Templates with additional effects or more complex formatting require those settings to be handled as well.
 
+
+<!-- visual-explanation:placeholder-inheritance:start -->
+[![An inherited Project update title becomes almost invisible after placeholder removal; stored text and shape count remain while its resolved frame becomes zero-sized.](visual-placeholder-inheritance-e07f1411f7f8.svg)](visual-placeholder-inheritance-e07f1411f7f8.svg)
+
+*Controlled .NET 26.11 fixture: removing placeholder status keeps the object and text but removes the base link; the inherited 648 × 90-point frame becomes zero-sized. This is not shape deletion. Capture resolved values before removal and explicitly reapply the geometry and formatting needed to preserve appearance.*
+<!-- visual-explanation:placeholder-inheritance:end -->
+
 ## **Change Text in a Placeholder**
 
 Title, centered-title, subtitle, body, and text placeholders normally support text. Check for [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) before using its [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) method.

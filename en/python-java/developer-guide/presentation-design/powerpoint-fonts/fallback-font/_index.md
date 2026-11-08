@@ -23,6 +23,13 @@ description: "See how Aspose.Slides for Python via Java uses fallback fonts to k
 
 Fallback fonts are used when the font specified for text is available in the system but does not contain a required glyph. In this case, Aspose.Slides can use one of the specified fallback fonts to replace the missing glyph.
 
+
+<!-- visual-explanation:font-glyph-fallback:start -->
+[![A mixed-script line uses Microsoft Himalaya for the Latin words and Arial for the Greek letters when the rule is enabled.](visual-font-glyph-fallback-7085020e9446.svg)](visual-font-glyph-fallback-7085020e9446.svg)
+
+*In this illustrative render, Microsoft Himalaya draws the Latin words. Automatic fallback draws αβ in Courier New, and the explicit Greek range rule draws them in Arial.*
+<!-- visual-explanation:font-glyph-fallback:end -->
+
 ## **Fallback Font**
 
 Aspose.Slides allows you to create fallback fonts, add them to a fallback font collection, set the fallback font collection for a certain presentation, remove fallback fonts from the presentation, specify the rules for applying fallback fonts, and perform other related operations.

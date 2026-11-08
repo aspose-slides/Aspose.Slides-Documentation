@@ -73,6 +73,13 @@ For more locations, see Microsoft's [RsReportServer.config configuration file](h
 
 1. Save both files. The report server reads its configuration files again whenever they are saved. If a file contains malformed XML, the report server ignores it or does not start, so restore your copy if something goes wrong.
 
+
+<!-- visual-explanation:install-manually:start -->
+[![Five installation stages connect a readable unblocked assembly, backed-up configuration, renderer registration, trust registration and an export-list check.](visual-install-manually-5a4aac9cee81.svg)](visual-install-manually-5a4aac9cee81.svg)
+
+*Install the extension for each report-server instance. The server rereads saved configuration; check the portal for the formats you registered. This is a configuration diagram, not a screenshot of file permissions or the portal.*
+<!-- visual-explanation:install-manually:end -->
+
 ## **Check the Installation**
 
 Open a paginated report in the web portal (Report Manager on SQL Server 2014 and earlier) and open the **Export** list. It now includes these formats:

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 430">
+<title id="title">Delay, duration and repeat are separate</title>
+<desc id="description">AfterPrevious waits for the prior effect, then the delay, before this effect. Repeat count is a separate stored setting.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Delay, duration and repeat are separate</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="103" width="200" height="90" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="132" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Previous effect</text>
+<text x="42" y="161" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Reference point only</text>
+<rect x="278" y="103" width="188" height="90" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="294" y="132" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Delay: 0.5 s</text>
+<text x="294" y="161" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">AfterPrevious</text>
+<rect x="518" y="103" width="216" height="90" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="534" y="132" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Effect: 2.0 s</text>
+<text x="534" y="161" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Configured duration</text>
+<path d="M228,148 L272,148" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="272.0,148.0 263.9,151.9 263.9,144.1" fill="#275eb0"/>
+<path d="M468,148 L512,148" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="512.0,148.0 503.9,151.9 503.9,144.1" fill="#275eb0"/>
+<rect x="278" y="242" width="456" height="85" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="294" y="271" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">RepeatCount = 2</text>
+<text x="294" y="300" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Stored repeat setting, separate from duration</text>
+<text x="26" y="379" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">The sample adds one effect. The previous-effect box illustrates the trigger rule.</text>
+</g>
+</svg>

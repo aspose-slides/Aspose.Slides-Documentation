@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 725">
+<title id="title">Choose the manager for the intended scope</title>
+<desc id="description">Supported placeholders differ between regular slides, notes and handouts; hierarchy managers can propagate supported settings.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Choose the manager for the intended scope</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="95" width="708" height="77" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="124" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Presentation-wide manager</text>
+<text x="42" y="153" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Updates supported placeholders throughout the presentation</text>
+<rect x="26" y="218" width="220" height="105" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="247" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Regular hierarchy</text>
+<text x="42" y="276" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Master / layout → slides</text>
+<text x="42" y="299" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Supported propagation</text>
+<rect x="270" y="218" width="220" height="105" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="286" y="247" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Notes hierarchy</text>
+<text x="286" y="276" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Notes master → notes</text>
+<text x="286" y="299" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Local notes-slide manager</text>
+<rect x="514" y="218" width="220" height="105" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="530" y="247" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Handout master</text>
+<text x="530" y="276" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Shared handout layout</text>
+<text x="530" y="299" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Handout-page settings</text>
+<path d="M220,175 L136,212" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="136.0,212.0 141.8,205.2 145.0,212.3" fill="#275eb0"/>
+<path d="M380,175 L380,212" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="380.0,212.0 376.1,203.9 383.9,203.9" fill="#275eb0"/>
+<path d="M541,175 L624,212" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="624.0,212.0 615.0,212.3 618.2,205.1" fill="#275eb0"/>
+<path d="M26 374 H734" stroke="#cedaea"/>
+<path d="M26 425 H734" stroke="#cedaea"/>
+<path d="M26 477 H734" stroke="#cedaea"/>
+<path d="M26 529 H734" stroke="#cedaea"/>
+<path d="M26 581 H734" stroke="#cedaea"/>
+<path d="M26 374 V581" stroke="#cedaea"/>
+<path d="M245 374 V581" stroke="#cedaea"/>
+<path d="M400 374 V581" stroke="#cedaea"/>
+<path d="M555 374 V581" stroke="#cedaea"/>
+<path d="M734 374 V581" stroke="#cedaea"/>
+<text x="42" y="407" font-size="17" font-weight="bold" text-anchor="start" fill="#14253d">Page type</text>
+<text x="261" y="407" font-size="17" font-weight="bold" text-anchor="start" fill="#14253d">Header</text>
+<text x="416" y="407" font-size="17" font-weight="bold" text-anchor="start" fill="#14253d">Footer</text>
+<text x="571" y="407" font-size="17" font-weight="bold" text-anchor="start" fill="#14253d">Date / number</text>
+<text x="42" y="458" font-size="18" font-weight="normal" text-anchor="start" fill="#14253d">Regular slide</text>
+<text x="261" y="458" font-size="17" font-weight="normal" text-anchor="start" fill="#b6501e">Not supported</text>
+<text x="416" y="458" font-size="17" font-weight="normal" text-anchor="start" fill="#04776f">Supported</text>
+<text x="571" y="458" font-size="17" font-weight="normal" text-anchor="start" fill="#04776f">Supported</text>
+<text x="42" y="510" font-size="18" font-weight="normal" text-anchor="start" fill="#14253d">Notes slide</text>
+<text x="261" y="510" font-size="17" font-weight="normal" text-anchor="start" fill="#04776f">Supported</text>
+<text x="416" y="510" font-size="17" font-weight="normal" text-anchor="start" fill="#04776f">Supported</text>
+<text x="571" y="510" font-size="17" font-weight="normal" text-anchor="start" fill="#04776f">Supported</text>
+<text x="42" y="562" font-size="18" font-weight="normal" text-anchor="start" fill="#14253d">Handout page</text>
+<text x="261" y="562" font-size="17" font-weight="normal" text-anchor="start" fill="#04776f">Supported</text>
+<text x="416" y="562" font-size="17" font-weight="normal" text-anchor="start" fill="#04776f">Supported</text>
+<text x="571" y="562" font-size="17" font-weight="normal" text-anchor="start" fill="#04776f">Supported</text>
+<text x="26" y="635" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">Use a slide or notes-slide manager for a local change.</text>
+<text x="26" y="659" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">Use the appropriate master/layout propagation methods for dependents.</text>
+</g>
+</svg>

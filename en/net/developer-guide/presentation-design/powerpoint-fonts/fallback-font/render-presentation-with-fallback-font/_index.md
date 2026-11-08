@@ -74,3 +74,10 @@ using (Presentation pres = new Presentation("input.pptx"))
 {{% alert color="info" %}} 
 Read more about [Save and Convertion in Presentation](/slides/net/convert-powerpoint-to-png/).
 {{% /alert %}}
+
+<!-- visual-explanation:font-glyph-fallback:start -->
+[![The remaining Cyrillic rule changes ЖЗ from automatic Courier New to Times New Roman.](visual-font-glyph-fallback-94fcd126b9bb.svg)](visual-font-glyph-fallback-94fcd126b9bb.svg)
+
+*The example removes the Arabic rule. In this controlled render, the remaining Cyrillic rule selects Times New Roman for ЖЗ and the Latin text stays in Microsoft Himalaya.*
+<!-- visual-explanation:font-glyph-fallback:end -->
+

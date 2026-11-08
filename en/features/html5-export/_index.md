@@ -40,6 +40,13 @@ presentation.Save("html5/index.html", SaveFormat.Html5, options);
 presentation.Save("source.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:html5-export:start -->
+[![Edge captures after clicking the first slide to start playback and after advancing with the generated navigation. The stored fade uses AfterPrevious. An enlargement shows both navigation buttons.](visual-html5-export-f7a79974a20c.svg)](visual-html5-export-f7a79974a20c.svg)
+
+*The deck configures a one-second fade with AfterPrevious. In Edge, a click on the slide started playback, and Next Slide advanced the player.*
+<!-- visual-explanation:html5-export:end -->
+
 ## **FAQ**
 
 ### **Is the generated player fully self-contained for offline use?**

@@ -43,6 +43,13 @@ parent.ChildNodes.RemoveNode(temporary);
 presentation.Save("smartart-nodes.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:smartart-nodes:start -->
+[![Lead initially has Design, Build and Temporary; after removing Temporary, Design and Build remain connected beneath Lead.](visual-smartart-nodes-6257babe0bee.svg)](visual-smartart-nodes-6257babe0bee.svg)
+
+*Actual .NET 26.11 renders of the example’s intermediate and final states. Removing Temporary retains Lead, Design and Build; the remaining nodes reflow within the SmartArt frame.*
+<!-- visual-explanation:smartart-nodes:end -->
+
 ## **FAQ**
 
 ### **Can I format a node's shapes separately?**

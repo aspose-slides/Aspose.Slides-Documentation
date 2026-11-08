@@ -16,6 +16,13 @@ feature_guides:
 
 Use the library's BLOB-management options for presentations with large video, audio or image data. These options can keep media in the source stream or temporary files instead of loading every media byte into memory. Keep the required stream open for the chosen locking behavior.
 
+
+<!-- visual-explanation:blob-lifecycle:start -->
+[![Input lifetime spans load through save; BLOB memory and optional temporary files are distinct from slide model memory.](visual-blob-lifecycle-5af6b4634219.svg)](visual-blob-lifecycle-5af6b4634219.svg)
+
+*Source-backed media can continue to be read from the input stream while the presentation is open. Keep that stream available; large BLOBs may also use allowed temporary files. Dispose the presentation before releasing its source. The slide model has separate memory needs.*
+<!-- visual-explanation:blob-lifecycle:end -->
+
 ## **Usage example**
 
 This C# example uses Aspose.Slides for .NET. It generates a valid 60-second silent PCM WAV and embeds it in *audio.pptx*. Loading with a 1 KB in-memory BLOB budget permits media to spill to the caller-created *blob-temp* directory. The media is copied out through a stream, and disposing the presentation releases its temporary files. This example does not measure total process memory.

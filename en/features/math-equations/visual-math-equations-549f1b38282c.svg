@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 340">
+<title id="title">Parts of an editable math fraction</title>
+<desc id="description">The rendered fraction x squared over y is linked to the numerator and denominator in the equation tree.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<defs><marker id="14253d-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7 z" fill="#14253d"/></marker><marker id="275eb0-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7 z" fill="#275eb0"/></marker><marker id="04776f-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7 z" fill="#04776f"/></marker><marker id="b6501e-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7 z" fill="#b6501e"/></marker></defs>
+<text x="30" y="38" text-anchor="start" font-size="24" fill="#04776f" font-weight="700">SLIDE RENDER</text>
+<line x1="30" y1="53" x2="730" y2="53" stroke="#cedaea" stroke-width="2"/>
+<image x="107" y="86" width="111.3" height="228.9" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAABtCAIAAACOWb69AAAEWklEQVR42u2bIXTqMBSGL+88EVkZWTfmmMvUmCqoZa6o1Q0cEscckk3BFGdqc8zBVOfKFHPMda51rSuOJ3JeTk7LRmnTgsgVOyNtwkfIvbnN/alsNhs4YvsDx22KT/EpPsWn+AqyxWLR6XROT08r/+3y8nKxWKTtvynS2u02ACCEhsOh67qr1cqyLNayWq3SjFAsH6MZDoe8JYqiarUKAKZpphnhb6Ff7tXV1cnJSbfb5S0IIULI19fX5+dnmhGK5aOUJhs1TeN/j9F/2cwZhnF4/0ia4zgAgDEOguDw/hEz7hyz2Sxll1L5TNMEgNFolL5LeXy9Xg8A+v3+Xr1K4ptMJgDQ6/X27Qjl+ARCKGVAjlnl9+e39Xqd3Cs1TavVanx7Xa/XsfAr3uz7/vn5OcbYtm2E0N7R6Hd8z/MwxrEu7Xab39BoNMRLhJDYCJRShJDrumLjcrlMGdoqO59/wzC8vr5+f39nLweDAVvp3JrN5nw+Z8ur3++LkzSfz5vNJiEkFo0fHx9930/16J3mQwRBwOJWbPKYsUtbHZMvg6RhjOXMH7Pv7++zs7MwDBFCtm3zRTYejzudTrvdHo1GyV53d3c/Dahpmpg3SNjfptMp61KtVqMo4o5JCGEvi7D94gvL5wDAsqwgCHRd13Xd87ziYtN+fHwDBQBd1xFCy+Wy0Ni5d3xerVbcQ8XE+Fj4WEjj0a64lZeRj/kpD9rdbveI+NgeRSkV95XpdHoUfK7rYox1XWepr23bPJLFtq8D8EVRRAhBCDmOwxt5gC1uIcJePhFzWDHcJPe98vh4WE5+j2KuUES42cG3XC7FfM40TRFxNBrFsi/LsuR+0X93JleGYYjZURiGYu55e3ubTGmz5KE/WNr8RZ3/KT7Fp/gUn+JTfIpP8aWzHfnf/f29mPAVYb+cIe0+H9J1vegZypU/E0JKQFT5s+JTfIpP8Sk+xaf4FJ/iS5ffbzXf91utVrKdV0QAoNVq+b4vXjUMI1Z4l5Be/2TPz8/iIXO9Xo8VMh3Hqdfr/AZKabYaTnZ9yXA45G+/Va/kui67WqvVMh/qZ+eLoogXF7byeZ7HruYp0GX3D4QQr9u8vb0lb3h9fQWAarW6VQVY7PrjtWo2yFYxBhNv5Cwq5dU38eqSbdtJBY6maTnLSXnj383NDfvn6elJbH94eAAAy7Ly1pJyzp/neYxAnCrWiBDKL+3IO38YYybBCsOQOQQAvLy8rNfrRqOR1G6VPX+ibodSKp7aSJGeSOCLooiJhRFCQRDMZjMWkw+mL/lJxw4Ak8mERTtZogk5fEw1zKYNUmvTStV3ciECSC30S+MbDAZ830upvS6Vj2crchVF0vi4F8vV6kjL78fjcRiGlFLJ58FSPmUQBGyrkC4HlMPHEkG+fxyeT9whmHZdSjYgk4/lxiz/Qwil/8lEeXw84BUEt8n8+6h+v//x8aFp2sXFRaPRKK6Go+ozik/xKT7Fp/iy2D/AjtYTqbTtrAAAAABJRU5ErkJggg=="/>
+<text x="324" y="98" text-anchor="start" font-size="31" fill="#275eb0" font-weight="700">Fraction with bar</text>
+<line x1="337" y1="119" x2="337" y2="260" stroke="#275eb0" stroke-width="3"/>
+<line x1="337" y1="152" x2="362" y2="152" stroke="#275eb0" stroke-width="3"/>
+<text x="376" y="161" text-anchor="start" font-size="25" fill="#14253d" font-weight="700">Numerator · x²</text>
+<line x1="337" y1="254" x2="362" y2="254" stroke="#275eb0" stroke-width="3"/>
+<text x="376" y="263" text-anchor="start" font-size="25" fill="#14253d" font-weight="700">Denominator · y</text>
+<text x="376" y="199" text-anchor="start" font-size="25" fill="#04776f">Base x, superscript 2</text>
+</g>
+</svg>

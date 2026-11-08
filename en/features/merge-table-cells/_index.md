@@ -39,6 +39,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("merge-table-cells.png", Aspose.Slides.ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:merge-table-cells:start -->
+[![Merging cells (0, 0) and (1, 0) leaves a single top-row cell owned by (0, 0), spanning two columns and one row.](visual-merge-table-cells-4cf44b5a5865.svg)](visual-merge-table-cells-4cf44b5a5865.svg)
+
+*The top-left cell owns the merged heading. The other rows and columns keep their original indices.*
+<!-- visual-explanation:merge-table-cells:end -->
+
 ## **FAQ**
 
 ### **Can I undo a merge through the API?**

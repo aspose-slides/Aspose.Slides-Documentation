@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 385">
+<title id="title">Export through a separate application</title>
+<desc id="description">An existing report server supplies an RPL stream. A separate application with the Reporting Services renderer converts the stream to PowerPoint.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Export through a separate application</text>
+<text x="26" y="61" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="24" y="89" width="292" height="188" rx="10" fill="#f8fafc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="119" font-size="19" font-weight="bold" text-anchor="start" fill="#275eb0">Existing report server</text>
+<rect x="44" y="143" width="252" height="90" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="60" y="172" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Reporting Services</text>
+<text x="60" y="201" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Web service renders RPL</text>
+<rect x="444" y="89" width="292" height="188" rx="10" fill="#f2faf8" stroke="#04776f" stroke-width="1.5"/>
+<text x="462" y="119" font-size="19" font-weight="bold" text-anchor="start" fill="#04776f">Separate application</text>
+<rect x="464" y="143" width="252" height="90" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="480" y="172" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">RPL renderer</text>
+<text x="480" y="201" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Component installed here</text>
+<path d="M319,186 L440,186" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="440.0,186.0 431.9,189.9 431.9,182.1" fill="#275eb0"/>
+<text x="379" y="165" font-size="16" font-weight="normal" text-anchor="middle" fill="#275eb0">RPL stream</text>
+<path d="M590,279 L590,316" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="590.0,316.0 586.1,307.9 593.9,307.9" fill="#275eb0"/>
+<rect x="478" y="316" width="224" height="52" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="494" y="345" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">PPT / PPTX output</text>
+<text x="26" y="315" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">The server supplies report content.</text>
+<text x="26" y="338" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">The application supplies the renderer.</text>
+</g>
+</svg>

@@ -16,6 +16,13 @@ feature_guides:
 
 Use an appropriate tagged PDF mode to carry document structure into the export. The PDF can contain a hierarchy for slides, text and lists, along with alternative text supplied for pictures. Prepare the presentation's content so that meaningful descriptions are available to the exporter.
 
+
+<!-- visual-explanation:tagged-pdf:start -->
+[![The rendered Sample slide page is followed by its actual tag tree: Presentation, Slide, Textbox, P, Span, and marked-content ID 0. The Textbox contains the rectangle’s alternative description.](visual-tagged-pdf-b31950cb71b2.svg)](visual-tagged-pdf-b31950cb71b2.svg)
+
+*This PDF/UA-mode export contains a structure tree with the slide’s text and the rectangle’s alternative description on the Textbox tag.*
+<!-- visual-explanation:tagged-pdf:end -->
+
 ## **Usage example (C#)**
 
 Install [Aspose.Slides for .NET](/slides/net/installation/) before running this standalone example. Export a generated slide in a tagged PDF mode. The rectangle has a supplied alternative description; inspect structure and reading order with an accessibility checker before distribution.

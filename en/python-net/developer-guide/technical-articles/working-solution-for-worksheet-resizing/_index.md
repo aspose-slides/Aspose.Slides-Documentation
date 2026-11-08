@@ -147,6 +147,13 @@ with cells.Workbook("sample.xlsx") as workbook:
             presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
+<!-- visual-explanation:working-solution-for-worksheet-resizing:start -->
+[![Approach A resizes the OLE frame to an unchanged range; approach B scales the range to a fixed 400 by 100 point frame.](visual-working-solution-for-worksheet-resizing-37277e3a014f.svg)](visual-working-solution-for-worksheet-resizing-37277e3a014f.svg)
+
+*The selected section uses approach A: preserve the selected cells and size the OLE frame to match their range. Approach B is a separate alternative. Convert 96-DPI preview pixels to slide points using 72 ÷ 96.*
+<!-- visual-explanation:working-solution-for-worksheet-resizing:end -->
+
 ### **Scale the Cell Range Size**
 
 This approach scales the heights of the selected rows and the widths of the selected columns to match a custom OLE frame size.

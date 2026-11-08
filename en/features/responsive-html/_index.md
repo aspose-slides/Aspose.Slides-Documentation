@@ -34,6 +34,13 @@ presentation.Save("responsive.html", SaveFormat.Html, options);
 presentation.Save("source.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:responsive-html:start -->
+[![Browser captures of exported slide 2 at a common figure scale. A 960-pixel viewport paints a 944 by 531-pixel slide. A 390-pixel viewport paints a 374 by approximately 210-pixel slide.](visual-responsive-html-4167cc43de8c.svg)](visual-responsive-html-4167cc43de8c.svg)
+
+*Two measured Edge viewports show the same exported slide. Its canvas scales with the available width and retains its 16:9 proportions.*
+<!-- visual-explanation:responsive-html:end -->
+
 ## **FAQ**
 
 ### **Does this also make the HTML5 player responsive?**

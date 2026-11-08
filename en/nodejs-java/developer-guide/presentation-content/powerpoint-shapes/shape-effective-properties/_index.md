@@ -100,6 +100,13 @@ try {
 
 The priority in this example is portion local formatting, then paragraph formatting, then the presentation default. Other objects can have different inheritance chains, but the principle is the same: a more specific explicit value wins, and [getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) returns the final result.
 
+
+<!-- visual-explanation:shape-effective-properties:start -->
+[![Five rows resolve font sizes to 28, 36, 36, 30 and 20 points as local and inherited values are set and cleared.](visual-shape-effective-properties-b9645b4ca164.svg)](visual-shape-effective-properties-b9645b4ca164.svg)
+
+*Verified .NET 26.11 values for the article’s sequence: 28 → 36 → 36 → 30 → 20 points. A set portion value wins over the paragraph; clearing it restores inheritance. “Unset” is not zero. Other properties can use different inheritance chains, so read their effective data after changes.*
+<!-- visual-explanation:shape-effective-properties:end -->
+
 ## **Get Effective Text Properties**
 
 Text formatting is split across several objects:

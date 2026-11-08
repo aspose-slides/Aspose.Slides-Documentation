@@ -45,6 +45,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("cjk-text.png", Aspose.Slides.ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:cjk-text:start -->
+[![Japanese and Latin text wraps in a narrow box. PowerPoint stays together, and no Japanese full stop starts a line.](visual-cjk-text-00670c2f46df.svg)](visual-cjk-text-00670c2f46df.svg)
+
+*The preview uses MS Gothic for Japanese and Arial for Latin, with East Asian line breaking enabled.*
+<!-- visual-explanation:cjk-text:end -->
+
 ## **FAQ**
 
 ### **Can Latin and East Asian text use different fonts in one portion?**

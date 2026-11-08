@@ -347,6 +347,13 @@ try {
 
 The rectangle is created first and initially sits behind the ellipse. Moving it to the final index puts it in front. Finalize z-order after adding or cloning all related shapes, because those operations append or insert new collection items and can alter the intended stack.
 
+
+<!-- visual-explanation:shape-stacking-order:start -->
+[![The blue rectangle moves in front of the orange ellipse while both keep their positions.](visual-shape-stacking-order-01eb276238bf.svg)](visual-shape-stacking-order-01eb276238bf.svg)
+
+*Moving the blue rectangle to the last index puts it in front. Both shapes keep their positions.*
+<!-- visual-explanation:shape-stacking-order:end -->
+
 ## **Inspect Shapes on Layout Slides**
 
 Normal slides, layout slides, and master slides have separate shape collections. A shape in a layout collection is not the same object as a similarly positioned shape on a normal slide. Inspect layout shapes when you need to understand or change formatting supplied by a layout.

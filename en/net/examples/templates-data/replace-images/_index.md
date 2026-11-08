@@ -154,6 +154,13 @@ internal static class Program
 
 `portrait-preview.png` and `landscape-preview.png` compare contain (left) with crop (right). Contain shows the whole image with white padding; crop fills the frame and clips its edges. `portrait.pptx` and `landscape.pptx` retain both original frame positions and sizes. The bounded bitmap helper generates original pixels directly for these two fixtures; adapting it to real images requires an image-loading route.
 
+<!-- visual-explanation:examples-templates-data-replace-images:start -->
+[![Portrait and landscape preview pairs show white padding for Contain and clipped image edges for Crop.](visual-examples-templates-data-replace-images-0575aaf5bf89.svg)](visual-examples-templates-data-replace-images-0575aaf5bf89.svg)
+
+*In the example previews, Contain shows the whole image with white padding. Crop fills the same frame and clips the image edges.*
+<!-- visual-explanation:examples-templates-data-replace-images:end -->
+
+
 The downloaded project writes its verification checks to `output/result.json`. The following values describe the ZIP’s checks; the copied program does not write this report:
 
 ```json

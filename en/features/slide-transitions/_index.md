@@ -42,6 +42,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("slide-transitions.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:slide-transitions:start -->
+[![Identical crops show the Quarterly results rectangle changing from blue through an intermediate blue to the next slide’s light blue.](visual-slide-transitions-d0a2ef31bf53.svg)](visual-slide-transitions-d0a2ef31bf53.svg)
+
+*Fade is configured on slide 2 with a 1,200-ms duration. These actual 10-FPS player frames from the saved example on .NET 26.11 use identical crops, from the first slide’s blue through an intermediate color to slide 2’s light blue. Labels are nominal frame-index times for this export; the fade is not a linear color blend.*
+<!-- visual-explanation:slide-transitions:end -->
+
 ## **FAQ**
 
 ### **Can a slide advance automatically?**

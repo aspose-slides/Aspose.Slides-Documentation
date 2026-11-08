@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 490">
+<title id="title">An interactive sequence has its own trigger</title>
+<desc id="description">The main sequence and a button-triggered interactive sequence are distinct tracks.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">An interactive sequence has its own trigger</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<text x="26" y="110" font-size="19" font-weight="bold" text-anchor="start" fill="#275eb0">Main sequence</text>
+<rect x="26" y="128" width="708" height="80" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="157" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Ordinary slide sequence</text>
+<text x="42" y="186" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Effects follow their configured click or timing rules.</text>
+<text x="26" y="253" font-size="19" font-weight="bold" text-anchor="start" fill="#04776f">Interactive sequence</text>
+<rect x="26" y="275" width="216" height="85" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="304" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Trigger shape</text>
+<text x="42" y="333" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Click the button</text>
+<rect x="444" y="275" width="290" height="85" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="460" y="304" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Target shape</text>
+<text x="460" y="333" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Run this sequence’s effect</text>
+<path d="M246,318 L439,318" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="439.0,318.0 430.9,321.9 430.9,314.1" fill="#04776f"/>
+<text x="26" y="415" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">The trigger and animated target can be different shapes.</text>
+<text x="26" y="439" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">This diagram explains configuration; it is not captured PowerPoint playback.</text>
+</g>
+</svg>

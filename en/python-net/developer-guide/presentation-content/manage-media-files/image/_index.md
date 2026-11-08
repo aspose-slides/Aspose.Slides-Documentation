@@ -43,6 +43,13 @@ The following API concepts are closely related but not interchangeable:
 
 A typical workflow is therefore: add image data to the image collection, receive an [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/), and then use that resource in one or more picture frames or fills.
 
+
+<!-- visual-explanation:image:start -->
+[![Two picture frames and a background share one embedded image. A separate SVG conversion creates editable shapes.](visual-image-9c661bc60854.svg)](visual-image-9c661bc60854.svg)
+
+*In this diagram, replacing the shared image updates both picture frames and the background. SVG conversion creates separate slide objects.*
+<!-- visual-explanation:image:end -->
+
 ## **Add an Embedded Image**
 
 To insert a local image, read the file, add its data to the image collection, and create a picture frame that uses the returned `IPPImage`.

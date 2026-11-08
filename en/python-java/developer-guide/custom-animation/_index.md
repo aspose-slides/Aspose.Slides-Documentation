@@ -530,6 +530,13 @@ finally:
 
 The path in `curve.pptx` still has three commands; its middle command now defines a curve.
 
+
+<!-- visual-explanation:custom-animation:start -->
+[![Orange straight segment ends at .25,0; its blue cubic replacement uses two labelled control points and ends at .3,.1.](visual-custom-animation-b1f00ab59d82.svg)](visual-custom-animation-b1f00ab59d82.svg)
+
+*The original line ends at (0.25, 0). Its cubic replacement uses control points (0.1, 0) and (0.2, 0.1), then ends at (0.3, 0.1). The preceding command supplies the start; control points are not successive destinations.*
+<!-- visual-explanation:custom-animation:end -->
+
 ## **Inspect and Edit a Saved Path**
 
 Each [MotionCmdPath](https://reference.aspose.com/slides/python-java/aspose.slides/motioncmdpath/) exposes [getPoints](https://reference.aspose.com/slides/python-java/aspose.slides/motioncmdpath/#getPoints), [getCommandType](https://reference.aspose.com/slides/python-java/aspose.slides/motioncmdpath/#getCommandType), [getPointsType](https://reference.aspose.com/slides/python-java/aspose.slides/motioncmdpath/#getPointsType), and [isRelative](https://reference.aspose.com/slides/python-java/aspose.slides/motioncmdpath/#isRelative). The following examples use the known three-command path in `motion.pptx`. For arbitrary input, locate the intended effect and check command types and point counts before editing by index.

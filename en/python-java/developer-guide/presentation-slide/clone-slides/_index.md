@@ -288,6 +288,13 @@ finally:
 
 Do this before cloning the master and the slide.
 
+
+<!-- visual-explanation:clone-slides:start -->
+[![At the same scale, a source slide contains a rectangle, a smaller destination clips it, and a size-matched destination retains it.](visual-clone-slides-1f4700a4b669.svg)](visual-clone-slides-1f4700a4b669.svg)
+
+*Illustrative .NET 26.11 output at the same scale. The cloned frame stays at (500, 200), sized 160 × 100 points; the smaller canvas clips it. In the guide’s workflow, match the destination size first, copy the master, then clone against that destination master. The dashed outline marks off-canvas geometry, not exported pixels.*
+<!-- visual-explanation:clone-slides:end -->
+
 ## **FAQ**
 
 **Do speaker notes and reviewer comments get cloned?**

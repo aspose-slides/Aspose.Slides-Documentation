@@ -48,6 +48,13 @@ Aspose.Slides supports presentation-to-video conversion.
 * Use **Aspose.Slides** to generate a set of frames (from the presentation slides) that correspond to a certain FPS (frames per second)
 * Use a third-party utility like **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) to create a video based on the frames.
 
+
+<!-- visual-explanation:convert-powerpoint-to-video:start -->
+[![Presentation animation data is rendered to numbered PNGs, then a separate encoder writes the selected video format with coordinated frame rates.](visual-convert-powerpoint-to-video-f34cee01f867.svg)](visual-convert-powerpoint-to-video-f34cee01f867.svg)
+
+*Conceptual pipeline with matched rates for intended pacing. The article’s samples configure rendering at 33 FPS but request AVI output at 24 FPS. Coordinate the encoder’s image-sequence input and output rates with the rendered frames; this diagram does not measure those samples’ resulting playback.*
+<!-- visual-explanation:convert-powerpoint-to-video:end -->
+
 ### **Convert PowerPoint to Video**
 
 1. Add this to your POM file:

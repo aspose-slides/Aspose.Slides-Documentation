@@ -44,6 +44,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("paragraphs.png", Aspose.Slides.ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:paragraphs:start -->
+[![A left-aligned paragraph sits above a centered two-line paragraph with extra space before it.](visual-paragraphs-ba15621efbcd.svg)](visual-paragraphs-ba15621efbcd.svg)
+
+*The centered paragraph sets 10 points before, 120% line spacing, a 20-point left margin and a 10-point first-line indent.*
+<!-- visual-explanation:paragraphs:end -->
+
 ## **FAQ**
 
 ### **Can paragraphs in one text box use different settings?**

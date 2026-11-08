@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 505">
+<title id="title">A poster image is separate from the video</title>
+<desc id="description">PPTX stores a preview image and either a link to external media or embedded media bytes.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">A poster image is separate from the video</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="100" width="310" height="290" rx="10" fill="#f0f5fc" stroke="#275eb0" stroke-width="1.5"/>
+<text x="46" y="131" font-size="19" font-weight="bold" text-anchor="start" fill="#275eb0">Presentation file</text>
+<rect x="46" y="155" width="270" height="80" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="62" y="184" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Poster image</text>
+<text x="62" y="213" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Visible before playback</text>
+<rect x="46" y="270" width="270" height="82" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="62" y="299" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Video frame</text>
+<text x="62" y="328" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">References external URL</text>
+<rect x="455" y="270" width="279" height="82" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="471" y="299" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">External MP4</text>
+<text x="471" y="328" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Requires network access</text>
+<path d="M340,310 L449,310" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="449.0,310.0 440.9,313.9 440.9,306.1" fill="#04776f"/>
+<text x="455" y="134" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Linked media stays outside</text>
+<text x="455" y="159" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">the presentation file.</text>
+<text x="455" y="184" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">The poster is only a preview.</text>
+<text x="26" y="437" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">A readable local media file may instead be embedded when saved.</text>
+<text x="26" y="461" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">Playback depends on the consuming host and media availability.</text>
+</g>
+</svg>

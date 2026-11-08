@@ -84,6 +84,13 @@ foreach (var shape in slide.Shapes)
 
 Editing a placeholder on a normal slide creates or changes a local override for that slide. Editing the related layout or master can affect all slides that still inherit that setting. A local ordinary shape has no base placeholder and does not begin inheriting merely because it occupies the same coordinates.
 
+
+<!-- visual-explanation:placeholder-inheritance:start -->
+[![Master, layout and slide placeholders form an inheritance chain; base lookup goes upward, while an ordinary shape has no base link.](visual-placeholder-inheritance-0b0d255d34fd.svg)](visual-placeholder-inheritance-0b0d255d34fd.svg)
+
+*A slide placeholder can inherit from a layout placeholder, which may inherit from a master placeholder. A base may be absent. Local formatting overrides that setting on the slide; an ordinary shape has no base link merely because it shares the same coordinates.*
+<!-- visual-explanation:placeholder-inheritance:end -->
+
 ## **Remove Placeholder Status**
 
 When adapting a template, use [IShape.RemovePlaceholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/removeplaceholder/) to keep an existing object as an ordinary shape. Its [Placeholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/placeholder/) property becomes `null`, but the shape remains in the slide's collection. In contrast, [IShapeCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/remove/) deletes the shape from that collection.

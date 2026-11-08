@@ -485,6 +485,13 @@ presentation->Dispose();
 
 Use stretch offsets for fill placement. Use crop properties when the goal is to hide source-image edges.
 
+
+<!-- visual-explanation:image-crop-and-fit:start -->
+[![Crop selects source pixels. Positive stretch offsets inset the fill. Negative offsets extend it beyond the frame.](visual-image-crop-and-fit-8eb4e26c4fa1.svg)](visual-image-crop-and-fit-8eb4e26c4fa1.svg)
+
+*The solid outline marks the frame and the dashed outline marks the offset fill. The same image and frame are used in all three renders.*
+<!-- visual-explanation:image-crop-and-fit:end -->
+
 ## **Storage, File Size, and Export Considerations**
 
 The main tradeoffs are easier to manage when image storage and picture-frame formatting are treated separately:

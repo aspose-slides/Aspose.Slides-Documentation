@@ -110,6 +110,13 @@ try {
 }
 ```
 
+
+<!-- visual-explanation:manage-smartart-shape-node:start -->
+[![A StackedList retains children B and C under parent A and adds Sample Text Added as its third child.](visual-manage-smartart-shape-node-650cb866d1f6.svg)](visual-manage-smartart-shape-node-650cb866d1f6.svg)
+
+*Illustrative .NET 26.11 StackedList fixture with node labels added for clarity. Child index 2 inserts the third child of the selected parent, after B and C; it is not an index into the entire diagram.*
+<!-- visual-explanation:manage-smartart-shape-node:end -->
+
 ## **Access SmartArt Node in PowerPoint Presentation using JavaScript**
 The following sample code will help to access nodes inside SmartArt shape. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the SmartArt shape is added.
 

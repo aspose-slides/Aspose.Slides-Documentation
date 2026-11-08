@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 630">
+<title id="title">The most specific set value wins</title>
+<desc id="description">Five verified steps show portion, paragraph and presentation font heights resolving to 28,36,36,30 and20 points.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">The most specific set value wins</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">MEASURED VALUES • ILLUSTRATIVE .NET 26.11 FIXTURE</text>
+<path d="M26 105 V455" stroke="#cedaea"/>
+<path d="M188 105 V455" stroke="#cedaea"/>
+<path d="M342 105 V455" stroke="#cedaea"/>
+<path d="M496 105 V455" stroke="#cedaea"/>
+<path d="M620 105 V455" stroke="#cedaea"/>
+<path d="M734 105 V455" stroke="#cedaea"/>
+<path d="M26 105 H734" stroke="#cedaea"/>
+<path d="M26 160 H734" stroke="#cedaea"/>
+<path d="M26 219 H734" stroke="#cedaea"/>
+<path d="M26 278 H734" stroke="#cedaea"/>
+<path d="M26 337 H734" stroke="#cedaea"/>
+<path d="M26 396 H734" stroke="#cedaea"/>
+<path d="M26 455 H734" stroke="#cedaea"/>
+<text x="38" y="139" font-size="17" font-weight="bold" text-anchor="start" fill="#14253d">Step</text>
+<text x="200" y="139" font-size="17" font-weight="bold" text-anchor="start" fill="#14253d">Presentation</text>
+<text x="354" y="139" font-size="17" font-weight="bold" text-anchor="start" fill="#14253d">Paragraph</text>
+<text x="508" y="139" font-size="17" font-weight="bold" text-anchor="start" fill="#14253d">Portion</text>
+<text x="632" y="139" font-size="17" font-weight="bold" text-anchor="start" fill="#14253d">Effective</text>
+<rect x="621" y="161" width="112" height="57" rx="0" fill="#e3f4ef" stroke="none" stroke-width="1.5"/>
+<text x="38" y="197" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Inherit</text>
+<text x="200" y="197" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">20</text>
+<text x="354" y="197" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">28</text>
+<text x="508" y="197" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">unset</text>
+<text x="632" y="197" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">28</text>
+<rect x="621" y="220" width="112" height="57" rx="0" fill="#e3f4ef" stroke="none" stroke-width="1.5"/>
+<text x="38" y="256" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Set local</text>
+<text x="200" y="256" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">20</text>
+<text x="354" y="256" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">28</text>
+<text x="508" y="256" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">36</text>
+<text x="632" y="256" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">36</text>
+<rect x="621" y="279" width="112" height="57" rx="0" fill="#e3f4ef" stroke="none" stroke-width="1.5"/>
+<text x="38" y="315" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Edit parent</text>
+<text x="200" y="315" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">20</text>
+<text x="354" y="315" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">30</text>
+<text x="508" y="315" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">36</text>
+<text x="632" y="315" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">36</text>
+<rect x="621" y="338" width="112" height="57" rx="0" fill="#e3f4ef" stroke="none" stroke-width="1.5"/>
+<text x="38" y="374" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Clear local</text>
+<text x="200" y="374" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">20</text>
+<text x="354" y="374" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">30</text>
+<text x="508" y="374" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">unset</text>
+<text x="632" y="374" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">30</text>
+<rect x="621" y="397" width="112" height="57" rx="0" fill="#e3f4ef" stroke="none" stroke-width="1.5"/>
+<text x="38" y="433" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Clear parent</text>
+<text x="200" y="433" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">20</text>
+<text x="354" y="433" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">unset</text>
+<text x="508" y="433" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">unset</text>
+<text x="632" y="433" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">20</text>
+<text x="26" y="505" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">The portion’s local value overrides its paragraph default.</text>
+<text x="26" y="530" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Clearing a level restores inheritance from the next applicable level.</text>
+<text x="26" y="555" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Read effective values again after each formatting change.</text>
+</g>
+</svg>

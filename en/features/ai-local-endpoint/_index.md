@@ -16,6 +16,13 @@ feature_guides:
 
 Point the library's compatible AI client at a model endpoint running on infrastructure you control. The Slides workflow sends its requests to that endpoint, which can be local to the application or on your own network. The model service is supplied and managed separately.
 
+
+<!-- visual-explanation:ai-local-endpoint:start -->
+[![AI client request and response cross a service boundary before the application saves a PPTX.](visual-ai-local-endpoint-3d7dc0e89e26.svg)](visual-ai-local-endpoint-3d7dc0e89e26.svg)
+
+*The model endpoint is supplied separately. It may run on the application host or another reachable host; the presentation workflow saves the returned content to PPTX.*
+<!-- visual-explanation:ai-local-endpoint:end -->
+
 ## **Usage example (C#)**
 
 Install [Aspose.Slides for .NET](/slides/net/installation/). Optionally set ASPOSE_SLIDES_LICENSE to your license file to avoid evaluation limits. Start a caller-managed model server with an OpenAI-compatible chat-completions API before running this example. Set SLIDES_AI_BASE_URL to its API base URL, SLIDES_AI_MODEL to its served model name and SLIDES_AI_API_KEY to its configured token. The [compatible client](https://reference.aspose.com/slides/net/aspose.slides.ai/openaicompatiblewebclient/openaicompatiblewebclient/) sends the synthetic prompt to that service. A local model and server are separate prerequisites, and compatibility depends on the selected model and response format.

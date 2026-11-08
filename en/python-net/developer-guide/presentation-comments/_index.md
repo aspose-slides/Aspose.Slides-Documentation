@@ -323,6 +323,13 @@ with slides.Presentation(output_file) as reopened_presentation:
         print("Resolved status preserved: " + str(status_matches))
 ```
 
+
+<!-- visual-explanation:presentation-comments:start -->
+[![The phrase quarterly revenue is highlighted inside Forecast text; stored start 11, length 17 and Resolved status are listed separately from marker coordinates (60, 60).](visual-presentation-comments-94241d308643.svg)](visual-presentation-comments-94241d308643.svg)
+
+*Schematic annotation of the example’s text range. A licensed .NET 26.11 save/reopen check retained the Forecast text anchor, start 11, length 17 and Resolved status. Marker coordinates are separate from the anchor; this figure does not depict a client comment pane.*
+<!-- visual-explanation:presentation-comments:end -->
+
 ### **Inspect Existing Modern Comments**
 
 The example requires an existing presentation containing modern comments and prints their text, status, and anchor details. To inspect it, check which comments are instances of [ModernComment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/), then examine [ModernComment.shape](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/text_selection_length/), and [ModernComment.status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/). A `None` shape indicates a slide-level comment. For an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) anchor, the text-selection properties identify the associated range in the shape's text frame.

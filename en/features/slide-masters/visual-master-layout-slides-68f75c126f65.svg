@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 660">
+<title id="title">Master design, layout structure, slide content</title>
+<desc id="description">Existing slides inherit settings but do not automatically gain a newly added layout placeholder; newly created slides do.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Master design, layout structure, slide content</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="95" width="708" height="72" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="124" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Master</text>
+<text x="42" y="153" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Shared theme, background and master graphics</text>
+<path d="M380,170 L380,200" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="380.0,200.0 376.1,191.9 383.9,191.9" fill="#275eb0"/>
+<rect x="26" y="207" width="708" height="90" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="236" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Layout</text>
+<text x="42" y="265" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Placeholder arrangement and inherited formatting</text>
+<text x="430" y="267" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">+ newly added placeholder</text>
+<path d="M230,301 L190,344" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="190.0,344.0 192.7,335.4 198.4,340.7" fill="#275eb0"/>
+<path d="M530,301 L570,344" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="570.0,344.0 561.6,340.7 567.3,335.4" fill="#275eb0"/>
+<rect x="26" y="351" width="329" height="170" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="383" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Existing slide</text>
+<rect x="46" y="407" width="289" height="38" rx="4" fill="#e5edfc" stroke="#275eb0" stroke-width="1.5"/>
+<text x="62" y="433" font-size="17" font-weight="normal" text-anchor="start" fill="#275eb0">Existing title/content</text>
+<rect x="405" y="351" width="329" height="170" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="421" y="383" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">New slide from this layout</text>
+<rect x="425" y="407" width="289" height="38" rx="4" fill="#e5edfc" stroke="#275eb0" stroke-width="1.5"/>
+<text x="441" y="433" font-size="17" font-weight="normal" text-anchor="start" fill="#275eb0">Existing title/content</text>
+<rect x="425" y="463" width="289" height="38" rx="4" fill="#e5f5ef" stroke="#04776f" stroke-width="1.5"/>
+<text x="441" y="489" font-size="17" font-weight="normal" text-anchor="start" fill="#04776f">New placeholder generated</text>
+<text x="26" y="566" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">Changes to an existing inherited setting can affect both slides.</text>
+<text x="26" y="591" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">A new layout placeholder is generated on newly created slides;</text>
+<text x="26" y="616" font-size="18" font-weight="normal" text-anchor="start" fill="#40536b">it is not automatically inserted into an existing slide.</text>
+</g>
+</svg>

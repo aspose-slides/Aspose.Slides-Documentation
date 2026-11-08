@@ -36,6 +36,13 @@ presentation.Save("output.pdf", SaveFormat.Pdf, options);
 presentation.Save("source.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:notes-export:start -->
+[![The short example shows a slide and Speaker note marker below it. Crops from a separate longer fixture show BottomFull continuing to page 2 with Closing speaker note, BottomTruncated ending on page one, and slide-only excluding notes.](visual-notes-export-98b3e4eb488d.svg)](visual-notes-export-98b3e4eb488d.svg)
+
+*The short example shows the note below its slide. In the separate long-notes fixture, BottomFull carries the closing line onto page 2, BottomTruncated ends on page 1, and slide-only omits the notes.*
+<!-- visual-explanation:notes-export:end -->
+
 ## **FAQ**
 
 ### **Can I control how much space notes occupy?**

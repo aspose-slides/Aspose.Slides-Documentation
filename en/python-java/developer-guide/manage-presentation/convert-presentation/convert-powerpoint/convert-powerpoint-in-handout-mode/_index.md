@@ -67,6 +67,13 @@ Handout layout settings apply to supported output formats, such as PDF, HTML, TI
 
 {{% /alert %}}
 
+
+<!-- visual-explanation:convert-powerpoint-in-handout-mode:start -->
+[![Four separately exported PDF pages are followed by one four-thumbnail handout. Slide 1 and Slide 2 are across the top, and Slide 3 and Slide 4 are across the bottom.](visual-convert-powerpoint-in-handout-mode-2d311e39d758.svg)](visual-convert-powerpoint-in-handout-mode-2d311e39d758.svg)
+
+*The same four numbered slides exported as one slide per PDF page and as a horizontal handout. The handout includes printed slide numbers and frames.*
+<!-- visual-explanation:convert-powerpoint-in-handout-mode:end -->
+
 ## **FAQ**
 
 **What is the maximum number of slide thumbnails per page in handout mode?**

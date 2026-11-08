@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 410">
+<title id="title">Presentation application and model service</title>
+<desc id="description">A client sends a request across a service boundary, receives generated content, and saves PPTX.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Presentation application and model service</text>
+<text x="26" y="61" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="24" y="85" width="320" height="230" rx="10" fill="#f8fafc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="114" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Application</text>
+<rect x="44" y="136" width="280" height="124" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="60" y="165" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Presentation + AI client</text>
+<text x="60" y="194" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Build a request</text>
+<text x="60" y="217" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Apply returned content</text>
+<text x="60" y="240" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Save the resulting deck</text>
+<rect x="462" y="85" width="274" height="230" rx="10" fill="#f2faf8" stroke="#04776f" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="480" y="114" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Caller-managed service</text>
+<text x="480" y="156" font-size="16" font-weight="normal" text-anchor="start" fill="#14253d">Compatible model endpoint</text>
+<text x="480" y="179" font-size="16" font-weight="normal" text-anchor="start" fill="#14253d">Model + server supplied</text>
+<text x="480" y="202" font-size="16" font-weight="normal" text-anchor="start" fill="#14253d">and managed separately</text>
+<path d="M327,164 L459,164" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="459.0,164.0 450.9,167.9 450.9,160.1" fill="#275eb0"/>
+<text x="392" y="145" font-size="16" font-weight="normal" text-anchor="middle" fill="#275eb0">Request</text>
+<path d="M459,238 L327,238" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="327.0,238.0 335.1,234.1 335.1,241.9" fill="#04776f"/>
+<text x="392" y="220" font-size="16" font-weight="normal" text-anchor="middle" fill="#04776f">Response</text>
+<text x="480" y="278" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Same host or another</text>
+<text x="480" y="301" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">reachable network host</text>
+<path d="M182,261 L182,335" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="182.0,335.0 178.1,326.9 185.9,326.9" fill="#275eb0"/>
+<rect x="92" y="335" width="180" height="54" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="108" y="364" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">PPTX output</text>
+<text x="345" y="357" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">The endpoint is a separate service,</text>
+<text x="345" y="380" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">even when it runs on the same machine.</text>
+</g>
+</svg>

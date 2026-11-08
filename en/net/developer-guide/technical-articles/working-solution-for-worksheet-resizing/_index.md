@@ -239,6 +239,13 @@ static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 }
 ```
 
+
+<!-- visual-explanation:working-solution-for-worksheet-resizing:start -->
+[![Approach A resizes the OLE frame to an unchanged range; approach B scales the range to a fixed 400 by 100 point frame.](visual-working-solution-for-worksheet-resizing-37277e3a014f.svg)](visual-working-solution-for-worksheet-resizing-37277e3a014f.svg)
+
+*The sample uses approach B: it keeps a 400 × 100-point OLE frame and scales the selected range to fit. Approach A is the separate alternative. Convert 96-DPI preview pixels to slide points using 72 ÷ 96.*
+<!-- visual-explanation:working-solution-for-worksheet-resizing:end -->
+
 ## **Conclusion**
 
 {{% alert color="info" title="Note" %}}

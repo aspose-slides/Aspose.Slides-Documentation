@@ -38,6 +38,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("math-equations.png", Aspose.Slides.ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:math-equations:start -->
+[![A rendered fraction displays x squared above the fraction bar and y below it. The equation tree labels both parts.](visual-math-equations-549f1b38282c.svg)](visual-math-equations-549f1b38282c.svg)
+
+*The numerator is itself a structured element, with x as the base and 2 as the superscript.*
+<!-- visual-explanation:math-equations:end -->
+
 ## **FAQ**
 
 ### **Can I create an equation by importing a LaTeX string?**

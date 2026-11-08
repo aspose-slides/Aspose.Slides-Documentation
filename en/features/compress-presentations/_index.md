@@ -33,6 +33,13 @@ Compress.CompressPresentation(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:compress-presentations:start -->
+[![Identically scaled picture renders before and after compression, followed by measured PPTX file-size bars and stored image dimensions.](visual-compress-presentations-1adbf86268a5.svg)](visual-compress-presentations-1adbf86268a5.svg)
+
+*Measured on one synthetic detail-grid fixture: 584,030 → 128,323 bytes. Both renders use the same scale and 252 × 336-point frame. Compression removes the cropped margins and reduces the stored image to 525 × 700 pixels; size savings depend on the input.*
+<!-- visual-explanation:compress-presentations:end -->
+
 ## **FAQ**
 
 ### **Is this a single whole-file optimization switch?**

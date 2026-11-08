@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 485">
+<title id="title">Choose the report-server instances to configure</title>
+<desc id="description">The MSI configures selected supported instances; excluded instances stay unchanged. Optional RPL export is not selected by default.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Choose the report-server instances to configure</text>
+<text x="26" y="61" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="88" width="708" height="80" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="117" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">MSI prerequisites</text>
+<text x="42" y="146" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Administrator rights + .NET Framework 3.5</text>
+<path d="M290,171 L136,211" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="136.0,211.0 142.9,205.2 144.8,212.8" fill="#275eb0"/>
+<path d="M380,171 L380,211" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="380.0,211.0 376.1,202.9 383.9,202.9" fill="#275eb0"/>
+<path d="M470,171 L624,211" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="624.0,211.0 615.2,212.8 617.1,205.2" fill="#275eb0"/>
+<rect x="26" y="218" width="220" height="127" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="247" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Include instance</text>
+<text x="42" y="276" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Copy the assembly</text>
+<text x="42" y="299" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Register renderers</text>
+<text x="42" y="322" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Configure trust</text>
+<rect x="270" y="218" width="220" height="127" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="286" y="247" font-size="18" font-weight="bold" text-anchor="start" fill="#b6501e">Exclude instance</text>
+<text x="286" y="276" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">“Entire feature will</text>
+<text x="286" y="299" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">be unavailable”</text>
+<text x="286" y="322" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Leaves it unchanged</text>
+<rect x="514" y="218" width="220" height="127" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="530" y="247" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Optional RPL export</text>
+<text x="530" y="276" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Off by default</text>
+<text x="530" y="299" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Hidden diagnostic</text>
+<text x="530" y="322" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">export extension</text>
+<text x="26" y="386" font-size="18" font-weight="bold" text-anchor="start" fill="#b6501e">Express editions do not support rendering extensions.</text>
+<text x="26" y="427" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">After installation, check the report portal Export list for the chosen instance.</text>
+<text x="26" y="450" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">This is a selection diagram, not the installer’s Custom Setup screen.</text>
+</g>
+</svg>

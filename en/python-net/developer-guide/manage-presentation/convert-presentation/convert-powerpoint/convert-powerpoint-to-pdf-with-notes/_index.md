@@ -58,3 +58,10 @@ with slides.Presentation("sample.pptx") as presentation:
 You may want to check out the Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/conversion).
 
 {{% /alert %}} 
+
+<!-- visual-explanation:notes-export:start -->
+[![Actual BottomFull PDF page with the slide above a line reading Speaker note marker, shown again in an enlargement.](visual-notes-export-f0ed0501bd93.svg)](visual-notes-export-f0ed0501bd93.svg)
+
+*This BottomFull PDF places the speaker note below the slide.*
+<!-- visual-explanation:notes-export:end -->
+

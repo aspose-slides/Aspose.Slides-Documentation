@@ -58,6 +58,13 @@ try {
 }
 ```
 
+
+<!-- visual-explanation:bubble-chart:start -->
+[![Two plots use identical X and Y coordinates and size values 1, 4 and 9. In Area mode their circle areas follow 1 to 4 to 9. In Width mode their diameters follow that ratio.](visual-bubble-chart-bf890435c020.svg)](visual-bubble-chart-bf890435c020.svg)
+
+*Illustrative comparison at the same scale. Area uses the circle’s area, while Width uses its diameter.*
+<!-- visual-explanation:bubble-chart:end -->
+
 ## **FAQ**
 
 ### Is a "bubble chart with 3-D effect" supported, and how does it differ from a regular one?

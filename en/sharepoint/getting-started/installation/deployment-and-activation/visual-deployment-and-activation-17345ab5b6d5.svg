@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 510">
+<title id="title">Deployment and site collection activation</title>
+<desc id="description">Farm deployment makes the feature available; activation adds version-specific document library commands for selected site collections.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Deployment and site collection activation</text>
+<text x="26" y="61" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="87" width="333" height="88" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="116" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Farm deployment</text>
+<text x="42" y="145" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Assembly, files and feature installed</text>
+<rect x="402" y="87" width="332" height="88" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="418" y="116" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Site collection activation</text>
+<text x="418" y="145" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Enables library commands here</text>
+<path d="M363,131 L398,131" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="398.0,131.0 389.9,134.9 389.9,127.1" fill="#275eb0"/>
+<rect x="26" y="225" width="342" height="213" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="254" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">SharePoint 2010 and later</text>
+<text x="42" y="283" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Document menu:</text>
+<text x="42" y="306" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">• Convert via Aspose.Slides</text>
+<text x="42" y="329" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">• View Slides (supported slide files)</text>
+<text x="42" y="352" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Ribbon:</text>
+<text x="42" y="375" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">• Aspose Tools → Convert Slides</text>
+<rect x="392" y="225" width="342" height="213" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="408" y="254" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">SharePoint 2007</text>
+<text x="408" y="283" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Document menu:</text>
+<text x="408" y="306" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">• Convert with Aspose.Slides</text>
+<text x="408" y="329" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Library Actions menu:</text>
+<text x="408" y="352" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">• Convert All with Aspose.Slides</text>
+<path d="M568,178 L197,218" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="197.0,218.0 204.6,213.2 205.5,221.0" fill="#275eb0"/>
+<path d="M568,178 L563,218" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="563.0,218.0 560.1,209.5 567.9,210.4" fill="#275eb0"/>
+<text x="26" y="479" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">Workflow and command names; not a capture of a SharePoint screen.</text>
+</g>
+</svg>

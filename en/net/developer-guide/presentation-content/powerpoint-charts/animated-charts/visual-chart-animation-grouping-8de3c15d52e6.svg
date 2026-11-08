@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 365">
+<title id="title">Four categories follow the chart fade</title>
+<desc id="description">The .NET sample configures an initial fade and category indices zero through three, each AfterPrevious.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Four categories follow the chart fade</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="102" width="708" height="65" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="131" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Chart fade — AfterPrevious</text>
+<rect x="26" y="220" width="168" height="68" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="249" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Category 0</text>
+<text x="42" y="278" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">AfterPrevious</text>
+<path d="M194,253 L203,253" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="203.0,253.0 194.9,256.9 194.9,249.1" fill="#04776f"/>
+<rect x="206" y="220" width="168" height="68" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="222" y="249" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Category 1</text>
+<text x="222" y="278" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">AfterPrevious</text>
+<path d="M374,253 L383,253" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="383.0,253.0 374.9,256.9 374.9,249.1" fill="#04776f"/>
+<rect x="386" y="220" width="168" height="68" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="402" y="249" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Category 2</text>
+<text x="402" y="278" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">AfterPrevious</text>
+<path d="M554,253 L563,253" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="563.0,253.0 554.9,256.9 554.9,249.1" fill="#04776f"/>
+<rect x="566" y="220" width="168" height="68" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="582" y="249" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Category 3</text>
+<text x="582" y="278" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">AfterPrevious</text>
+<path d="M380 169 V194 H110 V212" fill="none" stroke="#275eb0" stroke-width="2"/>
+<path d="M110,204 L110,215" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="110.0,215.0 106.1,206.9 113.9,206.9" fill="#275eb0"/>
+<text x="26" y="331" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">These are category indices from the source chart, not series indices.</text>
+</g>
+</svg>

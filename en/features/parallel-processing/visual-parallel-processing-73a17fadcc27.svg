@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 430">
+<title id="title">One presentation instance per worker</title>
+<desc id="description">Licensing precedes a bounded two-worker pool. Each worker owns a presentation and its output files.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">One presentation instance per worker</text>
+<text x="26" y="61" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="90" width="216" height="80" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="119" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Application startup</text>
+<text x="42" y="148" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Apply licensing once</text>
+<rect x="290" y="90" width="444" height="80" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="306" y="119" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Bounded worker pool</text>
+<text x="306" y="148" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">This example uses at most two workers.</text>
+<path d="M246,130 L285,130" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="285.0,130.0 276.9,133.9 276.9,126.1" fill="#275eb0"/>
+<rect x="26" y="210" width="329" height="137" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="239" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">North worker</text>
+<text x="42" y="268" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">North input → own Presentation</text>
+<text x="42" y="291" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Save unique PPTX / PDF outputs</text>
+<text x="42" y="314" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Dispose the instance</text>
+<rect x="405" y="210" width="329" height="137" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="421" y="239" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">South worker</text>
+<text x="421" y="268" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">South input → own Presentation</text>
+<text x="421" y="291" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Save unique PPTX / PDF outputs</text>
+<text x="421" y="314" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Dispose the instance</text>
+<path d="M404,172 L191,204" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="191.0,204.0 198.4,198.9 199.6,206.7" fill="#275eb0"/>
+<path d="M599,172 L569,204" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="569.0,204.0 571.7,195.4 577.4,200.8" fill="#275eb0"/>
+<text x="26" y="389" font-size="19" font-weight="bold" text-anchor="start" fill="#b6501e">Do not share one presentation instance between workers.</text>
+</g>
+</svg>

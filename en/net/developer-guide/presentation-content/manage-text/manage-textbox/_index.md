@@ -151,6 +151,13 @@ presentation.Save("text-rectangles.pptx", SaveFormat.Pptx);
 
 For the 200 × 100 point shapes above, the rectangle returns `(0, 0, 200, 100)`; the ellipse returns approximately `(29.289, 14.645, 141.421, 70.711)`. The method also reads a custom geometry's declared text rectangle. It does not apply slide-space rotation or group transforms; account for those separately when positioning an overlay. A text frame without a geometry shape, such as a table-cell text frame, can throw `InvalidOperationException`.
 
+
+<!-- visual-explanation:manage-textbox:start -->
+[![A rectangle has a full-frame geometry text rectangle, while an ellipse has an inset one. A smaller dashed box encloses the measured text portion.](visual-manage-textbox-23a5da7fcec3.svg)](visual-manage-textbox-23a5da7fcec3.svg)
+
+*The red outlines use shape-local X, Y, width and height in points. The dashed box shows the measured text portion inside the rectangle.*
+<!-- visual-explanation:manage-textbox:end -->
+
 ## **Add Columns to a Text Box**
 
 The [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/) property divides the text frame into columns, while [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/) sets the gap between columns in points. Both settings belong to [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/) and can be changed through the text frame of an existing text box. Text reflows between columns inside the same shape; it does not continue into another shape.

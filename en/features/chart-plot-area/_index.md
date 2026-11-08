@@ -59,6 +59,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("chart-plot-area.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:chart-plot-area:start -->
+[![A gray outline marks the chart frame and a dashed outline marks the light-yellow grid. Its upper-left corner is 15 percent across and 10 percent down the chart frame. The grid occupies 70 percent of both dimensions.](visual-chart-plot-area-4bdc870da831.svg)](visual-chart-plot-area-4bdc870da831.svg)
+
+*The light-yellow Inner plot starts 15% across and 10% down the chart frame. It spans 70% of the frame’s width and height, with axis labels and tick marks outside the target.*
+<!-- visual-explanation:chart-plot-area:end -->
+
 ## **FAQ**
 
 ### **Is the plot area the same as the full chart frame?**

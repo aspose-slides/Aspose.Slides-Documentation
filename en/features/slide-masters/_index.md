@@ -16,6 +16,13 @@ feature_guides:
 
 Read, copy and edit slide masters to control design elements shared by multiple slides. Master backgrounds and master shapes can appear on slides that use the master, helping you apply a design change consistently without editing every slide object.
 
+
+<!-- visual-explanation:master-layout-slides:start -->
+[![A master supplies design to a layout; existing and new slides inherit settings, but only the new slide receives a newly added placeholder.](visual-master-layout-slides-68f75c126f65.svg)](visual-master-layout-slides-68f75c126f65.svg)
+
+*Master backgrounds and graphics can be shared by slides through their layouts. The example adds one Shared brand label to a master and enables master graphics on two dependent slides. The graphic is inherited rather than duplicated as two slide-local shapes.*
+<!-- visual-explanation:master-layout-slides:end -->
+
 ## **Usage example (C# / .NET)**
 
 Install [Aspose.Slides for .NET](/slides/net/installation/) before running this standalone example.

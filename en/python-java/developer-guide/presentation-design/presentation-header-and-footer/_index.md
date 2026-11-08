@@ -299,6 +299,13 @@ Choose the header/footer manager that matches the scope you want to change:
 
 Use propagation from a master or layout when the same setting should apply throughout its hierarchy. Use an individual slide or notes-slide manager when you need a local setting for one page.
 
+
+<!-- visual-explanation:presentation-header-and-footer:start -->
+[![A scope hierarchy leads to a table: regular slides support footer, date and slide number; notes and handouts also support headers.](visual-presentation-header-and-footer-542f03b4f600.svg)](visual-presentation-header-and-footer-542f03b4f600.svg)
+
+*Choose a manager for the presentation, a regular master/layout, one regular slide, a notes master/slide or a handout master. Regular slides have no header placeholder. Propagation methods apply supported settings to dependents; individual managers target local settings.*
+<!-- visual-explanation:presentation-header-and-footer:end -->
+
 ## **FAQ**
 
 **Can I add a header to a regular slide?**

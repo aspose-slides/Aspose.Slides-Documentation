@@ -40,6 +40,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("animation-timing.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:animation-timing:start -->
+[![Prior effect, half-second delay and two-second effect are separate stages; repeat count two is stored separately.](visual-animation-timing-ce2bca5dc92d.svg)](visual-animation-timing-ce2bca5dc92d.svg)
+
+*AfterPrevious relates the effect to the preceding sequence. The sample stores a 0.5-second delay, 2-second duration and repeat count 2. This diagram explains the settings; it does not measure a total playback time.*
+<!-- visual-explanation:animation-timing:end -->
+
 ## **FAQ**
 
 ### **Can I change the order of existing effects?**

@@ -32,3 +32,10 @@ On SharePoint 2007, activation also makes changes to the virtual directory of th
 - Copies the necessary resource files to the App_GlobalResources folder in the virtual directory.
 
 The setup program activates the feature on the site collections you select during [installation](/slides/sharepoint/installing-aspose-slides-for-sharepoint/).
+
+<!-- visual-explanation:deployment-and-activation:start -->
+[![Farm deployment is separate from site collection activation, which exposes different document and library commands on SharePoint 2007 and later versions.](visual-deployment-and-activation-17345ab5b6d5.svg)](visual-deployment-and-activation-17345ab5b6d5.svg)
+
+*Activation applies to the selected site collection. This diagram lists the documented commands by SharePoint version; their appearance depends on the installed interface.*
+<!-- visual-explanation:deployment-and-activation:end -->
+

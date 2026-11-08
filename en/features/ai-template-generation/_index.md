@@ -54,6 +54,13 @@ presentation.Save("generated.pptx", SaveFormat.Pptx);
 Console.WriteLine("Generated slides: " + presentation.Slides.Count);
 ```
 
+
+<!-- visual-explanation:ai-template-generation:start -->
+[![Source empty POTX slide beside generated water-cycle title and content slides, with the retained background and stored font/theme values identified.](visual-ai-template-generation-fe32b72c2d6b.svg)](visual-ai-template-generation-fe32b72c2d6b.svg)
+
+*One observed generation run. The stored Arial font scheme, theme accent and pale background are retained; generated text occupies title and content layouts. The source POTX slide is intentionally empty.*
+<!-- visual-explanation:ai-template-generation:end -->
+
 ## **FAQ**
 
 ### **Can I reuse one in-memory template for every request?**

@@ -56,6 +56,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("chart-error-bars.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:chart-error-bars:start -->
+[![Rendered sales chart with North at 20 and South at 40. Vertical end caps mark the ranges 15 through 25 for North and 35 through 45 for South.](visual-chart-error-bars-6738ea800417.svg)](visual-chart-error-bars-6738ea800417.svg)
+
+*Each bar extends 5 units above and below its sales value. End caps mark 15 and 25 for North and 35 and 45 for South.*
+<!-- visual-explanation:chart-error-bars:end -->
+
 ## **FAQ**
 
 ### **Can horizontal and vertical error bars be configured separately?**

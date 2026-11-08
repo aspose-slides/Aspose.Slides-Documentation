@@ -16,6 +16,13 @@ feature_guides:
 
 Use placeholders to put content into the spaces defined by a slide layout. Fill titles and content areas, adjust their positions, or add suitable placeholders to layouts. This helps generated slides follow a template instead of relying on unrelated shapes at fixed coordinates.
 
+
+<!-- visual-explanation:placeholder-inheritance:start -->
+[![Master, layout and slide placeholders form an inheritance chain; base lookup goes upward, while an ordinary shape has no base link.](visual-placeholder-inheritance-0b0d255d34fd.svg)](visual-placeholder-inheritance-0b0d255d34fd.svg)
+
+*A placeholder is a layout-defined slot that keeps its role and inheritance link when filled with slide content. The example fills the title slot with Project update. An ordinary text box has no base-placeholder link merely because it occupies the same position.*
+<!-- visual-explanation:placeholder-inheritance:end -->
+
 ## **Usage example (C# / .NET)**
 
 Install [Aspose.Slides for .NET](/slides/net/installation/) before running this standalone example.

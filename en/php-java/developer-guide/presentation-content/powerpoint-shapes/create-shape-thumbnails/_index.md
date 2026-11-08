@@ -120,6 +120,13 @@ This sample code is based on the steps above:
   }
 ```
 
+
+<!-- visual-explanation:shape-thumbnail-bounds:start -->
+[![A rectangle’s shadow extends beyond the slide’s right edge. Shape and Appearance thumbnails show different crops of the rectangle and shadow.](visual-shape-thumbnail-bounds-2f4141e8a2fe.svg)](visual-shape-thumbnail-bounds-2f4141e8a2fe.svg)
+
+*The shadow extends past the slide’s right edge. The Appearance thumbnail is clipped at that edge.*
+<!-- visual-explanation:shape-thumbnail-bounds:end -->
+
 ## **Get the Actual Visual Bounds of a Shape**
 
 The frame properties of [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/)—`Shape::getX()`, `Shape::getY()`, `Shape::getWidth()`, and `Shape::getHeight()`—describe the rectangle stored in the presentation model. The content that is actually rendered can extend beyond that frame or occupy a different axis-aligned rectangle. Rotation, outlines, arrowheads, text layout and overflow, generated SmartArt geometry, and other rendering effects can all change the occupied area.

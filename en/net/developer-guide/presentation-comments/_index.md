@@ -349,6 +349,13 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
+
+<!-- visual-explanation:presentation-comments:start -->
+[![The phrase quarterly revenue is highlighted inside Forecast text; stored start 11, length 17 and Resolved status are listed separately from marker coordinates (60, 60).](visual-presentation-comments-94241d308643.svg)](visual-presentation-comments-94241d308643.svg)
+
+*Schematic annotation of the example’s text range. A licensed .NET 26.11 save/reopen check retained the Forecast text anchor, start 11, length 17 and Resolved status. Marker coordinates are separate from the anchor; this figure does not depict a client comment pane.*
+<!-- visual-explanation:presentation-comments:end -->
+
 ### **Inspect Existing Modern Comments**
 
 The example requires an existing presentation containing modern comments and prints their text, status, and anchor details. To inspect it, check which comments implement [IModernComment](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/), then examine [IModernComment.Shape](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/textselectionlength/), and [IModernComment.Status](https://reference.aspose.com/slides/net/aspose.slides/imoderncomment/status/). A `null` shape indicates a slide-level comment. For an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) anchor, the text-selection properties identify the associated range in the shape's text frame.

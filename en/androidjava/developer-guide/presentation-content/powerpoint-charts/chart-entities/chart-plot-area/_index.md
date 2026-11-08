@@ -60,6 +60,13 @@ Aspose.Slides for Android via Java provides a simple API to set the layout mode 
 - [**LayoutTargetType.Inner**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LayoutTargetType#Inner) - specifies that the plot area size shall determine the size of the plot area, not including the tick marks and axis labels.
 - [**LayoutTargetType.Outer**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LayoutTargetType#Outer) - specifies that the plot area size shall determine the size of the plot area, the tick marks, and the axis labels.
 
+
+<!-- visual-explanation:chart-plot-area:start -->
+[![The same chart frame and manual rectangle are used in both renders. In Inner mode the target follows the grid, leaving ticks and labels outside. In Outer mode they take up room inside the target.](visual-chart-plot-area-2345b90e2bdf.svg)](visual-chart-plot-area-2345b90e2bdf.svg)
+
+*The dashed outline marks the same manual rectangle in both renders. Inner leaves room for ticks and labels outside it. Outer fits them inside it.*
+<!-- visual-explanation:chart-plot-area:end -->
+
 Sample code is given below.
 
 ```java

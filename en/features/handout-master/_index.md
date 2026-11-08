@@ -16,6 +16,13 @@ feature_guides:
 
 Work with the handout master to control shared handout content, including header, footer, date and slide-number placeholders. You can also add shapes to the master. Use this alongside handout export when preparing several slides for printing on one sheet.
 
+
+<!-- visual-explanation:handout-master:start -->
+[![The saved PowerPoint handout master has a visible Review copy footer placeholder. The four-slide PDF handout visibly prints Review copy at the lower left.](visual-handout-master-26bf75931933.svg)](visual-handout-master-26bf75931933.svg)
+
+*The saved handout master supplies the visible Review copy footer. A separate export setting arranges four thumbnails across rows, and this PDF prints the footer.*
+<!-- visual-explanation:handout-master:end -->
+
 ## **Usage example (C# / .NET)**
 
 Install [Aspose.Slides for .NET](/slides/net/installation/) before running this standalone example.

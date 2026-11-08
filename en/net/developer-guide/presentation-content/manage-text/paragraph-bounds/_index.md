@@ -78,6 +78,13 @@ foreach (var paragraph in cell.TextFrame.Paragraphs)
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:paragraph-bounds:start -->
+[![The slide origin leads to the table and cell origins. A wrapped paragraph rectangle is 241.5 points wide and 57.6 points high.](visual-paragraph-bounds-eca3cd91c283.svg)](visual-paragraph-bounds-eca3cd91c283.svg)
+
+*Add the table position and cell offset to the cell-relative paragraph coordinates. The width and height stay the same.*
+<!-- visual-explanation:paragraph-bounds:end -->
+
 ## **FAQ**
 
 ### In what units are paragraph coordinates measured?

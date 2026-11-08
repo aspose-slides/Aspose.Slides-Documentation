@@ -378,6 +378,13 @@ try {
 }
 ```
 
+
+<!-- visual-explanation:presentation-comments:start -->
+[![The phrase quarterly revenue is highlighted inside Forecast text; stored start 11, length 17 and Resolved status are listed separately from marker coordinates (60, 60).](visual-presentation-comments-94241d308643.svg)](visual-presentation-comments-94241d308643.svg)
+
+*Schematic annotation of the example’s text range. A licensed .NET 26.11 save/reopen check retained the Forecast text anchor, start 11, length 17 and Resolved status. Marker coordinates are separate from the anchor; this figure does not depict a client comment pane.*
+<!-- visual-explanation:presentation-comments:end -->
+
 ### **Inspect Existing Modern Comments**
 
 The example requires an existing presentation containing modern comments and prints their text, status, and anchor details. To inspect it, check whether each comment is a [ModernComment](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/), then examine [ModernComment::getShape](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/gettextselectionlength/), and [ModernComment::getStatus](https://reference.aspose.com/slides/php-java/aspose.slides/moderncomment/getstatus/). A `null` shape indicates a slide-level comment. For an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) anchor, the text-selection methods identify the associated range in the shape's text frame.

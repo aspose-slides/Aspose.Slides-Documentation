@@ -639,6 +639,13 @@ relativePath->Add(MotionCommandPathType::LineTo, relativeOffsets, MotionPathPoin
 
 Assign either path to a motion behavior to use it in a presentation. The final Boolean argument selects relative coordinates for that command.
 
+
+<!-- visual-explanation:custom-animation:start -->
+[![Equivalent routes start at .2,0 and end at .3,.1, using either an absolute endpoint or a relative .1,.1 offset.](visual-custom-animation-2b5c03cbaedf.svg)](visual-custom-animation-2b5c03cbaedf.svg)
+
+*Both path commands end at (0.3, 0.1). The absolute command specifies that endpoint; the relative command adds (0.1, 0.1) to the current position (0.2, 0). The diagrams show path-coordinate arithmetic, not measured slide pixels.*
+<!-- visual-explanation:custom-animation:end -->
+
 ### **Replace a Line with a Curve**
 
 Open `motion.pptx` and replace its line command with a cubic curve. Supply the two control points first, followed by the endpoint.

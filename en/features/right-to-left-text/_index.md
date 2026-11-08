@@ -41,6 +41,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("right-to-left-text.png", Aspose.Slides.ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:right-to-left-text:start -->
+[![Joined Arabic text is right aligned. In the two mixed-script renders, the exclamation mark moves to the left when RTL direction is enabled.](visual-right-to-left-text-2cf0b051c7b6.svg)](visual-right-to-left-text-2cf0b051c7b6.svg)
+
+*Both mixed-script crops use right alignment. Changing paragraph direction moves the exclamation mark from the right end to the left.*
+<!-- visual-explanation:right-to-left-text:end -->
+
 ## **FAQ**
 
 ### **Can one paragraph contain both Arabic and Latin text?**

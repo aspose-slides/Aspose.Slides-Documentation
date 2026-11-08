@@ -218,6 +218,13 @@ Modern comments can be associated with the slide itself, with a specific shape, 
 
 When `null` is passed for the shape argument, the comment is a slide-level comment. Its marker is positioned by the supplied coordinates, but it is not associated with a particular shape, so [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/) returns `null`. When an [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) is supplied, the comment is anchored to that shape. The coordinates still define the position of the comment marker on the slide, while the shape association can be retrieved through [ModernComment.getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/).
 
+
+<!-- visual-explanation:presentation-comments:start -->
+[![Three separate modern-comment anchors identify the whole slide, a specific shape, or a selected text range; marker coordinates are independent.](visual-presentation-comments-3cbd80a755df.svg)](visual-presentation-comments-3cbd80a755df.svg)
+
+*A modern comment can have a slide, shape or AutoShape text-range anchor. Marker coordinates place its visual marker; they do not select the anchor. A text range adds a starting character index and length to the shape association.*
+<!-- visual-explanation:presentation-comments:end -->
+
 ### **Anchor a Modern Comment to a Shape**
 
 The example calls [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) twice: once with a `null` shape for a slide-level comment and once with a rectangle as the anchor. Reading [getShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getshape/) prints `true` for the slide-level comment's null check and `Revenue title` for the anchored comment. Both comments are saved with the presentation.

@@ -105,6 +105,13 @@ finally:
 
 Each slide starts on a new page. Long extracted text or unusually tall slide images can require additional pages. The code adds page breaks only between slides and releases the presentation and rendered images in `finally` blocks. The JVM remains available for subsequent conversions in the same Python process.
 
+
+<!-- visual-explanation:convert-powerpoint-to-word:start -->
+[![Diagram of the article’s output. A static bitmap shows a chart and grouped label. The plain text Quarterly results follows as an editable Word paragraph.](visual-convert-powerpoint-to-word-962b9ea39178.svg)](visual-convert-powerpoint-to-word-962b9ea39178.svg)
+
+*Diagram of the article’s conversion. The bitmap contains the chart and grouped label, and the text from the top-level text shape becomes a separate editable paragraph.*
+<!-- visual-explanation:convert-powerpoint-to-word:end -->
+
 ## **FAQ**
 
 **Which libraries are required?**

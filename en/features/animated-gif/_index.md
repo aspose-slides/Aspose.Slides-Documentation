@@ -46,6 +46,13 @@ presentation.Save("source.pptx", SaveFormat.Pptx);
 presentation.Save("slides.gif", SaveFormat.Gif, options);
 ```
 
+
+<!-- visual-explanation:animated-gif:start -->
+[![The exported GIF alternates red and blue; two static panels show the same slide states.](visual-animated-gif-8415e562b131.svg)](visual-animated-gif-8415e562b131.svg)
+
+*Actual output from the example on .NET 26.11. The 320 × 180 GIF contains four frames with delays of 1,000, 1,200, 1,000 and 1,200 ms. The static panels retain both states if animation is unavailable. Configured default delay is not a guarantee that every encoded frame has that delay.*
+<!-- visual-explanation:animated-gif:end -->
+
 ## **FAQ**
 
 ### **Can the library save an MP4 directly?**

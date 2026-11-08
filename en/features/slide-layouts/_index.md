@@ -16,6 +16,13 @@ feature_guides:
 
 Work with the layouts attached to a presentation's masters. Layouts provide placeholder positions and shared structure for titles, text and pictures. Select a layout for a new slide, copy layouts when needed, or assign a different layout to an existing slide.
 
+
+<!-- visual-explanation:master-layout-slides:start -->
+[![A master supplies design to a layout; existing and new slides inherit settings, but only the new slide receives a newly added placeholder.](visual-master-layout-slides-68f75c126f65.svg)](visual-master-layout-slides-68f75c126f65.svg)
+
+*A layout supplies the placeholder arrangement used when a slide is created; the slide then owns its entered content. The example creates a new slide from the title layout. The master above the layout supplies shared design, while local slide settings can override inherited values.*
+<!-- visual-explanation:master-layout-slides:end -->
+
 ## **Usage example (C# / .NET)**
 
 Install [Aspose.Slides for .NET](/slides/net/installation/) before running this standalone example.

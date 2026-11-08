@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 417">
+<title id="title">Match the fixed chart size to its OLE frame</title>
+<desc id="description">At 96 DPI, a 684 by 288 point slide frame corresponds to a 912 by 384 pixel chart. Keep chart size independent of the workbook window.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Match the fixed chart size to its OLE frame</text>
+<text x="26" y="61" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<text x="26" y="105" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">OLE frame on slide</text>
+<rect x="54" y="143" width="292" height="123" rx="0" fill="#f8fafc" stroke="#275eb0" stroke-width="1.5"/>
+<text x="200" y="133" font-size="16" font-weight="normal" text-anchor="middle" fill="#275eb0">684 pt</text>
+<text x="200" y="293" font-size="16" font-weight="normal" text-anchor="middle" fill="#275eb0">288 pt high</text>
+<rect x="96" y="216" width="32" height="38" rx="0" fill="#275eb0" stroke="#275eb0" stroke-width="1.5"/>
+<rect x="154" y="181" width="32" height="73" rx="0" fill="#275eb0" stroke="#275eb0" stroke-width="1.5"/>
+<rect x="212" y="160" width="32" height="94" rx="0" fill="#275eb0" stroke="#275eb0" stroke-width="1.5"/>
+<text x="408" y="105" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Chart in workbook</text>
+<rect x="436" y="143" width="292" height="123" rx="0" fill="#f8fafc" stroke="#04776f" stroke-width="1.5"/>
+<text x="582" y="133" font-size="16" font-weight="normal" text-anchor="middle" fill="#04776f">912 px</text>
+<text x="582" y="293" font-size="16" font-weight="normal" text-anchor="middle" fill="#04776f">384 px high</text>
+<rect x="478" y="216" width="32" height="38" rx="0" fill="#04776f" stroke="#04776f" stroke-width="1.5"/>
+<rect x="536" y="181" width="32" height="73" rx="0" fill="#04776f" stroke="#04776f" stroke-width="1.5"/>
+<rect x="594" y="160" width="32" height="94" rx="0" fill="#04776f" stroke="#04776f" stroke-width="1.5"/>
+<path d="M354,204 L402,204" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="402.0,204.0 393.9,207.9 393.9,200.1" fill="#275eb0"/>
+<text x="380" y="331" font-size="19" font-weight="bold" text-anchor="middle" fill="#14253d">points × 96 ÷ 72 = pixels</text>
+<text x="26" y="376" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Keep the chart size independent of the workbook window.</text>
+<text x="26" y="399" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Geometry diagram; first-activation behavior depends on the supporting Office host.</text>
+</g>
+</svg>

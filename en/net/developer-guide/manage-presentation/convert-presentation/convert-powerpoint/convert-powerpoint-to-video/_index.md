@@ -216,6 +216,13 @@ To enable PowerPoint to video conversion tasks, Aspose.Slides for .NET provides 
 
 When animations are generated, a `NewAnimation` event is triggered for each subsequent animation, which includes an [IPresentationAnimationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/) parameter. This class represents a player for an individual animation.
 
+
+<!-- visual-explanation:convert-powerpoint-to-video:start -->
+[![Presentation animation data is rendered to numbered PNGs, then a separate encoder writes the selected video format with coordinated frame rates.](visual-convert-powerpoint-to-video-f34cee01f867.svg)](visual-convert-powerpoint-to-video-f34cee01f867.svg)
+
+*The animation workflow produces frames; a separate encoder writes the video file. Coordinate its image-sequence input and output rates with rendering to preserve intended pacing. Frame APIs and output formats vary by platform.*
+<!-- visual-explanation:convert-powerpoint-to-video:end -->
+
 To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/), you use the [Duration](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/duration/) property (which gives the full duration of the animation) and the [SetTimePosition](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/) method. Each animation position is set within the *0 to duration* range, and the `GetFrame` method then returns a Bitmap representing the animation state at that point in time.
 
 ```c#

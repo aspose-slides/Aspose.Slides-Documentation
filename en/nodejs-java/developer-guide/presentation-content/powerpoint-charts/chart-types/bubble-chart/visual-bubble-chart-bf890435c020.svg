@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 330">
+<title id="title">How bubble size encodes a value</title>
+<desc id="description">Two plots use identical X and Y coordinates and size values 1, 4 and 9. In Area mode their circle areas follow 1 to 4 to 9. In Width mode their diameters follow that ratio.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="53.00" y="33.00" font-size="27" fill="#14253d" text-anchor="start" font-weight="700">Area</text>
+<text x="53.00" y="60.00" font-size="21" fill="#40536b" text-anchor="start" font-weight="400">Circle area follows the value</text>
+<line x1="53.00" y1="86.00" x2="53.00" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<line x1="53.00" y1="278.00" x2="341.00" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<text x="53.00" y="302.00" font-size="18" fill="#14253d" text-anchor="middle" font-weight="400">0</text>
+<text x="41.00" y="284.00" font-size="18" fill="#14253d" text-anchor="end" font-weight="400">0</text>
+<line x1="110.60" y1="86.00" x2="110.60" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<line x1="53.00" y1="239.60" x2="341.00" y2="239.60" stroke="#cedaea" stroke-width="1.5"/>
+<text x="110.60" y="302.00" font-size="18" fill="#14253d" text-anchor="middle" font-weight="400">2</text>
+<text x="41.00" y="245.60" font-size="18" fill="#14253d" text-anchor="end" font-weight="400">2</text>
+<line x1="168.20" y1="86.00" x2="168.20" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<line x1="53.00" y1="201.20" x2="341.00" y2="201.20" stroke="#cedaea" stroke-width="1.5"/>
+<text x="168.20" y="302.00" font-size="18" fill="#14253d" text-anchor="middle" font-weight="400">4</text>
+<text x="41.00" y="207.20" font-size="18" fill="#14253d" text-anchor="end" font-weight="400">4</text>
+<line x1="225.80" y1="86.00" x2="225.80" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<line x1="53.00" y1="162.80" x2="341.00" y2="162.80" stroke="#cedaea" stroke-width="1.5"/>
+<text x="225.80" y="302.00" font-size="18" fill="#14253d" text-anchor="middle" font-weight="400">6</text>
+<text x="41.00" y="168.80" font-size="18" fill="#14253d" text-anchor="end" font-weight="400">6</text>
+<line x1="283.40" y1="86.00" x2="283.40" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<line x1="53.00" y1="124.40" x2="341.00" y2="124.40" stroke="#cedaea" stroke-width="1.5"/>
+<text x="283.40" y="302.00" font-size="18" fill="#14253d" text-anchor="middle" font-weight="400">8</text>
+<text x="41.00" y="130.40" font-size="18" fill="#14253d" text-anchor="end" font-weight="400">8</text>
+<line x1="341.00" y1="86.00" x2="341.00" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<line x1="53.00" y1="86.00" x2="341.00" y2="86.00" stroke="#cedaea" stroke-width="1.5"/>
+<text x="341.00" y="302.00" font-size="18" fill="#14253d" text-anchor="middle" font-weight="400">10</text>
+<text x="41.00" y="92.00" font-size="18" fill="#14253d" text-anchor="end" font-weight="400">10</text>
+<rect x="53.00" y="86.00" width="288.00" height="192.00" fill="none" stroke="#40536b" stroke-width="1"/>
+<text x="362.00" y="303.00" font-size="20" fill="#14253d" text-anchor="start" font-weight="700">X</text>
+<text x="14.00" y="80.00" font-size="20" fill="#14253d" text-anchor="start" font-weight="700">Y</text>
+<circle cx="110.60" cy="220.40" r="11.0000" fill="#dce9ff" stroke="#275eb0" stroke-width="1.5"/>
+<text x="110.60" y="202.40" font-size="20" fill="#275eb0" text-anchor="middle" font-weight="700">1</text>
+<circle cx="197.00" cy="182.00" r="22.0000" fill="#dce9ff" stroke="#275eb0" stroke-width="1.5"/>
+<text x="197.00" y="153.00" font-size="20" fill="#275eb0" text-anchor="middle" font-weight="700">4</text>
+<circle cx="283.40" cy="143.60" r="33.0000" fill="#dce9ff" stroke="#275eb0" stroke-width="1.5"/>
+<text x="283.40" y="103.60" font-size="20" fill="#275eb0" text-anchor="middle" font-weight="700">9</text>
+<text x="433.00" y="33.00" font-size="27" fill="#14253d" text-anchor="start" font-weight="700">Width</text>
+<text x="433.00" y="60.00" font-size="21" fill="#40536b" text-anchor="start" font-weight="400">Diameter follows the value</text>
+<line x1="433.00" y1="86.00" x2="433.00" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<line x1="433.00" y1="278.00" x2="721.00" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<text x="433.00" y="302.00" font-size="18" fill="#14253d" text-anchor="middle" font-weight="400">0</text>
+<text x="421.00" y="284.00" font-size="18" fill="#14253d" text-anchor="end" font-weight="400">0</text>
+<line x1="490.60" y1="86.00" x2="490.60" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<line x1="433.00" y1="239.60" x2="721.00" y2="239.60" stroke="#cedaea" stroke-width="1.5"/>
+<text x="490.60" y="302.00" font-size="18" fill="#14253d" text-anchor="middle" font-weight="400">2</text>
+<text x="421.00" y="245.60" font-size="18" fill="#14253d" text-anchor="end" font-weight="400">2</text>
+<line x1="548.20" y1="86.00" x2="548.20" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<line x1="433.00" y1="201.20" x2="721.00" y2="201.20" stroke="#cedaea" stroke-width="1.5"/>
+<text x="548.20" y="302.00" font-size="18" fill="#14253d" text-anchor="middle" font-weight="400">4</text>
+<text x="421.00" y="207.20" font-size="18" fill="#14253d" text-anchor="end" font-weight="400">4</text>
+<line x1="605.80" y1="86.00" x2="605.80" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<line x1="433.00" y1="162.80" x2="721.00" y2="162.80" stroke="#cedaea" stroke-width="1.5"/>
+<text x="605.80" y="302.00" font-size="18" fill="#14253d" text-anchor="middle" font-weight="400">6</text>
+<text x="421.00" y="168.80" font-size="18" fill="#14253d" text-anchor="end" font-weight="400">6</text>
+<line x1="663.40" y1="86.00" x2="663.40" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<line x1="433.00" y1="124.40" x2="721.00" y2="124.40" stroke="#cedaea" stroke-width="1.5"/>
+<text x="663.40" y="302.00" font-size="18" fill="#14253d" text-anchor="middle" font-weight="400">8</text>
+<text x="421.00" y="130.40" font-size="18" fill="#14253d" text-anchor="end" font-weight="400">8</text>
+<line x1="721.00" y1="86.00" x2="721.00" y2="278.00" stroke="#cedaea" stroke-width="1.5"/>
+<line x1="433.00" y1="86.00" x2="721.00" y2="86.00" stroke="#cedaea" stroke-width="1.5"/>
+<text x="721.00" y="302.00" font-size="18" fill="#14253d" text-anchor="middle" font-weight="400">10</text>
+<text x="421.00" y="92.00" font-size="18" fill="#14253d" text-anchor="end" font-weight="400">10</text>
+<rect x="433.00" y="86.00" width="288.00" height="192.00" fill="none" stroke="#40536b" stroke-width="1"/>
+<text x="742.00" y="303.00" font-size="20" fill="#14253d" text-anchor="start" font-weight="700">X</text>
+<text x="394.00" y="80.00" font-size="20" fill="#14253d" text-anchor="start" font-weight="700">Y</text>
+<circle cx="490.60" cy="220.40" r="3.6667" fill="#dce9ff" stroke="#275eb0" stroke-width="1.5"/>
+<text x="490.60" y="209.73" font-size="20" fill="#275eb0" text-anchor="middle" font-weight="700">1</text>
+<circle cx="577.00" cy="182.00" r="14.6667" fill="#dce9ff" stroke="#275eb0" stroke-width="1.5"/>
+<text x="577.00" y="160.33" font-size="20" fill="#275eb0" text-anchor="middle" font-weight="700">4</text>
+<circle cx="663.40" cy="143.60" r="33.0000" fill="#dce9ff" stroke="#275eb0" stroke-width="1.5"/>
+<text x="663.40" y="103.60" font-size="20" fill="#275eb0" text-anchor="middle" font-weight="700">9</text>
+</g>
+</svg>

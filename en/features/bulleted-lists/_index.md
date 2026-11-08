@@ -46,6 +46,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("bulleted-lists.png", Aspose.Slides.ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:bulleted-lists:start -->
+[![Three bullet items step inward at depths 0, 1 and 2 with left margins of 25, 50 and 75 points.](visual-bulleted-lists-4b67bf440e94.svg)](visual-bulleted-lists-4b67bf440e94.svg)
+
+*The negative first-line indent places each bullet to the left of its item text.*
+<!-- visual-explanation:bulleted-lists:end -->
+
 ## **FAQ**
 
 ### **Can different levels use different bullet styles?**

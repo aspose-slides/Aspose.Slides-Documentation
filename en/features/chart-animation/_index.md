@@ -59,6 +59,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("chart-animation.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:chart-animation-grouping:start -->
+[![Static Sales and Target chart with two configured series click steps.](visual-chart-animation-grouping-a3a054b22719.svg)](visual-chart-animation-grouping-a3a054b22719.svg)
+
+*Actual static chart from the example. BySeries selects Sales at index 0 and Target at index 1, both OnClick. The boxes describe configuration, not captured click playback.*
+<!-- visual-explanation:chart-animation-grouping:end -->
+
 ## **FAQ**
 
 ### **Can each category appear on a separate click?**

@@ -37,6 +37,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("animation-effects.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:animation-effects:start -->
+[![Identical crops show an empty area, a faint blue Quarterly results rectangle, then its opaque blue state in generated player frames.](visual-animation-effects-25cf2b979632.svg)](visual-animation-effects-25cf2b979632.svg)
+
+*The example configures an OnClick fade and saves a static PNG. These additional 10-FPS player frames were generated from its saved presentation on .NET 26.11. Identical crops show the fade developing after an initial hold; frame-index times describe this export, not a captured user click.*
+<!-- visual-explanation:animation-effects:end -->
+
 ## **FAQ**
 
 ### **Will a PDF show the animated sequence?**

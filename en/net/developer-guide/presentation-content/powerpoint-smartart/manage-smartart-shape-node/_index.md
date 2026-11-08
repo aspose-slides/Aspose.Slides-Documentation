@@ -391,6 +391,13 @@ Presentation pres = new Presentation("AccessChildNodes.pptx");
 
 
 
+
+<!-- visual-explanation:manage-smartart-shape-node:start -->
+[![Actual organization-chart renders compare manually edited node positions, dimensions and rotation with recalculated geometry after adding one child.](visual-manage-smartart-shape-node-6aa9cdd919ec.svg)](visual-manage-smartart-shape-node-6aa9cdd919ec.svg)
+
+*Illustrative .NET 26.11 renders after the article’s geometry edits, then after a separate added-child check. Adding a node recalculates positions and sizes; inspect the final layout after structural edits. The added child is not part of the article’s code sample.*
+<!-- visual-explanation:manage-smartart-shape-node:end -->
+
 ## **Check an Assistant Node**
 In the following sample code we will investigate how to identify Assistant Nodes in the SmartArt nodes collection and changing them.
 

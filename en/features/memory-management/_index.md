@@ -78,6 +78,13 @@ using (var unlockedInput = File.Open("media-input.pptx", FileMode.Open, FileAcce
 Console.WriteLine($"Temporary files after disposal: {Directory.GetFiles(temporaryDirectory, "*", SearchOption.AllDirectories).Length}");
 ```
 
+
+<!-- visual-explanation:blob-lifecycle:start -->
+[![Input lifetime spans load through save; BLOB memory and optional temporary files are distinct from slide model memory.](visual-blob-lifecycle-5af6b4634219.svg)](visual-blob-lifecycle-5af6b4634219.svg)
+
+*Media may stay in memory or use allowed temporary storage. Keep the input available as required by the selected loading mode, and dispose the presentation after use. The BLOB threshold does not cap total process memory.*
+<!-- visual-explanation:blob-lifecycle:end -->
+
 ## **FAQ**
 
 ### **Is the media threshold a cap on all memory used by the library?**

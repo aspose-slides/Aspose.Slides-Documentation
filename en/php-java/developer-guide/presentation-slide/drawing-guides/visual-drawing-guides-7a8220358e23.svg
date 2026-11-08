@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 690">
+<title id="title">Guide positions start at the slide’s top-left</title>
+<desc id="description">A conceptual editing overlay shows the center and two guides 12.5 points right and below the center.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Guide positions start at the slide’s top-left</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL EDITING OVERLAY • SAVED COORDINATES VERIFIED</text>
+<rect x="70" y="135" width="576" height="432" rx="0" fill="#fafcff" stroke="#cedaea" stroke-width="1.5"/>
+<path d="M358.0 135 V567" stroke="#cedaea" stroke-width="2" stroke-dasharray="6 5"/>
+<path d="M70 351.0 H646" stroke="#cedaea" stroke-width="2" stroke-dasharray="6 5"/>
+<path d="M368.0 135 V567" stroke="#275eb0" stroke-width="2.5" stroke-dasharray="8 5"/>
+<path d="M70 361.0 H646" stroke="#04776f" stroke-width="2.5" stroke-dasharray="8 5"/>
+<text x="70" y="110" font-size="18" font-weight="bold" text-anchor="start" fill="#14253d">Origin (0, 0)</text>
+<path d="M85,116 L75,132" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="75.0,132.0 76.0,123.1 82.6,127.2" fill="#275eb0"/>
+<text x="405" y="177" font-size="18" font-weight="normal" text-anchor="start" fill="#275eb0">Vertical guide</text>
+<text x="405" y="202" font-size="18" font-weight="normal" text-anchor="start" fill="#275eb0">x = width / 2 + 12.5 pt</text>
+<path d="M407,194 L368.0,218" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="368.0,218.0 372.9,210.4 377.0,217.1" fill="#275eb0"/>
+<text x="91" y="487" font-size="18" font-weight="normal" text-anchor="start" fill="#04776f">Horizontal guide</text>
+<text x="91" y="512" font-size="18" font-weight="normal" text-anchor="start" fill="#04776f">y = height / 2 + 12.5 pt</text>
+<path d="M177,449 L204,361.0" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="204.0,361.0 205.4,369.9 197.9,367.6" fill="#04776f"/>
+<text x="70" y="603" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">For the 720 × 540 pt fixture: x = 372.5 pt, y = 282.5 pt.</text>
+<text x="70" y="627" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">The faint center lines are references. Guides are editor overlays,</text>
+<text x="70" y="651" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">not shapes or marks burned into the rendered slide.</text>
+</g>
+</svg>

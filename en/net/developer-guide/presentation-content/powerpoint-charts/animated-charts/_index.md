@@ -125,6 +125,13 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 ```
 
 
+
+<!-- visual-explanation:chart-animation-grouping:start -->
+[![The chart fade precedes four category effects at indices 0–3, each AfterPrevious.](visual-chart-animation-grouping-8de3c15d52e6.svg)](visual-chart-animation-grouping-8de3c15d52e6.svg)
+
+*The sample adds a chart fade followed by ByCategory effects at indices 0–3. All use AfterPrevious. This is a configuration diagram, not a playback capture.*
+<!-- visual-explanation:chart-animation-grouping:end -->
+
 ## **Animation in a Series Element**
 If you want to animate series elements, write the code according to the steps listed below:
 

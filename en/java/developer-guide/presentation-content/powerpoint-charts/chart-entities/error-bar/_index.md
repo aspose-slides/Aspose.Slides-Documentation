@@ -111,6 +111,13 @@ try {
 }
 ```
 
+
+<!-- visual-explanation:error-bar:start -->
+[![A schematic marks the four error directions around two illustrative points. The first point uses one unit in each direction and the second uses two units in each direction, following the sample’s index plus one rule.](visual-error-bar-bca0d6a2d53f.svg)](visual-error-bar-bca0d6a2d53f.svg)
+
+*Illustrative coordinates. The sample assigns the same offset to −X, +X, −Y and +Y at each point, using 1 for the first point and 2 for the second.*
+<!-- visual-explanation:error-bar:end -->
+
 ## **FAQ**
 
 ### What happens to error bars when exporting a presentation to PDF or images?

@@ -45,6 +45,13 @@ When additional fonts are placed within a presentation, they are called [**Embed
 
 Aspose.Slides allows you to add fonts that are applied to *only* output documents. For example, if a presentation you are looking to convert to PDF contains fonts missing from your system and embedded fonts, you can add or load the needed fonts as **External fonts**. 
 
+
+<!-- visual-explanation:font-selection-sequence:start -->
+[![A font selection schematic separates theme resolution, unavailable families and missing glyphs.](visual-font-selection-sequence-503e4c9ad302.svg)](visual-font-selection-sequence-503e4c9ad302.svg)
+
+*Resolve the theme token to a family first. An unavailable family can trigger substitution, while a missing character can trigger glyph fallback.*
+<!-- visual-explanation:font-selection-sequence:end -->
+
 ## **FAQ**
 
 **How can I determine which fonts are actually used in a presentation before conversion?**

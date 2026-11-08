@@ -45,6 +45,13 @@ presentation.Save("quality-high.pdf", SaveFormat.Pdf, high);
 presentation.Save("source.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:image-quality:start -->
+[![Equal-scale crops compare JPEG quality 20 and 90. The PDFs are 48,802 and 158,922 bytes.](visual-image-quality-388055654ff9.svg)](visual-image-quality-388055654ff9.svg)
+
+*Both PDFs use the same resolution setting. These equal-scale crops show the embedded JPEGs, and the bars show the size of each complete PDF.*
+<!-- visual-explanation:image-quality:end -->
+
 ## **FAQ**
 
 ### **Does JPEG quality change every image in a PDF?**

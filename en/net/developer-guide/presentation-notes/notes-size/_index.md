@@ -34,6 +34,13 @@ Changing either setting does not automatically change the other. Changing the no
 
 The examples below use an existing `sample.pptx`. For the export examples, use a presentation with at least one slide containing speaker notes. Each example can be run independently.
 
+
+<!-- visual-explanation:notes-size:start -->
+[![A regular 960 by 540-point slide keeps its 16 to 9 ratio. A portrait notes PDF measures 600 by 900 points, and the landscape export measures 900 by 600 points.](visual-notes-size-dff02bd439bd.svg)](visual-notes-size-dff02bd439bd.svg)
+
+*Swapping the stored notes dimensions gives 600 × 900 and 900 × 600-point PDF pages in this example. The regular slide keeps its 16:9 proportions.*
+<!-- visual-explanation:notes-size:end -->
+
 ## **Read the Notes Page Size and Orientation**
 
 Read the width and height and compare them to determine the orientation: a wider page is landscape, a taller page is portrait, and equal dimensions describe a square page. This example prints the actual dimensions in points, without assuming a standard paper size.

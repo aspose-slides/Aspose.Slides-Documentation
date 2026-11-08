@@ -35,6 +35,13 @@ image.Save("slide.png", Aspose.Slides.ImageFormat.Png);
 presentation.Save("source.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:rendering-resolution:start -->
+[![Actual PNG previews from a 720 by 540-point slide. A scale of one gives 720 by 540 pixels. A scale of two gives 1440 by 1080 pixels. Both PNGs retain approximately 96 DPI in their metadata.](visual-rendering-resolution-46581bd31a85.svg)](visual-rendering-resolution-46581bd31a85.svg)
+
+*Doubling the rendering scale doubles both pixel dimensions. The PNG metadata remains approximately 96 DPI in both files.*
+<!-- visual-explanation:rendering-resolution:end -->
+
 ## **FAQ**
 
 ### **Does a larger PNG automatically carry a higher DPI tag?**

@@ -37,6 +37,13 @@ for (var i = 0; i < diagram.AllNodes.Count && i < labels.Length; i++)
 presentation.Save("smartart.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:smartart-layouts:start -->
+[![Actual SmartArt process contains Plan, Build and Review nodes linked by arrows.](visual-smartart-layouts-61fb7d6c9450.svg)](visual-smartart-layouts-61fb7d6c9450.svg)
+
+*Actual .NET 26.11 output from the example’s three-step process. Plan, Build and Review remain editable SmartArt nodes in the saved presentation.*
+<!-- visual-explanation:smartart-layouts:end -->
+
 ## **FAQ**
 
 ### **Can I change the diagram's text and structure later?**

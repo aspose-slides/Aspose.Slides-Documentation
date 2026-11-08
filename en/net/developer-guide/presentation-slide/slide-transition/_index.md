@@ -300,6 +300,13 @@ else
 }
 ```
 
+
+<!-- visual-explanation:slide-transition:start -->
+[![Morph matching units shown as a whole shape, individual words, and individual characters.](visual-slide-transition-76bdbee41cb7.svg)](visual-slide-transition-76bdbee41cb7.svg)
+
+*Morph can match whole shapes, words or characters where possible. These boxes identify matching units rather than observed motion. The example selects ByWord on the second slide.*
+<!-- visual-explanation:slide-transition:end -->
+
 ## **Set Transition Effects**
 
 Some transitions expose additional options, such as direction or whether the effect starts from a black screen. The available options depend on the selected transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/). Set the type first, then use the appropriate interface from its [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/).

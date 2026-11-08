@@ -21,6 +21,13 @@ Use the .NET installation and system-requirements guidance to select the library
 
 Start with the application's target framework and deployment operating system, then select the corresponding package and native dependencies. Test rendering on that target with its actual fonts. A successful run on one runtime does not establish compatibility with other operating systems or architectures. For a runnable conversion example, see [Export presentations to PDF](/slides/features/pdf-export/).
 
+
+<!-- visual-explanation:dotnet-runtimes:start -->
+[![Deployment target leads to standard or cross-platform package requirements, with fonts and target-machine rendering verification for both.](visual-dotnet-runtimes-539bef6e1aa9.svg)](visual-dotnet-runtimes-539bef6e1aa9.svg)
+
+*Choose the package from the target framework, operating system and architecture, then follow the [system requirements](/slides/net/system-requirements/) and [package guidance](/slides/net/net6/). Test with the fonts and native dependencies installed on the deployment target.*
+<!-- visual-explanation:dotnet-runtimes:end -->
+
 ## **FAQ**
 
 ### **Should every .NET application use the same package setup?**

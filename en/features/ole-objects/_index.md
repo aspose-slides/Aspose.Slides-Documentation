@@ -38,6 +38,13 @@ frame.SubstitutePictureFormat.Picture.Image = preview;
 presentation.Save("ole-objects.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:ole-preview-and-payload:start -->
+[![OLE preview and workbook payload are distinct, and activation requires a supporting host.](visual-ole-preview-and-payload-0c94d690f1d0.svg)](visual-ole-preview-and-payload-0c94d690f1d0.svg)
+
+*The workbook data and the slide preview are separate. A substitute picture supplies the visible preview; activation opens the payload in a supporting OLE host. The linked alternative stores an external file relationship instead of workbook bytes.*
+<!-- visual-explanation:ole-preview-and-payload:end -->
+
 ## **FAQ**
 
 ### **Does embedding a file render its contents automatically?**

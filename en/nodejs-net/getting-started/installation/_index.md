@@ -118,6 +118,13 @@ dotnet restore deps/deps.csproj
 
 You need this step once per machine, not once per project: the packages stay in the NuGet cache, and later projects on the same machine use them. After the restore, you can delete the `deps` folder.
 
+
+<!-- visual-explanation:installation:start -->
+[![npm installation supplies the Node.js package and bridge; a separate dotnet restore supplies its NuGet dependencies.](visual-installation-10a0f086e40a.svg)](visual-installation-10a0f086e40a.svg)
+
+*The npm package and the NuGet dependency cache are separate parts of the setup. Restore the listed dependencies once for the cache used by the application, then run the script from its project folder.*
+<!-- visual-explanation:installation:end -->
+
 ## **Run a First Program**
 
 Create a file named `hello.js` in the project folder with the following code. It creates a presentation, adds a rectangle with the text "Hello, World!" to the first slide, and saves the result as `hello.pptx`:

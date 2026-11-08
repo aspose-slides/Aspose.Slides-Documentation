@@ -60,6 +60,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("external-chart-workbook.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:external-chart-workbook:start -->
+[![Two chart renders share a zero to sixty scale. Linking and refreshing from the separate sales.xlsx changes North from 20 to 55 and leaves South at 40. If the workbook is missing, only available cached values may be read.](visual-external-chart-workbook-f547fbd2bdde.svg)](visual-external-chart-workbook-f547fbd2bdde.svg)
+
+*Refreshing from the linked workbook updates North to 55. In .NET 26.11, a missing file still allows reading cached values when the chart has them. Refresh requires the workbook.*
+<!-- visual-explanation:external-chart-workbook:end -->
+
 ## **FAQ**
 
 ### **Can I read every cached value when the linked file is missing?**

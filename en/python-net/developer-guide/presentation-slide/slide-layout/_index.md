@@ -62,6 +62,13 @@ For more information about the top level of this hierarchy, see [Slide Master](/
 
 To hide inherited logos or decorative master shapes on one slide or through a shared layout, see [Control the Visibility of Master Graphics](/slides/python-net/slide-master/). The example compares two slides using the same master.
 
+
+<!-- visual-explanation:master-layout-slides:start -->
+[![A master supplies design to a layout; existing and new slides inherit settings, but only the new slide receives a newly added placeholder.](visual-master-layout-slides-68f75c126f65.svg)](visual-master-layout-slides-68f75c126f65.svg)
+
+*The master supplies shared design, the layout supplies placeholder structure, and each slide owns its content. Existing inherited settings can update dependent slides. Add required placeholders before creating slides: a placeholder added later to the layout is not automatically inserted into existing slides.*
+<!-- visual-explanation:master-layout-slides:end -->
+
 ## **Select and Apply a Slide Layout**
 
 Use a layout type when the presentation follows standard PowerPoint layout definitions. Layout names are user-editable and can be localized, so name-based selection is less reliable unless you control the source template.

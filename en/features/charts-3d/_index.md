@@ -52,6 +52,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("charts-3d.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:charts-3d:start -->
+[![Two rendered views show the same North 20 and South 40 columns. The second view uses X rotation 15 degrees, Y rotation 20 degrees and depth 100 percent.](visual-charts-3d-e808c448b99e.svg)](visual-charts-3d-e808c448b99e.svg)
+
+*The same columns are shown front-on and at the example’s angles. Both views use 100% depth.*
+<!-- visual-explanation:charts-3d:end -->
+
 ## **FAQ**
 
 ### **Can I mix different 3D bar shapes across series?**

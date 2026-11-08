@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 445">
+<title id="title">Media storage and presentation lifetime</title>
+<desc id="description">An input stays available during loading, processing and saving. Embedded data can remain in memory or use permitted temporary storage. The slide model is separate.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Media storage and presentation lifetime</text>
+<text x="26" y="61" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="90" width="204" height="82" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="119" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Load</text>
+<text x="42" y="148" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Input file or stream</text>
+<rect x="278" y="90" width="204" height="82" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="294" y="119" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Process and save</text>
+<text x="294" y="148" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Instance stays open</text>
+<rect x="530" y="90" width="204" height="82" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="546" y="119" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Dispose</text>
+<text x="546" y="148" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Release input locks</text>
+<path d="M233,130 L272,130" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="272.0,130.0 263.9,133.9 263.9,126.1" fill="#275eb0"/>
+<path d="M485,130 L524,130" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="524.0,130.0 515.9,133.9 515.9,126.1" fill="#275eb0"/>
+<path d="M38 200 H504" stroke="#04776f" stroke-width="5"/>
+<text x="38" y="229" font-size="17" font-weight="normal" text-anchor="start" fill="#04776f">Keep the selected input source available while it is in use.</text>
+<rect x="26" y="257" width="222" height="112" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="286" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">BLOBs in memory</text>
+<text x="42" y="315" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Embedded binary data</text>
+<text x="42" y="338" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Subject to BLOB threshold</text>
+<rect x="269" y="257" width="222" height="112" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="285" y="286" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Temporary BLOB files</text>
+<text x="285" y="315" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">If permitted and needed</text>
+<text x="285" y="338" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Writable directory required</text>
+<rect x="512" y="257" width="222" height="112" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="528" y="286" font-size="18" font-weight="bold" text-anchor="start" fill="#b6501e">Slide / shape model</text>
+<text x="528" y="315" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Still needs memory</text>
+<text x="528" y="338" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Separate from BLOB data</text>
+<path d="M248,311 L266,311" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="266.0,311.0 257.9,314.9 257.9,307.1" fill="#04776f"/>
+<text x="26" y="411" font-size="18" font-weight="bold" text-anchor="start" fill="#b6501e">The BLOB threshold is not a cap on total process memory.</text>
+</g>
+</svg>

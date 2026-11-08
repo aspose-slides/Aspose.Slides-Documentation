@@ -177,6 +177,13 @@ The original text and its formatting remain in the upper (or left) cell; the new
 
 The saved presentation contains separate "Product A" and "Product B" cells with the template's cell formatting retained. See the [Cell API Reference](https://reference.aspose.com/slides/net/aspose.slides/cell/) for details.
 
+
+<!-- visual-explanation:manage-cells:start -->
+[![The merged cell at column 1, rows 2 and 3 splits into Product A and Product B with the same grid indices.](visual-manage-cells-62c80896698e.svg)](visual-manage-cells-62c80896698e.svg)
+
+*The row-span split uses the existing boundary. Product A and Product B occupy (1, 2) and (1, 3), respectively.*
+<!-- visual-explanation:manage-cells:end -->
+
 ## **Change the Table Cell Background Color**
 
 This example creates a table with 150-point columns and 50-point rows. It sets [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) to solid and [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) to red for cell `(2, 3)`, in the third column and fourth row.

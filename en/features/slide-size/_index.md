@@ -32,6 +32,13 @@ presentation.SlideSize.SetSize(960, 540, SlideSizeScaleType.DoNotScale);
 presentation.Save("slide-size.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:slide-size:start -->
+[![DoNotScale keeps a 240 by 100-point rectangle at x 60, y 60 on a 960 by 540-point slide. In a separate example, Maximize scales another 240 by 100-point rectangle to 320 by about 133 points.](visual-slide-size-7f7865d71c9a.svg)](visual-slide-size-7f7865d71c9a.svg)
+
+*DoNotScale keeps the 240 × 100-point rectangle at (60, 60) on the 960 × 540-point slide. In a separate resize from 720 × 540 to 960 × 540 points, Maximize scales the rectangle to about 320 × 133 points.*
+<!-- visual-explanation:slide-size:end -->
+
 ## **FAQ**
 
 ### **Can I change the size of an existing deck?**

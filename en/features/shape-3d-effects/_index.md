@@ -42,6 +42,13 @@ shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
 presentation.Save("shape-3d-effects.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:shape-3d-effects:start -->
+[![Four blue rectangles show camera and light only, bevel only, extrusion only, and both effects together.](visual-shape-3d-effects-67ba8ca192b0.svg)](visual-shape-3d-effects-67ba8ca192b0.svg)
+
+*The camera and lighting stay fixed. The combined render shows the 6 × 6 pt top bevel and 30 pt extrusion together.*
+<!-- visual-explanation:shape-3d-effects:end -->
+
 ## **FAQ**
 
 ### **Is a 3D effect the same as embedding a 3D model?**

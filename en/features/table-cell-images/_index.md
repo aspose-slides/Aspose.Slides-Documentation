@@ -40,6 +40,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("table-cell-images.png", Aspose.Slides.ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:table-cell-images:start -->
+[![A picture fill stretches to the first cell's boundaries. A separately cropped picture frame crosses the table's cell boundary.](visual-table-cell-images-781a4a74e631.svg)](visual-table-cell-images-781a4a74e631.svg)
+
+*The fill belongs to the cell. A floating picture frame can be positioned and cropped independently of the table.*
+<!-- visual-explanation:table-cell-images:end -->
+
 ## **FAQ**
 
 ### **Can I position a small image freely within the cell?**

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 640">
+<title id="title">Normal View stores an editor arrangement</title>
+<desc id="description">A conceptual editor diagram separates the side, slide and bottom content regions and their splitters.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Normal View stores an editor arrangement</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL EDITOR LAYOUT • NOT AN APPLICATION SCREENSHOT</text>
+<rect x="26" y="100" width="708" height="380" rx="0" fill="#f8fafc" stroke="#cedaea" stroke-width="1.5"/>
+<rect x="40" y="115" width="156" height="350" rx="3" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="58" y="158" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Side content</text>
+<text x="58" y="183" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">region</text>
+<rect x="218" y="115" width="501" height="233" rx="3" fill="#fff" stroke="#cedaea" stroke-width="1.5"/>
+<text x="468" y="239" font-size="22" font-weight="bold" text-anchor="middle" fill="#275eb0">Slide region</text>
+<rect x="218" y="370" width="501" height="95" rx="3" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="468" y="425" font-size="19" font-weight="bold" text-anchor="middle" fill="#04776f">Bottom content region</text>
+<path d="M207 115 V465" stroke="#275eb0" stroke-width="5"/>
+<path d="M218 359 H719" stroke="#04776f" stroke-width="5"/>
+<text x="26" y="526" font-size="18" font-weight="normal" text-anchor="start" fill="#14253d">VerticalBarState → side/slide splitter</text>
+<text x="26" y="551" font-size="18" font-weight="normal" text-anchor="start" fill="#14253d">HorizontalBarState → slide/bottom splitter</text>
+<text x="26" y="593" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">Restored dimensions apply when restored; the host controls its actual UI.</text>
+</g>
+</svg>

@@ -41,6 +41,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("morph.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:morph:start -->
+[![Matching actual slide crops show the rectangle named Results moving right and becoming wider on slide two.](visual-morph-1733b67e1a09.svg)](visual-morph-1733b67e1a09.svg)
+
+*Actual static endpoints from the example, cropped identically. The shape keeps the name `!!Results`; its X position changes from 120 to 260 points and its width from 320 to 400 points. Morph is configured on the second slide. These endpoints do not show an observed transition midpoint.*
+<!-- visual-explanation:morph:end -->
+
 ## **FAQ**
 
 ### **Is Morph stored as a slide animation effect?**

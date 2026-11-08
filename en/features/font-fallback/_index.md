@@ -39,6 +39,13 @@ image.Save("fallback.png", Aspose.Slides.ImageFormat.Png);
 presentation.Save("source.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:font-glyph-fallback:start -->
+[![Greek alpha is rendered in Courier New without an explicit rule and in Arial with the Greek range rule.](visual-font-glyph-fallback-d1a7198b6816.svg)](visual-font-glyph-fallback-d1a7198b6816.svg)
+
+*Microsoft Himalaya lacks α. On this host, automatic fallback uses Courier New, and the Greek range rule selects Arial.*
+<!-- visual-explanation:font-glyph-fallback:end -->
+
 ## **FAQ**
 
 ### **Does fallback order matter?**

@@ -256,6 +256,13 @@ try {
 
 Because the hidden image data is still present, the crop can be changed later without losing the original pixels. If file size matters more than reversibility, the cropped regions can be physically removed as described in the next section.
 
+
+<!-- visual-explanation:image-crop-and-fit:start -->
+[![Source margins of 23.6% left, 21.5% right, 3% top and 31% bottom are shaded beside the cropped frame.](visual-image-crop-and-fit-8fe77bb469cc.svg)](visual-image-crop-and-fit-8fe77bb469cc.svg)
+
+*The sample percentages select a region of the embedded source. The rendered result uses the same frame dimensions.*
+<!-- visual-explanation:image-crop-and-fit:end -->
+
 ## **Remove Cropped Image Data**
 
 [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) removes image data outside the current crop rectangle and returns the resulting image resource. This can reduce file size, but it is a destructive optimization: after the presentation is saved, the removed pixels are no longer available for a later uncrop operation.

@@ -32,6 +32,13 @@ Method [IViewProperties.getNormalViewProperties](https://reference.aspose.com/s
 
 [INormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewRestoredProperties) interfaces and its descendants, [SplitterBarStateType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SplitterBarStateType) enum have been added.
 
+
+<!-- visual-explanation:presentation-view-properties:start -->
+[![A conceptual editor separates a side panel, slide region and bottom region with labelled vertical and horizontal splitters.](visual-presentation-view-properties-40ae1765a743.svg)](visual-presentation-view-properties-40ae1765a743.svg)
+
+*Normal View stores the side, slide and bottom-region arrangement. VerticalBarState and HorizontalBarState control their splitters; restored sizing applies in the restored state. These are editor settings, not slide shapes. The consuming application determines how it displays the saved preferences.*
+<!-- visual-explanation:presentation-view-properties:end -->
+
 ## **About INormalViewProperties**
 
 Represents normal view properties.

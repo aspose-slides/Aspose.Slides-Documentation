@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 515">
+<title id="title">Morph can match shapes, words or characters</title>
+<desc id="description">Three conceptual matching units are shown without implying a captured intermediate state.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Morph can match shapes, words or characters</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<text x="26" y="139" font-size="19" font-weight="bold" text-anchor="start" fill="#275eb0">ByObject</text>
+<rect x="220.0" y="115" width="480.0" height="52" rx="7" fill="#f0f5fc" stroke="#04776f" stroke-width="1.5"/>
+<text x="460.0" y="150" font-size="23" font-weight="bold" text-anchor="middle" fill="#04776f">AB CD</text>
+<text x="26" y="274" font-size="19" font-weight="bold" text-anchor="start" fill="#275eb0">ByWord</text>
+<rect x="220.0" y="250" width="234.0" height="52" rx="7" fill="#f0f5fc" stroke="#04776f" stroke-width="1.5"/>
+<text x="337.0" y="285" font-size="23" font-weight="bold" text-anchor="middle" fill="#04776f">AB</text>
+<rect x="466.0" y="250" width="234.0" height="52" rx="7" fill="#f0f5fc" stroke="#04776f" stroke-width="1.5"/>
+<text x="583.0" y="285" font-size="23" font-weight="bold" text-anchor="middle" fill="#04776f">CD</text>
+<text x="26" y="409" font-size="19" font-weight="bold" text-anchor="start" fill="#275eb0">ByChar</text>
+<rect x="220.0" y="385" width="111.0" height="52" rx="7" fill="#f0f5fc" stroke="#04776f" stroke-width="1.5"/>
+<text x="275.5" y="420" font-size="23" font-weight="bold" text-anchor="middle" fill="#04776f">A</text>
+<rect x="343.0" y="385" width="111.0" height="52" rx="7" fill="#f0f5fc" stroke="#04776f" stroke-width="1.5"/>
+<text x="398.5" y="420" font-size="23" font-weight="bold" text-anchor="middle" fill="#04776f">B</text>
+<rect x="466.0" y="385" width="111.0" height="52" rx="7" fill="#f0f5fc" stroke="#04776f" stroke-width="1.5"/>
+<text x="521.5" y="420" font-size="23" font-weight="bold" text-anchor="middle" fill="#04776f">C</text>
+<rect x="589.0" y="385" width="111.0" height="52" rx="7" fill="#f0f5fc" stroke="#04776f" stroke-width="1.5"/>
+<text x="644.5" y="420" font-size="23" font-weight="bold" text-anchor="middle" fill="#04776f">D</text>
+<text x="26" y="489" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Matching works where possible; boxes show the unit, not observed motion.</text>
+</g>
+</svg>

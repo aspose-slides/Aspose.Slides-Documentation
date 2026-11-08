@@ -89,6 +89,13 @@ presentation->Save(u"landscape-notes.pptx", SaveFormat::Pptx);
 
 For portrait orientation, use the same assignment when `size.get_Width() > size.get_Height()`. Do not substitute A4 or Letter dimensions unless you also want to change the paper size.
 
+
+<!-- visual-explanation:notes-size:start -->
+[![A regular 960 by 540-point slide keeps its 16 to 9 ratio. A portrait notes PDF measures 600 by 900 points, and the landscape export measures 900 by 600 points.](visual-notes-size-dff02bd439bd.svg)](visual-notes-size-dff02bd439bd.svg)
+
+*Swapping the stored notes dimensions gives 600 × 900 and 900 × 600-point PDF pages in this example. The regular slide keeps its 16:9 proportions.*
+<!-- visual-explanation:notes-size:end -->
+
 ## **Set and Verify a Custom Notes Page Size**
 
 Assign both dimensions together, then use [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) to write the presentation. This example sets a 900 × 600-point landscape page, saves it as PPTX, and opens the saved file again to check the persisted values. The comparison allows a 0.01-point tolerance for floating-point values; it is not a guarantee of precision for every file format.

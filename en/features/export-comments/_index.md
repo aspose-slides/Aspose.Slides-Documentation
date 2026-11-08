@@ -37,6 +37,13 @@ presentation.Save("output.pdf", SaveFormat.Pdf, options);
 presentation.Save("source.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:export-comments:start -->
+[![A crop of the exported PDF shows a slide and a light-blue 220-point comments region. An enlargement reads Review this slide by Demo reviewer.](visual-export-comments-0cf42b3bd9a2.svg)](visual-export-comments-0cf42b3bd9a2.svg)
+
+*The PDF grows from 720 to 940 points wide to include the configured 220-point area. The crop and enlargement show the rendered legacy comment.*
+<!-- visual-explanation:export-comments:end -->
+
 ## **FAQ**
 
 ### **Can comments be placed beside the slide?**

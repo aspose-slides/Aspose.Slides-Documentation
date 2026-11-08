@@ -49,6 +49,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("chart-data-binding.png", Aspose.Slides.ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:chart-data-binding:start -->
+[![North and South values from the Actual and Plan input arrays are written to columns B and C of the embedded workbook. The rendered chart groups the two series under each region.](visual-chart-data-binding-0ed5172aa46c.svg)](visual-chart-data-binding-0ed5172aa46c.svg)
+
+*The sample writes North and South as workbook rows and Actual and Plan as series columns. The chart groups the two series by region.*
+<!-- visual-explanation:chart-data-binding:end -->
+
 ## **FAQ**
 
 ### **Can I reuse a designer's chart layout?**

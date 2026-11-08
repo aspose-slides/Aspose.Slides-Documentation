@@ -97,6 +97,13 @@ try {
 
 The [slideSize.size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/size/) property returns the slide width and height in points. For a 16:9 presentation, the script prints `Saved a 1280 x 720 image` and writes `slide_1_1280px.png`; for a 4:3 presentation, the image is 1280 × 960 pixels.
 
+
+<!-- visual-explanation:convert-slide:start -->
+[![The same 960 by 540-point slide renders at 1920 by 1080 pixels with scale two or 1280 by 720 pixels when fitted to 1280 pixels wide.](visual-convert-slide-488b740de562.svg)](visual-convert-slide-488b740de562.svg)
+
+*A 16:9 slide rendered at 2× and at an exact width of 1280 pixels. The exact-size render uses the source aspect ratio to calculate 720 pixels for the height.*
+<!-- visual-explanation:convert-slide:end -->
+
 ## **FAQ**
 
 **Why is the image from `getImage` without arguments so small?**

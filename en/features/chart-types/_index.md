@@ -52,6 +52,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("chart-types.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:chart-types:start -->
+[![A clustered column chart plots North 20 and South 40. A line chart uses the library’s default category data. Below, three rows list the fields for category, scatter and bubble data.](visual-chart-types-0855018cd71d.svg)](visual-chart-types-0855018cd71d.svg)
+
+*The clustered columns use North and South sales from the example. The line chart uses the library’s default data.*
+<!-- visual-explanation:chart-types:end -->
+
 ## **FAQ**
 
 ### **Does every named chart value behave as a standalone chart type?**

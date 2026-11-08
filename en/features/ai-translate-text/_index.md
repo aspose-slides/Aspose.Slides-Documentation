@@ -53,6 +53,13 @@ presentation.Save("translated.pptx", SaveFormat.Pptx);
 Console.WriteLine("Saved translated.pptx; original.pptx is unchanged.");
 ```
 
+
+<!-- visual-explanation:ai-translate-text:start -->
+[![Matching English and Spanish slide crops contain an ordinary shape, a grouped shape and a table cell.](visual-ai-translate-text-4369e7441bc0.svg)](visual-ai-translate-text-4369e7441bc0.svg)
+
+*Matching cropped views from one observed translation run. The ordinary shape, grouped shape and table cell contain Spanish text in the saved copy; the source remains in English. Review wording and text growth for each result.*
+<!-- visual-explanation:ai-translate-text:end -->
+
 ## **FAQ**
 
 ### **Does this translate every kind of presentation content?**

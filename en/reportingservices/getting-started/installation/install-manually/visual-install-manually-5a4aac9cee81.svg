@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 534">
+<title id="title">Manual report-server installation</title>
+<desc id="description">Select the correct assembly, copy it to the instance bin directory with inherited permissions, register exports and trust, save configuration, and check the export list.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Manual report-server installation</text>
+<text x="26" y="61" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="88" width="338" height="112" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="117" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">1. Assembly in ReportServer/bin</text>
+<text x="42" y="146" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Choose the server build.</text>
+<text x="42" y="169" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Keep inherited NTFS permissions.</text>
+<text x="42" y="192" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Unblock the file if the option exists.</text>
+<rect x="396" y="88" width="338" height="112" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="412" y="117" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">2. Back up both config files</text>
+<text x="412" y="146" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">rsreportserver.config</text>
+<text x="412" y="169" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">rssrvpolicy.config</text>
+<path d="M368,143 L392,143" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="392.0,143.0 383.9,146.9 383.9,139.1" fill="#275eb0"/>
+<rect x="26" y="248" width="338" height="109" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="277" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">3. Register export formats</text>
+<text x="42" y="306" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Add chosen Render extensions.</text>
+<text x="42" y="329" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Each extension name must be unique.</text>
+<rect x="396" y="248" width="338" height="109" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="412" y="277" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">4. Register assembly trust</text>
+<text x="412" y="306" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Add the documented code group.</text>
+<text x="412" y="329" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Keep the public key on one line.</text>
+<path d="M564,204 L195,240" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="195.0,240.0 202.7,235.3 203.4,243.1" fill="#275eb0"/>
+<path d="M368,303 L392,303" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="392.0,303.0 383.9,306.9 383.9,299.1" fill="#275eb0"/>
+<rect x="26" y="408" width="708" height="95" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="437" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">5. Save valid configuration → check the portal Export list</text>
+<text x="42" y="466" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">The server rereads saved configuration. Verify the formats you registered:</text>
+<text x="42" y="489" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">PPT   PPS   PPTX   PPSX   ODP   XPS</text>
+<path d="M565,361 L565,402" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="565.0,402.0 561.1,393.9 568.9,393.9" fill="#275eb0"/>
+</g>
+</svg>

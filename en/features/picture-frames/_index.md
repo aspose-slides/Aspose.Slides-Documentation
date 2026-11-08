@@ -16,6 +16,13 @@ feature_guides:
 
 Add an image to the presentation and display it in a picture frame at the desired position and size. Frames let you place pictures alongside text and other slide objects. You can read the embedded image data again or adjust how it appears in the frame.
 
+
+<!-- visual-explanation:image-crop-and-fit:start -->
+[![A two-color image in a 300 by 150 point frame and in a narrower 200 by 150 point frame.](visual-image-crop-and-fit-ad749e5d4bef.svg)](visual-image-crop-and-fit-ad749e5d4bef.svg)
+
+*The 2:1 source keeps its proportions in the left frame. The narrower frame stretches the same source to its own proportions.*
+<!-- visual-explanation:image-crop-and-fit:end -->
+
 ## **Usage example (C# / .NET)**
 
 Install [Aspose.Slides for .NET](/slides/net/installation/) before running this standalone example.

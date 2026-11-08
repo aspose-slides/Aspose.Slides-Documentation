@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 570">
+<title id="title">Theme overrides narrow the affected scope</title>
+<desc id="description">A master theme supplies the base, a layout override affects its inheritors, and a slide override provides a local exception.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Theme overrides narrow the affected scope</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="95" width="708" height="80" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="124" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Master theme</text>
+<text x="42" y="153" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Base color, font and format schemes</text>
+<rect x="26" y="230" width="330" height="85" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="259" font-size="18" font-weight="bold" text-anchor="start" fill="#b6501e">Layout A override</text>
+<text x="42" y="288" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Imported color / font / format</text>
+<rect x="404" y="230" width="330" height="85" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="420" y="259" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Layout B</text>
+<text x="420" y="288" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Continues to use the base theme</text>
+<path d="M220,178 L191,224" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="191.0,224.0 192.0,215.1 198.6,219.2" fill="#275eb0"/>
+<path d="M541,178 L568,224" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="568.0,224.0 560.5,219.0 567.3,215.0" fill="#275eb0"/>
+<rect x="26" y="374" width="210" height="95" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="403" font-size="18" font-weight="bold" text-anchor="start" fill="#b6501e">Slide A1</text>
+<text x="42" y="432" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Inherits layout A</text>
+<rect x="268" y="374" width="210" height="95" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="284" y="403" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Slide A2 override</text>
+<text x="284" y="432" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Local exception</text>
+<rect x="512" y="374" width="222" height="95" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="528" y="403" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Slide B1</text>
+<text x="528" y="432" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Inherits layout B</text>
+<path d="M150,319 L130,366" fill="none" stroke="#b6501e" stroke-width="2"/>
+<polygon points="130.0,366.0 129.6,357.0 136.8,360.1" fill="#b6501e"/>
+<path d="M250,319 L372,366" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="372.0,366.0 363.0,366.7 365.8,359.4" fill="#04776f"/>
+<path d="M570,319 L623,366" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="623.0,366.0 614.3,363.6 619.5,357.7" fill="#275eb0"/>
+<text x="26" y="526" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">An explicit object-level value can remain unchanged by a theme update.</text>
+</g>
+</svg>

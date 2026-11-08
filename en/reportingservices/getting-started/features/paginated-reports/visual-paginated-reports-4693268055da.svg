@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 450">
+<title id="title">Rows continue onto the next report page</title>
+<desc id="description">A conceptual eight-row report continues across two report pages and two exported slide representations. Actual page count depends on report design.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Rows continue onto the next report page</text>
+<text x="26" y="61" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="88" width="708" height="60" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="117" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Report design (.rdl) + complete data table</text>
+<rect x="26" y="194" width="328" height="203" rx="10" fill="#f8fafc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="43" y="224" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Report page 1</text>
+<rect x="43" y="243" width="135" height="116" rx="0" fill="#fff" stroke="#275eb0" stroke-width="1.5"/>
+<path d="M88.0 243 V359" stroke="#cedaea"/>
+<path d="M133.0 243 V359" stroke="#cedaea"/>
+<path d="M43 272.0 H178" stroke="#cedaea"/>
+<path d="M43 301.0 H178" stroke="#cedaea"/>
+<path d="M43 330.0 H178" stroke="#cedaea"/>
+<text x="52" y="261.85" font-size="14" font-weight="normal" text-anchor="start" fill="#40536b">1</text>
+<text x="52" y="290.85" font-size="14" font-weight="normal" text-anchor="start" fill="#40536b">2</text>
+<text x="52" y="319.85" font-size="14" font-weight="normal" text-anchor="start" fill="#40536b">3</text>
+<text x="52" y="348.85" font-size="14" font-weight="normal" text-anchor="start" fill="#40536b">4</text>
+<path d="M187,300 L216,300" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="216.0,300.0 207.9,303.9 207.9,296.1" fill="#275eb0"/>
+<rect x="225" y="255" width="111" height="83" rx="0" fill="#fff" stroke="#04776f" stroke-width="1.5"/>
+<text x="280" y="279" font-size="16" font-weight="bold" text-anchor="middle" fill="#04776f">Slide 1</text>
+<rect x="236" y="290" width="89" height="36" rx="0" fill="#fff" stroke="#275eb0" stroke-width="1.5"/>
+<path d="M265.6666666666667 290 V326" stroke="#cedaea"/>
+<path d="M295.3333333333333 290 V326" stroke="#cedaea"/>
+<path d="M236 299.0 H325" stroke="#cedaea"/>
+<path d="M236 308.0 H325" stroke="#cedaea"/>
+<path d="M236 317.0 H325" stroke="#cedaea"/>
+<rect x="405" y="194" width="328" height="203" rx="10" fill="#f8fafc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="422" y="224" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Report page 2</text>
+<rect x="422" y="243" width="135" height="116" rx="0" fill="#fff" stroke="#275eb0" stroke-width="1.5"/>
+<path d="M467.0 243 V359" stroke="#cedaea"/>
+<path d="M512.0 243 V359" stroke="#cedaea"/>
+<path d="M422 272.0 H557" stroke="#cedaea"/>
+<path d="M422 301.0 H557" stroke="#cedaea"/>
+<path d="M422 330.0 H557" stroke="#cedaea"/>
+<text x="431" y="261.85" font-size="14" font-weight="normal" text-anchor="start" fill="#40536b">5</text>
+<text x="431" y="290.85" font-size="14" font-weight="normal" text-anchor="start" fill="#40536b">6</text>
+<text x="431" y="319.85" font-size="14" font-weight="normal" text-anchor="start" fill="#40536b">7</text>
+<text x="431" y="348.85" font-size="14" font-weight="normal" text-anchor="start" fill="#40536b">8</text>
+<path d="M566,300 L595,300" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="595.0,300.0 586.9,303.9 586.9,296.1" fill="#275eb0"/>
+<rect x="604" y="255" width="111" height="83" rx="0" fill="#fff" stroke="#04776f" stroke-width="1.5"/>
+<text x="659" y="279" font-size="16" font-weight="bold" text-anchor="middle" fill="#04776f">Slide 2</text>
+<rect x="615" y="290" width="89" height="36" rx="0" fill="#fff" stroke="#275eb0" stroke-width="1.5"/>
+<path d="M644.6666666666666 290 V326" stroke="#cedaea"/>
+<path d="M674.3333333333334 290 V326" stroke="#cedaea"/>
+<path d="M615 299.0 H704" stroke="#cedaea"/>
+<path d="M615 308.0 H704" stroke="#cedaea"/>
+<path d="M615 317.0 H704" stroke="#cedaea"/>
+<path d="M190,151 L190,187" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="190.0,187.0 186.1,178.9 193.9,178.9" fill="#275eb0"/>
+<path d="M570,151 L570,187" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="570.0,187.0 566.1,178.9 573.9,178.9" fill="#275eb0"/>
+<text x="26" y="433" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">Illustrative pagination: continue the data instead of cutting off later rows.</text>
+</g>
+</svg>

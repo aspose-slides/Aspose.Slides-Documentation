@@ -35,6 +35,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("import-html.png", Aspose.Slides.ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:import-html:start -->
+[![Browser crop of Quarterly report and Revenue is growing, followed by the same heading and bold word in the actual imported slide. A separate table example shows a slide-level table and cell text flattened into a text frame.](visual-import-html-84bb8b51a68d.svg)](visual-import-html-84bb8b51a68d.svg)
+
+*The imported slide preserves the heading and bold word. In a separate table example, slide-level import creates a table and paragraph-level import puts the cell text into a text frame.*
+<!-- visual-explanation:import-html:end -->
+
 ## **FAQ**
 
 ### **Which import path should I use for an HTML table?**

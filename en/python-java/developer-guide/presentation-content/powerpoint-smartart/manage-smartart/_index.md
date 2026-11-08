@@ -77,6 +77,13 @@ finally:
     presentation.dispose()
 ```
 
+
+<!-- visual-explanation:smartart-layouts:start -->
+[![Actual SmartArt nodes A through E are rearranged from a block list into a connected horizontal process.](visual-smartart-layouts-76cc0f963910.svg)](visual-smartart-layouts-76cc0f963910.svg)
+
+*Illustrative .NET 26.11 fixture using the article’s BasicBlockList → BasicProcess change. The five node labels are unchanged; the layout controls their arrangement and connections.*
+<!-- visual-explanation:smartart-layouts:end -->
+
 ## **Check Whether a SmartArt Node Is Hidden**
 
 [SmartArtNode.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/smartartnode/#isHidden) indicates whether the node is hidden in the SmartArt data model. Hidden nodes can exist in the structure even when the selected layout does not display them as visible diagram elements.

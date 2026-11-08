@@ -76,6 +76,13 @@ finally:
     presentation.dispose()
 ```
 
+
+<!-- visual-explanation:portion-bounds:start -->
+[![Starting points for the Sales and Q3 portions are shown inside their bounds relative to the shape origin.](visual-portion-bounds-7a938585da77.svg)](visual-portion-bounds-7a938585da77.svg)
+
+*The dots mark the measured starts of the two portions in this fixture. The rectangles show their text layout bounds.*
+<!-- visual-explanation:portion-bounds:end -->
+
 ## **FAQ**
 
 **Can I apply a hyperlink to only part of the text within a single paragraph?**

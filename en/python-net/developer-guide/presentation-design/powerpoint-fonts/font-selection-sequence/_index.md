@@ -49,6 +49,13 @@ Aspose.Slides allows you to add fonts that are applied to *only* output document
 We do not distribute any fonts, either paid or free. Our API allows you to load external fonts and embed them in documents, but you do so with fonts at your discretion and responsibility.
 {{% /alert %}}
 
+
+<!-- visual-explanation:font-selection-sequence:start -->
+[![A font selection schematic separates theme resolution, unavailable families and missing glyphs.](visual-font-selection-sequence-503e4c9ad302.svg)](visual-font-selection-sequence-503e4c9ad302.svg)
+
+*Resolve the theme token to a family first. An unavailable family can trigger substitution, while a missing character can trigger glyph fallback.*
+<!-- visual-explanation:font-selection-sequence:end -->
+
 ## **FAQ**
 
 **How can I determine which fonts are actually used in a presentation before conversion?**

@@ -127,6 +127,13 @@ try {
 }
 ```
 
+
+<!-- visual-explanation:smartart-layouts:start -->
+[![The same labelled organization-chart nodes change from the default arrangement to left-hanging children under parent A.](visual-smartart-layouts-3487c8138eeb.svg)](visual-smartart-layouts-3487c8138eeb.svg)
+
+*Illustrative .NET 26.11 fixture with labels added for identification. LeftHanging changes the child arrangement of the selected top-level parent; it is distinct from changing the whole SmartArt layout type.*
+<!-- visual-explanation:smartart-layouts:end -->
+
 ## **Create a Picture Organization Chart**
 
 A picture organization chart is a SmartArt layout designed for hierarchy diagrams that include image placeholders. Use the [SmartArtLayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/smartartlayouttype/) `PictureOrganizationChart` value when adding the SmartArt object to a slide. This example saves a diagram with image placeholders; it does not populate the placeholders with images.

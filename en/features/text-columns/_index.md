@@ -43,6 +43,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("text-columns.png", Aspose.Slides.ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:text-columns:start -->
+[![Items 1 to 7 read down the first column, followed by items 8 to 12 down the second. Dashed lines mark the 20-point gap.](visual-text-columns-064795ce65b2.svg)](visual-text-columns-064795ce65b2.svg)
+
+*One text frame supplies both columns. Its paragraphs flow down the first column before continuing in the second.*
+<!-- visual-explanation:text-columns:end -->
+
 ## **FAQ**
 
 ### **Do I need a separate text box for every column?**

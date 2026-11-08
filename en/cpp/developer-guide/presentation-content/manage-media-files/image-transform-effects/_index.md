@@ -306,6 +306,13 @@ reopenedPresentation->Dispose();
 
 The collection does not impose a compatibility matrix that restricts color, alpha, and blur operations to separate chains. They can be combined, but combinations are not always useful. A fixed color replacement removes RGB variation produced by earlier color effects; grayscale after duotone removes the two selected colors; and alpha ceiling, floor, replacement, or bi-level operations can discard alpha detail created earlier. Build the chain according to the desired pixel-processing sequence rather than treating its items as unordered formatting flags.
 
+
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
+
+*In this illustrative Aspose.Slides for .NET 26.11 render, a 220° tint at 25% leaves the grayscale image unchanged. Applying the same tint before grayscale produces different tones.*
+<!-- visual-explanation:image-transform-effects:end -->
+
 ## **Inspect Editable and Effective Values**
 
 An editable operation is the object stored in `ISlidesPicture::get_ImageTransform`. Depending on the effect, it may expose writable members directly. For example, [IBlur](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/) exposes `set_Radius` and `set_Grow`, [IAlphaModulateFixed](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ialphamodulatefixed/) exposes `set_Amount`, and [IAlphaBiLevel](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ialphabilevel/) exposes `set_Threshold`. Color effects such as [IDuotone](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iduotone/) expose mutable [IColorFormat](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/) objects.

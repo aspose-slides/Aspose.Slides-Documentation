@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 581">
+<title id="title">Font selection</title>
+<desc id="description">Resolve the theme token, find the family, then check glyph coverage.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<defs><marker id="14253d-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7 z" fill="#14253d"/></marker><marker id="275eb0-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7 z" fill="#275eb0"/></marker><marker id="04776f-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7 z" fill="#04776f"/></marker><marker id="b6501e-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7 z" fill="#b6501e"/></marker></defs>
+<text x="30" y="38" text-anchor="start" font-size="24" fill="#04776f" font-weight="700">SCHEMATIC</text>
+<line x1="30" y1="53" x2="730" y2="53" stroke="#cedaea" stroke-width="2"/>
+<rect x="30" y="76" width="700" height="98" rx="8" fill="#f0f5fc" stroke="#cedaea" stroke-width="2"/>
+<text x="49" y="113" text-anchor="start" font-size="31" fill="#275eb0" font-weight="700">Resolve the requested family</text>
+<text x="49" y="149" text-anchor="start" font-size="26" fill="#40536b">+mn-lt → theme&#x27;s Latin body font</text>
+<line x1="54" y1="175" x2="54" y2="211" stroke="#275eb0" stroke-width="3" marker-end="url(#275eb0-arrow)"/>
+<rect x="30" y="217" width="700" height="142" rx="8" fill="#f0f5fc" stroke="#cedaea" stroke-width="2"/>
+<text x="49" y="254" text-anchor="start" font-size="31" fill="#275eb0" font-weight="700">Check whether the family is available</text>
+<text x="49" y="290" text-anchor="start" font-size="26" fill="#40536b">Embedded and registered sources</text>
+<line x1="54" y1="360" x2="54" y2="406" stroke="#275eb0" stroke-width="3" marker-end="url(#275eb0-arrow)"/>
+<rect x="30" y="412" width="700" height="98" rx="8" fill="#f0f5fc" stroke="#cedaea" stroke-width="2"/>
+<text x="49" y="449" text-anchor="start" font-size="31" fill="#04776f" font-weight="700">Check whether the font has the glyph</text>
+<text x="49" y="485" text-anchor="start" font-size="26" fill="#40536b">For example, does it contain α?</text>
+<text x="87" y="399" text-anchor="start" font-size="25" fill="#b6501e" font-weight="700">Family unavailable → substitution</text>
+<text x="49" y="544" text-anchor="start" font-size="27" fill="#b6501e" font-weight="700">Glyph missing → glyph fallback</text>
+<text x="49" y="329" text-anchor="start" font-size="25" fill="#40536b">Embedded vs. registered preference is configurable.</text>
+</g>
+</svg>

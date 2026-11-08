@@ -76,6 +76,13 @@ It is possible to create your own **custom animations** in Aspose.Slides. This c
 ## **Interactive Animation**
 [Trigger](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effecttriggertype/) allows you to define user actions, such as a button click, that start a particular animation.
 
+
+<!-- visual-explanation:interactive-animation:start -->
+[![A main animation sequence and a separate button-triggered track show that the trigger and target may differ.](visual-interactive-animation-df6a499d8633.svg)](visual-interactive-animation-df6a499d8633.svg)
+
+*An interactive sequence belongs to its trigger shape and runs effects on the chosen targets. The diagram separates this track from the main sequence; it does not claim a particular client’s playback UI.*
+<!-- visual-explanation:interactive-animation:end -->
+
 ## **Shape Animation**
 Aspose.Slides allows you to apply animations to shapes, which can include text, rectangles, lines, frames, OLE objects, and more.
 

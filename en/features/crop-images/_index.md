@@ -37,6 +37,13 @@ picture.PictureFormat.CropBottom = 0;
 presentation.Save("crop-images.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:image-crop-and-fit:start -->
+[![The left red half of the source stays embedded. A 200 by 150 point frame renders only the blue half.](visual-image-crop-and-fit-8c1ac10e52c3.svg)](visual-image-crop-and-fit-8c1ac10e52c3.svg)
+
+*Cropping 50% from the source’s left edge leaves blue visible in the 200 × 150 pt frame.*
+<!-- visual-explanation:image-crop-and-fit:end -->
+
 ## **FAQ**
 
 ### **How can I reduce file size after cropping?**

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 655">
+<title id="title">What one chart animation step selects</title>
+<desc id="description">Numbers mark illustrative reveal order for two series and two categories, not chart values.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">What one chart animation step selects</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<text x="26" y="105" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">By series</text>
+<text x="138" y="140" font-size="16" font-weight="normal" text-anchor="middle" fill="#40536b">North</text>
+<text x="283" y="140" font-size="16" font-weight="normal" text-anchor="middle" fill="#40536b">South</text>
+<text x="26" y="183" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Sales</text>
+<rect x="111" y="155" width="100" height="48" rx="6" fill="#e9f0fc" stroke="#275eb0" stroke-width="1.5"/>
+<text x="161" y="186" font-size="22" font-weight="bold" text-anchor="middle" fill="#275eb0">1</text>
+<rect x="256" y="155" width="100" height="48" rx="6" fill="#e9f0fc" stroke="#275eb0" stroke-width="1.5"/>
+<text x="306" y="186" font-size="22" font-weight="bold" text-anchor="middle" fill="#275eb0">1</text>
+<text x="26" y="248" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Target</text>
+<rect x="111" y="220" width="100" height="48" rx="6" fill="#e3f4ef" stroke="#04776f" stroke-width="1.5"/>
+<text x="161" y="251" font-size="22" font-weight="bold" text-anchor="middle" fill="#04776f">2</text>
+<rect x="256" y="220" width="100" height="48" rx="6" fill="#e3f4ef" stroke="#04776f" stroke-width="1.5"/>
+<text x="306" y="251" font-size="22" font-weight="bold" text-anchor="middle" fill="#04776f">2</text>
+<text x="405" y="105" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">By category</text>
+<text x="517" y="140" font-size="16" font-weight="normal" text-anchor="middle" fill="#40536b">North</text>
+<text x="662" y="140" font-size="16" font-weight="normal" text-anchor="middle" fill="#40536b">South</text>
+<text x="405" y="183" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Sales</text>
+<rect x="490" y="155" width="100" height="48" rx="6" fill="#e9f0fc" stroke="#275eb0" stroke-width="1.5"/>
+<text x="540" y="186" font-size="22" font-weight="bold" text-anchor="middle" fill="#275eb0">1</text>
+<rect x="635" y="155" width="100" height="48" rx="6" fill="#e9f0fc" stroke="#275eb0" stroke-width="1.5"/>
+<text x="685" y="186" font-size="22" font-weight="bold" text-anchor="middle" fill="#275eb0">2</text>
+<text x="405" y="248" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Target</text>
+<rect x="490" y="220" width="100" height="48" rx="6" fill="#e3f4ef" stroke="#04776f" stroke-width="1.5"/>
+<text x="540" y="251" font-size="22" font-weight="bold" text-anchor="middle" fill="#04776f">1</text>
+<rect x="635" y="220" width="100" height="48" rx="6" fill="#e3f4ef" stroke="#04776f" stroke-width="1.5"/>
+<text x="685" y="251" font-size="22" font-weight="bold" text-anchor="middle" fill="#04776f">2</text>
+<text x="26" y="365" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Element within series</text>
+<text x="138" y="400" font-size="16" font-weight="normal" text-anchor="middle" fill="#40536b">North</text>
+<text x="283" y="400" font-size="16" font-weight="normal" text-anchor="middle" fill="#40536b">South</text>
+<text x="26" y="443" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Sales</text>
+<rect x="111" y="415" width="100" height="48" rx="6" fill="#e9f0fc" stroke="#275eb0" stroke-width="1.5"/>
+<text x="161" y="446" font-size="22" font-weight="bold" text-anchor="middle" fill="#275eb0">1</text>
+<rect x="256" y="415" width="100" height="48" rx="6" fill="#e9f0fc" stroke="#275eb0" stroke-width="1.5"/>
+<text x="306" y="446" font-size="22" font-weight="bold" text-anchor="middle" fill="#275eb0">2</text>
+<text x="26" y="508" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Target</text>
+<rect x="111" y="480" width="100" height="48" rx="6" fill="#e3f4ef" stroke="#04776f" stroke-width="1.5"/>
+<text x="161" y="511" font-size="22" font-weight="bold" text-anchor="middle" fill="#04776f">3</text>
+<rect x="256" y="480" width="100" height="48" rx="6" fill="#e3f4ef" stroke="#04776f" stroke-width="1.5"/>
+<text x="306" y="511" font-size="22" font-weight="bold" text-anchor="middle" fill="#04776f">4</text>
+<text x="405" y="365" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Element within category</text>
+<text x="517" y="400" font-size="16" font-weight="normal" text-anchor="middle" fill="#40536b">North</text>
+<text x="662" y="400" font-size="16" font-weight="normal" text-anchor="middle" fill="#40536b">South</text>
+<text x="405" y="443" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Sales</text>
+<rect x="490" y="415" width="100" height="48" rx="6" fill="#e9f0fc" stroke="#275eb0" stroke-width="1.5"/>
+<text x="540" y="446" font-size="22" font-weight="bold" text-anchor="middle" fill="#275eb0">1</text>
+<rect x="635" y="415" width="100" height="48" rx="6" fill="#e9f0fc" stroke="#275eb0" stroke-width="1.5"/>
+<text x="685" y="446" font-size="22" font-weight="bold" text-anchor="middle" fill="#275eb0">3</text>
+<text x="405" y="508" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Target</text>
+<rect x="490" y="480" width="100" height="48" rx="6" fill="#e3f4ef" stroke="#04776f" stroke-width="1.5"/>
+<text x="540" y="511" font-size="22" font-weight="bold" text-anchor="middle" fill="#04776f">2</text>
+<rect x="635" y="480" width="100" height="48" rx="6" fill="#e3f4ef" stroke="#04776f" stroke-width="1.5"/>
+<text x="685" y="511" font-size="22" font-weight="bold" text-anchor="middle" fill="#04776f">4</text>
+<text x="26" y="612" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Numbers = illustrative step order; both color and row labels identify series.</text>
+</g>
+</svg>

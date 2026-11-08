@@ -326,6 +326,13 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
+
+<!-- visual-explanation:ole-preview-and-payload:start -->
+[![OLE preview and workbook payload are distinct, and activation requires a supporting host.](visual-ole-preview-and-payload-6975770ef2ea.svg)](visual-ole-preview-and-payload-6975770ef2ea.svg)
+
+*The workbook data and the slide preview are separate. An icon and title identify the embedded payload; activation opens the payload in a supporting OLE host. The linked alternative stores an external file relationship instead of workbook bytes.*
+<!-- visual-explanation:ole-preview-and-payload:end -->
+
 ## **Prevent an OLE Object Frame from Being Resized and Repositioned**
 
 After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, call the [setUpdateAutomatic](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/#setUpdateAutomatic-boolean-) method of the [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/) interface with `false`:

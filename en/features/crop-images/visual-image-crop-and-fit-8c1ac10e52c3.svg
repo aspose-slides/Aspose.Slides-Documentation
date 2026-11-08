@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 272">
+<title id="title">Crop away half of a two-color source</title>
+<desc id="description">A red-and-blue source and blue result. Half the source width is cropped from the left.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="30" y="30" font-size="21" font-weight="700" text-anchor="start" fill="#14253d">Source image</text>
+<text x="439" y="30" font-size="21" font-weight="700" text-anchor="start" fill="#14253d">Picture frame after crop</text>
+<rect x="30.000" y="70.000" width="135.000" height="135.000" fill="#d5000b" stroke="none" stroke-width="2" stroke-dasharray="" rx="0" opacity="1"/>
+<rect x="165.000" y="70.000" width="135.000" height="135.000" fill="#0000ff" stroke="none" stroke-width="2" stroke-dasharray="" rx="0" opacity="1"/>
+<text x="97" y="130" font-size="17" font-weight="700" text-anchor="middle" fill="#fff">50% hidden</text>
+<text x="97" y="156" font-size="15" font-weight="400" text-anchor="middle" fill="#fff">still embedded</text>
+<text x="232" y="141" font-size="17" font-weight="700" text-anchor="middle" fill="#fff">Visible</text>
+<path d="M324.00 138.00L407.00 138.00" fill="none" stroke="#275eb0" stroke-width="2" stroke-dasharray=""/>
+<polygon points="407.00,138.00 399.23,142.55 399.23,133.45" fill="#275eb0"/>
+<image x="457.000" y="56.000" width="212.000" height="159.000" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQkAAADHCAYAAAAK/aYUAAAB40lEQVR42u3UMQEAAAjDsIF/z6CAizeR0KOVzATg0BIAJgGYBGASgEkAJgGYBGASgEkAmARgEoBJACYBmARgEoBJACYBmASASQAmAZgEYBKASQAmAZgEYBKASQCYBGASgEkAJgGYBGASgEkAJgGYBIBJACYBmARgEoBJACYBmARgEoBJAJgEYBKASQAmAZgEYBKASQAmAZgEgEkAJgGYBGASgEkAJgGYBGASgEkAmARgEoBJACYBmARgEoBJACYBmASASQAmAZgEYBKASQAmAZgEYBKASQCYBGASgEkAJgGYBGASgEkAJgFgEoBJACYBmARgEoBJACYBmARgEgAmAZgEYBKASQAmAZgEYBKASQAmAWASgEkAJgGYBGASgEkAJgGYBGASACYBmARgEoBJACYBmARgEoBJACYBYBKASQAmAZgEYBKASQAmAZgEYBIAJgGYBGASgEkAJgGYBGASgEkAJgFgEoBJACYBmARgEoBJACYBmARgEgAmAZgEYBKASQAmAZgEYBKASQAmAWASgEkAJgGYBGASgEkAJgGYBGASACYBmARgEoBJACYBmARgEoBJAJgEYBKASQAmAZgEYBKASQAmAZgEgEkAJgGYBGASgEkAJgGYBGASgEkAmARgEsDbAuvaA4xyWKQ/AAAAAElFTkSuQmCC"/>
+<rect x="457.000" y="56.000" width="212.000" height="159.000" fill="none" stroke="#cedaea" stroke-width="2" stroke-dasharray="" rx="0" opacity="1"/>
+<text x="30" y="242" font-size="17" font-weight="400" text-anchor="start" fill="#40536b">200 × 100 source units</text>
+<text x="457" y="242" font-size="17" font-weight="400" text-anchor="start" fill="#40536b">200 × 150 pt frame</text>
+</g>
+</svg>

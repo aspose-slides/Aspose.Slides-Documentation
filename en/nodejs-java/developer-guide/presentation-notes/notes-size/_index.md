@@ -197,6 +197,13 @@ Keep the stored presentation size, the exported page size, and the printed paper
 - **Export formats:** The notes and handout PDF examples above use the configured page dimensions. Raster images use integer pixel dimensions and a rendering scale, so fractional point values can be rounded in the image output. Exporting regular slides does not apply the notes page size.
 - **Printer drivers:** Paper selection, automatic rotation, and fit-to-page settings can change the physical output without changing the dimensions stored in the presentation or PDF. For a specific paper size, match the printer settings and inspect the print preview.
 
+
+<!-- visual-explanation:notes-size:start -->
+[![Actual notes PDF orientation comparison with a diagram distinguishing stored NotesSize points, PDF page dimensions measured after export, and separately selected physical printer paper and scaling.](visual-notes-size-188d27bc4f2f.svg)](visual-notes-size-188d27bc4f2f.svg)
+
+*Measured notes PDFs and a diagram of how the saved notes size, export page and viewer or printer settings affect output.*
+<!-- visual-explanation:notes-size:end -->
+
 ## **FAQ**
 
 **Can I set the notes size for just one slide?**

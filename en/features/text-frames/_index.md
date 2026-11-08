@@ -16,6 +16,13 @@ feature_guides:
 
 Work with a shape's text frame to control how its text sits inside the available space. Set margins, wrapping and vertical alignment, or choose a vertical text orientation. Text-frame settings apply to the container while paragraphs and portions handle the content inside it.
 
+
+<!-- visual-explanation:text-frames:start -->
+[![A shape contains a text frame, which contains paragraphs. The styled word ready is a portion within the first paragraph.](visual-text-frames-149f5b5c8411.svg)](visual-text-frames-149f5b5c8411.svg)
+
+*Frame settings govern the text area. Paragraph and portion settings control the content inside it.*
+<!-- visual-explanation:text-frames:end -->
+
 ## **Usage example**
 
 This C# example creates two paragraphs in one rectangle, sets 12-point internal margins and saves an editable text frame to `text-frames.pptx`. The PNG previews the same slide; no input file is needed.

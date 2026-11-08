@@ -93,6 +93,13 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
+<!-- visual-explanation:ole-preview-and-payload:start -->
+[![OLE preview and workbook payload are distinct, and activation requires a supporting host.](visual-ole-preview-and-payload-f38773947dd8.svg)](visual-ole-preview-and-payload-f38773947dd8.svg)
+
+*An embedded object keeps workbook bytes in the PPTX; a linked object keeps a path to an external workbook. The slide preview, when present, is separate. Opening a linked workbook requires the file and a supporting OLE host.*
+<!-- visual-explanation:ole-preview-and-payload:end -->
+
 ## **Access OLE Objects**
 
 If an OLE object is already embedded in a slide, you can access it as follows:

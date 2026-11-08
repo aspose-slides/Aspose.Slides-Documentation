@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 545">
+<title id="title">Follow the base-placeholder chain</title>
+<desc id="description">A slide placeholder can inherit through its layout to its master. A local ordinary shape has no such link.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Follow the base-placeholder chain</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="105" width="204" height="120" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="134" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Master</text>
+<text x="42" y="163" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Shared styles</text>
+<text x="42" y="186" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Possible base placeholder</text>
+<rect x="278" y="105" width="204" height="120" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="294" y="134" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Layout</text>
+<text x="294" y="163" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Placeholder arrangement</text>
+<text x="294" y="186" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Inherited formatting</text>
+<rect x="530" y="105" width="204" height="120" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="546" y="134" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Slide placeholder</text>
+<text x="546" y="163" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Slide content</text>
+<text x="546" y="186" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Local overrides possible</text>
+<path d="M234,155 L272,155" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="272.0,155.0 263.9,158.9 263.9,151.1" fill="#275eb0"/>
+<path d="M486,155 L524,155" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="524.0,155.0 515.9,158.9 515.9,151.1" fill="#275eb0"/>
+<path d="M530,200 L480,200" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="480.0,200.0 488.1,196.1 488.1,203.9" fill="#04776f"/>
+<path d="M278,200 L228,200" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="228.0,200.0 236.1,196.1 236.1,203.9" fill="#04776f"/>
+<text x="26" y="312" font-size="18" font-weight="normal" text-anchor="start" fill="#04776f">Base lookup moves upward; a missing base returns no shape.</text>
+<rect x="26" y="363" width="330" height="98" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="392" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Local override</text>
+<text x="42" y="421" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Overrides that setting on one slide</text>
+<rect x="404" y="363" width="330" height="98" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="420" y="392" font-size="18" font-weight="bold" text-anchor="start" fill="#b6501e">Ordinary shape</text>
+<text x="420" y="421" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">No base-placeholder relationship</text>
+<text x="26" y="509" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">Being at the same coordinates does not create an inheritance link.</text>
+</g>
+</svg>

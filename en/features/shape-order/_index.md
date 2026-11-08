@@ -41,6 +41,13 @@ shapes.Reorder(shapes.Count - 1, red);
 presentation.Save("shape-order.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:shape-stacking-order:start -->
+[![The red rectangle moves in front of the blue rectangle while both keep their positions.](visual-shape-stacking-order-f90a91cd3e22.svg)](visual-shape-stacking-order-f90a91cd3e22.svg)
+
+*Moving the red rectangle to the last index puts it in front. Both shapes keep their positions.*
+<!-- visual-explanation:shape-stacking-order:end -->
+
 ## **FAQ**
 
 ### **Does changing stacking order move the shape?**

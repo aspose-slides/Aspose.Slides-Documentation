@@ -135,6 +135,13 @@ The same [RectangleF](https://learn.microsoft.com/en-us/dotnet/api/system.drawin
 
 Use [GetVisualBounds](https://reference.aspose.com/slides/net/aspose.slides/shape/getvisualbounds/) when you need coordinates for layout or validation and do not need a bitmap. Use [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) when you need to render the shape. With [ShapeThumbnailBounds](https://reference.aspose.com/slides/net/aspose.slides/shapethumbnailbounds/), `ShapeThumbnailBounds.Shape` sizes the image from the shape bounds, including outline settings, while `ShapeThumbnailBounds.Appearance` sizes it from the shape's appearance and restricts the result to the slide bounds. In contrast, [GetVisualBounds](https://reference.aspose.com/slides/net/aspose.slides/shape/getvisualbounds/) returns only the calculated rectangle and does not clip it to the slide.
 
+
+<!-- visual-explanation:shape-thumbnail-bounds:start -->
+[![A rotated outlined arrow crosses the slide’s left edge. Its uncut visual bounds, stored frame and actual thumbnails differ.](visual-shape-thumbnail-bounds-06704045c8a9.svg)](visual-shape-thumbnail-bounds-06704045c8a9.svg)
+
+*The rotated arrow extends left of the slide. Its visual bounds include that area. The Appearance thumbnail clips at the slide edge.*
+<!-- visual-explanation:shape-thumbnail-bounds:end -->
+
 ## **FAQ**
 
 **What image formats can be used when saving shape thumbnails?**

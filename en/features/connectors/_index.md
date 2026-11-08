@@ -40,6 +40,13 @@ connector.Reroute();
 presentation.Save("connectors.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:connectors:start -->
+[![The connector stays attached to the same sides as End moves down and the line reroutes into an elbow.](visual-connectors-d9e2bcfa7f25.svg)](visual-connectors-d9e2bcfa7f25.svg)
+
+*Moving End down changes the elbow route. The dots mark the same two connection sites in both renders.*
+<!-- visual-explanation:connectors:end -->
+
 ## **FAQ**
 
 ### **Will the connection survive saving the presentation?**

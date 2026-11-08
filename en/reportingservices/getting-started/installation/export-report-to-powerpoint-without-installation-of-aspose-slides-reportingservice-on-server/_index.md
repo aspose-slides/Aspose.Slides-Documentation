@@ -202,3 +202,10 @@ powerpointRenderer.Render("test.ppt, "/AdventureWorks Sample Reports/Sales Order
 The export process here uses soft page breaks similar to Word or Excel, so its result may differ from the Presentation that was exported using the standard approach.
 
 {{% /alert %}}
+
+<!-- visual-explanation:export-report-to-powerpoint-without-installation-of-aspose-slides-reportingservice-on-server:start -->
+[![An existing Reporting Services server sends RPL to a separate application containing the Aspose renderer, which produces PPT or PPTX.](visual-export-report-to-powerpoint-without-installation-of-aspose-slides-reportingservice-on-server-aac950f3dcfa.svg)](visual-export-report-to-powerpoint-without-installation-of-aspose-slides-reportingservice-on-server-aac950f3dcfa.svg)
+
+*The server renders an RPL stream; the separate application converts it to PowerPoint. This route uses soft page breaks, so pagination may differ from the server extension export.*
+<!-- visual-explanation:export-report-to-powerpoint-without-installation-of-aspose-slides-reportingservice-on-server:end -->
+

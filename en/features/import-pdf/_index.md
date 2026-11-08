@@ -42,6 +42,13 @@ presentation.Slides.AddFromPdf("input.pdf");
 presentation.Save("imported.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:import-pdf:start -->
+[![The rendered Alpha and Bravo PDF pages are paired with matching rendered PowerPoint slides in the same order.](visual-import-pdf-087f40b2533c.svg)](visual-import-pdf-087f40b2533c.svg)
+
+*Each page in the Alpha and Bravo input PDF becomes a slide in the same order. The thumbnails show the source pages and the reopened presentation.*
+<!-- visual-explanation:import-pdf:end -->
+
 ## **FAQ**
 
 ### **Will a PDF table become a PowerPoint table?**

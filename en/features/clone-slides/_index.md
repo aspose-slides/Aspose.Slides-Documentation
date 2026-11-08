@@ -16,6 +16,13 @@ feature_guides:
 
 Clone slides to reuse content from another presentation. A copied slide can bring its source master, theme and notes into the destination deck. You can also choose a destination layout when the slide should use the target presentation's design.
 
+
+<!-- visual-explanation:clone-slides:start -->
+[![Two actual renders retain the same content panel but use either the light-blue source brand or the green destination brand.](visual-clone-slides-a560adf40327.svg)](visual-clone-slides-a560adf40327.svg)
+
+*Illustrative .NET 26.11 fixture. The default clone retains the source banner; selecting the destination layout uses its green banner. The content panel keeps its explicit position and size and looks the same in this fixture. Layout assignment does not redesign every object.*
+<!-- visual-explanation:clone-slides:end -->
+
 ## **Usage example (C# / .NET)**
 
 Install [Aspose.Slides for .NET](/slides/net/installation/) before running this standalone example.

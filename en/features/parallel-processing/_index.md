@@ -16,6 +16,13 @@ feature_guides:
 
 Process several presentations in parallel by giving each worker its own presentation instance. Your application controls scheduling, output paths and resource use. This is useful for a server that handles independent documents at the same time.
 
+
+<!-- visual-explanation:parallel-processing:start -->
+[![Licensing is initialized before two independent workers each load, save and dispose their own presentation.](visual-parallel-processing-73a17fadcc27.svg)](visual-parallel-processing-73a17fadcc27.svg)
+
+*Each worker owns its presentation and output paths. Initialize licensing before the worker pool starts; choose the concurrency limit from the workload and available resources.*
+<!-- visual-explanation:parallel-processing:end -->
+
 ## **Usage example**
 
 Create two input decks, then process them with at most two workers. Each worker opens its own presentation instance and writes unique PPTX/PDF filenames. North-output contains North processed and South-output contains South processed. This C# example uses Aspose.Slides for .NET; no input files are required. Initialize any required file-based licensing before starting workers. The worker limit is an application choice, not a shared-instance thread-safety guarantee.

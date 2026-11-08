@@ -41,6 +41,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("animation-triggers.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:interactive-animation:start -->
+[![Static slide crop identifies the Reveal trigger button and its separate fade target.](visual-interactive-animation-402c2774fb64.svg)](visual-interactive-animation-402c2774fb64.svg)
+
+*The button triggers the interactive sequence; its fade effect targets the separate rectangle. The static crop identifies the shapes, and the arrow describes configuration rather than captured playback.*
+<!-- visual-explanation:interactive-animation:end -->
+
 ## **FAQ**
 
 ### **Is a trigger tied to the whole slide?**

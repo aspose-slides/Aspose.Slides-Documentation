@@ -62,6 +62,13 @@ Keep in mind that the `SlidesLayoutOptions` property is available only for certa
 
 {{% /alert %}} 
 
+
+<!-- visual-explanation:convert-powerpoint-in-handout-mode:start -->
+[![The same four slides appear in two 2 by 2 PDF handouts. Horizontal order goes across rows. Vertical order goes down columns.](visual-convert-powerpoint-in-handout-mode-04202c488f7b.svg)](visual-convert-powerpoint-in-handout-mode-04202c488f7b.svg)
+
+*Two PDF handouts from the same four slides. Horizontal order fills each row first, and vertical order fills each column first.*
+<!-- visual-explanation:convert-powerpoint-in-handout-mode:end -->
+
 ## **FAQ**
 
 ### What is the maximum number of slide thumbnails per page in Handout mode?

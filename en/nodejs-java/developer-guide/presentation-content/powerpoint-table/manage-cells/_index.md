@@ -140,6 +140,13 @@ try {
 }
 ```
 
+
+<!-- visual-explanation:manage-cells:start -->
+[![An unmerged 70-point cell splits into two 35-point cells, adding a fifth grid column and shifting the indices to its right.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
+
+*The width split affects cell (1, 1), using zero-based (column, row) indices. Other rows keep a cell spanning both new column positions.*
+<!-- visual-explanation:manage-cells:end -->
+
 ### **Split Merged Cells by Row or Column Span**
 
 To prepare merged template cells for data population, use [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) to split along an existing row boundary, or [splitByColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbycolspan/) to split along a column boundary.

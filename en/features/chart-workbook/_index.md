@@ -50,6 +50,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("chart-workbook.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:chart-workbook:start -->
+[![On two charts with a common zero to sixty scale, editing workbook cell B2 increases the North column from 20 to 55. The South column remains 40.](visual-chart-workbook-52549dd8ea1b.svg)](visual-chart-workbook-52549dd8ea1b.svg)
+
+*Editing B2 updates the North column from 20 to 55. South stays at 40 on the same value scale.*
+<!-- visual-explanation:chart-workbook:end -->
+
 ## **FAQ**
 
 ### **Will the saved chart retain the updated workbook values?**

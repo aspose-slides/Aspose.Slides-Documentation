@@ -24,6 +24,13 @@ The MSI installer is the simplest way to install Aspose.Slides for Reporting Ser
 
 The optional **Rpl Export** feature is not selected by default. It adds a hidden extension that saves reports in RPL format, which is useful when you send a problem report to Aspose; see [Exporting Reports to RPL Format](/slides/reportingservices/exporting-reports-to-rpl-format/).
 
+
+<!-- visual-explanation:install-with-msi-installer:start -->
+[![The MSI has separate choices for included instances, excluded instances and optional RPL diagnostics, followed by checking that instance’s export list.](visual-install-with-msi-installer-715ad8f91cfe.svg)](visual-install-with-msi-installer-715ad8f91cfe.svg)
+
+*Select only supported report-server instances. Excluded instances stay unchanged, and the optional diagnostic RPL extension is off by default. The diagram explains the choices without reproducing the installer interface.*
+<!-- visual-explanation:install-with-msi-installer:end -->
+
 ## **What the Installer Changes**
 
 The installer keeps its files in *Aspose\Aspose.Slides for Reporting Services* under the Program Files folder — *Program Files (x86)* on 64-bit Windows, because the installer is a 32-bit package. Then, for each selected instance, it:

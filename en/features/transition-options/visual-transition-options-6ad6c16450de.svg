@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 490">
+<title id="title">Effect duration and slide advancement</title>
+<desc id="description">Separate bars on the same millisecond scale distinguish transition length from automatic advancement timing.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Effect duration and slide advancement</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<text x="26" y="114" font-size="20" font-weight="bold" text-anchor="start" fill="#275eb0">Visual transition</text>
+<rect x="26" y="136" width="165.33333333333334" height="44" rx="5" fill="#275eb0" stroke="#275eb0" stroke-width="1.5"/>
+<text x="211.33333333333334" y="166" font-size="21" font-weight="bold" text-anchor="start" fill="#275eb0">800 ms</text>
+<text x="26" y="236" font-size="20" font-weight="bold" text-anchor="start" fill="#04776f">Automatic advancement setting</text>
+<rect x="26" y="258" width="620" height="44" rx="5" fill="#04776f" stroke="#04776f" stroke-width="1.5"/>
+<text x="26" y="335" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">AdvanceAfter = true; AdvanceAfterTime = 3,000 ms</text>
+<text x="26" y="385" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">AdvanceOnClick is also enabled in this sample.</text>
+<text x="26" y="409" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">Bar lengths use the same millisecond scale.</text>
+<text x="26" y="433" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">Settings are independent; this is not a combined playback timeline.</text>
+</g>
+</svg>

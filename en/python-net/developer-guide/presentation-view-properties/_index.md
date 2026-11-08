@@ -44,6 +44,13 @@ Properties **VerticalBarState** and **HorizontalBarState** specify the state tha
 
 Properties **RestoredLeft** and **RestoredTop** specify the sizing of the top or side slide region of the normal view, when **SplitterBarStateType.Restored** value applied for **VerticalBarState** and **HorizontalBarState** accordingly.
 
+
+<!-- visual-explanation:presentation-view-properties:start -->
+[![A conceptual editor separates a side panel, slide region and bottom region with labelled vertical and horizontal splitters.](visual-presentation-view-properties-40ae1765a743.svg)](visual-presentation-view-properties-40ae1765a743.svg)
+
+*Normal View stores the side, slide and bottom-region arrangement. VerticalBarState and HorizontalBarState control their splitters; restored sizing applies in the restored state. These are editor settings, not slide shapes. The consuming application determines how it displays the saved preferences.*
+<!-- visual-explanation:presentation-view-properties:end -->
+
 ## **About Restoring INormalViewProperties**
 
 Specifies the sizing of the slide region (width when a child of RestoredTop, height when a child of RestoredLeft) of the normal view, when the region is of a variable restored size(neither minimized nor maximized). 

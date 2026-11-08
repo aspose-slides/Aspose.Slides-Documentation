@@ -107,6 +107,13 @@ void Run()
 }
 ```
 
+
+<!-- visual-explanation:convert-powerpoint-to-video:start -->
+[![Presentation animation data is rendered to numbered PNGs, then a separate encoder writes the selected video format with coordinated frame rates.](visual-convert-powerpoint-to-video-f34cee01f867.svg)](visual-convert-powerpoint-to-video-f34cee01f867.svg)
+
+*The animation workflow produces frames; a separate encoder writes the video file. Coordinate its image-sequence input and output rates with rendering to preserve intended pacing. Frame APIs and output formats vary by platform.*
+<!-- visual-explanation:convert-powerpoint-to-video:end -->
+
 ## **Video Effects**
 
 You can apply animations to objects on slides and use transitions between slides.

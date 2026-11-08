@@ -25,6 +25,13 @@ description: "Create stunning animated charts with Aspose.Slides for PHP via Jav
 
 Aspose.Slides for PHP via Java supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [Sequence::addEffect](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/#addEffect) method and two enums [EffectChartMajorGroupingType](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMajorGroupingType) and [EffectChartMinorGroupingType](https://reference.aspose.com/slides/php-java/aspose.slides/EffectChartMinorGroupingType).
 
+
+<!-- visual-explanation:chart-animation-grouping:start -->
+[![Two-series, two-category grids compare grouping by series, category, element within series, and element within category.](visual-chart-animation-grouping-51704783a7c6.svg)](visual-chart-animation-grouping-51704783a7c6.svg)
+
+*Schematic comparison using two series and two categories. Numbers identify illustrative reveal steps, not data values: grouping selects which marks animate together. Actual order and triggers depend on the effects added to the sequence.*
+<!-- visual-explanation:chart-animation-grouping:end -->
+
 ## **Chart Series Animation**
 If you want to animate a chart series, write the code according to the steps listed below:
 

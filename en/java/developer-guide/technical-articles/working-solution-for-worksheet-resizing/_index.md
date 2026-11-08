@@ -37,6 +37,13 @@ There are two possible solutions to avoid the resizing effect.
 - Scale the OLE frame in the PowerPoint presentation to match the total height and width of the selected rows and columns.
 - Keep the OLE frame size constant and scale the selected rows and columns to fit within it.
 
+
+<!-- visual-explanation:working-solution-for-worksheet-resizing:start -->
+[![Approach A resizes the OLE frame to an unchanged range; approach B scales the range to a fixed 400 by 100 point frame.](visual-working-solution-for-worksheet-resizing-37277e3a014f.svg)](visual-working-solution-for-worksheet-resizing-37277e3a014f.svg)
+
+*Choose which dimensions to preserve: resize the OLE frame to the selected range, or scale the selected columns and rows into a fixed frame. Preview pixels and slide points use different units.*
+<!-- visual-explanation:working-solution-for-worksheet-resizing:end -->
+
 ### **Scale the OLE Frame Size**
 
 This approach sets the OLE frame size to match the total height and width of the selected rows and columns in the embedded Excel worksheet.

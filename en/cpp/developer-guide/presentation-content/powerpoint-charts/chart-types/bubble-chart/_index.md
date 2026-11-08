@@ -32,6 +32,13 @@ New **get_BubbleSizeRepresentation()** method has been added to **IChartSeries**
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SupportOfBubbleSizeRepresentation-SupportOfBubbleSizeRepresentation.cpp" >}}
 
+
+<!-- visual-explanation:bubble-chart:start -->
+[![Two plots use identical X and Y coordinates and size values 1, 4 and 9. In Area mode their circle areas follow 1 to 4 to 9. In Width mode their diameters follow that ratio.](visual-bubble-chart-bf890435c020.svg)](visual-bubble-chart-bf890435c020.svg)
+
+*Illustrative comparison at the same scale. Area uses the circle’s area, while Width uses its diameter.*
+<!-- visual-explanation:bubble-chart:end -->
+
 ## **FAQ**
 
 ### Is a "bubble chart with 3-D effect" supported, and how does it differ from a regular one?

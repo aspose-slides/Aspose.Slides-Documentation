@@ -37,6 +37,13 @@ group.Frame = new ShapeFrame(100, 160, 200, 60, NullableBool.False, NullableBool
 presentation.Save("shape-groups.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:shape-groups:start -->
+[![A group containing Left item and Right item moves from frame 20,20,200,60 to 100,160,200,60 while the child offsets stay 0 and 120 points.](visual-shape-groups-250b8c914b33.svg)](visual-shape-groups-250b8c914b33.svg)
+
+*The dashed group frame moves in slide coordinates. Left item and Right item keep the same spacing within it.*
+<!-- visual-explanation:shape-groups:end -->
+
 ## **FAQ**
 
 ### **Can I still edit a shape inside a group?**

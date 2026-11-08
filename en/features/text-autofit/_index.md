@@ -39,6 +39,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("text-autofit.png", Aspose.Slides.ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:text-autofit:start -->
+[![The same 28-point source text overflows with no autofit, shrinks in a fixed box, or keeps its size in a taller box.](visual-text-autofit-4e86089e5009.svg)](visual-text-autofit-4e86089e5009.svg)
+
+*All three variants start at 260 × 90 points with a stored 28-point font. In this render, shrink mode draws at 18 points and resize mode grows the box to about 218 points high.*
+<!-- visual-explanation:text-autofit:end -->
+
 ## **FAQ**
 
 ### **Does shrinking text change its stored font size?**

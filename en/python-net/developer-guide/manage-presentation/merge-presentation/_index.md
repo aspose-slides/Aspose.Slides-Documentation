@@ -49,6 +49,13 @@ Use [SlideCollection.add_clone](https://reference.aspose.com/slides/python-net/a
 
 The master or layout passed to an `add_clone` overload must belong to the **destination** presentation, not the source presentation.
 
+
+<!-- visual-explanation:merge-presentation:start -->
+[![Three actual renders use the blue source banner, orange destination-master banner, or green destination-layout banner while retaining the content panel.](visual-merge-presentation-9d5f131d779a.svg)](visual-merge-presentation-9d5f131d779a.svg)
+
+*Illustrative .NET 26.11 fixture comparing source design, a selected destination master with a matching layout, and an explicit destination layout. The panel retains its explicit geometry and looks the same in this fixture. The selected master or layout must belong to the destination; changing inheritance does not redesign every object.*
+<!-- visual-explanation:merge-presentation:end -->
+
 ## **Merge Entire Presentations and Preserve Source Formatting**
 
 The simplest merge copies every slide from the source presentation to the destination presentation. This is the appropriate choice when the imported slides should keep their original theme, master, and layout relationships.

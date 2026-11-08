@@ -78,6 +78,13 @@ with slides.Presentation() as presentation:
     presentation.save("chart-fixed-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
+<!-- visual-explanation:working-solution-for-chart-resizing-in-pptx:start -->
+[![A 684 by 288 point OLE frame matches a 912 by 384 pixel chart at 96 DPI, with chart size independent of its window.](visual-working-solution-for-chart-resizing-in-pptx-62dff4f20ea9.svg)](visual-working-solution-for-chart-resizing-in-pptx-62dff4f20ea9.svg)
+
+*Use the same physical dimensions for the fixed chart and OLE frame: 684 × 288 points equals 912 × 384 pixels at 96 DPI. This diagram explains the configuration; it does not show a measured first-activation result.*
+<!-- visual-explanation:working-solution-for-chart-resizing-in-pptx:end -->
+
 ## **Use a Template**
 
 The sizing logic is the same for an existing presentation. To adapt the example:

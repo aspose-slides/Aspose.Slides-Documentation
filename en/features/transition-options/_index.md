@@ -43,6 +43,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("transition-options.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:transition-options:start -->
+[![Separate bars label 800-millisecond transition duration and 3000-millisecond advancement setting.](visual-transition-options-6ad6c16450de.svg)](visual-transition-options-6ad6c16450de.svg)
+
+*The sample configures the first slide: a 800-ms Push transition, automatic advancement at 3,000 ms, and click advancement enabled. These settings describe separate controls; the bars do not imply a measured total playback time.*
+<!-- visual-explanation:transition-options:end -->
+
 ## **FAQ**
 
 ### **Does every transition use the same direction settings?**

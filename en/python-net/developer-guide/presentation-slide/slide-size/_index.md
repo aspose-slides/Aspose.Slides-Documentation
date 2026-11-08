@@ -99,6 +99,13 @@ with slides.Presentation("AccessSlides.pptx") as pres:
    pres.slide_size.set_size(slides.SlideSizeType.LEDGER, slides.SlideSizeScaleType.MAXIMIZE)
 ```
 
+
+<!-- visual-explanation:slide-size:start -->
+[![One shared display scale shows an original 720 by 480-point slide and three 600 by 300-point outputs. DoNotScale keeps shape sizes, EnsureFit leaves side margins, and Maximize crops edge shapes.](visual-slide-size-1dbb49bb41cc.svg)](visual-slide-size-1dbb49bb41cc.svg)
+
+*One .NET fixture resized to the same 600 × 300-point canvas in each mode. The figure uses one display scale throughout. Dashed marks show where shape frames extend beyond the canvas.*
+<!-- visual-explanation:slide-size:end -->
+
 ## **FAQ**
 
 **Can I set a custom slide size using units other than inches (for example, points or millimeters)?**

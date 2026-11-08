@@ -53,6 +53,13 @@ try {
 }
 ```
 
+
+<!-- visual-explanation:drawing-guides:start -->
+[![A 720 by 540 point slide has its origin at top-left; guides sit at x = 372.5 and y = 282.5, 12.5 points beyond each center.](visual-drawing-guides-7a8220358e23.svg)](visual-drawing-guides-7a8220358e23.svg)
+
+*Conceptual editing overlay with coordinates verified in the saved .NET 26.11 fixture. The example adds guides at width/2 + 12.5 and height/2 + 12.5 points. Existing center guides may also be present. Guide visibility depends on the editor; static slide rendering does not draw them.*
+<!-- visual-explanation:drawing-guides:end -->
+
 ## **Access Drawing Guides**
 
 The [IDrawingGuidesCollection.getCount](https://reference.aspose.com/slides/java/com.aspose.slides/idrawingguidescollection/#getCount--) and [IDrawingGuidesCollection.get_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idrawingguidescollection/#get_Item-int-) methods provide access to existing guides. The [IDrawingGuide.getOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/idrawingguide/#getOrientation--), [IDrawingGuide.getPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idrawingguide/#getPosition--), and [IDrawingGuide.getColor](https://reference.aspose.com/slides/java/com.aspose.slides/idrawingguide/#getColor--) methods return values that can also be changed through the corresponding setter methods.

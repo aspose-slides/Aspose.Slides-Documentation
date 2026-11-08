@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 440">
+<title id="title">Two dependency steps for Node.js via .NET</title>
+<desc id="description">npm installs the package and bridge; dotnet restore fills the NuGet dependency cache. Both are needed by the Node.js application.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">Two dependency steps for Node.js via .NET</text>
+<text x="26" y="61" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="88" width="338" height="101" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="117" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">1. npm install</text>
+<text x="42" y="146" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Node.js package + edge-js bridge</text>
+<text x="42" y="169" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Package assemblies + native drawing</text>
+<rect x="396" y="88" width="338" height="101" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="412" y="117" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">2. dotnet restore</text>
+<text x="412" y="146" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">The listed NuGet dependencies</text>
+<text x="412" y="169" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">User or configured package cache</text>
+<path d="M195,191 L195,230" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="195.0,230.0 191.1,221.9 198.9,221.9" fill="#275eb0"/>
+<path d="M565,191 L565,230" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="565.0,230.0 561.1,221.9 568.9,221.9" fill="#04776f"/>
+<rect x="26" y="235" width="708" height="132" rx="10" fill="#f8fafc" stroke="#cedaea" stroke-width="1.5"/>
+<rect x="44" y="254" width="190" height="83" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="60" y="283" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Node.js script</text>
+<text x="60" y="312" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Project folder</text>
+<rect x="284" y="254" width="192" height="83" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="300" y="283" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">edge-js bridge</text>
+<text x="300" y="312" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Local .NET runtime</text>
+<rect x="526" y="254" width="190" height="83" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="542" y="283" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Slides library</text>
+<text x="542" y="312" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">NuGet packages</text>
+<path d="M236,296 L279,296" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="279.0,296.0 270.9,299.9 270.9,292.1" fill="#275eb0"/>
+<path d="M478,296 L521,296" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="521.0,296.0 512.9,299.9 512.9,292.1" fill="#275eb0"/>
+<text x="26" y="408" font-size="18" font-weight="bold" text-anchor="start" fill="#b6501e">The .NET SDK is needed for restore and for the bridge to run.</text>
+</g>
+</svg>

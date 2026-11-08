@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 540">
+<title id="title">From slides to frames to video</title>
+<desc id="description">Animation generation and playback produce frames; a separate encoder converts the numbered frames to video.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">From slides to frames to video</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">CONCEPTUAL DIAGRAM</text>
+<rect x="26" y="105" width="196" height="90" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="134" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Presentation</text>
+<text x="42" y="163" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Slides + animations</text>
+<rect x="278" y="105" width="198" height="90" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="294" y="134" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Generator</text>
+<text x="294" y="163" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Build playback data</text>
+<rect x="532" y="105" width="202" height="90" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="548" y="134" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Frame rendering</text>
+<text x="548" y="163" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Render at N FPS</text>
+<path d="M225,150 L273,150" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="273.0,150.0 264.9,153.9 264.9,146.1" fill="#275eb0"/>
+<path d="M479,150 L527,150" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="527.0,150.0 518.9,153.9 518.9,146.1" fill="#275eb0"/>
+<rect x="26" y="303" width="234" height="90" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="332" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Encoded video</text>
+<text x="42" y="361" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Selected output format</text>
+<rect x="326" y="303" width="202" height="90" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="342" y="332" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Separate encoder</text>
+<text x="342" y="361" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Use the same N FPS</text>
+<rect x="590" y="303" width="144" height="90" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="606" y="332" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">PNG frames</text>
+<text x="606" y="361" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">0000, 0001…</text>
+<path d="M634,198 L662,296" fill="none" stroke="#275eb0" stroke-width="2"/>
+<polygon points="662.0,296.0 656.0,289.3 663.5,287.1" fill="#275eb0"/>
+<path d="M585,348 L533,348" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="533.0,348.0 541.1,344.1 541.1,351.9" fill="#04776f"/>
+<path d="M321,348 L265,348" fill="none" stroke="#04776f" stroke-width="2"/>
+<polygon points="265.0,348.0 273.1,344.1 273.1,351.9" fill="#04776f"/>
+<text x="26" y="459" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">Frame rendering supplies images. The encoder writes the video file.</text>
+<text x="26" y="483" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">Coordinate input and output frame rates to preserve intended pacing.</text>
+</g>
+</svg>

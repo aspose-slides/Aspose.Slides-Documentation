@@ -97,6 +97,13 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
+<!-- visual-explanation:resizing-shapes-on-slide:start -->
+[![Before and after A4 resizing, the shape and table move and resize. Column widths and minimum row heights increase, while font sizes stay fixed.](visual-resizing-shapes-on-slide-068c15ee95ae.svg)](visual-resizing-shapes-on-slide-068c15ee95ae.svg)
+
+*In this table-aware resize, the width ratio scales X, shape width and column widths. The height ratio scales Y, shape height and minimum row heights. Font sizes stay fixed.*
+<!-- visual-explanation:resizing-shapes-on-slide:end -->
+
 ## **FAQ**
 
 **Why are shapes distorted or cut off after resizing a slide?**

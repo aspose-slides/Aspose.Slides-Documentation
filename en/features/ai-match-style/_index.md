@@ -55,6 +55,13 @@ presentation.Save("generated.pptx", SaveFormat.Pptx);
 Console.WriteLine("Generated slides: " + presentation.Slides.Count);
 ```
 
+
+<!-- visual-explanation:ai-match-style:start -->
+[![Source report slide with a purple banner beside generated water-cycle title and content slides, with the retained background and stored font/theme values identified.](visual-ai-match-style-08aaec824932.svg)](visual-ai-match-style-08aaec824932.svg)
+
+*One observed generation run. The stored Arial font scheme, theme accent and pale background are retained. The source banner is not reproduced; the new deck uses title and content layouts for the generated water-cycle text.*
+<!-- visual-explanation:ai-match-style:end -->
+
 ## **FAQ**
 
 ### **Does this require the source deck to be a special brand-kit format?**

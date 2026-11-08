@@ -44,6 +44,13 @@ generator.Run(presentation.Slides);
 presentation.Save("source.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:animation-frames:start -->
+[![Identical crops show a white frame, a partly faded blue Sample slide rectangle, and a darker rectangle that is still not fully opaque in the last exported frame.](visual-animation-frames-de9f494ea52b.svg)](visual-animation-frames-de9f494ea52b.svg)
+
+*Three actual frames from the example’s 10-FPS export, cropped identically. The run emitted frames 0–19; frame 19 still contains a partly developed fade. It is the final exported frame, not a claim that the target has reached its fully opaque static state.*
+<!-- visual-explanation:animation-frames:end -->
+
 ## **FAQ**
 
 ### **Does every presentation effect produce full intermediate motion?**

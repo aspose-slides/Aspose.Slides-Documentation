@@ -43,6 +43,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("font-substitution.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:font-substitution:start -->
+[![The saved font assignment is CatalogueMissingFont, and the exported line is drawn in Arial.](visual-font-substitution-2a06afe64de2.svg)](visual-font-substitution-2a06afe64de2.svg)
+
+*The inaccessible-family rule substitutes Arial during export. The saved PPTX retains the original font name.*
+<!-- visual-explanation:font-substitution:end -->
+
 ## **FAQ**
 
 ### **Does the substitution report always reflect a configured rule?**

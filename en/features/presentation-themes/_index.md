@@ -35,6 +35,13 @@ presentation.MasterTheme.ColorScheme.Accent4.Color = Color.Orange;
 presentation.Save("presentation-themes.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:presentation-themes:start -->
+[![The same theme-linked rectangle changes from purple to orange while keeping its size and position.](visual-presentation-themes-960fcd92d85e.svg)](visual-presentation-themes-960fcd92d85e.svg)
+
+*Actual .NET 26.11 renders before and after the theme assignment. The rectangle references Accent4; changing that scheme color to orange changes its resolved fill. A fixed RGB fill would not follow this theme-color reference.*
+<!-- visual-explanation:presentation-themes:end -->
+
 ## **FAQ**
 
 ### **Will a theme change recolor every shape?**

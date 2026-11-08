@@ -40,6 +40,13 @@ shape.FillFormat.SolidFillColor.Color = Color.Orange;
 presentation.Save("shape-geometry.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:shape-geometry:start -->
+[![An orange triangle follows local points 120,0, 240,160 and 0,160 inside a 240 by 160 point frame at slide position 60,60.](visual-shape-geometry-8a157a75d8dc.svg)](visual-shape-geometry-8a157a75d8dc.svg)
+
+*The vertex labels are relative to the frame’s top-left corner. The frame itself starts at (60, 60) pt on the slide.*
+<!-- visual-explanation:shape-geometry:end -->
+
 ## **FAQ**
 
 ### **Will the result remain an editable shape?**

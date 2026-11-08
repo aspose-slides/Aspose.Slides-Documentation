@@ -452,6 +452,13 @@ for (auto&& reopenedComment : reopenedComments)
 }
 ```
 
+
+<!-- visual-explanation:presentation-comments:start -->
+[![The phrase quarterly revenue is highlighted inside Forecast text; stored start 11, length 17 and Resolved status are listed separately from marker coordinates (60, 60).](visual-presentation-comments-94241d308643.svg)](visual-presentation-comments-94241d308643.svg)
+
+*Schematic annotation of the example’s text range. A licensed .NET 26.11 save/reopen check retained the Forecast text anchor, start 11, length 17 and Resolved status. Marker coordinates are separate from the anchor; this figure does not depict a client comment pane.*
+<!-- visual-explanation:presentation-comments:end -->
+
 ### **Inspect Existing Modern Comments**
 
 The example requires an existing presentation containing modern comments and prints their text, status, and anchor details. To inspect it, check which comments implement [IModernComment](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/), then examine [IModernComment::get_Shape](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_textselectionlength/), and [IModernComment::get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/imoderncomment/get_status/). A `nullptr` shape indicates a slide-level comment. For an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) anchor, the text-selection methods identify the associated range in the shape's text frame.

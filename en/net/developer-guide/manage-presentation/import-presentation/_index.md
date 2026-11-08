@@ -166,6 +166,13 @@ An unrestricted external resource resolver can read local or network resources r
 
 {{% /alert %}}
 
+
+<!-- visual-explanation:import-presentation:start -->
+[![Crops show Overview, Product roadmap and Summary before import. Slide 2 keeps its Product roadmap header with imported logo and body below. The first continuation starts at item 7 and Summary remains after the imported slides.](visual-import-presentation-2c09b3d2f9f0.svg)](visual-import-presentation-2c09b3d2f9f0.svg)
+
+*Crops from one .NET import with an existing target between two neighboring slides. The header survives, the relative logo and body start below it, and overflow creates six continuation slides before Summary.*
+<!-- visual-explanation:import-presentation:end -->
+
 ## **FAQ**
 
 **Can Aspose.Slides detect tables when importing a PDF?**

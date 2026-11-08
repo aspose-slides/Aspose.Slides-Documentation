@@ -48,6 +48,13 @@ using var image = presentation.Slides[0].GetImage(1f, 1f);
 image.Save("trendline.png", ImageFormat.Png);
 ```
 
+
+<!-- visual-explanation:chart-trendlines:start -->
+[![Blue circles mark the observed points at (1, 10), (2, 20), (3, 30) and (4, 40). An orange fitted line passes through all four points and the chart displays its equation.](visual-chart-trendlines-3c2ad3662195.svg)](visual-chart-trendlines-3c2ad3662195.svg)
+
+*The fitted line passes through all four sample points. The equation is shown beside the upper-right point.*
+<!-- visual-explanation:chart-trendlines:end -->
+
 ## **FAQ**
 
 ### **Are there rendering details to consider for R-squared labels?**

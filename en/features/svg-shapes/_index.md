@@ -16,6 +16,13 @@ feature_guides:
 
 Bring SVG graphics into a presentation through an image or shape workflow. Converting SVG artwork to a group of shapes makes its paths and text available for editing. Keeping it as an SVG picture is useful when you want to retain the source artwork in the file.
 
+
+<!-- visual-explanation:svg-shapes:start -->
+[![Identical SVG artwork is shown with one outline for the vector picture and separate outlines for three editable children.](visual-svg-shapes-84672c184dcc.svg)](visual-svg-shapes-84672c184dcc.svg)
+
+*The left outline marks one SVG picture frame. The right outlines mark the bounds of three separately editable objects in a shape group.*
+<!-- visual-explanation:svg-shapes:end -->
+
 ## **Usage example (C# / .NET)**
 
 Install [Aspose.Slides for .NET](/slides/net/installation/) before running this standalone example.

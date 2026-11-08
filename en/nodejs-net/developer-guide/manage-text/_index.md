@@ -93,6 +93,13 @@ try {
 
 In `text-box-updated.pptx`, the text box shows "Quarterly report: third quarter" in bold 32-point type. Because the new text is a single portion, the two formatting properties apply to all of it. Without a license, every save adds an evaluation watermark. Because `text-box.pptx` was itself saved in evaluation mode, `text-box-updated.pptx` contains two; see [Evaluate Aspose.Slides](/slides/nodejs-net/evaluate-aspose-slides/).
 
+
+<!-- visual-explanation:manage-text:start -->
+[![The text changes from Quarterly report to Quarterly report: third quarter, with the replacement set in 32-point bold.](visual-manage-text-1ca72074b533.svg)](visual-manage-text-1ca72074b533.svg)
+
+*Replacing the frame text creates one paragraph with one portion. The size and bold settings apply to that whole portion.*
+<!-- visual-explanation:manage-text:end -->
+
 ## **FAQ**
 
 **Why does `fontBold` take a `NullableBool` value instead of `true` or `false`?**

@@ -41,6 +41,13 @@ presentation.Save("output.pdf", SaveFormat.Pdf, options);
 presentation.Save("source.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:export-handouts:start -->
+[![Actual PDF handout page with thumbnails 1 and 2 in the first row, 3 and 4 in the second row, and 5 and 6 in the third row.](visual-export-handouts-15c7cbba5566.svg)](visual-export-handouts-15c7cbba5566.svg)
+
+*The six-slide export fits all six thumbnails on one PDF page, ordered left to right within each row.*
+<!-- visual-explanation:export-handouts:end -->
+
 ## **FAQ**
 
 ### **Does handout export rearrange the source slides?**

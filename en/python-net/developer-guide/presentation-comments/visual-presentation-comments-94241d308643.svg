@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 760 505">
+<title id="title">A text range and stored comment status</title>
+<desc id="description">A labelled schematic highlights quarterly revenue and lists the verified saved comment range and Resolved status.</desc>
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#14253d">
+<text x="26" y="35" font-size="23" font-weight="bold" text-anchor="start" fill="#14253d">A text range and stored comment status</text>
+<text x="26" y="62" font-size="12" font-weight="normal" text-anchor="start" fill="#40536b">SCHEMATIC ANNOTATION • SAVED FIELDS VERIFIED</text>
+<rect x="26" y="103" width="708" height="130" rx="10" fill="#f0f5fc" stroke="#275eb0" stroke-width="1.5"/>
+<text x="48" y="137" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">AutoShape: Forecast text</text>
+<text x="48" y="184" font-size="24" font-weight="normal" text-anchor="start" fill="#14253d">Review the </text>
+<rect x="174" y="157" width="222" height="37" rx="3" fill="#ffedcc" stroke="#d28b28" stroke-width="1.5"/>
+<text x="180" y="184" font-size="24" font-weight="normal" text-anchor="start" fill="#14253d">quarterly revenue</text>
+<text x="402" y="184" font-size="24" font-weight="normal" text-anchor="start" fill="#14253d"> forecast.</text>
+<rect x="26" y="290" width="330" height="105" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="42" y="319" font-size="18" font-weight="bold" text-anchor="start" fill="#04776f">Text selection</text>
+<text x="42" y="348" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Start: 11 (zero-based)</text>
+<text x="42" y="371" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Length: 17 characters</text>
+<rect x="404" y="290" width="330" height="105" rx="10" fill="#f0f5fc" stroke="#cedaea" stroke-width="1.5"/>
+<text x="420" y="319" font-size="18" font-weight="bold" text-anchor="start" fill="#275eb0">Stored status: Resolved</text>
+<text x="420" y="348" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Marker position: (60, 60) pt</text>
+<text x="420" y="371" font-size="16" font-weight="normal" text-anchor="start" fill="#40536b">Anchor: Forecast text</text>
+<text x="26" y="447" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">The range and Resolved status survive save and reopen.</text>
+<text x="26" y="471" font-size="17" font-weight="normal" text-anchor="start" fill="#40536b">A client’s comment-pane display is a separate behavior.</text>
+</g>
+</svg>
