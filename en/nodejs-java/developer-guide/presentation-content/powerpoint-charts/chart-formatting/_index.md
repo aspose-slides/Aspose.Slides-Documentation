@@ -27,11 +27,13 @@ This article explains how to format charts in PowerPoint presentations by using 
 
 It also demonstrates how to set font properties for chart text, apply preset numeric formats to chart data, and enable rounded corners for the chart area. Together, these examples show how to control both the visual style and data presentation of charts in a presentation.
 
+For separate fills and outlines on rising and falling intervals, see the [stock chart example](/slides/nodejs-java/create-chart/#create-stock-charts).
+
 ## **Format Chart Entities**
 
 Use [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
 
-The value axis uses [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) is called with `false`. Back-wall and floor fills are configured through [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) and [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), but these surfaces are only visible in 3D charts.
+The value axis uses [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/) is called with `false`. Back-wall and floor fills are configured through [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getbackwall/) and [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getfloor/), but these surfaces are only visible in 3D charts.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -151,7 +153,7 @@ try {
 
 ## **Set Font Properties for a Chart**
 
-Set the default font size for chart text through [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Text elements with their own explicit font settings can override the chart default.
+Set the default font size for chart text through [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/gettextformat/). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). Text elements with their own explicit font settings can override the chart default.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -172,7 +174,7 @@ try {
 
 ## **Set the Numeric Format**
 
-Use [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
+Use [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setpresetnumberformat/) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -242,7 +244,7 @@ The following table lists built-in number format indices with representative Exc
 
 ## **Set Chart Area Rounded Borders**
 
-Call [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) with `true` to round the corners of the chart area. The example creates a clustered column chart and uses [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) to give its outline a solid gray color and a single-line style before saving the presentation.
+Call [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setroundedcorners/) with `true` to round the corners of the chart area. The example creates a clustered column chart and uses [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getlineformat/) to give its outline a solid gray color and a single-line style before saving the presentation.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -266,11 +268,11 @@ try {
 
 ## **Edit Existing Chart Annotations**
 
-A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). The collection returned by [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) contains the chart-owned shapes.
+A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getusershapes/). The collection returned by [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/getshapes/) contains the chart-owned shapes.
 
 An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
 
-Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) with a non-null text frame returned by [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) and the expected text.
+Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) with a non-null text frame returned by [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/gettextframe/) and the expected text.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -324,7 +326,7 @@ The line and the slide text box remain unchanged. The following images show the 
 
 {{% alert color="info" title="Note" %}}
 
-The example inspects only the top-level chart-owned shapes. If an annotation is inside a [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), inspect that group's [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) collection as well. Repeat this recursively for nested groups, applying the same text checks to their child shapes. A group itself is a container; do not treat it as a text box.
+The example inspects only the top-level chart-owned shapes. If an annotation is inside a [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), inspect that group's [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/getshapes/) collection as well. Repeat this recursively for nested groups, applying the same text checks to their child shapes. A group itself is a container; do not treat it as a text box.
 
 {{% /alert %}}
 

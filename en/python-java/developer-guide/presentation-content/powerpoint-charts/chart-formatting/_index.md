@@ -26,6 +26,8 @@ This article explains how to format charts in PowerPoint presentations by using 
 
 It also demonstrates how to set font properties for chart text, apply preset numeric formats to chart data, and enable rounded corners for the chart area. Together, these examples show how to control both the visual style and data presentation of charts in a presentation.
 
+For separate fills and outlines on rising and falling intervals, see the [stock chart example](/slides/python-java/create-chart/#create-stock-charts).
+
 ## **Format Chart Entities**
 
 Use [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
