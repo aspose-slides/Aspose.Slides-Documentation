@@ -717,9 +717,16 @@ Stock charts are used to display financial data such as open, high, low, and clo
 
 This example creates an open-high-low-close chart with four series in that order and three categories. The [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) method enables up/down bars, and [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) controls the high-low lines that show the price ranges, while the individual series lines and minor horizontal gridlines are hidden.
 
+The manager returned by [get_UpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_updownbars/) exposes separate formatting objects through [get_UpBarsFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/get_upbarsformat/) and [get_DownBarsFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/get_downbarsformat/). Use each object's [get_Fill](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformat/get_fill/) and [get_Line](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformat/get_line/) methods to access and configure its fill and outline independently. This example uses green bars with dark-green outlines for rising intervals and orange-red bars with dark-red outlines for falling intervals.
+
+Provide numeric values for all four series at each category, with High and Low enclosing Open and Close. The bars compare Close with Open **within the same category**, not with the previous category: A falls from 72 to 25, while B rises from 25 to 38 and C rises from 38 to 50. Equal Open and Close values produce no visible filled interval. Up/down bars span Open–Close; high-low lines span Low–High. These bars belong to the series group and are not ordinary bar-chart series.
+
+This formatting also works with [Line and LineWithMarkers](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) charts containing at least two series in the same group and corresponding numeric values for each category. For these non-stacked line charts, up/down bars compare the first and last series: a higher last value produces an up bar, and a lower last value produces a down bar. Reversing those series reverses the classification. The example below uses [OpenHighLowClose](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/); do not assume that other stock, stacked-line, or 3D variants use the same data arrangement or interval interpretation.
+
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
 #include <system/shared_ptr.h>
+#include <drawing/color.h>
 #include <system/object_ext.h>
 #include <system/string.h>
 #include <DOM/Chart/ChartType.h>
@@ -749,6 +756,7 @@ This example creates an open-high-low-close chart with four series in that order
 #include <Export/SaveFormat.h>
 
 using namespace System;
+using namespace System::Drawing;
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
@@ -756,7 +764,7 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::OpenHighLowClose, 20, 20, 500, 300, false);
+auto chart = slide->get_Shapes()->AddChart(ChartType::OpenHighLowClose, 20, 20, 500, 150, false);
 
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
@@ -808,7 +816,21 @@ series->get_DataPoints()->AddDataPointForStockSeries(valueCell);
 valueCell = workbook->GetCell(0, 3, 4, ObjectExt::Box(50));
 series->get_DataPoints()->AddDataPointForStockSeries(valueCell);
 
-chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars()->set_HasUpDownBars(true);
+auto upDownBars = chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars();
+upDownBars->set_HasUpDownBars(true);
+
+upDownBars->get_UpBarsFormat()->get_Fill()->set_FillType(FillType::Solid);
+upDownBars->get_UpBarsFormat()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_LimeGreen());
+upDownBars->get_UpBarsFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
+upDownBars->get_UpBarsFormat()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkGreen());
+upDownBars->get_UpBarsFormat()->get_Line()->set_Width(2);
+
+upDownBars->get_DownBarsFormat()->get_Fill()->set_FillType(FillType::Solid);
+upDownBars->get_DownBarsFormat()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_OrangeRed());
+upDownBars->get_DownBarsFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
+upDownBars->get_DownBarsFormat()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkRed());
+upDownBars->get_DownBarsFormat()->get_Line()->set_Width(2);
+
 chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_HiLowLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 
 for (auto stockSeries : chart->get_ChartData()->get_Series())
@@ -821,9 +843,9 @@ chart->get_Axes()->get_VerticalAxis()->get_MinorGridLinesFormat()->get_Line()->g
 presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 ```
 
-The result:
+The result, exported from PowerPoint:
 
-![The Stock chart](stock_chart.png)
+![Stock chart with an orange-red falling interval for A and green rising intervals for B and C](stock_chart.png)
 
 ### **Create Box and Whisker Charts**
 

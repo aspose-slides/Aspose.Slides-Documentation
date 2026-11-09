@@ -513,7 +513,14 @@ Stock charts are used to display financial data such as open, high, low, and clo
 
 This example creates an open-high-low-close chart with four series in that order and three categories. The [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) property enables up/down bars, and [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) controls the high-low lines that show the price ranges, while the individual series lines and minor horizontal gridlines are hidden.
 
+The [UpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/updownbars/) manager exposes separate [UpBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/upbarsformat/) and [DownBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/downbarsformat/) objects. Use each object's [Fill](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/fill/) and [Line](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/line/) properties to set its fill and outline independently. This example uses green bars with dark-green outlines for rising intervals and orange-red bars with dark-red outlines for falling intervals.
+
+Provide numeric values for all four series at each category, with High and Low enclosing Open and Close. The bars compare Close with Open **within the same category**, not with the previous category: A falls from 72 to 25, while B rises from 25 to 38 and C rises from 38 to 50. Equal Open and Close values produce no visible filled interval. Up/down bars span Open–Close; high-low lines span Low–High. These bars belong to the series group and are not ordinary bar-chart series.
+
+This formatting also works with [Line and LineWithMarkers](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) charts containing at least two series in the same group and corresponding numeric values for each category. For these non-stacked line charts, up/down bars compare the first and last series: a higher last value produces an up bar, and a lower last value produces a down bar. Reversing those series reverses the classification. The example below uses [OpenHighLowClose](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/); do not assume that other stock, stacked-line, or 3D variants use the same data arrangement or interval interpretation.
+
 ```csharp
+using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
@@ -521,7 +528,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
 var workbook = chart.ChartData.ChartDataWorkbook;
 
@@ -573,7 +580,21 @@ series.DataPoints.AddDataPointForStockSeries(valueCell);
 valueCell = workbook.GetCell(0, 3, 4, 50);
 series.DataPoints.AddDataPointForStockSeries(valueCell);
 
-chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
+var upDownBars = chart.ChartData.SeriesGroups[0].UpDownBars;
+upDownBars.HasUpDownBars = true;
+
+upDownBars.UpBarsFormat.Fill.FillType = FillType.Solid;
+upDownBars.UpBarsFormat.Fill.SolidFillColor.Color = Color.LimeGreen;
+upDownBars.UpBarsFormat.Line.FillFormat.FillType = FillType.Solid;
+upDownBars.UpBarsFormat.Line.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+upDownBars.UpBarsFormat.Line.Width = 2;
+
+upDownBars.DownBarsFormat.Fill.FillType = FillType.Solid;
+upDownBars.DownBarsFormat.Fill.SolidFillColor.Color = Color.OrangeRed;
+upDownBars.DownBarsFormat.Line.FillFormat.FillType = FillType.Solid;
+upDownBars.DownBarsFormat.Line.FillFormat.SolidFillColor.Color = Color.DarkRed;
+upDownBars.DownBarsFormat.Line.Width = 2;
+
 chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 
 foreach (var stockSeries in chart.ChartData.Series)
@@ -586,9 +607,9 @@ chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType
 presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 ```
 
-The result:
+The result, exported from PowerPoint:
 
-![The Stock chart](stock_chart.png)
+![Stock chart with an orange-red falling interval for A and green rising intervals for B and C](stock_chart.png)
 
 ### **Create Box and Whisker Charts**
 

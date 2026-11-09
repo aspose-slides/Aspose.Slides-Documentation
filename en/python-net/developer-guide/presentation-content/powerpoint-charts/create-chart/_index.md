@@ -502,14 +502,21 @@ Stock charts are used to display financial data such as open, high, low, and clo
 
 This example creates an open-high-low-close chart with four series in that order and three categories. The [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) property enables up/down bars, and [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) controls the high-low lines that show the price ranges, while the individual series lines and minor horizontal gridlines are hidden.
 
+The [up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/up_down_bars/) manager exposes separate [up_bars_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/up_bars_format/) and [down_bars_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/down_bars_format/) objects. Use each object's [fill](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/fill/) and [line](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/line/) properties to set its fill and outline independently. This example uses green bars with dark-green outlines for rising intervals and orange-red bars with dark-red outlines for falling intervals.
+
+Provide numeric values for all four series at each category, with High and Low enclosing Open and Close. The bars compare Close with Open **within the same category**, not with the previous category: A falls from 72 to 25, while B rises from 25 to 38 and C rises from 38 to 50. Equal Open and Close values produce no visible filled interval. Up/down bars span Open–Close; high-low lines span Low–High. These bars belong to the series group and are not ordinary bar-chart series.
+
+This formatting also works with [LINE and LINE_WITH_MARKERS](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) charts containing at least two series in the same group and corresponding numeric values for each category. For these non-stacked line charts, up/down bars compare the first and last series: a higher last value produces an up bar, and a lower last value produces a down bar. Reversing those series reverses the classification. The example below uses [OPEN_HIGH_LOW_CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/); do not assume that other stock, stacked-line, or 3D variants use the same data arrangement or interval interpretation.
+
 ```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 300, False)
+    chart = slide.shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 150, False)
 
     workbook = chart.chart_data.chart_data_workbook
 
@@ -561,7 +568,20 @@ with slides.Presentation() as presentation:
     value_cell = workbook.get_cell(0, 3, 4, 50)
     series.data_points.add_data_point_for_stock_series(value_cell)
 
-    chart.chart_data.series_groups[0].up_down_bars.has_up_down_bars = True
+    up_down_bars = chart.chart_data.series_groups[0].up_down_bars
+    up_down_bars.has_up_down_bars = True
+
+    up_down_bars.up_bars_format.fill.fill_type = slides.FillType.SOLID
+    up_down_bars.up_bars_format.fill.solid_fill_color.color = draw.Color.lime_green
+    up_down_bars.up_bars_format.line.fill_format.fill_type = slides.FillType.SOLID
+    up_down_bars.up_bars_format.line.fill_format.solid_fill_color.color = draw.Color.dark_green
+    up_down_bars.up_bars_format.line.width = 2
+
+    up_down_bars.down_bars_format.fill.fill_type = slides.FillType.SOLID
+    up_down_bars.down_bars_format.fill.solid_fill_color.color = draw.Color.orange_red
+    up_down_bars.down_bars_format.line.fill_format.fill_type = slides.FillType.SOLID
+    up_down_bars.down_bars_format.line.fill_format.solid_fill_color.color = draw.Color.dark_red
+    up_down_bars.down_bars_format.line.width = 2
     chart.chart_data.series_groups[0].hi_low_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
 
     for stock_series in chart.chart_data.series:
@@ -572,9 +592,9 @@ with slides.Presentation() as presentation:
     presentation.save("Stock-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-The result:
+The result, exported from PowerPoint:
 
-![The Stock chart](stock_chart.png)
+![Stock chart with an orange-red falling interval for A and green rising intervals for B and C](stock_chart.png)
 
 ### **Create Box and Whisker Charts**
 
