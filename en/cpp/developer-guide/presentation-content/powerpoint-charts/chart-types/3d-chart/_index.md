@@ -11,12 +11,12 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Create 3D charts in PowerPoint presentations with Aspose.Slides for C++. Adjust rotation, chart depth, and spacing between series with C++ examples."
+description: "Create 3D charts in PowerPoint presentations with Aspose.Slides for C++. Adjust rotation, height proportions, chart depth, and spacing between series with C++ examples."
 ---
 
 ## **Overview**
 
-Aspose.Slides for C++ lets you customize the view of a 3D chart through [IChart::get_Rotation3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_rotation3d/). This article demonstrates how to adjust rotation, depth, right-angle axes, and spacing between series, then save the presentation in PPTX format.
+Aspose.Slides for C++ lets you customize the view of a 3D chart through [IChart::get_Rotation3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_rotation3d/). This article demonstrates how to adjust rotation, height proportions, depth, right-angle axes, and spacing between series, then save the presentation in PPTX format.
 
 ## **Set the Rotation and Depth of a 3D Chart**
 
@@ -88,6 +88,70 @@ chart->get_Rotation3D()->set_DepthPercents(150);
 presentation->Save(u"Rotation3D_out.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
+
+## **Adjust the Height Proportions of a 3D Chart**
+
+Use [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) to set the height of a 3D chart as a percentage of its width. This changes the proportions of the 3D scene without resizing the chart object on the slide.
+
+The following example creates a [Column3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) chart with the default data: three series and four categories. It saves three presentations with height proportions of 50%, 100%, and 200%. The chart's position, width, and height remain fixed. The data, rotation, depth, series spacing, and formatting are identical in all three files; only the height percentage changes.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IRotation3D.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <cstdint>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Column3D, 40, 30, 620, 460);
+chart->get_Rotation3D()->set_RotationX(20);
+chart->get_Rotation3D()->set_RotationY(30);
+chart->get_Rotation3D()->set_RightAngleAxes(true);
+chart->get_Rotation3D()->set_DepthPercents(100);
+chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_GapDepth(150);
+
+for (uint16_t heightPercent : { 50, 100, 200 })
+{
+    chart->get_Rotation3D()->set_HeightPercents(heightPercent);
+    auto fileName = String::Format(u"chart_height_{0}.pptx", heightPercent);
+    presentation->Save(fileName, SaveFormat::Pptx);
+}
+presentation->Dispose();
+```
+
+The following images from the equivalent .NET example were exported using Microsoft PowerPoint and illustrate the same height settings. A smaller percentage produces a flatter scene, while a larger percentage produces a taller scene within the same chart object. PowerPoint may also adjust axis tick intervals and label placement to fit the scene.
+
+| Height: 50% | Height: 100% | Height: 200% |
+| --- | --- | --- |
+| ![3D column chart with height set to 50 percent of its width](height_percent_50.png) | ![3D column chart with height set to 100 percent of its width](height_percent_100.png) | ![3D column chart with height set to 200 percent of its width](height_percent_200.png) |
+
+These methods control different aspects of the chart:
+
+| Method | Effect |
+| --- | --- |
+| [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) | Height of the 3D scene as a percentage of its width. |
+| [IShape::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_height/) | Height of the chart object on the slide, in points. |
+| [IRotation3D::set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) | Depth of the 3D scene as a percentage of its width. |
+| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | Spacing between series along the depth axis, as a percentage of the marker width. |
+
+The height setting affects 3D column and bar charts, including cylinder, cone, and pyramid variants, as well as 3D line, area, pie, and surface charts. The comparison above uses the verified `Column3D` type. The setting does not change the appearance of a 2D `ClusteredColumn` chart or a `BubbleWith3D` chart; these names are members of the [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) enumeration. For other chart appearance settings, see [Chart Formatting](/slides/cpp/chart-formatting/).
 
 ## **Adjust the Gap Between Series**
 

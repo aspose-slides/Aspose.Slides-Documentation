@@ -12,12 +12,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Create 3D charts in PowerPoint presentations with Aspose.Slides for .NET. Adjust rotation, chart depth, and spacing between series with C# examples."
+description: "Create 3D charts in PowerPoint presentations with Aspose.Slides for .NET. Adjust rotation, height proportions, chart depth, and spacing between series with C# examples."
 ---
 
 ## **Overview**
 
-Aspose.Slides for .NET lets you customize the view of a 3D chart through the [IChart.Rotation3D](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/rotation3d/) property. This article demonstrates how to adjust rotation, depth, right-angle axes, and spacing between series, then save the presentation in PPTX format.
+Aspose.Slides for .NET lets you customize the view of a 3D chart through the [IChart.Rotation3D](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/rotation3d/) property. This article demonstrates how to adjust rotation, height proportions, depth, right-angle axes, and spacing between series, then save the presentation in PPTX format.
 
 ## **Set the Rotation and Depth of a 3D Chart**
 
@@ -68,6 +68,51 @@ chart.Rotation3D.DepthPercents = 150;
 
 presentation.Save("Rotation3D_out.pptx", SaveFormat.Pptx);
 ```
+
+## **Adjust the Height Proportions of a 3D Chart**
+
+Use [IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) to set the height of a 3D chart as a percentage of its width. This changes the proportions of the 3D scene without resizing the chart object on the slide.
+
+The following example creates a [Column3D](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) chart with the default data: three series and four categories. It saves three presentations with height proportions of 50%, 100%, and 200%. The chart's position, width, and height remain fixed. The data, rotation, depth, series spacing, and formatting are identical in all three files; only the height percentage changes.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Column3D, 40, 30, 620, 460);
+chart.Rotation3D.RotationX = 20;
+chart.Rotation3D.RotationY = 30;
+chart.Rotation3D.RightAngleAxes = true;
+chart.Rotation3D.DepthPercents = 100;
+chart.ChartData.Series[0].ParentSeriesGroup.GapDepth = 150;
+
+foreach (ushort heightPercent in new ushort[] { 50, 100, 200 })
+{
+    chart.Rotation3D.HeightPercents = heightPercent;
+    presentation.Save($"chart_height_{heightPercent}.pptx", SaveFormat.Pptx);
+}
+```
+
+The following images were exported from the generated presentations using Microsoft PowerPoint. A smaller percentage produces a flatter scene, while a larger percentage produces a taller scene within the same chart object. PowerPoint may also adjust axis tick intervals and label placement to fit the scene.
+
+| Height: 50% | Height: 100% | Height: 200% |
+| --- | --- | --- |
+| ![3D column chart with height set to 50 percent of its width](height_percent_50.png) | ![3D column chart with height set to 100 percent of its width](height_percent_100.png) | ![3D column chart with height set to 200 percent of its width](height_percent_200.png) |
+
+These properties control different aspects of the chart:
+
+| Property | Effect |
+| --- | --- |
+| [IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) | Height of the 3D scene as a percentage of its width. |
+| [IChart.Height](https://reference.aspose.com/slides/net/aspose.slides/ishape/height/) | Height of the chart object on the slide, in points. |
+| [IRotation3D.DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) | Depth of the 3D scene as a percentage of its width. |
+| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | Spacing between series along the depth axis, as a percentage of the marker width. |
+
+The height setting affects 3D column and bar charts, including cylinder, cone, and pyramid variants, as well as 3D line, area, pie, and surface charts. The comparison above uses the verified `Column3D` type. The setting does not change the appearance of a 2D `ClusteredColumn` chart or a `BubbleWith3D` chart; these names are members of the [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeration. For other chart appearance settings, see [Chart Formatting](/slides/net/chart-formatting/).
 
 ## **Adjust the Gap Between Series**
 
