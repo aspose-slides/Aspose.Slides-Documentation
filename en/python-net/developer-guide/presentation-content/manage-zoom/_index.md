@@ -1,6 +1,6 @@
 ---
-title: Manage Zooms in Presentations with Python
-linktitle: Zoom
+title: Manage Presentation Zoom with Python
+linktitle: Manage Zoom
 type: docs
 weight: 60
 url: /python-net/manage-zoom/
@@ -15,504 +15,413 @@ keywords:
 - presentation
 - Python
 - Aspose.Slides
-description: "Create and customize Zoom with Aspose.Slides for Python via .NET — jump between sections, add thumbnails and transitions across PPT, PPTX and ODP presentations."
+description: "Create and customize Zoom with Aspose.Slides for Python via .NET — jump between sections, add thumbnails and transitions in PowerPoint presentations."
 ---
 
 ## **Introduction**
 
-Zooms in PowerPoint allow you to jump to and from specific slides, sections, and portions of a presentation. When you are presenting, this ability to navigate quickly across content might prove very useful. 
+PowerPoint zooms let you navigate between specific slides and sections during a slide show. With Aspose.Slides for Python via .NET, you can create slide, section, and summary zooms and customize their previews, borders, and transitions.
 
-![overview](overview.png)
+![PowerPoint zoom overview](overview.png)
 
-* To summarize an entire presentation on a single slide, use a [Summary Zoom](#Summary-Zoom).
-* To show selected slides only, use a [Slide Zoom](#Slide-Zoom).
-* To show a single section only, use a [Section Zoom](#Section-Zoom).
+* To summarize an entire presentation on a single slide, use a [Summary Zoom](#summary-zoom).
+* To show selected slides only, use a [Slide Zoom](#slide-zoom).
+* To show a single section only, use a [Section Zoom](#section-zoom).
 
 ## **Slide Zoom**
 
 A slide zoom can make your presentation more dynamic, allowing you to navigate freely between slides in any order you choose without interrupting the flow of your presentation. Slide zooms are great for short presentations without many sections, but you can still use them in different presentation scenarios.
 
-Slide zooms help you drill into multiple pieces of information while you feel like you are on a single canvas. 
+Slide zooms let you explore related information from a single overview slide.
 
-![slidezoomsel](slidezoomsel.png)
+![Selecting slides for a slide zoom](slidezoomsel.png)
 
-For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/python-net/aspose.slides/zoomimagetype/) enumeration, the [ZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/zoomframe/) class, and some methods in the [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) class.
+For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/python-net/aspose.slides/zoomimagetype/) enumeration, the [ZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/zoomframe/) class, and methods on the [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) class.
 
-### **Creating Zoom Frames**
-You can add a zoom frame on a slide this way:
+### **Create Zoom Frames**
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2.	Create new slides to which you intend to link. 
-3.	Add an identification text and background to the created slides.
-4.  Add zoom frames (containing the references to created slides) into the first slide.
-5.	Write the modified presentation as a PPTX file.
+Use [ShapeCollection.add_zoom_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_zoom_frame/) to place links to individual slides on an overview slide. This example creates two target slides with distinct backgrounds and labels, then adds a preview of each to the first slide and saves the presentation as PPTX. Frame positions and dimensions are specified in points.
 
-This sample code shows you how to create a zoom frame in a slide:
-```py 
-import aspose.slides as slides
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    #Add new slides to the presentation
-    slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-    slide3 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+with slides.Presentation() as presentation:
+    overview_slide = presentation.slides[0]
 
-    # Create a background for the second slide
-    slide2.background.type = slides.BackgroundType.OWN_BACKGROUND
-    slide2.background.fill_format.fill_type = slides.FillType.SOLID
-    slide2.background.fill_format.solid_fill_color.color = draw.Color.cyan
+    second_slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
+    third_slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
 
-    # Create a text box for the second slide
-    autoshape = slide2.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Second Slide"
+    second_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    second_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    second_slide.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    # Create a background for the third slide
-    slide3.background.type = slides.BackgroundType.OWN_BACKGROUND
-    slide3.background.fill_format.fill_type = slides.FillType.SOLID
-    slide3.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
+    text_box = second_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
+    text_box.text_frame.text = "Second Slide"
 
-    # Create a text box for the third slide
-    autoshape = slide3.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Trird Slide"
+    third_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    third_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    third_slide.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-    #Add ZoomFrame objects
-    pres.slides[0].shapes.add_zoom_frame(20, 20, 250, 200, slide2)
-    pres.slides[0].shapes.add_zoom_frame(200, 250, 250, 200, slide3)
+    text_box = third_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
+    text_box.text_frame.text = "Third Slide"
 
-    # Save the presentation
-    pres.save("presentation-zoom.pptx", slides.export.SaveFormat.PPTX)
+    overview_slide.shapes.add_zoom_frame(20, 20, 250, 200, second_slide)
+    overview_slide.shapes.add_zoom_frame(200, 250, 250, 200, third_slide)
+
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
-### **Creating Zoom Frames with Custom Images**
-With Aspose.Slides for Python via .NET, you can create a zoom frame with an image other than the slide preview image this way: 
-1.	Create an instance of the `Presentation` class.
-2.	Create a new slide to which you intend to link. 
-3.	Add an identification text and background to created slide.
-4.  Create a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the frame.
-5.  Add zoom frames (containing the reference to created slide) into the first slide.
-6.	Write the modified presentation as a PPTX file.
 
-This python code shows you how to create a zoom frame with a different image:
+### **Create Zoom Frames with Custom Images**
 
-```py 
-import aspose.slides as slides
+Pass a custom image to [ShapeCollection.add_zoom_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_zoom_frame/) to replace the target slide's default preview. This example requires a local image, loads it with [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/), and adds it to the presentation using [ImageCollection.add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/). The resulting frame displays that image while still linking to the second slide.
+
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    #Add a new slide to the presentation
-    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+with slides.Presentation() as presentation:
+    overview_slide = presentation.slides[0]
 
-    # Create a background for the second slide
+    slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    # Create a text box for the third slide
-    autoshape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Second Slide"
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
+    text_box.text_frame.text = "Second Slide"
 
-    # Create a new image for the zoom object
-    image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
+    with slides.Images.from_file("image.png") as image:
+        preview_image = presentation.images.add_image(image)
 
-    #Add the ZoomFrame object
-    pres.slides[0].shapes.add_zoom_frame(20, 20, 300, 200, slide, image)
+    overview_slide.shapes.add_zoom_frame(20, 20, 300, 200, slide, preview_image)
 
-    # Save the presentation
-    pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Formatting Zoom Frames**
-In the previous sections (above), we showed you how to create simple zoom frames. To create more complicated zoom frames, you have to alter the frames' formatting. There are several formatting settings you can apply on a zoom frame. 
+### **Format Zoom Frames**
 
-You can control the formatting of a zoom frame in a slide this way:
+This example customizes two slide zoom frames. It assigns a local image to the first frame through [ZoomObject.zoom_image](https://reference.aspose.com/slides/python-net/aspose.slides/zoomobject/zoom_image/), and gives the second frame a five-point, dash-dot pink border through [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/). Setting [ZoomObject.show_background](https://reference.aspose.com/slides/python-net/aspose.slides/zoomobject/show_background/) to `False` hides the second frame's background. A local image is required for the custom preview; both frames retain their slide targets in the saved PPTX.
 
-1.	Create an instance of the `Presentation` class.
-2.	Create new slides to link to.
-3.	Add identification text and background to created slides.
-4.  Add zoom frames (containing the references to created slides) into the first slide.
-5.  Create a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the frame.
-6.  Set a custom image for the first zoom frame object.
-7.  Change the line format for the second zoom frame object.
-8.  Remove the background from an image of the second zoom frame object.
-5.	Write the modified presentation as a PPTX file.
-
-This python sample code shows you how to change the formatting of a zoom frame: 
-
-```py 
-import aspose.slides as slides
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    #Add new slides to presentation
-    slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-    slide3 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+with slides.Presentation() as presentation:
+    overview_slide = presentation.slides[0]
 
-    # Create a background for the second slide
-    slide2.background.type = slides.BackgroundType.OWN_BACKGROUND
-    slide2.background.fill_format.fill_type = slides.FillType.SOLID
-    slide2.background.fill_format.solid_fill_color.color = draw.Color.cyan
+    second_slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
+    third_slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
 
-    # Create a text box for the second slide
-    autoshape = slide2.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Second Slide"
+    second_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    second_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    second_slide.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    # Create a background for the third slide
-    slide3.background.type = slides.BackgroundType.OWN_BACKGROUND
-    slide3.background.fill_format.fill_type = slides.FillType.SOLID
-    slide3.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
+    text_box = second_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
+    text_box.text_frame.text = "Second Slide"
 
-    # Create a text box for the third slide
-    autoshape = slide3.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Trird Slide"
+    third_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    third_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    third_slide.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-    #Add ZoomFrame objects
-    zoomFrame1 = pres.slides[0].shapes.add_zoom_frame(20, 20, 250, 200, slide2)
-    zoomFrame2 = pres.slides[0].shapes.add_zoom_frame(200, 250, 250, 200, slide3)
+    text_box = third_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
+    text_box.text_frame.text = "Third Slide"
 
-    # Create a new image for the zoom object
-    image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
-    # Set custom image for zoomFrame1 object
-    zoomFrame1.zoom_image = image
+    first_zoom_frame = overview_slide.shapes.add_zoom_frame(20, 20, 250, 200, second_slide)
+    second_zoom_frame = overview_slide.shapes.add_zoom_frame(200, 250, 250, 200, third_slide)
 
-    # Set a zoom frame format for the zoomFrame2 object
-    zoomFrame2.line_format.width = 5
-    zoomFrame2.line_format.fill_format.fill_type = slides.FillType.SOLID
-    zoomFrame2.line_format.fill_format.solid_fill_color.color = draw.Color.hot_pink
-    zoomFrame2.line_format.dash_style = slides.LineDashStyle.DASH_DOT
+    with slides.Images.from_file("image.png") as image:
+        preview_image = presentation.images.add_image(image)
 
-    # Do not show background for zoomFrame2 object
-    zoomFrame2.show_background = False
+    first_zoom_frame.zoom_image = preview_image
 
-    # Save the presentation
-    pres.save("presentation-zoom2.pptx", slides.export.SaveFormat.PPTX)
+    second_zoom_frame.line_format.width = 5
+    second_zoom_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    second_zoom_frame.line_format.fill_format.solid_fill_color.color = draw.Color.hot_pink
+    second_zoom_frame.line_format.dash_style = slides.LineDashStyle.DASH_DOT
+
+    second_zoom_frame.show_background = False
+
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Section Zoom**
 
-A section zoom is a link to a section in your presentation. You can use section zooms to go back to sections you want to really emphasize. Or you can use them to highlight how certain pieces of your presentation connect. 
+A section zoom links to a section in your presentation. Use it to revisit a topic or show how different parts of the presentation connect.
 
-![seczoomsel](seczoomsel.png)
+![Selecting a section for a section zoom](seczoomsel.png)
 
-For section zoom objects, Aspose.Slides provides the [SectionZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/sectionzoomframe/) class and some methods under the [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) class.
+For section zoom objects, Aspose.Slides provides the [SectionZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/sectionzoomframe/) class and methods on the [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) class.
 
-### **Creating Section Zoom Frames**
+### **Create Section Zoom Frames**
 
-You can add a section zoom frame to a slide this way:
+Create a section with [SectionCollection.add_section](https://reference.aspose.com/slides/python-net/aspose.slides/sectioncollection/add_section/), then pass the returned section to [ShapeCollection.add_section_zoom_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_section_zoom_frame/). This example places a section zoom on the first slide and links it to a section beginning with a colored slide. The frame's position and dimensions are specified in points, and the presentation is saved as PPTX.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2.	Create a new slide. 
-3.	Add an identification background to the created slide.
-4.	Create a new section to which you intend to link the zoom frame. 
-5.	Add a section zoom frame (containing references to the created section) to the first slide.
-6.	Write the modified presentation as a PPTX file.
-
-This python code shows you how to create a zoom frame on a slide:
-
-```py
-import aspose.slides as slides
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    #Adds a new slide to the presentation
-    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+with slides.Presentation() as presentation:
+    overview_slide = presentation.slides[0]
 
-    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
+    section = presentation.sections.add_section("Section 1", slide)
+    section_zoom_frame = overview_slide.shapes.add_section_zoom_frame(20, 20, 300, 200, section)
 
-    # Adds a new Section to the presentation
-    pres.sections.add_section("Section 1", slide)
-
-    # Adds a SectionZoomFrame object
-    sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1])
-
-    # Saves the presentation
-    pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Creating Section Zoom Frames with Custom Images**
+### **Create Section Zoom Frames with Custom Images**
 
-Using Aspose.Slides for Python, you can create a section zoom frame with a different slide preview image this way: 
+The image overload of [ShapeCollection.add_section_zoom_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_section_zoom_frame/) lets you display a custom preview without changing the destination section. This example requires a local image, which is loaded with [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) and added through [ImageCollection.add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/). The saved presentation contains a section zoom on the first slide linked to the newly created section.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2.	Create a new slide.
-3.	Add an identification background to created slide.
-4.	Create a new section to which you intend to link the zoom frame. 
-5.	Create a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object that will be used to fill the frame.
-6.	Add a section zoom frame (containing a reference to the created section) to the first slide.
-7.	Write the modified presentation as a PPTX file.
-
-This python code shows you how to create a zoom frame with a different image:
-
-```py
-import aspose.slides as slides
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    #Adds a new slide to the presentation
-    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+with slides.Presentation() as presentation:
+    overview_slide = presentation.slides[0]
 
-    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
+    with slides.Images.from_file("image.png") as image:
+        preview_image = presentation.images.add_image(image)
 
-    # Adds a new Section to the presentation
-    pres.sections.add_section("Section 1", slide)
+    section = presentation.sections.add_section("Section 1", slide)
+    section_zoom_frame = overview_slide.shapes.add_section_zoom_frame(20, 20, 300, 200, section, preview_image)
 
-    # Creates a new image for the zoom object
-    image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
-
-    # Adds a SectionZoomFrame object
-    sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1], image)
-
-    # Saves the presentation
-    pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Formatting Section Zoom Frames**
+### **Change a Section Zoom's Target Section**
 
-To create more complicated section zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a section zoom frame. 
+Use [SectionZoomFrame.target_section](https://reference.aspose.com/slides/python-net/aspose.slides/sectionzoomframe/target_section/) to redirect an existing section zoom without recreating it. Choose a populated section from the same presentation's [sections](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/sections/) collection. Assigning an empty section leaves the current target unchanged, so check [Section.get_slides_list_of_section](https://reference.aspose.com/slides/python-net/aspose.slides/section/get_slides_list_of_section/) before assigning it. See [Manage Slide Sections](/slides/python-net/slide-section/) for more about sections.
 
-You can control a section zoom frame's formatting on a slide this way:
+The following example loads a presentation file, which must contain multiple populated sections, an existing section zoom named `Section navigation`, and a section with the unique name `Results`. It searches all slides for the zoom and finds the destination by name rather than by a collection index that can change when sections are reordered. If names are not unique, use [Section.section_id](https://reference.aspose.com/slides/python-net/aspose.slides/section/section_id/) to identify the destination instead.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2.	Create a new slide.
-3.	Add identification background to created slide.
-4.	Create a new section to which you intend to link the zoom frame. 
-5.	Add a section zoom frame (containing references to created section) to the first slide.
-6.	Change the size and position for the created section zoom object.
-7.	Create a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object that will be used to fill the frame.
-8.	Set a custom image for the created section zoom frame object.
-9.	Set the *return to the original slide from the linked section* ability. 
-10.	Remove the background from an image of the section zoom frame object.
-11.	Change the line format for the second zoom frame object.
-12.	Change the transition duration.
-13.	Write the modified presentation as a PPTX file.
-
-This python code shows you how to change a section zoom frame's formatting:
-
-```py
+```python
 import aspose.slides as slides
+
+with slides.Presentation("section-zoom.pptx") as presentation:
+    zoom = None
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if isinstance(shape, slides.SectionZoomFrame) and shape.name == "Section navigation":
+                zoom = shape
+                break
+        if zoom is not None:
+            break
+
+    target_section = next((section for section in presentation.sections if section.name == "Results"), None)
+
+    if zoom is None or target_section is None:
+        print("The section zoom or destination section was not found.")
+    elif len(target_section.get_slides_list_of_section()) == 0:
+        print("The destination section is empty.")
+    else:
+        if zoom.target_section is not None:
+            print(f"Current section: {zoom.target_section.name}")
+        zoom.target_section = target_section
+        presentation.save("section-zoom-updated.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Format Section Zoom Frames**
+
+This example moves and resizes a section zoom to 100 by 75 points, assigns a local image through [ZoomObject.zoom_image](https://reference.aspose.com/slides/python-net/aspose.slides/zoomobject/zoom_image/), and applies a 2.5-point, dash-dot brown border. It enables [ZoomObject.return_to_parent](https://reference.aspose.com/slides/python-net/aspose.slides/zoomobject/return_to_parent/) to return to the originating slide after the section, disables [ZoomObject.show_background](https://reference.aspose.com/slides/python-net/aspose.slides/zoomobject/show_background/), and sets [ZoomObject.transition_duration](https://reference.aspose.com/slides/python-net/aspose.slides/zoomobject/transition_duration/) to 1.5 seconds. A local image is required for the custom preview.
+
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
+with slides.Presentation() as presentation:
+    overview_slide = presentation.slides[0]
 
-with slides.Presentation() as pres:
-    #Adds a new slide to the presentation
-    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+    slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # Adds a new Section to the presentation
-    pres.sections.add_section("Section 1", slide)
+    section = presentation.sections.add_section("Section 1", slide)
 
-    # Add SectionZoomFrame object
-    sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1])
+    section_zoom_frame = overview_slide.shapes.add_section_zoom_frame(20, 20, 300, 200, section)
+    section_zoom_frame.x = 100
+    section_zoom_frame.y = 300
+    section_zoom_frame.width = 100
+    section_zoom_frame.height = 75
 
-    # Formatting for SectionZoomFrame
-    sectionZoomFrame.x = 100
-    sectionZoomFrame.y = 300
-    sectionZoomFrame.width = 100
-    sectionZoomFrame.height = 75
+    with slides.Images.from_file("image.png") as image:
+        preview_image = presentation.images.add_image(image)
 
-    image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
-    sectionZoomFrame.zoom_image = image
+    section_zoom_frame.zoom_image = preview_image
 
-    sectionZoomFrame.return_to_parent = True
-    sectionZoomFrame.show_background = False
+    section_zoom_frame.return_to_parent = True
+    section_zoom_frame.show_background = False
 
-    sectionZoomFrame.line_format.fill_format.fill_type = slides.FillType.SOLID
-    sectionZoomFrame.line_format.fill_format.solid_fill_color.color = draw.Color.brown
-    sectionZoomFrame.line_format.dash_style = slides.LineDashStyle.DASH_DOT
-    sectionZoomFrame.line_format.width = 2.5
+    section_zoom_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    section_zoom_frame.line_format.fill_format.solid_fill_color.color = draw.Color.brown
+    section_zoom_frame.line_format.dash_style = slides.LineDashStyle.DASH_DOT
+    section_zoom_frame.line_format.width = 2.5
 
-    sectionZoomFrame.transition_duration = 1.5
+    section_zoom_frame.transition_duration = 1.5
 
-    # Saves the presentation
-    pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Summary Zoom**
 
-A summary zoom is like a landing page where all the pieces of your presentation are displayed at once. When you're presenting, you can use the zoom to go from one place in your presentation to another in any order you like. You can get creative, skip ahead, or revisit pieces of your slide show without interrupting the flow of your presentation.
+A summary zoom provides an overview of presentation sections. During a slide show, you can use it to jump to a section, skip ahead, or revisit a topic without following the slide order.
 
-![overview_image](summaryzoom.png)
+![Selecting sections for a summary zoom](sumzoomsel.png)
 
-For summary zoom objects, Aspose.Slides provides the [SummaryZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsection/), and [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsectioncollection/) class and some methods under the [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) class.
+For summary zoom objects, Aspose.Slides provides the [SummaryZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsection/), and [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsectioncollection/) classes and methods on the [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) class.
 
-### **Creating Summary Zoom**
+### **Create a Summary Zoom**
 
-You can add a summary zoom frame to a slide this way:
+Use [ShapeCollection.add_summary_zoom_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_summary_zoom_frame/) to create an overview of the presentation's sections. This example creates four sections with distinct slide backgrounds and adds a summary zoom to the first slide. The frame's position and dimensions are specified in points, and the resulting overview is saved in a PPTX presentation.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.	Add the summary zoom frame to the first slide.
-4.	Write the modified presentation as a PPTX file.
-
-This python code shows you how to create a summary zoom frame on a slide:
-
-```py 
-import aspose.slides as slides
+```python
 import aspose.pydrawing as draw
-
-colors = [draw.Color.brown, draw.Color.aqua, draw.Color.chartreuse, draw.Color.dark_green]
-
-with slides.Presentation() as pres:
-    for index, color in enumerate(colors):
-        #Add a new slide to the presentation
-        slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-
-        # Create a background for the slide
-        slide.background.type = slides.BackgroundType.OWN_BACKGROUND
-        slide.background.fill_format.fill_type = slides.FillType.SOLID
-        slide.background.fill_format.solid_fill_color.color = color
-
-        # Add a new section for the created slide
-        pres.sections.add_section("Section {num}".format(num = index + 1), slide)
-
-    # Add a SummaryZoomFrame object to the first slide
-    summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
-
-    # Save the presentation
-    pres.save("presentation-zoom3.pptx", slides.export.SaveFormat.PPTX)
-```
-
-### **Adding and Removing Summary Zoom Section**
-
-All sections in a summary zoom frame are represented by [SummaryZoomSection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsection/) objects, which are stored in the [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsectioncollection/) object. You can add or remove a summary zoom section object through the [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsectioncollection/) class this way:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.	Add a summary zoom frame into the first slide.
-4.	Add a new slide and section to the presentation.
-5.	Add the created section to the summary zoom frame.
-6.	Remove the first section from the summary zoom frame.
-7.	Write the modified presentation as a PPTX file.
-
-This python code shows you how to add and remove sections in a summary zoom frame:
-
-``` python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
+with slides.Presentation() as presentation:
+    overview_slide = presentation.slides[0]
 
-with slides.Presentation() as pres:
-    #Adds a new slide to the presentation
-    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-    slide.background.fill_format.fill_type = slides.FillType.SOLID
-    slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
-    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
-
-    # Adds a new section to the presentation
-    pres.sections.add_section("Section 1", slide)
-
-    #Adds a new slide to the presentation
-    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-    slide.background.fill_format.fill_type = slides.FillType.SOLID
-    slide.background.fill_format.solid_fill_color.color = draw.Color.aqua
-    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
-
-    # Adds a new section to the presentation
-    pres.sections.add_section("Section 2", slide)
-
-    # Adds SummaryZoomFrame object
-    summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
-
-    #Adds a new slide to the presentation
-    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-    slide.background.fill_format.fill_type = slides.FillType.SOLID
-    slide.background.fill_format.solid_fill_color.color = draw.Color.chartreuse
-    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
-
-    # Adds a new section to the presentation
-    section3 = pres.sections.add_section("Section 3", slide)
-
-    # Adds a section to the Summary Zoom
-    summaryZoomFrame.summary_zoom_collection.add_summary_zoom_section(section3)
-
-    # Removes section from the Summary Zoom
-    summaryZoomFrame.summary_zoom_collection.remove_summary_zoom_section(pres.sections[1])
-
-    # Saves the presentation
-    pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
-```
-
-### **Formatting Summary Zoom Sections**
-
-To create more complicated summary zoom section objects, you have to alter a simple frame's formatting. There are several formatting options you can apply to a summary zoom section object. 
-
-You can control the formatting for a summary zoom section object in a summary zoom frame this way:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.	Add a summary zoom frame to the first slide.
-4.	Get a summary zoom section object for the first object from the `SummaryZoomSectionCollection`.
-5.	Create a `PPImage` object by adding an image to the images collection associated with the  [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object that will be used to fill the frame.
-6.	Set a custom image for the created section zoom frame object.
-7.	Set the *return to the original slide from the linked section* ability. 
-8.	Change the line format for the second zoom frame object.
-9.	Change the transition duration.
-10.	Write the modified presentation as a PPTX file.
-
-This python code shows you how to change the formatting for a summary zoom section object:
-
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-with slides.Presentation() as pres:
-    #Adds a new slide to the presentation
-    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+    slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.brown
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # Adds a new section to the presentation
-    pres.sections.add_section("Section 1", slide)
+    presentation.sections.add_section("Section 1", slide)
 
-    #Adds a new slide to the presentation
-    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
+    slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.aqua
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # Adds a new section to the presentation
-    pres.sections.add_section("Section 2", slide)
+    presentation.sections.add_section("Section 2", slide)
 
-    # Adds a SummaryZoomFrame object
-    summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
+    slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.chartreuse
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # Gets the first SummaryZoomSection object
-    summarySection = summaryZoomFrame.summary_zoom_collection[0]
+    presentation.sections.add_section("Section 3", slide)
 
-    # Formatting for SummaryZoomSection object
-    image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
-    summarySection.zoom_image = image
+    slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.dark_green
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    summarySection.return_to_parent = False
+    presentation.sections.add_section("Section 4", slide)
 
-    summarySection.line_format.fill_format.fill_type = slides.FillType.SOLID
-    summarySection.line_format.fill_format.solid_fill_color.color = draw.Color.black
-    summarySection.line_format.dash_style = slides.LineDashStyle.DASH_DOT
-    summarySection.line_format.width = 1.5
+    summary_zoom_frame = overview_slide.shapes.add_summary_zoom_frame(150, 50, 300, 200)
 
-    summarySection.transition_duration = 1.5
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+```
 
-    # Saves the presentation
-    pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+### **Add and Remove a Summary Zoom Section**
+
+A summary zoom stores its [SummaryZoomSection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsection/) objects in [SummaryZoomFrame.summary_zoom_collection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomframe/summary_zoom_collection/). This example creates an overview of two sections, adds a third section using [SummaryZoomSectionCollection.add_summary_zoom_section](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsectioncollection/add_summary_zoom_section/), and removes the first section's entry using [SummaryZoomSectionCollection.remove_summary_zoom_section](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomsectioncollection/remove_summary_zoom_section/). Removing the entry leaves the presentation section and its slides intact.
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    overview_slide = presentation.slides[0]
+
+    slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.brown
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+
+    first_section = presentation.sections.add_section("Section 1", slide)
+
+    slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.aqua
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+
+    presentation.sections.add_section("Section 2", slide)
+
+    summary_zoom_frame = overview_slide.shapes.add_summary_zoom_frame(150, 50, 300, 200)
+
+    slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.chartreuse
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+
+    third_section = presentation.sections.add_section("Section 3", slide)
+
+    summary_zoom_frame.summary_zoom_collection.add_summary_zoom_section(third_section)
+
+    summary_zoom_frame.summary_zoom_collection.remove_summary_zoom_section(first_section)
+
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Format Summary Zoom Sections**
+
+This example formats the first entry in [SummaryZoomFrame.summary_zoom_collection](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomframe/summary_zoom_collection/), using the zero-based index `0`. It requires a local image for [ZoomObject.zoom_image](https://reference.aspose.com/slides/python-net/aspose.slides/zoomobject/zoom_image/), applies a 1.5-point, dash-dot black border, and sets [ZoomObject.transition_duration](https://reference.aspose.com/slides/python-net/aspose.slides/zoomobject/transition_duration/) to 1.5 seconds. Setting [ZoomObject.return_to_parent](https://reference.aspose.com/slides/python-net/aspose.slides/zoomobject/return_to_parent/) to `False` disables the automatic return to the summary slide for this entry.
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    overview_slide = presentation.slides[0]
+
+    slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.brown
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+
+    presentation.sections.add_section("Section 1", slide)
+
+    slide = presentation.slides.add_empty_slide(overview_slide.layout_slide)
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.aqua
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+
+    presentation.sections.add_section("Section 2", slide)
+
+    summary_zoom_frame = overview_slide.shapes.add_summary_zoom_frame(150, 50, 300, 200)
+
+    summary_section = summary_zoom_frame.summary_zoom_collection[0]
+
+    with slides.Images.from_file("image.png") as image:
+        preview_image = presentation.images.add_image(image)
+
+    summary_section.zoom_image = preview_image
+    summary_section.return_to_parent = False
+
+    summary_section.line_format.fill_format.fill_type = slides.FillType.SOLID
+    summary_section.line_format.fill_format.solid_fill_color.color = draw.Color.black
+    summary_section.line_format.dash_style = slides.LineDashStyle.DASH_DOT
+    summary_section.line_format.width = 1.5
+
+    summary_section.transition_duration = 1.5
+
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-### Can I control returning to the 'parent' slide after showing the target?
+**Can I control returning to the 'parent' slide after showing the target?**
 
-Yes. The [Zoom frame](https://reference.aspose.com/slides/python-net/aspose.slides/zoomframe/) or [section](https://reference.aspose.com/slides/python-net/aspose.slides/sectionzoomframe/) has a `return_to_parent` behavior that, when enabled, sends viewers back to the originating slide after they visit the target content.
+Yes. Set [ZoomObject.return_to_parent](https://reference.aspose.com/slides/python-net/aspose.slides/zoomobject/return_to_parent/) to `True` to return to the originating slide after the target content is shown.
 
-### Can I adjust the 'speed' or duration of the Zoom transition?
+**Can I adjust the 'speed' or duration of the Zoom transition?**
 
-Yes. Zoom supports setting a `transition_duration` so you can control how long the jump animation takes.
+Yes. Set [ZoomObject.transition_duration](https://reference.aspose.com/slides/python-net/aspose.slides/zoomobject/transition_duration/) to control the transition duration in seconds.
 
-### Are there limits on how many Zoom objects a presentation can contain?
+**Are there limits on how many Zoom objects a presentation can contain?**
 
 There is no hard API limit documented. Practical limits depend on overall presentation complexity and the viewer's performance. You can add many Zoom frames, but consider file size and rendering time.
