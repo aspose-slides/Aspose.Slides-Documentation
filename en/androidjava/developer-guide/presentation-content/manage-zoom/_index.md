@@ -16,584 +16,489 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Create and customize Zoom with Aspose.Slides for Android via Java — jump between sections, add thumbnails and transitions across PPT, PPTX and ODP presentations."
+description: "Create and customize Zoom with Aspose.Slides for Android via Java — jump between sections, add thumbnails and transitions in PowerPoint presentations."
 ---
 
 ## **Introduction**
 
-Zooms in PowerPoint allow you to jump to and from specific slides, sections, and portions of a presentation. When you are presenting, this ability to navigate quickly across content might prove very useful. 
+PowerPoint zooms let you navigate between specific slides and sections during a slide show. With Aspose.Slides for Android via Java, you can create slide, section, and summary zooms and customize their previews, borders, and transitions.
 
-![overview_image](overview.png)
+![PowerPoint zoom overview](overview.png)
 
-* To summarize an entire presentation on a single slide, use a [Summary Zoom](#Summary-Zoom).
-* To show selected slides only, use a [Slide Zoom](#Slide-Zoom).
-* To show a single section only, use a [Section Zoom](#Section-Zoom).
+* To summarize an entire presentation on a single slide, use a [Summary Zoom](#summary-zoom).
+* To show selected slides only, use a [Slide Zoom](#slide-zoom).
+* To show a single section only, use a [Section Zoom](#section-zoom).
 
 ## **Slide Zoom**
+
 A slide zoom can make your presentation more dynamic, allowing you to navigate freely between slides in any order you choose without interrupting the flow of your presentation. Slide zooms are great for short presentations without many sections, but you can still use them in different presentation scenarios.
 
-Slide zooms help you drill into multiple pieces of information while you feel like you are on a single canvas. 
+Slide zooms let you explore related information from a single overview slide.
 
-![overview_image](slidezoomsel.png)
+![Selecting slides for a slide zoom](slidezoomsel.png)
 
-For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ZoomImageType) enumeration, the [IZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IZoomFrame) interface, and some methods under the [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) interface.
+For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zoomimagetype/) enumeration, the [IZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/izoomframe/) interface, and methods on the [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) interface.
 
 ### **Create Zoom Frames**
 
-You can add a zoom frame on a slide this way:
+Use [IShapeCollection.addZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addZoomFrame-float-float-float-float-com.aspose.slides.ISlide-) to place links to individual slides on an overview slide. This example creates two target slides with distinct backgrounds and labels, then adds a preview of each to the first slide and saves the presentation as PPTX. Frame positions and dimensions are specified in points.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
-2.	Create new slides to which you intend to link the zoom frames. 
-3.	Add an identification text and background to the created slides.
-4.  Add zoom frames (containing the references to created slides) to the first slide.
-5.	Write the modified presentation as a PPTX file.
-
-This Java code shows you how to create a zoom frame on a slide:
-
-``` java
+```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    //Adds new slides to the presentation
-    ISlide slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    ISlide slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    ISlide overviewSlide = presentation.getSlides().get_Item(0);
 
-    // Creates a background for the second slide
-    slide2.getBackground().setType(BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
+    ISlide secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
 
-    // Creates a text box for the second slide
-    IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
+    secondSlide.getBackground().setType(BackgroundType.OwnBackground);
+    secondSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
 
-    // Creates a background for the third slide
-    slide3.getBackground().setType(BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray);
+    IAutoShape textBox = secondSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
 
-    // Create a text box for the third slide
-    autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
+    thirdSlide.getBackground().setType(BackgroundType.OwnBackground);
+    thirdSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.rgb(189, 183, 107));
 
-    //Adds ZoomFrame objects
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
+    textBox = thirdSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
 
-    // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
+    overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 ### **Create Zoom Frames with Custom Images**
-With Aspose.Slides for Android via Java, you can create a zoom frame with a different slide preview image this way:
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
-2.	Create a new slide to which you intend to link the zoom frame. 
-3.	Add an identification text and background to the slide.
-4.  Create an [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) object that will be used to fill the frame.
-5.  Add zoom frames (containing the reference to created slide) to the first slide.
-6.	Write the modified presentation as a PPTX file.
 
-This Java code shows you how to create a zoom frame with a different image:
+Pass a custom image to [IShapeCollection.addZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addZoomFrame-float-float-float-float-com.aspose.slides.ISlide-com.aspose.slides.IPPImage-) to replace the target slide's default preview. This example requires a local image, loads it with [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-), and adds it to the presentation using [IImageCollection.addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). The resulting frame displays that image while still linking to the second slide.
 
-``` java
+```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    //Adds a new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    ISlide overviewSlide = presentation.getSlides().get_Item(0);
 
-    // Creates a background for the second slide
+    ISlide slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
 
-    // Creates a text box for the second slide
-    IAutoShape autoshape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
 
-    // Creates a new image for the zoom object
-    IPPImage picture;
+    IPPImage previewImage;
     IImage image = Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) image.dispose();
+        image.dispose();
     }
-    //Adds the ZoomFrame object
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
 
-    // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
+    overviewSlide.getShapes().addZoomFrame(20, 20, 300, 200, slide, previewImage);
+
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 ### **Format Zoom Frames**
-In the previous sections, we showed you how to create simple zoom frames. To create more complicated zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a zoom frame. 
 
-You can control a zoom frame's formatting on a slide this way:
+This example customizes two slide zoom frames. It assigns a local image to the first frame through [IZoomObject.setZoomImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/izoomobject/#setZoomImage-com.aspose.slides.IPPImage-), and gives the second frame a five-point, dash-dot pink border through [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--). Passing `false` to [IZoomObject.setShowBackground](https://reference.aspose.com/slides/androidjava/com.aspose.slides/izoomobject/#setShowBackground-boolean-) hides the second frame's background. A local image is required for the custom preview; both frames retain their slide targets in the saved PPTX.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
-2.	Create new slides to link to which you intend to link the zoom frame. 
-3.	Add some identification text and background to the created slides.
-4.  Add zoom frames (containing the references to the created slides) to the first slide.
-5.  Create an [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) object that will be used to fill the frame.
-6.  Set a custom image for the first zoom frame object.
-7.  Change the line format for the second zoom frame object.
-8.  Remove the background from an image of the second zoom frame object.
-5.	Write the modified presentation as a PPTX file.
-
-This Java code shows you how to change a zoom frame's formatting on a slide: 
-
-``` java 
+```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    //Adds new slides to the presentation
-    ISlide slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    ISlide slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    ISlide overviewSlide = presentation.getSlides().get_Item(0);
 
-    // Creates a background for the second slide
-    slide2.getBackground().setType(BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
+    ISlide secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
 
-    // Creates a text box for the second slide
-    IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
+    secondSlide.getBackground().setType(BackgroundType.OwnBackground);
+    secondSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
 
-    // Creates a background for the third slide
-    slide3.getBackground().setType(BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray);
+    IAutoShape textBox = secondSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
 
-    // Creates a text box for the third slide
-    autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
+    thirdSlide.getBackground().setType(BackgroundType.OwnBackground);
+    thirdSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.rgb(189, 183, 107));
 
-    //Adds ZoomFrame objects
-    IZoomFrame zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    IZoomFrame zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
+    textBox = thirdSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
 
-    // Creates a new image for the zoom object
-    IPPImage picture;
+    IZoomFrame firstZoomFrame = overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    IZoomFrame secondZoomFrame = overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    IPPImage previewImage;
     IImage image = Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) image.dispose();
+        image.dispose();
     }
-    // Sets custom image for zoomFrame1 object
-    zoomFrame1.setZoomImage(picture);
 
-    // Sets a zoom frame format for the zoomFrame2 object
-    zoomFrame2.getLineFormat().setWidth(5);
-    zoomFrame2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink);
-    zoomFrame2.getLineFormat().setDashStyle(LineDashStyle.DashDot);
+    firstZoomFrame.setZoomImage(previewImage);
 
-    // Setting for Do not show background for zoomFrame2 object
-    zoomFrame2.setShowBackground(false);
+    secondZoomFrame.getLineFormat().setWidth(5);
+    secondZoomFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    secondZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 105, 180));
+    secondZoomFrame.getLineFormat().setDashStyle(LineDashStyle.DashDot);
 
-    // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
+    secondZoomFrame.setShowBackground(false);
+
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Section Zoom**
 
-A section zoom is a link to a section in your presentation. You can use section zooms to go back to sections you want to really emphasize. Or you can use them to highlight how certain pieces of your presentation connect. 
+A section zoom links to a section in your presentation. Use it to revisit a topic or show how different parts of the presentation connect.
 
-![overview_image](seczoomsel.png)
+![Selecting a section for a section zoom](seczoomsel.png)
 
-For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISectionZoomFrame) interface and some methods under the [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) interface.
+For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isectionzoomframe/) interface and methods on the [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) interface.
 
 ### **Create Section Zoom Frames**
 
-You can add a section zoom frame to a slide this way:
+Create a section with [ISectionCollection.addSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isectioncollection/#addSection-java.lang.String-com.aspose.slides.ISlide-), then pass the returned section to [IShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addSectionZoomFrame-float-float-float-float-com.aspose.slides.ISection-). This example places a section zoom on the first slide and links it to a section beginning with a colored slide. The frame's position and dimensions are specified in points, and the presentation is saved as PPTX.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
-2.	Create a new slide. 
-3.	Add an identification background to the created slide.
-4.  Create a new section to which you intend to link the zoom frame. 
-5.  Add a section zoom frame (containing references to the created section) to the first slide.
-6.	Write the modified presentation as a PPTX file.
-
-This Java code shows you how to create a zoom frame on a slide:
-
-``` java
+```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    //Adds a new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    ISlide overviewSlide = presentation.getSlides().get_Item(0);
+
+    ISlide slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.rgb(154, 205, 50));
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new Section to the presentation
-    pres.getSections().addSection("Section 1", slide);
+    ISection section = presentation.getSections().addSection("Section 1", slide);
+    ISectionZoomFrame sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
 
-    // Adds a SectionZoomFrame object
-    ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-
-    // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 ### **Create Section Zoom Frames with Custom Images**
 
-Using Aspose.Slides for Android via Java, you can create a section zoom frame with a different slide preview image this way:
+The image overload of [IShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addSectionZoomFrame-float-float-float-float-com.aspose.slides.ISection-com.aspose.slides.IPPImage-) lets you display a custom preview without changing the destination section. This example requires a local image, which is loaded with [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) and added through [IImageCollection.addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). The saved presentation contains a section zoom on the first slide linked to the newly created section.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
-2.	Create a new slide.
-3.	Add an identification background to created slide.
-4.	Create a new section to which you intend to link the zoom frame. 
-5.  Create an [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) object that will be used to fill the frame.
-5.  Add a section zoom frame (containing a reference to the created section) to the first slide.
-6.	Write the modified presentation as a PPTX file.
-
-This Java code shows you how to create a zoom frame with a different image:
-
-``` java 
+```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    //Adds new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    ISlide overviewSlide = presentation.getSlides().get_Item(0);
+
+    ISlide slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.rgb(154, 205, 50));
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new Section to the presentation
-    pres.getSections().addSection("Section 1", slide);
-
-    // Creates a new image for the zoom object
-    IPPImage picture;
+    IPPImage previewImage;
     IImage image = Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) image.dispose();
+        image.dispose();
     }
 
-    // Adds SectionZoomFrame object
-    ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
+    ISection section = presentation.getSections().addSection("Section 1", slide);
+    ISectionZoomFrame sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, previewImage);
 
-    // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+### **Change a Section Zoom's Target Section**
+
+Use [ISectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isectionzoomframe/#setTargetSection-com.aspose.slides.ISection-) to redirect an existing section zoom without recreating it. Choose a populated section from the same presentation's [Presentation.getSections](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSections--) collection. Assigning an empty section leaves the current target unchanged, so check [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) before assigning it. See [Manage Slide Sections](/slides/androidjava/slide-section/) for more about sections.
+
+The following example loads a presentation file, which must contain multiple populated sections, an existing section zoom named `Section navigation`, and a section with the unique name `Results`. It searches all slides for the zoom and finds the destination by name rather than by a collection index that can change when sections are reordered. If names are not unique, use [ISection.getSectionId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isection/#getSectionId--) to identify the destination instead.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("section-zoom.pptx");
+try {
+    ISectionZoomFrame zoom = null;
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ISectionZoomFrame && "Section navigation".equals(shape.getName())) {
+                zoom = (ISectionZoomFrame) shape;
+                break;
+            }
+        }
+        if (zoom != null) {
+            break;
+        }
+    }
+
+    ISection targetSection = null;
+    for (ISection section : presentation.getSections()) {
+        if ("Results".equals(section.getName())) {
+            targetSection = section;
+            break;
+        }
+    }
+
+    if (zoom == null || targetSection == null) {
+        System.out.println("The section zoom or destination section was not found.");
+    } else if (targetSection.getSlidesListOfSection().size() == 0) {
+        System.out.println("The destination section is empty.");
+    } else {
+        ISection currentSection = zoom.getTargetSection();
+        System.out.println("Current section: " + (currentSection == null ? "" : currentSection.getName()));
+        zoom.setTargetSection(targetSection);
+        presentation.save("section-zoom-updated.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
 ### **Format Section Zoom Frames**
 
-To create more complicated section zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a section zoom frame. 
+This example moves and resizes a section zoom to 100 by 75 points, assigns a local image through [IZoomObject.setZoomImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/izoomobject/#setZoomImage-com.aspose.slides.IPPImage-), and applies a 2.5-point, dash-dot brown border. It enables [IZoomObject.setReturnToParent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/izoomobject/#setReturnToParent-boolean-) to return to the originating slide after the section, disables [IZoomObject.setShowBackground](https://reference.aspose.com/slides/androidjava/com.aspose.slides/izoomobject/#setShowBackground-boolean-), and sets [IZoomObject.setTransitionDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/izoomobject/#setTransitionDuration-float-) to 1.5 seconds. A local image is required for the custom preview.
 
-You can control a section zoom frame's formatting on a slide this way:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
-2.	Create a new slide.
-3.	Add identification background to created slide.
-4.	Create a new section to which you intend to link the zoom frame. 
-5.	Add a section zoom frame (containing references to created section) to the first slide.
-6.	Change the size and position for the created section zoom object.
-7.	Create an [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) object that will be used to fill the frame.
-8.	Set a custom image for the created section zoom frame object.
-9.	Set the *return to the original slide from the linked section* ability. 
-10.	Remove the background from an image of the section zoom frame object.
-11.	Change the line format for the section zoom frame object.
-12.	Change the transition duration.
-13.	Write the modified presentation as a PPTX file.
-
-This Java code shows you how to change a section zoom frame's formatting:
-
-``` java
+```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    //Adds a new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    ISlide overviewSlide = presentation.getSlides().get_Item(0);
+
+    ISlide slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.rgb(154, 205, 50));
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new Section to the presentation
-    pres.getSections().addSection("Section 1", slide);
+    ISection section = presentation.getSections().addSection("Section 1", slide);
 
-    // Add SectionZoomFrame object
-    ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-
-    // Formatting for SectionZoomFrame
+    ISectionZoomFrame sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
     sectionZoomFrame.setHeight(75);
 
-    IPPImage picture;
+    IPPImage previewImage;
     IImage image = Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) image.dispose();
+        image.dispose();
     }
-    sectionZoomFrame.setZoomImage(picture);
+
+    sectionZoomFrame.setZoomImage(previewImage);
 
     sectionZoomFrame.setReturnToParent(true);
     sectionZoomFrame.setShowBackground(false);
 
     sectionZoomFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.gray);
+    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(165, 42, 42));
     sectionZoomFrame.getLineFormat().setDashStyle(LineDashStyle.DashDot);
     sectionZoomFrame.getLineFormat().setWidth(2.5f);
 
     sectionZoomFrame.setTransitionDuration(1.5f);
 
-    // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
 ## **Summary Zoom**
 
-A summary zoom is like a landing page where all the pieces of your presentation are displayed at once. When you're presenting, you can use the zoom to go from one place in your presentation to another in any order you like. You can get creative, skip ahead, or revisit pieces of your slide show without interrupting the flow of your presentation.
+A summary zoom provides an overview of presentation sections. During a slide show, you can use it to jump to a section, skip ahead, or revisit a topic without following the slide order.
 
-![overview_image](sumzoomsel.png)
+![Selecting sections for a summary zoom](sumzoomsel.png)
 
-For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSection), and [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection) interfaces and some methods under the [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) interface.
+For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isummaryzoomframe/), [ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isummaryzoomsection/), and [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isummaryzoomsectioncollection/) interfaces and methods on the [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) interface.
 
 ### **Create a Summary Zoom**
 
-You can add a summary zoom frame to a slide this way:
+Use [IShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addSummaryZoomFrame-float-float-float-float-) to create an overview of the presentation's sections. This example creates four sections with distinct slide backgrounds and adds a summary zoom to the first slide. The frame's position and dimensions are specified in points, and the resulting overview is saved in a PPTX presentation.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.  Add the summary zoom frame to the first slide.
-4.	Write the modified presentation as a PPTX file.
-
-This Java code shows you how to create a summary zoom frame on a slide:
-
-``` java 
+```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    //Adds a new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    ISlide overviewSlide = presentation.getSlides().get_Item(0);
+
+    ISlide slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.rgb(165, 42, 42));
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("Section 1", slide);
+    presentation.getSections().addSection("Section 1", slide);
 
-    //Adds a new slide to the presentation
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("Section 2", slide);
+    presentation.getSections().addSection("Section 2", slide);
 
-    //Adds a new slide to the presentation
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.rgb(127, 255, 0));
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("Section 3", slide);
+    presentation.getSections().addSection("Section 3", slide);
 
-    //Adds a new slide to the presentation
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 100, 0));
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("Section 4", slide);
+    presentation.getSections().addSection("Section 4", slide);
 
-    // Adds a SummaryZoomFrame object
-    ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+    ISummaryZoomFrame summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
-    // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **Add and Remove a Summary Zoom Section**
 
-All sections in a summary zoom frame are represented by [ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSection) objects, which are stored in the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection) object. You can add or remove a summary zoom section object through the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISummaryZoomSectionCollection) interface this way:
+A summary zoom stores its [ISummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isummaryzoomsection/) objects in [ISummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isummaryzoomframe/#getSummaryZoomCollection--). This example creates an overview of two sections, adds a third section using [ISummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isummaryzoomsectioncollection/#addSummaryZoomSection-com.aspose.slides.ISection-), and removes the first section's entry using [ISummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isummaryzoomsectioncollection/#removeSummaryZoomSection-com.aspose.slides.ISection-). Removing the entry leaves the presentation section and its slides intact.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.  Add a summary zoom frame into the first slide.
-4.  Add a new slide and section to the presentation.
-5.  Add the created section to the summary zoom frame.
-6.  Remove the first section from the summary zoom frame.
-7.	Write the modified presentation as a PPTX file.
-
-This Java code shows you how to add and remove sections in a summary zoom frame:
-
-``` java
+```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    //Adds a new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    ISlide overviewSlide = presentation.getSlides().get_Item(0);
+
+    ISlide slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.rgb(165, 42, 42));
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("Section 1", slide);
+    ISection firstSection = presentation.getSections().addSection("Section 1", slide);
 
-    //Adds a new slide to the presentation
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("Section 2", slide);
+    presentation.getSections().addSection("Section 2", slide);
 
-    // Adds SummaryZoomFrame object
-    ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+    ISummaryZoomFrame summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
-    //Adds a new slide to the presentation
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.rgb(127, 255, 0));
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    ISection section3 = pres.getSections().addSection("Section 3", slide);
+    ISection thirdSection = presentation.getSections().addSection("Section 3", slide);
 
-    // Adds a section to the Summary Zoom
-    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
+    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(thirdSection);
 
-    // Removes section from the Summary Zoom
-    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
+    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(firstSection);
 
-    // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **Format Summary Zoom Sections**
 
-To create more complicated summary zoom section objects, you have to alter a simple frame's formatting. There are several formatting options you can apply to a summary zoom section object. 
+This example formats the first entry in [ISummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isummaryzoomframe/#getSummaryZoomCollection--), using the zero-based index `0`. It requires a local image for [IZoomObject.setZoomImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/izoomobject/#setZoomImage-com.aspose.slides.IPPImage-), applies a 1.5-point, dash-dot black border, and sets [IZoomObject.setTransitionDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/izoomobject/#setTransitionDuration-float-) to 1.5 seconds. Passing `false` to [IZoomObject.setReturnToParent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/izoomobject/#setReturnToParent-boolean-) disables the automatic return to the summary slide for this entry.
 
-You can control the formatting for a summary zoom section object in a summary zoom frame this way:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.  Add a summary zoom frame to the first slide.
-4.  Get a summary zoom section object for the first object from the `ISummaryZoomSectionCollection`.
-7.  Create an [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) object by adding an image to the images collection associated with the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) object that will be used to fill the frame.
-8.  Set a custom image for the created section zoom frame object.
-9.  Set the *return to the original slide from the linked section* ability. 
-11. Change the line format for the summary zoom section object.
-12. Change the transition duration.
-13.	Write the modified presentation as a PPTX file.
-
-This Java code shows you how to change the formatting for a summary zoom section object:
-
-``` java
+```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    //Adds a new slide to the presentation
-    ISlide slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    ISlide overviewSlide = presentation.getSlides().get_Item(0);
+
+    ISlide slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.rgb(165, 42, 42));
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("Section 1", slide);
+    presentation.getSections().addSection("Section 1", slide);
 
-    //Adds a new slide to the presentation
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("Section 2", slide);
+    presentation.getSections().addSection("Section 2", slide);
 
-    // Adds a SummaryZoomFrame object
-    ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+    ISummaryZoomFrame summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
-    // Gets the first SummaryZoomSection object
     ISummaryZoomSection summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
 
-    // Formatting for SummaryZoomSection object
-    IPPImage picture;
+    IPPImage previewImage;
     IImage image = Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) image.dispose();
+        image.dispose();
     }
-    summarySection.setZoomImage(picture);
 
+    summarySection.setZoomImage(previewImage);
     summarySection.setReturnToParent(false);
 
     summarySection.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.black);
+    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     summarySection.getLineFormat().setDashStyle(LineDashStyle.DashDot);
     summarySection.getLineFormat().setWidth(1.5f);
 
     summarySection.setTransitionDuration(1.5f);
 
-    // Saves the presentation
-    pres.save("presentation.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-### Can I control returning to the 'parent' slide after showing the target?
+**Can I control returning to the 'parent' slide after showing the target?**
 
-Yes. The [Zoom frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zoomframe/) or [section](https://reference.aspose.com/slides/androidjava/com.aspose.slides/sectionzoomframe/) has a return-to-parent behavior that, when enabled, sends viewers back to the originating slide after they visit the target content.
+Yes. Call [IZoomObject.setReturnToParent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/izoomobject/#setReturnToParent-boolean-) with `true` to return to the originating slide after the target content is shown.
 
-### Can I adjust the 'speed' or duration of the Zoom transition?
+**Can I adjust the 'speed' or duration of the Zoom transition?**
 
-Yes. Zoom supports setting a transition duration so you can control how long the jump animation takes.
+Yes. Use [IZoomObject.setTransitionDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/izoomobject/#setTransitionDuration-float-) to control the transition duration in seconds.
 
-### Are there limits on how many Zoom objects a presentation can contain?
+**Are there limits on how many Zoom objects a presentation can contain?**
 
 There is no hard API limit documented. Practical limits depend on overall presentation complexity and the viewer's performance. You can add many Zoom frames, but consider file size and rendering time.

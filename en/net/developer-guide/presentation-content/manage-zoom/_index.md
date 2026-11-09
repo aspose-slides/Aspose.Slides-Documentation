@@ -16,558 +16,423 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Create and customize Zoom with Aspose.Slides for .NET — jump between sections, add thumbnails and transitions across PPT, PPTX and ODP presentations."
+description: "Create and customize Zoom with Aspose.Slides for .NET — jump between sections, add thumbnails and transitions in PowerPoint presentations."
 ---
 
 ## **Introduction**
 
-Zooms in PowerPoint allow you to jump to and from specific slides, sections, and portions of a presentation. When you are presenting, this ability to navigate quickly across content might prove very useful. 
+PowerPoint zooms let you navigate between specific slides and sections during a slide show. With Aspose.Slides for .NET, you can create slide, section, and summary zooms and customize their previews, borders, and transitions.
 
-![overview_image](overview.png)
+![PowerPoint zoom overview](overview.png)
 
-* To summarize an entire presentation on a single slide, use a [Summary Zoom](#Summary-Zoom).
-* To show selected slides only, use a [Slide Zoom](#Slide-Zoom).
-* To show a single section only, use a [Section Zoom](#Section-Zoom).
+* To summarize an entire presentation on a single slide, use a [Summary Zoom](#summary-zoom).
+* To show selected slides only, use a [Slide Zoom](#slide-zoom).
+* To show a single section only, use a [Section Zoom](#section-zoom).
 
 ## **Slide Zoom**
+
 A slide zoom can make your presentation more dynamic, allowing you to navigate freely between slides in any order you choose without interrupting the flow of your presentation. Slide zooms are great for short presentations without many sections, but you can still use them in different presentation scenarios.
 
-Slide zooms help you drill into multiple pieces of information while you feel like you are on a single canvas. 
+Slide zooms let you explore related information from a single overview slide.
 
-![overview_image](slidezoomsel.png)
+![Selecting slides for a slide zoom](slidezoomsel.png)
 
-For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype) enumeration, the [IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe) interface, and some methods under the [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) interface.
+For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype/) enumeration, the [IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe/) interface, and methods on the [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/) interface.
 
 ### **Create Zoom Frames**
 
-You can add a zoom frame on a slide this way:
+Use [IShapeCollection.AddZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addzoomframe/) to place links to individual slides on an overview slide. This example creates two target slides with distinct backgrounds and labels, then adds a preview of each to the first slide and saves the presentation as PPTX. Frame positions and dimensions are specified in points.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2.	Create new slides to which you intend to link the zoom frames. 
-3.	Add an identification text and background to the created slides.
-4.  Add zoom frames (containing the references to created slides) to the first slide.
-5.	Write the modified presentation as a PPTX file.
-
-This C# code shows you how to create a zoom frame on a slide:
-
-``` csharp 
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    //Adds new slides to the presentation
-    ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    ISlide slide3 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+using var presentation = new Presentation();
+var overviewSlide = presentation.Slides[0];
 
-    // Creates a background for the second slide
-    slide2.Background.Type = BackgroundType.OwnBackground;
-    slide2.Background.FillFormat.FillType = FillType.Solid;
-    slide2.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
+var secondSlide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+var thirdSlide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
 
-    // Creates a text box for the second slide
-    IAutoShape autoshape = slide2.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Second Slide";
+secondSlide.Background.Type = BackgroundType.OwnBackground;
+secondSlide.Background.FillFormat.FillType = FillType.Solid;
+secondSlide.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
 
-    // Creates a background for the third slide
-    slide3.Background.Type = BackgroundType.OwnBackground;
-    slide3.Background.FillFormat.FillType = FillType.Solid;
-    slide3.Background.FillFormat.SolidFillColor.Color = Color.DarkKhaki;
+var textBox = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
+textBox.TextFrame.Text = "Second Slide";
 
-    // Create a text box for the third slide
-    autoshape = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Trird Slide";
+thirdSlide.Background.Type = BackgroundType.OwnBackground;
+thirdSlide.Background.FillFormat.FillType = FillType.Solid;
+thirdSlide.Background.FillFormat.SolidFillColor.Color = Color.DarkKhaki;
 
-    //Adds ZoomFrame objects
-    pres.Slides[0].Shapes.AddZoomFrame(20, 20, 250, 200, slide2);
-    pres.Slides[0].Shapes.AddZoomFrame(200, 250, 250, 200, slide3);
+textBox = thirdSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
+textBox.TextFrame.Text = "Third Slide";
 
-    // Saves the presentation
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
+overviewSlide.Shapes.AddZoomFrame(20, 20, 250, 200, secondSlide);
+overviewSlide.Shapes.AddZoomFrame(200, 250, 250, 200, thirdSlide);
+
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
+
 ### **Create Zoom Frames with Custom Images**
-With Aspose.Slides for .NET, you can create a zoom frame with a different slide preview image this way: 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2.	Create a new slide to which you intend to link the zoom frame. 
-3.	Add an identification text and background to the slide.
-4.  Create an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) object that will be used to fill the frame.
-5.  Add zoom frames (containing the reference to created slide) to the first slide.
-6.	Write the modified presentation as a PPTX file.
 
-This C# code shows you how to create a zoom frame with a different image:
+Pass a custom image to [IShapeCollection.AddZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addzoomframe/) to replace the target slide's default preview. This example requires a local image, loads it with [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/), and adds it to the presentation using [IImageCollection.AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/). The resulting frame displays that image while still linking to the second slide.
 
-``` csharp 
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    //Adds a new slide to the presentation
-    ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+using var presentation = new Presentation();
+var overviewSlide = presentation.Slides[0];
 
-    // Creates a background for the second slide
-    slide.Background.Type = BackgroundType.OwnBackground;
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
+var slide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Solid;
+slide.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
 
-    // Creates a text box for the third slide
-    IAutoShape autoshape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Second Slide";
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
+textBox.TextFrame.Text = "Second Slide";
 
-    // Creates a new image for the zoom object
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
+using var image = Images.FromFile("image.png");
+var previewImage = presentation.Images.AddImage(image);
 
-    //Adds the ZoomFrame object
-    pres.Slides[0].Shapes.AddZoomFrame(20, 20, 300, 200, slide, ppImage);
+overviewSlide.Shapes.AddZoomFrame(20, 20, 300, 200, slide, previewImage);
 
-    // Saves the presentation
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
+
 ### **Format Zoom Frames**
-In the previous sections, we showed you how to create simple zoom frames. To create more complicated zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a zoom frame. 
 
-You can control a zoom frame's formatting on a slide this way:
+This example customizes two slide zoom frames. It assigns a local image to the first frame through [IZoomObject.ZoomImage](https://reference.aspose.com/slides/net/aspose.slides/izoomobject/zoomimage/), and gives the second frame a five-point, dash-dot pink border through [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/). Setting [IZoomObject.ShowBackground](https://reference.aspose.com/slides/net/aspose.slides/izoomobject/showbackground/) to `false` hides the second frame's background. A local image is required for the custom preview; both frames retain their slide targets in the saved PPTX.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2.	Create new slides to link to which you intend to link the zoom frame. 
-3.	Add some identification text and background to the created slides.
-4.  Add zoom frames (containing the references to the created slides) to the first slide.
-5.  Create an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) object that will be used to fill the frame.
-6.  Set a custom image for the first zoom frame object.
-7.  Change the line format for the second zoom frame object.
-8.  Remove the background from an image of the second zoom frame object.
-5.	Write the modified presentation as a PPTX file.
-
-This C# code shows you how to change a zoom frame's formatting on a slide: 
-
-``` csharp 
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    //Adds new slides to the presentation
-    ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    ISlide slide3 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+using var presentation = new Presentation();
+var overviewSlide = presentation.Slides[0];
 
-    // Creates a background for the second slide
-    slide2.Background.Type = BackgroundType.OwnBackground;
-    slide2.Background.FillFormat.FillType = FillType.Solid;
-    slide2.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
+var secondSlide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+var thirdSlide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
 
-    // Creates a text box for the second slide
-    IAutoShape autoshape = slide2.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Second Slide";
+secondSlide.Background.Type = BackgroundType.OwnBackground;
+secondSlide.Background.FillFormat.FillType = FillType.Solid;
+secondSlide.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
 
-    // Creates a background for the third slide
-    slide3.Background.Type = BackgroundType.OwnBackground;
-    slide3.Background.FillFormat.FillType = FillType.Solid;
-    slide3.Background.FillFormat.SolidFillColor.Color = Color.DarkKhaki;
+var textBox = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
+textBox.TextFrame.Text = "Second Slide";
 
-    // Creates a text box for the third slide
-    autoshape = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Trird Slide";
+thirdSlide.Background.Type = BackgroundType.OwnBackground;
+thirdSlide.Background.FillFormat.FillType = FillType.Solid;
+thirdSlide.Background.FillFormat.SolidFillColor.Color = Color.DarkKhaki;
 
-    //Adds ZoomFrame objects
-    IZoomFrame zoomFrame1 = pres.Slides[0].Shapes.AddZoomFrame(20, 20, 250, 200, slide2);
-    IZoomFrame zoomFrame2 = pres.Slides[0].Shapes.AddZoomFrame(200, 250, 250, 200, slide3);
+textBox = thirdSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
+textBox.TextFrame.Text = "Third Slide";
 
-    // Creates a new image for the zoom object
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
+var firstZoomFrame = overviewSlide.Shapes.AddZoomFrame(20, 20, 250, 200, secondSlide);
+var secondZoomFrame = overviewSlide.Shapes.AddZoomFrame(200, 250, 250, 200, thirdSlide);
 
-    // Sets custom image for zoomFrame1 object
-    zoomFrame1.ZoomImage = ppImage;
+using var image = Images.FromFile("image.png");
+var previewImage = presentation.Images.AddImage(image);
 
-    // Sets a zoom frame format for the zoomFrame2 object
-    zoomFrame2.LineFormat.Width = 5;
-    zoomFrame2.LineFormat.FillFormat.FillType = FillType.Solid;
-    zoomFrame2.LineFormat.FillFormat.SolidFillColor.Color = Color.HotPink;
-    zoomFrame2.LineFormat.DashStyle = LineDashStyle.DashDot;
+firstZoomFrame.ZoomImage = previewImage;
 
-    // Setting for Do not show background for zoomFrame2 object
-    zoomFrame2.ShowBackground = false;
+secondZoomFrame.LineFormat.Width = 5;
+secondZoomFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+secondZoomFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.HotPink;
+secondZoomFrame.LineFormat.DashStyle = LineDashStyle.DashDot;
 
-    // Saves the presentation
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
+secondZoomFrame.ShowBackground = false;
+
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
 ## **Section Zoom**
 
-A section zoom is a link to a section in your presentation. You can use section zooms to go back to sections you want to really emphasize. Or you can use them to highlight how certain pieces of your presentation connect. 
+A section zoom links to a section in your presentation. Use it to revisit a topic or show how different parts of the presentation connect.
 
-![overview_image](seczoomsel.png)
+![Selecting a section for a section zoom](seczoomsel.png)
 
-For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isectionzoomframe) interface and some methods under the [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) interface.
+For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isectionzoomframe/) interface and methods on the [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/) interface.
 
 ### **Create Section Zoom Frames**
 
-You can add a section zoom frame to a slide this way:
+Create a section with [ISectionCollection.AddSection](https://reference.aspose.com/slides/net/aspose.slides/isectioncollection/addsection/), then pass the returned section to [IShapeCollection.AddSectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addsectionzoomframe/). This example places a section zoom on the first slide and links it to a section beginning with a colored slide. The frame's position and dimensions are specified in points, and the presentation is saved as PPTX.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2.	Create a new slide. 
-3.	Add an identification background to the created slide.
-4.  Create a new section to which you intend to link the zoom frame. 
-5.  Add a section zoom frame (containing references to the created section) to the first slide.
-6.	Write the modified presentation as a PPTX file.
-
-This C# code shows you how to create a zoom frame on a slide:
-
-``` csharp 
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    //Adds a new slide to the presentation
-    ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
-    slide.Background.Type = BackgroundType.OwnBackground;
+using var presentation = new Presentation();
+var overviewSlide = presentation.Slides[0];
 
-    // Adds a new Section to the presentation
-    pres.Sections.AddSection("Section 1", slide);
+var slide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+slide.Background.FillFormat.FillType = FillType.Solid;
+slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
+slide.Background.Type = BackgroundType.OwnBackground;
 
-    // Adds a SectionZoomFrame object
-    ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1]);
+var section = presentation.Sections.AddSection("Section 1", slide);
+var sectionZoomFrame = overviewSlide.Shapes.AddSectionZoomFrame(20, 20, 300, 200, section);
 
-    // Saves the presentation
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
+
 ### **Create Section Zoom Frames with Custom Images**
 
-Using Aspose.Slides for .NET, you can create a section zoom frame with a different slide preview image this way: 
+The image overload of [IShapeCollection.AddSectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addsectionzoomframe/) lets you display a custom preview without changing the destination section. This example requires a local image, which is loaded with [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) and added through [IImageCollection.AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/). The saved presentation contains a section zoom on the first slide linked to the newly created section.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2.	Create a new slide.
-3.	Add an identification background to created slide.
-4.	Create a new section to which you intend to link the zoom frame. 
-5.  Create an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) object that will be used to fill the frame.
-5.  Add a section zoom frame (containing a reference to the created section) to the first slide.
-6.	Write the modified presentation as a PPTX file.
-
-This C# code shows you how to create a zoom frame with a different image:
-
-``` csharp 
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation();
+var overviewSlide = presentation.Slides[0];
+
+var slide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+slide.Background.FillFormat.FillType = FillType.Solid;
+slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
+slide.Background.Type = BackgroundType.OwnBackground;
+
+using var image = Images.FromFile("image.png");
+var previewImage = presentation.Images.AddImage(image);
+
+var section = presentation.Sections.AddSection("Section 1", slide);
+var sectionZoomFrame = overviewSlide.Shapes.AddSectionZoomFrame(20, 20, 300, 200, section, previewImage);
+
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
+```
+
+### **Change a Section Zoom's Target Section**
+
+Use [ISectionZoomFrame.TargetSection](https://reference.aspose.com/slides/net/aspose.slides/isectionzoomframe/targetsection/) to redirect an existing section zoom without recreating it. Choose a populated section from the same presentation's [Sections](https://reference.aspose.com/slides/net/aspose.slides/presentation/sections/) collection. Assigning an empty section leaves the current target unchanged, so check [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/net/aspose.slides/isection/getslideslistofsection/) before assigning it. See [Manage Slide Sections](/slides/net/slide-section/) for more about sections.
+
+The following example loads a presentation file, which must contain multiple populated sections, an existing section zoom named `Section navigation`, and a section with the unique name `Results`. It searches all slides for the zoom and finds the destination by name rather than by a collection index that can change when sections are reordered. If names are not unique, use [ISection.SectionId](https://reference.aspose.com/slides/net/aspose.slides/isection/sectionid/) to identify the destination instead.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("section-zoom.pptx");
+
+var zoom = presentation.Slides.SelectMany(slide => slide.Shapes).OfType<ISectionZoomFrame>().FirstOrDefault(shape => shape.Name == "Section navigation");
+var targetSection = presentation.Sections.FirstOrDefault(section => section.Name == "Results");
+
+if (zoom == null || targetSection == null)
 {
-    //Adds new slide to the presentation
-    ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
-    slide.Background.Type = BackgroundType.OwnBackground;
-
-    // Adds a new Section to the presentation
-    pres.Sections.AddSection("Section 1", slide);
-
-    // Creates a new image for the zoom object
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // Adds SectionZoomFrame object
-    ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1], ppImage);
-
-    // Saves the presentation
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The section zoom or destination section was not found.");
+}
+else if (targetSection.GetSlidesListOfSection().Count == 0)
+{
+    Console.WriteLine("The destination section is empty.");
+}
+else
+{
+    Console.WriteLine($"Current section: {zoom.TargetSection?.Name}");
+    zoom.TargetSection = targetSection;
+    presentation.Save("section-zoom-updated.pptx", SaveFormat.Pptx);
 }
 ```
+
 ### **Format Section Zoom Frames**
 
-To create more complicated section zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a section zoom frame. 
+This example moves and resizes a section zoom to 100 by 75 points, assigns a local image through [IZoomObject.ZoomImage](https://reference.aspose.com/slides/net/aspose.slides/izoomobject/zoomimage/), and applies a 2.5-point, dash-dot brown border. It enables [IZoomObject.ReturnToParent](https://reference.aspose.com/slides/net/aspose.slides/izoomobject/returntoparent/) to return to the originating slide after the section, disables [IZoomObject.ShowBackground](https://reference.aspose.com/slides/net/aspose.slides/izoomobject/showbackground/), and sets [IZoomObject.TransitionDuration](https://reference.aspose.com/slides/net/aspose.slides/izoomobject/transitionduration/) to 1.5 seconds. A local image is required for the custom preview.
 
-You can control a section zoom frame's formatting on a slide this way:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2.	Create a new slide.
-3.	Add identification background to created slide.
-4.	Create a new section to which you intend to link the zoom frame. 
-5.	Add a section zoom frame (containing references to created section) to the first slide.
-6.	Change the size and position for the created section zoom object.
-7.	Create an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) object that will be used to fill the frame.
-8.	Set a custom image for the created section zoom frame object.
-9.	Set the *return to the original slide from the linked section* ability. 
-10.	Remove the background from an image of the section zoom frame object.
-11.	Change the line format for the second zoom frame object.
-12.	Change the transition duration.
-13.	Write the modified presentation as a PPTX file.
-
-This C# code shows you how to change a section zoom frame's formatting:
-
-``` csharp 
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    //Adds a new slide to the presentation
-    ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
-    slide.Background.Type = BackgroundType.OwnBackground;
+using var presentation = new Presentation();
+var overviewSlide = presentation.Slides[0];
 
-    // Adds a new Section to the presentation
-    pres.Sections.AddSection("Section 1", slide);
+var slide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+slide.Background.FillFormat.FillType = FillType.Solid;
+slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
+slide.Background.Type = BackgroundType.OwnBackground;
 
-    // Add SectionZoomFrame object
-    ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1]);
+var section = presentation.Sections.AddSection("Section 1", slide);
 
-    // Formatting for SectionZoomFrame
-    sectionZoomFrame.X = 100;
-    sectionZoomFrame.Y = 300;
-    sectionZoomFrame.Width = 100;
-    sectionZoomFrame.Height = 75;
+var sectionZoomFrame = overviewSlide.Shapes.AddSectionZoomFrame(20, 20, 300, 200, section);
+sectionZoomFrame.X = 100;
+sectionZoomFrame.Y = 300;
+sectionZoomFrame.Width = 100;
+sectionZoomFrame.Height = 75;
 
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
+using var image = Images.FromFile("image.png");
+var previewImage = presentation.Images.AddImage(image);
 
-    sectionZoomFrame.ZoomImage = ppImage;
+sectionZoomFrame.ZoomImage = previewImage;
 
-    sectionZoomFrame.ReturnToParent = true;
-    sectionZoomFrame.ShowBackground = false;
+sectionZoomFrame.ReturnToParent = true;
+sectionZoomFrame.ShowBackground = false;
 
-    sectionZoomFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    sectionZoomFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Brown;
-    sectionZoomFrame.LineFormat.DashStyle = LineDashStyle.DashDot;
-    sectionZoomFrame.LineFormat.Width = 2.5f;
+sectionZoomFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+sectionZoomFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Brown;
+sectionZoomFrame.LineFormat.DashStyle = LineDashStyle.DashDot;
+sectionZoomFrame.LineFormat.Width = 2.5f;
 
-    sectionZoomFrame.TransitionDuration = 1.5f;
+sectionZoomFrame.TransitionDuration = 1.5f;
 
-    // Saves the presentation
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **Summary Zoom**
 
-A summary zoom is like a landing page where all the pieces of your presentation are displayed at once. When you're presenting, you can use the zoom to go from one place in your presentation to another in any order you like. You can get creative, skip ahead, or revisit pieces of your slide show without interrupting the flow of your presentation.
+A summary zoom provides an overview of presentation sections. During a slide show, you can use it to jump to a section, skip ahead, or revisit a topic without following the slide order.
 
-![overview_image](sumzoomsel.png)
+![Selecting sections for a summary zoom](sumzoomsel.png)
 
-For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe), [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection), and [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) interfaces and some methods under the [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) interface.
+For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe/), [ISummaryZoomSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection/), and [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection/) interfaces and methods on the [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/) interface.
 
 ### **Create a Summary Zoom**
 
-You can add a summary zoom frame to a slide this way:
+Use [IShapeCollection.AddSummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addsummaryzoomframe/) to create an overview of the presentation's sections. This example creates four sections with distinct slide backgrounds and adds a summary zoom to the first slide. The frame's position and dimensions are specified in points, and the resulting overview is saved in a PPTX presentation.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.  Add the summary zoom frame to the first slide.
-4.	Write the modified presentation as a PPTX file.
-
-This C# code shows you how to create a summary zoom frame on a slide:
-
-``` csharp 
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    //Adds a new slide to the presentation
-    ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.Brown;
-    slide.Background.Type = BackgroundType.OwnBackground;
+using var presentation = new Presentation();
+var overviewSlide = presentation.Slides[0];
 
-    // Adds a new section to the presentation
-    pres.Sections.AddSection("Section 1", slide);
+var slide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+slide.Background.FillFormat.FillType = FillType.Solid;
+slide.Background.FillFormat.SolidFillColor.Color = Color.Brown;
+slide.Background.Type = BackgroundType.OwnBackground;
 
-    //Adds a new slide to the presentation
-    slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.Aqua;
-    slide.Background.Type = BackgroundType.OwnBackground;
+presentation.Sections.AddSection("Section 1", slide);
 
-    // Adds a new section to the presentation
-    pres.Sections.AddSection("Section 2", slide);
+slide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+slide.Background.FillFormat.FillType = FillType.Solid;
+slide.Background.FillFormat.SolidFillColor.Color = Color.Aqua;
+slide.Background.Type = BackgroundType.OwnBackground;
 
-    //Adds a new slide to the presentation
-    slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.Chartreuse;
-    slide.Background.Type = BackgroundType.OwnBackground;
+presentation.Sections.AddSection("Section 2", slide);
 
-    // Adds a new section to the presentation
-    pres.Sections.AddSection("Section 3", slide);
+slide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+slide.Background.FillFormat.FillType = FillType.Solid;
+slide.Background.FillFormat.SolidFillColor.Color = Color.Chartreuse;
+slide.Background.Type = BackgroundType.OwnBackground;
 
-    //Adds a new slide to the presentation
-    slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.DarkGreen;
-    slide.Background.Type = BackgroundType.OwnBackground;
+presentation.Sections.AddSection("Section 3", slide);
 
-    // Adds a new section to the presentation
-    pres.Sections.AddSection("Section 4", slide);
+slide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+slide.Background.FillFormat.FillType = FillType.Solid;
+slide.Background.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+slide.Background.Type = BackgroundType.OwnBackground;
 
-    // Adds a SummaryZoomFrame object
-    ISummaryZoomFrame summaryZoomFrame = pres.Slides[0].Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
+presentation.Sections.AddSection("Section 4", slide);
 
-    // Saves the presentation
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
+var summaryZoomFrame = overviewSlide.Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
+
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
 ### **Add and Remove a Summary Zoom Section**
 
-All sections in a summary zoom frame are represented by [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection) objects, which are stored in the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) object. You can add or remove a summary zoom section object through the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) interface this way:
+A summary zoom stores its [ISummaryZoomSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection/) objects in [ISummaryZoomFrame.SummaryZoomCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe/summaryzoomcollection/). This example creates an overview of two sections, adds a third section using [ISummaryZoomSectionCollection.AddSummaryZoomSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection/addsummaryzoomsection/), and removes the first section's entry using [ISummaryZoomSectionCollection.RemoveSummaryZoomSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection/removesummaryzoomsection/). Removing the entry leaves the presentation section and its slides intact.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.  Add a summary zoom frame into the first slide.
-4.  Add a new slide and section to the presentation.
-5.  Add the created section to the summary zoom frame.
-6.  Remove the first section from the summary zoom frame.
-7.	Write the modified presentation as a PPTX file.
-
-This C# code shows you how to add and remove sections in a summary zoom frame:
-
-``` csharp 
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    //Adds a new slide to the presentation
-    ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.Brown;
-    slide.Background.Type = BackgroundType.OwnBackground;
+using var presentation = new Presentation();
+var overviewSlide = presentation.Slides[0];
 
-    // Adds a new section to the presentation
-    pres.Sections.AddSection("Section 1", slide);
+var slide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+slide.Background.FillFormat.FillType = FillType.Solid;
+slide.Background.FillFormat.SolidFillColor.Color = Color.Brown;
+slide.Background.Type = BackgroundType.OwnBackground;
 
-    //Adds a new slide to the presentation
-    slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.Aqua;
-    slide.Background.Type = BackgroundType.OwnBackground;
+var firstSection = presentation.Sections.AddSection("Section 1", slide);
 
-    // Adds a new section to the presentation
-    pres.Sections.AddSection("Section 2", slide);
+slide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+slide.Background.FillFormat.FillType = FillType.Solid;
+slide.Background.FillFormat.SolidFillColor.Color = Color.Aqua;
+slide.Background.Type = BackgroundType.OwnBackground;
 
-    // Adds SummaryZoomFrame object
-    ISummaryZoomFrame summaryZoomFrame = pres.Slides[0].Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
+presentation.Sections.AddSection("Section 2", slide);
 
-    //Adds a new slide to the presentation
-    slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.Chartreuse;
-    slide.Background.Type = BackgroundType.OwnBackground;
+var summaryZoomFrame = overviewSlide.Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
 
-    // Adds a new section to the presentation
-    ISection section3 = pres.Sections.AddSection("Section 3", slide);
+slide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+slide.Background.FillFormat.FillType = FillType.Solid;
+slide.Background.FillFormat.SolidFillColor.Color = Color.Chartreuse;
+slide.Background.Type = BackgroundType.OwnBackground;
 
-    // Adds a section to the Summary Zoom
-    summaryZoomFrame.SummaryZoomCollection.AddSummaryZoomSection(section3);
+var thirdSection = presentation.Sections.AddSection("Section 3", slide);
 
-    // Removes section from the Summary Zoom
-    summaryZoomFrame.SummaryZoomCollection.RemoveSummaryZoomSection(pres.Sections[1]);
+summaryZoomFrame.SummaryZoomCollection.AddSummaryZoomSection(thirdSection);
 
-    // Saves the presentation
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
+summaryZoomFrame.SummaryZoomCollection.RemoveSummaryZoomSection(firstSection);
+
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
 ### **Format Summary Zoom Sections**
 
-To create more complicated summary zoom section objects, you have to alter a simple frame's formatting. There are several formatting options you can apply to a summary zoom section object. 
+This example formats the first entry in [ISummaryZoomFrame.SummaryZoomCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe/summaryzoomcollection/), using the zero-based index `0`. It requires a local image for [IZoomObject.ZoomImage](https://reference.aspose.com/slides/net/aspose.slides/izoomobject/zoomimage/), applies a 1.5-point, dash-dot black border, and sets [IZoomObject.TransitionDuration](https://reference.aspose.com/slides/net/aspose.slides/izoomobject/transitionduration/) to 1.5 seconds. Setting [IZoomObject.ReturnToParent](https://reference.aspose.com/slides/net/aspose.slides/izoomobject/returntoparent/) to `false` disables the automatic return to the summary slide for this entry.
 
-You can control the formatting for a summary zoom section object in a summary zoom frame this way:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.  Add a summary zoom frame to the first slide.
-4.  Get a summary zoom section object for the first object from the `ISummaryZoomSectionCollection`.
-7.  Create an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the images collection associated with the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) object that will be used to fill the frame.
-8.  Set a custom image for the created section zoom frame object.
-9.  Set the *return to the original slide from the linked section* ability. 
-11. Change the line format for the second zoom frame object.
-12. Change the transition duration.
-13.	Write the modified presentation as a PPTX file.
-
-This C# code shows you how to change the formatting for a summary zoom section object:
-
-``` csharp 
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    //Adds a new slide to the presentation
-    ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.Brown;
-    slide.Background.Type = BackgroundType.OwnBackground;
+using var presentation = new Presentation();
+var overviewSlide = presentation.Slides[0];
 
-    // Adds a new section to the presentation
-    pres.Sections.AddSection("Section 1", slide);
+var slide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+slide.Background.FillFormat.FillType = FillType.Solid;
+slide.Background.FillFormat.SolidFillColor.Color = Color.Brown;
+slide.Background.Type = BackgroundType.OwnBackground;
 
-    //Adds a new slide to the presentation
-    slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.Aqua;
-    slide.Background.Type = BackgroundType.OwnBackground;
+presentation.Sections.AddSection("Section 1", slide);
 
-    // Adds a new section to the presentation
-    pres.Sections.AddSection("Section 2", slide);
+slide = presentation.Slides.AddEmptySlide(overviewSlide.LayoutSlide);
+slide.Background.FillFormat.FillType = FillType.Solid;
+slide.Background.FillFormat.SolidFillColor.Color = Color.Aqua;
+slide.Background.Type = BackgroundType.OwnBackground;
 
-    // Adds a SummaryZoomFrame object
-    ISummaryZoomFrame summaryZoomFrame = pres.Slides[0].Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
+presentation.Sections.AddSection("Section 2", slide);
 
-    // Gets the first SummaryZoomSection object
-    ISummaryZoomSection summarySection = summaryZoomFrame.SummaryZoomCollection[0];
+var summaryZoomFrame = overviewSlide.Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
 
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
+var summarySection = summaryZoomFrame.SummaryZoomCollection[0];
 
-    // Formatting for SummaryZoomSection object
-    summarySection.ZoomImage = ppImage;
-    summarySection.ReturnToParent = false;
+using var image = Images.FromFile("image.png");
+var previewImage = presentation.Images.AddImage(image);
 
-    summarySection.LineFormat.FillFormat.FillType = FillType.Solid;
-    summarySection.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    summarySection.LineFormat.DashStyle = LineDashStyle.DashDot;
-    summarySection.LineFormat.Width = 1.5f;
+summarySection.ZoomImage = previewImage;
+summarySection.ReturnToParent = false;
 
-    summarySection.TransitionDuration = 1.5f;
+summarySection.LineFormat.FillFormat.FillType = FillType.Solid;
+summarySection.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+summarySection.LineFormat.DashStyle = LineDashStyle.DashDot;
+summarySection.LineFormat.Width = 1.5f;
 
-    // Saves the presentation
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
+summarySection.TransitionDuration = 1.5f;
+
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-### Can I control returning to the 'parent' slide after showing the target?
+**Can I control returning to the 'parent' slide after showing the target?**
 
-Yes. The [Zoom frame](https://reference.aspose.com/slides/net/aspose.slides/zoomframe/) or [section](https://reference.aspose.com/slides/net/aspose.slides/sectionzoomframe/) has a `ReturnToParent` behavior that, when enabled, sends viewers back to the originating slide after they visit the target content.
+Yes. Set [IZoomObject.ReturnToParent](https://reference.aspose.com/slides/net/aspose.slides/izoomobject/returntoparent/) to `true` to return to the originating slide after the target content is shown.
 
-### Can I adjust the 'speed' or duration of the Zoom transition?
+**Can I adjust the 'speed' or duration of the Zoom transition?**
 
-Yes. Zoom supports setting a `TransitionDuration` so you can control how long the jump animation takes.
+Yes. Set [IZoomObject.TransitionDuration](https://reference.aspose.com/slides/net/aspose.slides/izoomobject/transitionduration/) to control the transition duration in seconds.
 
-### Are there limits on how many Zoom objects a presentation can contain?
+**Are there limits on how many Zoom objects a presentation can contain?**
 
 There is no hard API limit documented. Practical limits depend on overall presentation complexity and the viewer's performance. You can add many Zoom frames, but consider file size and rendering time.

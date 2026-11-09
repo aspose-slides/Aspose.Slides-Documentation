@@ -15,641 +15,608 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Create and customize Zoom with Aspose.Slides for C++ — jump between sections, add thumbnails and transitions across PPT, PPTX and ODP presentations."
+description: "Create and customize Zoom with Aspose.Slides for C++ — jump between sections, add thumbnails and transitions in PowerPoint presentations."
 ---
 
 ## **Introduction**
 
-Zooms in PowerPoint allow you to jump to and from specific slides, sections, and portions of a presentation. When you are presenting, this ability to navigate quickly across content might prove very useful. 
+PowerPoint zooms let you navigate between specific slides and sections during a slide show. With Aspose.Slides for C++, you can create slide, section, and summary zooms and customize their previews, borders, and transitions.
 
-![overview_image](Overview.png)
+![PowerPoint zoom overview](overview.png)
 
-* To summarize an entire presentation on a single slide, use a [Summary Zoom](#Summary-Zoom).
-* To show selected slides only, use a [Slide Zoom](#Slide-Zoom).
-* To show a single section only, use a [Section Zoom](#Section-Zoom).
+* To summarize an entire presentation on a single slide, use a [Summary Zoom](#summary-zoom).
+* To show selected slides only, use a [Slide Zoom](#slide-zoom).
+* To show a single section only, use a [Section Zoom](#section-zoom).
 
 ## **Slide Zoom**
+
 A slide zoom can make your presentation more dynamic, allowing you to navigate freely between slides in any order you choose without interrupting the flow of your presentation. Slide zooms are great for short presentations without many sections, but you can still use them in different presentation scenarios.
 
-Slide zooms help you drill into multiple pieces of information while you feel like you are on a single canvas. 
+Slide zooms let you explore related information from a single overview slide.
 
-![overview_image](slidezoomsel.png)
+![Selecting slides for a slide zoom](slidezoomsel.png)
 
-For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/cpp/aspose.slides/zoomimagetype/) enumeration, the [IZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/izoomframe/) interface, and some methods under the [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) interface.
+For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/cpp/aspose.slides/zoomimagetype/) enumeration, the [IZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/izoomframe/) interface, and methods on the [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) interface.
 
 ### **Create Zoom Frames**
 
-You can add a zoom frame on a slide this way:
+Use [IShapeCollection::AddZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addzoomframe/) to place links to individual slides on an overview slide. This example creates two target slides with distinct backgrounds and labels, then adds a preview of each to the first slide and saves the presentation as PPTX. Frame positions and dimensions are specified in points.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2.	Create new slides to which you intend to link the zoom frames. 
-3.	Add an identification text and background to the created slides.
-4.  Add zoom frames (containing the references to created slides) to the first slide.
-5.	Write the modified presentation as a PPTX file.
-
-This C++ code shows you how to create a zoom frame on a slide:
-
-``` cpp 
-#include <DOM/BackgroundType.h>
-#include <DOM/FillType.h>
-#include <DOM/IBackground.h>
-#include <DOM/IColorFormat.h>
-#include <DOM/IFillFormat.h>
-#include <DOM/ISlide.h>
-#include <drawing/color.h>
-#include <system/smart_ptr.h>
-using namespace Aspose::Slides;
-using namespace System;
-using namespace System::Drawing;
-
-void SetSlideBackground(SharedPtr<ISlide> slide, Color color)
-{
-    slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-    slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(color);
-    slide->get_Background()->set_Type(BackgroundType::OwnBackground);
-}
-```
-
-``` cpp 
-#include <DOM/IAutoShape.h>
-#include <DOM/IShapeCollection.h>
+```cpp
+#include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
+#include <DOM/IShapeCollection.h>
 #include <Export/SaveFormat.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IBackground.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
 #include <drawing/color.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// This function is defined in the first example of this article.
-void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
+auto presentation = System::MakeObject<Presentation>();
+auto overviewSlide = presentation->get_Slide(0);
 
-auto pres = System::MakeObject<Presentation>();
-auto slide0 = pres->get_Slides()->idx_get(0);
+auto secondSlide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
 
-//Adds new slides to the presentation
-auto slide2 = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-auto slide3 = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
+secondSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+secondSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+secondSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Cyan());
 
-// Creates a background for the second slide
-SetSlideBackground(slide2, Color::get_Cyan());
+auto textBox = secondSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+textBox->get_TextFrame()->set_Text(u"Second Slide");
 
-// Creates a text box for the second slide
-auto autoshape = slide2->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Second Slide");
+thirdSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+thirdSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+thirdSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkKhaki());
 
-// Creates a background for the third slide
-SetSlideBackground(slide3, Color::get_DarkKhaki());
+textBox = thirdSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+textBox->get_TextFrame()->set_Text(u"Third Slide");
 
-// Create a text box for the third slide
-autoshape = slide3->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Trird Slide");
+overviewSlide->get_Shapes()->AddZoomFrame(20, 20, 250, 200, secondSlide);
+overviewSlide->get_Shapes()->AddZoomFrame(200, 250, 250, 200, thirdSlide);
 
-//Adds ZoomFrame objects
-slide0->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 250.0f, 200.0f, slide2);
-slide0->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200.0f, slide3);
-
-// Saves the presentation
-pres->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 ### **Create Zoom Frames with Custom Images**
-With Aspose.Slides for C++, you can create a zoom frame with a different slide preview image this way: 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2.	Create a new slide to which you intend to link the zoom frame. 
-3.	Add an identification text and background to the slide.
-4.  Create an [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) object that will be used to fill the frame.
-5.  Add zoom frames (containing the reference to created slide) to the first slide.
-6.	Write the modified presentation as a PPTX file.
 
-This C++ code shows you how to create a zoom frame with a different image:
+Pass a custom image to [IShapeCollection::AddZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addzoomframe/) to replace the target slide's default preview. This example requires a local image, loads it with [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/), and adds it to the presentation using [IImageCollection::AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/). The resulting frame displays that image while still linking to the second slide.
 
-``` cpp 
-#include <DOM/IAutoShape.h>
-#include <DOM/IImageCollection.h>
-#include <DOM/IShapeCollection.h>
+```cpp
+#include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
+#include <DOM/IShapeCollection.h>
 #include <Export/SaveFormat.h>
-#include <Util/Images.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IBackground.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
 #include <drawing/color.h>
+#include <Util/Images.h>
+#include <IImage.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// This function is defined in the first example of this article.
-void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
+auto presentation = System::MakeObject<Presentation>();
+auto overviewSlide = presentation->get_Slide(0);
 
-auto pres = System::MakeObject<Presentation>();
-auto slide0 = pres->get_Slides()->idx_get(0);
+auto slide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Cyan());
 
-//Adds a new slide to the presentation
-auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+textBox->get_TextFrame()->set_Text(u"Second Slide");
 
-// Creates a background for the second slide
-SetSlideBackground(slide, Color::get_Cyan());
+auto image = Images::FromFile(u"image.png");
+auto previewImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Creates a text box for the third slide
-auto autoshape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Second Slide");
+overviewSlide->get_Shapes()->AddZoomFrame(20, 20, 300, 200, slide, previewImage);
 
-// Creates a new image for the zoom object
-auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-
-//Adds the ZoomFrame object
-slide0->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, slide, image);
-
-// Saves the presentation
-pres->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 ### **Format Zoom Frames**
-In the previous sections, we showed you how to create simple zoom frames. To create more complicated zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a zoom frame. 
 
-You can control a zoom frame's formatting on a slide this way:
+This example customizes two slide zoom frames. It assigns a local image to the first frame through [IZoomObject::set_ZoomImage](https://reference.aspose.com/slides/cpp/aspose.slides/izoomobject/set_zoomimage/), and gives the second frame a five-point, dash-dot pink border through [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/). Setting [IZoomObject::set_ShowBackground](https://reference.aspose.com/slides/cpp/aspose.slides/izoomobject/set_showbackground/) to `false` hides the second frame's background. A local image is required for the custom preview; both frames retain their slide targets in the saved PPTX.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2.	Create new slides to link to which you intend to link the zoom frame. 
-3.	Add some identification text and background to the created slides.
-4.  Add zoom frames (containing the references to the created slides) to the first slide.
-5.  Create an [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) object that will be used to fill the frame.
-6.  Set a custom image for the first zoom frame object.
-7.  Change the line format for the second zoom frame object.
-8.  Remove the background from an image of the second zoom frame object.
-5.	Write the modified presentation as a PPTX file.
-
-This C++ code shows you how to change a zoom frame's formatting on a slide: 
-
-``` cpp 
-#include <DOM/FillType.h>
-#include <DOM/IAutoShape.h>
-#include <DOM/IColorFormat.h>
-#include <DOM/IImageCollection.h>
-#include <DOM/ILineFillFormat.h>
-#include <DOM/ILineFormat.h>
-#include <DOM/IShapeCollection.h>
+```cpp
+#include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
-#include <DOM/LineDashStyle.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/Zoom/IZoomFrame.h>
+#include <DOM/IShapeCollection.h>
 #include <Export/SaveFormat.h>
-#include <Util/Images.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IBackground.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
 #include <drawing/color.h>
+#include <Util/Images.h>
+#include <IImage.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Zoom/IZoomFrame.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/LineDashStyle.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// This function is defined in the first example of this article.
-void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
+auto presentation = System::MakeObject<Presentation>();
+auto overviewSlide = presentation->get_Slide(0);
 
-auto pres = System::MakeObject<Presentation>();
-auto slide1 = pres->get_Slides()->idx_get(0);
-//Adds new slides to the presentation
-auto slide2 = pres->get_Slides()->AddEmptySlide(slide1->get_LayoutSlide());
-auto slide3 = pres->get_Slides()->AddEmptySlide(slide1->get_LayoutSlide());
+auto secondSlide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
 
-// Creates a background for the second slide
-SetSlideBackground(slide2, Color::get_Cyan());
+secondSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+secondSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+secondSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Cyan());
 
-// Creates a text box for the second slide
-auto autoshape = slide2->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Second Slide");
+auto textBox = secondSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+textBox->get_TextFrame()->set_Text(u"Second Slide");
 
-// Creates a background for the third slide
-SetSlideBackground(slide3, Color::get_DarkKhaki());
+thirdSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+thirdSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+thirdSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkKhaki());
 
-// Creates a text box for the third slide
-autoshape = slide3->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 500.0f, 200.0f);
-autoshape->get_TextFrame()->set_Text(u"Trird Slide");
+textBox = thirdSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+textBox->get_TextFrame()->set_Text(u"Third Slide");
 
-//Adds ZoomFrame objects
-auto zoomFrame1 = slide1->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 250.0f, 200.0f, slide2);
-auto zoomFrame2 = slide1->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200.0f, slide3);
+auto firstZoomFrame = overviewSlide->get_Shapes()->AddZoomFrame(20, 20, 250, 200, secondSlide);
+auto secondZoomFrame = overviewSlide->get_Shapes()->AddZoomFrame(200, 250, 250, 200, thirdSlide);
 
-// Creates a new image for the zoom object
-auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-// Sets custom image for zoomFrame1 object
-zoomFrame1->set_ZoomImage(image);
+auto image = Images::FromFile(u"image.png");
+auto previewImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Sets a zoom frame format for the zoomFrame2 object
-zoomFrame2->get_LineFormat()->set_Width(5);
-zoomFrame2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-zoomFrame2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_HotPink());
-zoomFrame2->get_LineFormat()->set_DashStyle(LineDashStyle::DashDot);
+firstZoomFrame->set_ZoomImage(previewImage);
 
-// Setting for Do not show background for zoomFrame2 object
-zoomFrame2->set_ShowBackground(false);
+secondZoomFrame->get_LineFormat()->set_Width(5);
+secondZoomFrame->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+secondZoomFrame->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_HotPink());
+secondZoomFrame->get_LineFormat()->set_DashStyle(LineDashStyle::DashDot);
 
-// Saves the presentation
-pres->Save(u"presentation.pptx", SaveFormat::Pptx);
+secondZoomFrame->set_ShowBackground(false);
+
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 ## **Section Zoom**
 
-A section zoom is a link to a section in your presentation. You can use section zooms to go back to sections you want to really emphasize. Or you can use them to highlight how certain pieces of your presentation connect. 
+A section zoom links to a section in your presentation. Use it to revisit a topic or show how different parts of the presentation connect.
 
-![overview_image](seczoomsel.png)
+![Selecting a section for a section zoom](seczoomsel.png)
 
-For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/isectionzoomframe/) interface and some methods under the [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) interface.
+For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/isectionzoomframe/) interface and methods on the [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) interface.
 
 ### **Create Section Zoom Frames**
 
-You can add a section zoom frame to a slide this way:
+Create a section with [ISectionCollection::AddSection](https://reference.aspose.com/slides/cpp/aspose.slides/isectioncollection/addsection/), then pass the returned section to [IShapeCollection::AddSectionZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addsectionzoomframe/). This example places a section zoom on the first slide and links it to a section beginning with a colored slide. The frame's position and dimensions are specified in points, and the presentation is saved as PPTX.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2.	Create a new slide. 
-3.	Add an identification background to the created slide.
-4.  Create a new section to which you intend to link the zoom frame. 
-5.  Add a section zoom frame (containing references to the created section) to the first slide.
-6.	Write the modified presentation as a PPTX file.
-
-This C++ code shows you how to create a zoom frame on a slide:
-
-``` cpp 
-#include <DOM/ISectionCollection.h>
-#include <DOM/IShapeCollection.h>
+```cpp
+#include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
+#include <DOM/IShapeCollection.h>
 #include <Export/SaveFormat.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IBackground.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
 #include <drawing/color.h>
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// This function is defined in the first example of this article.
-void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
+auto presentation = System::MakeObject<Presentation>();
+auto overviewSlide = presentation->get_Slide(0);
 
-auto pres = System::MakeObject<Presentation>();
-auto slide0 = pres->get_Slides()->idx_get(0);
+auto slide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_YellowGreen());
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 
-//Adds a new slide to the presentation
-auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_YellowGreen());
+auto section = presentation->get_Sections()->AddSection(u"Section 1", slide);
+auto sectionZoomFrame = overviewSlide->get_Shapes()->AddSectionZoomFrame(20, 20, 300, 200, section);
 
-// Adds a new Section to the presentation
-pres->get_Sections()->AddSection(u"Section 1", slide);
-
-// Adds a SectionZoomFrame object
-auto sectionZoomFrame = slide0->get_Shapes()->AddSectionZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, pres->get_Sections()->idx_get(1));
-
-// Saves the presentation
-pres->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
+
 ### **Create Section Zoom Frames with Custom Images**
 
-Using Aspose.Slides for C++, you can create a section zoom frame with a different slide preview image this way: 
+The image overload of [IShapeCollection::AddSectionZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addsectionzoomframe/) lets you display a custom preview without changing the destination section. This example requires a local image, which is loaded with [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) and added through [IImageCollection::AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/). The saved presentation contains a section zoom on the first slide linked to the newly created section.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2.	Create a new slide.
-3.	Add an identification background to created slide.
-4.	Create a new section to which you intend to link the zoom frame. 
-5.  Create an [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) object that will be used to fill the frame.
-5.  Add a section zoom frame (containing a reference to the created section) to the first slide.
-6.	Write the modified presentation as a PPTX file.
-
-This C++ code shows you how to create a zoom frame with a different image:
-
-``` cpp 
-#include <DOM/IImageCollection.h>
-#include <DOM/ISectionCollection.h>
-#include <DOM/IShapeCollection.h>
+```cpp
+#include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
+#include <DOM/IShapeCollection.h>
 #include <Export/SaveFormat.h>
-#include <Util/Images.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IBackground.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
 #include <drawing/color.h>
+#include <Util/Images.h>
+#include <IImage.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// This function is defined in the first example of this article.
-void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
+auto presentation = System::MakeObject<Presentation>();
+auto overviewSlide = presentation->get_Slide(0);
 
-auto pres = System::MakeObject<Presentation>();
-auto slide0 = pres->get_Slides()->idx_get(0);
+auto slide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_YellowGreen());
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 
-//Adds new slide to the presentation
-auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_YellowGreen());
+auto image = Images::FromFile(u"image.png");
+auto previewImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Adds a new Section to the presentation
-pres->get_Sections()->AddSection(u"Section 1", slide);
+auto section = presentation->get_Sections()->AddSection(u"Section 1", slide);
+auto sectionZoomFrame = overviewSlide->get_Shapes()->AddSectionZoomFrame(20, 20, 300, 200, section, previewImage);
 
-// Creates a new image for the zoom object
-auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
+```
 
-// Adds SectionZoomFrame object
-auto sectionZoomFrame = slide0->get_Shapes()->AddSectionZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, pres->get_Sections()->idx_get(1), image);
+### **Change a Section Zoom's Target Section**
 
-// Saves the presentation
-pres->Save(u"presentation.pptx", SaveFormat::Pptx);
+Use [ISectionZoomFrame::set_TargetSection](https://reference.aspose.com/slides/cpp/aspose.slides/isectionzoomframe/set_targetsection/) to redirect an existing section zoom without recreating it. Choose a populated section from the same presentation's [get_Sections](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_sections/) collection. Assigning an empty section leaves the current target unchanged, so check [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/cpp/aspose.slides/isection/getslideslistofsection/) before assigning it. See [Manage Slide Sections](/slides/cpp/slide-section/) for more about sections.
+
+The following example loads a presentation file, which must contain multiple populated sections, an existing section zoom named `Section navigation`, and a section with the unique name `Results`. It searches all slides for the zoom and finds the destination by name rather than by a collection index that can change when sections are reordered. If names are not unique, use [ISection::get_SectionId](https://reference.aspose.com/slides/cpp/aspose.slides/isection/get_sectionid/) to identify the destination instead.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Zoom/ISectionZoomFrame.h>
+#include <system/console.h>
+#include <DOM/ISectionSlideCollection.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"section-zoom.pptx");
+
+System::SharedPtr<ISectionZoomFrame> zoom;
+for (auto slideIndex = 0; slideIndex < presentation->get_Slides()->get_Count() && !zoom; ++slideIndex)
+{
+    auto slide = presentation->get_Slide(slideIndex);
+    for (auto shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
+    {
+        auto candidate = System::DynamicCast<ISectionZoomFrame>(slide->get_Shape(shapeIndex));
+        if (candidate && candidate->get_Name() == u"Section navigation")
+        {
+            zoom = candidate;
+            break;
+        }
+    }
+}
+
+System::SharedPtr<ISection> targetSection;
+for (auto sectionIndex = 0; sectionIndex < presentation->get_Sections()->get_Count(); ++sectionIndex)
+{
+    auto section = presentation->get_Sections()->idx_get(sectionIndex);
+    if (section->get_Name() == u"Results")
+    {
+        targetSection = section;
+        break;
+    }
+}
+
+if (!zoom || !targetSection)
+{
+    System::Console::WriteLine(u"The section zoom or destination section was not found.");
+}
+else if (targetSection->GetSlidesListOfSection()->get_Count() == 0)
+{
+    System::Console::WriteLine(u"The destination section is empty.");
+}
+else
+{
+    auto currentSection = zoom->get_TargetSection();
+    if (currentSection)
+    {
+        System::Console::WriteLine(u"Current section: " + currentSection->get_Name());
+    }
+    zoom->set_TargetSection(targetSection);
+    presentation->Save(u"section-zoom-updated.pptx", SaveFormat::Pptx);
+}
+
 ```
 
 ### **Format Section Zoom Frames**
 
-To create more complicated section zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a section zoom frame. 
+This example moves and resizes a section zoom to 100 by 75 points, assigns a local image through [IZoomObject::set_ZoomImage](https://reference.aspose.com/slides/cpp/aspose.slides/izoomobject/set_zoomimage/), and applies a 2.5-point, dash-dot brown border. It enables [IZoomObject::set_ReturnToParent](https://reference.aspose.com/slides/cpp/aspose.slides/izoomobject/set_returntoparent/) to return to the originating slide after the section, disables [IZoomObject::set_ShowBackground](https://reference.aspose.com/slides/cpp/aspose.slides/izoomobject/set_showbackground/), and sets [IZoomObject::set_TransitionDuration](https://reference.aspose.com/slides/cpp/aspose.slides/izoomobject/set_transitionduration/) to 1.5 seconds. A local image is required for the custom preview.
 
-You can control a section zoom frame's formatting on a slide this way:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2.	Create a new slide.
-3.	Add identification background to created slide.
-4.	Create a new section to which you intend to link the zoom frame. 
-5.	Add a section zoom frame (containing references to created section) to the first slide.
-6.	Change the size and position for the created section zoom object.
-7.	Create an [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) object that will be used to fill the frame.
-8.	Set a custom image for the created section zoom frame object.
-9.	Set the *return to the original slide from the linked section* ability. 
-10.	Remove the background from an image of the section zoom frame object.
-11.	Change the line format for the second zoom frame object.
-12.	Change the transition duration.
-13.	Write the modified presentation as a PPTX file.
-
-This C++ code shows you how to change a section zoom frame's formatting:
-
-``` cpp 
-#include <DOM/FillType.h>
-#include <DOM/IColorFormat.h>
-#include <DOM/IImageCollection.h>
-#include <DOM/ILineFillFormat.h>
-#include <DOM/ILineFormat.h>
-#include <DOM/ISectionCollection.h>
-#include <DOM/IShapeCollection.h>
+```cpp
+#include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
-#include <DOM/LineDashStyle.h>
-#include <DOM/Presentation.h>
-#include <DOM/Zoom/ISectionZoomFrame.h>
+#include <DOM/IShapeCollection.h>
 #include <Export/SaveFormat.h>
-#include <Util/Images.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IBackground.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
 #include <drawing/color.h>
+#include <Util/Images.h>
+#include <IImage.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/Zoom/ISectionZoomFrame.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/LineDashStyle.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// This function is defined in the first example of this article.
-void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
+auto presentation = System::MakeObject<Presentation>();
+auto overviewSlide = presentation->get_Slide(0);
 
-auto pres = System::MakeObject<Presentation>();
-auto slide0 = pres->get_Slides()->idx_get(0);
+auto slide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_YellowGreen());
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 
-//Adds a new slide to the presentation
-auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_YellowGreen());
+auto section = presentation->get_Sections()->AddSection(u"Section 1", slide);
 
-// Adds a new Section to the presentation
-pres->get_Sections()->AddSection(u"Section 1", slide);
+auto sectionZoomFrame = overviewSlide->get_Shapes()->AddSectionZoomFrame(20, 20, 300, 200, section);
+sectionZoomFrame->set_X(100);
+sectionZoomFrame->set_Y(300);
+sectionZoomFrame->set_Width(100);
+sectionZoomFrame->set_Height(75);
 
-// Add SectionZoomFrame object
-auto sectionZoomFrame = slide0->get_Shapes()->AddSectionZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, pres->get_Sections()->idx_get(1));
+auto image = Images::FromFile(u"image.png");
+auto previewImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Formatting for SectionZoomFrame
-sectionZoomFrame->set_X(100.0f);
-sectionZoomFrame->set_Y(300.0f);
-sectionZoomFrame->set_Width(100.0f);
-sectionZoomFrame->set_Height(75.0f);
-
-auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-sectionZoomFrame->set_ZoomImage(image);
+sectionZoomFrame->set_ZoomImage(previewImage);
 
 sectionZoomFrame->set_ReturnToParent(true);
 sectionZoomFrame->set_ShowBackground(false);
 
-auto sectionZoomLineFormat = sectionZoomFrame->get_LineFormat();
-sectionZoomLineFormat->get_FillFormat()->set_FillType(FillType::Solid);
-sectionZoomLineFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Brown());
-sectionZoomLineFormat->set_DashStyle(LineDashStyle::DashDot);
-sectionZoomLineFormat->set_Width(2.5f);
+sectionZoomFrame->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+sectionZoomFrame->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Brown());
+sectionZoomFrame->get_LineFormat()->set_DashStyle(LineDashStyle::DashDot);
+sectionZoomFrame->get_LineFormat()->set_Width(2.5f);
 
 sectionZoomFrame->set_TransitionDuration(1.5f);
 
-// Saves the presentation
-pres->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **Summary Zoom**
 
-A summary zoom is like a landing page where all the pieces of your presentation are displayed at once. When you're presenting, you can use the zoom to go from one place in your presentation to another in any order you like. You can get creative, skip ahead, or revisit pieces of your slide show without interrupting the flow of your presentation.
+A summary zoom provides an overview of presentation sections. During a slide show, you can use it to jump to a section, skip ahead, or revisit a topic without following the slide order.
 
-![overview_image](sumzoomsel.png)
+![Selecting sections for a summary zoom](sumzoomsel.png)
 
-For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomframe/), [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsection/), and [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/) interfaces and some methods under the [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) interface.
+For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomframe/), [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsection/), and [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/) interfaces and methods on the [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) interface.
 
-### **Create Summary Zoom**
+### **Create a Summary Zoom**
 
-You can add a summary zoom frame to a slide this way:
+Use [IShapeCollection::AddSummaryZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addsummaryzoomframe/) to create an overview of the presentation's sections. This example creates four sections with distinct slide backgrounds and adds a summary zoom to the first slide. The frame's position and dimensions are specified in points, and the resulting overview is saved in a PPTX presentation.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.  Add the summary zoom frame to the first slide.
-4.	Write the modified presentation as a PPTX file.
-
-This C++ code shows you how to create a summary zoom frame on a slide:
-
-``` cpp 
-#include <DOM/ISectionCollection.h>
-#include <DOM/IShapeCollection.h>
+```cpp
+#include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
+#include <DOM/IShapeCollection.h>
 #include <Export/SaveFormat.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IBackground.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
 #include <drawing/color.h>
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/Zoom/ISummaryZoomFrame.h>
+#include <DOM/Zoom/ISummaryZoomSection.h>
+#include <DOM/Zoom/ISummaryZoomSectionCollection.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// This function is defined in the first example of this article.
-void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
+auto presentation = System::MakeObject<Presentation>();
+auto overviewSlide = presentation->get_Slide(0);
 
-auto pres = System::MakeObject<Presentation>();
-auto slide0 = pres->get_Slides()->idx_get(0);
+auto slide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Brown());
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 
-// Adds a new slide to the presentation
-auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_Brown());
+presentation->get_Sections()->AddSection(u"Section 1", slide);
 
-// Adds a new section to the presentation
-pres->get_Sections()->AddSection(u"Section 1", slide);
+slide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Aqua());
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 
-// Adds a new slide to the presentation
-slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_Aqua());
+presentation->get_Sections()->AddSection(u"Section 2", slide);
 
-// Adds a new section to the presentation
-pres->get_Sections()->AddSection(u"Section 2", slide);
+slide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Chartreuse());
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 
-// Adds a new slide to the presentation
-slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_Chartreuse());
+presentation->get_Sections()->AddSection(u"Section 3", slide);
 
-// Adds a new section to the presentation
-pres->get_Sections()->AddSection(u"Section 3", slide);
+slide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkGreen());
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 
-// Adds a new slide to the presentation
-slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_DarkGreen());
+presentation->get_Sections()->AddSection(u"Section 4", slide);
 
-// Adds a new section to the presentation
-pres->get_Sections()->AddSection(u"Section 4", slide);
+auto summaryZoomFrame = overviewSlide->get_Shapes()->AddSummaryZoomFrame(150, 50, 300, 200);
 
-// Adds a SummaryZoomFrame object
-auto summaryZoomFrame = slide0->get_Shapes()->AddSummaryZoomFrame(150.0f, 50.0f, 300.0f, 200.0f);
-
-// Saves the presentation
-pres->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 ### **Add and Remove a Summary Zoom Section**
 
-All sections in a summary zoom frame are represented by [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsection/) objects, which are stored in the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/) object. You can add or remove a summary zoom section object through the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/) interface this way:
+A summary zoom stores its [ISummaryZoomSection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsection/) objects in [ISummaryZoomFrame::get_SummaryZoomCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomframe/get_summaryzoomcollection/). This example creates an overview of two sections, adds a third section using [ISummaryZoomSectionCollection::AddSummaryZoomSection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/addsummaryzoomsection/), and removes the first section's entry using [ISummaryZoomSectionCollection::RemoveSummaryZoomSection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomsectioncollection/removesummaryzoomsection/). Removing the entry leaves the presentation section and its slides intact.
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.  Add a summary zoom frame into the first slide.
-4.  Add a new slide and section to the presentation.
-5.  Add the created section to the summary zoom frame.
-6.  Remove the first section from the summary zoom frame.
-7.	Write the modified presentation as a PPTX file.
-
-This C++ code shows you how to add and remove sections in a summary zoom frame:
-
-``` cpp 
-#include <DOM/ISectionCollection.h>
-#include <DOM/IShapeCollection.h>
+```cpp
+#include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
-#include <DOM/Zoom/ISummaryZoomFrame.h>
-#include <DOM/Zoom/ISummaryZoomSectionCollection.h>
+#include <DOM/IShapeCollection.h>
 #include <Export/SaveFormat.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IBackground.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
 #include <drawing/color.h>
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/Zoom/ISummaryZoomFrame.h>
+#include <DOM/Zoom/ISummaryZoomSection.h>
+#include <DOM/Zoom/ISummaryZoomSectionCollection.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// This function is defined in the first example of this article.
-void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
+auto presentation = System::MakeObject<Presentation>();
+auto overviewSlide = presentation->get_Slide(0);
 
-auto pres = System::MakeObject<Presentation>();
-auto slide0 = pres->get_Slides()->idx_get(0);
+auto slide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Brown());
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 
-//Adds a new slide to the presentation
-auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_Brown());
+auto firstSection = presentation->get_Sections()->AddSection(u"Section 1", slide);
 
-// Adds a new section to the presentation
-pres->get_Sections()->AddSection(u"Section 1", slide);
+slide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Aqua());
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 
-//Adds a new slide to the presentation
-slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_Aqua());
+presentation->get_Sections()->AddSection(u"Section 2", slide);
 
-// Adds a new section to the presentation
-pres->get_Sections()->AddSection(u"Section 2", slide);
+auto summaryZoomFrame = overviewSlide->get_Shapes()->AddSummaryZoomFrame(150, 50, 300, 200);
 
-// Adds SummaryZoomFrame object
-auto summaryZoomFrame = slide0->get_Shapes()->AddSummaryZoomFrame(150.0f, 50.0f, 300.0f, 200.0f);
+slide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Chartreuse());
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 
-//Adds a new slide to the presentation
-slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_Chartreuse());
+auto thirdSection = presentation->get_Sections()->AddSection(u"Section 3", slide);
 
-// Adds a new section to the presentation
-auto section3 = pres->get_Sections()->AddSection(u"Section 3", slide);
+summaryZoomFrame->get_SummaryZoomCollection()->AddSummaryZoomSection(thirdSection);
 
-// Adds a section to the Summary Zoom
-summaryZoomFrame->get_SummaryZoomCollection()->AddSummaryZoomSection(section3);
+summaryZoomFrame->get_SummaryZoomCollection()->RemoveSummaryZoomSection(firstSection);
 
-// Removes section from the Summary Zoom
-summaryZoomFrame->get_SummaryZoomCollection()->RemoveSummaryZoomSection(pres->get_Sections()->idx_get(1));
-
-// Saves the presentation
-pres->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 ### **Format Summary Zoom Sections**
 
-To create more complicated summary zoom section objects, you have to alter a simple frame's formatting. There are several formatting options you can apply to a summary zoom section object. 
+This example formats the first entry in [ISummaryZoomFrame::get_SummaryZoomCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomframe/get_summaryzoomcollection/), using the zero-based index `0`. It requires a local image for [IZoomObject::set_ZoomImage](https://reference.aspose.com/slides/cpp/aspose.slides/izoomobject/set_zoomimage/), applies a 1.5-point, dash-dot black border, and sets [IZoomObject::set_TransitionDuration](https://reference.aspose.com/slides/cpp/aspose.slides/izoomobject/set_transitionduration/) to 1.5 seconds. Setting [IZoomObject::set_ReturnToParent](https://reference.aspose.com/slides/cpp/aspose.slides/izoomobject/set_returntoparent/) to `false` disables the automatic return to the summary slide for this entry.
 
-You can control the formatting for a summary zoom section object in a summary zoom frame this way:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.  Add a summary zoom frame to the first slide.
-4.  Get a summary zoom section object for the first object from the `ISummaryZoomSectionCollection`.
-7.  Create an [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) object by adding an image to the images collection associated with the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) object that will be used to fill the frame.
-8.  Set a custom image for the created section zoom frame object.
-9.  Set the *return to the original slide from the linked section* ability. 
-11. Change the line format for the second zoom frame object.
-12. Change the transition duration.
-13.	Write the modified presentation as a PPTX file.
-
-This C++ code shows you how to change the formatting for a summary zoom section object:
-
-``` cpp 
-#include <DOM/FillType.h>
-#include <DOM/IColorFormat.h>
-#include <DOM/IImageCollection.h>
-#include <DOM/ILineFillFormat.h>
-#include <DOM/ILineFormat.h>
-#include <DOM/ISectionCollection.h>
-#include <DOM/IShapeCollection.h>
+```cpp
+#include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <Export/SaveFormat.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IBackground.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <drawing/color.h>
+#include <Util/Images.h>
+#include <IImage.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
 #include <DOM/LineDashStyle.h>
-#include <DOM/Presentation.h>
 #include <DOM/Zoom/ISummaryZoomFrame.h>
 #include <DOM/Zoom/ISummaryZoomSection.h>
 #include <DOM/Zoom/ISummaryZoomSectionCollection.h>
-#include <Export/SaveFormat.h>
-#include <Util/Images.h>
-#include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// This function is defined in the first example of this article.
-void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
+auto presentation = System::MakeObject<Presentation>();
+auto overviewSlide = presentation->get_Slide(0);
 
-auto pres = System::MakeObject<Presentation>();
-auto slide0 = pres->get_Slides()->idx_get(0);
+auto slide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Brown());
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 
-//Adds a new slide to the presentation
-auto slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_Brown());
+presentation->get_Sections()->AddSection(u"Section 1", slide);
 
-// Adds a new section to the presentation
-pres->get_Sections()->AddSection(u"Section 1", slide);
+slide = presentation->get_Slides()->AddEmptySlide(overviewSlide->get_LayoutSlide());
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Aqua());
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 
-//Adds a new slide to the presentation
-slide = pres->get_Slides()->AddEmptySlide(slide0->get_LayoutSlide());
-SetSlideBackground(slide, Color::get_Aqua());
+presentation->get_Sections()->AddSection(u"Section 2", slide);
 
-// Adds a new section to the presentation
-pres->get_Sections()->AddSection(u"Section 2", slide);
+auto summaryZoomFrame = overviewSlide->get_Shapes()->AddSummaryZoomFrame(150, 50, 300, 200);
 
-// Adds a SummaryZoomFrame object
-auto summaryZoomFrame = slide0->get_Shapes()->AddSummaryZoomFrame(150.0f, 50.0f, 300.0f, 200.0f);
-
-// Gets the first SummaryZoomSection object
 auto summarySection = summaryZoomFrame->get_SummaryZoomCollection()->idx_get(0);
 
-// Formatting for SummaryZoomSection object
-auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-summarySection->set_ZoomImage(image);
+auto image = Images::FromFile(u"image.png");
+auto previewImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
+summarySection->set_ZoomImage(previewImage);
 summarySection->set_ReturnToParent(false);
 
 summarySection->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -659,20 +626,19 @@ summarySection->get_LineFormat()->set_Width(1.5f);
 
 summarySection->set_TransitionDuration(1.5f);
 
-// Saves the presentation
-pres->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-### Can I control returning to the 'parent' slide after showing the target?
+**Can I control returning to the 'parent' slide after showing the target?**
 
-Yes. The [Zoom frame](https://reference.aspose.com/slides/cpp/aspose.slides/zoomframe/) or [section](https://reference.aspose.com/slides/cpp/aspose.slides/sectionzoomframe/) has a `set_ReturnToParent` method that sends viewers back to the originating slide after they visit the target content.
+Yes. Set [IZoomObject::set_ReturnToParent](https://reference.aspose.com/slides/cpp/aspose.slides/izoomobject/set_returntoparent/) to `true` to return to the originating slide after the target content is shown.
 
-### Can I adjust the 'speed' or duration of the Zoom transition?
+**Can I adjust the 'speed' or duration of the Zoom transition?**
 
-Yes. Zoom supports setting a transition duration so you can control how long the jump animation takes.
+Yes. Set [IZoomObject::set_TransitionDuration](https://reference.aspose.com/slides/cpp/aspose.slides/izoomobject/set_transitionduration/) to control the transition duration in seconds.
 
-### Are there limits on how many Zoom objects a presentation can contain?
+**Are there limits on how many Zoom objects a presentation can contain?**
 
 There is no hard API limit documented. Practical limits depend on overall presentation complexity and the viewer's performance. You can add many Zoom frames, but consider file size and rendering time.
