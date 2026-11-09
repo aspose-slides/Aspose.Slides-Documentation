@@ -12,12 +12,12 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Create 3D charts in PowerPoint presentations with Aspose.Slides for Node.js via Java. Adjust rotation, chart depth, and spacing between series with JavaScript examples."
+description: "Create 3D charts in PowerPoint presentations with Aspose.Slides for Node.js via Java. Adjust rotation, height proportions, chart depth, and spacing between series with JavaScript examples."
 ---
 
 ## **Overview**
 
-Aspose.Slides for Node.js via Java lets you customize the view of a 3D chart through the [Chart.getRotation3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getRotation3D) method. This article demonstrates how to adjust rotation, depth, right-angle axes, and spacing between series, then save the presentation in PPTX format.
+Aspose.Slides for Node.js via Java lets you customize the view of a 3D chart through the [Chart.getRotation3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getRotation3D) method. This article demonstrates how to adjust rotation, height proportions, depth, right-angle axes, and spacing between series, then save the presentation in PPTX format.
 
 ## **Set the Rotation and Depth of a 3D Chart**
 
@@ -68,6 +68,53 @@ try {
     presentation.dispose();
 }
 ```
+
+## **Adjust the Height Proportions of a 3D Chart**
+
+Use [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setHeightPercents) to set the height of a 3D chart as a percentage of its width. This changes the proportions of the 3D scene without resizing the chart object on the slide.
+
+The following example creates a [Column3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) chart with the default data: three series and four categories. It saves three presentations with height proportions of 50%, 100%, and 200%. The chart's position, width, and height remain fixed. The data, rotation, depth, series spacing, and formatting are identical in all three files; only the height percentage changes.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(slides.ChartType.Column3D, 40, 30, 620, 460);
+    chart.getRotation3D().setRotationX(java.newByte(20));
+    chart.getRotation3D().setRotationY(30);
+    chart.getRotation3D().setRightAngleAxes(true);
+    chart.getRotation3D().setDepthPercents(100);
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setGapDepth(150);
+
+    for (const heightPercent of [50, 100, 200]) {
+        chart.getRotation3D().setHeightPercents(heightPercent);
+        presentation.save("chart_height_" + heightPercent + ".pptx", slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The following images illustrate the same height settings in the equivalent .NET example and were exported using Microsoft PowerPoint. A smaller percentage produces a flatter scene, while a larger percentage produces a taller scene within the same chart object. PowerPoint may also adjust axis tick intervals and label placement to fit the scene.
+
+| Height: 50% | Height: 100% | Height: 200% |
+| --- | --- | --- |
+| ![3D column chart with height set to 50 percent of its width](height_percent_50.png) | ![3D column chart with height set to 100 percent of its width](height_percent_100.png) | ![3D column chart with height set to 200 percent of its width](height_percent_200.png) |
+
+These methods control different aspects of the chart:
+
+| Method | Effect |
+| --- | --- |
+| [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setHeightPercents) | Height of the 3D scene as a percentage of its width. |
+| [Chart.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setHeight) | Height of the chart object on the slide, in points. |
+| [Rotation3D.setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setDepthPercents) | Depth of the 3D scene as a percentage of its width. |
+| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapDepth) | Spacing between series along the depth axis, as a percentage of the marker width. |
+
+The height setting affects 3D column and bar charts, including cylinder, cone, and pyramid variants, as well as 3D line, area, pie, and surface charts. The comparison above uses the verified `Column3D` type. The setting does not change the appearance of a 2D `ClusteredColumn` chart or a `BubbleWith3D` chart; these names are members of the [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) class. For other chart appearance settings, see [Chart Formatting](/slides/nodejs-java/chart-formatting/).
 
 ## **Adjust the Gap Between Series**
 

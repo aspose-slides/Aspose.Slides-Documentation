@@ -11,12 +11,12 @@ keywords:
 - presentation
 - Python
 - Aspose.Slides
-description: "Create 3D charts in PowerPoint presentations with Aspose.Slides for Python via .NET. Adjust rotation, chart depth, and spacing between series with Python examples."
+description: "Create 3D charts in PowerPoint presentations with Aspose.Slides for Python via .NET. Adjust rotation, height proportions, chart depth, and spacing between series with Python examples."
 ---
 
 ## **Overview**
 
-Aspose.Slides for Python via .NET lets you customize the view of a 3D chart through the [Chart.rotation_3d](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/rotation_3d/) property. This article demonstrates how to adjust rotation, depth, right-angle axes, and spacing between series, then save the presentation in PPTX format.
+Aspose.Slides for Python via .NET lets you customize the view of a 3D chart through the [Chart.rotation_3d](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/rotation_3d/) property. This article demonstrates how to adjust rotation, height proportions, depth, right-angle axes, and spacing between series, then save the presentation in PPTX format.
 
 ## **Set the Rotation and Depth of a 3D Chart**
 
@@ -60,6 +60,48 @@ with slides.Presentation() as presentation:
 
     presentation.save("Rotation3D_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Adjust the Height Proportions of a 3D Chart**
+
+Use [Rotation3D.height_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/height_percents/) to set the height of a 3D chart as a percentage of its width. This changes the proportions of the 3D scene without resizing the chart object on the slide.
+
+The following example creates a [COLUMN_3D](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) chart with the default data: three series and four categories. It saves three presentations with height proportions of 50%, 100%, and 200%. The chart's position, width, and height remain fixed. The data, rotation, depth, series spacing, and formatting are identical in all three files; only the height percentage changes.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.COLUMN_3D, 40, 30, 620, 460)
+    chart.rotation_3d.rotation_x = 20
+    chart.rotation_3d.rotation_y = 30
+    chart.rotation_3d.right_angle_axes = True
+    chart.rotation_3d.depth_percents = 100
+    chart.chart_data.series[0].parent_series_group.gap_depth = 150
+
+    for height_percent in (50, 100, 200):
+        chart.rotation_3d.height_percents = height_percent
+        presentation.save(f"chart_height_{height_percent}.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The following images were exported from the generated presentations using Microsoft PowerPoint. A smaller percentage produces a flatter scene, while a larger percentage produces a taller scene within the same chart object. PowerPoint may also adjust axis tick intervals and label placement to fit the scene.
+
+| Height: 50% | Height: 100% | Height: 200% |
+| --- | --- | --- |
+| ![3D column chart with height set to 50 percent of its width](height_percent_50.png) | ![3D column chart with height set to 100 percent of its width](height_percent_100.png) | ![3D column chart with height set to 200 percent of its width](height_percent_200.png) |
+
+These properties control different aspects of the chart:
+
+| Property | Effect |
+| --- | --- |
+| [Rotation3D.height_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/height_percents/) | Height of the 3D scene as a percentage of its width. |
+| [Chart.height](https://reference.aspose.com/slides/python-net/aspose.slides/shape/height/) | Height of the chart object on the slide, in points. |
+| [Rotation3D.depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) | Depth of the 3D scene as a percentage of its width. |
+| [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) | Spacing between series along the depth axis, as a percentage of the marker width. |
+
+The height setting affects 3D column and bar charts, including cylinder, cone, and pyramid variants, as well as 3D line, area, pie, and surface charts. The comparison above uses the verified `COLUMN_3D` type. The setting does not change the appearance of a 2D `CLUSTERED_COLUMN` chart or a `BUBBLE_WITH_3D` chart; these names are members of the [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) enumeration. For other chart appearance settings, see [Chart Formatting](/slides/python-net/chart-formatting/).
 
 ## **Adjust the Gap Between Series**
 
