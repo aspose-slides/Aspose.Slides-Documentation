@@ -88,6 +88,8 @@ presentation->Dispose();
 
 ## **Control Text and Fonts**
 
+When exporting slides to SVG, you can control whether text remains as text or is converted to vector graphics, and how external fonts are included or referenced. The following options help you balance visual consistency, text selection, and font dependencies in the exported SVG.
+
 ### **Vectorize All Text**
 
 Set [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) to `true` to write all slide text as vector graphics. This eliminates font dependencies and makes the visual result more consistent across browsers, but the text is no longer selectable or searchable as SVG text.
@@ -184,6 +186,59 @@ svgStream->Dispose();
 
 presentation->Dispose();
 ```
+
+## **Control Metafile Rasterization Resolution**
+
+[SVGOptions::set_MetafileRasterizationDpi](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_metafilerasterizationdpi/) sets the lower resolution limit for rasterizing metafiles during SVG export. Use it to balance detail and file size when an EMF or WMF image is rasterized. It does not define a global DPI for the SVG or force every object on the slide to become a raster image.
+
+Download [metafile-rasterization.pptx](metafile-rasterization.pptx), which contains an EMF image with closely spaced diagonal lines. The following example exports its first slide at three rasterization resolutions through [ISlide::WriteAsSvg](https://reference.aspose.com/slides/cpp/aspose.slides/islide/writeassvg/). All other export settings remain identical so that the results can be compared.
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/PicturesCompression.h>
+#include <Export/SVGOptions.h>
+#include <system/io/file.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"metafile-rasterization.pptx");
+auto slide = presentation->get_Slide(0);
+const int resolutions[] = { 72, 150, 300 };
+
+for (auto dpi : resolutions)
+{
+    auto svgOptions = MakeObject<SVGOptions>();
+    svgOptions->set_MetafileRasterizationDpi(dpi);
+    svgOptions->set_PicturesCompression(PicturesCompression::Dpi330);
+    svgOptions->set_JpegQuality(90);
+
+    auto svgFileName = String::Format(u"slide-{0}.svg", dpi);
+    auto svgStream = File::Create(svgFileName);
+    slide->WriteAsSvg(svgStream, svgOptions);
+    svgStream->Dispose();
+}
+
+presentation->Dispose();
+```
+
+In the output, the EMF became one embedded PNG in each SVG. The following measurements are for the supplied presentation; they are not a general formula for converting DPI to pixel dimensions.
+
+| Metafile rasterization DPI | Embedded PNG dimensions | SVG file size (bytes) |
+| --- | --- | --- |
+| 72 | 1196 × 596 | 170,221 |
+| 150 | 2492 × 1242 | 423,149 |
+| 300 | 4983 × 2483 | 1,027,169 |
+
+The comparison below shows the same area of the embedded raster at the same enlarged display size. The diagonal lines show visible pixelation at 72 DPI and smoother edges at higher resolutions, while the SVG file grows. Increasing the value does not necessarily improve every detail or change every exported image.
+
+![Enlarged diagonal-line detail at 72, 150, and 300 DPI](metafile-rasterization-comparison.png)
+
+[SVGOptions::set_PicturesCompression](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_picturescompression/) controls image resolution reduction and can mask the effect of changing the metafile rasterization resolution. [SVGOptions::set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_jpegquality/) controls JPEG encoding quality, not metafile rasterization resolution.
 
 ## **Assign Stable IDs to Shapes and Text**
 
