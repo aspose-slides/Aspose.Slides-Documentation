@@ -1,6 +1,6 @@
 ---
 title: Quản lý các đoạn văn bản PowerPoint trong .NET
-linktitle: Quản lý Đoạn văn
+linktitle: Quản lý đoạn
 type: docs
 weight: 40
 url: /vi/net/manage-paragraph/
@@ -15,8 +15,8 @@ keywords:
   - quản lý dấu đầu dòng
   - thụt lề đoạn
   - thụt lề treo
-  - dấu đầu dòng đoạn
-  - danh sách đánh số
+  - đánh dấu đoạn
+  - danh sách có số
   - danh sách có dấu đầu dòng
   - thuộc tính đoạn
   - nhập HTML
@@ -26,29 +26,29 @@ keywords:
   - văn bản sang hình ảnh
   - xuất đoạn
   - PowerPoint
-  - bản trình bày
+  - bản trình chiếu
   - .NET
   - C#
   - Aspose.Slides
-description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, dấu đầu dòng, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn bằng Aspose.Slides cho .NET."
+description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, dấu đầu dòng, danh sách có số, thụt lề, nội dung HTML và hình ảnh đoạn bằng Aspose.Slides cho .NET."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for .NET biểu diễn văn bản dưới dạng một cây phân cấp gồm các khung văn bản, đoạn văn và phần:
+Aspose.Slides cho .NET biểu diễn văn bản như một cây phân cấp gồm khung văn bản, đoạn văn và phần:
 
-* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) đại diện cho container văn bản trong một shape và cung cấp quyền truy cập vào bộ sưu tập các đoạn của nó.
-* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) đại diện cho một đoạn trong một khung văn bản và cung cấp quyền truy cập vào các phần và định dạng mức đoạn.
-* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) đại diện cho một đoạn chạy văn bản trong một đoạn. Mỗi phần có thể có văn bản và định dạng mức ký tự riêng.
+* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) đại diện cho vùng chứa văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập các đoạn văn.
+* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) đại diện cho một đoạn văn trong khung văn bản và cung cấp quyền truy cập vào các phần và định dạng ở mức độ đoạn.
+* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) đại diện cho một đoạn văn bản trong một đoạn. Mỗi phần có thể có văn bản và định dạng ký tự riêng.
 
-Do đó một đoạn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và các định dạng khác nhau bằng cách sử dụng nhiều phần.
+Do đó một đoạn văn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và định dạng khác nhau bằng cách sử dụng nhiều phần.
 
-## **Tạo và Định dạng Đoạn**
+## **Tạo và Định dạng Đoạn văn**
 
-Tạo các đoạn trong khung văn bản của shape và sử dụng các phần để định dạng các đoạn chạy văn bản riêng lẻ. Phần này cho thấy cách kết hợp nhiều phần trong mỗi đoạn và áp dụng các màu, kích thước phông chữ và kiểu dáng khác nhau.
+Tạo các đoạn văn trong khung văn bản của một hình dạng và sử dụng các phần để định dạng các đoạn văn bản riêng lẻ. Phần này trình bày cách kết hợp nhiều phần trong mỗi đoạn và áp dụng các màu sắc, kích thước phông chữ và kiểu dáng khác nhau.
 
-### **Tạo Đoạn với Nhiều Phần**
+### **Tạo Đoạn văn với Nhiều Phần**
 
-Ví dụ C# sau tạo ba đoạn, mỗi đoạn chứa ba đoạn chạy văn bản trong bộ sưu tập [IParagraph.Portions](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/portions/) . Nó tái sử dụng đoạn mặc định và phần rỗng của nó, sau đó thêm các đoạn và phần còn lại. Định dạng được áp dụng qua [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/): phần đầu tiên trong mỗi đoạn có màu đỏ, in đậm và 15 điểm; phần thứ hai có màu xanh, in nghiêng và 18 điểm. Phần thứ ba giữ nguyên định dạng mặc định:
+Ví dụ C# dưới đây tạo ba đoạn văn, mỗi đoạn chứa ba đoạn văn bản trong bộ sưu tập [IParagraph.Portions](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/portions/). Nó tái sử dụng đoạn mặc định và phần rỗng của nó, sau đó thêm các đoạn và phần còn lại. Định dạng được áp dụng qua [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/): phần đầu tiên trong mỗi đoạn có màu đỏ, in đậm và kích thước 15 điểm; phần thứ hai có màu xanh lam, in nghiêng và 18 điểm. Phần thứ ba giữ nguyên định dạng mặc định:
 
 ```csharp
 using System.Drawing;
@@ -109,13 +109,13 @@ presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 
 ## **Tạo Danh sách Đánh dấu và Đánh số**
 
-Tổ chức văn bản đoạn thành các danh sách với ký hiệu, số hoặc hình ảnh tùy chỉnh. Các ví dụ trong phần này bao gồm định dạng dấu đầu dòng, danh sách đa cấp và số bắt đầu tùy chỉnh.
+Sắp xếp văn bản đoạn thành các danh sách với ký hiệu, số hoặc hình ảnh tùy chỉnh. Các ví dụ trong phần này bao gồm định dạng dấu đầu dòng, danh sách đa cấp và số bắt đầu tùy chỉnh.
 
 ### **Tạo Danh sách Đánh dấu hoặc Đánh số**
 
-Dấu đầu dòng và đánh số giúp việc quét các mục liên quan dễ hơn. Trong Aspose.Slides, cài đặt danh sách được định nghĩa qua [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/).
+Dấu đầu dòng và đánh số giúp các mục liên quan dễ dàng quét. Trong Aspose.Slides, cài đặt danh sách được định nghĩa qua [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/).
 
-Ví dụ C# này thêm một dấu đầu dòng ký hiệu và một mục có đánh số vào cùng một khung văn bản. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) chọn loại dấu đầu dòng, trong khi [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) cung cấp ký hiệu và [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstyle/) chọn kiểu đánh số. Cả hai mục đều sử dụng dấu đầu dòng màu đen với chiều cao 100% và thụt lề đoạn 25 điểm:
+Ví dụ C# này thêm một dấu đầu dòng ký hiệu và một mục có số vào cùng một khung văn bản. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) chọn loại dấu đầu dòng, trong khi [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) cung cấp ký hiệu và [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstyle/) chọn kiểu đánh số. Cả hai mục đều sử dụng dấu đầu dòng màu đen với chiều cao 100% và thụt lề đoạn là 25 điểm:
 
 ```csharp
 using System;
@@ -155,9 +155,9 @@ presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 
 ### **Sử dụng Dấu đầu dòng Hình ảnh**
 
-Dấu đầu dòng hình ảnh cho phép bạn sử dụng một hình ảnh tùy chỉnh thay cho ký hiệu hoặc số.
+Dấu đầu dòng hình ảnh cho phép bạn sử dụng hình ảnh tùy chỉnh thay vì ký hiệu hoặc số.
 
-Ví dụ C# này thêm một hình ảnh vào bộ sưu tập hình ảnh của bản trình bày dưới dạng [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) và sử dụng nó làm dấu đầu dòng cho đoạn. Nó đặt [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) để sử dụng dấu đầu dòng hình ảnh và gán hình ảnh qua [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/). [IBulletFormat.Height](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/height/) được đặt thành 100% để định kích thước dấu đầu dòng so với văn bản đoạn:
+Ví dụ C# này thêm một hình ảnh vào bộ sưu tập hình ảnh của bản trình bày dưới dạng [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) và sử dụng nó làm dấu đầu dòng cho đoạn. Nó đặt [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) để sử dụng dấu đầu dòng hình ảnh và gán hình ảnh qua [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/). [IBulletFormat.Height](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/height/) được đặt thành 100% để kích thước dấu đầu dòng tương đối với văn bản đoạn:
 
 ```csharp
 using Aspose.Slides;
@@ -185,9 +185,9 @@ presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 
 ### **Tạo Danh sách Đa cấp**
 
-Đặt [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) để đặt các đoạn ở các cấp độ khác nhau của danh sách. Cấp cao nhất có độ sâu là `0`.
+Đặt [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) để đặt các đoạn ở các mức độ khác nhau của một danh sách. Mức cao nhất có độ sâu `0`.
 
-Ví dụ C# này gán các giá trị [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) từ 0 đến 3 cho bốn đoạn, tạo một cấu trúc phân cấp trong một khung văn bản. Mỗi đoạn sử dụng dấu đầu dòng ký hiệu, với [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) luân phiên giữa dấu đầu dòng tròn và dấu gạch nối để phân biệt các cấp bên nhau:
+Ví dụ C# này gán các giá trị [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) từ 0 đến 3 cho bốn đoạn, tạo một cây phân cấp trong một khung văn bản. Mỗi đoạn sử dụng dấu đầu dòng ký hiệu, với [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) thay đổi xen kẽ giữa dấu đầu dòng tròn và dấu gạch nối để phân biệt các cấp gần nhau:
 
 ```csharp
 using System;
@@ -238,7 +238,7 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Bắt đầu các mục danh sách đánh số với Giá trị Tùy chỉnh**
+### **Bắt đầu các mục danh sách có số với Giá trị Tùy chỉnh**
 
 Sử dụng [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) để đặt số ban đầu hiển thị cho một đoạn có đánh số.
 
@@ -275,15 +275,15 @@ presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 
 ## **Kiểm soát Bố cục Đoạn và Thuộc tính Kết thúc**
 
-Điều chỉnh lề và thụt lề của đoạn để kiểm soát vị trí của dòng đầu và các dòng gói. Bạn cũng có thể định dạng dấu kết thúc đoạn riêng biệt so với các phần văn bản hiển thị.
+Điều chỉnh lề và thụt lề của đoạn để kiểm soát vị trí của dòng đầu và các dòng gói. Bạn cũng có thể định dạng dấu kết thúc đoạn riêng biệt với các phần văn bản hiển thị.
 
 ### **Đặt Thụt Lề Dòng Đầu**
 
-Sử dụng thuộc tính [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) để kiểm soát thụt lề dòng đầu của một đoạn. Thuộc tính này chỉ di chuyển dòng đầu so với lề trái của đoạn. Giá trị dương dịch dòng đầu sang phải, trong khi các dòng còn lại vẫn căn chỉnh với phần thân đoạn.
+Sử dụng thuộc tính [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) để kiểm soát thụt lề dòng đầu của một đoạn. Thuộc tính này chỉ di chuyển dòng đầu so với lề trái của đoạn. Giá trị dương dịch dòng đầu sang phải, trong khi các dòng còn lại vẫn căn chỉnh với thân đoạn.
 
 Sử dụng [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) khi bạn cần di chuyển toàn bộ đoạn. Sử dụng [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) khi bạn chỉ cần di chuyển dòng đầu.
 
-Ví dụ sau cung cấp cho ba đoạn cùng một giá trị [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) là 20 điểm và các giá trị [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) là 0, 20 và 40 điểm. Các dòng đầu bắt đầu tại các độ lệch ngày càng lớn, trong khi các dòng gói vẫn giữ cùng lề trái:
+Ví dụ sau cung cấp ba đoạn cùng [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) là 20 điểm và các giá trị [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) là 0, 20 và 40 điểm. Các dòng đầu bắt đầu ở các độ lệch ngày càng lớn, trong khi các dòng gói giữ nguyên lề trái:
 
 ```csharp
 using System.Drawing;
@@ -333,13 +333,13 @@ Kết quả:
 
 ### **Đặt Thụt Lề Treo**
 
-Thụt lề treo là một bố cục đoạn trong đó dòng đầu bắt đầu ở phía trái của các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng thuộc tính [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/). Đặt `Indent` thành giá trị âm để di chuyển dòng đầu sang trái so với phần thân đoạn.
+Một thụt lề treo là bố cục đoạn trong đó dòng đầu bắt đầu ở phía trái của các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng thuộc tính [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/). Đặt `Indent` thành giá trị âm để di chuyển dòng đầu sang trái so với thân đoạn.
 
-Trong thực tế, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) xác định vị trí bên trái của phần thân đoạn, và [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) xác định vị trí của dòng đầu so với lề đó. Để tạo thụt lề treo, đặt giá trị `MarginLeft` dương và giá trị `Indent` âm.
+Thực tế, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) xác định vị trí trái của thân đoạn, và [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) xác định vị trí của dòng đầu so với lề đó. Để tạo thụt lề treo, đặt giá trị `MarginLeft` dương và giá trị `Indent` âm.
 
-Định dạng này hữu ích cho thư mục, tài liệu tham khảo, mục từ điển, và các đoạn khác nơi các dòng gói phải căn dưới phần thân đoạn chứ không phải dưới ký tự đầu tiên của dòng đầu.
+Định dạng này hữu ích cho thư mục, tài liệu tham khảo, mục bối cảnh và các đoạn khác mà các dòng gói cần căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
 
-Ví dụ C# sau ghép các giá trị [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) là 40 và 60 điểm với các giá trị [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) là -20 và -30 điểm. Trong mỗi đoạn, dòng đầu bắt đầu ở phía trái của các dòng gói; đoạn thứ hai có thụt lề treo sâu hơn:
+Ví dụ C# sau ghép các giá trị [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) là 40 và 60 điểm với các giá trị [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) là -20 và -30 điểm. Trong mỗi đoạn, dòng đầu bắt đầu ở bên trái các dòng gói; đoạn thứ hai có thụt lề treo sâu hơn:
 
 ```csharp
 using System.Drawing;
@@ -382,7 +382,7 @@ Kết quả:
 
 ### **Đặt Thuộc tính Chạy Kết thúc Đoạn**
 
-Thuộc tính [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) kiểm soát định dạng của dấu kết thúc đoạn. Ví dụ sau tạo một [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) với [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) đặt thành 48 điểm và [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) đặt thành Times New Roman. Nó gán định dạng này cho dấu kết thúc của đoạn thứ hai, để nguyên các phần văn bản hiển thị:
+Thuộc tính [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) kiểm soát định dạng của dấu kết thúc đoạn. Ví dụ sau tạo một [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) với [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) đặt thành 48 điểm và [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) đặt thành Times New Roman. Nó gán định dạng này cho dấu kết thúc của đoạn thứ hai, để lại các phần văn bản hiển thị không thay đổi:
 
 ```csharp
 using Aspose.Slides;
@@ -414,13 +414,13 @@ presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 
 ## **Đếm Số Dòng Được Render**
 
-Khi xem các quy tắc đoạn ảnh hưởng đến việc gói tự động và dấu chấm câu ở cuối dòng, xem [Control Line Breaking](/slides/vi/net/text-formatting/#control-line-breaking) và [Control Hanging Punctuation](/slides/vi/net/text-formatting/#control-hanging-punctuation).
+Đối với các quy tắc đoạn ảnh hưởng đến việc gói tự động và dấu câu ở cuối dòng, xem [Control Line Breaking](/slides/vi/net/text-formatting/#control-line-breaking) và [Control Hanging Punctuation](/slides/vi/net/text-formatting/#control-hanging-punctuation).
 
-Sử dụng [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm việc gói tự động. Điều này hữu ích khi kiểm tra độ dài văn bản và bố cục trong các mẫu bản trình bày.
+Sử dụng [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm cả gói tự động. Điều này hữu ích khi kiểm tra độ dài và bố cục văn bản trong các mẫu trình chiếu.
 
-Đoạn là một mục trong [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), và nó có thể chiếm nhiều dòng được render. Một ngắt dòng rõ ràng trong đoạn buộc một dòng mới mà không tạo đoạn mới. Gói tự động tạo các dòng dựa trên chiều rộng khả dụng mà không chèn ký tự ngắt dòng vào văn bản. Do đó, việc đếm số đoạn hoặc ký tự ngắt dòng không cho số dòng đã render.
+Một đoạn là một mục trong [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), và nó có thể chiếm nhiều dòng được render. Một ký tự ngắt dòng rõ ràng trong một đoạn buộc tạo một dòng mới mà không tạo đoạn mới. Gói tự động tạo các dòng dựa trên độ rộng có sẵn mà không chèn ký tự ngắt dòng vào văn bản. Do đó, đếm số đoạn hoặc ký tự ngắt dòng không cho ra số dòng đã render.
 
-Ví dụ sau tạo một shape văn bản, đếm số dòng của nó, thu hẹp shape, và sau đó thay thế văn bản bằng một chuỗi ngắn hơn. Ví dụ này bật [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) và tắt [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) để chiều rộng shape kiểm soát việc gói mà không tự động thu nhỏ văn bản hoặc thay đổi kích thước shape. Mỗi phép đo sử dụng [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/). Kích thước shape tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn nữa và tổng hợp số dòng trên toàn bộ khung văn bản.
+Ví dụ sau tạo một hình dạng văn bản, đếm số dòng của nó, thu hẹp hình dạng, rồi thay thế văn bản bằng một chuỗi ngắn hơn. Ví dụ bật [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) và tắt [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) để chiều rộng hình dạng kiểm soát việc gói mà không tự động co thu văn bản hoặc thay đổi kích thước hình dạng. Mỗi phép đo sử dụng [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/). Kích thước hình dạng tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn khác và tính tổng số dòng trong khung văn bản.
 
 ```csharp
 using System;
@@ -457,19 +457,19 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-Khi dùng văn bản và các kích thước này, thu hẹp shape làm tăng số dòng, trong khi thay thế văn bản bằng chuỗi ngắn hơn làm giảm số dòng. Số đếm chính xác có thể thay đổi tùy thuộc vào việc có sẵn phông chữ và thay thế, kích thước phông chữ, lề, thụt lề, gói và cài đặt autofit. Sử dụng phông chữ và cài đặt bố cục dự định cho môi trường mục tiêu khi kiểm tra mẫu.
+Với văn bản và các kích thước này, việc thu hẹp hình dạng làm tăng số dòng, trong khi thay thế văn bản bằng chuỗi ngắn làm giảm số dòng. Số đếm chính xác có thể thay đổi tùy vào sẵn có và thay thế phông chữ, kích thước phông, lề, thụt lề, gói và cài đặt autofit. Sử dụng phông và cài đặt bố cục dự định cho môi trường mục tiêu khi kiểm tra mẫu.
 
-Chỉ số dòng không quyết định liệu văn bản có tràn khỏi container hay không. Chiều cao khả dụng, chiều cao dòng, khoảng cách đoạn và dòng, và hành vi autofit cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khả dụng khi tắt gói.
+Số dòng một mình không quyết định liệu văn bản có tràn khỏi vùng chứa hay không. Chiều cao khả dụng, chiều cao dòng, khoảng cách đoạn và dòng, và hành vi autofit cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khả dụng khi tắt gói.
 
 ## **Nhập và Xuất Nội dung Đoạn**
 
-Sử dụng HTML để đưa văn bản vào bản trình bày hoặc xuất các đoạn hiện có để sử dụng bên ngoài. Phần này cũng cho thấy cách render các đoạn riêng lẻ dưới dạng hình ảnh, bao gồm các đoạn trong ô bảng.
+Sử dụng HTML để đưa văn bản vào một bản trình chiếu hoặc xuất các đoạn hiện có để dùng bên ngoài. Phần này cũng trình bày cách render các đoạn riêng lẻ thành hình ảnh, bao gồm các đoạn trong ô bảng.
 
-### **Nhập Văn bản HTML vào Các Đoạn**
+### **Nhập Văn bản HTML vào Đoạn**
 
-Sử dụng [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) để chuyển đổi markup HTML thành các đoạn và phần trong một khung văn bản.
+Sử dụng [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) để chuyển đổi mã HTML thành các đoạn và phần trong một khung văn bản.
 
-Ví dụ C# này đọc HTML từ một tệp và truyền markup cho [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/). Nó xóa đoạn mặc định của khung văn bản để khung chỉ chứa nội dung đã nhập. Shape hình chữ nhật để lại lề 10 điểm ở mỗi phía của slide:
+Ví dụ C# này đọc HTML từ một tệp và truyền mã markup vào [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/). Nó xóa đoạn mặc định của khung văn bản để khung chỉ chứa nội dung đã nhập. Hình chữ nhật để lại lề 10 điểm ở mỗi phía của slide:
 
 ```csharp
 using System.IO;
@@ -492,16 +492,16 @@ shape.TextFrame.Paragraphs.AddFromHtml(html);
 presentation.Save("html_text.pptx", SaveFormat.Pptx);
 ```
 
-### **Xuất Văn bản Đoạn ra HTML**
+### **Xuất Văn bản Đoạn thành HTML**
 
-Sử dụng [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) để xuất một phạm vi đoạn đã chọn dưới dạng HTML. Khi tái sử dụng văn bản bản trình bày trên một trang web, bạn có thể muốn giữ lại nhấn mạnh cục bộ mà không mang theo phông chữ, kích thước hoặc kiểu hộp văn bản của bản trình bày. Đặt [TextToHtmlConversionOptions.TextInheritanceLimit](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/textinheritancelimit/) để kiểm soát mức độ mà bộ xuất theo kế thừa định dạng.
+Sử dụng [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) để xuất một phạm vi các đoạn đã chọn dưới dạng HTML. Khi tái sử dụng văn bản bản trình chiếu trên một trang web, bạn có thể muốn giữ nguyên các nhấn mạnh nội địa mà không mang theo phông chữ, kích thước hoặc kiểu hộp văn bản của bản trình chiếu. Đặt [TextToHtmlConversionOptions.TextInheritanceLimit](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/textinheritancelimit/) để kiểm soát mức độ mà bộ xuất theo kế thừa định dạng.
 
-Tải xuống [the sample presentation](text-inheritance.pptx) và đặt nó trong thư mục làm việc của ứng dụng. Slide đầu tiên của nó chứa một shape văn bản với văn bản "Inherited text; explicit red 18pt". Đầu vào cố ý sử dụng nhiều cấp định dạng:
+Tải xuống [the sample presentation](text-inheritance.pptx) và đặt nó trong thư mục làm việc của ứng dụng. Slide đầu tiên của nó chứa một hình dạng văn bản với văn bản "Inherited text; explicit red 18pt". Đầu vào cố ý sử dụng nhiều mức định dạng:
 
-- Kiểu văn bản mặc định của bản trình bày cung cấp phông Calibri và kích thước 28 pt.
-- Kiểu văn bản cấp một của khung văn bản cung cấp văn bản màu xanh và in nghiêng.
-- Đoạn này rõ ràng đặt văn bản in đậm.
-- Phần thứ hai, "explicit red 18pt", rõ ràng đặt văn bản màu đỏ và kích thước 18 pt.
+- Kiểu văn bản mặc định của bản trình chiếu cung cấp phông Calibri và kích thước 28 pt.
+- Kiểu văn bản cấp một của khung văn bản cung cấp văn bản màu xanh dương và in nghiêng.
+- Đoạn này đặt rõ ràng văn bản in đậm.
+- Phần thứ hai, "explicit red 18pt", đặt rõ ràng văn bản màu đỏ và kích thước 18 pt.
 
 Ví dụ hoàn chỉnh sau xuất cùng các đoạn ba lần. Nó truyền [TextToHtmlConversionOptions](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/) vào phương thức xuất và ghi mỗi kết quả thành một tệp HTML UTF-8 riêng:
 
@@ -528,29 +528,54 @@ foreach (var mode in modes)
 
 HTML được tạo chứa CSS sau cho phần đầu tiên, "Inherited text; ". Bảng liệt kê các khai báo liên quan; các thuộc tính được tạo khác bị bỏ qua để rõ ràng.
 
-| Kết quả | CSS liên quan cho phần đầu tiên | Hiển thị |
+| Đầu ra | CSS liên quan cho phần đầu tiên | Hiển thị |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Văn bản màu xanh, in đậm, in nghiêng kích thước 28 pt trong Calibri, nếu phông chữ đó khả dụng. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Văn bản màu xanh, in đậm, in nghiêng tại 28 pt trong Calibri, nếu phông chữ đó có sẵn. |
 | `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Văn bản màu xanh, in đậm, in nghiêng; trang hoặc trình duyệt bao quanh cung cấp phông chữ và kích thước. |
-| `ParagraphOnly.html` | `font-weight:bold` | Văn bản in đậm; trang hoặc trình duyệt bao quanh cung cấp phông chữ, kích thước, màu và kiểu nghiêng. |
+| `ParagraphOnly.html` | `font-weight:bold` | Văn bản in đậm; trang hoặc trình duyệt bao quanh cung cấp phông chữ, kích thước, màu và kiểu in nghiêng. |
 
-Phần thứ hai giữ lại `color:#ff0000`, `font-size:18pt`, và `font-weight:bold` trong cả ba kết quả. Nó cũng giữ lại kiểu nghiêng trong `All` và `TextBox`, nhưng không trong `ParagraphOnly`. Hạn chế kế thừa do đó không loại bỏ định dạng được gán rõ ràng cho một đoạn hoặc phần.
+Phần thứ hai giữ nguyên `color:#ff0000`, `font-size:18pt`, và `font-weight:bold` trong cả ba đầu ra. Nó cũng giữ nguyên kiểu in nghiêng với `All` và `TextBox`, nhưng không giữ với `ParagraphOnly`. Việc hạn chế kế thừa vì vậy không loại bỏ định dạng được gán rõ ràng cho một đoạn hoặc phần.
 
-Mở các tệp trong cùng một trình duyệt để so sánh chúng. Trong hai chế độ bị hạn chế, các thuộc tính CSS bị bỏ qua được giải quyết bởi kiểu của trang đích hoặc mặc định của trình duyệt, vì vậy giao diện kết quả phụ thuộc vào nơi HTML được sử dụng.
+Mở các tệp trong cùng một trình duyệt để so sánh chúng. Trong hai chế độ bị hạn chế, các thuộc tính CSS bị bỏ qua sẽ được giải quyết bởi kiểu của trang đích hoặc mặc định của trình duyệt, vì vậy giao diện kết quả phụ thuộc vào nơi HTML được sử dụng.
+
+### **Tạo Một Đoạn HTML Cho Bảng Nhớ**
+
+Đặt [AddClipboardFragmentHeader](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/addclipboardfragmentheader/) thành `false` cho HTML thông thường hoặc `true` để bao gồm tiêu đề bảng nhớ. Cả hai lời gọi trả về một chuỗi. Tiêu đề cung cấp các vị trí byte UTF-8 của HTML bao quanh (`StartHTML` và `EndHTML`) và nội dung cần dán (`StartFragment` và `EndFragment`).
+
+Ví dụ này xuất hai đoạn đã định dạng dưới dạng HTML thông thường (`html`) và dưới dạng đoạn HTML cho bảng nhớ (`clipboardHtml`). Việc ghi đoạn vào bảng nhớ hệ thống là một bước ứng dụng riêng. Một API bảng nhớ chấp nhận byte HTML thô yêu cầu UTF-8 không có BOM.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 400, 100);
+var paragraphs = shape.TextFrame.Paragraphs;
+paragraphs.Clear();
+paragraphs.AddFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+var options = new TextToHtmlConversionOptions { AddClipboardFragmentHeader = false };
+var html = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+
+options.AddClipboardFragmentHeader = true;
+var clipboardHtml = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+```
 
 ### **Render một Đoạn dưới dạng Hình ảnh**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) render trực tiếp một đoạn riêng lẻ và trả về một [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Lưu kết quả vào tệp hoặc stream bằng [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Bạn không cần render shape chứa hoặc cắt bitmap bằng tay.
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) render một đoạn riêng trực tiếp và trả về một [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Lưu kết quả vào tệp hoặc luồng với [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Bạn không cần render hình dạng chứa hoặc cắt bitmap bằng tay.
 
 [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) có thể trả về `null` nếu đoạn không tìm thấy trong bộ sưu tập cha, không có giới hạn render hợp lệ, hoặc không thể render. Kiểm tra kết quả trước khi lưu và giải phóng hình ảnh trả về sau khi sử dụng.
 
 #### **Render một Đoạn ở Tỷ lệ Mặc định**
 
-Ví dụ sử dụng một bản trình bày có một slide, shape đầu tiên là một hộp văn bản chứa ba đoạn.
+Ví dụ sử dụng một bản trình chiếu với một slide, trong đó hình dạng đầu tiên là một hộp văn bản chứa ba đoạn.
 
 ![Hộp văn bản với ba đoạn](paragraph_to_image_input.png)
 
-Ví dụ sau chọn đoạn thứ hai ở chỉ mục 1 và gọi [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) mà không có tham số tỷ lệ. Nó kiểm tra shape có chứa đoạn yêu cầu và việc render trả về một hình ảnh trước khi gọi [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) để lưu dưới dạng PNG. Khai báo `using` giải phóng hình ảnh sau khi sử dụng.
+Ví dụ sau chọn đoạn thứ hai ở chỉ mục 1 và gọi [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) mà không có tham số tỷ lệ. Nó kiểm tra rằng hình dạng chứa đoạn yêu cầu và việc render trả về một hình ảnh trước khi gọi [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) để lưu ở định dạng PNG. Câu lệnh `using` giải phóng hình ảnh sau khi sử dụng.
 
 ```csharp
 using System;
@@ -581,11 +606,13 @@ else
 }
 ```
 
+Kết quả:
+
 ![Hình ảnh đoạn](paragraph_to_image_output.png)
 
 #### **Render một Đoạn trong Ô Bảng với Tỷ lệ**
 
-Sử dụng phiên bản overload của [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) chấp nhận các tham số `float scaleX` và `float scaleY` để đặt hệ số tỷ lệ ngang và dọc. Ví dụ sau tạo một bảng, render đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi mặc định, và lưu kết quả dưới dạng PNG.
+Sử dụng phiên bản overload của [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) nhận các tham số `float scaleX` và `float scaleY` để đặt hệ số tỷ lệ ngang và dọc. Ví dụ sau tạo một bảng, render đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi mặc định, và lưu kết quả dưới dạng ảnh PNG.
 
 ```csharp
 using System;
@@ -612,24 +639,24 @@ else
 }
 ```
 
-Hệ số tỷ lệ `1` giữ trục đó ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai hệ số tạo ra một hình ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, dẫn đến bốn lần số pixel. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho việc phóng to hoặc đầu ra độ phân giải cao, nhưng cũng tăng sử dụng bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo hình ảnh nhỏ hơn với ít chi tiết. Sử dụng các hệ số bằng nhau để giữ tỉ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo dài đầu ra một cách độc lập.
+Hệ số tỷ lệ `1` giữ trục đó ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai hệ số tạo ra một ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, dẫn đến bốn lần số pixel. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho việc phóng to hoặc đầu ra độ phân giải cao, nhưng chúng cũng tăng lượng bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để giữ tỉ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo dài đầu ra một cách độc lập.
 
-Render toàn bộ shape bằng [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) vẫn hữu ích khi đầu ra cần bao gồm nền, viền hoặc ngữ cảnh hình ảnh của shape. Đối với hình ảnh chỉ có đoạn, sử dụng [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/).
+Render toàn bộ hình dạng bằng [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) vẫn hữu ích khi đầu ra cần bao gồm nền, viền hoặc ngữ cảnh hình ảnh của hình dạng. Đối với hình ảnh chỉ chứa đoạn, sử dụng [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/).
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Tôi có thể tắt hoàn toàn việc gói dòng trong một khung văn bản không?**
+**Tôi có thể hoàn toàn tắt việc gói dòng trong một khung văn bản không?**
 
-Đúng. Đặt [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) để tắt gói, vì vậy các dòng không bị ngắt tại các cạnh của khung văn bản.
+Có. Đặt [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) để tắt gói, để các dòng không ngắt tại cạnh của khung văn bản.
 
-**Làm thế nào tôi có thể lấy giới hạn chính xác trên slide của một đoạn cụ thể?**
+**Làm sao tôi có thể lấy kích thước chính xác trên slide của một đoạn cụ thể?**
 
 Sử dụng [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) để lấy hình chữ nhật bao quanh của đoạn. [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) cung cấp giới hạn của một phần riêng lẻ.
 
-**Căn chỉnh đoạn (trái, phải, giữa, hoặc căn đều) được điều khiển ở đâu?**
+**Caǹh sắp xểp đoạn (trái, phải, giữa, hoặc căn đều) được kiểm soát ở đâu?**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) là cài đặt mức đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng của các phần riêng lẻ. Để căn dọc các phần có kích thước phông chữ khác nhau trong mỗi dòng, xem [Align Fonts Within a Line](/slides/vi/net/text-formatting/#align-fonts-within-a-line).
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) là cài đặt mức độ đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng riêng lẻ của các phần. Để căn dọc các phần có kích thước phông khác nhau trong mỗi dòng, xem [Align Fonts Within a Line](/slides/vi/net/text-formatting/#align-fonts-within-a-line).
 
-**Tôi có thể đặt ngôn ngữ kiểm tra cho một phần của đoạn không?**
+**Tôi có thể đặt ngôn ngữ kiểm tra chính tả cho một phần của đoạn không?**
 
-Đúng. Đặt [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) cho các phần riêng lẻ, vì vậy một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.
+Có. Đặt [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) cho các phần riêng lẻ, để một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.

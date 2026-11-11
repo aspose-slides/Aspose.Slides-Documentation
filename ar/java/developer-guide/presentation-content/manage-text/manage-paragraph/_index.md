@@ -8,46 +8,46 @@ aliases:
   - /java/paragraph/
   - /java/portion/
 keywords:
-- إضافة نص
-- إضافة فقرة
-- إدارة النص
-- إدارة الفقرة
-- إدارة النقطة
-- إزاحة الفقرة
-- إزاحة معلقة
-- نقطة الفقرة
-- قائمة مرقمة
-- قائمة نقطية
-- خصائص الفقرة
-- استيراد HTML
-- نص إلى HTML
-- فقرة إلى HTML
-- فقرة إلى صورة
-- نص إلى صورة
-- تصدير الفقرة
-- PowerPoint
-- عرض تقديمي
-- Java
-- Aspose.Slides
-description: "تعلم كيفية إنشاء وتنسيق الفقرات، الأجزاء، النقاط، القوائم المرقمة، الإزاحات، محتوى HTML، وصور الفقرات باستخدام Aspose.Slides لل Java."
+  - إضافة نص
+  - إضافة فقرة
+  - إدارة النص
+  - إدارة الفقرة
+  - إدارة نقطة التعداد
+  - إزاحة الفقرة
+  - إزاحة معلقة
+  - نقطه الفقرة
+  - قائمة مرقمة
+  - lista نقطية
+  - خصائص الفقرة
+  - استيراد HTML
+  - نص إلى HTML
+  - فقرة إلى HTML
+  - فقرة إلى صورة
+  - نص إلى صورة
+  - تصدير الفقرة
+  - PowerPoint
+  - عرض تقديمي
+  - Java
+  - Aspose.Slides
+description: "تعرف على كيفية إنشاء وتنسيق الفقرات، الأجزاء، النقاط، القوائم المرقمة، الإزاحات، محتوى HTML، وصور الفقرات باستخدام Aspose.Slides for Java."
 ---
 ## **نظرة عامة**
 
-Aspose.Slides for Java يمثل النص كهرمية من إطارات النص، الفقرات، والأجزاء:
+تمثل Aspose.Slides for Java النص كهرمية من إطارات النص والفقرات والأجزاء:
 
-* [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) يمثل حاوية النص داخل شكل ويوفر الوصول إلى مجموعة الفقرات الخاصة به.
+* [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) يمثل حاوية النص داخل الشكل ويوفر الوصول إلى مجموعة الفقرات الخاصة به.
 * [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) يمثل فقرة واحدة في إطار النص ويوفر الوصول إلى أجزائه وتنسيق مستوى الفقرة.
-* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) يمثل تشغيل نص داخل فقرة. يمكن لكل جزء أن يمتلك نصه وتنسيق المستوى الحرفي الخاص به.
+* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) يمثل تشغيل نص داخل الفقرة. يمكن لكل جزء أن يكون له نصه وتنسيق مستوى الأحرف الخاص به.
 
-يمكن للفقرة إذًا أن تحتوي نصًا بخطوط، ألوان، أحجام وتنسيقات أخرى مختلفة باستخدام عدة أجزاء.
+وبالتالي يمكن للفقرة أن تحتوي على نص بخطوط وألوان وأحجام وتنسيقات أخرى مختلفة باستخدام عدة أجزاء.
 
 ## **إنشاء وتنسيق الفقرات**
 
-أنشئ فقرات في إطار نص الشكل واستخدم الأجزاء لتنسيق تشغيلات النص الفردية. يوضح هذا القسم كيفية دمج عدة أجزاء داخل كل فقرة وتطبيق ألوان، أحجام خطوط، وأنماط مختلفة.
+إنشاء فقرات في إطار نص الشكل واستخدام الأجزاء لتنسيق تشغيلات النص الفردية. يوضح هذا القسم كيفية دمج عدة أجزاء داخل كل فقرة وتطبيق ألوان وحجم خطوط وأنماط مختلفة.
 
-### **إنشاء فقرات مع أجزاء متعددة**
+### **إنشاء فقرات مع عدة أجزاء**
 
-المثال التالي بلغة Java ينشئ ثلاث فقرات، كل منها يحتوي على ثلاثة تشغيلات نص في مجموعة تم إرجاعها بواسطة [IParagraph.getPortions](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getPortions--) . يعيد استخدام الفقرة الافتراضية والجزء الفارغ الخاص بها، ثم يضيف الفقرات والأجزاء المتبقية. يُطبق التنسيق عبر [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--) : الجزء الأول في كل فقرة أحمر، غامق، وبحجم 15 نقطة؛ الثاني أزرق، مائل، وبحجم 18 نقطة. الجزء الثالث يحتفظ بالتنسيق الافتراضي:
+مثال Java التالي ينشئ ثلاث فقرات، كل منها يحتوي على ثلاثة تشغيلات نص في المجموعة التي تُرجعها [IParagraph.getPortions](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getPortions--) . يعيد使用 الفقرة الافتراضية والجزء الفارغ، ثم يضيف الفقرات والأجزاء المتبقية. يتم تطبيق التنسيق عبر [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--) : الجزء الأول في كل فقرة أحمر، غامق، وبحجم 15 نقطة؛ الثاني أزرق، مائل، وبحجم 18 نقطة. الجزء الثالث يحتفظ بالتنسيق الافتراضي الخاص به:
 
 ```java
 import com.aspose.slides.*;
@@ -104,15 +104,15 @@ try {
 }
 ```
 
-## **إنشاء قوائم نقطية ومرقمة**
+## **إنشاء القوائم النقطية والمرقمة**
 
-نظم نص الفقرة في قوائم باستخدام رموز، أرقام، أو صور مخصصة. تغطي الأمثلة في هذا القسم تنسيق النقاط، القوائم متعددة المستويات، وأرقام البدء المخصصة.
+تنظيم نص الفقرة في قوائم باستخدام رموز أو أرقام أو صور مخصصة. تغطي الأمثلة في هذا القسم تنسيق النقاط، القوائم متعددة المستويات، وأرقام البدء المخصصة.
 
 ### **إنشاء قائمة نقطية أو مرقمة**
 
-تجعل النقاط والترقيم العناصر ذات الصلة أسهل في القراءة. في Aspose.Slides يتم تعريف إعدادات القائمة عبر [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/).
+تجعل النقاط والترقيم العناصر المرتبطة أسهل في المسح. في Aspose.Slides ، يتم تعريف إعدادات القائمة من خلال [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/).
 
-هذا المثال بلغة Java يضيف نقطة رمز ورقمًا إلى نفس إطار النص. يحدد [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) نوع النقطة، بينما يزود [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) الرمز و[IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) نمط الترقيم. كلا العنصرين يستخدمان نقاط سوداء بارتفاع 100 بالمئة وإزاحة فقرة 25 نقطة:
+مثال Java هذا يضيف نقطة رمزية وعنصر مرقم إلى نفس إطار النص. [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) يحدد نوع النقطة، بينما [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) يوفر الرمز و[IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) يحدد نمط الترقيم. يستخدم العنصران نقاط سوداء بارتفاع 100٪ وإزاحة الفقرة 25 نقطة:
 
 ```java
 import com.aspose.slides.*;
@@ -156,9 +156,9 @@ try {
 
 ### **استخدام نقاط صورة**
 
-تتيح نقاط الصورة استخدام صورة مخصصة بدلاً من الرمز أو الرقم.
+تسمح نقاط الصورة باستخدام صورة مخصصة بدلاً من الرمز أو الرقم.
 
-هذا المثال بلغة Java يضيف صورة إلى مجموعة صور العرض كـ [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) ويستخدمها كنقطة فقرة. يستدعي [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) لاستخدام نقطة صورة ويعيّن الصورة عبر [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--). يُعيّن [IBulletFormat.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setHeight-float-) إلى 100 بالمئة لتحديد حجم النقطة نسبة إلى نص الفقرة:
+مثال Java هذا يضيف صورة إلى مجموعة صور العرض كـ [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) ويستخدمها كنقطة فقرة. يستدعي [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) لاستخدام نقطة صورة ويُعيّن الصورة عبر [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--). يتم تعيين [IBulletFormat.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setHeight-float-) إلى 100٪ لتحديد حجم النقطة نسبة إلى نص الفقرة:
 
 ```java
 import com.aspose.slides.*;
@@ -195,9 +195,9 @@ try {
 
 ### **إنشاء قائمة متعددة المستويات**
 
-اضبط [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) لتحديد مستويات الفقرات في القائمة. المستوى الأعلى له عمق `0`.
+حدد [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) لوضع الفقرات في مستويات مختلفة من القائمة. المستوى الأعلى له عمق `0`.
 
-هذا المثال بلغة Java يعيّن قيم [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) من 0 إلى 3 لأربع فقرات، مُنشئًا هرمًا داخل إطار نص واحد. كل فقرة تستخدم نقطة رمز، مع تبديل [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) بين نقطة دائرية وشَرطَة لتفريق المستويات المتجاورة:
+مثال Java هذا يُعيّن قيم [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) من 0 إلى 3 لأربع فقرات، مُنشئًا هرمًا داخل إطار نص واحد. كل فقرة تستخدم نقطة رمزية، مع [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) يتناوب بين نقطة دائرية وشرطة لتفريق المستويات المتجاورة:
 
 ```java
 import com.aspose.slides.*;
@@ -256,9 +256,9 @@ try {
 
 ### **بدء عناصر القائمة المرقمة بقيم مخصصة**
 
-استخدم [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) لتعيين الرقم الأول الذي يُعرض لفقرة مرقمة.
+استخدم [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) لتعيين الرقم الأول المعروض لفقرة مرقمة.
 
-هذا المثال بلغة Java يحدد [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) لاستخدام الترقيم لثلاث فقرات ويعيّن قيم [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) بـ 2 و3 و7. يتم تكوين القيمة الابتدائية بشكل منفصل لكل فقرة، مما يسمح بتخطي الأرقام:
+مثال Java هذا يضبط [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) لاستخدام الترقيم لثلاث فقرات ويُعيّن قيم [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 2 و3 و7. تم تكوين القيمة البداية بشكل منفصل لكل فقرة، مما يسمح بتخطي الأرقام المعروضة:
 
 ```java
 import com.aspose.slides.*;
@@ -297,15 +297,15 @@ try {
 
 ## **التحكم في تخطيط الفقرة وخصائص النهاية**
 
-عدّل هوامش الفقرة وإزاحات السطر للتحكم في موقع السطر الأول والأسطر المتغلفة. يمكنك أيضًا تنسيق علامة نهاية الفقرة بشكل منفصل عن أجزاء النص المرئية.
+ضبط هوامش الفقرة وإزاحات السطر للتحكم في موضع السطر الأول والأسطر الملتفة. يمكنك أيضًا تنسيق علامة نهاية الفقرة بشكل منفصل عن أجزاء النص المرئية.
 
-### **تحديد إزاحة السطر الأول**
+### **تعيين إزاحة السطر الأول**
 
-استخدم طريقة [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) للتحكم في إزاحة السطر الأول للفقرة. تنقل هذه الإعداد فقط السطر الأول نسبة إلى هوامش الفقرة اليسرى. القيمة الموجبة تحرك السطر الأول إلى اليمين، بينما تبقى الأسطر المتبقية محاذية إلى جسم الفقرة.
+استخدم طريقة [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) للتحكم في إزاحة السطر الأول للفقرة. هذه الإعدادات تحرك السطر الأول فقط بالنسبة لهامش الفقرة الأيسر. القيمة الموجبة تحرك السطر الأول إلى اليمين، بينما تبقى الأسطر المتبقية محاذية إلى جسم الفقرة.
 
-استخدم [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) عندما تحتاج إلى تحريك الفقرة كلها. استخدم [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) عندما تحتاج إلى تحريك السطر الأول فقط.
+استخدم [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) عندما تحتاج إلى تحريك الفقرة بالكامل. استخدم [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) عندما تحتاج إلى تحريك السطر الأول فقط.
 
-المثال التالي يمنح ثلاث فقرات نفس [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) البالغ 20 نقطة وقيم [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) بـ 0 و20 و40 نقطة. تبدأ السطور الأولى بإزاحات أكبر تدريجيًا، بينما تحتفظ الأسطر المتغلفة بهامش اليسار نفسه:
+المثال التالي يمنح ثلاث فقرات نفس [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) البالغ 20 نقطة وقيم [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 0 و20 و40 نقطة. تبدأ الأسطر الأولى بإزاحات متزايدة، بينما تحتفظ الأسطر الملتفة بنفس الهامش الأيسر:
 
 ```java
 import com.aspose.slides.*;
@@ -357,17 +357,17 @@ try {
 
 النتيجة:
 
-![إزاحة السطر الأول للفقرات](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-### **تحديد إزاحة معلقة**
+### **تعيين إزاحة معلقة**
 
-الإزاحة المعلقة هي تخطيط فقرة يبدأ السطر الأول إلى اليسار من الأسطر المتبقية. في Aspose.Slides، تنشئ هذا التأثير باستخدام خاصية [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-). اضبط `Indent` على قيمة سلبية لتحريك السطر الأول إلى اليسار نسبة إلى جسم الفقرة.
+الإزاحة المعلقة هي تخطيط فقرة يكون فيه السطر الأول يبدأ إلى يسار الأسطر المتبقية. في Aspose.Slides، يمكنك إنشاء هذا التأثير باستخدام خاصية [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-). اضبط `Indent` إلى قيمة سالبة لتحريك السطر الأول إلى اليسار بالنسبة إلى جسم الفقرة.
 
-عمليًا، يحدد [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) موضع الفقرة اليساري، وتحدد [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) موضع السطر الأول نسبة إلى هذا الهامش. لإنشاء إزاحة معلقة، اضبط قيمة `MarginLeft` موجبة وقيمة `Indent` سالبة.
+في الممارسة العملية، يحدد [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) موضع الجسم الأيسر للفقرة، ويحدد [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) موضع السطر الأول بالنسبة إلى ذلك الهامش. لإنشاء إزاحة معلقة، اضبط قيمة `MarginLeft` موجبة وقيمة `Indent` سالبة.
 
-هذا التنسيق مفيد للمراجع والببليوجرافيات ومداخل القاموس وغيرها من الفقرات التي يجب أن تكون الأسطر المتغلفة محاذية تحت جسم الفقرة بدلاً من تحت الحرف الأول للسطر الأول.
+هذا التنسيق مفيد للببليوجرافيا، المراجع، مدخلات القاموس، وغيرها من الفقرات التي يجب أن تكون الأسطر الملتفة محاذية تحت جسم الفقرة بدلاً من تحت الحرف الأول للسطر الأول.
 
-المثال التالي بلغة Java يزوج قيم [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) بـ 40 و60 نقطة مع قيم [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) بـ -20 و-30 نقطة. في كل فقرة، يبدأ السطر الأول إلى اليسار من الأسطر المتغلفة؛ الفقرة الثانية لها إزاحة معلقة أعمق:
+المثال Java التالي يزاوج قيم [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) بـ 40 و60 نقطة مع قيم [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) بـ -20 و-30 نقطة. في كل فقرة يبدأ السطر الأول إلى يسار الأسطر الملتفة؛ الفقرة الثانية لها إزاحة معلقة أعمق:
 
 ```java
 import com.aspose.slides.*;
@@ -411,11 +411,11 @@ try {
 
 النتيجة:
 
-![الإزاحة المعلقة للفقرات](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
-### **تحديد خصائص نهاية الفقرة**
+### **تعيين خصائص تشغيل نهاية الفقرة**
 
-طريقة [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) تتحكم في تنسيق علامة نهاية الفقرة. المثال التالي ينشئ كائنًا من النوع [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) مع [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) مضبوطًا على 48 نقطة و[IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) مضبوطًا على Times New Roman. يعيّن هذا التنسيق إلى علامة نهاية الفقرة الثانية، مع ترك أجزاء النص المرئية دون تغيير:
+طريقة [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) تتحكم في تنسيق علامة نهاية الفقرة. المثال التالي يخلق [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) مع [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) مضبوطًا على 48 نقطة و[IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) مضبوطًا على Times New Roman. يطبق هذا التنسيق على علامة نهاية الفقرة الثانية، تاركًا أجزاء النص المرئية دون تغيير:
 
 ```java
 import com.aspose.slides.*;
@@ -448,15 +448,15 @@ try {
 }
 ```
 
-## **عدّ الأسطر المُرسَمة**
+## **عدد الأسطر المُرَسَمة**
 
-للقواعد التي تؤثر على التفاف النص التلقائي وعلامات الترقيم في نهايات الأسطر، راجع [Control Line Breaking](/slides/ar/java/text-formatting/#control-line-breaking) و[Control Hanging Punctuation](/slides/ar/java/text-formatting/#control-hanging-punctuation).
+للقواعد التي تؤثر على التفاف النص التلقائي وعلامات الترقيم عند نهايات الأسطر، انظر [Control Line Breaking](/slides/ar/java/text-formatting/#control-line-breaking) و[Control Hanging Punctuation](/slides/ar/java/text-formatting/#control-hanging-punctuation).
 
-استخدم [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) لعد الأسطر التي يشغلها الفقرة بعد تخطيط النص، بما في ذلك الالتفاف التلقائي. هذا مفيد عند فحص طول النص وتخطيط القوالب التقديمية.
+استخدم [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) لحساب عدد الأسطر التي يشغلها فقرة بعد تخطيط النص، بما في ذلك الالتفاف التلقائي. هذا مفيد عند فحص طول النص وتخطيطه في قوالب العروض التقديمية.
 
-الفقرة هي عنصر واحد في [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--)، ويمكن أن تحتل عدة أسطر مُرسَمة. كسر سطر صريح داخل الفقرة يُجبر على سطر جديد دون إنشاء فقرة إضافية. الالتفاف التلقائي يُنشئ أسطرًا بناءً على العرض المتاح دون إدخال كسر سطر صريح في النص. لذلك لا يعطي عد الفقرات أو أحرف كسر السطر عدد الأسطر المُرسَمة.
+الفقرة هي عنصر واحد في [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--)، ويمكن أن تشغل عدة أسطر مرسومة. كسر السطر الصريح داخل الفقرة يولد سطرًا جديدًا دون إنشاء فقرة أخرى. الالتفاف التلقائي ينشئ أسطرًا بناءً على العرض المتاح دون إدراج فواصل صريحة في النص. لذا فإن عد الفقرات أو أحرف كسر السطر لا يعطي عدد الأسطر المُرَسَمة.
 
-المثال التالي ينشئ شكل نص، يحسب أسطره، يضيق الشكل، ثم يستبدل النص بسلسلة أقصر. يُفعِّل المثال الالتفاف عبر [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) ويُعطل الضبط التلقائي عبر [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) بحيث يتحكم عرض الشكل في الالتفاف دون تقليص النص أو تغيير حجم الشكل تلقائيًا. كل قياس يستخدم [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--). أبعاد الشكل بالنقاط. أخيرًا، يضيف المثال فقرة أخرى ويجمع عدد الأسطر عبر إطار النص.
+المثال التالي ينشئ شكل نص، يحسب أسطره، يضيق الشكل، ثم يستبدل النص بسلسلة أقصر. يُفعل الالتفاف عبر [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) ويُعطل الملاءمة الذاتية عبر [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) بحيث يتحكم عرض الشكل في الالتفاف دون تقليص النص تلقائيًا أو تغيير حجم الشكل. كل قياس يستخدم [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--). أبعاد الشكل بوحدات النقاط. أخيرًا، يضيف المثال فقرة أخرى ويجمع عدد الأسطر عبر إطار النص.
 
 ```java
 import com.aspose.slides.*;
@@ -496,19 +496,19 @@ try {
 }
 ```
 
-مع هذا النص وهذه الأبعاد، يؤدي تضييق الشكل إلى زيادة عدد الأسطر، بينما يقلل استبدال النص بالسلسلة القصيرة عددها. قد تختلف الأعداد الفعلية حسب توفر الخطوط والاستبدال، حجم الخط، الهوامش، الإزاحة، الالتفاف، وإعدادات الضبط التلقائي. استخدم الخطوط وإعدادات التخطيط المقصودة للبيئة المستهدفة عند فحص القالب.
+مع هذا النص وهذه الأبعاد، يؤدي تضييق الشكل إلى زيادة عدد الأسطر، بينما استبدال النص بالسلسلة القصيرة يقلل منه. قد تختلف الأعداد الدقيقة حسب توفر الخطوط والاستبدال، حجم الخط، الهوامش، الإزاحة، الالتفاف، وإعدادات الملاءمة الذاتية. استخدم الخطوط وإعدادات التخطيط المقصودة للبيئة المستهدفة عند فحص قالب.
 
-عدد الأسطر وحده لا يحدِّد ما إذا كان النص يتجاوز حاويته. الارتفاع المتاح، ارتفاع الأسطر، تباعد الفقرة والسطر، وسلوك الضبط التلقائي أيضًا مهم؛ حتى سطر واحد يمكن أن يتجاوز العرض المتاح عندما يكون الالتفاف معطلاً.
+عدد الأسطر وحده لا يحدد ما إذا كان النص يجاوز حاويته. الارتفاع المتاح، ارتفاعات الأسطر، تباعد الفقرة والسطر، وسلوك الملاءمة الذاتية أيضًا مهم؛ حتى سطر واحد يمكن أن يتجاوز العرض المتاح عندما يكون الالتفاف معطلًا.
 
 ## **استيراد وتصدير محتوى الفقرة**
 
-استخدم HTML لجلب نص إلى عرض تقديمي أو تصدير الفقرات الحالية للاستخدام خارجه. يُظهر هذا القسم أيضًا كيفية تصيير الفقرات الفردية كصور، بما في ذلك الفقرات داخل خلايا الجداول.
+استخدم HTML لجلب النص إلى عرض تقديمي أو تصدير الفقرات الحالية للاستخدام خارجها. يظهر هذا القسم أيضًا كيفية تصيير فقرات منفردة كصور، بما في ذلك الفقرات داخل خلايا الجداول.
 
 ### **استيراد نص HTML إلى الفقرات**
 
-استخدم [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) لتحويل علامات HTML إلى فقرات وأجزاء داخل إطار نص.
+استخدم [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) لتحويل ترميز HTML إلى فقرات وأجزاء في إطار نص.
 
-المثال التالي بلغة Java يقرأ HTML من ملف ويمرّر العلامات إلى [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-). يُزيل الفقرة الافتراضية لإطار النص بحيث يحتوي الإطار فقط على المحتوى المستورد. يترك الشكل المستطيل هوامشًا قدرها 10 نقاط على كل جانب من الشريحة:
+مثال Java هذا يقرأ HTML من ملف ويمرّر الترميز إلى [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-). يمسح الفقرة الافتراضية لإطار النص بحيث يحتوي الإطار فقط على المحتوى المستورد. يترك الشكل المستطيل هامشًا قدره 10 نقاط على كل جانب من الشريحة:
 
 ```java
 import com.aspose.slides.*;
@@ -542,16 +542,16 @@ try {
 
 ### **تصدير نص الفقرة إلى HTML**
 
-استخدم [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) لتصدير مجموعة مختارة من الفقرات كـ HTML. عند إعادة استخدام نص العرض على موقع ويب، قد ترغب في الحفاظ على التأكيد المحلي دون نقل خط العرض، حجمه، أو أنماط صندوق النص. اضبط [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) للتحكم في مدى اتباع المُصدّر للوراثة التنسيقية.
+استخدم [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) لتصدير نطاق محدد من الفقرات كـ HTML. عند إعادة استخدام نص العرض على موقع ويب، قد ترغب في الحفاظ على التشديد المحلي دون نقل خط العرض أو الحجم أو أنماط صندوق النص. اضبط [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) للتحكم في مدى اتباع المُصدِّر لتوريث التنسيق.
 
-حمّل [العرض التوضيحي](text-inheritance.pptx) وضعه في دليل العمل للتطبيق. تحتوي شريحته الأولى على شكل نص واحد بالنص "Inherited text; explicit red 18pt". يستخدم الإدخال عمدًا عدة مستويات تنسيق:
+نزّل [العرض التقديمي العيني](text-inheritance.pptx) وضعه في دليل عمل التطبيق. شريحته الأولى تحتوي على شكل نص مع النص "Inherited text; explicit red 18pt". يستخدم الإدخال عدة مستويات تنسيق عمدًا:
 
-- نمط النص الافتراضي للعرض يزود بخط Calibri وحجم 28 pt.
-- نمط النص للطبقة الأولى لإطار النص يزود بنص أزرق ومائلة.
-- الفقرة تُحدد صراحةً النص الغامق.
-- الجزء الثاني، "explicit red 18pt"، يحدد صراحةً نصًا أحمر وحجم 18 pt.
+- نمط النص الافتراضي للعرض يزود بـ Calibri وحجم 28 pt.
+- نمط النص الأولي لإطار النص يزود بالنص الأزرق والمائل.
+- الفقرة تعيين النص غامق صراحة.
+- الجزء الثاني، "explicit red 18pt"، يعين النص أحمر وحجم 18 pt.
 
-المثال الكامل التالي يصدر نفس الفقرات ثلاث مرات. يمرّر [TextToHtmlConversionOptions](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/) إلى طريقة التصدير ويكتب كل نتيجة كملف HTML UTF‑8 منفصل:
+المثال الكامل التالي يُصدّر نفس الفقرات ثلاث مرات. يمرّر [TextToHtmlConversionOptions](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/) إلى طريقة التصدير ويكتب كل نتيجة كملف HTML منفصل بترميز UTF-8:
 
 ```java
 import com.aspose.slides.*;
@@ -596,31 +596,60 @@ try {
 }
 ```
 
-HTML المُولد يحتوي على CSS التالي للجزء الأول، "Inherited text; ". الجدول يوضح الإعلانات ذات الصلة؛ تُستبعد الخصائص المُولَّدة الأخرى لزيادة الوضوح.
+الـ HTML الناتج يحتوي على CSS التالي للجزء الأول، "Inherited text; ". الجدول يُظهر الإعلانات ذات الصلة؛ الخصائص المُولّدة الأخرى مُستبعدة للوضوح.
 
-| الناتج | CSS ذو صلة للجزء الأول | المظهر |
+| الناتج | CSS ذات الصلة بالجزء الأول | المظهر |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | نص أزرق، غامق، مائل بحجم 28 pt في Calibri إذا كان الخط متاحًا. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | نص أزرق، غامق، مائل؛ الصفحة أو المتصفح يُوفر خط العائلة والحجم. |
-| `ParagraphOnly.html` | `font-weight:bold` | نص غامق؛ الصفحة أو المتصفح يُوفر خط العائلة، الحجم، اللون، والنمط المائل. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | نص أزرق، غامق، مائل بحجم 28 pt في Calibri، إذا كان الخط متاحًا. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | نص أزرق، غامق، مائل؛ الصفحة أو المتصفح المحيط يزود بخط العائلة والحجم. |
+| `ParagraphOnly.html` | `font-weight:bold` | نص غامق؛ الصفحة أو المتصفح المحيط يزود بخط العائلة والحجم، اللون، والنمط المائل. |
 
-الجزء الثاني يحتفظ بـ `color:#ff0000`، `font-size:18pt`، و`font-weight:bold` في جميع المخرجات الثلاث. كما يحتفظ بالمائل في `All` و`TextBox`، لكن ليس في `ParagraphOnly`. لذلك لا تُزيل تقييد الوراثة التنسيق المُعيّن صراحةً للفقرة أو الجزء.
+الجزء الثاني يحتفظ بـ `color:#ff0000` و`font-size:18pt` و`font-weight:bold` في جميع المخرجات الثلاث. كما يحتفظ بالمائل في `All` و`TextBox`، لكن ليس في `ParagraphOnly`. لذا فإن تقييد التوريث لا يزيل التنسيق المحدد صراحةً لفقرة أو جزء.
 
-افتح الملفات في نفس المتصفح للمقارنة. في الوضعين المُقيدين، تُحل الخصائص CSS المُهملة بواسطة أنماط الصفحة الوجهة أو القيم الافتراضية للمتصفح، لذا يعتمد المظهر النهائي على مكان استخدام HTML.
+افتح الملفات في نفس المتصفح للمقارنة. في الوضعين المحدودين، تُحل الخصائص CSS المتروكة بواسطة أنماط الصفحة الهدف أو القيم الافتراضية للمتصفح، وبالتالي يعتمد المظهر النهائي على موقع استخدام HTML.
+
+### **إنشاء شظية حافظة HTML**
+
+استخدم [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader-boolean-) لاختيار الناتج من [IParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-). عند `false`، تُعيد الطريقة HTML عادي. عند `true`، يبدأ النص المُرجَع برأس حافظة Windows. تُعطي حقول `StartHTML` و`EndHTML` إزاحات البايت UTF-8 للـ HTML، بينما تحدد `StartFragment` و`EndFragment` المحتوى الذي سيُلصق.
+
+هذا المثال يُصدّر فقرتين منسقتين كـ HTML عادي (`html`) وكمق fragment حافظة HTML (`clipboardHtml`). يمكن للتطبيق بعد ذلك كتابة الشظية إلى حافظة النظام. إذا كانت واجهة برمجة الحافظة تتوقع بايتات خام، شفر الشظية كـ UTF-8 بدون BOM.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 400, 100);
+    IParagraphCollection paragraphs = shape.getTextFrame().getParagraphs();
+    paragraphs.clear();
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+    TextToHtmlConversionOptions options = new TextToHtmlConversionOptions();
+    options.setAddClipboardFragmentHeader(false);
+    String html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+
+    options.setAddClipboardFragmentHeader(true);
+    String clipboardHtml = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+} finally {
+    presentation.dispose();
+}
+```
 
 ### **تصيير فقرة كصورة**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) يصدر فقرة فردية مباشرةً ويعيد كائنًا من النوع [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). احفظ النتيجة إلى ملف أو تدفق باستخدام [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). لا تحتاج إلى تصيير الشكل الحاوي أو قص صورة bitmap يدويًا.
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) يصيّر فقرة منفردة مباشرةً ويُعيد [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). احفظ النتيجة إلى ملف أو تدفق باستخدام [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). لا تحتاج إلى تصيير الشكل المحتوي أو قص صورة bitmap يدويًا.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) قد يُعيد `null` إذا تعذر العثور على الفقرة في مجموعتها الأصلية، أو لا توجد حدود تصيير صالحة، أو لا يمكن تصييرها. تحقق من النتيجة قبل حفظها وتخلص من الصورة المرجعة بعد الاستخدام.
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) يمكن أن يُعيد `null` إذا لم تُعثر الفقرة في مجموعتها الأصلية، أو لا تملك حدود تصيير صالحة، أو لا يمكن تصييرها. تحقق من النتيجة قبل حفظها وحرِّر الصورة المرجعة بعد الاستخدام.
 
 #### **تصيير فقرة بالمقياس الافتراضي**
 
-المثال يستخدم عرضًا يحتوي على شريحة واحدة حيث الشكل الأول هو صندوق نص يحتوي على ثلاث فقرات.
+المثال يستخدم عرضًا تقديميًا بشريحة واحدة حيث الشكل الأول هو مربع نص يحتوي على ثلاث فقرات.
 
-![صندوق النص مع ثلاث فقرات](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
-المثال التالي يختار الفقرة الثانية عند الفهرس 1 ويستدعي [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) دون معاملات مقياس. يتحقق من أن الشكل يحتوي على الفقرة المطلوبة وأن التصيير أعاد صورة قبل استدعاء [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) لحفظها بصيغة PNG. كتلة `finally` تُعيد تحرير الصورة بعد الاستخدام.
+المثال التالي يختار الفقرة الثانية ذات الفهرس 1 ويستدعي [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) بدون معاملات مقياس. يتحقق من أن الشكل يحتوي على الفقرة المطلوبة وأن التصيير يُعيد صورة قبل استدعاء [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) لحفظها بصيغة PNG. يُحرِّر كتلة `finally` الصورة بعد الاستخدام.
 
 ```java
 import com.aspose.slides.*;
@@ -658,11 +687,11 @@ try {
 
 النتيجة:
 
-![صورة الفقرة](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
-#### **تصيير فقرة داخل خلية جدول مع تعديل المقياس**
+#### **تصيير فقرة في خلية جدول مع مقياس**
 
-استخدم نسخة [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) التي تقبل معاملات `float scaleX` و `float scaleY` لتحديد عوامل المقياس الأفقي والعمودي. يخلق المثال جدولًا، يصدر الفقرة في خليةه الأولى بمضاعفة العرض والارتفاع الافتراضيين، ويحفظ النتيجة كصورة PNG.
+استخدم نسخة [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) التي تقبل معاملات `float scaleX` و`float scaleY` لتحديد عوامل المقياس الأفقي والرأسي. المثال التالي يخلق جدولًا، يصيّر الفقرة في خليةه الأولى بعرض وارتفاع مضاعفين، ويحفظ النتيجة كصورة PNG.
 
 ```java
 import com.aspose.slides.*;
@@ -693,25 +722,25 @@ try {
 }
 ```
 
-عامل مقياس `1` يحافظ على الأبعاد الافتراضية بالبكسل. على سبيل المثال، `2` لكل العاملين ينتج صورة عرضها وارتفاعها تقريبًا مزدوجان، أي أربع مرات عدد البكسلات. العوامل الأكبر تُنتج نصًا أكثر حدة للتكبير أو الإخراج عالي الدقة، لكنها تزيد أيضًا من استهلاك الذاكرة وحجم الملف. العوامل تحت `1` تُنتج صورًا أصغر بتفاصيل أقل. استخدم عوامل متساوية للحفاظ على نسبة أبعاد الفقرة؛ العوامل الأفقية والعمودية المختلفة تُ Stretch الإخراج بشكل مستقل.
+عامل المقياس `1` يحافظ على ذلك المحور بحجمه الافتراضي بالبكسل. على سبيل المثال، `2` لكل العاملين ينتج صورة بعرض وارتفاع تقريبا مضاعفين الأبعاد الافتراضية، أي أربع مرات عدد البكسلات. العوامل الأكبر عادةً ما تُنتج نصًا أكثر حدة للتقريب أو الإخراج عالي الدقة، لكنها تزيد أيضًا من استخدام الذاكرة وحجم الملف. العوامل الأقل من `1` تُنتج صورًا أصغر بتفاصيل أقل. استخدم عوامل متساوية للحفاظ على نسبة أبعاد الفقرة؛ العوامل الأفقية والرأسية المختلفة تمدد الناتج بشكل مستقل.
 
-تصيير شكل كامل عبر [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) يبقى مفيدًا عندما يجب أن تشمل النتيجة تعبئة الشكل أو حدوده أو سياقه البصري. لتصوير الفقرة فقط، استخدم [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--).
+تصيير شكل كامل باستخدام [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) يظل مفيدًا عندما يجب أن يتضمن الإخراج تعبئة الشكل أو حدوده أو سياقه البصري. للحصول على صورة للفقرة فقط، استخدم [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--).
 
-## **FAQ**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تعطيل التفاف السطر تمامًا داخل إطار النص؟**
+**هل يمكنني إلغاء تمكين التفاف السطر داخل إطار النص تمامًا؟**
 
-نعم. اضبط [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) لتعطيل التفاف السطر بحيث لا تنكسر الأسطر عند حواف إطار النص.
+نعم. اضبط [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) لإلغاء التفاف السطر بحيث لا تُكسر الأسطر عند حواف إطار النص.
 
-**كيف يمكنني الحصول على حدود الفقرة على الشريحة بدقة؟**
+**كيف يمكنني الحصول على حدود الفقرة الدقيقة داخل الشريحة؟**
 
-استخدم [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) لاسترداد مستطيل الحدود للفقرة. يوفر [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) حدود الجزء الفردي.
+استخدم [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) لاسترجاع مستطيل الحد للفقرة. يوفر [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) حدود الجزء الفردي.
 
-**أين يتم التحكم في محاذاة الفقرة (يسار، يمين، وسط، أو ضبط)؟**
+**أين يتم التحكم في محاذاة الفقرة (يسار، يمين، مركز أو مبرر)؟**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) هو إعداد على مستوى الفقرة ويُطبق على الفقرة بأكملها بغض النظر عن تنسيق الأجزاء الفردية.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) هو إعداد على مستوى الفقرة وينطبق على الفقرة بالكامل بغض النظر عن تنسيق الأجزاء الفردية.
 
-لتحاذي الأعمدة بأحجام خطوط مختلفة داخل كل سطر، راجع [Align Fonts Within a Line](/slides/ar/java/text-formatting/#align-fonts-within-a-line).
+للمحاذاة العمودية لأجزاء بأحجام خطوط مختلفة داخل كل سطر، انظر [Align Fonts Within a Line](/slides/ar/java/text-formatting/#align-fonts-within-a-line).
 
 **هل يمكنني تعيين لغة التدقيق لجزء من الفقرة؟**
 

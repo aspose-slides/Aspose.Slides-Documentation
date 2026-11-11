@@ -1,6 +1,6 @@
 ---
 title: Gestire i paragrafi di testo PowerPoint in JavaScript
-linktitle: Gestire Paragrafo
+linktitle: Gestisci Paragrafo
 type: docs
 weight: 40
 url: /it/nodejs-java/manage-paragraph/
@@ -14,7 +14,7 @@ keywords:
 - gestire paragrafo
 - gestire punto elenco
 - rientro del paragrafo
-- rientro a sospensione
+- rientro sospeso
 - punto elenco del paragrafo
 - elenco numerato
 - elenco puntato
@@ -34,21 +34,21 @@ description: "Scopri come creare e formattare paragrafi, porzioni, punti elenco,
 ---
 ## **Panoramica**
 
-Aspose.Slides per Node.js tramite Java rappresenta il testo come una gerarchia di TextFrame, Paragraph e Portion:
+Aspose.Slides per Node.js tramite Java rappresenta il testo come una gerarchia di cornici di testo, paragrafi e porzioni:
 
-* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) rappresenta il contenitore di testo in una forma e fornisce l'accesso alla sua raccolta di paragrafi.
-* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) rappresenta un singolo paragrafo in un TextFrame e fornisce l'accesso alle sue porzioni e alla formattazione a livello di paragrafo.
-* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) rappresenta una sequenza di testo all'interno di un paragrafo. Ogni porzione può avere la propria formattazione di testo e di carattere.
+* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) rappresenta il contenitore di testo in una forma e fornisce l'accesso alla sua collezione di paragrafi.
+* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) rappresenta un paragrafo in una cornice di testo e fornisce l'accesso alle sue porzioni e alla formattazione a livello di paragrafo.
+* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) rappresenta un segmento di testo all'interno di un paragrafo. Ogni porzione può avere il proprio testo e la formattazione a livello di carattere.
 
-Un paragrafo può quindi contenere testo con caratteri, colori, dimensioni e altre formattazioni differenti utilizzando più porzioni.
+Un paragrafo può quindi contenere testo con diversi caratteri, colori, dimensioni e altra formattazione utilizzando più porzioni.
 
-## **Creare e Formattare i Paragrafi**
+## **Creare e formattare i paragrafi**
 
-Create paragrafi nel TextFrame di una forma e usate le porzioni per formattare le singole sequenze di testo. Questa sezione mostra come combinare più porzioni all'interno di ciascun paragrafo e applicare colori, dimensioni di carattere e stili diversi.
+Crea paragrafi nella cornice di testo di una forma e utilizza le porzioni per formattare singoli segmenti di testo. Questa sezione mostra come combinare più porzioni all'interno di ogni paragrafo e applicare diversi colori, dimensioni e stili di carattere.
 
-### **Creare Paragrafi con più Porzioni**
+### **Creare paragrafi con più porzioni**
 
-L'esempio JavaScript seguente crea tre paragrafi, ognuno contenente tre sequenze di testo nella raccolta restituita da [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/). Riusa il paragrafo predefinito e la sua porzione vuota, quindi aggiunge i paragrafi e le porzioni rimanenti. La formattazione è applicata tramite [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/): la prima porzione in ogni paragrafo è rossa, grassetto e 15 punti; la seconda è blu, italico e 18 punti. La terza porzione mantiene la formattazione predefinita:
+L'esempio JavaScript seguente crea tre paragrafi, ciascuno contenente tre segmenti di testo nella collezione restituita da [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/). Riutilizza il paragrafo predefinito e la sua porzione vuota, quindi aggiunge i paragrafi e le porzioni rimanenti. La formattazione è applicata tramite [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/): la prima porzione in ogni paragrafo è rossa, in grassetto e 15 punti; la seconda è blu, in corsivo e 18 punti. La terza porzione mantiene la formattazione predefinita:
 
 ```javascript
 var aspose = aspose || {};
@@ -106,15 +106,15 @@ try {
 }
 ```
 
-## **Creare Elenchi Puntati e Numerati**
+## **Creare elenchi puntati e numerati**
 
-Organizzate il testo dei paragrafi in elenchi con simboli, numeri o immagini personalizzate. Gli esempi in questa sezione coprono la formattazione dei punti elenco, gli elenchi a più livelli e i numeri di partenza personalizzati.
+Organizza il testo dei paragrafi in elenchi con simboli, numeri o immagini personalizzate. Gli esempi in questa sezione coprono la formattazione dei punti elenco, gli elenchi multilevel e i numeri di inizio personalizzati.
 
-### **Creare un Elenco Puntato o Numerato**
+### **Creare un elenco puntato o numerato**
 
-I punti elenco e la numerazione rendono gli elementi correlati più facili da sfogliare. In Aspose.Slides, le impostazioni dell'elenco sono definite tramite [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
+I punti elenco e la numerazione rendono gli elementi correlati più facili da esaminare. In Aspose.Slides, le impostazioni dell'elenco sono definite tramite [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
 
-Questo esempio JavaScript aggiunge un punto simbolico e un elemento numerato allo stesso TextFrame. [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) seleziona il tipo di punto, mentre [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) fornisce il simbolo e [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) seleziona lo stile di numerazione. Entrambi gli elementi usano punti neri con un'altezza del 100 percento e un rientro del paragrafo di 25 punti:
+Questo esempio JavaScript aggiunge un punto simbolico e un elemento numerato nella stessa cornice di testo. [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) seleziona il tipo di punto, mentre [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) fornisce il simbolo e [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) seleziona lo stile di numerazione. Entrambi gli elementi usano punti neri con un'altezza del 100 percento e un rientro del paragrafo di 25 punti:
 
 ```javascript
 var aspose = aspose || {};
@@ -157,11 +157,11 @@ try {
 }
 ```
 
-### **Usare Punti Elenco con Immagine**
+### **Usare punti elenco immagine**
 
-I punti elenco con immagine consentono di utilizzare un'immagine personalizzata al posto di un simbolo o di un numero.
+I punti elenco immagine consentono di utilizzare un'immagine personalizzata al posto di un simbolo o di un numero.
 
-Questo esempio JavaScript carica `image.png` dalla directory di lavoro dell'applicazione, aggiunge l'immagine alla raccolta di immagini della presentazione come [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) e la utilizza come punto del paragrafo. Chiama [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) per usare un punto immagine e assegna l'immagine tramite [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/). [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) è impostato al 100 percento per dimensionare il punto rispetto al testo del paragrafo:
+Questo esempio JavaScript carica `image.png` dalla directory di lavoro dell'applicazione, aggiunge l'immagine alla collezione di immagini della presentazione come un [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) e lo utilizza come punto elenco del paragrafo. Chiama [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) per utilizzare un punto immagine e assegna l'immagine tramite [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/). [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) è impostato al 100 percento per dimensionare il punto rispetto al testo del paragrafo:
 
 ```javascript
 var aspose = aspose || {};
@@ -198,11 +198,11 @@ try {
 }
 ```
 
-### **Creare un Elenco a più Livelli**
+### **Creare un elenco multilevel**
 
-Impostare [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) per posizionare i paragrafi a diversi livelli di un elenco. Il livello superiore ha una profondità di `0`.
+Imposta [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) per posizionare i paragrafi a diversi livelli di un elenco. Il livello superiore ha una profondità di `0`.
 
-Questo esempio JavaScript assegna valori di [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) da 0 a 3 a quattro paragrafi, creando una gerarchia all'interno di un unico TextFrame. Ogni paragrafo usa un punto simbolico, con [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) alternante tra un punto rotondo e un trattino per distinguere i livelli adiacenti:
+Questo esempio JavaScript assegna valori di [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) da 0 a 3 a quattro paragrafi, creando una gerarchia all'interno di una singola cornice di testo. Ogni paragrafo utilizza un punto simbolico, con [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) che alterna tra un punto rotondo e un trattino per distinguere i livelli adiacenti:
 
 ```javascript
 var aspose = aspose || {};
@@ -260,11 +260,11 @@ try {
 }
 ```
 
-### **Impostare l'Inizio degli Elementi Numerati con Valori Personalizzati**
+### **Impostare l'inizio degli elementi numerati con valori personalizzati**
 
-Usare [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) per definire il numero iniziale visualizzato per un paragrafo numerato.
+Usa [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) per impostare il numero iniziale visualizzato per un paragrafo numerato.
 
-Questo esempio JavaScript imposta [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) per usare la numerazione su tre paragrafi e assegna valori di [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) pari a 2, 3 e 7. Il valore di partenza è configurato separatamente per ogni paragrafo, consentendo di saltare numeri visualizzati:
+Questo esempio JavaScript imposta [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) per utilizzare la numerazione per tre paragrafi e assegna valori di [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) di 2, 3 e 7. Il valore iniziale è configurato separatamente per ciascun paragrafo, consentendo ai numeri visualizzati di saltare valori:
 
 ```javascript
 var aspose = aspose || {};
@@ -303,15 +303,15 @@ try {
 }
 ```
 
-## **Controllare il Layout del Paragrafo e le Proprietà di Fine**
+## **Controllare il layout del paragrafo e le proprietà di chiusura**
 
-Regolate i margini e i rientri del paragrafo per controllare la posizione della prima riga e delle righe a capo. È inoltre possibile formattare il segno di fine paragrafo separatamente dalle porzioni di testo visibili.
+Regola i margini e i rientri del paragrafo per controllare la posizione della prima riga e delle righe a capo. È inoltre possibile formattare il segno di fine paragrafo separatamente dalle porzioni di testo visibili.
 
-### **Impostare un Rientro della Prima Riga**
+### **Impostare un rientro della prima riga**
 
-Usare il metodo [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) per controllare il rientro della prima riga di un paragrafo. Questa impostazione sposta solo la prima riga rispetto al margine sinistro del paragrafo. Un valore positivo sposta la prima riga verso destra, mentre le righe rimanenti rimangono allineate al corpo del paragrafo.
+Usa il metodo [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) per controllare il rientro della prima riga di un paragrafo. Questa impostazione sposta solo la prima riga rispetto al margine sinistro del paragrafo. Un valore positivo sposta la prima riga a destra, mentre le righe rimanenti rimangono allineate al corpo del paragrafo.
 
-Usare [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) quando è necessario spostare l'intero paragrafo. Usare [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) quando è necessario spostare solo la prima riga.
+Usa [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) quando è necessario spostare l'intero paragrafo. Usa [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) quando è necessario spostare solo la prima riga.
 
 L'esempio seguente assegna a tre paragrafi lo stesso [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) di 20 punti e valori di [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) di 0, 20 e 40 punti. Le prime righe iniziano a offset progressivamente maggiori, mentre le righe a capo mantengono lo stesso margine sinistro:
 
@@ -366,17 +366,17 @@ try {
 
 Il risultato:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Il rientro della prima riga dei paragrafi](first_line_indent.png)
 
-### **Impostare un Rientro a Sospensione**
+### **Impostare un rientro sospeso**
 
-Un rientro a sospensione è un layout di paragrafo in cui la prima riga inizia a sinistra delle righe successive. In Aspose.Slides, potete creare questo effetto con il metodo [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Impostate il rientro a un valore negativo per spostare la prima riga a sinistra rispetto al corpo del paragrafo.
+Un rientro sospeso è un layout di paragrafo in cui la prima riga inizia a sinistra delle righe rimanenti. In Aspose.Slides, crei questo effetto con il metodo [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Imposta il rientro a un valore negativo per spostare la prima riga a sinistra rispetto al corpo del paragrafo.
 
-In pratica, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) definisce la posizione sinistra del corpo del paragrafo, e [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) definisce la posizione della prima riga rispetto a quel margine. Per creare un rientro a sospensione, impostate un margine sinistro positivo e un rientro negativo.
+In pratica, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) definisce la posizione sinistra del corpo del paragrafo, e [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) definisce la posizione della prima riga rispetto a quel margine. Per creare un rientro sospeso, imposta un margine sinistro positivo e un rientro negativo.
 
-Questa formattazione è utile per bibliografie, riferimenti, voci di glossario e altri paragrafi in cui le righe a capo devono allinearsi sotto il corpo del paragrafo piuttosto che sotto il primo carattere della prima riga.
+Questa formattazione è utile per bibliografie, riferimenti, voci di glossario e altri paragrafi in cui le righe a capo devono allinearsi sotto il corpo del paragrafo anziché sotto il primo carattere della prima riga.
 
-L'esempio JavaScript seguente abbina valori di [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) di 40 e 60 punti a valori di [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) di -20 e -30 punti. In ciascun paragrafo, la prima riga inizia a sinistra delle righe a capo; il secondo paragrafo ha un rientro a sospensione più profondo:
+L'esempio JavaScript seguente associa valori di [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) di 40 e 60 punti a valori di [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) di -20 e -30 punti. In ciascun paragrafo, la prima riga inizia a sinistra delle righe a capo; il secondo paragrafo ha un rientro sospeso più profondo:
 
 ```javascript
 var aspose = aspose || {};
@@ -421,9 +421,9 @@ try {
 
 Il risultato:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Il rientro sospeso dei paragrafi](hanging_indent.png)
 
-### **Impostare le Proprietà di Fine del Paragrafo**
+### **Impostare le proprietà di fine paragrafo**
 
 Il metodo [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) controlla la formattazione del segno di fine paragrafo. L'esempio seguente crea un [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) con [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) impostato a 48 punti e [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) impostato a Times New Roman. Assegna questo formato al segno di fine del secondo paragrafo, lasciando inalterate le porzioni di testo visibili:
 
@@ -459,15 +459,15 @@ try {
 }
 ```
 
-## **Contare le Righe Renderizzate**
+## **Contare le righe renderizzate**
 
-Per le regole dei paragrafi che influenzano l'avvolgimento automatico e la punteggiatura a fine riga, vedere [Control Line Breaking](/slides/it/nodejs-java/text-formatting/#control-line-breaking) e [Control Hanging Punctuation](/slides/it/nodejs-java/text-formatting/#control-hanging-punctuation).
+Per le regole del paragrafo che influenzano l'interruzione automatica e la punteggiatura alla fine delle righe, vedi [Control Line Breaking](/slides/it/nodejs-java/text-formatting/#control-line-breaking) e [Control Hanging Punctuation](/slides/it/nodejs-java/text-formatting/#control-hanging-punctuation).
 
-Usare [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) per contare le righe occupate da un paragrafo dopo il layout del testo, compreso l'avvolgimento automatico. Questo è utile per verificare la lunghezza del testo e il layout nei modelli di presentazione.
+Usa [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) per contare le linee occupate da un paragrafo dopo il layout del testo, inclusa l'interruzione automatica. Questo è utile quando si verifica la lunghezza del testo e il layout nei modelli di presentazione.
 
-Un paragrafo è un elemento in [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/), e può occupare più righe renderizzate. Un'interruzione di riga esplicita all'interno di un paragrafo fornisce una nuova riga senza creare un altro paragrafo. L'avvolgimento automatico crea righe in base alla larghezza disponibile senza inserire interruzioni esplicite nel testo. Contare i paragrafi o i caratteri di interruzione di riga quindi non fornisce il conteggio delle righe renderizzate.
+Un paragrafo è un elemento in [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/), e può occupare diverse linee renderizzate. Un'interruzione esplicita di riga all'interno di un paragrafo forza una nuova riga senza creare un altro paragrafo. L'avvolgimento automatico crea linee in base alla larghezza disponibile senza inserire interruzioni di riga esplicite nel testo. Pertanto, contare i paragrafi o i caratteri di interruzione di riga non fornisce il conteggio delle linee renderizzate.
 
-L'esempio seguente crea una forma di testo, ne conta le righe, riduce la larghezza della forma e quindi sostituisce il testo con una stringa più corta. L'esempio abilita l'avvolgimento con [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) e disabilita l'adattamento automatico con [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/) in modo che la larghezza della forma controlli l'avvolgimento senza ridurre automaticamente il testo o ridimensionare la forma. Ogni misurazione utilizza [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount). Le dimensioni della forma sono in punti. Infine, l'esempio aggiunge un altro paragrafo e somma i conteggi delle righe nell'intero TextFrame.
+L'esempio seguente crea una forma di testo, ne conta le linee, restringe la forma e quindi sostituisce il testo con una stringa più corta. L'esempio abilita l'avvolgimento con [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) e disabilita l'autofit con [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/) in modo che la larghezza della forma controlli l'avvolgimento senza ridurre automaticamente il testo o ridimensionare la forma. Ogni misurazione utilizza [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount). Le dimensioni della forma sono in punti. Infine, l'esempio aggiunge un altro paragrafo e somma i conteggi delle linee nell'intera cornice di testo.
 
 ```javascript
 var aspose = aspose || {};
@@ -510,19 +510,19 @@ try {
 }
 ```
 
-Con questo testo e queste dimensioni, ridurre la forma aumenta il conteggio delle righe, mentre sostituire il testo con la stringa corta lo riduce. I conteggi esatti possono variare in base alla disponibilità dei caratteri e alle sostituzioni, alla dimensione del carattere, ai margini, all'indentazione, all'avvolgimento e alle impostazioni di adattamento automatico. Utilizzate i caratteri e le impostazioni di layout previsti per l'ambiente di destinazione quando verificate un modello.
+Con questo testo e queste dimensioni, restringere la forma aumenta il conteggio delle linee, mentre sostituire il testo con la stringa corta lo riduce. I conteggi esatti possono variare a seconda della disponibilità dei font e della sostituzione, della dimensione del carattere, dei margini, dell'indentazione, dell'avvolgimento e delle impostazioni di autofit. Usa i font e le impostazioni di layout previsti per l'ambiente di destinazione quando verifichi un modello.
 
-Il solo conteggio delle righe non determina se il testo supera il contenitore. Anche l'altezza disponibile, le altezze delle righe, la spaziatura dei paragrafi e delle righe e il comportamento di adattamento automatico influenzano; anche una singola riga può eccedere la larghezza disponibile se l'avvolgimento è disabilitato.
+Il solo conteggio delle linee non determina se il testo supera il contenitore. Anche l'altezza disponibile, le altezze delle righe, la spaziatura di paragrafi e di linee e il comportamento di autofit influenzano; anche una singola riga può superare la larghezza disponibile quando l'avvolgimento è disabilitato.
 
-## **Importare ed Esportare il Contenuto dei Paragrafi**
+## **Importare ed esportare il contenuto del paragrafo**
 
-Usate HTML per importare testo in una presentazione o per esportare paragrafi esistenti per l'uso esterno. Questa sezione mostra anche come rendere singoli paragrafi come immagini, inclusi i paragrafi nelle celle delle tabelle.
+Usa HTML per inserire testo in una presentazione o esportare paragrafi esistenti per l'uso al di fuori di essa. Questa sezione mostra anche come renderizzare singoli paragrafi come immagini, inclusi i paragrafi nelle celle di una tabella.
 
-### **Importare Testo HTML nei Paragrafi**
+### **Importare testo HTML nei paragrafi**
 
-Usare [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) per convertire il markup HTML in paragrafi e porzioni in un TextFrame.
+Usa [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) per convertire il markup HTML in paragrafi e porzioni in una cornice di testo.
 
-Questo esempio JavaScript legge HTML da `file.html` nella directory di lavoro dell'applicazione e passa il markup a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/). Cancella il paragrafo predefinito del TextFrame in modo che il frame contenga solo il contenuto importato. La forma rettangolare lascia un margine di 10 punti su ciascun lato della diapositiva:
+Questo esempio JavaScript legge HTML da `file.html` nella directory di lavoro dell'applicazione e passa il markup a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/). Cancella il paragrafo predefinito della cornice di testo in modo che la cornice contenga solo il contenuto importato. La forma rettangolare lascia un margine di 10 punti su ciascun lato della diapositiva:
 
 ```javascript
 var aspose = aspose || {};
@@ -548,18 +548,18 @@ try {
 }
 ```
 
-### **Esportare il Testo del Paragrafo in HTML**
+### **Esportare il testo del paragrafo in HTML**
 
-Usare [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) per esportare un intervallo selezionato di paragrafi come HTML. Quando riutilizzate il testo di una presentazione su un sito web, potreste voler conservare l'enfasi locale senza trasferire lo stile di carattere, dimensione o casella di testo della presentazione. Impostate [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/) per controllare fino a dove l'esportatore segue l'eredità della formattazione.
+Usa [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) per esportare un intervallo selezionato di paragrafi come HTML. Quando riutilizzi il testo di una presentazione su un sito web, potresti voler conservare l'enfasi locale senza trasferire il carattere, la dimensione o gli stili della casella di testo della presentazione. Imposta [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/) per controllare fino a che punto l'esportatore segue l'eredità della formattazione.
 
-Scaricate [la presentazione di esempio](text-inheritance.pptx) e posizionatela nella directory di lavoro dell'applicazione. La sua prima diapositiva contiene una forma di testo con il testo "Inherited text; explicit red 18pt". L'input utilizza deliberatamente diversi livelli di formattazione:
+Scarica [la presentazione di esempio](text-inheritance.pptx) e posizionala nella directory di lavoro dell'applicazione. Il suo primo slide contiene una forma di testo con il testo "Inherited text; explicit red 18pt". L'input utilizza deliberatamente diversi livelli di formattazione:
 
 - Lo stile di testo predefinito della presentazione fornisce Calibri e una dimensione di 28 pt.
-- Lo stile di testo di primo livello del TextFrame fornisce testo blu e corsivo.
+- Lo stile di testo di primo livello della cornice fornisce testo blu e corsivo.
 - Il paragrafo imposta esplicitamente il testo in grassetto.
 - La seconda porzione, "explicit red 18pt", imposta esplicitamente il testo rosso e una dimensione di 18 pt.
 
-Il seguente esempio completo esporta gli stessi paragrafi tre volte. Passa [TextToHtmlConversionOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/) al metodo di esportazione e scrive ogni risultato in un file HTML UTF‑8 separato:
+L'esempio completo seguente esporta gli stessi paragrafi tre volte. Passa [TextToHtmlConversionOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/) al metodo di esportazione e scrive ogni risultato in un file HTML UTF-8 separato:
 
 ```javascript
 var aspose = aspose || {};
@@ -597,29 +597,58 @@ try {
 }
 ```
 
-L'HTML generato contiene il CSS seguente per la prima porzione, "Inherited text; ". La tabella elenca le dichiarazioni rilevanti; le altre proprietà generate sono omesse per maggiore chiarezza.
+L'HTML generato contiene il seguente CSS per la prima porzione, "Inherited text; ". La tabella elenca le dichiarazioni rilevanti; le altre proprietà generate sono omesse per chiarezza.
 
 | Output | CSS rilevante per la prima porzione | Aspetto |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Testo blu, grassetto, corsivo a 28 pt in Calibri, se quel carattere è disponibile. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Testo blu, grassetto, corsivo; la pagina o il browser forniscono famiglia di caratteri e dimensione. |
-| `ParagraphOnly.html` | `font-weight:bold` | Testo in grassetto; la pagina o il browser forniscono famiglia di caratteri, dimensione, colore e stile corsivo. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Testo blu, grassetto, corsivo a 28 pt in Calibri, se quel font è disponibile. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Testo blu, grassetto, corsivo; la pagina o il browser circostante fornisce la famiglia di caratteri e la dimensione. |
+| `ParagraphOnly.html` | `font-weight:bold` | Testo in grassetto; la pagina o il browser circostante fornisce la famiglia di caratteri, dimensione, colore e stile corsivo. |
 
-La seconda porzione mantiene `color:#ff0000`, `font-size:18pt` e `font-weight:bold` in tutti e tre gli output. Mantiene inoltre il corsivo in `All` e `TextBox`, ma non in `ParagraphOnly`. Limitare l'eredità quindi non rimuove la formattazione assegnata esplicitamente a un paragrafo o a una porzione.
+La seconda porzione mantiene `color:#ff0000`, `font-size:18pt` e `font-weight:bold` in tutti e tre gli output. Mantiene anche il corsivo in `All` e `TextBox`, ma non in `ParagraphOnly`. Limitare l'eredità quindi non rimuove la formattazione assegnata esplicitamente a un paragrafo o a una porzione.
 
-Aprite i file nello stesso browser per confrontarli. Nelle due modalità limitate, le proprietà CSS omesse sono risolte dagli stili della pagina di destinazione o dalle impostazioni predefinite del browser, così l'aspetto risultante dipende da dove l'HTML viene utilizzato.
+Apri i file nello stesso browser per confrontarli. Nei due modi limitati, le proprietà CSS omesse sono risolte dagli stili della pagina di destinazione o dalle impostazioni predefinite del browser, quindi l'aspetto risultante dipende da dove viene utilizzato l'HTML.
 
-### **Renderizzare un Paragrafo come Immagine**
+### **Generare un frammento di appunti HTML**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) rende direttamente un singolo paragrafo e restituisce un [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Salvate il risultato in un file o stream con [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). Non è necessario renderizzare la forma contenente o ritagliare manualmente una bitmap.
+Usa [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/setaddclipboardfragmentheader/) per scegliere l'output da [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/). Con `false`, il metodo restituisce HTML ordinario. Con `true`, la stringa restituita inizia con un'intestazione degli appunti di Windows. I campi `StartHTML` e `EndHTML` forniscono gli offset in byte UTF-8 dell'HTML, mentre `StartFragment` e `EndFragment` identificano il contenuto da incollare.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) può restituire `null` se il paragrafo non viene trovato nella collezione padre, non ha limiti di rendering validi o non può essere renderizzato. Verificate il risultato prima di salvarlo e rilasciate l'immagine restituita dopo l'uso.
+Questo esempio esporta due paragrafi formattati come HTML ordinario (`html`) e come frammento di appunti HTML (`clipboardHtml`). L'applicazione può quindi scrivere il frammento negli appunti di sistema. Se l'API degli appunti si aspetta byte grezzi, codifica il frammento come UTF-8 senza marcatore di ordine dei byte (BOM).
 
-#### **Renderizzare un Paragrafo alla Scala Predefinita**
+```javascript
+const slides = require("aspose.slides.via.java");
 
-L'esempio crea una presentazione con una diapositiva il cui primo elemento è una casella di testo contenente tre paragrafi.
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 0, 0, 400, 100);
+    const paragraphs = shape.getTextFrame().getParagraphs();
+    paragraphs.clear();
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+    const options = new slides.TextToHtmlConversionOptions();
+    options.setAddClipboardFragmentHeader(false);
+    const html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+
+    options.setAddClipboardFragmentHeader(true);
+    const clipboardHtml = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Renderizzare un paragrafo come immagine**
+
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) renderizza direttamente un singolo paragrafo e restituisce un [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Salva il risultato in un file o stream con [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). Non è necessario renderizzare la forma contenente o ritagliare manualmente un bitmap.
+
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) può restituire `null` se il paragrafo non può essere trovato nella sua collezione padre, non ha limiti di rendering validi o non può essere renderizzato. Controlla il risultato prima di salvarlo e rilascia l'immagine restituita dopo l'uso.
+
+#### **Renderizzare un paragrafo alla scala predefinita**
+
+L'esempio crea una presentazione con una diapositiva la cui prima forma è una casella di testo contenente tre paragrafi.
+
+![La casella di testo con tre paragrafi](paragraph_to_image_input.png)
 
 L'esempio seguente seleziona il secondo paragrafo all'indice 1 e chiama [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) senza parametri di scala. Verifica che la forma contenga il paragrafo richiesto e che il rendering restituisca un'immagine prima di chiamare [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) per salvarla in formato PNG. Il blocco `finally` rilascia l'immagine dopo l'uso.
 
@@ -670,11 +699,11 @@ try {
 
 Il risultato:
 
-![The paragraph image](paragraph_to_image_output.png)
+![L'immagine del paragrafo](paragraph_to_image_output.png)
 
-#### **Renderizzare un Paragrafo in una Cella di Tabella con Scala**
+#### **Renderizzare un paragrafo in una cella di tabella con scala**
 
-Usate la sovraccarico di [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) che accetta i parametri `scaleX` e `scaleY` per impostare i fattori di scala orizzontale e verticale. L'esempio seguente crea una tabella, rende il paragrafo nella sua prima cella al doppio della larghezza e altezza predefinite, e salva il risultato come immagine PNG.
+Usa la sovraccarica di [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) che accetta i parametri `scaleX` e `scaleY` per impostare i fattori di scala orizzontale e verticale. L'esempio seguente crea una tabella, renderizza il paragrafo nella sua prima cella al doppio della larghezza e altezza predefinite, e salva il risultato come immagine PNG.
 
 ```javascript
 var aspose = aspose || {};
@@ -709,26 +738,26 @@ try {
 }
 ```
 
-Un fattore di scala di `1` mantiene quell'asse alla dimensione di pixel predefinita. Per esempio, `2` per entrambi i fattori produce un'immagine la cui larghezza e altezza sono circa il doppio delle dimensioni predefinite, con quattro volte più pixel. Fattori più grandi producono generalmente testo più nitido per lo zoom o output ad alta risoluzione, ma aumentano anche l'uso di memoria e la dimensione del file. Fattori inferiori a `1` producono immagini più piccole con meno dettagli. Usate fattori uguali per preservare il rapporto d'aspetto del paragrafo; fattori orizzontali e verticali diversi allungano l'output in modo indipendente.
+Un fattore di scala di `1` mantiene quell'asse alla sua dimensione di pixel predefinita. Per esempio, `2` per entrambi i fattori produce un'immagine la cui larghezza e altezza sono circa il doppio delle dimensioni predefinite, risultando in quattro volte più pixel. Fattori più grandi producono generalmente testo più nitido per lo zoom o output ad alta risoluzione, ma aumentano anche l'uso di memoria e le dimensioni del file. Fattori inferiori a `1` producono immagini più piccole con meno dettaglio. Usa fattori uguali per preservare il rapporto d'aspetto del paragrafo; fattori diversi per gli assi orizzontale e verticale allungano l'output in modo indipendente.
 
-Renderizzare un'intera forma con [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) resta utile quando l'output deve includere il riempimento, il bordo o altri contesti visivi della forma. Per un'immagine solo del paragrafo, usate [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
+Renderizzare un'intera forma con [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) rimane utile quando l'output deve includere il riempimento, il bordo o altro contesto visivo della forma. Per un'immagine solo del paragrafo, usa [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
 
 ## **FAQ**
 
-**Posso disabilitare completamente l'avvolgimento delle righe all'interno di un TextFrame?**
+**Posso disabilitare completamente l'avvolgimento delle linee all'interno di una cornice di testo?**
 
-Sì. Impostate [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) per disabilitare l'avvolgimento così le righe non si interrompono ai bordi del TextFrame.
+Sì. Imposta [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) per disabilitare l'avvolgimento così le linee non si interrompono ai bordi della cornice di testo.
 
 **Come posso ottenere i limiti esatti sullo slide di un paragrafo specifico?**
 
-Usate [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) per recuperare il rettangolo di delimitazione del paragrafo. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) fornisce i limiti di una singola porzione.
+Usa [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) per recuperare il rettangolo di delimitazione del paragrafo. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) fornisce i limiti di una singola porzione.
 
-**Dove è controllato l'allineamento del paragrafo (sinistra, destra, centro o giustificato)?**
+**Dove è controllata l'allineamento dei paragrafi (sinistra, destra, centro o giustificazione)?**
 
 [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) è un'impostazione a livello di paragrafo e si applica all'intero paragrafo indipendentemente dalla formattazione delle singole porzioni.
 
-Per allineare verticalmente porzioni con dimensioni di carattere diverse all'interno di ogni riga, vedere [Align Fonts Within a Line](/slides/it/nodejs-java/text-formatting/#align-fonts-within-a-line).
+Per allineare verticalmente le porzioni di dimensioni di carattere diverse all'interno di ogni riga, vedi [Align Fonts Within a Line](/slides/it/nodejs-java/text-formatting/#align-fonts-within-a-line).
 
 **Posso impostare la lingua di correzione per parte di un paragrafo?**
 
-Sì. Impostate [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) per le singole porzioni, così un paragrafo può contenere testo in più lingue.
+Sì. Imposta [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) per le singole porzioni, così un paragrafo può contenere testo in più lingue.

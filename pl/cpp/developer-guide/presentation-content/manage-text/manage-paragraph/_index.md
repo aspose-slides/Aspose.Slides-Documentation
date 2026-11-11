@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie akapitami tekstu PowerPoint w C++
-linktitle: Zarządzanie akapitem
+linktitle: Zarządzaj akapitem
 type: docs
 weight: 40
 url: /pl/cpp/manage-paragraph/
@@ -12,42 +12,42 @@ keywords:
 - dodaj akapit
 - zarządzaj tekstem
 - zarządzaj akapitem
-- zarządzaj punktorami
+- zarządzaj wypunktowaniem
 - wcięcie akapitu
 - wcięcie wiszące
-- punktor akapitu
+- wypunktowanie akapitu
 - lista numerowana
-- lista punktowana
+- lista wypunktowana
 - właściwości akapitu
-- import HTML
+- importuj HTML
 - tekst do HTML
 - akapit do HTML
 - akapit do obrazu
 - tekst do obrazu
-- eksport akapitu
+- eksportuj akapit
 - PowerPoint
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, punkty, listy numerowane, wcięcia, treść HTML oraz obrazy akapitów przy użyciu Aspose.Slides dla C++."
+description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, wypunktowania, listy numerowane, wcięcia, treść HTML oraz obrazy akapitów przy użyciu Aspose.Slides dla C++."
 ---
 ## **Przegląd**
 
-Aspose.Slides dla C++ reprezentuje tekst jako hierarchię ramek tekstowych, akapitów i fragmentów:
+Aspose.Slides for C++ reprezentuje tekst jako hierarchię ramek tekstowych, akapitów i fragmentów:
 
 * [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) reprezentuje kontener tekstowy w kształcie i zapewnia dostęp do jego kolekcji akapitów.
 * [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) reprezentuje jeden akapit w ramce tekstowej i zapewnia dostęp do jego fragmentów oraz formatowania na poziomie akapitu.
-* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) reprezentuje fragment tekstu w akapicie. Każdy fragment może mieć własny tekst i formatowanie na poziomie znaków.
+* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) reprezentuje uruchomienie tekstu w akapicie. Każdy fragment może mieć własny tekst i formatowanie na poziomie znaków.
 
-Akapit może więc zawierać tekst w różnych czcionkach, kolorach, rozmiarach i innym formatowaniu, używając wielu fragmentów.
+Akapit może więc zawierać tekst o różnych czcionkach, kolorach, rozmiarach i innych atrybutach formatowania, używając wielu fragmentów.
 
 ## **Tworzenie i formatowanie akapitów**
 
-Twórz akapity w ramce tekstowej kształtu i używaj fragmentów do formatowania pojedynczych fragmentów tekstu. W tej sekcji pokazano, jak łączyć wiele fragmentów w każdym akapicie i stosować różne kolory, rozmiary czcionek i style.
+Twórz akapity w ramce tekstowej kształtu i używaj fragmentów do formatowania poszczególnych uruchomień tekstu. Ten rozdział pokazuje, jak łączyć wiele fragmentów w każdym akapicie oraz jak stosować różne kolory, rozmiary czcionek i style.
 
 ### **Tworzenie akapitów z wieloma fragmentami**
 
-Poniższy przykład C++ tworzy trzy akapity, z których każdy zawiera trzy fragmenty tekstu w swojej kolekcji [IParagraph::get_Portions](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_portions/). Ponownie wykorzystuje domyślny akapit i jego pusty fragment, a następnie dodaje pozostałe akapity i fragmenty. Formatowanie jest stosowane za pomocą [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/): pierwszy fragment w każdym akapicie jest czerwony, pogrubiony i ma 15 punktów; drugi jest niebieski, kursywny i ma 18 punktów. Trzeci fragment zachowuje domyślne formatowanie:
+Poniższy przykład C++ tworzy trzy akapity, z których każdy zawiera trzy uruchomienia tekstu w swojej kolekcji [IParagraph::get_Portions](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_portions/). Ponownie wykorzystuje domyślny akapit i jego pusty fragment, a następnie dodaje pozostałe akapity i fragmenty. Formatowanie jest stosowane za pomocą [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/): pierwszy fragment w każdym akapicie jest czerwony, pogrubiony i ma 15 punktów; drugi jest niebieski, kursywa i ma 18 punktów. Trzeci fragment zachowuje domyślne formatowanie:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -122,15 +122,15 @@ presentation->Save(u"paragraphs_with_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Tworzenie list punktowanych i numerowanych**
+## **Tworzenie list wypunktowanych i numerowanych**
 
-Organizuj tekst akapitu w listy z symbolami, liczbami lub własnymi obrazkami. Przykłady w tej sekcji obejmują formatowanie punktorów, listy wielopoziomowe oraz własne wartości początkowe numeracji.
+Organizuj tekst akapitu w listy ze znakami, numerami lub własnymi obrazkami. Przykłady w tym rozdziale obejmują formatowanie wypunktowań, listy wielopoziomowe i własne numery początkowe.
 
-### **Tworzenie listy punktowanej lub numerowanej**
+### **Tworzenie listy wypunktowanej lub numerowanej**
 
-Punktory i numeracja ułatwiają skanowanie powiązanych elementów. W Aspose.Slides ustawienia listy są definiowane przez [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/).
+Wypunktowania i numeracje ułatwiają skanowanie powiązanych elementów. W Aspose.Slides ustawienia listy definiuje się za pomocą [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/).
 
-Ten przykład C++ dodaje symboliczny punktor i numerowaną pozycję do tej samej ramki tekstowej. [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) wybiera typ punktora, podczas gdy [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) podaje symbol, a [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) wybiera styl numeracji. Oba elementy używają czarnych punktorów o wysokości 100 % i wcięcia akapitu wynoszącego 25 punktów:
+Ten przykład C++ dodaje symbol wypunktowania i numerowaną pozycję do tej samej ramki tekstowej. [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) wybiera typ wypunktowania, [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) podaje symbol, a [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) wybiera styl numeracji. Oba elementy używają czarnych wypunktowań o wysokości 100 % i wcięcia akapitu wynoszącego 25 punktów:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -184,11 +184,11 @@ presentation->Save(u"bulleted_and_numbered_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Użycie obrazków jako punktory**
+### **Użycie wypunktowań obrazkowych**
 
-Obrazkowe punktory pozwalają używać własnego obrazu zamiast symbolu lub liczby.
+Wypunktowania obrazkowe umożliwiają użycie własnego obrazu zamiast symbolu lub numeru.
 
-Przykład wymaga pliku `bullets.png` w katalogu roboczym. Ten przykład C++ dodaje obraz do kolekcji obrazów prezentacji jako [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) i używa go jako punktora akapitu. Ustawia [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) na użycie punktora obrazkowego i przypisuje obraz przez [IBulletFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/get_picture/). [IBulletFormat::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_height/) jest ustawiony na 100 % aby dopasować rozmiar punktora względem tekstu akapitu:
+Przykład wymaga pliku `bullets.png` w katalogu roboczym. Ten przykład C++ dodaje obraz do kolekcji obrazów prezentacji jako [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) i używa go jako wypunktowanie akapitu. Ustawia [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) na wypunktowanie obrazkowe i przypisuje obraz za pomocą [IBulletFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/get_picture/). [IBulletFormat::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_height/) jest ustawione na 100 % w celu dopasowania rozmiaru wypunktowania do tekstu akapitu:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -231,9 +231,9 @@ presentation->Dispose();
 
 ### **Tworzenie listy wielopoziomowej**
 
-Ustaw [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/), aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
+Ustaw [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
 
-Ten przykład C++ przypisuje wartości [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) od 0 do 3 czterem akapitom, tworząc hierarchię w jednej ramce tekstowej. Każdy akapit używa symbolicznego punktora, przy czym [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) przełącza się pomiędzy okrągłym puktorem a łącznikiem, aby odróżnić sąsiadujące poziomy:
+Ten przykład C++ przypisuje wartości [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) od 0 do 3 czterem akapitom, tworząc hierarchię w jednej ramce tekstowej. Każdy akapit używa wypunktowania symbolicznego, przy czym [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) przełącza się pomiędzy okrągłym wypunktowaniem a myślnikiem, aby odróżnić kolejne poziomy:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -300,11 +300,11 @@ presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Rozpoczęcie elementów listy numerowanej od niestandardowych wartości**
+### **Rozpoczynanie numerowanych elementów listy od własnych wartości**
 
-Użyj [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/), aby ustawić początkowy numer wyświetlany dla numerowanego akapitu.
+Użyj [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) aby określić początkowy numer wyświetlany dla numerowanego akapitu.
 
-Ten przykład C++ ustawia [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) na użycie numeracji dla trzech akapitów i przypisuje wartości [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) 2, 3 i 7. Wartość początkowa jest konfigurowana oddzielnie dla każdego akapitu, co pozwala pominąć niektóre liczby:
+Ten przykład C++ ustawia [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) na numerację dla trzech akapitów i przypisuje wartości [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) równe 2, 3 i 7. Wartość początkowa jest konfigurowana osobno dla każdego akapitu, co pozwala pomijać wybrane liczby:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -350,15 +350,15 @@ presentation->Dispose();
 
 ## **Kontrola układu akapitu i właściwości końcowych**
 
-Dostosuj marginesy i wcięcia akapitu, aby kontrolować pozycję pierwszej linii oraz linii zawijających się. Możesz także formatować znak końcowy akapitu oddzielnie od widocznych fragmentów tekstu.
+Dostosuj marginesy i wcięcia akapitu, aby kontrolować położenie pierwszej linii oraz linii łamanych. Możesz także formatować znak końca akapitu oddzielnie od widocznych fragmentów tekstu.
 
-### **Ustawienie wcięcia pierwszej linii**
+### **Ustawianie wcięcia pierwszej linii**
 
-Użyj metody [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/), aby kontrolować wcięcie pierwszej linii akapitu. Metoda ta przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, podczas gdy pozostałe linie pozostają wyrównane do treści akapitu.
+Użyj metody [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) aby kontrolować wcięcie pierwszej linii akapitu. Metoda ta przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, podczas gdy pozostałe linie pozostają wyrównane do ciała akapitu.
 
 Użyj [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) gdy potrzebujesz przesunąć cały akapit. Użyj [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) gdy potrzebujesz przesunąć tylko pierwszą linię.
 
-Poniższy przykład nadaje trzem akapitom ten sam [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) równy 20 punktów oraz wartości [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 0, 20 i 40 punktów. Pierwsze linie zaczynają się w kolejno większych odległościach, podczas gdy linie zawijające zachowują ten sam lewy margines:
+Poniższy przykład nadaje trzem akapitom takie same [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) – 20 punktów – oraz wartości [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) równą 0, 20 i 40 punktów. Pierwsze linie rozpoczynają się kolejno dalej, podczas gdy linie łamane zachowują ten sam lewy margines:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -421,15 +421,15 @@ Wynik:
 
 ![Wcięcie pierwszej linii akapitów](first_line_indent.png)
 
-### **Ustawienie wcięcia wiszącego**
+### **Ustawianie wcięcia wiszącego**
 
-Wcięcie wiszące jest układem akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides efekt ten uzyskuje się metodą [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/). Przekazanie wartości ujemnej przenosi pierwszą linię w lewo względem treści akapitu.
+Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides efekt ten uzyskuje się metodą [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/). Przekazanie wartości ujemnej przesuwa pierwszą linię w lewo względem ciała akapitu.
 
-W praktyce [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) definiuje lewą pozycję treści akapitu, a [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) określa pozycję pierwszej linii względem tego marginesu. Aby stworzyć wcięcie wiszące, ustaw dodatnią wartość `MarginLeft` i ujemną wartość `Indent`.
+W praktyce [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) definiuje lewą pozycję ciała akapitu, a [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) pozycję pierwszej linii względem tego marginesu. Aby uzyskać wcięcie wiszące, ustaw dodatnią wartość `MarginLeft` i ujemną wartość `Indent`.
 
-To formatowanie jest przydatne w bibliografiach, przypisach, hasłach słownika i innych akapitach, w których linie zawijające muszą być wyrównane pod treścią akapitu, a nie pod pierwszym znakiem pierwszej linii.
+Takie formatowanie jest przydatne w bibliografiach, odnośnikach, hasłach słownika i innych akapitach, w których linie łamane muszą być wyrównane pod ciałem akapitu, a nie pod pierwszym znakiem pierwszej linii.
 
-Poniższy przykład C++ łączy wartości [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) 40 i 60 punktów z wartościami [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) -20 i -30 punktów. W każdym akapicie pierwsza linia zaczyna się po lewej stronie linii zawijających; drugi akapit ma głębsze wcięcie wiszące:
+Poniższy przykład C++ łączy wartości [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) równe 40 i 60 punktów z wartościami [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) równymi -20 i -30 punktów. W każdym akapicie pierwsza linia zaczyna się po lewej stronie linii łamanej; drugi akapit ma głębsze wcięcie wiszące:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -476,17 +476,17 @@ secondParagraph->get_ParagraphFormat()->set_Indent(-30);
 textFrame->get_Paragraphs()->Add(firstParagraph);
 textFrame->get_Paragraphs()->Add(secondParagraph);
 
-presentation->Save(u"hanging_indent.pptx", SaveFormat::Pptx);
-presentation->Dispose();
+presentation->Save(u"hhangin
+
 ```
 
 Wynik:
 
 ![Wcięcie wiszące akapitów](hanging_indent.png)
 
-### **Ustawienie właściwości końcowego fragmentu akapitu**
+### **Ustawianie właściwości końcowych akapitu**
 
-Metoda [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) kontroluje formatowanie znaku końcowego akapitu. Przykład ładuje plik `Test.pptx`, który musi zawierać przynajmniej jeden slajd. Poniższy przykład tworzy [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) z [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) ustawionym na 48 punktów oraz [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/) ustawionym na Times New Roman. Przypisuje ten format do znaku końcowego drugiego akapitu, pozostawiając widoczne fragmenty tekstu niezmienione:
+Metoda [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) kontroluje formatowanie znaku końca akapitu. Przykład ładuje `Test.pptx`, który musi zawierać co najmniej jeden slajd. Następny przykład tworzy [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) z [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) ustawionym na 48 punktów oraz [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/) ustawionym na Times New Roman. Przypisuje ten format do znaku końca drugiego akapitu, pozostawiając niezmienione widoczne fragmenty tekstu:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -529,15 +529,15 @@ presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Liczenie renderowanych linii**
+## **Zliczanie wyrenderowanych linii**
 
-W przypadku reguł akapitu wpływających na automatyczne zawijanie i interpunkcję na końcach linii, zobacz [Control Line Breaking](/slides/pl/cpp/text-formatting/#control-line-breaking) oraz [Control Hanging Punctuation](/slides/pl/cpp/text-formatting/#control-hanging-punctuation).
+W przypadku reguł akapitu wpływających na automatyczne łamanie i interpunkcję na końcach linii zobacz [Control Line Breaking](/slides/pl/cpp/text-formatting/#control-line-breaking) oraz [Control Hanging Punctuation](/slides/pl/cpp/text-formatting/#control-hanging-punctuation).
 
-Użyj [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/), aby policzyć linie zajmowane przez akapit po rozmieszczeniu tekstu, włącznie z automatycznym zawijaniem. Jest to przydatne przy sprawdzaniu długości tekstu i układu w szablonach prezentacji.
+Użyj [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) aby policzyć linie zajmowane przez akapit po ułożeniu tekstu, włączając automatyczne łamanie. Jest to przydatne przy sprawdzaniu długości tekstu i układu w szablonach prezentacji.
 
-Akapit jest jednym elementem w [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/) i może zajmować kilka renderowanych linii. Jawne łamanie wiersza wewnątrz akapitu wymusza nową linię bez tworzenia kolejnego akapitu. Automatyczne zawijanie tworzy linie na podstawie dostępnej szerokości, nie wstawiając jawnych znaków nowej linii do tekstu. Dlatego liczenie akapitów lub znaków łamania wiersza nie daje liczby renderowanych linii.
+Akapit jest jednym elementem w [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/), i może zajmować kilka wyrenderowanych linii. Jawny znak łamania linii w akapicie wymusza nową linię bez tworzenia dodatkowego akapitu. Automatyczne łamanie tworzy linie w oparciu o dostępną szerokość, nie wstawiając jawnych znaków łamania do tekstu. Dlatego liczenie akapitów lub znaków łamania nie daje liczby wyrenderowanych linii.
 
-Poniższy przykład tworzy kształt tekstowy, liczy jego linie, zwęża kształt, a następnie zastępuje tekst krótszym łańcuchem. Przykład włącza [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) i wyłącza [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/), aby szerokość kształtu kontrolowała zawijanie bez automatycznego zmniejszania tekstu lub zmiany rozmiaru kształtu. Każdy pomiar wykorzystuje [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/). Wymiary kształtu podane są w punktach. Na koniec przykład dodaje kolejny akapit i sumuje liczbę linii w całej ramce tekstowej:
+Poniższy przykład tworzy kształt tekstowy, liczy jego linie, zmniejsza szerokość kształtu, a następnie zastępuje tekst krótszym ciągiem. Przykład włącza [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) i wyłącza [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/), aby szerokość kształtu kontrolowała łamanie bez automatycznego zmniejszania czcionki ani zmiany rozmiaru kształtu. Każdy pomiar wykorzystuje [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/). Wymiary kształtu podawane są w punktach. Na końcu przykład dodaje kolejny akapit i sumuje liczbę linii w całej ramce tekstowej.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -585,19 +585,19 @@ Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
 presentation->Dispose();
 ```
 
-Przy tym tekście i wymiarach zwężanie kształtu zwiększa liczbę linii, natomiast zastąpienie tekstu krótkim łańcuchem ją zmniejsza. Dokładne liczby mogą się różnić w zależności od dostępności i podstawień czcionek, rozmiaru czcionki, marginesów, wcięć, zawijania i ustawień autofitu. Używaj czcionek i ustawień układu przeznaczonych dla docelowego środowiska podczas weryfikacji szablonu.
+Przy tym tekście i wymiarach, zwężenie kształtu zwiększa liczbę linii, natomiast zastąpienie tekstu krótkim ciągiem ją zmniejsza. Dokładne liczby mogą się różnić w zależności od dostępności czcionek i ich zamienników, rozmiaru czcionki, marginesów, wcięć, łamania i ustawień autofitu. Używaj czcionek i ustawień układu przeznaczonych dla docelowego środowiska przy weryfikacji szablonu.
 
-Liczba linii sama w sobie nie określa, czy tekst wykracza poza swój pojemnik. Ważne są także dostępna wysokość, wysokość linii, interlinia akapitu i linii oraz zachowanie autofitu; nawet pojedyncza linia może przekroczyć dostępną szerokość, gdy zawijanie jest wyłączone.
+Sama liczba linii nie określa, czy tekst wykracza poza kontener. Liczy się także dostępna wysokość, wysokość linii, odstępy między akapitami i liniami oraz zachowanie autofitu; nawet pojedyncza linia może przekroczyć dostępną szerokość, gdy łamanie jest wyłączone.
 
-## **Import i eksport treści akapitów**
+## **Import i eksport zawartości akapitu**
 
-Użyj HTML, aby wprowadzić tekst do prezentacji lub wyeksportować istniejące akapity do użycia poza nią. Ta sekcja pokazuje także, jak renderować pojedyncze akapity jako obrazy, w tym akapity w komórkach tabel.
+Używaj HTML, aby wprowadzić tekst do prezentacji lub wyeksportować istniejące akapity do użycia poza nią. Ten rozdział pokazuje także, jak renderować poszczególne akapity jako obrazy, włączając akapity w komórkach tabel.
 
-### **Import tekstu HTML do akapitów**
+### **Importowanie tekstu HTML do akapitów**
 
-Użyj [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) do konwersji znaczników HTML na akapity i fragmenty w ramce tekstowej.
+Użyj [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) aby przekształcić znacznik HTML w akapity i fragmenty w ramce tekstowej.
 
-Ten przykład C++ odczytuje HTML z pliku i przekazuje znacznik do [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/). Czyści domyślny akapit ramki tekstowej, aby ramka zawierała wyłącznie zaimportowaną treść. Prostokątny kształt pozostawia margines 10 punktów po każdej stronie slajdu:
+Ten przykład C++ odczytuje HTML z pliku i przekazuje znacznik do [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/). Czyści domyślny akapit ramki tekstowej, tak aby ramka zawierała wyłącznie zaimportowaną treść. Prostokątny kształt pozostawia margines 10 punktów po każdej stronie slajdu:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -631,16 +631,16 @@ presentation->Save(u"html_text.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Eksport tekstu akapitu do HTML**
+### **Eksportowanie tekstu akapitu do HTML**
 
-Użyj [ParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/exporttohtml/) do wyeksportowania wybranego zakresu akapitów jako HTML. Przy ponownym wykorzystaniu tekstu z prezentacji na stronie internetowej możesz chcieć zachować lokalne podkreślenia bez przenoszenia czcionki, rozmiaru ani stylów pola tekstowego z prezentacji. Ustaw [TextToHtmlConversionOptions::set_TextInheritanceLimit](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_textinheritancelimit/), aby kontrolować, jak daleko eksporter podąża za dziedziczeniem formatowania.
+Użyj [ParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/exporttohtml/) aby wyeksportować wybrany zakres akapitów jako HTML. Przy ponownym użyciu tekstu prezentacji na stronie internetowej możesz chcieć zachować lokalne wyróżnienia bez przenoszenia czcionki, rozmiaru czy stylu pola tekstowego prezentacji. Ustaw [TextToHtmlConversionOptions::set_TextInheritanceLimit](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_textinheritancelimit/) aby kontrolować, jak daleko eksporter podąża za dziedziczeniem formatowania.
 
 Pobierz [przykładową prezentację](text-inheritance.pptx) i umieść ją w katalogu roboczym aplikacji. Jej pierwszy slajd zawiera jeden kształt tekstowy z tekstem „Inherited text; explicit red 18pt”. Wejście celowo używa kilku poziomów formatowania:
 
 - Domyślny styl tekstu prezentacji dostarcza czcionkę Calibri i rozmiar 28 pt.
 - Styl tekstu pierwszego poziomu ramki tekstowej dostarcza niebieski tekst i kursywę.
-- Akapit explicite ustawia pogrubiony tekst.
-- Drugi fragment, „explicit red 18pt”, explicite ustawia czerwony tekst i rozmiar 18 pt.
+- Akapit wyraźnie ustawia pogrubiony tekst.
+- Drugi fragment, „explicit red 18pt”, wyraźnie ustawia czerwony tekst i rozmiar 18 pt.
 
 Poniższy przykład eksportuje te same akapity trzy razy. Przekazuje [TextToHtmlConversionOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/) do metody eksportu i zapisuje każdy wynik jako osobny plik HTML w kodowaniu UTF‑8:
 
@@ -689,31 +689,68 @@ else
 presentation->Dispose();
 ```
 
-Wygenerowany HTML zawiera następujący CSS dla pierwszego fragmentu, „Inherited text; ”. Tabela wymienia odpowiednie deklaracje; inne wygenerowane właściwości zostały pominięte dla przejrzystości.
+Wygenerowany HTML zawiera następujący CSS dla pierwszego fragmentu, „Inherited text; ”. Tabela wymienia istotne deklaracje; pozostałe wygenerowane właściwości zostały pominięte dla przejrzystości.
 
-| Output | Relevant CSS for the first portion | Appearance |
+| Wyjście | Odpowiedni CSS dla pierwszego fragmentu | Wygląd |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Niebieski, pogrubiony, kursywny tekst o rozmiarze 28 pt w Calibri, jeśli ta czcionka jest dostępna. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Niebieski, pogrubiony, kursywny tekst; otaczająca strona lub przeglądarka dostarcza rodzinę czcionki i rozmiar. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Niebieski, pogrubiony, kursywa w 28 pt w Calibri, jeśli czcionka jest dostępna. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Niebieski, pogrubiony, kursywa; otaczająca strona lub przeglądarka dostarcza rodzinę czcionki i rozmiar. |
 | `ParagraphOnly.html` | `font-weight:bold` | Pogrubiony tekst; otaczająca strona lub przeglądarka dostarcza rodzinę czcionki, rozmiar, kolor i styl kursywy. |
 
-Drugi fragment zachowuje `color:#ff0000`, `font-size:18pt` i `font-weight:bold` we wszystkich trzech wyjściach. Zachowuje również kursywę w `All` i `TextBox`, ale nie w `ParagraphOnly`. Ograniczanie dziedziczenia dlatego nie usuwa formatowania przypisanego explicite do akapitu lub fragmentu.
+Drugi fragment zachowuje `color:#ff0000`, `font-size:18pt` i `font-weight:bold` we wszystkich trzech wynikach. Zachowuje także kursywę w `All` i `TextBox`, ale nie w `ParagraphOnly`. Ograniczenie dziedziczenia nie usuwa więc formatowania przypisanego wyraźnie akapitowi lub fragmentowi.
 
 Otwórz pliki w tej samej przeglądarce, aby je porównać. W dwóch trybach ograniczonych pominięte właściwości CSS są rozwiązywane przez style strony docelowej lub domyślne przeglądarki, więc ostateczny wygląd zależy od miejsca użycia HTML.
 
+### **Generowanie fragmentu HTML dla schowka**
+
+Ustaw [TextToHtmlConversionOptions::set_AddClipboardFragmentHeader](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_addclipboardfragmentheader/) na `false` dla zwykłego HTML lub na `true`, aby dołączyć nagłówek schowka. Nagłówek podaje offsety bajtów UTF‑8 otaczającego HTML (`StartHTML` i `EndHTML`) oraz fragmentu do wklejenia (`StartFragment` i `EndFragment`).
+
+Ten przykład eksportuje dwa sformatowane akapity jako zwykły HTML (`html`) oraz jako fragment HTML schowka (`clipboardHtml`). Zapisanie fragmentu do schowka systemowego jest osobnym krokiem aplikacji. API schowka, które przyjmuje surowe bajty HTML, wymaga UTF‑8 bez BOM.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/TextToHtmlConversionOptions.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0, 0, 400, 100);
+auto paragraphs = shape->get_TextFrame()->get_Paragraphs();
+paragraphs->Clear();
+paragraphs->AddFromHtml(u"<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+auto options = MakeObject<TextToHtmlConversionOptions>();
+options->set_AddClipboardFragmentHeader(false);
+auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+
+options->set_AddClipboardFragmentHeader(true);
+auto clipboardHtml = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+presentation->Dispose();
+```
+
 ### **Renderowanie akapitu jako obrazu**
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) renderuje pojedynczy akapit bezpośrednio i zwraca [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/). Zapisz wynik do pliku lub strumienia za pomocą [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/). Nie musisz renderować otaczającego kształtu ani ręcznie przycinać bitmapy.
+[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) renderuje pojedynczy akapit bezpośrednio i zwraca [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/). Zapisz wynik do pliku lub strumienia przy użyciu [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/). Nie musisz renderować całego kształtu ani ręcznie przycinać bitmapy.
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) może zwrócić `nullptr`, jeśli akapit nie zostanie znaleziony w kolekcji nadrzędnej, nie ma prawidłowych granic renderowania lub nie może być renderowany. Sprawdź wynik przed zapisem i zwolnij zwrócony obraz po użyciu.
+[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) może zwrócić `nullptr`, jeśli akapit nie zostanie znaleziony w kolekcji nadrzędnej, nie ma prawidłowych granic renderowania lub nie może być renderowany. Sprawdź wynik przed zapisaniem i zwolnij zwrócony obraz po użyciu.
 
 #### **Renderowanie akapitu w domyślnej skali**
 
-Przykład używa pliku `sample.pptx`, prezentacji z jednym slajdem, którego pierwszy kształt to pole tekstowe zawierające trzy akapity.
+Przykład używa `sample.pptx`, prezentacji z jednym slajdem, którego pierwszy kształt jest polem tekstowym zawierającym trzy akapity.
 
 ![Pole tekstowe z trzema akapitami](paragraph_to_image_input.png)
 
-Poniższy przykład wybiera drugi akapit o indeksie 1 i wywołuje [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) bez parametrów skali. Sprawdza, czy kształt zawiera wymaganego akapitu i czy renderowanie zwraca obraz, przed wywołaniem [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) w formacie PNG. Przykład zwalnia obraz po zapisaniu.
+Poniższy przykład wybiera drugi akapit (indeks 1) i wywołuje [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) bez parametrów skali. Sprawdza, czy kształt zawiera wymagany akapit i czy renderowanie zwróciło obraz, zanim wywoła [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) w formacie PNG. Po zapisaniu obraz jest zwalniany.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -760,7 +797,7 @@ Wynik:
 
 #### **Renderowanie akapitu w komórce tabeli ze skalowaniem**
 
-Użyj przeciążenia [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/), które przyjmuje parametry `float scaleX` i `float scaleY`, aby ustawić czynniki skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w pierwszej komórce przy dwukrotnej szerokości i wysokości domyślnej i zapisuje wynik jako obraz PNG.
+Użyj przeciążenia [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) przyjmującego parametry `float scaleX` i `float scaleY`, aby ustawić czynniki skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w jej pierwszej komórce przy dwukrotnej domyślnej szerokości i wysokości oraz zapisuje wynik jako obraz PNG.
 
 ```cpp
 #include <DOM/IParagraph.h>
@@ -798,21 +835,21 @@ else
 presentation->Dispose();
 ```
 
-Współczynnik skali `1` zachowuje ten oś w domyślnym rozmiarze pikseli. Na przykład `2` dla obu współczynników daje obraz, którego szerokość i wysokość są w przybliżeniu dwa razy większe od wymiarów domyślnych, co skutkuje czterokrotną liczbą pikseli. Większe współczynniki zwykle dają ostrzejszy tekst przy powiększaniu lub wyjściu wysokiej rozdzielczości, ale zwiększają zużycie pamięci i rozmiar pliku. Współczynniki poniżej `1` dają mniejsze obrazy o niższej szczegółowości. Używaj równych współczynników, aby zachować proporcje akapitu; różne współczynniki poziome i pionowe rozciągają wynik niezależnie.
+Współczynnik skali `1` utrzymuje dany wymiar w domyślnym rozmiarze pikseli. Na przykład `2` dla obu współczynników daje obraz, którego szerokość i wysokość są mniej więcej dwukrotne od domyślnych, co daje cztery razy więcej pikseli. Wyższe współczynniki zazwyczaj dają wyraźniejszy tekst przy powiększaniu lub wyjściu o wysokiej rozdzielczości, ale zwiększają także zużycie pamięci i rozmiar pliku. Współczynniki poniżej `1` tworzą mniejsze obrazy o niższej szczegółowości. Używaj równych współczynników, aby zachować proporcje akapitu; różne współczynniki poziome i pionowe rozciągają wynik osobno.
 
-Renderowanie całego kształtu metodą [IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) pozostaje przydatne, gdy wyjście musi zawierać wypełnienie, obramowanie lub inny kontekst wizualny kształtu. Dla obrazu jedynie akapitu użyj [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/).
+Renderowanie całego kształtu przy użyciu [IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) pozostaje przydatne, gdy wynik ma zawierać wypełnienie, obramowanie lub inny kontekst wizualny kształtu. Dla obrazu wyłącznie akapitu użyj [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/).
 
 ## **FAQ**
 
-**Czy mogę całkowicie wyłączyć zawijanie wierszy w ramce tekstowej?**
+**Czy mogę całkowicie wyłączyć łamanie linii wewnątrz ramki tekstowej?**
 
-Tak. Użyj [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/), aby wyłączyć zawijanie, dzięki czemu linie nie łamią się przy krawędziach ramki tekstowej.
+Tak. Użyj [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) aby wyłączyć łamanie, dzięki czemu linie nie będą przerywane na krawędziach ramki tekstowej.
 
-**Jak mogę uzyskać dokładne granice na slajdzie konkretnego akapitu?**
+**Jak uzyskać dokładne granice akapitu na slajdzie?**
 
-Użyj [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/), aby pobrać prostokąt granic akapitu. [IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) dostarcza granice pojedynczego fragmentu.
+Użyj [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) aby pobrać prostokąt ograniczający akapit. [IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) zwraca granice pojedynczego fragmentu.
 
-**Gdzie kontroluje się wyrównanie akapitu (lewo, prawo, środro, wyjustowanie)?**
+**Gdzie kontrolowane jest wyrównanie akapitu (lewe, prawe, wyśrodkowane lub wyjustowane)?**
 
 [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) jest ustawieniem na poziomie akapitu i ma zastosowanie do całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
 

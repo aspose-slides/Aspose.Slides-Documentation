@@ -14,8 +14,8 @@ keywords:
 - จัดการย่อหน้า
 - จัดการสัญลักษณ์หัวข้อ
 - เยื้องย่อหน้า
-- เยื้องแบบห้อย
-- หัวข้อย่อหน้า
+- เยื้องห้อย
+- สัญลักษณ์ย่อหน้า
 - รายการลำดับเลข
 - รายการหัวข้อ
 - คุณสมบัติย่อหน้า
@@ -29,25 +29,25 @@ keywords:
 - งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและจัดรูปแบบย่อหน้า, Portion, สัญลักษณ์หัวข้อ, รายการลำดับเลข, การเยื้อง, เนื้อหา HTML, และภาพย่อหน้า ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
+description: "เรียนรู้วิธีสร้างและจัดรูปแบบย่อหน้า, ส่วนข้อความ, จุดหัวข้อ, รายการลำดับเลข, การเยื้อง, เนื้อหา HTML, และภาพย่อหน้าด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for PHP via Java แสดงข้อความเป็นชั้นของ **TextFrame** , **Paragraph** และ **Portion**:
+Aspose.Slides for PHP via Java แสดงข้อความเป็นโครงสร้างลำดับขั้นของ text frames, paragraphs, และ portions:
 
-* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) เป็นตัวเก็บข้อความในรูปร่างและให้เข้าถึงคอลเลกชันของย่อหน้าต่าง ๆ
-* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) แสดงย่อหน้าเดียวใน TextFrame และให้เข้าถึง Portion ต่าง ๆ พร้อมการจัดรูปแบบระดับย่อหน้า
-* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) เป็นการรันข้อความภายในย่อหน้า แต่ละ Portion สามารถมีการจัดรูปแบบข้อความและอักขระของตนเองได้
+* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) เป็นตัวเก็บข้อความใน shape และให้เข้าถึงคอลเลกชันของ paragraph
+* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) แทน paragraph หนึ่งอันใน text frame และให้เข้าถึง portions และการจัดรูปแบบระดับ paragraph
+* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) แทนช่วงข้อความภายใน paragraph แต่ละ portion สามารถมีการจัดรูปแบบข้อความและอักขระของตนเองได้
 
-ดังนั้น ย่อหน้าจึงสามารถบรรจุข้อความที่มีฟอนต์ สี ขนาด และการจัดรูปแบบอื่น ๆ ต่างกันได้โดยใช้หลาย Portion
+ดังนั้น paragraph สามารถมีข้อความที่ใช้ฟอนต์, สี, ขนาด, และการจัดรูปแบบอื่น ๆ ที่ต่างกันโดยใช้หลาย portions
 
-## **สร้างและจัดรูปแบบย่อหน้าต่าง ๆ**
+## **สร้างและจัดรูปแบบ Paragraphs**
 
-สร้างย่อหน้าใน TextFrame ของรูปร่างและใช้ Portion เพื่อจัดรูปแบบรันข้อความแต่ละส่วน ส่วนนี้จะแสดงวิธีการรวมหลาย Portion ภายในแต่ละย่อหน้าและใส่สี ขนาดฟอนต์ และสไตล์ที่แตกต่างกัน
+สร้าง paragraph ใน text frame ของ shape และใช้ portions เพื่อจัดรูปแบบข้อความแต่ละรัน ส่วนนี้แสดงวิธีผสานหลาย portions ภายในแต่ละ paragraph และกำหนดสี, ขนาดฟอนต์, และสไตล์ที่แตกต่างกัน
 
-### **สร้างย่อหน้ากับหลาย Portion**
+### **สร้าง Paragraphs ด้วยหลาย Portions**
 
-ตัวอย่าง PHP ด้านล่างสร้างย่อหน้า 3 ย่อหน้าซึ่งแต่ละย่อหน้ามี Portion 3 อันในคอลเลกชันที่คืนค่าจาก [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions) ตัวอย่างนี้ใช้ย่อหน้าและ Portion เปล่าเริ่มต้น แล้วเพิ่มย่อหน้าและ Portion ที่เหลือ การจัดรูปแบบทำผ่าน [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat) : Portion แรกของแต่ละย่อหน้ามีสีแดง, ตัวหนา, ขนาด 15 points ; Portion ที่สองเป็นสีน้ำเงิน, ตัวเอียง, ขนาด 18 points ; Portion ที่สามคงการจัดรูปแบบเริ่มต้นไว้:
+ตัวอย่าง PHP ด้านล่างสร้างสาม paragraph แต่ละอันมีสามข้อความในคอลเลกชันที่คืนค่าจาก [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions) โดยใช้ paragraph เริ่มต้นและ portion ว่างเป็นฐาน แล้วเพิ่ม paragraph และ portion ที่เหลือ การจัดรูปแบบทำผ่าน [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat): portion แรกของแต่ละ paragraph มีสีแดง, ตัวหนา, ขนาด 15 pt; portion ที่สองเป็นสีน้ำเงิน, ตัวเอียง, ขนาด 18 pt; portion ที่สามคงการจัดรูปแบบเริ่มต้นไว้:
 
 ```php
 use aspose\slides\FillType;
@@ -109,15 +109,15 @@ try {
 }
 ```
 
-## **สร้างรายการแบบหัวข้อและลำดับเลข**
+## **สร้างรายการแบบ Bullet และ Numbered**
 
-จัดเรียงข้อความในย่อหน้าให้อยู่ในรายการด้วยสัญลักษณ์ ตัวเลข หรือภาพกำหนดเอง ตัวอย่างในส่วนนี้ครอบคลุมการจัดรูปแบบหัวข้อ รายการหลายระดับ และการกำหนดหมายเลขเริ่มต้นแบบกำหนดเอง
+จัดข้อความ paragraph เป็นรายการด้วยสัญลักษณ์, หมายเลข, หรือภาพที่กำหนดเอง ตัวอย่างในส่วนนี้ครอบคลุมการจัดรูปแบบ bullet, รายการหลายระดับ, และการกำหนดหมายเลขเริ่มต้นที่กำหนดเอง
 
-### **สร้างรายการหัวข้อหรือรายการลำดับเลข**
+### **สร้างรายการ Bullet หรือ Numbered**
 
-หัวข้อและการกำหนดลำดับทำให้รายการที่เกี่ยวข้องอ่านง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการกำหนดผ่าน [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/)
+Bullet และการจัดลำดับทำให้รายการที่เกี่ยวข้องอ่านง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการกำหนดผ่าน [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/)
 
-ตัวอย่าง PHP นี้เพิ่มหัวข้อสัญลักษณ์และรายการลำดับเลขใน TextFrame เดียวกัน [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) เลือกประเภทหัวข้อ ส่วน [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) กำหนดสัญลักษณ์ และ [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) เลือกสไตล์การลำดับ ทั้งสองรายการใช้หัวข้อสีดำ ความสูง 100 เปอร์เซ็นต์ และการเยื้องย่อหน้า 25 points:
+ตัวอย่าง PHP นี้เพิ่ม bullet สัญลักษณ์และรายการลำดับเลขใน text frame เดียวกัน [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) กำหนดประเภทของ bullet, while [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) กำหนดสัญลักษณ์และ [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) กำหนดสไตล์การจัดลำดับ ทั้งสองรายการใช้ bullet สีดำ ความสูง 100 % และการเยื้อง paragraph 25 pt:
 
 ```php
 use aspose\slides\BulletType;
@@ -165,11 +165,11 @@ try {
 }
 ```
 
-### **ใช้หัวข้อภาพ**
+### **ใช้ Picture Bullets**
 
-หัวข้อภาพให้คุณใช้ภาพกำหนดเองแทนสัญลักษณ์หรือหมายเลข
+Picture bullets ให้คุณใช้ภาพที่กำหนดเองแทนสัญลักษณ์หรือหมายเลข
 
-ตัวอย่าง PHP นี้เพิ่มภาพลงในคอลเลกชันภาพของการพรีเซนต์เป็น [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) แล้วใช้เป็นหัวข้อย่อหน้า โดยเรียก [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) เพื่อใช้หัวข้อภาพและกำหนดภาพผ่าน [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture) ส่วน [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) ตั้งเป็น 100 เปอร์เซ็นต์ เพื่อขนาดหัวข้อสัมพันธ์กับข้อความในย่อหน้า:
+ตัวอย่าง PHP นี้เพิ่มภาพในคอลเลกชันภาพของงานนำเสนอเป็น [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) แล้วใช้ภาพนั้นเป็น bullet ของ paragraph โดยเรียก [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) เพื่อใช้ picture bullet และกำหนดภาพผ่าน [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture) [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) ถูกตั้งค่าเป็น 100 % เพื่อกำหนดขนาด bullet เทียบกับข้อความใน paragraph:
 
 ```php
 use aspose\slides\BulletType;
@@ -210,9 +210,9 @@ try {
 
 ### **สร้างรายการหลายระดับ**
 
-ตั้งค่า [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) เพื่อจัดย่อหน้าให้อยู่ในระดับต่าง ๆ ของรายการ ระดับบนสุดมีความลึก `0`
+กำหนด [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) เพื่อวาง paragraph ที่ระดับต่าง ๆ ของรายการ ระดับบนสุดมีความลึก `0`
 
-ตัวอย่าง PHP นี้กำหนดค่า [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) ตั้งแต่ 0 ถึง 3 ให้กับย่อหน้า 4 ย่อหน้า สร้างโครงสร้างชั้นใน TextFrame เดียวกัน ย่อหน้าแต่ละอันใช้หัวข้อสัญลักษณ์ โดยที่ [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) สลับระหว่างหัวข้อกลมและเครื่องหมายขีดเพื่อแยกระดับที่อยู่ติดกัน:
+ตัวอย่าง PHP นี้กำหนดค่า [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) ตั้งแต่ 0 ถึง 3 ให้กับสี่ paragraph สร้างโครงสร้างลำดับชั้นภายใน text frame หนึ่งแต่ละ paragraph ใช้ bullet สัญลักษณ์ โดย [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) สลับระหว่าง bullet กลมและ hyphen เพื่อแยกระดับที่อยู่ติดกัน:
 
 ```php
 use aspose\slides\BulletType;
@@ -273,11 +273,11 @@ try {
 }
 ```
 
-### **กำหนดค่าเริ่มต้นของรายการลำดับเลขแบบกำหนดเอง**
+### **เริ่มรายการ Numbered ด้วยค่าเริ่มต้นที่กำหนดเอง**
 
-ใช้ [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) เพื่อตั้งค่าตัวเลขเริ่มต้นของย่อหน้าลำดับเลข
+ใช้ [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) เพื่อตั้งค่าตัวเลขเริ่มต้นที่จะแสดงสำหรับ paragraph ที่เป็นรายการลำดับเลข
 
-ตัวอย่าง PHP นี้ตั้งค่า [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) ให้ใช้การลำดับเลขสำหรับย่อหน้า 3 ย่อหน้าและกำหนดค่า [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) เป็น 2 , 3 และ 7 ค่าที่เริ่มต้นจะถูกกำหนดแยกตามย่อหน้า ทำให้ตัวเลขที่แสดงข้ามค่าได้:
+ตัวอย่าง PHP นี้ตั้งค่า [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) ให้ใช้การจัดลำดับเลขสำหรับสาม paragraph และกำหนดค่า [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) เป็น 2, 3, และ 7 ค่าตั้งต้นนี้กำหนดแยกต่างหากสำหรับแต่ละ paragraph ทำให้เลขที่แสดงข้ามค่าได้:
 
 ```php
 use aspose\slides\BulletType;
@@ -318,17 +318,17 @@ try {
 }
 ```
 
-## **ควบคุมการจัดวางย่อหน้าและคุณสมบัติจบย่อหน้า**
+## **ควบคุมเค้าโครง Paragraph และคุณสมบัติ End**
 
-ปรับขอบเค้นและการเยื้องของย่อหน้าเพื่อควบคุมตำแหน่งของบรรทัดแรกและบรรทัดที่ต่อเนื่อง คุณสามารถจัดรูปแบบเครื่องหมายจบย่อหน้าแยกต่างหากจาก Portion ที่มองเห็นได้
+ปรับระยะขอบและการเยื้องของ paragraph เพื่อควบคุมตำแหน่งของบรรทัดแรกและบรรทัดที่หักลบ คุณยังสามารถจัดรูปแบบเครื่องหมายจบ paragraph แยกจากส่วนข้อความที่มองเห็นได้
 
-### **ตั้งค่าเยื้องบรรทัดแรก**
+### **ตั้งค่า First-Line Indent**
 
-ใช้เมธอด [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) เพื่อควบคุมเยื้องบรรทัดแรกของย่อหน้า การตั้งค่านี้จะขยับเฉพาะบรรทัดแรกเท่านั้นเมื่อเทียบกับขอบซ้ายของย่อหน้า ค่าเป็นบวกจะย้ายบรรทัดแรกไปทางขวา ส่วนบรรทัดที่เหลือคงตำแหน่งตามเนื้อหา
+ใช้เมธอด [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) เพื่อควบคุมการเยื้องบรรทัดแรกของ paragraph การตั้งค่านี้ย้ายเฉพาะบรรทัดแรกเทียบกับ margin ซ้ายของ paragraph ค่าเป็นบวกทำให้บรรทัดแรกเลื่อนขวา ส่วนบรรทัดที่เหลือคงตำแหน่งเดิม
 
-ใช้ [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) เมื่อต้องการย้ายย่อหน้าทั้งหมด ใช้ [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) เมื่อต้องการย้ายบรรทัดแรกเท่านั้น
+ใช้ [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) เมื่อคุณต้องการย้ายทั้ง paragraph ใช้ [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) เมื่อต้องการย้ายเฉพาะบรรทัดแรก
 
-ตัวอย่างต่อไปนี้ให้ย่อหน้า 3 ย่อหน้ามี [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) เท่ากับ 20 points และค่า [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) เป็น 0 , 20 และ 40 points ตามลำดับ บรรทัดแรกเริ่มที่ระยะห่างเพิ่มขึ้นเรื่อย ๆ ส่วนบรรทัดที่ต่อเนื่องคงขอบซ้ายเดียวกัน:
+ตัวอย่างต่อไปนี้ให้สาม paragraph มี [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) ที่ 20 pt และค่า [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) เป็น 0, 20, และ 40 pt บรรทัดแรกเริ่มต้นที่ระยะห่างที่เพิ่มขึ้นต่อเนื่อง ส่วนบรรทัดที่หักลบคง margin ซ้ายเดียวกัน:
 
 ```php
 use aspose\slides\FillType;
@@ -384,17 +384,17 @@ try {
 
 ผลลัพธ์:
 
-![เยื้องบรรทัดแรกของย่อหน้า](first_line_indent.png)
+![การเยื้องบรรทัดแรกของ paragraph](first_line_indent.png)
 
-### **ตั้งค่าเยื้องแบบห้อย**
+### **ตั้งค่า Hanging Indent**
 
-เยื้องแบบห้อยคือการจัดวางย่อหน้าโดยที่บรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วยคุณสมบัติ [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) ตั้งค่า `Indent` เป็นค่าลบเพื่อย้ายบรรทัดแรกไปทางซ้ายเมื่อเทียบกับเนื้อหาย่อหน้า
+Hanging indent คือการจัด layout ของ paragraph ที่บรรทัดแรกเริ่มอยู่ซ้ายกว่าบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วยคุณสมบัติ [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) ตั้งค่า `Indent` เป็นค่าลบเพื่อย้ายบรรทัดแรกซ้ายกว่าเนื้อหา paragraph
 
-โดยปกติ [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) กำหนดตำแหน่งซ้ายของเนื้อหาย่อหน้า และ [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) กำหนดตำแหน่งของบรรทัดแรกสัมพันธ์กับขอบซ้ายนั้น เพื่อสร้างเยื้องแบบห้อย ให้ตั้งค่า `MarginLeft` เป็นบวกและ `Indent` เป็นลบ
+ในทางปฏิบัติ [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) กำหนดตำแหน่งซ้ายของเนื้อหา paragraph, ส่วน [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) กำหนดตำแหน่งของบรรทัดแรกเทียบกับ margin นั้น การสร้าง hanging indent ให้ตั้งค่า `MarginLeft` เป็นค่าบวกและ `Indent` เป็นค่าลบ
 
-การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม การอ้างอิง รายการอภิธานศัพท์ และย่อหน้าอื่น ๆ ที่บรรทัดต่อเนื่องต้องจัดชิดกับเนื้อหาย่อหน้า ไม่ใช่กับอักขระแรกของบรรทัดแรก
+การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม, การอ้างอิง, รายการสารานุกรม, และ paragraph อื่น ๆ ที่ต้องการให้บรรทัดที่หักลบจัดชิดใต้เนื้อหา paragraph ไม่ใช่ใต้ตัวอักษรแรกของบรรทัดแรก
 
-ตัวอย่าง PHP ด้านล่างจับคู่ค่า [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) เป็น 40 และ 60 points กับค่า [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) เป็น -20 และ -30 points ในแต่ละย่อหน้า บรรทัดแรกของย่อหน้าที่สองเริ่มอยู่ทางซ้ายของบรรทัดที่ต่อเนื่องมากกว่า:
+ตัวอย่าง PHP ด้านล่างจับคู่ค่า [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) ที่ 40 และ 60 pt กับค่า [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) ที่ -20 และ -30 pt ในแต่ละ paragraph บรรทัดแรกเริ่มซ้ายกว่าบรรทัดที่หักลบ; paragraph ที่สองมี hanging indent ที่ลึกกว่า:
 
 ```php
 use aspose\slides\FillType;
@@ -442,11 +442,11 @@ try {
 
 ผลลัพธ์:
 
-![เยื้องแบบห้อยของย่อหน้า](hanging_indent.png)
+![การเยื้องแบบ hanging ของ paragraph](hanging_indent.png)
 
-### **ตั้งค่าคุณสมบัติจบย่อหน้า**
+### **ตั้งค่าคุณสมบัติ End Paragraph Run**
 
-เมธอด [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) ควบคุมการจัดรูปแบบของเครื่องหมายจบย่อหน้า ตัวอย่างต่อไปนี้สร้าง [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) โดยตั้งค่า [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) เป็น 48 points และ [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) เป็น Times New Roman จากนั้นใส่รูปแบบนี้ให้กับเครื่องหมายจบของย่อหน้าที่ 2 โดยไม่กระทบ Portion ที่มองเห็นได้:
+เมธอด [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) ควบคุมการจัดรูปแบบของเครื่องหมายจบ paragraph ตัวอย่างต่อไปนี้สร้าง [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) โดยตั้งค่า [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) เป็น 48 pt และ [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) เป็น Times New Roman แล้วกำหนดฟอร์แมตนี้ให้กับเครื่องหมายจบของ paragraph ที่สอง โดยที่ส่วนข้อความที่มองเห็นไม่เปลี่ยนแปลง:
 
 ```php
 use aspose\slides\FontData;
@@ -485,15 +485,15 @@ try {
 }
 ```
 
-## **นับจำนวนบรรทัดที่เรนเดอร์**
+## **นับจำนวนบรรทัดที่แสดงผล**
 
-สำหรับกฎย่อหน้าที่ส่งผลต่อการตัดบรรทัดอัตโนมัติและเครื่องหมายวรรคตอนที่จบบรรทัด ให้ดูที่ [Control Line Breaking](/slides/th/php-java/text-formatting/#control-line-breaking) และ [Control Hanging Punctuation](/slides/th/php-java/text-formatting/#control-hanging-punctuation)
+สำหรับกฎของ paragraph ที่มีผลต่อการห่ออัตโนมัติและเครื่องหมายวรรคตอนที่จบบรรทัด ดูที่ [Control Line Breaking](/slides/th/php-java/text-formatting/#control-line-breaking) และ [Control Hanging Punctuation](/slides/th/php-java/text-formatting/#control-hanging-punctuation)
 
-ใช้ [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) เพื่อนับจำนวนบรรทัดที่ย่อหน้าครอบคลุมหลังจากการจัดวางข้อความ รวมถึงการตัดบรรทัดอัตโนมัติ สิ่งนี้มีประโยชน์เมื่อทำการตรวจสอบความยาวข้อความและการจัดวางในเทมเพลตพรีเซนเทชัน
+ใช้ [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) เพื่อให้นับจำนวนบรรทัดที่ paragraph ใช้หลังจาก layout ข้อความรวมการห่ออัตโนมัติ ซึ่งเป็นประโยชน์เมื่อเช็คความยาวและ layout ของข้อความในเทมเพลตพรีเซนเทชัน
 
-ย่อหน้าเป็นรายการหนึ่งใน [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs) และอาจครอบคลุมหลายบรรทัดที่เรนเดอร์ การใส่การตัดบรรทัดโดยเฉพาะภายในย่อหน้าจะบังคับให้สร้างบรรทัดใหม่โดยไม่สร้างย่อหน้าใหม่ การตัดบรรทัดอัตโนมัติสร้างบรรทัดตามความกว้างที่มีอยู่โดยไม่แทรกอักขระการตัดบรรทัดลงในข้อความ ดังนั้นการนับย่อหน้าหรืออักขระตัดบรรทัดไม่ให้จำนวนบรรทัดที่เรนเดอร์ได้
+paragraph เป็นรายการหนึ่งใน [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs) และอาจใช้หลายบรรทัดที่แสดงผล การใส่ line break อย่างชัดเจนภายใน paragraph จะบังคับให้ขึ้นบรรทัดใหม่โดยไม่สร้าง paragraph ใหม่ การห่ออัตโนมัติสร้างบรรทัดตามความกว้างที่มีโดยไม่แทรก line break ลงในข้อความ ดังนั้นการนับ paragraph หรืออักขระ line‑break จะไม่ได้บอกจำนวนบรรทัดที่แสดงผลจริง
 
-ตัวอย่างต่อไปนี้สร้างรูปทรงข้อความ นับบรรทัดของมัน หดรูปทรงลงแล้วแทนที่ข้อความด้วยสตริงสั้นกว่า ตัวอย่างเปิดใช้งานการตัดบรรทัดด้วย [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) และปิดการปรับอัตโนมัติด้วย [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) เพื่อให้ความกว้างของรูปทรงควบคุมการตัดบรรทัดโดยไม่ย่อหรือปรับขนาดข้อความโดยอัตโนมัติ ทุกการวัดใช้ [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) มาตรการรูปทรงเป็น points สุดท้าย ตัวอย่างเพิ่มย่อหน้าอีกหนึ่งอันและรวมจำนวนบรรทัดทั้งหมดของ TextFrame:
+ตัวอย่างต่อไปนี้สร้าง shape ข้อความ, นับบรรทัด, ลดความกว้างของ shape, แล้วแทนที่ข้อความด้วยสตริงสั้นกว่า ตัวอย่างเปิดการห่อด้วย [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) และปิด autofit ด้วย [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) เพื่อให้ความกว้างของ shape ควบคุมการห่อโดยไม่ทำให้ข้อความหดหรือปรับขนาด shape การวัดแต่ละครั้งใช้ [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) มิติเข้าเป็นจุด ในตอนท้ายตัวอย่างเพิ่ม paragraph อีกอันและรวมจำนวนบรรทัดของทั้ง text frame:
 
 ```php
 use aspose\slides\NullableBool;
@@ -538,19 +538,19 @@ try {
 }
 ```
 
-ด้วยข้อความและขนาดเหล่านี้ การหดรูปทรงทำให้จำนวนบรรทัดเพิ่มขึ้น ขณะที่การแทนที่ข้อความด้วยสตริงสั้นลดจำนวนบรรทัดลง จำนวนที่แน่นอนอาจแตกต่างตามฟอนต์ที่มีอยู่และการแทนที่ ขนาดฟอนต์ ขอบเค้น การเยื้อง การตัดบรรทัดและการตั้งค่า Autofit ใช้ฟอนต์และการตั้งค่าการจัดวางที่กำหนดไว้สำหรับสภาพแวดล้อมเป้าหมายเมื่อตรวจสอบเทมเพลต
+ด้วยข้อความและมิตินี้ การทำให้ shape แคบลงจะเพิ่มจำนวนบรรทัด ในขณะที่การแทนที่ด้วยสตริงสั้นจะลดจำนวนบรรทัด จำนวนที่แน่นอนอาจแตกต่างตามฟอนต์ที่มี, การทดแทน, ขนาดฟอนต์, margin, การเยื้อง, การห่อ, และการตั้งค่า autofit ใช้ฟอนต์และการตั้งค่า layout ที่ใช้ในสภาพแวดล้อมเป้าหมายเมื่อทดสอบเทมเพลต
 
-จำนวนบรรทัดอย่างเดียวไม่บ่งบอกว่าข้อความล้นพื้นที่ของคอนเทนเนอร์หรือไม่ ความสูงที่ใช้ได้ ความสูงของบรรทัด ระยะห่างระหว่างย่อหน้าและบรรทัด รวมถึงพฤติกรรม Autofit ก็สำคัญเช่นกัน; แม้บรรทัดเดียวก็อาจเกินความกว้างที่ใช้ได้หากปิดการตัดบรรทัด
+จำนวนบรรทัดอย่างเดียวไม่บอกว่าข้อความล้นจากคอนเทนเนอร์หรือไม่ ความสูงที่มี, ความสูงของบรรทัด, ระยะห่าง paragraph และบรรทัด, และพฤติกรรม autofit ก็สำคัญ; แม้บรรทัดเดียวก็อาจเกินความกว้างที่มีเมื่อปิดการห่อ
 
-## **นำเข้าและส่งออกเนื้อหาย่อหน้า**
+## **นำเข้าและส่งออกเนื้อหา Paragraph**
 
-ใช้ HTML เพื่อนำข้อความเข้าสู่พรีเซนเทชันหรือส่งออกย่อหน้าที่มีอยู่เพื่อใช้นอกพรีเซนเทชัน ส่วนนี้ยังแสดงวิธีการเรนเดอร์ย่อหน้าเป็นรูปภาพ รวมถึงย่อหน้าในเซลล์ตาราง
+ใช้ HTML เพื่อนำข้อความเข้าสู่พรีเซนเทชันหรือส่งออก paragraph ที่มีอยู่เพื่อใช้ภายนอก ส่วนนี้ยังแสดงวิธีเรนเดอร์ paragraph เป็นภาพรวมถึง paragraph ในเซลล์ตาราง
 
-### **นำเข้า HTML ลงในย่อหน้า**
+### **นำเข้า HTML Text เข้าไปใน Paragraphs**
 
-ใช้ [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) เพื่อแปลง markup HTML เป็นย่อหน้าและ Portion ใน TextFrame
+ใช้ [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) เพื่อแปลง markup HTML ให้เป็น paragraph และ portion ใน text frame
 
-ตัวอย่าง PHP นี้อ่าน HTML จากไฟล์และส่ง markup ไปยัง [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) มันลบย่อหน้าเริ่มต้นของ TextFrame เพื่อให้กรอบมีเฉพาะเนื้อหาที่นำเข้า รูปร่างสี่เหลี่ยมทิ้งระยะขอบ 10 points ทุกด้านของสไลด์:
+ตัวอย่าง PHP นี้อ่าน HTML จากไฟล์แล้วส่ง markup ไปยัง [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) มันลบ paragraph เริ่มต้นของ text frame เพื่อให้เฟรมมีเฉพาะเนื้อหาที่นำเข้า shape สี่เหลี่ยมกำหนด margin 10 pt ทุกด้านของสไลด์:
 
 ```php
 use aspose\slides\FillType;
@@ -580,18 +580,18 @@ try {
 }
 ```
 
-### **ส่งออกข้อความย่อหน้าเป็น HTML**
+### **ส่งออกข้อความ Paragraph เป็น HTML**
 
-ใช้ [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) เพื่อส่งออกช่วงย่อหน้าที่เลือกเป็น HTML เมื่อนำข้อความพรีเซนเทชันกลับไปใช้บนเว็บไซต์ คุณอาจต้องการรักษาการเน้นโดยไม่ต้องนำฟอนต์ ขนาด หรือสไตล์กล่องข้อความของพรีเซนเทชันไปด้วย ตั้งค่า [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) เพื่อควบคุมระดับที่เครื่องมือส่งออกจะสืบทอดการจัดรูปแบบ
+ใช้ [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) เพื่อส่งออกช่วงของ paragraph เป็น HTML เมื่อใช้ข้อความพรีเซนเทชันบนเว็บ คุณอาจต้องการรักษการเน้นโดยไม่พกฟอนต์, ขนาด, หรือสไตล์ของกล่องข้อความ ไปที่ [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) เพื่อควบคุมระดับที่ exporter ตามการสืบทอดรูปแบบ
 
-ดาวน์โหลด [ตัวอย่างพรีเซนเทชัน](text-inheritance.pptx) และวางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกมีรูปทรงข้อความหนึ่งรูปที่มีข้อความ “Inherited text; explicit red 18pt” ข้อมูลอินพุตใช้หลายระดับการจัดรูปแบบโดยเจตนา:
+ดาวน์โหลด [ตัวอย่างพรีเซนเทชัน](text-inheritance.pptx) แล้ววางในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกมี shape ข้อความหนึ่งอันที่มีข้อความ “Inherited text; explicit red 18pt” อินพุตใช้หลายระดับรูปแบบโดยเจตนา:
 
-- สไตล์ข้อความเริ่มต้นของพรีเซนเทชันให้ฟอนต์ Calibri ขนาด 28 pt
-- สไตล์ข้อความระดับแรกของ TextFrame ให้ข้อความสีน้ำเงินและตัวเอียง
-- ย่อหน้ากำหนดข้อความตัวหนาอย่างชัดเจน
-- Portion ที่สอง “explicit red 18pt” กำหนดสีแดงและขนาด 18 pt อย่างชัดเจน
+- สไตล์ข้อความเริ่มต้นของพรีเซนเทชันกำหนด Calibri ขนาด 28 pt
+- สไตล์ข้อความระดับแรกของ text frame กำหนดสีฟ้าและตัวเอียง
+- paragraph ตั้งค่าเป็นตัวหนาอย่างชัดเจน
+- portion ที่สอง “explicit red 18pt” ตั้งค่าสีแดงและขนาด 18 pt อย่างชัดเจน
 
-ตัวอย่างเต็มด้านล่างส่งออกย่อหน้าเดียวกันสามครั้ง โดยส่งผ่าน [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) ไปยังเมธอดส่งออกและบันทึกผลลัพธ์แต่ละไฟล์เป็น HTML‑UTF‑8 แยกไฟล์:
+ตัวอย่างสมบูรณ์ต่อไปนี้ส่งออก paragraph เดียวกันสามครั้ง โดยส่ง [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) ไปยังเมธอดส่งออกและเขียนผลลัพธ์แต่ละอันเป็นไฟล์ HTML UTF‑8 แยกไฟล์:
 
 ```php
 use aspose\slides\Presentation;
@@ -630,31 +630,62 @@ try {
 }
 ```
 
-HTML ที่สร้างขึ้นมี CSS ต่อไปนี้สำหรับ Portion แรก “Inherited text; ” ตารางแสดงการประกาศที่เกี่ยวข้อง; คุณสมบัติที่สร้างอื่น ๆ ถูกละเว้นเพื่อความชัดเจน
+HTML ที่สร้างขึ้นมี CSS ด้านล่างสำหรับ portion แรก “Inherited text; ” ตารางแสดงการประกาศที่เกี่ยวข้อง; คุณสมบัติที่ไม่แสดงในที่นี้ถูกละเว้นเพื่อความกระชับ
 
-| Output | Relevant CSS for the first portion | Appearance |
+| ผลลัพธ์ | CSS ที่เกี่ยวข้องสำหรับส่วนแรก | ลักษณะ |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | ข้อความสีน้ำเงิน ตัวหนา ตัวเอียง ขนาด 28 pt ใน Calibri หากฟอนต์นั้นมี |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | ข้อความสีน้ำเงิน ตัวหนา ตัวเอียง; ฟอนต์และขนาดมาจากหน้าหรือเบราว์เซอร์ |
-| `ParagraphOnly.html` | `font-weight:bold` | ตัวหนา; ฟอนต์ ขนาด สีและสไตล์เอียงมาจากหน้าหรือเบราว์เซอร์ |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | ข้อความสีน้ำเงิน, ตัวหนา, ตัวเอียง ขนาด 28 pt ใน Calibri หากฟอนต์นั้นมี |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | ข้อความสีน้ำเงิน, ตัวหนา, ตัวเอียง; ฟอนต์และขนาดมาจากหน้าเว็บหรือเบราว์เซอร์ |
+| `ParagraphOnly.html` | `font-weight:bold` | ตัวหนา; ฟอนต์, ขนาด, สี, และสไตล์เอียงมาจากหน้าเว็บหรือเบราว์เซอร์ |
 
-Portion ที่สองคง `color:#ff0000`, `font-size:18pt` และ `font-weight:bold` ในผลลัพธ์ทั้ง 3 ไฟล์ โดยยังคงเอียงใน `All.html` และ `TextBox.html` แต่ไม่ใช่ใน `ParagraphOnly.html` การจำกัดการสืบทอดจึงไม่ลบการจัดรูปแบบที่กำหนดให้กับย่อหน้าหรือ Portion อย่างชัดเจน
+portion ที่สองคง `color:#ff0000`, `font-size:18pt`, และ `font-weight:bold` ในผลลัพธ์ทั้งสาม และคงเอียงใน `All.html` กับ `TextBox.html` แต่ไม่คงใน `ParagraphOnly.html` การจำกัดการสืบทอดจึงไม่ลบรูปแบบที่กำหนดโดยตรงให้กับ paragraph หรือ portion
 
-เปิดไฟล์ในเบราว์เซอร์เดียวกันเพื่อเปรียบเทียบ ในสองโหมดที่จำกัด CSS ที่ไม่มีจะถูกเติมด้วยสไตล์ของหน้าเป้าหมายหรือค่าเริ่มต้นของเบราว์เซอร์ ดังนั้นลักษณะที่แสดงขึ้นจะขึ้นกับที่ใช้ HTML
+เปิดไฟล์ในเบราว์เซอร์เดียวกันเพื่อเปรียบเทียบ ในโหมดที่จำกัด CSS ที่ละเว้นจะถูกใช้โดยสไตล์ของหน้าเป้าหมายหรือค่าเริ่มต้นของเบราว์เซอร์ ทำให้ลักษณะที่แสดงแตกต่างตามที่ HTML ถูกใช้งาน
 
-### **เรนเดอร์ย่อหน้าเป็นภาพ**
+### **สร้าง HTML Clipboard Fragment**
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) เรนเดอร์ย่อหน้าเดี่ยวโดยตรงและคืนค่า [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) บันทึกผลลัพธ์เป็นไฟล์หรือสตรีมด้วย [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) คุณไม่จำเป็นต้องเรนเดอร์รูปร่างทั้งหมดหรือครอบตัดบิตแมพด้วยตนเอง
+ใช้ [TextToHtmlConversionOptions::setAddClipboardFragmentHeader](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader) เพื่อเลือกผลลัพธ์จาก [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) เมื่อ `false` เมธอดคืนค่า HTML ปกติ เมื่อ `true` สตริงที่คืนค่าจะเริ่มด้วยหัวข้อคลิปบอร์ดของ Windows ฟิลด์ `StartHTML` และ `EndHTML` ให้ตำแหน่งไบต์ของ HTML ส่วน `StartFragment` และ `EndFragment` บ่งบอกส่วนที่ต้องวาง
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) อาจคืนค่า `null` หากไม่พบย่อหน้าในคอลเลกชันแม่ ไม่มีขอบเขตการเรนเดอร์ที่ถูกต้อง หรือไม่สามารถเรนเดอร์ได้ ตรวจสอบผลลัพธ์ก่อนบันทึกและทำลายภาพที่คืนมาหลังการใช้งาน
+ตัวอย่างนี้ส่งออกสอง paragraph ที่จัดรูปแบบเป็น HTML ปกติ (`$html`) และเป็น HTML clipboard fragment (`$clipboardHtml`) จากนั้นแอปพลิเคชันสามารถเขียน fragment ไปยังคลิปบอร์ดระบบ หาก API ของคลิปบอร์ดต้องการไบต์ดิบ ส่ง fragment เป็น UTF‑8 โดยไม่มี BOM
 
-#### **เรนเดอร์ย่อหน้าที่สเกลเริ่มต้น**
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextToHtmlConversionOptions;
 
-ตัวอย่างใช้พรีเซนเทชันที่มีสไลด์ 1 สไลด์แรกมีรูปร่างข้อความที่มีย่อหน้า 3 ย่อหน้า
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 400, 100);
+    $paragraphs = $shape->getTextFrame()->getParagraphs();
+    $paragraphs->clear();
+    $paragraphs->addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
 
-![รูปกล่องข้อความที่มีย่อหน้า 3 ย่อหน้า](paragraph_to_image_input.png)
+    $options = new TextToHtmlConversionOptions();
+    $options->setAddClipboardFragmentHeader(false);
+    $html = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
 
-ตัวอย่างต่อไปนี้เลือกย่อหน้าที่ 2 (ดัชนี 1) และเรียก [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) โดยไม่ระบุตัวแปรสเกล ตรวจสอบว่ารูปร่างมีย่อหน้าที่ต้องการและการเรนเดอร์คืนภาพก่อนเรียก [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) เพื่อบันทึกเป็น PNG บล็อก `finally` ทำลายภาพหลังการใช้
+    $options->setAddClipboardFragmentHeader(true);
+    $clipboardHtml = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **เรนเดอร์ Paragraph เป็น Image**
+
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) เรนเดอร์ paragraph เดียวโดยตรงและคืนค่า [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) สามารถบันทึกผลลัพธ์เป็นไฟล์หรือสตรีมด้วย [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) ไม่จำเป็นต้องเรนเดอร์ shape ทั้งหมดหรือครอปบิตแมปด้วยตนเอง
+
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) อาจคืนค่า `null` หากไม่พบ paragraph ในคอลเลกชันแม่, ไม่มีขอบเขตการเรนเดอร์ที่ถูกต้อง, หรือไม่สามารถเรนเดอร์ได้ ตรวจสอบผลลัพธ์ก่อนบันทึกและทำลายอิมเมจที่ได้หลังการใช้งาน
+
+#### **เรนเดอร์ Paragraph ด้วยอัตราส่วนเริ่มต้น**
+
+ตัวอย่างใช้พรีเซนเทชันที่มีสไลด์เดียว shape แรกเป็น text box มีสาม paragraph
+
+![Text box ที่มีสาม paragraph](paragraph_to_image_input.png)
+
+ตัวอย่างต่อไปเลือก paragraph ที่สองที่ตำแหน่ง index 1 แล้วเรียก [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) โดยไม่มีพารามิเตอร์สเกล ตรวจสอบว่า shape มี paragraph ที่ต้องการและการเรนเดอร์ได้อิมเมจก่อนเรียก [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) เพื่อบันทึกเป็น PNG ส่วน `finally` ทำลายอิมเมจหลังใช้
 
 ```php
 use aspose\slides\ImageFormat;
@@ -692,11 +723,11 @@ try {
 
 ผลลัพธ์:
 
-![รูปภาพย่อหน้า](paragraph_to_image_output.png)
+![ภาพของ paragraph](paragraph_to_image_output.png)
 
-#### **เรนเดอร์ย่อหน้าในเซลล์ตารางพร้อมสเกล**
+#### **เรนเดอร์ Paragraph ในเซลล์ตารางพร้อมสเกล**
 
-ใช้การโอเวอร์โหลดของ [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) ที่รับพารามิเตอร์ `$scaleX` และ `$scaleY` เพื่อกำหนดอัตราสเกลแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้สร้างตาราง เรนเดอร์ย่อหน้าในเซลล์แรกด้วยความกว้างและความสูงเป็นสองเท่าของค่าเริ่มต้นและบันทึกเป็น PNG
+ใช้ overload ของ [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) ที่รับพารามิเตอร์ `$scaleX` และ `$scaleY` เพื่อกำหนดอัตราส่วนแนวนอนและแนวดิ่ง ตัวอย่างต่อไปสร้างตาราง, เรนเดอร์ paragraph ในเซลล์แรกด้วยความกว้างและความสูงเท่ากับสองเท่าของค่าเริ่มต้น, แล้วบันทึกเป็น PNG
 
 ```php
 use aspose\slides\ImageFormat;
@@ -728,26 +759,26 @@ try {
 }
 ```
 
-ค่าอัตราสเกล `1` ทำให้แกนนั้นคงขนาดพิกเซลเริ่มต้น ตัวอย่างเช่น `2` สำหรับทั้งสองแกนให้ภาพที่กว้างและสูงประมาณสองเท่าของมิติเริ่มต้น ผลลัพธ์คือสี่เท่าจำนวนพิกเซล ค่าที่มากกว่าจะให้ข้อความคมชัดมากขึ้นสำหรับการขยายหรือเอาต์พุตความละเอียดสูง แต่ก็เพิ่มการใช้หน่วยความจำและขนาดไฟล์ ค่าต่ำกว่า `1` จะให้ภาพเล็กลงและรายละเอียดน้อยลง ใช้ค่าอัตราเท่ากันเพื่อคงอัตราส่วนของย่อหน้า; ค่าแนวนอนและแนวตั้งต่างกันจะยืดรูปภาพตามแกนแต่ละแกน
+ค่า `1` รักษาขนาดพิกเซลเริ่มต้นของแกนนั้น ตัวอย่างเช่น `2` สำหรับทั้งสองแกนให้ภาพที่กว้างและสูงประมาณสองเท่าของมิติเริ่มต้น ซึ่งทำให้พิกเซลเพิ่มสี่เท่า ปัจจัยที่ใหญ่กว่ามักให้ข้อความคมชัดขึ้นสำหรับการซูมหรือเอาต์พุตความละเอียดสูง แต่ก็ใช้หน่วยความจำและไฟล์ขนาดใหญ่ขึ้น ปัจจัยที่ต่ำกว่า `1` ให้ภาพเล็กกว่าและรายละเอียดน้อยลง ใช้ปัจจัยเท่ากันเพื่อคงอัตราส่วนของ paragraph; ปัจจัยแนวนอนและแนวดิ่งต่างกันจะยืดภาพแยกกัน
 
-การเรนเดอร์รูปร่างทั้งหมดด้วย [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) ยังคงมีประโยชน์เมื่อผลลัพธ์ต้องการแสดงการเติมสี เส้นขอบ หรือบริบทภาพอื่น ๆ สำหรับภาพเฉพาะย่อหน้า ให้ใช้ [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage)
+การเรนเดอร์ shape ทั้งหมดด้วย [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) ยังมีประโยชน์เมื่อต้องการรวมการเติมสี, เส้นขอบ, หรือบริบทภาพอื่น ๆ สำหรับภาพที่มีเฉพาะ paragraph ให้ใช้ [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถปิดการตัดบรรทัดอัตโนมัติภายใน TextFrame ได้หรือไม่?**
+**ฉันสามารถปิดการห่อข้อความภายใน text frame ได้อย่างสมบูรณ์หรือไม่?**
 
-ใช่ ตั้งค่า [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) ให้ปิดการตัดบรรทัด เพื่อให้บรรทัดไม่ตัดที่ขอบของ TextFrame
+ได้. ตั้งค่า [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) เพื่อปิดการห่อให้บรรทัดไม่ตัดที่ขอบของ text frame
 
-**ฉันจะดึงขอบเขตบนสไลด์ของย่อหน้าเฉพาะได้อย่างไร?**
+**ฉันจะได้ขอบเขตบนสไลด์ของ paragraph เฉพาะอย่างไร?**
 
-ใช้ [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) เพื่อรับสี่เหลี่ยมขอบของย่อหน้า [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) ให้ขอบของ Portion แยก ๆ
+ใช้ [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) เพื่อดึงสี่เหลี่ยมขอบของ paragraph [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) ให้ขอบเขตของ portion เฉพาะ
 
-**การจัดแนวย่อหน้า (ซ้าย, ขวา, ศูนย์, จัดเต็ม) ควบคุมที่ไหน?**
+**การจัดแนว paragraph (ซ้าย, ขวา, ศูนย์, จัดเต็ม) ถูกควบคุมที่ไหน?**
 
-[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) เป็นการตั้งค่าระดับย่อหน้าและส่งผลต่อย่อหน้าเต็มโดยไม่คำนึงถึงการจัดรูปแบบ Portion รายบุคคล
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) เป็นการตั้งค่าระดับ paragraph และใช้กับทั้ง paragraph ไม่ว่าจะมีการจัดรูปแบบ portion แยกต่างหาก
 
-เพื่อจัดแนวแนวดิ่งของ Portion ที่มีขนาดฟอนต์ต่างกันในแต่ละบรรทัด ดูที่ [Align Fonts Within a Line](/slides/th/php-java/text-formatting/#align-fonts-within-a-line)
+เพื่อจัดแนวแนวตั้งของ portions ที่มีขนาดฟอนต์ต่างกันภายในแต่ละบรรทัด โปรดดู [Align Fonts Within a Line](/slides/th/php-java/text-formatting/#align-fonts-within-a-line)
 
-**ฉันสามารถตั้งค่าภาษา proofing สำหรับส่วนของย่อหน้าได้หรือไม่?**
+**ฉันสามารถตั้งค่าภาษา proofing ให้กับส่วนของ paragraph ได้หรือไม่?**
 
-ได้ ตั้งค่า [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) สำหรับ Portion แยกเพื่อให้ย่อหน้าหนึ่งมีข้อความหลายภาษา
+ได้. ตั้งค่า [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) สำหรับ portions แยกต่างหาก เพื่อให้ paragraph หนึ่งสามารถมีข้อความหลายภาษาได้.

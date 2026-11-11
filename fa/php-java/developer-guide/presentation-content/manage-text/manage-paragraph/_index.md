@@ -1,6 +1,6 @@
 ---
-title: مدیریت پاراگراف‌های متن PowerPoint در PHP
-linktitle: مدیریت پاراگراف
+title: "مدیریت پاراگراف‌های متن پاورپوینت در PHP"
+linktitle: "مدیریت پاراگراف"
 type: docs
 weight: 40
 url: /fa/php-java/manage-paragraph/
@@ -8,46 +8,46 @@ aliases:
   - /php-java/paragraph/
   - /php-java/portion/
 keywords:
-  - افزودن متن
-  - افزودن پاراگراف
-  - مدیریت متن
-  - مدیریت پاراگراف
-  - مدیریت گلوله
-  - تورفتگی پاراگراف
-  - تورفتگی معلق
-  - گلوله پاراگراف
-  - فهرست عددی
-  - فهرست گلوله‌ای
-  - ویژگی‌های پاراگراف
-  - وارد کردن HTML
-  - متن به HTML
-  - پاراگراف به HTML
-  - پاراگراف به تصویر
-  - متن به تصویر
-  - صادرات پاراگراف
-  - PowerPoint
-  - ارائه
-  - PHP
-  - Aspose.Slides
-description: "بیاموزید چگونه پاراگراف‌ها، بخش‌ها، گلوله‌ها، فهرست‌های عددی، تورفتگی‌ها، محتوای HTML و تصاویر پاراگراف را با Aspose.Slides برای PHP از طریق Java ایجاد و قالب‌بندی کنید."
+- "افزودن متن"
+- "افزودن پاراگراف"
+- "مدیریت متن"
+- "مدیریت پاراگراف"
+- "مدیریت گلوله"
+- "تورفتگی پاراگراف"
+- "تورفتگی آویزان"
+- "گلوله پاراگراف"
+- "فهرست شماره‌دار"
+- "فهرست نقطه‌دار"
+- "خصوصیات پاراگراف"
+- "وارد کردن HTML"
+- "متن به HTML"
+- "پاراگراف به HTML"
+- "پاراگراف به تصویر"
+- "متن به تصویر"
+- "صدور پاراگراف"
+- "PowerPoint"
+- "ارائه"
+- "PHP"
+- "Aspose.Slides"
+description: "یاد بگیرید چگونه پاراگراف‌ها، بخش‌ها، گلوله‌ها، فهرست‌های شماره‌دار، تورفتگی‌ها، محتوای HTML و تصاویر پاراگراف را با Aspose.Slides برای PHP از طریق Java ایجاد و قالب‌بندی کنید."
 ---
 ## **مرور کلی**
 
-Aspose.Slides برای PHP از طریق Java متن را به صورت سلسله‌مراتبی از فریم‌های متنی، پاراگراف‌ها و بخش‌ها (Portion) نشان می‌دهد:
+Aspose.Slides for PHP via Java متن را به صورت یک سلسله‌مراتب از فریم‌های متنی، پاراگراف‌ها و بخش‌ها (Portions) مدل‌سازی می‌کند:
 
-* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) محفظه متن در یک شکل را نمایندگی می‌کند و دسترسی به مجموعه پاراگراف‌های آن را فراهم می‌سازد.
-* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) نماینده یک پاراگراف در یک فریم متنی است و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را می‌دهد.
-* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) نمایندهٔ یک قسمت متن درون یک پاراگراف است. هر بخش می‌تواند متن و قالب‌بندی کاراکتر خود را داشته باشد.
+* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) نمایانگر محفظه متن در یک شکل است و دسترسی به مجموعه پاراگراف‌های آن را فراهم می‌کند.
+* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) نمایانگر یک پاراگراف در یک فریم متنی است و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را فراهم می‌کند.
+* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) نمایانگر یک بخش متن درون یک پاراگراف است. هر بخش می‌تواند متن و قالب‌بندی کاراکتری خود را داشته باشد.
 
-بنابراین یک پاراگراف می‌تواند متنی با فونت‌ها، رنگ‌ها، اندازه‌ها و قالب‌بندی‌های مختلف داشته باشد، با استفاده از چندین بخش.
+بنابراین یک پاراگراف می‌تواند متن با فونت‌ها، رنگ‌ها، اندازه‌ها و قالب‌بندی‌های مختلف را با استفاده از چندین بخش (Portion) در خود داشته باشد.
 
 ## **ایجاد و قالب‌بندی پاراگراف‌ها**
 
-پاراگراف‌ها را در فریم متنی یک شکل ایجاد کنید و برای قالب‌بندی اجرای‌های متنی جداگانه از بخش‌ها (Portion) استفاده کنید. این بخش نشان می‌دهد چگونه می‌توان چندین بخش را در هر پاراگراف ترکیب کرد و رنگ‌ها، اندازه‌های قلم و سبک‌های مختلف را اعمال کرد.
+پاراگراف‌ها را در فریم متنی یک شکل ایجاد کنید و از بخش‌ها برای قالب‌بندی اجرای‌های منفرد متن استفاده کنید. این بخش نشان می‌دهد چگونه می‌توان چندین بخش را در هر پاراگراف ترکیب کرد و رنگ‌ها، اندازه‌های قلم و سبک‌های متفاوتی اعمال کرد.
 
 ### **ایجاد پاراگراف‌ها با چندین بخش**
 
-مثال PHP زیر سه پاراگراف ایجاد می‌کند که هر کدام شامل سه اجرای متن در مجموعه‌ای که توسط [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions) برگردانده می‌شود. ابتدا از پاراگراف پیش‌فرض و بخش خالی آن استفاده می‌شود، سپس پاراگراف‌ها و بخش‌های باقی‌مانده اضافه می‌گردند. قالب‌بندی از طریق [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat) اعمال می‌شود: اولین بخش در هر پاراگراف قرمز، بولد و 15 پوینت است؛ دومین بخش آبی، ایتالیک و 18 پوینت؛ بخش سوم قالب‌بندی پیش‌فرض خود را حفظ می‌کند:
+مثال PHP زیر، سه پاراگراف ایجاد می‌کند که هر کدام شامل سه اجرای متن در مجموعه‌ای است که توسط [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions) برگردانده می‌شود. این مثال پاراگراف پیش‌فرض و بخش خالی آن را مجدداً استفاده می‌کند، سپس پاراگراف‌ها و بخش‌های باقیمانده را اضافه می‌کند. قالب‌بندی از طریق [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat) اعمال می‌شود: اولین بخش در هر پاراگراف قرمز، توپر (Bold) و ۱۵ نقطه است؛ دومین بخش آبی، کج (Italic) و ۱۸ نقطه؛ بخش سوم قالب‌بندی پیش‌فرض خود را حفظ می‌کند:
 
 ```php
 use aspose\slides\FillType;
@@ -109,15 +109,15 @@ try {
 }
 ```
 
-## **ایجاد فهرست‌های گلوله‌ای و شماره‌دار**
+## **ایجاد فهرست‌های نقطه‌دار و شماره‌دار**
 
-متن پاراگراف‌ها را به فهرست‌هایی با نماد، شماره یا تصاویر سفارشی تبدیل کنید. مثال‌های این بخش شامل قالب‌بندی گلوله‌ها، فهرست‌های چندسطحه‌ای و شماره‌های شروع سفارشی می‌شود.
+متن پاراگراف را به فهرست‌های نمادین، عددی یا با تصویر سفارشی سازماندهی کنید. مثال‌های این بخش شامل قالب‌بندی گلوله (Bullet)، فهرست‌های چندسطحی و تنظیم اعداد آغازین سفارشی است.
 
-### **ایجاد فهرست گلوله‌ای یا شماره‌دار**
+### **ایجاد فهرست نقطه‌دار یا شماره‌دار**
 
-گلوله‌ها و شماره‌گذاری موارد مرتبط را برای اسکن سریع‌تر می‌کند. در Aspose.Slides تنظیمات فهرست از طریق [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/) تعریف می‌شود.
+گلوله‌ها و شماره‌گذاری موارد مرتبط را برای اسکن راحت‌تر می‌کنند. در Aspose.Slides تنظیمات فهرست از طریق [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/) تعریف می‌شوند.
 
-این مثال PHP یک گلوله نمادین و یک مورد شماره‌دار را به همان فریم متنی اضافه می‌کند. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) نوع گلوله را انتخاب می‌کند، در حالی که [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) نماد را فراهم می‌کند و [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) سبک شماره‌گذاری را انتخاب می‌کند. هر دو مورد از گلوله‌های سیاه با ارتفاع 100 درصد و تورفتگی پاراگراف 25 پوینت استفاده می‌کنند:
+این مثال PHP یک گلوله نمادین و یک مورد شماره‌دار را به همان فریم متنی اضافه می‌کند. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) نوع گلوله را انتخاب می‌کند، در حالی که [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) نماد را فراهم می‌کند و [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) سبک شماره‌گذاری را انتخاب می‌کند. هر دو مورد از گلوله‌های سیاه با ارتفاع ۱۰۰ درصد و تورفتگی پاراگراف ۲۵ نقطه استفاده می‌کنند:
 
 ```php
 use aspose\slides\BulletType;
@@ -167,9 +167,9 @@ try {
 
 ### **استفاده از گلوله‌های تصویری**
 
-گلوله‌های تصویری به شما اجازه می‌دهند به جای نماد یا شماره از یک تصویر سفارشی استفاده کنید.
+گلوله‌های تصویری به شما امکان می‌دهند به جای نماد یا عدد، از تصویر سفارشی استفاده کنید.
 
-این مثال PHP یک تصویر را به مجموعه تصاویر ارائه به عنوان یک [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) اضافه می‌کند و آن را به عنوان گلوله پاراگراف استفاده می‌کند. با فراخوانی [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) برای استفاده از گلوله تصویری، تصویر را از طریق [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture) اختصاص می‌دهد. [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) بر روی 100 درصد تنظیم می‌شود تا اندازه گلوله نسبت به متن پاراگراف باشد:
+این مثال PHP یک تصویر را به مجموعه تصویرهای ارائه به عنوان یک [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) اضافه می‌کند و آن را به‌عنوان گلوله پاراگراف استفاده می‌کند. برای استفاده از گلوله تصویری، [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) فراخوانی می‌شود و تصویر از طریق [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture) اختصاص داده می‌شود. [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) بر ۱۰۰ درصد تنظیم می‌شود تا اندازه گلوله نسبت به متن پاراگراف تنظیم شود:
 
 ```php
 use aspose\slides\BulletType;
@@ -208,11 +208,11 @@ try {
 }
 ```
 
-### **ایجاد فهرست چندسطحه‌ای**
+### **ایجاد فهرست چندسطحی**
 
-[ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) را تنظیم کنید تا پاراگراف‌ها را در سطوح مختلف یک فهرست قرار دهید. سطح بالایی عمق `0` دارد.
+[ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) را تنظیم کنید تا پاراگراف‌ها را در سطوح مختلف یک فهرست قرار دهید. سطح بالا عمق `0` دارد.
 
-این مثال PHP مقادیر [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) را از 0 تا 3 به چهار پاراگراف اختصاص می‌دهد و سلسله‌مراتبی داخل یک فریم متنی ایجاد می‌کند. هر پاراگراف از یک گلوله نماد استفاده می‌کند، به‌طوری که [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) بین یک گلوله گرد و یک خط تیره برای تمایز سطوح مجاور چرخش می‌کند:
+این مثال PHP مقادیر [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) را از ۰ تا ۳ به چهار پاراگراف اختصاص می‌دهد و یک سلسله‌مراتب در یک فریم متنی ایجاد می‌کند. هر پاراگراف از گلوله نمادین استفاده می‌کند؛ با [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) بین گلوله گرد و خط تیره برای تمایز سطوح مجاور چرخش می‌کند:
 
 ```php
 use aspose\slides\BulletType;
@@ -273,11 +273,11 @@ try {
 }
 ```
 
-### **شروع شماره‌گذاری فهرست با مقادیر سفارشی**
+### **شروع موارد فهرست شماره‌دار با مقادیر سفارشی**
 
-از [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) برای تعیین عدد اولیه نمایش داده‌شده برای یک پاراگراف شماره‌دار استفاده کنید.
+از [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) برای تنظیم شماره اولیه نمایش داده‌شده برای یک پاراگراف شماره‌دار استفاده کنید.
 
-این مثال PHP [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) را برای استفاده از شماره‌گذاری در سه پاراگراف تنظیم می‌کند و مقادیر [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) را به ترتیب 2، 3 و 7 اختصاص می‌دهد. مقدار شروع به‌صورت جداگانه برای هر پاراگراف پیکربندی می‌شود تا اعداد نمایش داده‌شده بتوانند مقادیر را رد کنند:
+این مثال PHP [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) را برای استفاده از شماره‌گذاری برای سه پاراگراف تنظیم می‌کند و مقادیر [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) را به ترتیب ۲، ۳ و ۷ اختصاص می‌دهد. مقدار شروع به‌صورت جداگانه برای هر پاراگراف پیکربندی می‌شود تا اعداد نمایش داده‌شده مقادیر خاصی را رد کنند:
 
 ```php
 use aspose\slides\BulletType;
@@ -318,17 +318,17 @@ try {
 }
 ```
 
-## **کنترل چیدمان پاراگراف و ویژگی‌های پایان**
+## **کنترل چیدمان پاراگراف و ویژگی‌های انتهای پاراگراف**
 
-مارجین‌ها و تورفتگی‌های پاراگراف را تنظیم کنید تا موقعیت اولین خط و خطوط بسته‌شده را کنترل کنید. می‌توانید علامت انتهای پاراگراف را جدا از بخش‌های متنی قابل مشاهده قالب‌بندی کنید.
+مارجین‌ها و تورفتگی‌های پاراگراف را تنظیم کنید تا موقعیت خط اول و خطوط بسته‌شده را کنترل کنید. می‌توانید علامت انتهای پاراگراف را به‌صورت جداگانه از بخش‌های متنی قابل مشاهده قالب‌بندی کنید.
 
 ### **تنظیم تورفتگی خط اول**
 
-از متد [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این تنظیم فقط خط اول را نسبت به حاشیه چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به راست می‌برد، در حالی که خطوط باقی‌مانده با بدنه پاراگراف هم‌تراز می‌مانند.
+از متد [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این تنظیم فقط خط اول را نسبت به حاشیه چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به سمت راست می‌برد، در حالی که خطوط باقی‌مانده به حاشیه بدنه پاراگراف هم‌راستا می‌مانند.
 
-هنگامی که نیاز به جابه‌جایی کل پاراگراف دارید از [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) استفاده کنید. وقتی فقط خط اول را می‌خواهید جابه‌جا کنید از [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) استفاده کنید.
+از [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) زمانی که نیاز به جابه‌جایی کل پاراگراف دارید، استفاده کنید. از [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) زمانی که فقط خط اول را می‌خواهید جابه‌جا کنید، استفاده کنید.
 
-مثال زیر سه پاراگراف را با یک [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) برابر 20 پوینت و مقادیر [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) به ترتیب 0، 20 و 40 پوینت تنظیم می‌کند. خطوط اول به‌تدریج از افست بزرگتری شروع می‌شوند، در حالی که خطوط بسته‌شده همان حاشیه چپ را حفظ می‌کنند:
+مثال زیر سه پاراگراف را با همان [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) برابر ۲۰ نقطه و مقادیر [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) برابر ۰، ۲۰ و ۴۰ نقطه تنظیم می‌کند. خطوط اول به‌صورت پیش‌رونده در آفست‌های بزرگتری شروع می‌شوند، در حالی که خطوط بسته‌شده همان حاشیه چپ را حفظ می‌کنند:
 
 ```php
 use aspose\slides\FillType;
@@ -386,15 +386,15 @@ try {
 
 ![تورفتگی خط اول پاراگراف‌ها](first_line_indent.png)
 
-### **تنظیم تورفتگی معلق**
+### **تنظیم تورفتگی آویزان**
 
-تورفتگی معلق چیدمانی است که در آن خط اول نسبت به خطوط باقی‌مانده به سمت چپ شروع می‌شود. در Aspose.Slides این اثر را با ویژگی [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) ایجاد می‌کنید. مقدار `Indent` را به عدد منفی بگذارید تا خط اول نسبت به بدنه پاراگراف به چپ جابه‌جا شود.
+تورفتگی آویزان یک چیدمان پاراگراف است که در آن خط اول در سمت چپ خطوط دیگر شروع می‌شود. در Aspose.Slides این اثر را با ویژگی [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) ایجاد می‌کنید. مقدار `Indent` را به مقدار منفی تنظیم کنید تا خط اول نسبت به بدنه پاراگراف به سمت چپ حرکت کند.
 
-در عمل، [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) موقعیت چپ بدنه پاراگراف را تعیین می‌کند و [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) موقعیت خط اول نسبت به آن حاشیه را تنظیم می‌کند. برای ایجاد تورفتگی معلق، مقدار مثبت `MarginLeft` و مقدار منفی `Indent` را تنظیم کنید.
+در عمل، [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) موقعیت چپ بدنه پاراگراف را تعیین می‌کند و [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) موقعیت خط اول را نسبت به آن حاشیه تنظیم می‌کند. برای ایجاد تورفتگی آویزان، مقدار مثبت `MarginLeft` و مقدار منفی `Indent` را تنظیم کنید.
 
-این قالب‌بندی برای کتابشناسی‌ها، مراجع، ورودی‌های واژه‌نامه و سایر پاراگراف‌هایی که خطوط بسته‌شده باید زیر بدنه پاراگراف هم‌راستا شوند مفید است.
+این قالب‌بندی برای کتابشناسی‌ها، مراجع، ورودی‌های واژه‌نامه و سایر پاراگراف‌هایی که خطوط بسته‌شده باید زیر بدنه پاراگراف نه زیر اولین کاراکتر خط اول قرار گیرند مفید است.
 
-مثال PHP زیر مقادیر [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) برابر 40 و 60 پوینت را با مقادیر [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) برابر -20 و -30 پوینت ترکیب می‌کند. در هر پاراگراف، خط اول به سمت چپ خطوط بسته‌شده شروع می‌شود؛ پاراگراف دوم تورفتگی معلق عمیق‌تری دارد:
+مثال PHP زیر مقادیر [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) برابر ۴۰ و ۶۰ نقطه را با مقادیر [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) برابر –۲۰ و –۳۰ نقطه جفت می‌کند. در هر پاراگراف، خط اول به سمت چپ خطوط بسته‌شده شروع می‌شود؛ پاراگراف دوم تورفتگی آویزان عمیق‌تری دارد:
 
 ```php
 use aspose\slides\FillType;
@@ -442,11 +442,11 @@ try {
 
 نتیجه:
 
-![تورفتگی معلق پاراگراف‌ها](hanging_indent.png)
+![تورفتگی آویزان پاراگراف‌ها](hanging_indent.png)
 
 ### **تنظیم ویژگی‌های انتهای پاراگراف**
 
-متد [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) قالب‌بندی علامت انتهای پاراگراف را کنترل می‌کند. مثال زیر یک [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) ایجاد می‌کند که در آن [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) برابر 48 پوینت و [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) برابر Times New Roman تنظیم شده است. این قالب به علامت پایان پاراگراف دوم اختصاص می‌دهد و بخش‌های متنی قابل مشاهده را بدون تغییر می‌گذارد:
+متد [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) قالب‌بندی علامت انتهای پاراگراف را کنترل می‌کند. مثال زیر یک [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) ایجاد می‌کند که در آن [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) برابر ۴۸ نقطه و [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) برابر Times New Roman تنظیم شده‌اند. این قالب به علامت انتهای پاراگراف دوم اختصاص می‌یابد و بخش‌های متنی قابل مشاهده دست نخورده می‌مانند:
 
 ```php
 use aspose\slides\FontData;
@@ -487,13 +487,13 @@ try {
 
 ## **شمارش خطوط رندر شده**
 
-برای قواعد پاراگرافی که بر بسته شدن خودکار و نگهداری نقطه‌گذاری در انتهای خطوط تأثیر می‌گذارند، به [Control Line Breaking](/slides/fa/php-java/text-formatting/#control-line-breaking) و [Control Hanging Punctuation](/slides/fa/php-java/text-formatting/#control-hanging-punctuation) مراجعه کنید.
+برای قوانین پاراگراف که بر بسته شدن خودکار خطوط و نقطه‌گذاری در انتهای خطوط تأثیر می‌گذارند، به بخش‌های [Control Line Breaking](/slides/fa/php-java/text-formatting/#control-line-breaking) و [Control Hanging Punctuation](/slides/fa/php-java/text-formatting/#control-hanging-punctuation) مراجعه کنید.
 
-از [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) برای شمارش خطوطی که یک پاراگراف پس از چیدمان متن اشغال می‌کند، استفاده کنید؛ این شامل بسته شدن خودکار می‌شود. این روش برای بررسی طول متن و چیدمان در قالب‌های ارائه مفید است.
+از [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) برای شمارش خطوط اشغالی یک پاراگراف پس از چیدمان متن، شامل بسته شدن خودکار، استفاده کنید. این روش برای بررسی طول متن و چیدمان در قالب‌های ارائه مفید است.
 
-پاراگراف یک مورد در [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs) است و می‌تواند چندین خط رندر شده را اشغال کند. یک شکست خط صریح درون پاراگراف یک خط جدید ایجاد می‌کند بدون اینکه پاراگراف دیگری ساخته شود. بسته شدن خودکار خطوط را بر پایهٔ عرض موجود ایجاد می‌کند بدون اینکه شکست خط صریحی در متن وارد شود. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط، شمارش خطوط رندر شده را نمی‌دهد.
+یک پاراگراف یک مورد در [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs) است و می‌تواند چندین خط رندر شده را اشغال کند. یک شکست خط صریح درون یک پاراگراف خط جدیدی ایجاد می‌کند بدون اینکه پاراگراف دیگری ساخته شود. بسته شدن خودکار خطوط را بر اساس عرض موجود ایجاد می‌کند بدون آنکه شکست‌های صریح خط به متن اضافه شوند. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط، شمارش خط‌های رندر شده را نمی‌دهد.
 
-مثال زیر یک شکل متنی می‌سازد، خطوط آن را می‌شمارد، اندازه شکل را کم می‌کند و سپس متن را با یک رشته کوتاه‌تر جایگزین می‌کند. در این مثال با [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) بسته شدن متن فعال و با [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) خود تنظیم‌پذیری غیرفعال می‌شود تا عرض شکل کنترل بسته شدن باشد بدون اینکه متن یا شکل به‌صورت خودکار کوچک شود. هر اندازه‌گیری از [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) استفاده می‌کند. ابعاد شکل بر حسب پوینت هستند. در نهایت، مثال یک پاراگراف دیگر اضافه می‌کند و شمارش خطوط را در سراسر فریم متنی جمع می‌کند:
+مثال زیر یک شکل متنی ایجاد می‌کند، خطوط آن را می‌شمارد، شکل را باریک می‌کند و سپس متن را با یک رشته کوتاه‌تر جایگزین می‌کند. این مثال با استفاده از [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) بسته شدن متن را فعال می‌کند و با [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) حالت خودتنظیم را غیرفعال می‌سازد تا عرض شکل کنترل بسته شدن را بدون کوچک‌سازی خودکار متن یا تغییر اندازه شکل انجام دهد. هر اندازه‌گیری با [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) انجام می‌شود. ابعاد شکل بر حسب نقطه است. در نهایت، مثال یک پاراگراف دیگر اضافه می‌کند و مجموع خطوط را در سراسر فریم متنی محاسبه می‌کند.
 
 ```php
 use aspose\slides\NullableBool;
@@ -538,19 +538,19 @@ try {
 }
 ```
 
-با این متن و این ابعاد، باریک‌تر کردن شکل تعداد خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشته کوتاه‌تر آن را کاهش می‌دهد. شمارش دقیق می‌تواند بسته به در دسترس بودن فونت و جایگزینی، اندازهٔ قلم، حاشیه‌ها، تورفتگی، بسته شدن و تنظیمات خود تنظیم‌پذیری متفاوت باشد. برای بررسی یک قالب، از فونت‌ها و تنظیمات چیدمان موردنظر در محیط هدف استفاده کنید.
+با این متن و این ابعاد، باریک‌تر کردن شکل تعداد خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشته کوتاه تعداد خطوط را کاهش می‌دهد. شمارش دقیق می‌تواند بسته به در دسترس بودن فونت و جایگزینی، اندازه قلم، حاشیه‌ها، تورفتگی، بسته شدن و تنظیمات خودتنظیم متفاوت باشد. هنگام بررسی یک قالب، از فونت‌ها و تنظیمات چیدمان مورد انتظار در محیط هدف استفاده کنید.
 
-تعداد خطوط به تنهایی تعیین نمی‌کند که آیا متن از محفظه‌اش سرریز می‌شود یا نه. ارتفاع موجود، ارتفاع خطوط، فاصلهٔ پاراگرافی و خطی، و رفتار خود تنظیم‌پذیری نیز مؤثرند؛ حتی یک خط واحد می‌تواند وقتی بسته شدن غیرفعال باشد عرض موجود را تجاوز کند.
+تعداد خطوط به تنهایی تعیین نمی‌کند که متن از محفظه‌اش سرریز می‌شود یا نه. ارتفاع موجود، ارتفاع خطوط، فاصله پاراگراف و خط، و رفتار خودتنظیم نیز مهم‌اند؛ حتی یک خط واحد می‌تواند عرض موجود را در حالت غیر فعال بودن بسته شدن تجاوز کند.
 
-## **واردات و صادرات محتوای پاراگراف**
+## **واردات و خروجی محتوای پاراگراف**
 
-از HTML برای آوردن متن به یک ارائه یا صادرات پاراگراف‌های موجود به منظور استفاده در خارج از آن استفاده کنید. این بخش همچنین نشان می‌دهد چگونه می‌توان پاراگراف‌های جداگانه را به صورت تصویر رندر کرد، از جمله پاراگراف‌های موجود در سلول‌های جدول.
+از HTML برای وارد کردن متن به ارائه یا خروجی‌گیری از پاراگراف‌های موجود برای استفاده خارج از آن بهره بگیرید. این بخش همچنین نحوه رندر کردن پاراگراف‌های منفرد به عنوان تصویر، شامل پاراگراف‌های داخل سلول‌های جدول را نشان می‌دهد.
 
 ### **وارد کردن متن HTML به پاراگراف‌ها**
 
-از [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) برای تبدیل علامت‌گذاری HTML به پاراگراف‌ها و بخش‌ها در یک فریم متنی استفاده کنید.
+از [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) برای تبدیل نشانه‌گذاری HTML به پاراگراف‌ها و بخش‌ها در یک فریم متنی استفاده کنید.
 
-این مثال PHP HTML را از یک فایل می‌خواند و علامت‌گذاری را به [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) می‌سپارد. پاراگراف پیش‌فرض فریم متنی را پاک می‌کند تا فریم فقط شامل محتوای وارد شده باشد. شکل مستطیلی حاشیهٔ 10 پوینت در هر طرف اسلاید می‌گذارد:
+این مثال PHP، HTML را از یک فایل می‌خواند و نشانه‌گذاری را به [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) می‌گذارد. پاراگراف پیش‌فرض فریم متنی را پاک می‌کند تا فریم فقط شامل محتوای وارد شده باشد. شکل مستطیلی حاشیه ۱۰ نقطه‌ای در هر طرف اسلاید می‌گذارد:
 
 ```php
 use aspose\slides\FillType;
@@ -580,18 +580,18 @@ try {
 }
 ```
 
-### **صادرات متن پاراگراف به HTML**
+### **خروجی متن پاراگراف به HTML**
 
-از [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) برای صادرات یک بازهٔ انتخابی از پاراگراف‌ها به HTML استفاده کنید. هنگام استفاده مجدد از متن ارائه در یک وب‌سایت، ممکن است بخواهید تأکیدهای محلی را بدون انتقال قلم، اندازه یا سبک جعبهٔ متن ارائه حفظ کنید. با تنظیم [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) می‌توانید کنترل کنید که مبدل تا چه حد قالب‌بندی وراثتی را دنبال می‌کند.
+از [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) برای خروجی‌گیری یک بازه انتخابی از پاراگراف‌ها به صورت HTML استفاده کنید. هنگام استفاده مجدد از متن ارائه در یک وب‌سایت، ممکن است بخواهید تأکیدهای محلی را بدون انتقال فونت، اندازه یا سبک‌های جعبه متن ارائه حفظ کنید. با تنظیم [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) می‌توانید کنترل کنید که مبدل تا چه حد قواعد ارث‌بری قالب‌بندی را دنبال می‌کند.
 
-[نمونه ارائه را دانلود کنید](text-inheritance.pptx) و در پوشهٔ کاری برنامه قرار دهید. اسلاید اول آن یک شکل متنی دارد که متن «Inherited text; explicit red 18pt» را شامل می‌شود. ورودی به‌ عمده از سطوح مختلف قالب‌بندی استفاده می‌کند:
+نمونه ارائه را از [text-inheritance.pptx](text-inheritance.pptx) دانلود کنید و در پوشه کاری برنامه قرار دهید. اسلاید اول آن شامل یک شکل متنی با متن «Inherited text; explicit red 18pt» است. ورودی به‌صورت عمدی از چندین سطح قالب‌بندی استفاده می‌کند:
 
-- سبک متنی پیش‌فرض ارائه Calibri با اندازهٔ 28 pt را فراهم می‌کند.
-- سبک متنی سطح اول فریم متنی متن آبی و ایتالیک را فراهم می‌کند.
-- پاراگراف به‌طور صریح متن بولد را تنظیم می‌کند.
-- بخش دوم، «explicit red 18pt»، به‌صورت صریح متن قرمز و اندازهٔ 18 pt را تنظیم می‌کند.
+- سبک متن پیش‌فرض ارائه Calibri با اندازه ۲۸ pt را فراهم می‌کند.
+- سبک متن سطح اول فریم متنی متن آبی و کج را فراهم می‌کند.
+- پاراگراف به‌صورت صریح متن توپر را تنظیم می‌کند.
+- بخش دوم، «explicit red 18pt»، به‌صورت صریح متن قرمز و اندازه ۱۸ pt را تنظیم می‌کند.
 
-مثال کامل زیر همان پاراگراف‌ها را سه بار صادر می‌کند. به متد صادرات یک شیء [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) می‌فرستد و هر نتیجه را به‌صورت یک فایل HTML UTF‑8 جداگانه می‌نویسد:
+مثال کامل زیر همان پاراگراف‌ها را سه بار خروجی می‌گیرد. [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) به متد خروجی پاس داده می‌شود و هر نتیجه به‌عنوان یک فایل HTML UTF‑8 جداگانه ذخیره می‌شود:
 
 ```php
 use aspose\slides\Presentation;
@@ -630,31 +630,62 @@ try {
 }
 ```
 
-HTML تولید شده CSS زیر را برای اولین بخش «Inherited text; » شامل می‌شود. جدول مربوطه را نشان می‌دهد؛ سایر ویژگی‌های تولید شده برای وضوح حذف شده‌اند.
+HTML تولید شده CSS زیر را برای اولین بخش «Inherited text; » شامل می‌شود. جدول مربوطه اعلامیه‌های CSS مرتبط را فهرست می‌کند؛ سایر ویژگی‌های تولید شده برای وضوح حذف شده‌اند.
 
 | خروجی | CSS مرتبط برای اولین بخش | ظاهر |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، بولد و ایتالیک با اندازهٔ 28 pt در Calibri، اگر آن قلم موجود باشد. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، بولد و ایتالیک؛ صفحه یا مرورگر زمینهٔ قلم و اندازهٔ آن را فراهم می‌کند. |
-| `ParagraphOnly.html` | `font-weight:bold` | متن بولد؛ صفحه یا مرورگر قلم، اندازه، رنگ و سبک ایتالیک را تامین می‌کند. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، توپر، کج با ۲۸ pt در Calibri، اگر این فونت در دسترس باشد. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، توپر، کج؛ صفحه یا مرورگر میزبان فونت و اندازه را فراهم می‌کند. |
+| `ParagraphOnly.html` | `font-weight:bold` | متن توپر؛ صفحه یا مرورگر فونت، اندازه، رنگ و سبک کج را تأمین می‌کند. |
 
-بخش دوم `color:#ff0000`، `font-size:18pt` و `font-weight:bold` را در هر سه خروجی حفظ می‌کند. این بخش در خروجی‌های `All` و `TextBox` ایتالیک را نیز حفظ می‌کند، اما در `ParagraphOnly` این ویژگی حذف می‌شود. محدود کردن وراثت لذا قالب‌بندی صریحاً اختصاص داده‌شده به پاراگراف یا بخش حذف نمی‌شود.
+بخش دوم `color:#ff0000`، `font-size:18pt` و `font-weight:bold` را در هر سه خروجی حفظ می‌کند. همچنین ایتالیک در خروجی‌های `All` و `TextBox` حفظ می‌شود اما در `ParagraphOnly` نیست. محدود کردن ارث‌بری بنابراین قالب‌بندی صریح اختصاص داده‌شده به پاراگراف یا بخش را حذف نمی‌کند.
 
-فایل‌ها را در همان مرورگر باز کنید تا مقایسه کنید. در دو حالت محدود شده، ویژگی‌های CSS حذف‌شده توسط سبک‌های صفحه مقصد یا پیش‌فرض مرورگر حل می‌شوند، بنابراین ظاهر نهایی به جایی که HTML استفاده می‌شود بستگی دارد.
+فایل‌ها را در یک مرورگر باز کنید تا مقایسه کنید. در دو حالت محدود، ویژگی‌های CSS حذف‌شده توسط سبک‌های صفحه مقصد یا پیش‌فرض مرورگر حل می‌شوند، بنابراین ظاهر نهایی به محل استفاده HTML وابسته است.
 
-### **رندر پاراگراف به عنوان تصویر**
+### **تولید یک قطعه کلیپ‌بورد HTML**
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) یک پاراگراف منفرد را مستقیم رندر می‌کند و یک [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) برمی‌گرداند. نتیجه را می‌توانید با [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) در یک فایل یا جریان ذخیره کنید. نیازی به رندر شکل حاوی یا برش بیت‌مپ به‌صورت دستی نیست.
+از [TextToHtmlConversionOptions::setAddClipboardFragmentHeader](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader) برای انتخاب خروجی از [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) استفاده کنید. با مقدار `false`، متد HTML معمولی برمی‌گرداند. با مقدار `true`، رشتهٔ بازگشتی با یک سرآیند کلیپ‌بورد ویندوز شروع می‌شود. فیلدهای `StartHTML` و `EndHTML` بایت‑آفست‌های UTF‑8 HTML را می‌دهند، در حالی که `StartFragment` و `EndFragment` محتوای قابل چسباندن را مشخص می‌کنند.
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) می‌تواند `null` برگرداند اگر پاراگراف در مجموعهٔ والد یافت نشود، مرزهای رندر معتبری نداشته باشد یا نتواند رندر شود. قبل از ذخیره‌سازی نتیجه را بررسی کنید و پس از استفاده تصویر برگردانده‌شده را آزاد کنید.
+این مثال دو پاراگراف قالب‌بندی‌شده را به‌صورت HTML معمولی (`$html`) و به‌صورت قطعه کلیپ‌بورد HTML (`$clipboardHtml`) خروجی می‌گیرد. سپس برنامه می‌تواند این قطعه را به کلیپ بورد سیستم بنویسد. اگر API کلیپ‌بورد بیت‌های خام انتظار دارد، قطعه را به‌صورت UTF‑8 بدون علامت ترتیب بایت (BOM) فراهم کنید.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextToHtmlConversionOptions;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 400, 100);
+    $paragraphs = $shape->getTextFrame()->getParagraphs();
+    $paragraphs->clear();
+    $paragraphs->addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+    $options = new TextToHtmlConversionOptions();
+    $options->setAddClipboardFragmentHeader(false);
+    $html = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
+
+    $options->setAddClipboardFragmentHeader(true);
+    $clipboardHtml = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **رندر یک پاراگراف به عنوان تصویر**
+
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) یک پاراگراف منفرد را به‌صورت مستقیم رندر می‌کند و یک [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) باز می‌گرداند. نتیجه را با [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) در یک فایل یا جریان ذخیره کنید. نیازی به رندر شکل حاوی آن یا برش دستی بیت‌مپ ندارید.
+
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) ممکن است `null` برگرداند اگر پاراگراف در مجموعه والد پیدا نشود، مرزهای رندر معتبری نداشته باشد یا قابل رندر نباشد. پیش از ذخیره‌سازی نتیجه را بررسی کنید و پس از استفاده تصویر بازگردانده‌شده را آزاد کنید.
 
 #### **رندر پاراگراف با مقیاس پیش‌فرض**
 
-این مثال از یک ارائه با یک اسلاید استفاده می‌کند که شکل اول آن یک جعبه متنی شامل سه پاراگراف است.
+مثال از یک ارائه با یک اسلاید استفاده می‌کند که شکل اولین آن یک جعبه متنی با سه پاراگراف است.
 
-![جعبه متن با سه پاراگراف](paragraph_to_image_input.png)
+![جعبه متنی با سه پاراگراف](paragraph_to_image_input.png)
 
-مثال زیر پاراگراف دوم (اندیس 1) را انتخاب می‌کند و بدون پارامترهای مقیاس به [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) فراخوانی می‌کند. ابتدا بررسی می‌کند که شکل پاراگراف موردنیاز را دارد و رندر تصویر بازگردانده شده است قبل از این‌که [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) را برای ذخیره به فرمت PNG فراخوانی کند. بلوک `finally` تصویر را پس از استفاده آزاد می‌کند.
+مثال زیر پاراگراف دوم را با ایندکس ۱ انتخاب می‌کند و بدون پارامترهای مقیاس به [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) فراخوانی می‌کند. ابتدا بررسی می‌کند که شکل پاراگراف مورد نیاز را دارد و رندر یک تصویر برمی‌گرداند، سپس با [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) آن را در قالب PNG ذخیره می‌کند. بلوک `finally` تصویر را پس از استفاده آزاد می‌کند.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -694,9 +725,9 @@ try {
 
 ![تصویر پاراگراف](paragraph_to_image_output.png)
 
-#### **رندر پاراگراف در یک سلول جدول با مقیاس**
+#### **رندر پاراگراف در سلول جدول با مقیاس‌بندی**
 
-از بارگذاری [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) که پارامترهای `$scaleX` و `$scaleY` را می‌پذیرد استفاده کنید تا عوامل مقیاس افقی و عمودی را تنظیم کنید. مثال زیر یک جدول می‌سازد، پاراگراف را در اولین سلول آن با دو برابر عرض و ارتفاع پیش‌فرض رندر می‌کند و نتیجه را به‌صورت تصویر PNG ذخیره می‌نماید.
+از overload متد [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) که پارامترهای `$scaleX` و `$scaleY` را می‌پذیرد، برای تعیین عوامل مقیاس افقی و عمودی استفاده کنید. مثال زیر یک جدول می‌سازد، پاراگراف را در اولین سلول آن با دو برابر عرض و ارتفاع پیش‌فرض رندر می‌کند و نتیجه را به عنوان تصویر PNG ذخیره می‌کند.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -728,26 +759,26 @@ try {
 }
 ```
 
-عامل مقیاس `1` آن محور را در اندازه پیش‌فرض پیکسل نگه می‌دارد. به‌عنوان مثال، `2` برای هر دو عامل تصویری تولید می‌کند که عرض و ارتفاع آن تقریباً دو برابر ابعاد پیش‌فرض است و تعداد پیکسل‌ها چهار برابر می‌شود. عوامل بزرگتر عموماً متن شفاف‌تری برای بزرگ‌نمایی یا خروجی با وضوح بالا تولید می‌کنند، اما حافظه و حجم فایل را نیز افزایش می‌دهند. عوامل زیر `1` تصاویر کوچکتر با جزئیات کمتر می‌سازند. برای حفظ نسبت طول/عرض پاراگراف از عوامل برابر استفاده کنید؛ عوامل متفاوت افقی و عمودی تصویر را به‌صورت مستقل کش می‌دهند.
+عامل مقیاس `1` آن محور را با اندازه پیکسل پیش‌فرض حفظ می‌کند. به‌عنوان مثال، `2` برای هر دو عامل تصویری می‌سازد که عرض و ارتفاع آن تقریباً دو برابر ابعاد پیش‌فرض باشد و به این ترتیب چهار برابر پیکسل داشته باشد. عوامل بزرگ‌تر معمولاً متن شفاف‌تری برای بزرگ‌نمایی یا خروجی با وضوح بالا تولید می‌کنند، اما مصرف حافظه و حجم فایل را نیز افزایش می‌دهند. عوامل زیر `1` تصاویر کوچکتر با جزئیات کمتر تولید می‌کنند. برای حفظ نسبت ابعاد پاراگراف از عوامل برابر استفاده کنید؛ عوامل متفاوت افقی و عمودی خروجی را به‌طور مستقل کش می‌دهند.
 
-رندر کل شکل با [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) زمانی مفید است که خروجی نیاز به شامل پرکردن، حاشیه یا سایر زمینه‌های بصری شکل داشته باشد. برای تصویر فقط پاراگراف، از [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) استفاده کنید.
+رندر کل شکل با [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) همچنان مفید است وقتی خروجی باید پر، مرز یا سایر زمینه‌های بصری شکل را شامل شود. برای تصویر صرفاً شامل پاراگراف، از [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) استفاده کنید.
 
-## **سؤالات متدوال**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم بسته شدن خط داخل یک فریم متنی را به‌طور کامل غیرفعال کنم؟**
+**آیا می‌توانم بسته شدن خطوط داخل یک فریم متنی را کاملاً غیر فعال کنم؟**
 
 بله. با تنظیم [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) بسته شدن را غیرفعال کنید تا خطوط در لبه‌های فریم متنی شکسته نشوند.
 
-**چگونه می‌توانم حدود دقیق روی اسلاید برای یک پاراگراف خاص را دریافت کنم؟**
+**چگونه می‌توانم محدوده دقیق پاراگراف خاصی روی اسلاید را به دست آورم؟**
 
-از [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) برای دریافت مستطیل محدود‌کننده پاراگراف استفاده کنید. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) حدود یک بخش منفرد را فراهم می‌کند.
+از [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) برای دریافت مستطیل محاطی پاراگراف استفاده کنید. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) مرزهای یک بخش منفرد را فراهم می‌کند.
 
-**کنترل تراز پاراگراف (چپ، راست، وسط یا توجیه) در کجا انجام می‌شود؟**
+**کنترل تراز پاراگراف (چپ، راست، مرکز یا توجیه) در کجا انجام می‌شود؟**
 
-[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) تنظیمی در سطح پاراگراف است و بر کل پاراگراف اعمال می‌شود، صرف‌نظر از قالب‌بندی بخش‌های منفرد.
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) یک تنظیم سطح پاراگراف است و بر تمام پاراگراف اعمال می‌شود، صرف‌نظر از قالب‌بندی بخش‌های منفرد.
 
-برای تراز عمودی بخش‌های با اندازهٔ قلم متفاوت در هر خط، به [Align Fonts Within a Line](/slides/fa/php-java/text-formatting/#align-fonts-within-a-line) مراجعه کنید.
+برای تراز عمودی بخش‌های مختلف با اندازه‌های قلم متفاوت در هر خط، به [Align Fonts Within a Line](/slides/fa/php-java/text-formatting/#align-fonts-within-a-line) مراجعه کنید.
 
-**آیا می‌توانم زبان اثبات (proofing) را برای قسمتی از پاراگراف تنظیم کنم؟**
+**آیا می‌توانم زبان اثبات برای بخشی از پاراگراف تنظیم کنم؟**
 
-بله. با تنظیم [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) برای بخش‌های منفرد، می‌توانید یک پاراگراف را شامل متن‌های چند زبانه کنید.
+بله. با تنظیم [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) برای بخش‌های منفرد، می‌توانید در یک پاراگراف متن را به چندین زبان داشته باشید.

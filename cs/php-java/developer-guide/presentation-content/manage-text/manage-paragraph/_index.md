@@ -1,5 +1,5 @@
 ---
-title: Spravujte odstavce textu PowerPoint v PHP
+title: Správa odstavců PowerPoint v PHP
 linktitle: Spravovat odstavec
 type: docs
 weight: 40
@@ -14,7 +14,7 @@ keywords:
 - spravovat odstavec
 - spravovat odrážku
 - odsazení odstavce
-- závěsné odsazení
+- visící odsazení
 - odrážka odstavce
 - číslovaný seznam
 - odrážkový seznam
@@ -22,8 +22,8 @@ keywords:
 - importovat HTML
 - text do HTML
 - odstavec do HTML
-- odstavec na obrázek
-- text na obrázek
+- odstavec do obrázku
+- text do obrázku
 - exportovat odstavec
 - PowerPoint
 - prezentace
@@ -33,21 +33,21 @@ description: "Naučte se vytvářet a formátovat odstavce, části, odrážky, 
 ---
 ## **Přehled**
 
-Aspose.Slides pro PHP via Java představuje text jako hierarchii textových rámců, odstavců a částí:
+Aspose.Slides pro PHP přes Java představuje text jako hierarchii textových rámců, odstavců a částí:
 
-* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) představuje kontejner textu ve tvaru a poskytuje přístup ke kolekci odstavců.
+* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) představuje kontejner textu ve tvaru a poskytuje přístup k jeho kolekci odstavců.
 * [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) představuje jeden odstavec v textovém rámci a poskytuje přístup k jeho částem a formátování na úrovni odstavce.
-* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) představuje úsek textu v odstavci. Každý úsek může mít vlastní text a formátování na úrovni znaku.
+* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) představuje běh textu v odstavci. Každá část může mít vlastní text a formátování na úrovni znaků.
 
 Odstavec tak může obsahovat text s různými písmy, barvami, velikostmi a dalším formátováním pomocí více částí.
 
-## **Vytvoření a formátování odstavců**
+## **Vytváření a formátování odstavců**
 
-Vytvářejte odstavce v textovém rámci tvaru a používejte části k formátování jednotlivých úseků textu. V této sekci se ukazuje, jak kombinovat více částí v každém odstavci a aplikovat různé barvy, velikosti písma a styly.
+Vytvořte odstavce v textovém rámci tvaru a použijte části k formátování jednotlivých běhů textu. Tato sekce ukazuje, jak kombinovat více částí v každém odstavci a použít různé barvy, velikosti písma a styly.
 
 ### **Vytvoření odstavců s více částmi**
 
-Následující příklad v PHP vytváří tři odstavce, z nichž každý obsahuje tři úseky textu ve sbírce vrácené metodou [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions). Znovu používá výchozí odstavec a jeho prázdnou část, poté přidá zbývající odstavce a části. Formátování je aplikováno pomocí [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat): první část v každém odstavci je červená, tučná a 15 bodů; druhá je modrá, kurzíva a 18 bodů. Třetí část si ponechává výchozí formátování:
+Následující PHP příklad vytvoří tři odstavce, z nichž každý obsahuje tři běhy textu ve sbírce vrácené metodou [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions). Použije výchozí odstavec a jeho prázdnou část, poté přidá zbývající odstavce a části. Formátování se aplikuje pomocí [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat): první část v každém odstavci je červená, tučná a 15 bodů; druhá je modrá, kurzíva a 18 bodů. Třetí část si zachová výchozí formátování:
 
 ```php
 use aspose\slides\FillType;
@@ -109,15 +109,15 @@ try {
 }
 ```
 
-## **Vytvoření odrážkových a číslovaných seznamů**
+## **Vytvoření odrážek a číslovaných seznamů**
 
 Organizujte text odstavců do seznamů se symboly, čísly nebo vlastními obrázky. Příklady v této sekci pokrývají formátování odrážek, víceúrovňové seznamy a vlastní počáteční čísla.
 
 ### **Vytvoření odrážkového nebo číslovaného seznamu**
 
-Odrážky a číslování usnadňují prohlížení souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována pomocí [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/).
+Odrážky a číslování usnadňují skenování souvisejících položek. V Aspose.Slides jsou nastavení seznamů definována pomocí [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/).
 
-Tento příklad v PHP přidává symbolickou odrážku a číslovanou položku do stejného textového rámce. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) vybírá typ odrážky, zatímco [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) určuje symbol a [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) vybírá styl číslování. Obě položky používají černé odrážky s výškou 100 % a odsazením odstavce 25 bodů:
+Tento PHP příklad přidá symbolickou odrážku a číslovanou položku do stejného textového rámce. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) vybírá typ odrážky, zatímco [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) určuje symbol a [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) vybírá styl číslování. Obě položky používají černé odrážky s výškou 100 % a odsazením odstavce 25 bodů:
 
 ```php
 use aspose\slides\BulletType;
@@ -167,9 +167,9 @@ try {
 
 ### **Použití obrázkových odrážek**
 
-Obrázkové odrážky umožňují použít vlastní obrázek místo symbolu nebo čísla.
+Obrázkové odrážky vám umožní použít vlastní obrázek místo symbolu nebo čísla.
 
-Tento příklad v PHP přidává obrázek do kolekce obrázků prezentace jako [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) a používá jej jako odrážku odstavce. Volá [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) pro použití obrázkové odrážky a přiřazuje obrázek pomocí [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture). [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) je nastaven na 100 % pro velikost odrážky relativně k textu odstavce:
+Tento PHP příklad přidá obrázek do kolekce obrázků prezentace jako [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) a použije jej jako odrážku odstavce. Volá [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) k použití obrázkové odrážky a přiřazuje obrázek pomocí [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture). [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) je nastaveno na 100 % pro velikost odrážky relativně k textu odstavce:
 
 ```php
 use aspose\slides\BulletType;
@@ -212,7 +212,7 @@ try {
 
 Nastavte [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) pro umístění odstavců na různé úrovně seznamu. Nejvyšší úroveň má hloubku `0`.
 
-Tento příklad v PHP přiřazuje hodnoty [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) od 0 do 3 čtyřům odstavcům, čímž vytváří hierarchii v jednom textovém rámci. Každý odstavec používá symbolickou odrážku, přičemž [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) střídavě používá kulatou odrážku a pomlčku pro odlišení sousedních úrovní:
+Tento PHP příklad přiřadí [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) hodnoty 0‑3 čtyřem odstavcům, čímž vytvoří hierarchii v jednom textovém rámci. Každý odstavec používá symbolickou odrážku, přičemž [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) střídavě používá kulatou odrážku a pomlčku pro rozlišení sousedních úrovní:
 
 ```php
 use aspose\slides\BulletType;
@@ -275,9 +275,9 @@ try {
 
 ### **Zahájení číslovaných položek seznamu na vlastní hodnoty**
 
-Použijte [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) pro nastavení počátečního čísla zobrazovaného u číslovaného odstavce.
+Použijte [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) pro nastavení počátečního čísla zobrazeného u číslovaného odstavce.
 
-Tento příklad v PHP nastavuje [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) pro číslování tří odstavců a přiřazuje hodnoty [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) 2, 3 a 7. Počáteční hodnota je konfigurována zvlášť pro každý odstavec, což umožňuje, aby se zobrazovaná čísla přeskočila:
+Tento PHP příklad nastaví [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) k používání číslování pro tři odstavce a přiřadí [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) hodnoty 2, 3 a 7. Počáteční hodnota je nakonfigurována odděleně pro každý odstavec, což umožňuje přeskočit čísla:
 
 ```php
 use aspose\slides\BulletType;
@@ -318,17 +318,17 @@ try {
 }
 ```
 
-## **Řízení rozvržení odstavce a koncových vlastností**
+## **Řízení rozložení odstavců a koncových vlastností**
 
-Upravujte okraje a odsazení odstavců pro kontrolu polohy první řádky a zalomených řádků. Můžete také formátovat koncový znak odstavce odděleně od viditelných částí textu.
+Upravte okraje a odsazení odstavců pro řízení polohy první řádky a řádků, které jsou zalomené. Můžete také formátovat koncovou značku odstavce odděleně od viditelných částí textu.
 
 ### **Nastavení odsazení první řádky**
 
-Použijte metodu [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) pro ovlivnění odsazení první řádky odstavce. Toto nastavení posouvá jen první řádku relativně k levému okraji odstavce. Kladná hodnota posune první řádku doprava, zatímco zbývající řádky zůstávají zarovnány k tělu odstavce.
+Použijte metodu [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) pro ovládání odsazení první řádky odstavce. Toto nastavení posouvá pouze první řádek vzhledem k levému okraji odstavce. Kladná hodnota posune první řádek doprava, zatímco zbývající řádky zůstanou zarovnány k tělu odstavce.
 
-Použijte [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft), pokud potřebujete posunout celý odstavec. Použijte [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent), pokud potřebujete posunout jen první řádku.
+Použijte [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft), když potřebujete posunout celý odstavec. Použijte [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent), když chcete posunout jen první řádek.
 
-Následující příklad dává třem odstavcům stejné [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) 20 bodů a [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) hodnoty 0, 20 a 40 bodů. První řádky začínají na postupně větších offsetech, zatímco zalomené řádky si zachovávají stejný levý okraj:
+Následující příklad dává třem odstavcům stejný [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) 20 bodů a [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) hodnoty 0, 20 a 40 bodů. První řádky začínají postupně většími posuny, zatímco zalomené řádky si zachovávají stejný levý okraj:
 
 ```php
 use aspose\slides\FillType;
@@ -386,15 +386,15 @@ Výsledek:
 
 ![Odsazení první řádky odstavců](first_line_indent.png)
 
-### **Nastavení závěsného odsazení**
+### **Nastavení visícího odsazení**
 
-Závěsné odsazení je rozvržení odstavce, ve kterém první řádka začíná vlevo od zbývajících řádků. V Aspose.Slides vytvoříte tento efekt pomocí vlastnosti [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent). Nastavte `Indent` na zápornou hodnotu, aby se první řádka posunula vlevo vůči tělu odstavce.
+Visící odsazení je rozložení odstavce, ve kterém první řádek začíná vlevo od zbývajících řádků. V Aspose.Slides tento efekt vytvoříte pomocí vlastnosti [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent). Nastavte `Indent` na zápornou hodnotu, aby se první řádek posunul vlevo vzhledem k tělu odstavce.
 
-V praxi [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) určuje levou pozici těla odstavce a [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) určuje pozici první řádky relativně k tomuto okraji. Pro vytvoření závěsného odsazení nastavte kladnou hodnotu `MarginLeft` a zápornou hodnotu `Indent`.
+V praxi [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) určuje levou pozici těla odstavce a [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) určuje pozici první řádky vzhledem k tomuto okraji. Pro vytvoření visícího odsazení nastavte kladnou hodnotu `MarginLeft` a zápornou hodnotu `Indent`.
 
-Toto formátování je užitečné pro bibliografie, reference, glosáře a další odstavce, kde musí být zalomené řádky zarovnány pod tělo odstavce, nikoli pod první znak první řádky.
+Toto formátování je užitečné pro bibliografie, odkazy, glosáře a další odstavce, kde musí být zalomené řádky zarovnány pod tělo odstavce, nikoli pod první znak první řádky.
 
-Následující příklad v PHP spojuje hodnoty [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) 40 a 60 bodů s hodnotami [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) -20 a -30 bodů. V každém odstavci první řádka začíná vlevo od zalomených řádků; druhý odstavec má hlubší závěsné odsazení:
+Následující PHP příklad spojuje hodnoty [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) 40 a 60 bodů s hodnotami [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) –20 a –30 bodů. V každém odstavci první řádek začíná vlevo od zalomených řádků; druhý odstavec má hlubší visící odsazení:
 
 ```php
 use aspose\slides\FillType;
@@ -442,11 +442,11 @@ try {
 
 Výsledek:
 
-![Závěsné odsazení odstavců](hanging_indent.png)
+![Visící odsazení odstavců](hanging_indent.png)
 
-### **Nastavení vlastností koncové běhu odstavce**
+### **Nastavení vlastností koncové části odstavce**
 
-Metoda [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) řídí formátování koncového znaku odstavce. Následující příklad vytváří [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) s [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) nastaveným na 48 bodů a [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) nastaveným na Times New Roman. Tento formát přiřadí koncovému znaku druhého odstavce, přičemž viditelné textové části zůstávají nezměněny:
+Metoda [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) řídí formátování koncové značky odstavce. Následující příklad vytváří [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) s [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) nastaveným na 48 bodů a [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) nastaveným na Times New Roman. Tento formát přiřadí ke koncové značce druhého odstavce, zatímco viditelné textové části zůstávají beze změny:
 
 ```php
 use aspose\slides\FontData;
@@ -487,13 +487,13 @@ try {
 
 ## **Počítání vykreslených řádků**
 
-Pro pravidla odstavců, která ovlivňují automatické zalamování a interpunkci na konci řádku, viz [Control Line Breaking](/slides/cs/php-java/text-formatting/#control-line-breaking) a [Control Hanging Punctuation](/slides/cs/php-java/text-formatting/#control-hanging-punctuation).
+Pro pravidla odstavců, která ovlivňují automatické zalamování a interpunkci na konci řádků, viz [Řízení zalamování řádků](/slides/cs/php-java/text-formatting/#control-line-breaking) a [Řízení závěrečných interpunkčních znaků](/slides/cs/php-java/text-formatting/#control-hanging-punctuation).
 
-Použijte [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) pro spočítání řádků obsazených odstavcem po rozložení textu, včetně automatického zalamování. To je užitečné při kontrole délky textu a rozvržení v šablonách prezentací.
+Použijte [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) k získání počtu řádků obsazených odstavcem po rozložení textu, včetně automatického zalamování. To je užitečné při kontrole délky textu a rozložení v šablonách prezentací.
 
-Odstavec je jednou položkou v [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs) a může zabírat několik vykreslených řádků. Explicitní zalomení řádku v odstavci vynutí nový řádek, aniž by vytvořilo další odstavec. Automatické zalamování vytváří řádky na základě dostupné šířky, aniž by vkládalo explicitní znaky zalomení do textu. Počítání odstavců nebo znaků zalomení proto nedává počet vykreslených řádků.
+Odstavec je jednou položkou v [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs) a může zabírat několik vykreslených řádků. Výslovný zalomení řádku uvnitř odstavce vynutí nový řádek, aniž by vytvořil další odstavec. Automatické zalamování vytváří řádky na základě dostupné šířky, aniž by do textu vkládalo výslovné znaky nového řádku. Počítání odstavců nebo znaků nových řádků tedy nedává počet vykreslených řádků.
 
-Následující příklad vytváří textový tvar, počítá jeho řádky, zužuje tvar a poté nahrazuje text kratším řetězcem. Příklad povoluje zalamování pomocí [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) a vypíná automatické přizpůsobení pomocí [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType), takže šířka tvaru řídí zalamování bez automatického zmenšování textu nebo změny velikosti tvaru. Každé měření používá [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount). Rozměry tvaru jsou v bodech. Nakonec příklad přidá další odstavec a sečte počty řádků napříč textovým rámcem.
+Následující příklad vytvoří textový tvar, spočítá jeho řádky, zúží tvar a pak nahradí text kratším řetězcem. Příklad povolí zalamování pomocí [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) a zakáže automatické přizpůsobení pomocí [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType), aby šířka tvaru řídila zalamování bez automatického zmenšování textu nebo změny velikosti tvaru. Každé měření používá [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount). Rozměry tvaru jsou v bodech. Nakonec příklad přidá další odstavec a sečte počty řádků napříč textovým rámcem.
 
 ```php
 use aspose\slides\NullableBool;
@@ -538,19 +538,19 @@ try {
 }
 ```
 
-Se zmenšením tvaru se počet řádků zvyšuje, zatímco nahrazení textu krátkým řetězcem jej snižuje. Přesné počty se mohou lišit podle dostupnosti písma a jeho náhrad, velikosti písma, okrajů, odsazení, zalamování a nastavení automatického přizpůsobení. Používejte písma a nastavení rozvržení určená pro cílové prostředí při kontrole šablony.
+S tímto textem a těmito rozměry zúžení tvaru zvyšuje počet řádků, zatímco nahrazení textu krátkým řetězcem jej snižuje. Přesné počty se mohou lišit podle dostupnosti a substituce písem, velikosti písma, okrajů, odsazení, zalamování a nastavení automatického přizpůsobení. Používejte písma a nastavení rozložení určená pro cílové prostředí při kontrole šablony.
 
-Samotný počet řádků neurčuje, zda text přesahuje kontejner. Důležité jsou také dostupná výška, výšky řádků, mezery mezi odstavci a řádky a chování automatického přizpůsobení; i jeden řádek může překročit dostupnou šířku, pokud je zalamování vypnuté.
+Samotný počet řádků neurčuje, zda text přesahuje svůj kontejner. Důležité jsou také dostupná výška, výšky řádků, mezery mezi odstavci a řádky a chování automatického přizpůsobení; i jediný řádek může překročit dostupnou šířku, pokud je zalamování zakázáno.
 
 ## **Import a export obsahu odstavců**
 
-Použijte HTML pro vložení textu do prezentace nebo export existujících odstavců pro použití mimo ni. Tato sekce také ukazuje, jak vykreslit jednotlivé odstavce jako obrázky, včetně odstavců v buňkách tabulek.
+Použijte HTML k vložení textu do prezentace nebo k exportu existujících odstavců pro použití mimo ni. Tato sekce také ukazuje, jak vykreslit jednotlivé odstavce jako obrázky, včetně odstavců v buňkách tabulek.
 
 ### **Import HTML textu do odstavců**
 
-Použijte [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) pro převod HTML značek na odstavce a části v textovém rámci.
+Použijte [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) k převodu HTML značek na odstavce a části v textovém rámci.
 
-Tento příklad v PHP čte HTML ze souboru a předává značky metodě [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml). Vymaže výchozí odstavec textového rámce, aby rámec obsahoval jen importovaný obsah. Obdélníkový tvar ponechává okraj 10 bodů na každé straně snímku:
+Tento PHP příklad čte HTML ze souboru a předává značky metodě [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml). Vymaže výchozí odstavec textového rámce, aby rámec obsahoval pouze importovaný obsah. Obdélníkový tvar ponechává na každé straně snímku okraj 10 bodů:
 
 ```php
 use aspose\slides\FillType;
@@ -580,18 +580,18 @@ try {
 }
 ```
 
-### **Export textu odstavců do HTML**
+### **Export textu odstavce do HTML**
 
-Použijte [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) pro export vybraného rozsahu odstavců jako HTML. Při opětovném použití textu prezentace na webu můžete chtít zachovat lokální zvýraznění bez přenášení písma, velikosti nebo stylů textového pole z prezentace. Nastavte [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) pro řízení, jak daleko exportér sleduje dědičnost formátování.
+Použijte [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) k exportu vybraného rozsahu odstavců jako HTML. Při opětovném použití textu prezentace na webových stránkách můžete chtít zachovat místní důraz bez přenášení písem, velikostí nebo stylů textových polí prezentace. Nastavte [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) pro řízení, jak daleko exportér následuje dědičnost formátování.
 
-Stáhněte [vzorkovou prezentaci](text-inheritance.pptx) a umístěte ji do pracovního adresáře aplikace. Její první snímek obsahuje jeden textový tvar s textem „Inherited text; explicit red 18pt“. Vstup záměrně používá několik úrovní formátování:
+Stáhněte [vzorkovou prezentaci](text-inheritance.pptx) a umístěte ji do pracovního adresáře aplikace. Její první snímek obsahuje jeden textový tvar s textem „Inherited text; explicit red 18pt“. Vstup úmyslně používá několik úrovní formátování:
 
-- Výchozí styl textu prezentace poskytuje Calibri a velikost 28 pt.
-- První úroveň stylu textového rámce poskytuje modrý text a kurzívu.
+- Výchozí styl textu prezentace poskytuje písmo Calibri a velikost 28 pt.
+- Styl textu první úrovně textového rámce poskytuje modrý text a kurzívu.
 - Odstavec explicitně nastavuje tučný text.
 - Druhá část, „explicit red 18pt“, explicitně nastavuje červený text a velikost 18 pt.
 
-Následující kompletní příklad exportuje stejné odstavce třikrát. Předává [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) metodě exportu a zapisuje každý výsledek jako samostatný soubor UTF‑8 HTML:
+Následující kompletní příklad exportuje stejné odstavce třikrát. Předává [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) metodě exportu a zapisuje každý výsledek do samostatného souboru UTF‑8 HTML:
 
 ```php
 use aspose\slides\Presentation;
@@ -634,27 +634,58 @@ Vygenerované HTML obsahuje následující CSS pro první část, „Inherited t
 
 | Výstup | Relevantní CSS pro první část | Vzhled |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Modrý, tučný, kurzívní text 28 pt v Calibri, pokud je toto písmo k dispozici. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Modrý, tučný, kurzívní text; okolní stránka nebo prohlížeč dodává rodinu písma a velikost. |
-| `ParagraphOnly.html` | `font-weight:bold` | Tučný text; okolní stránka nebo prohlížeč dodává rodinu písma, velikost, barvu a kurzívní styl. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Modrý, tučný, kurzívní text o velikosti 28 pt v písmu Calibri, pokud je toto písmo dostupné. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Modrý, tučný, kurzívní text; okolní stránka nebo prohlížeč poskytuje rodinu písma a velikost. |
+| `ParagraphOnly.html` | `font-weight:bold` | Tučný text; okolní stránka nebo prohlížeč poskytuje rodinu písma, velikost, barvu a kurzívní styl. |
 
-Druhá část si zachovává `color:#ff0000`, `font-size:18pt` a `font-weight:bold` ve všech třech výstupech. Také si zachovává kurzívu v `All` a `TextBox`, ale ne v `ParagraphOnly`. Omezení dědičnosti tedy neodstraňuje formátování, které bylo výslovně přiřazeno odstavci nebo části.
+Druhá část zachovává `color:#ff0000`, `font-size:18pt` a `font-weight:bold` ve všech třech výstupech. Také zachovává kurzívu u `All` a `TextBox`, ale ne u `ParagraphOnly`. Omezení dědičnosti tedy neodstraňuje formátování explicitně přiřazené odstavci nebo části.
 
-Otevřete soubory ve stejném prohlížeči a porovnejte je. V dvou omezených režimech jsou vynechané CSS vlastnosti řešeny styly cílové stránky nebo výchozími nastaveními prohlížeče, takže výsledný vzhled závisí na tom, kde je HTML použito.
+Otevřete soubory ve stejném prohlížeči pro jejich porovnání. Ve dvou omezených režimech jsou vynechané vlastnosti CSS vyřešeny styly cílové stránky nebo výchozími nastaveními prohlížeče, takže výsledný vzhled závisí na tom, kde je HTML použito.
+
+### **Vygenerování HTML fragmentu pro schránku**
+
+Použijte [TextToHtmlConversionOptions::setAddClipboardFragmentHeader](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader) pro volbu výstupu z [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml). S `false` metoda vrátí obyčejné HTML. S `true` vrácený řetězec začíná záhlavím schránky Windows. Jeho pole `StartHTML` a `EndHTML` udávají offsety UTF‑8 bajtů HTML, zatímco `StartFragment` a `EndFragment` identifikují obsah k vložení.
+
+Tento příklad exportuje dva formátované odstavce jako obyčejné HTML (`$html`) a jako HTML fragment schránky (`$clipboardHtml`). Aplikace pak může fragment zapsat do systémové schránky. Pokud API schránky očekává surové bajty, předávejte fragment jako UTF‑8 bez značky pořadí bajtů (BOM).
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextToHtmlConversionOptions;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 400, 100);
+    $paragraphs = $shape->getTextFrame()->getParagraphs();
+    $paragraphs->clear();
+    $paragraphs->addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+    $options = new TextToHtmlConversionOptions();
+    $options->setAddClipboardFragmentHeader(false);
+    $html = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
+
+    $options->setAddClipboardFragmentHeader(true);
+    $clipboardHtml = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
+} finally {
+    $presentation->dispose();
+}
+```
 
 ### **Vykreslení odstavce jako obrázku**
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) vykreslí jednotlivý odstavec přímo a vrátí [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Výsledek uložte do souboru nebo proudu pomocí [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save). Nemusíte vykreslovat celý tvar nebo ručně ořezávat bitmapu.
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) vykreslí jednotlivý odstavec přímo a vrátí [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Výsledek uložte do souboru nebo proudu pomocí [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save). Nemusíte vykreslovat obsahující tvar ani ručně ořezávat bitmapu.
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) může vrátit `null`, pokud odstavec nelze najít v nadřazené kolekci, nemá platné vykreslovací hranice nebo jej nelze vykreslit. Zkontrolujte výsledek před uložením a po použití uvolněte vrácený obrázek.
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) může vrátit `null`, pokud odstavec nelze najít v nadřazené kolekci, nemá platné vykreslovací ohraničení nebo jej nelze vykreslit. Zkontrolujte výsledek před uložením a po použití uvolněte získaný obrázek.
 
-#### **Vykreslení odstavce v základním měřítku**
+#### **Vykreslení odstavce v výchozím měřítku**
 
 Příklad používá prezentaci s jedním snímkem, jehož první tvar je textové pole obsahující tři odstavce.
 
 ![Textové pole se třemi odstavci](paragraph_to_image_input.png)
 
-Následující příklad vybírá druhý odstavec s indexem 1 a volá [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) bez parametrů měřítka. Kontroluje, že tvar obsahuje požadovaný odstavec a že vykreslení vrátí obrázek, než zavolá [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) pro uložení ve formátu PNG. Blok `finally` uvolňuje obrázek po použití.
+Následující příklad vybírá druhý odstavec s indexem 1 a volá [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) bez parametrů měřítka. Kontroluje, že tvar obsahuje požadovaný odstavec a že vykreslení vrací obrázek, než zavolá [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) pro uložení ve formátu PNG. Blok `finally` uvolní obrázek po použití.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -696,7 +727,7 @@ Výsledek:
 
 #### **Vykreslení odstavce v buňce tabulky se škálováním**
 
-Použijte přetíženou verzi [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage), která přijímá parametry `$scaleX` a `$scaleY` pro nastavení horizontálního a vertikálního faktoru měřítka. Následující příklad vytvoří tabulku, vykreslí odstavec v její první buňce při dvojnásobné šířce i výšce oproti výchozímu a uloží výsledek jako PNG obrázek.
+Použijte přetížení [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage), které přijímá parametry `$scaleX` a `$scaleY` pro nastavení horizontálního a vertikálního škálovacího faktoru. Následující příklad vytvoří tabulku, vykreslí odstavec v první buňce dvakrát ve výchozí šířce i výšce a výsledek uloží jako PNG obrázek.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -728,26 +759,26 @@ try {
 }
 ```
 
-Faktor měřítka `1` zachovává osu v její výchozí velikosti pixelů. Například `2` pro oba faktory vytvoří obrázek, jehož šířka a výška jsou přibližně dvojnásobné oproti výchozím rozměrům, což vede ke čtyřnásobnému počtu pixelů. Větší faktory obecně poskytují ostřejší text pro zvětšení nebo výstup ve vysokém rozlišení, ale také zvyšují spotřebu paměti a velikost souboru. Faktory pod `1` vytvářejí menší obrázky s menšími detaily. Použijte stejné faktory pro zachování poměru stran odstavce; odlišné horizontální a vertikální faktory obraz roztaží nezávisle.
+Faktor škálování `1` ponechá danou osu v její výchozí velikosti pixelů. Například `2` pro oba faktory vytvoří obrázek, jehož šířka a výška jsou přibližně dvakrát větší než výchozí rozměry, což vede ke čtyřnásobku pixelů. Větší faktory obecně poskytují ostřejší text pro přiblížení nebo vysoké rozlišení, ale zároveň zvyšují paměťovou náročnost a velikost souboru. Faktory pod `1` vytvářejí menší obrázky s méně podrobným zobrazením. Použijte stejné faktory pro zachování poměru stran odstavce; různé horizontální a vertikální faktory roztačí výstup nezávisle.
 
-Vykreslení celého tvaru pomocí [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) je užitečné, když výstup musí zahrnovat výplň, okraj nebo jiný vizuální kontext tvaru. Pro obrázek pouze odstavce použijte [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage).
+Vykreslení celého tvaru pomocí [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) zůstává užitečné, když výstup musí zahrnovat výplň, ohraničení nebo jiný vizuální kontext tvaru. Pro obrázek pouze odstavce použijte [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage).
 
-## **FAQ**
+## **Často kladené otázky**
 
 **Mohu zcela zakázat zalamování řádků uvnitř textového rámce?**
 
-Ano. Nastavte [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) na vypnutí zalamování, aby řádky nevybíhaly na okrajích textového rámce.
+Ano. Nastavte [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) na zakázání zalamování, aby se řádky neřezaly na okrajích textového rámce.
 
-**Jak mohu získat přesné souřadnice konkrétního odstavce na snímku?**
+**Jak mohu získat přesné ohraničení konkrétního odstavce na snímku?**
 
-Použijte [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) pro získání ohraničujícího obdélníku odstavce. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) poskytuje souřadnice jednotlivé části.
+Použijte [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) pro získání ohraničujícího obdélníku odstavce. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) poskytuje ohraničení jednotlivé části.
 
-**Kde se řídí zarovnání odstavce (vlevo, vpravo, na střed nebo do bloku)?**
+**Kde se řídí zarovnání odstavce (levé, pravé, středové nebo do bloku)?**
 
-[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) je nastavení na úrovni odstavce a platí pro celý odstavec bez ohledu na formátování jednotlivých částí.
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) je nastavení na úrovni odstavce a aplikuje se na celý odstavec bez ohledu na formátování jednotlivých částí.
 
-Pro vertikální zarovnání částí s různými velikostmi písma v každém řádku viz [Align Fonts Within a Line](/slides/cs/php-java/text-formatting/#align-fonts-within-a-line).
+Pro vertikální zarovnání částí s různými velikostmi písma v každém řádku viz [Vertikální zarovnání částí v řádku](/slides/cs/php-java/text-formatting/#align-fonts-within-a-line).
 
 **Mohu nastavit jazyk kontroly pravopisu pro část odstavce?**
 
-Ano. Nastavte [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) pro jednotlivé části, takže jeden odstavec může obsahovat text v několika jazycích.
+Ano. Nastavte [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) pro jednotlivé části, aby jeden odstavec mohl obsahovat text v několika jazycích.

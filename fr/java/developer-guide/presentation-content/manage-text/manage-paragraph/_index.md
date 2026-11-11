@@ -12,7 +12,7 @@ keywords:
 - ajouter un paragraphe
 - gérer le texte
 - gérer le paragraphe
-- gérer les puces
+- gérer la puce
 - retrait de paragraphe
 - retrait suspendu
 - puce de paragraphe
@@ -29,25 +29,25 @@ keywords:
 - présentation
 - Java
 - Aspose.Slides
-description: "Apprenez à créer et formater des paragraphes, des portions, des puces, des listes numérotées, des retraits, du contenu HTML et des images de paragraphe avec Aspose.Slides for Java."
+description: "Apprenez à créer et formater des paragraphes, des portions, des puces, des listes numérotées, des retraits, du contenu HTML et des images de paragraphes avec Aspose.Slides pour Java."
 ---
-## **Vue d'ensemble**
+## **Aperçu**
 
 Aspose.Slides for Java représente le texte sous la forme d’une hiérarchie de cadres de texte, de paragraphes et de portions :
 
 * [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) représente le conteneur de texte dans une forme et fournit l’accès à sa collection de paragraphes.
 * [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) représente un paragraphe dans un cadre de texte et fournit l’accès à ses portions ainsi qu’au formatage au niveau du paragraphe.
-* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) représente un fragment de texte au sein d’un paragraphe. Chaque portion peut avoir son propre texte et son formatage au niveau des caractères.
+* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) représente une exécution de texte au sein d’un paragraphe. Chaque portion peut avoir son propre texte et son formatage au niveau des caractères.
 
-Un paragraphe peut donc contenir du texte avec différentes polices, couleurs, tailles et autres formats en utilisant plusieurs portions.
+Un paragraphe peut donc contenir du texte avec différentes polices, couleurs, tailles et autres formatages en utilisant plusieurs portions.
 
-## **Créer et formater des paragraphes**
+## **Créer et formater les paragraphes**
 
-Créez des paragraphes dans le cadre de texte d’une forme et utilisez les portions pour formater les fragments de texte individuels. Cette section montre comment combiner plusieurs portions au sein de chaque paragraphe et appliquer différentes couleurs, tailles de police et styles.
+Créez des paragraphes dans le cadre de texte d’une forme et utilisez des portions pour formater les exécutions de texte individuelles. Cette section montre comment combiner plusieurs portions dans chaque paragraphe et appliquer différentes couleurs, tailles de police et styles.
 
 ### **Créer des paragraphes avec plusieurs portions**
 
-L’exemple Java suivant crée trois paragraphes, chacun contenant trois fragments de texte dans la collection renvoyée par la méthode [IParagraph.getPortions](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getPortions--) . Il réutilise le paragraphe par défaut et sa portion vide, puis ajoute les paragraphes et portions restants. Le formatage est appliqué via [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--) : la première portion de chaque paragraphe est rouge, en gras et de 15 points ; la deuxième est bleue, en italique et de 18 points. La troisième portion conserve son formatage par défaut :
+L’exemple Java suivant crée trois paragraphes, chacun contenant trois exécutions de texte dans la collection renvoyée par [IParagraph.getPortions](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getPortions--) . Il réutilise le paragraphe par défaut et sa portion vide, puis ajoute les paragraphes et portions restants. Le formatage est appliqué via [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--) : la première portion de chaque paragraphe est rouge, en gras et de 15 points ; la deuxième est bleue, en italique et de 18 points. La troisième portion conserve son formatage par défaut :
 
 ```java
 import com.aspose.slides.*;
@@ -106,11 +106,11 @@ try {
 
 ## **Créer des listes à puces et numérotées**
 
-Organisez le texte des paragraphes sous forme de listes à puces, à numéros ou avec des images personnalisées. Les exemples de cette section couvrent le formatage des puces, les listes à plusieurs niveaux et les numéros de départ personnalisés.
+Organisez le texte des paragraphes en listes avec des symboles, des nombres ou des images personnalisées. Les exemples de cette section couvrent le formatage des puces, les listes à plusieurs niveaux et les numéros de départ personnalisés.
 
 ### **Créer une liste à puces ou numérotée**
 
-Les puces et la numérotation facilitent la lecture des éléments liés. Dans Aspose.Slides, les paramètres de liste sont définis via [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/).
+Les puces et la numérotation facilitent la lecture des éléments liés. Dans Aspose.Slides, les paramètres de liste sont définis via [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/) .
 
 Cet exemple Java ajoute une puce symbole et un élément numéroté au même cadre de texte. [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) sélectionne le type de puce, tandis que [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) fournit le symbole et [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) sélectionne le style de numérotation. Les deux éléments utilisent des puces noires avec une hauteur de 100 % et un retrait de paragraphe de 25 points :
 
@@ -158,7 +158,7 @@ try {
 
 Les puces image vous permettent d’utiliser une image personnalisée à la place d’un symbole ou d’un numéro.
 
-Cet exemple Java ajoute une image à la collection d’images de la présentation en tant qu’[IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) et l’utilise comme puce de paragraphe. Il appelle [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) pour sélectionner une puce image et affecte l’image via [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--). [IBulletFormat.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setHeight-float-) est fixé à 100 % pour dimensionner la puce relativement au texte du paragraphe :
+Cet exemple Java ajoute une image à la collection d’images de la présentation en tant qu’[IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) et l’utilise comme puce de paragraphe. Il appelle [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) pour utiliser une puce image et affecte l’image via [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--) . [IBulletFormat.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setHeight-float-) est fixé à 100 % pour dimensionner la puce par rapport au texte du paragraphe :
 
 ```java
 import com.aspose.slides.*;
@@ -193,11 +193,11 @@ try {
 }
 ```
 
-### **Créer une liste multiniveau**
+### **Créer une liste à plusieurs niveaux**
 
 Définissez [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) pour placer les paragraphes à différents niveaux d’une liste. Le niveau supérieur a une profondeur de `0`.
 
-Cet exemple Java affecte des valeurs de [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) de 0 à 3 à quatre paragraphes, créant une hiérarchie au sein d’un même cadre de texte. Chaque paragraphe utilise une puce symbole, avec [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) alternant entre une puce ronde et un tiret pour distinguer les niveaux adjacents :
+Cet exemple Java affecte des valeurs [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) de 0 à 3 à quatre paragraphes, créant une hiérarchie au sein d’un même cadre de texte. Chaque paragraphe utilise une puce symbole, avec [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) alternant entre une puce ronde et un trait d’union pour distinguer les niveaux adjacents :
 
 ```java
 import com.aspose.slides.*;
@@ -254,11 +254,11 @@ try {
 }
 ```
 
-### **Commencer les éléments de liste numérotée à des valeurs personnalisées**
+### **Démarrer les éléments numérotés à des valeurs personnalisées**
 
 Utilisez [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) pour définir le numéro initial affiché pour un paragraphe numéroté.
 
-Cet exemple Java définit [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) pour la numérotation de trois paragraphes et affecte les valeurs 2, 3 et 7 via [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-). La valeur de départ est configurée séparément pour chaque paragraphe, ce qui permet aux numéros affichés d’ignorer certaines valeurs :
+Cet exemple Java définit [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) pour utiliser la numérotation sur trois paragraphes et attribue des valeurs [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) de 2, 3 et 7. La valeur de départ est configurée séparément pour chaque paragraphe, ce qui permet aux nombres affichés de sauter des valeurs :
 
 ```java
 import com.aspose.slides.*;
@@ -295,17 +295,17 @@ try {
 }
 ```
 
-## **Contrôler la disposition des paragraphes et les propriétés de fin**
+## **Contrôler la mise en page du paragraphe et les propriétés de fin**
 
-Ajustez les marges et retraits des paragraphes pour contrôler la position de la première ligne et des lignes renvoyées. Vous pouvez également formater le signe de fin de paragraphe séparément du texte visible.
+Ajustez les marges et retraits des paragraphes pour contrôler la position de la première ligne et des lignes renvoyées. Vous pouvez également formater le marqueur de fin de paragraphe séparément des portions de texte visibles.
 
 ### **Définir un retrait de première ligne**
 
-Utilisez la méthode [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) pour contrôler le retrait de première ligne d’un paragraphe. Ce réglage ne déplace que la première ligne par rapport à la marge gauche du paragraphe. Une valeur positive décale la première ligne vers la droite, tandis que les lignes restantes restent alignées avec le corps du paragraphe.
+Utilisez la méthode [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) pour contrôler le retrait de première ligne d’un paragraphe. Ce paramètre ne déplace que la première ligne par rapport à la marge gauche du paragraphe. Une valeur positive décale la première ligne vers la droite, tandis que les lignes restantes restent alignées avec le corps du paragraphe.
 
 Utilisez [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) lorsque vous devez déplacer tout le paragraphe. Utilisez [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) lorsque vous ne devez déplacer que la première ligne.
 
-L’exemple suivant attribue à trois paragraphes la même [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) de 20 points et des valeurs de [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) de 0, 20 et 40 points. Les premières lignes commencent à des décalages progressivement plus grands, tandis que les lignes renvoyées conservent la même marge gauche :
+L’exemple suivant donne à trois paragraphes la même [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) de 20 points et des valeurs [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) de 0, 20 et 40 points. Les premières lignes commencent à des décalages progressivement plus grands, tandis que les lignes renvoyées conservent la même marge gauche :
 
 ```java
 import com.aspose.slides.*;
@@ -361,13 +361,13 @@ Le résultat :
 
 ### **Définir un retrait suspendu**
 
-Un retrait suspendu est une disposition où la première ligne commence à gauche des lignes suivantes. Dans Aspose.Slides, vous créez cet effet avec la propriété [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Affectez `Indent` à une valeur négative pour déplacer la première ligne vers la gauche par rapport au corps du paragraphe.
+Un retrait suspendu est une mise en page où la première ligne débute à gauche des lignes suivantes. Dans Aspose.Slides, vous créez cet effet avec la propriété [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Définissez `Indent` à une valeur négative pour déplacer la première ligne vers la gauche par rapport au corps du paragraphe.
 
-En pratique, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) définit la position gauche du corps du paragraphe, et [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) définit la position de la première ligne par rapport à cette marge. Pour créer un retrait suspendu, attribuez une valeur positive à `MarginLeft` et une valeur négative à `Indent`.
+En pratique, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) définit la position gauche du corps du paragraphe, et [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) définit la position de la première ligne par rapport à cette marge. Pour créer un retrait suspendu, définissez une valeur positive pour `MarginLeft` et une valeur négative pour `Indent`.
 
 Ce formatage est utile pour les bibliographies, références, entrées de glossaire et autres paragraphes où les lignes renvoyées doivent s’aligner sous le corps du paragraphe plutôt que sous le premier caractère de la première ligne.
 
-L’exemple Java suivant associe des valeurs de [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) de 40 et 60 points avec des valeurs de [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) de -20 et -30 points. Dans chaque paragraphe, la première ligne débute à gauche des lignes renvoyées ; le deuxième paragraphe possède un retrait suspendu plus important :
+L’exemple Java suivant associe des valeurs [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) de 40 et 60 points à des valeurs [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) de -20 et -30 points. Dans chaque paragraphe, la première ligne commence à gauche des lignes renvoyées ; le deuxième paragraphe possède un retrait suspendu plus prononcé :
 
 ```java
 import com.aspose.slides.*;
@@ -413,9 +413,9 @@ Le résultat :
 
 ![Le retrait suspendu des paragraphes](hanging_indent.png)
 
-### **Définir les propriétés de fin du paragraphe**
+### **Définir les propriétés de fin de paragraphe**
 
-La méthode [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) contrôle le formatage du signe de fin de paragraphe. L’exemple suivant crée un [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) avec [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) réglé à 48 points et [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) défini sur Times New Roman. Il affecte ce format au signe de fin du deuxième paragraphe, laissant les portions de texte visibles inchangées :
+La méthode [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) contrôle le formatage du marqueur de fin de paragraphe. L’exemple suivant crée un [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) avec [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) à 48 points et [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) à Times New Roman. Il affecte ce format au marqueur de fin du deuxième paragraphe, laissant les portions de texte visibles inchangées :
 
 ```java
 import com.aspose.slides.*;
@@ -450,13 +450,13 @@ try {
 
 ## **Compter les lignes rendues**
 
-Pour les règles de paragraphe qui affectent le renvoi automatique et la ponctuation en fin de ligne, consultez [Control Line Breaking](/slides/fr/java/text-formatting/#control-line-breaking) et [Control Hanging Punctuation](/slides/fr/java/text-formatting/#control-hanging-punctuation).
+Pour les règles de paragraphe qui affectent le renvoi automatique et la ponctuation en fin de ligne, voir [Control Line Breaking](/slides/fr/java/text-formatting/#control-line-breaking) et [Control Hanging Punctuation](/slides/fr/java/text-formatting/#control-hanging-punctuation).
 
-Utilisez [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) pour compter les lignes occupées par un paragraphe après la mise en page du texte, y compris le renvoi automatique. Cela est utile pour vérifier la longueur du texte et la mise en page dans les modèles de présentation.
+Utilisez [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) pour compter les lignes occupées par un paragraphe après mise en page du texte, y compris le renvoi automatique. Cela est utile lors de la vérification de la longueur du texte et de la mise en page dans les modèles de présentation.
 
-Un paragraphe est un élément de [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--) et peut occuper plusieurs lignes rendues. Un saut de ligne explicite à l’intérieur d’un paragraphe force une nouvelle ligne sans créer un autre paragraphe. Le renvoi automatique crée des lignes en fonction de la largeur disponible sans insérer de sauts de ligne explicites dans le texte. Compter les paragraphes ou les caractères de saut de ligne ne donne donc pas le nombre de lignes réellement rendues.
+Un paragraphe est un élément de [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--) et peut occuper plusieurs lignes rendues. Un saut de ligne explicite à l’intérieur d’un paragraphe force une nouvelle ligne sans créer un autre paragraphe. Le renvoi automatique crée des lignes en fonction de la largeur disponible sans insérer de sauts de ligne explicites dans le texte. Compter les paragraphes ou les caractères de saut de ligne ne donne donc pas le nombre de lignes rendues.
 
-L’exemple suivant crée une forme de texte, compte ses lignes, réduit la forme, puis remplace le texte par une chaîne plus courte. L’exemple active le renvoi avec [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) et désactive l’ajustement automatique avec [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) afin que la largeur de la forme contrôle le renvoi sans réduire automatiquement le texte ni redimensionner la forme. Chaque mesure utilise [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--). Les dimensions de la forme sont exprimées en points. Enfin, l’exemple ajoute un autre paragraphe et additionne les comptes de lignes à travers le cadre de texte.
+L’exemple suivant crée une forme de texte, compte ses lignes, rétrécit la forme, puis remplace le texte par une chaîne plus courte. L’exemple active le renvoi avec [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) et désactive l’ajustement automatique avec [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) afin que la largeur de la forme contrôle le renvoi sans réduire automatiquement le texte ou redimensionner la forme. Chaque mesure utilise [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) . Les dimensions de la forme sont en points. Enfin, l’exemple ajoute un autre paragraphe et additionne les comptes de lignes à travers le cadre de texte.
 
 ```java
 import com.aspose.slides.*;
@@ -496,13 +496,13 @@ try {
 }
 ```
 
-Avec ce texte et ces dimensions, réduire la forme augmente le nombre de lignes, tandis que remplacer le texte par la chaîne courte le diminue. Les comptes exacts peuvent varier selon la disponibilité et la substitution des polices, la taille de la police, les marges, les retraits, le renvoi et les réglages d’ajustement. Utilisez les polices et les paramètres de mise en page prévus pour l’environnement cible lors de la vérification d’un modèle.
+Avec ce texte et ces dimensions, le rétrécissement de la forme augmente le nombre de lignes, tandis que le remplacement du texte par la courte chaîne le réduit. Les comptes exacts peuvent varier selon la disponibilité des polices et les substitutions, la taille de police, les marges, le retrait, le renvoi et les paramètres d’ajustement. Utilisez les polices et les paramètres de mise en page prévus pour l’environnement cible lors de la vérification d’un modèle.
 
-Le nombre de lignes seul ne détermine pas si le texte dépasse son conteneur. La hauteur disponible, la hauteur des lignes, l’espacement des paragraphes et des lignes, ainsi que le comportement d’ajustement, sont également importants ; même une seule ligne peut excéder la largeur disponible si le renvoi est désactivé.
+Le nombre de lignes seul ne détermine pas si le texte dépasse son conteneur. La hauteur disponible, les hauteurs de ligne, l’interligne du paragraphe et des lignes, ainsi que le comportement d’ajustement, sont également importants ; même une seule ligne peut dépasser la largeur disponible lorsque le renvoi est désactivé.
 
-## **Importer et exporter le contenu du paragraphe**
+## **Importer et exporter le contenu des paragraphes**
 
-Utilisez HTML pour insérer du texte dans une présentation ou exporter des paragraphes existants afin de les utiliser en dehors. Cette section montre également comment rendre des paragraphes individuels en images, y compris les paragraphes dans les cellules de tableau.
+Utilisez HTML pour importer du texte dans une présentation ou exporter des paragraphes existants afin de les réutiliser à l’extérieur. Cette section montre également comment rendre des paragraphes individuels en images, y compris les paragraphes dans les cellules de tableau.
 
 ### **Importer du texte HTML dans les paragraphes**
 
@@ -540,18 +540,18 @@ try {
 }
 ```
 
-### **Exporter le texte du paragraphe au format HTML**
+### **Exporter le texte du paragraphe vers HTML**
 
-Utilisez [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) pour exporter une plage sélectionnée de paragraphes au format HTML. Lors de la réutilisation du texte d’une présentation sur un site web, vous pouvez vouloir préserver l’accentuation locale sans transporter la police, la taille ou les styles de zone de texte de la présentation. Réglez [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) pour contrôler jusqu’où l’exportateur suit l’héritage du formatage.
+Utilisez [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) pour exporter une plage sélectionnée de paragraphes en HTML. Lorsque vous réutilisez le texte d’une présentation sur un site Web, vous pouvez vouloir préserver la mise en forme locale sans transférer la police, la taille ou le style de zone de texte de la présentation. Réglez [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) pour contrôler jusqu’où l’exportateur suit l’héritage du formatage.
 
 Téléchargez [la présentation d’exemple](text-inheritance.pptx) et placez‑la dans le répertoire de travail de l’application. Sa première diapositive contient une forme de texte avec le texte « Inherited text; explicit red 18pt ». L’entrée utilise délibérément plusieurs niveaux de formatage :
 
-- Le style de texte par défaut de la présentation fournit Calibri et une taille de 28 pt.
-- Le style de texte de premier niveau du cadre de texte fournit du texte bleu et de l’italique.
+- Le style de texte par défaut de la présentation fournit Calibri en 28 pt.
+- Le style de texte de premier niveau du cadre de texte fournit du texte bleu en italique.
 - Le paragraphe définit explicitement le texte en gras.
 - La deuxième portion, « explicit red 18pt », définit explicitement le texte rouge et une taille de 18 pt.
 
-L’exemple complet suivant exporte les mêmes paragraphes trois fois. Il transmet [TextToHtmlConversionOptions](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/) à la méthode d’exportation et écrit chaque résultat dans un fichier HTML UTF‑8 séparé :
+L’exemple complet suivant exporte les mêmes paragraphes trois fois. Il transmet [TextToHtmlConversionOptions](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/) à la méthode d’exportation et écrit chaque résultat dans un fichier HTML UTF‑8 distinct :
 
 ```java
 import com.aspose.slides.*;
@@ -602,25 +602,54 @@ Le HTML généré contient le CSS suivant pour la première portion, « Inherite
 | --- | --- | --- |
 | `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Texte bleu, gras, italique à 28 pt en Calibri, si cette police est disponible. |
 | `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Texte bleu, gras, italique ; la page ou le navigateur fournit la famille de police et la taille. |
-| `ParagraphOnly.html` | `font-weight:bold` | Texte gras ; la page ou le navigateur fournit la famille de police, la taille, la couleur et le style italique. |
+| `ParagraphOnly.html` | `font-weight:bold` | Texte gras ; la page ou le navigateur fournit la famille, la taille, la couleur et le style italique. |
 
-La deuxième portion conserve `color:#ff0000`, `font-size:18pt` et `font-weight:bold` dans les trois sorties. Elle conserve également l’italique avec `All` et `TextBox`, mais pas avec `ParagraphOnly`. Restreindre l’héritage ne supprime donc pas le formatage explicitement assigné à un paragraphe ou à une portion.
+La deuxième portion conserve `color:#ff0000`, `font-size:18pt` et `font-weight:bold` dans les trois sorties. Elle conserve également l’italique avec `All` et `TextBox`, mais pas avec `ParagraphOnly`. Restreindre l’héritage ne supprime donc pas le formatage explicitement attribué à un paragraphe ou à une portion.
 
-Ouvrez les fichiers dans le même navigateur pour les comparer. Dans les deux modes restreints, les propriétés CSS omises sont résolues par les styles de la page de destination ou les valeurs par défaut du navigateur, de sorte que l’apparence finale dépend de l’endroit où le HTML est utilisé.
+Ouvrez les fichiers dans le même navigateur pour les comparer. Dans les deux modes restreints, les propriétés CSS omises sont résolues par les styles de la page de destination ou les valeurs par défaut du navigateur, de sorte que l’apparence finale dépende de l’endroit où le HTML est utilisé.
+
+### **Générer un fragment HTML pour le presse‑papier**
+
+Utilisez [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader-boolean-) pour choisir la sortie de [IParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) . Avec `false`, la méthode renvoie du HTML ordinaire. Avec `true`, la chaîne renvoyée débute avec un en‑tête de presse‑papier Windows. Ses champs `StartHTML` et `EndHTML` indiquent les décalages en octets UTF‑8 du HTML, tandis que `StartFragment` et `EndFragment` identifient le contenu à coller.
+
+Cet exemple exporte deux paragraphes formatés en HTML ordinaire (`html`) et en fragment HTML de presse‑papier (`clipboardHtml`). L’application peut ensuite écrire le fragment dans le presse‑papier système. Si l’API du presse‑papier attend des octets bruts, encodez le fragment en UTF‑8 sans marque d’ordre d’octets (BOM).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 400, 100);
+    IParagraphCollection paragraphs = shape.getTextFrame().getParagraphs();
+    paragraphs.clear();
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+    TextToHtmlConversionOptions options = new TextToHtmlConversionOptions();
+    options.setAddClipboardFragmentHeader(false);
+    String html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+
+    options.setAddClipboardFragmentHeader(true);
+    String clipboardHtml = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+} finally {
+    presentation.dispose();
+}
+```
 
 ### **Rendre un paragraphe en image**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) rend directement un paragraphe individuel et renvoie un [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). Enregistrez le résultat dans un fichier ou un flux avec [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Vous n’avez pas besoin de rendre la forme contenant le paragraphe ni de recadrer un bitmap manuellement.
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) rend directement un paragraphe individuel et renvoie un [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). Enregistrez le résultat dans un fichier ou un flux avec [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Vous n’avez pas besoin de rendre la forme contenant ou de recadrer manuellement un bitmap.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) peut renvoyer `null` si le paragraphe n’est pas trouvé dans sa collection parente, s’il n’a pas de limites de rendu valides, ou s’il ne peut pas être rendu. Vérifiez le résultat avant de l’enregistrer et libérez l’image retournée après utilisation.
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) peut renvoyer `null` si le paragraphe est introuvable dans sa collection parente, s’il n’a pas de limites de rendu valides ou s’il ne peut pas être rendu. Vérifiez le résultat avant de l’enregistrer et libérez l’image retournée après usage.
 
 #### **Rendre un paragraphe à l’échelle par défaut**
 
-L’exemple utilise une présentation comportant une diapositive dont la première forme est une zone de texte contenant trois paragraphes.
+L’exemple utilise une présentation avec une diapositive dont la première forme est une zone de texte contenant trois paragraphes.
 
 ![La zone de texte avec trois paragraphes](paragraph_to_image_input.png)
 
-L’exemple suivant sélectionne le deuxième paragraphe d’indice 1 et appelle [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) sans paramètres d’échelle. Il vérifie que la forme contient le paragraphe requis et que le rendu renvoie une image avant d’appeler [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) pour l’enregistrer au format PNG. Le bloc `finally` libère l’image après usage.
+L’exemple suivant sélectionne le deuxième paragraphe (indice 1) et appelle [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) sans paramètres d’échelle. Il vérifie que la forme contient le paragraphe requis et que le rendu renvoie une image avant d’appeler [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) pour l’enregistrer au format PNG. Le bloc `finally` libère l’image après usage.
 
 ```java
 import com.aspose.slides.*;
@@ -658,11 +687,11 @@ try {
 
 Le résultat :
 
-![L'image du paragraphe](paragraph_to_image_output.png)
+![L’image du paragraphe](paragraph_to_image_output.png)
 
 #### **Rendre un paragraphe dans une cellule de tableau avec mise à l’échelle**
 
-Utilisez la surcharge de [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) qui accepte les paramètres `float scaleX` et `float scaleY` pour définir les facteurs d’échelle horizontaux et verticaux. L’exemple suivant crée un tableau, rend le paragraphe dans sa première cellule à deux fois sa largeur et hauteur par défaut, puis enregistre le résultat au format PNG.
+Utilisez la surcharge de [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) qui accepte les paramètres `float scaleX` et `float scaleY` pour définir les facteurs d’échelle horizontaux et verticaux. L’exemple suivant crée un tableau, rend le paragraphe dans sa première cellule à deux fois sa largeur et hauteur par défaut, et enregistre le résultat au format PNG.
 
 ```java
 import com.aspose.slides.*;
@@ -693,13 +722,13 @@ try {
 }
 ```
 
-Un facteur d’échelle de `1` conserve cet axe à sa taille de pixel par défaut. Par exemple, `2` pour les deux facteurs produit une image dont la largeur et la hauteur sont approximativement deux fois les dimensions d’origine, soit quatre fois plus de pixels. Des facteurs plus élevés produisent généralement un texte plus net pour le zoom ou la sortie haute résolution, mais augmentent aussi la consommation de mémoire et la taille du fichier. Des facteurs inférieurs à `1` produisent des images plus petites avec moins de détails. Utilisez des facteurs égaux pour préserver le ratio d’aspect du paragraphe ; des facteurs différents entre l’horizontale et la verticale étirent la sortie indépendamment.
+Un facteur d’échelle de `1` conserve cet axe à sa taille de pixel par défaut. Par exemple, `2` pour les deux facteurs produit une image dont la largeur et la hauteur sont approximativement deux fois les dimensions d’origine, ce qui donne quatre fois plus de pixels. Des facteurs plus élevés produisent généralement un texte plus net pour le zoom ou une sortie haute résolution, mais ils augmentent aussi la consommation mémoire et la taille du fichier. Des facteurs inférieurs à `1` produisent des images plus petites avec moins de détails. Utilisez des facteurs égaux pour préserver le rapport d’aspect du paragraphe ; des facteurs différents horizontaux et verticaux étirent la sortie indépendamment.
 
-Rendre toute une forme avec [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) reste utile lorsque la sortie doit inclure le remplissage, la bordure ou d’autres contextes visuels de la forme. Pour une image contenant uniquement le paragraphe, utilisez [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--).
+Rendre une forme entière avec [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) reste utile lorsque la sortie doit inclure le remplissage, la bordure ou tout autre contexte visuel de la forme. Pour une image contenant uniquement le paragraphe, utilisez [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) .
 
 ## **FAQ**
 
-**Puis‑je désactiver complètement le retour à la ligne à l'intérieur d'un cadre de texte ?**
+**Puis‑je désactiver complètement le renvoi de ligne à l’intérieur d’un cadre de texte ?**
 
 Oui. Réglez [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) pour désactiver le renvoi afin que les lignes ne se coupent pas aux bords du cadre de texte.
 
@@ -707,12 +736,12 @@ Oui. Réglez [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/
 
 Utilisez [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) pour récupérer le rectangle englobant du paragraphe. [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) fournit les limites d’une portion individuelle.
 
-**Où le réglage d’alignement du paragraphe (gauche, droite, centre ou justifié) est‑il contrôlé ?**
+**Où le réglage de l’alignement du paragraphe (gauche, droite, centre ou justifié) est‑il contrôlé ?**
 
 [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) est un paramètre au niveau du paragraphe et s’applique à l’ensemble du paragraphe quel que soit le formatage des portions individuelles.
 
-Pour aligner verticalement des portions de tailles de police différentes dans chaque ligne, consultez [Align Fonts Within a Line](/slides/fr/java/text-formatting/#align-fonts-within-a-line).
+Pour aligner verticalement des portions de tailles de police différentes au sein de chaque ligne, voir [Align Fonts Within a Line](/slides/fr/java/text-formatting/#align-fonts-within-a-line).
 
-**Puis‑je définir la langue de vérification orthographique pour une partie d’un paragraphe ?**
+**Puis‑je définir la langue de révision pour une partie d’un paragraphe ?**
 
-Oui. Réglez [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) pour les portions individuelles, de sorte qu’un paragraphe puisse contenir du texte dans plusieurs langues.
+Oui. Réglez [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) pour les portions individuelles, afin qu’un paragraphe puisse contenir du texte en plusieurs langues.

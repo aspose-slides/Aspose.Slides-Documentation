@@ -19,35 +19,35 @@ keywords:
 - нумерованный список
 - маркированный список
 - свойства абзаца
-- импорт HTML
+- импортировать HTML
 - текст в HTML
 - абзац в HTML
 - абзац в изображение
 - текст в изображение
-- экспорт абзаца
+- экспортировать абзац
 - PowerPoint
 - презентация
 - PHP
 - Aspose.Slides
-description: "Узнайте, как создавать и форматировать абзацы, фрагменты, маркеры, нумерованные списки, отступы, HTML‑контент и изображения абзацев с помощью Aspose.Slides для PHP через Java."
+description: "Узнайте, как создавать и форматировать абзацы, фрагменты, маркеры, нумерованные списки, отступы, HTML‑содержимое и изображения абзацев с помощью Aspose.Slides для PHP через Java."
 ---
 ## **Обзор**
 
 Aspose.Slides for PHP via Java представляет текст как иерархию текстовых рамок, абзацев и фрагментов:
 
-* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) представляет контейнер текста в фигуре и предоставляет доступ к коллекции абзацев.
+* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) представляет контейнер текста в фигуре и предоставляет доступ к её коллекции абзацев.
 * [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) представляет один абзац в текстовой рамке и предоставляет доступ к его фрагментам и форматированию уровня абзаца.
-* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) представляет фрагмент текста внутри абзаца. Каждый фрагмент может иметь собственный текст и форматирование символов.
+* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) представляет отрывок текста внутри абзаца. Каждый фрагмент может иметь собственный текст и форматирование символов.
 
-Таким образом, абзац может содержать текст с разными шрифтами, цветами, размерами и другим форматированием, используя несколько фрагментов.
+Таким образом, абзац может содержать текст с различными шрифтами, цветами, размерами и другим форматированием, используя несколько фрагментов.
 
 ## **Создание и форматирование абзацев**
 
-Создавайте абзацы в текстовой рамке фигуры и используйте фрагменты для форматирования отдельных фрагментов текста. В этом разделе показано, как объединять несколько фрагментов внутри каждого абзаца и применять разные цвета, размеры шрифтов и стили.
+Создавайте абзацы в текстовой рамке фигуры и используйте фрагменты для форматирования отдельных отрывков текста. В этом разделе показано, как комбинировать несколько фрагментов в каждом абзаце и применять разные цвета, размеры шрифтов и стили.
 
 ### **Создание абзацев с несколькими фрагментами**
 
-Следующий пример PHP создаёт три абзаца, каждый из которых содержит три текстовых фрагмента в коллекции, возвращаемой [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions). Он переиспользует абзац по умолчанию и его пустой фрагмент, затем добавляет оставшиеся абзацы и фрагменты. Форматирование применяется через [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat): первый фрагмент в каждом абзаце — красный, полужирный, 15 пунктов; второй — синий, курсив, 18 пунктов. Третий фрагмент сохраняет форматирование по умолчанию:
+Следующий пример PHP создаёт три абзаца, каждый из которых содержит три отрывка текста в коллекции, возвращаемой [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions). Он повторно использует абзац по умолчанию и его пустой фрагмент, затем добавляет остальные абзацы и фрагменты. Форматирование применяется через [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat): первый фрагмент в каждом абзаце красный, полужирный и 15 пунктов; второй — синий, курсив и 18 пунктов. Третий фрагмент сохраняет форматирование по умолчанию:
 
 ```php
 use aspose\slides\FillType;
@@ -115,9 +115,9 @@ try {
 
 ### **Создание маркированного или нумерованного списка**
 
-Маркеры и нумерация упрощают восприятие связанных элементов. В Aspose.Slides параметры списка задаются через [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/).
+Марки и нумерация упрощают просмотр связанных пунктов. В Aspose.Slides настройки списка определяются через [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/).
 
-Этот пример PHP добавляет символный маркер и нумерованный элемент в одну и ту же текстовую рамку. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) выбирает тип маркера, а [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) задаёт символ, и [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) выбирает стиль нумерации. Оба элемента используют чёрные маркеры высотой 100 % и отступ абзаца 25 пунктов:
+Этот пример PHP добавляет символный маркер и нумерованный пункт в одну и ту же текстовую рамку. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) выбирает тип маркера, в то время как [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) задаёт символ, а [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) выбирает стиль нумерации. Оба пункта используют чёрные маркеры высотой 100 % и отступ абзаца 25 пунктов:
 
 ```php
 use aspose\slides\BulletType;
@@ -167,9 +167,9 @@ try {
 
 ### **Использование изображений в качестве маркеров**
 
-Изображения‑маркеры позволяют использовать собственное изображение вместо символа или цифры.
+Изображения‑марки позволяют использовать пользовательское изображение вместо символа или цифры.
 
-Этот пример PHP добавляет изображение в коллекцию изображений презентации как [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) и использует его в качестве маркера абзаца. Он вызывает [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) для выбора маркера‑изображения и назначает изображение через [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture). [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) устанавливается в 100 % для размера маркера относительно текста абзаца:
+Этот пример PHP добавляет изображение в коллекцию изображений презентации как [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) и использует его в качестве маркера абзаца. Он вызывает [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) для использования изображённого маркера и назначает изображение через [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture). [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) устанавливается в 100 % для масштабирования маркера относительно текста абзаца:
 
 ```php
 use aspose\slides\BulletType;
@@ -210,9 +210,9 @@ try {
 
 ### **Создание многоуровневого списка**
 
-Установите [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth), чтобы разместить абзацы на разных уровнях списка. Верхний уровень имеет глубину `0`.
+Установите [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth), чтобы размещать абзацы на разных уровнях списка. Верхний уровень имеет глубину `0`.
 
-Этот пример PHP задаёт значения [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) от 0 до 3 для четырёх абзацев, создавая иерархию в одной текстовой рамке. Каждый абзац использует символный маркер, при этом [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) чередуется между круглым маркером и дефисом для различения соседних уровней:
+Этот пример PHP задаёт значения [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) от 0 до 3 для четырёх абзацев, создавая иерархию в одной текстовой рамке. Каждый абзац использует символный маркер, при этом [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) чередует круглой маркер и дефис для различения соседних уровней:
 
 ```php
 use aspose\slides\BulletType;
@@ -273,11 +273,11 @@ try {
 }
 ```
 
-### **Задание пользовательских значений начала нумерованных пунктов**
+### **Начало нумерованных пунктов со пользовательских значений**
 
-Используйте [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith), чтобы установить начальное число, отображаемое для нумерованного абзаца.
+Используйте [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith), чтобы задать начальное число, отображаемое для нумерованного абзаца.
 
-Этот пример PHP устанавливает [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) для нумерации трёх абзацев и задаёт значения [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) 2, 3 и 7. Начальное значение задаётся отдельно для каждого абзаца, позволяя пропускать числа:
+Этот пример PHP устанавливает [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) для использования нумерации в трёх абзацах и задаёт значения [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) 2, 3 и 7. Начальное значение настраивается отдельно для каждого абзаца, позволяя пропускать числа в отображении:
 
 ```php
 use aspose\slides\BulletType;
@@ -320,15 +320,15 @@ try {
 
 ## **Управление макетом абзаца и свойствами конца**
 
-Регулируйте отступы и поля абзаца, чтобы управлять положением первой строки и строк переноса. Вы также можете форматировать знак конца абзаца отдельно от видимых текстовых фрагментов.
+Настраивайте отступы и поля абзаца, чтобы управлять положением первой строки и перенесённых строк. Вы также можете форматировать знак конца абзаца отдельно от видимых фрагментов текста.
 
 ### **Установка отступа первой строки**
 
-Используйте метод [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) для управления отступом первой строки абзаца. Эта настройка смещает только первую строку относительно левого поля абзаца. Положительное значение сдвигает первую строку вправо, остальные строки остаются выровненными по телу абзаца.
+Используйте метод [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) для управления отступом первой строки абзаца. Эта настройка перемещает только первую строку относительно левого поля абзаца. Положительное значение смещает первую строку вправо, в то время как остальные строки остаются выровненными по телу абзаца.
 
-Используйте [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft), когда требуется переместить весь абзац. Используйте [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent), когда нужно сместить только первую строку.
+Используйте [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft), когда нужно переместить весь абзац. Используйте [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent), когда нужно переместить только первую строку.
 
-В следующем примере три абзаца получают одинаковый [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) в 20 пунктов и значения [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) 0, 20 и 40 пунктов. Первые строки начинают с постепенно увеличивающихся смещений, тогда как строки переноса сохраняют одинаковое левое поле:
+Следующий пример задаёт трём абзацам одинаковый [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) в 20 пунктов и значения [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) 0, 20 и 40 пунктов. Первые строки начинаются с постепенно увеличивающихся отступов, а переносимые строки сохраняют одинаковое левое поле:
 
 ```php
 use aspose\slides\FillType;
@@ -388,13 +388,13 @@ try {
 
 ### **Установка висячего отступа**
 
-Висячий отступ — это макет абзаца, в котором первая строка начинается левее остальных строк. В Aspose.Slides этот эффект создаётся с помощью свойства [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent). Установите `Indent` в отрицательное значение, чтобы переместить первую строку влево относительно тела абзаца.
+Висячий отступ — это макет абзаца, при котором первая строка начинается слева от остальных строк. В Aspose.Slides этот эффект создаётся с помощью свойства [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent). Установите `Indent` в отрицательное значение, чтобы переместить первую строку влево относительно тела абзаца.
 
-На практике [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) определяет левую позицию тела абзаца, а [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) задаёт позицию первой строки относительно этого поля. Чтобы создать висячий отступ, задайте положительное значение `MarginLeft` и отрицательное значение `Indent`.
+На практике [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) определяет левую позицию тела абзаца, а [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) определяет позицию первой строки относительно этого поля. Чтобы создать висячий отступ, задайте положительное значение `MarginLeft` и отрицательное значение `Indent`.
 
-Это форматирование полезно для библиографий, ссылок, глоссариев и других абзацев, где строки переноса должны выравниваться под телом абзаца, а не под первым символом первой строки.
+Такое форматирование полезно для библиографий, ссылок, глоссариев и других абзацев, где перенесённые строки должны выравниваться по телу абзаца, а не под первым символом первой строки.
 
-В следующем примере PHP сочетает значения [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) 40 и 60 пунктов с [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) -20 и -30 пунктов. В каждом абзаце первая строка начинается левее строк переноса; во втором абзаце висячий отступ глубже:
+Следующий пример PHP сочетает значения [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) 40 и 60 пунктов с значениями [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) -20 и -30 пунктов. В каждом абзаце первая строка начинается левее перенесённых строк; второй абзац имеет более глубокий висячий отступ:
 
 ```php
 use aspose\slides\FillType;
@@ -444,9 +444,9 @@ try {
 
 ![Висячий отступ абзацев](hanging_indent.png)
 
-### **Установка свойств знака конца абзаца**
+### **Установка свойств конечного отрезка абзаца**
 
-Метод [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) управляет форматированием знака конца абзаца. В следующем примере создаётся [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) с [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) 48 пунктов и [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) Times New Roman. Этот формат присваивается знаку конца второго абзаца, оставляя видимые текстовые фрагменты без изменений:
+Метод [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) управляет форматированием знака конца абзаца. Следующий пример создаёт [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) с [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight), установленным в 48 пунктов, и [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont), установленным в Times New Roman. Этот формат присваивается знаку конца второго абзаца, оставляя видимые фрагменты текста без изменений:
 
 ```php
 use aspose\slides\FontData;
@@ -487,13 +487,11 @@ try {
 
 ## **Подсчёт отрисованных строк**
 
-Для правил абзаца, влияющих на автоматический перенос и пунктуацию в конце строк, смотрите [Control Line Breaking](/slides/ru/php-java/text-formatting/#control-line-breaking) и [Control Hanging Punctuation](/slides/ru/php-java/text-formatting/#control-hanging-punctuation).
+Для правил абзаца, влияющих на автоматический перенос и пунктуацию в конце строк, см. [Управление разрывом строк](/slides/ru/php-java/text-formatting/#control-line-breaking) и [Управление висячей пунктуацией](/slides/ru/php-java/text-formatting/#control-hanging-punctuation). Используйте [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) для подсчёта строк, занимаемых абзацем после компоновки текста, включая автоматический перенос. Это полезно при проверке длины текста и макета в шаблонах презентаций.
 
-Используйте [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) для подсчёта строк, занимаемых абзацем после размещения текста, включая автоматический перенос. Это полезно при проверке длины текста и макета в шаблонах презентаций.
+Абзац — это один элемент в [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs), и он может занимать несколько отрисованных строк. Явный разрыв строки внутри абзаца создаёт новую строку без создания другого абзаца. Автоматический перенос создаёт строки на основе доступной ширины без вставки явных разрывов строк в текст. Поэтому подсчёт абзацев или символов разрыва строк не даёт количество отрисованных строк.
 
-Абзац — это один элемент в [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs) и может занимать несколько отрисованных строк. Явный разрыв строки внутри абзаца заставляет перейти на новую строку без создания нового абзаца. Автоматический перенос создаёт строки в зависимости от доступной ширины, не вставляя явные разрывы в текст. Поэтому подсчёт абзацев или символов разрыва строки не даёт количества отрисованных строк.
-
-В следующем примере создаётся текстовая фигура, считается её количество строк, сужается фигура, а затем текст заменяется более короткой строкой. Пример включает включение переноса через [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) и отключение автоподгонки через [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType), чтобы ширина фигуры контролировала перенос без автоматического уменьшения текста или изменения размеров фигуры. Каждое измерение использует [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount). Размеры фигуры указаны в пунктах. В конце пример добавляет ещё один абзац и суммирует количество строк по всей текстовой рамке:
+Следующий пример создаёт текстовую фигуру, подсчитывает её строки, сужает фигуру и затем заменяет текст более короткой строкой. В примере включён перенос с помощью [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) и отключён автоподгон с помощью [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType), так что ширина фигуры управляет переносом без автоматического уменьшения текста или изменения размера фигуры. Каждое измерение использует [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount). Размеры фигуры указаны в пунктах. В конце пример добавляет ещё один абзац и суммирует количество строк по всей текстовой рамке.
 
 ```php
 use aspose\slides\NullableBool;
@@ -538,19 +536,19 @@ try {
 }
 ```
 
-С указанным текстом и размерами сужение фигуры увеличивает количество строк, а замена текста короткой строкой уменьшает его. Точные подсчёты могут различаться в зависимости от доступных шрифтов и их подстановки, размера шрифта, полей, отступов, переноса и настроек автоподгонки. При проверке шаблона используйте шрифты и настройки макета, предназначенные для целевой среды.
+При данном тексте и этих размерах сужение фигуры увеличивает количество строк, тогда как замена текста короткой строкой уменьшает его. Точные подсчёты могут различаться в зависимости от доступности шрифтов и их подстановки, размера шрифта, полей, отступов, переноса и настроек автоподгона. При проверке шаблона используйте шрифты и параметры макета, предназначенные для целевой среды.
 
-Одно лишь количество строк не определяет, выходит ли текст за пределы контейнера. Важны доступная высота, высота строк, межабзацные и межстрочные интервалы, а также поведение автоподгонки; даже одна строка может превышать доступную ширину при отключённом переносе.
+Только количество строк не определяет, переполняет ли текст свой контейнер. Важны также доступная высота, высота строк, интервал между абзацами и строками, а также поведение автоподгона; даже одна строка может превышать доступную ширину, если перенос отключён.
 
-## **Импорт и экспорт содержимого абзацев**
+## **Импорт и экспорт содержимого абзаца**
 
-Используйте HTML для импорта текста в презентацию или экспорта существующих абзацев для использования вне её. В этом разделе также показано, как отрисовывать отдельные абзацы как изображения, включая абзацы в ячейках таблиц.
+Используйте HTML, чтобы импортировать текст в презентацию или экспортировать существующие абзацы для использования вне её. Этот раздел также показывает, как рендерить отдельные абзацы в виде изображений, включая абзацы в ячейках таблиц.
 
 ### **Импорт HTML‑текста в абзацы**
 
 Используйте [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) для преобразования HTML‑разметки в абзацы и фрагменты в текстовой рамке.
 
-Этот пример PHP читает HTML из файла и передаёт разметку в [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml). Он очищает абзац по умолчанию в текстовой рамке, чтобы она содержала только импортированный контент. Прямоугольная фигура оставляет по 10 пунктов отступа со всех сторон слайда:
+Этот пример PHP считывает HTML из файла и передаёт разметку в [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml). Он очищает абзац по умолчанию в текстовой рамке, чтобы она содержала только импортированное содержимое. Прямоугольная фигура оставляет отступ 10 пунктов со всех сторон слайда:
 
 ```php
 use aspose\slides\FillType;
@@ -582,16 +580,16 @@ try {
 
 ### **Экспорт текста абзаца в HTML**
 
-Используйте [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) для экспорта выбранного диапазона абзацев в HTML. При повторном использовании текста презентации на сайте вы можете захотеть сохранить локальное выделение без переноса шрифта, размера или стилей текстового поля презентации. Установите [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit), чтобы контролировать степень следования экспортёра наследованию форматирования.
+Используйте [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) для экспорта выбранного диапазона абзацев в HTML. При повторном использовании текста презентации на веб‑сайте вы можете захотеть сохранить локальное выделение без переноса шрифта, размера или стилей текстового блока презентации. Установите [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit), чтобы контролировать, насколько глубоко экспортёр следует наследованию форматирования.
 
-Скачайте [пример презентации](text-inheritance.pptx) и поместите его в рабочий каталог приложения. На первом слайде находится одна текстовая фигура с текстом «Inherited text; explicit red 18pt». Ввод умышленно использует несколько уровней форматирования:
+Скачайте [пример презентации](text-inheritance.pptx) и разместите его в рабочем каталоге приложения. На первом слайде находится одна текстовая фигура с текстом "Inherited text; explicit red 18pt". Ввод специально использует несколько уровней форматирования:
 
-- Стиль текста по умолчанию презентации задаёт Calibri размером 28 pt.
-- Стиль первого уровня текстовой рамки задаёт синий цвет и курсив.
+- Стандартный стиль текста презентации использует шрифт Calibri размером 28 pt.
+- Первый уровень стиля текстовой рамки задаёт синий цвет текста и курсив.
 - Абзац явно задаёт полужирный текст.
-- Второй фрагмент «explicit red 18pt» явно задаёт красный цвет и размер 18 pt.
+- Вторая часть, "explicit red 18pt", явно задаёт красный текст и размер 18 pt.
 
-Следующий полноценный пример экспортирует те же абзацы три раза. Он передаёт [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) в метод экспорта и пишет каждый результат в отдельный UTF‑8 HTML‑файл:
+Следующий полноценный пример экспортирует те же абзацы три раза. Он передаёт [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) в метод экспорта и записывает каждый результат в отдельный HTML‑файл в кодировке UTF‑8:
 
 ```php
 use aspose\slides\Presentation;
@@ -630,31 +628,62 @@ try {
 }
 ```
 
-Сгенерированный HTML содержит следующий CSS для первого фрагмента «Inherited text; ». Таблица перечисляет соответствующие объявления; остальные сгенерированные свойства опущены ради ясности.
+Сгенерированный HTML содержит следующий CSS для первого фрагмента, "Inherited text; ". Таблица перечисляет соответствующие объявления; остальные сгенерированные свойства опущены для ясности.
 
 | Вывод | Соответствующий CSS для первого фрагмента | Внешний вид |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Синий, полужирный, курсивный текст 28 pt в Calibri, если шрифт доступен. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Синий, полужирный, курсивный текст; шрифт и размер задаются страницей или браузером. |
-| `ParagraphOnly.html` | `font-weight:bold` | Полужирный текст; шрифт, размер, цвет и курсив задаются страницей или браузером. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Синий, полужирный, курсивный текст размером 28 pt в Calibri, если этот шрифт доступен. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Синий, полужирный, курсивный текст; семейство шрифта и размер предоставляет окружающая страница или браузер. |
+| `ParagraphOnly.html` | `font-weight:bold` | Полужирный текст; семейство шрифта, размер, цвет и курсив предоставляет окружающая страница или браузер. |
 
-Второй фрагмент сохраняет `color:#ff0000`, `font-size:18pt` и `font-weight:bold` во всех трёх выводах. Он также сохраняет курсив в `All` и `TextBox`, но не в `ParagraphOnly`. Ограничение наследования поэтому не удаляет явно заданное форматирование абзаца или фрагмента.
+Второй фрагмент сохраняет `color:#ff0000`, `font-size:18pt` и `font-weight:bold` во всех трёх выводах. Он также сохраняет курсив в `All` и `TextBox`, но не в `ParagraphOnly`. Ограничение наследования поэтому не удаляет форматирование, явно назначенное абзацу или фрагменту.
 
-Откройте файлы в одном браузере для сравнения. В двух ограниченных режимах опущенные свойства CSS берутся из стилей целевой страницы или из стандартных стилей браузера, поэтому итоговый вид зависит от места использования HTML.
+Откройте файлы в одном браузере для сравнения. В двух ограниченных режимах опущенные свойства CSS разрешаются стилами целевой страницы или настройками браузера по умолчанию, поэтому окончательный вид зависит от того, где используется HTML.
 
-### **Отрисовка абзаца как изображения**
+### **Создание фрагмента HTML для буфера обмена**
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) отрисовывает отдельный абзац напрямую и возвращает [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Сохраните результат в файл или поток с помощью [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save). Нет необходимости отрисовывать содержащую фигуру или вручную обрезать bitmap.
+Используйте [TextToHtmlConversionOptions::setAddClipboardFragmentHeader](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader), чтобы выбрать вывод из [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml). При `false` метод возвращает обычный HTML. При `true` возвращаемая строка начинается с заголовка буфера обмена Windows. Поля `StartHTML` и `EndHTML` содержат смещения в байтах UTF‑8 для HTML, а `StartFragment` и `EndFragment` указывают содержимое для вставки.
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) может вернуть `null`, если абзац не найден в родительской коллекции, не имеет допустимых границ отрисовки или не может быть отрисован. Проверьте результат перед сохранением и освободите полученное изображение после использования.
+Этот пример экспортирует два форматированных абзаца как обычный HTML (`$html`) и как фрагмент HTML для буфера обмена (`$clipboardHtml`). Приложение затем может записать фрагмент в системный буфер обмена. Если API буфера обмена ожидает необработанные байты, передайте фрагмент в UTF‑8 без маркера порядка байт (BOM).
 
-#### **Отрисовка абзаца в масштабе по умолчанию**
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextToHtmlConversionOptions;
 
-Пример использует презентацию с одним слайдом, у которого первая фигура — текстовое поле с тремя абзацами.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 400, 100);
+    $paragraphs = $shape->getTextFrame()->getParagraphs();
+    $paragraphs->clear();
+    $paragraphs->addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+    $options = new TextToHtmlConversionOptions();
+    $options->setAddClipboardFragmentHeader(false);
+    $html = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
+
+    $options->setAddClipboardFragmentHeader(true);
+    $clipboardHtml = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Рендеринг абзаца в виде изображения**
+
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) напрямую рендерит отдельный абзац и возвращает [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Сохраните результат в файл или поток с помощью [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save). Нет необходимости рендерить содержащую фигуру или вручную обрезать растровое изображение.
+
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) может вернуть `null`, если абзац не найден в родительской коллекции, не имеет корректных границ рендеринга или не может быть отрисован. Проверьте результат перед сохранением и освободите возвращённое изображение после использования.
+
+#### **Отрисовка абзаца в масштабировании по умолчанию**
+
+В примере используется презентация с одним слайдом, первая фигура которого — текстовое поле, содержащее три абзаца.
 
 ![Текстовое поле с тремя абзацами](paragraph_to_image_input.png)
 
-Следующий пример выбирает второй абзац с индексом 1 и вызывает [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) без параметров масштаба. Он проверяет, что фигура содержит требуемый абзац и что отрисовка вернула изображение, прежде чем вызвать [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) для сохранения в PNG. Блок `finally` освобождает изображение после использования.
+Следующий пример выбирает второй абзац с индексом 1 и вызывает [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) без параметров масштаба. Он проверяет, что фигура содержит требуемый абзац и что рендеринг возвращает изображение, прежде чем вызвать [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) для сохранения в формате PNG. Блок `finally` освобождает изображение после использования.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -696,7 +725,7 @@ try {
 
 #### **Отрисовка абзаца в ячейке таблицы с масштабированием**
 
-Используйте перегрузку [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage), принимающую параметры `$scaleX` и `$scaleY` для задания горизонтального и вертикального коэффициентов масштаба. В следующем примере создаётся таблица, абзац в её первой ячейке отрисовывается вдвое шире и выше своего обычного размера, и результат сохраняется как PNG‑изображение.
+Используйте перегруженный метод [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage), принимающий параметры `$scaleX` и `$scaleY` для задания горизонтального и вертикального коэффициентов масштаба. Следующий пример создаёт таблицу, рендерит абзац в её первой ячейке с удвоенной по сравнению с умолчанием шириной и высотой и сохраняет результат как PNG‑изображение.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -728,26 +757,26 @@ try {
 }
 ```
 
-Коэффициент масштаба `1` сохраняет размер по умолчанию. Например, `2` для обеих осей даёт изображение, ширина и высота которого примерно вдвое превышают обычные размеры, а количество пикселей — вчетыре раза. Большие коэффициенты обычно дают более чёткий текст для увеличения или вывода в высоком разрешении, но также увеличивают потребление памяти и размер файла. Коэффициенты ниже `1` дают более мелкие изображения с меньшей детализацией. Используйте одинаковые коэффициенты, чтобы сохранить пропорции абзаца; разные горизонтальный и вертикальный коэффициенты растягивают вывод независимо.
+Коэффициент масштаба `1` сохраняет размер оси в пикселях по умолчанию. Например, `2` для обеих осей создаёт изображение, ширина и высота которого примерно вдвое превышают размеры по умолчанию, что приводит к четырёхкратному числу пикселей. Большие коэффициенты обычно дают более чёткий текст при масштабировании или выводе высокого разрешения, но также увеличивают использование памяти и размер файла. Коэффициенты ниже `1` дают более мелкие изображения с меньшей детализацией. Используйте одинаковые коэффициенты, чтобы сохранить соотношение сторон абзаца; разные горизонтальные и вертикальные коэффициенты растягивают вывод независимо.
 
-Отрисовка всей фигуры с помощью [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) остаётся полезной, когда требуется включить заливку, границу или другой визуальный контекст фигуры. Для изображения только абзаца используйте [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage).
+Рендеринг всей фигуры с помощью [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) остаётся полезным, когда вывод должен включать заливку, границу или другой визуальный контекст фигуры. Для изображения только абзаца используйте [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage).
 
 ## **FAQ**
 
-**Можно ли полностью отключить перенос строк внутри текстовой рамки?**
+**Могу ли я полностью отключить перенос строк внутри текстовой рамки?**
 
-Да. Установите [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText), чтобы отключить перенос, и строки не будут разрываться у краёв рамки.
+Да. Установите [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText), чтобы отключить перенос, и строки не будут разрываться по краям текстовой рамки.
 
 **Как получить точные границы конкретного абзаца на слайде?**
 
-Используйте [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) для получения прямоугольника, ограничивающего абзац. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) предоставляет границы отдельного фрагмента.
+Используйте [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect), чтобы получить ограничивающий прямоугольник абзаца. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) предоставляет границы отдельного фрагмента.
 
-**Где контролируется выравнивание абзаца (по левому, правому краю, по центру или по ширине)?**
+**Где управляется выравнивание абзаца (по левому, правому краю, по центру или по ширине)?**
 
-[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) — это настройка уровня абзаца и применяется ко всему абзацу независимо от форматирования отдельных фрагментов.
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) — настройка уровня абзаца, применяемая ко всему абзацу независимо от форматирования отдельных фрагментов.
 
-Чтобы вертикально выровнять фрагменты разного размера шрифта в одной строке, смотрите [Align Fonts Within a Line](/slides/ru/php-java/text-formatting/#align-fonts-within-a-line).
+[Выравнивание шрифтов в строке](/slides/ru/php-java/text-formatting/#align-fonts-within-a-line)
 
-**Можно ли задать язык проверки орфографии только для части абзаца?**
+**Можно ли задать язык проверки орфографии для части абзаца?**
 
-Да. Установите [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) для отдельных фрагментов, позволяя одному абзацу содержать текст на нескольких языках.
+Да. Установите [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) для отдельных фрагментов, чтобы один абзац мог содержать текст на нескольких языках.

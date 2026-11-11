@@ -8,46 +8,46 @@ aliases:
   - /cpp/paragraph/
   - /cpp/portion/
 keywords:
-- إضافة نص
-- إضافة فقرة
-- إدارة نص
-- إدارة فقرة
-- إدارة نقطه
-- إزاحة الفقرة
-- إزاحة معلقة
-- نقطه الفقرة
-- قائمة مرقمة
-- قائمة نقطية
-- خصائص الفقرة
-- استيراد HTML
-- نص إلى HTML
-- فقرة إلى HTML
-- فقرة إلى صورة
-- نص إلى صورة
-- تصدير الفقرة
-- PowerPoint
-- عرض تقديمي
-- C++
-- Aspose.Slides
-description: "تعرف على كيفية إنشاء وتنسيق الفقرات، الأجزاء، النقط، القوائم المرقمة، الإزاحات، محتوى HTML، وصور الفقرات باستخدام Aspose.Slides للغة C++."
+  - إضافة نص
+  - إضافة فقرة
+  - إدارة النص
+  - إدارة الفقرة
+  - إدارة النقطة
+  - إزاحة الفقرة
+  - إزاحة معلقة
+  - نقطة الفقرة
+  - قائمة مرقمة
+  - قائمة نقطية
+  - خصائص الفقرة
+  - استيراد HTML
+  - نص إلى HTML
+  - فقرة إلى HTML
+  - فقرة إلى صورة
+  - نص إلى صورة
+  - تصدير الفقرة
+  - PowerPoint
+  - عرض تقديمي
+  - C++
+  - Aspose.Slides
+description: "تعلم كيفية إنشاء وتنسيق الفقرات والأجزاء والنقاط والقوائم المرقمة والإزاحات ومحتوى HTML وصور الفقرات باستخدام Aspose.Slides للغة C++."
 ---
 ## **نظرة عامة**
 
-تُمثل Aspose.Slides للغة C++ النص كهيكل هرمي من إطارات النص، الفقرات، والأجزاء:
+يمثل Aspose.Slides للـ C++ النص كهرمية من إطارات النص والفقرات والأجزاء:
 
-* [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) يمثل حاوية النص داخل الشكل ويوفر إمكانية الوصول إلى مجموعة الفقرات الخاصة به.
-* [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) يمثل فقرة واحدة داخل إطار النص ويوفر إمكانية الوصول إلى أجزائه وتنسيق مستوى الفقرة.
-* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) يمثل تشغيل نص داخل الفقرة. يمكن لكل جزء أن يحتوي على نصه الخاص وتنسيق مستوى الحرف.
+* [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) يمثل حاوية النص داخل الشكل ويوفر الوصول إلى مجموعة الفقرات الخاصة به.
+* [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) يمثل فقرة واحدة في إطار النص ويوفر الوصول إلى أجزائه وتنسيق مستوى الفقرة.
+* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) يمثل مقطع نص داخل الفقرة. يمكن لكل جزء أن يكون له نصه الخاص وتنسيق مستوى الحرف.
 
-يمكن للفقرة إذًا أن تحتوي على نص بخطوط، ألوان، أحجام، وتنسيقات أخرى مختلفة باستخدام عدة أجزاء.
+وبالتالي يمكن للفقرة أن تحتوي على نص بخطوط وألوان وأحجام وتنسيقات مختلفة باستخدام أجزاء متعددة.
 
 ## **إنشاء وتنسيق الفقرات**
 
-قم بإنشاء فقرات داخل إطار النص للشكل واستخدم الأجزاء لتنسيق تشغيلات النص الفردية. يوضح هذا القسم كيفية دمج عدة أجزاء داخل كل فقرة وتطبيق ألوان، أحجام خطوط، وأنماط مختلفة.
+أنشئ فقرات في إطار النص الخاص بالشكل واستخدم الأجزاء لتنسيق مقاطع النص الفردية. يوضح هذا القسم كيفية دمج أجزاء متعددة داخل كل فقرة وتطبيق ألوان مختلفة، وأحجام خطوط، وأنماط.
 
-### **إنشاء فقرات مع عدة أجزاء**
+### **إنشاء فقرات مع أجزاء متعددة**
 
-المثال التالي بلغة C++ ينشئ ثلاث فقرات، كل منها يحتوي على ثلاث تشغيلات نصية في مجموعة [IParagraph::get_Portions](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_portions/). يعيد استخدام الفقرة الافتراضية والجزء الفارغ الخاص بها، ثم يضيف الفقرات والأجزاء المتبقية. يتم تطبيق التنسيق عبر [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/): الجزء الأول في كل فقرة يكون أحمر، عريض، وحجمه 15 نقطة؛ الجزء الثاني أزرق، مائل، وحجمه 18 نقطة. الجزء الثالث يحتفظ بتنسيقه الافتراضي:
+المثال التالي بلغة C++ ينشئ ثلاث فقرات، كل منها يحتوي على ثلاث مقاطع نص في مجموعة [IParagraph::get_Portions](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_portions/). يعيد استعمال الفقرة الافتراضية والجزء الفارغ، ثم يضيف الفقرات والأجزاء المتبقية. يتم تطبيق التنسيق عبر [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/): الجزء الأول في كل فقرة أحمر، عريض، بحجم 15 نقطة؛ الثاني أزرق، مائل، بحجم 18 نقطة. الجزء الثالث يحتفظ بالتنسيق الافتراضي:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -122,15 +122,15 @@ presentation->Save(u"paragraphs_with_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **إنشاء القوائم النقطية والمرقمة**
+## **إنشاء قوائم نقطية ومرقمة**
 
-نظم نص الفقرة في قوائم باستخدام رموز، أرقام، أو صور مخصصة. تغطي الأمثلة في هذا القسم تنسيق النقاط، القوائم المتعددة المستويات، وأرقام البدء المخصصة.
+نظم نص الفقرات في قوائم برموز أو أرقام أو صور مخصصة. تغطي الأمثلة في هذا القسم تنسيق النقاط، القوائم المتعددة المستويات، وتحديد أرقام البداية المخصصة.
 
 ### **إنشاء قائمة نقطية أو مرقمة**
 
-تسهل النقاط والترقيم قراءة العناصر المتعلقة. في Aspose.Slides، تُعرّف إعدادات القوائم عبر [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/).
+تسهل النقاط والترقيم قراءة العناصر المرتبطة. في Aspose.Slides يتم تعريف إعدادات القوائم عبر [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/).
 
-يضيف هذا المثال بلغة C++ نقطة رمزية وبندًا مرقمًا إلى نفس إطار النص. تقوم [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) باختيار نوع النقطة، بينما تقوم [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) بتوفير الرمز و[IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) باختيار نمط الترقيم. يستخدم العنصران نقاطًا سوداء بارتفاع 100٪ وإزاحة فقرة 25 نقطة:
+يضيف هذا المثال بلغة C++ نقطة برمز وعدًداً إلى نفس إطار النص. يحدد [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) نوع النقطة، بينما يزود [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) الرمز و[IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) نمط الترقيم. يستخدم العنصران نقاطًا سوداء بارتفاع 100 ٪ وإزاحة فقرة قدرها 25 نقطة:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -186,9 +186,9 @@ presentation->Dispose();
 
 ### **استخدام نقاط صورة**
 
-تتيح لك نقاط الصورة استخدام صورة مخصصة بدلاً من رمز أو رقم.
+تتيح نقاط الصورة استخدام صورة مخصصة بدلاً من رمز أو رقم.
 
-يتطلب المثال وجود ملف `bullets.png` في دليل العمل. يضيف هذا المثال بلغة C++ صورة إلى مجموعة صور العرض كـ [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) ويستخدمها كنقطة فقرة. يحدد [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) لاستخدام نقطة صورة ويعين الصورة عبر [IBulletFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/get_picture/). يتم ضبط [IBulletFormat::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_height/) على 100٪ لتحديد حجم النقطة بالنسبة لنص الفقرة:
+يتطلب المثال وجود `bullets.png` في دليل العمل. يضيف هذا المثال بلغة C++ صورة إلى مجموعة صور العرض كـ [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) ويستخدمها كنقطة فقرة. يضبط [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) لاستخدام نقطة صورة ويعيّن الصورة عبر [IBulletFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/get_picture/). يُضبط [IBulletFormat::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_height/) على 100 ٪ لتحديد حجم النقطة نسبة إلى نص الفقرة:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -231,9 +231,9 @@ presentation->Dispose();
 
 ### **إنشاء قائمة متعددة المستويات**
 
-قم بتعيين [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) لوضع الفقرات في مستويات مختلفة من القائمة. المستوى الأعلى له عمق `0`.
+حدد [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) لوضع الفقرات في مستويات مختلفة من القائمة. المستوى الأعلى له عمق `0`.
 
-المثال التالي بلغة C++ يعيّن قيم [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) من 0 إلى 3 لأربع فقرات، مُنشئًا هيكلًا داخل إطار نص واحد. تستخدم كل فقرة نقطة رمزية، مع تبديل [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) بين نقطة دائرية وشرطة لتمييز المستويات المتجاورة:
+يُعيّن هذا المثال بلغة C++ قيم [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) من 0 إلى 3 لأربع فقرات، مُنشئًا هرمًا داخل إطار نص واحد. تستخدم كل فقرة نقطة رمز، مع تبديل [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) بين نقطة دائرية وشرطة لتمييز المستويات المتجاورة:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -302,9 +302,9 @@ presentation->Dispose();
 
 ### **بدء عناصر القائمة المرقمة بقيم مخصصة**
 
-استخدم [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) لتعيين الرقم الأولي المعروض لفقرة مرقمة.
+استخدم [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) لتحديد الرقم الأول الذي يُعرض للفقرة المرقمة.
 
-المثال التالي بلغة C++ يحدد [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) لاستخدام الترقيم لثلاث فقرات ويعيّن قيم [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) 2 و3 و7. يتم تكوين القيمة الابتدائية بشكل منفصل لكل فقرة، مما يسمح بتخطي الأرقام بين الفقرات:
+يحدد هذا المثال بلغة C++ [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) لاستخدام الترقيم لثلاث فقرات ويُعيّن قيم [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) 2 و3 و7. يتم تكوين قيمة البدء بشكل منفصل لكل فقرة، مما يسمح بتخطي الأرقام:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -350,15 +350,15 @@ presentation->Dispose();
 
 ## **التحكم في تخطيط الفقرة وخصائص النهاية**
 
-قم بضبط هوامش الفقرة والمسافات لتحديد موضع السطر الأول والأسطر المُلتفة. يمكنك أيضًا تنسيق علامة نهاية الفقرة بشكل منفصل عن أجزاء النص الظاهرة.
+عدّل هوامش الفقرة وإزاحات السطر للتحكم في موضع السطر الأول والسطروف المتعدد. يمكنك أيضًا تنسيق علامة النهاية للفقرة بشكل منفصل عن أجزاء النص المرئية.
 
-### **تعيين إزاحة السطر الأول**
+### **تحديد إزاحة السطر الأول**
 
-استخدم طريقة [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) للتحكم في إزاحة السطر الأول للفقرة. تُحرك هذه الطريقة السطر الأول فقط بالنسبة لهامش الفقرة الأيسر. القيمة الموجبة تُحرك السطر الأول إلى اليمين، بينما تبقى الأسطر المتبقية محاذاة إلى جسم الفقرة.
+استخدم طريقة [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) للتحكم في إزاحة السطر الأول للفقرة. تتحرك هذه الطريقة السطر الأول فقط نسبة إلى الهامش الأيسر للفقرة. القيمة الموجبة تُحرك السطر الأول إلى اليمين، بينما تُبقى الأسطر المتبقية محاذاة مع جسم الفقرة.
 
-استخدم [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) عندما تحتاج إلى نقل الفقرة بأكملها. استخدم [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) عندما تحتاج إلى نقل السطر الأول فقط.
+استخدم [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) عندما تحتاج إلى تحريك الفقرة بالكامل. استخدم [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) عندما تحتاج إلى تحريك السطر الأول فقط.
 
-المثال التالي يمنح ثلاث فقرات نفس قيمة [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) البالغة 20 نقطة، وقيم [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 0 و20 و40 نقطة. تبدأ الأسطر الأولى بإزاحات متزايدة تدريجيًا، بينما تحتفظ الأسطر المُلتفة بنفس الهامش الأيسر:
+يعطي المثال التالي ثلاث فقرات نفس [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) البالغ 20 نقطة وقيم [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 0 و20 و40 نقطة. تبدأ الأسطر الأولى بإزاحات متزايدة، بينما تحتفظ الأسطر المتداخلة بنفس الهامش الأيسر:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -419,17 +419,17 @@ presentation->Dispose();
 
 النتيجة:
 
-![إزاحة السطر الأول للفقرات](first_line_indent.png)
+![المسافة البادئة للسطر الأول للفقرات](first_line_indent.png)
 
-### **تعيين إزاحة معلقة**
+### **تحديد إزاحة معلقة**
 
-إزاحة معلقة هي تخطيط فقرة يبدأ فيه السطر الأول إلى اليسار من الأسطر المتبقية. في Aspose.Slides، يمكنك إنشاء هذا التأثير باستخدام طريقة [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/). مرّر قيمة سالبة لتحريك السطر الأول إلى اليسار بالنسبة إلى جسم الفقرة.
+الإزاحة المعلقة هي تخطيط فقرة يبدأ فيه السطر الأول إلى اليسار عن باقي الأسطر. في Aspose.Slides، تُنشئ هذا التأثير باستخدام طريقة [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/). مرّر قيمة سالبة لتحريك السطر الأول إلى اليسار نسبة إلى جسم الفقرة.
 
-عمليًا، يحدد [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) الموضع الأيسر لجسم الفقرة، ويحدد [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) موضع السطر الأول بالنسبة لهذا الهامش. لإنشاء إزاحة معلقة، عيّن قيمة إيجابية لـ `MarginLeft` وقيمة سالبة لـ `Indent`.
+في الواقع، يحدد [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) موضع الجسم الأيسر للفقرة، ويحدد [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) موضع السطر الأول نسبة إلى ذلك الهامش. لإنشاء إزاحة معلقة، عيّن قيمة `MarginLeft` موجبة وقيمة `Indent` سالبة.
 
-هذا التنسيق مفيد للمراجع، المراجع الببليوغرافية، مدخلات القاموس، وغيرها من الفقرات التي يجب أن تكون الأسطر المُلتفة محاذية تحت جسم الفقرة بدلاً من الحرف الأول للسطر الأول.
+يُستخدم هذا التنسيق في الببليوغرافيات، المراجع، المدخلات القاموسية، وغيرها من الفقرات التي يجب أن تكون الأسطر المتداخلة محاذية تحت جسم الفقرة وليس تحت الحرف الأول للسطر الأول.
 
-المثال التالي بلغة C++ يقرّن قيم [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) 40 و60 نقطة مع قيم [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) -20 و-30 نقطة. في كل فقرة، يبدأ السطر الأول إلى اليسار من الأسطر المُلتفة؛ الفقرة الثانية لديها إزاحة معلقة أعمق:
+يقوم المثال التالي بلغة C++ بزوج قيم [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) 40 و60 نقطة مع قيم [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) -20 و-30 نقطة. في كل فقرة، يبدأ السطر الأول إلى اليسار عن الأسطر المتداخلة؛ الفقرة الثانية لها إزاحة معلقة أعمق:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -484,9 +484,9 @@ presentation->Dispose();
 
 ![الإزاحة المعلقة للفقرات](hanging_indent.png)
 
-### **تعيين خصائص تشغيل نهاية الفقرة**
+### **تحديد خصائص تشغيل نهاية الفقرة**
 
-تتحكم طريقة [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) في تنسيق علامة نهاية الفقرة. يحمل المثال ملف `Test.pptx` الذي يجب أن يحتوي على شريحة واحدة على الأقل. ينشئ المثال التالي كائنًا من النوع [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) مع تعيين [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) إلى 48 نقطة و[IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/) إلى Times New Roman. يُعيّن هذا التنسيق إلى علامة نهاية الفقرة الثانية، مع إبقاء أجزاء النص الظاهرة دون تغيير:
+تتحكم الطريقة [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) بتنسيق علامة النهاية للفقرة. يحمل المثال ملف `Test.pptx` الذي يجب أن يحتوي على شريحة واحدة على الأقل. ينشئ المثال التالي [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) مع تعيين [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) إلى 48 نقطة و[IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/) إلى Times New Roman. يعيّن هذا التنسيق إلى علامة النهاية للفقرة الثانية، مع ترك أجزاء النص المرئية دون تغيير:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -529,15 +529,15 @@ presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **عدد الأسطر المُرَسَمة**
+## **عدد الأسطر المرسومة**
 
-للقواعد المتعلقة بالفقرة التي تؤثر على الالتفاف التلقائي وعلامات الترقيم في نهايات السطر، راجع [Control Line Breaking](/slides/ar/cpp/text-formatting/#control-line-breaking) و[Control Hanging Punctuation](/slides/ar/cpp/text-formatting/#control-hanging-punctuation).
+للقواعد التي تؤثر على التفاف النص الآلي وعلامات الترقيم في نهاية السطر، راجع [Control Line Breaking](/slides/ar/cpp/text-formatting/#control-line-breaking) و[Control Hanging Punctuation](/slides/ar/cpp/text-formatting/#control-hanging-punctuation).
 
-استخدم [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) لحساب عدد الأسطر التي تشغلها الفقرة بعد تخطيط النص، بما في ذلك الالتفاف التلقائي. وهذا مفيد عند التحقق من طول النص وتخطيطه في قوالب العروض التقديمية.
+استخدم [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) لحساب عدد الأسطر التي تحتلها فقرة بعد تخطيط النص، بما في ذلك التفاف النص الآلي. هذا مفيد عند فحص طول النص وتخطيط القالب العرضي.
 
-الفقرة هي عنصر واحد في [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/)، ويمكن أن تحتل عدة أسطر مُرَسَمة. يُجبر فاصل السطر الصريح داخل الفقرة على سطر جديد دون إنشاء فقرة أخرى. يولِّد الالتفاف التلقائي أسطرًا بناءً على العرض المتاح دون إدخال فواصل صريحة إلى النص. لذا فإن عد الفقرات أو حروف فاصل السطر لا يعطي عدد الأسطر المُرَسَمة.
+الفقرة هي عنصر في [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/)، ويمكن أن تحتل عدة أسطر مرسومة. كسر السطر الصريح داخل الفقرة يُنشئ سطرًا جديدًا دون إنشاء فقرة أخرى. التفاف النص الآلي يُنشئ أسطرًا بناءً على العرض المتاح دون إدخال كسر سطر صريح في النص. لذا فإن عد الفقرات أو أحرف كسر السطر لا يعطي عدد الأسطر المرسومة.
 
-المثال التالي ينشئ شكل نص، يحسب أسطره، يضيق الشكل، ثم يستبدل النص بسلسلة أقصر. يُفعِّل المثال [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) ويعطل [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) بحيث يتحكم عرض الشكل في الالتفاف دون تصغير النص تلقائيًا أو تغيير حجم الشكل. كل قياس يستخدم [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/). أبعاد الشكل بوحدة النقاط. أخيرًا، يضيف المثال فقرة أخرى ويجمع عدد الأسطر عبر إطار النص.
+ينشئ المثال التالي شكل نص، يحسب أسطره، يضيق الشكل، ثم يستبدل النص بسلسلة أقصر. يفعّل المثال [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) ويعطّل [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) بحيث يتحكم عرض الشكل في التفاف النص دون تصغير النص أو تعديل حجم الشكل تلقائيًا. كل قياس يستخدم [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/). أبعاد الشكل بالوحدات النقطية. أخيرًا، يضيف المثال فقرة أخرى ويجمع عدد الأسطر عبر إطار النص.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -585,19 +585,19 @@ Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
 presentation->Dispose();
 ```
 
-مع هذا النص وهذه الأبعاد، يؤدي تضييق الشكل إلى زيادة عدد الأسطر، بينما يؤدي استبدال النص بالسلسلة القصيرة إلى تقليلها. قد تختلف العدادات الدقيقة بحسب توفر الخطوط والاستبدال، حجم الخط، الهوامش، الإزاحات، الالتفاف، وإعدادات الملاءمة التلقائية. استخدم الخطوط وإعدادات التخطيط المستهدفة عند فحص القالب.
+مع هذا النص وهذه الأبعاد، يزيد تضييق الشكل عدد الأسطر، بينما يقلل استبدال النص بالسلسلة القصيرة عدد الأسطر. قد تختلف الأعداد الفعلية حسب توفر الخطوط والاستبدال، حجم الخط، الهوامش، الإزاحات، التفاف النص، وإعدادات الملاءمة التلقائية. استخدم الخطوط وإعدادات التخطيط المقصودة للبيئة المستهدفة عند فحص القالب.
 
-عدد الأسطر وحده لا يحدد ما إذا كان النص يفيض عن حاويته. الارتفاع المتاح، ارتفاعات الأسطر، تباعد الفقرة والسطر، وسلوك الملاءمة التلقائية أيضًا مهم؛ حتى سطر واحد قد يتجاوز العرض المتاح عندما يكون الالتفاف مُعطَّلًا.
+عدد الأسطر بمفرده لا يحدد ما إذا كان النص يفيض عن حاويته. الارتفاع المتاح، ارتفاع الأسطر، تباعد الفقرات والأسطر، وسلوك الملاءمة التلقائية كلها عوامل مهمة؛ حتى سطر واحد يمكن أن يتجاوز العرض المتاح عندما يُعطل التفاف النص.
 
 ## **استيراد وتصدير محتوى الفقرة**
 
-استخدم HTML لإدخال النص إلى عرض تقديمي أو لتصدير الفقرات الحالية للاستخدام خارجها. يُظهر هذا القسم أيضًا كيفية تصيّر الفقرات الفردية كصور، بما في ذلك الفقرات داخل خلايا الجداول.
+استخدم HTML لجلب النص إلى عرض تقديمي أو لتصدير الفقرات لاستخدامها خارج العرض. يظهر هذا القسم أيضًا كيفية تحويل الفقرات الفردية إلى صور، بما في ذلك الفقرات داخل خلايا الجداول.
 
 ### **استيراد نص HTML إلى الفقرات**
 
-استخدم [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) لتحويل علامات HTML إلى فقرات وأجزاء في إطار النص.
+استخدم [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) لتحويل ترميز HTML إلى فقرات وأجزاء داخل إطار النص.
 
-يقرأ هذا المثال بلغة C++ HTML من ملف ويمرر العلامات إلى [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/). يزيل الفقرة الافتراضية في إطار النص بحيث يحتوي الإطار على المحتوى المستورد فقط. يترك الشكل المستطيل هامشًا قدره 10 نقاط على كل جانب من الشريحة:
+يقوم المثال التالي بلغة C++ بقراءة HTML من ملف وتمرير الترميز إلى [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/). يفرغ الفقرة الافتراضية لإطار النص بحيث يحتوي الإطار فقط على المحتوى المستورد. يترك الشكل المستطيل هامشًا قدره 10 نقاط على كل جانب من الشريحة:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -633,16 +633,16 @@ presentation->Dispose();
 
 ### **تصدير نص الفقرة إلى HTML**
 
-استخدم [ParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/exporttohtml/) لتصدير مجموعة مختارة من الفقرات كـ HTML. عند إعادة استخدام نص العرض على موقع ويب، قد ترغب في الحفاظ على التشديد المحلي دون نقل خطوط، حجم، أو أنماط صندوق النص من العرض. اضبط [TextToHtmlConversionOptions::set_TextInheritanceLimit](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_textinheritancelimit/) للتحكم إلى أي مدى يتبع المُصدِّر وراثة التنسيق.
+استخدم [ParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/exporttohtml/) لتصدير نطاق محدد من الفقرات كـ HTML. عند إعادة استخدام نص العرض على موقع ويب، قد ترغب في الحفاظ على التأكيد المحلي دون نقل خط العرض أو الحجم أو أنماط صندوق النص. عيّن [TextToHtmlConversionOptions::set_TextInheritanceLimit](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_textinheritancelimit/) للتحكم في مدى اتباع المُصدّر لوراثة التنسيق.
 
-حمّل [العرض التجريبي](text-inheritance.pptx) وضعه في دليل عمل التطبيق. يحتوي شريحته الأولى على شكل نص يحتوي على النص "Inherited text; explicit red 18pt". يستخدم الإدخال عدة مستويات تنسيق عمدًا:
+حمِّل [العرض التوضيحي](text-inheritance.pptx) وضعه في دليل عمل التطبيق. يحتوي شريحةه الأولى على شكل نص واحد بالنص "Inherited text; explicit red 18pt". يستخدم الإدخال عدة مستويات تنسيق عمدًا:
 
-- نمط النص الافتراضي للعرض يوفِّر Calibri بحجم 28 pt.
-- نمط النص من المستوى الأول في إطار النص يوفِّر نصًا أزرق ومائل.
-- الفقرة تُعيّن صراحةً نصًا عريضًا.
-- الجزء الثاني، "explicit red 18pt"، يُعيّن صراحةً نصًا أحمر وحجم 18 pt.
+- نمط النص الافتراضي للعرض يوفّر خط Calibri بحجم 28 pt.
+- نمط النص من المستوى الأول لإطار النص يوفّر نصًا أزرق ومائل.
+- الفقرة تحدد نصًا عريضًا صراحة.
+- الجزء الثاني، "explicit red 18pt"، يحدد نصًا أحمر بحجم 18 pt صراحة.
 
-المثال التالي يصدر نفس الفقرات ثلاث مرات. يمرّر [TextToHtmlConversionOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/) إلى طريقة التصدير ويكتب كل نتيجة كملف HTML منفصل بترميز UTF-8:
+يصدّر المثال التالي الفقرات نفسها ثلاث مرات. يمرّر [TextToHtmlConversionOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/) إلى طريقة التصدير ويكتب كل نتيجة كملف HTML UTF-8 منفصل:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -689,31 +689,68 @@ else
 presentation->Dispose();
 ```
 
-يحتوي HTML المُنشأ على CSS التالي للجزء الأول، "Inherited text; ". الجدول يسرد التعريفات ذات الصلة؛ تُحذف الخصائص المُولَّدة الأخرى للوضوح.
+يحتوي HTML المستخرج على CSS التالي للجزء الأول، "Inherited text; ". تُظهر الجدول البيانات ذات الصلة؛ تُحذف الخصائص الأخرى لتوضيح الفهم.
 
-| الناتج | CSS ذي الصلة للجزء الأول | المظهر |
+| الناتج | CSS ذو الصلة للجزء الأول | المظهر |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | نص أزرق، عريض، مائل بحجم 28 pt في Calibri، إذا كان الخط متاحًا. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | نص أزرق، عريض، مائل؛ يُوفر المتصفح أو الصفحة المحيطة عائلة الخط والحجم. |
-| `ParagraphOnly.html` | `font-weight:bold` | نص عريض؛ تُوفر الصفحة أو المتصفح المحيط عائلة الخط، الحجم، اللون، والنمط المائل. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | نص أزرق، عريض، مائل بحجم 28 pt بخط Calibri إذا كان الخط متاحًا. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | نص أزرق، عريض، مائل؛ تُوفر الصفحة أو المتصفح عائلة الخط والحجم. |
+| `ParagraphOnly.html` | `font-weight:bold` | نص عريض؛ تُوفر الصفحة أو المتصفح عائلة الخط، الحجم، اللون، والنمط المائل. |
 
-يحتفظ الجزء الثاني بـ `color:#ff0000`، `font-size:18pt`، و`font-weight:bold` في جميع المخرجات الثلاث. كما يحتفظ بالمائل في `All` و`TextBox`، لكن ليس في `ParagraphOnly`. لذلك لا يُزيل تقييد الوراثة التنسيق المعين صراحةً لفقرة أو جزء.
+يحافظ الجزء الثاني على `color:#ff0000` و`font-size:18pt` و`font-weight:bold` في جميع المخرجات الثلاث. كما يبقى مائلًا في `All` و`TextBox`، لكنه غير مائل في `ParagraphOnly`. لذا فإن تقييد الوراثة لا يُزيل التنسيق المعيّن صراحةً للفقرة أو الجزء.
 
-افتح الملفات في نفس المتصفح للمقارنة. في الوضعين المقيدين، تُحل الخصائص CSS المفقودة بواسطة أنماط الصفحة الوجهة أو القيم الافتراضية للمتصفح، لذا يعتمد المظهر النهائي على مكان استخدام HTML.
+افتح الملفات في نفس المتصفح للمقارنة. في الوضعين المُقيدين، تُستكمل الخصائص CSS الغائبة بأنماط الصفحة الهدف أو الإعدادات الافتراضية للمتصفح، لذا يعتمد المظهر النهائي على مكان استخدام HTML.
 
-### **تصيّر فقرة كصورة**
+### **إنشاء مقطع HTML للوحة الحافظة**
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) يصوّر فقرة واحدة مباشرةً ويعيد كائنًا من النوع [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/). احفظ النتيجة إلى ملف أو تدفق باستخدام [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/). لا تحتاج إلى تصيّر الشكل المحتوي أو قص صورة يدوية.
+عيّن [TextToHtmlConversionOptions::set_AddClipboardFragmentHeader](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_addclipboardfragmentheader/) إلى `false` للحصول على HTML عادي أو إلى `true` لتضمين رأس لوحة الحافظة. يوفّر الرأس إزاحات البايت UTF-8 للـ HTML المحيط (`StartHTML` و`EndHTML`) والجزء الذي يُلصق (`StartFragment` و`EndFragment`).
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) قد يُعيد `nullptr` إذا لم تُعثر الفقرة في مجموعة أمتها، أو لا تملك حدود تصيّر صالحة، أو لا يمكن تصيّرها. تحقق من النتيجة قبل حفظها وتخلص من الصورة المرجعية بعد الاستخدام.
+يصدّر هذا المثال فقرتين منسقتين كـ HTML عادي (`html`) وكجزء لوحة حافظة HTML (`clipboardHtml`). كتابة الجزء إلى لوحة الحافظة النظامية هي خطوة تطبيق منفصلة. تتطلب واجهة برمجة تطبيقات الحافظة التي تقبل بايتات HTML صافية UTF-8 بدون BOM.
 
-#### **تصيّر فقرة بالمقياس الافتراضي**
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/TextToHtmlConversionOptions.h>
 
-يستخدم المثال `sample.pptx`، عرضًا يحتوي شريحة واحدة يكون شكلها الأول صندوق نص يضم ثلاث فقرات.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0, 0, 400, 100);
+auto paragraphs = shape->get_TextFrame()->get_Paragraphs();
+paragraphs->Clear();
+paragraphs->AddFromHtml(u"<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+auto options = MakeObject<TextToHtmlConversionOptions>();
+options->set_AddClipboardFragmentHeader(false);
+auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+
+options->set_AddClipboardFragmentHeader(true);
+auto clipboardHtml = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+presentation->Dispose();
+```
+
+### **تحويل فقرة إلى صورة**
+
+يُعيد [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) تحويل فقرة فردية مباشرةً ويُعيد كائنًا من نوع [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/). احفظ النتيجة إلى ملف أو تدفق باستخدام [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/). لا تحتاج إلى تحويل الشكل الحاوي أو قص صورة يدوية.
+
+قد تُعيد [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) `nullptr` إذا لم تُعثر الفقرة في مجموعة الوالد، أو لا توجد حدود رسم صالحة، أو لا يمكن رسمها. تحقّق من النتيجة قبل حفظها وتأكد من تحرير الصورة المسترجعة بعد الاستخدام.
+
+#### **تحويل فقرة بالمقياس الافتراضي**
+
+يستخدم المثال `sample.pptx`، عرضًا به شريحة واحدة وشكل نص يحتوي على ثلاث فقرات.
 
 ![صندوق النص مع ثلاث فقرات](paragraph_to_image_input.png)
 
-المثال التالي يختار الفقرة الثانية عند الفهرس 1 ويستدعي [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) دون معلمات مقياس. يتحقق من أن الشكل يحتوي على الفقرة المطلوبة وأن التصيّر يُعيد صورة قبل استدعاء [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) لحفظها بصيغة PNG. يتخلص المثال من الصورة بعد حفظها.
+يختار المثال الفقرة الثانية عند الفهرس 1 ويستدعي [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) دون معاملات مقياس. يتحقق من وجود الفقرة المطلوبة داخل الشكل، ومن أن عملية الرسم تُعيد صورة قبل استدعاء [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) لحفظها بصيغة PNG. يُفرغ الصورة بعد حفظها.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -758,9 +795,9 @@ presentation->Dispose();
 
 ![صورة الفقرة](paragraph_to_image_output.png)
 
-#### **تصيّر فقرة في خلية جدول مع مقياس**
+#### **تحويل فقرة داخل خلية جدول مع مقياس**
 
-استخدم نسخة [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) التي تقبل معلمات `float scaleX` و `float scaleY` لتحديد عوامل المقياس الأفقي والرأسي. ينشئ المثال التالي جدولًا، يصوّر الفقرة في خليةه الأولى بضعف العرض والارتفاع الافتراضيين، ويحفظ النتيجة كصورة PNG.
+استخدم overload لـ [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) الذي يقبل معلمات `float scaleX` و `float scaleY` لتحديد عوامل المقياس الأفقي والعمودي. يُنشئ المثال جدولًا، يحوّل الفقرة في خلية الجدول الأولى إلى ضعف عرضها وارتفاعها الافتراضيين، ويحفظ النتيجة كصورة PNG.
 
 ```cpp
 #include <DOM/IParagraph.h>
@@ -798,26 +835,26 @@ else
 presentation->Dispose();
 ```
 
-القيمة `1` تبقي المحور بحجمه الأصلي بالبكسل. على سبيل المثال، `2` لكل العاملين ينتج صورة يبلغ عرضها وارتفاعها تقريبًا ضعف الأبعاد الافتراضية، ما يعادل أربعة أضعاف عدد البكسلات. القيم الأكبر تُنتج عادة نصًا أكثر حدة للتقريب أو الإخراج عالي الدقة، لكنها أيضًا تُزيد من استهلاك الذاكرة وحجم الملف. القيم الأقل من `1` تُنتج صورًا أصغر مع تفاصيل أقل. استخدم عوامل متماثلة للحفاظ على نسبة أبعاد الفقرة؛ العوامل الأفقية والرأسية المختلفة تُشوّه الإخراج بشكل مستقل.
+عامل المقياس `1` يحافظ على ذلك البُعد بالحجم البكسلي الافتراضي. على سبيل المثال، يُنتج `2` لكلا العاملين صورة عرضها وارتفاعها تقريبًا ضعف الأبعاد الافتراضية، ما يعني أربعة أضعاف عدد البكسلات. عادةً ما تُنتج العوامل الأكبر نصًا أكثر حدة للقراءة أو للإخراج عالي الدقة، لكنها أيضًا تزيد من استهلاك الذاكرة وحجم الملف. العوامل دون `1` تُنتج صورًا أصغر مع تفاصيل أقل. استخدم عوامل متماثلة للحفاظ على نسبة عرض الفقرة إلى ارتفاعها؛ العوامل الأفقية والعمودية المختلفة تُشوّه الإخراج بشكل مستقل.
 
-لا يزال تصيّر الشكل كاملًا باستخدام [IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) مفيدًا عندما يجب تضمين تعبئة الشكل، حدوده، أو سياقه البصري. لتصوّر صورة للفقرة فقط، استخدم [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/).
+يظل تحويل شكل كامل باستخدام [IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) مفيدًا عندما يجب تضمين تعبئة الشكل، حدوده، أو سياقه البصري. للحصول على صورة للفقرة فقط، استخدم [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/).
 
-## **FAQ**
+## **الأسئلة الشائعة**
 
 **هل يمكنني تعطيل التفاف السطر بالكامل داخل إطار النص؟**
 
-نعم. استخدم [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) لتعطيل الالتفاف بحيث لا تُقسم الأسطر عند حواف إطار النص.
+نعم. استخدم [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) لتعطيل التفاف السطر بحيث لا ينكسر عند حدود إطار النص.
 
-**كيف يمكنني الحصول على حدود الفقرة المحددة داخل الشريحة؟**
+**كيف يمكنني الحصول على حدود الفقرة المحددة داخل الشريحة بدقة؟**
 
-استخدم [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) لاسترجاع المستطيل المحيط بالفقرة. توفر [IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) حدود الجزء الفردي.
+استخدم [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) لاسترجاع المستطيل المحيط بالفقرة. يوفر [IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) حدود الجزء الفردي.
 
-**أين يتم التحكم في محاذاة الفقرة (يسار، يمين، مركز، أو مبرر)؟**
+**أين يتم التحكم في محاذاة الفقرة (يسار، يمين، وسط، ضبط)؟**
 
-[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) هو إعداد على مستوى الفقرة ويُطبق على الفقرة بأكملها بغض النظر عن تنسيق الأجزاء الفردية.
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) هو إعداد على مستوى الفقرة وينطبق على الفقرة بأكملها بغض النظر عن تنسيق الأجزاء الفردية.
 
-للمحاذاة العمودية للأجزاء ذات أحجام الخط المختلفة داخل كل سطر، راجع [Align Fonts Within a Line](/slides/ar/cpp/text-formatting/#align-fonts-within-a-line).
+لإنشاء محاذاة عمودية لأجزاء ذات أحجام خطوط مختلفة داخل كل سطر، راجع [Align Fonts Within a Line](/slides/ar/cpp/text-formatting/#align-fonts-within-a-line).
 
 **هل يمكنني تعيين لغة التدقيق لجزء من الفقرة؟**
 
-نعم. استخدم [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) للأجزاء الفردية، بحيث يمكن لفقرة واحدة أن تحتوي نصًا بعدة لغات.
+نعم. استخدم [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) للأجزاء الفردية، بحيث يمكن لفقرة واحدة أن تحتوي على نصوص بعدة لغات.

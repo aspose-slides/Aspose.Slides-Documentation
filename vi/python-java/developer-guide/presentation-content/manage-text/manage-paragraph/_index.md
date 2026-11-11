@@ -9,15 +9,15 @@ aliases:
   - /python-java/portion/
 keywords:
 - thêm văn bản
-- thêm đoạn
+- thêm đoạn văn
 - quản lý văn bản
-- quản lý đoạn
+- quản lý đoạn văn
 - quản lý dấu đầu dòng
 - thụt đoạn
 - thụt treo
-- dấu đầu dòng đoạn
-- danh sách có số
-- danh sách có dấu đầu dòng
+- đánh dấu đoạn
+- danh sách đánh số
+- danh sách dấu đầu dòng
 - thuộc tính đoạn
 - nhập HTML
 - văn bản sang HTML
@@ -26,29 +26,29 @@ keywords:
 - văn bản sang hình ảnh
 - xuất đoạn
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - Python
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, dấu đầu dòng, danh sách có số, thụt lề, nội dung HTML và hình ảnh đoạn bằng Aspose.Slides cho Python qua Java."
+description: "Tìm hiểu cách tạo và định dạng các đoạn văn, phần, dấu đầu dòng, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn văn với Aspose.Slides cho Python qua Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for Python via Java đại diện cho văn bản như một hệ thống phân cấp gồm các khung văn bản, đoạn văn và phần:
+Aspose.Slides for Python via Java biểu diễn văn bản dưới dạng một cấu trúc phân cấp gồm các khung văn bản, đoạn văn và phần:
 
-* [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) đại diện cho vùng chứa văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập đoạn văn của nó.
-* [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) đại diện cho một đoạn văn trong một khung văn bản và cung cấp quyền truy cập vào các phần và định dạng ở mức độ đoạn văn.
-* [Portion](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) đại diện cho một dải văn bản trong một đoạn. Mỗi phần có thể có văn bản và định dạng ký tự riêng.
+* [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) đại diện cho vùng chứa văn bản trong một shape và cung cấp quyền truy cập vào bộ sưu tập đoạn văn của nó.
+* [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) đại diện cho một đoạn văn trong một khung văn bản và cung cấp quyền truy cập vào các phần và định dạng cấp đoạn.
+* [Portion](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) đại diện cho một đoạn văn bản trong một đoạn văn. Mỗi phần có thể có văn bản và định dạng cấp ký tự riêng.
 
-Vì vậy, một đoạn văn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và định dạng khác nhau bằng cách sử dụng nhiều phần.
+Do đó, một đoạn văn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và các định dạng khác nhau bằng cách sử dụng nhiều phần.
 
 ## **Tạo và Định dạng Đoạn văn**
 
-Tạo đoạn văn trong khung văn bản của một hình dạng và sử dụng các phần để định dạng các dải văn bản riêng lẻ. Phần này cho thấy cách kết hợp nhiều phần trong mỗi đoạn văn và áp dụng các màu sắc, kích thước phông chữ và kiểu dáng khác nhau.
+Tạo các đoạn văn trong khung văn bản của một shape và sử dụng các phần để định dạng các đoạn văn bản riêng lẻ. Phần này trình bày cách kết hợp nhiều phần trong mỗi đoạn văn và áp dụng các màu sắc, kích thước phông chữ và kiểu dáng khác nhau.
 
 ### **Tạo Đoạn Văn với Nhiều Phần**
 
-Ví dụ Python sau tạo ba đoạn văn, mỗi đoạn chứa ba dải văn bản trong bộ sưu tập được trả về bởi [Paragraph.getPortions](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getPortions). Nó tái sử dụng đoạn văn mặc định và phần rỗng của nó, sau đó thêm các đoạn và phần còn lại. Định dạng được áp dụng qua [Portion.getPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getPortionFormat): phần đầu tiên trong mỗi đoạn có màu đỏ, in đậm và kích thước 15 điểm; phần thứ hai có màu xanh lam, in nghiêng và kích thước 18 điểm. Phần thứ ba giữ định dạng mặc định:
+Ví dụ Python sau tạo ba đoạn văn, mỗi đoạn chứa ba đoạn văn bản trong bộ sưu tập trả về bởi [Paragraph.getPortions](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getPortions). Nó tái sử dụng đoạn văn mặc định và phần trống của nó, sau đó thêm các đoạn và phần còn lại. Định dạng được áp dụng qua [Portion.getPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getPortionFormat): phần đầu tiên trong mỗi đoạn là màu đỏ, in đậm, và kích thước 15 điểm; phần thứ hai là màu xanh lam, in nghiêng, và 18 điểm. Phần thứ ba giữ nguyên định dạng mặc định:
 
 ```python
 import jpype
@@ -107,15 +107,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Tạo Danh Sách Điểm Đánh Dấu và Đánh Số**
+## **Tạo Danh Sách Đánh Dấu và Đánh Số**
 
-Sắp xếp văn bản của đoạn văn thành các danh sách với ký hiệu, số hoặc hình ảnh tùy chỉnh. Các ví dụ trong phần này bao gồm định dạng dấu đầu dòng, danh sách đa cấp và số bắt đầu tùy chỉnh.
+Tổ chức văn bản của đoạn văn thành các danh sách với ký hiệu, số hoặc hình ảnh tùy chỉnh. Các ví dụ trong phần này bao gồm định dạng dấu đầu dòng, danh sách đa cấp và số bắt đầu tùy chỉnh.
 
-### **Tạo Danh Sách Điểm Đánh Dấu hoặc Đánh Số**
+### **Tạo Danh Sách Đánh Dấu hoặc Đánh Số**
 
-Dấu đầu dòng và đánh số giúp người đọc dễ dàng quét các mục liên quan. Trong Aspose.Slides, cài đặt danh sách được định nghĩa qua [BulletFormat](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/).
+Dấu đầu dòng và đánh số giúp người đọc dễ quét các mục liên quan. Trong Aspose.Slides, cài đặt danh sách được định nghĩa qua [BulletFormat](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/).
 
-Ví dụ Python này thêm một dấu đầu dòng ký hiệu và một mục được đánh số vào cùng một khung văn bản. [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) chọn loại dấu đầu dòng, trong khi [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) cung cấp ký hiệu và [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) chọn kiểu đánh số. Cả hai mục đều sử dụng dấu đầu dòng màu đen với chiều cao bằng 100 % và độ thụt đoạn là 25 điểm:
+Ví dụ Python này thêm một dấu đầu dòng ký hiệu và một mục đánh số vào cùng một khung văn bản. [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) chọn loại dấu đầu dòng, trong khi [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) cung cấp ký hiệu và [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) chọn kiểu đánh số. Cả hai mục đều sử dụng dấu đầu dòng đen với chiều cao 100 % và thụt đoạn 25 điểm:
 
 ```python
 import jpype
@@ -166,7 +166,7 @@ finally:
 
 Dấu đầu dòng hình ảnh cho phép bạn sử dụng một hình ảnh tùy chỉnh thay vì ký hiệu hoặc số.
 
-Ví dụ Python này thêm một hình ảnh vào bộ sưu tập hình ảnh của bản trình bày dưới dạng một [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) và sử dụng nó làm dấu đầu dòng cho đoạn văn. Nó gọi [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) để sử dụng dấu đầu dòng hình ảnh và gán hình ảnh qua [BulletFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getPicture). [BulletFormat.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setHeight) được đặt thành 100 % để kích thước dấu đầu dòng tương đối so với văn bản đoạn:
+Ví dụ Python này thêm một hình ảnh vào bộ sưu tập hình ảnh của bản trình bày dưới dạng một [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) và sử dụng nó làm dấu đầu dòng cho đoạn văn. Nó gọi [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) để sử dụng dấu đầu dòng hình ảnh và gán hình ảnh thông qua [BulletFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getPicture). [BulletFormat.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setHeight) được đặt thành 100 % để kích thước dấu đầu dòng tương đối với văn bản đoạn:
 
 ```python
 import jpype
@@ -206,9 +206,9 @@ finally:
 
 ### **Tạo Danh Sách Đa Cấp**
 
-Đặt [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) để đặt các đoạn văn ở các cấp độ khác nhau của một danh sách. Cấp độ trên cùng có độ sâu `0`.
+Đặt [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) để đặt các đoạn văn ở các mức độ khác nhau của một danh sách. Mức cao nhất có độ sâu `0`.
 
-Ví dụ Python này gán các giá trị [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) từ 0 đến 3 cho bốn đoạn, tạo một cấu trúc phân cấp trong một khung văn bản. Mỗi đoạn sử dụng dấu đầu dòng ký hiệu, với [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) luân phiên giữa dấu tròn và dấu gạch ngang để phân biệt các cấp độ liền kề:
+Ví dụ Python này gán các giá trị [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) từ 0 đến 3 cho bốn đoạn văn, tạo một cây phân cấp trong một khung văn bản. Mỗi đoạn văn sử dụng dấu đầu dòng ký hiệu, với [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) luân phiên giữa dấu tròn và dấu gạch nối để phân biệt các mức lân cận:
 
 ```python
 import jpype
@@ -270,11 +270,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Bắt Đầu Các Mục Đánh Số ở Giá Trị Tùy Chỉnh**
+### **Bắt Đầu Các Mục Đánh Số Với Giá Trị Tùy Chỉnh**
 
-Sử dụng [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) để đặt số đầu tiên hiển thị cho một đoạn văn được đánh số.
+Sử dụng [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) để đặt số ban đầu hiển thị cho một đoạn văn được đánh số.
 
-Ví dụ Python này đặt [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) để sử dụng đánh số cho ba đoạn và gán các giá trị [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) là 2, 3 và 7. Giá trị bắt đầu được cấu hình riêng cho mỗi đoạn, cho phép các số hiển thị bỏ qua một số giá trị:
+Ví dụ Python này đặt [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) để sử dụng đánh số cho ba đoạn văn và gán các giá trị [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) là 2, 3 và 7. Giá trị bắt đầu được cấu hình riêng cho mỗi đoạn, cho phép các số hiển thị bỏ qua các giá trị:
 
 ```python
 import jpype
@@ -317,17 +317,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Kiểm Soát Bố Cục Đoạn Văn và Thuộc Tính Kết Thúc**
+## **Kiểm Soát Bố Cục Đoạn Văn Và Thuộc Tính Kết Thúc**
 
-Điều chỉnh lề và thụt lề của đoạn để kiểm soát vị trí của dòng đầu và các dòng gói. Bạn cũng có thể định dạng dấu kết thúc đoạn riêng biệt so với các phần văn bản hiển thị.
+Điều chỉnh lề và thụt đoạn để kiểm soát vị trí của dòng đầu và các dòng gói. Bạn cũng có thể định dạng dấu kết thúc đoạn riêng biệt so với các phần văn bản hiển thị.
 
-### **Đặt Thụt Dòng Đầu Tiên**
+### **Đặt Thụt Dòng Dòng Đầu**
 
-Sử dụng phương thức [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) để kiểm soát thụt lề dòng đầu tiên của một đoạn. Cài đặt này chỉ di chuyển dòng đầu tiên so với lề trái của đoạn. Giá trị dương đẩy dòng đầu tiên sang phải, trong khi các dòng còn lại vẫn căn chỉnh với thân đoạn.
+Sử dụng phương thức [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) để kiểm soát thụt dòng đầu của một đoạn. Cài đặt này chỉ di chuyển dòng đầu so với lề trái của đoạn. Giá trị dương dịch dòng đầu sang phải, trong khi các dòng còn lại vẫn căn chỉnh với thân đoạn.
 
-Sử dụng [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) khi bạn cần di chuyển toàn bộ đoạn. Sử dụng [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) khi bạn chỉ cần di chuyển dòng đầu tiên.
+Sử dụng [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) khi bạn cần di chuyển toàn bộ đoạn. Sử dụng [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) khi bạn chỉ muốn di chuyển dòng đầu.
 
-Ví dụ sau đặt ba đoạn cùng một [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) là 20 điểm và các giá trị [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) là 0, 20 và 40 điểm. Các dòng đầu tiên bắt đầu ở các khoảng cách ngày càng lớn, trong khi các dòng gói vẫn giữ cùng một lề trái:
+Ví dụ sau đưa ba đoạn văn cùng một giá trị [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) là 20 điểm và các giá trị [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) là 0, 20 và 40 điểm. Các dòng đầu bắt đầu tại các vị trí lệch dần tăng, trong khi các dòng gói giữ cùng lề trái:
 
 ```python
 import jpype
@@ -361,14 +361,14 @@ try:
 
     second_paragraph = Paragraph()
     second_paragraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.")
-    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     second_paragraph.getParagraphFormat().setMarginLeft(20.0)
     second_paragraph.getParagraphFormat().setIndent(20.0)
 
     third_paragraph = Paragraph()
     third_paragraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.")
-    third_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
+    third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     third_paragraph.getParagraphFormat().setMarginLeft(20.0)
     third_paragraph.getParagraphFormat().setIndent(40.0)
@@ -384,17 +384,17 @@ finally:
 
 Kết quả:
 
-![Thụt lề dòng đầu tiên của các đoạn](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-### **Đặt Thụt Lề Treo**
+### **Đặt Thụt Dòng Treo**
 
-Thụt lề treo là bố cục đoạn trong đó dòng đầu tiên bắt đầu ở bên trái so với các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng thuộc tính [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent). Đặt `Indent` thành giá trị âm để di chuyển dòng đầu tiên sang trái so với thân đoạn.
+Thụt dòng treo là bố cục đoạn trong đó dòng đầu bắt đầu ở bên trái các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng thuộc tính [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent). Đặt `Indent` thành giá trị âm để dịch dòng đầu sang trái so với thân đoạn.
 
-Trong thực tế, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) xác định vị trí trái của thân đoạn, và [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) xác định vị trí của dòng đầu tiên so với lề đó. Để tạo thụt lề treo, đặt giá trị `MarginLeft` dương và giá trị `Indent` âm.
+Trong thực tế, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) xác định vị trí trái của thân đoạn, và [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) xác định vị trí của dòng đầu so với lề đó. Để tạo thụt dòng treo, đặt giá trị `MarginLeft` dương và giá trị `Indent` âm.
 
-Định dạng này hữu ích cho biblio, tài liệu tham khảo, mục từ điển và các đoạn khác nơi các dòng gói phải căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
+Định dạng này hữu ích cho thư mục, tham khảo, mục giải thuật và các đoạn khác nơi các dòng gói phải căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
 
-Ví dụ Python sau kết hợp các giá trị [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) là 40 và 60 điểm với các giá trị [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) là -20 và -30 điểm. Trong mỗi đoạn, dòng đầu tiên bắt đầu ở bên trái các dòng gói; đoạn thứ hai có thụt lề treo sâu hơn:
+Ví dụ Python sau ghép các giá trị [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) là 40 và 60 điểm với các giá trị [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) là -20 và -30 điểm. Trong mỗi đoạn, dòng đầu bắt đầu bên trái các dòng gói; đoạn thứ hai có thụt dòng treo sâu hơn:
 
 ```python
 import jpype
@@ -443,11 +443,11 @@ finally:
 
 Kết quả:
 
-![Thụt lề treo của các đoạn](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
-### **Đặt Thuộc Tính Kết Thúc Đoạn**
+### **Đặt Thuộc Tính Chạy Đoạn Kết Thúc**
 
-Phương thức [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) điều khiển định dạng của dấu kết thúc đoạn. Ví dụ sau tạo một [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) với [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) đặt thành 48 điểm và [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLatinFont) đặt thành Times New Roman. Nó gán định dạng này cho dấu kết thúc của đoạn thứ hai, để các phần văn bản hiển thị không bị thay đổi:
+Phương thức [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) kiểm soát định dạng của dấu kết thúc đoạn. Ví dụ sau tạo một [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) với [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) đặt thành 48 điểm và [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLatinFont) đặt thành Times New Roman. Nó gán định dạng này cho dấu kết thúc của đoạn thứ hai, để lại các phần văn bản hiển thị không thay đổi:
 
 ```python
 import jpype
@@ -490,13 +490,13 @@ finally:
 
 ## **Đếm Số Dòng Được Kết Xuất**
 
-Đối với các quy tắc đoạn ảnh hưởng đến việc tự động gói và dấu chấm câu ở cuối dòng, xem [Control Line Breaking](/slides/vi/python-java/text-formatting/#control-line-breaking) và [Control Hanging Punctuation](/slides/vi/python-java/text-formatting/#control-hanging-punctuation).
+Đối với các quy tắc đoạn ảnh hưởng tới việc ngắt dòng tự động và dấu câu ở cuối dòng, xem [Control Line Breaking](/slides/vi/python-java/text-formatting/#control-line-breaking) và [Control Hanging Punctuation](/slides/vi/python-java/text-formatting/#control-hanging-punctuation).
 
-Sử dụng [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm cả việc gói tự động. Điều này hữu ích khi kiểm tra độ dài văn bản và bố cục trong các mẫu bản trình chiếu.
+Sử dụng [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm việc ngắt dòng tự động. Điều này hữu ích khi kiểm tra độ dài và bố cục văn bản trong mẫu bản trình bày.
 
-Một đoạn là một mục trong [TextFrame.getParagraphs](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParagraphs), và nó có thể chiếm nhiều dòng đã được kết xuất. Một ngắt dòng rõ ràng trong đoạn buộc tạo một dòng mới mà không tạo đoạn mới. Việc gói tự động tạo các dòng dựa trên chiều rộng có sẵn mà không chèn ký tự ngắt dòng vào văn bản. Do đó, đếm số đoạn hoặc ký tự ngắt dòng không cho biết số dòng đã được kết xuất.
+Một đoạn là một mục trong [TextFrame.getParagraphs](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParagraphs), và nó có thể chiếm nhiều dòng kết xuất. Một dấu ngắt dòng rõ ràng bên trong đoạn buộc tạo một dòng mới mà không tạo đoạn mới. Việc ngắt dòng tự động tạo các dòng dựa trên chiều rộng có sẵn mà không chèn dấu ngắt dòng vào văn bản. Do đó, đếm số đoạn hoặc ký tự ngắt dòng không cho kết quả số dòng được kết xuất.
 
-Ví dụ sau tạo một hình dạng văn bản, đếm các dòng của nó, thu hẹp hình dạng, rồi thay thế văn bản bằng một chuỗi ngắn hơn. Ví dụ bật tính năng gói bằng [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) và tắt tự động vừa bằng [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) để chiều rộng hình dạng kiểm soát việc gói mà không tự động thu nhỏ văn bản hay thay đổi kích thước hình dạng. Mỗi lần đo lường đều sử dụng [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount). Kích thước hình dạng tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn khác và cộng tổng số dòng qua toàn bộ khung văn bản.
+Ví dụ sau tạo một hình dạng văn bản, đếm các dòng của nó, thu hẹp hình dạng, sau đó thay thế văn bản bằng một chuỗi ngắn hơn. Ví dụ bật tính năng gói bằng [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) và tắt tự động vừa bằng [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) để chiều rộng hình dạng kiểm soát việc gói mà không tự động thu nhỏ văn bản hay thay đổi kích thước hình dạng. Mỗi phép đo sử dụng [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount). Kích thước hình dạng tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn nữa và tổng hợp số dòng qua khung văn bản.
 
 ```python
 import jpype
@@ -540,19 +540,19 @@ finally:
     presentation.dispose()
 ```
 
-Với văn bản và các kích thước này, thu hẹp hình dạng làm tăng số dòng, trong khi thay thế bằng chuỗi ngắn giảm số dòng. Các số đếm chính xác có thể khác nhau tùy vào phông chữ có sẵn và thay thế, kích thước phông, lề, thụt lề, gói và cài đặt tự động vừa. Hãy sử dụng phông và cài đặt bố cục dự kiến cho môi trường mục tiêu khi kiểm tra mẫu.
+Với văn bản và các kích thước này, thu hẹp hình dạng làm tăng số dòng, trong khi thay thế bằng chuỗi ngắn làm giảm số dòng. Các số đếm chính xác có thể thay đổi tùy thuộc vào khả năng có sẵn của phông chữ và sự thay thế, kích thước phông, lề, thụt, gói và cài đặt tự vừa. Hãy sử dụng các phông và cài đặt bố cục dự kiến cho môi trường đích khi kiểm tra mẫu.
 
-Số dòng một mình không quyết định liệu văn bản có tràn ra khỏi vùng chứa hay không. Chiều cao khả dụng, độ cao dòng, khoảng cách đoạn và dòng, và hành vi tự động vừa cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khả dụng khi tắt tính năng gói.
+Số dòng một mình không quyết định liệu văn bản có tràn ra khỏi vùng chứa hay không. Chiều cao khả dụng, độ cao dòng, khoảng cách đoạn và dòng, và hành vi tự vừa cũng ảnh hưởng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khi tắt gói.
 
 ## **Nhập và Xuất Nội Dung Đoạn Văn**
 
-Sử dụng HTML để đưa văn bản vào bản trình chiếu hoặc xuất các đoạn đã có để sử dụng bên ngoài. Phần này cũng cho thấy cách render các đoạn riêng lẻ thành hình ảnh, bao gồm các đoạn trong ô bảng.
+Sử dụng HTML để đưa văn bản vào bản trình bày hoặc xuất các đoạn hiện có để sử dụng bên ngoài. Phần này cũng chỉ ra cách kết xuất các đoạn riêng lẻ thành hình ảnh, bao gồm các đoạn trong ô bảng.
 
-### **Nhập Văn Bản HTML vào Các Đoạn Văn**
+### **Nhập Văn Bản HTML Vào Đoạn Văn**
 
 Sử dụng [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml) để chuyển đổi markup HTML thành các đoạn và phần trong một khung văn bản.
 
-Ví dụ Python này đọc HTML từ một tệp và truyền markup cho [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml). Nó xóa đoạn mặc định của khung văn bản để khung chỉ chứa nội dung đã nhập. Hình dạng chữ nhật để lại lề 10 điểm ở mỗi bên của slide:
+Ví dụ Python này đọc HTML từ tệp và truyền markup cho [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml). Nó xóa đoạn mặc định của khung văn bản để khung chỉ chứa nội dung đã nhập. Hình chữ nhật để lại lề 10 điểm ở mỗi cạnh của slide:
 
 ```python
 import jpype
@@ -586,18 +586,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Xuất Văn Bản Đoạn Sang HTML**
+### **Xuất Văn Bản Đoạn Thành HTML**
 
-Sử dụng [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml) để xuất một phạm vi đoạn đã chọn dưới dạng HTML. Khi tái sử dụng văn bản bản trình chiếu trên trang web, bạn có thể muốn giữ nguyên các nhấn mạnh cục bộ mà không mang theo phông, kích thước hoặc kiểu hộp văn bản của bản trình chiếu. Đặt [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) để kiểm soát mức độ exporter tuân theo kế thừa định dạng.
+Sử dụng [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml) để xuất một phạm vi đoạn đã chọn dưới dạng HTML. Khi tái sử dụng văn bản bản trình bày trên website, bạn có thể muốn giữ nguyên nhấn mạnh cục bộ mà không mang theo phông, kích thước hoặc kiểu hộp văn bản của bản trình bày. Đặt [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) để kiểm soát mức độ bộ xuất tuân theo kế thừa định dạng.
 
-Tải xuống [bản trình chiếu mẫu](text-inheritance.pptx) và đặt nó trong thư mục làm việc của ứng dụng. Slide đầu tiên chứa một hình dạng văn bản với văn bản "Inherited text; explicit red 18pt". Đầu vào cố ý sử dụng nhiều cấp độ định dạng:
+Tải xuống [bản trình bày mẫu](text-inheritance.pptx) và đặt nó trong thư mục làm việc của ứng dụng. Slide đầu tiên chứa một hình dạng văn bản với văn bản "Inherited text; explicit red 18pt". Đầu vào cố ý sử dụng một số cấp định dạng:
 
-- Kiểu văn bản mặc định của bản trình chiếu cung cấp Calibri với kích thước 28 pt.
-- Kiểu văn bản cấp một của khung văn bản cung cấp màu xanh và in nghiêng.
+- Kiểu văn bản mặc định của bản trình bày cung cấp phông Calibri và kích thước 28 pt.
+- Kiểu văn bản cấp một của khung cung cấp màu xanh và in nghiêng.
 - Đoạn văn đặt in đậm một cách rõ ràng.
 - Phần thứ hai, "explicit red 18pt", đặt màu đỏ và kích thước 18 pt một cách rõ ràng.
 
-Ví dụ hoàn chỉnh sau xuất cùng các đoạn ba lần. Nó truyền [TextToHtmlConversionOptions](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/) vào phương thức xuất và ghi mỗi kết quả thành một tệp HTML UTF‑8 riêng:
+Ví dụ hoàn chỉnh sau đây xuất cùng các đoạn ba lần. Nó truyền [TextToHtmlConversionOptions](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/) cho phương thức xuất và ghi mỗi kết quả thành một tệp HTML UTF‑8 riêng:
 
 ```python
 import jpype
@@ -638,31 +638,65 @@ finally:
     presentation.dispose()
 ```
 
-HTML được tạo chứa CSS sau cho phần đầu tiên, "Inherited text; ". Bảng liệt kê các khai báo liên quan; các thuộc tính được tạo khác bị bỏ qua để dễ đọc.
+HTML tạo ra chứa CSS sau cho phần đầu tiên, "Inherited text; ". Bảng liệt kê các khai báo liên quan; các thuộc tính được tạo khác bị bỏ qua để rõ ràng.
 
-| Output | Relevant CSS for the first portion | Appearance |
+| Đầu ra | CSS liên quan cho phần đầu tiên | Hiển thị |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Văn bản màu xanh, in đậm, in nghiêng ở 28 pt với Calibri, nếu phông đó khả dụng. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Văn bản màu xanh, in đậm, in nghiêng; phông chữ và kích thước do trang hoặc trình duyệt cung cấp. |
-| `ParagraphOnly.html` | `font-weight:bold` | Văn bản in đậm; phông chữ, kích thước, màu sắc và kiểu nghiêng do trang hoặc trình duyệt cung cấp. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Văn bản màu xanh, in đậm, in nghiêng ở cỡ 28 pt trong phông Calibri, nếu phông đó có sẵn. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Văn bản màu xanh, in đậm, in nghiêng; trang hoặc trình duyệt bên ngoài cung cấp phông chữ và kích thước. |
+| `ParagraphOnly.html` | `font-weight:bold` | Văn bản in đậm; trang hoặc trình duyệt bên ngoài cung cấp phông chữ, kích thước, màu sắc và kiểu in nghiêng. |
 
-Phần thứ hai giữ `color:#ff0000`, `font-size:18pt` và `font-weight:bold` trong cả ba đầu ra. Nó cũng giữ in nghiêng trong `All` và `TextBox`, nhưng không trong `ParagraphOnly`. Hạn chế kế thừa do đó không xóa định dạng được gán rõ ràng cho đoạn hoặc phần.
+Phần thứ hai giữ nguyên `color:#ff0000`, `font-size:18pt` và `font-weight:bold` trong cả ba kết quả. Nó cũng giữ nguyên kiểu nghiêng với `All` và `TextBox`, nhưng không giữ với `ParagraphOnly`. Việc hạn chế kế thừa do đó không xóa bỏ định dạng được gán rõ ràng cho đoạn hoặc phần.
 
 Mở các tệp trong cùng một trình duyệt để so sánh. Trong hai chế độ hạn chế, các thuộc tính CSS bị bỏ qua sẽ được giải quyết bởi kiểu của trang đích hoặc mặc định của trình duyệt, vì vậy giao diện cuối cùng phụ thuộc vào nơi HTML được sử dụng.
 
-### **Render Một Đoạn Văn Thành Hình Ảnh**
+### **Tạo Fragment Clipboard HTML**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) render một đoạn riêng lẻ trực tiếp và trả về một đối tượng hình ảnh. Lưu kết quả vào tệp hoặc luồng bằng phương thức `save`. Bạn không cần render hình dạng chứa hoặc cắt thủ công bitmap.
+Sử dụng [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader) để chọn định dạng đầu ra của [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml). Với `False`, phương thức trả về HTML thông thường. Với `True`, nó bổ sung một tiêu đề clipboard Windows. Các trường `StartHTML` và `EndHTML` cho biết vị trí byte UTF‑8 của HTML. Các trường `StartFragment` và `EndFragment` giới hạn nội dung cần dán.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) có thể trả về `None` nếu đoạn không tồn tại trong bộ sưu tập cha, không có giới hạn render hợp lệ, hoặc không thể render. Kiểm tra kết quả trước khi lưu và giải phóng hình ảnh đã trả về sau khi sử dụng.
+Ví dụ này xuất hai đoạn đã định dạng dưới dạng HTML thông thường (`html`) và dưới dạng fragment clipboard HTML (`clipboard_html`). Một ứng dụng sau đó có thể ghi fragment này vào clipboard hệ thống. Nếu API clipboard yêu cầu byte thô, sử dụng `clipboard_html.encode("utf-8")` để mã hoá fragment mà không có BOM.
 
-#### **Render Đoạn Văn ở Tỷ Lệ Mặc Định**
+```python
+import jpype
+import asposeslides
 
-Ví dụ sử dụng một bản trình chiếu có một slide, trong đó hình dạng đầu tiên là một hộp văn bản chứa ba đoạn.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-![Hộp văn bản với ba đoạn](paragraph_to_image_input.png)
+from asposeslides.api import Presentation, ShapeType, TextToHtmlConversionOptions
 
-Ví dụ sau chọn đoạn thứ hai (chỉ mục 1) và gọi [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) mà không có tham số tỷ lệ. Nó kiểm tra rằng hình dạng chứa đoạn yêu cầu và render trả về một hình ảnh trước khi gọi phương thức `save` để lưu dưới dạng PNG. Khối `finally` giải phóng hình ảnh sau khi dùng.
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 400, 100)
+    paragraphs = shape.getTextFrame().getParagraphs()
+    paragraphs.clear()
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>")
+
+    options = TextToHtmlConversionOptions()
+    options.setAddClipboardFragmentHeader(False)
+    html = str(paragraphs.exportToHtml(0, paragraphs.getCount(), options))
+
+    options.setAddClipboardFragmentHeader(True)
+    clipboard_html = str(paragraphs.exportToHtml(0, paragraphs.getCount(), options))
+finally:
+    presentation.dispose()
+```
+
+### **Kết Xuất Đoạn Văn Thành Hình Ảnh**
+
+[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) kết xuất trực tiếp một đoạn riêng lẻ và trả về một đối tượng hình ảnh. Lưu kết quả vào tệp hoặc luồng bằng phương thức `save`. Bạn không cần phải kết xuất shape chứa hoặc cắt bitmap thủ công.
+
+[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) có thể trả về `None` nếu đoạn không tồn tại trong bộ sưu tập cha, không có giới hạn kết xuất hợp lệ, hoặc không thể kết xuất. Kiểm tra kết quả trước khi lưu và giải phóng hình ảnh trả về sau khi dùng.
+
+#### **Kết Xuất Đoạn Văn ở Tỷ Lệ Mặc Định**
+
+Ví dụ sử dụng một bản trình bày có một slide, shape đầu tiên là một textbox chứa ba đoạn văn.
+
+![The text box with three paragraphs](paragraph_to_image_input.png)
+
+Ví dụ sau chọn đoạn thứ hai ở chỉ số 1 và gọi [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) mà không truyền tham số tỷ lệ. Nó kiểm tra shape có chứa đoạn cần thiết và việc kết xuất trả về hình ảnh trước khi gọi `save` để lưu dưới dạng PNG. Khối `finally` giải phóng hình ảnh sau khi dùng.
 
 ```python
 import jpype
@@ -701,11 +735,11 @@ finally:
 
 Kết quả:
 
-![Hình ảnh đoạn văn](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
-#### **Render Đoạn Văn trong Ô Bảng với Tỷ Lệ**
+#### **Kết Xuất Đoạn Văn Trong Ô Bảng Với Tỷ Lệ**
 
-Sử dụng overload của [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) chấp nhận các tham số `scale_x` và `scale_y` để đặt hệ số tỷ lệ ngang và dọc. Ví dụ sau tạo một bảng, render đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi kích thước mặc định, rồi lưu kết quả dưới dạng PNG.
+Sử dụng phiên bản overload của [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) cho phép truyền các tham số `scale_x` và `scale_y` để đặt hệ số tỷ lệ ngang và dọc. Ví dụ sau tạo một bảng, kết xuất đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi so với mặc định, và lưu kết quả dưới dạng PNG.
 
 ```python
 import jpype
@@ -740,26 +774,26 @@ finally:
     presentation.dispose()
 ```
 
-Hệ số `1` giữ trục tại kích thước pixel mặc định. Ví dụ, `2` cho cả hai trục tạo ra hình ảnh có chiều rộng và chiều cao gần gấp đôi kích thước mặc định, tương đương với bốn lần số pixel. Các hệ số lớn hơn thường cho văn bản sắc nét hơn cho phóng to hoặc xuất độ phân giải cao, nhưng cũng tăng bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo hình ảnh nhỏ hơn với chi tiết ít hơn. Sử dụng các hệ số bằng nhau để giữ tỉ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo dãn đầu ra một cách độc lập.
+Hệ số `1` giữ trục đó ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai trục tạo ra hình ảnh có độ rộng và chiều cao khoảng gấp đôi kích thước mặc định, tương đương bốn lần số pixel. Các hệ số lớn hơn thường cho văn bản sắc nét hơn khi phóng to hoặc xuất ở độ phân giải cao, nhưng cũng làm tăng bộ nhớ và kích thước tệp. Các hệ số dưới `1` tạo hình ảnh nhỏ hơn với chi tiết ít hơn. Sử dụng các hệ số bằng nhau để giữ tỷ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo giãn đầu ra độc lập.
 
-Render toàn bộ hình dạng bằng [Shape.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) vẫn hữu ích khi đầu ra cần bao gồm màu nền, viền hoặc ngữ cảnh hình ảnh khác của hình dạng. Đối với hình ảnh chỉ chứa đoạn, hãy sử dụng [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/).
+Kết xuất toàn bộ shape bằng [Shape.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) vẫn hữu ích khi đầu ra cần bao gồm màu nền, viền hoặc ngữ cảnh hình ảnh khác của shape. Đối với ảnh chỉ chứa đoạn, hãy sử dụng [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/).
 
-## **Câu Hỏi Thường Gặp**
+## **CÂU HỎI THƯỜNG GẶP**
 
-**Tôi có thể hoàn toàn tắt việc gói dòng trong một khung văn bản không?**
+**Có thể tắt hoàn toàn việc gói dòng bên trong một khung văn bản không?**
 
-Có. Đặt [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) để tắt gói, vì vậy các dòng sẽ không bị ngắt ở các cạnh của khung văn bản.
+Có. Đặt [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) để tắt gói, để các dòng không ngắt tại cạnh của khung văn bản.
 
-**Làm sao tôi có thể lấy tọa độ chính xác trên slide của một đoạn cụ thể?**
+**Làm thế nào để lấy tọa độ chính xác trên slide của một đoạn văn cụ thể?**
 
 Sử dụng [Paragraph.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getRect) để lấy hình chữ nhật bao quanh đoạn. [Portion.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getRect) cung cấp tọa độ của một phần riêng lẻ.
 
-**Vị trí căn chỉnh đoạn (trái, phải, trung tâm hoặc căn đều) được kiểm soát ở đâu?**
+**Ở đâu được kiểm soát căn chỉnh đoạn (trái, phải, giữa hoặc căn đều)?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) là cài đặt mức độ đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng từng phần.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) là cài đặt cấp đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng của các phần riêng lẻ.
 
-Để căn chỉnh dọc các phần có kích thước phông khác nhau trong mỗi dòng, xem [Align Fonts Within a Line](/slides/vi/python-java/text-formatting/#align-fonts-within-a-line).
+Để căn dọc các phần có kích thước phông khác nhau trong mỗi dòng, xem [Align Fonts Within a Line](/slides/vi/python-java/text-formatting/#align-fonts-within-a-line).
 
-**Tôi có thể đặt ngôn ngữ kiểm tra chính tả cho một phần của đoạn không?**
+**Có thể đặt ngôn ngữ kiểm tra chính tả cho một phần của đoạn không?**
 
 Có. Đặt [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId) cho các phần riêng lẻ, để một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.

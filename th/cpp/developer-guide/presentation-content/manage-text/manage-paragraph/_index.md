@@ -1,5 +1,5 @@
 ---
-title: จัดการย่อหน้าข้อความ PowerPoint ด้วย C++
+title: จัดการย่อหน้าข้อความ PowerPoint ใน C++
 linktitle: จัดการย่อหน้า
 type: docs
 weight: 40
@@ -12,42 +12,42 @@ keywords:
 - เพิ่มย่อหน้า
 - จัดการข้อความ
 - จัดการย่อหน้า
-- จัดการหัวข้อจุด
-- เยื้องย่อหน้า
-- เยื้องแขวน
+- จัดการหัวข้อ
+- การเยื้องย่อหน้า
+- การเยื้องแบบห้อยลง
 - หัวข้อย่อหน้า
-- รายการลำดับเลข
-- รายการหัวข้อจุด
+- รายการเลขลำดับ
+- รายการหัวข้อ
 - คุณสมบัติย่อหน้า
 - นำเข้า HTML
 - ข้อความเป็น HTML
 - ย่อหน้าเป็น HTML
-- ย่อหน้าเป็นภาพ
-- ข้อความเป็นภาพ
+- ย่อหน้าเป็นรูปภาพ
+- ข้อความเป็นรูปภาพ
 - ส่งออกย่อหน้า
 - PowerPoint
 - การนำเสนอ
 - C++
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและกำหนดรูปแบบย่อหน้า, ส่วนข้อความ, จุดหัวข้อ, รายการลำดับเลข, การเยื้อง, เนื้อหา HTML, และรูปภาพย่อหน้าด้วย Aspose.Slides สำหรับ C++."
+description: "เรียนรู้วิธีสร้างและจัดรูปแบบย่อหน้า, ส่วนย่อย, จุดหัวข้อ, รายการเลขลำดับ, การเยื้อง, เนื้อหา HTML, และรูปภาพย่อหน้าด้วย Aspose.Slides สำหรับ C++."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for C++ แสดงข้อความเป็นลำดับชั้นของกรอบข้อความ, ย่อหน้า, และส่วนข้อความ:
+Aspose.Slides for C++ แสดงข้อความเป็นลำดับชั้นของกรอบข้อความ ย่อหน้า และส่วนย่อย:
 
-* [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) แสดงคอนเทนเนอร์ของข้อความในรูปทรงและให้เข้าถึงคอลเลกชันของย่อหน้า
-* [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) แสดงย่อหน้าเดียวในกรอบข้อความและให้เข้าถึงส่วนข้อความและการจัดรูปแบบระดับย่อหน้า
-* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) แสดงรันข้อความภายในย่อหน้า แต่ละส่วนสามารถมีข้อความและการจัดรูปแบบระดับอักขระของตนเองได้
+* [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) แสดงคอนเทนเนอร์ข้อความในรูปทรงและให้เข้าถึงคอลเลกชันของย่อหน้า
+* [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) แสดงย่อหน้าเดียวในกรอบข้อความและให้เข้าถึงส่วนย่อยและการจัดรูปแบบระดับย่อหน้า
+* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) แสดงชุดข้อความภายในย่อหน้า แต่ละส่วนย่อยสามารถมีข้อความของตนเองและการจัดรูปแบบระดับอักขระได้
 
-ดังนั้น ย่อหน้าจึงสามารถมีข้อความที่มีฟอนท์, สี, ขนาด, และการจัดรูปแบบอื่น ๆ แตกต่างกันโดยใช้หลายส่วน
+ดังนั้นย่อหน้าจึงสามารถมีข้อความที่ใช้แบบอักษร สี ขนาด และการจัดรูปแบบอื่น ๆ ที่แตกต่างกันได้โดยใช้หลายส่วนย่อย
 
 ## **สร้างและจัดรูปแบบย่อหน้า**
 
-สร้างย่อหน้าในกรอบข้อความของรูปทรงและใช้ส่วนข้อความเพื่อจัดรูปแบบรันข้อความแต่ละส่วน ส่วนนี้แสดงวิธีการรวมหลายส่วนภายในแต่ละย่อหน้าและใช้สี, ขนาดฟอนท์, และสไตล์ที่ต่างกัน
+สร้างย่อหน้าในกรอบข้อความของรูปทรงและใช้ส่วนย่อยเพื่อจัดรูปแบบชุดข้อความแต่ละชุด ส่วนนี้แสดงวิธีการรวมหลายส่วนย่อยภายในแต่ละย่อหน้าและใช้สี ขนาดแบบอักษร และสไตล์ที่แตกต่างกัน
 
-### **สร้างย่อหน้าด้วยหลายส่วน**
+### **สร้างย่อหน้าที่มีหลายส่วนย่อย**
 
-ตัวอย่าง C++ ด้านล่างสร้างย่อหน้า 3 รายการ, แต่ละรายการมีรันข้อความ 3 ส่วนในคอลเลกชัน [IParagraph::get_Portions](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_portions/) โดยใช้ย่อหน้าเริ่มต้นและส่วนเปล่าที่มีอยู่เป็นค่าเริ่มต้น, จากนั้นเพิ่มย่อหน้าและส่วนที่เหลือ การจัดรูปแบบทำผ่าน [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/): ส่วนแรกของแต่ละย่อหน้าเป็นสีแดง, หนา, ขนาด 15 จุด; ส่วนที่สองเป็นสีน้ำเงิน, เอียง, ขนาด 18 จุด; ส่วนที่สามคงการจัดรูปแบบเริ่มต้นไว้
+ตัวอย่าง C++ ด้านล่างสร้างย่อหน้า 3 รายการ แต่ละรายการมีส่วนย่อย 3 ชุดในคอลเลกชัน [IParagraph::get_Portions](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_portions/) โดยใช้ย่อหน้าเริ่มต้นและส่วนย่อยเปล่าที่มีอยู่แล้ว จากนั้นเพิ่มย่อหน้าและส่วนย่อยที่เหลือ การจัดรูปแบบทำผ่าน [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/) โดยส่วนย่อยแรกของแต่ละย่อหน้ามีสีแดง ตัวหนา ขนาด 15 จุด; ส่วนที่สองเป็นสีน้ำเงิน ตัวเอียง ขนาด 18 จุด; ส่วนที่สามคงการจัดรูปแบบเริ่มต้นไว้:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -122,15 +122,15 @@ presentation->Save(u"paragraphs_with_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **สร้างรายการแบบหัวข้อและลำดับเลข**
+## **สร้างรายการแบบมีหัวข้อและหมายเลข**
 
-จัดระเบียบข้อความย่อหน้าเป็นรายการด้วยสัญลักษณ์, ตัวเลข, หรือรูปภาพกำหนดเอง ตัวอย่างในส่วนนี้ครอบคลุมการจัดรูปแบบหัวข้อ, รายการหลายระดับ, และการกำหนดหมายเลขเริ่มต้นแบบกำหนดเอง
+จัดระเบียบข้อความย่อหน้าเป็นรายการโดยใช้สัญลักษณ์ ตัวเลข หรือรูปภาพที่กำหนดเอง ตัวอย่างในส่วนนี้ครอบคลุมการจัดรูปแบบหัวข้อ รายการหลายระดับ และการตั้งค่าตัวเลขเริ่มต้นแบบกำหนดเอง
 
-### **สร้างรายการหัวข้อหรือรายการลำดับเลข**
+### **สร้างรายการแบบหัวข้อหรือหมายเลข**
 
-หัวข้อและการลำดับทำให้รายการที่เกี่ยวข้องอ่านง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการกำหนดผ่าน [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/)
+หัวข้อและการนับเลขทำให้การสแกนรายการที่เกี่ยวข้องทำได้ง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการกำหนดผ่าน [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/)
 
-ตัวอย่าง C++ นี้เพิ่มหัวข้อสัญลักษณ์และรายการลำดับเลขในกรอบข้อความเดียวกัน [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) เลือกประเภทหัวข้อ, ขณะที่ [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) กำหนดสัญลักษณ์และ [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) เลือกสไตล์การลำดับ ทั้งสองรายการใช้หัวข้อสีดำ ความสูง 100% และระยะห่างย่อหน้าที่ 25 จุด
+ตัวอย่าง C++ นี้เพิ่มหัวข้อสัญลักษณ์และรายการเลขในกรอบข้อความเดียวกัน [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) เลือกประเภทหัวข้อ ในขณะที่ [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) ระบุตัวสัญลักษณ์และ [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) เลือกสไตล์การนับเลข ทั้งสองรายการใช้หัวข้อสีดำ ความสูง 100 % และการเยื้องย่อหน้า 25 จุด:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -186,9 +186,9 @@ presentation->Dispose();
 
 ### **ใช้หัวข้อรูปภาพ**
 
-หัวข้อรูปภาพให้คุณใช้รูปภาพกำหนดเองแทนสัญลักษณ์หรือหมายเลข
+หัวข้อรูปภาพให้คุณใช้รูปภาพที่กำหนดเองแทนสัญลักษณ์หรือหมายเลข
 
-ตัวอย่างต้องการไฟล์ `bullets.png` อยู่ในไดเรกทอรีทำงาน ตัวอย่าง C++ นี้เพิ่มรูปภาพลงในคอลเลกชันรูปภาพของงานนำเสนอเป็น [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) แล้วใช้เป็นหัวข้อย่อหน้า โดยตั้งค่า [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) ให้ใช้หัวข้อรูปภาพและกำหนดรูปภาพผ่าน [IBulletFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/get_picture/). [IBulletFormat::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_height/) ตั้งค่าเป็น 100% เพื่อขนาดหัวข้อเทียบกับข้อความย่อหน้า
+ตัวอย่างต้องมีไฟล์ `bullets.png` อยู่ในไดเรกทอรีทำงาน ตัวอย่าง C++ นี้เพิ่มรูปภาพไปยังคอลเลกชันรูปภาพของการนำเสนอเป็น [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) แล้วใช้เป็นหัวข้อย่อหน้า โดยตั้งค่า [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) ให้ใช้หัวข้อรูปภาพและกำหนดรูปภาพผ่าน [IBulletFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/get_picture/). นอกจากนี้ [IBulletFormat::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_height/) ตั้งเป็น 100 % เพื่อกำหนดขนาดหัวข้อสัมพันธ์กับข้อความย่อหน้า:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -231,9 +231,9 @@ presentation->Dispose();
 
 ### **สร้างรายการหลายระดับ**
 
-ตั้งค่า [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) เพื่อวางย่อหน้าในระดับต่าง ๆ ของรายการ ระดับบนสุดมีความลึก `0`
+ตั้งค่า [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) เพื่อให้ย่อหน้าอยู่ในระดับต่าง ๆ ของรายการ ระดับบนสุดมีความลึก `0`
 
-ตัวอย่าง C++ นี้กำหนดค่า [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) ตั้งแต่ 0 ถึง 3 สำหรับย่อหน้า 4 รายการ, สร้างลำดับชั้นภายในกรอบข้อความเดียวแต่ละย่อหน้าใช้หัวข้อสัญลักษณ์, โดย [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) สลับระหว่างหัวข้อกลมและขีดเพื่อแยกระดับข้างเคียง
+ตัวอย่าง C++ นี้กำหนดค่า [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) ตั้งแต่ 0 ถึง 3 ให้กับย่อหน้า 4 รายการ สร้างลำดับขั้นในกรอบข้อความเดียว แต่ละย่อหน้าใช้หัวข้อสัญลักษณ์ โดย [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) สลับระหว่างหัวข้อกลมและเครื่องหมายขีดเพื่อแยกระดับที่อยู่ติดกัน:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -300,11 +300,11 @@ presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **เริ่มรายการลำดับเลขด้วยค่าแบบกำหนดเอง**
+### **ตั้งค่าเริ่มต้นหมายเลขรายการตามค่าที่กำหนดเอง**
 
-ใช้ [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) เพื่อกำหนดหมายเลขเริ่มต้นที่แสดงสำหรับย่อหน้าแบบลำดับเลข
+ใช้ [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) เพื่อกำหนดหมายเลขเริ่มต้นที่แสดงสำหรับย่อหน้าที่มีหมายเลข
 
-ตัวอย่าง C++ นี้ตั้งค่า [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) ให้ใช้การลำดับเลขสำหรับย่อหน้า 3 รายการและกำหนดค่า [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) เป็น 2, 3, และ 7 ค่าการเริ่มต้นกำหนดแยกสำหรับแต่ละย่อหน้า, ทำให้เลขที่แสดงข้ามค่าได้
+ตัวอย่าง C++ นี้ตั้งค่า [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) ให้ใช้การนับเลขสำหรับย่อหน้า 3 รายการและกำหนดค่า [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) เป็น 2, 3 และ 7 ค่าตั้งต้นนี้กำหนดแยกกันสำหรับแต่ละย่อหน้า ทำให้หมายเลขที่แสดงข้ามค่าได้:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -348,17 +348,17 @@ presentation->Save(u"custom_numbered_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **ควบคุมการจัดวางและคุณสมบัติสิ้นสุดของย่อหน้า**
+## **ควบคุมการจัดวางย่อหน้าและคุณสมบัติ End**
 
-ปรับระยะขอบและการเยื้องของย่อหน้าเพื่อควบคุมตำแหน่งของบรรทัดแรกและบรรทัดที่หักห่อ คุณยังสามารถจัดรูปแบบเครื่องหมายสิ้นสุดของย่อหน้าแยกจากส่วนข้อความที่มองเห็นได้
+ปรับระยะขอบและการเยื้องของย่อหน้าเพื่อควบคุมตำแหน่งของบรรทัดแรกและบรรทัดที่ต่อเนื่อง คุณยังสามารถจัดรูปแบบเครื่องหมาย End ของย่อหน้าแยกต่างหากจากส่วนข้อความที่มองเห็นได้
 
 ### **ตั้งค่าเยื้องบรรทัดแรก**
 
-ใช้เมธอด [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) เพื่อควบคุมเยื้องบรรทัดแรกของย่อหน้า เมธอดนี้ย้ายบรรทัดแรกเทียบกับระยะขอบซ้ายของย่อหน้า ค่าบวกจะเลื่อนไปทางขวา, ส่วนบรรทัดที่เหลือคงตำแหน่งเดิม
+ใช้เมธอด [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) เพื่อควบคุมเยื้องบรรทัดแรกของย่อหน้า เมธอดนี้จะย้ายเพียงบรรทัดแรกสัมพันธ์กับระยะขอบซ้ายของย่อหน้า ค่าเป็นบวกจะเลื่อนบรรทัดแรกไปทางขวา ส่วนบรรทัดที่เหลือคงอยู่ตามแนวของเนื้อหาย่อหน้า
 
-ใช้ [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) เมื่อคุณต้องการย้ายทั้งย่อหน้า ใช้ [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) เมื่อคุณต้องการย้ายเฉพาะบรรทัดแรก
+ใช้ [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) เมื่อคุณต้องการย้ายย่อหน้าทั้งหมด ใช้ [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) เมื่อคุณต้องการย้ายเฉพาะบรรทัดแรก
 
-ตัวอย่างต่อไปนี้ให้ย่อหน้า 3 รายการมี [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) เท่ากับ 20 จุดและค่า [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) เป็น 0, 20, และ 40 จุด บรรทัดแรกจะเริ่มที่ระยะที่เพิ่มขึ้น, ส่วนบรรทัดที่หักห่อคงระยะขอบซ้ายเดียวกัน
+ตัวอย่างต่อไปนี้ให้ย่อหน้า 3 รายการมี [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) เท่ากับ 20 จุดและค่า [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) เป็น 0, 20, และ 40 จุด บรรทัดแรกเริ่มที่การเยื้องที่เพิ่มขึ้นตามลำดับ ส่วนบรรทัดที่ต่อเนื่องคงระยะขอบซ้ายเดียวกัน:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -419,17 +419,17 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![ระยะเยื้องบรรทัดแรกของย่อหน้า](first_line_indent.png)
+![การเยื้องบรรทัดแรกของย่อหน้า](first_line_indent.png)
 
-### **ตั้งค่าเยื้องแขวน**
+### **ตั้งค่าเยื้องแบบห้อยลง**
 
-เยื้องแขวนคือการจัดวางที่บรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟ็กต์นี้ด้วยเมธอด [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) ให้ค่าติดลบเพื่อย้ายบรรทัดแรกไปทางซ้ายเทียบกับเนื้อย่อหน้า
+เยื้องแบบห้อยลงคือการจัดวางย่อหน้าที่บรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วยเมธอด [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) ให้ค่าเป็นลบเพื่อย้ายบรรทัดแรกไปทางซ้ายสัมพันธ์กับเนื้อหาย่อหน้า
 
-โดยปฏิบัติ, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) กำหนดตำแหน่งซ้ายของเนื้อย่อหน้าและ [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) กำหนดตำแหน่งบรรทัดแรกเทียบกับระยะขอบนั้น เพื่อสร้างเยื้องแขวน ให้ตั้งค่า `MarginLeft` เป็นบวกและ `Indent` เป็นลบ
+โดยปฏิบัติ [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) กำหนดตำแหน่งซ้ายของเนื้อหาย่อหน้าและ [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) กำหนดตำแหน่งของบรรทัดแรกสัมพันธ์กับระยะขอบนั้น เพื่อสร้างเยื้องแบบห้อยลงให้ตั้งค่า `MarginLeft` เป็นบวกและ `Indent` เป็นลบ
 
-การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม, การอ้างอิง, รายการพจนานุกรม, และย่อหน้าที่ต้องให้บรรทัดที่หักห่อเรียงใต้เนื้อย่อหน้าแทนบรรทัดแรก
+การจัดรูปแบบนี้เป็นประโยชน์สำหรับบรรณานุกรม เอกสารอ้างอิง รายการสารานุกรม และย่อหน้าอื่น ๆ ที่บรรทัดต่อเนื่องต้องจัดแนวใต้เนื้อหาย่อหน้าแทนที่จะอยู่ใต้ตัวอักษรแรกของบรรทัดแรก
 
-ตัวอย่าง C++ ต่อไปนี้จับคู่ค่า [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) เป็น 40 และ 60 จุดกับค่า [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) เป็น -20 และ -30 จุด ในแต่ละย่อหน้า บรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่หักห่อ; ย่อหน้าที่สองมีเยื้องแขวนลึกกว่า
+ตัวอย่าง C++ ด้านล่างจับคู่ค่า [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) 40 และ 60 จุดกับค่า [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) –20 และ –30 จุด ในแต่ละย่อหน้า บรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดต่อเนื่อง ย่อหน้าที่สองมีเยื้องแบบห้อยลงลึกกว่า:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -476,17 +476,16 @@ secondParagraph->get_ParagraphFormat()->set_Indent(-30);
 textFrame->get_Paragraphs()->Add(firstParagraph);
 textFrame->get_Paragraphs()->Add(secondParagraph);
 
-presentation->Save(u"hanging_indent.pptx", SaveFormat::Pptx);
-presentation->Dispose();
+presentation->Save(u"hhang
 ```
 
 ผลลัพธ์:
 
-![เยื้องแขวนของย่อหน้า](hanging_indent.png)
+![การเยื้องแบบห้อยลงของย่อหน้า](hanging_indent.png)
 
-### **ตั้งค่าคุณสมบัติสิ้นสุดของย่อหน้า**
+### **ตั้งค่าคุณสมบัติ End ของย่อหน้า**
 
-เมธอด [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) ควบคุมการจัดรูปแบบของเครื่องหมายสิ้นสุดย่อหน้า ตัวอย่างโหลด `Test.pptx` ที่ต้องมีอย่างน้อยหนึ่งสไลด์ ตัวอย่างต่อไปนี้สร้าง [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) โดยตั้งค่า [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) เป็น 48 จุดและ [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/) เป็น Times New Roman จากนั้นกำหนดรูปแบบนี้ให้กับเครื่องหมายสิ้นสุดของย่อหน้าที่สองโดยไม่เปลี่ยนส่วนข้อความที่มองเห็น
+เมธอด [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) ควบคุมการจัดรูปแบบของเครื่องหมาย End ของย่อหน้า ตัวอย่างโหลดไฟล์ `Test.pptx` ซึ่งต้องมีอย่างน้อยหนึ่งสไลด์ ตัวอย่างต่อไปนี้สร้าง [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) โดยตั้งค่า [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) เป็น 48 จุดและ [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/) เป็น Times New Roman แล้วนำฟอร์แมตนี้ไปใช้กับเครื่องหมาย End ของย่อหน้าที่สอง โดยไม่กระทบต่อส่วนข้อความที่มองเห็น:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -529,15 +528,15 @@ presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **นับจำนวนบรรทัดที่เรนเดอร์**
+## **นับจำนวนบรรทัดที่แสดงผล**
 
-สำหรับกฎของย่อหน้าที่ส่งผลต่อการห่ออัตโนมัติและเครื่องหมายวรรคตอนที่ส่วนท้ายของบรรทัด ดูที่ [Control Line Breaking](/slides/th/cpp/text-formatting/#control-line-breaking) และ [Control Hanging Punctuation](/slides/th/cpp/text-formatting/#control-hanging-punctuation)
+สำหรับกฎของย่อหน้าซึ่งส่งผลต่อการตัดบรรทัดอัตโนมัติและเครื่องหมายวรรคตอนตอนจบบรรทัด ดูที่ [Control Line Breaking](/slides/th/cpp/text-formatting/#control-line-breaking) และ [Control Hanging Punctuation](/slides/th/cpp/text-formatting/#control-hanging-punctuation)
 
-ใช้เมธอด [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) เพื่อจำนวนบรรทัดที่ย่อหน้าใช้หลังจากการจัดวางข้อความ, รวมการห่ออัตโนมัติ ซึ่งมีประโยชน์เมื่อเช็คความยาวและการจัดวางของข้อความในแม่แบบพรีเซนเทชัน
+ใช้เมธอด [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) เพื่อนับบรรทัดที่ย่อหน้าครอบครองหลังการจัดวางข้อความ รวมถึงการตัดบรรทัดอัตโนมัติ ซึ่งเป็นประโยชน์เมื่อทำการตรวจสอบความยาวและการจัดวางข้อความในแม่แบบการนำเสนอ
 
-ย่อหน้าเป็นรายการหนึ่งใน [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/), และอาจครอบคลุมหลายบรรทัดที่เรนเดอร์ การหยุดบรรทัดโดยตรงภายในย่อหน้าจะบังคับให้เกิดบรรทัดใหม่โดยไม่สร้างย่อหน้าใหม่ การห่ออัตโนมัติสร้างบรรทัดตามความกว้างที่มีอยู่โดยไม่แทรกการหยุดบรรทัดในข้อความ ดังนั้นการนับย่อหน้าหรืออักขระหยุดบรรทัดจะไม่ให้จำนวนบรรทัดที่เรนเดอร์จริง
+ย่อหน้าเป็นรายการหนึ่งใน [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/) และอาจครอบคลุมหลายบรรทัดที่แสดงผล การใส่การตัดบรรทัดแบบชัดเจนภายในย่อหน้าจะบังคับให้สร้างบรรทัดใหม่โดยไม่ต้องสร้างย่อหน้าใหม่ การตัดบรรทัดอัตโนมัติสร้างบรรทัดตามความกว้างที่มีอยู่โดยไม่แทรกอักขระตัดบรรทัดลงในข้อความ ดังนั้นการนับย่อหน้าหรืออักขระตัดบรรทัดโดยตรงจะไม่ให้จำนวนบรรทัดที่แสดงผลได้
 
-ตัวอย่างต่อไปนี้สร้างรูปทรงข้อความ, นับบรรทัด, ลดความกว้างของรูปทรง, แล้วแทนที่ข้อความด้วยสตริงสั้นกว่า ตัวอย่างเปิดใช้ [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) และปิด [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) เพื่อให้ความกว้างของรูปทรงควบคุมการห่อโดยไม่ย่อหรือปรับขนาดรูปทรงอัตโนมัติ การวัดแต่ละครั้งใช้ [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/). มิติของรูปทรงเป็นหน่วยจุด สุดท้ายตัวอย่างเพิ่มย่อหน้าอีกหนึ่งรายการและรวมจำนวนบรรทัดทั้งหมดในกรอบข้อความ
+ตัวอย่างต่อไปนี้สร้างรูปทรงข้อความ นับบรรทัดของมัน แล้วทำให้รูปทรงแคบลง จากนั้นเปลี่ยนข้อความเป็นสตริงสั้นกว่า ตัวอย่างเปิดใช้งาน [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) และปิด [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) เพื่อให้ความกว้างของรูปทรงควบคุมการตัดบรรทัดโดยไม่ให้ข้อความหรือรูปทรงหดอัตโนมัติ การวัดทั้งหมดใช้ [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/). มิติของรูปทรงเป็นหน่วยจุด สุดท้ายตัวอย่างเพิ่มย่อหน้าอีกหนึ่งรายการและรวมจำนวนบรรทัดทั้งหมดของกรอบข้อความ:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -585,19 +584,19 @@ Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
 presentation->Dispose();
 ```
 
-ด้วยข้อความและมิตินี้, การทำให้รูปทรงแคบลงจะเพิ่มจำนวนบรรทัด, ขณะแทนที่ข้อความด้วยสตริงสั้นจะลดจำนวนบรรทัด จำนวนที่แม่นยำอาจแตกต่างตามการมีฟอนท์และการแทนที่, ขนาดฟอนท์, ระยะขอบ, ระยะเยื้อง, การห่อ, และการตั้งค่า Autofit ใช้ฟอนท์และการตั้งค่าการจัดวางที่ตั้งใจสำหรับสภาพแวดล้อมเป้าหมายเมื่อตรวจสอบแม่แบบ
+เมื่อใช้ข้อความและมิติเหล่านี้ การทำให้รูปทรงแคบลงจะเพิ่มจำนวนบรรทัด ส่วนการเปลี่ยนข้อความเป็นสตริงสั้นจะลดจำนวนบรรทัด จำนวนที่แน่นอนอาจแตกต่างตามการมีอยู่ของแบบอักษร การแทนที่แบบอักษร ขนาดฟอนต์ ระยะขอบ การเยื้อง การตัดบรรทัดและการตั้งค่า Autofit ใช้แบบอักษรและการตั้งค่าการจัดวางที่ตั้งใจสำหรับสภาพแวดล้อมเป้าหมายเมื่อทำการตรวจสอบแม่แบบ
 
-จำนวนบรรทัดอย่างเดียวไม่ได้บ่งบอกว่าข้อความล้นคอนเทนเนอร์หรือไม่ ความสูงที่มี, ความสูงของบรรทัด, ระยะห่างของย่อหน้าและบรรทัด, รวมถึงพฤติกรรม Autofit ก็สำคัญ; แม้แต่บรรทัดเดียวก็อาจเกินความกว้างที่มีเมื่อปิดการห่อ
+จำนวนบรรทัดเพียงอย่างเดียวไม่บ่งบอกว่าข้อความล้นพื้นที่คอนเทนเนอร์หรือไม่ ความสูงที่ใช้ได้ ความสูงบรรทัด ระยะห่างระหว่างย่อหน้าและบรรทัด และพฤติกรรม Autofit ก็มีผลเช่นกัน; แม้บรรทัดเดียวก็อาจเกินความกว้างที่ใช้ได้เมื่อปิดการตัดบรรทัด
 
 ## **นำเข้าและส่งออกเนื้อหาย่อหน้า**
 
-ใช้ HTML เพื่อนำข้อความเข้ามาในพรีเซนเทชันหรือส่งออกย่อมาที่มีอยู่เพื่อใช้ภายนอก ส่วนนี้ยังแสดงวิธีการเรนเดอร์ย่อหน้าแต่ละอันเป็นรูปภาพ, รวมถึงย่อหน้าในเซลล์ตารางด้วย
+ใช้ HTML เพื่อดึงข้อความเข้าสู่การนำเสนอหรือส่งออกย่อหน้าที่มีอยู่เพื่อใช้นอกการนำเสนอ ส่วนนี้ยังแสดงวิธีการแสดงย่อหน้าเป็นภาพรวม รวมถึงย่อหน้าในเซลล์ตาราง
 
-### **นำเข้า HTML ไปยังย่อหน้า**
+### **นำเข้าข้อความ HTML ไปยังย่อหน้า**
 
-ใช้เมธอด [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) เพื่อแปลงมาร์คอัพ HTML เป็นย่อหน้าและส่วนข้อความในกรอบข้อความ
+ใช้เมธอด [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) เพื่อแปลงมาร์กอัป HTML เป็นย่อหน้าและส่วนย่อยในกรอบข้อความ
 
-ตัวอย่าง C++ นี้อ่าน HTML จากไฟล์และส่งมาร์คอัพให้กับ [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/). มันล้างย่อหน้าเริ่มต้นของกรอบข้อความเพื่อให้กรอบมีเฉพาะเนื้อหาที่นำเข้า รูปร่างสี่เหลี่ยมทิ้งระยะขอบ 10 จุดทั้งสี่ด้านของสไลด์
+ตัวอย่าง C++ นี้อ่านไฟล์ HTML แล้วส่งมาร์กอัปไปยัง [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/). ตัวอย่างล้างย่อหน้าเริ่มต้นของกรอบข้อความเพื่อให้กรอบมีแค่เนื้อหาที่นำเข้ามา รูปร่างสี่เหลี่ยมทำให้มีระยะขอบ 10 จุดในทุกด้านของสไลด์:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -633,16 +632,16 @@ presentation->Dispose();
 
 ### **ส่งออกข้อความย่อหน้าเป็น HTML**
 
-ใช้เมธอด [ParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/exporttohtml/) เพื่อส่งออกช่วงย่อหน้าที่เลือกเป็น HTML เมื่อนำข้อความจากพรีเซนเทชันไปใช้บนเว็บไซต์ คุณอาจต้องการคงการเน้นเฉพาะโดยไม่ต้องพกฟอนท์, ขนาด, หรือสไตล์ของกล่องข้อความของพรีเซนเทชัน ตั้งค่า [TextToHtmlConversionOptions::set_TextInheritanceLimit](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_textinheritancelimit/) เพื่อควบคุมความลึกที่ตัวส่งออกติดตามการสืบทอดรูปแบบ
+ใช้เมธอด [ParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/exporttohtml/) เพื่อส่งออกช่วงย่อหน้าที่เลือกเป็น HTML เมื่อนำข้อความจากการนำเสนอไปใช้บนเว็บไซต์ คุณอาจต้องการเก็บอีโมชันท้องถิ่นโดยไม่ต้องพกฟอนต์ ขนาด หรือสไตล์ของกล่องข้อความของการนำเสนอ ตั้งค่า [TextToHtmlConversionOptions::set_TextInheritanceLimit](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_textinheritancelimit/) เพื่อควบคุมระดับที่ตัวส่งออกตามการสืบทอดการจัดรูปแบบ
 
-ดาวน์โหลด [ตัวอย่างพรีเซนเทชัน](text-inheritance.pptx) แล้ววางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกมีรูปทรงข้อความหนึ่งรูปพร้อมข้อความ “Inherited text; explicit red 18pt”. อินพุตตั้งค่าแบบหลายระดับดังนี้:
+ดาวน์โหลด [ตัวอย่างการนำเสนอ](text-inheritance.pptx) แล้วใส่ไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกมีรูปทรงข้อความหนึ่งรูปที่มีข้อความ “Inherited text; explicit red 18pt”. อินพุตใช้หลายระดับการจัดรูปแบบโดยเจตนา:
 
-- สไตล์ข้อความเริ่มต้นของพรีเซนเทชันใช้ Calibri ขนาด 28 pt
-- สไตล์ระดับแรกของกรอบข้อความใช้ข้อความสีน้ำเงินและเอียง
-- ย่อหน้ากำหนดข้อความหนาอย่างชัดเจน
-- ส่วนที่สอง “explicit red 18pt” กำหนดข้อความสีแดงและขนาด 18 pt อย่างชัดเจน
+- สไตล์ข้อความเริ่มต้นของการนำเสนอใช้ Calibri ขนาด 28 pt
+- สไตล์ข้อความระดับแรกของกรอบข้อความใช้สีฟ้าและเอียง
+- ย่อหน้าตั้งค่าข้อความหนาโดยชัดเจน
+- ส่วนที่สอง “explicit red 18pt” ตั้งค่าสีแดงและขนาด 18 pt อย่างชัดเจน
 
-ตัวอย่างต่อไปนี้ส่งออกย่อหน้าเดียวกันสามครั้ง ส่งค่า [TextToHtmlConversionOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/) ให้กับเมธอดส่งออกและบันทึกผลลัพธ์แต่ละไฟล์เป็น HTML UTF‑8 แยกไฟล์
+ตัวอย่างต่อไปนี้ส่งออกย่อหน้าเดียวกันสามครั้ง โดยส่งผ่าน [TextToHtmlConversionOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/) ไปยังเมธอดส่งออกและบันทึกผลลัพธ์แต่ละรายการเป็นไฟล์ HTML UTF‑8 แยกกัน:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -689,31 +688,68 @@ else
 presentation->Dispose();
 ```
 
-HTML ที่สร้างมี CSS ดังต่อไปนี้สำหรับส่วนแรก “Inherited text; ” ตารางแสดงการประกาศที่เกี่ยวข้อง; คุณสมบัติอื่นที่สร้างขึ้นจะถูกละเว้นเพื่อความชัดเจน
+HTML ที่สร้างขึ้นมี CSS ต่อไปนี้สำหรับส่วนแรก “Inherited text; ” ตารางแสดงการประกาศที่เกี่ยวข้อง; คุณสมบัติที่สร้างอื่น ๆ ถูกละทิ้งเพื่อความกระจ่าง
 
 | ผลลัพธ์ | CSS ที่เกี่ยวข้องสำหรับส่วนแรก | ลักษณะ |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | ข้อความสีฟ้า, หนา, เอียง ที่ 28 pt ใน Calibri หากฟอนท์นั้นพร้อมใช้งาน |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | ข้อความสีฟ้า, หนา, เอียง; หน้าเว็บหรือเบราว์เซอร์จะจัดหาฟอนท์และขนาด |
-| `ParagraphOnly.html` | `font-weight:bold` | ข้อความหนา; หน้าเว็บหรือเบราว์เซอร์จะจัดหาฟอนท์, ขนาด, สี, และสไตล์เอียง |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | ข้อความสีฟ้า หนา เอียง ขนาด 28 pt ใน Calibri หากฟอนต์นั้นมีอยู่ |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | ข้อความสีฟ้า หนา เอียง; ฟอนต์และขนาดจะถูกกำหนดโดยหน้าเว็บหรือเบราว์เซอร์รอบข้าง |
+| `ParagraphOnly.html` | `font-weight:bold` | ข้อความหนา; ฟอนต์ ขนาด สี และสไตล์เอียงจะถูกกำหนดโดยหน้าเว็บหรือเบราว์เซอร์รอบข้าง |
 
-ส่วนที่สองยังคงมี `color:#ff0000`, `font-size:18pt`, และ `font-weight:bold` ในผลลัพธ์ทั้งสาม และยังคงเอียงใน `All` และ `TextBox` แต่ไม่ใน `ParagraphOnly` การจำกัดการสืบทอดจึงไม่ลบการจัดรูปแบบที่กำหนดโดยตรงให้กับย่อหน้าหรือส่วน
+ส่วนที่สองคง `color:#ff0000`, `font-size:18pt` และ `font-weight:bold` ในผลลัพธ์ทั้งสาม อีกทั้งยังคงเอียงใน `All` และ `TextBox` แต่ไม่ใน `ParagraphOnly` การจำกัดการสืบทอดจึงไม่ลบการจัดรูปแบบที่กำหนดอย่างชัดเจนให้กับย่อหน้าหรือส่วนย่อย
 
-เปิดไฟล์ในเบราว์เซอร์เดียวกันเพื่อเปรียบเทียบ ในสองโหมดที่จำกัด, คุณสมบัติ CSS ที่ละเว้นจะถูกเติมด้วยสไตล์ของหน้าปลายทางหรือค่าเริ่มต้นของเบราว์เซอร์ ดังนั้นลักษณะที่แสดงขึ้นจะขึ้นกับที่ใช้ HTML
+เปิดไฟล์ในเบราว์เซอร์เดียวกันเพื่อเปรียบเทียบ ในสองโหมดที่จำกัด คุณสมบัติ CSS ที่ถูกละทิ้งจะถูกแก้ไขโดยสไตล์ของหน้าปลายทางหรือค่าเริ่มต้นของเบราว์เซอร์ ดังนั้นลักษณะที่แสดงผลจะขึ้นอยู่กับที่ใช้ HTML นั้น
 
-### **เรนเดอร์ย่อหน้าเป็นรูปภาพ**
+### **สร้างส่วนของ HTML Clipboard Fragment**
 
-เมธอด [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) เรนเดอร์ย่อหน้าเดียวโดยตรงและส่งคืน [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/). บันทึกผลลัพธ์เป็นไฟล์หรือสตรีมด้วย [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/). ไม่จำเป็นต้องเรนเดอร์รูปร่างทั้งหมดหรือครอปบิทแมพด้วยตนเอง
+ตั้งค่า [TextToHtmlConversionOptions::set_AddClipboardFragmentHeader](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_addclipboardfragmentheader/) เป็น `false` สำหรับ HTML ธรรมดา หรือ `true` เพื่อรวมส่วนหัวของคลิปบอร์ด ส่วนหัวให้ข้อมูลตำแหน่งไบต์ UTF‑8 ของ HTML รอบ ๆ (`StartHTML` และ `EndHTML`) และส่วนที่ต้องวาง (`StartFragment` และ `EndFragment`)
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) อาจคืนค่า `nullptr` หากไม่พบย่อหน้าในคอลเลกชันแม่, ไม่มีขอบเขตการเรนเดอร์ที่ถูกต้อง, หรือไม่สามารถเรนเดอร์ได้ ตรวจสอบผลลัพธ์ก่อนบันทึกและทำลายอิมเมจที่คืนหลังจากใช้
+ตัวอย่างนี้ส่งออกย่อหน้าที่จัดรูปแบบสองรายการเป็น HTML ธรรมดา (`html`) และเป็นส่วนของคลิปบอร์ด HTML (`clipboardHtml`). การเขียนส่วนนี้ไปยังคลิปบอร์ดระบบเป็นขั้นตอนแอปพลิเคชันแยกต่างหาก API ของคลิปบอร์ดที่รับไบต์ HTML ดิบต้องเป็น UTF‑8 โดยไม่มี BOM
 
-#### **เรนเดอร์ย่อหน้าที่สเกลค่าเริ่มต้น**
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/TextToHtmlConversionOptions.h>
 
-ตัวอย่างใช้ `sample.pptx`, พรีเซนเทชันที่มีสไลด์หนึ่งซึ่งรูปทรงแรกเป็นกล่องข้อความที่มีย่อหน้า 3 รายการ
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0, 0, 400, 100);
+auto paragraphs = shape->get_TextFrame()->get_Paragraphs();
+paragraphs->Clear();
+paragraphs->AddFromHtml(u"<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+auto options = MakeObject<TextToHtmlConversionOptions>();
+options->set_AddClipboardFragmentHeader(false);
+auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+
+options->set_AddClipboardFragmentHeader(true);
+auto clipboardHtml = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+presentation->Dispose();
+```
+
+### **เรนเดอร์ย่อหน้าเป็นภาพ**
+
+เมธอด [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) เรนเดอร์ย่อหน้าแต่ละรายการโดยตรงและคืนค่าเป็น [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/). บันทึกผลลัพธ์ลงไฟล์หรือสตรีมด้วย [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/). คุณไม่จำเป็นต้องเรนเดอร์รูปทรงที่บรรจุหรือครอพ์บิตแมพด้วยตนเอง
+
+[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) อาจคืนค่า `nullptr` หากไม่พบย่อหน้าในคอลเลกชันแม่ มีขอบเขตการเรนเดอร์ที่ไม่ถูกต้อง หรือไม่สามารถเรนเดอร์ได้ ตรวจสอบผลลัพธ์ก่อนบันทึกและทำลายภาพที่คืนค่าหลังใช้งาน
+
+#### **เรนเดอร์ย่อหน้าที่สเกลเริ่มต้น**
+
+ตัวอย่างใช้ไฟล์ `sample.pptx` ซึ่งเป็นการนำเสนอที่มีสไลด์เดียว รูปร่างแรกเป็นกล่องข้อความที่มีย่อหน้า 3 รายการ
 
 ![กล่องข้อความที่มีย่อหน้า 3 รายการ](paragraph_to_image_input.png)
 
-ตัวอย่างต่อไปนี้เลือกย่อหน้าที่สองที่ตำแหน่งดัชนี 1 และเรียก [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) โดยไม่มีพารามิเตอร์สเกล ตรวจสอบว่ารูปทรงมีย่อหน้าที่ต้องการและการเรนเดอร์คืนอิมเมจก่อนเรียก [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) เพื่อบันทึกเป็น PNG ตัวอย่างทำลายอิมเมจหลังบันทึก
+ตัวอย่างต่อไปนี้เลือกย่อหน้าที่สองที่ตำแหน่งดัชนี 1 แล้วเรียก [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) โดยไม่มีพารามิเตอร์สเกล ตรวจสอบว่ารูปร่างมีย่อหน้าที่ต้องการและว่าการเรนเดอร์คืนภาพก่อนเรียก [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) เพื่อบันทึกเป็น PNG ตัวอย่างทำลายภาพหลังบันทึก
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -756,11 +792,11 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![รูปภาพย่อหน้า](paragraph_to_image_output.png)
+![ภาพย่อหน้า](paragraph_to_image_output.png)
 
-#### **เรนเดอร์ย่อหน้าในเซลล์ตารางพร้อมการสเกล**
+#### **เรนเดอร์ย่อหน้าในเซลล์ตารางพร้อมสเกล**
 
-ใช้เมธอดโอเวอร์โหลดของ [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) ที่รับพารามิเตอร์ `float scaleX` และ `float scaleY` เพื่อกำหนดอัตราส่วนแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้สร้างตาราง, เรนเดอร์ย่อหน้าในเซลล์แรกที่กว้างและสูงเป็นสองเท่าของค่าเริ่มต้น, และบันทึกผลเป็น PNG
+ใช้อับโหลดของ [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) ที่รับพารามิเตอร์ `float scaleX` และ `float scaleY` เพื่อกำหนดอัตราส่วนสเกลแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้สร้างตาราง เรนเดอร์ย่อหน้าในเซลล์แรกด้วยความกว้างและสูงสองเท่าของค่ามาตรฐาน แล้วบันทึกเป็น PNG
 
 ```cpp
 #include <DOM/IParagraph.h>
@@ -798,26 +834,26 @@ else
 presentation->Dispose();
 ```
 
-ค่าอัตราส่วน `1` ทำให้แกนนั้นคงขนาดพิกเซลเริ่มต้น ตัวอย่างเช่น `2` สำหรับทั้งสองอัตราส่วนจะให้ภาพที่กว้างและสูงประมาณสองเท่าของมิติเริ่มต้น, ผลลัพธ์คือสี่เท่าจำนวนพิกเซล ค่าอัตราส่วนที่สูงกว่าจะให้ข้อความคมชัดสำหรับการซูมหรือเอาต์พุตความละเอียดสูง, แต่ก็เพิ่มการใช้หน่วยความจำและขนาดไฟล์ ค่าอัตราส่วนต่ำกว่า `1` จะให้ภาพขนาดเล็กและรายละเอียดน้อยกว่า ใช้อัตราส่วนเท่ากันเพื่อรักษาอัตราส่วนภาพของย่อหน้า; ค่าอัตราส่วนแนวนอนและแนวตั้งต่างกันจะทำให้ผลลัพธ์ขยายไม่สอดคล้องกัน
+ค่าอัตราส่วน `1` รักษาขนาดพิกเซลเริ่มต้นของแกนนั้น ตัวอย่างเช่น `2` สำหรับทั้งสองค่าให้ภาพที่กว้างและสูงประมาณสองเท่าของมิติเริ่มต้น ทำให้มีพิกเซลเพิ่มเป็นสี่เท่า ค่าอัตราส่วนที่ใหญ่กว่าโดยทั่วไปให้ข้อความคมชัดขึ้นสำหรับการซูมหรือผลลัพธ์ความละเอียดสูง แต่ก็เพิ่มการใช้หน่วยความจำและขนาดไฟล์ ค่าอัตราส่วนต่ำกว่า `1` ให้ภาพที่เล็กลงและรายละเอียดน้อยลง ใช้อัตราส่วนเท่ากันเพื่อรักษาอัตราส่วนภาพของย่อหน้า; อัตราส่วนแนวนอนและแนวตั้งที่ต่างกันจะทำให้ผลลัพธ์ยืดขยายอย่างอิสระ
 
-การเรนเดอร์รูปร่างทั้งหมดด้วย [IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) ยังคงมีประโยชน์เมื่อผลลัพธ์ต้องรวมการเติมสี, เส้นขอบ, หรือบริบทภาพอื่นของรูปร่าง สำหรับภาพเฉพาะย่อหน้า ให้ใช้ [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/)
+การเรนเดอร์รูปทรงทั้งหมดด้วย [IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) ยังคงมีประโยชน์เมื่อผลลัพธ์ต้องรวมการเติม สีขอบ หรือบริบทภาพอื่น ๆ ของรูปทรง สำหรับภาพที่มีเฉพาะย่อหน้าเท่านั้น ให้ใช้ [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถปิดการห่อบรรทัดภายในกรอบข้อความได้ทั้งหมดหรือไม่?**
+**ฉันจะปิดการตัดบรรทัดอัตโนมัติภายในกรอบข้อความได้ทั้งหมดหรือไม่?**
 
-ได้ ใช้เมธอด [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) เพื่อปิดการห่อเพื่อให้บรรทัดไม่ตัดที่ขอบของกรอบข้อความ
+ได้. ใช้ [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) เพื่อปิดการตัดบรรทัด ทำให้บรรทัดไม่ตัดที่ขอบของกรอบข้อความ
 
-**ฉันจะรับขอบเขตบนสไลด์ของย่อหน้าเฉพาะได้อย่างแม่นยำอย่างไร?**
+**ฉันจะรับค่าขอบเขตบนสไลด์ของย่อหน้าที่เฉพาะเจาะจงได้อย่างแม่นยำอย่างไร?**
 
-ใช้เมธอด [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) เพื่อดึงสี่เหลี่ยมขอบของย่อหน้า [IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) ให้ขอบเขตของส่วนข้อความแต่ละส่วน
+ใช้ [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) เพื่อดึงสี่เหลี่ยมขอบของย่อหน้า. [IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) ให้ขอบเขตของส่วนย่อยแต่ละส่วน
 
-**ที่ไหนที่การจัดแนบย่อหน้า (ซ้าย, ขวา, กลาง, หรือจัดชิด) ถูกควบคุม?**
+**การจัดแนวย่อหน้า (ซ้าย, ขวา, กลาง หรือเต็ม) ถูกควบคุมที่ไหน?**
 
-[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) เป็นการตั้งค่าระดับย่อหน้าและใช้กับย่อหน้าทั้งหมดโดยไม่คำนึงถึงการจัดรูปแบบของส่วนย่อย
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) เป็นการตั้งค่าระดับย่อหน้าและใช้กับย่อหน้าทั้งหมดโดยไม่คำนึงถึงการจัดรูปแบบของส่วนย่อยแต่ละส่วน
 
-เพื่อจัดแนวฟอนท์หลายขนาดภายในแต่ละบรรทัด ดูที่ [Align Fonts Within a Line](/slides/th/cpp/text-formatting/#align-fonts-within-a-line)
+เพื่อจัดแนวส่วนย่อยที่มีขนาดแบบอักษรต่างกันในแต่ละบรรทัด ดูที่ [Align Fonts Within a Line](/slides/th/cpp/text-formatting/#align-fonts-within-a-line)
 
 **ฉันสามารถตั้งค่าภาษา proofing สำหรับส่วนของย่อหน้าได้หรือไม่?**
 
-ได้ ใช้เมธอด [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) สำหรับส่วนย่อยแต่ละส่วน เพื่อให้ย่อหน้าเดียวสามารถมีข้อความหลายภาษาได้
+ได้. ใช้ [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) สำหรับส่วนย่อยแต่ละส่วน ทำให้ย่อหน้าเดียวกันสามารถมีข้อความหลายภาษาได้

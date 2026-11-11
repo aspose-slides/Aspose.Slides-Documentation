@@ -13,12 +13,12 @@ keywords:
 - szöveg kezelése
 - bekezdés kezelése
 - felsorolás kezelése
-- bekezdés behúzása
+- bekezdés behúzás
 - függő behúzás
-- bekezdés felsorolása
+- bekezdés felsorolás
 - számozott lista
-- felsorolás lista
-- bekezdés tulajdonságai
+- felsorolt lista
+- bekezdés tulajdonságok
 - HTML importálása
 - szöveg HTML-re
 - bekezdés HTML-re
@@ -30,25 +30,25 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ismerje meg, hogyan hozhat létre és formázhat bekezdéseket, szakaszokat, felsorolásokat, számozott listákat, behúzásokat, HTML tartalmat és bekezdésképeket az Aspose.Slides for Node.js via Java segítségével."
+description: "Ismerje meg, hogyan hozhat létre és formázhat bekezdéseket, részeket, felsorolásokat, számozott listákat, behúzásokat, HTML‑tartalmat és bekezdésképeket az Aspose.Slides for Node.js via Java segítségével."
 ---
 ## **Áttekintés**
 
-Aspose.Slides for Node.js via Java a szöveget szövegkeretek, bekezdések és szakaszok (portions) hierarchiájaként ábrázolja:
+Az Aspose.Slides for Node.js via Java a szöveget szövegkeretek, bekezdések és részek hierarchiájaként reprezentálja:
 
-* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) a szövegkonténert egy alakzatban képviseli, és hozzáférést biztosít a bekezdésgyűjteményéhez.
-* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) egy bekezdést képvisel egy szövegkeretben, és hozzáférést biztosít a szakaszaihoz valamint a bekezdés szintű formázáshoz.
-* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) egy szövegfolyamot képvisel egy bekezdésen belül. Minden szakasz saját szöveggel és karakter szintű formázással rendelkezhet.
+* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) a szöveg tárolója egy alakzatban, és hozzáférést biztosít a bekezdésgyűjteményéhez.
+* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) egy bekezdést képvisel egy szövegkeretben, és hozzáférést biztosít a részeihez és a bekezdés szintű formázáshoz.
+* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) egy szövegrészt képvisel egy bekezdésen belül. Minden résznek lehet saját szövege és karakter szintű formázása.
 
-Ezáltal egy bekezdés több szakasz használatával különböző betűtípusú, színű, méretű és egyéb formázású szöveget tartalmazhat.
+Egy bekezdés ezért több rész használatával tartalmazhat különböző betűtípusokkal, színekkel, méretekkel és egyéb formázással rendelkező szöveget.
 
 ## **Bekezdések létrehozása és formázása**
 
-Hozzon létre bekezdéseket egy alakzat szövegkeretében, és használja a szakaszokat az egyedi szövegfolyamok formázásához. Ez a rész bemutatja, hogyan kombináljon több szakaszt minden bekezdésben, és alkalmazzon különböző színeket, betűméreteket és stílusokat.
+Hozzon létre bekezdéseket egy alakzat szövegkeretében, és használjon részeket az egyedi szövegfolyamok formázásához. Ez a szakasz bemutatja, hogyan kombinálhatók több rész egy bekezdésen belül, és hogyan alkalmazhatók különböző színek, betűméretek és stílusok.
 
-### **Bekezdések létrehozása több szakaszzal**
+### **Bekezdések létrehozása több rész segítségével**
 
-Az alábbi JavaScript‑példa három bekezdést hoz létre, mindegyik három szövegfolyamot tartalmaz a [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/) által visszaadott gyűjteményben. Újra felhasználja az alapértelmezett bekezdést és annak üres szakaszát, majd hozzáadja a maradék bekezdéseket és szakaszokat. A formázás a [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/) segítségével történik: az első szakasz minden bekezdésben piros, félkövér és 15 pont; a második kék, dőlt és 18 pont. A harmadik szakasz megtartja az alapértelmezett formázást:
+Az alábbi JavaScript‑példa három bekezdést hoz létre, mindegyik három szövegfolyamot tartalmaz a [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/) által visszaadott gyűjteményben. Újra felhasználja az alapértelmezett bekezdést és annak üres részét, majd hozzáadja a maradék bekezdéseket és részeket. A formázás a [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/) segítségével történik: az első rész minden bekezdésben piros, félkövér és 15 pont; a második kék, dőlt és 18 pont. A harmadik rész megtartja az alapértelmezett formázását:
 
 ```javascript
 var aspose = aspose || {};
@@ -106,15 +106,15 @@ try {
 }
 ```
 
-## **Felsorolások és számozott listák létrehozása**
+## **Felsorolás és számozott listák létrehozása**
 
-Rendezze a bekezdés‑szöveget listákba szimbólumok, számok vagy egyedi képek segítségével. Ebben a szekcióban a listaformázás, több szintű listák és egyedi kezdőszámok példáit mutatjuk be.
+Szervezze a bekezdés szövegét listákba szimbólumokkal, számokkal vagy egyedi képekkel. Ebben a szakaszban a felsorolás formázását, több szintű listákat és egyedi kezdőszámokat mutatjuk be.
 
-### **Felsorolásos vagy számozott lista létrehozása**
+### **Felsorolás vagy számozott lista létrehozása**
 
-A felsorolások és a számozás segít a kapcsolódó elemek gyors áttekintésében. Az Aspose.Slides‑ben a lista beállításait a [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/) határozza meg.
+A felsorolások és a számozás megkönnyíti a kapcsolódó elemek átlapozását. Az Aspose.Slides‑ben a lista beállításait a [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/) határozza meg.
 
-Ez a JavaScript‑példa egy szimbólum‑felsorolást és egy számozott elemet ad ugyanahhoz a szövegkerethez. A [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) kiválasztja a felsorolás típusát, a [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) megadja a szimbólumot, a [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) pedig a számozási stílust. Mindkét elem fekete felsorolást kap 100 % magassággal és 25 pont bekezdésbehúzással:
+Ez a JavaScript‑példa egy szimbólum‑felsorolást és egy számozott elemet ad ugyanahhoz a szövegkerethez. A [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) a felsorolás típusát választja, a [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) adja meg a szimbólumot, a [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) a számozási stílust. Mindkét elem fekete felsorolást használ 100 %-os magassággal és 25 pont bekezdési behúzással:
 
 ```javascript
 var aspose = aspose || {};
@@ -159,9 +159,9 @@ try {
 
 ### **Képes felsorolások használata**
 
-A képes felsorolások lehetővé teszik egy egyedi kép használatát szimbólum vagy szám helyett.
+A képes felsorolások segítségével egy egyedi kép helyettesítheti a szimbólumot vagy a számot.
 
-Ez a JavaScript‑példa betölti az `image.png`‑t az alkalmazás munkakönyvtárából, a képet hozzáadja a bemutató képgyűjteményéhez egy [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/)‑ként, majd beállítja bekezdés‑felsorolásként. A [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) hívásával képes felsorolást választ, a kép a [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/) segítségével kerül hozzárendelésre. A [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) 100 %-ra van állítva, hogy a felsorolás mérete a bekezdés‑szöveghez viszonyítva legyen:
+Ez a JavaScript‑példa a `image.png`‑t tölti be az alkalmazás munkakönyvtárából, hozzáadja a képet a prezentáció képgyűjteményéhez egy [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/)‑ként, és bekezdés‑felsorolásként használja. A [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) arra utasítja a rendszert, hogy képes felsorolást használjon, a kép a [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/)‑en keresztül kerül hozzárendelésre. A [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) 100 %-ra van állítva, hogy a felsorolás a bekezdés szövegéhez viszonyítva méreteződjön:
 
 ```javascript
 var aspose = aspose || {};
@@ -200,9 +200,9 @@ try {
 
 ### **Többszintű lista létrehozása**
 
-A [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) segítségével a bekezdéseket a lista különböző szintjeire lehet helyezni. A legfelső szint mélysége `0`.
+Állítsa be a [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/)‑t, hogy a bekezdéseket a lista különböző szintjeire helyezze. A legfelső szint mélysége `0`.
 
-Ez a JavaScript‑példa a [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) értékeit 0‑tól 3‑ig rendeli négy bekezdéshez, így egy hierarchiát hoz létre egy szövegkeretben. Minden bekezdés szimbólum‑felsorolást használ, a [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) váltakozva egy kör alakú és egy kötőjel‑felsorolás között, hogy elkülönítse az egymás melletti szinteket:
+Ez a JavaScript‑példa a [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) értékeit 0‑tól 3‑ig adja négy bekezdésnek, egy hierarchiát hozva létre egy szövegkereten belül. Minden bekezdés szimbólum‑felsorolást használ, a [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) váltogat egy kör alakú felsorolás és egy kötőjel között a szomszédos szintek megkülönböztetésére:
 
 ```javascript
 var aspose = aspose || {};
@@ -260,11 +260,11 @@ try {
 }
 ```
 
-### **Számozott elemek egyéni kezdőértékkel**
+### **Számozott listaelemek indítása egyedi értékekkel**
 
-A [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) segítségével megadható a számozott bekezdés kezdeti száma.
+Használja a [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/)‑t, hogy beállítsa a számozott bekezdés kezdeti számát.
 
-Ez a JavaScript‑példa a [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/)‑t használja a számozásra három bekezdésnél, majd a [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) értékeit 2, 3 és 7-re állítja. A kezdőérték minden bekezdésnél külön konfigurálható, így a megjelenített számok kihagyhatnak értékeket:
+Ez a JavaScript‑példa a [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/)‑t állítja számozásra három bekezdésnél, és a [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) értékeit 2, 3 és 7‑re állítja. A kezdőérték minden bekezdésnél külön van konfigurálva, lehetővé téve a számok kihagyását:
 
 ```javascript
 var aspose = aspose || {};
@@ -303,17 +303,17 @@ try {
 }
 ```
 
-## **Bekezdés‑elrendezés és befejező tulajdonságok vezérlése**
+## **Bekezdés elrendezésének és végjellemzőinek vezérlése**
 
-Állítsa be a bekezdés margóit és behúzásait, hogy szabályozza az első sor és a tördelő sorok helyzetét. A bekezdés befejező jelét is formázhatja külön a látható szövegszakaszoktól.
+Állítsa be a bekezdés margóit és behúzásait, hogy szabályozza az első sor és a sortörés helyzetét. A bekezdés végmárkját is formázhatja külön a látható szövegrészektől.
 
 ### **Első sor behúzásának beállítása**
 
-A [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) metódussal szabályozható egy bekezdés első sorának behúzása. Ez a beállítás csak az első sort mozgatja a bekezdés bal margójához képest. Pozitív érték esetén az első sor jobbra tolódik, míg a többi sor a bekezdés testhez igazodik.
+Használja a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) metódust az első sor behúzásának szabályozásához. Ez a beállítás csak az első sort mozgatja a bekezdés bal margójához képest. A pozitív érték jobbra tolja az első sort, míg a többi sor a bekezdés testére igazodik.
 
-A [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) akkor használható, ha a teljes bekezdést kell eltolni. A [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) akkor, ha csak az első sort kell elmozdítani.
+Használja a [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/)‑t, ha a teljes bekezdést akarja eltolni. Használja a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/)‑t, ha csak az első sort szeretné mozgatni.
 
-Az alábbi példa három bekezdésnek ugyanazt a [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) 20 pont értéket és a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) 0, 20 és 40 pont értékeket adja. Az első sorok egyre nagyobb eltolással kezdődnek, míg a tördelő sorok ugyanazt a bal margót tartják:
+Az alábbi példa három bekezdésnek ugyanazt a [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/)‑t 20 pont, valamint a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/)‑t 0, 20 és 40 pont értéket ad. Az első sorok fokozatosan nagyobb eltolással kezdődnek, míg a sortöréssel keletkező sorok megtartják ugyanazt a bal margót:
 
 ```javascript
 var aspose = aspose || {};
@@ -366,17 +366,17 @@ try {
 
 Az eredmény:
 
-![A bekezdések első sorának behúzása](first_line_indent.png)
+![A bekezdések első sor behúzása](first_line_indent.png)
 
 ### **Függő behúzás beállítása**
 
-A függő behúzás olyan bekezdéselrendezés, ahol az első sor a maradék sorok bal oldalán kezdődik. Az Aspose.Slides‑ben ezt a hatást a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) metódussal érhetjük el. Negatív érték beállításával az első sor balra tolódik a bekezdés testéhez képest.
+A függő behúzás egy olyan bekezdés‑elrendezés, ahol az első sor a többi sor bal oldalára indul. Az Aspose.Slides‑ben ezt a hatást a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) metódussal hozza létre. Negatív értékre állítva a behúzást, az első sor balra mozdul a bekezdés testéhez képest.
 
-Gyakorlatban a [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) határozza meg a bekezdés testének bal pozícióját, a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) pedig az első sor pozícióját ahhoz a margóhoz képest. Függő behúzás létrehozásához állítsunk be pozitív bal margót és negatív behúzást.
+Gyakorlatban a [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) határozza meg a bekezdés testének bal pozícióját, a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) pedig az első sor pozícióját ehhez a margóhoz képest. Függő behúzás létrehozásához állítsa be a bal margót pozitívra és a behúzást negatívra.
 
-Ez a formázás hasznos bibliográfiák, hivatkozások, szószedetek és egyéb bekezdések esetén, ahol a tördelő soroknak a bekezdés testje alatt kell igazodniuk, nem pedig az első karakter alá.
+Ez a formázás hasznos bibliográfiák, hivatkozások, szószedet-bejegyzések és egyéb bekezdések számára, ahol a sortöréssel keletkező soroknak a bekezdés testje alá kell illeszkedniük, nem pedig az első sor első karaktere alá.
 
-Az alábbi JavaScript‑példa a [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) 40  és 60 pont értékeit kombinálja a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) –20 és –30 pont értékeivel. Minden bekezdésben az első sor a tördelő sorok bal oldalán kezdődik; a második bekezdés mélyebb függő behúzást kap:
+Az alábbi JavaScript‑példa a [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) 40  és 60 pont értékeit párosítja a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) –20  és ‑30 pont értékeivel. Minden bekezdésben az első sor a sortöréssel keletkező sorok bal oldalára indul; a második bekezdés mélyebb függő behúzással rendelkezik:
 
 ```javascript
 var aspose = aspose || {};
@@ -423,9 +423,9 @@ Az eredmény:
 
 ![A bekezdések függő behúzása](hanging_indent.png)
 
-### **Bekezdés‑vége formázási tulajdonságok beállítása**
+### **Bekezdés‑vége karakterformátum beállítása**
 
-A [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) metódus szabályozza a bekezdés befejező jelének formázását. Az alábbi példa létrehoz egy [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) objektumot, amelynek a [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) értéke 48 pont, a [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) pedig Times New Roman. Ezt a formátumot a második bekezdés befejező jeléhez rendeli, miközben a látható szövegszakaszok változatlanok maradnak:
+A [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) metódus szabályozza a bekezdés végjelének formázását. Az alábbi példa egy [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) objektumot hoz létre, ahol a [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) 48 pont, a [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) Times New Roman. Ezt a formátumot a második bekezdés végjelére alkalmazza, miközben a látható szövegrészek változatlanok maradnak:
 
 ```javascript
 var aspose = aspose || {};
@@ -459,15 +459,15 @@ try {
 }
 ```
 
-## **Renderelt sorok számlálása**
+## **Megjelenített sorok számlálása**
 
-A bekezdés‑szabályok, amelyek az automatikus tördelést és a sorvégi írásjelek viselkedését befolyásolják, megtalálhatók a [Control Line Breaking](/slides/hu/nodejs-java/text-formatting/#control-line-breaking) és a [Control Hanging Punctuation](/slides/hu/nodejs-java/text-formatting/#control-hanging-punctuation) dokumentumokban.
+Az automatikus sortörést és a sorvégi írásjelek kezelését érintő bekezdés‑szabályokért tekintse meg a [Control Line Breaking](/slides/hu/nodejs-java/text-formatting/#control-line-breaking) és a [Control Hanging Punctuation](/slides/hu/nodejs-java/text-formatting/#control-hanging-punctuation) dokumentumokat.
 
-A [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) segítségével megszámolható, hány sort foglal el egy bekezdés a szöveg elrendezése után, beleértve az automatikus tördelést. Ez hasznos a szöveghossz és az elrendezés ellenőrzéséhez prezentációs sablonokban.
+A [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) segítségével megszámolhatja, hány sort foglal el egy bekezdés a szöveg elrendezése után, beleértve az automatikus sortörést. Ez hasznos a szöveghossz és az elrendezés ellenőrzésére prezentációs sablonokban.
 
-A bekezdés egy elem a [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/) gyűjteményében, és több renderelt sort is elfoglalhat. Egy explicit sortörés egy bekezdésen belül új sort hoz létre anélkül, hogy új bekezdést képezne. Az automatikus tördelés a rendelkezésre álló szélesség alapján hoz létre sorokat, anélkül, hogy explicit sortöréseket illesztene a szövegbe. Így a bekezdések vagy sortörés‑karakterek számlálása nem adja meg a renderelt sorok számát.
+Egy bekezdés egy elem a [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/)‑ban, és több megjelenített sort is elfoglalhat. Egy explicit sortörés a bekezdésen belül új sort hoz létre anélkül, hogy új bekezdést generálna. Az automatikus sortörés a rendelkezésre álló szélesség alapján hoz létre sorokat, anélkül, hogy explicit sortörés karaktereket szúrna be a szövegbe. Ezért a bekezdések vagy sortörés‑karakterek számlálása nem adja meg a megjelenített sorok számát.
 
-Az alábbi példa létrehoz egy szövegalakzatot, megszámolja a sorait, szűkíti az alakzatot, majd a szöveget egy rövidebb karakterláncra cseréli. A példa engedélyezi a tördelést a [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) segítségével, és letiltja az automatikus illesztést a [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/)‑val, hogy az alakzat szélessége szabályozza a tördelést anélkül, hogy a szöveg automatikusan zsugorodna vagy az alakzat mérete változna. Minden mérés a [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) használatával történik. Az alakzat méretei pontban vannak megadva. Végül a példa egy újabb bekezdést ad hozzá, és összeadja a sorok számát a teljes szövegkeretben.
+Az alábbi példa egy szöveg‑alakzatot hoz létre, megszámolja a sorait, szűkíti az alakzatot, majd egy rövidebb karakterláncra cseréli a szöveget. A példa a [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/)‑vel engedélyezi a sortörést, és a [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/)‑vel letiltja az automatikus illesztést, így az alakzat szélessége szabályozza a sortörést anélkül, hogy automatikusan zsugorítaná a szöveget vagy átméretezné az alakzatot. Minden mérés a [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount)‑t használja. Az alakzat méretei pontban vannak megadva. Végül a példa egy újabb bekezdést ad hozzá, és összeadja a sorok számát a szövegkereten belül.
 
 ```javascript
 var aspose = aspose || {};
@@ -510,19 +510,19 @@ try {
 }
 ```
 
-Ezzel a szöveggel és ezekkel a méretekkel a szűkítés növeli a sorok számát, míg a rövidebb szöveg csökkenti azt. A pontos számok a betűtípus elérhetőségétől, betűcsere beállításaitól, betűmérettől, margóktól, behúzásoktól, tördeléstől és az automatikus illesztés beállításaitól függnek. A célkörnyezetben használt betűtípusok és elrendezési beállítások alkalmazása ajánlott sablon ellenőrzésekor.
+Ezzel a szöveggel és ezekkel a méretekkel a forma szűkítése növeli a sorok számát, míg a szöveg rövidebb változatra cserélése csökkenti azt. A pontos számok betűtípus‑elérhetőség és helyettesítés, betűméret, margók, behúzások, sortörés és autofit beállítások függvényében változhatnak. Használja a célnyelvi környezethez tervezett betűtípusokat és elrendezési beállításokat a sablon ellenőrzésekor.
 
-A sorok száma önmagában nem határozza meg, hogy a szöveg túlfut-e a tárolóján. A rendelkezésre álló magasság, sormagasságok, bekezdés‑ és sorközök, valamint az automatikus illesztés viselkedése is számít; még egyetlen sor is meghaladhatja a rendelkezésre álló szélességet, ha a tördelés ki van kapcsolva.
+Magának a sorok számának önmagában nem határozza meg, hogy a szöveg kilóg-e a tárolóból. A rendelkezésre álló magasság, sormagasságok, bekezdés‑ és sor‑távolságok, valamint az autofit viselkedés is számít; még egyetlen sor is meghaladhatja a szélességet, ha a sortörés le van tiltva.
 
 ## **Bekezdés‑tartalom importálása és exportálása**
 
-HTML‑el hozhat szöveget egy prezentációba, vagy exportálhat meglévő bekezdéseket külső felhasználásra. Ez a szekció továbbá bemutatja, hogyan lehet egyedi bekezdéseket képként renderelni, beleértve a táblázatcellákban lévő bekezdéseket is.
+Használja a HTML‑t a szöveg prezentációba hozatalához vagy a meglévő bekezdések exportálásához külső felhasználásra. Ez a szakasz megmutatja, hogyan lehet egyedi bekezdéseket képként renderelni, többek között táblázat‑cellákban is.
 
 ### **HTML‑szöveg importálása bekezdésekbe**
 
-A [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) segítségével a HTML‑markupot bekezdésekké és szakaszokká alakíthatja egy szövegkeretben.
+Használja a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/)‑t, hogy a HTML‑jelölést bekezdésekké és részekké alakítsa egy szövegkeretben.
 
-Ez a JavaScript‑példa a `file.html`‑t olvassa be az alkalmazás munkakönyvtárából, és a markupot átadja a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/)‑nak. Törli a szövegkeret alapértelmezett bekezdését, így a keret csak a importált tartalmat tartalmazza. A téglalap alakzat 10 pont margót hagy a dia minden oldala körül:
+Ez a JavaScript‑példa a `file.html`‑t olvassa be az alkalmazás munkakönyvtárából, és átadja a jelölést a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/)‑nek. Törli a szövegkeret alapértelmezett bekezdését, hogy a keret csak a beimportált tartalmat tartalmazza. A téglalap alakzat 10 pont margót hagy a dia mindkét oldalán:
 
 ```javascript
 var aspose = aspose || {};
@@ -550,16 +550,16 @@ try {
 
 ### **Bekezdés‑szöveg exportálása HTML‑be**
 
-A [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) segítségével egy kiválasztott bekezdéssorozatot exportálhat HTML‑ként. Ha a bemutató szöveget egy weboldalon szeretné újra felhasználni, előfordulhat, hogy a helyi kiemeléseket szeretné megőrizni anélkül, hogy a bemutató betűtípusa, mérete vagy szövegdoboz‑stílusa átkerülne. A [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/) beállításával szabályozható, hogy a konverter meddig követi a formázási öröklődést.
+Használja a [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/)‑t, hogy a kiválasztott bekezdésszakaszt HTML‑ként exportálja. Ha a prezentáció szövegét egy weboldalon szeretné újra felhasználni, megőrizheti a helyi hangsúlyozást a prezentáció betűtípus‑, méret‑ vagy szövegdoboz‑stílusai nélkül. Állítsa be a [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/)‑t, hogy meghatározza, milyen mértékig kövesse az exportáló a formázás‑öröklődést.
 
-Töltse le a [mintaprezentációt](text-inheritance.pptx), és helyezze az alkalmazás munkakönyvtárába. Az első dia egy szövegdobozt tartalmaz a „Inherited text; explicit red 18pt” szöveggel. A bemeneti dokumentum szándékosan több formázási szintet használ:
+Töltse le a [mintaprezentációt](text-inheritance.pptx), és helyezze az alkalmazás munkakönyvtárába. Az első diája egy szöveg‑alakzatot tartalmaz a „Inherited text; explicit red 18pt” szöveggel. A bemenet szándékosan több formázási szintet használ:
 
 - A prezentáció alapértelmezett szövegstílusa Calibri betűtípust és 28 pt méretet ad.
-- A szövegkeret első‑szintű stílusa kék és dőlt szöveget ad.
-- A bekezdés explicit módon félkövér szöveget állít be.
-- A második szakasz, „explicit red 18pt”, explicit módon piros szöveget és 18 pt méretet ad.
+- A szövegkeret első‑szintű szövegstílusa kék szöveget és dőlt betűket ad.
+- A bekezdés kifejezetten félkövér szöveget állít be.
+- A második rész, a „explicit red 18pt”, kifejezetten piros szöveget és 18 pt méretet ad.
 
-Az alábbi teljes példa háromszor exportálja ugyanazokat a bekezdéseket. A [TextToHtmlConversionOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/)‑t átadja az export‑metódusnak, és minden eredményt külön UTF‑8 HTML‑fájlba ír:
+Az alábbi teljes példa háromszor exportálja ugyanazokat a bekezdéseket. A [TextToHtmlConversionOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/)‑t adja át az exportálási metódusnak, és minden eredményt külön UTF‑8 HTML‑fájlba ír:
 
 ```javascript
 var aspose = aspose || {};
@@ -597,31 +597,60 @@ try {
 }
 ```
 
-A generált HTML a következő CSS‑t tartalmazza az első szakaszhoz, „Inherited text; “. A táblázat a releváns deklarációkat sorolja fel; a többi generált tulajdonság ki van hagyva a tisztaság kedvéért.
+A generált HTML a következő CSS‑t tartalmazza az első részhez, a „Inherited text; ” számára. A tábla felsorolja a releváns deklarációkat; a többi generált tulajdonság az áttekinthetőség kedvéért kimaradt.
 
-| Kimenet | Az első szakasz releváns CSS‑e | Megjelenés |
+| Kimenet | Az első részhez tartozó releváns CSS | Megjelenés |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Kék, félkövér, dőlt szöveg 28 pt Calibri‑val, ha a betűtípus elérhető. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Kék, félkövér, dőlt szöveg; a környező oldal vagy böngésző adja a betűcsaládot és méretet. |
-| `ParagraphOnly.html` | `font-weight:bold` | Félkövér szöveg; a környező oldal vagy böngésző adja a betűcsaládot, méretet, színt és dőlt stílust. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Kék, félkövér, dőlt szöveg 28 pt Calibri‑ban, ha az a betűtípus elérhető. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Kék, félkövér, dőlt szöveg; a környező oldal vagy böngésző adja a betűtípust és méretet. |
+| `ParagraphOnly.html` | `font-weight:bold` | Félkövér szöveg; a környező oldal vagy böngésző adja a betűtípust, méretet, színt és dőlt stílust. |
 
-A második szakasz megtartja a `color:#ff0000`, `font-size:18pt` és `font-weight:bold` értékeket mindhárom kimenetben. Az „All” és a „TextBox” verziók dőlt formátumot is megőrzik, a „ParagraphOnly” nem. Az öröklődés korlátozása tehát nem távolítja el a bekezdéshez vagy szakaszhoz explicit módon hozzárendelt formázást.
+A második rész megtartja a `color:#ff0000`, `font-size:18pt` és `font-weight:bold` értékeket mindhárom kimenetben. Az `All` és `TextBox` esetén megtartja a dőlt betűt, de a `ParagraphOnly`‑nél nem. Az öröklődés korlátozása ezért nem távolítja el a bekezdéshez vagy részhez explicit módon hozzárendelt formázást.
 
-Nyissa meg a fájlokat ugyanabban a böngészőben a összehasonlításhoz. A két korlátozott módban a kihagyott CSS‑tulajdonságokat a céloldal stílusai vagy a böngésző alapértelmezései egészítik ki, így a végeredmény megjelenése attól függ, hogy hol használják a HTML‑t.
+Nyissa meg a fájlokat ugyanabban a böngészőben a összehasonlításhoz. A két korlátozott módban a kihagyott CSS‑tulajdonságokat a céloldal stílusai vagy a böngésző alapértelmezései határozzák meg, így a megjelenés attól függ, hol használják a HTML‑t.
+
+### **HTML‑vágólap‑fragment generálása**
+
+Használja a [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/setaddclipboardfragmentheader/)‑t, hogy kiválassza a [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) kimenetét. `false` esetén a metódus egyszerű HTML‑t ad vissza. `true` esetén a visszaadott karakterlánc egy Windows vágólap‑fejlécet tartalmaz. A `StartHTML` és `EndHTML` mezők a HTML UTF‑8 bájt‑eltolásait adják meg, a `StartFragment` és `EndFragment` pedig a beillesztendő tartalmat azonosítja.
+
+Ez a példa két formázott bekezdést exportál egyszerű HTML‑ként (`html`) és HTML‑vágólap‑fragmentként (`clipboardHtml`). Az alkalmazás ezután a fragmentumot a rendszer vágólapjára írhatja. Ha a vágólap‑API nyers bájtokat vár, kódolja a fragmentumot UTF‑8‑ban BOM nélkül.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 0, 0, 400, 100);
+    const paragraphs = shape.getTextFrame().getParagraphs();
+    paragraphs.clear();
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+    const options = new slides.TextToHtmlConversionOptions();
+    options.setAddClipboardFragmentHeader(false);
+    const html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+
+    options.setAddClipboardFragmentHeader(true);
+    const clipboardHtml = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+} finally {
+    presentation.dispose();
+}
+```
 
 ### **Bekezdés renderelése képként**
 
-A [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) egyetlen bekezdést renderel közvetlenül, és egy [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/)‑t ad vissza. A végeredményt a [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save)‑vel mentheti fájlba vagy adatfolyamba. Nem szükséges a tartalmazó alakzatot renderelni vagy manuálisan bitmap‑et vágni.
+A [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) közvetlenül renderel egy adott bekezdést, és egy [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/)‑t ad vissza. A [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save)‑vel mentheti a eredményt fájlba vagy áramlamba. Nem szükséges a környező alakzatot renderelni vagy a bitmapet manuálisan vágni.
 
-A [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) `null`‑t adhat vissza, ha a bekezdés nem található a szülőgyűjteményben, nincs érvényes renderelési határa, vagy nem renderelhető. A mentés előtt ellenőrizze az eredményt, és használat után szabadítsa fel a visszakapott képet.
+A [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) `null`‑t adhat vissza, ha a bekezdés nem található meg a szülőgyűjteményben, nincs érvényes renderelési határa, vagy nem renderelhető. Ellenőrizze az eredményt mentés előtt, és a használat után szabadítsa fel a visszakapott képet.
 
-#### **Bekezdés renderelése alap mérettel**
+#### **Bekezdés renderelése alapértelmezett méretezésben**
 
-A példa létrehoz egy prezentációt egyetlen diával, melynek első alakzata egy három bekezdést tartalmazó szövegdoboz.
+A példa egy prezentációt hoz létre egy diával, amelynek első alakzata egy három bekezdést tartalmazó szövegdoboz.
 
-![A szövegdoboz három bekezdéssel](paragraph_to_image_input.png)
+![A három bekezdést tartalmazó szövegdoboz](paragraph_to_image_input.png)
 
-Az alábbi példa a 1‑es indexű (második) bekezdést választja, és a [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage)‑et skálaparaméterek nélkül hívja. Ellenőrzi, hogy az alakzat tartalmazza a szükséges bekezdést, és hogy a renderelés valóban képet ad vissza, mielőtt a [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save)‑val PNG‑ként mentené. A `finally` blokk a kép felhasználása után felszabadítja azt.
+Az alábbi példa a második bekezdést (index 1) választja ki, és a [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage)‑et paraméterek nélkül hívja. Ellenőrzi, hogy az alakzat tartalmazza‑e a szükséges bekezdést, és hogy a renderelés visszaad-e egy képet, mielőtt a [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save)‑et PNG formátumban mentené. A `finally` blokk a használat után felszabadítja a képet.
 
 ```javascript
 var aspose = aspose || {};
@@ -672,9 +701,9 @@ Az eredmény:
 
 ![A bekezdés képe](paragraph_to_image_output.png)
 
-#### **Bekezdés renderelése táblázatcellában skálázással**
+#### **Bekezdés renderelése táblázat‑cellában skálázással**
 
-Használja a [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) olyan túlterhelését, amely `scaleX` és `scaleY` paramétereket fogad, a vízszintes és függőleges skálázási tényezők beállításához. Az alábbi példa egy táblázatot hoz létre, a bekezdést az első cellájában kétszeres alap szélességgel és magassággal rendereli, majd PNG‑képként menti.
+Használja a [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage)‑et, amely `scaleX` és `scaleY` paramétereket fogad, a vízszintes és függőleges skálázási tényezők beállításához. Az alábbi példa egy táblázatot hoz létre, a bekezdést az első cellájában a default szélesség és magasság kétszeresére méretezi, majd PNG‑képként menti az eredményt.
 
 ```javascript
 var aspose = aspose || {};
@@ -709,26 +738,26 @@ try {
 }
 ```
 
-Az 1‑es skálafaktor megtartja az adott tengelyt az alappixelméretén. Például a 2‑es érték mindkét tényezőre egy olyan képet eredményez, amelynek szélessége és magassága nagyjából kétszerese az alapdimenzióknak, azaz négyszeres pixel számmal. A nagyobb tényezők általában élesebb szöveget adnak nagyítás vagy nagy felbontású kimenet esetén, de növelik a memóriahasználatot és a fájlméretet. Az 1‑nél kisebb tényezők kisebb, kevésbé részletes képeket hoznak létre. A képarány megtartásához használjon egyenlő tényezőket; a vízszintes és függőleges eltérő tényezők külön-külön nyújtják a kimenetet.
+Az 1 es skálázási tényező megtartja az adott tengelyt az alapértelmezett pixelméretben. Például a `2` mindkét tényező esetén olyan képet eredményez, amelynek szélessége és magassága nagyjából a default méret kétszerese, így a pixel‑szám négyszeres lesz. Nagyobb tényezők általában élesebb szöveget eredményeznek nagyítás vagy nagy felbontású kimenet esetén, de növelik a memória‑ és fájlméretet is. Az 1‑nél kisebb tényezők kisebb, kevésbé részletes képeket adnak. A megjelenítés arányának megőrzéséhez használjon egyenlő tényezőket; eltérő vízszintes és függőleges tényezők a kimenetet függetlenül nyújtják.
 
-Egy teljes alakzat renderelése a [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage)‑val akkor hasznos, ha a kimenetnek tartalmaznia kell az alakzat kitöltését, szegélyét vagy egyéb vizuális kontextusát. Egy csak bekezdés‑képet szeretne, akkor használja a [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage)-t.
+Egy egész alakzat renderelése a [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage)‑vel akkor hasznos, ha a kimenetnek tartalmaznia kell az alakzat kitöltését, szegélyét vagy egyéb vizuális kontextusát. Egy csak bekezdés‑képnél használja a [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage)‑et.
 
 ## **GYIK**
 
-**Teljesen le lehet tiltani a sortördelést egy szövegkereten belül?**
+**Teljesen le tudom tiltani a sortörést egy szövegkereten belül?**
 
-Igen. A [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) beállításával letiltható a tördelés, így a sorok nem törnek a szövegkeret szélén.
+Igen. Állítsa a [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/)‑t sortörés letiltására, hogy a sorok ne törjenek a szövegkeret szélén.
 
-**Hogyan lehet pontosan lekérdezni egy adott bekezdés dián megjelenő határait?**
+**Hogyan kaphatom meg egy adott bekezdés pontos helyi határait a dián?**
 
-Használja a [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) metódust a bekezdés körülhatároló téglalap lekéréséhez. A [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) egy adott szakasz határait adja vissza.
+Használja a [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/)‑et a bekezdés körülhatároló téglalap lekéréséhez. A [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) egy adott rész határait adja vissza.
 
-**Hol vezérelhető a bekezdés igazítása (balra, jobbra, középre vagy sorkizárt)?**
+**Hol szabályozható a bekezdés igazítása (balra, jobbra, középre vagy sorkizárt)?**
 
-A [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) bekezdés‑szintű beállítás, amely a teljes bekezdésre vonatkozik, függetlenül az egyes szakaszok formázásától.
+A [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) egy bekezdés‑szintű beállítás, amely a teljes bekezdésre érvényes, függetlenül az egyes részek formázásától.
 
-A különböző betűméretű szakaszok függőleges igazításához lásd a [Align Fonts Within a Line](/slides/hu/nodejs-java/text-formatting/#align-fonts-within-a-line) dokumentumot.
+A különböző betűméretű részek függőleges igazításához lásd a [Align Fonts Within a Line](/slides/hu/nodejs-java/text-formatting/#align-fonts-within-a-line) dokumentumot.
 
-**Be lehet állítani a nyelvellenőrzés nyelvét a bekezdés egy részére?**
+**Beállíthatom a helyesírási nyelvet egy bekezdés egy részére?**
 
-Igen. A [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) beállítható egyes szakaszokra, így egy bekezdés több nyelven is tartalmazhat szöveget.
+Igen. Állítsa a [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId)‑t egyes részekhez, így egy bekezdés több nyelvet is tartalmazhat.

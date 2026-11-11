@@ -1,6 +1,6 @@
 ---
-title: Hantera PowerPoint-textstycken i Python via Java
-linktitle: Hantera stycke
+title: "Hantera PowerPoint-textstycken i Python via Java"
+linktitle: "Hantera stycke"
 type: docs
 weight: 40
 url: /sv/python-java/manage-paragraph/
@@ -8,47 +8,47 @@ aliases:
   - /python-java/paragraph/
   - /python-java/portion/
 keywords:
-- lägg till text
-- lägg till stycke
-- hantera text
-- hantera stycke
-- hantera punkt
-- styckeindrag
-- hängande indrag
-- styckepunkt
-- numrerad lista
-- punkterad lista
-- styckeegenskaper
-- importera HTML
-- text till HTML
-- stycke till HTML
-- stycke till bild
-- text till bild
-- exportera stycke
-- PowerPoint
-- presentation
-- Python
-- Java
-- Aspose.Slides
-description: "Lär dig hur du skapar och formaterar stycken, portioner, punkter, numrerade listor, indrag, HTML‑innehåll och stycke‑bilder med Aspose.Slides för Python via Java."
+  - "lägg till text"
+  - "lägg till stycke"
+  - "hantera text"
+  - "hantera stycke"
+  - "hantera punkt"
+  - "styckeindrag"
+  - "hängande indrag"
+  - "styckepunkt"
+  - "numrerad lista"
+  - "punktlista"
+  - "styckeegenskaper"
+  - "importera HTML"
+  - "text till HTML"
+  - "stycke till HTML"
+  - "stycke till bild"
+  - "text till bild"
+  - "exportera stycke"
+  - "PowerPoint"
+  - "presentation"
+  - "Python"
+  - "Java"
+  - "Aspose.Slides"
+description: "Lär dig hur du skapar och formaterar stycken, portioner, punkter, numrerade listor, indrag, HTML-innehåll och stycke-bilder med Aspose.Slides för Python via Java."
 ---
 ## **Översikt**
 
 Aspose.Slides för Python via Java representerar text som en hierarki av textramar, stycken och portioner:
 
 * [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) representerar textbehållaren i en form och ger åtkomst till dess styckesamling.
-* [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) representerar ett stycke i en textram och ger åtkomst till dess portioner och stycke‑nivå formatering.
-* [Portion](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) representerar ett textkörning inom ett stycke. Varje portion kan ha sin egen text och tecken‑nivå formatering.
+* [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) representerar ett stycke i en textram och ger åtkomst till dess portioner samt formatering på styckesnivå.
+* [Portion](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) representerar ett textavsnitt inom ett stycke. Varje portion kan ha egen text och tecken‑nivåformatering.
 
 Ett stycke kan därför innehålla text med olika teckensnitt, färger, storlekar och annan formatering genom att använda flera portioner.
 
 ## **Skapa och formatera stycken**
 
-Skapa stycken i en formes textram och använd portioner för att formatera enskilda textkörningar. Detta avsnitt visar hur man kombinerar flera portioner inom varje stycke och applicerar olika färger, teckenstorlekar och stilar.
+Skapa stycken i en forms textram och använd portioner för att formatera enskilda textkörningar. Detta avsnitt visar hur man kombinerar flera portioner inom varje stycke och tillämpar olika färger, teckenstorlekar och stilar.
 
 ### **Skapa stycken med flera portioner**
 
-Följande Python‑exempel skapar tre stycken, var och en innehållande tre textkörningar i samlingen som returneras av [Paragraph.getPortions](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getPortions). Det återanvänder standardstycket och dess tomma portion, sedan läggs de återstående styckena och portionerna till. Formatering appliceras via [Portion.getPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getPortionFormat): den första portionen i varje stycke är röd, fet och 15 punkter; den andra är blå, kursiv och 18 punkter. Den tredje portionen behåller sin standardformatering:
+Följande Python‑exempel skapar tre stycken, var och en med tre textkörningar i samlingen som returneras av [Paragraph.getPortions](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getPortions). Det återanvänder standardstycket och dess tomma portion, och lägger sedan till de återstående styckena och portionerna. Formatering appliceras via [Portion.getPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getPortionFormat): den första portionen i varje stycke är röd, fet och 15 punkter; den andra är blå, kursiv och 18 punkter. Den tredje portionen behåller sin standardformatering:
 
 ```python
 import jpype
@@ -109,13 +109,13 @@ finally:
 
 ## **Skapa punkt‑ och numrerade listor**
 
-Organisera stycketext i listor med symboler, nummer eller egna bilder. Exemplen i detta avsnitt täcker punktformatering, flernivålistor och anpassade startnummer.
+Organisera stycketext i listor med symboler, siffror eller anpassade bilder. Exemplen i detta avsnitt täcker punktformatering, flernivålistor och anpassade startnummer.
 
 ### **Skapa en punkt‑ eller numrerad lista**
 
-Punkter och nummer gör relaterade objekt enklare att skanna. I Aspose.Slides definieras listinställningar via [BulletFormat](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/).
+Punkter och numrering gör relaterade objekt enklare att skanna. I Aspose.Slides definieras listinställningar via [BulletFormat](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/).
 
-Detta Python‑exempel lägger till en symbolpunkt och ett numrerat objekt i samma textram. [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) väljer punkttypen, medan [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) anger symbolen och [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) väljer numreringsstil. Båda objekten använder svarta punkter med en höjd på 100 procent och ett styckeindrag på 25 punkter:
+Detta Python‑exempel lägger till en symbolpunkt och ett numrerat objekt i samma textram. [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) väljer puntktyp, medan [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) tillhandahåller symbolen och [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) väljer numreringsstilen. Båda objekten använder svarta punkter med en höjd på 100 procent och ett styckeindrag på 25 punkter:
 
 ```python
 import jpype
@@ -164,9 +164,9 @@ finally:
 
 ### **Använd bildpunkter**
 
-Bildpunkter låter dig använda en anpassad bild istället för en symbol eller ett nummer.
+Bildpunkter låter dig använda en anpassad bild istället för en symbol eller siffra.
 
-Detta Python‑exempel lägger till en bild i presentationens bildsamling som en [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) och använder den som styckepunkt. Det anropar [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) för att använda en bildpunkt och tilldelar bilden via [BulletFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getPicture). [BulletFormat.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setHeight) sätts till 100 procent för att storleksanpassa punkten relativt till stycketexten:
+Detta Python‑exempel lägger till en bild i presentationens bildsamling som en [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) och använder den som styckepunkt. Det anropar [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) för att använda en bildpunkt och tilldelar bilden via [BulletFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getPicture). [BulletFormat.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setHeight) sätts till 100 procent för att storleksanpassa punkten relativt stycketexten:
 
 ```python
 import jpype
@@ -206,9 +206,9 @@ finally:
 
 ### **Skapa en flernivålista**
 
-Ställ in [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) för att placera stycken på olika nivåer i en lista. Översta nivån har ett djup på `0`.
+Ange [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) för att placera stycken på olika nivåer i en lista. Toppraden har djupet `0`.
 
-Detta Python‑exempel tilldelar [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) värden från 0 till 3 för fyra stycken, vilket skapar en hierarki inom en textram. Varje stycke använder en symbolpunkt, där [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) växlar mellan en rund punkt och ett bindestreck för att särskilja närliggande nivåer:
+Detta Python‑exempel tilldelar [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) värden från 0 till 3 för fyra stycken, vilket skapar en hierarki inom en textram. Varje stycke använder en symbolpunkt, där [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) alternerar mellan en rund punkt och ett bindestreck för att skilja intilliggande nivåer:
 
 ```python
 import jpype
@@ -270,11 +270,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Starta numrerade listpunkter med egna värden**
+### **Starta numrerade listobjekt med anpassade värden**
 
-Använd [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) för att ange det initiala numret som visas för ett numrerat stycke.
+Använd [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) för att ange det första numret som visas för ett numrerat stycke.
 
-Detta Python‑exempel sätter [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) till numrering för tre stycken och tilldelar [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) värdena 2, 3 och 7. Startvärdet konfigureras separat för varje stycke, vilket gör att de visade siffrorna kan hoppa över värden:
+Detta Python‑exempel sätter [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) till numrering för tre stycken och tilldelar [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) värdena 2, 3 och 7. Startvärdet konfigureras separat för varje stycke, vilket gör att de visade numren kan hoppa över värden:
 
 ```python
 import jpype
@@ -319,15 +319,15 @@ finally:
 
 ## **Styr stycke‑layout och slutegenskaper**
 
-Justera styckemarginaler och indrag för att kontrollera positionen för den första raden och radbrytningar. Du kan också formatera styckets slutmarkering separat från de synliga textportionerna.
+Justera styckesmått och indrag för att kontrollera positionen för den första raden och radbrytningar. Du kan även formatera styckets sluttecken separat från de synliga textportionerna.
 
-### **Ställ in ett förstaderads‑indrag**
+### **Ställ in indrag för första raden**
 
-Använd metoden [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) för att kontrollera förstaderads‑indraget i ett stycke. Denna inställning flyttar endast den första raden i förhållande till styckets vänstra marginal. Ett positivt värde förskjuter den första raden åt höger, medan de återstående raderna förblir justerade efter styckekroppen.
+Använd metoden [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) för att kontrollera första‑rads‑indraget i ett stycke. Denna inställning flyttar endast den första raden i förhållande till styckets vänstra marginal. Ett positivt värde flyttar den första raden åt höger, medan de återstående raderna förblir inriktade mot styckets kropp.
 
-Använd [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) när du behöver flytta hela stycket. Använd [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) när du bara vill flytta den första raden.
+Använd [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) när du vill flytta hela stycket. Använd [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) när du bara vill flytta den första raden.
 
-Följande exempel ger tre stycken samma [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) på 20 punkter och [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent)‑värden på 0, 20 och 40 punkter. Första raderna börjar på gradvis större avstånd, medan radbrytningar behåller samma vänstra marginal:
+Följande exempel ger tre stycken samma [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) på 20 punkter och [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) värden på 0, 20 och 40 punkter. De första raderna börjar vid successivt större avstånd, medan radbrytningar behåller samma vänstra marginal:
 
 ```python
 import jpype
@@ -384,24 +384,24 @@ finally:
 
 Resultatet:
 
-![Den första radens indrag i styckena](first_line_indent.png)
+![Indent för första raden i styckena](first_line_indent.png)
 
-### **Ställ in ett hängande indrag**
+### **Ställ in hängande indrag**
 
-Ett hängande indrag är en stycke­layout där den första raden startar till vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med egenskapen [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent). Sätt `Indent` till ett negativt värde för att flytta den första raden åt vänster relativt styckekroppen.
+Ett hängande indrag är en stycke‑layout där den första raden startar till vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med egenskapen [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent). Sätt `Indent` till ett negativt värde för att flytta den första raden åt vänster i förhållande till styckets kropp.
 
-I praktiken definierar [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) den vänstra positionen för styckekroppen, och [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) definierar positionen för den första raden relativt den marginalen. För att skapa ett hängande indrag, sätt ett positivt `MarginLeft`‑värde och ett negativt `Indent`‑värde.
+I praktiken definierar [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) den vänstra positionen för styckets kropp, och [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) definierar positionen för den första raden relativt den marginalen. För att skapa ett hängande indrag, sätt ett positivt `MarginLeft`‑värde och ett negativt `Indent`‑värde.
 
-Denna formatering är användbar för bibliografier, referenser, uppslagsverksposter och andra stycken där radbrytningar måste justeras under styckekroppen snarare än under första tecknet i den första raden.
+Denna formatering är användbar för bibliografier, referenser, glossärposter och andra stycken där radbrytningar ska justeras under styckets kropp snarare än under första tecknet i den första raden.
 
-Följande Python‑exempel kombinerar [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft)‑värden på 40 och 60 punkter med [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent)‑värden på –20 och –30 punkter. I varje stycke startar den första raden till vänster om radbrytningarna; det andra stycket har ett djupare hängande indrag:
+Följande Python‑exempel parar [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) värden på 40 och 60 punkter med [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) värden på -20 och -30 punkter. I varje stycke startar den första raden till vänster om radbrytningarna; det andra stycket har ett djupare hängande indrag:
 
 ```python
-import jpade
+import jpype
 import asposeslides
 
-if not jpade.isJVMStarted():
-    jpade.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import FillType, Paragraph, Presentation, SaveFormat, ShapeType, TextAutofitType
 from java.awt import Color
@@ -443,11 +443,11 @@ finally:
 
 Resultatet:
 
-![Det hängande indentet i styckena](hanging_indent.png)
+![Hängande indrag i styckena](hanging_indent.png)
 
-### **Ställ in slut‑stycke‑körnings‑egenskaper**
+### **Ställ in egenskaper för styckets slutkörning**
 
-Metoden [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) kontrollerar formateringen av styckets slutmarkering. Följande exempel skapar ett [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) med [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) satt till 48 punkter och [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLatinFont) satt till Times New Roman. Det tilldelar detta format till den andra styckets slutmarkering, utan att ändra de synliga textportionerna:
+Metoden [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) styr formateringen av styckets sluttecken. Följande exempel skapar ett [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) med [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) satt till 48 punkter och [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLatinFont) satt till Times New Roman. Det tilldelar detta format till det andra styckets sluttecken, utan att ändra de synliga textportionerna:
 
 ```python
 import jpype
@@ -490,13 +490,13 @@ finally:
 
 ## **Räkna renderade rader**
 
-För stycke‑regler som påverkar automatisk radbrytning och interpunktion vid radslut, se [Control Line Breaking](/slides/sv/python-java/text-formatting/#control-line-breaking) och [Control Hanging Punctuation](/slides/sv/python-java/text-formatting/#control-hanging-punctuation).
+För styckeregler som påverkar automatisk radbrytning och interpunktion i radslutet, se [Control Line Breaking](/slides/sv/python-java/text-formatting/#control-line-breaking) och [Control Hanging Punctuation](/slides/sv/python-java/text-formatting/#control-hanging-punctuation).
 
-Använd [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount) för att räkna antalet rader som ett stycke upptar efter textlayout, inklusive automatisk radbrytning. Detta är användbart när du kontrollerar textlängd och layout i presentationsmallar.
+Använd [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount) för att räkna antalet rader som ett stycke upptar efter layout, inklusive automatisk radbrytning. Detta är användbart när du kontrollerar textlängd och layout i presentationsmallar.
 
-Ett stycke är ett objekt i [TextFrame.getParagraphs](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParagraphs), och det kan uppta flera renderade rader. Ett explicit radbrytningstecken i ett stycke tvingar en ny rad utan att skapa ett nytt stycke. Automatisk radbrytning skapar rader baserat på tillgänglig bredd utan att infoga explicita radbrytningstecken i texten. Att räkna stycken eller radbrytningstecken ger därför inte det renderade radantalet.
+Ett stycke är ett objekt i [TextFrame.getParagraphs](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParagraphs) och kan uppta flera renderade rader. Ett explicit radbrytningstecken inom ett stycke tvingar en ny rad utan att skapa ett nytt stycke. Automatisk radbrytning skapar rader baserat på tillgänglig bredd utan att infoga explicita radbrytningstecken i texten. Därför ger räknandet av stycken eller radbrytningstecken inte det faktiska renderade radantalet.
 
-Följande exempel skapar en textruta, räknar dess rader, förminskar rutan och ersätter sedan texten med en kortare sträng. Exemplet aktiverar radbrytning med [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) och inaktiverar autofit med [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) så att rutförstoringen styr radbrytning utan att automatiskt krympa texten eller ändra rutförstoringen. Varje mätning använder [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount). Formatriktlinjer är i punkter. Slutligen lägger exemplet till ett ytterligare stycke och summerar radantalet över hela textramen.
+Följande exempel skapar en textruta, räknar dess rader, smalnar av formen och ersätter sedan texten med en kortare sträng. Exemplet aktiverar radbrytning med [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) och inaktiverar autofit med [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) så att formens bredd styr radbrytning utan att automatiskt minska texten eller ändra formens storlek. Varje mätning använder [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount). Formens dimensioner är i punkter. Slutligen lägger exemplet till ett ytterligare stycke och summerar radantalet över textramen.
 
 ```python
 import jpype
@@ -540,19 +540,19 @@ finally:
     presentation.dispose()
 ```
 
-Med denna text och dessa mått ökar radantalet när rutan görs smalare, medan ersättning av texten med den korta strängen minskar det. Exakta tal kan variera beroende på tillgängliga teckensnitt och ersättningar, teckenstorlek, marginaler, indrag, radbrytning och autofit‑inställningar. Använd de teckensnitt och layoutinställningar som är avsedda för målmiljön när du kontrollerar en mall.
+Med denna text och dessa dimensioner ökar radantalet när formen blir smalare, medan ersättning med den korta strängen minskar det. Exakta siffror kan variera beroende på fonttillgänglighet och ersättning, teckenstorlek, marginaler, indrag, radbrytning och autofit‑inställningar. Använd de fonter och layoutinställningar som är avsedda för målmiljön när du kontrollerar en mall.
 
-Radantalet i sig bestämmer inte om texten överskrider sin behållare. Tillgänglig höjd, radhöjder, stycke‑ och radavstånd samt autofit‑beteende spelar också in; även en enda rad kan överskrida tillgänglig bredd när radbrytning är inaktiverad.
+Radantalet i sig avgör inte om texten överskrider sin behållare. Tillgänglig höjd, radhöjder, stycke‑ och radavstånd samt autofit‑beteende spelar också roll; även en enda rad kan överskrida bredden när radbrytning är avstängd.
 
 ## **Import och export av styckeinnehåll**
 
-Använd HTML för att föra in text i en presentation eller exportera befintliga stycken för användning utanför den. Detta avsnitt visar också hur man renderar enskilda stycken som bilder, inklusive stycken i tabellceller.
+Använd HTML för att föra in text i en presentation eller exportera befintliga stycken för användning utanför den. Detta avsnitt visar även hur man renderar enskilda stycken som bilder, inklusive stycken i tabellceller.
 
 ### **Importera HTML‑text till stycken**
 
 Använd [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml) för att konvertera HTML‑markup till stycken och portioner i en textram.
 
-Detta Python‑exempel läser HTML från en fil och skickar markupen till [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml). Det rensar textrammans standardstycke så att ramen endast innehåller den importerade innehållet. Den rektangulära formen lämnar en marginal på 10 punkter på varje sida av bilden:
+Detta Python‑exempel läser HTML från en fil och skickar markupen till [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml). Det rensar textramens standardsstycke så att ramen endast innehåller det importerade innehållet. Den rektangulära formen lämnar ett 10‑punkts marginal på varje sida av bilden:
 
 ```python
 import jpype
@@ -586,18 +586,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Exportera stycketext till HTML**
+### **Exportera styckestext till HTML**
 
-Använd [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml) för att exportera ett valt intervall av stycken som HTML. När du återanvänder presentations‑text på en webbplats kan du vilja bevara lokal betoning utan att föra med dig presentationens teckensnitt, storlek eller textrute‑stilar. Ställ in [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) för att kontrollera hur långt exportören följer formatarv.
+Använd [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml) för att exportera ett valt intervall av stycken som HTML. När du återanvänder presentations‑text på en webbplats kan du vilja bevara lokal betoning utan att föra med dig presentationens teckensnitt, storlek eller textrutestilar. Sätt [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) för att kontrollera hur långt exportören följer formateringsarv.
 
-Ladda ner [exempelpresentationen](text-inheritance.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller en textruta med texten ”Inherited text; explicit red 18pt”. Indatat använder avsiktligt flera formateringsnivåer:
+Ladda ner [exempelpresentationen](text-inheritance.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller en textruta med texten "Inherited text; explicit red 18pt". Inmatningen använder avsiktligt flera formateringsnivåer:
 
-- Presentationens standardtextstil ger Calibri och en storlek på 28 pt.
-- Textrammans förstnivå‑stil ger blå text och kursiv.
-- Stycket anger explicit fet text.
-- Den andra portionen, ”explicit red 18pt”, anger explicit röd text och en storlek på 18 pt.
+- Presentationens standardsnitt ger Calibri i storlek 28 pt.
+- Textramens förstahands‑stilsättning ger blå text och kursiv stil.
+- Stycket anger explicit fet stil.
+- Den andra portionen, "explicit red 18pt", anger explicit röd text och storlek 18 pt.
 
-Följande kompletta exempel exporterar samma stycken tre gånger. Det skickar ett [TextToHtmlConversionOptions](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/)‑objekt till exportmetoden och skriver varje resultat till en separat UTF‑8‑HTML‑fil:
+Följande kompletta exempel exporterar samma stycken tre gånger. Det skickar [TextToHtmlConversionOptions](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/) till exportmetoden och skriver varje resultat som en separat UTF‑8‑HTML‑fil:
 
 ```python
 import jpype
@@ -638,31 +638,65 @@ finally:
     presentation.dispose()
 ```
 
-Den genererade HTML‑koden innehåller följande CSS för den första portionen, ”Inherited text; ”. Tabellen listar de relevanta deklarationerna; andra genererade egenskaper har utelämnats för tydlighet.
+Den genererade HTML‑koden innehåller följande CSS för den första portionen, "Inherited text; ". Tabellen listar de relevanta deklarationerna; andra genererade egenskaper har utelämnats för tydlighet.
 
 | Utdata | Relevant CSS för den första portionen | Utseende |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Blå, fet, kursiv text i 28 pt i Calibri, om det teckensnittet är tillgängligt. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Blå, fet, kursiv text i 28 pt i Calibri, om det fonttet är tillgängligt. |
 | `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Blå, fet, kursiv text; den omgivande sidan eller webbläsaren tillhandahåller teckensnittsfamilj och storlek. |
 | `ParagraphOnly.html` | `font-weight:bold` | Fet text; den omgivande sidan eller webbläsaren tillhandahåller teckensnittsfamilj, storlek, färg och kursiv stil. |
 
-Den andra portionen behåller `color:#ff0000`, `font-size:18pt` och `font-weight:bold` i alla tre utskrifterna. Den behåller också kursiv i `All` och `TextBox`, men inte i `ParagraphOnly`. Att begränsa arv tar alltså inte bort formatering som uttryckligen tilldelats ett stycke eller en portion.
+Den andra portionen behåller `color:#ff0000`, `font-size:18pt` och `font-weight:bold` i alla tre utdata. Den behåller också kursiv stil i `All` och `TextBox`, men inte i `ParagraphOnly`. Att begränsa arv tar därför inte bort formatering som uttryckligen tilldelats ett stycke eller en portion.
 
-Öppna filerna i samma webbläsare för att jämföra dem. I de två begränsade lägena löses utelämnade CSS‑egenskaper av destinationens sidstilar eller webbläsarens standarder, så det slutgiltiga utseendet beror på var HTML‑koden används.
+Öppna filerna i samma webbläsare för att jämföra dem. I de två begränsade lägena kompletteras utelämnade CSS‑egenskaper av destinationens sidstil eller webbläsarens standarder, så det slutliga utseendet beror på var HTML‑koden används.
+
+### **Generera ett HTML‑urklipp för urklipp**
+
+Använd [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader) för att välja utskriftsformat för [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml). Med `False` returneras vanlig HTML. Med `True` föregås den av ett Windows‑urklippshuvud. Fälten `StartHTML` och `EndHTML` ger UTF‑8‑byte‑offseten för HTML‑delen. Fälten `StartFragment` och `EndFragment` markerar innehållet som ska klistras in.
+
+Detta exempel exporterar två formaterade stycken som vanlig HTML (`html`) och som ett HTML‑urklipp (`clipboard_html`). En applikation kan sedan skriva urklippet till systemets urklipp. Om urklipps‑API:et förväntar sig råa byte, använd `clipboard_html.encode("utf-8")` för att koda urklippet utan byte‑order‑markering (BOM).
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ShapeType, TextToHtmlConversionOptions
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 400, 100)
+    paragraphs = shape.getTextFrame().getParagraphs()
+    paragraphs.clear()
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>")
+
+    options = TextToHtmlConversionOptions()
+    options.setAddClipboardFragmentHeader(False)
+    html = str(paragraphs.exportToHtml(0, paragraphs.getCount(), options))
+
+    options.setAddClipboardFragmentHeader(True)
+    clipboard_html = str(paragraphs.exportToHtml(0, paragraphs.getCount(), options))
+finally:
+    presentation.dispose()
+```
 
 ### **Rendera ett stycke som en bild**
 
 [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) renderar ett enskilt stycke direkt och returnerar ett bildobjekt. Spara resultatet till en fil eller ström med dess `save`‑metod. Du behöver inte rendera den omgivande formen eller beskära en bitmap manuellt.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) kan returnera `None` om stycket inte kan hittas i sin föräldrasamling, saknar giltiga renderingsgränser eller inte kan renderas. Kontrollera resultatet innan du sparar och frisläpp den returnerade bilden efter användning.
+[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) kan returnera `None` om stycket inte kan hittas i sin föräldrasamling, saknar giltiga renderingsgränser eller inte kan renderas. Kontrollera resultatet innan du sparar och frigör den returnerade bilden efter användning.
 
 #### **Rendera ett stycke i standardskala**
 
-Exemplet använder en presentation med en bild där den första formen är en textruta som innehåller tre stycken.
+Exemplet använder en presentation med en bild där den första formen är en textruta med tre stycken.
 
 ![Textrutan med tre stycken](paragraph_to_image_input.png)
 
-Följande exempel väljer det andra stycket på index 1 och anropar [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) utan skalparametrar. Det kontrollerar att formen innehåller det begärda stycket och att rendering returnerar en bild innan `save`‑metoden anropas för att spara den i PNG‑format. `finally`‑blocket frisläpper bilden efter användning.
+Följande exempel väljer det andra stycket (index 1) och anropar [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) utan skalfaktorer. Det kontrollerar att formen innehåller det nödvändiga stycket och att renderingen returnerar en bild innan den anropar `save`‑metoden för att spara den i PNG‑format. `finally`‑blocket frigör bilden efter användning.
 
 ```python
 import jpype
@@ -701,11 +735,11 @@ finally:
 
 Resultatet:
 
-![Stycke‑bilden](paragraph_to_image_output.png)
+![Styckebilden](paragraph_to_image_output.png)
 
 #### **Rendera ett stycke i en tabellcell med skalning**
 
-Använd overload‑versionen av [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) som accepterar parametrarna `scale_x` och `scale_y` för att ange horisontella och vertikala skalningsfaktorer. Följande exempel skapar en tabell, renderar stycket i dess första cell med dubbelt så stor standardbredd och -höjd, och sparar resultatet som en PNG‑bild.
+Använd [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/)‑överladdning som accepterar parametrarna `scale_x` och `scale_y` för att sätta horisontella och vertikala skalningsfaktorer. Följande exempel skapar en tabell, renderar stycket i dess första cell med dubbelt så stor bredd och höjd som standard, och sparar resultatet som en PNG‑bild.
 
 ```python
 import jpype
@@ -740,26 +774,26 @@ finally:
     presentation.dispose()
 ```
 
-En skalningsfaktor på `1` behåller den axeln i dess standardpixelstorlek. Till exempel ger `2` för båda faktorerna en bild vars bredd och höjd är ungefär dubbelt så stora som standardmåtten, vilket ger fyra gånger så många pixlar. Större faktorer ger generellt skarpare text för zoomning eller högupplöst utskrift, men de ökar även minnesanvändning och filstorlek. Faktorer under `1` ger mindre bilder med mindre detaljrikedom. Använd lika faktorer för att bevara bildförhållandet; olika horisontella och vertikala faktorer sträcker ut resultatet oberoende.
+En skalningsfaktor på `1` behåller den axeln i dess standardpixelstorlek. Till exempel ger `2` för båda faktorerna en bild vars bredd och höjd är ungefär dubbelt så stora som standardmåtten, vilket resulterar i fyra gånger så många pixlar. Större faktorer ger generellt skarpare text för zoomning eller högupplöst output, men ökar också minnesbruk och filstorlek. Faktorer under `1` ger mindre bilder med mindre detaljrikedom. Använd lika faktorer för att bevara styckets bildförhållande; olika horisontella och vertikala faktorer sträcker ut resultatet oberoende av varandra.
 
-Att rendera en hel form med [Shape.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) är fortfarande användbart när utdata måste inkludera formens fyllning, kant eller annan visuell kontext. För enbart bild av ett stycke, använd [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/).
+Att rendera en hel form med [Shape.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) är fortfarande användbart när utdata måste inkludera formens fyllning, kantlinje eller annan visuell kontext. För en bild som bara innehåller ett stycke, använd [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/).
 
 ## **FAQ**
 
 **Kan jag helt inaktivera radbrytning i en textram?**
 
-Ja. Ställ in [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) för att inaktivera radbrytning så att rader inte bryts vid textrammens kanter.
+Ja. Sätt [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) till `False` för att inaktivera radbrytning så att rader inte bryts vid textramens kanter.
 
-**Hur får jag exakt information om ett specifikt styckes position på bilden?**
+**Hur får jag exakt information om ett specifikt stycke på bilden?**
 
-Använd [Paragraph.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getRect) för att hämta styckets omgivande rektangel. [Portion.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getRect) ger gränserna för en enskild portion.
+Använd [Paragraph.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getRect) för att hämta styckets omfångsrektangel. [Portion.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getRect) ger omfånget för en enskild portion.
 
-**Var styrs styckejustering (vänster, höger, centrerad eller marginaljustering)?**
+**Var styrs styckejustering (vänster, höger, center eller justerad)?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) är en stycke‑nivå‑inställning och tillämpas på hela stycket oavsett enskild portionsformatering.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) är en inställning på styckesnivå och tillämpas på hela stycket oavsett individuell portionsformatering.
 
 För att vertikalt justera portioner med olika teckenstorlekar inom varje rad, se [Align Fonts Within a Line](/slides/sv/python-java/text-formatting/#align-fonts-within-a-line).
 
 **Kan jag ange korrekturspråk för en del av ett stycke?**
 
-Ja. Ställ in [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId) för enskilda portioner, så att ett stycke kan innehålla text på flera språk.
+Ja. Sätt [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId) för enskilda portioner, så att ett stycke kan innehålla text på flera språk.

@@ -1,5 +1,5 @@
 ---
-title: Kelola Paragraf Teks PowerPoint dengan JavaScript
+title: Kelola Paragraf Teks PowerPoint di JavaScript
 linktitle: Kelola Paragraf
 type: docs
 weight: 40
@@ -8,47 +8,47 @@ aliases:
   - /nodejs-java/paragraph/
   - /nodejs-java/portion/
 keywords:
-- tambahkan teks
-- tambahkan paragraf
-- kelola teks
-- kelola paragraf
-- kelola bullet
-- indentasi paragraf
-- indentasi menggantung
-- bullet paragraf
-- daftar bernomor
-- daftar bertanda peluru
-- properti paragraf
-- impor HTML
-- teks ke HTML
-- paragraf ke HTML
-- paragraf ke gambar
-- teks ke gambar
-- ekspor paragraf
-- PowerPoint
-- presentasi
-- Node.js
-- JavaScript
-- Aspose.Slides
+  - menambah teks
+  - menambah paragraf
+  - mengelola teks
+  - mengelola paragraf
+  - mengelola bullet
+  - indentasi paragraf
+  - indentasi gantung
+  - bullet paragraf
+  - daftar bernomor
+  - daftar bullet
+  - properti paragraf
+  - impor HTML
+  - teks ke HTML
+  - paragraf ke HTML
+  - paragraf ke gambar
+  - teks ke gambar
+  - ekspor paragraf
+  - PowerPoint
+  - presentasi
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
 description: "Pelajari cara membuat dan memformat paragraf, bagian, bullet, daftar bernomor, indentasi, konten HTML, dan gambar paragraf dengan Aspose.Slides untuk Node.js via Java."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides for Node.js via Java merepresentasikan teks sebagai hirarki bingkai teks, paragraf, dan bagian:
+Aspose.Slides for Node.js via Java merepresentasikan teks sebagai hierarki bingkai teks, paragraf, dan bagian:
 
-* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) mewakili kontainer teks dalam sebuah bentuk dan menyediakan akses ke koleksi paragrafnya.
-* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) mewakili satu paragraf dalam sebuah bingkai teks dan menyediakan akses ke bagian-bagiannya serta pemformatan tingkat paragraf.
-* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) mewakili sebuah run teks dalam sebuah paragraf. Setiap bagian dapat memiliki teks dan pemformatan tingkat karakternya sendiri.
+* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) merepresentasikan kontainer teks dalam sebuah bentuk dan menyediakan akses ke koleksi paragrafnya.
+* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) merepresentasikan satu paragraf dalam sebuah bingkai teks dan menyediakan akses ke bagian‑bagian serta pemformatan tingkat paragraf.
+* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) merepresentasikan urutan teks dalam sebuah paragraf. Setiap bagian dapat memiliki teks dan pemformatan tingkat karakter masing‑masing.
 
-Dengan demikian sebuah paragraf dapat berisi teks dengan font, warna, ukuran, dan pemformatan lainnya yang berbeda-beda dengan menggunakan beberapa bagian.
+Dengan demikian, sebuah paragraf dapat berisi teks dengan font, warna, ukuran, dan pemformatan lain yang berbeda‑beda dengan menggunakan beberapa bagian.
 
-## **Membuat dan Memformat Paragraf**
+## **Buat dan Format Paragraf**
 
-Buat paragraf dalam bingkai teks sebuah bentuk dan gunakan bagian untuk memformat run teks individu. Bagian ini menunjukkan cara menggabungkan beberapa bagian dalam setiap paragraf dan menerapkan warna, ukuran font, serta gaya yang berbeda.
+Buat paragraf dalam bingkai teks bentuk dan gunakan bagian untuk memformat urutan teks individu. Bagian ini menunjukkan cara menggabungkan beberapa bagian dalam setiap paragraf dan menerapkan warna, ukuran font, serta gaya yang berbeda.
 
-### **Membuat Paragraf dengan Beberapa Bagian**
+### **Buat Paragraf dengan Beberapa Bagian**
 
-Contoh JavaScript berikut membuat tiga paragraf, masing‑masing berisi tiga run teks dalam koleksi yang dikembalikan oleh [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/). Contoh ini menggunakan kembali paragraf default dan bagian kosongnya, lalu menambahkan paragraf dan bagian yang tersisa. Pemformatan diterapkan melalui [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/): bagian pertama di setiap paragraf berwarna merah, tebal, dan 15 poin; bagian kedua berwarna biru, miring, dan 18 poin. Bagian ketiga mempertahankan pemformatan defaultnya:
+Contoh JavaScript berikut membuat tiga paragraf, masing‑masing berisi tiga urutan teks dalam koleksi yang dikembalikan oleh [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/). Contoh ini menggunakan kembali paragraf default dan bagian kosongnya, lalu menambahkan paragraf serta bagian yang tersisa. Pemformatan diterapkan melalui [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/): bagian pertama di setiap paragraf berwarna merah, tebal, dan 15 poin; yang kedua berwarna biru, miring, dan 18 poin. Bagian ketiga mempertahankan pemformatan defaultnya:
 
 ```javascript
 var aspose = aspose || {};
@@ -106,15 +106,15 @@ try {
 }
 ```
 
-## **Membuat Daftar Bertanda Peluru dan Bernomor**
+## **Buat Daftar Poin dan Bernomor**
 
-Atur teks paragraf menjadi daftar dengan simbol, angka, atau gambar khusus. Contoh‑contoh dalam bagian ini mencakup pemformatan peluru, daftar berjenjang, dan penomoran dengan angka mulai khusus.
+Atur teks paragraf menjadi daftar dengan simbol, angka, atau gambar khusus. Contoh‑contoh dalam bagian ini mencakup pemformatan bullet, daftar berjenjang, dan nomor mulai khusus.
 
-### **Membuat Daftar Bertanda Peluru atau Bernomor**
+### **Buat Daftar Poin atau Bernomor**
 
-Peluru dan penomoran membuat item terkait lebih mudah dipindai. Di Aspose.Slides, pengaturan daftar didefinisikan melalui [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
+Bullet dan penomoran memudahkan pemindaian item terkait. Pada Aspose.Slides, pengaturan daftar didefinisikan melalui [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
 
-Contoh JavaScript ini menambahkan sebuah peluru simbol dan sebuah item bernomor ke bingkai teks yang sama. [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) memilih tipe peluru, sementara [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) menyediakan simbol dan [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) memilih gaya penomoran. Kedua item menggunakan peluru hitam dengan tinggi 100 % dan indentasi paragraf 25 poin:
+Contoh JavaScript ini menambahkan bullet simbol dan item bernomor ke bingkai teks yang sama. [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) memilih tipe bullet, sementara [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) menyediakan simbol dan [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) memilih gaya penomoran. Kedua item menggunakan bullet hitam dengan tinggi 100 % dan indentasi paragraf 25 poin:
 
 ```javascript
 var aspose = aspose || {};
@@ -157,11 +157,11 @@ try {
 }
 ```
 
-### **Menggunakan Peluru Gambar**
+### **Gunakan Bullet Gambar**
 
-Peluru gambar memungkinkan Anda menggunakan gambar khusus sebagai pengganti simbol atau angka.
+Bullet gambar memungkinkan Anda menggunakan gambar khusus alih‑alih simbol atau angka.
 
-Contoh JavaScript ini memuat `image.png` dari direktori kerja aplikasi, menambahkan gambar ke koleksi gambar presentasi sebagai sebuah [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) dan menggunakannya sebagai peluru paragraf. Contoh ini memanggil [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) untuk menggunakan peluru gambar dan menetapkan gambar melalui [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/). [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) diatur ke 100 % untuk menyesuaikan ukuran peluru relatif terhadap teks paragraf:
+Contoh JavaScript ini memuat `image.png` dari direktori kerja aplikasi, menambahkan gambar ke koleksi gambar presentasi sebagai [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) dan menggunakannya sebagai bullet paragraf. Contoh ini memanggil [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) untuk menggunakan bullet gambar dan menetapkan gambar melalui [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/). [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) diatur ke 100 % untuk menyesuaikan ukuran bullet relatif terhadap teks paragraf:
 
 ```javascript
 var aspose = aspose || {};
@@ -198,11 +198,11 @@ try {
 }
 ```
 
-### **Membuat Daftar Berjenjang**
+### **Buat Daftar Berjenjang**
 
-Setel [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) untuk menempatkan paragraf pada level daftar yang berbeda. Level teratas memiliki kedalaman `0`.
+Setel [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) untuk menempatkan paragraf pada level yang berbeda dalam sebuah daftar. Level teratas memiliki depth `0`.
 
-Contoh JavaScript ini memberi nilai [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) dari 0 hingga 3 untuk empat paragraf, menciptakan hirarki dalam satu bingkai teks. Setiap paragraf menggunakan peluru simbol, dengan [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) bergantian antara peluru bulat dan tanda hubung untuk membedakan level yang berdekatan:
+Contoh JavaScript ini menetapkan nilai [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) dari 0 hingga 3 pada empat paragraf, menciptakan hierarki dalam satu bingkai teks. Setiap paragraf menggunakan bullet simbol, dengan [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) bergantian antara bullet bulat dan tanda hubung untuk membedakan level yang berdekatan:
 
 ```javascript
 var aspose = aspose || {};
@@ -260,11 +260,11 @@ try {
 }
 ```
 
-### **Memulai Item Daftar Bernomor dengan Nilai Khusus**
+### **Mulai Item Daftar Bernomor dengan Nilai Khusus**
 
-Gunakan [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) untuk mengatur nomor awal yang ditampilkan pada paragraf bernomor.
+Gunakan [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) untuk menentukan nomor awal yang ditampilkan pada paragraf bernomor.
 
-Contoh JavaScript ini mengatur [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) untuk menggunakan penomoran pada tiga paragraf dan memberikan nilai [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) sebesar 2, 3, dan 7. Nilai awal dikonfigurasi secara terpisah untuk setiap paragraf, sehingga nomor yang ditampilkan dapat melompati nilai tertentu:
+Contoh JavaScript ini menetapkan [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) untuk menggunakan penomoran pada tiga paragraf dan menetapkan nilai [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) masing‑masing 2, 3, dan 7. Nilai mulai dikonfigurasi terpisah untuk setiap paragraf, sehingga angka yang ditampilkan dapat melewati nilai tertentu:
 
 ```javascript
 var aspose = aspose || {};
@@ -303,17 +303,17 @@ try {
 }
 ```
 
-## **Mengontrol Tata Letak Paragraf dan Properti Akhir**
+## **Kendalikan Tata Letak Paragraf dan Properti Akhir**
 
-Sesuaikan margin dan indentasi paragraf untuk mengontrol posisi baris pertama dan baris yang dibungkus. Anda juga dapat memformat tanda akhir paragraf secara terpisah dari bagian teks yang terlihat.
+Sesuaikan margin dan indentasi paragraf untuk mengontrol posisi baris pertama serta baris‑baris yang terbungkus. Anda juga dapat memformat tanda akhir paragraf secara terpisah dari bagian teks yang terlihat.
 
-### **Mengatur Indent Baris Pertama**
+### **Atur Indent Baris Pertama**
 
-Gunakan metode [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) untuk mengontrol indent baris pertama sebuah paragraf. Pengaturan ini hanya memindahkan baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sedangkan baris lainnya tetap sejajar dengan badan paragraf.
+Gunakan metode [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) untuk mengontrol indent baris pertama sebuah paragraf. Pengaturan ini menggeser hanya baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sementara baris‑baris berikutnya tetap sejajar dengan badan paragraf.
 
-Gunakan [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) bila Anda perlu memindahkan seluruh paragraf. Gunakan [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) bila Anda hanya perlu memindahkan baris pertama.
+Gunakan [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) bila Anda perlu menggeser seluruh paragraf. Gunakan [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) bila Anda hanya perlu menggeser baris pertama.
 
-Contoh berikut memberikan tiga paragraf margin kiri yang sama sebesar 20 poin melalui [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) dan nilai indentasi [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) masing‑masing 0, 20, dan 40 poin. Baris pertama mulai pada offset yang semakin besar, sementara baris yang dibungkus mempertahankan margin kiri yang sama:
+Contoh berikut memberikan tiga paragraf margin kiri yang sama sebesar 20 poin melalui [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) dan nilai indent [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) masing‑masing 0, 20, dan 40 poin. Baris pertama mulai pada offset yang semakin besar, sementara baris yang terbungkus mempertahankan margin kiri yang sama:
 
 ```javascript
 var aspose = aspose || {};
@@ -366,17 +366,17 @@ try {
 
 Hasilnya:
 
-![Indent baris pertama dari paragraf](first_line_indent.png)
+![Indent baris pertama pada paragraf](first_line_indent.png)
 
-### **Mengatur Indent Menggantung**
+### **Atur Indent Gantung**
 
-Indent menggantung adalah tata letak paragraf di mana baris pertama mulai lebih ke kiri dibandingkan baris‑baris berikutnya. Di Aspose.Slides, Anda membuat efek ini dengan metode [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Atur indent ke nilai negatif untuk menggeser baris pertama ke kiri relatif terhadap badan paragraf.
+Indent gantung adalah tata letak paragraf di mana baris pertama mulai lebih ke kiri daripada baris‑baris berikutnya. Pada Aspose.Slides, Anda membuat efek ini dengan metode [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Atur indent ke nilai negatif untuk menggeser baris pertama ke kiri relatif terhadap badan paragraf.
 
-Secara praktik, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) menentukan posisi kiri badan paragraf, dan [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent menggantung, tetapkan margin kiri positif dan indent negatif.
+Secara praktis, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) menentukan posisi kiri badan paragraf, dan [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent gantung, tetapkan margin kiri positif dan indent negatif.
 
-Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris yang dibungkus harus sejajar di bawah badan paragraf, bukan di bawah karakter pertama baris pertama.
+Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris terbungkus harus sejajar di bawah badan paragraf, bukan di bawah karakter pertama baris pertama.
 
-Contoh JavaScript berikut memadukan nilai [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) sebesar 40 dan 60 poin dengan nilai [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) sebesar -20 dan -30 poin. Pada setiap paragraf, baris pertama mulai lebih ke kiri daripada baris yang dibungkus; paragraf kedua memiliki indent menggantung yang lebih dalam:
+Contoh JavaScript berikut memadukan nilai [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) 40 dan 60 poin dengan nilai [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) -20 dan -30 poin. Pada tiap paragraf, baris pertama mulai lebih ke kiri daripada baris terbungkus; paragraf kedua memiliki indent gantung yang lebih dalam:
 
 ```javascript
 var aspose = aspose || {};
@@ -421,11 +421,11 @@ try {
 
 Hasilnya:
 
-![Indent menggantung dari paragraf](hanging_indent.png)
+![Indent gantung pada paragraf](hanging_indent.png)
 
-### **Mengatur Properti Run Akhir Paragraf**
+### **Atur Properti Run Akhir Paragraf**
 
-Metode [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) mengontrol pemformatan tanda akhir paragraf. Contoh berikut membuat sebuah [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) dengan [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) diset ke 48 poin dan [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) diset ke Times New Roman. Format ini diterapkan pada tanda akhir paragraf kedua, sementara bagian teks yang terlihat tetap tidak berubah:
+Metode [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) mengontrol pemformatan tanda akhir paragraf. Contoh berikut membuat sebuah [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) dengan [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) 48 poin dan [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) Times New Roman. Format ini diterapkan pada tanda akhir paragraf kedua, sementara bagian teks yang terlihat tetap tidak berubah:
 
 ```javascript
 var aspose = aspose || {};
@@ -459,15 +459,15 @@ try {
 }
 ```
 
-## **Menghitung Baris yang Dirender**
+## **Hitung Baris yang Dirender**
 
-Untuk aturan paragraf yang memengaruhi pembungkus otomatis dan tanda baca di akhir baris, lihat [Control Line Breaking](/slides/id/nodejs-java/text-formatting/#control-line-breaking) dan [Control Hanging Punctuation](/slides/id/nodejs-java/text-formatting/#control-hanging-punctuation).
+Untuk aturan paragraf yang memengaruhi pembungkusan otomatis dan tanda baca pada akhir baris, lihat [Control Line Breaking](/slides/id/nodejs-java/text-formatting/#control-line-breaking) dan [Control Hanging Punctuation](/slides/id/nodejs-java/text-formatting/#control-hanging-punctuation).
 
-Gunakan [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) untuk menghitung jumlah baris yang ditempati sebuah paragraf setelah tata letak teks, termasuk pembungkus otomatis. Hal ini berguna saat memeriksa panjang teks dan tata letak dalam templat presentasi.
+Gunakan [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) untuk menghitung jumlah baris yang ditempati oleh sebuah paragraf setelah tata letak teks, termasuk pembungkusan otomatis. Hal ini berguna saat memeriksa panjang teks dan tata letak dalam templat presentasi.
 
-Sebuah paragraf adalah satu item dalam [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/), dan dapat menempati beberapa baris yang dirender. Break baris eksplisit dalam sebuah paragraf memaksa baris baru tanpa membuat paragraf lain. Pembungkus otomatis membuat baris berdasarkan lebar yang tersedia tanpa menyisipkan break baris eksplisit ke dalam teks. Oleh karena itu menghitung paragraf atau karakter break baris tidak memberikan jumlah baris yang dirender.
+Sebuah paragraf merupakan satu item dalam [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/), dan dapat menempati beberapa baris yang dirender. Pemutusan baris eksplisit dalam sebuah paragraf memaksa munculnya baris baru tanpa membuat paragraf lain. Pembungkusan otomatis membuat baris berdasarkan lebar yang tersedia tanpa menyisipkan pemutusan baris eksplisit ke dalam teks. Oleh karena itu, menghitung paragraf atau karakter pemutusan baris tidak memberi jumlah baris yang dirender.
 
-Contoh berikut membuat sebuah bentuk teks, menghitung barisnya, mempersempit bentuk, lalu mengganti teks dengan string yang lebih pendek. Contoh ini mengaktifkan pembungkus dengan [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) dan menonaktifkan autofit dengan [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/) sehingga lebar bentuk mengontrol pembungkus tanpa secara otomatis mengecilkan teks atau mengubah ukuran bentuk. Setiap pengukuran menggunakan [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount). Dimensi bentuk dalam poin. Akhirnya, contoh menambahkan paragraf lain dan menjumlahkan jumlah baris di seluruh bingkai teks.
+Contoh berikut membuat sebuah bentuk teks, menghitung baris‑nya, mempersempit bentuk, dan kemudian mengganti teks dengan string yang lebih pendek. Contoh ini mengaktifkan pembungkusan dengan [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) dan menonaktifkan autofit dengan [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/) sehingga lebar bentuk mengendalikan pembungkusan tanpa secara otomatis memperkecil teks atau mengubah ukuran bentuk. Setiap pengukuran menggunakan [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount). Dimensi bentuk dalam poin. Akhirnya, contoh menambahkan paragraf lain dan menjumlahkan jumlah baris di seluruh bingkai teks.
 
 ```javascript
 var aspose = aspose || {};
@@ -510,19 +510,19 @@ try {
 }
 ```
 
-Dengan teks dan dimensi ini, mempersempit bentuk meningkatkan jumlah baris, sementara mengganti teks dengan string pendek menguranginya. Jumlah pasti dapat bervariasi tergantung pada ketersediaan font dan substitusi, ukuran font, margin, indentasi, pembungkus, dan pengaturan autofit. Gunakan font dan pengaturan tata letak yang ditujukan untuk lingkungan target saat memeriksa templat.
+Dengan teks dan dimensi ini, mempersempit bentuk meningkatkan jumlah baris, sementara mengganti teks dengan string pendek menguranginya. Hitungan yang tepat dapat bervariasi tergantung pada ketersediaan dan substitusi font, ukuran font, margin, indentasi, pembungkusan, dan pengaturan autofit. Gunakan font dan pengaturan tata letak yang ditujukan untuk lingkungan target saat memeriksa templat.
 
-Jumlah baris saja tidak menentukan apakah teks melampaui kontainer. Tinggi yang tersedia, tinggi baris, spasi paragraf dan baris, serta perilaku autofit juga penting; bahkan satu baris dapat melampaui lebar yang tersedia bila pembungkus dinonaktifkan.
+Jumlah baris saja tidak menentukan apakah teks meluap dari kontainernya. Tinggi yang tersedia, tinggi baris, jarak paragraf dan baris, serta perilaku autofit juga berpengaruh; bahkan satu baris dapat melebihi lebar yang tersedia bila pembungkusan dinonaktifkan.
 
 ## **Impor dan Ekspor Konten Paragraf**
 
-Gunakan HTML untuk memasukkan teks ke dalam presentasi atau mengekspor paragraf yang ada untuk digunakan di luar presentasi. Bagian ini juga menunjukkan cara merender paragraf individu sebagai gambar, termasuk paragraf dalam sel tabel.
+Gunakan HTML untuk membawa teks ke dalam presentasi atau mengekspor paragraf yang ada untuk digunakan di luar presentasi. Bagian ini juga menunjukkan cara merender paragraf individu sebagai gambar, termasuk paragraf dalam sel tabel.
 
 ### **Impor Teks HTML ke Paragraf**
 
 Gunakan [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) untuk mengonversi markup HTML menjadi paragraf dan bagian dalam sebuah bingkai teks.
 
-Contoh JavaScript ini membaca HTML dari `file.html` di direktori kerja aplikasi dan meneruskan markup ke [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/). Ia membersihkan paragraf default bingkai teks sehingga bingkai hanya berisi konten yang diimpor. Bentuk persegi panjang meninggalkan margin 10 poin pada setiap sisi slide:
+Contoh JavaScript ini membaca HTML dari `file.html` di direktori kerja aplikasi dan meneruskan markup tersebut ke [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/). Contoh ini membersihkan paragraf default bingkai teks sehingga bingkai hanya berisi konten yang diimpor. Bentuk persegi panjang meninggalkan margin 10 poin di setiap sisi slide:
 
 ```javascript
 var aspose = aspose || {};
@@ -550,16 +550,16 @@ try {
 
 ### **Ekspor Teks Paragraf ke HTML**
 
-Gunakan [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) untuk mengekspor rentang paragraf terpilih sebagai HTML. Saat menggunakan kembali teks presentasi di situs web, Anda mungkin ingin mempertahankan penekanan lokal tanpa membawa gaya font, ukuran, atau kotak teks presentasi. Atur [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/) untuk mengontrol sejauh mana pengekspor mengikuti pewarisan pemformatan.
+Gunakan [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) untuk mengekspor rentang paragraf yang dipilih sebagai HTML. Saat menggunakan kembali teks presentasi di situs web, Anda mungkin ingin mempertahankan penekanan lokal tanpa membawa gaya font, ukuran, atau kotak teks presentasi. Tetapkan [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/) untuk mengontrol seberapa jauh pengekspor mengikuti warisan pemformatan.
 
-Unduh [presentasi contoh](text-inheritance.pptx) dan letakkan di direktori kerja aplikasi. Slide pertamanya berisi satu bentuk teks dengan teks “Inherited text; explicit red 18pt”. Input sengaja menggunakan beberapa level pemformatan:
+Unduh [presentasi contoh](text-inheritance.pptx) dan letakkan di direktori kerja aplikasi. Slide pertama berisi satu bentuk teks dengan teks "Inherited text; explicit red 18pt". Input sengaja menggunakan beberapa tingkat pemformatan:
 
 - Gaya teks default presentasi menyediakan Calibri dengan ukuran 28 pt.
-- Gaya teks tingkat pertama bingkai teks menyediakan teks biru dan miring.
-- Paragraf secara eksplisit menetapkan teks tebal.
-- Bagian kedua, “explicit red 18pt”, secara eksplisit menetapkan teks merah dan ukuran 18 pt.
+- Gaya teks tingkat pertama pada bingkai teks menyediakan teks biru dan miring.
+- Paragraf secara eksplisit mengatur teks tebal.
+- Bagian kedua, "explicit red 18pt", secara eksplisit mengatur teks merah dan ukuran 18 pt.
 
-Contoh lengkap berikut mengekspor paragraf yang sama tiga kali. Ia meneruskan [TextToHtmlConversionOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/) ke metode ekspor dan menulis setiap hasil sebagai file HTML UTF‑8 terpisah:
+Contoh lengkap berikut mengekspor paragraf yang sama tiga kali. Contoh ini meneruskan [TextToHtmlConversionOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/) ke metode ekspor dan menulis setiap hasil sebagai file HTML UTF‑8 terpisah:
 
 ```javascript
 var aspose = aspose || {};
@@ -597,31 +597,60 @@ try {
 }
 ```
 
-HTML yang dihasilkan berisi CSS berikut untuk bagian pertama, “Inherited text; ”. Tabel mencantumkan deklarasi yang relevan; properti lain yang dihasilkan dihilangkan demi kejelasan.
+HTML yang dihasilkan berisi CSS berikut untuk bagian pertama, "Inherited text; ". Tabel menampilkan deklarasi relevan; properti lain yang dihasilkan dihilangkan demi kejelasan.
 
-| Output | CSS yang Relevan untuk bagian pertama | Penampilan |
+| Output | CSS Relevan untuk Bagian Pertama | Penampilan |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Teks biru, tebal, miring 28 pt dalam Calibri, bila font tersedia. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Teks biru, tebal, miring; halaman atau peramban penyedia keluarga font dan ukuran. |
-| `ParagraphOnly.html` | `font-weight:bold` | Teks tebal; halaman atau peramban penyedia keluarga font, ukuran, warna, dan gaya miring. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Teks biru, tebal, miring 28 pt dalam Calibri, bila font tersebut tersedia. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Teks biru, tebal, miring; halaman atau peramban menyediakan keluarga font dan ukuran. |
+| `ParagraphOnly.html` | `font-weight:bold` | Teks tebal; halaman atau peramban menyediakan keluarga font, ukuran, warna, dan gaya miring. |
 
-Bagian kedua mempertahankan `color:#ff0000`, `font-size:18pt`, dan `font-weight:bold` di ketiga output. Ia juga mempertahankan miring pada `All` dan `TextBox`, tetapi tidak pada `ParagraphOnly`. Membatasi pewarisan sehingga tidak menghapus pemformatan yang secara eksplisit ditetapkan pada paragraf atau bagian.
+Bagian kedua mempertahankan `color:#ff0000`, `font-size:18pt`, dan `font-weight:bold` di ketiga output. Itu juga mempertahankan miring pada `All` dan `TextBox`, tetapi tidak pada `ParagraphOnly`. Membatasi warisan sehingga tidak menghapus pemformatan yang ditetapkan secara eksplisit pada paragraf atau bagian.
 
-Buka file‑file tersebut di peramban yang sama untuk membandingkannya. Pada dua mode terbatas, properti CSS yang dihilangkan diselesaikan oleh gaya halaman tujuan atau nilai default peramban, sehingga tampilan akhir bergantung pada tempat HTML digunakan.
+Buka file‑file tersebut di peramban yang sama untuk membandingkannya. Pada dua mode terbatas, properti CSS yang dihilangkan diselesaikan oleh gaya halaman tujuan atau default peramban, sehingga tampilan akhir tergantung pada tempat HTML digunakan.
 
-### **Merender Paragraf sebagai Gambar**
+### **Buat Fragmen Clipboard HTML**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) merender paragraf individu secara langsung dan mengembalikan sebuah [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Simpan hasilnya ke file atau aliran dengan [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). Anda tidak perlu merender bentuk yang berisi atau memotong bitmap secara manual.
+Gunakan [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/setaddclipboardfragmentheader/) untuk memilih output dari [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/). Dengan `false`, metode mengembalikan HTML biasa. Dengan `true`, string yang dikembalikan dimulai dengan header clipboard Windows. Field `StartHTML` dan `EndHTML` memberikan offset byte UTF‑8 dari HTML, sementara `StartFragment` dan `EndFragment` mengidentifikasi konten yang akan ditempel.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) dapat mengembalikan `null` bila paragraf tidak dapat ditemukan dalam koleksi induknya, tidak memiliki batas render yang valid, atau tidak dapat dirender. Periksa hasilnya sebelum menyimpannya dan bebaskan gambar yang dikembalikan setelah digunakan.
+Contoh ini mengekspor dua paragraf terformat sebagai HTML biasa (`html`) dan sebagai fragmen clipboard HTML (`clipboardHtml`). Aplikasi kemudian dapat menulis fragmen tersebut ke clipboard sistem. Jika API clipboard mengharapkan byte mentah, enkode fragmen sebagai UTF‑8 tanpa byte order mark (BOM).
 
-#### **Merender Paragraf dengan Skala Default**
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 0, 0, 400, 100);
+    const paragraphs = shape.getTextFrame().getParagraphs();
+    paragraphs.clear();
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+    const options = new slides.TextToHtmlConversionOptions();
+    options.setAddClipboardFragmentHeader(false);
+    const html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+
+    options.setAddClipboardFragmentHeader(true);
+    const clipboardHtml = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Render Paragraf sebagai Gambar**
+
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) merender paragraf individu secara langsung dan mengembalikan sebuah [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Simpan hasilnya ke file atau stream dengan [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). Anda tidak perlu merender bentuk yang mengandungnya atau memotong bitmap secara manual.
+
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) dapat mengembalikan `null` bila paragraf tidak dapat ditemukan dalam koleksi induknya, tidak memiliki batas rendering yang valid, atau tidak dapat dirender. Periksa hasilnya sebelum menyimpannya dan buang gambar yang dikembalikan setelah selesai digunakan.
+
+#### **Render Paragraf dengan Skala Default**
 
 Contoh ini membuat sebuah presentasi dengan satu slide yang bentuk pertamanya adalah kotak teks berisi tiga paragraf.
 
 ![Kotak teks dengan tiga paragraf](paragraph_to_image_input.png)
 
-Contoh berikut memilih paragraf kedua pada indeks 1 dan memanggil [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) tanpa parameter skala. Ia memeriksa bahwa bentuk berisi paragraf yang diperlukan dan bahwa render mengembalikan gambar sebelum memanggil [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) untuk menyimpannya dalam format PNG. Blok `finally` membebaskan gambar setelah penggunaan.
+Contoh berikut memilih paragraf kedua pada indeks 1 dan memanggil [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) tanpa parameter skala. Ia memeriksa bahwa bentuk berisi paragraf yang diperlukan dan bahwa rendering menghasilkan gambar sebelum memanggil [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) untuk menyimpannya dalam format PNG. Blok `finally` membuang gambar setelah selesai.
 
 ```javascript
 var aspose = aspose || {};
@@ -672,9 +701,9 @@ Hasilnya:
 
 ![Gambar paragraf](paragraph_to_image_output.png)
 
-#### **Merender Paragraf dalam Sel Tabel dengan Skala**
+#### **Render Paragraf dalam Sel Tabel dengan Skala**
 
-Gunakan overload [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) yang menerima parameter `scaleX` dan `scaleY` untuk mengatur faktor skala horizontal dan vertikal. Contoh berikut membuat sebuah tabel, merender paragraf dalam sel pertamanya dengan lebar dan tinggi dua kali ukuran default, dan menyimpan hasilnya sebagai gambar PNG.
+Gunakan overload [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) yang menerima parameter `scaleX` dan `scaleY` untuk mengatur faktor skala horizontal dan vertikal. Contoh berikut membuat sebuah tabel, merender paragraf dalam sel pertama dengan lebar dan tinggi dua kali lipat ukuran default, dan menyimpan hasilnya sebagai gambar PNG.
 
 ```javascript
 var aspose = aspose || {};
@@ -709,26 +738,26 @@ try {
 }
 ```
 
-Faktor skala `1` menjaga sumbu tersebut pada ukuran piksel defaultnya. Misalnya, `2` untuk kedua faktor menghasilkan gambar dengan lebar dan tinggi kira‑kira dua kali dimensi default, menghasilkan empat kali jumlah piksel. Faktor yang lebih besar umumnya menghasilkan teks yang lebih tajam untuk zoom atau output resolusi tinggi, tetapi juga meningkatkan penggunaan memori dan ukuran file. Faktor di bawah `1` menghasilkan gambar yang lebih kecil dengan detail lebih sedikit. Gunakan faktor yang sama untuk mempertahankan rasio aspek paragraf; faktor horizontal dan vertikal yang berbeda akan meregangkan output secara terpisah.
+Faktor skala `1` mempertahankan ukuran piksel default pada sumbu tersebut. Misalnya, `2` untuk kedua faktor menghasilkan gambar dengan lebar dan tinggi kira‑kira dua kali dimensi default, menghasilkan empat kali lebih banyak piksel. Faktor yang lebih besar biasanya menghasilkan teks yang lebih tajam untuk zoom atau output resolusi tinggi, namun juga meningkatkan penggunaan memori dan ukuran berkas. Faktor di bawah `1` menghasilkan gambar lebih kecil dengan detail yang berkurang. Gunakan faktor yang sama untuk mempertahankan rasio aspek paragraf; faktor horizontal dan vertikal yang berbeda akan meregangkan output secara terpisah.
 
-Merender seluruh bentuk dengan [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) tetap berguna ketika output harus mencakup isi, garis tepi, atau konteks visual bentuk. Untuk gambar hanya paragraf, gunakan [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
+Merender seluruh bentuk dengan [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) tetap berguna ketika output harus mencakup isi, batas, atau konteks visual lain dari bentuk. Untuk gambar yang hanya berisi paragraf, gunakan [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
 
 ## **FAQ**
 
-**Apakah saya dapat menonaktifkan pembungkus baris sepenuhnya di dalam sebuah bingkai teks?**
+**Apakah saya dapat menonaktifkan seluruh pembungkusan baris di dalam bingkai teks?**
 
-Ya. Setel [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) untuk menonaktifkan pembungkus sehingga baris tidak terputus di tepi bingkai teks.
+Ya. Tetapkan [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) untuk menonaktifkan pembungkusan sehingga baris tidak terputus pada tepi bingkai teks.
 
-**Bagaimana cara mendapatkan batas pada slide yang tepat untuk paragraf tertentu?**
+**Bagaimana saya mendapatkan batas tepat pada slide untuk paragraf tertentu?**
 
-Gunakan [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) untuk mengambil persegi panjang pembatas paragraf. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) menyediakan batas untuk bagian individu.
+Gunakan [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) untuk mengambil persegi panjang pembatas paragraf. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) menyediakan batas bagian individu.
 
-**Di mana kontrol perataan paragraf (kiri, kanan, tengah, atau justified) berada?**
+**Di mana pengaturan perataan paragraf (kiri, kanan, tengah, atau rapat) dikendalikan?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) adalah pengaturan tingkat paragraf dan berlaku untuk seluruh paragraf terlepas dari pemformatan bagian individu.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) adalah pengaturan tingkat paragraf dan diterapkan pada seluruh paragraf terlepas dari pemformatan bagian individu.
 
-Untuk menyelaraskan vertikal bagian dengan ukuran font yang berbeda dalam setiap baris, lihat [Align Fonts Within a Line](/slides/id/nodejs-java/text-formatting/#align-fonts-within-a-line).
+Untuk menyejajarkan vertikal bagian dengan ukuran font berbeda dalam setiap baris, lihat [Align Fonts Within a Line](/slides/id/nodejs-java/text-formatting/#align-fonts-within-a-line).
 
-**Apakah saya dapat mengatur bahasa pemeriksaan ejaan untuk bagian dari paragraf?**
+**Apakah saya dapat menetapkan bahasa pemeriksaan untuk bagian tertentu dalam paragraf?**
 
-Ya. Setel [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) untuk bagian individu, sehingga satu paragraf dapat berisi teks dalam beberapa bahasa.
+Ya. Tetapkan [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) untuk bagian individual, sehingga satu paragraf dapat berisi teks dalam beberapa bahasa.

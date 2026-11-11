@@ -1,5 +1,5 @@
 ---
-title: مدیریت متن پاراگراف‌های پاورپوینت در جاوا
+title: مدیریت پاراگراف‌های متنی PowerPoint در Java
 linktitle: مدیریت پاراگراف
 type: docs
 weight: 40
@@ -8,15 +8,15 @@ aliases:
   - /java/paragraph/
   - /java/portion/
 keywords:
-- اضافه کردن متن
-- اضافه کردن پاراگراف
+- افزودن متن
+- افزودن پاراگراف
 - مدیریت متن
 - مدیریت پاراگراف
 - مدیریت گلوله
-- تو رفتگی پاراگراف
-- تو رفتگی آویزان
+- تورفتگی پاراگراف
+- تورفتگی معلق
 - گلوله پاراگراف
-- فهرست شماره‌دار
+- فهرست عددی
 - فهرست نقطه‌ای
 - خصوصیات پاراگراف
 - وارد کردن HTML
@@ -25,29 +25,29 @@ keywords:
 - پاراگراف به تصویر
 - متن به تصویر
 - خروجی پاراگراف
-- پاورپوینت
+- PowerPoint
 - ارائه
-- جاوا
+- Java
 - Aspose.Slides
-description: "یاد بگیرید چگونه پاراگراف‌ها، بخش‌ها، گلوله‌ها، فهرست‌های شماره‌دار، تو رفتگی‌ها، محتوای HTML و تصاویر پاراگراف را با Aspose.Slides for Java ایجاد و قالب‌بندی کنید."
+description: "یاد بگیرید چگونه پاراگراف‌ها، بخش‌ها، گلوله‌ها، فهرست‌های عددی، تورفتگی‌ها، محتوای HTML، و تصاویر پاراگراف را با Aspose.Slides برای Java ایجاد و قالب‌بندی کنید."
 ---
 ## **مرور کلی**
 
-Aspose.Slides for Java متن را به صورت سلسله‌مراتب فریم‌های متن، پاراگراف‌ها و بخش‌ها (Portions) نمایان می‌کند:
+Aspose.Slides برای Java متن را به‌عنوان سلسله‌مراتبی از فریم‌های متن، پاراگراف‌ها و بخش‌ها نمایش می‌دهد:
 
-* [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) نمایانگر محفظه متن در یک شکل است و دسترسی به مجموعهٔ پاراگراف‌های آن را فراهم می‌کند.
-* [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) نمایانگر یک پاراگراف در یک فریم متن است و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را ارائه می‌دهد.
-* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) نمایانگر یک بخش متن داخل یک پاراگراف است. هر بخش می‌تواند متن و قالب‌بندی سطح کاراکتر خود را داشته باشد.
+* [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) محفظه متن را در یک شکل نمایش می‌دهد و دسترسی به مجموعه پاراگراف‌های آن را فراهم می‌کند.
+* [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) یک پاراگراف در فریم متن را نشان می‌دهد و دسترسی به بخش‌ها و قالب‌بندی‌های سطح پاراگراف را فراهم می‌کند.
+* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) یک بخش متن داخل یک پاراگراف را نشان می‌دهد. هر بخش می‌تواند متن و قالب‌بندی سطح کاراکتر خود را داشته باشد.
 
-در نتیجه یک پاراگراف می‌تواند متنی با فونت‌ها، رنگ‌ها، اندازه‌ها و قالب‌بندی‌های مختلف داشته باشد که با استفاده از بخش‌های متعدد ایجاد می‌شود.
+بنابراین یک پاراگراف می‌تواند متنی با قلم‌ها، رنگ‌ها، اندازه‌ها و قالب‌بندی‌های مختلف داشته باشد که با استفاده از چندین بخش ایجاد می‌شود.
 
 ## **ایجاد و قالب‌بندی پاراگراف‌ها**
 
-پاراگراف‌ها را در فریم متن یک شکل ایجاد کنید و برای قالب‌بندی اجرای‌های متنی جداگانه از بخش‌ها استفاده کنید. این بخش نشان می‌دهد چگونه چندین بخش را در هر پاراگراف ترکیب کرده و رنگ‌ها، اندازهٔ فونت و سبک‌های مختلف را اعمال کنید.
+پاراگراف‌ها را در فریم متن یک شکل ایجاد کنید و با بخش‌ها قالب‌بندی‌های جداگانه برای هر قسمت متن اعمال کنید. این بخش نشان می‌دهد چگونه چندین بخش را در هر پاراگراف ترکیب کنید و رنگ‌ها، اندازه‌های قلم و سبک‌های مختلف را اعمال کنید.
 
-### **ایجاد پاراگراف‌ها با بخش‌های متعدد**
+### **ایجاد پاراگراف‌ها با چندین بخش**
 
-مثال جاوای زیر سه پاراگراف ایجاد می‌کند که هر کدام شامل سه اجرای متنی در مجموعهٔ بازگشتی از [IParagraph.getPortions](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getPortions--) هستند. پاراگراف پیش‌فرض و بخش خالی آن مجدداً استفاده می‌شود، سپس پاراگراف‌ها و بخش‌های باقی‌مانده اضافه می‌شوند. قالب‌بندی از طریق [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--) انجام می‌شود: اولین بخش در هر پاراگراف قرمز، بولد و ۱۵ پوینت است؛ دومین بخش آبی، ایتالیک و ۱۸ پوینت؛ بخش سوم قالب‌بندی پیش‌فرض خود را حفظ می‌کند:
+مثال زیر در Java سه پاراگراف ایجاد می‌کند که هر یک شامل سه بخش متن در مجموعه‌ای هستند که توسط [IParagraph.getPortions](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getPortions--) بازگردانده می‌شود. این مثال پاراگراف پیش‌فرض و بخش خالی آن را بازاستفاده می‌کند، سپس پاراگراف‌ها و بخش‌های باقی‌مانده را اضافه می‌کند. قالب‌بندی از طریق [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--) اعمال می‌شود: اولین بخش در هر پاراگراف قرمز، بولد و 15 نقطه است؛ دومین بخش آبی، ایتالیک و 18 نقطه؛ بخش سوم قالب‌بندی پیش‌فرض خود را حفظ می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -106,13 +106,13 @@ try {
 
 ## **ایجاد فهرست‌های نقطه‌ای و عددی**
 
-متن پاراگراف را به فهرست‌هایی با نمادها، اعداد یا تصاویر سفارشی سازماندهی کنید. مثال‌های این بخش شامل قالب‌بندی گلوله‌ها، فهرست‌های چندسطحی و اعداد شروع سفارشی می‌شود.
+متن پاراگراف‌ها را به فهرست‌های دارای نماد، عدد یا تصویر سفارشی سازماندهی کنید. مثال‌های این بخش قالب‌بندی گلوله‌ها، فهرست‌های چندسطحه‌ای و عددهای شروع سفارشی را پوشش می‌دهند.
 
 ### **ایجاد فهرست نقطه‌ای یا عددی**
 
-گلوله‌ها و شماره‌گذاری موارد مرتبط را برای اسکن آسان‌تر می‌کند. در Aspose.Slides، تنظیمات فهرست از طریق [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/) تعریف می‌شود.
+گلوله‌ها و شماره‌گذاری موارد مرتبط را اسکن کردن آسان‌تر می‌کند. در Aspose.Slides تنظیمات فهرست از طریق [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/) تعریف می‌شود.
 
-این مثال جاوا یک گلوله نمادین و یک مورد عددی را به همان فریم متن اضافه می‌کند. [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) نوع گلوله را انتخاب می‌کند، در حالی که [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) نماد را فراهم می‌کند و [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) سبک شماره‌گذاری را انتخاب می‌کند. هر دو مورد از گلوله‌های سیاه با ارتفاع ۱۰۰ درصد و تو رفتگی پاراگراف ۲۵ پوینت استفاده می‌کنند:
+این مثال Java یک گلوله نمادین و یک مورد عددی را به همان فریم متن اضافه می‌کند. [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) نوع گلوله را انتخاب می‌کند، در حالی که [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) نماد را فراهم می‌کند و [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) سبک شماره‌گذاری را انتخاب می‌کند. هر دو مورد از گلوله‌های سیاه با ارتفاع 100 درصد و تورفتگی پاراگراف 25 نقطه استفاده می‌کنند:
 
 ```java
 import com.aspose.slides.*;
@@ -156,9 +156,9 @@ try {
 
 ### **استفاده از گلوله‌های تصویری**
 
-گلوله‌های تصویری به شما اجازه می‌دهند به جای نماد یا عدد، از تصویر سفارشی استفاده کنید.
+گلوله‌های تصویری به شما اجازه می‌دهند به‌جای نماد یا عدد از تصویر سفارشی استفاده کنید.
 
-این مثال جاوا یک تصویر را به مجموعهٔ تصاویر ارائه اضافه می‌کند به عنوان یک [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) و از آن به عنوان گلولهٔ پاراگراف استفاده می‌کند. برای استفاده از گلولهٔ تصویری [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) فراخوانی می‌شود و تصویر از طریق [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--) اختصاص می‌یابد. [IBulletFormat.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setHeight-float-) بر روی ۱۰۰ درصد تنظیم می‌شود تا گلوله نسبت به متن پاراگراف اندازه بگیرد:
+این مثال Java یک تصویر را به مجموعه تصویرهای ارائه به عنوان یک [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) اضافه می‌کند و آن را به عنوان گلوله پاراگراف استفاده می‌کند. برای استفاده از گلوله تصویر، [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) فراخوانی می‌شود و تصویر از طریق [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--) اختصاص داده می‌شود. [IBulletFormat.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setHeight-float-) بر روی 100 درصد تنظیم می‌شود تا اندازه گلوله نسبت به متن پاراگراف تنظیم شود:
 
 ```java
 import com.aspose.slides.*;
@@ -193,11 +193,11 @@ try {
 }
 ```
 
-### **ایجاد فهرست چندسطحی**
+### **ایجاد فهرست چندسطحه‌ای**
 
-[IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) را تنظیم کنید تا پاراگراف‌ها در سطوح مختلف فهرست قرار گیرند. سطح بالایی عمق `0` دارد.
+[IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) را تنظیم کنید تا پاراگراف‌ها در سطوح مختلف یک فهرست قرار گیرند. سطح بالایی عمق `0` دارد.
 
-این مثال جاوا مقادیر [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) را از ۰ تا ۳ به چهار پاراگراف اختصاص می‌دهد و یک سلسله‌مراتب در یک فریم متن ایجاد می‌کند. هر پاراگراف از یک گلولهٔ نماد استفاده می‌کند و [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) بین یک گلولهٔ گرد و یک خط تیره به‌صورت متناوب می‌چرخد تا سطوح مجاور را متمایز کند:
+این مثال Java مقادیر [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) را از 0 تا 3 به چهار پاراگراف اختصاص می‌دهد و سلسله‌مراتبی در یک فریم متن ایجاد می‌کند. هر پاراگراف از گلوله نمادین استفاده می‌کند؛ [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) بین یک گلوله گرد و یک خط تیره تغییر می‌کند تا سطوح مجاور را متمایز کند:
 
 ```java
 import com.aspose.slides.*;
@@ -254,11 +254,11 @@ try {
 }
 ```
 
-### **شروع اقلام فهرست عددی با مقادیر سفارشی**
+### **شروع شماره‌گذاری فهرست با مقادیر سفارشی**
 
-از [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) برای تنظیم عدد اولیه نمایش داده‌شده برای پاراگراف عددی استفاده کنید.
+از [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) برای تنظیم عدد اولیه نمایش داده‌شده برای یک پاراگراف شماره‌دار استفاده کنید.
 
-این مثال جاوا [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) را برای استفاده از شماره‌گذاری برای سه پاراگراف تنظیم می‌کند و مقادیر [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) را به ترتیب ۲، ۳ و ۷ اختصاص می‌دهد. مقدار شروع برای هر پاراگراف جداگانه پیکربندی می‌شود تا اعداد نمایش داده‌شده مقادیر میانی را رد کنند:
+این مثال Java [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) را برای استفاده از شماره‌گذاری در سه پاراگراف تنظیم می‌کند و مقادیر [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) را به ترتیب 2، 3 و 7 اختصاص می‌دهد. مقدار شروع برای هر پاراگراف به‌صورت جداگانه پیکربندی می‌شود تا اعداد نمایش داده‌شده مقادیر را نادیده بگیرند:
 
 ```java
 import com.aspose.slides.*;
@@ -295,17 +295,17 @@ try {
 }
 ```
 
-## **کنترل چیدمان پاراگراف و ویژگی‌های پایان**
+## **کنترل چینش پاراگراف و ویژگی‌های انتهایی**
 
-حاشیه‌ها و تو رفتگی‌های پاراگراف را تنظیم کنید تا موقعیت خط اول و خطوط بسته‌شده را کنترل کنید. می‌توانید علامت پایان پاراگراف را جدا از بخش‌های متنی قابل مشاهده قالب‌بندی کنید.
+حاشیه‌ها و تورفتگی‌های پاراگراف را تنظیم کنید تا موقعیت خط اول و خطوط بسته‌بندی شده را کنترل کنید. همچنین می‌توانید علامت پایان پاراگراف را جدا از بخش‌های متنی قابل مشاهده قالب‌بندی کنید.
 
-### **تنظیم تو رفتگی خط اول**
+### **تنظیم تورفتگی خط اول**
 
-از روش [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) برای کنترل تو رفتگی خط اول یک پاراگراف استفاده کنید. این تنظیم فقط خط اول را نسبت به حاشیهٔ چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به سمت راست می‌برد، در حالی که خطوط باقی‌مانده به بدنهٔ پاراگراف تراز می‌شوند.
+از متد [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این تنظیم فقط خط اول را نسبت به حاشیه چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت، خط اول را به سمت راست می‌برد، در حالی که خطوط باقی‌مانده به بدنه پاراگراف هم‌تراز می‌مانند.
 
-از [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) زمانی استفاده کنید که می‌خواهید کل پاراگراف را جابه‌جا کنید. از [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) زمانی استفاده کنید که می‌خواهید فقط خط اول را جابه‌جا کنید.
+از [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) زمانی که نیاز به جابه‌جایی کل پاراگراف دارید استفاده کنید. از [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) وقتی که فقط خط اول را می‌خواهید جابه‌جا کنید استفاده کنید.
 
-مثال زیر سه پاراگراف را با همان [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) به میزان ۲۰ پوینت و مقادیر [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) برابر با ۰، ۲۰ و ۴۰ پوینت تنظیم می‌کند. خطوط اول به‌صورت افزایشی در فاصله شروع می‌شوند، در حالی که خطوط بسته‌شده همان حاشیهٔ چپ را حفظ می‌کنند:
+مثال زیر برای سه پاراگراف همان مقدار [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) برابر 20 نقطه و مقادیر [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) برابر 0، 20 و 40 نقطه اعمال می‌کند. خطوط اول به ترتیب با آفست بزرگتر شروع می‌شوند، در حالی که خطوط بسته‌بندی شده همان حاشیه چپ را حفظ می‌کنند:
 
 ```java
 import com.aspose.slides.*;
@@ -357,17 +357,17 @@ try {
 
 نتیجه:
 
-![تو رفتگی خط اول پاراگراف‌ها](first_line_indent.png)
+![تورفتگی خط اول پاراگراف‌ها](first_line_indent.png)
 
-### **تنظیم تو رفتگی آویزان**
+### **تنظیم تورفتگی معلق**
 
-تو رفتگی آویزان یک چیدمان پاراگراف است که در آن خط اول در سمت چپ خطوط باقی‌مانده شروع می‌شود. در Aspose.Slides این اثر را با ویژگی [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) ایجاد می‌کنید. `Indent` را به مقدار منفی تنظیم کنید تا خط اول نسبت به بدنهٔ پاراگراف به سمت چپ جابه‌جا شود.
+تورفتگی معلق نوعی چینش پاراگراف است که در آن خط اول به سمت چپ خطوط باقی‌مانده شروع می‌شود. در Aspose.Slides این اثر را با ویژگی [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) ایجاد می‌کنید. مقدار `Indent` را به مقدار منفی تنظیم کنید تا خط اول نسبت به بدنه پاراگراف به چپ جابه‌جا شود.
 
-در عمل، [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) موقعیت چپ بدنهٔ پاراگراف را تعریف می‌کند و [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) موقعیت خط اول را نسبت به آن حاشیه مشخص می‌سازد. برای ایجاد تو رفتگی آویزان، مقدار مثبت `MarginLeft` و مقدار منفی `Indent` را تنظیم کنید.
+در عمل، [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) موقعیت چپ بدنه پاراگراف را تعریف می‌کند و [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) موقعیت خط اول را نسبت به آن حاشیه تعیین می‌کند. برای ایجاد تورفتگی معلق، مقدار مثبت `MarginLeft` و مقدار منفی `Indent` تنظیم کنید.
 
-این قالب‌بندی برای کتاب‌نامه‌ها، مراجع، ورودی‌های واژه‌نامه و سایر پاراگراف‌هایی که خطوط بسته‌شده باید زیر بدنهٔ پاراگراف نه زیر اولین کاراکتر خط اول تراز شوند، مفید است.
+این قالب‌بندی برای کتابشناسی‌ها، مراجع، واژه‌نامه‌ها و سایر پاراگراف‌هایی که خطوط بسته‌بندی‌شده باید زیر بدنه پاراگراف نه زیر اولین کاراکتر خط اول قرار گیرند مفید است.
 
-مثال جاوا زیر مقادیر [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) برابر با ۴۰ و ۶۰ پوینت را با مقادیر [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) برابر با -۲۰ و -۳۰ پوینت ترکیب می‌کند. در هر پاراگراف، خط اول به سمت چپ خطوط بسته‌شده شروع می‌شود؛ پاراگراف دوم تو رفتگی آویزان عمیق‌تری دارد:
+مثال Java زیر مقادیر [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) برابر 40 و 60 نقطه را با مقادیر [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) برابر -20 و -30 نقطه ترکیب می‌کند. در هر پاراگراف، خط اول به سمت چپ خطوط بسته‌بندی‌شده شروع می‌شود؛ پاراگراف دوم تورفتگی معلق عمیق‌تری دارد:
 
 ```java
 import com.aspose.slides.*;
@@ -411,11 +411,11 @@ try {
 
 نتیجه:
 
-![تو رفتگی آویزان پاراگراف‌ها](hanging_indent.png)
+![تورفتگی معلق پاراگراف‌ها](hanging_indent.png)
 
-### **تنظیم ویژگی‌های پایان پاراگراف**
+### **تنظیم ویژگی‌های انتهای پاراگراف**
 
-متد [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) قالب‌بندی علامت پایان پاراگراف را کنترل می‌کند. مثال زیر یک [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) با [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) برابر با ۴۸ پوینت و [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) تنظیم‌شده بر روی Times New Roman ایجاد می‌کند. این قالب به علامت پایان پاراگراف دوم اختصاص می‌یابد و بخش‌های متنی قابل مشاهده را دست‌نخورده می‌گذارد:
+متد [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) قالب‌بندی علامت پایان پاراگراف را کنترل می‌کند. مثال زیر یک [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) با [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) برابر 48 نقطه و [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) برابر Times New Roman ایجاد می‌کند. این قالب به علامت پایان پاراگراف دوم اختصاص داده می‌شود و بخش‌های متنی قابل مشاهده بدون تغییر می‌مانند:
 
 ```java
 import com.aspose.slides.*;
@@ -450,13 +450,13 @@ try {
 
 ## **شمارش خطوط رندر شده**
 
-برای قوانین پاراگراف که بر بسته‌بندی خودکار و نقطه‌گذاری در انتهای خطوط تأثیر دارند، به [Control Line Breaking](/slides/fa/java/text-formatting/#control-line-breaking) و [Control Hanging Punctuation](/slides/fa/java/text-formatting/#control-hanging-punctuation) مراجعه کنید.
+برای قواعد پاراگراف که بر بسته‌بندی خودکار و نقطه‌گذاری در انتهای خطوط تأثیر می‌گذارند، به ‎[Control Line Breaking](/slides/fa/java/text-formatting/#control-line-breaking)‎ و ‎[Control Hanging Punctuation](/slides/fa/java/text-formatting/#control-hanging-punctuation)‎ مراجعه کنید.
 
-از [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) برای شمارش خطوطی که پاراگراف پس از چیدمان متن اشغال می‌کند استفاده کنید، از جمله بسته‌بندی خودکار. این مورد زمانی مفید است که طول متن و چیدمان در قالب‌های ارائه را بررسی می‌کنید.
+از [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) برای شمارش خطوطی که یک پاراگراف پس از چینش متن اشغال می‌کند، از جمله بسته‌بندی خودکار استفاده کنید. این مورد برای بررسی طول متن و چینش در قالب‌های ارائه مفید است.
 
-یک پاراگراف یک مورد در [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--) است و می‌تواند چندین خط رندر شده را اشغال کند. یک شکست خط صریح داخل پاراگراف خط جدیدی ایجاد می‌کند بدون اینکه پاراگراف دیگری ساخته شود. بسته‌بندی خودکار خطوط را بر اساس عرض موجود ایجاد می‌کند بدون وارد کردن شکست‌های صریح به متن. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط، شمارش خطوط رندر شده را نمی‌دهد.
+یک پاراگراف یک مورد در ‎[ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--)‎ است و می‌تواند چندین خط رندر شده را اشغال کند. یک شکست خط صریح داخل پاراگراف یک خط جدید ایجاد می‌کند بدون اینکه پاراگراف دیگری ساخته شود. بسته‌بندی خودکار خطوط را بر اساس عرض موجود ایجاد می‌کند بدون وارد کردن شکست‌های صریح به متن. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط، تعداد خطوط رندر شده را نمی‌دهد.
 
-مثال زیر یک شکل متنی ایجاد می‌کند، خطوط آن را می‌شمارد، شکل را باریک می‌کند و سپس متن را با رشتهٔ کوتاه‌تری جایگزین می‌کند. مثال با استفاده از [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) بسته‌بندی را فعال می‌کند و با [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) خودکار‌ساز را غیرفعال می‌سازد تا عرض شکل کنترل بسته‌بندی را بدون کوچک‌سازی خودکار متن یا تغییر اندازه شکل داشته باشد. هر اندازه‌گیری از [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) استفاده می‌کند. ابعاد شکل بر حسب پوینت هستند. در نهایت، مثال پاراگراف دیگری اضافه می‌کند و مجموع شمارش خطوط را در سراسر فریم متن محاسبه می‌کند.
+مثال زیر یک شکل متنی ایجاد می‌کند، خطوط آن را می‌شمارد، شکل را باریک می‌کند و سپس متن را با رشته کوتاه‌تری جایگزین می‌کند. این مثال بسته‌بندی را با ‎[ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) فعال می‌کند و ‎[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) را غیرفعال می‌کند تا عرض شکل کنترل‌کننده بسته‌بندی باشد بدون اینکه متن به طور خودکار کوچک یا شکل تغییر اندازه دهد. هر اندازه‌گیری از ‎[IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--)‎ استفاده می‌کند. ابعاد شکل به نقطه است. در پایان مثال یک پاراگراف دیگر اضافه می‌کند و مجموع شمارش خطوط را در کل فریم متن جمع می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -496,19 +496,19 @@ try {
 }
 ```
 
-با این متن و این ابعاد، باریک کردن شکل تعداد خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشتهٔ کوتاه‌تر آن را کاهش می‌دهد. شمارش دقیق می‌تواند بسته به در دسترس بودن و جایگزینی قلم، اندازهٔ قلم، حاشیه‌ها، تو رفتگی، بسته‌بندی و تنظیمات خودکار‌ساز متفاوت باشد. هنگام بررسی قالب، از قلم‌ها و تنظیمات چیدمان موردنظر برای محیط هدف استفاده کنید.
+با این متن و این ابعاد، باریک‌کردن شکل شمارش خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشته کوتاه شمارش را کاهش می‌دهد. شمارش دقیق می‌تواند با در دسترس بودن قلم، جایگزینی، اندازه قلم، حاشیه‌ها، تورفتگی‌ها، بسته‌بندی و تنظیمات autofit متفاوت باشد. هنگام بررسی یک قالب، از قلم‌ها و تنظیمات چینشی که برای محیط هدف در نظر گرفته‌اید استفاده کنید.
 
-تعداد خطوط به تنهایی تعیین‌کنندهٔ سرریز متن از محفظه نیست. ارتفاع در دسترس، ارتفاع خطوط، فاصلهٔ بین پاراگراف و خط، و رفتار خودکار‌ساز نیز مهم‌اند؛ حتی یک خط می‌تواند عرض موجود را هنگام غیرفعال بودن بسته‌بندی تجاوز کند.
+تعداد خطوط به تنهایی تعیین نمی‌کند که آیا متن از مخزن خود سرریز می‌شود یا نه. ارتفاع موجود، ارتفاع خطوط، فاصله پاراگراف و خطوط، و رفتار autofit نیز مهم هستند؛ حتی یک خط واحد می‌تواند عرض موجود را در صورت غیرفعال بودن بسته‌بندی تجاوز کند.
 
 ## **واردات و صادرات محتوای پاراگراف**
 
-از HTML برای وارد کردن متن به یک ارائه یا صادرات پاراگراف‌های موجود برای استفاده خارج از آن استفاده کنید. این بخش همچنین نشان می‌دهد چگونه پاراگراف‌های منفرد را به‌صورت تصویر رندرسازی کنید، از جمله پاراگراف‌های موجود در سلول‌های جدول.
+از HTML برای ورود متن به یک ارائه یا خروجی پاراگراف‌های موجود برای استفاده خارج از آن استفاده کنید. این بخش همچنین نشان می‌دهد چگونه پاراگراف‌های جداگانه را به‌عنوان تصویر رندر کنید، از جمله پاراگراف‌های داخل سلول‌های جدول.
 
 ### **وارد کردن متن HTML به پاراگراف‌ها**
 
-از [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) برای تبدیل نشانه‌گذاری HTML به پاراگراف‌ها و بخش‌ها در یک فریم متن استفاده کنید.
+از ‎[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)‎ برای تبدیل نشانه‌گذاری HTML به پاراگراف‌ها و بخش‌ها در یک فریم متن استفاده کنید.
 
-این مثال جاوا HTML را از یک فایل می‌خواند و نشانه‌گذاری را به [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) پاس می‌دهد. پاراگراف پیش‌فرض فریم متن را پاک می‌کند تا فریم فقط محتوای وارد شده را داشته باشد. شکل مستطیلی حاشیهٔ ۱۰ پوینت در هر سمت اسلاید باقی می‌گذارد:
+این مثال Java HTML را از یک فایل می‌خواند و نشانه‌گذاری را به ‎[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)‎ می‌فرستد. پاراگراف پیش‌فرض فریم متن را پاک می‌کند تا فریم فقط شامل محتوای وارد شده باشد. شکل مستطیلی حاشیه 10 نقطه‌ای در هر سمت اسلاید می‌گذارد:
 
 ```java
 import com.aspose.slides.*;
@@ -542,16 +542,16 @@ try {
 
 ### **صادرات متن پاراگراف به HTML**
 
-از [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) برای صادرات یک بازهٔ انتخابی از پاراگراف‌ها به HTML استفاده کنید. هنگام استفاده مجدد از متن ارائه در یک وب‌سایت، ممکن است بخواهید تأکید محلی را بدون انتقال فونت، اندازه یا سبک‌های جعبهٔ متن ارائه حفظ کنید. با تنظیم [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) می‌توانید کنترل کنید که تبدیل‌کننده تا چه حد از وراثت قالب‌بندی دنبال می‌کند.
+از ‎[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-)‎ برای صادرات یک بازه انتخابی از پاراگراف‌ها به HTML استفاده کنید. هنگام استفاده مجدد از متن ارائه در یک وب‌سایت، ممکن است بخواهید تأکید محلی را بدون انتقال قلم، اندازه یا سبک‌های جعبه متن ارائه حفظ کنید. ‎[TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-)‎ را تنظیم کنید تا کنترل کنید تا چه حد مبدل قالب‌بندی را به ارث می‌برد.
 
-[نمونهٔ ارائه را دانلود کنید](text-inheritance.pptx) و در پوشهٔ کاری برنامه قرار دهید. اسلاید اول آن شامل یک شکل متنی است که متن «Inherited text; explicit red 18pt» را دارد. ورودی به‌صراحت از چندین سطح قالب‌بندی استفاده می‌کند:
+نمونه ارائه را از ‎[the sample presentation](text-inheritance.pptx)‎ دانلود کنید و در پوشه کاری برنامه قرار دهید. اسلاید اول آن یک شکل متنی دارد با متن «Inherited text; explicit red 18pt». ورودی به‌صورت عمدی چندین سطح قالب‌بندی دارد:
 
-- سبک متن پیش‌فرض ارائه Calibri با اندازهٔ ۲۸ پوینت فراهم می‌کند.
+- سبک متن پیش‌فرض ارائه قلم Calibri و اندازه 28 pt را فراهم می‌کند.
 - سبک متن سطح اول فریم متن متن آبی و ایتالیک را فراهم می‌کند.
-- پاراگراف به‌صراحت متن بولد تنظیم می‌کند.
-- بخش دوم، «explicit red 18pt»، به‌صراحت متن قرمز و اندازهٔ ۱۸ پوینت تنظیم می‌کند.
+- پاراگراف به‌صورت صریح متن بولد تنظیم می‌کند.
+- بخش دوم، «explicit red 18pt»، متن قرمز و اندازه 18 pt را به‌صورت صریح تنظیم می‌کند.
 
-مثال کامل زیر همان پاراگراف‌ها را سه بار صادر می‌کند. [TextToHtmlConversionOptions](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/) را به متد صادرات پاس می‌دهد و هر نتیجه را به‌صورت یک فایل HTML جداگانهٔ UTF‑8 می‌نویسد:
+مثال کامل زیر همان پاراگراف‌ها را سه بار صادر می‌کند. ‎[TextToHtmlConversionOptions](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/)‎ به متد صادرات پاس داده می‌شود و هر نتیجه به‌عنوان یک فایل HTML UTF‑8 جداگانه ذخیره می‌شود:
 
 ```java
 import com.aspose.slides.*;
@@ -596,31 +596,60 @@ try {
 }
 ```
 
-HTML تولید شده CSS زیر را برای بخش اول «Inherited text; » شامل می‌شود. جدول، اعلان‌های مرتبط را فهرست می‌کند؛ سایر ویژگی‌های تولید شده برای وضوح حذف شده‌اند.
+HTML تولید شده CSS زیر را برای اولین بخش «Inherited text; » دارد. جدول اعلان‌های مرتبط را فهرست می‌کند؛ سایر ویژگی‌های تولید شده برای وضوح حذف شده‌اند.
 
 | خروجی | CSS مرتبط برای بخش اول | ظاهر |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، بولد، ایتالیک با ۲۸ پوینت در Calibri، در صورتی که این قلم موجود باشد. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، بولد، ایتالیک؛ صفحه یا مرورگر پیرامونی خانوادهٔ قلم و اندازه را فراهم می‌کند. |
-| `ParagraphOnly.html` | `font-weight:bold` | متن بولد؛ صفحه یا مرورگر پیرامونی خانوادهٔ قلم، اندازه، رنگ و سبک ایتالیک را فراهم می‌کند. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، بولد، ایتالیک در 28 pt با Calibri، اگر آن قلم موجود باشد. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، بولد، ایتالیک؛ صفحه یا مرورگر فونت و اندازه را فراهم می‌کند. |
+| `ParagraphOnly.html` | `font-weight:bold` | متن بولد؛ صفحه یا مرورگر فونت، اندازه، رنگ و سبک ایتالیک را فراهم می‌کند. |
 
-بخش دوم `color:#ff0000`, `font-size:18pt` و `font-weight:bold` را در هر سه خروجی حفظ می‌کند. همچنین ایتالیک را در `All` و `TextBox` حفظ می‌کند، اما در `ParagraphOnly` نه. محدود کردن وراثت بنابراین قالب‌بندی صریحاً به پاراگراف یا بخش اختصاص یافته را حذف نمی‌کند.
+بخش دوم `color:#ff0000`، `font-size:18pt` و `font-weight:bold` را در هر سه خروجی حفظ می‌کند. همچنین ایتالیک را در `All` و `TextBox` حفظ می‌کند اما در `ParagraphOnly` نیست. محدود کردن ارث‌بری بنابراین قالب‌بندی صریح اختصاص‌یافته به پاراگراف یا بخش را حذف نمی‌کند.
 
-فایل‌ها را در همان مرورگر باز کنید تا مقایسه کنید. در دو حالت محدود، ویژگی‌های CSS حذف‌شده توسط سبک‌های صفحهٔ مقصد یا پیش‌فرض‌های مرورگر حل می‌شوند، بنابراین ظاهر نهایی به محلی که HTML استفاده می‌شود بستگی دارد.
+فایل‌ها را در همان مرورگر باز کنید تا مقایسه کنید. در دو حالت محدود شده، ویژگی‌های CSS حذف‌شده توسط سبک‌های صفحه مقصد یا پیش‌فرض‌های مرورگر حل می‌شوند، بنابراین ظاهر نهایی به مکانی که HTML استفاده می‌شود بستگی دارد.
 
-### **رندر یک پاراگراف به عنوان تصویر**
+### **ایجاد یک بخش کلیپ‌بورد HTML**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) یک پاراگراف منفرد را مستقیماً رندر می‌کند و یک [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) بازمی‌گرداند. نتیجه را با [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) به فایل یا جریان ذخیره کنید. نیازی به رندر شکل حاوی یا برش دستی بیت‌مپ نیست.
+از ‎[TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader-boolean-)‎ برای انتخاب خروجی از ‎[IParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-)‎ استفاده کنید. با مقدار `false`، متد HTML معمولی برمی‌گرداند. با مقدار `true`، رشته بازگشتی با سرآیند کلیپ‌بورد ویندوز شروع می‌شود. فیلدهای `StartHTML` و `EndHTML` افست‌های بایت UTF‑8 HTML را می‌دهند، در حالی که `StartFragment` و `EndFragment` محتوای قابل چسباندن را شناسایی می‌کنند.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) ممکن است `null` برگرداند اگر پاراگراف در مجموعهٔ والد پیدا نشود، مرز رندر معتبری نداشته باشد یا نتواند رندر شود. قبل از ذخیره‌سازی نتیجه را بررسی کنید و پس از استفاده تصویر بازگشتی را آزاد کنید.
+این مثال دو پاراگراف قالب‌بندی‌شده را به عنوان HTML معمولی (`html`) و به عنوان یک بخش کلیپ‌بورد HTML (`clipboardHtml`) صادر می‌کند. سپس برنامه می‌تواند این بخش را در کلیپ‌بورد سیستم بنویسد. اگر API کلیپ‌بورد انتظار بایت‌های خام داشته باشد، بخش را به‌صورت UTF‑8 بدون علامت ترتیب بایت (BOM) رمزگذاری کنید.
 
-#### **رندر یک پاراگراف با مقیاس پیش‌فرض**
+```java
+import com.aspose.slides.*;
 
-مثال از یک ارائه با یک اسلاید استفاده می‌کند که اولین شکل آن یک جعبهٔ متنی با سه پاراگراف است.
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-![جعبهٔ متن با سه پاراگراف](paragraph_to_image_input.png)
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 400, 100);
+    IParagraphCollection paragraphs = shape.getTextFrame().getParagraphs();
+    paragraphs.clear();
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
 
-مثال زیر پاراگراف دوم را در اندیس ۱ انتخاب می‌کند و بدون پارامترهای مقیاس به [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) فراخوانی می‌کند. بررسی می‌کند که شکل شامل پاراگراف موردنظر است و رندر تصویر را قبل از فراخوانی [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) برای ذخیرهٔ آن در قالب PNG تأیید می‌کند. بلوک `finally` تصویر را پس از استفاده آزاد می‌کند.
+    TextToHtmlConversionOptions options = new TextToHtmlConversionOptions();
+    options.setAddClipboardFragmentHeader(false);
+    String html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+
+    options.setAddClipboardFragmentHeader(true);
+    String clipboardHtml = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **رندر پاراگراف به عنوان تصویر**
+
+‎[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--)‎ یک پاراگراف جداگانه را مستقیماً رندر می‌کند و یک ‎[IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/)‎ برمی‌گرداند. نتیجه را با ‎[IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-)‎ به فایل یا جریان ذخیره کنید. نیازی به رندر شکل حاوی آن یا برش دستی bitmap نیست.
+
+‎[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--)‎ می‌تواند `null` برگرداند اگر پاراگراف در مجموعه والد یافت نشود، مرزهای رندر معتبری نداشته باشد یا قابل رندر نباشد. قبل از ذخیره‌سازی نتیجه را بررسی کنید و پس از استفاده تصویر برگشتی را آزاد کنید.
+
+#### **رندر پاراگراف با مقیاس پیش‌فرض**
+
+این مثال یک ارائه با یک اسلاید دارد که شکل اول آن یک جعبه متن حاوی سه پاراگراف است.
+
+![جعبه متن با سه پاراگراف](paragraph_to_image_input.png)
+
+مثال زیر پاراگراف دوم را با ایندکس 1 انتخاب می‌کند و بدون پارامترهای مقیاس ‎[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--)‎ را فراخوانی می‌کند. بررسی می‌کند که شکل پاراگراف مورد نیاز را دارد و رندر تصویر باز می‌گردد قبل از اینکه ‎[IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-)‎ برای ذخیره به فرمت PNG فراخوانی شود. بلوک `finally` تصویر را پس از استفاده آزاد می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -660,9 +689,9 @@ try {
 
 ![تصویر پاراگراف](paragraph_to_image_output.png)
 
-#### **رندر یک پاراگراف در سلول جدول با مقیاس**
+#### **رندر پاراگراف در سلول جدول با مقیاس‌دهی**
 
-از بارگذاری [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) که پارامترهای `float scaleX` و `float scaleY` را می‌پذیرد استفاده کنید تا عوامل مقیاس افقی و عمودی تنظیم شوند. مثال زیر یک جدول ایجاد می‌کند، پاراگراف را در اولین سلول آن با دو برابر عرض و ارتفاع پیش‌فرض رندر می‌کند و نتیجه را به‌صورت تصویر PNG ذخیره می‌کند.
+از بارگیری ‎[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-)‎ که پارامترهای `float scaleX` و `float scaleY` را می‌پذیرد استفاده کنید تا عوامل مقیاس افقی و عمودی را تنظیم کنید. مثال زیر یک جدول می‌سازد، پاراگراف را در اولین سلول آن با دو برابر عرض و ارتفاع پیش‌فرض رندر می‌کند و نتیجه را به‌صورت تصویر PNG ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -693,26 +722,26 @@ try {
 }
 ```
 
-یک عامل مقیاس `1` آن محور را در اندازهٔ پیش‌فرض پیکسل نگه می‌دارد. برای مثال، `2` برای هر دو عامل تصویری با عرض و ارتفاع تقریباً دو برابر ابعاد پیش‌فرض ایجاد می‌کند که چهار برابر پیکسل دارد. عوامل بزرگتر معمولاً متن واضح‌تری برای بزرگ‌نمایی یا خروجی با وضوح بالا فراهم می‌کنند، اما حافظه و اندازهٔ فایل را نیز افزایش می‌دهند. عوامل زیر `1` تصاویر کوچکتر با جزئیات کمتر تولید می‌کنند. برای حفظ نسبت عرض‑به‑ارتفاع پاراگراف از عوامل برابر استفاده کنید؛ عوامل افقی و عمودی متفاوت خروجی را به‌صورت مستقل کشیده می‌کنند.
+عامل مقیاس `1` آن محور را در اندازه پیکسل پیش‌فرض نگه می‌دارد. برای مثال، `2` برای هر دو عامل تصویر با عرض و ارتفاع تقریباً دو برابر ابعاد پیش‌فرض تولید می‌کند که برابر با چهار برابر پیکسل است. عوامل بزرگ‌تر معمولاً متن واضح‌تری برای زوم یا خروجی با وضوح بالا تولید می‌کنند، اما مصرف حافظه و حجم فایل را نیز افزایش می‌دهند. عوامل کمتر از `1` تصاویر کوچکتر با جزئیات کمتر تولید می‌کنند. برای حفظ نسبت عرض به ارتفاع پاراگراف از عوامل برابر استفاده کنید؛ عوامل متفاوت افقی و عمودی خروجی را به‌صورت مستقل کش می‌دهند.
 
-رندر یک شکل کامل با [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) زمانی مفید است که خروجی باید پرکننده، مرز یا سایر زمینه‌های بصری شکل را شامل شود. برای تصویر فقط پاراگراف، از [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) استفاده کنید.
+رندر یک شکل کامل با ‎[IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--)‎ هنوز زمانی مفید است که خروجی باید پرکننده، حاشیه یا سایر زمینه‌های بصری شکل را شامل شود. برای تصویر فقط پاراگراف، از ‎[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--)‎ استفاده کنید.
 
-## **پرسش‌های متداول**
+## **سؤالات متداول**
 
-**آیا می‌توانم بسته‌بندی خطوط داخل فریم متن را به‌طور کامل غیرفعال کنم؟**
+**آیا می‌توانم به‌طور کامل بسته‌بندی خط داخل فریم متن را غیرفعال کنم؟**
 
-بله. با تنظیم [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) بسته‌بندی را غیرفعال کنید تا خطوط در لبه‌های فریم متن شکسته نشوند.
+بله. ‎[ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-)‎ را تنظیم کنید تا بسته‌بندی غیرفعال شود و خطوط در لبه‌های فریم متن شکسته نشوند.
 
-**چگونه می‌توانم مرزهای دقیق بر روی اسلاید برای یک پاراگراف خاص را دریافت کنم؟**
+**چگونه می‌توانم مرزهای دقیق روی اسلاید یک پاراگراف خاص را دریافت کنم؟**
 
-از [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) برای دریافت مستطیل محاطی پاراگراف استفاده کنید. [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) مرزهای یک بخش منفرد را فراهم می‌کند.
+از ‎[IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--)‎ برای دریافت مستطیل باندینگ پاراگراف استفاده کنید. ‎[IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--)‎ مرزهای یک بخش جداگانه را فراهم می‌کند.
 
-**کنترل تراز پاراگراف (چپ، راست، مرکز یا توجیه) کجا قرار دارد؟**
+**کنترل تراز پاراگراف (چپ، راست، مرکز یا کشیده) کجا انجام می‌شود؟**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) یک تنظیم سطح پاراگراف است و بر کل پاراگراف اعمال می‌شود، بدون درنظر گرفتن قالب‌بندی بخش‌های منفرد.
+‎[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-)‎ یک تنظیم سطح پاراگراف است و بر تمام پاراگراف اعمال می‌شود، صرف‌نظر از قالب‌بندی بخش‌های جداگانه.
 
-برای تراز عمودی بخش‌های مختلف با اندازهٔ قلم متفاوت در هر خط، به [Align Fonts Within a Line](/slides/fa/java/text-formatting/#align-fonts-within-a-line) مراجعه کنید.
+برای تراز عمودی بخش‌های با اندازه قلم متفاوت در هر خط، به ‎[Align Fonts Within a Line](/slides/fa/java/text-formatting/#align-fonts-within-a-line)‎ مراجعه کنید.
 
-**آیا می‌توانم زبان تصحیح‌کنندهٔ املایی را برای بخشی از یک پاراگراف تنظیم کنم؟**
+**آیا می‌توانم زبان بازبینی را برای بخشی از پاراگراف تنظیم کنم؟**
 
-بله. برای بخش‌های منفرد [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) تنظیم کنید تا یک پاراگراف بتواند متنی با چندین زبان داشته باشد.
+بله. برای بخش‌های جداگانه ‎[IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-)‎ را تنظیم کنید تا یک پاراگراف بتواند متن‌های چند زبانه داشته باشد.
