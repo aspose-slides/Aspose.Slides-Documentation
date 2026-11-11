@@ -111,6 +111,8 @@ using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
+> **Note:** You can improve the rendering quality of text shadow and reflection effects when converting to PDF by setting `PdfOptions.SufficientResolution` to a higher value (e.g., `300`). This produces PDF output that more closely matches the appearance in Microsoft PowerPoint.
+
 ### **Automatically Select Image Compression**
 
 When a presentation contains many photographs or screenshots, reducing the size of the exported PDF can make it easier to email or download. Set [PdfOptions.BestImagesCompressionRatio](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/bestimagescompressionratio/) to `true` to automatically select the most appropriate compression algorithm for each image during PDF export.
