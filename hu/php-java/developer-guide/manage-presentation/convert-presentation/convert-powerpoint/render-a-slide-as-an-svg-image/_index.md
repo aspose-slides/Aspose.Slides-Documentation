@@ -1,5 +1,5 @@
 ---
-title: PowerPoint prezentációs diák renderelése SVG képekként PHP-ben
+title: Prezentációs diák SVG képekként történő renderelése PHP-ben
 linktitle: Dia SVG-re
 type: docs
 weight: 50
@@ -16,17 +16,17 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Exportálja a PowerPoint diákat SVG képekként PHP-ben, és vezérelje a betűkészleteket, szöveget, képeket, azonosítókat és eseményeket az Aspose.Slides segítségével."
+description: "Exportálja a PowerPoint diákat SVG képekként PHP-ben, és szabályozza a betűtípusokat, szöveget, képeket, azonosítókat és eseményeket az Aspose.Slides segítségével."
 ---
 ## **Áttekintés**
 
-Az SVG egy méretezhető XML-alapú képfájlformátum, amely jól működik webes publikálásnál, diavetítőkben, akadálymentesítési munkafolyamatokban és automatikus utófeldolgozásnál. Az Aspose.Slides minden diát külön SVG fájlba exportál, és lehetővé teszi a szöveg, betűkészletek, képek és SVG elemek írásának vezérlését.
+Az SVG egy méretezhető XML-alapú képfájlformátum, amely jól működik webes közzétételhez, diaolvasókhoz, akadálymentesítési munkafolyamatokhoz és automatizált utófeldolgozáshoz. Az Aspose.Slides minden diát külön SVG fájlba exportál, és lehetővé teszi, hogy szabályozza, hogyan íródnak a szövegek, betűkészletek, képek és SVG elemek.
 
-Használja a [SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) akkor, ha az exportált SVG-nek kompaktnak, a böngészők között kiszámíthatónak vagy interaktív használatra késznek kell lennie.
+Használja a [SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) lehetőséget, ha az exportált SVG-nek kompakt, böngészők között kiszámítható vagy interaktív használatra késznek kell lennie.
 
 ## **Dia exportálása SVG-ként**
 
-Hozzon létre egy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), válasszon ki egy diát, és írja ki egy adatfolyamba a [Slide.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#writeAsSvg) segítségével. Az alábbi példa a bemutató minden diáját külön SVG fájlként exportálja.
+Hozzon létre egy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)-t, válasszon ki egy diát, és írja egy adatfolyamba a [Slide.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#writeAsSvg) segítségével. Az alábbi példa minden diát külön SVG fájlként exportál.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -47,11 +47,11 @@ try {
 }
 ```
 
-A fájlnév a [Slide.getSlideNumber](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getSlideNumber) értékét használja a ciklusindex helyett. Egy adott alakzatot is exportálhat a [Shape.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#writeAsSvg) segítségével, ha egy diavetítő vagy weboldal csak azt az alakzatot igényli.
+A fájlnév a [Slide.getSlideNumber](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getSlideNumber) értékét használja a ciklusindex helyett. Egyetlen alakzatot is exportálhat a [Shape.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#writeAsSvg) segítségével, ha a diaolvasónak vagy weboldalnak csak az az alakzat szükséges.
 
 ## **SVG kimenet konfigurálása**
 
-Az [SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) szabályozza az SVG megjelenítését. Szövegkereteknél a [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setUseFrameSize) a szövegkeretet is belefoglalja a megjelenítési területbe, a [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setUseFrameRotation) pedig meghatározza, hogy a keret forgatása alkalmazásra kerüljön-e. Állítsa a [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setDisableFontLigatures) értékét `true`‑ra, ha a szöveget ligatúrák nélkül kell megjeleníteni.
+[SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) szabályozza az SVG megjelenítését. Szövegdobozok esetén a [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setUseFrameSize) belefoglalja a szövegdobozt a megjelenítési területbe, a [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setUseFrameRotation) pedig meghatározza, hogy a keret forgatása alkalmazásra kerüljön‑e. Állítsa a [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setDisableFontLigatures) értékét `true`‑ra, ha a szöveget ligatúrák nélkül kell megjeleníteni.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -71,13 +71,71 @@ try {
 }
 ```
 
-## **Szöveg és betűkészletek vezérlése**
+## **Vonalvég vágásának szabályozása nyílhegyeknél**
 
-Diák SVG‑be exportálásakor szabályozhatja, hogy a szöveg szövegként maradjon vagy vektorgrafikává konvertálódjon, valamint hogy a külső betűkészletek hogyan legyenek beágyazva vagy hivatkozva. Az alábbi beállítások segítenek egyensúlyba hozni a vizuális konzisztenciát, a szövegkiválasztást és a betűkészlet‑függőségeket az exportált SVG-ben.
+Az SVG 1.1 nem tartalmaz marker inset beállítást, amely meghatározná, hol álljon le a vonal a nyílhegy alatt. Alapértelmezés szerint az Aspose.Slides lerövidíti az exportált vonalat, hogy a vonal ne lógjon ki a markerből. Hívja a [SVGOptions::setDisableLineEndCropping](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setdisablelineendcropping/) metódust `true`‑val, hogy a vonal a teljes eredeti végpontig legyen rajzolva. Ez a beállítás csak az SVG kimenetet érinti; a vonal pozíciója és hossza a dián változatlan marad.
 
-### **Minden szöveg vektorgrafikává alakítása**
+A példa háromszög‑ és rombusz‑nyílhegyeket rajzol 2‑ és 10‑pontos vonalakon. Kétszer exportálja ugyanazt a diát, csak a vágás beállítását változtatva.
 
-Állítsa a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) értékét `true`‑ra, hogy a diák teljes szövege vektorgrafikaként kerüljön kiírásra. Ez megszünteti a betűkészlet‑függőségeket és a vizuális eredményt böngészőközti szinten egységesebbé teszi, de a szöveg már nem lesz kiválasztható vagy kereshető SVG‑szövegként.
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\SVGOptions;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $y = 40;
+
+    foreach ([LineArrowheadStyle::Triangle, LineArrowheadStyle::Diamond] as $style) {
+        foreach ([2, 10] as $width) {
+            $line = $slide->getShapes()->addAutoShape(ShapeType::Line, 40, $y, 200, 0);
+            $format = $line->getLineFormat();
+            $format->getFillFormat()->setFillType(FillType::Solid);
+            $color = new Java("java.awt.Color", 0, 0, 139);
+            $format->getFillFormat()->getSolidFillColor()->setColor($color);
+            $format->setWidth($width);
+            $format->setEndArrowheadStyle($style);
+            $y += 50;
+        }
+    }
+
+    $options = new SVGOptions();
+    $options->setDisableLineEndCropping(false);
+    $cropped = new Java("java.io.FileOutputStream", "cropped.svg");
+    try {
+        $slide->writeAsSvg($cropped, $options);
+    } finally {
+        $cropped->close();
+    }
+
+    $options->setDisableLineEndCropping(true);
+    $uncropped = new Java("java.io.FileOutputStream", "uncropped.svg");
+    try {
+        $slide->writeAsSvg($uncropped, $options);
+    } finally {
+        $uncropped->close();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Az összehasonlítás a 10‑pontos vonalon lévő háromszög‑nyílhegyet mutatja. Ha a vágás be van kapcsolva, a csúcs éles. Ha ki van kapcsolva, a vonal kinyúl a nyílhegy ferde oldalain, és lapos vége lesz.
+
+![Nagyított 10‑pontos háromszög éles csúccsal, ha a vágás be van kapcsolva, és lapos véggel, ha ki van kapcsolva](line-end-cropping.png)
+
+A példában szereplő többi vonalon a kinyúló vonal kevésbé látható a 2‑pontos háromszögnél. A kitöltött rombusz mindkét szélességnél lefedi a vonal végét.
+
+## **Szöveg és betűtípusok vezérlése**
+
+SVG‑be exportáláskor szabályozhatja, hogy a szöveg szövegként marad‑e vagy vektorgrafikává alakul‑e, és hogy a külső betűtípusok hogyan legyenek beágyazva vagy hivatkozva. Az alábbi beállítások segítenek egyensúlyba hozni a vizuális konzisztenciát, a szövegkiválasztást és a betűtípus‑függőségeket az exportált SVG‑ben.
+
+### **Minden szöveg vektorizálása**
+
+Állítsa a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) értékét `true`‑ra, hogy minden diaszöveget vektorgrafikaként írjon. Ezzel megszűnnek a betűtípus‑függőségek, és a megjelenés böngészők között egységesebb, de a szöveg már nem lesz kiválasztható vagy kereshető SVG‑szövegként.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -95,9 +153,9 @@ try {
 }
 ```
 
-### **Válassza ki, hogyan kezelje a külső betűkészleteket**
+### **Válassza ki, hogyan kezelje a külső betűtípusokat**
 
-A [SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setExternalFontsHandling) a [SvgExternalFontsHandling](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/) értékét használja a külsőleg betöltött betűkészletekhez. Válassza a `AddLinksToFontFiles` opciót, ha külön betűfájlokra szeretne hivatkozni, a `Embed` opciót a betűkészlet‑adatok SVG‑be ágyazásához, vagy a `Vectorize` opciót, ha csak a külső betűkészleteket használó szöveget kíván grafikaként megjeleníteni. Ellenőrizze a betűkészlet licencelését a beágyazás előtt.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setExternalFontsHandling) egy [SvgExternalFontsHandling](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/) értéket használ a külsőleg betöltött betűtípusokhoz. Válassza a `AddLinksToFontFiles` opciót, ha külön betűfájlokra szeretne hivatkozni, az `Embed` opciót, ha a betűkészlet adatát be szeretné ágyazni az SVG‑be, vagy a `Vectorize` opciót, ha csak a külső betűtípust használó szöveget kívánja grafikai elemmé alakítani. A betűtípusok beágyazása előtt ellenőrizze a licencelést.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -135,9 +193,9 @@ try {
 }
 ```
 
-## **Beágyazott képek méretének csökkentése**
+## **Beágyazott képméret csökkentése**
 
-A [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setPicturesCompression) segítségével csökkentheti a beágyazott képek felbontását, a [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas) a levágott forrásterületek kihagyására, a [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setJpegQuality) pedig a JPEG kódolás minőségének szabályozására szolgál. Ezek a beállítások a fájlméretet csökkentik a kép pontosságának vagy a megőrzött képadatok költségén.
+Használja a [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setPicturesCompression) lehetőséget a beágyazott képek felbontásának csökkentésére, a [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas) lehetőséget a levágott forrásterületek elhagyására, és a [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setJpegQuality) lehetőséget a JPEG kódolás minőségének szabályozására. Ezek a beállítások a fájlméretet csökkentik, de a kép hűsége vagy a megőrzött képadatok költségén.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -157,11 +215,11 @@ try {
 }
 ```
 
-## **Metafájl rasterizálási felbontásának vezérlése**
+## **Metafájl raszterizálási felbontásának vezérlése**
 
-A [SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) beállítja a metafájlok SVG exportálása során történő rasterizálásának alacsonyabb felbontáskorlátját. Használja a részletesség és a fájlméret egyensúlyozásához, amikor EMF vagy WMF képet rasterizál. Nem határozza meg a SVG globális DPI‑ját, és nem kényszeríti, hogy a dia minden objektuma raszteres képpé alakuljon.
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) alacsonyabb felbontási határt állít be a metafájlok raszterizálásához SVG exportálás közben. Ezzel a részletesség és a fájlméret egyensúlyát szabályozhatja, ha egy EMF vagy WMF képet raszterizál. Nem definiál globális DPI‑t az SVG‑nek, és nem kényszeríti, hogy a dia minden objektuma raszteres képpé váljon.
 
-Töltse le a [metafile-rasterization.pptx](metafile-rasterization.pptx) fájlt, amely szorosan elhelyezkedő átlós vonalakkal rendelkező EMF képet tartalmaz. Az alábbi példa az első diát három rasterizálási felbontásban exportálja a [Slide.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/slide/writeassvg/) segítségével. A többi exportbeállítás változatlan marad, hogy az eredmények összehasonlíthatók legyenek.
+Töltse le a [metafile-rasterization.pptx](metafile-rasterization.pptx) fájlt, amely egy EMF képet tartalmaz szorosan elhelyezkedő átlós vonalakkal. Az alábbi példa az első diát három raszterizálási felbontáson exportálja a [Slide.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/slide/writeassvg/) segítségével. Az összes többi exportbeállítás azonos marad, hogy az eredményeket össze lehessen hasonlítani.
 
 ```php
 $presentation = new Presentation("metafile-rasterization.pptx");
@@ -187,27 +245,25 @@ try {
 }
 ```
 
-A kimenetben az EMF minden SVG-ben egy beágyazott PNG‑re konvertálódik. Az alábbi mérések a mellékelt bemutatóra vonatkoznak; nem általános képlet a DPI‑ról pixelméretre történő átváltáshoz.
-
-| Metafájl rasterizálás DPI | Beágyazott PNG méretek | SVG fájlméret (bájt) |
+| Metafájl raszterizálási DPI | Beágyazott PNG méretek | SVG fájlméret (bájt) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-Az alábbi összehasonlítás ugyanazt a beágyazott rasztert mutatja ugyanakkora nagyított megjelenítési mérettel. A diagonális vonalak látható pixelesedést mutatnak 72 DPI‑n, míg magasabb felbontásnál simább élűek, közben az SVG fájl mérete nő. Az érték növelése nem feltétlenül javít minden részletet vagy változtat minden exportált képen.
+Az alábbi összehasonlítás ugyanazt a beágyazott raszteres területet mutatja azonos nagyított megjelenítési mérettel. A 72 DPI‑nál látható pixelálás, a magasabb felbontáson simább élek, míg a SVG‑fájl mérete nő. A felbontás növelése nem feltétlenül javít minden részletet vagy változtat minden exportált képet.
 
-![Nagyított átlós vonal részlet 72, 150 és 300 DPI](metafile-rasterization-comparison.png)
+![Nagyított átlós vonal részlete 72, 150 és 300 DPI‑n](metafile-rasterization-comparison.png)
 
-A [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setpicturescompression/) szabályozza a képfelbontás csökkentését, és elrejtheti a metafájl rasterizálási felbontás változtatásának hatását. A [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setjpegquality/) a JPEG kódolás minőségét szabályozza, nem a metafájl rasterizálási felbontását.
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setpicturescompression/) szabályozza a képfelbontás csökkentését, és elrejtheti a metafájl raszterizálási felbontás változtatásának hatását. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setjpegquality/) a JPEG kódolás minőségét, nem pedig a metafájl raszterizálási felbontását szabályozza.
 
-## **Stabil azonosítók hozzárendelése alakzatokhoz és szöveghez**
+## **Állandó azonosítók hozzárendelése alakzatokhoz és szöveghez**
 
-Adjon meg egy formázási visszahívást a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setShapeFormattingController)‑nek, hogy minden SVG alakzatra beállítsa a [SvgShape.setId](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/#setId) értékét. A visszahívás a szöveg `tspan` elemeire is beállíthatja a [SvgTSpan.setId](https://reference.aspose.com/slides/php-java/aspose.slides/svgtspan/#setId) értékeket.
+Adjon meg egy formázási visszahívást a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setShapeFormattingController) számára, hogy minden SVG alakzatra beállítsa a [SvgShape.setId](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/#setId) értékét. A visszahívás a szöveg `tspan` elemeire is beállíthatja a [SvgTSpan.setId](https://reference.aspose.com/slides/php-java/aspose.slides/svgtspan/#setId) értékeket.
 
-PhpJavaBridge nem tud PHP visszahívást meghívni a `writeAsSvg` során, ha adatfolyam módot használ. Helyezze a formázási logikát egy kis Java segédosztályba, fordítsa le, és adja hozzá a kapott JAR fájlt a bridge osztályútvonalához. A segéd a [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getOfficeInteropShapeId)‑t használhatja, amely stabil a forma élettartama alatt, valamint egy ismételhető számlálót a szöveg‑spannekhez. Lásd a [Java implementation of `StableSvgIdController`](/slides/hu/java/render-a-slide-as-an-svg-image/#assign-stable-ids-to-shapes-and-text) segédkódot.
+A PhpJavaBridge nem tud PHP visszahívást meghívni a `writeAsSvg`‑ből, ha adatfolyam‑módban fut. Helyezze a formázási logikát egy kis Java segédosztályba, fordítsa le, és adja hozzá a kapott JAR fájlt a bridge osztályúthoz. A segéd a [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getOfficeInteropShapeId) metódust használhatja, amely az alakzat élettartama alatt stabil, valamint egy ismételhető számlálót a szöveg‑spannekhez. Tekintse meg a [Java implementation of `StableSvgIdController`](/slides/hu/java/render-a-slide-as-an-svg-image/#assign-stable-ids-to-shapes-and-text) segédkódot.
 
-A lefordított `com.example.slides.StableSvgIdController` osztály bridge osztályútvonalához való hozzáadása után hozza létre példányát PHP‑ból, és rendelje hozzá a `SVGOptions`‑hoz:
+A lefordított `com.example.slides.StableSvgIdController` osztály bridge osztályúthoz történő hozzáadása után példányosítsa PHP‑ból, és rendelje az `SVGOptions`‑hoz:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -229,9 +285,9 @@ try {
 
 ## **SVG eseménykezelők hozzáadása**
 
-Formázási visszahívásban hívja meg a [SvgShape.setEventHandler](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/#setEventHandler)‑t egy [SvgEvent](https://reference.aspose.com/slides/php-java/aspose.slides/svgevent/) értékkel, hogy JavaScript eseménykezelőt adjon egy exportált alakzathoz. A visszahívást a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setShapeFormattingController)‑vel rendelje hozzá, és határozza meg a JavaScript függvényt az oldalon vagy az SVG dokumentumban, amely a kimenetet tartalmazza.
+Egy formázási visszahívásban hívja meg a [SvgShape.setEventHandler](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/#setEventHandler) metódust egy [SvgEvent](https://reference.aspose.com/slides/php-java/aspose.slides/svgevent/) értékkel, hogy JavaScript eseménykezelőt adjon egy exportált alakzathoz. A visszahívást a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setShapeFormattingController) segítségével rendelje, és definiálja a JavaScript függvényt az eredményt befogadó oldalon vagy SVG‑dokumentumban.
 
-Az stabil azonosítókhoz hasonlóan a visszahívást Java segédosztályban kell megvalósítani, ha a PhpJavaBridge adatfolyam módot használ. A [Java implementation of `SvgEventController`](/slides/hu/java/render-a-slide-as-an-svg-image/#add-svg-event-handlers) egy ID‑t és egy `OnClick` kezelőt rendel a `ActionButton` nevű alakzathoz. Fordítsa le ezt a segédet, adja hozzá a bridge osztályútvonalához `com.example.slides.SvgEventController` néven, és használja PHP‑ból a következő módon:
+Az állandó azonosítókhoz hasonlóan a visszahívást Java segédben kell megvalósítani, ha a PhpJavaBridge adatfolyam‑módban dolgozik. A [Java implementation of `SvgEventController`](/slides/hu/java/render-a-slide-as-an-svg-image/#add-svg-event-handlers) egy `ActionButton` nevű alakzathoz ad egy azonosítót és egy `OnClick` kezelőt. Fordítsa le ezt a segédet, adja hozzá a bridge osztályúthoz `com.example.slides.SvgEventController` néven, és használja PHP‑ból a következő módon:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -251,18 +307,18 @@ try {
 }
 ```
 
-A gazdaoldal definiálhatja a kezelő által hivatkozott JavaScript függvényt. Az azonosítók és eseménykezelők hozzárendelése lehetővé teszi a diavetítőket, akadálymentesítési fejlesztéseket és egyéb interaktív SVG munkafolyamatokat.
+A host oldal definiálhatja a kezelő által hivatkozott JavaScript függvényt. Az azonosítók és eseménykezelők hozzárendelése lehetővé teszi a diaolvasók, az akadálymentesítési fejlesztések és egyéb interaktív SVG munkafolyamatok használatát.
 
-## **FAQ**
+## **GYIK**
 
-**Mikor kell a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText)‑t használni a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/) helyett?**
+**When should I use [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) instead of [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/)?**
 
-Használja a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText), ha minden szöveget függetlené kell tenni a betűkészletektől. Használja a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/), ha csak a külső betűkészleteket használó szöveget kell grafikává konvertálni.
+Használja a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) lehetőséget, ha minden szövegnek függetlennek kell lennie a betűtípusoktól. Használja a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/) lehetőséget, ha csak a külső betűtípust használó szöveget szeretné grafikává alakítani.
 
-**Mi a legjobb módja az SVG méretének csökkentésére?**
+**What is the best way to make an SVG smaller?**
 
-Kezdje a beágyazott képek tömörítésével, a levágott képterületek törlésével, és a hivatkozott betűfájlok kiválasztásával, ha a célkörnyezet képes azokat kiszolgálni. Tesztelje az eredményt, mert az alacsonyabb képfelbontás, alacsonyabb JPEG minőség és a vektorizált szöveg mind különböző minőség‑ és méret‑kompromisszumokkal jár.
+Kezdje a beágyazott képek tömörítésével, a levágott képrészek törlésével, és a kapcsolt betűfájlok használatával, ha a célkörnyezet képes ezeket kiszolgálni. Tesztelje az eredményt, mivel az alacsonyabb képfelbontás, az alacsonyabb JPEG‑minőség és a vektorizált szöveg mind különböző minőség‑ és méret‑kompromisszal jár.
 
-**Módosíthatom az exportált SVG elemeket az export után?**
+**Can I modify exported SVG elements after export?**
 
-Igen. Rendeljen ID‑ket egy formázási visszahívással, majd válassza ki a megfelelő SVG elemeket az utófeldolgozó eszközében vagy a böngésző‑szkriptben.
+Igen. Rendeljen azonosítókat egy formázási visszahívással, majd válassza ki a megfelelő SVG elemeket a poszt‑feldolgozó eszközében vagy böngésző‑szkriptjében.

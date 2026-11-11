@@ -17,13 +17,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Exporta diapositivas de PowerPoint como imágenes SVG en .NET y controla fuentes, texto, imágenes, ID y eventos con Aspose.Slides."
+description: "Exportar diapositivas de PowerPoint como imágenes SVG en .NET y controlar fuentes, texto, imágenes, identificadores y eventos con Aspose.Slides."
 ---
-## **Descripción general**
+## **Visión general**
 
-SVG es un formato de imagen XML escalable que funciona bien para publicación web, visores de diapositivas, flujos de trabajo de accesibilidad y post‑procesado automatizado. Aspose.Slides exporta cada diapositiva a un archivo SVG independiente y permite controlar cómo se escriben el texto, las fuentes, las imágenes y los elementos SVG.
+SVG es un formato de imagen escalable basado en XML que funciona bien para la publicación web, visores de diapositivas, flujos de trabajo de accesibilidad y post‑procesado automatizado. Aspose.Slides exporta cada diapositiva a un archivo SVG independiente y le permite controlar cómo se escriben el texto, las fuentes, las imágenes y los elementos SVG.
 
-Use [SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) cuando el SVG exportado deba ser compacto, predecible en distintos navegadores o listo para uso interactivo.
+Utilice [SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) cuando el SVG exportado deba ser compacto, predecible en todos los navegadores o estar listo para uso interactivo.
 
 ## **Exportar una diapositiva como SVG**
 
@@ -41,11 +41,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-El nombre de archivo utiliza [ISlide.SlideNumber](https://reference.aspose.com/slides/net/aspose.slides/islide/slidenumber/) en lugar del índice del bucle. También puede exportar una forma individual con [IShape.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/ishape/writeassvg/) cuando un visor de diapositivas o una página web necesite solo esa forma.
+El nombre de archivo utiliza [ISlide.SlideNumber](https://reference.aspose.com/slides/net/aspose.slides/islide/slidenumber/) en lugar del índice del bucle. También puede exportar una forma individual con [IShape.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/ishape/writeassvg/) cuando un visor de diapositivas o una página web necesita únicamente esa forma.
 
 ## **Configurar la salida SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) controla la representación SVG. Para los marcos de texto, [SVGOptions.UseFrameSize](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframesize/) incluye el marco de texto en el área de representación, y [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframerotation/) determina si se aplica la rotación del marco. Establezca [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/disablefontligatures/) a `true` cuando el texto deba renderizarse sin ligaduras.
+[SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) controla la renderización de SVG. Para marcos de texto, [SVGOptions.UseFrameSize](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframesize/) incluye el marco de texto en el área de renderizado, y [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframerotation/) determina si se aplica la rotación del marco. Establezca [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/disablefontligatures/) a `true` cuando el texto deba renderizarse sin ligaduras.
 
 ```csharp
 using Aspose.Slides;
@@ -63,6 +63,51 @@ var svgOptions = new SVGOptions
 using var svgStream = File.Create("slide-with-custom-options.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
+
+## **Controlar el recorte al final de la línea en las puntas de flecha**
+
+SVG 1.1 no tiene una configuración de inserción de marcador para especificar dónde debe detenerse una línea debajo de una punta de flecha. De forma predeterminada, Aspose.Slides acorta la línea exportada para que su trazo no sobresalga del marcador. Establezca [SVGOptions.DisableLineEndCropping](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/disablelineendcropping/) a `true` para dibujar el trazo hasta el punto final original de la línea. Esta opción afecta únicamente a la salida SVG. La línea mantiene su posición y longitud en la diapositiva.
+
+El ejemplo dibuja puntas de flecha de triángulo y diamante en líneas de 2 y 10 puntos de ancho. Exporta la misma diapositiva dos veces, cambiando solo la opción de recorte.
+
+```csharp
+using System.Drawing;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var y = 40;
+
+foreach (var style in new[] { LineArrowheadStyle.Triangle, LineArrowheadStyle.Diamond })
+{
+    foreach (var width in new[] { 2, 10 })
+    {
+        var line = slide.Shapes.AddAutoShape(ShapeType.Line, 40, y, 200, 0);
+        var format = line.LineFormat;
+        format.FillFormat.FillType = FillType.Solid;
+        format.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+        format.Width = width;
+        format.EndArrowheadStyle = style;
+        y += 50;
+    }
+}
+
+var options = new SVGOptions { DisableLineEndCropping = false };
+using var cropped = File.Create("cropped.svg");
+slide.WriteAsSvg(cropped, options);
+
+options.DisableLineEndCropping = true;
+using var uncropped = File.Create("uncropped.svg");
+slide.WriteAsSvg(uncropped, options);
+```
+
+La comparación muestra la punta de flecha triangular en la línea de 10 puntos. Con el recorte habilitado, la punta es afilada. Con el recorte deshabilitado, el trazo sobresale por los lados inclinados del marcador y deja un extremo plano.
+
+![Triángulo de 10 puntos ampliado con una punta afilada cuando el recorte está habilitado y un extremo plano cuando el recorte está deshabilitado](line-end-cropping.png)
+
+En las otras líneas del ejemplo, el trazo sobresaliente es menos visible en el triángulo de 2 puntos. El diamante relleno cubre el extremo del trazo en ambos anchos.
 
 ## **Controlar texto y fuentes**
 
@@ -89,7 +134,7 @@ presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 
 ### **Elegir cómo se gestionan las fuentes externas**
 
-[SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/externalfontshandling/) usa un valor [SvgExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) para las fuentes que se cargan externamente. Elija `AddLinksToFontFiles` para referenciar archivos de fuentes separados, `Embed` para incluir los datos de la fuente en el SVG, o `Vectorize` para renderizar solo el texto que usa fuentes externas como gráficos. Verifique la licencia de la fuente antes de incrustarla.
+[SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/externalfontshandling/) utiliza un valor de [SvgExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) para las fuentes que se cargan externamente. Elija `AddLinksToFontFiles` para referenciar archivos de fuentes separados, `Embed` para incluir los datos de la fuente en el SVG, o `Vectorize` para renderizar solo el texto que utiliza fuentes externas como gráficos. Verifique la licencia de las fuentes antes de incrustarlas.
 
 ```csharp
 using Aspose.Slides;
@@ -122,9 +167,9 @@ using var vectorizedExternalFontsStream = File.Create("slide-with-vectorized-ext
 presentation.Slides[0].WriteAsSvg(vectorizedExternalFontsStream, vectorizedExternalFontsOptions);
 ```
 
-## **Reducir el tamaño de imágenes incrustadas**
+## **Reducir el tamaño de las imágenes incrustadas**
 
-Utilice [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) para reducir la resolución de las imágenes incrustadas, [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) para omitir áreas recortadas de origen, y [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) para controlar la calidad de codificación JPEG. Estos ajustes reducen el tamaño del archivo a costa de la fidelidad de la imagen o de los datos de imagen conservados.
+Utilice [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) para reducir la resolución de las imágenes incrustadas, [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) para omitir las áreas recortadas de la fuente, y [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) para controlar la calidad de codificación JPEG. Estas opciones reducen el tamaño del archivo a costa de la fidelidad de la imagen o de los datos de la imagen retenidos.
 
 ```csharp
 using Aspose.Slides;
@@ -143,11 +188,11 @@ using var svgStream = File.Create("compressed-slide.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
 
-## **Controlar la resolución de rasterizado de metafiles**
+## **Controlar la resolución de rasterización de metarchivos**
 
-[SVGOptions.MetafileRasterizationDpi](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/metafilerasterizationdpi/) establece el límite inferior de resolución para rasterizar metafiles durante la exportación SVG. Úselo para equilibrar detalle y tamaño del archivo cuando se rasteriza una imagen EMF o WMF. No define un DPI global para el SVG ni fuerza a que cada objeto de la diapositiva se convierta en una imagen rasterizada.
+[SVGOptions.MetafileRasterizationDpi](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/metafilerasterizationdpi/) establece el límite de resolución inferior para rasterizar metarchivos durante la exportación a SVG. Úselo para equilibrar el detalle y el tamaño del archivo cuando se rasteriza una imagen EMF o WMF. No define un DPI global para el SVG ni obliga a que cada objeto en la diapositiva se convierta en una imagen raster.
 
-Descargue [metafile-rasterization.pptx](metafile-rasterization.pptx), que contiene una imagen EMF con líneas diagonales estrechamente espaciadas. El siguiente ejemplo exporta su primera diapositiva a tres resoluciones de rasterizado mediante [ISlide.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/islide/writeassvg/). Todas las demás configuraciones de exportación permanecen idénticas para que los resultados puedan compararse.
+Descargue [metafile-rasterization.pptx](metafile-rasterization.pptx), que contiene una imagen EMF con líneas diagonales muy próximas. El siguiente ejemplo exporta su primera diapositiva a tres resoluciones de rasterización mediante [ISlide.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/islide/writeassvg/). Todas las demás configuraciones de exportación permanecen idénticas para que los resultados puedan compararse.
 
 ```csharp
 using System.IO;
@@ -170,25 +215,25 @@ foreach (var dpi in new[] { 72, 150, 300 })
 }
 ```
 
-En la salida, el EMF se convirtió en un PNG incrustado en cada SVG. Las siguientes mediciones corresponden a la presentación suministrada; no son una fórmula general para convertir DPI a dimensiones de píxeles.
+En la salida, el EMF se convirtió en un PNG incrustado en cada SVG. Las siguientes mediciones corresponden a la presentación suministrada; no son una fórmula general para convertir DPI a dimensiones en píxeles.
 
-| DPI de rasterizado de metafile | Dimensiones del PNG incrustado | Tamaño del archivo SVG (bytes) |
+| DPI de rasterización del metarchivo | Dimensiones del PNG incrustado | Tamaño del archivo SVG (bytes) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-La comparación a continuación muestra la misma zona del raster incrustado al mismo tamaño de visualización ampliado. Las líneas diagonales presentan pixelación visible a 72 DPI y bordes más suaves a resoluciones mayores, mientras que el archivo SVG crece. Aumentar el valor no mejora necesariamente cada detalle ni cambia cada imagen exportada.
+La comparación a continuación muestra la misma zona del raster incrustado al mismo tamaño de visualización ampliado. Las líneas diagonales presentan pixelación visible a 72 DPI y bordes más suaves a resoluciones mayores, mientras que el archivo SVG aumenta de tamaño. Incrementar el valor no mejora necesariamente cada detalle ni cambia cada imagen exportada.
 
-![Enlarged diagonal-line detail at 72, 150, and 300 DPI](metafile-rasterization-comparison.png)
+![Detalle ampliado de líneas diagonales a 72, 150 y 300 DPI](metafile-rasterization-comparison.png)
 
-[SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) controla la reducción de resolución de imágenes y puede enmascarar el efecto de cambiar la resolución de rasterizado de metafiles. [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) controla la calidad de codificación JPEG, no la resolución de rasterizado de metafiles.
+[SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) controla la reducción de la resolución de la imagen y puede enmascarar el efecto de cambiar la resolución de rasterización del metarchivo. [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) controla la calidad de codificación JPEG, no la resolución de rasterización del metarchivo.
 
-## **Asignar ID estables a formas y texto**
+## **Asignar identificadores estables a formas y texto**
 
-Utilice [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/) para establecer [ISvgShape.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/id/) para cada forma SVG. Para establecer valores [ISvgTSpan.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgtspan/id/) en los elementos `tspan` de texto también, implemente [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeandtextformattingcontroller/). Asigne cualquiera de los controladores mediante [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/).
+Utilice [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/) para establecer [ISvgShape.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/id/) de cada forma SVG. Para establecer también valores de [ISvgTSpan.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgtspan/id/) en los elementos `tspan` de texto, implemente [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeandtextformattingcontroller/). Asigne cualquiera de los controladores mediante [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/).
 
-El siguiente controlador usa [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/net/aspose.slides/ishape/officeinteropshapeid/), que es estable durante la vida útil de la forma, y un contador repetible para sus `tspan` de texto. Esto hace que los ID generados sean adecuados para el post‑procesado de una presentación sin cambios.
+El siguiente controlador utiliza [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/net/aspose.slides/ishape/officeinteropshapeid/), que es estable durante la vida útil de la forma, y un contador repetible para sus rangos de texto. Esto hace que los ID generados sean adecuados para el post‑procesado de una presentación sin cambios.
 
 ```csharp
 using Aspose.Slides;
@@ -227,7 +272,7 @@ class StableSvgIdController : ISvgShapeAndTextFormattingController
 
 ## **Agregar controladores de eventos SVG**
 
-En un [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/), llame a [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/seteventhandler/) con un valor [SvgEvent](https://reference.aspose.com/slides/net/aspose.slides.export/svgevent/) para añadir un controlador de evento JavaScript a una forma exportada. Asigne el controlador con [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) y defina la función JavaScript en la página o documento SVG que aloje el resultado.
+En un [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/), llame a [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/seteventhandler/) con un valor [SvgEvent](https://reference.aspose.com/slides/net/aspose.slides.export/svgevent/) para añadir un controlador de eventos JavaScript a una forma exportada. Asigne el controlador mediante [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) y defina la función JavaScript en la página o documento SVG que aloje el resultado.
 
 ```csharp
 using Aspose.Slides;
@@ -256,18 +301,18 @@ class SvgEventController : ISvgShapeFormattingController
 }
 ```
 
-La página host puede definir la función JavaScript referenciada por el controlador. Asignar ID y controladores de eventos permite visores de diapositivas, mejoras de accesibilidad y otros flujos de trabajo interactivos con SVG.
+La página anfitriona puede definir la función JavaScript referenciada por el controlador. Asignar identificadores y controladores de eventos permite visores de diapositivas, mejoras de accesibilidad y otros flujos de trabajo SVG interactivos.
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Cuándo debo usar [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) en lugar de [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/)?**
 
-Use [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) cuando todo el texto deba ser independiente de las fuentes. Use [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) cuando solo el texto que utiliza fuentes externas deba convertirse en gráficos.
+Utilice [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) cuando todo el texto deba ser independiente de las fuentes. Utilice [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) cuando solo el texto que utiliza fuentes externas deba convertirse en gráficos.
 
-**¿Cuál es la mejor manera de reducir el tamaño de un SVG?**
+**¿Cuál es la mejor forma de reducir el tamaño de un SVG?**
 
-Comience comprimiendo las imágenes incrustadas, eliminando áreas recortadas y eligiendo archivos de fuentes enlazados cuando el entorno de destino pueda servirlos. Pruebe el resultado porque una menor resolución de imagen, menor calidad JPEG y texto vectorizado presentan diferentes compromisos entre calidad y tamaño.
+Comience por comprimir las imágenes incrustadas, eliminar las áreas recortadas de las imágenes y elegir archivos de fuentes vinculados cuando el entorno de destino pueda servirlos. Pruebe el resultado porque la reducción de la resolución de la imagen, la disminución de la calidad JPEG y el texto vectorizado tienen cada uno diferentes compromisos entre calidad y tamaño.
 
 **¿Puedo modificar los elementos SVG exportados después de la exportación?**
 
-Sí. Asigne ID mediante un controlador de formato y luego seleccione los elementos SVG correspondientes en su herramienta de post‑procesado o script de navegador.
+Sí. Asigne identificadores mediante un controlador de formato y luego seleccione los elementos SVG coincidentes en su herramienta de post‑procesado o en un script de navegador.

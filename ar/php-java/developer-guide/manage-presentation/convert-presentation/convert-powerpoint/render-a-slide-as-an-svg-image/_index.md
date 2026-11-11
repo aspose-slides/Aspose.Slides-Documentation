@@ -1,12 +1,12 @@
 ---
-title: تحويل شرائح العرض التقديمي إلى صور SVG في PHP
+title: عرض شرائح العروض التقديمية كصور SVG في PHP
 linktitle: شريحة إلى SVG
 type: docs
 weight: 50
 url: /ar/php-java/render-a-slide-as-an-svg-image/
 keywords:
 - PowerPoint إلى SVG
-- العرض التقديمي إلى SVG
+- عرض تقديمي إلى SVG
 - شريحة إلى SVG
 - PPT إلى SVG
 - PPTX إلى SVG
@@ -20,9 +20,9 @@ description: "تصدير شرائح PowerPoint كصور SVG في PHP والتح�
 ---
 ## **نظرة عامة**
 
-SVG هو تنسيق صورة قائم على XML قابل للتوسع يعمل جيدًا للنشر على الويب، وعارض الشرائح، وسير عمل إمكانية الوصول، ومعالجة ما بعد التنفيذ الآلية. تقوم Aspose.Slides بتصدير كل شريحة إلى ملف SVG منفصل وتتيح لك التحكم في كيفية كتابة النصوص، الخطوط، الصور، وعناصر SVG.
+SVG هو تنسيق صورة قائم على XML وقابل للتوسيع يعمل جيدًا للنشر على الويب، وعارض الشرائح، وتدفقات العمل المتعلقة بإمكانية الوصول، ومعالجة ما بعد التصدير الآلية. تصدر Aspose.Slides كل شريحة إلى ملف SVG منفصل وتتيح لك التحكم في كيفية كتابة النص، الخطوط، الصور، وعناصر SVG.
 
-استخدم [SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) عندما يجب أن يكون SVG المُصدَّر مضغوطًا، أو متوقعًا عبر المتصفحات، أو جاهزًا للاستخدام التفاعلي.
+استخدم [SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) عندما يحتاج SVG المُصدَّر إلى أن يكون مضغوطًا، متوقعًا عبر المتصفحات، أو جاهزًا للاستخدام التفاعلي.
 
 ## **تصدير شريحة كـ SVG**
 
@@ -47,11 +47,11 @@ try {
 }
 ```
 
-يستخدم اسم الملف [Slide.getSlideNumber](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getSlideNumber) بدلاً من فهرس الحلقة. يمكنك أيضًا تصدير شكل فردي باستخدام [Shape.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#writeAsSvg) عندما يحتاج عارض الشرائح أو صفحة الويب إلى ذلك الشكل فقط.
+يستخدم اسم الملف [Slide.getSlideNumber](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getSlideNumber) بدلاً من فهرس الحلقة. يمكنك أيضًا تصدير شكل فردي باستخدام [Shape.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#writeAsSvg) عندما يحتاج عارض الشرائح أو صفحة الويب إلى هذا الشكل فقط.
 
 ## **تكوين إخراج SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) يتحكم في تصيير SVG. لإطارات النص، [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setUseFrameSize) تشمل إطار النص في منطقة التصيير، و[SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setUseFrameRotation) يحدد ما إذا كان يتم تطبيق دوران الإطار. اضبط [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setDisableFontLigatures) على `true` عندما يجب تصيير النص بدون الروابط الأحرفية.
+[SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) يتحكم في عرض SVG. لإطارات النص، [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setUseFrameSize) يضمن تضمين إطار النص في مساحة العرض، و[SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setUseFrameRotation) يحدد ما إذا كان يتم تطبيق تدوير الإطار. عيّن [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setDisableFontLigatures) إلى `true` عندما يجب عرض النص بدون الحروف المتصلة.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -71,13 +71,69 @@ try {
 }
 ```
 
-## **التحكم في النص والخطوط**
+## **التحكم في قص نهايات الخط عند رؤوس السهام**
 
-عند تصدير الشرائح إلى SVG، يمكنك التحكم فيما إذا كان النص يبقى كنص أو يتحول إلى رسومات متجهية، وكيفية تضمين الخطوط الخارجية أو الإشارة إليها. تساعدك الخيارات التالية على موازنة التناسق البصري، قابلية اختيار النص، واعتمادية الخطوط في SVG المُصدَّر.
+SVG 1.1 لا يحتوي على إعداد لتحديد موضع إيقاف الخط تحت رأس السهم. بشكل افتراضي، تقوم Aspose.Slides بتقليل طول الخط المُصدَّر بحيث لا يبرز ضربة القلم عبر العلامة. استدعِ [SVGOptions::setDisableLineEndCropping](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setdisablelineendcropping/) مع `true` لرسم الضربة حتى النقطة الأصلية لنهاية الخط. يؤثر هذا الإعداد فقط على إخراج SVG. يبقى الخط في موضعه وطوله على الشريحة.
 
-### **تحويل كل النص إلى رسومات متجهية**
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\SVGOptions;
 
-اضبط [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) على `true` لكتابة كل نص الشريحة كرسوم متجهية. هذا يلغي اعتماد الخطوط ويجعل النتيجة البصرية أكثر تناسقًا عبر المتصفحات، لكن النص لن يكون قابلًا للاختيار أو للبحث كنص SVG.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $y = 40;
+
+    foreach ([LineArrowheadStyle::Triangle, LineArrowheadStyle::Diamond] as $style) {
+        foreach ([2, 10] as $width) {
+            $line = $slide->getShapes()->addAutoShape(ShapeType::Line, 40, $y, 200, 0);
+            $format = $line->getLineFormat();
+            $format->getFillFormat()->setFillType(FillType::Solid);
+            $color = new Java("java.awt.Color", 0, 0, 139);
+            $format->getFillFormat()->getSolidFillColor()->setColor($color);
+            $format->setWidth($width);
+            $format->setEndArrowheadStyle($style);
+            $y += 50;
+        }
+    }
+
+    $options = new SVGOptions();
+    $options->setDisableLineEndCropping(false);
+    $cropped = new Java("java.io.FileOutputStream", "cropped.svg");
+    try {
+        $slide->writeAsSvg($cropped, $options);
+    } finally {
+        $cropped->close();
+    }
+
+    $options->setDisableLineEndCropping(true);
+    $uncropped = new Java("java.io.FileOutputStream", "uncropped.svg");
+    try {
+        $slide->writeAsSvg($uncropped, $options);
+    } finally {
+        $uncropped->close();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+المقارنة تُظهر رأس السهم المثلث على الخط بعرض 10 نقاط. مع تمكين القص، تكون القمة حادة. مع تعطيل القص، تبرز الضربة عبر جوانب العلامة المائلة وتترك طرفًا مسطحًا.
+
+![مثلث 10‑نقاط مكبر مع قمة حادة عندما يكون القص مفعَّلًا وطرف مسطح عندما يكون القص معطلًا](line-end-cropping.png)
+
+في الخطوط الأخرى من المثال، يكون الضربة البارزة أقل وضوحًا على المثلث بعرض نقطتين. يغطي الماس المملوء نهاية الضربة في كلا العرضين.
+
+## **التحكم بالنص والخطوط**
+
+عند تصدير الشرائح إلى SVG، يمكنك التحكم فيما إذا كان النص يبقى كنص أو يتحول إلى رسومات متجهة، وكيفية تضمين أو الإشارة إلى الخطوط الخارجية. تساعدك الخيارات التالية على موازنة الاتساق البصري، وإمكانية تحديد النص، واعتمادية الخطوط في SVG المُصدَّر.
+
+### **تحويل كل النص إلى متجهات**
+
+عيّن [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) إلى `true` لكتابة كل نص الشريحة كرسومات متجهة. يُزيل هذا الاعتماد على الخطوط ويجعل النتيجة البصرية أكثر اتساقًا عبر المتصفحات، لكن النص لم يعد قابلًا للتحديد أو البحث كـ SVG نص.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -95,9 +151,9 @@ try {
 }
 ```
 
-### **اختر طريقة معالجة الخطوط الخارجية**
+### **اختر طريقة معاملة الخطوط الخارجية**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setExternalFontsHandling) يستخدم قيمة [SvgExternalFontsHandling](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/) للخطوط التي تُحمَّل خارجيًا. اختر `AddLinksToFontFiles` للإشارة إلى ملفات خطوط منفصلة، `Embed` لتضمين بيانات الخط في SVG، أو `Vectorize` لتصوير النص الذي يستخدم خطوطًا خارجية فقط كرسومات. تحقق من تراخيص الخط قبل تضمينه.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setExternalFontsHandling) يستخدم قيمة [SvgExternalFontsHandling](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/) للخطوط التي يتم تحميلها خارجيًا. اختر `AddLinksToFontFiles` للإشارة إلى ملفات خطوط منفصلة، أو `Embed` لتضمين بيانات الخط في SVG، أو `Vectorize` لعرض النص الذي يستخدم خطوطًا خارجية كرسومات فقط. تحقق من ترخيص الخط قبل تضمينه.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -135,9 +191,9 @@ try {
 }
 ```
 
-## **تقليل حجم الصورة المدمجة**
+## **تقليل حجم الصور المضمنة**
 
-استخدم [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setPicturesCompression) لتقليل دقة الصور المدمجة، و[SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas) لحذف المناطق المقتصة من المصدر، و[SVGOptions.setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setJpegQuality) للتحكم في جودة ترميز JPEG. تُقلِّل هذه الإعدادات حجم الملف على حساب جودة الصورة أو البيانات المحتفظ بها.
+استخدم [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setPicturesCompression) لتقليل دقة الصور المضمنة، و[SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas) لحذف المناطق المقطوعة من المصدر، و[SVGOptions.setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setJpegQuality) للتحكم في جودة ترميز JPEG. هذه الإعدادات تقلل حجم الملف على حساب الدقة أو بيانات الصورة المحتفظ بها.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -157,11 +213,11 @@ try {
 }
 ```
 
-## **التحكم في دقة تحويل ملفات الميتا إلى نقطية**
+## **التحكم في دقة تحويل ملفات الميتافايل إلى نقطية**
 
-[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) يحدد الحد الأدنى لدقة تحويل ملفات الميتا إلى نقطية أثناء تصدير SVG. استخدمه لموازنة التفاصيل وحجم الملف عندما يتم تحويل صورة EMF أو WMF إلى نقطية. لا يحدد قيمة DPI عالمية للـ SVG ولا يجبر كل كائن في الشريحة على أن يصبح صورة نقطية.
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) يحدد الحد الأدنى لدقة تحويل الميتافايلات إلى نقطية أثناء تصدير SVG. استخدمه لموازنة التفاصيل وحجم الملف عندما يتم تحويل صورة EMF أو WMF إلى نقطية. لا يحدد DPI عالميًا لـ SVG ولا يجبر كل كائن على الشريحة على أن يصبح صورة نقطية.
 
-حمّل [metafile-rasterization.pptx](metafile-rasterization.pptx)، الذي يحتوي على صورة EMF ذات خطوط قطرية متقاربة. المثال التالي يصدر شريحته الأولى بثلاث دقات نقطية عبر [Slide.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/slide/writeassvg/). جميع إعدادات التصدير الأخرى تبقى متطابقة لتسهيل المقارنة.
+حمّل [metafile-rasterization.pptx](metafile-rasterization.pptx) الذي يحتوي على صورة EMF بخطوط مائلة متقاربة. المثال التالي يصدر الشريحة الأولى في ثلاث دقات تحويل عبر [Slide.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/slide/writeassvg/). تبقى جميع إعدادات التصدير الأخرى متطابقة لتسهيل المقارنة.
 
 ```php
 $presentation = new Presentation("metafile-rasterization.pptx");
@@ -187,27 +243,27 @@ try {
 }
 ```
 
-في الناتج، تحول ملف EMF إلى صورة PNG مدمجة واحدة في كل SVG. القياسات التالية تخص العرض المرفق؛ ليست صيغة عامة لتحويل DPI إلى أبعاد بكسل.
+في الناتج، تحولت EMF إلى صورة PNG مضمَّنة في كل SVG. القياسات التالية تتعلق بالعرض التقديمي المرفق؛ وهي ليست صيغة عامة لتحويل DPI إلى أبعاد بكسل.
 
-| دقة نقطية لملف الميتا (DPI) | أبعاد PNG المدمجة | حجم ملف SVG (بايت) |
+| DPI لتقليل ملفات الميتا | أبعاد PNG المضمن | حجم ملف SVG (بايت) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-المقارنة أدناه تُظهر نفس منطقة الصورة النقطية المدمجة بنفس حجم العرض المكبر. الخطوط القطرية تُظهر بكسلة ملحوظة عند 72 DPI وحواف أكثر سلاسة عند الدقات الأعلى، بينما يزداد حجم ملف SVG. زيادة القيمة لا تحسن بالضرورة كل التفاصيل ولا تغير كل صورة مُصدَّرة.
+المقارنة أدناه تُظهر نفس المنطقة من الصورة النقطية المضمَّنة بالحجم المعروض المكبر نفسه. تُظهر الخطوط المائلة بكسرة واضحة عند 72 DPI وحوافًا أكثر سلاسة عند الدقات الأعلى، بينما يزداد حجم ملف SVG. زيادة القيمة لا تحسن كل التفاصيل بالضرورة ولا تغير كل صورة مُصدَّرة.
 
-![تفاصيل الخط القطري المكبرة عند 72 و 150 و 300 DPI](metafile-rasterization-comparison.png)
+![تفاصيل الخط المائل مكبرة عند 72 و150 و300 DPI](metafile-rasterization-comparison.png)
 
-[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setpicturescompression/) يتحكم في تقليل دقة الصورة وقد يخفى تأثير تعديل دقة تحويل ملفات الميتا إلى نقطية. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setjpegquality/) يتحكم في جودة ترميز JPEG، وليس في دقة تحويل ملفات الميتا إلى نقطية.
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setpicturescompression/) يتحكم في تقليل دقة الصورة ويمكن أن يُخفي تأثير تغيير دقة تحويل الميتافايل إلى نقطية. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setjpegquality/) يتحكم في جودة ترميز JPEG، وليس في دقة تحويل الميتافايل إلى نقطية.
 
 ## **تعيين معرفات ثابتة للأشكال والنص**
 
-قدِّم رداً برمجيًا للتنسيق إلى [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setShapeFormattingController) لتعيين [SvgShape.setId](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/#setId) لكل شكل SVG. يمكن للرد البرمجي أيضًا تعيين قيم [SvgTSpan.setId](https://reference.aspose.com/slides/php-java/aspose.slides/svgtspan/#setId) لعناصر `tspan` النصية.
+قدِّم رد نداء تنسيق إلى [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setShapeFormattingController) لتعيين [SvgShape.setId](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/#setId) لكل شكل SVG. يمكن لرد النداء أيضًا تعيين قيم [SvgTSpan.setId](https://reference.aspose.com/slides/php-java/aspose.slides/svgtspan/#setId) لعناصر النص `tspan`.
 
-لا يستطيع PhpJavaBridge استدعاء رد PHP من `writeAsSvg` عندما يعمل في وضع التدفق. ضع منطق التنسيق في فئة مساعدة Java صغيرة، ثُمّ قم بترجمتها، وأضف ملف JAR الناتج إلى مسار جسر الفئة. يمكن للمساعدة استخدام [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getOfficeInteropShapeId)، وهو ثابت طوال عمر الشكل، ومُعدِّد قابل للتكرار لفواصل النص. راجع [تنفيذ Java لـ `StableSvgIdController`](/slides/ar/java/render-a-slide-as-an-svg-image/#assign-stable-ids-to-shapes-and-text) للحصول على رمز المساعدة.
+PhpJavaBridge لا يستطيع استدعاء رد نداء PHP من `writeAsSvg` عندما يعمل في وضع التدفق. ضع منطق التنسيق في فئة مساعد Java صغيرة، اجمعها، وأضف ملف JAR النتيجة إلى مسار جسر الفئة. يمكن للمساعد استخدام [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getOfficeInteropShapeId)، وهو ثابت طوال عمر الشكل، وعدادًا قابلاً للتكرار لتحديد النصوص. راجع [Java implementation of `StableSvgIdController`](/slides/ar/java/render-a-slide-as-an-svg-image/#assign-stable-ids-to-shapes-and-text) للحصول على شفرة المساعد.
 
-بعد إضافة الفئة المترجمة `com.example.slides.StableSvgIdController` إلى مسار جسر الفئة، أنشئ كائنًا منها من PHP وعينه إلى `SVGOptions`:
+بعد إضافة الفئة المجمَّعة `com.example.slides.StableSvgIdController` إلى مسار جسر الفئة، أنشئ كائنًا منها في PHP وعينه إلى `SVGOptions`:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -229,9 +285,9 @@ try {
 
 ## **إضافة معالجات أحداث SVG**
 
-في رد تنسيق، استدعِ [SvgShape.setEventHandler](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/#setEventHandler) مع قيمة [SvgEvent](https://reference.aspose.com/slides/php-java/aspose.slides/svgevent/) لإضافة معالج حدث JavaScript إلى شكل مُصدَّر. عيِّن الرد البرمجي باستخدام [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setShapeFormattingController) وحدد وظيفة JavaScript في الصفحة أو مستند SVG الذي يستضيف النتيجة.
+في رد نداء التنسيق، استدعِ [SvgShape.setEventHandler](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/#setEventHandler) بقيمة [SvgEvent](https://reference.aspose.com/slides/php-java/aspose.slides/svgevent/) لإضافة معالج حدث JavaScript إلى شكل مُصدَّر. عيّن رد النداء باستخدام [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setShapeFormattingController) وعرف دالة JavaScript في الصفحة أو مستند SVG المستضيف للنتيجة.
 
-كما هو الحال مع المعرفات الثابتة، نفِّذ الرد البرمجي في مساعدة Java عندما يستخدم PhpJavaBridge وضع التدفق. [تنفيذ Java لـ `SvgEventController`](/slides/ar/java/render-a-slide-as-an-svg-image/#add-svg-event-handlers) يعين معرفًا ومعالج `OnClick` إلى شكل اسمه `ActionButton`. ترجم تلك المساعدة، أضفها إلى مسار جسر الفئة باسم `com.example.slides.SvgEventController`، واستخدمها من PHP كما يلي:
+كما هو الحال مع المعرفات الثابتة، نفِّذ رد النداء في مساعد Java عندما يستخدم PhpJavaBridge وضع التدفق. [Java implementation of `SvgEventController`](/slides/ar/java/render-a-slide-as-an-svg-image/#add-svg-event-handlers) يعيّن معرفًا ومعالج `OnClick` إلى شكل اسمه `ActionButton`. اجمع هذا المساعد، أضفه إلى مسار جسر الفئة كـ `com.example.slides.SvgEventController`، واستخدمه من PHP كما هو موضح:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -251,18 +307,18 @@ try {
 }
 ```
 
-يمكن للصفحة المضيفة تعريف وظيفة JavaScript التي يشير إليها المعالج. يتيح تعيين المعرفات ومعالجات الأحداث للعارضين، وتحسينات إمكانية الوصول، وغير ذلك من سير عمل SVG التفاعلية.
+يمكن للصفحة المضيفة تعريف دالة JavaScript التي يشير إليها المعالج. تعيين المعرفات ومعالجات الأحداث يُمكِّن عارضات الشرائح، تحسينات إمكانية الوصول، وسير العمل التفاعلي للـ SVG.
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**متى يجب أن أستخدم [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) بدلًا من [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/)?**
+**متى يجب استخدام [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) بدلاً من [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/)?**
 
-استخدم [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) عندما يجب أن يكون كل النص مستقلًا عن الخطوط. استخدم [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/) عندما ينبغي تحويل النص الذي يستخدم خطوطًا خارجية فقط إلى رسومات.
+استخدم [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) عندما يجب أن يكون كل النص مستقلاً عن الخطوط. استخدم [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/) عندما يُرغب في تحويل النص الذي يستخدم خطوطًا خارجية فقط إلى رسومات.
 
-**ما هي أفضل طريقة لجعل SVG أصغر؟**
+**ما هي أفضل طريقة لجعل حجم SVG أصغر؟**
 
-ابدأ بضغط الصور المدمجة، حذف المناطق المقتصة من الصورة، واختيار ملفات خطوط مرتبطة عندما يمكن للبيئة المستهدفة تقديمها. اختبر النتيجة لأن انخفاض دقة الصورة، انخفاض جودة JPEG، وتحويل النص إلى متجه كل منها له مقايضات جودة وحجم مختلفة.
+ابدأ بضغط الصور المضمنة، حذف المناطق المقتطعة من الصور، واختيار ملفات خطوط مرتبطة عندما يكون بيئة الهدف قادرة على خدمتها. اختبر النتيجة لأن خفض دقة الصورة، خفض جودة JPEG، وتحويل النص إلى متجهات لكل منها تبادلات مختلفة بين الجودة والحجم.
 
-**هل يمكنني تعديل عناصر SVG المُصدَّرة بعد التصدير؟**
+**هل يمكن تعديل عناصر SVG المُصدَّرة بعد التصدير؟**
 
-نعم. عيّن المعرفات عبر رد تنسيق، ثم اختر العناصر SVG المطابقة في أداة ما بعد المعالجة أو سكريبت المتصفح.
+نعم. عيّن المعرفات عبر رد نداء التنسيق، ثم حدد العناصر المطابقة في أداة ما بعد المعالجة أو في سكريبت المتصفح.

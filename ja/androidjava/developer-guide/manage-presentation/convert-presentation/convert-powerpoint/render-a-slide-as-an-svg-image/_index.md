@@ -1,33 +1,33 @@
 ---
-title: Android でプレゼンテーション スライドを SVG 画像としてレンダリング
-linktitle: スライドを SVG に変換
+title: AndroidでプレゼンテーションスライドをSVG画像としてレンダリング
+linktitle: スライドからSVGへ
 type: docs
 weight: 50
 url: /ja/androidjava/render-a-slide-as-an-svg-image/
 keywords:
-- PowerPoint から SVG へ
-- プレゼンテーションから SVG へ
-- スライドから SVG へ
-- PPT から SVG へ
-- PPTX から SVG へ
-- SVG エクスポート オプション
-- インタラクティブ SVG
+- PowerPointからSVGへ
+- プレゼンテーションからSVGへ
+- スライドからSVGへ
+- PPTからSVGへ
+- PPTXからSVGへ
+- SVGエクスポートオプション
+- インタラクティブSVG
 - PowerPoint
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Android で PowerPoint スライドを SVG 画像としてエクスポートし、フォント、テキスト、画像、ID、イベントを Aspose.Slides で制御します。"
+description: "AndroidでPowerPointスライドをSVG画像としてエクスポートし、Aspose.Slidesでフォント、テキスト、画像、ID、イベントを制御します。"
 ---
 ## **概要**
 
-SVG は、Web 発行、スライドビューア、アクセシビリティ ワークフロー、そして自動ポストプロセッシングに適した、スケーラブルな XML ベースの画像フォーマットです。Aspose.Slides for Android via Java は各スライドを個別の SVG ファイルにエクスポートし、テキスト、フォント、画像、SVG 要素の書き込み方法を制御できます。
+SVG はスケーラブルな XML ベースの画像形式で、Web パブリッシング、スライドビューア、アクセシビリティ ワークフロー、そして自動ポストプロセッシングに適しています。Aspose.Slides for Android via Java は各スライドを個別の SVG ファイルにエクスポートし、テキスト、フォント、画像、SVG 要素の書き出し方法を制御できます。
 
-エクスポートされた SVG をコンパクトに、ブラウザ間で予測可能に、またはインタラクティブに使用できるようにする必要がある場合は、[SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) を使用します。
+エクスポートされた SVG をコンパクトにしたい、ブラウザ間で予測可能にしたい、あるいはインタラクティブに使用したい場合は **[SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/)** を使用してください。
 
-## **スライドを SVG としてエクスポート**
+## **スライドを SVG としてエクスポートする**
 
-まず [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) を作成し、スライドを選択して、[ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-) を使用してストリームに書き込みます。以下の例は、プレゼンテーション内のすべてのスライドを別々の SVG ファイルとしてエクスポートします。
+**[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)** を作成し、スライドを選択して **[ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-)** でストリームに書き込みます。次の例はプレゼンテーション内のすべてのスライドを個別の SVG ファイルとしてエクスポートします。
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -44,11 +44,11 @@ try {
 }
 ```
 
-ファイル名はループインデックスではなく、[ISlide.getSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideNumber--) を使用します。また、スライドビューアやウェブページが特定のシェイプだけを必要とする場合は、[IShape.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) を使用して個々のシェイプをエクスポートすることもできます。
+ファイル名はループインデックスではなく **[ISlide.getSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideNumber--)** を使用します。また、スライドビューアや Web ページで特定の形状だけが必要な場合は **[IShape.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-)** を使用して個別のシェイプをエクスポートできます。
 
 ## **SVG 出力の構成**
 
-[SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) は SVG のレンダリングを制御します。テキストフレームの場合、[SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) はレンダリング領域にテキストフレームを含め、[SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) はフレームの回転が適用されるかどうかを決定します。テキストをリガチャなしで描画する必要がある場合は、[SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) を `true` に設定します。
+**[SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/)** は SVG のレンダリングを制御します。テキストフレームの場合、**[SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-)** はテキストフレームを描画領域に含め、**[SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-)** はフレーム回転の適用を決定します。テキストをリガチャなしでレンダリングする必要がある場合は **[SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-)** を `true` に設定してください。
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -67,13 +67,62 @@ try {
 }
 ```
 
+## **矢じりでの線端クロッピングの制御**
+
+SVG 1.1 には矢じりの下で線を止めるためのマーカーインセット設定がありません。デフォルトでは Aspose.Slides はエクスポートされた線を短くし、ストロークがマーカーを突き抜けないようにします。**[SVGOptions.setDisableLineEndCropping](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDisableLineEndCropping-boolean-)** に `true` を渡すと、ストロークが元の終点まで描画されます。この設定は SVG 出力にのみ影響し、スライド上の線の位置と長さは変わりません。
+
+例では三角形とダイヤモンドの矢じりを幅 2 ポイントと 10 ポイントの線に描画しています。クロッピングオプションだけを変更して同じスライドを 2 回エクスポートします。
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    int y = 40;
+
+    for (byte style : new byte[] { LineArrowheadStyle.Triangle, LineArrowheadStyle.Diamond }) {
+        for (int width : new int[] { 2, 10 }) {
+            IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, 40, y, 200, 0);
+            ILineFormat format = line.getLineFormat();
+            format.getFillFormat().setFillType(FillType.Solid);
+            format.getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+            format.setWidth(width);
+            format.setEndArrowheadStyle(style);
+            y += 50;
+        }
+    }
+
+    SVGOptions options = new SVGOptions();
+    options.setDisableLineEndCropping(false);
+    try (FileOutputStream cropped = new FileOutputStream("cropped.svg")) {
+        slide.writeAsSvg(cropped, options);
+    }
+
+    options.setDisableLineEndCropping(true);
+    try (FileOutputStream uncropped = new FileOutputStream("uncropped.svg")) {
+        slide.writeAsSvg(uncropped, options);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+比較では 10 ポイントの線上の三角形矢じりが示されています。クロッピング有効時は先端が鋭く、無効時はストロークがマーカーの斜辺を突き抜けて平らな端になります。
+
+![Enlarged 10-point triangle with a sharp tip when cropping is enabled and a flat end when cropping is disabled](line-end-cropping.png)
+
+例の他の線では、2 ポイントの三角形では突き抜けたストロークが目立ちにくく、塗りつぶしダイヤモンドは幅の違いにかかわらずストロークの端を覆います。
+
 ## **テキストとフォントの制御**
 
-スライドを SVG にエクスポートする際に、テキストをテキストのまま保持するかベクターグラフィックに変換するか、外部フォントをどのように含めるか参照するかを制御できます。以下のオプションは、エクスポートされた SVG の視覚的一貫性、テキスト選択、フォント依存性のバランスを取るのに役立ちます。
+スライドを SVG にエクスポートする際に、テキストをテキストとして残すかベクタ画像に変換するか、外部フォントをどのように含めるか（または参照するか）を制御できます。以下のオプションは、視覚的一貫性、テキスト選択、フォント依存性のバランスを取るのに役立ちます。
 
-### **すべてのテキストをベクター化**
+### **すべてのテキストをベクトル化する**
 
-[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) を `true` に設定すると、すべてのスライドテキストがベクターグラフィックとして書き込まれます。これによりフォント依存がなくなり、ブラウザ間で視覚的な結果がより一貫しますが、テキストは SVG テキストとして選択や検索ができなくなります。
+**[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-)** を `true` に設定すると、すべてのスライドテキストがベクタ画像として書き込まれます。これによりフォント依存がなくなり、ブラウザ間での見た目が安定しますが、テキストは SVG テキストとして選択・検索できなくなります。
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -90,9 +139,9 @@ try {
 }
 ```
 
-### **外部フォントの取り扱い方法を選択**
+### **外部フォントの取り扱い方法を選択する**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) は、外部からロードされるフォントに対して [SvgExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) の値を使用します。別個のフォントファイルへのリンクを参照するには [SvgExternalFontsHandling.AddLinksToFontFiles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) を選択し、SVG にフォントデータを組み込むには [SvgExternalFontsHandling.Embed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) を、外部フォントを使用するテキストのみをグラフィックとして描画するには [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) を選択します。フォントを組み込む前に、フォントのライセンスを確認してください。
+**[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-)** は **[SvgExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/)** の値を使用します。フォントファイルへのリンクだけを保持したい場合は **[SvgExternalFontsHandling.AddLinksToFontFiles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/)**、SVG にフォントデータを埋め込みたい場合は **[SvgExternalFontsHandling.Embed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/)**、外部フォントを使用するテキストだけを画像化したい場合は **[SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/)** を選択します。埋め込む前にフォントのライセンスを必ず確認してください。
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -123,7 +172,7 @@ try {
 
 ## **埋め込み画像サイズの削減**
 
-[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) を使用して埋め込み画像の解像度を下げ、[SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) で切り取られた元領域を省略し、[SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) で JPEG エンコード品質を制御します。これらの設定は、画像の忠実度や保持データを犠牲にしてファイルサイズを削減します。
+**[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-)** を使用して埋め込み画像の解像度を下げ、**[SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-)** でトリミングされた元領域を除外し、**[SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-)** で JPEG エンコード品質を制御します。これらの設定は画像の忠実度や保持データと引き換えにファイルサイズを削減します。
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -142,11 +191,11 @@ try {
 }
 ```
 
-## **メタファイルラスタライズ解像度の制御**
+## **メタファイルのラスタリゼーション解像度の制御**
 
-[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setMetafileRasterizationDpi-int-) は、SVG エクスポート時のメタファイルラスタライズの下限解像度を設定します。EMF または WMF 画像がラスタライズされる際に、詳細度とファイルサイズのバランスを取るために使用します。これは SVG の全体 DPI を定義したり、スライド上のすべてのオブジェクトをラスタ画像に強制変換したりするものではありません。
+**[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setMetafileRasterizationDpi-int-)** は SVG エクスポート時にメタファイルをラスタライズする下限解像度を設定します。EMF や WMF 画像をラスタライズする際のディテールとファイルサイズのバランスに使用します。SVG 全体の DPI を決定したり、スライド上のすべてのオブジェクトをラスタ画像に強制したりはしません。
 
-[metafile-rasterization.pptx](metafile-rasterization.pptx) をダウンロードしてください。このファイルには、間隔の狭い対角線を持つ EMF 画像が含まれています。以下の例は、[ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) を使用して、最初のスライドを 3 つのラスタライズ解像度でエクスポートします。他のエクスポート設定はすべて同一に保たれ、結果を比較できます。
+**[metafile-rasterization.pptx](metafile-rasterization.pptx)** をダウンロードしてください。このプレゼンテーションには斜め線が密に配置された EMF 画像が含まれています。以下の例は **[ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-)** を使って最初のスライドを 3 つのラスタリゼーション解像度でエクスポートします。他のエクスポート設定はすべて同一に保ち、結果を比較できるようにしています。
 
 ```java
 import com.aspose.slides.PicturesCompression;
@@ -172,25 +221,25 @@ try {
 }
 ```
 
-出力では、EMF が各 SVG に埋め込まれた PNG 1 枚に変換されました。以下の測定値は提供されたプレゼンテーションに対するものであり、DPI をピクセル寸法に変換する一般的な式ではありません。
+出力では EMF がそれぞれの SVG に埋め込まれた PNG に変換されています。以下の測定値は提供されたプレゼンテーションに基づくもので、DPI をピクセル寸法に変換する一般的な式ではありません。
 
-| メタファイル ラスタライズ DPI | 埋め込み PNG のサイズ | SVG ファイルサイズ (バイト) |
+| メタファイル ラスタリゼーション DPI | 埋め込み PNG のサイズ | SVG ファイルサイズ (バイト) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-以下の比較は、拡大表示サイズが同じで埋め込みラスタの同一領域を示しています。対角線は 72 DPI での目に見えるピクセル化と、解像度が高くなるほど滑らかなエッジを示し、同時に SVG ファイルは大きくなります。値を上げてもすべてのディテールが向上したり、すべてのエクスポート画像が変化したりするわけではありません。
+下の比較では、同一領域の埋め込みラスタを同じ拡大表示サイズで示しています。72 DPI では斜線にピクセル化が目立ち、解像度が上がるにつれてエッジが滑らかになり、SVG ファイルは大きくなります。値を上げてもすべてのディテールが改善されるわけでも、すべてのエクスポート画像が変わるわけでもありません。
 
-![72、150、300 DPI の拡大対角線ディテール](metafile-rasterization-comparison.png)
+![Enlarged diagonal-line detail at 72, 150, and 300 DPI](metafile-rasterization-comparison.png)
 
-[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) は画像解像度の低減を制御し、メタファイルのラスタライズ解像度変更の影響を隠すことがあります。[SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) は JPEG エンコード品質を制御し、メタファイルのラスタライズ解像度は制御しません。
+**[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-)** は画像解像度の削減を制御し、メタファイルラスタリゼーション解像度の変更効果を隠すことがあります。**[SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-)** は JPEG エンコード品質を制御し、メタファイルラスタリゼーション解像度には影響しません。
 
 ## **シェイプとテキストに安定した ID を割り当てる**
 
-[ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) を使用して、各 SVG シェイプに対して [ISvgShape.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setId-java.lang.String-) を設定します。テキスト `tspan` 要素にも [ISvgTSpan.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgtspan/#setId-java.lang.String-) 値を設定するには、[ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeandtextformattingcontroller/) を実装します。いずれかのコントローラは [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) で割り当てます。
+**[ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/)** を使用して各 SVG シェイプに **[ISvgShape.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setId-java.lang.String-)** を設定します。テキストの `tspan` 要素にも **[ISvgTSpan.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgtspan/#setId-java.lang.String-)** を設定したい場合は **[ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeandtextformattingcontroller/)** を実装します。どちらのコントローラも **[SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-)** で設定できます。
 
-以下のコントローラは、シェイプの存続期間中安定した [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) と、テキストスパン用の再利用可能なカウンタを使用します。これにより、生成された ID は変更されていないプレゼンテーションのポストプロセッシングに適したものとなります。
+以下のコントローラは **[IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--)** を使用します。この ID はシェイプの存続期間中安定しており、テキストスパンには再利用可能なカウンタを使用します。これにより、変更されていないプレゼンテーションのポストプロセッシングに適した ID が生成されます。
 
 ```java
 class StableSvgIdController implements ISvgShapeAndTextFormattingController {
@@ -224,7 +273,7 @@ try {
 
 ## **SVG イベントハンドラの追加**
 
-[ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) 内で、[ISvgShape.setEventHandler](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) に [SvgEvent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgevent/) の値を渡して、エクスポートされたシェイプに JavaScript イベントハンドラを追加します。コントローラは [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) で割り当て、結果をホストするページまたは SVG ドキュメント内で JavaScript 関数を定義します。
+**[ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/)** 内で **[ISvgShape.setEventHandler](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-)** に **[SvgEvent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgevent/)** の値を渡すと、エクスポートされたシェイプに JavaScript イベントハンドラを追加できます。コントローラは **[SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-)** で設定し、結果をホストするページまたは SVG ドキュメント内で JavaScript 関数を定義します。
 
 ```java
 class SvgEventController implements ISvgShapeFormattingController {
@@ -250,18 +299,18 @@ try {
 }
 ```
 
-ホストページはハンドラで参照される JavaScript 関数を定義できます。ID とイベントハンドラを割り当てることで、スライドビューア、アクセシビリティの向上、その他のインタラクティブな SVG ワークフローが可能になります。
+ホストページはハンドラが参照する JavaScript 関数を定義できます。ID とイベントハンドラを割り当てることで、スライドビューア、アクセシビリティ拡張、その他のインタラクティブ SVG ワークフローが可能になります。
 
-## **よくある質問**
+## **FAQ**
 
-**[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) をいつ使用し、[SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) を使用すべきではないか？**
+**[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) を使用すべきタイミングは、[SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) の代わりはいつですか？**
 
-すべてのテキストがフォントに依存しない必要がある場合は、[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) を使用します。外部フォントを使用するテキストのみをグラフィックに変換したい場合は、[SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) を使用します。
+すべてのテキストをフォントに依存しないようにしたい場合は **[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-)** を使用します。外部フォントを使用するテキストだけを画像化したい場合は **[SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/)** を使用してください。
 
-**SVG をより小さくする最適な方法は何ですか？**
+**SVG を小さくする最良の方法は何ですか？**
 
-まず埋め込み画像を圧縮し、切り取られた画像領域を削除し、ターゲット環境で配信可能な場合はリンクされたフォントファイルを選択します。画像解像度の低下、JPEG 品質の低下、テキストのベクター化はそれぞれ品質とサイズのトレードオフが異なるため、結果を必ずテストしてください。
+まず埋め込み画像を圧縮し、トリミングされた画像領域を削除し、環境が提供できる場合はリンクされたフォントファイルを選択してください。画像解像度の低下、JPEG 品質の低下、テキストのベクトル化はそれぞれ品質とサイズのトレードオフが異なるため、結果を必ずテストしてください。
 
 **エクスポート後に SVG 要素を変更できますか？**
 
-はい。フォーマットコントローラで ID を割り当てた後、ポストプロセッシングツールやブラウザスクリプトで該当する SVG 要素を選択して変更できます。
+はい。フォーマッティングコントローラで ID を割り当てた後、ポストプロセッシングツールやブラウザスクリプトで該当する SVG 要素を選択して変更できます。

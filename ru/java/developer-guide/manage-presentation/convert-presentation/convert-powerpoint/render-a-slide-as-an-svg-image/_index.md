@@ -1,5 +1,5 @@
 ---
-title: Рендеринг слайдов презентации в виде SVG‑изображений на Java
+title: Рендеринг слайдов презентации в SVG-изображения на Java
 linktitle: Слайд в SVG
 type: docs
 weight: 50
@@ -16,17 +16,17 @@ keywords:
 - презентация
 - Java
 - Aspose.Slides
-description: "Экспортируйте слайды PowerPoint в виде SVG‑изображений на Java и управляйте шрифтами, текстом, изображениями, идентификаторами и событиями с помощью Aspose.Slides."
+description: "Экспортируйте слайды PowerPoint в виде SVG-изображений на Java и управляйте шрифтами, текстом, изображениями, идентификаторами и событиями с помощью Aspose.Slides."
 ---
 ## **Обзор**
 
-SVG — это масштабируемый основанный на XML формат изображений, который хорошо подходит для веб‑публикаций, просмотрщиков слайдов, сценариев доступности и автоматизированной пост‑обработки. Aspose.Slides экспортирует каждый слайд в отдельный файл SVG и позволяет управлять тем, как записываются текст, шрифты, изображения и элементы SVG.
+SVG — масштабируемый основанный на XML формат изображений, который хорошо подходит для веб‑публикаций, просмотрщиков слайдов, процессов обеспечения доступности и автоматической пост‑обработки. Aspose.Slides экспортирует каждый слайд в отдельный файл SVG и позволяет управлять тем, как записываются текст, шрифты, изображения и элементы SVG.
 
-Используйте [SVGOptions](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/), когда экспортируемый SVG должен быть компактным, предсказуемым во всех браузерах или готовым к интерактивному использованию.
+Используйте [SVGOptions](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/) , когда экспортированный SVG должен быть компактным, предсказуемым во всех браузерах или готовым к интерактивному использованию.
 
 ## **Экспорт слайда в SVG**
 
-Создайте [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), выберите слайд и запишите его в поток с помощью [ISlide.writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-). Ниже приведён пример, который экспортирует каждый слайд презентации в отдельный файл SVG.
+Создайте [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), выберите слайд и запишите его в поток с помощью [ISlide.writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-). Следующий пример экспортирует каждый слайд презентации в отдельный файл SVG.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -43,11 +43,11 @@ try {
 }
 ```
 
-Для имени файла использовано [ISlide.getSlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideNumber--) вместо индекса цикла. Вы также можете экспортировать отдельную фигуру с помощью [IShape.writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-), когда просмотрщику слайдов или веб‑странице нужна только эта фигура.
+Имя файла использует [ISlide.getSlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideNumber--) вместо индекса цикла. Вы также можете экспортировать отдельную фигуру с помощью [IShape.writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) , когда просмотрщику слайдов или веб‑странице нужна только эта фигура.
 
 ## **Настройка вывода SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/) управляет рендерингом SVG. Для текстовых рамок [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) включает текстовую рамку в область рендеринга, а [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) определяет, применяется ли поворот рамки. Установите [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) в `true`, когда текст должен рендериться без лигатур.
+[SVGOptions](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/) управляет визуализацией SVG. Для текстовых рамок [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) включает рамку текста в область рендеринга, а [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) определяет, применяется ли поворот рамки. Установите [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) в `true`, когда текст должен отображаться без лигатур.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -66,13 +66,62 @@ try {
 }
 ```
 
+## **Управление обрезкой линии у наконечников стрелок**
+
+В SVG 1.1 нет параметра смещения маркера, позволяющего указать, где линия должна завершаться под наконечником стрелки. По умолчанию Aspose.Slides укорачивает экспортированную линию, чтобы её штрих не выступал за маркер. Вызовите [SVGOptions.setDisableLineEndCropping](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setDisableLineEndCropping-boolean-) с `true`, чтобы рисовать штрих до исходной конечной точки линии. Этот параметр влияет только на вывод SVG. Линия сохраняет своё положение и длину на слайде.
+
+В примере рисуются треугольные и ромбовидные наконечники на линиях шириной 2 и 10 пунктов. Он экспортирует один и тот же слайд дважды, изменяя только параметр обрезки.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    int y = 40;
+    
+    for (byte style : new byte[] { LineArrowheadStyle.Triangle, LineArrowheadStyle.Diamond }) {
+        for (int width : new int[] { 2, 10 }) {
+            IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, 40, y, 200, 0);
+            ILineFormat format = line.getLineFormat();
+            format.getFillFormat().setFillType(FillType.Solid);
+            format.getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 139));
+            format.setWidth(width);
+            format.setEndArrowheadStyle(style);
+            y += 50;
+        }
+    }
+
+    SVGOptions options = new SVGOptions();
+    options.setDisableLineEndCropping(false);
+    try (FileOutputStream cropped = new FileOutputStream("cropped.svg")) {
+        slide.writeAsSvg(cropped, options);
+    }
+
+    options.setDisableLineEndCropping(true);
+    try (FileOutputStream uncropped = new FileOutputStream("uncropped.svg")) {
+        slide.writeAsSvg(uncropped, options);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Сравнение показывает треугольный наконечник на 10‑пунктовой линии. При включённой обрезке кончик остаётся острым. При отключённой обрезке штрих выступает за наклонные стороны маркера, образуя плоский конец.
+
+![Увеличенный треугольник шириной 10 пунктов с острым наконечником при включённой обрезке и плоским концом при отключённой обрезке](line-end-cropping.png)
+
+В остальных линиях примера выступающий штрих менее заметен на треугольнике шириной 2 пункта. Заполненный ромб покрывает конец штриха в обоих случаях ширины.
+
 ## **Управление текстом и шрифтами**
 
-При экспорте слайдов в SVG вы можете контролировать, будет ли текст оставлен как текст или преобразован в векторную графику, а также как будут включаться или ссылаться внешние шрифты. Ниже перечислены параметры, помогающие сбалансировать визуальную согласованность, возможность выбора текста и зависимости от шрифтов в экспортированном SVG.
+При экспорте слайдов в SVG вы можете управлять тем, останется ли текст в виде текста или будет преобразован в векторную графику, а также тем, как включаются или ссылаются внешние шрифты. Следующие параметры помогают сбалансировать визуальную согласованность, возможность выбора текста и зависимости от шрифтов в экспортированном SVG.
 
 ### **Векторизовать весь текст**
 
-Установите [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) в `true`, чтобы записать весь текст слайда в виде векторной графики. Это устраняет зависимости от шрифтов и делает визуальный результат более единообразным во всех браузерах, но текст уже нельзя будет выделять или искать как SVG‑текст.
+Установите [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) в `true`, чтобы записать весь текст слайда как векторную графику. Это устраняет зависимости от шрифтов и делает визуальный результат более согласованным между браузерами, однако текст больше нельзя выделять или искать как SVG‑текст.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -91,7 +140,7 @@ try {
 
 ### **Выбор способа обработки внешних шрифтов**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) использует значение [SvgExternalFontsHandling](https://reference.aspose.com/slides/java/com.aspose.slides/svgexternalfontshandling/) для шрифтов, загружаемых извне. Выберите `AddLinksToFontFiles`, чтобы ссылаться на отдельные файлы шрифтов, `Embed` — чтобы включить данные шрифта в SVG, или `Vectorize`, чтобы рендерить только текст, использующий внешние шрифты, как графику. Перед встраиванием шрифтов проверьте их лицензионные условия.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) использует значение [SvgExternalFontsHandling](https://reference.aspose.com/slides/java/com.aspose.slides/svgexternalfontshandling/) для шрифтов, загружаемых извне. Выберите `AddLinksToFontFiles`, чтобы ссылаться на отдельные файлы шрифтов, `Embed`, чтобы включить данные шрифта в SVG, или `Vectorize`, чтобы преобразовать в графику только текст, использующий внешние шрифты. Проверьте лицензирование шрифтов перед их встраиванием.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -120,9 +169,9 @@ try {
 }
 ```
 
-## **Сокращение размера встроенных изображений**
+## **Уменьшение размера встроенных изображений**
 
-Используйте [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setPicturesCompression-int-), чтобы уменьшить разрешение встроенных изображений, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-), чтобы исключить обрезанные области источника, и [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setJpegQuality-int-), чтобы контролировать качество JPEG‑кодирования. Эти параметры снижают размер файла ценой качества изображения или сохранённых данных изображения.
+Используйте [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setPicturesCompression-int-) для снижения разрешения встроенных изображений, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) — чтобы исключать обрезанные участки источника, и [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setJpegQuality-int-) — для управления качеством JPEG‑кодирования. Эти параметры уменьшают размер файла за счет потери качества изображения или сохранённых данных изображения.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -143,9 +192,9 @@ try {
 
 ## **Управление разрешением растеризации метафайлов**
 
-[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setMetafileRasterizationDpi-int-) задаёт нижний предел разрешения при растеризации метафайлов во время экспорта SVG. Используйте его, чтобы найти баланс между детализацией и размером файла, когда растеризуется изображение EMF или WMF. Этот параметр не задаёт глобальное DPI для SVG и не заставляет каждый объект на слайде превращаться в растровое изображение.
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setMetafileRasterizationDpi-int-) задаёт нижний предел разрешения при растеризации метафайлов во время экспорта SVG. Используйте его, чтобы сбалансировать детализацию и размер файла, когда растеризуется изображение EMF или WMF. Он не определяет глобальное DPI для SVG и не заставляет каждый объект на слайде становиться растровым изображением.
 
-Скачайте [metafile-rasterization.pptx](metafile-rasterization.pptx) — файл, содержащий изображение EMF с плотно расположенными диагональными линиями. Ниже показан пример, экспортирующий первый слайд с тремя разрешениями растеризации через [ISlide.writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-). Все остальные параметры экспорта остаются идентичными, чтобы результаты можно было сравнить.
+Скачайте [metafile-rasterization.pptx](metafile-rasterization.pptx), в котором находится изображение EMF с плотно расположенными диагональными линиями. Следующий пример экспортирует первый слайд с тремя разрешениями растеризации с помощью [ISlide.writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-). Все остальные параметры экспорта остаются одинаковыми, чтобы можно было сравнить результаты.
 
 ```java
 import com.aspose.slides.PicturesCompression;
@@ -171,25 +220,25 @@ try {
 }
 ```
 
-В результате EMF превратилось в один встроенный PNG в каждом SVG. Ниже приведены измерения для предоставленной презентации; они не являются общей формулой преобразования DPI в пиксельные размеры.
+В результате EMF превратилось в один встроенный PNG в каждом SVG. Ниже приведённые измерения относятся к прилагаемой презентации; они не являются общей формулой преобразования DPI в пиксельные размеры.
 
-| DPI растеризации метафайла | Размеры встроенного PNG | Размер файла SVG (байт) |
+| Разрешение растеризации метафайла DPI | Размеры встроенного PNG | Размер SVG‑файла (байт) |
 | --- | --- | --- |
-| 72 | 1196 × 596 | 170 221 |
-| 150 | 2492 × 1242 | 423 149 |
-| 300 | 4983 × 2483 | 1 027 169 |
+| 72 | 1196 × 596 | 170,221 |
+| 150 | 2492 × 1242 | 423,149 |
+| 300 | 4983 × 2483 | 1,027,169 |
 
-Сравнение ниже показывает одну и ту же область встроенного растра при одинаковом увеличенном отображении. Диагональные линии видны как пикселизированные при 72 DPI и более плавные при более высоких разрешениях, при этом размер SVG‑файла растёт. Увеличение значения не обязательно улучшает каждую деталь или меняет каждое экспортированное изображение.
+Сравнение ниже показывает одну и ту же область встроенного растра при одинаковом увеличенном размере отображения. Диагональные линии демонстрируют заметную пикселизацию при 72 DPI и более плавные края при более высоких разрешениях, при этом размер SVG‑файла увеличивается. Увеличение значения не обязательно улучшает каждую деталь или изменяет каждое экспортированное изображение.
 
-![Увеличенные детали диагональной линии при 72, 150 и 300 DPI](metafile-rasterization-comparison.png)
+![Увеличенные детали диагональных линий при 72, 150 и 300 DPI](metafile-rasterization-comparison.png)
 
-[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setPicturesCompression-int-) управляет уменьшением разрешения изображения и может скрывать влияние изменения разрешения растеризации метафайла. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setJpegQuality-int-) контролирует качество JPEG‑кодирования, а не разрешение растеризации метафайла.
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setPicturesCompression-int-) управляет снижением разрешения изображений и может скрывать эффект изменения разрешения растеризации метафайла. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setJpegQuality-int-) управляет качеством JPEG‑кодирования, а не разрешением растеризации метафайла.
 
-## **Назначение стабильных идентификаторов фигур и текста**
+## **Назначение стабильных идентификаторов фигурам и тексту**
 
-Используйте [ISvgShapeFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshapeformattingcontroller/), чтобы задать [ISvgShape.setId](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshape/#setId-java.lang.String-) для каждой SVG‑фигуры. Чтобы также задавать значения [ISvgTSpan.setId](https://reference.aspose.com/slides/java/com.aspose.slides/isvgtspan/#setId-java.lang.String-) у элементов `tspan` текста, реализуйте [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshapeandtextformattingcontroller/). Присвойте любой из контроллеров через [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-).
+Используйте [ISvgShapeFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshapeformattingcontroller/) для установки [ISvgShape.setId](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshape/#setId-java.lang.String-) для каждой фигуры SVG. Чтобы также задать значения [ISvgTSpan.setId](https://reference.aspose.com/slides/java/com.aspose.slides/isvgtspan/#setId-java.lang.String-) для элементов текста `tspan`, реализуйте [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshapeandtextformattingcontroller/). Примените любой из контроллеров с помощью [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-).
 
-Ниже показан контроллер, использующий [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--), который остаётся неизменным в течение жизни фигуры, и повторяемый счётчик для её текстовых спанов. Это делает сгенерированные идентификаторы пригодными для пост‑обработки неизменённой презентации.
+Следующий контроллер использует [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--), который стабилен в течение срока жизни фигуры, и повторяемый счётчик для её текстовых спанов. Это делает сгенерированные идентификаторы пригодными для пост‑обработки неизменённой презентации.
 
 ```java
 class StableSvgIdController implements ISvgShapeAndTextFormattingController {
@@ -223,7 +272,7 @@ try {
 
 ## **Добавление обработчиков событий SVG**
 
-Внутри [ISvgShapeFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshapeformattingcontroller/) вызовите [ISvgShape.setEventHandler](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) с значением [SvgEvent](https://reference.aspose.com/slides/java/com.aspose.slides/svgevent/), чтобы добавить обработчик JavaScript к экспортируемой фигуре. Присвойте контроллер через [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) и определите JavaScript‑функцию на странице или в SVG‑документе, который содержит результат.
+В [ISvgShapeFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshapeformattingcontroller/) вызовите [ISvgShape.setEventHandler](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) с значением [SvgEvent](https://reference.aspose.com/slides/java/com.aspose.slides/svgevent/), чтобы добавить обработчик JavaScript к экспортированной фигуре. Примените контроллер с помощью [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) и определите JavaScript‑функцию на странице или в SVG‑документе, где размещён результат.
 
 ```java
 class SvgEventController implements ISvgShapeFormattingController {
@@ -249,18 +298,15 @@ try {
 }
 ```
 
-Страничный хост может определить JavaScript‑функцию, на которую ссылается обработчик. Присвоение идентификаторов и обработчиков событий открывает возможности для просмотрщиков слайдов, улучшений доступности и других интерактивных сценариев работы с SVG.
+Хост‑страница может определить JavaScript‑функцию, на которую ссылается обработчик. Присвоение идентификаторов и обработчиков событий позволяет реализовать просмотрщики слайдов, улучшения доступности и другие интерактивные сценарии работы с SVG.
 
-## **ЧаВо**
+## **FAQ**
 
-**Когда следует использовать [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) вместо [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/java/com.aspose.slides/svgexternalfontshandling/)?**
+**Когда следует использовать [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) вместо [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/java/com.aspose.slides/svgexternalfontshandling/)?**  
+Используйте [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setVectorizeText-boolean-), когда весь текст должен быть независим от шрифтов. Используйте [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/java/com.aspose.slides/svgexternalfontshandling/), когда только текст, использующий внешние шрифты, должен быть преобразован в графику.
 
-Используйте [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setVectorizeText-boolean-), когда весь текст должен быть независим от шрифтов. Используйте [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/java/com.aspose.slides/svgexternalfontshandling/), когда только текст, использующий внешние шрифты, следует преобразовать в графику.
+**Как лучше всего уменьшить размер SVG?**  
+Начните с сжатия встроенных изображений, удаления обрезанных участков изображений и выбора связных файлов шрифтов, если целевая среда может их обслуживать. Проверьте результат, поскольку более низкое разрешение изображений, более низкое качество JPEG и векторизованный текст имеют разные компромиссы между качеством и размером.
 
-**Как лучше всего уменьшить размер SVG?**
-
-Начните с сжатия встроенных изображений, удаления обрезанных областей изображений и выбора ссылки на файлы шрифтов, если целевая среда может их обслуживать. Проверьте результат, потому что снижение разрешения изображений, уменьшение качества JPEG и векторизация текста каждый по‑своему влияют на качество и размер.
-
-**Можно ли изменять экспортированные SVG‑элементы после экспорта?**
-
-Да. Присвойте идентификаторы через контроллер форматирования, а затем выбирайте соответствующие SVG‑элементы в вашем инструменте пост‑обработки или скрипте браузера.
+**Можно ли изменять экспортированные элементы SVG после экспорта?**  
+Да. Назначьте идентификаторы через контроллер форматирования, затем выберите соответствующие элементы SVG в вашем инструменте пост‑обработки или скрипте браузера.

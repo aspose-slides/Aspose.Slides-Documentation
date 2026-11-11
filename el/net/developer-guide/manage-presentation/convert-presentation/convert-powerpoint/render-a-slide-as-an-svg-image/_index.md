@@ -17,13 +17,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Εξαγωγή διαφανειών PowerPoint ως εικόνες SVG σε .NET και έλεγχος γραμματοσειρών, κειμένου, εικόνων, αναγνωριστικών και συμβάντων με το Aspose.Slides."
+description: "Εξαγωγή διαφανειών PowerPoint ως εικόνες SVG σε .NET και έλεγχος γραμματοσειρών, κειμένου, εικόνων, αναγνωριστικών και συμβάντων με Aspose.Slides."
 ---
 ## **Επισκόπηση**
 
-Το SVG είναι μια κλιμακώσιμη μορφή εικόνας βασισμένη σε XML που λειτουργεί καλά για δημοσίευση στο web, προβολείς διαφανειών, διαδικασίες προσβασιμότητας και αυτοματοποιημένη μετα-επεξεργασία. Το Aspose.Slides εξάγει κάθε διαφάνεια σε ξεχωριστό αρχείο SVG και σας επιτρέπει να ελέγχετε πώς γράφονται το κείμενο, οι γραμματοσειρές, οι εικόνες και τα στοιχεία SVG.
+Το SVG είναι μια κλιμακώσιμη μορφή εικόνας βασισμένη σε XML που λειτουργεί καλά για δημοσίευση στο web, προβολείς διαφανειών, ροές εργασίας προσβασιμότητας και αυτοματοποιημένη μεταεπεξεργασία. Το Aspose.Slides εξάγει κάθε διαφάνεια σε ξεχωριστό αρχείο SVG και σάς επιτρέπει να ελέγχετε πώς γράφονται το κείμενο, οι γραμματοσειρές, οι εικόνες και τα στοιχεία SVG.
 
-Χρησιμοποιήστε [SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) όταν το εξαγόμενο SVG πρέπει να είναι συμπαγές, προβλέψιμο μεταξύ browsers, ή έτοιμο για διαδραστική χρήση.
+Χρησιμοποιήστε [SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) όταν το εξαγόμενο SVG πρέπει να είναι συμπαγές, προβλέψιμο σε διαφορετικά προγράμματα περιήγησης ή έτοιμο για διαδραστική χρήση.
 
 ## **Εξαγωγή διαφάνειας ως SVG**
 
@@ -41,11 +41,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-Το όνομα αρχείου χρησιμοποιεί το [ISlide.SlideNumber](https://reference.aspose.com/slides/net/aspose.slides/islide/slidenumber/) αντί για τον δείκτη βρόχου. Μπορείτε επίσης να εξάγετε ένα μεμονωμένο σχήμα με το [IShape.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/ishape/writeassvg/) όταν ένας προβολέας διαφανειών ή μια ιστοσελίδα χρειάζεται μόνο αυτό το σχήμα.
+Το όνομα αρχείου χρησιμοποιεί το [ISlide.SlideNumber](https://reference.aspose.com/slides/net/aspose.slides/islide/slidenumber/) αντί για τον δείκτη του βρόχου. Μπορείτε επίσης να εξαγάγετε ένα μεμονωμένο σχήμα με το [IShape.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/ishape/writeassvg/) όταν ένας προβολέας διαφανειών ή μια ιστοσελίδα χρειάζεται μόνο αυτό το σχήμα.
 
 ## **Διαμόρφωση εξόδου SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) ελέγχει την απόδοση του SVG. Για πλαίσια κειμένου, το [SVGOptions.UseFrameSize](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframesize/) περιλαμβάνει το πλαίσιο κειμένου στην περιοχή απόδοσης, και το [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframerotation/) καθορίζει αν εφαρμόζεται η περιστροφή του πλαισίου. Ορίστε το [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/disablefontligatures/) σε `true` όταν το κείμενο πρέπει να αποδοθεί χωρίς λιγκατούρες.
+Το [SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) ελέγχει τη σχεδίαση SVG. Για πλαίσια κειμένου, το [SVGOptions.UseFrameSize](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframesize/) συμπεριλαμβάνει το πλαίσιο κειμένου στην περιοχή σχεδίασης, και το [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframerotation/) καθορίζει αν θα εφαρμοστεί η περιστροφή του πλαισίου. Ορίστε το [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/disablefontligatures/) σε `true` όταν το κείμενο πρέπει να αποδοθεί χωρίς λήμματα.
 
 ```csharp
 using Aspose.Slides;
@@ -64,13 +64,58 @@ using var svgStream = File.Create("slide-with-custom-options.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
 
+## **Έλεγχος περικοπής άκρων γραμμής σε κεφαλές βελών**
+
+Το SVG 1.1 δεν διαθέτει ρύθμιση εσωτερικού δείκτη για να ορίσει πού πρέπει να σταματήσει μια γραμμή κάτω από μια κεφαλή βέλους. Από προεπιλογή, το Aspose.Slides συντομεύει τη γραμμή που εξάγεται ώστε η γραμμή του στυλ να μην προεξέχει μέσω του δείκτη. Ορίστε το [SVGOptions.DisableLineEndCropping](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/disablelineendcropping/) σε `true` για να σχεδιάσετε τη γραμμή μέχρι το αρχικό σημείο λήξης της. Αυτή η ρύθμιση επηρεάζει μόνο την έξοδο SVG. Η γραμμή διατηρεί τη θέση και το μήκος της στη διαφάνεια.
+
+Το παράδειγμα σχεδιάζει κεφαλές βελών τριγώνου και ρόμβου σε γραμμές πάχους 2 και 10 σημεία. Εξάγει την ίδια διαφάνεια δύο φορές, αλλάζοντας μόνο την επιλογή περικοπής.
+
+```csharp
+using System.Drawing;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var y = 40;
+
+foreach (var style in new[] { LineArrowheadStyle.Triangle, LineArrowheadStyle.Diamond })
+{
+    foreach (var width in new[] { 2, 10 })
+    {
+        var line = slide.Shapes.AddAutoShape(ShapeType.Line, 40, y, 200, 0);
+        var format = line.LineFormat;
+        format.FillFormat.FillType = FillType.Solid;
+        format.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+        format.Width = width;
+        format.EndArrowheadStyle = style;
+        y += 50;
+    }
+}
+
+var options = new SVGOptions { DisableLineEndCropping = false };
+using var cropped = File.Create("cropped.svg");
+slide.WriteAsSvg(cropped, options);
+
+options.DisableLineEndCropping = true;
+using var uncropped = File.Create("uncropped.svg");
+slide.WriteAsSvg(uncropped, options);
+```
+
+Η σύγκριση δείχνει την τριγωνική κεφαλή βέλους στη γραμμή των 10 σημείων. Με ενεργοποιημένη την περικοπή, η άκρη είναι κοφιά. Με απενεργοποιημένη την περικοπή, η γραμμή προεξέχει μέσω των κλίσεων του δείκτη και αφήνει μια επίπεδη άκρη.
+
+![Μεγεθυμένο τρίγωνο 10 σημείων με κοφιά άκρη όταν η περικοπή είναι ενεργοποιημένη και επίπεδη άκρη όταν η περικοπή είναι απενεργοποιημένη](line-end-cropping.png)
+
+Στις άλλες γραμμές του παραδείγματος, η προεξέχουσα γραμμή είναι λιγότερο ορατή στο τρίγωνο των 2 σημείων. Ο γεμισμένος ρόμβος καλύπτει το τέλος της γραμμής και στα δύο πλάτη.
+
 ## **Έλεγχος κειμένου και γραμματοσειρών**
 
-Κατά την εξαγωγή των διαφανειών σε SVG, μπορείτε να ελέγξετε εάν το κείμενο παραμένει ως κείμενο ή μετατρέπεται σε διανυσματικά γραφικά, καθώς και πώς οι εξωτερικές γραμματοσειρές περιλαμβάνονται ή αναφέρονται. Οι ακόλουθες επιλογές σας βοηθούν να εξισορροπήσετε τη οπτική συνέπεια, την επιλογή κειμένου και τις εξαρτήσεις γραμματοσειρών στο εξαγόμενο SVG.
+Κατά την εξαγωγή διαφανειών σε SVG, μπορείτε να ελέγξετε αν το κείμενο παραμένει ως κείμενο ή μετατρέπεται σε διανυσματικά γραφικά, καθώς και πώς οι εξωτερικές γραμματοσειρές περιλαμβάνονται ή αναφέρονται. Οι παρακάτω επιλογές σας βοηθούν να ισορροπήσετε τη οπτική συνέπεια, την επιλογή κειμένου και τις εξαρτήσεις γραμματοσειρών στο εξαγόμενο SVG.
 
-### **Διανυσματοποίηση όλου του κειμένου**
+### **Διανυσματισμός όλου του κειμένου**
 
-Ορίστε το [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) σε `true` για να γράψετε όλο το κείμενο της διαφάνειας ως διανυσματικά γραφικά. Αυτό εξαλείφει τις εξαρτήσεις γραμματοσειρών και κάνει το οπτικό αποτέλεσμα πιο συνεπές μεταξύ browsers, αλλά το κείμενο δεν είναι πια επιλέξιμο ή αναζητήσιμο ως κείμενο SVG.
+Ορίστε το [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) σε `true` για να γράψετε όλο το κείμενο της διαφάνειας ως διανυσματικά γραφικά. Αυτό εξαλείφει τις εξαρτήσεις γραμματοσειρών και κάνει το οπτικό αποτέλεσμα πιο συνεπές μεταξύ των προγραμμάτων περιήγησης, αλλά το κείμενο δεν είναι πλέον επιλέξιμο ή αναζητήσιμο ως κείμενο SVG.
 
 ```csharp
 using Aspose.Slides;
@@ -87,9 +132,9 @@ using var svgStream = File.Create("slide-with-vectorized-text.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
 
-### **Επιλέξτε πώς θα διαχειριστούν οι εξωτερικές γραμματοσειρές**
+### **Επιλέξτε πώς χειρίζονται οι εξωτερικές γραμματοσειρές**
 
-Το [SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/externalfontshandling/) χρησιμοποιεί μια τιμή [SvgExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) για γραμματοσειρές που φορτώνονται εξωτερικά. Επιλέξτε `AddLinksToFontFiles` για να κάνετε αναφορά σε ξεχωριστά αρχεία γραμματοσειρών, `Embed` για να ενσωματώσετε τα δεδομένα γραμματοσειράς στο SVG, ή `Vectorize` για να αποδώσετε μόνο το κείμενο που χρησιμοποιεί εξωτερικές γραμματοσειρές ως γραφικά. Επαληθεύστε την άδεια χρήσης των γραμματοσειρών πριν την ενσωμάτωση.
+Το [SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/externalfontshandling/) χρησιμοποιεί μια τιμή [SvgExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) για γραμματοσειρές που φορτώνονται εξωτερικά. Επιλέξτε `AddLinksToFontFiles` για να αναφέρετε ξεχωριστά αρχεία γραμματοσειρών, `Embed` για να συμπεριλάβετε τα δεδομένα γραμματοσειράς στο SVG, ή `Vectorize` για να αποδείξετε μόνο το κείμενο που χρησιμοποιεί εξωτερικές γραμματοσειρές ως γραφικά. Επαληθεύστε τη χορήγηση άδειας χρήσης των γραμματοσειρών πριν τις ενσωματώσετε.
 
 ```csharp
 using Aspose.Slides;
@@ -124,7 +169,7 @@ presentation.Slides[0].WriteAsSvg(vectorizedExternalFontsStream, vectorizedExter
 
 ## **Μείωση μεγέθους ενσωματωμένων εικόνων**
 
-Χρησιμοποιήστε το [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) για να μειώσετε την ανάλυση των ενσωματωμένων εικόνων, το [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) για να παραλείψετε τις περικομμένες περιοχές πηγής, και το [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) για να ελέγξετε την ποιότητα κωδικοποίησης JPEG. Αυτές οι ρυθμίσεις μειώνουν το μέγεθος του αρχείου με κόστος στην πιστότητα της εικόνας ή στα δεδομένα εικόνας που διατηρούνται.
+Χρησιμοποιήστε το [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) για να μειώσετε την ανάλυση των ενσωματωμένων εικόνων, το [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) για να παραλείψετε τις περικομμένες περιοχές πηγής, και το [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) για να ελέγξετε την ποιότητα κωδικοποίησης JPEG. αυτές οι ρυθμίσεις μειώνουν το μέγεθος του αρχείου με κόστος τη πιστότητα της εικόνας ή τα διατηρημένα δεδομένα εικόνας.
 
 ```csharp
 using Aspose.Slides;
@@ -143,11 +188,11 @@ using var svgStream = File.Create("compressed-slide.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
 
-## **Έλεγχος ανάλυσης rasterization μετααρχείου**
+## **Έλεγχος ανάλυσης rasterization μετααρχεία**
 
-Το [SVGOptions.MetafileRasterizationDpi](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/metafilerasterizationdpi/) ορίζει το κατώτατο όριο ανάλυσης για rasterization μετααρχείων κατά την εξαγωγή SVG. Χρησιμοποιήστε το για να εξισορροπήσετε τη λεπτομέρεια και το μέγεθος του αρχείου όταν μια εικόνα EMF ή WMF rasterizes. Δεν ορίζει καθολικό DPI για το SVG ούτε αναγκάζει κάθε αντικείμενο στη διαφάνεια να γίνει ραστερ εικόνα.
+Το [SVGOptions.MetafileRasterizationDpi](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/metafilerasterizationdpi/) ορίζει το κατώτατο όριο ανάλυσης για rasterization μετααρχεία κατά την εξαγωγή SVG. Χρησιμοποιήστε το για να ισορροπήσετε λεπτομέρειες και μέγεθος αρχείου όταν μια εικόνα EMF ή WMF rasterizes. Δεν ορίζει ένα παγκόσμιο DPI για το SVG ούτε αναγκάζει κάθε αντικείμενο στη διαφάνεια να γίνει raster εικόνα.
 
-Κατεβάστε το [metafile-rasterization.pptx](metafile-rasterization.pptx), το οποίο περιέχει μια εικόνα EMF με κοντινά διαγώνια γραμμές. Το παρακάτω παράδειγμα εξάγει την πρώτη του διαφάνεια σε τρεις αναλύσεις rasterization μέσω του [ISlide.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/islide/writeassvg/). Όλες οι άλλες ρυθμίσεις εξαγωγής παραμένουν στα ίσα ώστε τα αποτελέσματα να μπορούν να συγκριθούν.
+Κατεβάστε το [metafile-rasterization.pptx](metafile-rasterization.pptx), που περιέχει μια εικόνα EMF με πολύ κοντινές διαγώνιες γραμμές. Το παρακάτω παράδειγμα εξάγει την πρώτη διαφάνειά του σε τρεις αναλύσεις rasterization μέσω του [ISlide.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/islide/writeassvg/). Όλες οι άλλες ρυθμίσεις εξαγωγής παραμένουν ίδιες ώστε να μπορούν να συγκριθούν τα αποτελέσματα.
 
 ```csharp
 using System.IO;
@@ -178,17 +223,17 @@ foreach (var dpi in new[] { 72, 150, 300 })
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-Η σύγκριση παρακάτω δείχνει την ίδια περιοχή του ενσωματωμένου raster στην ίδια μεγεθυμένη προβολή. Οι διαγώνιες γραμμές δείχνουν ορατή εικονοστοιχία στα 72 DPI και πιο ομαλές άκρες σε υψηλότερες αναλύσεις, ενώ το αρχείο SVG μεγαλώνει. Η αύξηση της τιμής δεν βελτιώνει απαραίτητα κάθε λεπτομέρεια ή δεν αλλάζει κάθε εξαγόμενη εικόνα.
+Η σύγκριση παρακάτω δείχνει την ίδια περιοχή του ενσωματωμένου raster στην ίδια μεγεθυμένη απεικόνιση. Οι διαγώνιες γραμμές εμφανίζουν ορατή εικονοστοιχία στα 72 DPI και πιο ομαλές ακμές σε υψηλότερες αναλύσεις, ενώ το αρχείο SVG αυξάνεται. Η αύξηση της τιμής δεν βελτιώνει απαραίτητα κάθε λεπτομέρεια ή αλλάζει κάθε εξαγόμενη εικόνα.
 
-![Μεγεθυμένη λεπτομέρεια διαγώνιας γραμμής στα 72, 150 και 300 DPI](metafile-rasterization-comparison.png)
+![Μεγεθυμένη λεπτομέρεια διαγώνιων γραμμών στα 72, 150 και 300 DPI](metafile-rasterization-comparison.png)
 
-Το [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) ελέγχει τη μείωση της ανάλυσης των εικόνων και μπορεί να καλύψει την επίδραση της αλλαγής της ανάλυσης rasterization μετααρχείου. Το [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) ελέγχει την ποιότητα κωδικοποίησης JPEG, όχι την ανάλυση rasterization μετααρχείου.
+Το [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) ελέγχει τη μείωση ανάλυσης εικόνας και μπορεί να καλύψει την επίδραση της αλλαγής της ανάλυσης rasterization του μετααρχειου. Το [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) ελέγχει την ποιότητα κωδικοποίησης JPEG, όχι την ανάλυση rasterization του μετααρχειου.
 
 ## **Ανάθεση σταθερών αναγνωριστικών σε σχήματα και κείμενο**
 
-Χρησιμοποιήστε το [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/) για να ορίσετε το [ISvgShape.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/id/) για κάθε σχήμα SVG. Για να ορίσετε τιμές [ISvgTSpan.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgtspan/id/) σε στοιχεία κειμένου `tspan`, υλοποιήστε το [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeandtextformattingcontroller/). Αναθέστε οποιονδήποτε από τους ελεγκτές με το [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/).
+Χρησιμοποιήστε το [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/) για να ορίσετε το [ISvgShape.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/id/) για κάθε σχήμα SVG. Για να ορίσετε τιμές [ISvgTSpan.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgtspan/id/) στα στοιχεία κειμένου `tspan`, υλοποιήστε το [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeandtextformattingcontroller/). Αναθέστε οποιονδήποτε ελεγκτή με το [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/).
 
-Ο παρακάτω ελεγκτής χρησιμοποιεί το [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/net/aspose.slides/ishape/officeinteropshapeid/), το οποίο είναι σταθερό για τη διάρκεια ζωής του σχήματος, και έναν επαναλήψιμο μετρητή για τα κείμενα του. Αυτό κάνει τα παραγόμενα αναγνωριστικά κατάλληλα για μετα-επεξεργασία μιας αμετάβλητης παρουσίασης.
+Ο παρακάτω ελεγκτής χρησιμοποιεί το [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/net/aspose.slides/ishape/officeinteropshapeid/), το οποίο είναι σταθερό για τη διάρκεια ζωής του σχήματος, και έναν επαναλήψιμο μετρητή για τα κείμενα του. Αυτό καθιστά τα παραγόμενα αναγνωριστικά κατάλληλα για μεταεπεξεργασία μιας αμετάβλητης παρουσίασης.
 
 ```csharp
 using Aspose.Slides;
@@ -225,9 +270,9 @@ class StableSvgIdController : ISvgShapeAndTextFormattingController
 }
 ```
 
-## **Προσθήκη χειριστών συμβάντων SVG**
+## **Προσθήκη χειριστών γεγονότων SVG**
 
-Σε ένα [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/), καλέστε το [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/seteventhandler/) με μια τιμή [SvgEvent](https://reference.aspose.com/slides/net/aspose.slides.export/svgevent/) για να προσθέσετε έναν χειριστή JavaScript σε ένα εξαγόμενο σχήμα. Αναθέστε τον ελεγκτή με το [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) και ορίστε τη λειτουργία JavaScript στη σελίδα ή στο έγγραφο SVG που φιλοξενεί το αποτέλεσμα.
+Σε ένα [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/), καλέστε το [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/seteventhandler/) με μια τιμή [SvgEvent](https://reference.aspose.com/slides/net/aspose.slides.export/svgevent/) για να προσθέσετε έναν χειριστή συμβάντος JavaScript σε ένα εξαγόμενο σχήμα. Αναθέστε τον ελεγκτή με το [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) και ορίστε τη λειτουργία JavaScript στη σελίδα ή το έγγραφο SVG που φιλοξενεί το αποτέλεσμα.
 
 ```csharp
 using Aspose.Slides;
@@ -256,18 +301,18 @@ class SvgEventController : ISvgShapeFormattingController
 }
 ```
 
-Η σελίδα φιλοξενίας μπορεί να ορίσει τη λειτουργία JavaScript που αναφέρεται από τον χειριστή. Η ανάθεση αναγνωριστικών και χειριστών συμβάντων επιτρέπει στους προβολείς διαφανειών, τις βελτιώσεις προσβασιμότητας και άλλες διαδραστικές ροές εργασίας SVG.
+Η σελίδα-υποδοχέας μπορεί να ορίσει τη λειτουργία JavaScript στην οποία αναφέρεται ο χειριστής. Η ανάθεση αναγνωριστικών και χειριστών συμβάντων ενεργοποιεί προβολείς διαφανειών, βελτιώσεις προσβασιμότητας και άλλες διαδραστικές ροές εργασίας SVG.
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Πότε πρέπει να χρησιμοποιήσω [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) αντί του [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/);**
+**Πότε θα πρέπει να χρησιμοποιήσω το [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) αντί για το [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/);**
 
-Χρησιμοποιήστε το [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) όταν όλο το κείμενο πρέπει να είναι ανεξάρτητο από τις γραμματοσειρές. Χρησιμοποιήστε το [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) όταν μόνο το κείμενο που χρησιμοποιεί εξωτερικές γραμματοσειρές πρέπει να μετατραπεί σε γραφικά.
+Χρησιμοποιήστε το [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) όταν όλο το κείμενο πρέπει να είναι ανεξάρτητο από γραμματοσειρές. Χρησιμοποιήστε το [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) όταν μόνο το κείμενο που χρησιμοποιεί εξωτερικές γραμματοσειρές πρέπει να μετατραπεί σε γραφικά.
 
-**Ποιος είναι ο καλύτερος τρόπος να μειώσετε το μέγεθος ενός SVG;**
+**Ποιος είναι ο καλύτερος τρόπος να κάνω ένα SVG μικρότερο;**
 
-Ξεκινήστε με τη συμπίεση των ενσωματωμένων εικόνων, τη διαγραφή των περικομμένων περιοχών εικόνας, και την επιλογή συνδεδεμένων αρχείων γραμματοσειρών όταν το περιβάλλον στόχος μπορεί να τα εξυπηρετήσει. Δοκιμάστε το αποτέλεσμα επειδή η χαμηλότερη ανάλυση εικόνας, η χαμηλότερη ποιότητα JPEG, και το διανυσματικό κείμενο έχουν διαφορετικές ανταλλαγές ποιότητας και μεγέθους.
+Ξεκινήστε συμπιέζοντας τις ενσωματωμένες εικόνες, διαγράφοντας τις περικομμένες περιοχές εικόνας, και επιλέγοντας συνδεδεμένα αρχεία γραμματοσειρών όταν το περιβάλλον στόχου μπορεί να τα εξυπηρετήσει. Δοκιμάστε το αποτέλεσμα, επειδή η χαμηλότερη ανάλυση εικόνας, η χαμηλότερη ποιότητα JPEG και ο διανυσματισμός κειμένου έχουν διαφορετικές ανταλλαγές ποιότητας‑μεγέθους.
 
 **Μπορώ να τροποποιήσω τα εξαγόμενα στοιχεία SVG μετά την εξαγωγή;**
 
-Ναι. Αναθέστε αναγνωριστικά μέσω ενός ελεγκτή μορφοποίησης, στη συνέχεια επιλέξτε τα αντίστοιχα στοιχεία SVG στο εργαλείο μετα-επεξεργασίας ή στο script του προγράμματος περιήγησης.
+Ναι. Αναθέστε αναγνωριστικά μέσω ενός ελεγκτή μορφοποίησης, στη συνέχεια επιλέξτε τα αντίστοιχα στοιχεία SVG στο εργαλείο μεταεπεξεργασίας ή στο σενάριο του προγράμματος περιήγησης.

@@ -1,5 +1,5 @@
 ---
-title: Render presentatiedia's als SVG-afbeeldingen in C++
+title: Render presentatieslides als SVG-afbeeldingen in C++
 linktitle: Dia naar SVG
 type: docs
 weight: 50
@@ -16,17 +16,17 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Exporteer PowerPoint-dia's als SVG-afbeeldingen in C++ en beheer lettertypen, tekst, afbeeldingen, ID's en events met Aspose.Slides."
+description: "Exporteer PowerPoint-dia's als SVG-afbeeldingen in C++ en beheer lettertypen, tekst, afbeeldingen, ID's en gebeurtenissen met Aspose.Slides."
 ---
 ## **Overzicht**
 
-SVG is een schaalbaar XML-gebaseerd afbeeldingsformaat dat goed werkt voor webpublicatie, diavoorbeelders, toegankelijkheidsworkflows en geautomatiseerde naverwerking. Aspose.Slides for C++ exporteert elke dia naar een afzonderlijk SVG-bestand en stelt u in staat te bepalen hoe tekst, lettertypen, afbeeldingen en SVG-elementen worden geschreven.
+SVG is een schaalbaar XML‑gebaseerd afbeeldingsformaat dat goed werkt voor webpublicatie, slide‑viewers, toegankelijkheidsworkflows en geautomatiseerde nabewerking. Aspose.Slides for C++ exporteert elke dia naar een apart SVG‑bestand en stelt je in staat te bepalen hoe tekst, lettertypen, afbeeldingen en SVG‑elementen worden weggeschreven.
 
-Gebruik [SVGOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/) wanneer het geëxporteerde SVG compact, voorspelbaar over browsers heen, of klaar voor interactief gebruik moet zijn.
+Gebruik [SVGOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/) wanneer het geëxporteerde SVG compact moet zijn, voorspelbaar over browsers, of klaar voor interactief gebruik.
 
-## **Exporteer een dia als SVG**
+## **Export een dia als SVG**
 
-Maak een [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) aan, selecteer een dia en schrijf deze naar een stream. Het volgende voorbeeld exporteert elke dia in een presentatie naar een afzonderlijk SVG-bestand.
+Maak een [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), selecteer een dia en schrijf deze naar een stream. Het volgende voorbeeld exporteert elke dia in een presentatie naar een apart SVG‑bestand.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -54,11 +54,11 @@ for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
 presentation->Dispose();
 ```
 
-De bestandsnaam gebruikt [ISlide::get_SlideNumber](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_slidenumber/) in plaats van de lusindex. U kunt ook een individueel object exporteren met [IShape::WriteAsSvg](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/writeassvg/) wanneer een diavoorbeelder of webpagina alleen dat object nodig heeft.
+De bestandsnaam gebruikt [ISlide::get_SlideNumber](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_slidenumber/) in plaats van de lusindex. Je kunt ook een afzonderlijke vorm exporteren met [IShape::WriteAsSvg](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/writeassvg/) wanneer een slide‑viewer of webpagina alleen die vorm nodig heeft.
 
-## **Configureer SVG-uitvoer**
+## **Configureer SVG‑output**
 
-[SVGOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/) bepaalt de SVG-rendering. Voor tekstframes zorgt [SVGOptions::set_UseFrameSize](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_useframesize/) ervoor dat het tekstframe in het rendergebied wordt opgenomen, en [SVGOptions::set_UseFrameRotation](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_useframerotation/) bepaalt of de rotatie van het frame wordt toegepast. Stel [SVGOptions::set_DisableFontLigatures](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_disablefontligatures/) in op `true` wanneer tekst zonder ligatures moet worden gerenderd.
+[SVGOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/) regelt de SVG‑rendering. Voor tekstkaders omvat [SVGOptions::set_UseFrameSize](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_useframesize/) het tekstkader in het rendergebied, en [SVGOptions::set_UseFrameRotation](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_useframerotation/) bepaalt of de rotatie van het kader wordt toegepast. Stel [SVGOptions::set_DisableFontLigatures](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_disablefontligatures/) in op `true` wanneer tekst zonder ligaturen moet worden gerenderd.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -85,13 +85,81 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
-## **Beheer tekst en lettertypen**
+## **Regel het afknippen van het lijneinde bij pijlpuntjes**
 
-Bij het exporteren van dia's naar SVG kunt u bepalen of tekst behouden blijft als tekst of wordt omgezet in vectorgraphics, en hoe externe lettertypen worden opgenomen of gerefereerd. De volgende opties helpen u de visuele consistentie, tekstselectie en lettertype-afhankelijkheden in het geëxporteerde SVG in balans te brengen.
+SVG 1.1 heeft geen marker‑inset‑instelling om te bepalen waar een lijn moet stoppen onder een pijlpunt. Standaard verkort Aspose.Slides de geëxporteerde lijn zodat de streep niet door de marker heen steekt. Stel [SVGOptions::set_DisableLineEndCropping](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_disablelineendcropping/) in op `true` om de streep helemaal tot het oorspronkelijke eindpunt van de lijn te tekenen. Deze instelling heeft alleen invloed op de SVG‑output. De lijn behoudt zijn positie en lengte op de dia.
+
+Het voorbeeld tekent driehoek‑ en diamanten‑pijlpuntjes op lijnen van respectievelijk 2 en 10 punten breed. Het exporteert dezelfde dia twee keer, waarbij alleen de afknippingsoptie wordt gewijzigd.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/FillType.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/ShapeType.h>
+#include <Export/SVGOptions.h>
+#include <drawing/color.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto y = 40;
+const LineArrowheadStyle styles[] = { LineArrowheadStyle::Triangle, LineArrowheadStyle::Diamond };
+const int widths[] = { 2, 10 };
+
+for (auto style : styles)
+{
+    for (auto width : widths)
+    {
+        auto line = slide->get_Shapes()->AddAutoShape(ShapeType::Line, 40, y, 200, 0);
+        auto format = line->get_LineFormat();
+        format->get_FillFormat()->set_FillType(FillType::Solid);
+        format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkBlue());
+        format->set_Width(width);
+        format->set_EndArrowheadStyle(style);
+        y += 50;
+    }
+}
+
+auto options = MakeObject<SVGOptions>();
+options->set_DisableLineEndCropping(false);
+auto cropped = File::Create(u"cropped.svg");
+slide->WriteAsSvg(cropped, options);
+cropped->Dispose();
+
+options->set_DisableLineEndCropping(true);
+auto uncropped = File::Create(u"uncropped.svg");
+slide->WriteAsSvg(uncropped, options);
+uncropped->Dispose();
+
+presentation->Dispose();
+```
+
+De vergelijking toont de driehoekige pijlpunt op de 10‑punten lijn. Met afknipping ingeschakeld is de punt scherp. Met afknipping uitgeschakeld steekt de streep door de schuine zijden van de marker en ontstaat een vlak einde.
+
+![Vergrootte 10‑punt driehoek met een scherpe punt wanneer afknipping is ingeschakeld en een vlak einde wanneer afknipping is uitgeschakeld](line-end-cropping.png)
+
+In de andere lijnen uit het voorbeeld is de uitstekende streep minder zichtbaar op de 2‑punt driehoek. Het gevulde diamant bedekt het einde van de streep bij beide breedtes.
+
+## **Regel tekst en lettertypen**
+
+Bij het exporteren van dia’s naar SVG kun je bepalen of tekst behouden blijft als tekst of wordt omgezet naar vectorafbeeldingen, en hoe externe lettertypen worden opgenomen of gerefereerd. De onderstaande opties helpen je een balans te vinden tussen visuele consistentie, tekstselectie en afhankelijkheden van lettertypen in de geëxporteerde SVG.
 
 ### **Vectoriseer alle tekst**
 
-Stel [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) in op `true` om alle dia-tekst als vectorgraphics te schrijven. Dit verwijdert lettertype-afhankelijkheden en maakt het visuele resultaat consistenter over browsers, maar de tekst is niet langer selecteerbaar of doorzoekbaar als SVG-tekst.
+Stel [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) in op `true` om alle diatekst als vectorafbeeldingen weg te schrijven. Dit verwijdert afhankelijkheden van lettertypen en maakt het visuele resultaat consistenter over browsers, maar de tekst is niet langer selecteerbaar of doorzoekbaar als SVG‑tekst.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -118,7 +186,7 @@ presentation->Dispose();
 
 ### **Kies hoe externe lettertypen worden behandeld**
 
-[SVGOptions::set_ExternalFontsHandling](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_externalfontshandling/) gebruikt een [SvgExternalFontsHandling](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgexternalfontshandling/) waarde voor lettertypen die extern worden geladen. Kies `AddLinksToFontFiles` om naar afzonderlijke lettertype-bestanden te verwijzen, `Embed` om lettertype-data in het SVG op te nemen, of `Vectorize` om alleen tekst die externe lettertypen gebruikt als graphics te renderen. Controleer de licentie van het lettertype voordat u lettertypen insluit.
+[SVGOptions::set_ExternalFontsHandling](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_externalfontshandling/) gebruikt een [SvgExternalFontsHandling](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgexternalfontshandling/)‑waarde voor lettertypen die extern worden geladen. Kies `AddLinksToFontFiles` om naar aparte lettertypebestanden te verwijzen, `Embed` om lettertype‑data in de SVG op te nemen, of `Vectorize` om alleen tekst die externe lettertypen gebruikt als graphics weer te geven. Controleer de licentie van het lettertype voordat je lettertypen insluit.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -158,7 +226,7 @@ presentation->Dispose();
 
 ## **Verminder de grootte van ingesloten afbeeldingen**
 
-Gebruik [SVGOptions::set_PicturesCompression](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_picturescompression/) om de resolutie van ingesloten afbeeldingen te verlagen, [SVGOptions::set_DeletePicturesCroppedAreas](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_deletepicturescroppedareas/) om bijgesneden bronomgevingen weg te laten, en [SVGOptions::set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_jpegquality/) om de JPEG-codeerkwaliteit te regelen. Deze instellingen verkleinen de bestandsgrootte ten koste van beeldfidelity of bewaarde beeldgegevens.
+Gebruik [SVGOptions::set_PicturesCompression](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_picturescompression/) om de resolutie van ingesloten afbeeldingen te verlagen, [SVGOptions::set_DeletePicturesCroppedAreas](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_deletepicturescroppedareas/) om bijgesneden brongebieden weg te laten, en [SVGOptions::set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_jpegquality/) om de JPEG‑coderingkwaliteit te regelen. Deze instellingen verkleinen het bestand ten koste van afbeeldingskwaliteit of behouden beelddata.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -186,11 +254,11 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
-## **Beheer resolutie van metafile-rasterisatie**
+## **Regel de resolutie van metafile‑rasterisatie**
 
-[SVGOptions::set_MetafileRasterizationDpi](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_metafilerasterizationdpi/) stelt de ondergrens voor de resolutie in bij het rasteren van metafiles tijdens SVG-export. Gebruik dit om detail en bestandsgrootte in balans te brengen wanneer een EMF- of WMF-afbeelding wordt gerasterd. Het definieert geen globale DPI voor het SVG en dwingt niet elk object op de dia om een rasterafbeelding te worden.
+[SVGOptions::set_MetafileRasterizationDpi](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_metafilerasterizationdpi/) stelt de ondergrens voor de resolutie in bij het rasteren van metafiles tijdens SVG‑export. Gebruik het om detail en bestandsgrootte in balans te brengen wanneer een EMF‑ of WMF‑afbeelding wordt gerasterd. Het definieert geen globale DPI voor de SVG en dwingt niet elk object op de dia om een rasterafbeelding te worden.
 
-Download [metafile-rasterization.pptx](metafile-rasterization.pptx), dat een EMF-afbeelding bevat met dicht opeengepakte diagonale lijnen. Het volgende voorbeeld exporteert de eerste dia op drie rasterisatie-resoluties via [ISlide::WriteAsSvg](https://reference.aspose.com/slides/cpp/aspose.slides/islide/writeassvg/). Alle andere exportinstellingen blijven gelijk zodat de resultaten vergeleken kunnen worden.
+Download [metafile-rasterization.pptx](metafile-rasterization.pptx), die een EMF‑afbeelding bevat met nauw op elkaar geplaatste diagonale lijnen. Het volgende voorbeeld exporteert de eerste dia op drie rasterisatie‑resoluties via [ISlide::WriteAsSvg](https://reference.aspose.com/slides/cpp/aspose.slides/islide/writeassvg/). Alle andere exportinstellingen blijven identiek zodat de resultaten kunnen worden vergeleken.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -225,25 +293,25 @@ for (auto dpi : resolutions)
 presentation->Dispose();
 ```
 
-In de uitvoer is de EMF omgezet naar één ingesloten PNG in elk SVG. De onderstaande metingen gelden voor de meegeleverde presentatie; ze zijn geen algemene formule voor het omrekenen van DPI naar pixelafmetingen.
+In de output is de EMF één ingesloten PNG geworden in elk SVG. De volgende metingen gelden voor de meegeleverde presentatie; ze vormen geen algemene formule voor het omrekenen van DPI naar pixelafmetingen.
 
-| Metafile-rasterisatie DPI | Ingesloten PNG-afmetingen | SVG-bestandsgrootte (bytes) |
+| Metafile rasterisatie DPI | Ingesloten PNG‑afmetingen | SVG‑bestandsgrootte (bytes) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-De onderstaande vergelijking toont hetzelfde gebied van de ingesloten rasterafbeelding op dezelfde vergrote weergavegrootte. De diagonale lijnen vertonen zichtbare pixelvorming bij 72 DPI en gladdere randen bij hogere resoluties, terwijl het SVG-bestand groeit. Het verhogen van de waarde verbetert niet per se elk detail of verandert elke geëxporteerde afbeelding.
+De vergelijking hieronder toont hetzelfde gebied van de ingesloten raster op dezelfde vergrote weergavegrootte. De diagonale lijnen vertonen duidelijk pixelatie bij 72 DPI en soepelere randen bij hogere resoluties, terwijl het SVG‑bestand groeit. Het verhogen van de waarde verbetert niet per definitie elk detail of verandert elke geëxporteerde afbeelding.
 
-![Uitvergrote diagonale-lijndetail bij 72, 150 en 300 DPI](metafile-rasterization-comparison.png)
+![Vergrote diagonale‑lijndetail bij 72, 150 en 300 DPI](metafile-rasterization-comparison.png)
 
-[SVGOptions::set_PicturesCompression](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_picturescompression/) regelt de vermindering van beeldresolutie en kan het effect van het wijzigen van de metafile-rasterisatie-resolutie maskeren. [SVGOptions::set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_jpegquality/) regelt de JPEG-codeerkwaliteit, niet de metafile-rasterisatie-resolutie.
+[SVGOptions::set_PicturesCompression](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_picturescompression/) regelt de vermindering van afbeeldingsresolutie en kan het effect van het wijzigen van de metafile‑rasterisatie‑DPI maskeren. [SVGOptions::set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_jpegquality/) regelt de JPEG‑coderingkwaliteit, niet de metafile‑rasterisatie‑DPI.
 
-## **Wijs stabiele ID's toe aan vormen en tekst**
+## **Ken stabiele ID’s toe aan vormen en tekst**
 
-Gebruik [ISvgShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeformattingcontroller/) om [ISvgShape::set_Id](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/set_id/) voor elke SVG-vorm in te stellen. Om ook [ISvgTSpan::set_Id](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgtspan/set_id/) waarden op tekst-`tspan`-elementen te zetten, implementeer [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeandtextformattingcontroller/). Wijs een van beide controllers toe met [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/).
+Gebruik [ISvgShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeformattingcontroller/) om [ISvgShape::set_Id](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/set_id/) voor elke SVG‑vorm in te stellen. Om [ISvgTSpan::set_Id](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgtspan/set_id/) waarden ook op tekst‑`tspan`‑elementen te zetten, implementeer [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeandtextformattingcontroller/). Ken één van beide controllers toe met [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/).
 
-De onderstaande controller gebruikt [IShape::get_OfficeInteropShapeId](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_officeinteropshapeid/), die stabiel is gedurende de levensduur van de vorm, en een herhaalbare teller voor de bijbehorende tekst-spans. Hierdoor zijn de gegenereerde ID's geschikt voor post-processing van een onveranderde presentatie.
+De onderstaande controller gebruikt [IShape::get_OfficeInteropShapeId](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_officeinteropshapeid/), dat gedurende de levensduur van de vorm stabiel is, en een herhaalbare teller voor de tekst‑spans. Dit maakt de gegenereerde ID’s geschikt voor nabewerking van een onveranderde presentatie.
 
 ```cpp
 #include <DOM/IPortion.h>
@@ -298,9 +366,9 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
-## **Voeg SVG-eventhandlers toe**
+## **Voeg SVG‑eventhandlers toe**
 
-In een [ISvgShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeformattingcontroller/) roept u [ISvgShape::SetEventHandler](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/seteventhandler/) aan met een [SvgEvent](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgevent/) waarde om een JavaScript-eventhandler toe te voegen aan een geëxporteerde vorm. Wijs de controller toe met [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/) en definieer de JavaScript-functie in de pagina of het SVG-document dat het resultaat host.
+In een [ISvgShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeformattingcontroller/) roep je [ISvgShape::SetEventHandler](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/seteventhandler/) aan met een [SvgEvent](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgevent/)‑waarde om een JavaScript‑eventhandler toe te voegen aan een geëxporteerde vorm. Ken de controller toe met [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/) en definieer de JavaScript‑functie in de pagina of het SVG‑document dat het resultaat host.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -342,18 +410,18 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
-De host-pagina kan de JavaScript-functie definiëren die door de handler wordt aangeroepen. Het toewijzen van ID's en event-handlers maakt diavoorbeelders, toegankelijkheidsverbeteringen en andere interactieve SVG-workflows mogelijk.
+De host‑pagina kan de JavaScript‑functie definiëren die door de handler wordt aangeroepen. Het toekennen van ID’s en eventhandlers maakt slide‑viewers, toegankelijkheidsverbeteringen en andere interactieve SVG‑workflows mogelijk.
 
-## **Veelgestelde vragen**
+## **FAQ**
 
 **Wanneer moet ik [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) gebruiken in plaats van [SvgExternalFontsHandling::Vectorize](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgexternalfontshandling/)?**
 
-Gebruik [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) wanneer alle tekst onafhankelijk moet zijn van lettertypen. Gebruik [SvgExternalFontsHandling::Vectorize](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgexternalfontshandling/) wanneer alleen tekst die externe lettertypen gebruikt moet worden omgezet naar graphics.
+Gebruik [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) wanneer alle tekst onafhankelijk van lettertypen moet zijn. Gebruik [SvgExternalFontsHandling::Vectorize](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgexternalfontshandling/) wanneer alleen tekst die externe lettertypen gebruikt moet worden omgezet naar graphics.
 
 **Wat is de beste manier om een SVG kleiner te maken?**
 
-Begin met het comprimeren van ingesloten afbeeldingen, het verwijderen van bijgesneden afbeeldingsgebieden, en het kiezen van gelinkte lettertypebestanden wanneer de doelomgeving ze kan leveren. Test het resultaat omdat lagere beeldresolutie, lagere JPEG-kwaliteit en gevectoriseerde tekst elk verschillende kwaliteit- en omvang-afwegingen hebben.
+Begin met het comprimeren van ingesloten afbeeldingen, het verwijderen van bijgesneden afbeeldingsgebieden, en het kiezen van gelinkte lettertypebestanden wanneer de doelomgeving ze kan leveren. Test het resultaat omdat lagere afbeeldingsresolutie, lagere JPEG‑kwaliteit en gevectoriseerde tekst elk een andere kwaliteit‑en‑grootte‑afweging hebben.
 
-**Kan ik geëxporteerde SVG-elementen na export aanpassen?**
+**Kan ik geëxporteerde SVG‑elementen na de export aanpassen?**
 
-Ja. Wijs ID's toe via een formatteringscontroller, en selecteer vervolgens de overeenkomstige SVG-elementen in uw post-processing-tool of browserscript.
+Ja. Ken ID’s toe via een formatteringscontroller, selecteer vervolgens de overeenkomende SVG‑elementen in je nabewerkings‑tool of browserscript.

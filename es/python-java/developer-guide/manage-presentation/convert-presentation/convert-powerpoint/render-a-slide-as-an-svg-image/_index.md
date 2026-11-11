@@ -19,15 +19,15 @@ keywords:
 - Aspose.Slides
 description: "Exporta diapositivas de PowerPoint como imágenes SVG en Python mediante Java y controla fuentes, texto, imágenes, IDs y eventos con Aspose.Slides."
 ---
-## **Descripción general**
+## **Visión general**
 
-SVG es un formato de imagen XML escalable que funciona bien para la publicación web, visores de diapositivas, flujos de trabajo de accesibilidad y post‑procesado automatizado. Aspose.Slides exporta cada diapositiva a un archivo SVG independiente y le permite controlar cómo se escribe el texto, las fuentes, las imágenes y los elementos SVG.
+SVG es un formato de imagen XML escalable que funciona bien para publicación web, visores de diapositivas, flujos de trabajo de accesibilidad y post‑procesado automático. Aspose.Slides exporta cada diapositiva a un archivo SVG separado y permite controlar cómo se escriben el texto, las fuentes, las imágenes y los elementos SVG.
 
-Utilice [SVGOptions](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/) cuando el SVG exportado debe ser compacto, predecible en distintos navegadores o estar listo para uso interactivo.
+Use [SVGOptions](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/) cuando el SVG exportado deba ser compacto, predecible en distintos navegadores o listo para uso interactivo.
 
 ## **Exportar una diapositiva como SVG**
 
-Cree una [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), seleccione una diapositiva y escríbala en un flujo con [Slide.writeAsSvg](https://reference.aspose.com/slides/python-java/aspose.slides/slide/). Los ejemplos requieren un archivo `presentation.pptx` existente. Cada ejemplo inicia la JVM si es necesario y cierra sus flujos de salida. El ejemplo siguiente exporta cada diapositiva de una presentación como un archivo SVG independiente.
+Cree una [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), seleccione una diapositiva y escríbala a un flujo con [Slide.writeAsSvg](https://reference.aspose.com/slides/python-java/aspose.slides/slide/). Los ejemplos requieren un archivo `presentation.pptx` existente. Cada ejemplo inicia la JVM si es necesario y cierra sus flujos de salida. El siguiente ejemplo exporta cada diapositiva de una presentación como un archivo SVG separado.
 
 ```python
 import jpype
@@ -52,11 +52,11 @@ finally:
     presentation.dispose()
 ```
 
-El nombre de archivo utiliza [Slide.getSlideNumber](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideNumber) en lugar del índice del bucle. También puede exportar una forma individual con [Shape.writeAsSvg](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) cuando un visor de diapositivas o una página web necesita solo esa forma.
+El nombre de archivo usa [Slide.getSlideNumber](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideNumber) en lugar del índice del bucle. También puede exportar una forma individual con [Shape.writeAsSvg](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) cuando un visor de diapositivas o una página web necesite solo esa forma.
 
 ## **Configurar la salida SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/) controla la representación SVG. Para los marcos de texto, [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setUseFrameSize) incluye el marco de texto en el área de representación, y [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setUseFrameRotation) determina si se aplica la rotación del marco. Establezca [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setDisableFontLigatures) en `True` cuando el texto debe renderizarse sin ligaduras.
+[SVGOptions](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/) controla el renderizado SVG. Para marcos de texto, [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setUseFrameSize) incluye el marco de texto en el área de renderizado, y [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setUseFrameRotation) determina si se aplica la rotación del marco. Establezca [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setDisableFontLigatures) a `True` cuando el texto deba renderizarse sin ligaduras.
 
 ```python
 import jpype
@@ -85,13 +85,63 @@ finally:
     presentation.dispose()
 ```
 
-## **Controlar el texto y las fuentes**
+## **Controlar el recorte al final de la línea en puntas de flecha**
+
+SVG 1.1 no dispone de una configuración de inserción de marcador para especificar dónde debe detenerse una línea bajo una punta de flecha. De forma predeterminada, Aspose.Slides acorta la línea exportada para que su trazo no sobresalga del marcador. Llame a [SVGOptions.setDisableLineEndCropping](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setDisableLineEndCropping) con `True` para dibujar el trazo hasta el punto final original de la línea. Esta configuración afecta sólo a la salida SVG. La línea mantiene su posición y longitud en la diapositiva.
+
+El ejemplo dibuja puntas de flecha triangular y de diamante en líneas de 2 pt y 10 pt de ancho. Exporta la misma diapositiva dos veces, cambiando sólo la opción de recorte.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, LineArrowheadStyle, Presentation, ShapeType, SVGOptions
+from java.awt import Color
+from java.io import FileOutputStream
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    y = 40
+
+    for style in [LineArrowheadStyle.Triangle, LineArrowheadStyle.Diamond]:
+        for width in [2, 10]:
+            line = slide.getShapes().addAutoShape(ShapeType.Line, 40, y, 200, 0)
+            line_format = line.getLineFormat()
+            line_format.getFillFormat().setFillType(FillType.Solid)
+            line_format.getFillFormat().getSolidFillColor().setColor(Color(0, 0, 139))
+            line_format.setWidth(width)
+            line_format.setEndArrowheadStyle(style)
+            y += 50
+
+    svg_options = SVGOptions()
+    for disable_cropping, output_file_name in [(False, "cropped.svg"), (True, "uncropped.svg")]:
+        svg_options.setDisableLineEndCropping(disable_cropping)
+        svg_stream = FileOutputStream(output_file_name)
+        try:
+            slide.writeAsSvg(svg_stream, svg_options)
+        finally:
+            svg_stream.close()
+finally:
+    presentation.dispose()
+```
+
+La comparación muestra la punta triangular en la línea de 10 pt. Con el recorte habilitado, la punta es aguda. Con el recorte deshabilitado, el trazo sobresale por los lados inclinados del marcador y deja un extremo plano.
+
+![Triángulo de 10 pt ampliado con una punta aguda cuando el recorte está habilitado y un extremo plano cuando está deshabilitado](line-end-cropping.png)
+
+En las demás líneas del ejemplo, el trazo sobresaliente es menos visible en el triángulo de 2 pt. El diamante relleno cubre el extremo del trazo en ambos anchos.
+
+## **Controlar texto y fuentes**
 
 Al exportar diapositivas a SVG, puede controlar si el texto permanece como texto o se convierte en gráficos vectoriales, y cómo se incluyen o referencian las fuentes externas. Las siguientes opciones le ayudan a equilibrar la consistencia visual, la selección de texto y las dependencias de fuentes en el SVG exportado.
 
 ### **Vectorizar todo el texto**
 
-Establezca [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setVectorizeText) en `True` para escribir todo el texto de la diapositiva como gráficos vectoriales. Esto elimina las dependencias de fuentes y hace que el resultado visual sea más consistente en distintos navegadores, pero el texto ya no será seleccionable ni buscable como texto SVG.
+Establezca [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setVectorizeText) a `True` para escribir todo el texto de la diapositiva como gráficos vectoriales. Esto elimina las dependencias de fuentes y hace que el resultado visual sea más uniforme entre navegadores, pero el texto ya no será seleccionable ni buscable como texto SVG.
 
 ```python
 import jpype
@@ -118,9 +168,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Elegir cómo se gestionan las fuentes externas**
+### **Elegir cómo se manejan las fuentes externas**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setExternalFontsHandling) utiliza un valor [SvgExternalFontsHandling](https://reference.aspose.com/slides/python-java/aspose.slides/svgexternalfontshandling/) para las fuentes que se cargan externamente. Elija `AddLinksToFontFiles` para referenciar archivos de fuentes separados, `Embed` para incluir los datos de la fuente en el SVG, o `Vectorize` para representar solo el texto que usa fuentes externas como gráficos. Verifique la licencia de la fuente antes de incrustarla.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setExternalFontsHandling) utiliza un valor [SvgExternalFontsHandling](https://reference.aspose.com/slides/python-java/aspose.slides/svgexternalfontshandling/) para las fuentes que se cargan externamente. Elija `AddLinksToFontFiles` para referenciar archivos de fuentes separados, `Embed` para incluir los datos de la fuente en el SVG, o `Vectorize` para renderizar solo el texto que usa fuentes externas como gráficos. Verifique la licencia de la fuente antes de incrustarla.
 
 ```python
 import jpype
@@ -152,9 +202,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Reducir el tamaño de las imágenes incrustadas**
+## **Reducir el tamaño de imágenes incrustadas**
 
-Utilice [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setPicturesCompression) para reducir la resolución de las imágenes incrustadas, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas) para omitir las áreas recortadas de la fuente, y [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setJpegQuality) para controlar la calidad de codificación JPEG. Estas configuraciones reducen el tamaño del archivo a costa de la fidelidad de la imagen o de los datos de imagen retenidos.
+Utilice [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setPicturesCompression) para reducir la resolución de las imágenes incrustadas, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas) para omitir áreas recortadas de la fuente y [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setJpegQuality) para controlar la calidad de codificación JPEG. Estas configuraciones reducen el tamaño del archivo a costa de la fidelidad de la imagen o de la cantidad de datos de imagen retenidos.
 
 ```python
 import jpype
@@ -183,11 +233,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Controlar la resolución de rasterización de metaficheros**
+## **Controlar la resolución de rasterización de metarchivos**
 
-[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setMetafileRasterizationDpi) establece el límite inferior de resolución para rasterizar metaficheros durante la exportación SVG. Úselo para equilibrar el detalle y el tamaño del archivo cuando se rasteriza una imagen EMF o WMF. No define un DPI global para el SVG ni obliga a que cada objeto de la diapositiva se convierta en una imagen raster.
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setMetafileRasterizationDpi) establece el límite inferior de resolución para rasterizar metarchivos durante la exportación SVG. Úselo para equilibrar detalle y tamaño del archivo cuando una imagen EMF o WMF se rasteriza. No define un DPI global para el SVG ni obliga a que todos los objetos de la diapositiva se conviertan en imágenes rasterizadas.
 
-Descargue [metafile-rasterization.pptx](metafile-rasterization.pptx), que contiene una imagen EMF con líneas diagonales muy próximas. El ejemplo siguiente exporta su primera diapositiva a tres resoluciones de rasterización mediante [Slide.writeAsSvg](https://reference.aspose.com/slides/python-java/aspose.slides/slide/). Todas las demás configuraciones de exportación permanecen idénticas para que los resultados puedan compararse.
+Descargue [metafile-rasterization.pptx](metafile-rasterization.pptx), que contiene una imagen EMF con líneas diagonales muy próximas. El siguiente ejemplo exporta su primera diapositiva a tres resoluciones de rasterización mediante [Slide.writeAsSvg](https://reference.aspose.com/slides/python-java/aspose.slides/slide/). Todas las demás configuraciones de exportación permanecen idénticas para que los resultados puedan compararse.
 
 ```python
 import jpype
@@ -215,28 +265,27 @@ try:
             svg_stream.close()
 finally:
     presentation.dispose()
-
 ```
 
-En la salida, el EMF se convirtió en un PNG incrustado en cada SVG. Las siguientes mediciones corresponden a la presentación suministrada; no son una fórmula general para convertir DPI a dimensiones en píxeles.
+En la salida, el EMF se convirtió en un PNG incrustado en cada SVG. Las siguientes mediciones corresponden a la presentación suministrada; no representan una fórmula general para convertir DPI a dimensiones en píxeles.
 
-| DPI de rasterización del metafichero | Dimensiones del PNG incrustado | Tamaño del archivo SVG (bytes) |
+| Resolución de rasterización de metarchivo DPI | Dimensiones del PNG incrustado | Tamaño del archivo SVG (bytes) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-La comparación a continuación muestra la misma zona del raster incrustado al mismo tamaño de pantalla ampliado. Las líneas diagonales presentan pixelación visible a 72 DPI y bordes más suaves a resoluciones superiores, mientras el archivo SVG aumenta. Incrementar el valor no mejora necesariamente cada detalle ni cambia cada imagen exportada.
+La comparación a continuación muestra la misma zona del rasterizado incrustado al mismo tamaño de visualización ampliado. Las líneas diagonales presentan pixelación visible a 72 DPI y bordes más suaves a resoluciones mayores, mientras que el archivo SVG crece. Incrementar el valor no mejora necesariamente cada detalle ni cambia cada imagen exportada.
 
-![Detalle ampliado de líneas diagonales a 72, 150 y 300 DPI](metafile-rasterization-comparison.png)
+![Detalle ampliado de línea diagonal a 72, 150 y 300 DPI](metafile-rasterization-comparison.png)
 
-[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setPicturesCompression) controla la reducción de resolución de la imagen y puede ocultar el efecto de cambiar la resolución de rasterización del metafichero. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setJpegQuality) controla la calidad de codificación JPEG, no la resolución de rasterización del metafichero.
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setPicturesCompression) controla la reducción de resolución de imágenes y puede enmascarar el efecto de cambiar la resolución de rasterización de metarchivos. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setJpegQuality) controla la calidad de codificación JPEG, no la resolución de rasterización de metarchivos.
 
 ## **Asignar IDs estables a formas y texto**
 
-Utilice un controlador de formato Python registrado a través de `jpype.JProxy` para asignar valores [SvgShape.setId](https://reference.aspose.com/slides/python-java/aspose.slides/svgshape/#setId) a las formas y valores [SvgTSpan.setId](https://reference.aspose.com/slides/python-java/aspose.slides/svgtspan/#setId) a los elementos de texto `tspan`. Asigne el proxy con [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setShapeFormattingController).
+Utilice un controlador de formato Python registrado mediante `jpype.JProxy` para asignar valores [SvgShape.setId](https://reference.aspose.com/slides/python-java/aspose.slides/svgshape/#setId) a las formas y valores [SvgTSpan.setId](https://reference.aspose.com/slides/python-java/aspose.slides/svgtspan/#setId) a los elementos de texto `tspan`. Asigne el proxy con [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setShapeFormattingController).
 
-El controlador siguiente utiliza [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getOfficeInteropShapeId), que es estable durante la vida útil de la forma, y un contador repetible para sus intervalos de texto. Esto hace que los IDs generados sean adecuados para el post‑processado de una presentación sin cambios.
+El siguiente controlador usa [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getOfficeInteropShapeId), que es estable mientras exista la forma, y un contador repetible para sus fragmentos de texto. Esto hace que los IDs generados sean adecuados para el post‑procesado de una presentación sin cambios.
 
 ```python
 import jpype
@@ -282,7 +331,7 @@ finally:
 
 ## **Agregar controladores de eventos SVG**
 
-En un controlador de formato Python, llame a [SvgShape.setEventHandler](https://reference.aspose.com/slides/python-java/aspose.slides/svgshape/#setEventHandler) con un valor [SvgEvent](https://reference.aspose.com/slides/python-java/aspose.slides/svgevent/) para añadir un controlador de eventos JavaScript a una forma exportada. Registre el controlador a través de `jpype.JProxy` y asígnelo con [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setShapeFormattingController). Defina la función JavaScript en la página o documento SVG que aloje el resultado.
+En un controlador de formato Python, llame a [SvgShape.setEventHandler](https://reference.aspose.com/slides/python-java/aspose.slides/svgshape/#setEventHandler) con un valor [SvgEvent](https://reference.aspose.com/slides/python-java/aspose.slides/svgevent/) para añadir un controlador de eventos JavaScript a una forma exportada. Registre el controlador mediante `jpype.JProxy` y asígnele [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setShapeFormattingController). Defina la función JavaScript en la página o documento SVG que aloje el resultado.
 
 ```python
 import jpype
@@ -318,18 +367,18 @@ finally:
     presentation.dispose()
 ```
 
-La página anfitriona puede definir la función JavaScript referenciada por el controlador. Asignar IDs y controladores de eventos habilita visores de diapositivas, mejoras de accesibilidad y otros flujos de trabajo SVG interactivos.
+La página anfitriona puede definir la función JavaScript referenciada por el controlador. Asignar IDs y controladores de eventos permite visores de diapositivas, mejoras de accesibilidad y otros flujos de trabajo SVG interactivos.
 
 ## **Preguntas frecuentes**
 
 **¿Cuándo debo usar [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setVectorizeText) en lugar de [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/python-java/aspose.slides/svgexternalfontshandling/#Vectorize)?**
 
-Utilice [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setVectorizeText) cuando todo el texto debe ser independiente de las fuentes. Utilice [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/python-java/aspose.slides/svgexternalfontshandling/#Vectorize) cuando solo el texto que usa fuentes externas debe convertirse en gráficos.
+Use [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setVectorizeText) cuando todo el texto deba ser independiente de las fuentes. Use [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/python-java/aspose.slides/svgexternalfontshandling/#Vectorize) cuando sólo el texto que usa fuentes externas deba convertirse en gráficos.
 
 **¿Cuál es la mejor manera de reducir el tamaño de un SVG?**
 
-Comience comprimiendo las imágenes incrustadas, eliminando las áreas recortadas de las imágenes y eligiendo archivos de fuentes vinculados cuando el entorno de destino pueda servirlos. Pruebe el resultado porque la menor resolución de la imagen, la menor calidad JPEG y el texto vectorizado tienen diferentes compromisos de calidad y tamaño.
+Comience comprimiendo las imágenes incrustadas, eliminando áreas recortadas y eligiendo archivos de fuentes enlazados cuando el entorno de destino pueda servirlos. Pruebe el resultado porque la reducción de resolución de imagen, la menor calidad JPEG y el texto vectorizado tienen diferentes compromisos de calidad y tamaño.
 
 **¿Puedo modificar los elementos SVG exportados después de la exportación?**
 
-Sí. Asigne IDs mediante un controlador de formato, luego seleccione los elementos SVG correspondientes en su herramienta de post‑processado o script del navegador.
+Sí. Asigne IDs mediante un controlador de formato y luego seleccione los elementos SVG correspondientes en su herramienta de post‑procesado o script de navegador.

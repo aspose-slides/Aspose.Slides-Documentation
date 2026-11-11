@@ -1,5 +1,5 @@
 ---
-title: Render Slide Presentasi sebagai Gambar SVG di C++
+title: Render Slide Presentasi sebagai Gambar SVG dalam C++
 linktitle: Slide ke SVG
 type: docs
 weight: 50
@@ -16,17 +16,17 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Ekspor slide PowerPoint sebagai gambar SVG di C++ dan kontrol font, teks, gambar, ID, serta peristiwa dengan Aspose.Slides."
+description: "Ekspor slide PowerPoint sebagai gambar SVG dalam C++ dan kontrol font, teks, gambar, ID, serta acara dengan Aspose.Slides."
 ---
 ## **Ikhtisar**
 
-SVG adalah format gambar berbasis XML yang dapat diskalakan dan bekerja baik untuk publikasi web, penampil slide, alur kerja aksesibilitas, serta pemrosesan pasca otomatis. Aspose.Slides for C++ mengekspor setiap slide ke file SVG terpisah dan memungkinkan Anda mengontrol bagaimana teks, font, gambar, dan elemen SVG ditulis.
+SVG adalah format gambar berbasis XML yang dapat diskalakan yang bekerja dengan baik untuk penerbitan web, penampil slide, alur kerja aksesibilitas, dan pemrosesan otomatis. Aspose.Slides untuk C++ mengekspor setiap slide ke file SVG terpisah dan memungkinkan Anda mengontrol bagaimana teks, font, gambar, dan elemen SVG ditulis.
 
-Gunakan [SVGOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/) ketika SVG yang diekspor harus kompak, dapat diprediksi di berbagai peramban, atau siap untuk penggunaan interaktif.
+Gunakan [SVGOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/) ketika SVG yang diekspor harus kompak, dapat diprediksi di semua peramban, atau siap untuk penggunaan interaktif.
 
-## **Mengekspor Slide sebagai SVG**
+## **Ekspor Slide sebagai SVG**
 
-Buat [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), pilih slide, dan tulis ke aliran. Contoh berikut mengekspor setiap slide dalam presentasi sebagai file SVG terpisah.
+Buat sebuah [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), pilih sebuah slide, dan tulis ke stream. Contoh berikut mengekspor setiap slide dalam presentasi sebagai file SVG terpisah.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -54,9 +54,9 @@ for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
 presentation->Dispose();
 ```
 
-Nama file menggunakan [ISlide::get_SlideNumber](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_slidenumber/) alih‑alih indeks perulangan. Anda juga dapat mengekspor bentuk individual dengan [IShape::WriteAsSvg](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/writeassvg/) bila penampil slide atau halaman web hanya membutuhkan bentuk tersebut.
+Nama file menggunakan [ISlide::get_SlideNumber](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_slidenumber/) alih‑alih indeks perulangan. Anda juga dapat mengekspor bentuk individual dengan [IShape::WriteAsSvg](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/writeassvg/) ketika penampil slide atau halaman web hanya memerlukan bentuk tersebut.
 
-## **Mengonfigurasi Output SVG**
+## **Konfigurasi Output SVG**
 
 [SVGOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/) mengontrol rendering SVG. Untuk bingkai teks, [SVGOptions::set_UseFrameSize](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_useframesize/) menyertakan bingkai teks dalam area rendering, dan [SVGOptions::set_UseFrameRotation](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_useframerotation/) menentukan apakah rotasi bingkai diterapkan. Atur [SVGOptions::set_DisableFontLigatures](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_disablefontligatures/) ke `true` ketika teks harus dirender tanpa ligatur.
 
@@ -85,13 +85,81 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
-## **Mengontrol Teks dan Font**
+## **Kontrol Pemangkasan Akhir Garis pada Kepala Panah**
 
-Saat mengekspor slide ke SVG, Anda dapat mengontrol apakah teks tetap sebagai teks atau diubah menjadi grafis vektor, serta bagaimana font eksternal disertakan atau dirujuk. Opsi‑opsi berikut membantu menyeimbangkan konsistensi visual, kemampuan pemilihan teks, dan ketergantungan font dalam SVG yang diekspor.
+SVG 1.1 tidak memiliki pengaturan inset penanda untuk menentukan di mana sebuah garis harus berhenti di bawah kepala panah. Secara default, Aspose.Slides memendekkan garis yang diekspor sehingga sapuan tidak menonjol melalui penanda. Atur [SVGOptions::set_DisableLineEndCropping](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_disablelineendcropping/) ke `true` untuk menggambar sapuan hingga ke titik akhir asli garis. Pengaturan ini hanya memengaruhi output SVG. Garis tetap pada posisi dan panjangnya di slide.
 
-### **Vektorisasi Semua Teks**
+Contoh tersebut menggambar kepala panah segitiga dan berlian pada garis dengan lebar 2 dan 10 poin. Ia mengekspor slide yang sama dua kali, hanya mengubah opsi pemangkasan.
 
-Atur [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) ke `true` untuk menulis semua teks slide sebagai grafis vektor. Ini menghilangkan ketergantungan font dan membuat hasil visual lebih konsisten di berbagai peramban, tetapi teks tidak lagi dapat dipilih atau dicari sebagai teks SVG.
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/FillType.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/ShapeType.h>
+#include <Export/SVGOptions.h>
+#include <drawing/color.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto y = 40;
+const LineArrowheadStyle styles[] = { LineArrowheadStyle::Triangle, LineArrowheadStyle::Diamond };
+const int widths[] = { 2, 10 };
+
+for (auto style : styles)
+{
+    for (auto width : widths)
+    {
+        auto line = slide->get_Shapes()->AddAutoShape(ShapeType::Line, 40, y, 200, 0);
+        auto format = line->get_LineFormat();
+        format->get_FillFormat()->set_FillType(FillType::Solid);
+        format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkBlue());
+        format->set_Width(width);
+        format->set_EndArrowheadStyle(style);
+        y += 50;
+    }
+}
+
+auto options = MakeObject<SVGOptions>();
+options->set_DisableLineEndCropping(false);
+auto cropped = File::Create(u"cropped.svg");
+slide->WriteAsSvg(cropped, options);
+cropped->Dispose();
+
+options->set_DisableLineEndCropping(true);
+auto uncropped = File::Create(u"uncropped.svg");
+slide->WriteAsSvg(uncropped, options);
+uncropped->Dispose();
+
+presentation->Dispose();
+```
+
+Perbandingan tersebut menunjukkan kepala panah segitiga pada garis 10 poin. Dengan pemangkasan diaktifkan, ujungnya tajam. Dengan pemangkasan dinonaktifkan, sapuan menonjol melalui sisi miring penanda dan meninggalkan ujung datar.
+
+![Segitiga 10 poin yang diperbesar dengan ujung tajam ketika pemangkasan diaktifkan dan ujung datar ketika pemangkasan dinonaktifkan](line-end-cropping.png)
+
+Pada garis lain dari contoh, sapuan yang menonjol kurang terlihat pada segitiga 2 poin. Berlian berisi menutupi ujung sapuan pada kedua lebar.
+
+## **Kontrol Teks dan Font**
+
+Saat mengekspor slide ke SVG, Anda dapat mengontrol apakah teks tetap sebagai teks atau diubah menjadi grafik vektor, serta bagaimana font eksternal disertakan atau direferensikan. Opsi berikut membantu Anda menyeimbangkan konsistensi visual, pemilihan teks, dan ketergantungan font dalam SVG yang diekspor.
+
+### **Vektorkan Semua Teks**
+
+Atur [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) ke `true` untuk menulis semua teks slide sebagai grafik vektor. Ini menghilangkan ketergantungan font dan membuat hasil visual lebih konsisten di semua peramban, tetapi teks tidak lagi dapat dipilih atau dicari sebagai teks SVG.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -116,9 +184,9 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
-### **Pilih Cara Menangani Font Eksternal**
+### **Pilih Cara Penanganan Font Eksternal**
 
-[SVGOptions::set_ExternalFontsHandling](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_externalfontshandling/) menggunakan nilai [SvgExternalFontsHandling](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgexternalfontshandling/) untuk font yang dimuat secara eksternal. Pilih `AddLinksToFontFiles` untuk merujuk berkas font terpisah, `Embed` untuk menyertakan data font dalam SVG, atau `Vectorize` untuk merender hanya teks yang menggunakan font eksternal sebagai grafis. Verifikasi lisensi font sebelum menyematkan font.
+[SVGOptions::set_ExternalFontsHandling](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_externalfontshandling/) menggunakan nilai [SvgExternalFontsHandling](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgexternalfontshandling/) untuk font yang dimuat secara eksternal. Pilih `AddLinksToFontFiles` untuk mereferensikan file font terpisah, `Embed` untuk menyertakan data font dalam SVG, atau `Vectorize` untuk merender hanya teks yang menggunakan font eksternal sebagai grafik. Verifikasi lisensi font sebelum menyematkan font.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -156,9 +224,9 @@ vectorizedExternalFontsStream->Dispose();
 presentation->Dispose();
 ```
 
-## **Mengurangi Ukuran Gambar Tertanam**
+## **Kurangi Ukuran Gambar Tersemat**
 
-Gunakan [SVGOptions::set_PicturesCompression](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_picturescompression/) untuk mengurangi resolusi gambar yang tertanam, [SVGOptions::set_DeletePicturesCroppedAreas](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_deletepicturescroppedareas/) untuk menghilangkan area gambar yang dipotong, dan [SVGOptions::set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_jpegquality/) untuk mengontrol kualitas enkoding JPEG. Pengaturan ini mengurangi ukuran berkas dengan mengorbankan kesetiaan gambar atau data gambar yang dipertahankan.
+Gunakan [SVGOptions::set_PicturesCompression](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_picturescompression/) untuk mengurangi resolusi gambar yang tersemat, [SVGOptions::set_DeletePicturesCroppedAreas](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_deletepicturescroppedareas/) untuk menghilangkan area sumber yang dipotong, dan [SVGOptions::set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_jpegquality/) untuk mengontrol kualitas enkoding JPEG. Pengaturan ini mengurangi ukuran file dengan mengorbankan fidelitas gambar atau data gambar yang dipertahankan.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -186,11 +254,11 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
-## **Mengontrol Resolusi Rasterisasi Metafile**
+## **Kontrol Resolusi Rasterisasi Metafile**
 
-[SVGOptions::set_MetafileRasterizationDpi](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_metafilerasterizationdpi/) menetapkan batas resolusi terendah untuk merasterisasi metafile selama ekspor SVG. Gunakan untuk menyeimbangkan detail dan ukuran berkas ketika gambar EMF atau WMF dirasterisasi. Ini tidak mendefinisikan DPI global untuk SVG atau memaksa setiap objek pada slide menjadi gambar raster.
+[SVGOptions::set_MetafileRasterizationDpi](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_metafilerasterizationdpi/) menetapkan batas resolusi rendah untuk merasterisasi metafile selama ekspor SVG. Gunakan untuk menyeimbangkan detail dan ukuran file ketika gambar EMF atau WMF dirasterisasi. Ini tidak menentukan DPI global untuk SVG atau memaksa setiap objek pada slide menjadi gambar raster.
 
-Unduh [metafile-rasterization.pptx](metafile-rasterization.pptx), yang berisi gambar EMF dengan garis diagonal berjarak rapat. Contoh berikut mengekspor slide pertama dengan tiga resolusi rasterisasi melalui [ISlide::WriteAsSvg](https://reference.aspose.com/slides/cpp/aspose.slides/islide/writeassvg/). Semua pengaturan ekspor lainnya tetap identik sehingga hasil dapat dibandingkan.
+Unduh [metafile-rasterization.pptx](metafile-rasterization.pptx), yang berisi gambar EMF dengan garis diagonal rapat. Contoh berikut mengekspor slide pertamanya pada tiga resolusi rasterisasi melalui [ISlide::WriteAsSvg](https://reference.aspose.com/slides/cpp/aspose.slides/islide/writeassvg/). Semua pengaturan ekspor lainnya tetap sama sehingga hasil dapat dibandingkan.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -225,25 +293,25 @@ for (auto dpi : resolutions)
 presentation->Dispose();
 ```
 
-Dalam output, EMF menjadi satu PNG tersemat di setiap SVG. Pengukuran berikut untuk presentasi yang disediakan; bukan formula umum untuk mengubah DPI menjadi dimensi piksel.
+Dalam output, EMF menjadi satu PNG tersemat di setiap SVG. Pengukuran berikut untuk presentasi yang disediakan; bukan rumus umum untuk mengubah DPI menjadi dimensi piksel.
 
-| DPI rasterisasi Metafile | Dimensi PNG Tersemat | Ukuran file SVG (byte) |
+| DPI rasterisasi Metafile | Dimensi PNG Tersemat | Ukuran berkas SVG (byte) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-Perbandingan di bawah menunjukkan area raster tersemat yang sama pada ukuran tampilan yang diperbesar. Garis diagonal menunjukkan pikselasi yang terlihat pada 72 DPI dan tepi yang lebih halus pada resolusi lebih tinggi, sementara ukuran file SVG bertambah. Meningkatkan nilai tidak selalu memperbaiki setiap detail atau mengubah setiap gambar yang diekspor.
+Perbandingan di bawah ini menunjukkan area yang sama dari raster tersemat pada ukuran tampilan yang diperbesar sama. Garis diagonal menunjukkan pixelasi yang terlihat pada 72 DPI dan tepi yang lebih halus pada resolusi lebih tinggi, sementara berkas SVG menjadi lebih besar. Meningkatkan nilai tidak selalu memperbaiki setiap detail atau mengubah setiap gambar yang diekspor.
 
-![Enlarged diagonal-line detail at 72, 150, and 300 DPI](metafile-rasterization-comparison.png)
+![Detail garis diagonal yang diperbesar pada 72, 150, dan 300 DPI](metafile-rasterization-comparison.png)
 
-[SVGOptions::set_PicturesCompression](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_picturescompression/) mengontrol pengurangan resolusi gambar dan dapat menyamarkan efek perubahan resolusi rasterisasi metafile. [SVGOptions::set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_jpegquality/) mengontrol kualitas enkoding JPEG, bukan resolusi rasterisasi metafile.
+[SVGOptions::set_PicturesCompression](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_picturescompression/) mengontrol pengurangan resolusi gambar dan dapat menutupi efek perubahan resolusi rasterisasi metafile. [SVGOptions::set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_jpegquality/) mengontrol kualitas enkoding JPEG, bukan resolusi rasterisasi metafile.
 
-## **Menetapkan ID Stabil untuk Bentuk dan Teks**
+## **Tetapkan ID Stabil untuk Bentuk dan Teks**
 
-Gunakan [ISvgShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeformattingcontroller/) untuk menetapkan [ISvgShape::set_Id](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/set_id/) bagi setiap bentuk SVG. Untuk menetapkan nilai [ISvgTSpan::set_Id](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgtspan/set_id/) pada elemen `tspan` teks, implementasikan [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeandtextformattingcontroller/). Tetapkan salah satu controller dengan [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/).
+Gunakan [ISvgShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeformattingcontroller/) untuk mengatur [ISvgShape::set_Id](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/set_id/) bagi setiap bentuk SVG. Untuk mengatur nilai [ISvgTSpan::set_Id](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgtspan/set_id/) pada elemen `tspan` teks juga, terapkan [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeandtextformattingcontroller/). Tetapkan salah satu kontroler dengan [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/).
 
-Controller berikut menggunakan [IShape::get_OfficeInteropShapeId](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_officeinteropshapeid/), yang stabil selama masa hidup bentuk, serta penghitung berulang untuk span teksnya. Ini membuat ID yang dihasilkan cocok untuk pemrosesan lanjutan pada presentasi yang tidak berubah.
+Kontroler berikut menggunakan [IShape::get_OfficeInteropShapeId](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_officeinteropshapeid/), yang stabil selama masa hidup bentuk, dan penghitung yang dapat diulang untuk `tspan` teksnya. Ini membuat ID yang dihasilkan cocok untuk pemrosesan lanjutan pada presentasi yang tidak berubah.
 
 ```cpp
 #include <DOM/IPortion.h>
@@ -298,9 +366,9 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
-## **Menambahkan Penangan Peristiwa SVG**
+## **Tambahkan Penanganan Acara SVG**
 
-Dalam [ISvgShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeformattingcontroller/), panggil [ISvgShape::SetEventHandler](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/seteventhandler/) dengan nilai [SvgEvent](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgevent/) untuk menambahkan penangan peristiwa JavaScript ke bentuk yang diekspor. Tetapkan controller dengan [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/) dan definisikan fungsi JavaScript di halaman atau dokumen SVG yang menampung hasilnya.
+Dalam sebuah [ISvgShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeformattingcontroller/), panggil [ISvgShape::SetEventHandler](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/seteventhandler/) dengan nilai [SvgEvent](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgevent/) untuk menambahkan penangan acara JavaScript ke bentuk yang diekspor. Tetapkan kontroler dengan [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/) dan definisikan fungsi JavaScript di halaman atau dokumen SVG yang menampung hasilnya.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -342,18 +410,18 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
-Halaman host dapat mendefinisikan fungsi JavaScript yang dirujuk oleh penangan. Menetapkan ID dan penangan peristiwa memungkinkan penampil slide, peningkatan aksesibilitas, dan alur kerja SVG interaktif lainnya.
+Halaman host dapat mendefinisikan fungsi JavaScript yang direferensikan oleh penangan. Penetapan ID dan penangan acara memungkinkan penampil slide, peningkatan aksesibilitas, dan alur kerja SVG interaktif lainnya.
 
 ## **FAQ**
 
 **Kapan saya harus menggunakan [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) alih‑alih [SvgExternalFontsHandling::Vectorize](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgexternalfontshandling/)?**
 
-Gunakan [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) ketika semua teks harus independen dari font. Gunakan [SvgExternalFontsHandling::Vectorize](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgexternalfontshandling/) ketika hanya teks yang menggunakan font eksternal yang harus diubah menjadi grafis.
+Gunakan [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) ketika semua teks harus independen dari font. Gunakan [SvgExternalFontsHandling::Vectorize](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgexternalfontshandling/) ketika hanya teks yang menggunakan font eksternal yang harus diubah menjadi grafik.
 
 **Apa cara terbaik untuk membuat SVG lebih kecil?**
 
-Mulailah dengan mengompresi gambar yang tertanam, menghapus area gambar yang dipotong, dan memilih file font yang ditautkan ketika lingkungan target dapat menyediakannya. Uji hasilnya karena resolusi gambar yang lebih rendah, kualitas JPEG yang lebih rendah, dan teks yang tervektorisasi masing‑masing memiliki kompromi kualitas dan ukuran yang berbeda.
+Mulailah dengan mengompres gambar yang tersemat, menghapus area gambar yang dipotong, dan memilih file font yang ditautkan ketika lingkungan target dapat menyediakannya. Uji hasilnya karena resolusi gambar yang lebih rendah, kualitas JPEG yang lebih rendah, dan teks yang vektorkan masing‑masing memiliki kompromi kualitas dan ukuran yang berbeda.
 
-**Bisakah saya memodifikasi elemen SVG yang diekspor setelah ekspor?**
+**Apakah saya dapat memodifikasi elemen SVG yang diekspor setelah ekspor?**
 
-Ya. Tetapkan ID melalui controller pemformatan, lalu pilih elemen SVG yang cocok dalam alat pemrosesan lanjutan atau skrip peramban Anda.
+Ya. Tetapkan ID melalui kontroler format, kemudian pilih elemen SVG yang sesuai dalam alat pemrosesan lanjutan atau skrip peramban Anda.

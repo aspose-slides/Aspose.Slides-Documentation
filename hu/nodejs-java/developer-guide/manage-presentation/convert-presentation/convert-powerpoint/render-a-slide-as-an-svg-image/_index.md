@@ -1,33 +1,33 @@
 ---
-title: "Dia bemutatók SVG képeként történő renderelése JavaScriptben"
-linktitle: "Dia SVG-be"
+title: Prezentációs diák SVG képekként való renderelése JavaScriptben
+linktitle: Dia SVG-be
 type: docs
 weight: 50
 url: /hu/nodejs-java/render-a-slide-as-an-svg-image/
 keywords:
-- "PowerPoint SVG-re"
-- "bemutató SVG-re"
-- "dia SVG-re"
-- "PPT SVG-re"
-- "PPTX SVG-re"
-- "SVG exportálási beállítások"
-- "interaktív SVG"
-- "PowerPoint"
-- "bemutató"
-- "Node.js"
-- "JavaScript"
-- "Aspose.Slides"
-description: "Exportálja a PowerPoint diákat SVG képeként JavaScriptben, és irányítsa a betűkészleteket, szöveget, képeket, azonosítókat és eseményeket az Aspose.Slides segítségével."
+- PowerPoint SVG-be
+- prezentáció SVG-be
+- dia SVG-be
+- PPT SVG-be
+- PPTX SVG-be
+- SVG exportálási beállítások
+- interaktív SVG
+- PowerPoint
+- prezentáció
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Exportálja a PowerPoint diákat SVG képekként JavaScriptben, és szabályozza a betűkészleteket, szöveget, képeket, azonosítókat és eseményeket az Aspose.Slides segítségével."
 ---
 ## **Áttekintés**
 
-Az SVG egy méretezhető XML-alapú képfájlformátum, amely jól működik webes közzétételnél, diavetítőkben, akadálymentesítési munkafolyamatokban és automatizált utófeldolgozásban. Az Aspose.Slides for Node.js Java-n keresztül minden diát külön SVG-fájlba exportál, és lehetővé teszi a szöveg, betűkészletek, képek és SVG-elemek írásának vezérlését.
+Az SVG egy skálázható XML-alapú képfájlformátum, amely jól működik webes közzétételhez, diáktárakhoz, akadálymentesítési munkafolyamatokhoz és automatizált utófeldolgozáshoz. Az Aspose.Slides for Node.js Java értesítésen keresztül minden diát külön SVG-fájlba exportál, és lehetővé teszi, hogy szabályozza, hogyan íródnak a szövegek, betűtípusok, képek és SVG elemek.
 
-Használja a [SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) akkor, amikor az exportált SVG-nek kompaktnak, böngészők között kiszámíthatónak vagy interaktív használatra késznek kell lennie.
+Használja a [SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) opciót, ha az exportált SVG-nek kompaktnak, böngészők között előreláthatónak vagy interaktív használatra késznek kell lennie.
 
 ## **Dia exportálása SVG-ként**
 
-Hozzon létre egy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) objektumot, válasszon ki egy diát, és írja ki egy adatfolyamba a [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/) segítségével. A következő példa minden diát külön SVG-fájlként exportál.
+Hozzon létre egy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) objektumot, válasszon ki egy diát, és írja ki egy adatfolyamra a [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/) metódussal. A következő példa a bemutató minden diáját külön SVG-fájlként exportálja.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -51,11 +51,11 @@ try {
 }
 ```
 
-A fájlnév a [Slide.getSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidenumber/) használatával jön létre a ciklusindex helyett. Egy egyedi alakzatra is exportálhat a [Shape.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) segítségével, ha egy diavetítő vagy weboldal csak azt az alakzatot igényli.
+A fájlnév a [Slide.getSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidenumber/) metódust használja a ciklusindex helyett. Egyetlen alakzatot is exportálhat a [Shape.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) metódussal, ha egy dianézőnek vagy weboldalnak csak az az alakzat szükséges.
 
 ## **SVG kimenet konfigurálása**
 
-[SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) szabályozza az SVG megjelenítését. Szövegkeretek esetén a [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframesize/) a szövegkeretet is belefoglalja a renderelési területbe, a [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframerotation/) pedig meghatározza, hogy a keret forgatása alkalmazásra kerül-e. Állítsa a [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableFontLigatures) értékét `true`-ra, ha a szöveget ligatúrák nélkül kell megjeleníteni.
+A [SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) szabályozza az SVG renderelését. Szövegdobozoknál a [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframesize/) a szövegdobozt a renderelési területbe vonja be, a [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframerotation/) pedig meghatározza, hogy a keret forgatása alkalmazásra kerül-e. Állítsa a [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableFontLigatures) értékét `true`‑ra, ha a szöveget ligatúrák nélkül kell renderelni.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -83,13 +83,68 @@ try {
 }
 ```
 
-## **Szöveg és betűk szabályozása**
+## **A nyílhegyeknél a vonalvégi vágás szabályozása**
 
-Diák SVG-be exportálásakor szabályozhatja, hogy a szöveg szövegként maradjon vagy vektorgrafikává alakuljon, illetve hogyan kerülnek beillesztésre vagy hivatkozásra a külső betűkészletek. A következő beállítások segítenek egyensúlyba hozni a vizuális konzisztenciát, a szövegkiválasztást és a betűkészlet-függőségeket az exportált SVG-ben.
+Az SVG 1.1 nem rendelkezik marker inset beállítással, amely meghatározza, hol álljon le a vonal a nyílfej alatt. Alapértelmezés szerint az Aspose.Slides lerövidíti az exportált vonalat, hogy a vonal vastagsága ne lógjon ki a markerből. Hívja meg a [SVGOptions.setDisableLineEndCropping](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableLineEndCropping) metódust `true` értékkel, hogy a vonalvonal a teljes eredeti végpontjáig rajzolódjon. Ez a beállítás csak az SVG kimenetet érinti. A vonal a dián megtartja pozícióját és hosszát.
+
+A példa háromszög- és rombusznyílhegyet rajzol 2 és 10 pont vastagságú vonalakra. Kétszer exportálja ugyanazt a diát, csak a vágási opciót változtatva.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const lineColor = java.newInstanceSync("java.awt.Color", 0, 0, 139);
+    let y = 40;
+
+    for (const style of [slides.LineArrowheadStyle.Triangle, slides.LineArrowheadStyle.Diamond]) {
+        for (const width of [2, 10]) {
+            const line = slide.getShapes().addAutoShape(slides.ShapeType.Line, 40, y, 200, 0);
+            const format = line.getLineFormat();
+            format.getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+            format.getFillFormat().getSolidFillColor().setColor(lineColor);
+            format.setWidth(width);
+            format.setEndArrowheadStyle(java.newByte(style));
+            y += 50;
+        }
+    }
+
+    const options = new slides.SVGOptions();
+    options.setDisableLineEndCropping(false);
+    const cropped = java.newInstanceSync("java.io.FileOutputStream", "cropped.svg");
+    try {
+        slide.writeAsSvg(cropped, options);
+    } finally {
+        cropped.close();
+    }
+
+    options.setDisableLineEndCropping(true);
+    const uncropped = java.newInstanceSync("java.io.FileOutputStream", "uncropped.svg");
+    try {
+        slide.writeAsSvg(uncropped, options);
+    } finally {
+        uncropped.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Az összehasonlítás a 10 pontos vonalon található háromszögnyílhegyet mutatja. Vágás engedélyezve a hegy éles; vágás letiltva a vonalvonal a marker ferde oldalain keresztül kiemelkedik, és lapos véget hagy.
+
+![Nagyított 10 pontos háromszög éles heggyel, ha a vágás engedélyezett, és lapos végével, ha a vágás letiltott](line-end-cropping.png)
+
+A példában szereplő többi vonalon a kiemelkedő vonalvonal kevésbé látható a 2 pontos háromszögnél. A kitöltött rombusz mindkét szélességnél lefedi a vonalvonal végét.
+
+## **Szöveg és betűkészletek szabályozása**
+
+Diák SVG-be exportálásakor szabályozhatja, hogy a szöveg szövegként maradjon vagy vektorgrafikává alakuljon, illetve a külső betűkészletek hogyan legyenek beágyazva vagy hivatkozva. A következő beállítások segítenek megtalálni az egyensúlyt a vizuális konzisztencia, a szöveg kiválasztása és a betűkészlet-függőségek között az exportált SVG-ben.
 
 ### **Minden szöveg vektorizálása**
 
-Állítsa a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) értékét `true`-ra, hogy minden diaszöveget vektorgrafikaként írjon ki. Ez megszünteti a betűkészlet-függőségeket és a megjelenést böngészők között egységesebbé teszi, de a szöveg már nem lesz kiválasztható vagy kereshető SVG-szövegként.
+Állítsa a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) értékét `true`‑ra, hogy a diák minden szövegét vektorgrafikaként írja. Ez megszünteti a betűkészlet-függőségeket, és a vizuális eredményt egységesebbé teszi a böngészők között, ám a szöveg már nem lesz kijelölhető vagy kereshető SVG-szövegként.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -117,7 +172,7 @@ try {
 
 ### **Válassza ki a külső betűkészletek kezelésének módját**
 
-A [SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setexternalfontshandling/) egy [SvgExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) értéket használ a külső betöltésű betűkészletekhez. Válassza az `AddLinksToFontFiles` opciót, ha különálló betűfájlokra kíván hivatkozni, az `Embed` opciót a betűadatok SVG-be ágyazásához, vagy a `Vectorize` opciót, ha csak a külső betűkészleteket használó szöveget grafikai elemmé szeretné alakítani. Ellenőrizze a betűkészletek licencfeltételeit, mielőtt beágyazná őket.
+A [SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setexternalfontshandling/) egy [SvgExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) értéket használ a külsőleg betöltött betűkészletekhez. Válassza a `AddLinksToFontFiles` lehetőséget, ha külön betűkészlet-fájlokra szeretne hivatkozni, az `Embed` opciót a betűk adatainak SVG-be ágyazásához, vagy a `Vectorize` opciót, ha csak a külső betűkészleteket használó szöveget szeretné grafikaként megjeleníteni. A betűkészletek beágyazása előtt ellenőrizze a licencelést.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -173,9 +228,9 @@ try {
 }
 ```
 
-## **Beágyazott képméret csökkentése**
+## **Beágyazott képek méretének csökkentése**
 
-Használja a [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) funkciót a beágyazott képek felbontásának csökkentéséhez, a [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setdeletepicturescroppedareas/) opciót a levágott forrásterületek kihagyásához, valamint a [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) beállítást a JPEG kódolási minőség szabályozásához. Ezek a beállítások a fájlméretet csökkentik a kép pontosságának vagy a megőrzött képadatok költségén.
+Használja a [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) metódust a beágyazott képek felbontásának csökkentéséhez, a [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setdeletepicturescroppedareas/) metódust a levágott forrásterületek kihagyásához, és a [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) metódust a JPEG kódolás minőségének szabályozásához. Ezek a beállítások a fájlméretet csökkentik a kép pontosságának vagy a megőrzött képadatok árán.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -200,11 +255,11 @@ try {
 }
 ```
 
-## **Metafájl raszterizálási felbontásának szabályozása**
+## **Metafájl rásterizálási felbontásának szabályozása**
 
-A [SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) beállítja az alacsonyabb felbontási határt a metafájlok SVG-exportálás közbeni raszterizálásához. Használja a részletesség és a fájlméret egyensúlyozásához, amikor EMF vagy WMF képet raszterizál. Nem határozza meg az SVG globális DPI-ját, és nem kényszeríti minden dián lévő objektumot raszterképpé.
+A [SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) beállítja a metafájlok SVG exportálás közbeni rásterizálásának alsó felbontási határát. Használja részlet és fájlméret egyensúlyozására, amikor EMF vagy WMF képet rásterizál. Nem határoz meg globális DPI-t az SVG-hez, és nem kényszeríti minden diáelemet rásterképpé.
 
-Töltse le a [metafile-rasterization.pptx](metafile-rasterization.pptx) fájlt, amely közeli átlós vonalakkal rendelkező EMF képet tartalmaz. A következő példa az első diát három raszterizálási felbontásban exportálja a [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/) használatával. A többi exportbeállítás változatlan marad, hogy az eredményeket össze lehessen hasonlítani.
+Töltse le a [metafile-rasterization.pptx](metafile-rasterization.pptx) fájlt, amely közel elhelyezett átlós vonalakkal rendelkező EMF képet tartalmaz. A következő példa az első diát három rásterizálási felbontásban exportálja a [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/) metóduson keresztül. Minden egyéb exportálási beállítás változatlan marad, hogy az eredményeket össze lehessen hasonlítani.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -231,25 +286,25 @@ try {
 }
 ```
 
-A kimenetben az EMF minden SVG-ben egy beágyazott PNG-vé alakul. A következő mérések a mellékelt prezentációra vonatkoznak; nem általános képlet a DPI pixelméretekre való átváltásához.
+A kimenetben az EMF minden SVG-ben egy beágyazott PNG-fájlként jelent meg. Az alábbi mérések a mellékelt bemutatóra vonatkoznak; nem általános képlet a DPI pixelméretre való átváltásához.
 
-| Metafájl raszterizálási DPI | Beágyazott PNG méretek | SVG fájlméret (bájt) |
+| Metafájl rásterizálási DPI | Beágyazott PNG méretek | SVG fájl mérete (bájt) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-Az alábbi összehasonlítás ugyanazt a beágyazott raszter területet mutatja azonos nagyított megjelenítési mérettel. A átlós vonalak látható pixelesedést mutatnak 72 DPI-n, magasabb felbontásoknál simább széleket, miközben az SVG-fájl nő. Az érték növelése nem feltétlenül javít minden részletet vagy változtat minden exportált képet.
+Az alábbi összehasonlítás ugyanazt a beágyazott rasztert mutatja ugyanakkora nagyított megjelenítési mérettel. A diagonális vonalak látható pixelesedést mutatnak 72 DPI-n, magasabb felbontáson simább élűek, miközben az SVG fájl nagyobb lesz. Az érték növelése nem feltétlenül javít minden részletet vagy módosít minden exportált képet.
 
-![Nagyított átlóvonal részlet 72, 150 és 300 DPI](metafile-rasterization-comparison.png)
+![Nagyított átlós vonal részletek 72, 150 és 300 DPI-n](metafile-rasterization-comparison.png)
 
-A [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) szabályozza a képfelbontás csökkentését, és elrejtheti a metafájl raszterizálási felbontás változtatásának hatását. A [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) a JPEG kódolási minőséget szabályozza, nem a metafájl raszterizálási felbontást.
+A [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) szabályozza a képfelbontás csökkentését, és elrejtheti a metafájl rásterizálási felbontás változtatásának hatását. A [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) a JPEG kódolás minőségét szabályozza, nem a metafájl rásterizálási felbontását.
 
 ## **Stabil azonosítók hozzárendelése alakzatokhoz és szöveghez**
 
-Adjon egy formázóvezérlőt a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) metódusnak, hogy beállítsa a [SvgShape.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/setid/) értékét minden SVG-alakzatra. Egy olyan vezérlő, amely a szövegspánkokat is kezeli, beállíthatja a [SvgTSpan.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgtspan/setid/) értékeket a szöveg `tspan` elemein.
+Adjon egy formázó vezérlőt a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) metódusnak, hogy minden SVG alakzatra beállítsa a [SvgShape.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/setid/) értéket. Egy olyan vezérlő, amely a szöveg‑tartományokat is kezeli, beállíthatja a [SvgTSpan.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgtspan/setid/) értékeket a `tspan` szövegelemekre.
 
-A következő vezérlő a [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) metódust használja, amely az alakzat élettartama alatt stabil, és egy ismételhető számlálót a szövegspánkokhoz. Ez a generált azonosítókat alkalmasá teszi egy változatlan prezentáció utófeldolgozására.
+A következő vezérlő a [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) metódust használja, amely az alakzat élettartama alatt stabil, valamint egy ismételhető számlálót a szöveg‑tartományaihoz. Ez a generált azonosítókat alkalmasá teszi egy változatlan bemutató utófeldolgozásához.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -311,7 +366,7 @@ try {
 
 ## **SVG eseménykezelők hozzáadása**
 
-Egy formázóvezérlőben hívja meg a [SvgShape.setEventHandler](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/seteventhandler/) metódust egy [SvgEvent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgevent/) értékkel, hogy JavaScript eseménykezelőt adjon egy exportált alakzathoz. Rendelje hozzá a vezérlőt a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) segítségével, és definiálja a JavaScript függvényt azon az oldalon vagy SVG-dokumentumban, amely a eredményt kiszolgálja.
+Egy formázó vezérlőben hívja meg a [SvgShape.setEventHandler](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/seteventhandler/) metódust egy [SvgEvent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgevent/) értékkel, hogy egy JavaScript eseménykezelőt adjon egy exportált alakzathoz. A vezérlőt adja hozzá a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) metódussal, és definiálja a JavaScript függvényt az oldalon vagy az SVG-dokumentumban, amely a végeredményt tartalmazza.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -359,18 +414,18 @@ try {
 }
 ```
 
-A host oldal definiálhatja a kezelő által hivatkozott JavaScript függvényt. Azonosítók és eseménykezelők hozzárendelése lehetővé teszi a diavetítőket, az akadálymentesítési fejlesztéseket és egyéb interaktív SVG munkafolyamatokat.
+A fogadó oldal definiálhatja a kezelő által hivatkozott JavaScript függvényt. Az azonosítók és eseménykezelők hozzárendelése lehetővé teszi a dianézők, akadálymentesítési bővítmények és egyéb interaktív SVG munkafolyamatok használatát.
 
-## **FAQ**
+## **GYIK**
 
-**Mikor kell használni a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) metódust a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) helyett?**
+**Mikor kellene a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) helyett a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/)‑t használni?**
 
-Használja a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) metódust, amikor minden szövegnek függetlennek kell lennie a betűkészlettől. Használja a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) metódust, amikor csak a külső betűkészleteket használó szöveget kell grafikává alakítani.
+Használja a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) opciót, ha minden szövegnek függetlennek kell lennie a betűkészletektől. Használja a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) opciót, ha csak a külső betűkészleteket használó szöveget kell grafikává alakítani.
 
 **Mi a legjobb módja egy SVG kisebbé tételének?**
 
-Kezdje a beágyazott képek tömörítésével, a levágott képterületek törlésével, és a hivatkozott betűfájlok választásával, ha a célkörnyezet képes ezeket kiszolgálni. Tesztelje az eredményt, mivel az alacsonyabb képfelbontás, a alacsonyabb JPEG minőség és a vektorizált szöveg mind más-más minőség‑ és méretátmenetekkel jár.
+Kezdje a beágyazott képek tömörítésével, a levágott képrészletek törlésével, és a linkelt betűkészlet‑fájlok kiválasztásával, ha a célkörnyezet képes azokat kiszolgálni. Tesztelje az eredményt, mivel az alacsonyabb képfelbontás, az alacsonyabb JPEG minőség és a vektorizált szöveg mind különféle minőség‑ és méret‑kompromisszumokkal jár.
 
-**Módosíthatom az exportált SVG elemeket exportálás után?**
+**Módosíthatom‑e az exportált SVG elemeket az exportálás után?**
 
-Igen. Rendelj hozzá azonosítókat egy formázóvezérlővel, majd válaszd ki a megfelelő SVG elemeket az utófeldolgozó eszközödben vagy böngésző‑szkriptben.
+Igen. Hozzon létre azonosítókat egy formázó vezérlővel, majd válassza ki a megfelelő SVG elemeket az utófeldolgozó eszközében vagy böngésző‑szkriptben.

@@ -1,5 +1,5 @@
 ---
-title: Render presentatiedia's als SVG-afbeeldingen op Android
+title: Presentatiedia's renderen als SVG-afbeeldingen op Android
 linktitle: Dia naar SVG
 type: docs
 weight: 50
@@ -17,17 +17,17 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Exporteer PowerPoint-dias als SVG-afbeeldingen op Android en beheer lettertypen, tekst, afbeeldingen, ID's en events met Aspose.Slides."
+description: "Exporteer PowerPoint-dia's als SVG-afbeeldingen op Android en beheer lettertypen, tekst, afbeeldingen, ID's en events met Aspose.Slides."
 ---
 ## **Overzicht**
 
-SVG is een schaalbaar XML‑gebaseerd afbeeldingsformaat dat goed werkt voor webpublicatie, dia‑viewers, toegankelijkheidsworkflows en geautomatiseerde nabewerking. Aspose.Slides for Android via Java exporteert elke dia naar een afzonderlijk SVG‑bestand en laat u bepalen hoe tekst, lettertypen, afbeeldingen en SVG‑elementen worden weggeschreven.
+SVG is een schaalbaar XML‑gebaseerd afbeeldingformaat dat goed werkt voor webpublicatie, slide‑viewers, toegankelijkheids‑werkstromen en geautomatiseerde nabewerking. Aspose.Slides for Android via Java exporteert elke dia naar een afzonderlijk SVG‑bestand en stelt u in staat te bepalen hoe tekst, lettertypen, afbeeldingen en SVG‑elementen worden weggeschreven.
 
-Gebruik [SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) wanneer de geëxporteerde SVG compact, voorspelbaar over browsers heen of klaar voor interactief gebruik moet zijn.
+Gebruik [SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) wanneer de geëxporteerde SVG compact moet zijn, voorspelbaar over browsers, of klaar voor interactief gebruik.
 
-## **Exporteer een dia als SVG**
+## **Export een dia als SVG**
 
-Maak een [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), selecteer een dia en schrijf deze naar een stream met [ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-). Het volgende voorbeeld exporteert elke dia in een presentatie naar een apart SVG‑bestand.
+Maak een [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) aan, selecteer een dia en schrijf deze naar een stream met [ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-). Het volgende voorbeeld exporteert elke dia in een presentatie naar een afzonderlijk SVG‑bestand.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -44,11 +44,11 @@ try {
 }
 ```
 
-De bestandsnaam gebruikt [ISlide.getSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideNumber--) in plaats van de lusindex. U kunt ook een afzonderlijke vorm exporteren met [IShape.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) wanneer een dia‑viewer of webpagina alleen die vorm nodig heeft.
+De bestandsnaam gebruikt [ISlide.getSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideNumber--) in plaats van de lus‑index. U kunt ook een afzonderlijk object exporteren met [IShape.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) wanneer een slide‑viewer of webpagina alleen dat object nodig heeft.
 
-## **Configureer SVG‑output**
+## **SVG‑output configureren**
 
-[SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) bepaalt de SVG‑rendering. Voor tekstkaders omvat [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) het tekstkader in het rendergebied, en [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) bepaalt of de rotatie van het kader wordt toegepast. Stel [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) in op `true` wanneer tekst moet worden gerenderd zonder ligaturen.
+[SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) regelt het renderen van SVG. Voor tekstframes zorgt [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) ervoor dat het tekstframe wordt meegenomen in het rendergebied, en [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) bepaalt of de rotatie van het frame wordt toegepast. Stel [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) in op `true` wanneer tekst zonder ligaturen moet worden gerenderd.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -67,13 +67,62 @@ try {
 }
 ```
 
-## **Beheer tekst en lettertypen**
+## **Bijsnijden van lijneinden bij pijlpuntjes beheren**
 
-Bij het exporteren van dia's naar SVG kunt u bepalen of tekst als tekst behouden blijft of wordt omgezet naar vectorafbeeldingen, en hoe externe lettertypen worden opgenomen of gerefereerd. De volgende opties helpen u een balans te vinden tussen visuele consistentie, tekstselectie en lettertype‑afhankelijkheden in de geëxporteerde SVG.
+SVG 1.1 heeft geen marker‑inset‑instelling om te bepalen waar een lijn moet stoppen onder een pijlpunt. Standaard verkort Aspose.Slides de geëxporteerde lijn zodat de penseelstreek niet door de marker heen steekt. Roep [SVGOptions.setDisableLineEndCropping](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDisableLineEndCropping-boolean-) aan met `true` om de penseelstreek helemaal tot het oorspronkelijke eindpunt van de lijn te tekenen. Deze instelling heeft alleen invloed op de SVG‑output. De lijn behoudt zijn positie en lengte op de dia.
 
-### **Vectoriseer alle tekst**
+Het voorbeeld tekent driehoek‑ en ruit‑pijlpuntjes op lijnen van respectievelijk 2 en 10 punten breed. Het exporteert dezelfde dia twee keer, waarbij alleen de bijsnijd‑optie wordt gewijzigd.
 
-Stel [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) in op `true` om alle dia‑tekst als vectorafbeeldingen weg te schrijven. Dit elimineert lettertype‑afhankelijkheden en maakt het visuele resultaat consistenter over browsers, maar de tekst is niet langer selecteerbaar of doorzoekbaar als SVG‑tekst.
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    int y = 40;
+
+    for (byte style : new byte[] { LineArrowheadStyle.Triangle, LineArrowheadStyle.Diamond }) {
+        for (int width : new int[] { 2, 10 }) {
+            IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, 40, y, 200, 0);
+            ILineFormat format = line.getLineFormat();
+            format.getFillFormat().setFillType(FillType.Solid);
+            format.getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+            format.setWidth(width);
+            format.setEndArrowheadStyle(style);
+            y += 50;
+        }
+    }
+
+    SVGOptions options = new SVGOptions();
+    options.setDisableLineEndCropping(false);
+    try (FileOutputStream cropped = new FileOutputStream("cropped.svg")) {
+        slide.writeAsSvg(cropped, options);
+    }
+
+    options.setDisableLineEndCropping(true);
+    try (FileOutputStream uncropped = new FileOutputStream("uncropped.svg")) {
+        slide.writeAsSvg(uncropped, options);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+De vergelijking toont de driehoekige pijlpunt op de 10‑puntlijn. Met bijsnijden ingeschakeld is de punt scherp. Met bijsnijden uitgeschakeld steekt de penseelstreek door de schuine zijden van de marker en laat een vlak einde achter.
+
+![Vergrote driehoek van 10 punten met een scherpe punt wanneer bijsnijden is ingeschakeld en een vlak einde wanneer bijsnijden is uitgeschakeld](line-end-cropping.png)
+
+In de andere lijnen van het voorbeeld is de uitsteekende penseelstreek minder zichtbaar op de 2‑punt driehoek. Het gevulde ruitje bedekt het einde van de penseelstreek bij beide breedtes.
+
+## **Tekst en lettertypen beheren**
+
+Bij het exporteren van dia's naar SVG kunt u bepalen of tekst behouden blijft als tekst of wordt omgezet naar vectorafbeeldingen, en hoe externe lettertypen worden opgenomen of gerefereerd. De volgende opties helpen u visuele consistentie, tekstselectie en lettertype‑afhankelijkheden in de geëxporteerde SVG in balans te brengen.
+
+### **Alle tekst vectoriseren**
+
+Stel [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) in op `true` om alle dia‑tekst als vectorafbeeldingen te schrijven. Dit verwijdert lettertype‑afhankelijkheden en maakt het visuele resultaat consistenter over browsers, maar de tekst is niet langer selecteerbaar of doorzoekbaar als SVG‑tekst.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -90,9 +139,9 @@ try {
 }
 ```
 
-### **Kies hoe externe lettertypen worden afgehandeld**
+### **Kies hoe externe lettertypen worden behandeld**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) gebruikt een [SvgExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/)‑waarde voor lettertypen die extern worden geladen. Kies [SvgExternalFontsHandling.AddLinksToFontFiles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) om afzonderlijke lettertype‑bestanden te refereren, [SvgExternalFontsHandling.Embed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) om lettertype‑data in de SVG op te nemen, of [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) om alleen tekst die externe lettertypen gebruikt als grafieken te renderen. Controleer de licentie van het lettertype voordat u lettertypen inbedt.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) gebruikt een [SvgExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/)‑waarde voor lettertypen die extern worden geladen. Kies [SvgExternalFontsHandling.AddLinksToFontFiles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) om naar afzonderlijke lettertype‑bestanden te verwijzen, [SvgExternalFontsHandling.Embed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) om lettertype‑gegevens in de SVG op te nemen, of [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) om alleen tekst die externe lettertypen gebruikt als afbeeldingen te renderen. Controleer de licentie van het lettertype voordat u lettertypen embed.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -121,9 +170,9 @@ try {
 }
 ```
 
-## **Verminder de grootte van ingesloten afbeeldingen**
+## **De grootte van ingesloten afbeeldingen verkleinen**
 
-Gebruik [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) om de resolutie van ingesloten afbeeldingen te verkleinen, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) om bijgesneden brongebieden weg te laten, en [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) om de JPEG‑compressiekwaliteit te regelen. Deze instellingen verkleinen de bestandsgrootte ten koste van afbeeldingskwaliteit of behouden afbeeldingsdata.
+Gebruik [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) om de resolutie van ingesloten afbeeldingen te verlagen, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) om bijgesneden brongebieden weg te laten, en [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) om de JPEG‑compressiekwaliteit te regelen. Deze instellingen verkleinen de bestandsgrootte ten koste van afbeeldingskwaliteit of bewaarde afbeeldingsdata.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -142,11 +191,11 @@ try {
 }
 ```
 
-## **Beheer metafile rasterisatie‑resolutie**
+## **Resolutie van metafile‑rasterisatie beheren**
 
-[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setMetafileRasterizationDpi-int-) stelt de ondergrens voor de resolutie in bij het rasteriseren van metafiles tijdens SVG‑export. Gebruik dit om een balans te vinden tussen detail en bestandsgrootte wanneer een EMF‑ of WMF‑afbeelding wordt gerasterd. Het definieert geen globale DPI voor de SVG en forceert niet dat elk object op de dia een raster‑afbeelding wordt.
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setMetafileRasterizationDpi-int-) stelt de onder‑resolutielimiet in voor het rasteren van metafiles tijdens SVG‑export. Gebruik het om detail en bestandsgrootte in balans te brengen wanneer een EMF‑ of WMF‑afbeelding wordt gerasterd. Het definieert geen globale DPI voor de SVG en dwingt niet elk object op de dia om een rasterafbeelding te worden.
 
-Download [metafile-rasterization.pptx](metafile-rasterization.pptx), dat een EMF‑afbeelding bevat met dicht opeenlopende diagonale lijnen. Het volgende voorbeeld exporteert de eerste dia van deze presentatie met drie rasterisatie‑resoluties via [ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-). Alle andere exportinstellingen blijven identiek zodat de resultaten kunnen worden vergeleken.
+Download [metafile-rasterization.pptx](metafile-rasterization.pptx), die een EMF‑afbeelding met dicht opeengepakte diagonale lijnen bevat. Het volgende voorbeeld exporteert de eerste dia op drie rasterisatie‑resoluties via [ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-). Alle andere exportinstellingen blijven identiek zodat de resultaten kunnen worden vergeleken.
 
 ```java
 import com.aspose.slides.PicturesCompression;
@@ -172,25 +221,25 @@ try {
 }
 ```
 
-In de output werd de EMF één ingesloten PNG in elke SVG. De volgende metingen gelden voor de meegeleverde presentatie; ze vormen geen algemene formule voor het omrekenen van DPI naar pixelafmetingen.
+In de output is de EMF omgezet in één ingesloten PNG in elke SVG. De volgende metingen gelden voor de meegeleverde presentatie; ze vormen geen algemene formule voor het omrekenen van DPI naar pixelafmetingen.
 
-| Metafile rasterisatie‑DPI | Ingesloten PNG‑afmetingen | SVG‑bestandsgrootte (bytes) |
+| Metafile rasterisatie DPI | Ingesloten PNG-afmetingen | SVG‑bestandsgrootte (bytes) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-De vergelijking hieronder toont hetzelfde gebied van de ingesloten rasterafbeelding op dezelfde vergrote weergavegrootte. De diagonale lijnen vertonen zichtbare pixelatie bij 72 DPI en gladdere randen bij hogere resoluties, terwijl het SVG‑bestand groter wordt. Het verhogen van de waarde verbetert niet per se elk detail of wijzigt elke geëxporteerde afbeelding.
+De onderstaande vergelijking toont hetzelfde gebied van de ingesloten rasterafbeelding op dezelfde vergrote weergavegrootte. De diagonale lijnen vertonen zichtbare pixelatie bij 72 DPI en gladdere randen bij hogere resoluties, terwijl het SVG‑bestand groter wordt. Het verhogen van de waarde verbetert niet noodzakelijk elk detail of verandert elke geëxporteerde afbeelding.
 
-![Vergrote diagonale lijn‑detail bij 72, 150 en 300 DPI](metafile-rasterization-comparison.png)
+![Vergrote diagonalelijndetails bij 72, 150 en 300 DPI](metafile-rasterization-comparison.png)
 
-[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) regelt de reductie van afbeeldingsresolutie en kan het effect van het wijzigen van de metafile rasterisatie‑resolutie maskeren. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) regelt de JPEG‑compressiekwaliteit, niet de rasterisatie‑resolutie van de metafile.
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) regelt de reductie van de afbeeldingsresolutie en kan het effect van het wijzigen van de metafile‑rasterisatie‑resolutie maskeren. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) regelt de JPEG‑compressiekwaliteit, niet de metafile‑rasterisatie‑resolutie.
 
-## **Wijs stabiele ID's toe aan vormen en tekst**
+## **Stabiele ID's toewijzen aan Shapes en tekst**
 
-Gebruik [ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) om [ISvgShape.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setId-java.lang.String-) voor elke SVG‑vorm in te stellen. Om ook [ISvgTSpan.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgtspan/#setId-java.lang.String-) waarden te definiëren op tekst‑`tspan`‑elementen, implementeer [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeandtextformattingcontroller/). Wijs een van beide controllers toe met [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-).
+Gebruik [ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) om [ISvgShape.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setId-java.lang.String-) in te stellen voor elk SVG‑shape. Om ook [ISvgTSpan.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgtspan/#setId-java.lang.String-) waarden op tekst‑`tspan`‑elementen te zetten, implementeer [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeandtextformattingcontroller/). Wijs een van beide controllers toe met [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-).
 
-De volgende controller gebruikt [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--), dat stabiel blijft gedurende de levensduur van de vorm, en een herhaalbare teller voor de tekst‑spans. Hiermee zijn de gegenereerde ID's geschikt voor nabewerking van een ongewijzigde presentatie.
+De volgende controller gebruikt [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--), die stabiel blijft gedurende de levensduur van het shape, en een herhaalbare teller voor de tekst‑spans. Hierdoor zijn de gegenereerde ID’s geschikt voor post‑processing van een ongewijzigde presentatie.
 
 ```java
 class StableSvgIdController implements ISvgShapeAndTextFormattingController {
@@ -222,9 +271,9 @@ try {
 }
 ```
 
-## **Voeg SVG‑eventhandlers toe**
+## **SVG‑eventhandlers toevoegen**
 
-In een [ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) roept u [ISvgShape.setEventHandler](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) aan met een [SvgEvent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgevent/)‑waarde om een JavaScript‑eventhandler toe te voegen aan een geëxporteerde vorm. Wijs de controller toe met [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) en definieer de JavaScript‑functie in de pagina of SVG‑document dat het resultaat host.
+In een [ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) roep je [ISvgShape.setEventHandler](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) aan met een [SvgEvent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgevent/)‑waarde om een JavaScript‑eventhandler toe te voegen aan een geëxporteerd shape. Wijs de controller toe met [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) en definieer de JavaScript‑functie op de pagina of in het SVG‑document dat het resultaat host.
 
 ```java
 class SvgEventController implements ISvgShapeFormattingController {
@@ -250,18 +299,18 @@ try {
 }
 ```
 
-De host‑pagina kan de JavaScript‑functie definiëren die door de handler wordt aangeroepen. Het toewijzen van ID's en eventhandlers maakt het mogelijk dia‑viewers, toegankelijkheidsverbeteringen en andere interactieve SVG‑workflows te ondersteunen.
+De host‑pagina kan de JavaScript‑functie definiëren die door de handler wordt aangeroepen. Het toewijzen van ID’s en eventhandlers maakt slide‑viewers, toegankelijkheidsverbeteringen en andere interactieve SVG‑werkstromen mogelijk.
 
-## **Veelgestelde vragen**
+## **FAQ**
 
 **Wanneer moet ik [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) gebruiken in plaats van [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/)?**
 
-Gebruik [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) wanneer alle tekst onafhankelijk van lettertypen moet zijn. Gebruik [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) wanneer alleen tekst die externe lettertypen gebruikt moet worden omgezet naar grafieken.
+Gebruik [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) wanneer alle tekst onafhankelijk van lettertypen moet zijn. Gebruik [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) wanneer alleen tekst die externe lettertypen gebruikt moet worden omgezet naar grafische afbeeldingen.
 
 **Wat is de beste manier om een SVG kleiner te maken?**
 
-Begin met het comprimeren van ingesloten afbeeldingen, het verwijderen van bijgesneden afbeeldingsgebieden en het kiezen van gelinkte lettertype‑bestanden wanneer de doelomgeving ze kan serveren. Test het resultaat omdat lagere afbeeldingsresolutie, lagere JPEG‑kwaliteit en gevectoriseerde tekst elk verschillende kwaliteits‑ en grootte‑afwegingen hebben.
+Begin met het comprimeren van ingesloten afbeeldingen, het verwijderen van bijgesneden afbeeldingsgebieden, en kies voor gekoppelde lettertype‑bestanden wanneer de doelomgeving ze kan leveren. Test het resultaat omdat een lagere afbeeldingsresolutie, lagere JPEG‑kwaliteit en gevectoriseerde tekst elk verschillende kwaliteit‑ en grootte‑afwegingen hebben.
 
 **Kan ik geëxporteerde SVG‑elementen na export aanpassen?**
 
-Ja. Wijs ID's toe via een formatting‑controller, selecteer vervolgens de overeenkomende SVG‑elementen in uw nabewerkings‑tool of browserscript.
+Ja. Wijs ID’s toe via een formatting‑controller en selecteer vervolgens de overeenkomende SVG‑elementen in uw post‑processing‑tool of browserscript.

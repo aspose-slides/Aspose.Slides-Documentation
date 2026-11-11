@@ -1,5 +1,5 @@
 ---
-title: Presentatiedia's renderen als SVG-afbeeldingen in JavaScript
+title: Presentatieslides renderen als SVG-afbeeldingen in JavaScript
 linktitle: Dia naar SVG
 type: docs
 weight: 50
@@ -17,17 +17,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Exporteer PowerPoint-dia's als SVG-afbeeldingen in JavaScript en beheer lettertypen, tekst, afbeeldingen, ID's en gebeurtenissen met Aspose.Slides."
+description: "Exporteer PowerPoint-dia's als SVG-afbeeldingen in JavaScript en beheer lettertypen, tekst, afbeeldingen, ID's en events met Aspose.Slides."
 ---
 ## **Overzicht**
 
-SVG is een schaalbaar XML‑gebaseerd afbeeldingsformaat dat goed werkt voor webpublicatie, slide‑viewers, toegankelijkheidsworkflows en geautomatiseerde nabewerking. Aspose.Slides voor Node.js via Java exporteert elke dia naar een apart SVG‑bestand en laat u bepalen hoe tekst, lettertypen, afbeeldingen en SVG‑elementen worden geschreven.
+SVG is een schaalbaar XML-gebaseerd afbeeldingsformaat dat goed werkt voor webpublicatie, diaweergaven, toegankelijkheidsworkflows en geautomatiseerde nabewerking. Aspose.Slides voor Node.js via Java exporteert elke dia naar een afzonderlijk SVG-bestand en stelt u in staat te bepalen hoe tekst, lettertypen, afbeeldingen en SVG-elementen worden geschreven.
 
-Gebruik [SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) wanneer het geëxporteerde SVG compact, voorspelbaar in verschillende browsers, of klaar voor interactief gebruik moet zijn.
+Gebruik [SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) wanneer de geëxporteerde SVG compact moet zijn, voorspelbaar over browsers, of klaar voor interactief gebruik.
 
-## **Export een dia als SVG**
+## **Een dia exporteren als SVG**
 
-Maak een [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), selecteer een dia en schrijf deze naar een stream met [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/). Het volgende voorbeeld exporteert elke dia in een presentatie naar een apart SVG‑bestand.
+Maak een [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), selecteer een dia en schrijf deze naar een stream met [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/). Het onderstaande voorbeeld exporteert elke dia in een presentatie als een afzonderlijk SVG-bestand.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -51,11 +51,11 @@ try {
 }
 ```
 
-De bestandsnaam gebruikt [Slide.getSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidenumber/) in plaats van de loop‑index. U kunt ook een afzonderlijke vorm exporteren met [Shape.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) wanneer een slide‑viewer of webpagina alleen die vorm nodig heeft.
+De bestandsnaam gebruikt [Slide.getSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidenumber/) in plaats van de lusindex. U kunt ook een individuele vorm exporteren met [Shape.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) wanneer een diaweergave of webpagina alleen die vorm nodig heeft.
 
-## **Configureer SVG‑output**
+## **SVG-uitvoer configureren**
 
-[SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) regelt de SVG‑rendering. Voor tekstkaders zorgt [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframesize/) ervoor dat het tekstkader wordt meegenomen in het rendergebied, en [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframerotation/) bepaalt of de rotatie van het kader wordt toegepast. Stel [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableFontLigatures) in op `true` wanneer tekst moet worden gerenderd zonder ligaturen.
+[SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) regelt de SVG-rendering. Voor tekstkaders omvat [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframesize/) het tekstkader in het weergavegebied, en [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframerotation/) bepaalt of de rotatie van het kader wordt toegepast. Stel [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableFontLigatures) in op `true` wanneer tekst zonder ligaturen moet worden gerenderd.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -83,13 +83,68 @@ try {
 }
 ```
 
-## **Controleer tekst en lettertypen**
+## **Lijneinde bijsnijden bij pijlpuntjes**
 
-Bij het exporteren van dia's naar SVG kunt u bepalen of tekst als tekst behouden blijft of wordt geconverteerd naar vectorafbeeldingen, en hoe externe lettertypen worden opgenomen of verwezen. De volgende opties helpen u de visuele consistentie, tekstselectie en lettertype‑afhankelijkheden in het geëxporteerde SVG in balans te brengen.
+SVG 1.1 heeft geen marker-inset-instelling om te specificeren waar een lijn moet stoppen onder een pijlpunt. Standaard verkort Aspose.Slides de geëxporteerde lijn zodat de lijnbreedte niet door de marker heen steekt. Roep [SVGOptions.setDisableLineEndCropping](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableLineEndCropping) aan met `true` om de lijnbreedte helemaal tot het oorspronkelijke eindpunt van de lijn te tekenen. Deze instelling heeft alleen invloed op de SVG-output. De lijn behoudt zijn positie en lengte op de dia.
 
-### **Vectoriseer alle tekst**
+Het voorbeeld tekent driehoek- en ruit-pijlpuntjes op lijnen van respectievelijk 2 en 10 punten breed. Het exporteert dezelfde dia twee keer, waarbij alleen de bijsnijd-optie wordt gewijzigd.
 
-Stel [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) in op `true` om alle diatekst als vectorafbeeldingen te schrijven. Dit verwijdert lettertype‑afhankelijkheden en maakt het visuele resultaat consistenter in verschillende browsers, maar de tekst is niet langer selecteerbaar of doorzoekbaar als SVG‑tekst.
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const lineColor = java.newInstanceSync("java.awt.Color", 0, 0, 139);
+    let y = 40;
+
+    for (const style of [slides.LineArrowheadStyle.Triangle, slides.LineArrowheadStyle.Diamond]) {
+        for (const width of [2, 10]) {
+            const line = slide.getShapes().addAutoShape(slides.ShapeType.Line, 40, y, 200, 0);
+            const format = line.getLineFormat();
+            format.getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+            format.getFillFormat().getSolidFillColor().setColor(lineColor);
+            format.setWidth(width);
+            format.setEndArrowheadStyle(java.newByte(style));
+            y += 50;
+        }
+    }
+
+    const options = new slides.SVGOptions();
+    options.setDisableLineEndCropping(false);
+    const cropped = java.newInstanceSync("java.io.FileOutputStream", "cropped.svg");
+    try {
+        slide.writeAsSvg(cropped, options);
+    } finally {
+        cropped.close();
+    }
+
+    options.setDisableLineEndCropping(true);
+    const uncropped = java.newInstanceSync("java.io.FileOutputStream", "uncropped.svg");
+    try {
+        slide.writeAsSvg(uncropped, options);
+    } finally {
+        uncropped.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+De vergelijking toont de driehoekige pijlpunt op de 10-punt-lijn. Met bijsnijden ingeschakeld is de punt scherp. Met bijsnijden uitgeschakeld steekt de lijnbreedte door de schuine zijden van de marker en blijft er een platte uiteinde.
+
+![Vergrote driehoek van 10 punten met een scherpe top wanneer bijsnijden is ingeschakeld en een platte onderkant wanneer bijsnijden is uitgeschakeld](line-end-cropping.png)
+
+In de andere lijnen uit het voorbeeld is de uitstekende lijnbreedte minder zichtbaar op de 2-punt-driehoek. De gevulde ruit bedekt het uiteinde van de lijnbreedte bij beide breedtes.
+
+## **Tekst en lettertypen regelen**
+
+Bij het exporteren van dia's naar SVG kunt u bepalen of tekst als tekst blijft of wordt omgezet naar vector-graphics, en hoe externe lettertypen worden opgenomen of gerefereerd. De volgende opties helpen u de visuele consistentie, tekste selecteerbaarheid en lettertype-afhankelijkheden in de geëxporteerde SVG in balans te brengen.
+
+### **Alle tekst vectoriseren**
+
+Stel [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) in op `true` om alle diatekst als vector-graphics te schrijven. Dit elimineert lettertype-afhankelijkheden en maakt het visuele resultaat consistenter over browsers, maar de tekst is niet langer selecteerbaar of doorzoekbaar als SVG-tekst.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -115,9 +170,9 @@ try {
 }
 ```
 
-### **Kies hoe externe lettertypen worden behandeld**
+### **Kiezen hoe externe lettertypen worden afgehandeld**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setexternalfontshandling/) gebruikt een [SvgExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) waarde voor lettertypen die extern worden geladen. Kies `AddLinksToFontFiles` om afzonderlijke lettertypebestanden te refereren, `Embed` om lettertypegegevens in het SVG op te nemen, of `Vectorize` om alleen tekst die externe lettertypen gebruikt als graphics te renderen. Controleer de licentie van het lettertype voordat u lettertypen insluit.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setexternalfontshandling/) gebruikt een [SvgExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) waarde voor lettertypen die extern worden geladen. Kies `AddLinksToFontFiles` om afzonderlijke lettertypebestanden te refereren, `Embed` om lettertype-data in de SVG op te nemen, of `Vectorize` om alleen tekst die externe lettertypen gebruikt als graphics te renderen. Controleer de licentie van het lettertype voordat u lettertypen embedt.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -173,9 +228,9 @@ try {
 }
 ```
 
-## **Verminder de grootte van ingesloten afbeeldingen**
+## **Ingesloten afbeeldingsgrootte verkleinen**
 
-Gebruik [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) om de resolutie van ingesloten afbeeldingen te verlagen, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setdeletepicturescroppedareas/) om bijgesneden brongebieden weg te laten, en [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) om de JPEG‑codeerkwaliteit te regelen. Deze instellingen verkleinen de bestandsgrootte ten koste van beeldfidelity of bewaarde afbeeldingsgegevens.
+Gebruik [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) om de resolutie van ingesloten afbeeldingen te verlagen, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setdeletepicturescroppedareas/) om bijgesneden brongebieden weg te laten, en [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) om de JPEG-codeerkwaliteit te regelen. Deze instellingen verkleinen de bestandsgrootte ten koste van de beeldfidelity of bewaarde afbeeldingsdata.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -200,11 +255,11 @@ try {
 }
 ```
 
-## **Controleer de rasterisatie‑resolutie van metabestanden**
+## **Resolutie van metabestand‑rasterisatie regelen**
 
-[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) stelt de ondergrens voor de resolutie bij het rasteriseren van metafiles tijdens SVG‑export in. Gebruik deze instelling om detail en bestandsgrootte in balans te brengen wanneer een EMF‑ of WMF‑afbeelding wordt gerasterd. Het definieert geen globale DPI voor het SVG en dwingt niet elk object op de dia om een rasterafbeelding te worden.
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) stelt de ondergrens van de resolutie in voor het rasteren van metabestanden tijdens SVG-export. Gebruik dit om detail en bestandsgrootte in balans te houden wanneer een EMF- of WMF-afbeelding wordt gerasterd. Het definieert geen globale DPI voor de SVG en dwingt niet elk object op de dia om een rasterafbeelding te worden.
 
-Download [metafile-rasterization.pptx](metafile-rasterization.pptx), dat een EMF‑afbeelding bevat met dicht opeengepakte diagonale lijnen. Het volgende voorbeeld exporteert de eerste dia in drie rasterisatie‑resoluties via [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/). Alle andere exportinstellingen blijven gelijk zodat de resultaten kunnen worden vergeleken.
+Download [metafile-rasterization.pptx](metafile-rasterization.pptx), dat een EMF-afbeelding bevat met nauw opeengepakte diagonale lijnen. Het onderstaande voorbeeld exporteert de eerste dia ervan met drie rasterisatie-resoluties via [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/). Alle andere exportinstellingen blijven identiek zodat de resultaten kunnen worden vergeleken.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -231,25 +286,25 @@ try {
 }
 ```
 
-In de uitvoer is de EMF omgezet naar één ingesloten PNG in elk SVG. De volgende metingen gelden voor de meegeleverde presentatie; ze vormen geen algemene formule voor het omrekenen van DPI naar pixelafmetingen.
+In de output is de EMF één ingesloten PNG geworden in elke SVG. De onderstaande metingen gelden voor de meegeleverde presentatie; ze vormen geen algemene formule voor het omrekenen van DPI naar pixelafmetingen.
 
-| Metafile rasterisatie DPI | Ingesloten PNG‑afmetingen | SVG‑bestandsgrootte (bytes) |
+| Metabestand rasterisatie DPI | Ingesloten PNG-afmetingen | SVG‑bestandsgrootte (bytes) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-De onderstaande vergelijking toont hetzelfde gebied van de ingesloten rasterafbeelding op dezelfde vergrote weergavegrootte. De diagonale lijnen vertonen zichtbare pixelatie bij 72 DPI en zachtere randen bij hogere resoluties, terwijl het SVG‑bestand groeit. Het verhogen van de waarde verbetert niet noodzakelijk elk detail of verandert elke geëxporteerde afbeelding.
+De vergelijking hieronder toont hetzelfde gebied van de ingesloten rasterafbeelding op dezelfde vergrote weergavegrootte. De diagonale lijnen vertonen zichtbare pixelatie bij 72 DPI en gladdere randen bij hogere resoluties, terwijl het SVG‑bestand groter wordt. Het verhogen van de waarde verbetert niet per definitie elk detail of wijzigt elke geëxporteerde afbeelding.
 
-![Uitvergrote diagonale‑lijndetails bij 72, 150 en 300 DPI](metafile-rasterization-comparison.png)
+![Vergrote diagonale lijndetail bij 72, 150 en 300 DPI](metafile-rasterization-comparison.png)
 
-[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) beheert de vermindering van beeldresolutie en kan het effect van het wijzigen van de rasterisatie‑resolutie van metafiles maskeren. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) regelt de JPEG‑codeerkwaliteit, niet de rasterisatie‑resolutie van metafiles.
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) regelt de reductie van de beeldresolutie en kan het effect van het wijzigen van de metafile‑rasterisatie‑resolutie maskeren. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) regelt de JPEG-codeerkwaliteit, niet de metafile‑rasterisatie‑resolutie.
 
-## **Wijs stabiele ID's toe aan vormen en tekst**
+## **Stabiele ID's toewijzen aan vormen en tekst**
 
-Geef een opmaakcontroller door aan [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) om [SvgShape.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/setid/) voor elke SVG‑vorm in te stellen. Een controller die ook tekst‑spans verwerkt, kan [SvgTSpan.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgtspan/setid/) waarden op tekst‑`tspan`‑elementen instellen.
+Geef een formatteringscontroller door aan [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) om [SvgShape.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/setid/) voor elke SVG‑vorm in te stellen. Een controller die tevens tekst-spans afhandelt, kan waarden voor [SvgTSpan.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgtspan/setid/) op tekst-`tspan`-elementen instellen.
 
-De volgende controller gebruikt [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/), die gedurende de levensduur van de vorm stabiel is, en een herhaalbare teller voor de tekst‑spans. Dit maakt de gegenereerde ID's geschikt voor nabewerking van een onveranderde presentatie.
+De onderstaande controller gebruikt [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/), die stabiel is gedurende de levensduur van de vorm, en een herhaalbare teller voor zijn tekst-spans. Dit maakt de gegenereerde ID's geschikt voor post-processing van een onveranderde presentatie.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -309,9 +364,9 @@ try {
 }
 ```
 
-## **Voeg SVG‑event‑handlers toe**
+## **SVG‑eventhandlers toevoegen**
 
-In een opmaakcontroller, roep [SvgShape.setEventHandler](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/seteventhandler/) aan met een [SvgEvent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgevent/) waarde om een JavaScript‑event‑handler aan een geëxporteerde vorm toe te voegen. Wijs de controller toe met [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) en definieer de JavaScript‑functie in de pagina of SVG‑document dat het resultaat host.
+In een formatteringscontroller roept u [SvgShape.setEventHandler](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/seteventhandler/) aan met een [SvgEvent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgevent/)‑waarde om een JavaScript‑eventhandler toe te voegen aan een geëxporteerde vorm. Wijs de controller toe met [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) en definieer de JavaScript-functie in de pagina of het SVG-document dat het resultaat host.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -359,18 +414,18 @@ try {
 }
 ```
 
-De host‑pagina kan de door de handler gerefereerde JavaScript‑functie definiëren. Het toewijzen van ID's en event‑handlers maakt slide‑viewers, toegankelijkheidsverbeteringen en andere interactieve SVG‑workflows mogelijk.
+De host-pagina kan de door de handler gerefererde JavaScript-functie definiëren. Het toewijzen van ID's en event-handlers maakt dia-viewers, toegankelijkheidsverbeteringen en andere interactieve SVG-workflows mogelijk.
 
 ## **FAQ**
 
 **Wanneer moet ik [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) gebruiken in plaats van [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/)?**
 
-Gebruik [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) wanneer alle tekst onafhankelijk van lettertypen moet zijn. Gebruik [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) wanneer alleen tekst die externe lettertypen gebruikt naar graphics moet worden geconverteerd.
+Gebruik [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) wanneer alle tekst onafhankelijk van lettertypen moet zijn. Gebruik [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) wanneer alleen tekst die externe lettertypen gebruikt moet worden omgezet naar graphics.
 
 **Wat is de beste manier om een SVG kleiner te maken?**
 
-Begin met het comprimeren van ingesloten afbeeldingen, het verwijderen van bijgesneden beeldgebieden en het kiezen van gelinkte lettertypebestanden wanneer de doelomgeving ze kan leveren. Test het resultaat omdat een lagere beeldresolutie, lagere JPEG‑kwaliteit en gevectoriseerde tekst elk verschillende kwaliteits‑ en grootte‑afwegingen hebben.
+Begin met het comprimeren van ingesloten afbeeldingen, het verwijderen van bijgesneden afbeelding-gebieden, en het kiezen van gekoppelde lettertypebestanden wanneer de doelomgeving ze kan serveren. Test het resultaat omdat een lagere afbeeldingsresolutie, lagere JPEG-kwaliteit en gevectoriseerde tekst elk verschillende kwaliteits- en grootte-afwegingen hebben.
 
-**Kan ik geëxporteerde SVG‑elementen na export wijzigen?**
+**Kan ik geëxporteerde SVG-elementen na export aanpassen?**
 
-Ja. Wijs ID's toe via een opmaakcontroller en selecteer vervolgens de overeenkomende SVG‑elementen in uw nabewerkings‑tool of browserscript.
+Ja. Wijs ID's toe via een formatteringscontroller en selecteer vervolgens de overeenkomstige SVG-elementen in uw post-processing-tool of browserscript.

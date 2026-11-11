@@ -1,6 +1,6 @@
 ---
-title: Python'da Sunum Slaytlarını SVG Görüntüleri Olarak Render Etme
-linktitle: Slayttan SVG'ye
+title: Python'da Sunum Slaytlarını SVG Görüntülerine Dönüştür
+linktitle: Slaytı SVG'ye
 type: docs
 weight: 50
 url: /tr/python-net/render-a-slide-as-an-svg-image/
@@ -19,7 +19,7 @@ description: "PowerPoint slaytlarını Python'da SVG görüntüleri olarak dış
 ---
 ## **Genel Bakış**
 
-SVG, web yayını, slayt görüntüleyicileri, erişilebilirlik iş akışları ve otomatik sonrası işleme için iyi çalışan ölçeklenebilir bir XML tabanlı görüntü formatıdır. Aspose.Slides her slaytı ayrı bir SVG dosyasına aktarır ve metin, yazı tipleri, resimler ve SVG öğelerinin nasıl yazılacağını kontrol etmenizi sağlar.
+SVG, web yayıncılığı, slayt görüntüleyicileri, erişilebilirlik iş akışları ve otomatik sonrası işleme için iyi çalışan ölçeklenebilir bir XML tabanlı görüntü formatıdır. Aspose.Slides, her slaytı ayrı bir SVG dosyasına dışa aktarır ve metin, yazı tipleri, resimler ve SVG öğelerinin nasıl yazılacağını kontrol etmenizi sağlar.
 
 Use [SVGOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/) when the exported SVG must be compact, predictable across browsers, or ready for interactive use.
 
@@ -55,6 +55,44 @@ with slides.Presentation("presentation.pptx") as presentation:
         presentation.slides[0].write_as_svg(svg_stream, svg_options)
 ```
 
+## **Ok Uçlarında Çizgi Sonu Kırpmasını Kontrol Etme**
+
+SVG 1.1, bir çizginin ok ucunun altında nerede durması gerektiğini belirtmek için bir işaretçi içi ayarı sağlamaz. Varsayılan olarak, Aspose.Slides dışa aktarılan çizgiyi, çizgi boyasının işaretçiye çıkıntı yapmaması için kısaltır. Set [SVGOptions.disable_line_end_cropping](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/disable_line_end_cropping/) to `True` to draw the stroke all the way to the line's original endpoint. This setting affects only the SVG output. The line keeps its position and length on the slide.
+
+```py
+import aspose.pydrawing as drawing
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    y = 40
+
+    for style in (slides.LineArrowheadStyle.TRIANGLE, slides.LineArrowheadStyle.DIAMOND):
+        for width in (2, 10):
+            line = slide.shapes.add_auto_shape(slides.ShapeType.LINE, 40, y, 200, 0)
+            line_format = line.line_format
+            line_format.fill_format.fill_type = slides.FillType.SOLID
+            line_format.fill_format.solid_fill_color.color = drawing.Color.dark_blue
+            line_format.width = width
+            line_format.end_arrowhead_style = style
+            y += 50
+
+    options = slides.export.SVGOptions()
+    options.disable_line_end_cropping = False
+    with open("cropped.svg", "wb") as cropped:
+        slide.write_as_svg(cropped, options)
+
+    options.disable_line_end_cropping = True
+    with open("uncropped.svg", "wb") as uncropped:
+        slide.write_as_svg(uncropped, options)
+```
+
+The comparison shows the triangular arrowhead on the 10-point line. With cropping enabled, the tip is sharp. With cropping disabled, the stroke protrudes through the sloping sides of the marker and leaves a flat end.
+
+![Kırpma etkinleştirildiğinde keskin uçlu, kırpma devre dışı bırakıldığında düz uçlu büyütülmüş 10 puanlık üçgen](line-end-cropping.png)
+
+In the other lines from the example, the protruding stroke is less visible on the 2-point triangle. The filled diamond covers the end of the stroke at both widths.
+
 ## **Metin ve Yazı Tiplerini Kontrol Etme**
 
 When exporting slides to SVG, you can control whether text remains as text or is converted to vector graphics, and how external fonts are included or referenced. The following options help you balance visual consistency, text selection, and font dependencies in the exported SVG.
@@ -74,7 +112,7 @@ with slides.Presentation("presentation.pptx") as presentation:
         presentation.slides[0].write_as_svg(svg_stream, svg_options)
 ```
 
-### **Harici Yazı Tiplerinin Nasıl İşleneceğini Seçin**
+### **Harici Yazı Tiplerinin Nasıl Ele Alındığını Seçin**
 
 [SVGOptions.external_fonts_handling](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/external_fonts_handling/) uses a [SvgExternalFontsHandling](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgexternalfontshandling/) value for fonts that are loaded externally. Choose `ADD_LINKS_TO_FONT_FILES` to reference separate font files, `EMBED` to include font data in the SVG, or `VECTORIZE` to render only text that uses external fonts as graphics. Verify font licensing before embedding fonts.
 
@@ -101,7 +139,7 @@ with slides.Presentation("presentation.pptx") as presentation:
         presentation.slides[0].write_as_svg(vectorized_external_fonts_stream, vectorized_external_fonts_options)
 ```
 
-## **Gömülü Görüntü Boyutunu Azaltma**
+## **Gömülü Görüntü Boyutunu Küçültme**
 
 Use [SVGOptions.pictures_compression](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/pictures_compression/) to reduce the resolution of embedded pictures, [SVGOptions.delete_pictures_cropped_areas](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/delete_pictures_cropped_areas/) to omit cropped source areas, and [SVGOptions.jpeg_quality](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/jpeg_quality/) to control JPEG encoding quality. These settings reduce file size at the cost of image fidelity or retained image data.
 
@@ -118,7 +156,7 @@ with slides.Presentation("presentation.pptx") as presentation:
         presentation.slides[0].write_as_svg(svg_stream, svg_options)
 ```
 
-## **Metafile Rasterleştirme Çözünürlüğünü Kontrol Etme**
+## **Metafile Rasterizasyon Çözünürlüğünü Kontrol Etme**
 
 [SVGOptions.metafile_rasterization_dpi](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/metafile_rasterization_dpi/) sets the lower resolution limit for rasterizing metafiles during SVG export. Use it to balance detail and file size when an EMF or WMF image is rasterized. It does not define a global DPI for the SVG or force every object on the slide to become a raster image.
 
@@ -140,7 +178,7 @@ with slides.Presentation("metafile-rasterization.pptx") as presentation:
 
 In the output, the EMF became one embedded PNG in each SVG. The following measurements are for the supplied presentation; they are not a general formula for converting DPI to pixel dimensions.
 
-| Metafile rasterleştirme DPI | Gömülü PNG boyutları | SVG dosya boyutu (bayt) |
+| Metafile rasterizasyon DPI | Gömülü PNG boyutları | SVG dosya boyutu (bayt) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
@@ -148,16 +186,16 @@ In the output, the EMF became one embedded PNG in each SVG. The following measur
 
 The comparison below shows the same area of the embedded raster at the same enlarged display size. The diagonal lines show visible pixelation at 72 DPI and smoother edges at higher resolutions, while the SVG file grows. Increasing the value does not necessarily improve every detail or change every exported image.
 
-![72, 150 ve 300 DPI'de büyütülmüş diyagonal çizgi detayı](metafile-rasterization-comparison.png)
+![72, 150 ve 300 DPI'de büyütülmüş çapraz hat detayları](metafile-rasterization-comparison.png)
 
 [SVGOptions.pictures_compression](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/pictures_compression/) controls image resolution reduction and can mask the effect of changing the metafile rasterization resolution. [SVGOptions.jpeg_quality](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/jpeg_quality/) controls JPEG encoding quality, not metafile rasterization resolution.
 
 ## **SSS**
 
-**Ne zaman [SVGOptions.vectorize_text](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/vectorize_text/) yerine [SvgExternalFontsHandling.VECTORIZE](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgexternalfontshandling/) kullanmalıyım?**
+**When should I use [SVGOptions.vectorize_text](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/vectorize_text/) instead of [SvgExternalFontsHandling.VECTORIZE](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgexternalfontshandling/)?**
 
 Use [SVGOptions.vectorize_text](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/vectorize_text/) when all text must be independent of fonts. Use [SvgExternalFontsHandling.VECTORIZE](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgexternalfontshandling/) when only text that uses external fonts should be converted to graphics.
 
-**SVG'yi daha küçük hale getirmenin en iyi yolu nedir?**
+**What is the best way to make an SVG smaller?**
 
 Start by compressing embedded pictures, deleting cropped image areas, and choosing linked font files when the target environment can serve them. Test the result because lower image resolution, lower JPEG quality, and vectorized text each have different quality and size tradeoffs.
