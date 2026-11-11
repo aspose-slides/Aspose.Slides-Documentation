@@ -1,32 +1,32 @@
 ---
-title: Renderizza le diapositive di presentazione come immagini SVG in PHP
-linktitle: Diapositiva in SVG
+title: Genera diapositive della presentazione come immagini SVG in PHP
+linktitle: Diapositiva a SVG
 type: docs
 weight: 50
 url: /it/php-java/render-a-slide-as-an-svg-image/
 keywords:
-- PowerPoint in SVG
-- presentazione in SVG
-- diapositiva in SVG
-- PPT in SVG
-- PPTX in SVG
+- PowerPoint a SVG
+- presentazione a SVG
+- diapositiva a SVG
+- PPT a SVG
+- PPTX a SVG
 - opzioni di esportazione SVG
 - SVG interattivo
 - PowerPoint
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Esporta le diapositive PowerPoint come immagini SVG in PHP e controlla font, testo, immagini, ID ed eventi con Aspose.Slides."
+description: "Esporta le diapositive PowerPoint come immagini SVG in PHP e controlla i caratteri, il testo, le immagini, gli ID e gli eventi con Aspose.Slides."
 ---
 ## **Panoramica**
 
-SVG è un formato immagine basato su XML scalabile che funziona bene per la pubblicazione web, i visualizzatori di diapositive, i flussi di lavoro di accessibilità e l'elaborazione posteriore automatizzata. Aspose.Slides esporta ogni diapositiva in un file SVG separato e consente di controllare come vengono scritti testo, font, immagini e elementi SVG.
+SVG è un formato immagine basato su XML scalabile che funziona bene per la pubblicazione web, i visualizzatori di diapositive, i flussi di lavoro di accessibilità e l'elaborazione automatica post‑processing. Aspose.Slides esporta ogni diapositiva in un file SVG separato e consente di controllare come vengono scritti testo, caratteri, immagini e elementi SVG.
 
-Utilizza [SVGOptions](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgoptions/) quando l'SVG esportato deve essere compatto, prevedibile tra i browser o pronto per un uso interattivo.
+Usa [SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) quando l'SVG esportato deve essere compatto, prevedibile su diversi browser o pronto per un utilizzo interattivo.
 
 ## **Esporta una diapositiva come SVG**
 
-Crea una [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/), seleziona una diapositiva e scrivila in uno stream con [Slide.writeAsSvg](https://reference.aspose.com/slides/it/php-java/aspose.slides/slide/#writeAsSvg). L'esempio seguente esporta ogni diapositiva di una presentazione in un file SVG separato.
+Crea una [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), seleziona una diapositiva e scrivila su uno stream con [Slide.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#writeAsSvg). L’esempio seguente esporta ogni diapositiva di una presentazione in un file SVG separato.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -47,11 +47,11 @@ try {
 }
 ```
 
-Il nome file utilizza [Slide.getSlideNumber](https://reference.aspose.com/slides/it/php-java/aspose.slides/slide/#getSlideNumber) anziché l'indice del ciclo. È inoltre possibile esportare una forma individuale con [Shape.writeAsSvg](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/#writeAsSvg) quando un visualizzatore di diapositive o una pagina web richiede solo quella forma.
+Il nome del file usa [Slide.getSlideNumber](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getSlideNumber) invece dell’indice del ciclo. Puoi anche esportare una forma individuale con [Shape.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#writeAsSvg) quando un visualizzatore di diapositive o una pagina web ha bisogno solo di quella forma.
 
 ## **Configura l'output SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgoptions/) controlla il rendering SVG. Per i riquadri di testo, [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgoptions/#setUseFrameSize) include il riquadro di testo nell'area di rendering, e [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgoptions/#setUseFrameRotation) determina se la rotazione del riquadro viene applicata. Imposta [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgoptions/#setDisableFontLigatures) su `true` quando il testo deve essere renderizzato senza legature.
+[SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) controlla il rendering SVG. Per i riquadri di testo, [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setUseFrameSize) include il riquadro di testo nell’area di rendering, e [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setUseFrameRotation) determina se viene applicata la rotazione del riquadro. Imposta [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setDisableFontLigatures) su `true` quando il testo deve essere renderizzato senza legature.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -73,9 +73,11 @@ try {
 
 ## **Controlla testo e caratteri**
 
-### **Vettorizza tutto il testo**
+Durante l’esportazione di diapositive in SVG, è possibile controllare se il testo rimane come testo o viene convertito in grafica vettoriale, e come i caratteri esterni vengono inclusi o referenziati. Le opzioni seguenti ti aiutano a bilanciare coerenza visiva, selezionabilità del testo e dipendenze dei caratteri nello SVG esportato.
 
-Imposta [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgoptions/#setVectorizeText) su `true` per scrivere tutto il testo della diapositiva come grafica vettoriale. Questo elimina le dipendenze dai font e rende il risultato visivo più coerente tra i browser, ma il testo non è più selezionabile o ricercabile come testo SVG.
+### **Vectorizza tutto il testo**
+
+Imposta [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) su `true` per scrivere tutto il testo della diapositiva come grafica vettoriale. Questo elimina le dipendenze dai caratteri e rende il risultato visivo più coerente tra i browser, ma il testo non è più selezionabile né ricercabile come testo SVG.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -93,9 +95,9 @@ try {
 }
 ```
 
-### **Scegli come gestire i font esterni**
+### **Scegli come gestire i caratteri esterni**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgoptions/#setExternalFontsHandling) utilizza un valore [SvgExternalFontsHandling](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgexternalfontshandling/) per i font caricati esternamente. Scegli `AddLinksToFontFiles` per fare riferimento a file di font separati, `Embed` per includere i dati del font nell'SVG, o `Vectorize` per renderizzare solo il testo che utilizza font esterni come grafica. Verifica la licenza dei font prima di includerli.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setExternalFontsHandling) utilizza un valore [SvgExternalFontsHandling](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/) per i caratteri caricati esternamente. Scegli `AddLinksToFontFiles` per fare riferimento a file di caratteri separati, `Embed` per includere i dati dei caratteri nello SVG, o `Vectorize` per rendere solo il testo che utilizza caratteri esterni come grafica. Verifica la licenza dei caratteri prima di incorporarli.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -133,9 +135,9 @@ try {
 }
 ```
 
-## **Riduci la dimensione delle immagini incorporate**
+## **Riduci le dimensioni delle immagini incorporate**
 
-Usa [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgoptions/#setPicturesCompression) per ridurre la risoluzione delle immagini incorporate, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas) per omettere le aree di origine ritagliate e [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgoptions/#setJpegQuality) per controllare la qualità di codifica JPEG. Queste impostazioni riducono le dimensioni del file a scapito della fedeltà dell'immagine o dei dati immagine conservati.
+Usa [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setPicturesCompression) per ridurre la risoluzione delle immagini incorporate, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas) per omettere le aree di origine ritagliate e [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setJpegQuality) per controllare la qualità di codifica JPEG. queste impostazioni riducono la dimensione del file a scapito della fedeltà dell’immagine o dei dati immagine conservati.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -155,11 +157,57 @@ try {
 }
 ```
 
+## **Controlla la risoluzione di rasterizzazione dei Metafile**
+
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) imposta il limite inferiore di risoluzione per rasterizzare i metafile durante l’esportazione SVG. Usalo per bilanciare dettaglio e dimensione del file quando un’immagine EMF o WMF viene rasterizzata. Non definisce un DPI globale per lo SVG né forza ogni oggetto della diapositiva a diventare un’immagine raster.
+
+Scarica [metafile-rasterization.pptx](metafile-rasterization.pptx), che contiene un’immagine EMF con linee diagonali molto vicine. L’esempio seguente esporta la sua prima diapositiva a tre risoluzioni di rasterizzazione tramite [Slide.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/slide/writeassvg/). Tutte le altre impostazioni di esportazione rimangono identiche così che i risultati possano essere confrontati.
+
+```php
+$presentation = new Presentation("metafile-rasterization.pptx");
+
+try {
+    foreach ([72, 150, 300] as $dpi) {
+        $svgOptions = new SVGOptions();
+        $svgOptions->setMetafileRasterizationDpi($dpi);
+        $svgOptions->setPicturesCompression(PicturesCompression::Dpi330);
+        $svgOptions->setJpegQuality(90);
+
+        $outputFileName = sprintf("slide-%d.svg", $dpi);
+        $svgStream = new Java("java.io.FileOutputStream", $outputFileName);
+
+        try {
+            $presentation->getSlides()->get_Item(0)->writeAsSvg($svgStream, $svgOptions);
+        } finally {
+            $svgStream->close();
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Nel risultato, l’EMF è diventato un PNG incorporato in ciascun SVG. Le misurazioni seguenti sono per la presentazione fornita; non costituiscono una formula generale per convertire DPI in dimensioni pixel.
+
+| Risoluzione di rasterizzazione del metafile DPI | Dimensioni PNG incorporato | Dimensione file SVG (byte) |
+| --- | --- | --- |
+| 72 | 1196 × 596 | 170,221 |
+| 150 | 2492 × 1242 | 423,149 |
+| 300 | 4983 × 2483 | 1,027,169 |
+
+Il confronto sotto mostra la stessa area della rasterizzazione incorporata alla stessa dimensione di visualizzazione ingrandita. Le linee diagonali mostrano una pixelatura visibile a 72 DPI e bordi più lisci a risoluzioni più alte, mentre il file SVG cresce. Aumentare il valore non migliora necessariamente ogni dettaglio né cambia ogni immagine esportata.
+
+![Dettaglio ingrandito della linea diagonale a 72, 150 e 300 DPI](metafile-rasterization-comparison.png)
+
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setpicturescompression/) controlla la riduzione della risoluzione delle immagini e può mascherare l’effetto della modifica della risoluzione di rasterizzazione del metafile. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setjpegquality/) controlla la qualità di codifica JPEG, non la risoluzione di rasterizzazione del metafile.
+
 ## **Assegna ID stabili a forme e testo**
 
-Fornisci un callback di formattazione a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgoptions/#setShapeFormattingController) per impostare [SvgShape.setId](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgshape/#setId) per ogni forma SVG. Il callback può anche impostare i valori [SvgTSpan.setId](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgtspan/#setId) sugli elementi `tspan` del testo.
+Fornisci una callback di formattazione a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setShapeFormattingController) per impostare [SvgShape.setId](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/#setId) per ogni forma SVG. La callback può anche impostare i valori [SvgTSpan.setId](https://reference.aspose.com/slides/php-java/aspose.slides/svgtspan/#setId) sugli elementi `tspan` di testo.
 
-PhpJavaBridge non può invocare un callback PHP da `writeAsSvg` quando viene eseguito in modalità stream. Inserisci la logica di formattazione in una piccola classe helper Java, compilala e aggiungi il file JAR risultato al classpath del bridge. L'helper può utilizzare [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/#getOfficeInteropShapeId), che è stabile per la durata della forma, e un contatore ripetibile per i relativi `tspan` di testo. Vedi l'[implementazione Java di `StableSvgIdController`](/slides/it/java/render-a-slide-as-an-svg-image/#assign-stable-ids-to-shapes-and-text) per il codice helper.
+PhpJavaBridge non può invocare una callback PHP da `writeAsSvg` quando funziona in modalità stream. Inserisci la logica di formattazione in una piccola classe di supporto Java, compilala e aggiungi il file JAR risultante al classpath del bridge. Il supporto può usare [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getOfficeInteropShapeId), che è stabile per tutta la vita della forma, e un contatore ripetibile per i suoi span di testo. Consulta l’[implementazione Java di `StableSvgIdController`](/slides/it/java/render-a-slide-as-an-svg-image/#assign-stable-ids-to-shapes-and-text) per il codice di supporto.
+
+Dopo aver aggiunto la classe compilata `com.example.slides.StableSvgIdController` al classpath del bridge, istanziala da PHP e assegnala a `SVGOptions`:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -181,9 +229,9 @@ try {
 
 ## **Aggiungi gestori di eventi SVG**
 
-In un callback di formattazione, chiama [SvgShape.setEventHandler](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgshape/#setEventHandler) passando un valore [SvgEvent](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgevent/) per aggiungere un gestore di eventi JavaScript a una forma esportata. Assegna il callback con [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgoptions/#setShapeFormattingController) e definisci la funzione JavaScript nella pagina o nel documento SVG che ospita il risultato.
+In una callback di formattazione, chiama [SvgShape.setEventHandler](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/#setEventHandler) con un valore [SvgEvent](https://reference.aspose.com/slides/php-java/aspose.slides/svgevent/) per aggiungere un gestore di eventi JavaScript a una forma esportata. Assegna la callback con [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setShapeFormattingController) e definisci la funzione JavaScript nella pagina o nel documento SVG che ospita il risultato.
 
-Come per gli ID stabili, implementa il callback in un helper Java quando PhpJavaBridge utilizza la modalità stream. L'[implementazione Java di `SvgEventController`](/slides/it/java/render-a-slide-as-an-svg-image/#add-svg-event-handlers) assegna un ID e un gestore `OnClick` a una forma chiamata `ActionButton`. Compila quell'helper, aggiungilo al classpath del bridge come `com.example.slides.SvgEventController` e usalo da PHP come segue:
+Come per gli ID stabili, implementa la callback in un helper Java quando PhpJavaBridge usa la modalità stream. L’[implementazione Java di `SvgEventController`](/slides/it/java/render-a-slide-as-an-svg-image/#add-svg-event-handlers) assegna un ID e un gestore `OnClick` a una forma chiamata `ActionButton`. Compila quell’aiuto, aggiungilo al classpath del bridge come `com.example.slides.SvgEventController` e usalo da PHP come segue:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -203,18 +251,18 @@ try {
 }
 ```
 
-La pagina host può definire la funzione JavaScript a cui fa riferimento il gestore. L'assegnazione di ID e gestori di eventi consente visualizzatori di diapositive, miglioramenti di accessibilità e altri flussi di lavoro SVG interattivi.
+La pagina host può definire la funzione JavaScript a cui fa riferimento il gestore. L’assegnazione di ID e gestori di eventi consente visualizzatori di diapositive, miglioramenti di accessibilità e altri flussi di lavoro SVG interattivi.
 
 ## **FAQ**
 
-**Quando dovrei usare [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgoptions/#setVectorizeText) invece di [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgexternalfontshandling/)?**
+**Quando dovrei usare [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) invece di [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/)?**
 
-Utilizza [SVGOptions.setVectorizeText] quando tutto il testo deve essere indipendente dai font. Utilizza [SvgExternalFontsHandling.Vectorize] quando solo il testo che utilizza font esterni deve essere convertito in grafica.
+Usa [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) quando tutto il testo deve essere indipendente dai caratteri. Usa [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/) quando solo il testo che utilizza caratteri esterni dovrebbe essere convertito in grafica.
 
 **Qual è il modo migliore per rendere un SVG più piccolo?**
 
-Inizia comprimendo le immagini incorporate, eliminando le aree di immagine ritagliate e scegliendo file di font collegati quando l'ambiente di destinazione può servirli. Testa il risultato perché una risoluzione immagine più bassa, una qualità JPEG inferiore e il testo vettorizzato hanno ciascuno compromessi diversi tra qualità e dimensione.
+Inizia comprimendo le immagini incorporate, eliminando le aree ritagliate e scegliendo file di caratteri collegati quando l’ambiente di destinazione può servirli. Testa il risultato perché una risoluzione immagine inferiore, una qualità JPEG più bassa e il testo vectorizzato hanno ciascuno compromessi diversi tra qualità e dimensione.
 
-**Posso modificare gli elementi SVG esportati dopo l'esportazione?**
+**Posso modificare gli elementi SVG esportati dopo l’esportazione?**
 
-Sì. Assegna ID tramite un callback di formattazione, quindi seleziona gli elementi SVG corrispondenti nel tuo strumento di post-elaborazione o nello script del browser.
+Sì. Assegna ID tramite una callback di formattazione, quindi seleziona gli elementi SVG corrispondenti nel tuo strumento di post‑processing o nello script del browser.

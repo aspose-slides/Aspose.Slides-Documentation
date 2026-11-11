@@ -8,523 +8,498 @@ keywords:
 - zoom
 - zoomram
 - bildzoom
-- sektionzoom
+- avsnittszoom
 - sammanfattningszoom
-- lägga till zoom
+- lägg till zoom
 - PowerPoint
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Skapa och anpassa Zoom med Aspose.Slides för Node.js — hoppa mellan sektioner, lägg till miniatyrbilder och övergångar i PPT-, PPTX- och ODP-presentationer."
+description: "Skapa och anpassa Zoom med Aspose.Slides för Node.js via Java — hoppa mellan avsnitt, lägg till miniatyrer och övergångar i PowerPoint-presentationer."
 ---
 ## **Introduktion**
 
-Zoom-funktionerna i PowerPoint låter dig hoppa till och från specifika bilder, sektioner och delar av en presentation. När du presenterar kan denna möjlighet att snabbt navigera i innehållet vara väldigt användbar. 
+PowerPoint‑zoomer låter dig navigera mellan specifika bilder och avsnitt under ett bildspel. Med Aspose.Slides för Node.js via Java kan du skapa bild‑, avsnitts‑ och sammanfattnings‑zoomer samt anpassa deras förhandsgranskningar, ramar och övergångar.
 
-![overview_image](overview.png)
+![PowerPoint‑zoomöversikt](overview.png)
 
-* För att sammanfatta en hel presentation på en enda bild, använd en [Summary Zoom](#Summary-Zoom).
-* För att bara visa utvalda bilder, använd en [Slide Zoom](#Slide-Zoom).
-* För att bara visa en enskild sektion, använd en [Section Zoom](#Section-Zoom).
+* För att sammanfatta en hel presentation på en enda bild, använd en [Sammanfattnings‑zoom](#summary-zoom).
+* För att bara visa utvalda bilder, använd en [Bild‑zoom](#slide-zoom).
+* För att bara visa ett enda avsnitt, använd en [Avsnitts‑zoom](#section-zoom).
 
-## **Bildzoom**
+## **Bild‑zoom**
 
-En bildzoom kan göra din presentation mer dynamisk och låta dig navigera fritt mellan bilder i vilken ordning du önskar utan att avbryta presentationens flöde. Bildzoomer är utmärkta för korta presentationer utan många sektioner, men du kan även använda dem i olika presentationsscenario.
+En bild‑zoom kan göra din presentation mer dynamisk genom att låta dig navigera fritt mellan bilder i vilken ordning du väljer utan att avbryta flödet i din presentation. Bild‑zoomer är utmärkta för korta presentationer utan många avsnitt, men du kan ändå använda dem i olika presentationsscenario. Bild‑zoomer låter dig utforska relaterad information från en enda översiktsbild.
 
-Bildzoomer hjälper dig att gräva ner dig i flera informationsdelar samtidigt som du känner dig på en enda yta. 
+![Välja bilder för en bild‑zoom](slidezoomsel.png)
 
-![overview_image](slidezoomsel.png)
+För bild‑zoom‑objekt tillhandahåller Aspose.Slides uppräkningen [ZoomImageType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomimagetype/), klassen [ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/), samt metoder på klassen [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/).
 
-För bildzoom‑objekt tillhandahåller Aspose.Slides uppräkningen [ZoomImageType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ZoomImageType), klassen [ZoomFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ZoomFrame) samt några metoder under klassen [ShapeCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ShapeCollection).
+### **Skapa zoom‑ramar**
 
-### **Skapa zoomramar**
-
-Du kan lägga till en zoomram på en bild på följande sätt:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Skapa nya bilder som du avser länka zoomramarna till. 
-3. Lägg till en identifieringstext och bakgrund till de skapade bilderna.
-4. Lägg till zoomramar (som innehåller referenserna till de skapade bilderna) på den första bilden.
-5. Skriv den modifierade presentationen som en PPTX‑fil.
+Använd [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame) för att placera länkar till enskilda bilder på en översiktsbild. Detta exempel skapar två målbilder med olika bakgrunder och etiketter, lägger sedan till en förhandsgranskning av varje på den första bilden och sparar presentationen som PPTX. Rampositioner och -dimensioner anges i punkter.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Lägger till nya bilder i presentationen
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // Skapar en bakgrund för den andra bilden
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // Skapar en textruta för den andra bilden
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // Skapar en bakgrund för den tredje bilden
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // Skapar en textruta för den tredje bilden
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // Lägger till ZoomFrame-objekt
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // Sparar presentationen
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Skapa zoomramar med anpassade bilder**
+### **Skapa zoom‑ramar med anpassade bilder**
 
-Med Aspose.Slides för Node.js via Java kan du skapa en zoomram med en annan bildförhandsgranskning på bilden på följande sätt:
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Skapa en ny bild som du avser länka zoomramen till. 
-3. Lägg till en identifieringstext och bakgrund till bilden.
-4. Skapa ett [PPImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PPImage)‑objekt genom att lägga till en bild i bildsamlingen som är kopplad till [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation)‑objektet som ska användas för att fylla ramen.
-5. Lägg till zoomramar (som innehåller referensen till den skapade bilden) på den första bilden.
-6. Skriv den modifierade presentationen som en PPTX‑fil.
+Skicka en anpassad bild till [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame) för att ersätta standardförhandsgranskningen av målbilden. Detta exempel kräver en lokal bild, läser in den med [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile), och lägger till den i presentationen med [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage). Den resulterande ramen visar den bilden samtidigt som den fortfarande länkar till den andra bilden.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Lägger till en ny bild i presentationen
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // Skapar en bakgrund för den andra bilden
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // Skapar en textruta för den tredje bilden
-    var autoshape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // Skapar en ny bild för zoom‑objektet
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
+        image.dispose();
+    }
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 300, 200, slide, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Formatera zoom‑ramar**
+
+Detta exempel anpassar två bild‑zoom‑ramar. Det tilldelar en lokal bild till den första ramen via [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage), och ger den andra ramen en fem‑punkts, streck‑prick‑rosa ram via [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat). Att skicka `false` till [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground) döljer den andra ramen bakgrund. En lokal bild krävs för den anpassade förhandsgranskningen; båda ramarna behåller sina bildmål i den sparade PPTX‑filen.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    let firstZoomFrame = overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    let secondZoomFrame = overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
+    try {
+        previewImage = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
+
+    firstZoomFrame.setZoomImage(previewImage);
+
+    secondZoomFrame.getLineFormat().setWidth(5);
+    secondZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 105, 180));
+    secondZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
+    secondZoomFrame.setShowBackground(false);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Avsnitts‑zoom**
+
+En avsnitts‑zoom länkar till ett avsnitt i din presentation. Använd den för att återbesöka ett ämne eller visa hur olika delar av presentationen hänger ihop.
+
+![Välja ett avsnitt för en avsnitts‑zoom](seczoomsel.png)
+
+För avsnitts‑zoom‑objekt tillhandahåller Aspose.Slides klassen [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) samt metoder på klassen [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/).
+
+### **Skapa avsnitts‑zoom‑ramar**
+
+Skapa ett avsnitt med [SectionCollection.addSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectioncollection/#addSection), och skicka sedan det returnerade avsnittet till [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame). Detta exempel placerar en avsnitts‑zoom på den första bilden och länkar den till ett avsnitt som börjar med en färgad bild. Ramens position och dimensioner anges i punkter, och presentationen sparas som PPTX.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Skapa avsnitts‑zoom‑ramar med anpassade bilder**
+
+Bild‑överladdningen av [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame) låter dig visa en anpassad förhandsgranskning utan att ändra destinationsavsnittet. Detta exempel kräver en lokal bild som läses in med [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) och läggs till via [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage). Den sparade presentationen innehåller en avsnitts‑zoom på den första bilden länkat till det nyss skapade avsnittet.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
+    try {
+        previewImage = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Ändra mål‑avsnittet för en avsnitts‑zoom**
+
+Använd [SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/#setTargetSection) för att omdirigera en befintlig avsnitts‑zoom utan att återskapa den. Välj ett fyllt avsnitt från samma presentations [Presentation.getSections](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSections)‑samling. Att tilldela ett tomt avsnitt lämnar det nuvarande målet oförändrat, så kontrollera [Section.getSlidesListOfSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSlidesListOfSection) innan du tilldelar det. Se [Hantera bildavsnitt](/slides/sv/nodejs-java/slide-section/) för mer om avsnitt.
+
+Följande exempel läser in en presentationsfil som måste innehålla flera fyllda avsnitt, en befintlig avsnitts‑zoom med namnet `Section navigation`, och ett avsnitt med det unika namnet `Results`. Det söker igenom alla bilder efter zoomen och hittar destinationen efter namn snarare än efter ett samlingsindex som kan ändras när avsnitt omordnas. Om namn inte är unika, använd [Section.getSectionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSectionId) för att identifiera destinationen istället.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("section-zoom.pptx");
+try {
+    let zoom = null;
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        for (let j = 0; j < slide.getShapes().size(); j++) {
+            const shape = slide.getShapes().get_Item(j);
+            if (java.instanceOf(shape, "com.aspose.slides.ISectionZoomFrame") && shape.getName() === "Section navigation") {
+                zoom = shape;
+                break;
+            }
+        }
+        if (zoom != null) {
+            break;
         }
     }
-    // Lägger till ZoomFrame‑objektet
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
-    // Sparar presentationen
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
 
-### **Formatera zoomramar**
-
-I föregående avsnitt visade vi hur du skapar enkla zoomramar. För att skapa mer komplicerade zoomramar måste du ändra formateringen av en enkel ram. Det finns flera formateringsalternativ du kan tillämpa på en zoomram. 
-
-Du kan kontrollera en zoomramens formatering på en bild på följande sätt:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Skapa nya bilder att länka till som du avser att länka zoomramen till. 
-3. Lägg till lite identifieringstext och bakgrund till de skapade bilderna.
-4. Lägg till zoomramar (som innehåller referenserna till de skapade bilderna) på den första bilden.
-5. Skapa ett [PPImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PPImage)‑objekt genom att lägga till en bild i bildsamlingen som är kopplad till [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation)‑objektet som ska användas för att fylla ramen.
-6. Ange en anpassad bild för det första zoomram‑objektet.
-7. Ändra linjeformatet för det andra zoomram‑objektet.
-8. Ta bort bakgrunden från en bild av det andra zoomram‑objektet.
-5. Skriv den modifierade presentationen som en PPTX‑fil.
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // Lägger till nya bilder i presentationen
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // Skapar en bakgrund för den andra bilden
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // Skapar en textruta för den andra bilden
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // Skapar en bakgrund för den tredje bilden
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // Skapar en textruta för den tredje bilden
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // Lägger till ZoomFrame-objekt
-    var zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    var zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // Skapar en ny bild för zoom‑objektet
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+    let targetSection = null;
+    for (let i = 0; i < presentation.getSections().size(); i++) {
+        const section = presentation.getSections().get_Item(i);
+        if (section.getName() === "Results") {
+            targetSection = section;
+            break;
         }
     }
-    // Ställer in en anpassad bild för zoomFrame1-objektet
-    zoomFrame1.setImage(picture);
-    // Ställer in format för zoomramen för zoomFrame2-objektet
-    zoomFrame2.getLineFormat().setWidth(5);
-    zoomFrame2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "pink"));
-    zoomFrame2.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // Inställning för att inte visa bakgrund för zoomFrame2-objektet
-    zoomFrame2.setShowBackground(false);
-    // Sparar presentationen
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (zoom == null || targetSection == null) {
+        console.log("The section zoom or destination section was not found.");
+    } else if (targetSection.getSlidesListOfSection().size() == 0) {
+        console.log("The destination section is empty.");
+    } else {
+        let currentSection = zoom.getTargetSection();
+        console.log("Current section: " + (currentSection == null ? "" : currentSection.getName()));
+        zoom.setTargetSection(targetSection);
+        presentation.save("section-zoom-updated.pptx", aspose.slides.SaveFormat.Pptx);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Sektionzoom**
+### **Formatera avsnitts‑zoom‑ramar**
 
-En sektionzoom är en länk till en sektion i din presentation. Du kan använda sektionzoomer för att gå tillbaka till sektioner du verkligen vill betona. Eller så kan du använda dem för att framhäva hur vissa delar av din presentation hänger ihop. 
-
-![overview_image](seczoomsel.png)
-
-För sektionzoom‑objekt tillhandahåller Aspose.Slides klassen [SectionZoomFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SectionZoomFrame) och några metoder under klassen [ShapeCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ShapeCollection).
-
-### **Skapa sektionzoomramar**
-
-Du kan lägga till en sektionzoomram på en bild på följande sätt:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Skapa en ny bild. 
-3. Lägg till en identifieringsbakgrund till den skapade bilden.
-4. Skapa en ny sektion som du avser att länka zoomramen till. 
-5. Lägg till en sektionzoomram (som innehåller referenser till den skapade sektionen) på den första bilden.
-6. Skriv den modifierade presentationen som en PPTX‑fil.
+Detta exempel flyttar och ändrar storlek på en avsnitts‑zoom till 100 × 75 punkter, tilldelar en lokal bild via [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage), och applicerar en 2,5‑punkts, streck‑prick‑brun ram. Det aktiverar [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) för att återgå till ursprungsbilden efter avsnittet, inaktiverar [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground), och sätter [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) till 1,5 sekunder. En lokal bild krävs för den anpassade förhandsgranskningen.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Lägger till en ny bild i presentationen
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Lägger till en ny sektion i presentationen
-    pres.getSections().addSection("Section 1", slide);
-    // Lägger till ett SectionZoomFrame-objekt
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // Sparar presentationen
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
 
-### **Skapa sektionzoomramar med anpassade bilder**
+    let section = presentation.getSections().addSection("Section 1", slide);
 
-Med Aspose.Slides för Node.js via Java kan du skapa en sektionzoomram med en annan bildförhandsgranskning på bilden på följande sätt:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Skapa en ny bild.
-3. Lägg till en identifieringsbakgrund till den skapade bilden.
-4. Skapa en ny sektion som du avser att länka zoomramen till. 
-5. Skapa ett [PPImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PPImage)‑objekt genom att lägga till en bild i bildsamlingen som är kopplad till [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation)‑objektet som ska användas för att fylla ramen.
-5. Lägg till en sektionzoomram (som innehåller en referens till den skapade sektionen) på den första bilden.
-6. Skriv den modifierade presentationen som en PPTX‑fil.
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // Lägger till en ny bild i presentationen
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Lägger till en ny sektion i presentationen
-    pres.getSections().addSection("Section 1", slide);
-    // Skapar en ny bild för zoom‑objektet
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    // Lägger till SectionZoomFrame-objekt
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
-    // Sparar presentationen
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-### **Formatera sektionzoomramar**
-
-För att skapa mer komplicerade sektionzoomramar måste du ändra formateringen av en enkel ram. Det finns flera formateringsalternativ du kan tillämpa på en sektionzoomram. 
-
-Du kan kontrollera en sektionzoomramens formatering på en bild på följande sätt:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Skapa en ny bild.
-3. Lägg till identifieringsbakgrund till den skapade bilden.
-4. Skapa en ny sektion som du avser att länka zoomramen till. 
-5. Lägg till en sektionzoomram (som innehåller referenser till skapad sektion) på den första bilden.
-6. Ändra storlek och position för det skapade sektionzoom‑objektet.
-7. Skapa ett [PPImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PPImage)‑objekt genom att lägga till en bild i bildsamlingen som är kopplad till [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation)‑objektet som ska användas för att fylla ramen.
-8. Ange en anpassad bild för det skapade sektionzoom‑ram‑objektet.
-9. Aktivera *återgång till den ursprungliga bilden från den länkade sektionen*. 
-10. Ta bort bakgrunden från en bild av sektionzoom‑ram‑objektet.
-11. Ändra linjeformatet för det andra zoomram‑objektet.
-12. Ändra övergångens varaktighet.
-13. Skriv den modifierade presentationen som en PPTX‑fil.
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // Lägger till en ny bild i presentationen
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Lägger till en ny sektion i presentationen
-    pres.getSections().addSection("Section 1", slide);
-    // Lägg till SectionZoomFrame-objekt
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // Formatering för SectionZoomFrame
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
     sectionZoomFrame.setHeight(75);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    sectionZoomFrame.setImage(picture);
+
+    sectionZoomFrame.setZoomImage(previewImage);
+
     sectionZoomFrame.setReturnToParent(true);
     sectionZoomFrame.setShowBackground(false);
+
     sectionZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    sectionZoomFrame.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    sectionZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     sectionZoomFrame.getLineFormat().setWidth(2.5);
-    sectionZoomFrame.setTransitionDuration(1.5);
-    // Sparar presentationen
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    sectionZoomFrame.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Sammanfattningszoom**
+## **Sammanfattnings‑zoom**
 
-En sammanfattningszoom är som en landningssida där alla delar av din presentation visas samtidigt. När du presenterar kan du använda zoomen för att gå från en plats i presentationen till en annan i vilken ordning du vill. Du kan vara kreativ, hoppa fram eller återbesöka delar av ditt bildspel utan att avbryta presentationens flöde.
+En sammanfattnings‑zoom ger en översikt över presentationsavsnitt. Under ett bildspel kan du använda den för att hoppa till ett avsnitt, hoppa över eller återbesöka ett ämne utan att följa bildordningen.
 
-![overview_image](sumzoomsel.png)
+![Välja avsnitt för en sammanfattnings‑zoom](sumzoomsel.png)
 
-För sammanfattningszoom‑objekt tillhandahåller Aspose.Slides klasserna [SummaryZoomFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SummaryZoomFrame), [SummaryZoomSection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SummaryZoomSection) och [SummaryZoomSectionCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SummaryZoomSectionCollection) samt några metoder under klassen [ShapeCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ShapeCollection).
+För sammanfattnings‑zoom‑objekt tillhandahåller Aspose.Slides klasserna [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/), och [SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/), samt metoder på klassen [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/).
 
-### **Skapa sammanfattningszoom**
+### **Skapa en sammanfattnings‑zoom**
 
-Du kan lägga till en sammanfattningszoomram på en bild på följande sätt:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Skapa nya bilder med identifieringsbakgrund och nya sektioner för de skapade bilderna.
-3. Lägg till sammanfattningszoomramen på den första bilden.
-4. Skriv den modifierade presentationen som en PPTX‑fil.
+Använd [ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSummaryZoomFrame) för att skapa en översikt över presentationens avsnitt. Detta exempel skapar fyra avsnitt med olika bakgrunder på bilderna och lägger till en sammanfattnings‑zoom på den första bilden. Ramens position och dimensioner anges i punkter, och den resulterande översikten sparas i en PPTX‑presentation.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Lägger till en ny bild i presentationen
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Lägger till en ny sektion i presentationen
-    pres.getSections().addSection("Section 1", slide);
-    // Lägger till en ny bild i presentationen
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Lägger till en ny sektion i presentationen
-    pres.getSections().addSection("Section 2", slide);
-    // Lägger till en ny bild i presentationen
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Lägger till en ny sektion i presentationen
-    pres.getSections().addSection("Section 3", slide);
-    // Lägger till en ny bild i presentationen
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 3", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "green"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Lägger till en ny sektion i presentationen
-    pres.getSections().addSection("Section 4", slide);
-    // Lägger till ett SummaryZoomFrame-objekt
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // Sparar presentationen
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 100, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 4", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Lägga till och ta bort sammanfattningszoom‑sektion**
+### **Lägg till och ta bort en sammanfattnings‑zoom‑sektion**
 
-Alla sektioner i en sammanfattningszoomram representeras av [SummaryZoomSection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SummaryZoomSection)-objekt, som lagras i [SummaryZoomSectionCollection]-objektet. Du kan lägga till eller ta bort ett sammanfattningszoom‑sektion‑objekt via klassen [SummaryZoomSectionCollection] på följande sätt:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Skapa nya bilder med identifieringsbakgrund och nya sektioner för de skapade bilderna.
-3. Lägg till en sammanfattningszoomram i den första bilden.
-4. Lägg till en ny bild och sektion i presentationen.
-5. Lägg till den skapade sektionen i sammanfattningszoomramen.
-6. Ta bort den första sektionen från sammanfattningszoomramen.
-7. Skriv den modifierade presentationen som en PPTX‑fil.
+En sammanfattnings‑zoom lagrar sina [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/)‑objekt i [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection). Detta exempel skapar en översikt över två avsnitt, lägger till ett tredje avsnitt med [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection), och tar bort det första avsnittets post med [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection). Att ta bort posten lämnar presentationsavsnittet och dess bilder intakta.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Lägger till en ny bild i presentationen
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Lägger till en ny sektion i presentationen
-    pres.getSections().addSection("Section 1", slide);
-    // Lägger till en ny bild i presentationen
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let firstSection = presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Lägger till en ny sektion i presentationen
-    pres.getSections().addSection("Section 2", slide);
-    // Lägger till ett SummaryZoomFrame-objekt
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // Lägger till en ny bild i presentationen
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Lägger till en ny sektion i presentationen
-    var section3 = pres.getSections().addSection("Section 3", slide);
-    // Lägger till en sektion i Summary Zoom
-    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
-    // Tar bort sektion från Summary Zoom
-    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
-    // Sparar presentationen
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let thirdSection = presentation.getSections().addSection("Section 3", slide);
+
+    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(thirdSection);
+
+    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(firstSection);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Formatera sammanfattningszoom‑sektioner**
+### **Formatera sammanfattnings‑zoom‑sektioner**
 
-För att skapa mer komplicerade sammanfattningszoom‑sektion‑objekt måste du ändra formateringen av en enkel ram. Det finns flera formateringsalternativ du kan tillämpa på ett sammanfattningszoom‑sektion‑objekt. 
-
-Du kan kontrollera formateringen för ett sammanfattningszoom‑sektion‑objekt i en sammanfattningszoomram på följande sätt:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Skapa nya bilder med identifieringsbakgrund och nya sektioner för de skapade bilderna.
-3. Lägg till en sammanfattningszoomram på den första bilden.
-4. Hämta ett sammanfattningszoom‑sektion‑objekt för det första objektet från `ISummaryZoomSectionCollection`.
-7. Skapa ett [PPImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PPImage)-objekt genom att lägga till en bild i bildsamlingen som är kopplad till [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation)-objektet som ska användas för att fylla ramen.
-8. Ange en anpassad bild för det skapade sektionzoom‑ram‑objektet.
-9. Aktivera *återgång till den ursprungliga bilden från den länkade sektionen*. 
-11. Ändra linjeformatet för det andra zoomram‑objektet.
-12. Ändra övergångens varaktighet.
-13. Skriv den modifierade presentationen som en PPTX‑fil.
+Detta exempel formaterar den första posten i [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection), med det nollbaserade indexet `0`. Det kräver en lokal bild för [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage), applicerar en 1,5‑punkts, streck‑prick‑svart ram, och sätter [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) till 1,5 sekunder. Att skicka `false` till [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) inaktiverar automatiskt återvändande till sammanfattningsbilden för denna post.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Lägger till en ny bild i presentationen
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Lägger till en ny sektion i presentationen
-    pres.getSections().addSection("Section 1", slide);
-    // Lägger till en ny bild i presentationen
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Lägger till en ny sektion i presentationen
-    pres.getSections().addSection("Section 2", slide);
-    // Lägger till ett SummaryZoomFrame-objekt
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // Hämtar det första SummaryZoomSection-objektet
-    var summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
-    // Formatering för SummaryZoomSection-objektet
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    let summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(picture);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    summarySection.setImage(picture);
+
+    summarySection.setZoomImage(previewImage);
     summarySection.setReturnToParent(false);
+
     summarySection.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "black"));
-    summarySection.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    summarySection.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     summarySection.getLineFormat().setWidth(1.5);
-    summarySection.setTransitionDuration(1.5);
-    // Sparar presentationen
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    summarySection.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Kan jag kontrollera återgång till den 'föräldra' bild efter att ha visat målet?**
+**Kan jag styra återgång till den 'föräldra' bilden efter att ha visat målet?**
 
-Ja. [Zoom frame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/zoomframe/)‑ eller [section](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sectionzoomframe/)‑objektet har en `setReturnToParent`‑metod som, när den är aktiverad, skickar tittarna tillbaka till den ursprungliga bilden efter att de har besökt mål­innehållet.
+Ja. Anropa [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) med `true` för att återgå till ursprungsbilden efter att målmaterialet har visats.
 
 **Kan jag justera 'hastigheten' eller varaktigheten för Zoom‑övergången?**
 
-Ja. Zoom erbjuder en `setTransitionDuration`‑metod så att du kan kontrollera hur lång tid hopp‑animationen tar.
+Ja. Använd [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) för att kontrollera övergångens varaktighet i sekunder.
 
 **Finns det begränsningar för hur många Zoom‑objekt en presentation kan innehålla?**
 
-Det finns ingen strikt API‑gräns dokumenterad. Praktiska begränsningar beror på den totala presentationskomplexiteten och tittarens prestanda. Du kan lägga till många Zoom‑ramar, men tänk på filstorlek och renderingtid.
+Det finns ingen hård API‑gräns dokumenterad. Praktiska begränsningar beror på presentationens totala komplexitet och mottagarens prestanda. Du kan lägga till många Zoom‑ramar, men tänk på filstorlek och renderingstid.

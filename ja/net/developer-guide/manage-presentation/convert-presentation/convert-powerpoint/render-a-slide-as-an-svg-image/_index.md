@@ -1,15 +1,15 @@
 ---
 title: .NET でプレゼンテーションスライドを SVG 画像としてレンダリング
-linktitle: スライドから SVG へ
+linktitle: スライドを SVG に変換
 type: docs
 weight: 50
 url: /ja/net/render-a-slide-as-an-svg-image/
 keywords:
-- PowerPoint から SVG
-- プレゼンテーションから SVG
-- スライドから SVG
-- PPT から SVG
-- PPTX から SVG
+- PowerPoint を SVG に変換
+- プレゼンテーションを SVG に変換
+- スライドを SVG に変換
+- PPT を SVG に変換
+- PPTX を SVG に変換
 - SVG エクスポート オプション
 - インタラクティブ SVG
 - PowerPoint
@@ -21,13 +21,13 @@ description: ".NET で PowerPoint スライドを SVG 画像としてエクス�
 ---
 ## **概要**
 
-SVG は、スケーラブルな XML ベースの画像フォーマットで、ウェブ出版、スライドビューア、アクセシビリティ ワークフロー、そして自動ポストプロセッシングに適しています。Aspose.Slides は各スライドを個別の SVG ファイルとしてエクスポートし、テキスト、フォント、画像、および SVG 要素の書き出し方法を制御できます。
+SVG はスケーラブルな XML ベースの画像フォーマットで、ウェブ公開、スライドビューア、アクセシビリティ ワークフロー、そして自動ポストプロセッシングに適しています。Aspose.Slides は各スライドを個別の SVG ファイルとしてエクスポートし、テキスト、フォント、画像、および SVG 要素の書き込み方法を制御できます。
 
-エクスポートされた SVG をコンパクトに保ち、ブラウザ間で予測可能にし、インタラクティブに使用できるようにする必要がある場合は、[SVGOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgoptions/) を使用します。
+Use [SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) when the exported SVG must be compact, predictable across browsers, or ready for interactive use.
 
-## **スライドを SVG にエクスポート**
+## **スライドを SVG としてエクスポート**
 
-[Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) を作成し、スライドを選択してストリームに書き込みます。以下の例は、プレゼンテーション内のすべてのスライドを個別の SVG ファイルとしてエクスポートします。
+Create a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), select a slide, and write it to a stream. The following example exports every slide in a presentation as a separate SVG file.
 
 ```csharp
 using Aspose.Slides;
@@ -41,11 +41,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-ファイル名はループインデックスではなく [ISlide.SlideNumber](https://reference.aspose.com/slides/ja/net/aspose.slides/islide/slidenumber/) を使用します。スライドビューアやウェブページが特定のシェイプのみを必要とする場合は、[IShape.WriteAsSvg](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/writeassvg/) を使用して個別のシェイプをエクスポートすることもできます。
+The filename uses [ISlide.SlideNumber](https://reference.aspose.com/slides/net/aspose.slides/islide/slidenumber/) rather than the loop index. You can also export an individual shape with [IShape.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/ishape/writeassvg/) when a slide viewer or web page needs only that shape.
 
-## **SVG出力の構成**
+## **SVG 出力の構成**
 
-[SVGOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgoptions/) は SVG のレンダリングを制御します。テキストフレームについては、[SVGOptions.UseFrameSize](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgoptions/useframesize/) がテキストフレームを描画領域に含め、[SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgoptions/useframerotation/) がフレームの回転を適用するかどうかを決定します。テキストをリガチャなしで描画する必要がある場合は、[SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgoptions/disablefontligatures/) を `true` に設定します。
+[SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) controls SVG rendering. For text frames, [SVGOptions.UseFrameSize](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframesize/) includes the text frame in the rendering area, and [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframerotation/) determines whether the frame rotation is applied. Set [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/disablefontligatures/) to `true` when text must be rendered without ligatures.
 
 ```csharp
 using Aspose.Slides;
@@ -66,9 +66,11 @@ presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 
 ## **テキストとフォントの制御**
 
-### **すべてのテキストをベクタライズ**
+When exporting slides to SVG, you can control whether text remains as text or is converted to vector graphics, and how external fonts are included or referenced. The following options help you balance visual consistency, text selection, and font dependencies in the exported SVG.
 
-[SVGOptions.VectorizeText](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgoptions/vectorizetext/) を `true` に設定すると、スライド上のすべてのテキストがベクタ画像として書き出されます。これによりフォントへの依存がなくなり、ブラウザ間で視覚的な結果がより一貫しますが、テキストは SVG のテキストとして選択や検索ができなくなります。
+### **すべてのテキストをベクトル化**
+
+Set [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) to `true` to write all slide text as vector graphics. This eliminates font dependencies and makes the visual result more consistent across browsers, but the text is no longer selectable or searchable as SVG text.
 
 ```csharp
 using Aspose.Slides;
@@ -85,9 +87,9 @@ using var svgStream = File.Create("slide-with-vectorized-text.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
 
-### **外部フォントの取り扱い方法の選択**
+### **外部フォントの取り扱い方法を選択**
 
-[SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgoptions/externalfontshandling/) は外部から読み込まれるフォントに対して [SvgExternalFontsHandling](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgexternalfontshandling/) の値を使用します。`AddLinksToFontFiles` を選択すると個別のフォントファイルへの参照が作成され、`Embed` を選択するとフォントデータが SVG に埋め込まれ、`Vectorize` を選択すると外部フォントを使用するテキストだけがグラフィックとして描画されます。フォントを埋め込む前にライセンスを確認してください。
+[SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/externalfontshandling/) uses a [SvgExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) value for fonts that are loaded externally. Choose `AddLinksToFontFiles` to reference separate font files, `Embed` to include font data in the SVG, or `Vectorize` to render only text that uses external fonts as graphics. Verify font licensing before embedding fonts.
 
 ```csharp
 using Aspose.Slides;
@@ -122,7 +124,7 @@ presentation.Slides[0].WriteAsSvg(vectorizedExternalFontsStream, vectorizedExter
 
 ## **埋め込み画像サイズの削減**
 
-[SVGOptions.PicturesCompression](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgoptions/picturescompression/) を使用して埋め込み画像の解像度を下げ、[SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) で切り取られた元画像領域を省略し、[SVGOptions.JpegQuality](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgoptions/jpegquality/) で JPEG エンコード品質を制御します。これらの設定は画像の忠実度や保持される画像データを犠牲にしてファイルサイズを削減します。
+Use [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) to reduce the resolution of embedded pictures, [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) to omit cropped source areas, and [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) to control JPEG encoding quality. These settings reduce file size at the cost of image fidelity or retained image data.
 
 ```csharp
 using Aspose.Slides;
@@ -141,11 +143,52 @@ using var svgStream = File.Create("compressed-slide.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
 
-## **シェイプとテキストに安定した ID を割り当て**
+## **メタファイルラスター化解像度の制御**
 
-[ISvgShapeFormattingController](https://reference.aspose.com/slides/ja/net/aspose.slides.export/isvgshapeformattingcontroller/) を使用して各 SVG シェイプの [ISvgShape.Id](https://reference.aspose.com/slides/ja/net/aspose.slides.export/isvgshape/id/) を設定します。テキストの `tspan` 要素にも [ISvgTSpan.Id](https://reference.aspose.com/slides/ja/net/aspose.slides.export/isvgtspan/id/) を設定したい場合は、[ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/ja/net/aspose.slides.export/isvgshapeandtextformattingcontroller/) を実装します。いずれのコントローラも [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) で割り当てます。
+[SVGOptions.MetafileRasterizationDpi](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/metafilerasterizationdpi/) sets the lower resolution limit for rasterizing metafiles during SVG export. Use it to balance detail and file size when an EMF or WMF image is rasterized. It does not define a global DPI for the SVG or force every object on the slide to become a raster image.
 
-以下のコントローラは [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/officeinteropshapeid/) を使用します。これはシェイプの存続期間中に安定しており、テキストスパンには再現可能なカウンタを使用します。このため生成された ID は、変更されていないプレゼンテーションのポストプロセッシングに適しています。
+Download [metafile-rasterization.pptx](metafile-rasterization.pptx), which contains an EMF image with closely spaced diagonal lines. The following example exports its first slide at three rasterization resolutions through [ISlide.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/islide/writeassvg/). All other export settings remain identical so that the results can be compared.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("metafile-rasterization.pptx");
+
+foreach (var dpi in new[] { 72, 150, 300 })
+{
+    var svgOptions = new SVGOptions
+    {
+        MetafileRasterizationDpi = dpi,
+        PicturesCompression = PicturesCompression.Dpi330,
+        JpegQuality = 90
+    };
+
+    using var svgStream = File.Create($"slide-{dpi}.svg");
+    presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+}
+```
+
+In the output, the EMF became one embedded PNG in each SVG. The following measurements are for the supplied presentation; they are not a general formula for converting DPI to pixel dimensions.
+
+| メタファイル ラスタライズ DPI | 埋め込み PNG の寸法 | SVG ファイルサイズ (バイト) |
+| --- | --- | --- |
+| 72 | 1196 × 596 | 170,221 |
+| 150 | 2492 × 1242 | 423,149 |
+| 300 | 4983 × 2483 | 1,027,169 |
+
+The comparison below shows the same area of the embedded raster at the same enlarged display size. The diagonal lines show visible pixelation at 72 DPI and smoother edges at higher resolutions, while the SVG file grows. Increasing the value does not necessarily improve every detail or change every exported image.
+
+![72、150、300 DPI の拡大された対角線の詳細](metafile-rasterization-comparison.png)
+
+[SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) controls image resolution reduction and can mask the effect of changing the metafile rasterization resolution. [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) controls JPEG encoding quality, not metafile rasterization resolution.
+
+## **シェイプとテキストに安定した ID を割り当てる**
+
+Use [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/) to set [ISvgShape.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/id/) for each SVG shape. To set [ISvgTSpan.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgtspan/id/) values on text `tspan` elements as well, implement [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeandtextformattingcontroller/). Assign either controller with [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/).
+
+The following controller uses [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/net/aspose.slides/ishape/officeinteropshapeid/), which is stable for the lifetime of the shape, and a repeatable counter for its text spans. This makes the generated IDs suitable for post-processing an unchanged presentation.
 
 ```csharp
 using Aspose.Slides;
@@ -184,7 +227,7 @@ class StableSvgIdController : ISvgShapeAndTextFormattingController
 
 ## **SVG イベントハンドラの追加**
 
-[ISvgShapeFormattingController](https://reference.aspose.com/slides/ja/net/aspose.slides.export/isvgshapeformattingcontroller/) 内で、[ISvgShape.SetEventHandler](https://reference.aspose.com/slides/ja/net/aspose.slides.export/isvgshape/seteventhandler/) に [SvgEvent](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgevent/) の値を渡して、エクスポートされたシェイプに JavaScript イベントハンドラを追加します。コントローラは [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) で割り当て、結果をホストするページまたは SVG ドキュメント内で JavaScript 関数を定義します。
+In an [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/), call [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/seteventhandler/) with a [SvgEvent](https://reference.aspose.com/slides/net/aspose.slides.export/svgevent/) value to add a JavaScript event handler to an exported shape. Assign the controller with [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) and define the JavaScript function in the page or SVG document that hosts the result.
 
 ```csharp
 using Aspose.Slides;
@@ -213,18 +256,18 @@ class SvgEventController : ISvgShapeFormattingController
 }
 ```
 
-ホストページはハンドラが参照する JavaScript 関数を定義できます。ID とイベントハンドラを割り当てることで、スライドビューア、アクセシビリティ機能、その他のインタラクティブな SVG ワークフローが可能になります。
+The host page can define the JavaScript function referenced by the handler. Assigning IDs and event handlers enables slide viewers, accessibility enhancements, and other interactive SVG workflows.
 
 ## **FAQ**
 
-**[SVGOptions.VectorizeText](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgoptions/vectorizetext/) を [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/ja/net/aspose.slides.export/svgexternalfontshandling/) の代わりに使用すべきタイミングはいつですか？**
+**いつ [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) を [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) の代わりに使用すべきですか？**
 
-[SVGOptions.VectorizeText] は、すべてのテキストをフォントに依存しないようにする必要がある場合に使用します。[SvgExternalFontsHandling.Vectorize] は、外部フォントを使用するテキストのみをグラフィックに変換したい場合に使用します。
+Use [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) when all text must be independent of fonts. Use [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) when only text that uses external fonts should be converted to graphics.
 
-**SVG を小さくする最適な方法は何ですか？**
+**SVG を小さくする最良の方法は何ですか？**
 
-まず、埋め込み画像を圧縮し、切り取られた画像領域を削除し、対象環境で提供できる場合はリンクされたフォントファイルを選択します。画像解像度の低下、JPEG 品質の低下、テキストのベクタライズはそれぞれ品質とサイズのトレードオフが異なるため、結果をテストしてください。
+Start by compressing embedded pictures, deleting cropped image areas, and choosing linked font files when the target environment can serve them. Test the result because lower image resolution, lower JPEG quality, and vectorized text each have different quality and size tradeoffs.
 
 **エクスポート後に SVG 要素を変更できますか？**
 
-はい。フォーマッティングコントローラで ID を割り当てた後、ポストプロセッシングツールやブラウザスクリプトで該当する SVG 要素を選択できます。
+Yes. Assign IDs through a formatting controller, then select the matching SVG elements in your post-processing tool or browser script.

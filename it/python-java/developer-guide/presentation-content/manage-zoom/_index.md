@@ -1,5 +1,5 @@
 ---
-title: Gestisci lo Zoom della presentazione in Python via Java
+title: Gestisci lo zoom della presentazione in Python via Java
 linktitle: Gestisci Zoom
 type: docs
 weight: 60
@@ -9,45 +9,38 @@ keywords:
 - frame zoom
 - zoom diapositiva
 - zoom sezione
-- zoom riepilogo
+- zoom riepilogativo
 - aggiungi zoom
 - PowerPoint
 - presentazione
 - Python
 - Java
 - Aspose.Slides
-description: "Crea e personalizza lo Zoom con Aspose.Slides per Python via Java — passa tra le sezioni, aggiungi miniature e transizioni in presentazioni PPT, PPTX e ODP."
+description: "Crea e personalizza lo Zoom con Aspose.Slides per Python via Java — passa tra le sezioni, aggiungi miniature e transizioni nelle presentazioni PowerPoint."
 ---
 ## **Introduzione**
 
-Gli Zoom in PowerPoint consentono di passare da e verso diapositive, sezioni e parti specifiche di una presentazione. Quando presenti, questa capacità di navigare rapidamente tra i contenuti può rivelarsi molto utile.
+Gli zoom di PowerPoint consentono di passare da diapositive e sezioni specifiche durante una presentazione. Con Aspose.Slides per Python via Java, è possibile creare zoom di diapositive, di sezioni e riepilogativi e personalizzare le loro anteprime, i bordi e le transizioni.
 
-![overview_image](overview.png)
+![Panoramica degli zoom di PowerPoint](overview.png)
 
-* Per riepilogare un'intera presentazione in un'unica diapositiva, usa uno [Zoom di riepilogo](#summary-zoom).
-* Per mostrare solo le diapositive selezionate, usa uno [Zoom diapositiva](#slide-zoom).
-* Per mostrare una singola sezione, usa uno [Zoom sezione](#section-zoom).
+* Per riassumere un'intera presentazione su un'unica diapositiva, utilizzare uno [Zoom riepilogativo](#summary-zoom).
+* Per mostrare solo diapositive selezionate, utilizzare uno [Zoom diapositiva](#slide-zoom).
+* Per mostrare una singola sezione, utilizzare uno [Zoom sezione](#section-zoom).
 
 ## **Zoom diapositiva**
-Uno zoom diapositiva può rendere la tua presentazione più dinamica, consentendo di navigare liberamente tra le diapositive in qualsiasi ordine tu scelga senza interrompere il flusso della presentazione. Gli zoom diapositiva sono ottimi per presentazioni brevi senza molte sezioni, ma è possibile usarli comunque in diversi scenari di presentazione.
 
-Gli zoom diapositiva ti aiutano a approfondire più informazioni mantenendo l'impressione di essere su un'unica tela.
+Uno zoom diapositiva può rendere la presentazione più dinamica, consentendo di navigare liberamente tra le diapositive in qualsiasi ordine si scelga senza interrompere il flusso della presentazione. Gli zoom diapositiva sono ottimi per presentazioni brevi senza molte sezioni, ma è comunque possibile usarli in diversi scenari di presentazione.
 
-![overview_image](slidezoomsel.png)
+Gli zoom diapositiva consentono di esplorare informazioni correlate da un'unica diapositiva di panoramica.
 
-Per gli oggetti zoom diapositiva, Aspose.Slides fornisce l'enumerazione ZoomImageType, la classe ZoomFrame e alcuni metodi nella classe ShapeCollection.
+![Selezione di diapositive per uno zoom diapositiva](slidezoomsel.png)
+
+Per gli oggetti zoom diapositiva, Aspose.Slides fornisce l'enumerazione [ZoomImageType](https://reference.aspose.com/slides/python-java/aspose.slides/zoomimagetype/), la classe [ZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/zoomframe/) e i metodi sulla classe [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/).
 
 ### **Crea frame zoom**
 
-Puoi aggiungere un frame zoom su una diapositiva in questo modo:
-
-1. Crea un'istanza della classe Presentation.
-2. Crea nuove diapositive a cui intendi collegare i frame zoom.
-3. Aggiungi testo identificativo e sfondo alle diapositive create.
-4. Aggiungi i frame zoom (contenenti i riferimenti alle diapositive create) alla prima diapositiva.
-5. Salva la presentazione modificata come file PPTX.
-
-Questo codice Python mostra come creare un frame zoom su una diapositiva:
+Utilizzare [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) per inserire collegamenti a diapositive individuali su una diapositiva di panoramica. Questo esempio crea due diapositive di destinazione con sfondi e etichette distinti, quindi aggiunge un'anteprima di ciascuna alla prima diapositiva e salva la presentazione come PPTX. Le posizioni e le dimensioni dei frame sono specificate in punti.
 
 ```python
 import jpype
@@ -61,47 +54,36 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Aggiunge nuove diapositive alla presentazione
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  Crea uno sfondo per la seconda diapositiva
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  Crea una casella di testo per la seconda diapositiva
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Crea uno sfondo per la terza diapositiva
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  Crea una casella di testo per la terza diapositiva
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # Aggiunge oggetti ZoomFrame
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  Salva la presentazione
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **Crea frame zoom con immagini personalizzate**
-Con Aspose.Slides per Python via Java, puoi creare un frame zoom con un'immagine di anteprima della diapositiva diversa in questo modo:
-1. Crea un'istanza della classe Presentation.
-2. Crea una nuova diapositiva a cui intendi collegare il frame zoom.
-3. Aggiungi testo identificativo e sfondo alla diapositiva.
-4. Crea un oggetto PPImage aggiungendo un'immagine alla collezione immagini associata all'oggetto Presentation che verrà usata per riempire il frame.
-5. Aggiungi i frame zoom (contenenti il riferimento alla diapositiva creata) alla prima diapositiva.
-6. Salva la presentazione modificata come file PPTX.
 
-Questo codice Python mostra come creare un frame zoom con un'immagine diversa:
+### **Crea frame zoom con immagini personalizzate**
+
+Passare un'immagine personalizzata a [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) per sostituire l'anteprima predefinita della diapositiva di destinazione. Questo esempio richiede un'immagine locale, la carica con [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile), e la aggiunge alla presentazione usando [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage). Il frame risultante visualizza quell'immagine mantenendo il collegamento alla seconda diapositiva.
 
 ```python
 import jpype
@@ -115,49 +97,32 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Aggiunge una nuova diapositiva alla presentazione
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  Crea uno sfondo per la seconda diapositiva
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().setType(BackgroundType.OwnBackground)
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  Crea una casella di testo per la seconda diapositiva
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Crea una nuova immagine per l'oggetto zoom
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    # Aggiunge l'oggetto ZoomFrame
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture)
+    overview_slide.getShapes().addZoomFrame(20, 20, 300, 200, slide, preview_image)
 
-    #  Salva la presentazione
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
+
 ### **Formatta frame zoom**
-Nelle sezioni precedenti, ti abbiamo mostrato come creare semplici frame zoom. Per creare frame zoom più complessi, è necessario modificare la formattazione di un frame semplice. Sono disponibili diverse opzioni di formattazione che puoi applicare a un frame zoom.
 
-Puoi controllare la formattazione di un frame zoom su una diapositiva in questo modo:
-
-1. Crea un'istanza della classe Presentation.
-2. Crea nuove diapositive a cui intendi collegare i frame zoom.
-3. Aggiungi testo identificativo e sfondo alle diapositive create.
-4. Aggiungi i frame zoom (contenenti i riferimenti alle diapositive create) alla prima diapositiva.
-5. Crea un oggetto PPImage aggiungendo un'immagine alla collezione immagini associata all'oggetto Presentation che verrà usata per riempire il frame.
-6. Imposta un'immagine personalizzata per il primo oggetto frame zoom.
-7. Modifica la formattazione della linea per il secondo oggetto frame zoom.
-8. Rimuovi lo sfondo dall'immagine del secondo oggetto frame zoom.
-9. Salva la presentazione modificata come file PPTX.
-
-Questo codice Python mostra come modificare la formattazione di un frame zoom su una diapositiva:
+Questo esempio personalizza due frame zoom diapositiva. Assegna un'immagine locale al primo frame tramite [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage), e conferisce al secondo frame un bordo rosa tratteggiato da cinque punti tramite [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat). Passare `False` a [ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground) nasconde lo sfondo del secondo frame. È richiesta un'immagine locale per l'anteprima personalizzata; entrambi i frame mantengono le loro diapositive di destinazione nel PPTX salvato.
 
 ```python
 import jpype
@@ -171,52 +136,43 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Aggiunge nuove diapositive alla presentazione
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  Crea uno sfondo per la seconda diapositiva
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  Crea una casella di testo per la seconda diapositiva
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Crea uno sfondo per la terza diapositiva
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  Crea una casella di testo per la terza diapositiva
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # Aggiunge oggetti ZoomFrame
-    first_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    second_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    first_zoom_frame = overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    second_zoom_frame = overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  Crea una nuova immagine per l'oggetto zoom
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  Imposta immagine personalizzata per l'oggetto first_zoom_frame
-    first_zoom_frame.setZoomImage(picture)
+    first_zoom_frame.setZoomImage(preview_image)
 
-    #  Imposta un formato di zoom frame per l'oggetto second_zoom_frame
     second_zoom_frame.getLineFormat().setWidth(5)
     second_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink)
+    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(255, 105, 180))
     second_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
 
-    #  Impostazione per non mostrare lo sfondo per l'oggetto second_zoom_frame
     second_zoom_frame.setShowBackground(False)
 
-    #  Salva la presentazione
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -224,24 +180,15 @@ finally:
 
 ## **Zoom sezione**
 
-Uno zoom sezione è un collegamento a una sezione della tua presentazione. Puoi usare gli zoom sezione per tornare a sezioni che desideri enfatizzare. Oppure puoi usarli per evidenziare come certe parti della presentazione si collegano tra loro.
+Uno zoom sezione collega a una sezione della presentazione. Usalo per rivisitare un argomento o per mostrare come le diverse parti della presentazione sono collegate.
 
-![overview_image](seczoomsel.png)
+![Selezione di una sezione per uno zoom sezione](seczoomsel.png)
 
-Per gli oggetti zoom sezione, Aspose.Slides fornisce la classe SectionZoomFrame e alcuni metodi nella classe ShapeCollection.
+Per gli oggetti zoom sezione, Aspose.Slides fornisce la classe [SectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/) e i metodi sulla classe [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/).
 
 ### **Crea frame zoom sezione**
 
-Puoi aggiungere un frame zoom sezione a una diapositiva in questo modo:
-
-1. Crea un'istanza della classe Presentation.
-2. Crea una nuova diapositiva.
-3. Aggiungi uno sfondo distintivo alla diapositiva creata.
-4. Crea una nuova sezione a cui intendi collegare il frame zoom.
-5. Aggiungi un frame zoom sezione (contenente riferimenti alla sezione creata) alla prima diapositiva.
-6. Salva la presentazione modificata come file PPTX.
-
-Questo codice Python mostra come creare un frame zoom su una diapositiva:
+Creare una sezione con [SectionCollection.addSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectioncollection/#addSection), quindi passare la sezione restituita a [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame). Questo esempio posiziona uno zoom sezione sulla prima diapositiva e lo collega a una sezione che inizia con una diapositiva colorata. La posizione e le dimensioni del frame sono specificate in punti, e la presentazione viene salvata come PPTX.
 
 ```python
 import jpype
@@ -255,36 +202,24 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Aggiunge una nuova diapositiva alla presentazione
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Aggiunge una nuova Sezione alla presentazione
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
 
-    #  Aggiunge un oggetto SectionZoomFrame
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  Salva la presentazione
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
+
 ### **Crea frame zoom sezione con immagini personalizzate**
 
-Utilizzando Aspose.Slides per Python via Java, puoi creare un frame zoom sezione con un'immagine di anteprima della diapositiva diversa in questo modo:
-
-1. Crea un'istanza della classe Presentation.
-2. Crea una nuova diapositiva.
-3. Aggiungi uno sfondo distintivo alla diapositiva creata.
-4. Crea una nuova sezione a cui intendi collegare il frame zoom.
-5. Crea un oggetto PPImage aggiungendo un'immagine alla collezione immagini associata all'oggetto Presentation che verrà usata per riempire il frame.
-6. Aggiungi un frame zoom sezione (contenente un riferimento alla sezione creata) alla prima diapositiva.
-7. Salva la presentazione modificata come file PPTX.
-
-Questo codice Python mostra come creare un frame zoom con un'immagine diversa:
+L'overload immagine di [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame) consente di visualizzare un'anteprima personalizzata senza modificare la sezione di destinazione. Questo esempio richiede un'immagine locale, che viene caricata con [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) e aggiunta tramite [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage). La presentazione salvata contiene uno zoom sezione sulla prima diapositiva collegato alla nuova sezione creata.
 
 ```python
 import jpype
@@ -298,51 +233,76 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Aggiunge una nuova diapositiva alla presentazione
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Aggiunge una nuova Sezione alla presentazione
-    presentation.getSections().addSection("Section 1", slide)
-
-    #  Crea una nuova immagine per l'oggetto zoom
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  Aggiunge l'oggetto SectionZoomFrame
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1), picture)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, preview_image)
 
-    #  Salva la presentazione
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
+
+### **Modifica la sezione di destinazione di uno zoom sezione**
+
+Utilizzare [SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/#setTargetSection) per reindirizzare uno zoom sezione esistente senza ricrearlo. Scegliere una sezione popolata dalla collezione [Presentation.getSections](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSections) della stessa presentazione. Assegnare una sezione vuota mantiene invariata la destinazione corrente, quindi verificare [Section.getSlidesListOfSection](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSlidesListOfSection) prima di assegnarla. Vedere [Gestire le sezioni delle diapositive](/slides/it/python-java/slide-section/) per ulteriori informazioni sulle sezioni.
+
+Il seguente esempio carica un file di presentazione, che deve contenere più sezioni popolate, uno zoom sezione esistente denominato `Section navigation` e una sezione con il nome univoco `Results`. Cerca lo zoom in tutte le diapositive e individua la destinazione per nome anziché per indice di collezione, che può cambiare quando le sezioni vengono riordinate. Se i nomi non sono unici, utilizzare [Section.getSectionId](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSectionId) per identificare la destinazione.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, SectionZoomFrame
+
+presentation = Presentation("section-zoom.pptx")
+try:
+    zoom = None
+    for slide in presentation.getSlides():
+        for shape in slide.getShapes():
+            if isinstance(shape, SectionZoomFrame) and shape.getName() == "Section navigation":
+                zoom = shape
+                break
+        if zoom is not None:
+            break
+
+    target_section = None
+    for section in presentation.getSections():
+        if section.getName() == "Results":
+            target_section = section
+            break
+
+    if zoom is None or target_section is None:
+        print("The section zoom or destination section was not found.")
+    elif target_section.getSlidesListOfSection().size() == 0:
+        print("The destination section is empty.")
+    else:
+        current_section = zoom.getTargetSection()
+        current_name = "" if current_section is None else current_section.getName()
+        print("Current section: " + str(current_name))
+        zoom.setTargetSection(target_section)
+        presentation.save("section-zoom-updated.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
 ### **Formatta frame zoom sezione**
 
-Per creare frame zoom sezione più complessi, devi modificare la formattazione di un frame semplice. Sono disponibili diverse opzioni di formattazione che puoi applicare a un frame zoom sezione.
-
-Puoi controllare la formattazione di un frame zoom sezione su una diapositiva in questo modo:
-
-1. Crea un'istanza della classe Presentation.
-2. Crea una nuova diapositiva.
-3. Aggiungi uno sfondo distintivo alla diapositiva creata.
-4. Crea una nuova sezione a cui intendi collegare il frame zoom.
-5. Aggiungi un frame zoom sezione (contenente riferimenti alla sezione creata) alla prima diapositiva.
-6. Modifica le dimensioni e la posizione dell'oggetto zoom sezione creato.
-7. Crea un oggetto PPImage aggiungendo un'immagine alla collezione immagini associata all'oggetto Presentation che verrà usata per riempire il frame.
-8. Imposta un'immagine personalizzata per l'oggetto frame zoom sezione creato.
-9. Imposta la funzionalità *ritorno alla diapositiva originale dalla sezione collegata*.
-10. Rimuovi lo sfondo dall'immagine dell'oggetto frame zoom sezione.
-11. Modifica la formattazione della linea per l'oggetto frame zoom sezione.
-12. Modifica la durata della transizione.
-13. Salva la presentazione modificata come file PPTX.
-
-Questo codice Python mostra come modificare la formattazione di un frame zoom sezione:
+Questo esempio sposta e ridimensiona uno zoom sezione a 100 per 75 punti, assegna un'immagine locale tramite [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage), e applica un bordo marrone tratteggiato da 2,5 punti. Attiva [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) per tornare alla diapositiva di origine dopo la sezione, disattiva [ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground), e imposta [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) a 1,5 secondi. È necessaria un'immagine locale per l'anteprima personalizzata.
 
 ```python
 import jpype
@@ -356,19 +316,16 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Aggiunge una nuova diapositiva alla presentazione
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Aggiunge una nuova Sezione alla presentazione
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
 
-    #  Aggiunge l'oggetto SectionZoomFrame
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  Formattazione per SectionZoomFrame
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
     section_zoom_frame.setX(100)
     section_zoom_frame.setY(300)
     section_zoom_frame.setWidth(100)
@@ -376,45 +333,38 @@ try:
 
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    section_zoom_frame.setZoomImage(picture)
+
+    section_zoom_frame.setZoomImage(preview_image)
 
     section_zoom_frame.setReturnToParent(True)
     section_zoom_frame.setShowBackground(False)
 
     section_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     section_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     section_zoom_frame.getLineFormat().setWidth(2.5)
 
     section_zoom_frame.setTransitionDuration(1.5)
 
-    #  Salva la presentazione
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Zoom riepilogo**
+## **Zoom riepilogativo**
 
-Uno zoom di riepilogo è come una pagina di atterraggio in cui tutti gli elementi della presentazione sono visualizzati contemporaneamente. Quando presenti, puoi usare lo zoom per spostarti da una parte della presentazione a un'altra in qualsiasi ordine desideri. Puoi essere creativo, saltare avanti o rivisitare parti della presentazione senza interrompere il flusso.
+Uno zoom riepilogativo fornisce una panoramica delle sezioni della presentazione. Durante una presentazione, è possibile usarlo per passare a una sezione, avanzare o rivisitare un argomento senza seguire l'ordine delle diapositive.
 
-![overview_image](sumzoomsel.png)
+![Selezione di sezioni per uno zoom riepilogativo](sumzoomsel.png)
 
-Per gli oggetti zoom riepilogo, Aspose.Slides fornisce le classi SummaryZoomFrame, SummaryZoomSection e SummaryZoomSectionCollection e alcuni metodi nella classe ShapeCollection.
+Per gli oggetti zoom riepilogativo, Aspose.Slides fornisce le classi [SummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/), e [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/) e i metodi sulla classe [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/).
 
-### **Crea uno zoom di riepilogo**
+### **Crea uno zoom riepilogativo**
 
-Puoi aggiungere un frame zoom di riepilogo a una diapositiva in questo modo:
-
-1. Crea un'istanza della classe Presentation.
-2. Crea nuove diapositive con uno sfondo distintivo e nuove sezioni per le diapositive create.
-3. Aggiungi il frame zoom di riepilogo alla prima diapositiva.
-4. Salva la presentazione modificata come file PPTX.
-
-Questo codice Python mostra come creare un frame zoom di riepilogo su una diapositiva:
+Utilizzare [ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSummaryZoomFrame) per creare una panoramica delle sezioni della presentazione. Questo esempio crea quattro sezioni con sfondi di diapositiva distinti e aggiunge uno zoom riepilogativo alla prima diapositiva. La posizione e le dimensioni del frame sono specificate in punti, e la panoramica risultante viene salvata in una presentazione PPTX.
 
 ```python
 import jpype
@@ -428,64 +378,46 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Aggiunge una nuova diapositiva alla presentazione
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Aggiunge una nuova sezione alla presentazione
     presentation.getSections().addSection("Section 1", slide)
 
-    # Aggiunge una nuova diapositiva alla presentazione
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Aggiunge una nuova sezione alla presentazione
     presentation.getSections().addSection("Section 2", slide)
 
-    # Aggiunge una nuova diapositiva alla presentazione
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Aggiunge una nuova sezione alla presentazione
     presentation.getSections().addSection("Section 3", slide)
 
-    # Aggiunge una nuova diapositiva alla presentazione
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(0, 100, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Aggiunge una nuova sezione alla presentazione
     presentation.getSections().addSection("Section 4", slide)
 
-    #  Aggiunge un oggetto SummaryZoomFrame
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  Salva la presentazione
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Aggiungi e rimuovi una sezione zoom di riepilogo**
+### **Aggiungi e rimuovi una sezione di zoom riepilogativo**
 
-Tutte le sezioni in un frame zoom di riepilogo sono rappresentate da oggetti SummaryZoomSection, che sono memorizzati nell'oggetto SummaryZoomSectionCollection. Puoi aggiungere o rimuovere un oggetto sezione zoom di riepilogo tramite la classe SummaryZoomSectionCollection in questo modo:
-
-1. Crea un'istanza della classe Presentation.
-2. Crea nuove diapositive con uno sfondo distintivo e nuove sezioni per le diapositive create.
-3. Aggiungi un frame zoom di riepilogo nella prima diapositiva.
-4. Aggiungi una nuova diapositiva e sezione alla presentazione.
-5. Aggiungi la sezione creata al frame zoom di riepilogo.
-6. Rimuovi la prima sezione dal frame zoom di riepilogo.
-7. Salva la presentazione modificata come file PPTX.
-
-Questo codice Python mostra come aggiungere e rimuovere sezioni in un frame zoom di riepilogo:
+Uno zoom riepilogativo memorizza i suoi oggetti [SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/) in [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection). Questo esempio crea una panoramica di due sezioni, aggiunge una terza sezione usando [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection), e rimuove la voce della prima sezione usando [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection). La rimozione della voce lascia intatte la sezione della presentazione e le sue diapositive.
 
 ```python
 import jpype
@@ -499,66 +431,43 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Aggiunge una nuova diapositiva alla presentazione
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Aggiunge una nuova sezione alla presentazione
-    presentation.getSections().addSection("Section 1", slide)
+    first_section = presentation.getSections().addSection("Section 1", slide)
 
-    # Aggiunge una nuova diapositiva alla presentazione
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Aggiunge una nuova sezione alla presentazione
     presentation.getSections().addSection("Section 2", slide)
 
-    #  Aggiunge un oggetto SummaryZoomFrame
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    # Aggiunge una nuova diapositiva alla presentazione
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Aggiunge una nuova sezione alla presentazione
     third_section = presentation.getSections().addSection("Section 3", slide)
 
-    #  Aggiunge una sezione allo Summary Zoom
     summary_zoom_frame.getSummaryZoomCollection().addSummaryZoomSection(third_section)
 
-    #  Rimuove la sezione dallo Summary Zoom
-    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(presentation.getSections().get_Item(1))
+    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(first_section)
 
-    #  Salva la presentazione
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Formatta sezioni zoom di riepilogo**
+### **Formatta le sezioni di zoom riepilogativo**
 
-Per creare oggetti sezione zoom di riepilogo più complessi, devi modificare la formattazione di un frame semplice. Sono disponibili diverse opzioni di formattazione che puoi applicare a un oggetto sezione zoom di riepilogo.
-
-Puoi controllare la formattazione di un oggetto sezione zoom di riepilogo in un frame zoom di riepilogo in questo modo:
-
-1. Crea un'istanza della classe Presentation.
-2. Crea nuove diapositive con uno sfondo distintivo e nuove sezioni per le diapositive create.
-3. Aggiungi un frame zoom di riepilogo alla prima diapositiva.
-4. Ottieni il primo oggetto sezione zoom di riepilogo dalla SummaryZoomSectionCollection.
-5. Crea un oggetto PPImage aggiungendo un'immagine alla collezione immagini associata all'oggetto Presentation che verrà usata per riempire il frame.
-6. Imposta un'immagine personalizzata per l'oggetto sezione zoom di riepilogo.
-7. Imposta la funzionalità *ritorno alla diapositiva originale dalla sezione collegata*.
-8. Modifica la formattazione della linea per l'oggetto sezione zoom di riepilogo.
-9. Modifica la durata della transizione.
-10. Salva la presentazione modificata come file PPTX.
-
-Questo codice Python mostra come modificare la formattazione di un oggetto sezione zoom di riepilogo:
+Questo esempio formatta la prima voce in [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection), usando l'indice base zero `0`. Richiede un'immagine locale per [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage), applica un bordo nero tratteggiato da 1,5 punti, e imposta [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) a 1,5 secondi. Passare `False` a [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) disabilita il ritorno automatico alla diapositiva riepilogativa per questa voce.
 
 ```python
 import jpype
@@ -572,48 +481,42 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Aggiunge una nuova diapositiva alla presentazione
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Aggiunge una nuova sezione alla presentazione
     presentation.getSections().addSection("Section 1", slide)
 
-    # Aggiunge una nuova diapositiva alla presentazione
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Aggiunge una nuova sezione alla presentazione
     presentation.getSections().addSection("Section 2", slide)
 
-    #  Aggiunge un oggetto SummaryZoomFrame
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  Ottiene il primo oggetto SummaryZoomSection
     summary_section = summary_zoom_frame.getSummaryZoomCollection().get_Item(0)
 
-    #  Formattazione per l'oggetto SummaryZoomSection
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    summary_section.setZoomImage(picture)
 
+    summary_section.setZoomImage(preview_image)
     summary_section.setReturnToParent(False)
 
     summary_section.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.black)
+    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     summary_section.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     summary_section.getLineFormat().setWidth(1.5)
 
     summary_section.setTransitionDuration(1.5)
 
-    #  Salva la presentazione
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -621,14 +524,14 @@ finally:
 
 ## **FAQ**
 
-**Posso controllare il ritorno alla diapositiva 'genitore' dopo aver mostrato il target?**
+**Posso controllare il ritorno alla diapositiva 'genitore' dopo aver mostrato la destinazione?**
 
-Sì. Lo ZoomFrame o lo SectionZoomFrame supportano il ritorno alla diapositiva di origine tramite setReturnToParent, che riporta gli spettatori indietro dopo aver visitato il contenuto di destinazione quando è abilitato.
+Sì. Chiamare [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) con `True` per tornare alla diapositiva di origine dopo che il contenuto di destinazione è stato mostrato.
 
 **Posso regolare la 'velocità' o la durata della transizione Zoom?**
 
-Sì. Lo Zoom consente di impostare una durata di transizione con setTransitionDuration, così puoi controllare quanto tempo dura l'animazione del salto.
+Sì. Utilizzare [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) per controllare la durata della transizione in secondi.
 
 **Ci sono limiti al numero di oggetti Zoom che una presentazione può contenere?**
 
-Non esiste un limite rigido documentato dall'API. I limiti pratici dipendono dalla complessità complessiva della presentazione e dalle prestazioni del visualizzatore. È possibile aggiungere molti frame Zoom, ma è opportuno considerare la dimensione del file e i tempi di rendering.
+Non esiste un limite rigido documentato nell'API. I limiti pratici dipendono dalla complessità complessiva della presentazione e dalle prestazioni del visualizzatore. È possibile aggiungere molti frame Zoom, ma è consigliabile considerare le dimensioni del file e i tempi di rendering.

@@ -1,15 +1,15 @@
 ---
-title: Dia bemutatók SVG képekké konvertálása .NET-ben
-linktitle: Dia SVG-be
+title: Diák renderelése SVG képekként .NET-ben
+linktitle: Dia SVG-re
 type: docs
 weight: 50
 url: /hu/net/render-a-slide-as-an-svg-image/
 keywords:
-- PowerPoint SVG-be
-- prezentáció SVG-be
-- dia SVG-be
-- PPT SVG-be
-- PPTX SVG-be
+- PowerPoint SVG-re
+- prezentáció SVG-re
+- dia SVG-re
+- PPT SVG-re
+- PPTX SVG-re
 - SVG exportálási beállítások
 - interaktív SVG
 - PowerPoint
@@ -17,17 +17,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint diákat SVG képekként exportál .NET-ben, és a betűtípusokat, szöveget, képeket, azonosítókat és eseményeket vezérelheti az Aspose.Slides segítségével."
+description: "Exportálja a PowerPoint diákat SVG képekként .NET környezetben, és vezérelje a betűtípusokat, szöveget, képeket, azonosítókat és eseményeket az Aspose.Slides segítségével."
 ---
 ## **Áttekintés**
 
-Az SVG egy méretezhető XML-alapú képfájlformátum, amely jól működik webes kiadványokhoz, diavetítők számára, akadálymentesítési munkafolyamatokhoz és automatizált utófeldolgozáshoz. Az Aspose.Slides minden diát külön SVG fájlba exportál, és lehetővé teszi a szöveg, betűtípusok, képek és SVG elemek írásának vezérlését.
+Az SVG egy méretezhető XML-alapú képfájlformátum, amely jól működik webes kiadványokhoz, diamegjelenítőkhez, akadálymentesítési munkafolyamatokhoz és automatizált utófeldolgozáshoz. Az Aspose.Slides minden diát külön SVG fájlba exportál, és lehetővé teszi, hogy szabályozza, hogyan íródnak a szövegek, betűk, képek és SVG elemek.
 
-Használja a [SVGOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/)‑t, ha az exportált SVG‑nek kompakt, böngészők között kiszámítható vagy interaktív használatra készen kell állnia.
+Használja a [SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) lehetőséget, ha az exportált SVG-nek kompakt, böngészők között kiszámítható, vagy interaktív felhasználásra készültnek kell lennie.
 
-## **Dia exportálása SVG‑ként**
+## **Dia exportálása SVG-ként**
 
-Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) objektumot, válasszon ki egy diát, és írja ki egy adatfolamba. Az alábbi példa a bemutató minden diáit külön SVG fájlba exportálja.
+Hozzon létre egy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) objektumot, válasszon ki egy diát, és írja ki egy adatfolyamba. Az alábbi példa minden diát külön SVG fájlként exportál a prezentációból.
 
 ```csharp
 using Aspose.Slides;
@@ -41,11 +41,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-A fájlnév a [ISlide.SlideNumber](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/slidenumber/) értékét használja a ciklusindex helyett. Egyedi alakzatot is exportálhat a [IShape.WriteAsSvg](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/writeassvg/) segítségével, ha a diavetítő vagy a weboldal csak azt az alakzatot igényli.
+A fájlnév a [ISlide.SlideNumber](https://reference.aspose.com/slides/net/aspose.slides/islide/slidenumber/) értékét használja a ciklusindex helyett. Egyetlen alakzatot is exportálhat a [IShape.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/ishape/writeassvg/) használatával, ha egy diamegjelenítőnek vagy weboldalnak csak arra az alakzatra van szüksége.
 
 ## **SVG kimenet konfigurálása**
 
-A [SVGOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/) szabályozza az SVG renderelését. Szövegdobozok esetén a [SVGOptions.UseFrameSize](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/useframesize/) a szövegdobozt a renderelési területbe foglalja, a [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/useframerotation/) pedig meghatározza, hogy a doboz forgatása alkalmazásra kerül‑e. Állítsa a [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/disablefontligatures/) értékét `true`‑ra, ha a szöveget ligatúrák nélkül kell renderelni.
+[SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) szabályozza az SVG renderelését. Szövegdobozok esetén a [SVGOptions.UseFrameSize](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframesize/) belefoglalja a szövegdobozt a renderelési területbe, a [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframerotation/) pedig meghatározza, hogy a doboz forgása alkalmazásra kerül-e. Állítsa a [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/disablefontligatures/) értékét `true`‑ra, ha a szöveget ligatúrák nélkül kell renderelni.
 
 ```csharp
 using Aspose.Slides;
@@ -64,11 +64,13 @@ using var svgStream = File.Create("slide-with-custom-options.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
 
-## **Szöveg és betűtípusok vezérlése**
+## **Szöveg és betűtípusok kezelése**
+
+SVG-be történő diaexportáláskor szabályozhatja, hogy a szöveg szövegként maradjon-e vagy vektoros grafikává konvertálódik, valamint hogy a külső betűtípusok hogyan legyenek belefoglalva vagy hivatkozva. Az alábbi beállítások segítenek egyensúlyt teremteni a vizuális konzisztencia, a szövegkiválasztás és a betűtípus-függőségek között az exportált SVG-ben.
 
 ### **Minden szöveg vektorizálása**
 
-Állítsa a [SVGOptions.VectorizeText](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/vectorizetext/) értékét `true`‑ra, hogy a dia összes szövegét vektorgrafikaként írja. Ez eltávolítja a betűtípus‑függőségeket, és a vizuális eredményt konzisztenssé teszi a böngészők között, de a szöveg már nem választható vagy kereshető SVG szövegként.
+Állítsa a [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) értékét `true`‑ra, hogy a diák minden szövege vektoros grafikaként kerüljön kiírásra. Ez megszünteti a betűtípus‑függőségeket, és a vizuális eredményt egységesebbé teszi a böngészők között, de a szöveg már nem lesz kiválasztható vagy kereshető SVG‑szövegként.
 
 ```csharp
 using Aspose.Slides;
@@ -85,9 +87,9 @@ using var svgStream = File.Create("slide-with-vectorized-text.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
 
-### **Válassza ki, hogyan kezelje a külső betűtípusokat**
+### **Külső betűtípusok kezelési módjának kiválasztása**
 
-A [SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/externalfontshandling/) egy [SvgExternalFontsHandling](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgexternalfontshandling/) értéket használ azokhoz a betűtípusokhoz, amelyek külső forrásból töltődnek be. Válassza a `AddLinksToFontFiles` lehetőséget a különálló betűtípusfájlokra való hivatkozáshoz, az `Embed` opciót a betűtípusadatok SVG‑be történő beágyazásához, vagy a `Vectorize` lehetőséget, hogy a külső betűtípusokat használó szöveget grafikaként renderelje. Ellenőrizze a betűtípus licencelését a beágyazás előtt.
+[SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/externalfontshandling/) egy [SvgExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) értéket használ a külsőleg betöltött betűtípusokhoz. Válassza a `AddLinksToFontFiles` lehetőséget, ha különálló betűtárfájlokra szeretne hivatkozni, a `Embed` opciót, ha a betűtípus‑adatokat be szeretné ágyazni az SVG‑be, vagy a `Vectorize` lehetőséget, ha csak a külső betűtípust használó szöveget szeretné grafikává konvertálni. Betűtípus‑licencelést ellenőrizze a beágyazás előtt.
 
 ```csharp
 using Aspose.Slides;
@@ -122,7 +124,7 @@ presentation.Slides[0].WriteAsSvg(vectorizedExternalFontsStream, vectorizedExter
 
 ## **Beágyazott képek méretének csökkentése**
 
-Használja a [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/picturescompression/) beállítást a beágyazott képek felbontásának csökkentéséhez, a [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) opciót a levágott forrásterületek kihagyásához, valamint a [SVGOptions.JpegQuality](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/jpegquality/) beállítást a JPEG kódolás minőségének szabályozásához. Ezek a beállítások csökkentik a fájlméretet a kép hűség vagy a megtartott képadatok rovására.
+Használja a [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) beállítást a beágyazott képek felbontásának csökkentésére, a [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) beállítással a levágott forrásterületek elhagyására, és a [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) értékkel a JPEG kódolás minőségének szabályozására. Ezek a beállítások a fájlméretet csökkentik a kép‑hűség vagy a megmaradt képadatok kárára.
 
 ```csharp
 using Aspose.Slides;
@@ -141,11 +143,52 @@ using var svgStream = File.Create("compressed-slide.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
 
+## **Metafájl raszterezési felbontásának vezérlése**
+
+A [SVGOptions.MetafileRasterizationDpi](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/metafilerasterizationdpi/) az SVG exportálása során a metafájlok raszterezésének alsó felbontási határát állítja be. Ennek segítségével egyensúlyozhat a részletesség és a fájlméret között, ha egy EMF vagy WMF képet raszterez. Nem definiál globális DPI‑t az SVG‑hez, és nem kényszeríti minden objektumot raszteres képpé.
+
+Töltse le a [metafile-rasterization.pptx](metafile-rasterization.pptx) fájlt, amely egy EMF képet tartalmaz szorosan elhelyezett átlóvonalakkal. Az alábbi példa a prezentáció első diáját három raszterezési felbontásban exportálja a [ISlide.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/islide/writeassvg/) használatával. A többi exportbeállítás változatlan marad, hogy az eredményeket össze lehessen hasonlítani.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("metafile-rasterization.pptx");
+
+foreach (var dpi in new[] { 72, 150, 300 })
+{
+    var svgOptions = new SVGOptions
+    {
+        MetafileRasterizationDpi = dpi,
+        PicturesCompression = PicturesCompression.Dpi330,
+        JpegQuality = 90
+    };
+
+    using var svgStream = File.Create($"slide-{dpi}.svg");
+    presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+}
+```
+
+A kimenetben az EMF minden SVG‑ben egy beágyazott PNG‑re vált. Az alábbi mérések a mellékelt prezentációra vonatkoznak; nem általános képlet a DPI‑ból pixelméret számításához.
+
+| Metafájl raszterezési DPI | Beágyazott PNG méretek | SVG fájlméret (bájt) |
+| --- | --- | --- |
+| 72 | 1196 × 596 | 170,221 |
+| 150 | 2492 × 1242 | 423,149 |
+| 300 | 4983 × 2483 | 1,027,169 |
+
+Az alább látható összehasonlítás ugyanazt a beágyazott rasztert mutatja azonos nagyított megjelenítési méreten. A átlóvonalak 72 DPI‑n látható pixelesedést, magasabb felbontásoknál pedig simább éleket mutatnak, miközben az SVG fájl mérete nő. A felbontás növelése nem feltétlenül javít minden részletet vagy változtat minden exportált képen.
+
+![Nagyított átlóvonal részlet 72, 150 és 300 DPI-n](metafile-rasterization-comparison.png)
+
+A [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) szabályozza a képfelbontás csökkentését, és elrejtheti a metafájl raszterezési felbontásának változtatásának hatását. A [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) a JPEG kódolás minőségét szabályozza, nem a metafájl raszterezési felbontását.
+
 ## **Stabil azonosítók hozzárendelése alakzatokhoz és szöveghez**
 
-Használja a [ISvgShapeFormattingController](https://reference.aspose.com/slides/hu/net/aspose.slides.export/isvgshapeformattingcontroller/) osztályt, hogy minden SVG alakzatra beállítsa a [ISvgShape.Id](https://reference.aspose.com/slides/hu/net/aspose.slides.export/isvgshape/id/) értéket. A szöveg `tspan` elemeire is szeretne [ISvgTSpan.Id](https://reference.aspose.com/slides/hu/net/aspose.slides.export/isvgtspan/id/) értékeket beállítani, akkor valósítsa meg a [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/hu/net/aspose.slides.export/isvgshapeandtextformattingcontroller/) interfészt. Bármelyik vezérlőt a [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) segítségével rendelje hozzá.
+Használja az [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/) segítségével a [ISvgShape.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/id/) beállítását minden SVG alakzathoz. A szöveg `tspan` elemeinek [ISvgTSpan.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgtspan/id/) értékének beállításához implementálja az [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeandtextformattingcontroller/)-t. Bármelyik vezérlőt a [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) segítségével adja meg.
 
-Az alábbi vezérlő a [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/officeinteropshapeid/) értékét használja, amely az alakzat életciklusa során stabil, valamint egy ismételhető számlálót a szövegtartományokhoz. Ez a generált azonosítókat megfelelővé teszi egy változatlan bemutató utófeldolgozásához.
+Az alábbi vezérlő az [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/net/aspose.slides/ishape/officeinteropshapeid/) értékét használja, amely stabil a forma életciklusa alatt, valamint egy ismételhető számlálót a szöveg‑spannekhez. Ez a generált azonosítók alkalmasá teszi a változatlan prezentáció utófeldolgozását.
 
 ```csharp
 using Aspose.Slides;
@@ -184,7 +227,7 @@ class StableSvgIdController : ISvgShapeAndTextFormattingController
 
 ## **SVG eseménykezelők hozzáadása**
 
-Egy [ISvgShapeFormattingController](https://reference.aspose.com/slides/hu/net/aspose.slides.export/isvgshapeformattingcontroller/) esetén hívja meg az [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/hu/net/aspose.slides.export/isvgshape/seteventhandler/) metódust egy [SvgEvent](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgevent/) értékkel, hogy JavaScript eseménykezelőt adjon az exportált alakzathoz. A vezérlőt a [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) segítségével rendelje hozzá, és definiálja a JavaScript függvényt az oldalon vagy az SVG dokumentumban, amely a kimenetet tartalmazza.
+Egy [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/)‑ben hívja meg a [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/seteventhandler/) metódust egy [SvgEvent](https://reference.aspose.com/slides/net/aspose.slides.export/svgevent/) értékkel, hogy JavaScript eseménykezelőt adjon hozzá egy exportált alakzathoz. Adja meg a vezérlőt a [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) segítségével, és definiálja a JavaScript függvényt az oldalon vagy az SVG dokumentumban, amely a kimenetet tartalmazza.
 
 ```csharp
 using Aspose.Slides;
@@ -213,18 +256,18 @@ class SvgEventController : ISvgShapeFormattingController
 }
 ```
 
-A fogadó oldal definiálhatja a kezelő által hivatkozott JavaScript függvényt. Azonosítók és eseménykezelők hozzárendelése lehetővé teszi a diavetítőket, az akadálymentesítési fejlesztéseket és egyéb interaktív SVG munkafolyamatokat.
+A host oldal definiálhatja a kezelő által hivatkozott JavaScript függvényt. Az azonosítók és eseménykezelők hozzárendelése lehetővé teszi a diamegjelenítők, akadálymentesítési bővítmények és más interaktív SVG munkafolyamatok használatát.
 
 ## **GYIK**
 
-**Mikor kell használni a [SVGOptions.VectorizeText](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/vectorizetext/)‑t a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgexternalfontshandling/)‑helyett?**
+**Mikor kell használni a [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) helyett a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/)‑t?**
 
-Használja a [SVGOptions.VectorizeText](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgoptions/vectorizetext/) beállítást, ha az összes szöveget betűtípusoktól függetlenül kell kezelni. Használja a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/hu/net/aspose.slides.export/svgexternalfontshandling/) opciót, ha csak a külső betűtípusokat használó szöveget kell grafikává konvertálni.
+Használja a [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) lehetőséget, ha minden szöveget függetleníteni kell a betűtípusoktól. Használja a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) beállítást, ha csak a külső betűtípust használó szövegeket szeretné grafikává konvertálni.
 
 **Mi a legjobb módja egy SVG méretének csökkentésére?**
 
-Kezdje a beágyazott képek tömörítésével, a levágott képterületek törlésével, és a linkelt betűtípusfájlok választásával, ha a célkörnyezet képes ezeket kiszolgálni. Tesztelje a végeredményt, mivel az alacsonyabb képfelbontás, a gyengébb JPEG minőség és a vektorizált szöveg mind különböző minőség‑ és méreth trade‑off‑okat eredményeznek.
+Kezdje a beágyazott képek tömörítésével, a levágott képterületek törlésével, valamint a linkelt betűtárfájlok választásával, ha a célkörnyezet képes azokat kiszolgálni. Tesztelje az eredményt, mivel az alacsonyabb képfelbontás, az alacsonyabb JPEG‑minőség és a vektorizált szöveg mind különböző minőség‑ és méret‑kompromisszumokkal jár.
 
-**Módosíthatom‑e az exportált SVG elemeket az exportálás után?**
+**Módosíthatom az exportált SVG elemeket az export után?**
 
-Igen. Azonosítókat rendelhet egy formázási vezérlőn keresztül, majd kiválaszthatja a megfelelő SVG elemeket az utófeldolgozó eszközében vagy böngésző‑szkriptjében.
+Igen. Rendeljen azonosítókat egy formázó vezérlő segítségével, majd válassza ki a megfelelő SVG elemeket az utófeldolgozó eszközében vagy böngésző‑szkriptjében.

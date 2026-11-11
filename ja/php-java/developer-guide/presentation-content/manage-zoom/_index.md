@@ -1,5 +1,5 @@
 ---
-title: PHPでプレゼンテーションズームを管理する
+title: PHP でプレゼンテーションズームを管理する
 linktitle: ズームを管理する
 type: docs
 weight: 60
@@ -10,532 +10,532 @@ keywords:
 - スライドズーム
 - セクションズーム
 - サマリーズーム
-- ズームの追加
+- ズームを追加
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用してズームを作成およびカスタマイズします — セクション間をジャンプし、サムネイルやトランジションを PPT、PPTX、ODP プレゼンテーションに追加します。"
+description: "Aspose.Slides for PHP via Java を使用してズームを作成・カスタマイズし、セクション間をジャンプし、PowerPoint プレゼンテーションにサムネイルやトランジションを追加します。"
 ---
+## **導入**
 
-## **概要**
-PowerPoint のズーム機能を使用すると、プレゼンテーションの特定のスライド、セクション、および部分にジャンプしたり戻ったりできます。プレゼンテーション中に、コンテンツを素早くナビゲートできるこの機能は非常に便利です。 
+PowerPoint ズームを使用すると、スライドショー中に特定のスライドやセクション間をナビゲートできます。Aspose.Slides for PHP via Java を使うと、スライド、セクション、サマリー ズームを作成し、プレビュー、枠線、トランジションをカスタマイズできます。
 
-![overview_image](overview.png)
+![PowerPoint ズーム概要](overview.png)
 
-* プレゼンテーション全体を 1 枚のスライドに要約するには、[Summary Zoom](#Summary-Zoom) を使用します。  
-* 選択したスライドだけを表示するには、[Slide Zoom](#Slide-Zoom) を使用します。  
-* 1 つのセクションだけを表示するには、[Section Zoom](#Section-Zoom) を使用します。  
+* プレゼンテーション全体を 1 枚のスライドにまとめるには、[サマリーズーム](#summary-zoom) を使用します。
+* 選択したスライドだけを表示するには、[スライドズーム](#slide-zoom) を使用します。
+* 単一のセクションだけを表示するには、[セクションズーム](#section-zoom) を使用します。
 
 ## **スライドズーム**
-スライドズームを使用すると、プレゼンテーションをより動的にし、任意の順序でスライド間を中断せずに自由にナビゲートできます。スライドズームはセクションが少ない短いプレゼンテーションに最適ですが、さまざまなシナリオで使用できます。
 
-スライドズームは、単一のキャンバス上にいるかのように複数の情報を詳細に掘り下げるのに役立ちます。 
+スライドズームを使用すると、プレゼンテーションがより動的になり、任意の順序でスライド間を自由にナビゲートでき、プレゼンテーションの流れを中断せずに済みます。スライドズームは、セクションが少ない短いプレゼンテーションに最適ですが、さまざまなシナリオでも使用できます。
 
-![overview_image](slidezoomsel.png)
+スライドズームを使えば、単一の概要スライドから関連情報を探索できます。
 
-スライドズーム オブジェクトについては、Aspose.Slides が [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/zoomimagetype/) 列挙体、[ZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) クラス、および [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) クラスのいくつかのメソッドを提供します。
+![スライドズーム用にスライドを選択](slidezoomsel.png)
 
-### **ズーム フレームの作成**
+スライドズーム オブジェクトについては、Aspose.Slides が [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/zoomimagetype/) 列挙型、[ZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) クラス、および [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) クラスのメソッドを提供します。
 
-スライドにズーム フレームを追加する手順は次のとおりです。
+### **ズームフレームの作成**
 
-1.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2.	ズーム フレームでリンクする新しいスライドを作成します。  
-3.	作成したスライドに識別テキストと背景を追加します。  
-4.	最初のスライドにズーム フレーム（作成したスライドへの参照を含む）を追加します。  
-5.	変更したプレゼンテーションを書き出して PPTX ファイルにします。  
+[ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) を使用して、概要スライド上に個々のスライドへのリンクを配置します。この例では、背景とラベルが異なる 2 つのターゲット スライドを作成し、各スライドのプレビューを最初のスライドに追加して PPTX として保存します。フレームの位置とサイズはポイントで指定します。
 
-この PHP コードはスライドにズーム フレームを作成する方法を示しています。  
 ```php
-  $pres = new Presentation();
-  try {
-    # プレゼンテーションに新しいスライドを追加
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # 2 番目のスライドの背景を作成
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # 2 番目のスライドにテキストボックスを作成
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # 3 番目のスライドの背景を作成
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # 3 番目のスライドにテキストボックスを作成
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # ZoomFrame オブジェクトを追加
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # プレゼンテーションを保存
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **カスタム画像付きズーム フレームの作成**
-Aspose.Slides for PHP via Java を使用すると、次の手順で別のスライド プレビュー画像を持つズーム フレームを作成できます。
+### **カスタム画像付きズームフレームの作成**
 
-1.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2.	ズーム フレームでリンクする新しいスライドを作成します。  
-3.	スライドに識別テキストと背景を追加します。  
-4.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームの塗りつぶしに使用する [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) オブジェクトを作成します。  
-5.	最初のスライドにズーム フレーム（作成したスライドへの参照を含む）を追加します。  
-6.	変更したプレゼンテーションを書き出して PPTX ファイルにします。  
+[ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) にカスタム画像を渡すことで、ターゲット スライドのデフォルト プレビューを置き換えられます。この例ではローカル画像が必要で、[Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) で読み込み、[ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage) を使用してプレゼンテーションに追加します。結果のフレームはその画像を表示しながら、2 番目のスライドへのリンクを保持します。
 
-この PHP コードは別の画像を使用したズーム フレームの作成方法を示しています。  
 ```php
-  $pres = new Presentation();
-  try {
-    # プレゼンテーションに新しいスライドを追加
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # 2 番目のスライドの背景を作成
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # 3 番目のスライドのテキストボックスを作成
-    $autoshape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # ズーム オブジェクト用の新しい画像を作成
-    $picture;
-    $image = Images->fromFile("image.png");
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # ZoomFrame オブジェクトを追加
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $picture);
-    # プレゼンテーションを保存
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **ズーム フレームの書式設定**
-前のセクションではシンプルなズーム フレームの作成方法を示しました。より複雑なズーム フレームを作成するには、シンプルなフレームの書式設定を変更する必要があります。ズーム フレームに適用できる書式設定オプションは多数あります。 
+### **ズームフレームの書式設定**
 
-スライド上でズーム フレームの書式設定を制御する手順は次のとおりです。
+この例では 2 つのスライドズームフレームをカスタマイズします。最初のフレームには [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage) でローカル画像を割り当て、2 番目のフレームには [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) を使用して 5 ポイントのピンクの点線‑破線枠線を設定します。[ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground) に `false` を渡すと、2 番目のフレームの背景が非表示になります。カスタムプレビューにはローカル画像が必要です。両フレームは保存された PPTX でスライドターゲットを保持します。
 
-1.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2.	ズーム フレームでリンクする新しいスライドを作成します。  
-3.	作成したスライドに識別テキストと背景を追加します。  
-4.	最初のスライドにズーム フレーム（作成したスライドへの参照を含む）を追加します。  
-5.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームの塗りつぶしに使用する [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) オブジェクトを作成します。  
-6.	最初のズーム フレーム オブジェクトにカスタム画像を設定します。  
-7.	2 番目のズーム フレーム オブジェクトの線の書式を変更します。  
-8.	2 番目のズーム フレーム オブジェクトの画像から背景を削除します。  
-5.	変更したプレゼンテーションを書き出して PPTX ファイルにします。  
-
-この PHP コードはスライド上でズーム フレームの書式設定を変更する方法を示しています。  
 ```php
-  $pres = new Presentation();
-  try {
-    # プレゼンテーションに新しいスライドを追加
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # 2 番目のスライドの背景を作成
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # 2 番目のスライドにテキストボックスを作成
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # 3 番目のスライドの背景を作成
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # 3 番目のスライドにテキストボックスを作成
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # ZoomFrame オブジェクトを追加
-    $zoomFrame1 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $zoomFrame2 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # ズーム オブジェクト用の新しい画像を作成
-    $picture;
-    $image = Images->fromFile("image.png");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # zoomFrame1 オブジェクトにカスタム画像を設定
-    $zoomFrame1->setImage($picture);
-    # zoomFrame2 オブジェクトのズームフレーム書式を設定
-    $zoomFrame2->getLineFormat()->setWidth(5);
-    $zoomFrame2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $zoomFrame2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->pink);
-    $zoomFrame2->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
-    # zoomFrame2 オブジェクトの背景非表示設定
-    $zoomFrame2->setShowBackground(false);
-    # プレゼンテーションを保存
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $firstZoomFrame = $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $secondZoomFrame = $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+    $image = Images::fromFile("image.png");
+    try {
+        $previewImage = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
+
+    $firstZoomFrame->setZoomImage($previewImage);
+
+    $secondZoomFrame->getLineFormat()->setWidth(5);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 255, 105, 180);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $secondZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
+
+    $secondZoomFrame->setShowBackground(false);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **セクションズーム**
 
-セクションズームは、プレゼンテーション内のセクションへのリンクです。セクションズームを使用して、特に強調したいセクションに戻ったり、プレゼンテーションの特定の部分がどのように接続しているかをハイライトしたりできます。 
+セクションズームはプレゼンテーション内のセクションへリンクします。トピックを再訪したり、プレゼンテーションの異なる部分がどのように関連しているかを示すのに使用できます。
 
-![overview_image](seczoomsel.png)
+![セクションズーム用にセクションを選択](seczoomsel.png)
 
-セクションズーム オブジェクトについては、Aspose.Slides が [SectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) クラスと [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) クラスのいくつかのメソッドを提供します。
+セクションズーム オブジェクトについては、Aspose.Slides が [SectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) クラスと [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) クラスのメソッドを提供します。
 
-### **セクションズーム フレームの作成**
+### **セクションズームフレームの作成**
 
-スライドにセクションズーム フレームを追加する手順は次のとおりです。
+[SectionCollection::addSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectioncollection/#addSection) でセクションを作成し、返されたセクションを [ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame) に渡します。この例では、最初のスライドにセクションズームを配置し、カラー スライドで始まるセクションへリンクします。フレームの位置とサイズはポイントで指定し、PPTX として保存します。
 
-1.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2.	新しいスライドを作成します。  
-3.	作成したスライドに識別背景を追加します。  
-4.	ズーム フレームでリンクする新しいセクションを作成します。  
-5.	最初のスライドにセクションズーム フレーム（作成したセクションへの参照を含む）を追加します。  
-6.	変更したプレゼンテーションを書き出して PPTX ファイルにします。  
-
-この PHP コードはスライドにズーム フレームを作成する方法を示しています。  
 ```php
-  $pres = new Presentation();
-  try {
-    # プレゼンテーションに新しいスライドを追加
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # プレゼンテーションに新しいセクションを追加
-    $pres->getSections()->addSection("Section 1", $slide);
-    # SectionZoomFrame オブジェクトを追加
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # プレゼンテーションを保存
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **カスタム画像付きセクションズーム フレームの作成**
+### **カスタム画像付きセクションズームフレームの作成**
 
-Aspose.Slides for PHP via Java を使用すると、次の手順で別のスライド プレビュー画像を持つセクションズーム フレームを作成できます。
+[ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame) の画像オーバーロードを使用すると、宛先セクションを変更せずにカスタムプレビューを表示できます。この例ではローカル画像が必要で、[Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) で読み込み、[ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage) を介して追加します。保存されたプレゼンテーションは、最初のスライドに新しく作成したセクションへリンクしたセクションズームを含みます。
 
-1.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2.	新しいスライドを作成します。  
-3.	作成したスライドに識別背景を追加します。  
-4.	ズーム フレームでリンクする新しいセクションを作成します。  
-5.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームの塗りつぶしに使用する [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) オブジェクトを作成します。  
-5.	最初のスライドにセクションズーム フレーム（作成したセクションへの参照を含む）を追加します。  
-6.	変更したプレゼンテーションを書き出して PPTX ファイルにします。  
-
-この PHP コードは別の画像を使用したズーム フレームの作成方法を示しています。  
 ```php
-  $pres = new Presentation();
-  try {
-    # プレゼンテーションに新しいスライドを追加
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # プレゼンテーションに新しいセクションを追加
-    $pres->getSections()->addSection("Section 1", $slide);
-    # ズームオブジェクト用の新しい画像を作成
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # SectionZoomFrame オブジェクトを追加
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1), $picture);
-    # プレゼンテーションを保存
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **セクションズーム フレームの書式設定**
+### **セクションズームのターゲットセクションを変更する**
 
-より複雑なセクションズーム フレームを作成するには、シンプルなフレームの書式設定を変更する必要があります。セクションズーム フレームに適用できる書式設定オプションは多数あります。 
+[SectionZoomFrame::setTargetSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/#setTargetSection) を使用すると、セクションズームを再作成せずにリダイレクトできます。同じプレゼンテーションの [Presentation::getSections](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSections) コレクションから対象セクションを選択します。空のセクションを割り当てると現在のターゲットは変更されませんので、割り当てる前に [Section::getSlidesListOfSection](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSlidesListOfSection) を確認してください。セクションの詳細は [スライド セクションの管理](/slides/ja/php-java/slide-section/) を参照してください。
 
-スライド上でセクションズーム フレームの書式設定を制御する手順は次のとおりです。
+以下の例では、複数のセクションが含まれ、`Section navigation` という名前の既存セクションズームと、`Results` という一意の名前を持つセクションがあるプレゼンテーション ファイルを読み込みます。すべてのスライドを検索してズームを見つけ、インデックスが変更される可能性があるコレクションインデックスではなく名前で宛先を特定します。名前が一意でない場合は、代わりに [Section::getSectionId](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSectionId) を使用して宛先を識別してください。
 
-1.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2.	新しいスライドを作成します。  
-3.	作成したスライドに識別背景を追加します。  
-4.	ズーム フレームでリンクする新しいセクションを作成します。  
-5.	最初のスライドにセクションズーム フレーム（作成したセクションへの参照を含む）を追加します。  
-6.	作成したセクションズーム オブジェクトのサイズと位置を変更します。  
-7.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームの塗りつぶしに使用する [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) オブジェクトを作成します。  
-8.	作成したセクションズーム フレーム オブジェクトにカスタム画像を設定します。  
-9.	*リンクされたセクションから元のスライドへ戻る* 動作を設定します。  
-10.	セクションズーム フレーム オブジェクトの画像から背景を削除します。  
-11.	2 番目のズーム フレーム オブジェクトの線の書式を変更します。  
-12.	遷移時間を変更します。  
-13.	変更したプレゼンテーションを書き出して PPTX ファイルにします。  
-
-この PHP コードはセクションズーム フレームの書式設定を変更する方法を示しています。  
 ```php
-  $pres = new Presentation();
-  try {
-    # プレゼンテーションに新しいスライドを追加
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("section-zoom.pptx");
+try {
+    $zoom = null;
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($i = 0; $i < $slideCount; $i++) {
+        $slide = $presentation->getSlides()->get_Item($i);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($j = 0; $j < $shapeCount; $j++) {
+            $shape = $slide->getShapes()->get_Item($j);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.ISectionZoomFrame")) && java_values($shape->getName()) === "Section navigation") {
+                $zoom = $shape;
+                break;
+            }
+        }
+        if ($zoom != null) {
+            break;
+        }
+    }
+
+    $targetSection = null;
+    $sectionCount = java_values($presentation->getSections()->size());
+    for ($i = 0; $i < $sectionCount; $i++) {
+        $section = $presentation->getSections()->get_Item($i);
+        if (java_values($section->getName()) === "Results") {
+            $targetSection = $section;
+            break;
+        }
+    }
+
+    if ($zoom == null || $targetSection == null) {
+        echo "The section zoom or destination section was not found.", PHP_EOL;
+    } else if (java_values($targetSection->getSlidesListOfSection()->size()) == 0) {
+        echo "The destination section is empty.", PHP_EOL;
+    } else {
+        $currentSection = $zoom->getTargetSection();
+        echo "Current section: " . (java_is_null($currentSection) ? "" : java_values($currentSection->getName())), PHP_EOL;
+        $zoom->setTargetSection($targetSection);
+        $presentation->save("section-zoom-updated.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **セクションズームフレームの書式設定**
+
+この例では、セクションズームを 100 × 75 ポイントに移動およびサイズ変更し、[ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage) でローカル画像を割り当て、2.5 ポイントの茶色の点線‑破線枠線を適用します。[ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) を有効にしてセクション終了後に元のスライドに戻り、[ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground) を無効にし、[ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) を 1.5 秒に設定します。カスタムプレビューにはローカル画像が必要です。
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # プレゼンテーションに新しいセクションを追加
-    $pres->getSections()->addSection("Section 1", $slide);
-    # SectionZoomFrame オブジェクトを追加
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # SectionZoomFrame の書式設定
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
     $sectionZoomFrame->setX(100);
     $sectionZoomFrame->setY(300);
     $sectionZoomFrame->setWidth(100);
     $sectionZoomFrame->setHeight(75);
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    $sectionZoomFrame->setImage($picture);
+
+    $sectionZoomFrame->setZoomImage($previewImage);
+
     $sectionZoomFrame->setReturnToParent(true);
     $sectionZoomFrame->setShowBackground(false);
-    $sectionZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
-    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
-    $sectionZoomFrame->getLineFormat()->setWidth(2.5);
-    $sectionZoomFrame->setTransitionDuration(1.5);
-    # プレゼンテーションを保存
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
 
+    $sectionZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
+    $sectionZoomFrame->getLineFormat()->setWidth(2.5);
+
+    $sectionZoomFrame->setTransitionDuration(1.5);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **サマリーズーム**
 
-サマリーズームは、プレゼンテーションのすべての要素を一度に表示するランディング ページのようなものです。プレゼンテーション中に、ズームを使用して任意の順序で任意の場所に移動したり、スキップしたり、再度表示したりできます。  
+サマリーズームはプレゼンテーションのセクション全体の概要を提供します。スライドショー中に、セクションへジャンプしたり、先へ進んだり、スライド順に従わずにトピックを再訪したりできます。
 
-![overview_image](sumzoomsel.png)
+![サマリーズーム用にセクションを選択](sumzoomsel.png)
 
-サマリーズーム オブジェクトについては、Aspose.Slides が [SummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/)、[SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/)、[SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) クラスと [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) クラスのいくつかのメソッドを提供します。
+サマリーズーム オブジェクトについては、Aspose.Slides が [SummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/)、[SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/)、[SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) クラスと、[ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) クラスのメソッドを提供します。
 
 ### **サマリーズームの作成**
 
-スライドにサマリーズーム フレームを追加する手順は次のとおりです。
+[ShapeCollection::addSummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSummaryZoomFrame) を使用して、プレゼンテーションのセクションの概要を作成します。この例では、背景が異なる 4 つのセクションを作成し、最初のスライドにサマリーズームを追加します。フレームの位置とサイズはポイントで指定し、結果の概要を PPTX プレゼンテーションとして保存します。
 
-1.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2.	識別背景と新しいセクションを持つ新しいスライドを作成します。  
-3.	最初のスライドにサマリーズーム フレームを追加します。  
-4.	変更したプレゼンテーションを書き出して PPTX ファイルにします。  
-
-この PHP コードはスライドにサマリーズーム フレームを作成する方法を示しています。  
 ```php
-  $pres = new Presentation();
-  try {
-    # プレゼンテーションに新しいスライドを追加
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
-    $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # プレゼンテーションに新しいセクションを追加
-    $pres->getSections()->addSection("Section 1", $slide);
-    # プレゼンテーションに新しいスライドを追加
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # プレゼンテーションに新しいセクションを追加
-    $pres->getSections()->addSection("Section 2", $slide);
-    # プレゼンテーションに新しいスライドを追加
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
-    $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # プレゼンテーションに新しいセクションを追加
-    $pres->getSections()->addSection("Section 3", $slide);
-    # プレゼンテーションに新しいスライドを追加
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->green);
-    $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # プレゼンテーションに新しいセクションを追加
-    $pres->getSections()->addSection("Section 4", $slide);
-    # SummaryZoomFrame オブジェクトを追加
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # プレゼンテーションを保存
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+
+    $presentation->getSections()->addSection("Section 3", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 0, 100, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+
+    $presentation->getSections()->addSection("Section 4", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ### **サマリーズーム セクションの追加と削除**
 
-サマリーズーム フレーム内のすべてのセクションは [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) オブジェクトで表され、[SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) オブジェクトに格納されます。セクションの追加または削除は、[SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) クラスを使用して次のように行えます。
+サマリーズームは [SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) に格納された [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) オブジェクトを使用します。この例では、2 つのセクションの概要を作成し、[SummaryZoomSectionCollection::addSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) で 3 番目のセクションを追加し、[SummaryZoomSectionCollection::removeSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection) で最初のセクションのエントリを削除します。エントリを削除しても、プレゼンテーションのセクションとスライドはそのまま残ります。
 
-1.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2.	識別背景と新しいセクションを持つ新しいスライドを作成します。  
-3.	最初のスライドにサマリーズーム フレームを追加します。  
-4.	プレゼンテーションに新しいスライドとセクションを追加します。  
-5.	作成したセクションをサマリーズーム フレームに追加します。  
-6.	サマリーズーム フレームから最初のセクションを削除します。  
-7.	変更したプレゼンテーションを書き出して PPTX ファイルにします。  
-
-この PHP コードはサマリーズーム フレーム内のセクションを追加および削除する方法を示しています。  
 ```php
-  $pres = new Presentation();
-  try {
-    # プレゼンテーションに新しいスライドを追加
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
-    $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # プレゼンテーションに新しいセクションを追加
-    $pres->getSections()->addSection("Section 1", $slide);
-    # プレゼンテーションに新しいスライドを追加
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # プレゼンテーションに新しいセクションを追加
-    $pres->getSections()->addSection("Section 2", $slide);
-    # SummaryZoomFrame オブジェクトを追加
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # プレゼンテーションに新しいスライドを追加
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
-    $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # プレゼンテーションに新しいセクションを追加
-    $section3 = $pres->getSections()->addSection("Section 3", $slide);
-    # Summary Zoom にセクションを追加
-    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($section3);
-    # Summary Zoom からセクションを削除
-    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($pres->getSections()->get_Item(1));
-    # プレゼンテーションを保存
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+
+    $firstSection = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+
+    $thirdSection = $presentation->getSections()->addSection("Section 3", $slide);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($thirdSection);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($firstSection);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ### **サマリーズーム セクションの書式設定**
 
-より複雑なサマリーズーム セクション オブジェクトを作成するには、シンプルなフレームの書式設定を変更する必要があります。サマリーズーム セクション オブジェクトに適用できる書式設定オプションは多数あります。 
+この例では、[SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) の最初のエントリ（インデックス `0`）の書式を設定します。ローカル画像が必要な [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage) を使用し、1.5 ポイントの黒い点線‑破線枠線を適用し、[ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) を 1.5 秒に設定します。[ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) に `false` を渡すと、このエントリの自動的なサマリースライドへの戻りが無効になります。
 
-サマリーズーム フレーム内のセクション オブジェクトの書式設定を制御する手順は次のとおりです。
-
-1.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2.	識別背景と新しいセクションを持つ新しいスライドを作成します。  
-3.	最初のスライドにサマリーズーム フレームを追加します。  
-4.	`SummaryZoomSectionCollection` から最初のオブジェクトのサマリーズーム セクション オブジェクトを取得します。  
-7.	[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) オブジェクトに関連付けられた images コレクションに画像を追加して、フレームの塗りつぶしに使用する [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) オブジェクトを作成します。  
-8.	作成したセクションズーム フレーム オブジェクトにカスタム画像を設定します。  
-9.	*リンクされたセクションから元のスライドへ戻る* 動作を設定します。  
-11.	2 番目のズーム フレーム オブジェクトの線の書式を変更します。  
-12.	遷移時間を変更します。  
-13.	変更したプレゼンテーションを書き出して PPTX ファイルにします。  
-
-この PHP コードはサマリーズーム セクション オブジェクトの書式設定を変更する方法を示しています。  
 ```php
-  $pres = new Presentation();
-  try {
-    # プレゼンテーションに新しいスライドを追加
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
-    $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # プレゼンテーションに新しいセクションを追加
-    $pres->getSections()->addSection("Section 1", $slide);
-    # プレゼンテーションに新しいスライドを追加
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # プレゼンテーションに新しいセクションを追加
-    $pres->getSections()->addSection("Section 2", $slide);
-    # SummaryZoomFrame オブジェクトを追加
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # 最初の SummaryZoomSection オブジェクトを取得
-    $summarySection = $summaryZoomFrame->getSummaryZoomCollection()->get_Item(0);
-    # SummaryZoomSection オブジェクトの書式設定
-    $picture;
-    $image = Images->fromFile("image.png");
-    try {
-      $picture = $pres->getImages()->addImage($picture);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    $summarySection->setImage($picture);
-    $summarySection->setReturnToParent(false);
-    $summarySection->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->black);
-    $summarySection->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
-    $summarySection->getLineFormat()->setWidth(1.5);
-    $summarySection->setTransitionDuration(1.5);
-    # プレゼンテーションを保存
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $summarySection = $summaryZoomFrame->getSummaryZoomCollection()->get_Item(0);
+    $image = Images::fromFile("image.png");
+    try {
+        $previewImage = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
+
+    $summarySection->setZoomImage($previewImage);
+    $summarySection->setReturnToParent(false);
+
+    $summarySection->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $summarySection->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
+    $summarySection->getLineFormat()->setWidth(1.5);
+
+    $summarySection->setTransitionDuration(1.5);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **FAQ**
 
-**対象を表示した後に「親」スライドに戻る動作を制御できますか？**
+**ターゲットを表示した後、'親' スライドに戻る制御はできますか？**
 
-はい。[Zoom frame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) または [section](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) には `ReturnToParent` 動作があり、これを有効にすると、閲覧者はターゲット コンテンツを閲覧した後に元のスライドに戻ります。
+はい。[ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) に `true` を指定すると、ターゲット コンテンツが表示された後に元のスライドに戻ります。
 
-**ズームの「速度」や遷移時間を調整できますか？**
+**ズーム トランジションの「速度」や期間を調整できますか？**
 
-はい。Zoom では `TransitionDuration` を設定でき、ジャンプ アニメーションの長さを制御できます。
+はい。[ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) を使用して、トランジション時間（秒）を制御できます。
 
-**プレゼンテーションに含められるズーム オブジェクトの数に制限はありますか？**
+**プレゼンテーションが保持できるズーム オブジェクトの数に制限はありますか？**
 
-ドキュメント化されたハードな API 制限はありません。実際の制限はプレゼンテーション全体の複雑さやビューアのパフォーマンスに依存します。多数のズーム フレームを追加できますが、ファイルサイズやレンダリング時間を考慮してください。
+ドキュメントに記載されたハードな API 制限はありません。実際の制限はプレゼンテーション全体の複雑さやビューアのパフォーマンスに依存します。多数のズームフレームを追加できますが、ファイルサイズや描画時間を考慮してください。

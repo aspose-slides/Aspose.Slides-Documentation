@@ -1,32 +1,32 @@
 ---
-title: "تصدير شرائح العرض التقديمي كصور SVG في C++"
-linktitle: "شريحة إلى SVG"
+title: عرض شرائح العرض التقديمي كصور SVG في C++
+linktitle: شريحة إلى SVG
 type: docs
 weight: 50
 url: /ar/cpp/render-a-slide-as-an-svg-image/
 keywords:
-- "PowerPoint إلى SVG"
-- "عرض تقديمي إلى SVG"
-- "شريحة إلى SVG"
-- "PPT إلى SVG"
-- "PPTX إلى SVG"
-- "خيارات تصدير SVG"
-- "SVG تفاعلية"
-- "PowerPoint"
-- "عرض تقديمي"
-- "C++"
-- "Aspose.Slides"
-description: "تصدير شرائح PowerPoint كصور SVG في C++ والتحكم في الخطوط والنصوص والصور والمعرّفات والأحداث باستخدام Aspose.Slides."
+- PowerPoint إلى SVG
+- عرض تقديمي إلى SVG
+- شريحة إلى SVG
+- PPT إلى SVG
+- PPTX إلى SVG
+- خيارات تصدير SVG
+- SVG تفاعلي
+- PowerPoint
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "تصدير شرائح PowerPoint كصور SVG في C++ والتحكم في الخطوط والنصوص والصور والمعرفات والأحداث باستخدام Aspose.Slides."
 ---
 ## **نظرة عامة**
 
-SVG هو تنسيق صور يعتمد على XML ويمكن تحجيمه، يعمل جيدًا للنشر على الويب، وعارضات الشرائح، وتدفقات عمل الوصول، ومعالجة ما بعد التصدير الآلية. Aspose.Slides for C++ يُصدّر كل شريحة إلى ملف SVG منفصل ويتيح لك التحكم في كيفية كتابة النصوص، الخطوط، الصور، وعناصر SVG.
+SVG هو تنسيق صور مبني على XML وقابل للتوسيع يعمل بشكل جيد للنشر عبر الويب، وعروض الشرائح، وسير عمل إمكانية الوصول، والمعالجة التلقائية بعد الإنشاء. تقوم Aspose.Slides for C++ بتصدير كل شريحة إلى ملف SVG منفصل وتتيح لك التحكم في كيفية كتابة النصوص، الخطوط، الصور، وعناصر SVG.
 
-استخدم [SVGOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/) عندما يجب أن يكون SVG المُصدّر مضغوطًا، متوقعًا عبر المتصفحات، أو جاهزًا للاستخدام التفاعلي.
+استخدم [SVGOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/) عندما يجب أن يكون SVG المُصدّر مضغوطًا، ومتوقعًا عبر المتصفحات، أو جاهزًا للاستخدام التفاعلي.
 
 ## **تصدير شريحة كـ SVG**
 
-أنشئ [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/)، حدد شريحة، واكتبها إلى تدفق. المثال التالي يُصدّر كل شريحة في العرض التقديمي إلى ملف SVG منفصل.
+أنشئ [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)، اختر شريحة، واكتبها إلى تدفق. المثال التالي يصدر كل شريحة في عرض تقديمي كملف SVG منفصل.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -54,11 +54,11 @@ for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
 presentation->Dispose();
 ```
 
-اسم الملف يستخدم [ISlide::get_SlideNumber](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islide/get_slidenumber/) بدلاً من فهرس الحلقة. يمكنك أيضًا تصدم شكل فردي باستخدام [IShape::WriteAsSvg](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/writeassvg/) عندما يحتاج عارض الشرائح أو صفحة الويب إلى ذلك الشكل فقط.
+يستخدم اسم الملف [ISlide::get_SlideNumber](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_slidenumber/) بدلاً من فهرس الحلقة. يمكنك أيضًا تصدير شكل فردي باستخدام [IShape::WriteAsSvg](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/writeassvg/) عندما يحتاج عارض الشرائح أو صفحة الويب إلى ذلك الشكل فقط.
 
-## **تكوين مخرجات SVG**
+## **تهيئة إخراج SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/) يتحكم في رسم SVG. لإطارات النص، [SVGOptions::set_UseFrameSize](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/set_useframesize/) يضيف إطار النص إلى منطقة الرسم، و[SVGOptions::set_UseFrameRotation](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/set_useframerotation/) يحدّد ما إذا كان يتم تطبيق دوران الإطار. ضع [SVGOptions::set_DisableFontLigatures](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/set_disablefontligatures/) على `true` عندما يجب أن يُرسم النص دون ربط الحروف.
+[SVGOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/) يتحكم في عرض SVG. بالنسبة لإطارات النص، يضمن [SVGOptions::set_UseFrameSize](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_useframesize/) تضمين إطار النص في منطقة العرض، و[SVGOptions::set_UseFrameRotation](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_useframerotation/) يحدد ما إذا كان سيتم تطبيق دوران الإطار. اضبط [SVGOptions::set_DisableFontLigatures](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_disablefontligatures/) على `true` عندما يجب عرض النص بدون الأحرف المتصلة.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -85,11 +85,13 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
-## **التحكم في النص والخطوط**
+## **التحكم في النصوص والخطوط**
 
-### **تحويل كل النص إلى متجهات**
+عند تصدير الشرائح إلى SVG، يمكنك التحكم فيما إذا كان النص يبقى نصًا أو يتحول إلى رسومات متجهة، وكيفية تضمين الخطوط الخارجية أو الإشارة إليها. تساعدك الخيارات التالية على موازنة الاتساق البصري، اختيار النص، واعتماديات الخطوط في SVG المُصدّر.
 
-ضبط [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) إلى `true` لكتابة كل نص الشريحة كرسومات متجهة. هذا يُزيل الاعتماد على الخطوط ويجعل النتيجة البصرية أكثر اتساقًا عبر المتصفحات، ولكن النص لن يكون قابلًا للتحديد أو البحث ك نص SVG.
+### **تحويل كل النص إلى متجه**
+
+اضبط [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) على `true` لكتابة كل نص الشريحة كرسومات متجهة. هذا يلغي اعتماديات الخطوط ويجعل النتيجة البصرية أكثر اتساقًا عبر المتصفحات، لكن النص لا يصبح قابلًا للتحديد أو البحث كـ SVG نص.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -114,9 +116,9 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
-### **اختر كيفية معالجة الخطوط الخارجية**
+### **اختر طريقة معالجة الخطوط الخارجية**
 
-[SVGOptions::set_ExternalFontsHandling](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/set_externalfontshandling/) يستخدم قيمة [SvgExternalFontsHandling](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgexternalfontshandling/) للخطوط التي تُحمّل خارجيًا. اختر `AddLinksToFontFiles` للإشارة إلى ملفات خطوط منفصلة، `Embed` لتضمين بيانات الخط داخل SVG، أو `Vectorize` لتصوير النص الذي يستخدم خطوطًا خارجية كرسومات. تحقق من ترخيص الخط قبل تضمينه.
+يستخدم [SVGOptions::set_ExternalFontsHandling](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_externalfontshandling/) قيمة [SvgExternalFontsHandling](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgexternalfontshandling/) للخطوط التي تُحمَّل خارجيًا. اختر `AddLinksToFontFiles` للإشارة إلى ملفات خطوط منفصلة، `Embed` لتضمين بيانات الخط في SVG، أو `Vectorize` لتحويل النص الذي يستخدم خطوطًا خارجية إلى رسومات. تأكد من تراخيص الخط قبل تضمين الخطوط.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -156,7 +158,7 @@ presentation->Dispose();
 
 ## **تقليل حجم الصور المدمجة**
 
-استخدم [SVGOptions::set_PicturesCompression](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/set_picturescompression/) لتقليل دقة الصور المدمجة، و[SVGOptions::set_DeletePicturesCroppedAreas](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/set_deletepicturescroppedareas/) لحذف المناطق المقطوعة من المصدر، و[SVGOptions::set_JpegQuality](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/set_jpegquality/) للتحكم في جودة ترميز JPEG. هذه الإعدادات تقلل حجم الملف على حساب دقة الصورة أو البيانات المحتفظ بها.
+استخدم [SVGOptions::set_PicturesCompression](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_picturescompression/) لتقليل دقة الصور المدمجة، و[SVGOptions::set_DeletePicturesCroppedAreas](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_deletepicturescroppedareas/) لتغاضي عن المناطق المقتصة من المصدر، و[SVGOptions::set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_jpegquality/) للتحكم في جودة ترميز JPEG. هذه الإعدادات تقلل حجم الملف على حساب دقة الصورة أو البيانات المحتفظ بها.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -184,11 +186,64 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
-## **تعيين معرّفات ثابتة للأشكال والنص**
+## **التحكم في دقة تقطيع ملف الميتافايل**
 
-استخدم [ISvgShapeFormattingController](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/isvgshapeformattingcontroller/) لتعيين [ISvgShape::set_Id](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/isvgshape/set_id/) لكل شكل SVG. لتعيين قيم [ISvgTSpan::set_Id](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/isvgtspan/set_id/) على عناصر النص `tspan` أيضًا، نفّذ [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/isvgshapeandtextformattingcontroller/). قم بتعيين أي من المتحكمين باستخدام [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/).
+يقوم [SVGOptions::set_MetafileRasterizationDpi](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_metafilerasterizationdpi/) بتعيين الحد الأدنى للدقة لتقشير ملفات الميتافايل أثناء تصدير SVG. استخدمه لموازنة التفاصيل وحجم الملف عندما يتم تقشير صورة EMF أو WMF. لا يحدد DPI عالميًا للـ SVG ولا يجبر كل كائن في الشريحة على أن يصبح صورة نقطية.
 
-المتحكم التالي يستخدم [IShape::get_OfficeInteropShapeId](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_officeinteropshapeid/)، وهو ثابت طوال عمر الشكل، وعدّادًا قابلًا للتكرار لشرائح النص الخاصة به. هذا يجعل المعرفات المُولدة مناسبة لمعالجة ما بعد العرض التقديمي غير المعدل.
+قم بتنزيل [metafile-rasterization.pptx](metafile-rasterization.pptx)، الذي يحتوي على صورة EMF بخطوط قطرية متقاربة. المثال التالي يصدر شريحته الأولى بثلاث دقات تقشير من خلال [ISlide::WriteAsSvg](https://reference.aspose.com/slides/cpp/aspose.slides/islide/writeassvg/). جميع إعدادات التصدير الأخرى تبقى متطابقة ليمكن مقارنة النتائج.
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/PicturesCompression.h>
+#include <Export/SVGOptions.h>
+#include <system/io/file.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"metafile-rasterization.pptx");
+auto slide = presentation->get_Slide(0);
+const int resolutions[] = { 72, 150, 300 };
+
+for (auto dpi : resolutions)
+{
+    auto svgOptions = MakeObject<SVGOptions>();
+    svgOptions->set_MetafileRasterizationDpi(dpi);
+    svgOptions->set_PicturesCompression(PicturesCompression::Dpi330);
+    svgOptions->set_JpegQuality(90);
+
+    auto svgFileName = String::Format(u"slide-{0}.svg", dpi);
+    auto svgStream = File::Create(svgFileName);
+    slide->WriteAsSvg(svgStream, svgOptions);
+    svgStream->Dispose();
+}
+
+presentation->Dispose();
+```
+
+في الناتج، تحولت صورة EMF إلى PNG مدمج واحد في كل SVG. القياسات التالية تخص العرض المرفق؛ وهي ليست صيغة عامة لتحويل DPI إلى أبعاد البكسل.
+
+| دقة تقشير ملف الميتافايل DPI | أبعاد PNG المدمج | حجم ملف SVG (بايت) |
+| --- | --- | --- |
+| 72 | 1196 × 596 | 170,221 |
+| 150 | 2492 × 1242 | 423,149 |
+| 300 | 4983 × 2483 | 1,027,169 |
+
+المقارنة أدناه تُظهر نفس منطقة الصورة النقطية المدمجة بحجم عرض مكبر متساوٍ. الخطوط القطرية تُظهر بكسلة مرئية عند 72 DPI وحواف أنعم عند دقات أعلى، بينما ينمو حجم ملف SVG. زيادة القيمة لا تحسن بالضرورة كل التفاصيل أو تغير كل صورة مُصدَّرة.
+
+![تفاصيل الخط القطري المكبر عند 72، 150، و300 DPI](metafile-rasterization-comparison.png)
+
+[SVGOptions::set_PicturesCompression](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_picturescompression/) يتحكم في تقليل دقة الصورة ويمكن أن يخفي تأثير تغيير دقة تقشير ملف الميتافايل. [SVGOptions::set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_jpegquality/) يتحكم في جودة ترميز JPEG، وليس في دقة تقشير ملف الميتافايل.
+
+## **تعيين معرفات ثابتة للأشكال والنص**
+
+استخدم [ISvgShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeformattingcontroller/) لتعيين [ISvgShape::set_Id](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/set_id/) لكل شكل SVG. لتعيين قيم [ISvgTSpan::set_Id](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgtspan/set_id/) على عناصر النص `tspan` أيضًا، نفّذ [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeandtextformattingcontroller/). عيّن أي من المتحكمين باستخدام [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/).
+
+المتحكم التالي يستخدم [IShape::get_OfficeInteropShapeId](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_officeinteropshapeid/)، الذي يكون ثابتًا طوال عمر الشكل، وعدادًا قابلًا للتكرار لتقسيمات النص الخاصة به. وهذا يجعل المعرفات المُولدة مناسبة للمعالجة اللاحقة لعرض تقديمي غير معدل.
 
 ```cpp
 #include <DOM/IPortion.h>
@@ -245,7 +300,7 @@ presentation->Dispose();
 
 ## **إضافة معالجات أحداث SVG**
 
-في [ISvgShapeFormattingController](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/isvgshapeformattingcontroller/)، استدعِ [ISvgShape::SetEventHandler](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/isvgshape/seteventhandler/) مع قيمة [SvgEvent](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgevent/) لإضافة معالج حدث JavaScript إلى شكل مُصدّر. قم بتعيين المتحكم باستخدام [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/) وتعريف دالة JavaScript في الصفحة أو مستند SVG الذي يستضيف النتيجة.
+في [ISvgShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshapeformattingcontroller/)، استدعِ [ISvgShape::SetEventHandler](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/seteventhandler/) مع قيمة [SvgEvent](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgevent/) لإضافة معالج حدث JavaScript إلى شكل مُصدَّر. عيّن المتحكم باستخدام [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/) وعَرّف دالة JavaScript في الصفحة أو مستند SVG الذي يستضيف النتيجة.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -287,18 +342,18 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
-يمكن للصفحة المستضيفة تعريف دالة JavaScript التي يشير إليها المعالج. تعيين المعرفات ومعالجات الأحداث يُمكّن عارضات الشرائح، تحسينات الوصول، وغيرها من سير عمل SVG التفاعلية.
+يمكن للصفحة المضيفة تعريف دالة JavaScript المشار إليها بواسطة المعالج. تعيين المعرفات ومعالجات الأحداث يتيح لمشاهدي الشرائح، وتحسينات إمكانية الوصول، وسير عمل SVG تفاعلي آخر.
 
-## **الأسئلة الشائعة**
+## **FAQ**
 
-**متى يجب أن أستخدم [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) بدلاً من [SvgExternalFontsHandling::Vectorize](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgexternalfontshandling/)?**
+**متى يجب أن أستخدم [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) بدلاً من [SvgExternalFontsHandling::Vectorize](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgexternalfontshandling/)?**
 
-استخدم [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) عندما يجب أن يكون كل النص مستقلاً عن الخطوط. استخدم [SvgExternalFontsHandling::Vectorize](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/svgexternalfontshandling/) عندما يجب تحويل النص الذي يستخدم خطوطًا خارجية فقط إلى رسومات.
+استخدم [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) عندما يجب أن يكون جميع النص مستقلًا عن الخطوط. استخدم [SvgExternalFontsHandling::Vectorize](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgexternalfontshandling/) عندما يجب تحويل النص الذي يستخدم خطوطًا خارجية فقط إلى رسومات.
 
 **ما هي أفضل طريقة لتصغير حجم SVG؟**
 
-ابدأ بضغط الصور المدمجة، حذف المناطق المقطوعة من الصورة، واختيار ملفات خطوط مرتبطة عندما يمكن للبيئة المستهدفة تقديمها. اختبر النتيجة لأن انخفاض دقة الصورة، انخفاض جودة JPEG، والنص المتجه كلٌ منها له تبادلات مختلفة بين الجودة والحجم.
+ابدأ بضغط الصور المدمجة، حذف المناطق المقصوصة من الصور، واختيار ملفات خطوط مرتبطة عندما يستطيع بيئة الهدف تقديمها. اختبر النتيجة لأن خفض دقة الصورة، خفض جودة JPEG، وتحويل النص إلى متجه كل منها له مقايضات مختلفة بين الجودة والحجم.
 
 **هل يمكنني تعديل عناصر SVG المُصدَّرة بعد التصدير؟**
 
-نعم. قم بتعيين المعرفات عبر متحكم التنسيق، ثم اختر عناصر SVG المطابقة في أداة ما بعد المعالجة أو سكريبت المتصفح.
+نعم. عيّن المعرفات عبر متحكم التنسيق، ثم حدد عناصر SVG المطابقة في أداة المعالجة اللاحقة أو سكريبت المتصفح.

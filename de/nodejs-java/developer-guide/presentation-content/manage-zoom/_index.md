@@ -1,529 +1,507 @@
 ---
-title: Zoom verwalten
+title: Präsentations-Zoom in JavaScript verwalten
+linktitle: Zoom verwalten
 type: docs
 weight: 60
 url: /de/nodejs-java/manage-zoom/
-keywords: "Zoom, Zoom-Frame, Zoom hinzufügen, Zoom-Frame formatieren, Zusammenfassungszoom, PowerPoint-Präsentation, Java, Aspose.Slides für Node.js via Java"
-description: "Zooms oder Zoom-Frames zu PowerPoint-Präsentationen in JavaScript hinzufügen"
+keywords:
+- Zoom
+- Zoom-Rahmen
+- Folien-Zoom
+- Abschnitts-Zoom
+- Zusammenfassungs-Zoom
+- Zoom hinzufügen
+- PowerPoint
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Erstellen und Anpassen von Zooms mit Aspose.Slides für Node.js via Java — zwischen Abschnitten springen, Miniaturansichten und Übergänge in PowerPoint-Präsentationen hinzufügen."
 ---
+## **Einführung**
 
-## **Übersicht**
+PowerPoint‑Zooms ermöglichen das Navigieren zwischen bestimmten Folien und Abschnitten während einer Bildschirmanzeige. Mit Aspose.Slides für Node.js über Java können Sie Folien‑, Abschnitts‑ und Zusammenfassungs‑Zooms erstellen und deren Vorschaubilder, Rahmen und Übergänge anpassen.
 
-Zooms in PowerPoint ermöglichen es Ihnen, zu bestimmten Folien, Abschnitten und Teilen einer Präsentation zu springen und von dort zurückzukehren. Beim Vortragen kann diese Möglichkeit, schnell durch den Inhalt zu navigieren, sehr nützlich sein. 
+![PowerPoint zoom overview](overview.png)
 
-![overview_image](overview.png)
+* Um eine gesamte Präsentation auf einer einzelnen Folie zusammenzufassen, verwenden Sie einen [Summary Zoom](#summary-zoom).
+* Um nur ausgewählte Folien anzuzeigen, verwenden Sie einen [Slide Zoom](#slide-zoom).
+* Um nur einen einzelnen Abschnitt anzuzeigen, verwenden Sie einen [Section Zoom](#section-zoom).
 
-* Um eine gesamte Präsentation auf einer einzigen Folie zusammenzufassen, verwenden Sie einen [Summary Zoom](#Summary-Zoom).
-* Um nur ausgewählte Folien anzuzeigen, verwenden Sie einen [Slide Zoom](#Slide-Zoom).
-* Um nur einen einzelnen Abschnitt anzuzeigen, verwenden Sie einen [Section Zoom](#Section-Zoom).
+## **Folien‑Zoom**
 
-## **Folienzoom**
+Ein Folien‑Zoom kann Ihre Präsentation dynamischer machen, indem er Ihnen erlaubt, frei zwischen Folien in beliebiger Reihenfolge zu navigieren, ohne den Fluss Ihrer Präsentation zu unterbrechen. Folien‑Zooms eignen sich gut für kurze Präsentationen ohne viele Abschnitte, können jedoch auch in anderen Präsentationsszenarien verwendet werden.
 
-Ein Folien‑Zoom kann Ihre Präsentation dynamischer machen, indem er Ihnen erlaubt, frei zwischen Folien in beliebiger Reihenfolge zu navigieren, ohne den Ablauf Ihrer Präsentation zu unterbrechen. Folien‑Zooms eignen sich hervorragend für kurze Präsentationen ohne viele Abschnitte, können jedoch auch in verschiedenen Präsentationsszenarien verwendet werden.
+Folien‑Zooms ermöglichen das Erkunden verwandter Informationen von einer einzigen Übersichts‑Folie aus.
 
-Folien‑Zooms helfen Ihnen, in mehrere Informationsstücke zu vertiefen, während Sie das Gefühl haben, sich auf einer einzigen Leinwand zu befinden. 
+![Selecting slides for a slide zoom](slidezoomsel.png)
 
-![overview_image](slidezoomsel.png)
+Für Folien‑Zoom‑Objekte stellt Aspose.Slides die Enumeration [ZoomImageType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomimagetype/), die Klasse [ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/) und Methoden der Klasse [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) bereit.
 
-Für Folien‑Zoom‑Objekte stellt Aspose.Slides die Aufzählung [ZoomImageType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ZoomImageType) die Klasse [ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ZoomFrame) und einige Methoden der Klasse [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) bereit.
+### **Zoom‑Frames erstellen**
 
-### **Erstellen von Zoom‑Frames**
-
-Sie können einen Zoom‑Frame auf einer Folie auf folgende Weise hinzufügen:
-
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2.	Erstellen Sie neue Folien, zu denen Sie die Zoom‑Frames verlinken möchten. 
-3.	Fügen Sie den erstellten Folien einen Identifikationstext und einen Hintergrund hinzu.
-4.	Fügen Sie dem ersten Folie Zoom‑Frames (die Verweise auf die erstellten Folien enthalten) hinzu.
-5.	Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Verwenden Sie [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame), um Links zu einzelnen Folien auf einer Übersichts‑Folie zu platzieren. Dieses Beispiel erstellt zwei Ziel‑Folien mit unterschiedlichen Hintergründen und Beschriftungen, fügt dann eine Vorschau jeder Folie zur ersten Folie hinzu und speichert die Präsentation als PPTX. Rahmenpositionen und -größen werden in Punkten angegeben.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Fügt neue Folien zur Präsentation hinzu
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // Erstellt einen Hintergrund für die zweite Folie
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // Erstellt ein Textfeld für die zweite Folie
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // Erstellt einen Hintergrund für die dritte Folie
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // Erstellt ein Textfeld für die dritte Folie
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // Fügt ZoomFrame-Objekte hinzu
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // Speichert die Präsentation
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **Zoom‑Frames mit eigenen Bildern erstellen**
 
-### **Erstellen von Zoom‑Frames mit benutzerdefinierten Bildern**
-
-Mit Aspose.Slides für Node.js über Java können Sie einen Zoom‑Frame mit einem anderen Folien‑Vorschaubild auf folgende Weise erstellen:
-
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2.	Erstellen Sie eine neue Folie, zu der Sie den Zoom‑Frame verlinken möchten. 
-3.	Fügen Sie der Folie einen Identifikationstext und einen Hintergrund hinzu.
-4.	Erstellen Sie ein [PPImage]-Objekt, indem Sie ein Bild zur Images‑Sammlung des zugehörigen [Presentation]-Objekts hinzufügen, das zum Befüllen des Frames verwendet wird.
-5.	Fügen Sie dem ersten Folie Zoom‑Frames (die den Verweis auf die erstellte Folie enthalten) hinzu.
-6.	Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Übergeben Sie ein benutzerdefiniertes Bild an [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame), um die Standard‑Vorschau der Ziel‑Folie zu ersetzen. Dieses Beispiel erfordert ein lokales Bild, lädt es mit [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) und fügt es der Präsentation über [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) hinzu. Der resultierende Frame zeigt dieses Bild an, verweist jedoch weiterhin auf die zweite Folie.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Fügt eine neue Folie zur Präsentation hinzu
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // Erstellt einen Hintergrund für die zweite Folie
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // Erstellt ein Textfeld für die dritte Folie
-    var autoshape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // Erstellt ein neues Bild für das Zoom-Objekt
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // Fügt das ZoomFrame-Objekt hinzu
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
-    // Speichert die Präsentation
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 300, 200, slide, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **Zoom‑Frames formatieren**
 
-### **Formatieren von Zoom‑Frames**
-
-In den vorherigen Abschnitten haben wir Ihnen gezeigt, wie Sie einfache Zoom‑Frames erstellen. Um komplexere Zoom‑Frames zu erstellen, müssen Sie die Formatierung eines einfachen Frames anpassen. Es gibt mehrere Formatierungsoptionen, die Sie auf einen Zoom‑Frame anwenden können. 
-
-Sie können die Formatierung eines Zoom‑Frames auf einer Folie auf folgende Weise steuern:
-
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2.	Erstellen Sie neue Folien, zu denen Sie den Zoom‑Frame verlinken möchten. 
-3.	Fügen Sie den erstellten Folien einen Identifikationstext und einen Hintergrund hinzu.
-4.	Fügen Sie dem ersten Folie Zoom‑Frames (die Verweise auf die erstellten Folien enthalten) hinzu.
-5.	Erstellen Sie ein [PPImage]-Objekt, indem Sie ein Bild zur Images‑Sammlung des zugehörigen [Presentation]-Objekts hinzufügen, das zum Befüllen des Frames verwendet wird.
-6.	Legen Sie ein benutzerdefiniertes Bild für das erste Zoom‑Frame‑Objekt fest.
-7.	Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
-8.	Entfernen Sie den Hintergrund von einem Bild des zweiten Zoom‑Frame‑Objekts.
-9.	Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Dieses Beispiel passt zwei Folien‑Zoom‑Frames an. Es weist dem ersten Frame über [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) ein lokales Bild zu und gibt dem zweiten Frame über [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) einen fünf Punkte starken, gestrichelten pinken Rand. Durch Übergeben von `false` an [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground) wird der Hintergrund des zweiten Frames ausgeblendet. Für die benutzerdefinierte Vorschau ist ein lokales Bild erforderlich; beide Frames behalten ihre Folien‑Ziele in der gespeicherten PPTX.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Fügt neue Folien zur Präsentation hinzu
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // Erstellt einen Hintergrund für die zweite Folie
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // Erstellt ein Textfeld für die zweite Folie
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // Erstellt einen Hintergrund für die dritte Folie
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // Erstellt ein Textfeld für die dritte Folie
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // Fügt ZoomFrame-Objekte hinzu
-    var zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    var zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // Erstellt ein neues Bild für das Zoom-Objekt
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    let firstZoomFrame = overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    let secondZoomFrame = overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // Setzt ein benutzerdefiniertes Bild für das zoomFrame1-Objekt
-    zoomFrame1.setImage(picture);
-    // Setzt ein Zoom-Frame-Format für das zoomFrame2-Objekt
-    zoomFrame2.getLineFormat().setWidth(5);
-    zoomFrame2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "pink"));
-    zoomFrame2.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // Einstellung: Hintergrund für das zoomFrame2-Objekt nicht anzeigen
-    zoomFrame2.setShowBackground(false);
-    // Speichert die Präsentation
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    firstZoomFrame.setZoomImage(previewImage);
+
+    secondZoomFrame.getLineFormat().setWidth(5);
+    secondZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 105, 180));
+    secondZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
+    secondZoomFrame.setShowBackground(false);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **Abschnitts‑Zoom**
 
-Ein Abschnitts‑Zoom ist ein Link zu einem Abschnitt Ihrer Präsentation. Sie können Abschnitts‑Zooms verwenden, um zu Abschnitten zurückzukehren, die Sie besonders hervorheben möchten. Oder Sie können sie einsetzen, um zu verdeutlichen, wie bestimmte Teile Ihrer Präsentation miteinander verbunden sind. 
+Ein Abschnitts‑Zoom verlinkt zu einem Abschnitt Ihrer Präsentation. Verwenden Sie ihn, um ein Thema erneut zu besuchen oder zu zeigen, wie verschiedene Teile der Präsentation miteinander verbunden sind.
 
-![overview_image](seczoomsel.png)
+![Selecting a section for a section zoom](seczoomsel.png)
 
-Für Abschnitts‑Zoom‑Objekte stellt Aspose.Slides die Klasse [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SectionZoomFrame) und einige Methoden der Klasse [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) bereit.
+Für Abschnitts‑Zoom‑Objekte stellt Aspose.Slides die Klasse [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) und Methoden der Klasse [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) bereit.
 
-### **Erstellen von Abschnitts‑Zoom‑Frames**
+### **Abschnitts‑Zoom‑Frames erstellen**
 
-Sie können einen Abschnitts‑Zoom‑Frame auf einer Folie auf folgende Weise hinzufügen:
-
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2.	Erstellen Sie eine neue Folie. 
-3.	Fügen Sie dem erstellten Folie einen Identifikations‑Hintergrund hinzu.
-4.	Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
-5.	Fügen Sie dem ersten Folie einen Abschnitts‑Zoom‑Frame (der Verweise auf den erstellten Abschnitt enthält) hinzu.
-6.	Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Erstellen Sie einen Abschnitt mit [SectionCollection.addSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectioncollection/#addSection) und übergeben Sie den zurückgegebenen Abschnitt an [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame). Dieses Beispiel platziert einen Abschnitts‑Zoom auf der ersten Folie und verlinkt ihn zu einem Abschnitt, der mit einer farbigen Folie beginnt. Position und Größe des Frames werden in Punkten angegeben, und die Präsentation wird als PPTX gespeichert.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Fügt eine neue Folie zur Präsentation hinzu
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.getSections().addSection("Section 1", slide);
-    // Fügt ein SectionZoomFrame-Objekt hinzu
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // Speichert die Präsentation
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **Abschnitts‑Zoom‑Frames mit eigenen Bildern erstellen**
 
-### **Erstellen von Abschnitts‑Zoom‑Frames mit benutzerdefinierten Bildern**
-
-Mit Aspose.Slides für Node.js über Java können Sie einen Abschnitts‑Zoom‑Frame mit einem anderen Folien‑Vorschaubild auf folgende Weise erstellen:
-
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2.	Erstellen Sie eine neue Folie.
-3.	Fügen Sie dem erstellten Folie einen Identifikations‑Hintergrund hinzu.
-4.	Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
-5.	Erstellen Sie ein [PPImage]-Objekt, indem Sie ein Bild zur Images‑Sammlung des zugehörigen [Presentation]-Objekts hinzufügen, das zum Befüllen des Frames verwendet wird.
-6.	Fügen Sie dem ersten Folie einen Abschnitts‑Zoom‑Frame (der einen Verweis auf den erstellten Abschnitt enthält) hinzu.
-7.	Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Die Bild‑Überladung von [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame) ermöglicht die Anzeige einer benutzerdefinierten Vorschau, ohne den Ziel‑Abschnitt zu ändern. Dieses Beispiel erfordert ein lokales Bild, das mit [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) geladen und über [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) hinzugefügt wird. Die gespeicherte Präsentation enthält einen Abschnitts‑Zoom auf der ersten Folie, der mit dem neu erstellten Abschnitt verknüpft ist.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Fügt eine neue Folie zur Präsentation hinzu
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.getSections().addSection("Section 1", slide);
-    // Erstellt ein neues Bild für das Zoom-Objekt
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
+        image.dispose();
+    }
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Ziel‑Abschnitt eines Abschnitts‑Zooms ändern**
+
+Verwenden Sie [SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/#setTargetSection), um einen bestehenden Abschnitts‑Zoom umzuleiten, ohne ihn neu zu erstellen. Wählen Sie einen gefüllten Abschnitt aus der [Presentation.getSections](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSections)-Sammlung derselben Präsentation. Das Zuordnen eines leeren Abschnitts lässt das aktuelle Ziel unverändert, prüfen Sie also [Section.getSlidesListOfSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSlidesListOfSection), bevor Sie zuweisen. Siehe [Manage Slide Sections](/slides/de/nodejs-java/slide-section/) für weitere Informationen zu Abschnitten.
+
+Das nachfolgende Beispiel lädt eine Präsentationsdatei, die mehrere gefüllte Abschnitte, einen bestehenden Abschnitts‑Zoom namens `Section navigation` und einen Abschnitt mit dem eindeutigen Namen `Results` enthalten muss. Es durchsucht alle Folien nach dem Zoom und ermittelt das Ziel anhand des Namens statt eines Sammlungs‑Indexes, der sich bei Neu‑oder Umordnung von Abschnitten ändern kann. Sind Namen nicht eindeutig, verwenden Sie [Section.getSectionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSectionId), um das Ziel zu identifizieren.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("section-zoom.pptx");
+try {
+    let zoom = null;
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        for (let j = 0; j < slide.getShapes().size(); j++) {
+            const shape = slide.getShapes().get_Item(j);
+            if (java.instanceOf(shape, "com.aspose.slides.ISectionZoomFrame") && shape.getName() === "Section navigation") {
+                zoom = shape;
+                break;
+            }
+        }
+        if (zoom != null) {
+            break;
         }
     }
-    // Fügt SectionZoomFrame-Objekt hinzu
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
-    // Speichert die Präsentation
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    let targetSection = null;
+    for (let i = 0; i < presentation.getSections().size(); i++) {
+        const section = presentation.getSections().get_Item(i);
+        if (section.getName() === "Results") {
+            targetSection = section;
+            break;
+        }
     }
+
+    if (zoom == null || targetSection == null) {
+        console.log("The section zoom or destination section was not found.");
+    } else if (targetSection.getSlidesListOfSection().size() == 0) {
+        console.log("The destination section is empty.");
+    } else {
+        let currentSection = zoom.getTargetSection();
+        console.log("Current section: " + (currentSection == null ? "" : currentSection.getName()));
+        zoom.setTargetSection(targetSection);
+        presentation.save("section-zoom-updated.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
+### **Abschnitts‑Zoom‑Frames formatieren**
 
-### **Formatieren von Abschnitts‑Zoom‑Frames**
-
-Um komplexere Abschnitts‑Zoom‑Frames zu erstellen, müssen Sie die Formatierung eines einfachen Frames anpassen. Es gibt mehrere Formatierungsoptionen, die Sie auf einen Abschnitts‑Zoom‑Frame anwenden können. 
-
-Sie können die Formatierung eines Abschnitts‑Zoom‑Frames auf einer Folie auf folgende Weise steuern:
-
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2.	Erstellen Sie eine neue Folie.
-3.	Fügen Sie dem erstellten Folie einen Identifikations‑Hintergrund hinzu.
-4.	Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
-5.	Fügen Sie dem ersten Folie einen Abschnitts‑Zoom‑Frame (der Verweise auf den erstellten Abschnitt enthält) hinzu.
-6.	Ändern Sie die Größe und Position des erstellten Abschnitts‑Zoom‑Objekts.
-7.	Erstellen Sie ein [PPImage]-Objekt, indem Sie ein Bild zur Images‑Sammlung des zugehörigen [Presentation]-Objekts hinzufügen, das zum Befüllen des Frames verwendet wird.
-8.	Legen Sie ein benutzerdefiniertes Bild für das erstellte Abschnitts‑Zoom‑Frame‑Objekt fest.
-9.	Aktivieren Sie die *Rückkehr zur Originalfolie aus dem verknüpften Abschnitt*-Funktion.
-10.	Entfernen Sie den Hintergrund von einem Bild des Abschnitts‑Zoom‑Frame‑Objekts.
-11.	Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
-12.	Ändern Sie die Übergangsdauer.
-13.	Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Dieses Beispiel verschiebt und skaliert einen Abschnitts‑Zoom auf 100 × 75 Punkte, weist über [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) ein lokales Bild zu und wendet einen 2,5 Punkte starken, gestrichelten braunen Rand an. Es aktiviert [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent), um nach dem Abschnitt zur Ausgangs‑Folie zurückzukehren, deaktiviert [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground) und setzt [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) auf 1,5 Sekunden. Für die benutzerdefinierte Vorschau ist ein lokales Bild erforderlich.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Fügt eine neue Folie zur Präsentation hinzu
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.getSections().addSection("Section 1", slide);
-    // Fügt SectionZoomFrame-Objekt hinzu
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // Formatierung für SectionZoomFrame
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
     sectionZoomFrame.setHeight(75);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    sectionZoomFrame.setImage(picture);
+
+    sectionZoomFrame.setZoomImage(previewImage);
+
     sectionZoomFrame.setReturnToParent(true);
     sectionZoomFrame.setShowBackground(false);
+
     sectionZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    sectionZoomFrame.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    sectionZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     sectionZoomFrame.getLineFormat().setWidth(2.5);
-    sectionZoomFrame.setTransitionDuration(1.5);
-    // Speichert die Präsentation
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    sectionZoomFrame.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **Zusammenfassungs‑Zoom**
 
-Ein Zusammenfassungs‑Zoom ist wie eine Landing‑Page, auf der alle Teile Ihrer Präsentation auf einmal angezeigt werden. Beim Vortragen können Sie den Zoom verwenden, um von einem Ort Ihrer Präsentation zu einem anderen in beliebiger Reihenfolge zu springen. Sie können kreativ sein, vorspringen oder Teile Ihrer Bildsprache erneut besuchen, ohne den Fluss Ihrer Präsentation zu unterbrechen.
+Ein Zusammenfassungs‑Zoom bietet einen Überblick über die Abschnitte einer Präsentation. Während einer Bildschirmanzeige können Sie damit zu einem Abschnitt springen, vorrücken oder ein Thema erneut aufrufen, ohne die Folienreihenfolge zu befolgen.
 
-![overview_image](sumzoomsel.png)
+![Selecting sections for a summary zoom](sumzoomsel.png)
 
-Für Zusammenfassungs‑Zoom‑Objekte stellt Aspose.Slides die Klassen [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomFrame), [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomSection) und [SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomSectionCollection) sowie einige Methoden der Klasse [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) bereit.
+Für Zusammenfassungs‑Zoom‑Objekte stellt Aspose.Slides die Klassen [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/) und [SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/) sowie Methoden der Klasse [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) bereit.
 
-### **Erstellen eines Zusammenfassungs‑Zooms**
+### **Ein Zusammenfassungs‑Zoom erstellen**
 
-Sie können einen Zusammenfassungs‑Zoom‑Frame auf einer Folie auf folgende Weise hinzufügen:
-
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2.	Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
-3.	Fügen Sie dem ersten Folie den Zusammenfassungs‑Zoom‑Frame hinzu.
-4.	Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Verwenden Sie [ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSummaryZoomFrame), um einen Überblick über die Abschnitte der Präsentation zu erstellen. Dieses Beispiel legt vier Abschnitte mit unterschiedlichen Folien‑Hintergründen an und fügt der ersten Folie einen Zusammenfassungs‑Zoom hinzu. Position und Größe des Frames werden in Punkten angegeben, und der resultierende Überblick wird in einer PPTX‑Präsentation gespeichert.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Fügt eine neue Folie zur Präsentation hinzu
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.getSections().addSection("Section 1", slide);
-    // Fügt eine neue Folie zur Präsentation hinzu
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.getSections().addSection("Section 2", slide);
-    // Fügt eine neue Folie zur Präsentation hinzu
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.getSections().addSection("Section 3", slide);
-    // Fügt eine neue Folie zur Präsentation hinzu
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 3", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "green"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.getSections().addSection("Section 4", slide);
-    // Fügt ein SummaryZoomFrame-Objekt hinzu
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // Speichert die Präsentation
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 100, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 4", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **Ein Zusammenfassungs‑Zoom‑Abschnitt hinzufügen und entfernen**
 
-### **Hinzufügen und Entfernen von Zusammenfassungs‑Zoom‑Abschnitten**
-
-Alle Abschnitte in einem Zusammenfassungs‑Zoom‑Frame werden durch [SummaryZoomSection]-Objekte repräsentiert, die im [SummaryZoomSectionCollection]-Objekt gespeichert sind. Sie können über die Klasse [SummaryZoomSectionCollection] ein Zusammenfassungs‑Zoom‑Abschnitts‑Objekt hinzufügen oder entfernen, indem Sie folgendes tun:
-
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2.	Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
-3.	Fügen Sie dem ersten Folie einen Zusammenfassungs‑Zoom‑Frame ein.
-4.	Fügen Sie der Präsentation eine neue Folie und einen neuen Abschnitt hinzu.
-5.	Fügen Sie den erstellten Abschnitt dem Zusammenfassungs‑Zoom‑Frame hinzu.
-6.	Entfernen Sie den ersten Abschnitt aus dem Zusammenfassungs‑Zoom‑Frame.
-7.	Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Ein Zusammenfassungs‑Zoom speichert seine [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/)-Objekte in [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection). Dieses Beispiel erstellt einen Überblick über zwei Abschnitte, fügt einen dritten Abschnitt über [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) hinzu und entfernt den Eintrag des ersten Abschnitts über [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection). Das Entfernen des Eintrags lässt den Präsentationsabschnitt und seine Folien unverändert.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Fügt eine neue Folie zur Präsentation hinzu
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.getSections().addSection("Section 1", slide);
-    // Fügt eine neue Folie zur Präsentation hinzu
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let firstSection = presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.getSections().addSection("Section 2", slide);
-    // Fügt ein SummaryZoomFrame-Objekt hinzu
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // Fügt eine neue Folie zur Präsentation hinzu
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    var section3 = pres.getSections().addSection("Section 3", slide);
-    // Fügt einen Abschnitt zum Summary Zoom hinzu
-    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
-    // Entfernt Abschnitt aus dem Summary Zoom
-    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
-    // Speichert die Präsentation
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let thirdSection = presentation.getSections().addSection("Section 3", slide);
+
+    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(thirdSection);
+
+    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(firstSection);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **Zusammenfassungs‑Zoom‑Abschnitte formatieren**
 
-### **Formatieren von Zusammenfassungs‑Zoom‑Abschnitten**
-
-Um komplexere Zusammenfassungs‑Zoom‑Abschnitts‑Objekte zu erstellen, müssen Sie die Formatierung eines einfachen Frames anpassen. Es gibt mehrere Formatierungsoptionen, die Sie auf einen Zusammenfassungs‑Zoom‑Abschnitt anwenden können. 
-
-Sie können die Formatierung eines Zusammenfassungs‑Zoom‑Abschnitts‑Objekts in einem Zusammenfassungs‑Zoom‑Frame auf folgende Weise steuern:
-
-1.	Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2.	Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
-3.	Fügen Sie dem ersten Folie einen Zusammenfassungs‑Zoom‑Frame hinzu.
-4.	Rufen Sie ein Zusammenfassungs‑Zoom‑Abschnitts‑Objekt für das erste Objekt aus der `ISummaryZoomSectionCollection` ab.
-5.	Erstellen Sie ein [PPImage]-Objekt, indem Sie ein Bild zur images‑collection des zugehörigen [Presentation]-Objekts hinzufügen, das zum Befüllen des Frames verwendet wird.
-6.	Legen Sie ein benutzerdefiniertes Bild für das erstellte Abschnitts‑Zoom‑Frame‑Objekt fest.
-7.	Aktivieren Sie die *Rückkehr zur Originalfolie aus dem verknüpften Abschnitt*-Funktion.
-8.	Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
-9.	Ändern Sie die Übergangsdauer.
-10.	Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Dieses Beispiel formatiert den ersten Eintrag in [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) unter Verwendung des nullbasierten Index `0`. Es erfordert ein lokales Bild für [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage), wendet einen 1,5 Punkte starken, gestrichelten schwarzen Rand an und setzt [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) auf 1,5 Sekunden. Durch Übergeben von `false` an [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) wird die automatische Rückkehr zur Zusammenfassungs‑Folie für diesen Eintrag deaktiviert.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Fügt eine neue Folie zur Präsentation hinzu
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.getSections().addSection("Section 1", slide);
-    // Fügt eine neue Folie zur Präsentation hinzu
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.getSections().addSection("Section 2", slide);
-    // Fügt ein SummaryZoomFrame-Objekt hinzu
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // Ruft das erste SummaryZoomSection-Objekt ab
-    var summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
-    // Formatierung für SummaryZoomSection-Objekt
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    let summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(picture);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    summarySection.setImage(picture);
+
+    summarySection.setZoomImage(previewImage);
     summarySection.setReturnToParent(false);
+
     summarySection.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "black"));
-    summarySection.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    summarySection.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     summarySection.getLineFormat().setWidth(1.5);
-    summarySection.setTransitionDuration(1.5);
-    // Speichert die Präsentation
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    summarySection.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **FAQ**
 
-**Kann ich die Rückkehr zur übergeordneten Folie nach Anzeige des Ziels steuern?**
+**Kann ich steuern, ob nach dem Anzeigen des Ziels zur „Eltern‑Folie“ zurückgekehrt wird?**
 
-Ja. Der [Zoom frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/) bzw. das [section](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) verfügt über die Methode `setReturnToParent`, die bei Aktivierung die Betrachter nach dem Aufrufen des Zielinhalts zur Ausgangsfolie zurückführt.
+Ja. Rufen Sie [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) mit `true` auf, um nach dem Anzeigen des Zielinhalts zur Ausgangs‑Folie zurückzukehren.
 
-**Kann ich die 'Geschwindigkeit' oder Dauer des Zoom‑Übergangs anpassen?**
+**Kann ich die „Geschwindigkeit“ oder Dauer des Zoom‑Übergangs anpassen?**
 
-Ja. Zoom stellt eine Methode `setTransitionDuration` bereit, mit der Sie steuern können, wie lange die Sprunganimation dauert.
+Ja. Verwenden Sie [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration), um die Übergangsdauer in Sekunden zu steuern.
 
-**Gibt es Begrenzungen, wie viele Zoom‑Objekte eine Präsentation enthalten kann?**
+**Gibt es Beschränkungen, wie viele Zoom‑Objekte eine Präsentation enthalten darf?**
 
-Es gibt kein fest dokumentiertes API‑Limit. Praktische Grenzen hängen von der Gesamtkomplexität der Präsentation und der Leistungsfähigkeit des Betrachters ab. Sie können viele Zoom‑Frames hinzufügen, sollten jedoch Dateigröße und Renderzeit berücksichtigen.
+Es gibt keine fest dokumentierte API‑Grenze. Praktische Grenzen hängen von der Gesamtkomplexität der Präsentation und der Leistungsfähigkeit des Viewers ab. Sie können viele Zoom‑Frames hinzufügen, sollten jedoch Dateigröße und Rendering‑Zeit berücksichtigen.

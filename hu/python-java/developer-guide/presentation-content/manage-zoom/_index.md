@@ -1,53 +1,46 @@
 ---
-title: Prezentáció zoom kezelése Pythonon keresztül Java-val
+title: Prezentáció nagyításának kezelése Pythonban Java-n keresztül
 linktitle: Zoom kezelése
 type: docs
 weight: 60
 url: /hu/python-java/manage-zoom/
 keywords:
-- zoom
-- zoom keret
-- dia zoom
-- szekció zoom
-- összegző zoom
-- zoom hozzáadása
+- nagyítás
+- nagyítási keret
+- dia nagyítás
+- szakasz nagyítás
+- összefoglaló nagyítás
+- nagyítás hozzáadása
 - PowerPoint
 - prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Hozzon létre és testreszabja a Zoom-ot az Aspose.Slides for Python via Java segítségével — ugorjon szekciók között, adjon hozzá bélyegképeket és átmeneteket PPT, PPTX és ODP prezentációkban."
+description: "Hozzon létre és testreszabjon nagyításokat az Aspose.Slides for Python via Java segítségével — ugorjon szakaszok között, adjon hozzá bélyegképeket és átmeneteket a PowerPoint prezentációkba."
 ---
 ## **Bevezetés**
 
-A PowerPoint zoomok lehetővé teszik, hogy átlépjünk és visszalépjünk a bemutató adott diái, szekciói és részei között. Prezentálás közben ez a gyors navigálási képesség nagyon hasznos lehet.
+A PowerPoint nagyítások lehetővé teszik, hogy egy diavetítés során adott diák és szakaszok között navigáljon. Az Aspose.Slides for Python via Java használatával létrehozhat dia-, szakasz- és összefoglaló nagyításokat, valamint testreszabhatja azok előnézeteit, szegélyeit és átmeneteit.
 
-![overview_image](overview.png)
+![PowerPoint nagyítás áttekintés](overview.png)
 
-* Az egész prezentáció egyetlen dián való összefoglalásához használja az [Összegző zoom](#summary-zoom) elemet.
-* Csak a kiválasztott diák megjelenítéséhez használja a [Dia zoom](#slide-zoom) elemet.
-* Egyetlen szekció megjelenítéséhez használja a [Szekció zoom](#section-zoom) elemet.
+* Az egész bemutató egyetlen dián történő összegzéséhez használja a [Összefoglaló nagyítást](#summary-zoom).
+* Kiválasztott diák megjelenítéséhez használja a [Dia nagyítást](#slide-zoom).
+* Egyetlen szakasz megjelenítéséhez használja a [Szakasz nagyítást](#section-zoom).
 
-## **Dia zoom**
-A dia zoom dinamikusabbá teheti a prezentációt, lehetővé téve, hogy szabadon navigáljon a diák között tetszőleges sorrendben, anélkül, hogy megzavarná a bemutató folyamatát. A dia zoomok kiválóak rövid, kevés szekcióval rendelkező előadásokhoz, de más prezentációs forgatókönyvekben is használhatók.
+## **Dia nagyítás**
 
-A dia zoomok segítenek több információs darabot részletezni, miközben úgy érzi, mintha egyetlen vásznon dolgozna.
+A dia nagyítás dinamikusabbá teheti a bemutatót, lehetővé téve, hogy szabadon navigáljon a diák között bármilyen sorrendben, anélkül, hogy megszakítaná a bemutató folyamatát. A dia nagyítások ideálisak rövid, kevés szakaszt tartalmazó prezentációkhoz, de más bemutatási forgatókönyvekben is alkalmazhatók.
 
-![overview_image](slidezoomsel.png)
+A dia nagyítások lehetővé teszik, hogy egyetlen áttekintő diáról kapcsolódó információkat fedezzen fel.
 
-Dia zoom objektumokhoz az Aspose.Slides biztosítja a ZoomImageType felsorolást, a ZoomFrame osztályt, valamint a ShapeCollection osztály egyes metódusait.
+![Dia nagyításra kiválasztott diák](slidezoomsel.png)
 
-### **Zoom keretek létrehozása**
+Dia nagyítás objektumokhoz az Aspose.Slides a [ZoomImageType](https://reference.aspose.com/slides/python-java/aspose.slides/zoomimagetype/) felsorolást, a [ZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/zoomframe/) osztályt és a [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/) osztály metódusait biztosítja.
 
-Zoomkeretet egy diára a következőképpen adhat hozzá:
+### **Nagyítási keretek létrehozása**
 
-1. Hozzon létre egy példányt a Presentation osztályból.
-2. Hozzon létre új diákat, amelyhez a zoom kereteket szeretné összekapcsolni.
-3. Adjon az elkészített diákhoz azonosító szöveget és háttérképet.
-4. Adjon hozzá zoomkereteket (amelyek a létrehozott diákat hivatkozzák) az első diához.
-5. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a Python kód bemutatja, hogyan hozhat létre zoomkeretet egy dián:
+Használja a [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) metódust, hogy egy áttekintő dián egyedi diákra mutató hivatkozásokat helyezzen el. Ez a példa két különálló háttérrel és felirattal rendelkező céldiát hoz létre, majd mindkettő előnézetét hozzáadja az első diához, és PPTX formátumban menti a bemutatót. A keret pozíciója és mérete pontokban van megadva.
 
 ```python
 import jpype
@@ -61,50 +54,36 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Adds new slides to the presentation
-    #  Creates a background for the second slide
-    #  Creates a text box for the second slide
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  Creates a background for the second slide
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  Creates a text box for the second slide
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Creates a background for the third slide
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  Create a text box for the third slide
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # Adds ZoomFrame objects
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  Saves the presentation
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **Egyedi képekkel rendelkező zoom keretek létrehozása**
-Az Aspose.Slides for Python via Java használatával a következőképpen hozhat létre egy zoomkeretet eltérő dia előnézeti képpel:
 
-1. Hozzon létre egy példányt a Presentation osztályból.
-2. Hozzon létre egy új diát, amelyhez a zoomkeretet szeretné összekapcsolni.
-3. Adjon azonosító szöveget és háttérképet a diára.
-4. Hozzon létre egy PPImage objektumot úgy, hogy egy képet ad a Presentation objektumhoz tartozó képgyűjteményhez, amely a keret kitöltésére lesz használva.
-5. Adjon hozzá zoomkereteket (amelyek a létrehozott diát hivatkozzák) az első diához.
-6. Mentse a módosított prezentációt PPTX fájlként.
+### **Nagyítási keretek létrehozása egyéni képekkel**
 
-Ez a Python kód bemutatja, hogyan hozhat létre egy zoomkeretet különböző képpel:
+Adjon meg egy egyéni képet a [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) metódusnak, hogy lecserélje a céldia alapértelmezett előnézetét. Ez a példa egy helyi képet igényel, amelyet a [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) metódussal tölt be, majd a [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) segítségével hozzáadja a bemutatóhoz. Az eredményül kapott keret ezt a képet jeleníti meg, miközben a második diára mutat.
 
 ```python
 import jpype
@@ -118,49 +97,32 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Új dia hozzáadása a prezentációhoz
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  Háttér létrehozása a második diára
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().setType(BackgroundType.OwnBackground)
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  Szövegdoboz létrehozása a második diára
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Új kép létrehozása a zoom objektumhoz
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    # A ZoomFrame objektum hozzáadása
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture)
+    overview_slide.getShapes().addZoomFrame(20, 20, 300, 200, slide, preview_image)
 
-    #  A prezentáció mentése
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **Zoom keretek formázása**
-Az előző szakaszokban bemutattuk, hogyan hozhatunk létre egyszerű zoomkereteket. Bonyolultabb zoomkeretek létrehozásához módosítani kell egy egyszerű keret formázását. Számos formázási lehetőség áll rendelkezésre egy zoomkerethez.
 
-A zoomkeret formázását egy dián a következőképpen szabályozhatja:
+### **Nagyítási keretek formázása**
 
-1. Hozzon létre egy példányt a Presentation osztályból.
-2. Hozzon létre új diákat, amelyhez a zoom kereteket szeretné összekapcsolni.
-3. Adjon azonosító szöveget és háttérképet a létrehozott diákhoz.
-4. Adjon hozzá zoomkereteket (amelyek a létrehozott diákat hivatkozzák) az első diához.
-5. Hozzon létre egy PPImage objektumot úgy, hogy egy képet ad a Presentation objektumhoz tartozó képgyűjteményhez, amely a keret kitöltésére lesz használva.
-6. Állítson be egy egyedi képet az első zoomkeret objektumhoz.
-7. Módosítsa a vonalformátumot a második zoomkeret objektumnál.
-8. Távolítsa el a háttérképet a második zoomkeret objektum képéről.
-9. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a Python kód bemutatja, hogyan változtathatja meg egy zoomkeret formázását egy dián:
+Ez a példa két dia nagyítási keretet testreszab. Az első kerethez egy helyi képet rendel a [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) metódussal, a második keretnek pedig egy öt pont vastag, szaggatott-pontozott rózsaszín szegélyt ad a [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) segítségével. A [ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground) `False` értékre állítása elrejti a második keret háttérét. Egy helyi kép szükséges az egyéni előnézethez; mindkét keret megtartja a céldiákat a mentett PPTX-ben.
 
 ```python
 import jpype
@@ -174,77 +136,59 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Új diák hozzáadása a prezentációhoz
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  Háttér létrehozása a második diára
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  Szövegdoboz létrehozása a második diára
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Háttér létrehozása a harmadik diára
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  Szövegdoboz létrehozása a harmadik diára
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # ZoomFrame objektumok hozzáadása
-    first_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    second_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    first_zoom_frame = overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    second_zoom_frame = overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  Új kép létrehozása a zoom objektumhoz
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  Egyedi kép beállítása a first_zoom_frame objektumhoz
-    first_zoom_frame.setZoomImage(picture)
+    first_zoom_frame.setZoomImage(preview_image)
 
-    #  Zoom keret formátumának beállítása a second_zoom_frame objektumhoz
     second_zoom_frame.getLineFormat().setWidth(5)
     second_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink)
+    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(255, 105, 180))
     second_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
 
-    #  Beállítás a háttér elrejtésére a second_zoom_frame objektumnál
     second_zoom_frame.setShowBackground(False)
 
-    #  A prezentáció mentése
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Szekció zoom**
+## **Szakasz nagyítás**
 
-A szekció zoom egy hivatkozás a prezentáció egy szekciójára. A szekció zoomokat használhatja visszatérésre olyan szekciókhoz, amelyeket különösen ki szeretne emelni. Vagy használhatja őket arra, hogy bemutassa, hogyan kapcsolódnak a prezentáció egyes részei.
+A szakasz nagyítás egy szakaszra hivatkozik a bemutatóban. Használja, hogy visszatérjen egy témához vagy megmutassa, hogyan kapcsolódnak egymáshoz a bemutató különböző részei.
 
-![overview_image](seczoomsel.png)
+![Szakasz kiválasztása szakasz nagyításhoz](seczoomsel.png)
 
-Szekció zoom objektumokhoz az Aspose.Slides biztosítja a SectionZoomFrame osztályt és a ShapeCollection osztály egyes metódusait.
+Szakasz nagyítás objektumokhoz az Aspose.Slides a [SectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/) osztályt és a [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/) osztály metódusait biztosítja.
 
-### **Szekció zoom keretek létrehozása**
+### **Szakasz nagyítási keretek létrehozása**
 
-Szekció zoom keretet a diára a következőképpen adhat hozzá:
-
-1. Hozzon létre egy példányt a Presentation osztályból.
-2. Hozzon létre egy új diát.
-3. Adjon egy megkülönböztető háttérképet a létrehozott diára.
-4. Hozzon létre egy új szekciót, amelyhez a zoomkeretet szeretné összekapcsolni.
-5. Adjon hozzá egy szekció zoom keretet (amely a létrehozott szekcióra hivatkozik) az első diához.
-6. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a Python kód bemutatja, hogyan hozhat létre egy zoomkeretet egy dián:
+Hozzon létre egy szakaszt a [SectionCollection.addSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectioncollection/#addSection) metódussal, majd adja át a visszakapott szakaszt a [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame) metódusnak. Ez a példa egy szakasz nagyítást helyez el az első dián, amely egy színes diával kezdődő szakaszra mutat. A keret pozíciója és mérete pontokban van megadva, a bemutató PPTX‑ként kerül mentésre.
 
 ```python
 import jpype
@@ -258,36 +202,24 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Új dia hozzáadása a prezentációhoz
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Új szekció hozzáadása a prezentációhoz
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
 
-    #  SectionZoomFrame objektum hozzáadása
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  A prezentáció mentése
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **Egyedi képekkel rendelkező szekció zoom keretek létrehozása**
 
-Az Aspose.Slides for Python via Java használatával a következőképpen hozhat létre egy szekció zoom keretet eltérő dia előnézeti képpel:
+### **Szakasz nagyítási keretek létrehozása egyéni képekkel**
 
-1. Hozzon létre egy példányt a Presentation osztályból.
-2. Hozzon létre egy új diát.
-3. Adjon egy megkülönböztető háttérképet a létrehozott diára.
-4. Hozzon létre egy új szekciót, amelyhez a zoomkeretet szeretné összekapcsolni.
-5. Hozzon létre egy PPImage objektumot úgy, hogy egy képet ad a Presentation objektumhoz tartozó képgyűjteményhez, amely a keret kitöltésére lesz használva.
-6. Adjon hozzá egy szekció zoom keretet (amely a létrehozott szekcióra hivatkozik) az első diához.
-7. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a Python kód bemutatja, hogyan hozhat létre egy zoomkeretet különböző képpel:
+A [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame) képoverloadja lehetővé teszi egy egyéni előnézet megjelenítését a cél szakasz megváltoztatása nélkül. Ez a példa egy helyi képet igényel, amelyet a [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) betölt, majd a [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) hozzáad a bemutatóhoz. A mentett bemutató az első dián egy szakasz nagyítást tartalmaz, amely az újonnan létrehozott szakaszra hivatkozik.
 
 ```python
 import jpype
@@ -301,51 +233,76 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Új dia hozzáadása a prezentációhoz
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Új szekció hozzáadása a prezentációhoz
-    presentation.getSections().addSection("Section 1", slide)
-
-    #  Új kép létrehozása a zoom objektumhoz
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  SectionZoomFrame objektum hozzáadása
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1), picture)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, preview_image)
 
-    #  A prezentáció mentése
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **Szekció zoom keretek formázása**
 
-Bonyolultabb szekció zoom keretek létrehozásához módosítani kell egy egyszerű keret formázását. Számos formázási lehetőség áll rendelkezésre egy szekció zoom kerethez.
+### **Szakasz nagyítás cél szakaszának módosítása**
 
-A szekció zoom keret formázását egy dián a következőképpen szabályozhatja:
+Használja a [SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/#setTargetSection) metódust, hogy egy meglévő szakasz nagyítást átirányítson anélkül, hogy újra létrehozná. Válasszon egy feltöltött szakaszt ugyanabból a bemutatóból a [Presentation.getSections](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSections) gyűjteményből. Egy üres szakasz megadása nem változtatja meg a jelenlegi célt, ezért a [Section.getSlidesListOfSection](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSlidesListOfSection) ellenőrzése ajánlott a hozzárendelés előtt. További információért a szakaszokról lásd a [Szakaszok kezelése](/slides/hu/python-java/slide-section/) oldalt.
 
-1. Hozzon létre egy példányt a Presentation osztályból.
-2. Hozzon létre egy új diát.
-3. Adjon egy megkülönböztető háttérképet a létrehozott diára.
-4. Hozzon létre egy új szekciót, amelyhez a zoomkeretet szeretné összekapcsolni.
-5. Adjon hozzá egy szekció zoom keretet (amely a létrehozott szekcióra hivatkozik) az első diához.
-6. Módosítsa a létrehozott szekció zoom objektum méretét és pozícióját.
-7. Hozzon létre egy PPImage objektumot úgy, hogy egy képet ad a Presentation objektumhoz tartozó képgyűjteményhez, amely a keret kitöltésére lesz használva.
-8. Állítson be egy egyedi képet a létrehozott szekció zoom keret objektumhoz.
-9. Állítsa be a *visszatérés az eredeti diára a kapcsolt szekcióból* funkciót.
-10. Távolítsa el a háttérképet a szekció zoom keret objektum képéről.
-11. Módosítsa a vonalformátumot a szekció zoom keret objektumnál.
-12. Módosítsa az átmenet időtartamát.
-13. Mentse a módosított prezentációt PPTX fájlként.
+Az alábbi példa betölt egy bemutató fájlt, amelynek több feltöltött szakaszt kell tartalmaznia, egy már létező `Section navigation` nevű szakasz nagyítással és egy `Results` egyedi névű szakaszzal. A nagyítást minden dián megkeresi, és a név alapján találja meg a célt, ahelyett, hogy a gyűjtemény indexét használná, amely a szakaszok átrendezésekor változhat. Ha a nevek nem egyediek, használja a [Section.getSectionId](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSectionId) metódust a cél azonosításához.
 
-Ez a Python kód bemutatja, hogyan változtathatja meg egy szekció zoom keret formázását:
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, SectionZoomFrame
+
+presentation = Presentation("section-zoom.pptx")
+try:
+    zoom = None
+    for slide in presentation.getSlides():
+        for shape in slide.getShapes():
+            if isinstance(shape, SectionZoomFrame) and shape.getName() == "Section navigation":
+                zoom = shape
+                break
+        if zoom is not None:
+            break
+
+    target_section = None
+    for section in presentation.getSections():
+        if section.getName() == "Results":
+            target_section = section
+            break
+
+    if zoom is None or target_section is None:
+        print("The section zoom or destination section was not found.")
+    elif target_section.getSlidesListOfSection().size() == 0:
+        print("The destination section is empty.")
+    else:
+        current_section = zoom.getTargetSection()
+        current_name = "" if current_section is None else current_section.getName()
+        print("Current section: " + str(current_name))
+        zoom.setTargetSection(target_section)
+        presentation.save("section-zoom-updated.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+### **Szakasz nagyítási keretek formázása**
+
+Ez a példa a szakasz nagyítást 100 × 75 pont méretre átméretezi, egy helyi képet rendel a [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) metódussal, és egy 2,5 pont vastag, szaggatott-pontozott barna szegélyt alkalmaz. Engedélyezi a [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) metódussal, hogy a szakasz után visszatérjen a kiinduló diára, letiltja a [ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground) használatát, és a [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) értékét 1,5 másodpercre állítja. Egy helyi kép szükséges az egyéni előnézethez.
 
 ```python
 import jpype
@@ -359,19 +316,16 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Új dia hozzáadása a prezentációhoz
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Új szekció hozzáadása a prezentációhoz
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
 
-    #  SectionZoomFrame objektum hozzáadása
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  A SectionZoomFrame formázása
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
     section_zoom_frame.setX(100)
     section_zoom_frame.setY(300)
     section_zoom_frame.setWidth(100)
@@ -379,46 +333,38 @@ try:
 
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    section_zoom_frame.setZoomImage(picture)
+
+    section_zoom_frame.setZoomImage(preview_image)
 
     section_zoom_frame.setReturnToParent(True)
     section_zoom_frame.setShowBackground(False)
 
     section_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     section_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     section_zoom_frame.getLineFormat().setWidth(2.5)
 
     section_zoom_frame.setTransitionDuration(1.5)
 
-    #  A prezentáció mentése
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **Összefoglaló nagyítás**
 
-## **Összegző zoom**
+Az összefoglaló nagyítás áttekintést nyújt a bemutató szakaszairól. Diavetítés közben használhatja, hogy egy szakaszra ugorjon, előre lépjen, vagy visszatérjen egy témához anélkül, hogy a diákat sorban követné.
 
-Az összegző zoom egyfajta kezdőoldal, ahol a prezentáció összes része egyszerre jelenik meg. Prezentálás közben a zoom segítségével bármilyen sorrendben válthat egyik helyről a másikra a bemutatóban. Kreatív lehet, előre ugorhat, vagy visszatérhet a diavetítés egyes részeihez anélkül, hogy megszakítaná a prezentáció folyamatát.
+![Szakaszok kiválasztása összefoglaló nagyításhoz](sumzoomsel.png)
 
-![overview_image](sumzoomsel.png)
+Összefoglaló nagyítás objektumokhoz az Aspose.Slides a [SummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/), a [SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/) és a [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/) osztályokat, valamint a [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/) metódusait biztosítja.
 
-Az összegző zoom objektumokhoz az Aspose.Slides biztosítja a SummaryZoomFrame, a SummaryZoomSection és a SummaryZoomSectionCollection osztályokat, valamint a ShapeCollection osztály egyes metódusait.
+### **Összefoglaló nagyítás létrehozása**
 
-### **Összegző zoom létrehozása**
-
-Összegző zoom keretet a diára a következőképpen adhat hozzá:
-
-1. Hozzon létre egy példányt a Presentation osztályból.
-2. Hozzon létre új diákat megkülönböztető háttérrel és új szekciókkal a létrehozott diákhoz.
-3. Adja hozzá az összegző zoom keretet az első diához.
-4. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a Python kód bemutatja, hogyan hozhat létre egy összegző zoom keretet egy dián:
+Használja a [ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSummaryZoomFrame) metódust, hogy a bemutató szakaszainak áttekintését hozza létre. Ez a példa négy szakaszt hoz létre különböző diák háttérrel, majd egy összefoglaló nagyítást ad az első diához. A keret pozíciója és mérete pontokban van megadva, az áttekintés PPTX‑ként kerül mentésre.
 
 ```python
 import jpype
@@ -432,64 +378,46 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Új dia hozzáadása a prezentációhoz
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Új szekció hozzáadása a prezentációhoz
     presentation.getSections().addSection("Section 1", slide)
 
-    # Új dia hozzáadása a prezentációhoz
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Új szekció hozzáadása a prezentációhoz
     presentation.getSections().addSection("Section 2", slide)
 
-    # Új dia hozzáadása a prezentációhoz
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Új szekció hozzáadása a prezentációhoz
     presentation.getSections().addSection("Section 3", slide)
 
-    # Új dia hozzáadása a prezentációhoz
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(0, 100, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Új szekció hozzáadása a prezentációhoz
     presentation.getSections().addSection("Section 4", slide)
 
-    #  SummaryZoomFrame objektum hozzáadása
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  A prezentáció mentése
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Összegző zoom szekció hozzáadása és eltávolítása**
+### **Összefoglaló nagyítás szakasz hozzáadása és eltávolítása**
 
-Az összegző zoom keretben szereplő összes szekciót a SummaryZoomSection objektumok képviselik, amelyek a SummaryZoomSectionCollection objektumban vannak tárolva. Összegző zoom szekció objektumot a SummaryZoomSectionCollection osztályon keresztül adhat hozzá vagy távolíthat el a következőképpen:
-
-1. Hozzon létre egy példányt a Presentation osztályból.
-2. Hozzon létre új diákat megkülönböztető háttérrel és új szekciókkal a létrehozott diákhoz.
-3. Adja hozzá az összegző zoom keretet az első diához.
-4. Adjon hozzá egy új diát és szekciót a prezentációhoz.
-5. Adja a létrehozott szekciót az összegző zoom kerethez.
-6. Távolítsa el az első szekciót az összegző zoom keretből.
-7. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a Python kód bemutatja, hogyan adhat hozzá és távolíthat el szekciókat egy összegző zoom keretben:
+Az összefoglaló nagyítás a [SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/) objektumait a [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) tárolja. Ez a példa egy két szakaszból álló áttekintést hoz létre, egy harmadik szakaszt ad hozzá a [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) metódussal, majd az első szakasz bejegyzését eltávolítja a [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection) segítségével. Az eltávolítás után a bemutató szakasza és diái érintetlenek maradnak.
 
 ```python
 import jpype
@@ -503,66 +431,43 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Új dia hozzáadása a prezentációhoz
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Új szekció hozzáadása a prezentációhoz
-    presentation.getSections().addSection("Section 1", slide)
+    first_section = presentation.getSections().addSection("Section 1", slide)
 
-    # Új dia hozzáadása a prezentációhoz
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Új szekció hozzáadása a prezentációhoz
     presentation.getSections().addSection("Section 2", slide)
 
-    #  SummaryZoomFrame objektum hozzáadása
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    # Új dia hozzáadása a prezentációhoz
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Új szekció hozzáadása a prezentációhoz
     third_section = presentation.getSections().addSection("Section 3", slide)
 
-    #  Szekció hozzáadása a Summary Zoom-hoz
     summary_zoom_frame.getSummaryZoomCollection().addSummaryZoomSection(third_section)
 
-    #  Szekció eltávolítása a Summary Zoom-ból
-    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(presentation.getSections().get_Item(1))
+    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(first_section)
 
-    #  A prezentáció mentése
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Összegző zoom szekciók formázása**
+### **Összefoglaló nagyítás szakaszok formázása**
 
-Bonyolultabb összegző zoom szekció objektumok létrehozásához módosítani kell egy egyszerű keret formázását. Számos formázási lehetőség áll rendelkezésre egy összegző zoom szekció objektumhoz.
-
-A összegző zoom szekció objektum formázását egy összegző zoom keretben a következőképpen szabályozhatja:
-
-1. Hozzon létre egy példányt a Presentation osztályból.
-2. Hozzon létre új diákat megkülönböztető háttérrel és új szekciókkal a létrehozott diákhoz.
-3. Adja hozzá az összegző zoom keretet az első diához.
-4. Szerezze meg az első SummaryZoomSection objektumot a SummaryZoomSectionCollection-ból.
-5. Hozzon létre egy PPImage objektumot úgy, hogy egy képet ad a Presentation objektumhoz tartozó képgyűjteményhez, amely a keret kitöltésére lesz használva.
-6. Állítson be egy egyedi képet az összegző zoom szekció objektumhoz.
-7. Állítsa be a *visszatérés az eredeti diára a kapcsolt szekcióból* funkciót.
-8. Módosítsa a vonalformátumot az összegző zoom szekció objektumnál.
-9. Módosítsa az átmenet időtartamát.
-10. Mentse a módosított prezentációt PPTX fájlként.
-
-Ez a Python kód bemutatja, hogyan változtathatja meg egy összegző zoom szekció objektum formázását:
+Ez a példa a [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) első bejegyzését (nulla‑alapú index `0`) formázza. Egy helyi képet igényel a [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) metódus, 1,5 pont vastag, szaggatott-pontozott fekete szegélyt alkalmaz, és a [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) értékét 1,5 másodpercre állítja. A [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) `False` értékre állítása letiltja az automatikus visszatérést az összefoglaló diára a bejegyzésnél.
 
 ```python
 import jpype
@@ -576,48 +481,42 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Új dia hozzáadása a prezentációhoz
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Új szekció hozzáadása a prezentációhoz
     presentation.getSections().addSection("Section 1", slide)
 
-    # Új dia hozzáadása a prezentációhoz
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Új szekció hozzáadása a prezentációhoz
     presentation.getSections().addSection("Section 2", slide)
 
-    #  SummaryZoomFrame objektum hozzáadása
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  Az első SummaryZoomSection objektum lekérése
     summary_section = summary_zoom_frame.getSummaryZoomCollection().get_Item(0)
 
-    #  A SummaryZoomSection objektum formázása
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    summary_section.setZoomImage(picture)
 
+    summary_section.setZoomImage(preview_image)
     summary_section.setReturnToParent(False)
 
     summary_section.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.black)
+    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     summary_section.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     summary_section.getLineFormat().setWidth(1.5)
 
     summary_section.setTransitionDuration(1.5)
 
-    #  A prezentáció mentése
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -625,14 +524,14 @@ finally:
 
 ## **GYIK**
 
-**Visszatérhetek a 'szülő' diára a cél megjelenítése után?**
+**Vissza tudom irányítani a “szülő” diára a cél megjelenítése után?**
 
-Igen. A [ZoomFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/zoomframe/) vagy a [SectionZoomFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sectionzoomframe/) támogatja a visszatérést a kiinduló diára a [setReturnToParent](https://reference.aspose.com/slides/hu/python-java/aspose.slides/zoomobject/#setReturnToParent) segítségével, amely engedélyezve visszaküldi a nézőket a cél tartalom megtekintése után.
+Igen. Hívja a [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) metódust `True` értékkel, hogy a cél tartalom megjelenítése után visszatérjen a kiinduló diára.
 
-**Állítható a Zoom átmenet 'sebessége' vagy időtartama?**
+**Módosíthatom a nagyítási átmenet „sebességét” vagy időtartamát?**
 
-Igen. A Zoom támogatja a átmenet időtartamának beállítását a [setTransitionDuration](https://reference.aspose.com/slides/hu/python-java/aspose.slides/zoomobject/#setTransitionDuration) segítségével, így szabályozhatja, mennyi időt tart a ugrás animációja.
+Igen. Használja a [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) metódust a másodpercben megadott átmeneti idő szabályozásához.
 
-**Van korlát arra, hogy hány Zoom objektumot tartalmazhat egy prezentáció?**
+**Van korlátozás arra, hány nagyítási objektumot tartalmazhat egy bemutató?**
 
-Nem dokumentált szigorú API‑korlát. A gyakorlati korlátok a prezentáció összetettségétől és a nézők teljesítményétől függenek. Sok Zoom keretet hozzáadhat, de vegye figyelembe a fájlméretet és a megjelenítési időt.
+Nincs dokumentált szigorú API‑korlát. A gyakorlati korlátok a bemutató összetettségétől és a megjelenítő teljesítményétől függenek. Sok nagyítási keretet hozzáadhat, de vegye figyelembe a fájlméretet és a renderelési időt.

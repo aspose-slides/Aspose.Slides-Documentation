@@ -1,541 +1,541 @@
 ---
-title: Prezentáció zoom kezelése PHP-ben
-linktitle: Zoom kezelése
+title: "Prezentáció Zoom kezelése PHP-ben"
+linktitle: "Zoom kezelése"
 type: docs
 weight: 60
 url: /hu/php-java/manage-zoom/
 keywords:
-- nagyítás
+- zoom
 - zoom keret
 - dia zoom
-- szekció zoom
-- összefoglaló zoom
+- szakasz zoom
+- összegző zoom
 - zoom hozzáadása
 - PowerPoint
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Készítsen és testreszabjon Zoom-ot az Aspose.Slides for PHP via Java segítségével — ugorjon a szekciók között, adjon hozzá bélyegképeket és átmeneteket PPT, PPTX és ODP prezentációkban."
+description: "Hozzon létre és testreszabjon Zoomot az Aspose.Slides for PHP via Java segítségével – ugorjon szakaszok között, adjon hozzá bélyegképeket és átmeneteket a PowerPoint prezentációkban."
 ---
 ## **Bevezetés**
 
-A PowerPoint-zoomok lehetővé teszik, hogy egy adott diára, szekcióra vagy a bemutató egy részére ugorjon, és onnan visszatérjen. Ha bemutatót tart, ez a gyors navigálási képesség rendkívül hasznos lehet.
+A PowerPoint zoomok lehetővé teszik, hogy a bemutató során adott diák és szakaszok között navigáljon. Az Aspose.Slides for PHP via Java segítségével létrehozhat diára, szakaszra és összegző zoomokat, és testreszabhatja az előnézeteiket, szegélyeiket és átmeneteiket.
 
-![overview_image](overview.png)
+![PowerPoint zoom áttekintés](overview.png)
 
-* Az egész bemutató egy dián való összefoglalásához használja az [Összefoglaló Zoom](#Summary-Zoom).
-* Csak a kiválasztott diák megjelenítéséhez használja a [Dia Zoom](#Slide-Zoom).
-* Egyetlen szekció megjelenítéséhez használja a [Szekció Zoom](#Section-Zoom).
+* Egy teljes bemutató egyetlen dián történő összegzéséhez használja a [Összegző Zoom](#summary-zoom).
+* Kiválasztott diák csak megjelenítéséhez használja a [Dia Zoom](#slide-zoom).
+* Egyetlen szakasz csak megjelenítéséhez használja a [Szakasz Zoom](#section-zoom).
 
 ## **Dia Zoom**
-A dia zoom dinamikusabbá teheti a bemutatót, lehetővé téve, hogy szabadon navigáljon a diák között bármilyen általad választott sorrendben anélkül, hogy megszakítaná a bemutató folytonosságát. A dia zoomok nagyszerűek rövid, kevés szekciót tartalmazó bemutatókhoz, de más bemutatási forgatókönyvekben is használhatók.
 
-A dia zoomok segítenek több információs darabot is egyetlen vásznon belül felfedezni.
+A dia zoom dinamikusabbá teheti a bemutatóját, lehetővé téve a diák közötti szabad navigálást tetszőleges sorrendben a bemutató folyamatának megszakítása nélkül. A dia zoomok kiválóak rövid, kevés szakaszt tartalmazó bemutatókhoz, de különböző bemutatási szituációkban is használhatók.
 
-![overview_image](slidezoomsel.png)
+A dia zoomok lehetővé teszik, hogy egyetlen áttekintő diáról fedezze fel a kapcsolódó információkat.
 
-Dia zoom objektumokhoz az Aspose.Slides biztosítja a [ZoomImageType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/zoomimagetype/) felsorolást, a [ZoomFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/zoomframe/) osztályt, valamint néhány metódust a [ShapeCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/) osztályon belül.
+![Dia Zoomhoz kiválasztott diák](slidezoomsel.png)
 
-### **Zoom keretek létrehozása**
+Dia zoom objektumokhoz az Aspose.Slides biztosítja a [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/zoomimagetype/) felsorolást, a [ZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) osztályt, és a [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) osztály metódusait.
 
-Zoom keretet a következő módon adhat egy diára:
+### **Zoomkeretek létrehozása**
 
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2.	Hozzon létre új diákot, amelyhez a zoom kereteket kívánja kapcsolni. 
-3.	Adjon az elkészített diákhoz azonosító szöveget és háttérképet.
-4.	Hozzáadja a zoom kereteket (a létrehozott diákra mutató hivatkozásokkal) az első diához.
-5.	Mentse a módosított bemutatót PPTX fájlként.
-
-Ez a PHP‑kód bemutatja, hogyan hozhat létre zoom keretet egy dián:
+Használja a [ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) módszert egyéni diákra mutató hivatkozások elhelyezéséhez egy áttekintő dián. Ez a példa két cél diát hoz létre különböző háttérrel és címkével, majd mindegyikhez egy előnézetet ad az első dián, és a bemutatót PPTX formátumban menti. A keret pozícióját és méretét pontban adják meg.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Új diák hozzáadása a prezentációhoz
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # Háttér létrehozása a második diára
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # Szövegdoboz létrehozása a második diára
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # Háttér létrehozása a harmadik diára
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # Szövegdoboz létrehozása a harmadik diára
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # ZoomFrame objektumok hozzáadása
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # A prezentáció mentése
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-### **Zoom keretek létrehozása egyedi képekkel**
-Az Aspose.Slides for PHP via Java használatával a következő módon hozhat létre egy zoom keretet más dia előnézeti képpel:
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2.	Hozzon létre egy új diát, amelyhez a zoom keretet kívánja kapcsolni. 
-3.	Adjon azonosító szöveget és háttérképet a diára.
-4.	Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) objektumot úgy, hogy egy képet ad hozzá a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumhoz kapcsolt Images gyűjteményhez, amely a keret kitöltésére szolgál.
-5.	Hozzáadja a zoom kereteket (a létrehozott diára mutató hivatkozással) az első diához.
-6.	Mentse a módosított bemutatót PPTX fájlként.
 
-Ez a PHP‑kód bemutatja, hogyan hozhat létre egy zoom keretet más képpel:
+### **Egyedi képekkel rendelkező Zoomkeretek létrehozása**
+
+Adjon meg egy egyedi képet a [ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) metódusnak a cél dia alapértelmezett előnézetének helyettesítéséhez. Ez a példa egy helyi képet igényel, amelyet a [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) segítségével tölt be, és a [ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage) metódussal ad a bemutatóhoz. A létrejött keret ezt a képet jeleníti meg, miközben továbbra is a második diára mutat.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Új dia hozzáadása a prezentációhoz
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # Háttér létrehozása a második diára
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # Szövegdoboz létrehozása a harmadik diára
-    $autoshape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # Új kép létrehozása a zoom objektumhoz
-    $picture;
-    $image = Images->fromFile("image.png");
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # ZoomFrame objektum hozzáadása
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $picture);
-    # A prezentáció mentése
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-### **Zoom keretek formázása**
-Az előző szakaszokban bemutattuk, hogyan kell egyszerű zoom kereteket létrehozni. Összetettebb zoom keretek létrehozásához módosítania kell egy egyszerű keret formázását. Számos formázási lehetőség áll rendelkezésre egy zoom kerethez. 
 
-A zoom keret formázását a dián a következő módon vezérelheti:
+### **Zoomkeretek formázása**
 
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2.	Hozzon létre új diákot, amelyekhez a zoom keretet kívánja kapcsolni. 
-3.	Adjon azonosító szöveget és háttérképet a létrehozott diákhoz.
-4.	Hozzáadja a zoom kereteket (a létrehozott diákra mutató hivatkozásokkal) az első diához.
-5.	Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) objektumot úgy, hogy egy képet ad hozzá a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumhoz kapcsolt Images gyűjteményhez, amely a keret kitöltésére szolgál.
-6.	Állítson be egy egyedi képet az első zoom keret objektumhoz.
-7.	Módosítsa a vonalformátumot a második zoom keret objektumnál.
-8.	Távolítsa el a háttérképet a második zoom keret objektum képből.
-5.	Mentse a módosított bemutatót PPTX fájlként.
-
-Ez a PHP‑kód bemutatja, hogyan változtathatja meg egy zoom keret formázását a dián:
+Ez a példa két dia zoom keretet testreszab. Az első kerethez helyi képet rendel a [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage) segítségével, a második keretnek pedig öt pont vastagságú, pont‑vonal‑pont rózsaszín szegélyt ad a [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) használatával. A `false` érték átadása a [ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground) metódusnak elrejti a második keret háttérét. Egy helyi kép szükséges az egyedi előnézethez; mindkét keret megőrzi a diacélját a mentett PPTX-ben.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Új diákok hozzáadása a prezentációhoz
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # Háttér létrehozása a második diára
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # Szövegdoboz létrehozása a második diára
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # Háttér létrehozása a harmadik diára
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # Szövegdoboz létrehozása a harmadik diára
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # ZoomFrame objektumok hozzáadása
-    $zoomFrame1 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $zoomFrame2 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # Új kép létrehozása a zoom objektumhoz
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $firstZoomFrame = $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $secondZoomFrame = $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # Egyedi kép beállítása a zoomFrame1 objektumhoz
-    $zoomFrame1->setImage($picture);
-    # ZoomFrame2 objektum formátumának beállítása
-    $zoomFrame2->getLineFormat()->setWidth(5);
-    $zoomFrame2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $zoomFrame2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->pink);
-    $zoomFrame2->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
-    # Beállítás: ne mutassa a háttérképet a zoomFrame2 objektumnál
-    $zoomFrame2->setShowBackground(false);
-    # A prezentáció mentése
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $firstZoomFrame->setZoomImage($previewImage);
+
+    $secondZoomFrame->getLineFormat()->setWidth(5);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 255, 105, 180);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $secondZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
+
+    $secondZoomFrame->setShowBackground(false);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Szekció Zoom**
+## **Szakasz Zoom**
 
-A szekció zoom egy hivatkozás a bemutató egy szekciójára. Szekció zoomokkal visszatérhet azokhoz a szekciókhoz, amelyeket különösen szeretne hangsúlyozni. Vagy használhatja őket arra, hogy kiemelje, miként kapcsolódnak a bemutató egyes részei egymáshoz. 
+A szakasz zoom a bemutató egy szakaszára hivatkozik. Használja ezt egy téma újra megtekintésére vagy annak bemutatására, hogyan kapcsolódnak a bemutató különböző részei.
 
-![overview_image](seczoomsel.png)
+![Szakasz zoomhoz szakasz kiválasztása](seczoomsel.png)
 
-Szekció zoom objektumokhoz az Aspose.Slides biztosítja a [SectionZoomFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sectionzoomframe/) osztályt, valamint néhány metódust a [ShapeCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/) osztályon belül.
+Szakasz zoom objektumokhoz az Aspose.Slides biztosítja a [SectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) osztályt és a [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) osztály metódusait.
 
-### **Szekció zoom keretek létrehozása**
+### **Szakasz Zoomkeretek létrehozása**
 
-Szekció zoom keretet a következő módon adhat egy diára:
-
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2.	Hozzon létre egy új diát. 
-3.	Adjon azonosító háttérképet a létrehozott diára.
-4.	Hozzon létre egy új szekciót, amelyhez a zoom keretet kívánja kapcsolni. 
-5.	Adjon egy szekció zoom keretet (a létrehozott szekcióra mutató hivatkozással) az első diához.
-6.	Mentse a módosított bemutatót PPTX fájlként.
-
-Ez a PHP‑kód bemutatja, hogyan hozhat létre egy zoom keretet egy dián:
+Hozzon létre egy szakaszt a [SectionCollection::addSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectioncollection/#addSection) segítségével, majd adja át a visszakapott szakaszt a [ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame) metódusnak. Ez a példa egy szakasz zoomot helyez el az első dián, és egy színes diával kezdődő szakaszra hivatkozik. A keret helyzetét és méretét pontban adják meg, a bemutató PPTX-ként kerül mentésre.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Új dia hozzáadása a prezentációhoz
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Új szekció hozzáadása a prezentációhoz
-    $pres->getSections()->addSection("Section 1", $slide);
-    # SectionZoomFrame objektum hozzáadása
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # A prezentáció mentése
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-### **Szekció zoom keretek létrehozása egyedi képekkel**
 
-Az Aspose.Slides for PHP via Java használatával a következő módon hozhat létre egy szekció zoom keretet más dia előnézeti képpel:
+### **Egyedi képekkel rendelkező Szakasz Zoomkeretek létrehozása**
 
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2.	Hozzon létre egy új diát.
-3.	Adjon azonosító háttérképet a létrehozott diára.
-4.	Hozzon létre egy új szekciót, amelyhez a zoom keretet kívánja kapcsolni. 
-5.	Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) objektumot úgy, hogy egy képet ad hozzá a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumhoz kapcsolt Images gyűjteményhez, amely a keret kitöltésére szolgál.
-5.	Adjon egy szekció zoom keretet (a létrehozott szekcióra mutató hivatkozással) az első diához.
-6.	Mentse a módosított bemutatót PPTX fájlként.
-
-Ez a PHP‑kód bemutatja, hogyan hozhat létre egy zoom keretet más képpel:
+A [ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame) kép‑túlterhelése lehetővé teszi egy egyedi előnézet megjelenítését a cél szakasz megváltoztatása nélkül. Ez a példa egy helyi képet igényel, amelyet a [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) betölt, és a [ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage) segítségével ad a bemutatóhoz. A mentett bemutató egy szakasz zoomot tartalmaz az első dián, amely az újonnan létrehozott szakaszra mutat.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Új dia hozzáadása a prezentációhoz
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Új szekció hozzáadása a prezentációhoz
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Új kép létrehozása a zoom objektumhoz
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # SectionZoomFrame objektum hozzáadása
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1), $picture);
-    # A prezentáció mentése
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-### **Szekció zoom keretek formázása**
 
-Összetettebb szekció zoom keretek létrehozásához módosítania kell egy egyszerű keret formázását. Számos formázási lehetőség áll rendelkezésre egy szekció zoom kerethez. 
+### **Szakasz Zoom cél szakaszának módosítása**
 
-A szekció zoom keret formázását a dián a következő módon vezérelheti:
+Használja a [SectionZoomFrame::setTargetSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/#setTargetSection) metódust egy meglévő szakasz zoom átirányításához újra létrehozás nélkül. Válasszon egy feltöltött szakaszt ugyanabból a bemutatóból a [Presentation::getSections](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSections) gyűjteményből. Üres szakasz hozzárendelése nem változtatja meg a jelenlegi célt, ezért ellenőrizze a [Section::getSlidesListOfSection](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSlidesListOfSection) tartalmát a hozzárendelés előtt. További információért a szakaszokról lásd a [Dia szakaszok kezelése](/slides/hu/php-java/slide-section/) oldalt.
 
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2.	Hozzon létre egy új diát.
-3.	Adjon azonosító háttérképet a létrehozott diára.
-4.	Hozzon létre egy új szekciót, amelyhez a zoom keretet kívánja kapcsolni. 
-5.	Adjon egy szekció zoom keretet (a létrehozott szekcióra mutató hivatkozással) az első diához.
-6.	Módosítsa a létrehozott szekció zoom objektum méretét és pozícióját.
-7.	Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) objektumot úgy, hogy egy képet ad hozzá a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumhoz kapcsolt Images gyűjteményhez, amely a keret kitöltésére szolgál.
-8.	Állítson be egy egyedi képet a létrehozott szekció zoom keret objektumhoz.
-9.	Állítsa be a *visszatérés az eredeti diára a kapcsolt szekcióból* képességet. 
-10.	Távolítsa el a háttérképet a szekció zoom keret objektum képből.
-11.	Módosítsa a vonalformátumot a második zoom keret objektumnál.
-12.	Módosítsa az átmenet időtartamát.
-13.	Mentse a módosított bemutatót PPTX fájlként.
-
-Ez a PHP‑kód bemutatja, hogyan változtathatja meg egy szekció zoom keret formázását:
+A következő példa betölt egy bemutató fájlt, amelynek több feltöltött szakaszt, egy `Section navigation` nevű létező szakasz zoomot és egy `Results` egyedi nevű szakaszt kell tartalmaznia. Az összes diát átvizsgálja a zoom után, és a nevével keresi a célt, nem a gyűjtemény indexével, amely a szakaszok átrendezésekor változhat. Ha a nevek nem egyediek, használja a [Section::getSectionId](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSectionId) metódust a cél azonosításához.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Új dia hozzáadása a prezentációhoz
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("section-zoom.pptx");
+try {
+    $zoom = null;
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($i = 0; $i < $slideCount; $i++) {
+        $slide = $presentation->getSlides()->get_Item($i);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($j = 0; $j < $shapeCount; $j++) {
+            $shape = $slide->getShapes()->get_Item($j);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.ISectionZoomFrame")) && java_values($shape->getName()) === "Section navigation") {
+                $zoom = $shape;
+                break;
+            }
+        }
+        if ($zoom != null) {
+            break;
+        }
+    }
+
+    $targetSection = null;
+    $sectionCount = java_values($presentation->getSections()->size());
+    for ($i = 0; $i < $sectionCount; $i++) {
+        $section = $presentation->getSections()->get_Item($i);
+        if (java_values($section->getName()) === "Results") {
+            $targetSection = $section;
+            break;
+        }
+    }
+
+    if ($zoom == null || $targetSection == null) {
+        echo "The section zoom or destination section was not found.", PHP_EOL;
+    } else if (java_values($targetSection->getSlidesListOfSection()->size()) == 0) {
+        echo "The destination section is empty.", PHP_EOL;
+    } else {
+        $currentSection = $zoom->getTargetSection();
+        echo "Current section: " . (java_is_null($currentSection) ? "" : java_values($currentSection->getName())), PHP_EOL;
+        $zoom->setTargetSection($targetSection);
+        $presentation->save("section-zoom-updated.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Szakasz Zoomkeretek formázása**
+
+Ez a példa egy szakasz zoomot áthelyez és átméretez 100 × 75 pontra, helyi képet rendel a [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage) segítségével, és 2,5 pont vastagságú, pont‑vonal‑pont barna szegélyt alkalmaz. Engedélyezi a [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) metódust, hogy a szakasz után visszatérjen a kiinduló diára, letiltja a [ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground) metódust, és a [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) értékét 1,5 másodpercre állítja. Egy helyi kép szükséges az egyedi előnézethez.
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Új szekció hozzáadása a prezentációhoz
-    $pres->getSections()->addSection("Section 1", $slide);
-    # SectionZoomFrame objektum hozzáadása
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # SectionZoomFrame formázása
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
     $sectionZoomFrame->setX(100);
     $sectionZoomFrame->setY(300);
     $sectionZoomFrame->setWidth(100);
     $sectionZoomFrame->setHeight(75);
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    $sectionZoomFrame->setImage($picture);
+
+    $sectionZoomFrame->setZoomImage($previewImage);
+
     $sectionZoomFrame->setReturnToParent(true);
     $sectionZoomFrame->setShowBackground(false);
+
     $sectionZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
-    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
     $sectionZoomFrame->getLineFormat()->setWidth(2.5);
+
     $sectionZoomFrame->setTransitionDuration(1.5);
-    # A prezentáció mentése
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Összegző Zoom**
 
-## **Összefoglaló Zoom**
+Az összegző zoom áttekintést nyújt a bemutató szakaszairól. A diavetítés során használhatja egy szakaszra való ugráshoz, előreugráshoz vagy egy téma újra megtekintéséhez a diapozíció sorrendjének követése nélkül.
 
-Az összefoglaló zoom olyan, mint egy landing oldal, ahol a bemutató minden része egyszerre jelenik meg. Amikor bemutatót tart, a zoom segítségével bármilyen sorrendben ugorhat egyik helyről a másikra. Kreatív lehet, előre ugrálhat, vagy visszatérhet a diavetítés egyes részeihez anélkül, hogy megszakítaná a bemutató folytonosságát.
+![Szakaszok kiválasztása összegző zoomhoz](sumzoomsel.png)
 
-![overview_image](sumzoomsel.png)
+Az összegző zoom objektumokhoz az Aspose.Slides biztosítja a [SummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/), a [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) és a [SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) osztályokat, valamint a [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) osztály metódusait.
 
-Összefoglaló zoom objektumokhoz az Aspose.Slides biztosítja a [SummaryZoomFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/summaryzoomframe/), a [SummaryZoomSection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/summaryzoomsection/), és a [SummaryZoomSectionCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/summaryzoomsectioncollection/) osztályokat, valamint néhány metódust a [ShapeCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/) osztályon belül.
+### **Összegző Zoom létrehozása**
 
-### **Összefoglaló Zoom létrehozása**
-
-Összefoglaló zoom keretet a következő módon adhat egy diára:
-
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2.	Hozzon létre új diákot azonosító háttérrel és új szekciókkal a létrehozott diákhoz.
-3.	Adjon egy összefoglaló zoom keretet az első diához.
-4.	Mentse a módosított bemutatót PPTX fájlként.
-
-Ez a PHP‑kód bemutatja, hogyan hozhat létre egy összefoglaló zoom keretet egy dián:
+Használja a [ShapeCollection::addSummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSummaryZoomFrame) metódust a bemutató szakaszainak áttekintésének létrehozásához. Ez a példa négy szakaszt hoz létre különböző diahátterekkel, és egy összegző zoomot ad az első diához. A keret pozícióját és méretét pontban adják meg, és az elkészült áttekintés egy PPTX bemutatóban kerül mentésre.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Új dia hozzáadása a prezentációhoz
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Új szekció hozzáadása a prezentációhoz
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Új dia hozzáadása a prezentációhoz
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Új szekció hozzáadása a prezentációhoz
-    $pres->getSections()->addSection("Section 2", $slide);
-    # Új dia hozzáadása a prezentációhoz
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Új szekció hozzáadása a prezentációhoz
-    $pres->getSections()->addSection("Section 3", $slide);
-    # Új dia hozzáadása a prezentációhoz
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 3", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->green);
+    $color = new Java("java.awt.Color", 0, 100, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Új szekció hozzáadása a prezentációhoz
-    $pres->getSections()->addSection("Section 4", $slide);
-    # SummaryZoomFrame objektum hozzáadása
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # A prezentáció mentése
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->getSections()->addSection("Section 4", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Összefoglaló Zoom szekció hozzáadása és eltávolítása**
+### **Összegző Zoom szakasz hozzáadása és eltávolítása**
 
-Az összefoglaló zoom keretben minden szekciót a [SummaryZoomSection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/summaryzoomsection/) objektumok képviselnek, amelyek a [SummaryZoomSectionCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/summaryzoomsectioncollection/) objektumban tárolódnak. Egy összefoglaló zoom szekció objektumot a [SummaryZoomSectionCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/summaryzoomsectioncollection/) osztályon keresztül a következő módon adhat hozzá vagy távolíthat el:
-
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2.	Hozzon létre új diákot azonosító háttérrel és új szekciókkal a létrehozott diákhoz.
-3.	Adjon egy összefoglaló zoom keretet az első diához.
-4.	Adjon egy új diát és szekciót a bemutatóhoz.
-5.	Adja hozzá a létrehozott szekciót az összefoglaló zoom kerethez.
-6.	Távolítsa el az első szekciót az összefoglaló zoom keretből.
-7.	Mentse a módosított bemutatót PPTX fájlként.
-
-Ez a PHP‑kód bemutatja, hogyan adhat hozzá és távolíthat el szekciókat egy összefoglaló zoom keretben:
+Az összegző zoom a [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) objektumokat a [SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) gyűjteményben tárolja. Ez a példa két szakasz áttekintést hoz létre, egy harmadik szakaszt ad hozzá a [SummaryZoomSectionCollection::addSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) metódussal, és az első szakasz bejegyzését a [SummaryZoomSectionCollection::removeSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection) metódussal távolítja el. A bejegyzés eltávolítása a bemutató szakaszát és diáit érintetlenül hagyja.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Új dia hozzáadása a prezentációhoz
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Új szekció hozzáadása a prezentációhoz
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Új dia hozzáadása a prezentációhoz
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $firstSection = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Új szekció hozzáadása a prezentációhoz
-    $pres->getSections()->addSection("Section 2", $slide);
-    # SummaryZoomFrame objektum hozzáadása
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # Új dia hozzáadása a prezentációhoz
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Új szekció hozzáadása a prezentációhoz
-    $section3 = $pres->getSections()->addSection("Section 3", $slide);
-    # Szekció hozzáadása a Summary Zoom-hoz
-    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($section3);
-    # Szekció eltávolítása a Summary Zoom-ból
-    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($pres->getSections()->get_Item(1));
-    # A prezentáció mentése
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $thirdSection = $presentation->getSections()->addSection("Section 3", $slide);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($thirdSection);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($firstSection);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Összefoglaló Zoom szekciók formázása**
+### **Összegző Zoom szakaszok formázása**
 
-Összetettebb összefoglaló zoom szekció objektumok létrehozásához módosítania kell egy egyszerű keret formázását. Számos formázási lehetőség áll rendelkezésre egy összefoglaló zoom szekció objektumhoz. 
-
-Egy összefoglaló zoom szekció objektum formázását egy összefoglaló zoom keretben a következő módon vezérelheti:
-
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztályból.
-2.	Hozzon létre új diákot azonosító háttérrel és új szekciókkal a létrehozott diákhoz.
-3.	Adjon egy összefoglaló zoom keretet az első diához.
-4.	Szerezzen be egy összefoglaló zoom szekció objektumot az első elemhez a `SummaryZoomSectionCollection`-ből.
-7.	Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) objektumot úgy, hogy egy képet ad hozzá a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumhoz kapcsolt images gyűjteményhez, amely a keret kitöltésére szolgál.
-8.	Állítson be egy egyedi képet a létrehozott szekció zoom keret objektumhoz.
-9.	Állítsa be a *visszatérés az eredeti diára a kapcsolt szekcióból* képességet. 
-11.	Módosítsa a vonalformátumot a második zoom keret objektumnál.
-12.	Módosítsa az átmenet időtartamát.
-13.	Mentse a módosított bemutatót PPTX fájlként.
-
-Ez a PHP‑kód bemutatja, hogyan változtathatja meg egy összefoglaló zoom szekció objektum formázását:
+Ez a példa az első bejegyzést formázza a [SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) gyűjteményben, a nulláról induló `0` indexet használva. Helyi képet igényel a [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage) metódus számára, 1,5 pont vastagságú, pont‑vonal‑pont fekete szegélyt alkalmaz, és a [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) értékét 1,5 másodpercre állítja. A `false` érték átadása a [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) metódusnak letiltja a automatikus visszatérést az összegző diára ehhez a bejegyzéshez.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Új dia hozzáadása a prezentációhoz
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Új szekció hozzáadása a prezentációhoz
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Új dia hozzáadása a prezentációhoz
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Új szekció hozzáadása a prezentációhoz
-    $pres->getSections()->addSection("Section 2", $slide);
-    # SummaryZoomFrame objektum hozzáadása
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # Az első SummaryZoomSection objektum lekérése
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
     $summarySection = $summaryZoomFrame->getSummaryZoomCollection()->get_Item(0);
-    # SummaryZoomSection objektum formázása
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($picture);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    $summarySection->setImage($picture);
+
+    $summarySection->setZoomImage($previewImage);
     $summarySection->setReturnToParent(false);
+
     $summarySection->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->black);
-    $summarySection->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
+    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $summarySection->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
     $summarySection->getLineFormat()->setWidth(1.5);
+
     $summarySection->setTransitionDuration(1.5);
-    # A prezentáció mentése
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **GYIK**
 
-**Lehetséges-e vezérelni a visszatérést a „szülő” diára a cél megjelenítése után?**
+**Visszatérhetők-e a 'szülő' diahoz a cél megjelenítése után?**
 
-Igen. A [Zoom frame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/zoomframe/) vagy a [section](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sectionzoomframe/) rendelkezik egy `ReturnToParent` viselkedéssel, amely engedélyezve visszaküldi a nézőket a kiinduló diára, miután meglátogatták a céltartalmat.
+Igen. Hívja a [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) metódust `true` értékkel, hogy a cél tartalom megjelenítése után a kiinduló diára térjen vissza.
 
-**Módosítható a Zoom átmenet „sebessége” vagy időtartama?**
+**Módosítható a Zoom átmenet 'sebessége' vagy időtartama?**
 
-Igen. A Zoom támogatja a `TransitionDuration` beállítását, így szabályozhatja, milyen hosszú legyen az ugrásanimáció.
+Igen. Használja a [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) metódust a átmenet időtartamának másodpercben történő szabályozásához.
 
-**Van korlátozás arra, hogy hány Zoom objektumot tartalmazhat egy bemutató?**
+**Van korlát a bemutatóban elhelyezhető Zoom objektumok számát illetően?**
 
-Nincs dokumentált szigorú API‑korlát. A gyakorlati korlátok a bemutató összetettségétől és a nézők teljesítményétől függenek. Sok Zoom keretet hozzáadhat, de vegye figyelembe a fájlméretet és a renderelési időt.
+Nincs dokumentált szigorú API korlát. A gyakorlati korlátok a bemutató összetettségétől és a megjelenítő teljesítményétől függenek. Sok Zoom keretet hozzáadhat, de vegye figyelembe a fájlméretet és a renderelési időt.
