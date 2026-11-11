@@ -17,17 +17,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ekspor slide PowerPoint sebagai gambar SVG dalam JavaScript dan kontrol font, teks, gambar, ID, serta peristiwa dengan Aspose.Slides."
+description: "Ekspor slide PowerPoint sebagai gambar SVG dalam JavaScript dan kendalikan font, teks, gambar, ID, serta peristiwa dengan Aspose.Slides."
 ---
 ## **Ikhtisar**
 
-SVG adalah format gambar berbasis XML yang dapat diskalakan dan bekerja baik untuk penerbitan web, penampil slide, alur kerja aksesibilitas, serta pemrosesan lanjutan otomatis. Aspose.Slides untuk Node.js via Java mengekspor setiap slide ke file SVG terpisah dan memungkinkan Anda mengontrol bagaimana teks, font, gambar, serta elemen SVG ditulis.
+SVG adalah format gambar berbasis XML yang dapat diskalakan dan bekerja dengan baik untuk penerbitan web, penampil slide, alur kerja aksesibilitas, dan pemrosesan otomatis pasca. Aspose.Slides untuk Node.js melalui Java mengekspor setiap slide ke file SVG terpisah dan memungkinkan Anda mengendalikan bagaimana teks, font, gambar, dan elemen SVG ditulis.
 
-Gunakan [SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) ketika SVG yang diekspor harus kompak, dapat diprediksi di semua peramban, atau siap untuk penggunaan interaktif.
+Gunakan [SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) ketika SVG yang diekspor harus kompak, dapat diprediksi di berbagai browser, atau siap untuk penggunaan interaktif.
 
 ## **Ekspor Slide sebagai SVG**
 
-Buat sebuah [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), pilih sebuah slide, dan tuliskan ke aliran dengan [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/). Contoh berikut mengekspor setiap slide dalam presentasi ke file SVG terpisah.
+Buat sebuah [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), pilih sebuah slide, dan tulis ke aliran dengan [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/). Contoh berikut mengekspor setiap slide dalam presentasi sebagai file SVG terpisah.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -51,7 +51,7 @@ try {
 }
 ```
 
-Nama file menggunakan [Slide.getSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidenumber/) bukan indeks perulangan. Anda juga dapat mengekspor sebuah bentuk individu dengan [Shape.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) ketika penampil slide atau halaman web hanya memerlukan bentuk tersebut.
+Nama file menggunakan [Slide.getSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidenumber/) bukan indeks perulangan. Anda juga dapat mengekspor sebuah bentuk individual dengan [Shape.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) ketika penampil slide atau halaman web hanya membutuhkan bentuk tersebut.
 
 ## **Konfigurasi Output SVG**
 
@@ -83,13 +83,68 @@ try {
 }
 ```
 
+## **Kontrol Pemotongan Ujung Garis pada Ujung Panah**
+
+SVG 1.1 tidak memiliki pengaturan inset penanda untuk menentukan di mana sebuah garis harus berhenti di bawah ujung panah. Secara default, Aspose.Slides memendekkan garis yang diekspor sehingga goresannya tidak menonjol melalui penanda. Panggil [SVGOptions.setDisableLineEndCropping](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableLineEndCropping) dengan `true` untuk menggambar goresan sampai ke titik akhir asli garis tersebut. Pengaturan ini hanya memengaruhi output SVG. Garis tetap mempertahankan posisi dan panjangnya pada slide.
+
+Contoh ini menggambar ujung panah segitiga dan belah ketupat pada garis dengan lebar 2 dan 10 poin. Ia mengekspor slide yang sama dua kali, hanya mengubah opsi pemotongan.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const lineColor = java.newInstanceSync("java.awt.Color", 0, 0, 139);
+    let y = 40;
+
+    for (const style of [slides.LineArrowheadStyle.Triangle, slides.LineArrowheadStyle.Diamond]) {
+        for (const width of [2, 10]) {
+            const line = slide.getShapes().addAutoShape(slides.ShapeType.Line, 40, y, 200, 0);
+            const format = line.getLineFormat();
+            format.getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+            format.getFillFormat().getSolidFillColor().setColor(lineColor);
+            format.setWidth(width);
+            format.setEndArrowheadStyle(java.newByte(style));
+            y += 50;
+        }
+    }
+
+    const options = new slides.SVGOptions();
+    options.setDisableLineEndCropping(false);
+    const cropped = java.newInstanceSync("java.io.FileOutputStream", "cropped.svg");
+    try {
+        slide.writeAsSvg(cropped, options);
+    } finally {
+        cropped.close();
+    }
+
+    options.setDisableLineEndCropping(true);
+    const uncropped = java.newInstanceSync("java.io.FileOutputStream", "uncropped.svg");
+    try {
+        slide.writeAsSvg(uncropped, options);
+    } finally {
+        uncropped.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Perbandingan menunjukkan ujung panah segitiga pada garis 10 poin. Dengan pemotongan diaktifkan, ujungnya tajam. Dengan pemotongan dinonaktifkan, goresan menonjol melalui sisi miring penanda dan meninggalkan ujung datar.
+
+![Segitiga 10 poin yang diperbesar dengan ujung tajam ketika pemotongan diaktifkan dan ujung datar ketika pemotongan dinonaktifkan](line-end-cropping.png)
+
+Pada garis lain dari contoh, goresan yang menonjol kurang terlihat pada segitiga 2 poin. Belah ketupat yang terisi menutupi ujung goresan pada kedua lebar.
+
 ## **Kontrol Teks dan Font**
 
-Saat mengekspor slide ke SVG, Anda dapat mengontrol apakah teks tetap berupa teks atau diubah menjadi grafik vektor, serta bagaimana font eksternal disertakan atau direferensikan. Opsi berikut membantu menyeimbangkan konsistensi visual, kemampuan memilih teks, dan ketergantungan font dalam SVG yang diekspor.
+Saat mengekspor slide ke SVG, Anda dapat mengendalikan apakah teks tetap sebagai teks atau diubah menjadi grafik vektor, dan bagaimana font eksternal disertakan atau direferensikan. Opsi-opsi berikut membantu Anda menyeimbangkan konsistensi visual, pemilihan teks, dan ketergantungan font dalam SVG yang diekspor.
 
-### **Vektorisasi Semua Teks**
+### **Vektorkan Semua Teks**
 
-Atur [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) ke `true` untuk menulis semua teks slide sebagai grafik vektor. Ini menghilangkan ketergantungan font dan membuat hasil visual lebih konsisten di semua peramban, tetapi teks tidak lagi dapat dipilih atau dicari sebagai teks SVG.
+Atur [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) ke `true` untuk menulis semua teks slide sebagai grafik vektor. Ini menghilangkan ketergantungan font dan membuat hasil visual lebih konsisten di berbagai browser, namun teks tidak lagi dapat dipilih atau dicari sebagai teks SVG.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -115,9 +170,9 @@ try {
 }
 ```
 
-### **Pilih Cara Menangani Font Eksternal**
+### **Pilih Cara Penanganan Font Eksternal**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setexternalfontshandling/) menggunakan nilai [SvgExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) untuk font yang dimuat secara eksternal. Pilih `AddLinksToFontFiles` untuk mereferensikan berkas font terpisah, `Embed` untuk menyertakan data font dalam SVG, atau `Vectorize` untuk merender hanya teks yang menggunakan font eksternal sebagai grafik. Verifikasi lisensi font sebelum menyematkan font.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setexternalfontshandling/) menggunakan nilai [SvgExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) untuk font yang dimuat secara eksternal. Pilih `AddLinksToFontFiles` untuk mereferensikan file font terpisah, `Embed` untuk menyertakan data font dalam SVG, atau `Vectorize` untuk merender hanya teks yang menggunakan font eksternal sebagai grafik. Verifikasi lisensi font sebelum menyematkan font.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -175,7 +230,7 @@ try {
 
 ## **Kurangi Ukuran Gambar Tersemat**
 
-Gunakan [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) untuk mengurangi resolusi gambar tersemat, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setdeletepicturescroppedareas/) untuk menghilangkan area gambar yang dipotong, dan [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) untuk mengontrol kualitas enkoding JPEG. Pengaturan ini mengurangi ukuran berkas dengan mengorbankan fidelitas gambar atau data gambar yang dipertahankan.
+Gunakan [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) untuk mengurangi resolusi gambar yang tersemat, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setdeletepicturescroppedareas/) untuk menghilangkan area sumber yang dipotong, dan [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) untuk mengontrol kualitas enkoding JPEG. Pengaturan ini mengurangi ukuran file dengan mengorbankan keakuratan gambar atau data gambar yang dipertahankan.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -202,9 +257,9 @@ try {
 
 ## **Kontrol Resolusi Rasterisasi Metafile**
 
-[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) menetapkan batas resolusi terendah untuk merasterkan metafile selama ekspor SVG. Gunakan untuk menyeimbangkan detail dan ukuran berkas ketika gambar EMF atau WMF dirasterkan. Ini tidak mendefinisikan DPI global untuk SVG atau memaksa setiap objek pada slide menjadi gambar raster.
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) menetapkan batas resolusi rendah untuk merasterkan metafile selama ekspor SVG. Gunakan untuk menyeimbangkan detail dan ukuran file ketika gambar EMF atau WMF dirasterkan. Ini tidak mendefinisikan DPI global untuk SVG atau memaksa setiap objek pada slide menjadi gambar raster.
 
-Unduh [metafile-rasterization.pptx](metafile-rasterization.pptx), yang berisi gambar EMF dengan garis diagonal berjarak rapat. Contoh berikut mengekspor slide pertama dengan tiga resolusi rasterisasi melalui [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/). Semua pengaturan ekspor lainnya tetap identik sehingga hasil dapat dibandingkan.
+Unduh [metafile-rasterization.pptx](metafile-rasterization.pptx), yang berisi gambar EMF dengan garis diagonal rapat. Contoh berikut mengekspor slide pertamanya pada tiga resolusi rasterisasi melalui [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/). Semua pengaturan ekspor lainnya tetap identik sehingga hasil dapat dibandingkan.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -231,25 +286,25 @@ try {
 }
 ```
 
-Dalam output, EMF menjadi satu PNG tersemat di setiap SVG. Pengukuran berikut untuk presentasi yang disediakan; bukan rumus umum untuk mengonversi DPI ke dimensi piksel.
+Dalam output, EMF menjadi satu PNG tersemat di setiap SVG. Pengukuran berikut untuk presentasi yang disediakan; tidak merupakan rumus umum untuk mengonversi DPI ke dimensi piksel.
 
-| DPI Rasterisasi Metafile | Dimensi PNG Tersemat | Ukuran File SVG (byte) |
+| Rasterisasi DPI Metafile | Dimensi PNG Tersemat | Ukuran file SVG (byte) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-Perbandingan di bawah menunjukkan area raster tersemat yang sama pada ukuran tampilan yang diperbesar secara identik. Garis diagonal memperlihatkan pikselasi yang terlihat pada 72 DPI dan tepi yang lebih halus pada resolusi lebih tinggi, sementara ukuran berkas SVG meningkat. Meningkatkan nilai tidak serta merta memperbaiki setiap detail atau mengubah setiap gambar yang diekspor.
+Perbandingan di bawah menunjukkan area yang sama dari raster tersemat pada ukuran tampilan yang diperbesar sama. Garis diagonal menunjukkan pixelasi yang terlihat pada 72 DPI dan tepi yang lebih halus pada resolusi lebih tinggi, sementara file SVG menjadi lebih besar. Meningkatkan nilai tidak selalu meningkatkan setiap detail atau mengubah setiap gambar yang diekspor.
 
 ![Detail garis diagonal yang diperbesar pada 72, 150, dan 300 DPI](metafile-rasterization-comparison.png)
 
-[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) mengendalikan pengurangan resolusi gambar dan dapat menutupi efek perubahan resolusi rasterisasi metafile. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) mengendalikan kualitas enkoding JPEG, bukan resolusi rasterisasi metafile.
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) mengontrol pengurangan resolusi gambar dan dapat menutupi efek perubahan resolusi rasterisasi metafile. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) mengontrol kualitas enkoding JPEG, bukan resolusi rasterisasi metafile.
 
 ## **Tetapkan ID Stabil untuk Bentuk dan Teks**
 
-Berikan sebuah pengendali pemformatan ke [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) untuk mengatur [SvgShape.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/setid/) bagi setiap bentuk SVG. Pengendali yang juga menangani rentang teks dapat mengatur nilai [SvgTSpan.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgtspan/setid/) pada elemen `tspan` teks.
+Berikan kontroler format ke [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) untuk menetapkan [SvgShape.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/setid/) bagi setiap bentuk SVG. Kontroler yang juga menangani rentang teks dapat menetapkan nilai [SvgTSpan.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgtspan/setid/) pada elemen teks `tspan`.
 
-Pengendali berikut menggunakan [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/), yang stabil selama masa hidup bentuk, dan penghitung yang dapat diulang untuk rentang teksnya. Ini membuat ID yang dihasilkan cocok untuk pemrosesan lanjutan pada presentasi yang tidak berubah.
+Kontroler berikut menggunakan [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/), yang stabil selama masa bentuk, dan penghitung berulang untuk rentang teksnya. Ini membuat ID yang dihasilkan cocok untuk pemrosesan lanjutan pada presentasi yang tidak diubah.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -311,7 +366,7 @@ try {
 
 ## **Tambahkan Penangan Peristiwa SVG**
 
-Dalam pengendali pemformatan, panggil [SvgShape.setEventHandler](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/seteventhandler/) dengan nilai [SvgEvent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgevent/) untuk menambahkan penangan peristiwa JavaScript ke bentuk yang diekspor. Tetapkan pengendali dengan [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) dan definisikan fungsi JavaScript di halaman atau dokumen SVG yang menyajikan hasil.
+Dalam kontroler format, panggil [SvgShape.setEventHandler](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/seteventhandler/) dengan nilai [SvgEvent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgevent/) untuk menambahkan penangan peristiwa JavaScript ke bentuk yang diekspor. Tetapkan kontroler dengan [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) dan definisikan fungsi JavaScript di halaman atau dokumen SVG yang menampung hasilnya.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -359,18 +414,18 @@ try {
 }
 ```
 
-Halaman host dapat mendefinisikan fungsi JavaScript yang direferensikan oleh penangan. Menetapkan ID dan penangan peristiwa memungkinkan penampil slide, peningkatan aksesibilitas, dan alur kerja SVG interaktif lainnya.
+Halaman host dapat mendefinisikan fungsi JavaScript yang direferensikan oleh penangan. Penetapan ID dan penangan peristiwa memungkinkan penampil slide, peningkatan aksesibilitas, dan alur kerja SVG interaktif lainnya.
 
 ## **FAQ**
 
 **Kapan saya harus menggunakan [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) alih-alih [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/)?**
 
-Gunakan [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) ketika semua teks harus independen dari font. Gunakan [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) ketika hanya teks yang memakai font eksternal yang harus diubah menjadi grafik.
+Gunakan [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) ketika semua teks harus independen dari font. Gunakan [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) ketika hanya teks yang menggunakan font eksternal yang harus dikonversi menjadi grafik.
 
 **Apa cara terbaik untuk membuat SVG lebih kecil?**
 
-Mulailah dengan mengompres gambar tersemat, menghapus area gambar yang dipotong, dan memilih berkas font yang ditautkan ketika lingkungan target dapat menyediakannya. Uji hasilnya karena resolusi gambar yang lebih rendah, kualitas JPEG yang lebih rendah, dan teks yang dipindai vektor masing‑masing memiliki kompromi kualitas dan ukuran yang berbeda.
+Mulailah dengan mengompresi gambar yang tersemat, menghapus area gambar yang dipotong, dan memilih file font yang ditautkan ketika lingkungan target dapat menyediakannya. Uji hasilnya karena resolusi gambar lebih rendah, kualitas JPEG lebih rendah, dan teks yang diverktorkan masing‑masing memiliki kompromi kualitas dan ukuran yang berbeda.
 
-**Bisakah saya memodifikasi elemen SVG yang diekspor setelah ekspor?**
+**Apakah saya dapat memodifikasi elemen SVG yang diekspor setelah ekspor?**
 
-Ya. Tetapkan ID melalui pengendali pemformatan, lalu pilih elemen SVG yang cocok dalam alat pemrosesan lanjutan atau skrip peramban Anda.
+Ya. Tetapkan ID melalui kontroler format, lalu pilih elemen SVG yang sesuai dalam alat pemrosesan lanjutan Anda atau skrip peramban.

@@ -1,6 +1,6 @@
 ---
-title: عرض شرائح العرض التقديمي كصور SVG في جافا سكريبت
-linktitle: شريحة إلى SVG
+title: عرض شرائح العرض التقديمي كصور SVG في JavaScript
+linktitle: الشريحة إلى SVG
 type: docs
 weight: 50
 url: /ar/nodejs-java/render-a-slide-as-an-svg-image/
@@ -11,23 +11,23 @@ keywords:
 - PPT إلى SVG
 - PPTX إلى SVG
 - خيارات تصدير SVG
-- SVG تفاعلي
+- SVG تفاعلية
 - PowerPoint
 - عرض تقديمي
 - Node.js
-- جافا سكريبت
+- JavaScript
 - Aspose.Slides
-description: تصدير شرائح PowerPoint كصور SVG في جافا سكريبت والتحكم في الخطوط والنصوص والصور والمعرفات والأحداث باستخدام Aspose.Slides.
+description: "تصدير شرائح PowerPoint كصور SVG في JavaScript والتحكم في الخطوط والنصوص والصور والمعرفات والأحداث باستخدام Aspose.Slides."
 ---
 ## **نظرة عامة**
 
-SVG هو تنسيق صورة قائم على XML وقابل للتوسع يعمل بشكل جيد للنشر على الويب، وعارضات الشرائح، وسير عمل الوصولية، والمعالجة اللاحقة الآلية. تقوم Aspose.Slides for Node.js عبر Java بتصدير كل شريحة إلى ملف SVG منفصل وتتيح لك التحكم في طريقة كتابة النصوص، الخطوط، الصور، وعناصر SVG.
+SVG هو تنسيق صورة XML قابل للتوسيع يعمل جيدًا لنشر الويب، عارضات الشرائح، عمليات الوصول، ومعالجة ما بعد الإنتاج الآلية. تقوم Aspose.Slides for Node.js عبر Java بتصدير كل شريحة إلى ملف SVG منفصل وتتيح لك التحكم في كيفية كتابة النص، الخطوط، الصور، وعناصر SVG.
 
-استخدم [SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) عندما يجب أن يكون SVG المُصدَّر مضغوطًا، ويمكن التنبؤ به عبر المتصفحات، أو جاهزًا للاستخدام التفاعلي.
+استخدم [SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) عندما يجب أن يكون SVG المُصدَّر مضغوطًا، قابلاً للتنبؤ عبر المتصفحات، أو جاهزًا للاستخدام التفاعلي.
 
 ## **تصدير شريحة كـ SVG**
 
-إنشاء [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)، اختيار شريحة، وكتابتها إلى تدفق باستخدام [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/). المثال التالي يصدر كل شريحة في عرض تقديمي كملف SVG منفصل.
+أنشئ [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)، اختر شريحة، واكتبها إلى تدفق باستخدام [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/). المثال التالي يصدر كل شريحة في العرض التقديمي كملف SVG منفصل.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -55,7 +55,7 @@ try {
 
 ## **تكوين إخراج SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) يتحكم في رسم SVG. بالنسبة لإطارات النص، يضمن [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframesize/) إطار النص في مساحة الرسم، و[SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframerotation/) يحدد ما إذا كان سيتم تطبيق دوران الإطار. اضبط [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableFontLigatures) على `true` عندما يجب رسم النص بدون الحروف المتصلة.
+[SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) يتحكم في رسم SVG. لإطارات النص، [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframesize/) يتضمن إطار النص في مساحة الرسم، و[SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframerotation/) يحدد ما إذا كان سيتم تطبيق تدوير الإطار. اضبط [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableFontLigatures) إلى `true` عندما يجب عرض النص دون ربط الأحرف.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -83,13 +83,68 @@ try {
 }
 ```
 
-## **التحكم في النصوص والخطوط**
+## **التحكم في قطع نهاية الخط عند رؤوس السهام**
 
-عند تصدير الشرائح إلى SVG، يمكنك التحكم فيما إذا كان النص يبقى نصًا أو يتحول إلى رسومات متجهة، وكيفية تضمين الخطوط الخارجية أو الإشارة إليها. تساعد الخيارات التالية في موازنة الاتساق البصري، قابلية اختيار النص، واعتماد الخطوط في SVG المُصدَّر.
+SVG 1.1 ليس لديه إعداد لتحديد موضع توقف الخط تحت رأس السهم. بشكل افتراضي، تقوم Aspose.Slides بتقصير الخط المُصدَّر بحيث لا يبرز ضربته عبر العلامة. استدعِ [SVGOptions.setDisableLineEndCropping](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableLineEndCropping) مع `true` لرسم الضربة حتى النهاية الأصلية للخط. هذا الإعداد يؤثر فقط على إخراج SVG. يبقى الخط في موضعه وطوله على الشريحة.
 
-### **تحويل كل النص إلى متجهات**
+الرسم التوضيحي يرسم رؤوس سهام مثلثية وملماسة على خطوط عرضها 2 و10 نقاط. يصدر الشريحة نفسها مرتين، مع تغيير خيار القطع فقط.
 
-اضبط [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) على `true` لكتابة كل نص الشريحة كرسومات متجهة. هذا يُزيل الاعتماد على الخطوط ويجعل النتيجة البصرية أكثر اتساقًا عبر المتصفحات، لكن النص لن يكون قابلًا للتحديد أو البحث كالنص داخل SVG.
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const lineColor = java.newInstanceSync("java.awt.Color", 0, 0, 139);
+    let y = 40;
+
+    for (const style of [slides.LineArrowheadStyle.Triangle, slides.LineArrowheadStyle.Diamond]) {
+        for (const width of [2, 10]) {
+            const line = slide.getShapes().addAutoShape(slides.ShapeType.Line, 40, y, 200, 0);
+            const format = line.getLineFormat();
+            format.getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+            format.getFillFormat().getSolidFillColor().setColor(lineColor);
+            format.setWidth(width);
+            format.setEndArrowheadStyle(java.newByte(style));
+            y += 50;
+        }
+    }
+
+    const options = new slides.SVGOptions();
+    options.setDisableLineEndCropping(false);
+    const cropped = java.newInstanceSync("java.io.FileOutputStream", "cropped.svg");
+    try {
+        slide.writeAsSvg(cropped, options);
+    } finally {
+        cropped.close();
+    }
+
+    options.setDisableLineEndCropping(true);
+    const uncropped = java.newInstanceSync("java.io.FileOutputStream", "uncropped.svg");
+    try {
+        slide.writeAsSvg(uncropped, options);
+    } finally {
+        uncropped.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+المقارنة تُظهر رأس السهم المثلثي على الخط بعرض 10 نقاط. عند تمكين القطع، تكون القمة حادة. عند تعطيل القطع، تبرز الضربة عبر الجوانب المائلة للعلامة وتصبح النهاية مسطحة.
+
+![مثلث 10 نقاط مكبر مع طرف حاد عندما يكون القطع مفعَّلًا ونهاية مسطحة عندما يكون القطع معطَّلًا](line-end-cropping.png)
+
+في الخطوط الأخرى من المثال، تكون الضربة البارزة أقل وضوحًا على المثلث بعرض نقطتين. الماسة المملوءة تغطي نهاية الضربة في كلا العرضين.
+
+## **التحكم في النص والخطوط**
+
+عند تصدير الشرائح إلى SVG، يمكنك التحكم فيما إذا كان النص يبقى نصًا أو يتحول إلى رسومات متجهة، وكيفية تضمين الخطوط الخارجية أو الإشارة إليها. تساعدك الخيارات التالية على موازنة التناسق البصري، إمكانية اختيار النص، واعتماد الخطوط في SVG المُصدَّر.
+
+### **تحويل كل النص إلى رسومات**
+
+اضبط [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) إلى `true` لكتابة كل نص الشريحة كرسومات متجهة. هذا يلغي اعتماد الخطوط ويجعل النتيجة البصرية أكثر اتساقًا عبر المتصفحات، لكن النص لن يكون قابلاً للتحديد أو البحث كالنص داخل SVG.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -115,9 +170,9 @@ try {
 }
 ```
 
-### **اختر طريقة معالجة الخطوط الخارجية**
+### **اختر كيفية معالجة الخطوط الخارجية**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setexternalfontshandling/) يستخدم قيمة [SvgExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) للخطوط التي تُحمَّل خارجيًا. اختر `AddLinksToFontFiles` للإشارة إلى ملفات خطوط منفصلة، `Embed` لتضمين بيانات الخط داخل SVG، أو `Vectorize` لرسم النص الذي يستخدم خطوطًا خارجية كرسومات فقط. تحقق من تراخيص الخط قبل تضمين الخطوط.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setexternalfontshandling/) يستخدم قيمة [SvgExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) للخطوط التي يتم تحميلها خارجيًا. اختر `AddLinksToFontFiles` للإشارة إلى ملفات خطوط منفصلة، `Embed` لتضمين بيانات الخط داخل SVG، أو `Vectorize` لرسم النص الذي يستخدم خطوطًا خارجية كرسومات. تحقق من ترخيص الخط قبل تضمين الخطوط.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -173,9 +228,9 @@ try {
 }
 ```
 
-## **تقليل حجم الصور المدمجة**
+## **تقليل حجم الصورة المضمنة**
 
-استخدم [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) لتقليل دقة الصور المدمجة، [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setdeletepicturescroppedareas/) لحذف مناطق الصورة المقصومة، و[SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) للتحكم في جودة ترميز JPEG. هذه الإعدادات تقلل حجم الملف على حساب دقة الصورة أو بيانات الصورة المحتفظ بها.
+استخدم [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) لتقليل دقة الصور المضمنة، و[SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setdeletepicturescroppedareas/) لحذف المناطق المقتطفة من المصدر، و[SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) للتحكم في جودة ترميز JPEG. تقلل هذه الإعدادات حجم الملف على حساب دقة الصورة أو البيانات المضمنة.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -200,11 +255,11 @@ try {
 }
 ```
 
-## **التحكم في دقة تحويل ملفات الميتا إلى نقطية**
+## **التحكم في دقة تمثيل الميتافايل**
 
-[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) يحدد الحد الأدنى للدقة عند تحويل ملفات الميتا إلى نقطية أثناء تصدير SVG. استخدمه لموازنة التفاصيل وحجم الملف عندما يتم تحويل صورة EMF أو WMF إلى نقطية. لا يحدد DPI عالميًا للـ SVG ولا يجبر كل كائن في الشريحة على التحول إلى صورة نقطية.
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) يحدد الحد الأدنى لدقة تمثيل الميتافايل أثناء تصدير SVG. استخدمه لموازنة التفاصيل وحجم الملف عندما يتم تمثيل صورة EMF أو WMF. لا يحدد DPI عالميًا للـ SVG ولا يجبر كل كائن على الشريحة على التحول إلى صورة نقطية.
 
-حمّل [metafile-rasterization.pptx](metafile-rasterization.pptx)، الذي يحتوي على صورة EMF بخطوط مائلة متقاربة. المثال التالي يصدر الشريحة الأولى منه بثلاث دقات تحويل من خلال [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/). جميع إعدادات التصدير الأخرى تبقى متطابقة بحيث يمكن مقارنة النتائج.
+نزّل [metafile-rasterization.pptx](metafile-rasterization.pptx)، والذي يحتوي على صورة EMF بخطوط قطرية متقاربة. المثال التالي يصدر شريحة أولى له بثلاث دقات تمثيل عبر [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/). جميع إعدادات التصدير الأخرى تبقى متطابقة حتى يمكن مقارنة النتائج.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -231,25 +286,25 @@ try {
 }
 ```
 
-في الناتج، تحولت صورة EMF إلى ملف PNG مدمج واحد داخل كل SVG. القياسات التالية تخص العرض المرفق؛ هي ليست صيغة عامة لتحويل DPI إلى أبعاد بكسل.
+في النتيجة، تحولت EMF إلى PNG مضمّن في كل SVG. القياسات التالية تخص العرض المقدم؛ ليست صيغة عامة لتحويل DPI إلى أبعاد بكسل.
 
-| DPI لتقليب ملف الميتا إلى نقطية | أبعاد PNG المدمج | حجم ملف SVG (بايت) |
+| دقة تمثيل الميتافايل DPI | أبعاد PNG المضمن | حجم ملف SVG (بايت) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-المقارنة أدناه تظهر نفس منطقة الصورة النقطية المدمجة بنفس حجم العرض المكبر. الخطوط المائلة تظهر بكسلة واضحة عند 72 DPI وحواف أكثر سلاسة عند دقات أعلى، بينما حجم ملف SVG يزداد. زيادة القيمة لا تحسن بالضرورة كل التفاصيل ولا تغير كل صورة مُصدَّرة.
+تُظهر المقارنة أدناه نفس المنطقة من النقطية المضمنة عند نفس حجم العرض المكبر. الخطوط القطرية تُظهر بكسلة ملحوظة عند 72 DPI وحوافًا أكثر سلاسة عند الدقات الأعلى، بينما يزداد حجم ملف SVG. زيادة القيمة لا تحسن بالضرورة كل التفاصيل أو تغير كل صورة مُصدَّرة.
 
-![تفصيل خط مائل مكبر عند 72, 150, و300 DPI](metafile-rasterization-comparison.png)
+![تفاصيل خط قطري مكبر عند 72، 150، و300 DPI](metafile-rasterization-comparison.png)
 
-[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) يتحكم في تقليل دقة الصورة ويمكنه إخفاء تأثير تغيير دقة تحويل ملفات الميتا إلى نقطية. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) يتحكم في جودة ترميز JPEG، وليس في دقة تحويل ملفات الميتا إلى نقطية.
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) يتحكم في تقليل دقة الصورة ويمكن أن يخفي تأثير تغيير دقة تمثيل الميتافايل. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) يتحكم في جودة ترميز JPEG، وليس في دقة تمثيل الميتافايل.
 
-## **تعيين معرّفات ثابتة للأشكال والنص**
+## **تعيين معرفات ثابتة للأشكال والنص**
 
-مرّر وحدة تحكم تنسيق إلى [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) لتحديد [SvgShape.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/setid/) لكل شكل SVG. وحدة تحكم تعالج أيضًا نطاقات النص يمكنها تعيين قيم [SvgTSpan.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgtspan/setid/) على عناصر `tspan` النصية.
+مرّر وحدة تحكم التنسيق إلى [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) لضبط [SvgShape.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/setid/) لكل شكل SVG. يمكن لوحدة تحكم تعالج أيضًا نطاقات النص ضبط قيم [SvgTSpan.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgtspan/setid/) على عناصر `tspan` النصية.
 
-الوحدة التالية تستخدم [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/)، وهو ثابت طوال عمر الشكل، ومؤقتًا قابلًا للتكرار لنطاقات النص الخاصة به. هذا يجعل المعرفات المولدة صالحة للمعالجة اللاحقة لعرض تقديمي غير معدل.
+المتحكم التالي يستخدم [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/)، وهو ثابت طوال عمر الشكل، وعدادًا قابلاً لإعادة الاستخدام لنطاقات النص. يجعل ذلك المعرفات المُولدة مناسبة لمعالجة عرض تقديمي غير معدل.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -311,7 +366,7 @@ try {
 
 ## **إضافة معالجات أحداث SVG**
 
-في وحدة تحكم تنسيق، استدعِ [SvgShape.setEventHandler](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/seteventhandler/) مع قيمة [SvgEvent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgevent/) لإضافة معالج حدث JavaScript إلى شكل مُصدَّر. عيّن وحدة التحكم باستخدام [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) وعرّف الدالة JavaScript في الصفحة أو مستند SVG الذي يستضيف النتيجة.
+في وحدة تحكم التنسيق، استدعِ [SvgShape.setEventHandler](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/seteventhandler/) مع قيمة [SvgEvent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgevent/) لإضافة معالج JavaScript إلى شكل مُصدَّر. عيّن المتحكم عبر [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) وعَرّف دالة JavaScript في الصفحة أو مستند SVG الذي يستضيف النتيجة.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -359,18 +414,18 @@ try {
 }
 ```
 
-يمكن للصفحة المستضيفة تعريف الدالة JavaScript التي يشير إليها المعالج. تعيين المعرفات ومعالجات الأحداث يُمكّن عارضات الشرائح، تحسينات الوصولية، وسير عمل SVG التفاعلية الأخرى.
+يمكن للصفحة المستضيفة تعريف دالة JavaScript التي يشير إليها المعالج. تعيين المعرفات ومعالجات الأحداث يتيح عارضات الشرائح، تحسينات الوصول، وغيرها من سير عمل SVG التفاعلية.
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**متى يجب أن أستخدم [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) بدلاً من [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/)?**
+**متى ينبغي أن أستخدم [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) بدلاً من [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/)?**
 
-استخدم [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) عندما يجب أن يكون كل النص مستقلاً عن الخطوط. استخدم [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) عندما يُراد تحويل النص الذي يستخدم خطوطًا خارجية فقط إلى رسومات.
+استخدم [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) عندما يجب أن يكون كل النص مستقلاً عن الخطوط. استخدم [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) عندما ينبغي تحويل النص الذي يستخدم خطوطًا خارجية فقط إلى رسومات.
 
 **ما هي أفضل طريقة لجعل SVG أصغر؟**
 
-ابدأ بضغط الصور المدمجة، حذف مناطق الصور المقصومة، واختيار ملفات خطوط مرتبطة عندما يمكن للبيئة المستهدفة تقديمها. اختبر النتيجة لأن تقليل دقة الصورة، خفض جودة JPEG، وتحويل النص إلى متجهات كلٌّ له تأثيرات مختلفة على الجودة والحجم.
+ابدأ بضغط الصور المضمنة، حذف المناطق المقتطفة من الصورة، واختيار ملفات خطوط مرتبطة عندما تكون البيئة المستهدفة قادرة على تقديمها. اختبر النتيجة لأن تقليل دقة الصورة، خفض جودة JPEG، وتحويل النص إلى رسومات كل منها يضيف مقايضات بين الجودة والحجم.
 
-**هل يمكنني تعديل عناصر SVG المصدَّرة بعد التصدير؟**
+**هل يمكنني تعديل عناصر SVG المُصدَّرة بعد التصدير؟**
 
-نعم. عيّن المعرفات عبر وحدة تحكم تنسيق، ثم حدد العناصر SVG المطابقة في أداة المعالجة اللاحقة أو سكريبت المتصفح الخاص بك.
+نعم. عيّن المعرفات عبر وحدة تحكم التنسيق، ثم اختر العناصر المطابقة في أداة ما بعد المعالجة أو نص برمجي للمتصفح.

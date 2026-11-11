@@ -1,5 +1,5 @@
 ---
-title: Sunum Slaytlarını JavaScript'te SVG Görüntüleri Olarak Render Etme
+title: Sunum Slaytlarını JavaScript'te SVG Görüntüleri Olarak Oluşturma
 linktitle: Slaytı SVG'ye
 type: docs
 weight: 50
@@ -9,7 +9,7 @@ keywords:
 - sunumdan SVG'ye
 - slayttan SVG'ye
 - PPT'den SVG'ye
-- PPTX'ten SVG'ye
+- PPTX'den SVG'ye
 - SVG dışa aktarma seçenekleri
 - etkileşimli SVG
 - PowerPoint
@@ -17,17 +17,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "PowerPoint slaytlarını JavaScript'te SVG görüntüleri olarak dışa aktarın ve Aspose.Slides ile yazı tiplerini, metni, görüntüleri, kimlikleri ve olayları kontrol edin."
+description: "PowerPoint slaytlarını JavaScript'te SVG görüntüleri olarak dışa aktarın ve yazı tiplerini, metni, görüntüleri, kimlikleri ve olayları Aspose.Slides ile kontrol edin."
 ---
 ## **Genel Bakış**
 
-SVG, web yayıncılığı, slayt görüntüleyicileri, erişilebilirlik iş akışları ve otomatik son işlem için iyi çalışan ölçeklenebilir bir XML tabanlı görüntü formatıdır. Aspose.Slides for Node.js via Java, her slaytı ayrı bir SVG dosyasına dışa aktarır ve metin, yazı tipleri, resimler ve SVG öğelerinin nasıl yazılacağını kontrol etmenizi sağlar.
+SVG, web yayıncılığı, slayt görüntüleyicileri, erişilebilirlik iş akışları ve otomatik post‑işleme için iyi çalışan ölçeklenebilir bir XML tabanlı görüntü formatıdır. Aspose.Slides for Node.js via Java, her slaytı ayrı bir SVG dosyasına dışa aktarır ve metin, yazı tipleri, resimler ve SVG öğelerinin nasıl yazılacağını kontrol etmenizi sağlar.
 
-Use [SVGOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgoptions/) when the exported SVG must be compact, predictable across browsers, or ready for interactive use.
+Dışa aktarılan SVG’nin sıkıştırılmış, tarayıcılar arasında öngörülebilir veya etkileşimli kullanım için hazır olması gerektiğinde [SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) kullanın.
 
 ## **Bir Slaytı SVG Olarak Dışa Aktarma**
 
-Create a [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/), select a slide, and write it to a stream with [Slide.writeAsSvg](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/writeassvg/). The following example exports every slide in a presentation as a separate SVG file.
+Bir [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) oluşturun, bir slaytı seçin ve [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/) ile bir akıma yazın. Aşağıdaki örnek, bir sunumdaki her slaytı ayrı bir SVG dosyası olarak dışa aktarır.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -51,11 +51,11 @@ try {
 }
 ```
 
-The filename uses [Slide.getSlideNumber](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/getslidenumber/) rather than the loop index. You can also export an individual shape with [Shape.writeAsSvg](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/writeassvg/) when a slide viewer or web page needs only that shape.
+Dosya adı, döngü indeksi yerine [Slide.getSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidenumber/) kullanır. Bir slayt görüntüleyicisinin veya web sayfasının yalnızca o şekle ihtiyaç duyduğu durumlarda, [Shape.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) ile tek bir şekli de dışa aktarabilirsiniz.
 
 ## **SVG Çıktısını Yapılandırma**
 
-[SVGOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgoptions/) controls SVG rendering. For text frames, [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgoptions/setuseframesize/) includes the text frame in the rendering area, and [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgoptions/setuseframerotation/) determines whether the frame rotation is applied. Set [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgoptions/#setDisableFontLigatures) to `true` when text must be rendered without ligatures.
+[SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) SVG oluşturmayı kontrol eder. Metin çerçeveleri için, [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframesize/) metin çerçevesini oluşturma alanına dahil eder ve [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframerotation/) çerçeve dönüşünün uygulanıp uygulanmayacağını belirler. Metnin ligatür olmadan render edilmesi gerektiğinde [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableFontLigatures) değerini `true` olarak ayarlayın.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -83,11 +83,68 @@ try {
 }
 ```
 
+## **Ok Uçlarında Çizgi Uç Kesmesini Kontrol Etme**
+
+SVG 1.1, bir çizginin ok ucunun altındaki durma noktasını belirlemek için bir işaretçi iç girinti ayarına sahip değildir. Varsayılan olarak, Aspose.Slides dışa aktarılan çizgiyi, çizgi kalemi işaretçiden dışarı çıkmayacak şekilde kısaltır. Çizgiyi orijinal uç noktasına kadar çizebilmek için [SVGOptions.setDisableLineEndCropping](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableLineEndCropping) değerini `true` olarak çağırın. Bu ayar sadece SVG çıktısını etkiler. Çizgi slayttaki konumunu ve uzunluğunu korur.
+
+Örnek, 2 ve 10 puan genişliğindeki çizgilere üçgen ve elmas ok uçları çizer. Aynı slaytı yalnızca kırpma seçeneğini değiştirerek iki kez dışa aktarır.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const lineColor = java.newInstanceSync("java.awt.Color", 0, 0, 139);
+    let y = 40;
+
+    for (const style of [slides.LineArrowheadStyle.Triangle, slides.LineArrowheadStyle.Diamond]) {
+        for (const width of [2, 10]) {
+            const line = slide.getShapes().addAutoShape(slides.ShapeType.Line, 40, y, 200, 0);
+            const format = line.getLineFormat();
+            format.getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+            format.getFillFormat().getSolidFillColor().setColor(lineColor);
+            format.setWidth(width);
+            format.setEndArrowheadStyle(java.newByte(style));
+            y += 50;
+        }
+    }
+
+    const options = new slides.SVGOptions();
+    options.setDisableLineEndCropping(false);
+    const cropped = java.newInstanceSync("java.io.FileOutputStream", "cropped.svg");
+    try {
+        slide.writeAsSvg(cropped, options);
+    } finally {
+        cropped.close();
+    }
+
+    options.setDisableLineEndCropping(true);
+    const uncropped = java.newInstanceSync("java.io.FileOutputStream", "uncropped.svg");
+    try {
+        slide.writeAsSvg(uncropped, options);
+    } finally {
+        uncropped.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Kıyaslama, 10 puanlık çizgideki üçgen ok ucunu gösterir. Kırpma etkin olduğunda, ucu keskindir. Kırpma devre dışı bırakıldığında, kalem işaretçinin eğimli kenarlarından dışarı çıkar ve düz bir uç bırakır.
+
+![Kırpma etkin olduğunda keskin uçlu, kırpma devre dışı olduğunda düz uçlu büyütülmüş 10 puanlık üçgen](line-end-cropping.png)
+
+Örnekteki diğer çizgilerde, dışarı çıkan kalem 2 puanlık üçgende daha az görülür. Dolu elmas, her iki genişlikte de kalemin ucunu kapatır.
+
 ## **Metin ve Yazı Tiplerini Kontrol Etme**
+
+Slaytları SVG olarak dışa aktarırken, metnin metin olarak kalıp kalmayacağını veya vektör grafiklerine dönüştürüleceğini ve dış yazı tiplerinin nasıl dahil edileceğini veya referans gösterileceğini kontrol edebilirsiniz. Aşağıdaki seçenekler, dışa aktarılan SVG'de görsel tutarlılık, metin seçilebilirliği ve yazı tipi bağımlılıklarını dengelemenize yardımcı olur.
 
 ### **Tüm Metni Vektörleştir**
 
-Set [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) to `true` to write all slide text as vector graphics. This eliminates font dependencies and makes the visual result more consistent across browsers, but the text is no longer selectable or searchable as SVG text.
+[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) değerini `true` olarak ayarlayın; böylece tüm slayt metni vektör grafik olarak yazılır. Bu, yazı tipi bağımlılıklarını ortadan kaldırır ve görsel sonucu tarayıcılar arasında daha tutarlı hale getirir, ancak metin artık SVG metni olarak seçilemez veya aranamaz.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -113,9 +170,9 @@ try {
 }
 ```
 
-### **Harici Yazı Tiplerinin Nasıl İşleneceğini Seçin**
+### **Dış Yazı Tiplerinin Nasıl İşleneceğini Seçin**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgoptions/setexternalfontshandling/) uses a [SvgExternalFontsHandling](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgexternalfontshandling/) value for fonts that are loaded externally. Choose `AddLinksToFontFiles` to reference separate font files, `Embed` to include font data in the SVG, or `Vectorize` to render only text that uses external fonts as graphics. Verify font licensing before embedding fonts.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setexternalfontshandling/) dışarıdan yüklenen yazı tipleri için bir [SvgExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) değeri kullanır. Ayrı yazı tipi dosyalarına referans vermek için `AddLinksToFontFiles`, yazı tipi verisini SVG'ye dahil etmek için `Embed`, veya dış yazı tiplerini kullanan metni yalnızca grafik olarak render etmek için `Vectorize` seçin. Yazı tiplerini gömmeden önce lisanslamayı doğrulayın.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -171,9 +228,9 @@ try {
 }
 ```
 
-## **Gömülü Görüntü Boyutunu Azaltma**
+## **Yerleşik Görüntü Boyutunu Azaltma**
 
-Use [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) to reduce the resolution of embedded pictures, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgoptions/setdeletepicturescroppedareas/) to omit cropped source areas, and [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgoptions/setjpegquality/) to control JPEG encoding quality. These settings reduce file size at the cost of image fidelity or retained image data.
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) kullanarak yerleşik resimlerin çözünürlüğünü düşürün, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setdeletepicturescroppedareas/) ile kırpılmış kaynak alanlarını atlayın ve [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) ile JPEG kodlama kalitesini kontrol edin. Bu ayarlar, dosya boyutunu azaltırken görüntü kalitesi veya tutulan görüntü verisi pahasına bir azalma sağlar.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -198,11 +255,54 @@ try {
 }
 ```
 
-## **Şekillere ve Metne Kararlı Kimlikler Atama**
+## **Metafile Rasterizasyon Çözünürlüğünü Kontrol Etme**
 
-Pass a formatting controller to [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) to set [SvgShape.setId](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgshape/setid/) for each SVG shape. A controller that also handles text spans can set [SvgTSpan.setId](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgtspan/setid/) values on text `tspan` elements.
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) SVG dışa aktarımı sırasında metafile'ları rasterleştirirken alt çözünürlük sınırını belirler. EMF veya WMF görüntüsü rasterleştirildiğinde detay ve dosya boyutunu dengelemek için kullanın. Bu, SVG için küresel bir DPI tanımlamaz ve slayttaki her nesnenin raster görüntü olmasını zorlamaz.
 
-The following controller uses [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/), which is stable for the lifetime of the shape, and a repeatable counter for its text spans. This makes the generated IDs suitable for post-processing an unchanged presentation.
+[metafile-rasterization.pptx](metafile-rasterization.pptx) dosyasını indirin; bu dosya yakın aralıklı diyagonal çizgileri olan bir EMF görüntüsü içerir. Aşağıdaki örnek, [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/) ile ilk slaytını üç rasterleştirme çözünürlüğünde dışa aktarır. Diğer tüm dışa aktarım ayarları aynı kalır, böylece sonuçlar karşılaştırılabilir.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("metafile-rasterization.pptx");
+try {
+    for (const dpi of [72, 150, 300]) {
+        const svgOptions = new slides.SVGOptions();
+        svgOptions.setMetafileRasterizationDpi(dpi);
+        svgOptions.setPicturesCompression(slides.PicturesCompression.Dpi330);
+        svgOptions.setJpegQuality(90);
+
+        const outputFileName = `slide-${dpi}.svg`;
+        const svgStream = java.newInstanceSync("java.io.FileOutputStream", outputFileName);
+        try {
+            presentation.getSlides().get_Item(0).writeAsSvg(svgStream, svgOptions);
+        } finally {
+            svgStream.close();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+| Metafile rasterizasyon DPI | Gömülü PNG boyutları | SVG dosya boyutu (bayt) |
+| --- | --- | --- |
+| 72 | 1196 × 596 | 170,221 |
+| 150 | 2492 × 1242 | 423,149 |
+| 300 | 4983 × 2483 | 1,027,169 |
+
+Aşağıdaki karşılaştırma, gömülü rasterin aynı alanını aynı büyütülmüş görüntü boyutunda gösterir. Diyagonal çizgiler 72 DPI'de belirgin pikselleşme ve daha yüksek çözünürlüklerde daha yumuşak kenarlar gösterirken, SVG dosyası büyür. Değeri artırmak, her detayı iyileştirmek veya her dışa aktarılan görüntüyü değiştirmek zorunda değildir.
+
+![72, 150 ve 300 DPI'de büyütülmüş diyagonal çizgi detayı](metafile-rasterization-comparison.png)
+
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) görüntü çözünürlüğü azaltmayı kontrol eder ve metafile rasterizasyon çözünürlüğündeki değişikliğin etkisini gizleyebilir. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) JPEG kodlama kalitesini kontrol eder, metafile rasterizasyon çözünürlüğünü değil.
+
+## **Şekillere ve Metne Kararlı Kimlikler Ata**
+
+Her SVG şekli için [SvgShape.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/setid/) ayarlamak amacıyla bir biçimlendirme denetleyicisini [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) aracılığıyla geçirin. Metin aralıklarını (tspan) da işleyen bir denetleyici, metin `tspan` öğeleri üzerinde [SvgTSpan.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgtspan/setid/) değerlerini ayarlayabilir.
+
+Aşağıdaki denetleyici, şeklin yaşam süresi boyunca sabit olan [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) ve metin aralıkları için tekrarlanabilir bir sayaç kullanır. Bu, üretilen kimliklerin değişmemiş bir sunumu sonradan işlemek için uygun olmasını sağlar.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -264,7 +364,7 @@ try {
 
 ## **SVG Olay İşleyicileri Ekleme**
 
-In a formatting controller, call [SvgShape.setEventHandler](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgshape/seteventhandler/) with a [SvgEvent](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgevent/) value to add a JavaScript event handler to an exported shape. Assign the controller with [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) and define the JavaScript function in the page or SVG document that hosts the result.
+Bir biçimlendirme denetleyicisinde, dışa aktarılan bir şekle JavaScript olay işleyicisi eklemek için [SvgShape.setEventHandler](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/seteventhandler/) metodunu bir [SvgEvent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgevent/) değeriyle çağırın. Denetleyiciyi [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) ile atayın ve sonucu barındıran sayfada veya SVG belgesinde JavaScript işlevini tanımlayın.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -312,18 +412,18 @@ try {
 }
 ```
 
-The host page can define the JavaScript function referenced by the handler. Assigning IDs and event handlers enables slide viewers, accessibility enhancements, and other interactive SVG workflows.
+Barındırıcı sayfa, işleyici tarafından referans verilen JavaScript fonksiyonunu tanımlayabilir. Kimliklerin ve olay işleyicilerin atanması, slayt görüntüleyicileri, erişilebilirlik iyileştirmeleri ve diğer etkileşimli SVG iş akışlarını mümkün kılar.
 
 ## **SSS**
 
-**[SVGOptions.setVectorizeText] yerine [SvgExternalFontsHandling.Vectorize] ne zaman kullanılmalı?**
+**[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) yerine [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) ne zaman kullanılmalı?**
 
-Use [SVGOptions.setVectorizeText] when all text must be independent of fonts. Use [SvgExternalFontsHandling.Vectorize] when only text that uses external fonts should be converted to graphics.
+[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) tüm metnin yazı tiplerinden bağımsız olması gerektiğinde kullanın. [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) yalnızca dış yazı tiplerini kullanan metnin grafiklere dönüştürülmesi gerektiğinde kullanın.
 
-**Bir SVG'yi daha küçük hale getirmenin en iyi yolu nedir?**
+**Bir SVG'yi küçültmenin en iyi yolu nedir?**
 
-Start by compressing embedded pictures, deleting cropped image areas, and choosing linked font files when the target environment can serve them. Test the result because lower image resolution, lower JPEG quality, and vectorized text each have different quality and size tradeoffs.
+İlk olarak yerleşik resimleri sıkıştırın, kırpılmış görüntü alanlarını silin ve hedef ortam bunları sunabiliyorsa bağlantılı yazı tipi dosyalarını seçin. Sonucu test edin; çünkü düşük görüntü çözünürlüğü, düşük JPEG kalitesi ve vektörleştirilmiş metin farklı kalite ve boyut dengeleri sunar.
 
-**Dışa aktarılan SVG öğelerini dışa aktarım sonrası değiştirebilir miyim?**
+**Dışa aktarılan SVG öğelerini dışa aktardıktan sonra değiştirebilir miyim?**
 
-Yes. Assign IDs through a formatting controller, then select the matching SVG elements in your post-processing tool or browser script.
+Evet. Bir biçimlendirme denetleyicisi aracılığıyla kimlikler atayın, ardından eşleşen SVG öğelerini son işleme aracınızda veya tarayıcı betiğinizde seçin.

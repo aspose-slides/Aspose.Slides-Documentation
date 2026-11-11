@@ -1,15 +1,15 @@
 ---
-title: Renderovat snímky prezentace jako SVG obrázky v .NET
-linktitle: Snímek na SVG
+title: Vykreslit snímky prezentace jako SVG obrázky v .NET
+linktitle: Snímek do SVG
 type: docs
 weight: 50
 url: /cs/net/render-a-slide-as-an-svg-image/
 keywords:
-- PowerPoint na SVG
-- prezentace na SVG
-- snímek na SVG
-- PPT na SVG
-- PPTX na SVG
+- PowerPoint do SVG
+- prezentace do SVG
+- snímek do SVG
+- PPT do SVG
+- PPTX do SVG
 - Možnosti exportu SVG
 - interaktivní SVG
 - PowerPoint
@@ -17,13 +17,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Exportovat snímky PowerPointu jako SVG obrázky v .NET a řídit písma, text, obrázky, ID a události pomocí Aspose.Slides."
+description: "Exportujte snímky PowerPointu jako SVG obrázky v .NET a ovládejte písma, text, obrázky, ID a události pomocí Aspose.Slides."
 ---
 ## **Přehled**
 
-SVG je škálovatelný formát obrázků založený na XML, který se dobře hodí pro webové publikování, prohlížeče snímků, workflow přístupnosti i automatizované následné zpracování. Aspose.Slides exportuje každý snímek do samostatného souboru SVG a umožňuje řídit, jak jsou zapisovány text, písma, obrázky a SVG prvky.
+SVG je škálovatelný formát obrázků založený na XML, který dobře funguje pro webové publikování, prohlížeče snímků, workflowy přístupnosti a automatické následné zpracování. Aspose.Slides exportuje každý snímek do samostatného souboru SVG a umožňuje vám řídit, jak jsou zapisovány text, písma, obrázky a prvky SVG.
 
-Použijte [SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/), pokud musí být exportované SVG kompaktní, předvídatelné napříč prohlížeči nebo připravené pro interaktivní použití.
+Použijte [SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) když musí být exportovaný SVG kompaktní, předvídatelný napříč prohlížeči nebo připravený k interaktivnímu použití.
 
 ## **Exportovat snímek jako SVG**
 
@@ -41,11 +41,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-Název souboru používá [ISlide.SlideNumber](https://reference.aspose.com/slides/net/aspose.slides/islide/slidenumber/) místo indexu smyčky. Můžete také exportovat jednotlivý tvar pomocí [IShape.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/ishape/writeassvg/), pokud prohlížeč snímků nebo webová stránka potřebuje jen tento tvar.
+Název souboru používá [ISlide.SlideNumber](https://reference.aspose.com/slides/net/aspose.slides/islide/slidenumber/) místo indexu smyčky. Také můžete exportovat jednotlivý tvar pomocí [IShape.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/ishape/writeassvg/), pokud prohlížeč snímků nebo webová stránka potřebují jen tento tvar.
 
 ## **Konfigurace výstupu SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) řídí vykreslování SVG. Pro textové rámečky [SVGOptions.UseFrameSize](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframesize/) zahrnuje textový rámec do oblasti vykreslování a [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframerotation/) určuje, zda se použije rotace rámce. Nastavte [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/disablefontligatures/) na `true`, když text musí být vykreslen bez ligatur.
+[SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) řídí vykreslování SVG. Pro textové rámečky [SVGOptions.UseFrameSize](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframesize/) zahrnuje textový rámeček do oblasti vykreslování a [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframerotation/) určuje, zda se použije rotace rámečku. Nastavte [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/disablefontligatures/) na `true`, když musí být text vykreslen bez ligatur.
 
 ```csharp
 using Aspose.Slides;
@@ -64,13 +64,58 @@ using var svgStream = File.Create("slide-with-custom-options.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
 
+## **Řízení oříznutí konce čáry u šipek**
+
+SVG 1.1 nemá nastavení vložení značky, které by určovalo, kde má čára končit pod špičkou šipky. Ve výchozím nastavení Aspose.Slides zkracuje exportovanou čáru, aby tah nevyčníval skrz značku. Nastavte [SVGOptions.DisableLineEndCropping](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/disablelineendcropping/) na `true`, aby se tah kreslil až po původní koncový bod čáry. Toto nastavení ovlivňuje pouze výstup SVG. Čára si na snímku zachová své umístění a délku.
+
+Příklad vykresluje trojúhelníkové a diamantové hroty na čárach o šířce 2 a 10 bodů. Exportuje stejný snímek dvakrát, změnou pouze volby oříznutí.
+
+```csharp
+using System.Drawing;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var y = 40;
+
+foreach (var style in new[] { LineArrowheadStyle.Triangle, LineArrowheadStyle.Diamond })
+{
+    foreach (var width in new[] { 2, 10 })
+    {
+        var line = slide.Shapes.AddAutoShape(ShapeType.Line, 40, y, 200, 0);
+        var format = line.LineFormat;
+        format.FillFormat.FillType = FillType.Solid;
+        format.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+        format.Width = width;
+        format.EndArrowheadStyle = style;
+        y += 50;
+    }
+}
+
+var options = new SVGOptions { DisableLineEndCropping = false };
+using var cropped = File.Create("cropped.svg");
+slide.WriteAsSvg(cropped, options);
+
+options.DisableLineEndCropping = true;
+using var uncropped = File.Create("uncropped.svg");
+slide.WriteAsSvg(uncropped, options);
+```
+
+Porovnání ukazuje trojúhelníkový hrot na 10‑bodové čáře. Při zapnutém oříznutí je špička ostrá. Při vypnutém oříznutí tah vyčnívá skrz šikmé strany značky a zůstává plochý konec.
+
+![Zvětšený 10‑bodový trojúhelník s ostrou špičkou při zapnutém oříznutí a s plochým koncem při vypnutém oříznutí](line-end-cropping.png)
+
+V ostatních čarách z příkladu je vyčnívající tah méně patrný na 2‑bodovém trojúhelníku. Vyplněný diamant zakrývá konec tahu v obou šířkách.
+
 ## **Řízení textu a písem**
 
-Při exportu snímků do SVG můžete řídit, zda text zůstane jako text nebo se převede na vektorovou grafiku, a jak jsou zahrnuta nebo odkazována externí písma. Následující možnosti vám pomohou vybalancovat vizuální konzistenci, výběr textu a závislosti na písmu v exportovaném SVG.
+Při exportu snímků do SVG můžete řídit, zda text zůstane jako text nebo bude převeden na vektorovou grafiku, a jak jsou zahrnuty nebo odkazovány externí písma. Následující možnosti vám pomohou vyvážit vizuální konzistenci, výběr textu a závislosti na písmu v exportovaném SVG.
 
 ### **Vektorizovat celý text**
 
-Nastavte [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) na `true`, aby byl veškerý text snímku zapsán jako vektorová grafika. Tím se eliminují závislosti na písmu a výsledek je vizuálně konzistentnější napříč prohlížeči, ale text již není možné vybrat ani vyhledávat jako SVG text.
+Nastavte [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) na `true`, aby byl veškerý text snímku zapsán jako vektorová grafika. Tím se odstraní závislost na písmech a výsledek bude vizuálně konzistentnější napříč prohlížeči, ale text již nebude možné vybírat ani vyhledávat jako SVG‑text.
 
 ```csharp
 using Aspose.Slides;
@@ -87,9 +132,9 @@ using var svgStream = File.Create("slide-with-vectorized-text.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
 
-### **Vyberte, jak zacházet s externími písmy**
+### **Zvolte, jak se zacházejí s externími písmy**
 
-[SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/externalfontshandling/) používá hodnotu [SvgExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) pro písma načítaná externě. Zvolte `AddLinksToFontFiles` pro odkaz na samostatné soubory písem, `Embed` pro zahrnutí dat písma do SVG nebo `Vectorize` pro vykreslení textu, který používá externí písma, jako grafiku. Před vložením písem ověřte licenční podmínky.
+[SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/externalfontshandling/) používá hodnotu [SvgExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) pro písma načítaná externě. Zvolte `AddLinksToFontFiles` pro odkazování na samostatné soubory písem, `Embed` pro zahrnutí dat písem do SVG nebo `Vectorize` pro vykreslení pouze textu, který používá externí písma, jako grafiku. Před vložením písem ověřte licenční podmínky.
 
 ```csharp
 using Aspose.Slides;
@@ -124,7 +169,7 @@ presentation.Slides[0].WriteAsSvg(vectorizedExternalFontsStream, vectorizedExter
 
 ## **Zmenšení velikosti vložených obrázků**
 
-Použijte [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) ke snížení rozlišení vložených obrázků, [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) k vynechání oříznutých částí zdrojových obrázků a [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) ke řízení kvality JPEG kódování. Tato nastavení snižují velikost souboru na úkor věrnosti obrazu nebo zachování dat obrázku.
+Použijte [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) ke snížení rozlišení vložených obrázků, [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) k vynechání oříznutých oblastí zdroje a [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) ke kontrole kvality JPEG kódování. Tato nastavení snižují velikost souboru na úkor věrnosti obrazu nebo zachování dat obrázku.
 
 ```csharp
 using Aspose.Slides;
@@ -143,11 +188,11 @@ using var svgStream = File.Create("compressed-slide.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
 
-## **Řízení rozlišení rasterizace metafile**
+## **Řízení rozlišení rastrování metafilů**
 
-[SVGOptions.MetafileRasterizationDpi](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/metafilerasterizationdpi/) nastavuje spodní limit rozlišení pro rasterizaci metafile během exportu SVG. Použijte jej k vyvážení detailu a velikosti souboru, když je EMF nebo WMF obrázek rasterizován. Nedefinuje globální DPI pro SVG ani nenutí, aby se každý objekt na snímku stal rastrovým obrázkem.
+[SVGOptions.MetafileRasterizationDpi](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/metafilerasterizationdpi/) stanoví spodní limit rozlišení pro rastrování metafilů během exportu SVG. Použijte jej k vyvážení detailu a velikosti souboru, když je EMF nebo WMF obrázek rastrován. Nenastavuje globální DPI pro SVG ani neznamená, že každý objekt na snímku se změní na rastrový obrázek.
 
-Stáhněte si [metafile-rasterization.pptx](metafile-rasterization.pptx), který obsahuje EMF obrázek s úzce umístěnými diagonálními čarami. Následující příklad exportuje jeho první snímek ve třech rozlišeních rasterizace pomocí [ISlide.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/islide/writeassvg/). Všechna ostatní nastavení exportu zůstávají identická, aby bylo možné výsledky srovnat.
+Stáhněte [metafile-rasterization.pptx](metafile-rasterization.pptx), který obsahuje EMF obrázek s těsně umístěnými úhlopříčnými čarami. Následující příklad exportuje jeho první snímek ve třech rozlišeních rastrování pomocí [ISlide.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/islide/writeassvg/). Všechna ostatní nastavení exportu zůstávají stejná, aby bylo možné výsledky porovnat.
 
 ```csharp
 using System.IO;
@@ -170,25 +215,25 @@ foreach (var dpi in new[] { 72, 150, 300 })
 }
 ```
 
-Ve výstupu se EMF proměnil na jeden vložený PNG v každém SVG. Následující měření jsou pro dodanou prezentaci; nejsou obecnou formulí pro převod DPI na rozměry v pixelech.
+Ve výstupu se EMF promění na jeden vložený PNG v každém SVG. Následující měření jsou pro poskytnutou prezentaci; nejedná se o obecný vzorec pro převod DPI na rozměry v pixelech.
 
-| DPI rasterizace metafile | Rozměry vloženého PNG | Velikost SVG souboru (bajty) |
+| Rozlišení rastrování metafilu DPI | Rozměry vloženého PNG | Velikost souboru SVG (bajty) |
 | --- | --- | --- |
-| 72 | 1196 × 596 | 170,221 |
-| 150 | 2492 × 1242 | 423,149 |
-| 300 | 4983 × 2483 | 1,027,169 |
+| 72 | 1196 × 596 | 170 221 |
+| 150 | 2492 × 1242 | 423 149 |
+| 300 | 4983 × 2483 | 1 027 169 |
 
-Srovnání níže ukazuje stejnou oblast vloženého rastrového obrazu při stejném zvětšeném zobrazení. Diagonální čáry vykazují viditelnou pixelaci při 72 DPI a hladší hrany při vyšších rozlišeních, zatímco velikost SVG souboru roste. Zvýšení hodnoty nutně neznamená zlepšení každého detailu ani změnu každého exportovaného obrázku.
+Porovnání níže ukazuje stejnou oblast vloženého rastrování při stejném zvětšeném zobrazení. Úhlopříčné čáry vykazují viditelnou pixelaci při 72 DPI a hladší hrany při vyšších rozlišeních, zatímco velikost SVG souboru roste. Zvýšení hodnoty nutně neznamená zlepšení každého detailu ani změnu každého exportovaného obrázku.
 
-![Zvětšený detail diagonální čáry při 72, 150 a 300 DPI](metafile-rasterization-comparison.png)
+![Zvětšený detail úhlopříčných čar při 72, 150 a 300 DPI](metafile-rasterization-comparison.png)
 
-[SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) řídí snížení rozlišení obrázku a může maskovat vliv změny rozlišení rasterizace metafile. [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) řídí kvalitu JPEG kódování, nikoli rozlišení rasterizace metafile.
+[SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) řídí snížení rozlišení obrázku a může maskovat efekt změny rozlišení rastrování metafilu. [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) řídí kvalitu JPEG kódování, nikoli rozlišení rastrování metafilu.
 
 ## **Přiřazení stabilních ID tvarům a textu**
 
-Použijte [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/) k nastavení [ISvgShape.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/id/) pro každý SVG tvar. K nastavení hodnot [ISvgTSpan.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgtspan/id/) na textových `tspan` prvcích také implementujte [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeandtextformattingcontroller/). Přiřaďte jeden z controllerů pomocí [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/).
+Použijte [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/) k nastavení [ISvgShape.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/id/) pro každý tvar SVG. Pro nastavení hodnot [ISvgTSpan.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgtspan/id/) na textových elementech `tspan` také implementujte [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeandtextformattingcontroller/). Přiřaďte kterýkoli kontroler pomocí [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/).
 
-Následující controller používá [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/net/aspose.slides/ishape/officeinteropshapeid/), který je stabilní po celou životnost tvaru, a opakovatelný čítač pro jeho textové spany. To dělá generovaná ID vhodná pro následné zpracování nezměněné prezentace.
+Následující kontroler používá [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/net/aspose.slides/ishape/officeinteropshapeid/), který je stabilní po celou životnost tvaru, a opakovatelný čítač pro jeho textové segmenty. To dělá generovaná ID vhodná pro post‑processing nezměněné prezentace.
 
 ```csharp
 using Aspose.Slides;
@@ -225,9 +270,9 @@ class StableSvgIdController : ISvgShapeAndTextFormattingController
 }
 ```
 
-## **Přidání SVG obslužných rutin (event handlers)**
+## **Přidání SVG obslužníků událostí**
 
-V [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/) zavolejte [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/seteventhandler/) s hodnotou [SvgEvent](https://reference.aspose.com/slides/net/aspose.slides.export/svgevent/) pro přidání JavaScriptového obslužného rutiny k exportovanému tvaru. Přiřaďte controller pomocí [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) a definujte JavaScriptovou funkci na stránce nebo v SVG dokumentu, který výsledek hostí.
+V [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/) zavolejte [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/seteventhandler/) s hodnotou [SvgEvent](https://reference.aspose.com/slides/net/aspose.slides.export/svgevent/) pro přidání JavaScriptového obslužníku události k exportovanému tvaru. Přiřaďte kontroler pomocí [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) a definujte JavaScriptovou funkci na stránce nebo v SVG dokumentu, který výsledek hostí.
 
 ```csharp
 using Aspose.Slides;
@@ -256,18 +301,18 @@ class SvgEventController : ISvgShapeFormattingController
 }
 ```
 
-Hostitelská stránka může definovat JavaScriptovou funkci, na kterou odkazuje obslužná rutina. Přiřazení ID a obslužných rutin umožňuje prohlížeče snímků, vylepšení přístupnosti a další interaktivní SVG workflowy.
+Hostitelská stránka může definovat JavaScriptovou funkci, na kterou odkazuje obslužník. Přiřazení ID a obslužníků událostí umožňuje prohlížeče snímků, vylepšení přístupnosti a další interaktivní SVG workflowy.
 
-## **Často kladené otázky**
+## **Časté otázky**
 
 **Kdy mám použít [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) místo [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/)?**
 
-Použijte [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/), když musí být veškerý text nezávislý na písmu. Použijte [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/), když by měl být pouze text používající externí písma převeden na grafiku.
+Použijte [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/), když musí být celý text nezávislý na písmech. Použijte [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/), když by měl být převeden na grafiku jen text používající externí písma.
 
-**Jaký je nejlepší způsob, jak udělat SVG menší?**
+**Jaký je nejlepší způsob, jak zmenšit SVG?**
 
-Začněte kompresí vložených obrázků, smazáním oříznutých částí obrázků a výběrem odkazovaných souborů písem, pokud je cílové prostředí schopné je poskytovat. Otestujte výsledek, protože nižší rozlišení obrázku, nižší kvalita JPEG a vektorizovaný text mají různé kompromisy mezi kvalitou a velikostí.
+Začněte kompresí vložených obrázků, mazáním oříznutých oblastí obrázku a volbou odkazovaných souborů písem, pokud je cílové prostředí schopno je poskytovat. Otestujte výsledek, protože nižší rozlišení obrázku, nižší kvalita JPEG a vektorizovaný text mají různé kompromisy mezi kvalitou a velikostí.
 
-**Mohu po exportu upravovat exportované SVG prvky?**
+**Mohu po exportu upravovat exportované SVG elementy?**
 
-Ano. Přiřaďte ID pomocí formátovacího controlleru a poté vyberte odpovídající SVG prvky ve svém nástroji pro následné zpracování nebo skriptu v prohlížeči.
+Ano. Přiřaďte ID pomocí formátovacího kontroleru, poté vyberte odpovídající SVG elementy ve vašem post‑processing nástroji nebo skriptu prohlížeče.

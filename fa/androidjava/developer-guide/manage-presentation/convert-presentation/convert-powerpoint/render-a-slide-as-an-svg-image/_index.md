@@ -1,5 +1,5 @@
 ---
-title: رندر اسلایدهای ارائه به‌صورت تصاویر SVG در اندروید
+title: نمایش اسلایدهای ارائه به صورت تصاویر SVG در اندروید
 linktitle: اسلاید به SVG
 type: docs
 weight: 50
@@ -10,24 +10,24 @@ keywords:
 - اسلاید به SVG
 - PPT به SVG
 - PPTX به SVG
-- گزینه‌های خروجی SVG
+- گزینه‌های صادرات SVG
 - SVG تعاملی
 - PowerPoint
 - ارائه
 - Android
 - Java
 - Aspose.Slides
-description: "اسلایدهای PowerPoint را به‌صورت تصاویر SVG در اندروید صادر کنید و قلم‌ها، متن، تصاویر، شناسه‌ها و رویدادها را با Aspose.Slides کنترل کنید."
+description: "اسلایدهای PowerPoint را به‌عنوان تصاویر SVG در اندروید صادر کنید و قلم‌ها، متن، تصاویر، شناسه‌ها و رویدادها را با Aspose.Slides کنترل کنید."
 ---
-## **نمای کلی**
+## **مروری کلی**
 
-SVG یک فرمت تصویر مقیاس‌پذیر مبتنی بر XML است که برای انتشار وب، مشاهده‌کننده‌های اسلاید، جریان‌های کاری دسترسی‌پذیری و پردازش پس از تولید خودکار مناسب است. Aspose.Slides for Android از طریق Java هر اسلاید را به یک فایل SVG جداگانه صادر می‌کند و به شما امکان کنترل نحوه نوشتن متن، قلم‌ها، تصاویر و عناصر SVG را می‌دهد.
+SVG یک قالب تصویر مبتنی بر XML مقیاس‌پذیر است که برای انتشار وب، نمایش اسلایدها، جریان‌های کاری دسترس‌پذیری و پردازش پس‌انتشار خودکار مناسب می‌باشد. Aspose.Slides for Android via Java هر اسلاید را به یک فایل SVG جداگانه صادر می‌کند و به شما امکان کنترل نحوه نوشتن متن، قلم‌ها، تصاویر و عناصر SVG را می‌دهد.
 
-از [SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) استفاده کنید وقتی که SVG صادر شده باید فشرده، پیش‌بینی‌پذیر در مرورگرها یا آماده برای استفاده تعاملی باشد.
+از [SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) زمانی استفاده کنید که SVG صادر شده باید فشرده، پیش‌بینی‌پذیر در مرورگرها یا آماده برای استفاده تعاملی باشد.
 
-## **صادر کردن اسلاید به‌صورت SVG**
+## **صدور یک اسلاید به صورت SVG**
 
-یک [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید، اسلایدی را انتخاب کنید و آن را با [ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-) به یک جریان بنویسید. مثال زیر هر اسلاید در یک ارائه را به‌صورت یک فایل SVG جداگانه صادر می‌کند.
+یک [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید، اسلایدی را انتخاب کنید و آن را با [ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-) به یک جریان بنویسید. مثال زیر هر اسلاید در یک ارائه را به صورت فایل SVG جداگانه صادر می‌کند.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -44,11 +44,11 @@ try {
 }
 ```
 
-نام فایل از [ISlide.getSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideNumber--) استفاده می‌کند نه از شاخص حلقه. همچنین می‌توانید یک شکل جداگانه را با [IShape.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) صادر کنید وقتی یک نمایش‌دهنده اسلاید یا صفحه وب فقط به آن شکل نیاز دارد.
+نام فایل با استفاده از [ISlide.getSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideNumber--) به‌جای شاخص حلقه تعیین می‌شود. همچنین می‌توانید یک شکل منفرد را با [IShape.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) صادر کنید زمانی که نمایشگر اسلاید یا صفحه وب تنها به همان شکل نیاز دارد.
 
 ## **پیکربندی خروجی SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) رندرینگ SVG را کنترل می‌کند. برای قاب‌های متنی، [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) قاب متن را در ناحیه رندر شامل می‌شود و [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) تعیین می‌کند که آیا چرخش قاب اعمال شود یا نه. وقتی متن باید بدون لیگچرها رندر شود، [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) را روی `true` تنظیم کنید.
+[SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) رندر SVG را کنترل می‌کند. برای فریم‌های متنی، [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) فریم متنی را در ناحیه رندر گنجانده و [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) تعیین می‌کند آیا چرخش فریم اعمال شود یا خیر. برای رندر متن بدون لیگاتورها، [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) را به `true` تنظیم کنید.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -67,13 +67,62 @@ try {
 }
 ```
 
+## **کنترل برش انتهای خط در سرهای پیکان**
+
+SVG 1.1 تنظیمی برای درج علامت‌زن (marker inset) ندارد تا مشخص کند خط باید زیر سر پیکان تا کجا ادامه یابد. به‌صورت پیش‌فرض، Aspose.Slides طول خط صادر شده را کوتاه می‌کند تا خط کش (stroke) از علامت‌زن سر کشیده نشود. با فراخوانی [SVGOptions.setDisableLineEndCropping](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDisableLineEndCropping-boolean-) و مقدار `true`، خط کش را تا نقطه انتهایی اصلی خط رسم می‌کنید. این تنظیم فقط بر خروجی SVG تأثیر دارد؛ موقعیت و طول خط در اسلاید دست نخورده باقی می‌ماند.
+
+مثال سرهای پیکان مثلثی و الماس‌دار را بر خطوط ۲ و ۱۰ نقطه‌ای رسم می‌کند. همان اسلاید دو بار صادر می‌شود؛ تنها گزینه برش تغییر می‌کند.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    int y = 40;
+
+    for (byte style : new byte[] { LineArrowheadStyle.Triangle, LineArrowheadStyle.Diamond }) {
+        for (int width : new int[] { 2, 10 }) {
+            IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, 40, y, 200, 0);
+            ILineFormat format = line.getLineFormat();
+            format.getFillFormat().setFillType(FillType.Solid);
+            format.getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+            format.setWidth(width);
+            format.setEndArrowheadStyle(style);
+            y += 50;
+        }
+    }
+
+    SVGOptions options = new SVGOptions();
+    options.setDisableLineEndCropping(false);
+    try (FileOutputStream cropped = new FileOutputStream("cropped.svg")) {
+        slide.writeAsSvg(cropped, options);
+    }
+
+    options.setDisableLineEndCropping(true);
+    try (FileOutputStream uncropped = new FileOutputStream("uncropped.svg")) {
+        slide.writeAsSvg(uncropped, options);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+مقایسه نشان می‌دهد سر پیکان مثلثی بر خط ۱۰‑نقطه‌ای. با فعال بودن برش، نوک تیز است. با غیرفعال بودن برش، خط کش از طرف‌های شیب‌دار علامت‌زن عبور می‌کند و انتهایی مسطح می‌شود.
+
+![Enlarged 10-point triangle with a sharp tip when cropping is enabled and a flat end when cropping is disabled](line-end-cropping.png)
+
+در سایر خطوط مثال، خط کش برجسته کمتر بر روی مثلث ۲‑نقطه‌ای دیده می‌شود. الماس پر شده انتهای خط کش را در هر دو عرض می‌پوشاند.
+
 ## **کنترل متن و قلم‌ها**
 
-هنگام صادر کردن اسلایدها به SVG، می‌توانید کنترل کنید که آیا متن به‌عنوان متن باقی بماند یا به گرافیک برداری تبدیل شود، و نحوه گنجاندن یا ارجاع به قلم‌های خارجی چگونه باشد. گزینه‌های زیر به شما کمک می‌کنند تا بین سازگاری بصری، انتخاب متن و وابستگی‌های قلم در SVG صادر شده تعادل برقرار کنید.
+هنگام صادر کردن اسلایدها به SVG می‌توانید تصمیم بگیرید متن به‌صورت متن باقی بماند یا به گرافیک برداری تبدیل شود و قلم‌های خارجی چگونه گنجانده یا ارجاع داده شوند. گزینه‌های زیر به شما کمک می‌کند تعادل بین ثبات بصری، قابلیت انتخاب متن و وابستگی‌های قلم در SVG صادر شده را برقرار کنید.
 
-### **برداری‌سازی تمام متن**
+### **بردارسازی تمام متن**
 
-[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) را روی `true` تنظیم کنید تا تمام متن اسلاید به‌صورت گرافیک برداری نوشته شود. این کار وابستگی‌های قلم را حذف می‌کند و نتیجه بصری را در مرورگرها یک‌دست‌تر می‌سازد، اما متن دیگر به‌عنوان متن SVG قابل انتخاب یا جستجو نخواهد بود.
+[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) را به `true` تنظیم کنید تا تمام متن اسلاید به‌صورت گرافیک برداری نوشته شود. این کار وابستگی‌های قلم را از بین می‌برد و نتیجه بصری را در مرورگرها یکنواخت‌تر می‌کند، اما متن دیگر قابل انتخاب یا جست‌وجو به‌عنوان متن SVG نخواهد بود.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -90,9 +139,9 @@ try {
 }
 ```
 
-### **نحوهٔ مدیریت قلم‌های خارجی را انتخاب کنید**
+### **انتخاب نحوه‌ی مدیریت قلم‌های خارجی**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) از مقدار [SvgExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) برای قلم‌هایی که به‌صورت خارجی بارگذاری می‌شوند استفاده می‌کند. برای ارجاع به فایل‌های قلم جداگانه، [SvgExternalFontsHandling.AddLinksToFontFiles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) را انتخاب کنید، برای گنجاندن داده‌های قلم در SVG، [SvgExternalFontsHandling.Embed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) را انتخاب کنید، یا برای رندر کردن فقط متنی که از قلم‌های خارجی استفاده می‌کند به‌صورت گرافیک، [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) را برگزینید. قبل از جاسازی قلم‌ها، مجوزهای قلم را بررسی کنید.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) یک مقدار از نوع [SvgExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) را برای قلم‌هایی که به‌صورت خارجی بارگذاری می‌شوند، استفاده می‌کند. برای ارجاع به فایل‌های قلم جداگانه، [SvgExternalFontsHandling.AddLinksToFontFiles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) را انتخاب کنید؛ برای گنجاندن داده‌های قلم در SVG، [SvgExternalFontsHandling.Embed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/)؛ یا برای رندر کردن متن‌های استفاده‌کننده از قلم‌های خارجی به‌صورت گرافیک، [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) را انتخاب کنید. قبل از گنجاندن قلم‌ها، مجوزهای استفاده را بررسی کنید.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -121,9 +170,9 @@ try {
 }
 ```
 
-## **کاهش اندازه تصویر جاسازی شده**
+## **کاهش اندازه تصویرهای جاسازی‌شده**
 
-از [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) برای کاهش وضوح تصاویر جاسازی شده استفاده کنید، از [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) برای حذف نواحی بریده‌شده منبع استفاده کنید و از [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) برای کنترل کیفیت رمزگذاری JPEG بهره ببرید. این تنظیمات اندازه فایل را با هزینه‌ای در وفاداری تصویر یا داده‌های نگه‌داشته شده تصویر کاهش می‌دهند.
+از [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) برای کاهش وضوح تصاویر جاسازی‌شده، [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) برای حذف نواحی برش‌خورده منبع، و [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) برای کنترل کیفیت رمزگذاری JPEG استفاده کنید. این تنظیمات حجم فایل را به قیمت کاهش وضوح تصویر یا حذف داده‌های تصویری کاهش می‌دهند.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -144,9 +193,9 @@ try {
 
 ## **کنترل وضوح رستری‌سازی متافایل**
 
-[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setMetafileRasterizationDpi-int-) حد پایین وضوح را برای رستری‌سازی متافایل‌ها در زمان صادرات SVG تعیین می‌کند. از آن برای تعادل بین جزئیات و اندازه فایل وقتی یک تصویر EMF یا WMF رستری می‌شود استفاده کنید. این تنظیم DPI کلی برای SVG را تعریف نمی‌کند و همهٔ اشیاء اسلاید را مجبور به تبدیل به تصویر رستری نمی‌کند.
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setMetafileRasterizationDpi-int-) حد پایین‌تری برای وضوح رستری‌سازی متافایل‌ها هنگام صادرات SVG تعیین می‌کند. از آن برای توازن جزئیات و حجم فایل هنگام رستری‌سازی تصویر EMF یا WMF استفاده کنید. این تنظیم یک DPI کلی برای کل SVG تعریف نمی‌کند و تمام اشیای اسلاید را به تصویر رستری تبدیل نمی‌کند.
 
-[metafile-rasterization.pptx](metafile-rasterization.pptx) را دانلود کنید، که حاوی یک تصویر EMF با خطوط قطری به‌صورت نزدیک است. مثال زیر اولین اسلاید آن را در سه وضوح رستری‌سازی مختلف با استفاده از [ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) صادر می‌کند. تمام تنظیمات صادرات دیگر یکسان باقی می‌مانند تا نتایج قابل مقایسه باشند.
+فایل [metafile-rasterization.pptx](metafile-rasterization.pptx) را دانلود کنید؛ این فایل حاوی تصویری EMF با خطوط مورب نزدیک به هم است. مثال زیر اولین اسلاید آن را با سه وضوح رستری‌سازی مختلف از طریق [ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) صادر می‌کند. سایر تنظیمات صادرات ثابت می‌مانند تا نتایج مقایسه شوند.
 
 ```java
 import com.aspose.slides.PicturesCompression;
@@ -172,25 +221,25 @@ try {
 }
 ```
 
-در خروجی، EMF به یک PNG جاسازی‌شده در هر SVG تبدیل شد. اندازه‌گیری‌های زیر برای ارائهٔ ارائه‌شده است؛ آن‌ها فرمول کلی برای تبدیل DPI به ابعاد پیکسل نیستند.
+در خروجی، EMF به یک PNG جاسازی‌شده در هر SVG تبدیل شد. اندازه‌گیری‌های زیر برای ارائهٔ ارائه شده‌اند؛ فرمول کلی برای تبدیل DPI به ابعاد پیکسل نیستند.
 
-| وضوح رستری‌سازی متافایل DPI | ابعاد PNG جاسازی‌شده | حجم فایل SVG (بایت) |
+| وضوح رستری‌سازی متافایل (DPI) | ابعاد PNG جاسازی‌شده | حجم فایل SVG (بایت) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-مقایسهٔ زیر همان ناحیهٔ رستر جاسازی‌شده را در همان اندازهٔ نمایش بزرگ‌شده نشان می‌دهد. خطوط قطری در 72 DPI پیکسل‌زدگی قابل مشاهده دارند و در وضوح‌های بالاتر لبه‌های نرم‌تری دارند، در حالی که حجم فایل SVG افزایش می‌یابد. افزایش مقدار لزوماً هر جزئیات را بهبود نمی‌بخشد یا هر تصویر صادرشده را تغییر نمی‌دهد.
+مقایسهٔ زیر همان ناحیهٔ رستر جاسازی‌شده را با همان اندازه نمایش بزرگ‌نمایی شده نشان می‌دهد. خطوط مورب در ۷۲ DPI پیکسل‌گذاری قابل مشاهده دارد و در وضوح‌های بالاتر لبه‌های نرم‌تری دارد، در حالی که حجم فایل SVG افزایش می‌یابد. افزایش مقدار لزوماً تمام جزئیات را بهتر نمی‌کند و همهٔ تصاویر صادر شده را تغییر نمی‌دهد.
 
 ![Enlarged diagonal-line detail at 72, 150, and 300 DPI](metafile-rasterization-comparison.png)
 
-[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) کاهش وضوح تصویر را کنترل می‌کند و می‌تواند اثر تغییر وضوح رستری‌سازی متافایل را پنهان کند. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) کیفیت رمزگذاری JPEG را کنترل می‌کند، نه وضوح رستری‌سازی متافایل.
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) کنترل کاهش وضوح تصویر را دارد و می‌تواند تأثیر تغییر وضوح رستری‌سازی متافایل را مخفی کند. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) کیفیت رمزگذاری JPEG را کنترل می‌کند، نه وضوح رستری‌سازی متافایل.
 
-## **تخصیص شناسه‌های ثابت به اشکال و متن**
+## **اختصاص شناسه‌های ثابت به اشکال و متن**
 
-از [ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) برای تنظیم [ISvgShape.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setId-java.lang.String-) برای هر شکل SVG استفاده کنید. برای تنظیم مقادیر [ISvgTSpan.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgtspan/#setId-java.lang.String-) بر روی عناصر `tspan` متن نیز، [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeandtextformattingcontroller/) را پیاده‌سازی کنید. هر یک از کنترل‌کننده‌ها را با [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) اختصاص دهید.
+از [ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) برای تنظیم [ISvgShape.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setId-java.lang.String-) برای هر شکل SVG استفاده کنید. برای تنظیم مقادیر [ISvgTSpan.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgtspan/#setId-java.lang.String-) روی عناصر `tspan` متنی نیز، پیاده‌سازی [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeandtextformattingcontroller/) را در نظر بگیرید. هر یک از این کنترلرها را با [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) اختصاص دهید.
 
-کنترل‌کنندهٔ زیر از [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) استفاده می‌کند که در طول عمر شکل ثابت است و یک شمارندهٔ تکرارپذیر برای قسمت‌های متنی آن دارد. این کار شناسه‌های تولید‌شده را برای پردازش پس از ارائهٔ بدون تغییر مناسب می‌سازد.
+کنترلر زیر از [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) استفاده می‌کند که برای طول عمر شکل ثابت است و یک شمارندهٔ قابل تکرار برای `tspan`های متن آن دارد. این کار شناسه‌های تولید شده را برای پردازش پس از انتشار ارائهٔ بدون تغییر مناسب می‌سازد.
 
 ```java
 class StableSvgIdController implements ISvgShapeAndTextFormattingController {
@@ -222,9 +271,9 @@ try {
 }
 ```
 
-## **افزودن هندلرهای رویداد SVG**
+## **افزودن پردازنده‌های رویداد SVG**
 
-در یک [ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/)، با مقدار [SvgEvent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgevent/)، متد [ISvgShape.setEventHandler](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) را صدا بزنید تا یک هندلر رویداد JavaScript به یک شکل صادرشده اضافه کنید. کنترل‌کننده را با [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) اختصاص داده و تابع JavaScript را در صفحه یا سند SVG که نتیجه را میزبانی می‌کند تعریف کنید.
+در یک [ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/)، با [ISvgShape.setEventHandler](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) و مقدار یک [SvgEvent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgevent/) یک پردازندهٔ JavaScript به شکل صادر شده اضافه کنید. کنترلر را با [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) اختصاص دهید و توابع JavaScript را در صفحه یا سند SVG که نتیجه را میزبانی می‌کند، تعریف کنید.
 
 ```java
 class SvgEventController implements ISvgShapeFormattingController {
@@ -250,18 +299,18 @@ try {
 }
 ```
 
-صفحهٔ میزبان می‌تواند تابع JavaScript ارجاع‌شده توسط هندلر را تعریف کند. تخصیص شناسه‌ها و هندلرهای رویداد امکاناتی برای نمایش‌دهندگان اسلاید، بهبود دسترسی و سایر جریان‌های کاری SVG تعاملی فراهم می‌کند.
+صفحهٔ میزبانی می‌تواند تابع JavaScript مورد ارجاع توسط پردازنده را تعریف کند. اختصاص شناسه‌ها و پردازنده‌های رویداد امکان‌پذیر ساختن نمایش اسلایدها، بهبود دسترس‌پذیری و سایر جریان‌های کاری تعاملی SVG می‌شود.
 
-## **FAQ**
+## **پرسش‌های متداول**
 
 **چه زمانی باید از [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) به‌جای [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) استفاده کنم؟**
 
-از [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) استفاده کنید وقتی که تمام متن باید مستقل از قلم‌ها باشد. از [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) استفاده کنید وقتی که فقط متنی که از قلم‌های خارجی استفاده می‌کند باید به گرافیک تبدیل شود.
+وقتی تمام متن باید مستقل از قلم‌ها باشد، از [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) استفاده کنید. وقتی تنها متنی که از قلم‌های خارجی استفاده می‌کند باید به گرافیک تبدیل شود، از [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) استفاده کنید.
 
-**به‌ترین روش برای کوچک کردن SVG چیست؟**
+**بهترین راه برای کوچک‌تر کردن یک SVG چیست؟**
 
-با فشرده‌سازی تصاویر جاسازی‌شده، حذف نواحی بریده‌شده تصویر و انتخاب لینک به فایل‌های قلم وقتی محیط هدف می‌تواند آن‌ها را سرو کند، شروع کنید. نتیجه را آزمایش کنید چون کاهش وضوح تصویر، کیفیت JPEG پایین‌تر و برداری‌سازی متن هر کدام تبادل‌های متفاوتی بین کیفیت و حجم دارند.
+با فشرده‌سازی تصاویر جاسازی‌شده، حذف نواحی برش‌خوردهٔ تصویر و انتخاب فایل‌های قلم پیوندی (در صورتی که محیط هدف قادر به سرو آن‌ها باشد) شروع کنید. نتیجه را تست کنید چون کاهش وضوح تصویر، کاهش کیفیت JPEG و بردارسازی متن هر کدام تبادل‌های متفاوتی بین کیفیت و حجم دارند.
 
-**آیا می‌توانم پس از صادر کردن، عناصر SVG را اصلاح کنم؟**
+**آیا می‌توان پس از صادرات عناصر SVG را تغییر داد؟**
 
-بله. شناسه‌ها را از طریق یک کنترل‌کنندهٔ قالب‌بندی اختصاص دهید، سپس عناصر SVG مطابق را در ابزار پردازش پس از خروج یا اسکریپت مرورگر خود انتخاب کنید.
+بله. شناسه‌ها را از طریق یک کنترلر قالب‌بندی اختصاص دهید، سپس عناصر SVG مطابق را در ابزار پردازش پس از انتشار یا اسکریپت مرورگر خود انتخاب کنید.

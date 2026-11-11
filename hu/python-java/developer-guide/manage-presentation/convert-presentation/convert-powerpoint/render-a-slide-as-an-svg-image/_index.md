@@ -1,33 +1,33 @@
 ---
-title: Dia bemutatók renderelése SVG képekként Pythonon keresztül Java használatával
-linktitle: Diát SVG-re
+title: Prezentációs diákat SVG képekként exportálni Pythonban Java-n keresztül
+linktitle: Dia SVG-re
 type: docs
 weight: 50
 url: /hu/python-java/render-a-slide-as-an-svg-image/
 keywords:
 - PowerPoint SVG-re
-- bemutató SVG-re
+- prezentáció SVG-re
 - dia SVG-re
 - PPT SVG-re
 - PPTX SVG-re
 - SVG exportálási beállítások
 - interaktív SVG
 - PowerPoint
-- bemutató
+- prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Exportálja a PowerPoint diákat SVG képekként Pythonban Java használatával, és irányítsa a betűtípusokat, szöveget, képeket, azonosítókat és eseményeket az Aspose.Slides segítségével."
+description: "Exportálja a PowerPoint diákat SVG képekként Pythonban Java segítségével, és szabályozza a betűkészleteket, szöveget, képeket, azonosítókat és eseményeket az Aspose.Slides használatával."
 ---
 ## **Áttekintés**
 
-Az SVG egy skálázható XML-alapú képformátum, amely jól működik webes közzétételhez, diavetítőkhez, hozzáférhetőségi munkafolyamatokhoz és automatizált utófeldolgozáshoz. Az Aspose.Slides minden diát külön SVG‑fájlba exportál, és lehetővé teszi, hogy szabályozza, hogyan íródnak a szövegek, betűtípusok, képek és SVG‑elemek.
+Az SVG egy skálázható, XML-alapú képformátum, amely jól működik webes kiadványok, diavetítők, hozzáférhetőségi munkafolyamatok és automatikus utófeldolgozás esetén. Az Aspose.Slides minden diát külön SVG fájlba exportál, és lehetővé teszi a szöveg, betűkészletek, képek és SVG elemek írásának vezérlését.
 
-Használja a [SVGOptions](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/) akkor, ha az exportált SVG‑nek kompaktnak, böngészőközi előre láthatónak vagy interaktív felhasználásra késznek kell lennie.
+Használja a [SVGOptions](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/) elemet, ha az exportált SVG‑nek kompaktnak, böngészők között előre láthatónak vagy interaktív használatra készen kell állnia.
 
 ## **Dia exportálása SVG‑ként**
 
-Hozzon létre egy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), válasszon ki egy diát, és írja ki egy adatfolyamba a [Slide.writeAsSvg](https://reference.aspose.com/slides/python-java/aspose.slides/slide/). A példák egy meglévő `presentation.pptx` fájlt igényelnek. Minden példa szükség esetén elindítja a JVM‑et, és bezárja a kimeneti adatfolyamokat. Az alábbi példa a bemutató minden diáját külön SVG‑fájlba exportálja.
+Hozzon létre egy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) objektumot, válasszon ki egy diát, és írja ki egy áramba a [Slide.writeAsSvg](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) metódussal. A példák egy meglévő `presentation.pptx` fájlt feltételeznek. Minden példa elindítja a JVM‑et, ha szükséges, és lezárja a kimeneti áramokat. Az alábbi példa a prezentáció minden diáját külön SVG fájlként exportálja.
 
 ```python
 import jpype
@@ -52,11 +52,11 @@ finally:
     presentation.dispose()
 ```
 
-A fájlnevet a [Slide.getSlideNumber](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideNumber) alapján használja, nem pedig a ciklus indexe szerint. Egyéni alakzatot is exportálhat a [Shape.writeAsSvg](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) segítségével, ha egy diavetítő vagy weboldal csak azt az alakzatot igényli.
+A fájlnév a [Slide.getSlideNumber](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getSlideNumber) metódust használja a ciklusindex helyett. Egyetlen alakzatot is exportálhat a [Shape.writeAsSvg](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) metódussal, amikor egy diavetítő vagy weboldal csak azt az alakzatot igényli.
 
 ## **SVG kimenet konfigurálása**
 
-[A SVGOptions](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/) szabályozza az SVG renderelését. Szövegdobozok esetén a [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setUseFrameSize) a szövegdobozt is beleveszi a renderelési területbe, a [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setUseFrameRotation) pedig meghatározza, hogy a doboz forgatása alkalmazásra kerüljön‑e. Állítsa a [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setDisableFontLigatures) értékét `True`‑ra, ha a szöveget ligatúrák nélkül kell renderelni.
+A [SVGOptions](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/) vezérli az SVG renderelését. Szövegdobozok esetén a [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setUseFrameSize) a szövegdobozt is belefoglalja a renderelési területbe, a [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setUseFrameRotation) pedig meghatározza, hogy a doboz forgatása alkalmazásra kerül-e. Állítsa a [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setDisableFontLigatures) értékét `True`‑ra, ha a szöveget ligatúrák nélkül kell renderelni.
 
 ```python
 import jpype
@@ -85,13 +85,63 @@ finally:
     presentation.dispose()
 ```
 
-## **Szöveg és betűtípusok vezérlése**
+## **Vonalvégi levágás szabályozása nyilfejeknél**
 
-Diák SVG‑be exportálásakor szabályozhatja, hogy a szöveg megtartja‑e a szövegformátumot vagy vektorgrafikává alakul, valamint hogy a külső betűtípusok hogyan legyenek bevonva vagy hivatkozva. A következő beállítások segítenek egyensúlyba hozni a vizuális konzisztenciát, a szöveg kijelölhetőségét és a betűtípus‑függőségeket az exportált SVG‑ben.
+Az SVG 1.1 nem tartalmaz marker‑inset beállítást, amely megadná, hol álljon meg egy vonal a nyílfej alatt. Alapértelmezés szerint az Aspose.Slides rövidíti az exportált vonalat, hogy a vonal vastagsága ne lógjon ki a markerből. Hívja a [SVGOptions.setDisableLineEndCropping](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setDisableLineEndCropping) metódust `True`‑val, hogy a vonal teljesen a eredeti végpontjáig legyen rajzolva. Ez a beállítás csak az SVG kimenetet befolyásolja. A vonal pozíciója és hossza a dián változatlan marad.
+
+A példa háromszög‑ és rombusz‑nyilfejeket rajzol 2‑ és 10‑pont széles vonalakon. Kétszer exportálja ugyanazt a diát, csak a levágási beállítást változtatva.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, LineArrowheadStyle, Presentation, ShapeType, SVGOptions
+from java.awt import Color
+from java.io import FileOutputStream
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    y = 40
+
+    for style in [LineArrowheadStyle.Triangle, LineArrowheadStyle.Diamond]:
+        for width in [2, 10]:
+            line = slide.getShapes().addAutoShape(ShapeType.Line, 40, y, 200, 0)
+            line_format = line.getLineFormat()
+            line_format.getFillFormat().setFillType(FillType.Solid)
+            line_format.getFillFormat().getSolidFillColor().setColor(Color(0, 0, 139))
+            line_format.setWidth(width)
+            line_format.setEndArrowheadStyle(style)
+            y += 50
+
+    svg_options = SVGOptions()
+    for disable_cropping, output_file_name in [(False, "cropped.svg"), (True, "uncropped.svg")]:
+        svg_options.setDisableLineEndCropping(disable_cropping)
+        svg_stream = FileOutputStream(output_file_name)
+        try:
+            slide.writeAsSvg(svg_stream, svg_options)
+        finally:
+            svg_stream.close()
+finally:
+    presentation.dispose()
+```
+
+Az összehasonlítás a 10‑pontos vonalon a háromszög‑nyilfejet mutatja. Levágás engedélyezésekor a csúcs éles. Levágás letiltása esetén a vonal a marker ferde oldalain keresztül kiugrik, és lapos végződést hagy.
+
+![Nagyított 10‑pontos háromszög éles hegyével, amikor a levágás engedélyezett, és lapos végével, amikor a levágás le van tiltva](line-end-cropping.png)
+
+A példában szereplő többi vonalon a kiugró vonal kevésbé látható a 2‑pontos háromszögnél. A kitöltött rombusz mindkét szélességnél lefedi a vonal végét.
+
+## **Szöveg és betűkészletek szabályozása**
+
+SVG‑k exportálásakor szabályozhatja, hogy a szöveg szövegként marad‑e, vagy vektorgrafikává alakuljon, illetve hogyan kerülnek be vagy hivatkoznak a külső betűkészletek. A következő beállítások segítenek egyensúlyt teremteni a vizuális konzisztencia, a szövegkijelölés és a betűkészlet‑függőségek között az exportált SVG‑ben.
 
 ### **Minden szöveg vektorizálása**
 
-Állítsa a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setVectorizeText) értékét `True`‑ra, hogy az összes diateszxtet vektorgrafikaként írja ki. Ez megszünteti a betűtípus‑függőségeket, és a vizuális eredményt egységesebbé teszi a böngészők között, de a szöveg már nem lesz kijelölhető vagy kereshető SVG‑szövegként.
+Állítsa a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setVectorizeText) értékét `True`‑ra, hogy a dia összes szövegét vektorgrafikaként írja ki. Ez megszünteti a betűkészlet‑függőségeket és a vizuális eredményt egységesebbé teszi a böngészők között, de a szöveg már nem lesz kijelölhető vagy kereshető SVG‑szövegként.
 
 ```python
 import jpype
@@ -118,9 +168,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Válassza ki, hogyan kezelje a külső betűtípusokat**
+### **Külső betűkészletek kezelési módjának kiválasztása**
 
-A [SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setExternalFontsHandling) egy [SvgExternalFontsHandling](https://reference.aspose.com/slides/python-java/aspose.slides/svgexternalfontshandling/) értéket használ a külsőleg betöltött betűtípusokhoz. Válassza az `AddLinksToFontFiles` lehetőséget, ha különálló betűtípus‑fájlokra szeretne hivatkozni, az `Embed`‑et, ha a betűtípus‑adatokat az SVG‑be beágyazza, vagy a `Vectorize`‑t, ha csak a külső betűtípusokat használó szöveget vektorgrafikaként rendereli. Ellenőrizze a betűtípus‑licencet a beágyazás előtt.
+A [SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setExternalFontsHandling) egy [SvgExternalFontsHandling](https://reference.aspose.com/slides/python-java/aspose.slides/svgexternalfontshandling/) értéket használ a külsőleg betöltött betűkészletekhez. Válassza a `AddLinksToFontFiles`‑t a különálló betűkészlet‑fájlokra való hivatkozáshoz, az `Embed`‑et a betűkészlet‑adatok SVG‑be ágyazásához, vagy a `Vectorize`‑t, hogy csak a külső betűkészleteket használó szöveget alakítsa vektorgrafikává. Az ágyazás előtt ellenőrizze a betűkészlet licencelését.
 
 ```python
 import jpype
@@ -154,7 +204,7 @@ finally:
 
 ## **Beágyazott képek méretének csökkentése**
 
-Használja a [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setPicturesCompression)‑t a beágyazott képek felbontásának csökkentéséhez, a [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas)‑t a levágott forrásterületek kihagyásához, valamint a [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setJpegQuality)‑t a JPEG kódolás minőségének szabályozásához. Ezek a beállítások a fájlméretet csökkentik a kép pontosságának vagy a megtartott képadatok költségén.
+Használja a [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setPicturesCompression) metódust a beágyazott képek felbontásának csökkentéséhez, a [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas) metódust a levágott forrásterületek elhagyásához, valamint a [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setJpegQuality) metódust a JPEG kódolás minőségének szabályozásához. Ezek a beállítások csökkentik a fájlméretet a kép pontosságának vagy a megőrzött képadatoknak az árán.
 
 ```python
 import jpype
@@ -183,11 +233,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Metafájl raszterizálási felbontásának szabályozása**
+## **Metafájl rasterizációs felbontásának szabályozása**
 
-A [SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setMetafileRasterizationDpi) alacsonyabb felbontási határt állít be a metafájlok SVG‑export során történő raszterizálásához. Használja a részletek és a fájlméret egyensúlyozásához, amikor egy EMF vagy WMF kép raszterizálva van. Nem definiál globális DPI‑t az SVG‑hez, és nem kényszeríti minden dián lévő objektumot raszteres képpé.
+A [SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setMetafileRasterizationDpi) az SVG exportálásakor a metafájlok rasterizálásának alsó felbontási határát állítja be. Ezt a beállítást használja a részletek és a fájlméret közti egyensúly megtalálásához, amikor egy EMF vagy WMF kép rasterizálódik. Nem definiál globális DPI‑t az SVG‑hez, és nem kényszeríti, hogy a dia minden objektuma raszteres képpé alakuljon.
 
-Töltse le a [metafile-rasterization.pptx](metafile-rasterization.pptx) fájlt, amely egy EMF képet tartalmaz szorosan elhelyezkedő átlós vonalakkal. Az alábbi példa az első diát három raszterizálási felbontásban exportálja a [Slide.writeAsSvg](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) segítségével. A többi exportbeállítás változatlan marad, hogy az eredmények összehasonlíthatók legyenek.
+Töltse le a [metafile-rasterization.pptx](metafile-rasterization.pptx) fájlt, amely egy EMF képet tartalmaz szorosan elhelyezett átlós vonalakkal. A következő példa az első diát három rasterizációs felbontásban exportálja a [Slide.writeAsSvg](https://reference.aspose.com/slides/python-java/aspose.slides/slide/) metódussal. Az összes többi exportálási beállítás változatlan marad, hogy az eredmények összehasonlíthatók legyenek.
 
 ```python
 import jpype
@@ -217,25 +267,25 @@ finally:
     presentation.dispose()
 ```
 
-A kimenetben az EMF minden SVG‑ben egy beágyazott PNG‑vé változott. A következő mérőszámok a mellékelt bemutatóra vonatkoznak; nem általános képlet a DPI pixelméretekre történő átváltásához.
+A kimenetben az EMF minden SVG‑ben egy beágyazott PNG‑vé vált. Az alábbi mérések a mellékelt prezentációra vonatkoznak; nem általános képlet a DPI‑ról pixelméretre való átalakításhoz.
 
-| Metafájl raszterizálási DPI | Beágyazott PNG méretek | SVG fájlméret (bájt) |
+| Metafájl rasterizáció DPI | Beágyazott PNG méretek | SVG fájlméret (bájt) |
 | --- | --- | --- |
 | 72 | 1196 × 596 | 170,221 |
 | 150 | 2492 × 1242 | 423,149 |
 | 300 | 4983 × 2483 | 1,027,169 |
 
-Az alábbi összehasonlítás ugyanazt a beágyazott rasztert mutatja azonos nagyított megjelenítési mérettel. A 72 DPI‑nél látható pixelesedés a átlós vonalaknál, míg a magasabb felbontásnál simább élűek, eközben az SVG‑fájl növekszik. Az érték növelése nem feltétlenül javít minden részletet vagy módosít minden exportált képet.
+Az alábbi összehasonlítás ugyanazt a beágyazott raster területet mutatja azonos, nagyított megjelenítési mérettel. A 72 DPI‑nél látható pixeláció a átlós vonalakon, míg a nagyobb felbontásoknál simább élek jelennek meg, és az SVG fájl mérete nő. A felbontás növelése nem feltétlenül javít minden részletet, és nem változtat minden exportált képen.
 
-![Nagyított átlós vonal részletek 72, 150 és 300 DPI](metafile-rasterization-comparison.png)
+![Nagyított átlóvonalszegmens részlete 72, 150 és 300 DPI](metafile-rasterization-comparison.png)
 
-A [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setPicturesCompression) szabályozza a képfelbontás csökkentését, és elrejtheti a metafájl raszterizálási felbontás változtatásának hatását. A [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setJpegQuality) a JPEG kódolás minőségét szabályozza, nem a metafájl raszterizálási felbontását.
+A [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setPicturesCompression) szabályozza a kép felbontáscsökkentést, és elrejtheti a metafájl rasterizáció felbontásának változtatásának hatását. A [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setJpegQuality) a JPEG kódolás minőségét, nem pedig a metafájl rasterizációs felbontását szabályozza.
 
-## **Stabil azonosítók hozzárendelése alakzatokhoz és szöveghez**
+## **Állandó azonosítók hozzárendelése alakzatokhoz és szöveghez**
 
-Használjon egy `jpype.JProxy`‑n keresztül regisztrált Python formázóvezérlőt, hogy a [SvgShape.setId](https://reference.aspose.com/slides/python-java/aspose.slides/svgshape/#setId) értékeket alakzatokhoz, a [SvgTSpan.setId](https://reference.aspose.com/slides/python-java/aspose.slides/svgtspan/#setId) értékeket pedig a szöveg `tspan` elemeihez rendelje. A proxyt a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setShapeFormattingController)‑val rendeli hozzá.
+Használjon egy Python formázási vezérlőt, amelyet a `jpype.JProxy`‑on keresztül regisztrálnak, hogy a [SvgShape.setId](https://reference.aspose.com/slides/python-java/aspose.slides/svgshape/#setId) értékeket rendeljen a alakzatokhoz és a [SvgTSpan.setId](https://reference.aspose.com/slides/python-java/aspose.slides/svgtspan/#setId) értékeket a szöveg `tspan` elemeihez. A vezérlőt a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setShapeFormattingController) metódussal adja meg.
 
-A következő vezérlő a [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getOfficeInteropShapeId)‑t használja, amely az alakzat élettartama alatt stabil, valamint egy ismételhető számlálót a szövegtartományokhoz. Ez a generált azonosítókat alkalmasá teszi egy módosítatlan bemutató utófeldolgozásához.
+Az alábbi vezérlő a [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getOfficeInteropShapeId) metódust használja, amely az alakzat élettartama alatt stabil, valamint egy ismételhető számlálót a szövegtartományokhoz. Ez a generált azonosítót alkalmassá teszi egy változatlan prezentáció utófeldolgozásához.
 
 ```python
 import jpype
@@ -281,7 +331,7 @@ finally:
 
 ## **SVG eseménykezelők hozzáadása**
 
-Egy Python formázóvezérlőben hívja meg a [SvgShape.setEventHandler](https://reference.aspose.com/slides/python-java/aspose.slides/svgshape/#setEventHandler)‑t egy [SvgEvent](https://reference.aspose.com/slides/python-java/aspose.slides/svgevent/) értékkel, hogy JavaScript eseménykezelőt adjon az exportált alakzathoz. Regisztrálja a vezérlőt a `jpype.JProxy`‑val, és rendelje hozzá a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setShapeFormattingController)‑val. Definiálja a JavaScript függvényt az oldalon vagy az SVG‑dokumentumban, amely a kimenetet tartalmazza.
+Egy Python formázási vezérlőben hívja a [SvgShape.setEventHandler](https://reference.aspose.com/slides/python-java/aspose.slides/svgshape/#setEventHandler) metódust egy [SvgEvent](https://reference.aspose.com/slides/python-java/aspose.slides/svgevent/) értékkel, hogy JavaScript eseménykezelőt adjon egy exportált alakzathoz. Regisztrálja a vezérlőt a `jpype.JProxy`‑on keresztül, és rendelje hozzá a [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setShapeFormattingController) metódussal. Definiálja a JavaScript függvényt az oldalban vagy az SVG dokumentumban, amely a kimenetet tartalmazza.
 
 ```python
 import jpype
@@ -317,18 +367,18 @@ finally:
     presentation.dispose()
 ```
 
-A fogadó oldal definiálhatja a kezelő által hivatkozott JavaScript függvényt. Azonosítók és eseménykezelők hozzárendelése lehetővé teszi a diavetítők, a hozzáférhetőségi fejlesztések és egyéb interaktív SVG‑munkafolyamatok használatát.
+A host oldal definiálhatja a kezelő által hivatkozott JavaScript függvényt. Azonosítók és eseménykezelők hozzárendelése lehetővé teszi a diavetítők, a hozzáférhetőségi fejlesztések és más interaktív SVG munkafolyamatok használatát.
 
 ## **GYIK**
 
-**Mikor kell a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setVectorizeText)‑t használni a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/python-java/aspose.slides/svgexternalfontshandling/#Vectorize) helyett?**
+**Mikor kell a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setVectorizeText) metódust használni a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/python-java/aspose.slides/svgexternalfontshandling/#Vectorize) helyett?**
 
-Használja a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setVectorizeText)‑t, ha minden szöveget függetleníteni kell a betűtípusoktól. Használja a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/python-java/aspose.slides/svgexternalfontshandling/#Vectorize)‑t, ha csak a külső betűtípusokat használó szöveget kell grafikává konvertálni.
+Használja a [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setVectorizeText) metódust, ha minden szöveget függetlenül kell tenni a betűkészletektől. Használja a [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/python-java/aspose.slides/svgexternalfontshandling/#Vectorize) metódust, ha csak a külső betűkészleteket használó szövegeket kell grafikává konvertálni.
 
 **Mi a legjobb módja egy SVG méretének csökkentésére?**
 
-Kezdje a beágyazott képek tömörítésével, a levágott képrészletek törlésével, valamint a hivatkozott betűtípus‑fájlok kiválasztásával, ha a célkörnyezet képes azokat szolgáltatni. Tesztelje az eredményt, mivel az alacsonyabb képfelbontás, az alacsonyabb JPEG‑minőség és a vektorizált szöveg mind különböző minőség‑ és méret‑kompromisszumokat jelent.
+Kezdje a beágyazott képek tömörítésével, a levágott képrészek törlésével, és a linkelt betűkészlet‑fájlok választásával, ha a célkörnyezet képes azokat kiszolgálni. Tesztelje az eredményt, mivel az alacsonyabb képfelbontás, alacsonyabb JPEG minőség és a vektorizált szöveg mind különböző minőség‑ és méret‑kompromisszumokat eredményeznek.
 
-**Módosíthatom-e az exportált SVG elemeket az export után?**
+**Módosíthatom‑e az exportált SVG elemeket az export után?**
 
-Igen. Rendeljen azonosítókat egy formázóvezérlő segítségével, majd válassza ki a megfelelő SVG elemeket az utófeldolgozó eszközében vagy böngésző‑szkriptjében.
+Igen. Rendeljen azonosítókat egy formázási vezérlővel, majd válassza ki a megfelelő SVG elemeket az utófeldolgozó eszközben vagy böngésző‑szkriptben.
