@@ -702,6 +702,43 @@ The second portion retains `color:#ff0000`, `font-size:18pt`, and `font-weight:b
 
 Open the files in the same browser to compare them. In the two restricted modes, omitted CSS properties are resolved by the destination page's styles or browser defaults, so the resulting appearance depends on where the HTML is used.
 
+### **Generate an HTML Clipboard Fragment**
+
+Set [TextToHtmlConversionOptions::set_AddClipboardFragmentHeader](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_addclipboardfragmentheader/) to `false` for ordinary HTML or `true` to include a clipboard header. The header gives the UTF-8 byte offsets of the surrounding HTML (`StartHTML` and `EndHTML`) and the fragment to paste (`StartFragment` and `EndFragment`).
+
+This example exports two formatted paragraphs as ordinary HTML (`html`) and as an HTML clipboard fragment (`clipboardHtml`). Writing the fragment to the system clipboard is a separate application step. A clipboard API that accepts raw HTML clipboard bytes requires UTF-8 without a BOM.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/TextToHtmlConversionOptions.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0, 0, 400, 100);
+auto paragraphs = shape->get_TextFrame()->get_Paragraphs();
+paragraphs->Clear();
+paragraphs->AddFromHtml(u"<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+auto options = MakeObject<TextToHtmlConversionOptions>();
+options->set_AddClipboardFragmentHeader(false);
+auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+
+options->set_AddClipboardFragmentHeader(true);
+auto clipboardHtml = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+presentation->Dispose();
+```
+
 ### **Render a Paragraph as an Image**
 
 [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) renders an individual paragraph directly and returns an [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/). Save the result to a file or stream with [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/). You do not need to render the containing shape or crop a bitmap manually.

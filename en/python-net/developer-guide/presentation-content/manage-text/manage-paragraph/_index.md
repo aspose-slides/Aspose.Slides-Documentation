@@ -530,6 +530,31 @@ The second portion retains `color:#ff0000`, `font-size:18pt`, and `font-weight:b
 
 Open the files in the same browser to compare them. In the two restricted modes, omitted CSS properties are resolved by the destination page's styles or browser defaults, so the resulting appearance depends on where the HTML is used.
 
+### **Generate an HTML Clipboard Fragment**
+
+[ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) returns an HTML string. Set [TextToHtmlConversionOptions.add_clipboard_fragment_header](https://reference.aspose.com/slides/python-net/aspose.slides.export/texttohtmlconversionoptions/add_clipboard_fragment_header/) to `False` for ordinary HTML or `True` to include the Windows clipboard header. The header gives the UTF-8 byte offsets of the surrounding HTML (`StartHTML` and `EndHTML`) and the fragment to paste (`StartFragment` and `EndFragment`).
+
+This example exports two formatted paragraphs as ordinary HTML (`html`) and as an HTML clipboard fragment (`clipboard_html`). Writing the fragment to the system clipboard is a separate application step. If the clipboard API expects raw bytes, encode the fragment as UTF-8 without a BOM.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 400, 100)
+    paragraphs = shape.text_frame.paragraphs
+    paragraphs.clear()
+    paragraphs.add_from_html("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>")
+
+    options = slides.export.TextToHtmlConversionOptions()
+    options.add_clipboard_fragment_header = False
+    html = paragraphs.export_to_html(0, paragraphs.count, options)
+
+    options.add_clipboard_fragment_header = True
+    clipboard_html = paragraphs.export_to_html(0, paragraphs.count, options)
+```
+
 ### **Render a Paragraph as an Image**
 
 [Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) renders an individual paragraph directly and returns an [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/). Save the result to a file or stream with [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/). You do not need to render the containing shape or crop a bitmap manually.

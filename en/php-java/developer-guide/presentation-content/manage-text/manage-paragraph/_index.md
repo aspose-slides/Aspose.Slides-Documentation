@@ -643,6 +643,37 @@ The second portion retains `color:#ff0000`, `font-size:18pt`, and `font-weight:b
 
 Open the files in the same browser to compare them. In the two restricted modes, omitted CSS properties are resolved by the destination page's styles or browser defaults, so the resulting appearance depends on where the HTML is used.
 
+### **Generate an HTML Clipboard Fragment**
+
+Use [TextToHtmlConversionOptions::setAddClipboardFragmentHeader](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader) to choose the output from [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml). With `false`, the method returns ordinary HTML. With `true`, the returned string starts with a Windows clipboard header. Its `StartHTML` and `EndHTML` fields give the UTF-8 byte offsets of the HTML, while `StartFragment` and `EndFragment` identify the content to paste.
+
+This example exports two formatted paragraphs as ordinary HTML (`$html`) and as an HTML clipboard fragment (`$clipboardHtml`). The application can then write the fragment to the system clipboard. If the clipboard API expects raw bytes, supply the fragment as UTF-8 without a byte order mark (BOM).
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextToHtmlConversionOptions;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 400, 100);
+    $paragraphs = $shape->getTextFrame()->getParagraphs();
+    $paragraphs->clear();
+    $paragraphs->addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+    $options = new TextToHtmlConversionOptions();
+    $options->setAddClipboardFragmentHeader(false);
+    $html = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
+
+    $options->setAddClipboardFragmentHeader(true);
+    $clipboardHtml = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
+} finally {
+    $presentation->dispose();
+}
+```
+
 ### **Render a Paragraph as an Image**
 
 [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) renders an individual paragraph directly and returns an [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Save the result to a file or stream with [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save). You do not need to render the containing shape or crop a bitmap manually.

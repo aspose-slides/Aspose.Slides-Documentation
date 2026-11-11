@@ -651,6 +651,40 @@ The second portion retains `color:#ff0000`, `font-size:18pt`, and `font-weight:b
 
 Open the files in the same browser to compare them. In the two restricted modes, omitted CSS properties are resolved by the destination page's styles or browser defaults, so the resulting appearance depends on where the HTML is used.
 
+### **Generate an HTML Clipboard Fragment**
+
+Use [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader) to choose the output format of [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml). With `False`, the method returns ordinary HTML. With `True`, it prepends a Windows clipboard header. The `StartHTML` and `EndHTML` fields give the UTF-8 byte offsets of the HTML. The `StartFragment` and `EndFragment` fields delimit the content to paste.
+
+This example exports two formatted paragraphs as ordinary HTML (`html`) and as an HTML clipboard fragment (`clipboard_html`). An application can then write the fragment to the system clipboard. If the clipboard API expects raw bytes, use `clipboard_html.encode("utf-8")` to encode the fragment without a byte order mark (BOM).
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ShapeType, TextToHtmlConversionOptions
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 400, 100)
+    paragraphs = shape.getTextFrame().getParagraphs()
+    paragraphs.clear()
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>")
+
+    options = TextToHtmlConversionOptions()
+    options.setAddClipboardFragmentHeader(False)
+    html = str(paragraphs.exportToHtml(0, paragraphs.getCount(), options))
+
+    options.setAddClipboardFragmentHeader(True)
+    clipboard_html = str(paragraphs.exportToHtml(0, paragraphs.getCount(), options))
+finally:
+    presentation.dispose()
+```
+
 ### **Render a Paragraph as an Image**
 
 [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) renders an individual paragraph directly and returns an image object. Save the result to a file or stream with its `save` method. You do not need to render the containing shape or crop a bitmap manually.
