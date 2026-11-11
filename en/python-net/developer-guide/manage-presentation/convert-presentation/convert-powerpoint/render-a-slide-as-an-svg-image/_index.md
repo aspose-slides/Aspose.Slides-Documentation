@@ -56,6 +56,46 @@ with slides.Presentation("presentation.pptx") as presentation:
         presentation.slides[0].write_as_svg(svg_stream, svg_options)
 ```
 
+## **Control Line-End Cropping at Arrowheads**
+
+SVG 1.1 has no marker inset setting to specify where a line should stop beneath an arrowhead. By default, Aspose.Slides shortens the exported line so its stroke does not protrude through the marker. Set [SVGOptions.disable_line_end_cropping](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/disable_line_end_cropping/) to `True` to draw the stroke all the way to the line's original endpoint. This setting affects only the SVG output. The line keeps its position and length on the slide.
+
+The example draws triangle and diamond arrowheads on lines 2 and 10 points wide. It exports the same slide twice, changing only the cropping option.
+
+```py
+import aspose.pydrawing as drawing
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    y = 40
+
+    for style in (slides.LineArrowheadStyle.TRIANGLE, slides.LineArrowheadStyle.DIAMOND):
+        for width in (2, 10):
+            line = slide.shapes.add_auto_shape(slides.ShapeType.LINE, 40, y, 200, 0)
+            line_format = line.line_format
+            line_format.fill_format.fill_type = slides.FillType.SOLID
+            line_format.fill_format.solid_fill_color.color = drawing.Color.dark_blue
+            line_format.width = width
+            line_format.end_arrowhead_style = style
+            y += 50
+
+    options = slides.export.SVGOptions()
+    options.disable_line_end_cropping = False
+    with open("cropped.svg", "wb") as cropped:
+        slide.write_as_svg(cropped, options)
+
+    options.disable_line_end_cropping = True
+    with open("uncropped.svg", "wb") as uncropped:
+        slide.write_as_svg(uncropped, options)
+```
+
+The comparison shows the triangular arrowhead on the 10-point line. With cropping enabled, the tip is sharp. With cropping disabled, the stroke protrudes through the sloping sides of the marker and leaves a flat end.
+
+![Enlarged 10-point triangle with a sharp tip when cropping is enabled and a flat end when cropping is disabled](line-end-cropping.png)
+
+In the other lines from the example, the protruding stroke is less visible on the 2-point triangle. The filled diamond covers the end of the stroke at both widths.
+
 ## **Control Text and Fonts**
 
 When exporting slides to SVG, you can control whether text remains as text or is converted to vector graphics, and how external fonts are included or referenced. The following options help you balance visual consistency, text selection, and font dependencies in the exported SVG.

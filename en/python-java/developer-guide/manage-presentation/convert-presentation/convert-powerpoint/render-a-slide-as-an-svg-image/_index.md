@@ -86,6 +86,56 @@ finally:
     presentation.dispose()
 ```
 
+## **Control Line-End Cropping at Arrowheads**
+
+SVG 1.1 has no marker inset setting to specify where a line should stop beneath an arrowhead. By default, Aspose.Slides shortens the exported line so its stroke does not protrude through the marker. Call [SVGOptions.setDisableLineEndCropping](https://reference.aspose.com/slides/python-java/aspose.slides/svgoptions/#setDisableLineEndCropping) with `True` to draw the stroke all the way to the line's original endpoint. This setting affects only the SVG output. The line keeps its position and length on the slide.
+
+The example draws triangle and diamond arrowheads on lines 2 and 10 points wide. It exports the same slide twice, changing only the cropping option.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, LineArrowheadStyle, Presentation, ShapeType, SVGOptions
+from java.awt import Color
+from java.io import FileOutputStream
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    y = 40
+
+    for style in [LineArrowheadStyle.Triangle, LineArrowheadStyle.Diamond]:
+        for width in [2, 10]:
+            line = slide.getShapes().addAutoShape(ShapeType.Line, 40, y, 200, 0)
+            line_format = line.getLineFormat()
+            line_format.getFillFormat().setFillType(FillType.Solid)
+            line_format.getFillFormat().getSolidFillColor().setColor(Color(0, 0, 139))
+            line_format.setWidth(width)
+            line_format.setEndArrowheadStyle(style)
+            y += 50
+
+    svg_options = SVGOptions()
+    for disable_cropping, output_file_name in [(False, "cropped.svg"), (True, "uncropped.svg")]:
+        svg_options.setDisableLineEndCropping(disable_cropping)
+        svg_stream = FileOutputStream(output_file_name)
+        try:
+            slide.writeAsSvg(svg_stream, svg_options)
+        finally:
+            svg_stream.close()
+finally:
+    presentation.dispose()
+```
+
+The comparison shows the triangular arrowhead on the 10-point line. With cropping enabled, the tip is sharp. With cropping disabled, the stroke protrudes through the sloping sides of the marker and leaves a flat end.
+
+![Enlarged 10-point triangle with a sharp tip when cropping is enabled and a flat end when cropping is disabled](line-end-cropping.png)
+
+In the other lines from the example, the protruding stroke is less visible on the 2-point triangle. The filled diamond covers the end of the stroke at both widths.
+
 ## **Control Text and Fonts**
 
 When exporting slides to SVG, you can control whether text remains as text or is converted to vector graphics, and how external fonts are included or referenced. The following options help you balance visual consistency, text selection, and font dependencies in the exported SVG.

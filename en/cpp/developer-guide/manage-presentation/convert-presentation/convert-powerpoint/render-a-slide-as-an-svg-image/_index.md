@@ -86,6 +86,74 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 
+## **Control Line-End Cropping at Arrowheads**
+
+SVG 1.1 has no marker inset setting to specify where a line should stop beneath an arrowhead. By default, Aspose.Slides shortens the exported line so its stroke does not protrude through the marker. Set [SVGOptions::set_DisableLineEndCropping](https://reference.aspose.com/slides/cpp/aspose.slides.export/svgoptions/set_disablelineendcropping/) to `true` to draw the stroke all the way to the line's original endpoint. This setting affects only the SVG output. The line keeps its position and length on the slide.
+
+The example draws triangle and diamond arrowheads on lines 2 and 10 points wide. It exports the same slide twice, changing only the cropping option.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/FillType.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/ShapeType.h>
+#include <Export/SVGOptions.h>
+#include <drawing/color.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto y = 40;
+const LineArrowheadStyle styles[] = { LineArrowheadStyle::Triangle, LineArrowheadStyle::Diamond };
+const int widths[] = { 2, 10 };
+
+for (auto style : styles)
+{
+    for (auto width : widths)
+    {
+        auto line = slide->get_Shapes()->AddAutoShape(ShapeType::Line, 40, y, 200, 0);
+        auto format = line->get_LineFormat();
+        format->get_FillFormat()->set_FillType(FillType::Solid);
+        format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkBlue());
+        format->set_Width(width);
+        format->set_EndArrowheadStyle(style);
+        y += 50;
+    }
+}
+
+auto options = MakeObject<SVGOptions>();
+options->set_DisableLineEndCropping(false);
+auto cropped = File::Create(u"cropped.svg");
+slide->WriteAsSvg(cropped, options);
+cropped->Dispose();
+
+options->set_DisableLineEndCropping(true);
+auto uncropped = File::Create(u"uncropped.svg");
+slide->WriteAsSvg(uncropped, options);
+uncropped->Dispose();
+
+presentation->Dispose();
+```
+
+The comparison shows the triangular arrowhead on the 10-point line. With cropping enabled, the tip is sharp. With cropping disabled, the stroke protrudes through the sloping sides of the marker and leaves a flat end.
+
+![Enlarged 10-point triangle with a sharp tip when cropping is enabled and a flat end when cropping is disabled](line-end-cropping.png)
+
+In the other lines from the example, the protruding stroke is less visible on the 2-point triangle. The filled diamond covers the end of the stroke at both widths.
+
 ## **Control Text and Fonts**
 
 When exporting slides to SVG, you can control whether text remains as text or is converted to vector graphics, and how external fonts are included or referenced. The following options help you balance visual consistency, text selection, and font dependencies in the exported SVG.
