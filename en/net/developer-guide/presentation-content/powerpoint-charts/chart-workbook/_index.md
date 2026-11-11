@@ -660,6 +660,8 @@ else
 
 If code accesses the external workbook while it is unavailable and recovery is disabled, Aspose.Slides throws an [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Enable recovery only when using the cached chart data is an acceptable fallback, because the cache may not contain changes made to the external workbook after the presentation was last updated.
 
+**Note:** The `RefreshData` and `RefreshChartsData` methods were introduced in Aspose.Slides for .NET 26.11. They are not available in earlier releases (for example, version 25.11). In those earlier versions there is no programmatic API to refresh external workbook links such as Excel-linked charts, and methods like `getLinkFormat` or `UpdateLinks` do not exist.
+
 ## **FAQ**
 
 **Can I determine whether a specific chart is linked to an external or an embedded workbook?**
