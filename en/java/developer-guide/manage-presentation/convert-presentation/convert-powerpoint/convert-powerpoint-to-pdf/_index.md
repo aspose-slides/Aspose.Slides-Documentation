@@ -115,6 +115,10 @@ try {
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+Disabling `PdfOptions.setSaveMetafilesAsPng(false)` may cause large EMF chart images (≈1.7 MB or larger) to be omitted from the generated PDF. Ensure the option is set to `true` (or omitted, as `true` is the default) to render such charts correctly.
+{{% /alert %}}
+
 ### **Automatically Select Image Compression**
 
 When a presentation contains many photographs or screenshots, reducing the size of the exported PDF can make it easier to email or download. Call [PdfOptions.setBestImagesCompressionRatio](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setBestImagesCompressionRatio-boolean-) with `true` to automatically select the most appropriate compression algorithm for each image during PDF export.
