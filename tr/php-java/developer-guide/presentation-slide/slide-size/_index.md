@@ -6,7 +6,7 @@ weight: 70
 url: /tr/php-java/slide-size/
 keywords:
 - slayt boyutu
-- en-boy oranı
+- en/boy oranı
 - standart
 - geniş ekran
 - 4:3
@@ -16,36 +16,38 @@ keywords:
 - özel slayt boyutu
 - özel slayt boyutu
 - benzersiz slayt boyutu
-- tam boy slayt
-- ekran tipi
-- yeniden ölçekleme
-- sığdır
+- tam boyutlu slayt
+- ekran türü
+- ölçeklendirme yapma
+- uygunluğu sağla
 - büyüt
 - PowerPoint
 - OpenDocument
 - sunum
 - PHP
 - Aspose.Slides
-descriptions: "PHP ve Aspose.Slides kullanarak PPT, PPTX ve ODP dosyalarındaki slaytları hızlı bir şekilde yeniden boyutlandırmayı, kalite kaybı olmadan herhangi bir ekran için sunumları optimize etmeyi öğrenin."
+description: "PHP ve Aspose.Slides ile PPT, PPTX ve ODP dosyalarındaki slaytları hızlı bir şekilde yeniden boyutlandırmayı öğrenin, kalite kaybı olmadan tüm ekranlar için sunumları optimize edin."
 ---
 ## **Giriş**
 
-Aspose.Slides, PowerPoint sunumlarında slayt boyutunu ve en‑boy oranını ayarlamak için kapsamlı araçlar sunar; bu, hem yazdırma hem de ekranda görüntüleme için kritiktir. 
+Aspose.Slides, PowerPoint sunumlarında slayt boyutunu ve en/boy oranını ayarlamak için kapsamlı araçlar sağlar; bu, hem baskı hem de ekranda görüntüleme için kritiktir.
 
 Popüler Slayt Boyutları ve Oranları:
 
-- **Standard (4:3 En-Boy Oranı)**: Eski ekranlar ve cihazlar için idealdir.
-- **Geniş Ekran (16:9 En-Boy Oranı)**: Modern projeksiyon cihazları ve ekranlar için önerilir.
+- **Standart (4:3 En/Boy Oranı)**: Eski ekranlar ve cihazlar için idealdir.
+- **Geniş Ekran (16:9 En/Boy Oranı)**: Modern projektör ve ekranlar için önerilir.
 
-Sunumunuz boyunca tutarlılığı sağlamak için tüm slaytlara tek bir slayt boyutu ve en‑boy oranı uygulanır. En iyi sonuçlar için, slayt boyutlarını sunum oluşturma sürecinin başında ayarlayın; böylece sorunların önüne geçilmiş olur.
+Tüm slaytlar aynı slayt boyutu ve en/boy oranını kullandığından sunumunuzda tutarlılık sağlayın. En iyi sonuçlar için slayt boyutlarını sunum oluşturma sürecinin başında ayarlayın, böylece komplikasyonlardan kaçınmış olursunuz.
 
-{{% alert color="primary" %}} 
-Varsayılan olarak, Aspose.Slides ile oluşturulan sunumlar standart 4:3 en‑boy oranını kullanır.
+{{% alert color="info" title="Note" %}}
+Varsayılan olarak, Aspose.Slides ile oluşturulan sunumlar standart 4:3 en/boy oranını kullanır.
 {{% /alert %}}
 
-## **Sunumlarda Slayt Boyutunu Değiştirme**
+Not ve el ilanı sayfaları, normal slaytlardan ayrı boyutlara sahiptir. Boyut ve yönlerini değiştirmek için [Not Sayfası Boyutu](/slides/tr/php-java/notes-size/) sayfasına bakın.
 
-Bu örnek kod, Aspose.Slides kullanarak bir sunumda slayt boyutunu nasıl değiştireceğinizi gösterir:
+## **Sunumlarda Slayt Boyutunu Değiştirin**
+
+Bu örnek kod, Aspose.Slides kullanarak bir sunumda slayt boyutunun nasıl değiştirileceğini gösterir:
 
 ```php
   $pres = new Presentation("pres-4x3-aspect-ratio.pptx");
@@ -59,11 +61,11 @@ Bu örnek kod, Aspose.Slides kullanarak bir sunumda slayt boyutunu nasıl deği�
   }
 ```
 
-## **Sunumlarda Özel Slayt Boyutlarını Belirleme**
+## **Sunumlarda Özel Slayt Boyutları Belirleyin**
 
-Ortak slayt boyutları (4:3 ve 16:9) işiniz için uygun değilse, belirli veya benzersiz bir slayt boyutu kullanmayı tercih edebilirsiniz. Örneğin, sunumunuzdaki tam boy slaytları özel bir sayfa düzeninde yazdırmayı planlıyor ya da sunumunuzu belirli ekran tiplerinde görüntülemeyi düşünüyorsanız, özel bir boyut ayarı kullanmanız faydalı olacaktır. 
+Yaygın slayt boyutları (4:3 ve 16:9) işiniz için uygun değilse, belirli veya benzersiz bir slayt boyutu kullanmaya karar verebilirsiniz. Örneğin, sunumunuzdaki slaytları özel bir sayfa düzeninde tam boyutta yazdırmayı planlıyorsanız veya sunumunuzu belirli ekran tiplerinde görüntülemeyi düşünüyorsanız, özel bir boyut ayarı kullanmanız faydalı olacaktır.
 
-Bu örnek kod, Java üzerinden PHP için Aspose.Slides kullanarak bir sunum için özel bir slayt boyutu nasıl belirtilir gösterir:
+Bu örnek kod, PHP üzerinden Java ile Aspose.Slides kullanarak bir sunum için özel slayt boyutu nasıl belirtilir gösterir:
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -78,23 +80,23 @@ Bu örnek kod, Java üzerinden PHP için Aspose.Slides kullanarak bir sunum içi
   }
 ```
 
-## **Yeniden Boyutlandırmadan Sonra Slayt İçeriğini İşleme**
+## **Yeniden Boyutlandırma Sonrası Slayt İçeriğini Yönetme**
 
-Bir sunumun slayt boyutunu değiştirdikten sonra, slaytların içeriği (örneğin resimler ya da nesneler) bozulabilir. Varsayılan olarak, nesneler yeni slayt boyutuna uyması için otomatik olarak yeniden boyutlandırılır. Ancak, bir sunumun slayt boyutunu değiştirirken, Aspose.Slides'in slaytlardaki içerikle nasıl başa çıkacağını belirleyen bir ayar belirtebilirsiniz.
+Bir sunumun slayt boyutunu değiştirdikten sonra, slaytların içeriği (örneğin resimler veya nesneler) bozulabilir. Varsayılan olarak, nesneler yeni slayt boyutuna uyması için otomatik olarak yeniden boyutlandırılır. Ancak, bir sunumun slayt boyutunu değiştirirken, Aspose.Slides'in slaytlardaki içerikle nasıl başa çıkacağını belirleyen bir ayar belirtebilirsiniz.
 
-Ne yapmayı veya ne elde etmeyi amaçladığınıza bağlı olarak, bu ayarlardan herhangi birini kullanabilirsiniz:
+Ne yapmak istediğinize bağlı olarak aşağıdaki ayarlardan herhangi birini kullanabilirsiniz:
 
 - `DoNotScale`
 
-  Slaytlardaki nesnelerin yeniden boyutlandırılmasını İSTEMİYORSANIZ bu ayarı kullanın.
+  Slaytlardaki nesnelerin yeniden boyutlandırılmasını istemiyorsanız bu ayarı kullanın.
 
 - `EnsureFit`
 
-  Daha küçük bir slayt boyutuna ölçeklendirmek istiyor ve Aspose.Slides'in slayt nesnelerini küçülterek hepsinin slaytlara sığmasını (böylece içeriği kaybetmemeyi) sağlamasını istiyorsanız bu ayarı kullanın.
+  Daha küçük bir slayt boyutuna ölçeklendirmek ve tüm nesnelerin slaytlara sığmasını sağlamak için Aspose.Slides'in nesneleri küçültmesini istiyorsanız (böylece içerik kaybını önlersiniz) bu ayarı kullanın.
 
 - `Maximize`
 
-  Daha büyük bir slayt boyutuna ölçeklendirmek istiyor ve Aspose.Slides'in slayt nesnelerini yeni slayt boyutuna orantılı olacak şekilde büyütmesini istiyorsanız bu ayarı kullanın.
+  Daha büyük bir slayt boyutuna ölçeklendirmek ve nesnelerin yeni slayt boyutuna orantılı olarak büyütülmesini istiyorsanız bu ayarı kullanın.
 
 Bu örnek kod, bir sunumun slayt boyutunu değiştirirken `Maximize` ayarının nasıl kullanılacağını gösterir:
 
@@ -111,18 +113,18 @@ Bu örnek kod, bir sunumun slayt boyutunu değiştirirken `Maximize` ayarının 
 
 ## **SSS**
 
-**Slayt boyutunu inç dışındaki birimlerle (örneğin, point ya da milimetre) ayarlayabilir miyim?**
+**Özel bir slayt boyutunu inç dışında birimlerle (örneğin puan veya milimetre) ayarlayabilir miyim?**
 
-Evet. Aspose.Slides dahili olarak point birimini kullanır; 1 point 1/72 inç'e eşittir. Milimetre veya santimetre gibi herhangi bir birimi point'e dönüştürerek slayt genişliği ve yüksekliğini bu değerlerle tanımlayabilirsiniz.
+Evet. Aspose.Slides dahili olarak puan kullanır; 1 puan 1/72 inçe eşittir. Herhangi bir birimi (milimetre veya santimetre gibi) puana dönüştürüp slayt genişliği ve yüksekliği olarak kullanabilirsiniz.
 
-**Çok büyük bir özel slayt boyutu, işleme sırasında performans ve bellek kullanımını etkiler mi?**
+**Çok büyük bir özel slayt boyutu, oluşturma sırasında performansı ve bellek kullanımını etkiler mi?**
 
-Evet. Daha büyük slayt boyutları (point cinsinden) ve yüksek işleme ölçeği, bellek tüketimini artırır ve işlem süresini uzatır. Pratik bir slayt boyutu hedefleyin ve yalnızca gerektiğinde çıktı kalitesini sağlamak için işleme ölçeğini ayarlayın.
+Evet. Daha büyük slayt boyutları (puan cinsinden) ve yüksek render ölçeği, bellek tüketimini artırır ve işleme süresini uzatır. Pratik bir slayt boyutu hedefleyin ve istenen çıktı kalitesini elde etmek için render ölçeğini yalnızca gerektiği kadar ayarlayın.
 
-**Tek bir standart dışı slayt boyutu tanımlayıp, farklı boyutlara sahip sunumlardan slaytları birleştirebilir miyim?**
+**Standart olmayan bir slayt boyutu tanımlayıp, farklı boyutlara sahip sunumlardan slaytları birleştirebilir miyim?**
 
-Farklı slayt boyutlarına sahip oldukları sürece [sunumları birleştiremezsiniz](/slides/tr/php-java/merge-presentation/) — önce bir sunumu diğerine uygun boyuta yeniden boyutlandırın. Slayt boyutunu değiştirirken, mevcut içeriğin nasıl işleneceğini [SlideSizeScaleType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidesizescaletype/) seçeneğiyle belirleyebilirsiniz. Boyutlar eşitlendikten sonra, biçimlendirmeyi koruyarak slaytları birleştirebilirsiniz.
+Farklı slayt boyutlarına sahip sunumları [sunumları birleştirme](/slides/tr/php-java/merge-presentation/) sırasında birleştiremezsiniz; önce bir sunumu diğerine uyacak şekilde yeniden boyutlandırmanız gerekir. Slayt boyutunu değiştirirken mevcut içeriğin nasıl ele alınacağını [SlideSizeScaleType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidesizescaletype/) seçeneğiyle belirleyebilirsiniz. Boyutları hizaladıktan sonra, biçimlendirmeyi koruyarak slaytları birleştirebilirsiniz.
 
-**Tek tek şekiller veya bir slaytın belirli bölgeleri için küçük resimler (thumbnail) oluşturabilir miyim ve bu yeni slayt boyutunu göz önünde bulundurur mu?**
+**Tek tek şekiller veya slaytın belirli bölgeleri için önizleme resimleri oluşturabilir miyim ve bunlar yeni slayt boyutunu dikkate alır mı?**
 
-Evet. Aspose.Slides, [tam slaytlar](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#getImage) ve [seçili şekiller](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/#getImage) için küçük resimler oluşturabilir. Oluşan görüntüler mevcut slayt boyutu ve en‑boy oranını yansıtarak tutarlı çerçeveleme ve geometri sağlar.
+Evet. Aspose.Slides, [tüm slaytlar](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#getImage) ve [seçili şekiller](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/#getImage) için önizleme resimleri oluşturabilir. Oluşturulan görüntüler mevcut slayt boyutu ve en/boy oranını yansıtarak tutarlı çerçeveleme ve geometri sağlar.

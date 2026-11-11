@@ -1,42 +1,47 @@
 ---
-title: JavaScript-ben a bemutató jegyzeteinek kezelése
-linktitle: Bemutató jegyzetek
+title: Prezentációjegyzetek kezelése JavaScriptben
+linktitle: Prezentációjegyzetek
 type: docs
 weight: 110
 url: /hu/nodejs-java/presentation-notes/
 keywords:
 - jegyzetek
-- jegyzet dia
+- jegyzetdia
 - jegyzetek hozzáadása
 - jegyzetek eltávolítása
-- jegyzet stílus
-- fő jegyzetek
+- jegyzetstílus
+- mesterjegyzetek
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Testreszabhatja a bemutató jegyzeteit JavaScript-ben az Aspose.Slides for Node.js segítségével. Zökkenőmentesen dolgozhat a PowerPoint és OpenDocument jegyzetekkel, hogy növelje a hatékonyságát."
+description: "Testreszabhatja a prezentációjegyzeteket JavaScriptben az Aspose.Slides for Node.js segítségével. Zökkenőmentesen dolgozhat PowerPoint és OpenDocument jegyzetekkel a hatékonyság növelése érdekében."
 ---
 ## **Áttekintés**
 
-Aspose.Slides támogatja a jegyzetdiák eltávolítását egy bemutatóból. Ebben a témában bemutatjuk ezt a funkciót, beleértve, hogyan távolítható el a jegyzet, illetve hogyan alkalmazható stílus a jegyzetdiákra egy bemutatóban. Az Aspose.Slides lehetővé teszi, hogy jegyzeteket távolítson el bármely diáról, valamint alkalmazzon formázást a meglévő jegyzetekre. A fejlesztők a következő módokon távolíthatják el a jegyzeteket:
+Az Aspose.Slides támogatja a jegyzetdiák eltávolítását egy bemutatóból. Ebben a témában bemutatjuk ezt a funkciót, beleértve a jegyzetek eltávolítását és a jegyzetdiákra való stílusalkalmazást egy bemutatóban. Az Aspose.Slides lehetővé teszi a jegyzetek eltávolítását bármely diáról, valamint a meglévő jegyzetek stílusának alkalmazását. A fejlesztők a következő módokon távolíthatják el a jegyzeteket:
 
-- Jegyzetek eltávolítása egy adott diáról egy bemutatóban.
-- Jegyzetek eltávolítása az összes diáról egy bemutatóban.
+- Egy adott dia jegyzeteinek eltávolítása egy bemutatóban.
+- Az összes dia jegyzeteinek eltávolítása egy bemutatóban.
 
-## **Jegyzetek eltávolítása diáról**
-Az egyes diák jegyzetei eltávolíthatók, ahogy az alábbi példában látható:
+A jegyzetoldal méretének olvasásához vagy módosításához, az orientáció váltásához és az export viselkedésének ellenőrzéséhez lásd a [Jegyzetoldal Mérete](/slides/hu/nodejs-java/notes-size/) oldalt.
+
+## **Jegyzetek eltávolítása egy diáról**
+Egy adott diáról a jegyzetek a lenti példában látható módon távolíthatók el:
 
 ```javascript
-// Hozzon létre egy Presentation objektumot, amely egy bemutató fájlt képvisel
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Létrehozza a Presentation objektumot, amely egy prezentációs fájlt képvisel
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
     // Az első dia jegyzeteinek eltávolítása
     var mgr = pres.getSlides().get_Item(0).getNotesSlideManager();
     mgr.removeNotesSlide();
-    // A bemutató mentése lemezre
+    // A prezentáció mentése lemezre
     pres.save("test.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -45,20 +50,23 @@ try {
 }
 ```
 
-## **Jegyzetek eltávolítása a bemutatóból**
-A bemutató összes diájának jegyzetei eltávolíthatók, ahogy az alábbi példában látható:
+## **Jegyzetek eltávolítása egy bemutatóból**
+Az összes diáról a jegyzetek a lenti példában látható módon távolíthatók el:
 
 ```javascript
-// Hozzon létre egy Presentation objektumot, amely egy bemutató fájlt képvisel
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+//    Létrehozza a Presentation objektumot, amely egy prezentációs fájlt képvisel
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
-    // Az összes dia jegyzeteinek eltávolítása
+    //    Az összes dia jegyzeteinek eltávolítása
     var mgr = null;
     for (var i = 0; i < pres.getSlides().size(); i++) {
         mgr = pres.getSlides().get_Item(i).getNotesSlideManager();
         mgr.removeNotesSlide();
     }
-    // A bemutató mentése lemezre
+    //    A prezentáció mentése lemezre
     pres.save("test.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -67,20 +75,24 @@ try {
 }
 ```
 
-## **NotesStyle hozzáadása**
-[getNotesStyle](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) metódus hozzá lett adva a [MasterNotesSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/MasterNotesSlide) osztályhoz, és a [MasterNotesSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/MasterNotesSlide) osztályhoz. Ez a tulajdonság meghatározza egy jegyzet szövegének stílusát. A megvalósítást az alábbi példában mutatjuk be.
+## **Jegyzetstílus hozzáadása**
+[getNotesStyle](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) metódus lett hozzáadva a [MasterNotesSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/MasterNotesSlide) osztályhoz. Ez a tulajdonság a jegyzet szövegének stílusát határozza meg. A megvalósítást a lenti példa mutatja be.
 
 ```javascript
-// Hozzon létre egy Presentation objektumot, amely egy bemutató fájlt képvisel
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Létrehozza a Presentation objektumot, amely egy prezentációs fájlt képvisel
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
     var notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
     if (notesMaster != null) {
-        // A MasterNotesSlide szövegstílusának lekérése
+        // Lekéri a MasterNotesSlide szövegstílusát
         var notesStyle = notesMaster.getNotesStyle();
-        // Szimbólum típusú golyó beállítása az első szintű bekezdésekhez
+        // Szimbólum pontot állít be az első szintű bekezdésekhez
         var paragraphFormat = notesStyle.getLevel(0);
-        paragraphFormat.getBullet().setType(aspose.slides.BulletType.Symbol);
+        paragraphFormat.getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
     }
     pres.save("NotesSlideWithNotesStyle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -92,10 +104,10 @@ try {
 
 ## **GYIK**
 
-**Melyik API entitás biztosítja a hozzáférést egy adott dia jegyzeteihez?**
+**Melyik API entitás biztosít hozzáférést egy adott dia jegyzeteihez?**
 
-A jegyzetek a dia jegyzetkezelőjén keresztül érhetők el: a diának van egy [NotesSlideManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/notesslidemanager/) és egy [metódus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/) amely visszaadja a jegyzetobjektumot, vagy `null`, ha nincsenek jegyzetek.
+A jegyzetek a dia jegyzetkezelőjén keresztül érhetők el: a diához tartozik egy [NotesSlideManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/notesslidemanager/) és egy [metódus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/), amely visszaadja a jegyzetobjektumot, vagy `null` értéket, ha nincsenek jegyzetek.
 
-**Vannak különbségek a jegyzetek támogatásában a könyvtár által támogatott PowerPoint verziók között?**
+**Vannak-e különbségek a jegyzetek támogatásában a különböző PowerPoint verziók között, amelyeken a könyvtár működik?**
 
-A könyvtár a Microsoft PowerPoint széles körű formátumait (97‑újabb) és az ODP‑t célozza; a jegyzetek támogatottak ezekben a formátumokban, anélkül, hogy a PowerPoint telepített példányára támaszkodna.
+A könyvtár széles körű Microsoft PowerPoint formátumot (97‑től napjainkig) és ODP‑t támogat; a jegyzetek ezeken a formátumokon belül támogatottak, függetlenül attól, hogy a felhasználó telepítve rendelkezik‑e PowerPoint példánnyal.

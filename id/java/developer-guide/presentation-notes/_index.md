@@ -7,8 +7,8 @@ url: /id/java/presentation-notes/
 keywords:
 - catatan
 - slide catatan
-- menambahkan catatan
-- menghapus catatan
+- tambahkan catatan
+- hapus catatan
 - gaya catatan
 - catatan master
 - PowerPoint
@@ -16,20 +16,24 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Sesuaikan catatan presentasi dengan Aspose.Slides untuk Java. Bekerja secara mulus dengan catatan PowerPoint dan OpenDocument untuk meningkatkan produktivitas Anda."
+description: "Sesuaikan catatan presentasi dengan Aspose.Slides untuk Java. Bekerja dengan lancar pada catatan PowerPoint dan OpenDocument untuk meningkatkan produktivitas Anda."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides mendukung penghapusan slide catatan dari sebuah presentasi. Pada topik ini, kami akan memperkenalkan fitur tersebut, termasuk cara menghapus catatan dan cara menerapkan gaya pada slide catatan dalam sebuah presentasi. Aspose.Slides memungkinkan Anda menghapus catatan dari slide mana pun dan juga menerapkan gaya pada catatan yang sudah ada. Pengembang dapat menghapus catatan dengan cara berikut:
+Aspose.Slides mendukung penghapusan slide catatan dari presentasi. Pada topik ini, kami akan memperkenalkan fitur ini, termasuk cara menghapus catatan dan cara menerapkan gaya ke slide catatan dalam presentasi. Aspose.Slides memungkinkan Anda menghapus catatan dari slide mana pun dan juga menerapkan styling ke catatan yang ada. Pengembang dapat menghapus catatan dengan cara berikut:
 
-- Menghapus catatan dari slide tertentu dalam sebuah presentasi.  
-- Menghapus catatan dari semua slide dalam sebuah presentasi.
+- Menghapus catatan dari slide tertentu dalam presentasi.
+- Menghapus catatan dari semua slide dalam presentasi.
 
-## **Hapus Catatan dari Slide**
-Catatan pada slide tertentu dapat dihapus seperti yang ditunjukkan pada contoh di bawah ini:
+Untuk membaca atau mengubah dimensi halaman catatan, mengubah orientasi, dan memeriksa perilaku ekspor, lihat [Ukuran Halaman Catatan](/slides/id/java/notes-size/).
+
+## **Menghapus Catatan dari Slide**
+Catatan dari slide tertentu dapat dihapus seperti yang ditunjukkan pada contoh di bawah ini:
 
 ```java
-// Instansiasi objek Presentation yang mewakili file presentasi
+import com.aspose.slides.*;
+
+// Buat objek Presentation yang mewakili file presentasi
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
     // Menghapus catatan pada slide pertama
@@ -43,11 +47,13 @@ try {
 }
 ```
 
-## **Hapus Catatan dari Presentasi**
-Catatan pada semua slide dalam sebuah presentasi dapat dihapus seperti yang ditunjukkan pada contoh di bawah ini:
+## **Menghapus Catatan dari Presentasi**
+Catatan dari semua slide dalam presentasi dapat dihapus seperti yang ditunjukkan pada contoh di bawah ini:
 
 ```java
-// Instansiasi objek Presentation yang mewakili file presentasi
+import com.aspose.slides.*;
+
+// Membuat objek Presentation yang mewakili file presentasi
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
     // Menghapus catatan pada semua slide
@@ -64,11 +70,13 @@ try {
 }
 ```
 
-## **Tambahkan Gaya Catatan**
-Metode [getNotesStyle](https://reference.aspose.com/slides/id/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) telah ditambahkan ke antarmuka [IMasterNotesSlide](https://reference.aspose.com/slides/id/java/com.aspose.slides/IMasterNotesSlide) dan kelas [MasterNotesSlide](https://reference.aspose.com/slides/id/java/com.aspose.slides/MasterNotesSlide) masing‑masing. Properti ini menentukan gaya teks catatan. Implementasinya ditunjukkan dalam contoh di bawah ini.
+## **Menambahkan Gaya Catatan**
+[getNotesStyle](https://reference.aspose.com/slides/id/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) method telah ditambahkan ke antarmuka [IMasterNotesSlide](https://reference.aspose.com/slides/id/java/com.aspose.slides/IMasterNotesSlide) dan kelas [MasterNotesSlide](https://reference.aspose.com/slides/id/java/com.aspose.slides/MasterNotesSlide) masing-masing. Properti ini menentukan gaya teks catatan. Implementasinya ditunjukkan dalam contoh di bawah.
 
 ```java
-// Instansiasi objek Presentation yang mewakili file presentasi
+import com.aspose.slides.*;
+
+// Membuat objek Presentation yang mewakili file presentasi
 Presentation pres = new Presentation("demo.pptx");
 try {
     IMasterNotesSlide notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
@@ -78,7 +86,7 @@ try {
         // Dapatkan gaya teks MasterNotesSlide
         ITextStyle notesStyle = notesMaster.getNotesStyle();
     
-        //Set simbol bullet untuk paragraf level pertama
+        //Set bullet simbol untuk paragraf level pertama
         IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
         paragraphFormat.getBullet().setType(BulletType.Symbol);
     }
@@ -90,10 +98,10 @@ try {
 
 ## **FAQ**
 
-**Entitas API mana yang menyediakan akses ke catatan pada slide tertentu?**
+**Entitas API mana yang menyediakan akses ke catatan slide tertentu?**
 
-Catatan diakses melalui manajer catatan slide: slide memiliki [NotesSlideManager](https://reference.aspose.com/slides/id/java/com.aspose.slides/notesslidemanager/) dan sebuah [method](https://reference.aspose.com/slides/id/java/com.aspose.slides/notesslidemanager/#getNotesSlide--) yang mengembalikan objek catatan, atau `null` jika tidak ada catatan.
+Catatan diakses melalui pengelola catatan slide: slide memiliki [NotesSlideManager](https://reference.aspose.com/slides/id/java/com.aspose.slides/notesslidemanager/) dan sebuah [method](https://reference.aspose.com/slides/id/java/com.aspose.slides/notesslidemanager/#getNotesSlide--) yang mengembalikan objek catatan, atau `null` jika tidak ada catatan.
 
-**Apakah ada perbedaan dukungan catatan di antara versi PowerPoint yang didukung oleh pustaka ini?**
+**Apakah ada perbedaan dukungan catatan di antara versi PowerPoint yang didukung perpustakaan?**
 
-Pustaka ini menargetkan beragam format Microsoft PowerPoint (97–versi terbaru) dan ODP; catatan didukung dalam format tersebut tanpa tergantung pada instalasi PowerPoint yang ada.
+Perpustakaan ini menargetkan berbagai format Microsoft PowerPoint (97–terbaru) dan ODP; catatan didukung dalam format-format ini tanpa bergantung pada instalasi PowerPoint.

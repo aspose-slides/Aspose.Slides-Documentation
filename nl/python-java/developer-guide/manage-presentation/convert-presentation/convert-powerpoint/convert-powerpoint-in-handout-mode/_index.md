@@ -16,19 +16,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Converteer PowerPoint-presentaties naar handouts in Python via Java. Plaats meerdere dia's per pagina en exporteer naar PDF met Aspose.Slides."
+description: "Converteer PowerPoint-presentaties naar handouts in Python via Java. Rangschik meerdere dia's per pagina en exporteer naar PDF met Aspose.Slides."
 ---
-## **Inleiding**
+## **Introduction**
 
-Aspose.Slides voor Python via Java stelt je in staat presentaties te exporteren in handout-modus, waarbij meerdere dia's op één pagina worden geplaatst. Dit is handig voor het afdrukken van presentatiemateriaal voor conferenties, seminars en soortgelijke evenementen.
+Aspose.Slides for Python via Java stelt u in staat om presentaties te exporteren in handout-modus, waarbij meerdere dia’s op één pagina worden geplaatst. Dit is handig voor het afdrukken van presentatiemateriaal voor conferenties, seminars en soortgelijke evenementen.
 
-Configureer de lay-out via de [setSlidesLayoutOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) methode. Handout-lay-outs worden ondersteund door [PdfOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/htmloptions/), en [TiffOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/tiffoptions/). Gebruik een [HandoutLayoutingOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/handoutlayoutingoptions/) object om de lay-out en weergave‑instellingen op te geven.
+Configureer de lay-out via de [setSlidesLayoutOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) methode. Handout-lay-outs worden ondersteund door [PdfOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/htmloptions/) en [TiffOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/tiffoptions/). Gebruik een [HandoutLayoutingOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/handoutlayoutingoptions/) object om de lay-out en weergave-instellingen te specificeren.
 
-## **Handout‑modus export**
+Om de afmetingen en oriëntatie van de handout-pagina in te stellen vóór het exporteren, zie [Notes Page Size](/slides/nl/python-java/notes-size/).
 
-Om een presentatie te exporteren in handout-modus, maak je een [HandoutLayoutingOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/handoutlayoutingoptions/) instantie aan en wijs je deze toe aan de doel‑exportopties met behulp van [setSlidesLayoutOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+## **Handout Mode Export**
 
-Het volgende voorbeeld laadt `sample.pptx` en exporteert het naar PDF met vier dia's per pagina in horizontale volgorde. Het bevat dia-nummers en kaders rond de dia's, en sluit opmerkingen uit.
+Om een presentatie in handout-modus te exporteren, maak een [HandoutLayoutingOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/handoutlayoutingoptions/) instantie aan en wijs deze toe aan de doel-exportopties via [setSlidesLayoutOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+
+Het volgende voorbeeld laadt `sample.pptx` en exporteert het naar PDF met vier dia’s per pagina in horizontale volgorde. Het bevat dia-nummers en kaders rond de dia’s, en sluit opmerkingen uit.
 
 ```python
 import jpype
@@ -39,10 +41,10 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import HandoutLayoutingOptions, HandoutType, PdfOptions, Presentation, SaveFormat
 
-# Laad een presentatie.
+# Een presentatie laden.
 presentation = Presentation("sample.pptx")
 try:
-    # Configureer de handout-indeling.
+    # De handout-indeling configureren.
     slides_layout_options = HandoutLayoutingOptions()
     slides_layout_options.setHandout(HandoutType.Handouts4Horizontal)
     slides_layout_options.setPrintSlideNumbers(True)
@@ -52,26 +54,26 @@ try:
     pdf_options = PdfOptions()
     pdf_options.setSlidesLayoutOptions(slides_layout_options)
 
-    # Exporteer de presentatie naar PDF met de gekozen indeling.
+    # De presentatie exporteren naar PDF met de gekozen indeling.
     presentation.save("output.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Handout‑lay‑outinstellingen zijn van toepassing op ondersteunde uitvoerformaten, zoals PDF, HTML, TIFF en gerenderde afbeeldingen. Ze herschikken de dia's niet in de oorspronkelijke presentatie.
+Handout‑lay-outinstellingen zijn van toepassing op ondersteunde uitvoerformaten, zoals PDF, HTML, TIFF en gerenderde afbeeldingen. Ze herschikken de dia’s niet in de bronpresentatie.
 {{% /alert %}}
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Wat is het maximale aantal dia‑miniaturen per pagina in handout‑modus?**
+**Wat is het maximale aantal dia‑miniaturen per pagina in handout-modus?**
 
-Aspose.Slides ondersteunt maximaal negen miniaturen per pagina. De [HandoutType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/handouttype/) voorinstellingen bieden één, twee, drie, vier, zes of negen dia's per pagina. De voorinstellingen voor vier, zes en negen dia's bieden horizontale en verticale ordening.
+Aspose.Slides ondersteunt maximaal negen miniaturen per pagina. De [HandoutType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/handouttype/) presets bieden één, twee, drie, vier, zes of negen dia’s per pagina. De vier‑, zes‑ en negen‑dia‑presets bieden zowel horizontale als verticale ordening.
 
-**Kan ik een aangepast raster definiëren, bijvoorbeeld vijf of acht dia's per pagina?**
+**Kan ik een aangepast raster definiëren, zoals vijf of acht dia’s per pagina?**
 
-Nee. Het aantal en de volgorde van de miniaturen worden bepaald door de vooraf gedefinieerde [HandoutType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/handouttype/) waarden. Willekeurige rasters worden niet ondersteund door deze handout‑lay‑outinstellingen.
+Nee. Het aantal en de volgorde van de miniaturen worden bepaald door de vooraf gedefinieerde [HandoutType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/handouttype/) waarden. Willekeurige rasters worden niet ondersteund door deze handout‑lay-outinstellingen.
 
-**Kan ik verborgen dia's opnemen in de handout‑output?**
+**Kan ik verborgen dia’s opnemen in de handout-output?**
 
-Ja. Schakel verborgen dia's in de exportinstellingen voor het doelformaat in. Voor PDF roep je [PdfOptions.setShowHiddenSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) aan met `True` vóór het opslaan van de presentatie.
+Ja. Schakel verborgen dia’s in de exportinstellingen voor het doel‑formaat in. Voor PDF, roep [PdfOptions.setShowHiddenSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) aan met `True` voordat u de presentatie opslaat.

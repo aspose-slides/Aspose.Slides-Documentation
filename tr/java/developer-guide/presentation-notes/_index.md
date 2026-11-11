@@ -1,5 +1,5 @@
 ---
-title: Java'da Sunum Notlarını Yönetme
+title: Java'da Sunum Notlarını Yönet
 linktitle: Sunum Notları
 type: docs
 weight: 110
@@ -8,7 +8,7 @@ keywords:
 - notlar
 - not slaytı
 - not ekle
-- notları kaldır
+- not kaldır
 - not stili
 - ana notlar
 - PowerPoint
@@ -20,19 +20,23 @@ description: "Aspose.Slides for Java ile sunum notlarını özelleştirin. Power
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, bir sunumdan not slaytlarını kaldırmayı destekler. Bu konuda, bu özelliği, notları nasıl kaldıracağınızı ve bir sunumdaki not slaytlarına nasıl bir stil uygulanacağını tanıtacağız. Aspose.Slides, herhangi bir slayttan notları kaldırmanıza ve mevcut notlara stil uygulamanıza olanak tanır. Geliştiriciler notları aşağıdaki yollarla kaldırabilirler:
+Aspose.Slides bir sunumdan not slaytlarını kaldırmayı destekler. Bu konuda, notları nasıl kaldıracağınızı ve bir sunumdaki not slaytlarına nasıl stil uygulayacağınızı göstereceğiz. Aspose.Slides herhangi bir slayttan notları kaldırmanıza ve mevcut notlara stil uygulamanıza izin verir. Geliştiriciler notları aşağıdaki şekillerde kaldırabilir:
 
-- Bir sunumdaki belirli bir slayttan notları kaldır.
-- Bir sunumdaki tüm slaytlardan notları kaldır.
+- Sunumda belirli bir slayttan notları kaldır.
+- Sunumdaki tüm slaytlardan notları kaldır.
 
-## **Bir Slayttan Notları Kaldır**
-Belirli bir slayttaki notlar, aşağıdaki örnekte gösterildiği gibi kaldırılabilir:
+Not sayfası boyutlarını okumak veya değiştirmek, yönlendirmeyi değiştirmek ve dışa aktarım davranışını kontrol etmek için [Notes Page Size](/slides/tr/java/notes-size/) bölümüne bakın.
+
+## **Bir Slayttan Notları Kaldırma**
+Belirli bir slayttan notlar aşağıdaki örnekte gösterildiği gibi kaldırılabilir:
 
 ```java
-// Bir sunum dosyasını temsil eden Presentation nesnesini oluştur
+import com.aspose.slides.*;
+
+// Bir sunum dosyasını temsil eden Presentation nesnesi oluşturun
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
-    // İlk slaytın notlarını kaldırma
+    // İlk slaydın notlarını kaldırma
     INotesSlideManager mgr = pres.getSlides().get_Item(0).getNotesSlideManager();
     mgr.removeNotesSlide();
 
@@ -43,11 +47,13 @@ try {
 }
 ```
 
-## **Bir Sunumdan Notları Kaldır**
-Bir sunumdaki tüm slaytların notları, aşağıdaki örnekte gösterildiği gibi kaldırılabilir:
+## **Bir Sunumdan Notları Kaldırma**
+Bir sunumdaki tüm slaytlardan notlar aşağıdaki örnekte gösterildiği gibi kaldırılabilir:
 
 ```java
-// Bir sunum dosyasını temsil eden Presentation nesnesini oluştur
+import com.aspose.slides.*;
+
+// Bir sunum dosyasını temsil eden Presentation nesnesi oluşturun
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
     // Tüm slaytların notlarını kaldırma
@@ -64,11 +70,13 @@ try {
 }
 ```
 
-## **Not Stili Ekle**
-[getNotesStyle](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) yöntemi, sırasıyla [IMasterNotesSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IMasterNotesSlide) arayüzüne ve [MasterNotesSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/MasterNotesSlide) sınıfına eklenmiştir. Bu özellik, bir not metninin stilini belirtir. Uygulama aşağıdaki örnekte gösterilmiştir.
+## **Bir Not Stili Ekleme**
+[getNotesStyle](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) yöntemi [IMasterNotesSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IMasterNotesSlide) arabirimi ve [MasterNotesSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/MasterNotesSlide) sınıfına eklenmiştir. Bu özellik, bir not metninin stilini belirler. Uygulama aşağıdaki örnekte gösterilmiştir.
 
 ```java
-// Bir sunum dosyasını temsil eden Presentation nesnesini oluştur
+import com.aspose.slides.*;
+
+// Bir sunum dosyasını temsil eden Presentation nesnesi oluşturun
 Presentation pres = new Presentation("demo.pptx");
 try {
     IMasterNotesSlide notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
@@ -78,7 +86,7 @@ try {
         // MasterNotesSlide metin stilini al
         ITextStyle notesStyle = notesMaster.getNotesStyle();
     
-        //İlk seviye paragraflar için sembol madde işareti ayarla
+        // İlk seviye paragraflar için sembol madde işareti ayarla
         IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
         paragraphFormat.getBullet().setType(BulletType.Symbol);
     }
@@ -90,10 +98,10 @@ try {
 
 ## **SSS**
 
-**Belirli bir slaydın notlarına erişim sağlayan API varlığı nedir?**
+**Belirli bir slaytın notlarına erişimi sağlayan API nesnesi nedir?**
 
-Notlara, slaydın not yöneticisi aracılığıyla erişilir: slayt bir [NotesSlideManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/notesslidemanager/) ve not nesnesini döndüren bir [metod](https://reference.aspose.com/slides/tr/java/com.aspose.slides/notesslidemanager/#getNotesSlide--) içerir; not yoksa `null` döner.
+Notlar slaytın not yöneticisi aracılığıyla erişilir: slayt bir [NotesSlideManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/notesslidemanager/) ve not nesnesini döndüren bir [method](https://reference.aspose.com/slides/tr/java/com.aspose.slides/notesslidemanager/#getNotesSlide--) içerir; not yoksa `null` döner.
 
-**Kütüphanenin çalıştığı PowerPoint sürümleri arasında not desteğiyle ilgili farklar var mı?**
+**Kütüphanenin çalıştığı PowerPoint sürümlerinde not desteği açısından farklar var mı?**
 
-Kütüphane, Microsoft PowerPoint'in geniş bir sürüm yelpazesini (97‑ve sonrası) ve ODP'yi hedefler; notlar, bu formatlar içinde PowerPoint'in yüklü bir kopyasına bağımlı olmaksızın desteklenir.
+Kütüphane Microsoft PowerPoint (97‑yeni) ve ODP formatlarının geniş bir yelpazesini hedefler; notlar, PowerPoint yüklü olmasına bağlı olmaksızın bu formatlarda desteklenir.

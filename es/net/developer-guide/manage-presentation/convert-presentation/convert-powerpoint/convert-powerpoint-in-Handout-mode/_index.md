@@ -1,5 +1,5 @@
 ---
-title: Convertir presentaciones de PowerPoint en modo folleto en .NET
+title: Convertir presentaciones de PowerPoint en modo Folleto en .NET
 linktitle: Modo Folleto
 type: docs
 weight: 150
@@ -16,17 +16,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Convertir presentaciones en folletos en .NET. Configurar diapositivas por página, conservar notas, exportar a PDF o imágenes con Aspose.Slides, con código de ejemplo en C#. Pruébelo gratis."
+description: "Convierta presentaciones a folletos en .NET. Establezca diapositivas por página, conserve las notas, exporte a PDF o imágenes con Aspose.Slides, con código de muestra en C#. Pruébelo gratis."
 ---
+## **Introducción**
 
-## **Exportación en modo folleto**
+Aspose.Slides le permite convertir presentaciones a formatos de salida que admiten el modo Folleto. En este modo, varias diapositivas se organizan en una sola página, lo que resulta útil para imprimir material de presentación para conferencias, seminarios y eventos similares.
 
-Aspose.Slides proporciona la capacidad de convertir presentaciones a varios formatos, incluida la creación de folletos para imprimir en modo Folleto. Este modo le permite configurar cómo aparecen varias diapositivas en una sola página, lo que lo hace útil para conferencias, seminarios y otros eventos. Puede habilitar este modo estableciendo la propiedad `SlidesLayoutOptions` en las interfaces [IPdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/ihtmloptions/) y [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/).
+El modo Folleto se configura mediante la propiedad `SlidesLayoutOptions`, que está disponible en [IPdfOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/ihtmloptions/) y [ITiffOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/itiffoptions/). Para definir el diseño del folleto, utilice el objeto [HandoutLayoutingOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/handoutlayoutingoptions/).
 
-Para configurar el modo Folleto, use el objeto [HandoutLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/handoutlayoutingoptions/), que determina cuántas diapositivas se colocan en una sola página y otros parámetros de visualización.
+Para establecer las dimensiones y la orientación de la página del folleto antes de la exportación, consulte [Tamaño de página de notas](/slides/es/net/notes-size/).
 
-A continuación se muestra un ejemplo de código que convierte una presentación a PDF en modo Folleto.
+## **Exportación en modo Folleto**
+
+Para exportar una presentación en modo Folleto, establezca la propiedad `SlidesLayoutOptions` en las opciones de exportación de destino y asigne una instancia de [HandoutLayoutingOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/handoutlayoutingoptions/) que define el número de diapositivas por página y los parámetros de visualización relacionados.
+
+A continuación se muestra un ejemplo de código que demuestra cómo convertir una presentación a PDF en modo Folleto.
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Cargar una presentación.
 using var presentation = new Presentation("sample.pptx");
 
@@ -46,21 +55,20 @@ var pdfOptions = new PdfOptions
 presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-
 {{% alert color="warning" %}} 
-Tenga en cuenta que la propiedad `SlidesLayoutOptions` está disponible solo para ciertos formatos de salida, como PDF, HTML, TIFF y al renderizar como imágenes.
+Tenga en cuenta que la propiedad `SlidesLayoutOptions` está disponible solo para ciertos formatos de salida, como PDF, HTML, TIFF, y al renderizar como imágenes.
 {{% /alert %}} 
 
 ## **Preguntas frecuentes**
 
-**¿Cuál es el número máximo de miniaturas de diapositivas por página en el modo Folleto?**
+### ¿Cuál es el número máximo de miniaturas de diapositivas por página en modo Folleto?
 
-Aspose.Slides admite [preajustes](https://reference.aspose.com/slides/net/aspose.slides.export/handouttype/) de hasta 9 miniaturas por página con orden horizontal o vertical: 1, 2, 3, 4 (horizontal/vertical), 6 (horizontal/vertical) y 9 (horizontal/vertical).
+Aspose.Slides admite [presets](https://reference.aspose.com/slides/es/net/aspose.slides.export/handouttype/) de hasta 9 miniaturas por página con ordenación horizontal o vertical: 1, 2, 3, 4 (horizontal/vertical), 6 (horizontal/vertical) y 9 (horizontal/vertical).
 
-**¿Puedo definir una cuadrícula personalizada, como 5 o 8 diapositivas por página?**
+### ¿Puedo definir una cuadrícula personalizada, como 5 o 8 diapositivas por página?
 
-No. El número y el orden de las miniaturas están controlados estrictamente por la enumeración [HandoutType](https://reference.aspose.com/slides/net/aspose.slides.export/handouttype/); no se admiten diseños arbitrarios.
+No. El número y orden de las miniaturas está controlado estrictamente por la enumeración [HandoutType](https://reference.aspose.com/slides/es/net/aspose.slides.export/handouttype/); los diseños arbitrarios no son compatibles.
 
-**¿Puedo incluir diapositivas ocultas en la salida del folleto?**
+### ¿Puedo incluir diapositivas ocultas en la salida del Folleto?
 
-Sí. Habilite la opción `ShowHiddenSlides` en la configuración de exportación para el formato de destino, como [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/) o [TiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/).
+Sí. Active la opción `ShowHiddenSlides` en la configuración de exportación del formato de destino, como [PdfOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/htmloptions/) o [TiffOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/tiffoptions/).

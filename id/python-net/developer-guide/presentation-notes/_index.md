@@ -16,24 +16,26 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Sesuaikan catatan presentasi dengan Aspose.Slides untuk Python via .NET. Bekerja mulus dengan catatan PowerPoint dan OpenDocument untuk meningkatkan produktivitas Anda."
+description: "Sesuaikan catatan presentasi dengan Aspose.Slides untuk Python via .NET. Bekerja dengan mulus pada catatan PowerPoint dan OpenDocument untuk meningkatkan produktivitas Anda."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides mendukung penghapusan slide catatan dari presentasi. Pada topik ini, kami akan memperkenalkan fitur tersebut, termasuk cara menghapus catatan dan cara menerapkan gaya pada slide catatan dalam sebuah presentasi. Aspose.Slides memungkinkan Anda menghapus catatan dari slide mana pun serta menerapkan gaya pada catatan yang ada. Pengembang dapat menghapus catatan dengan cara berikut:
+Aspose.Slides mendukung penghapusan slide catatan dari sebuah presentasi. Dalam topik ini, kami akan memperkenalkan fitur ini, termasuk cara menghapus catatan dan cara menerapkan gaya pada slide catatan dalam sebuah presentasi. Aspose.Slides memungkinkan Anda menghapus catatan dari slide mana pun dan juga menerapkan gaya pada catatan yang ada. Pengembang dapat menghapus catatan dengan cara berikut:
 
-- Menghapus catatan dari slide tertentu dalam sebuah presentasi.  
-- Menghapus catatan dari semua slide dalam sebuah presentasi.
+- Hapus catatan dari slide tertentu dalam presentasi.
+- Hapus catatan dari semua slide dalam presentasi.
+
+Untuk membaca atau mengubah dimensi halaman catatan, mengubah orientasi, dan memeriksa perilaku ekspor, lihat [Ukuran Halaman Catatan](/slides/id/python-net/notes-size/).
 
 ## **Hapus Catatan dari Slide**
-Catatan dari slide tertentu dapat dihapus seperti yang ditunjukkan pada contoh di bawah:
+Catatan dari slide tertentu dapat dihapus seperti ditunjukkan pada contoh di bawah ini:
 
 ```py
 import aspose.slides as slides
 
-# Membuat objek Presentation yang mewakili file presentasi
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Menghapus catatan pada slide pertama
+# Membuat objek Presentation yang mewakili file presentasi 
+with slides.Presentation("AccessSlides.pptx") as presentation:
+    # Menghapus catatan slide pertama
     mgr = presentation.slides[0].notes_slide_manager
     mgr.remove_notes_slide()
 
@@ -42,14 +44,14 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 ```
 
 ## **Hapus Catatan dari Semua Slide**
-Catatan dari semua slide dalam sebuah presentasi dapat dihapus seperti yang ditunjukkan pada contoh di bawah:
+Catatan dari semua slide dalam presentasi dapat dihapus seperti ditunjukkan pada contoh di bawah ini:
 
 ```py
 import aspose.slides as slides
 
 # Membuat objek Presentation yang mewakili file presentasi 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Menghapus catatan pada semua slide
+with slides.Presentation("AccessSlides.pptx") as presentation:
+    # Menghapus catatan semua slide
     for i in range(len(presentation.slides)):
         mgr = presentation.slides[i].notes_slide_manager
         mgr.remove_notes_slide()
@@ -57,14 +59,14 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     presentation.save("RemoveNotesFromAllSlides_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tambah NotesStyle**
-Properti [notes_style](https://reference.aspose.com/slides/id/python-net/aspose.slides/masternotesslide/notes_style/) telah ditambahkan ke kelas [MasterNotesSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/masternotesslide/). Properti ini menentukan gaya teks catatan. Implementasinya ditunjukkan pada contoh di bawah.
+## **Terapkan Gaya Catatan**
+Properti [notes_style](https://reference.aspose.com/slides/id/python-net/aspose.slides/masternotesslide/notes_style/) telah ditambahkan ke kelas [MasterNotesSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/masternotesslide/). Properti ini menentukan gaya teks catatan. Implementasinya ditunjukkan dalam contoh di bawah ini.
 
 ```py
 import aspose.slides as slides
 
-# Membuat kelas Presentation yang mewakili file presentasi
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+# Membuat instance kelas Presentation yang mewakili file presentasi
+with slides.Presentation("AccessSlides.pptx") as presentation:
     notesMaster = presentation.master_notes_slide_manager.master_notes_slide
     if notesMaster != None:
         # Dapatkan gaya teks MasterNotesSlide
@@ -74,7 +76,7 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
         paragraphFormat = notesStyle.get_level(0)
         paragraphFormat.bullet.type = slides.BulletType.SYMBOL
 
-    # simpan file PPTX ke Disk
+    # menyimpan file PPTX ke Disk
     presentation.save("AddNotesSlideWithNotesStyle_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -84,6 +86,6 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 
 Catatan diakses melalui manajer catatan slide: slide memiliki [NotesSlideManager](https://reference.aspose.com/slides/id/python-net/aspose.slides/notesslidemanager/) dan sebuah [property](https://reference.aspose.com/slides/id/python-net/aspose.slides/notesslidemanager/notes_slide/) yang mengembalikan objek catatan, atau `None` jika tidak ada catatan.
 
-**Apakah ada perbedaan dukungan catatan di antara versi PowerPoint yang didukung oleh pustaka ini?**
+**Apakah ada perbedaan dukungan catatan di antara versi PowerPoint yang didukung oleh perpustakaan ini?**
 
-Pustaka ini mendukung berbagai format Microsoft PowerPoint (97–versi terbaru) serta ODP; catatan didukung dalam format-format tersebut tanpa bergantung pada instalasi PowerPoint.
+Perpustakaan ini mendukung berbagai format Microsoft PowerPoint (97–newer) dan ODP; catatan didukung dalam format tersebut tanpa bergantung pada salinan PowerPoint yang terpasang.

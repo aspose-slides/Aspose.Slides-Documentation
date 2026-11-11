@@ -1,66 +1,72 @@
 ---
-title: PowerPoint prezentációk konvertálása kézikönyv módban Androidon
+title: PowerPoint bemutatók konvertálása Kézikönyv módban Androidon
 linktitle: Kézikönyv mód
 type: docs
 weight: 150
-url: /hu/androidjava/convert-powerpoint-in-Handout-mode/
+url: /hu/androidjava/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPoint konvertálása
-- prezentáció konvertálása
+- bemutató konvertálása
 - kézikönyv mód
 - kézikönyv
 - PPT
 - PPTX
 - PowerPoint
-- prezentáció
+- bemutató
 - Android
 - Java
 - Aspose.Slides
-description: "Prezentációk konvertálása kézikönyvekké Java-ban. Állítsa be az oldalankénti diák számát, tartsa meg a jegyzeteket, exportáljon PDF-be vagy képekre az Aspose.Slides for Android segítségével, mintakód példával. Próbálja ki ingyen."
+description: "Konvertálja a bemutatókat kézikönyvekké Java-ban. Állítsa be az oldalankénti diák számát, tartsa meg a jegyzeteket, exportáljon PDF-be vagy képekbe az Androidra készült Aspose.Slides segítségével, mintaprogrammal. Próbálja ki ingyen."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides lehetővé teszi a prezentációk különböző formátumokra való konvertálását, beleértve a kézikönyvek létrehozását nyomtatáshoz Kézikönyv módban. Ez a mód lehetővé teszi, hogy konfigurálja, hogyan jelennek meg több dia egyetlen oldalon, ami hasznos konferenciák, szemináriumok és egyéb események számára. A mód engedélyezhető a `setSlidesLayoutOptions` metódus beállításával a [IPdfOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihtmloptions/), és [ITiffOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiffoptions/) interfészekben.
+Az Aspose.Slides lehetővé teszi a bemutatók különféle formátumokra történő konvertálását, beleértve a kézikönyvek létrehozását nyomtatáshoz Kézikönyv módban. Ez a mód lehetővé teszi, hogy beállítsa, hogyan jelenjenek meg több dia egyetlen oldalon, ami hasznos konferenciákon, szemináriumokon és egyéb eseményeken. Engedélyezheti ezt a módot a `setSlidesLayoutOptions` metódus beállításával az [IPdfOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihtmloptions/) és [ITiffOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiffoptions/) interfészekben.
 
-## **Kézikönyv mód exportálása**
+A kézikönyv oldal méretének és tájolásának beállításához az exportálás előtt, tekintse meg a [Jegyzetoldal mérete](/slides/hu/androidjava/notes-size/) oldalt.
 
-A kézikönyv mód beállításához használja a [HandoutLayoutingOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/handoutlayoutingoptions/) objektumot, amely meghatározza, hogy hány dia kerül egyetlen oldalra, valamint egyéb megjelenítési paramétereket.
+## **Kézikönyv módú exportálás**
+
+A Kézikönyv mód konfigurálásához használja a [HandoutLayoutingOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/handoutlayoutingoptions/) objektumot, amely meghatározza, hány dia kerül egyetlen oldalra, valamint egyéb megjelenítési paramétereket.
+
+Az alábbiakban egy kódpélda látható, amely bemutatja, hogyan konvertálhat egy bemutatót PDF-be Kézikönyv módban.
 
 ```java
-// Prezentáció betöltése.
+import com.aspose.slides.*;
+
+// Töltse be a bemutatót.
 Presentation presentation = new Presentation("sample.pptx");
 try {
-	// Exportálási beállítások megadása.
+	// Állítsa be az exportálási beállításokat.
 	HandoutLayoutingOptions slidesLayoutOptions = new HandoutLayoutingOptions();
 	slidesLayoutOptions.setHandout(HandoutType.Handouts4Horizontal);  // 4 dia egy oldalon vízszintesen
 	slidesLayoutOptions.setPrintSlideNumbers(true);                   // dia számok nyomtatása
-	slidesLayoutOptions.setPrintFrameSlide(true);                     // keret nyomtatása a diák köré
-	slidesLayoutOptions.setPrintComments(false);                      // nincsenek megjegyzések
+	slidesLayoutOptions.setPrintFrameSlide(true);                     // keret nyomtatása a diák körül
+	slidesLayoutOptions.setPrintComments(false);                      // nincs megjegyzés
 
 	PdfOptions pdfOptions = new PdfOptions();
 	pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
-	// Exportálja a prezentációt PDF-be a kiválasztott elrendezéssel.
+	// Exportálja a bemutatót PDF-be a kiválasztott elrendezéssel.
 	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
 	if (presentation != null) presentation.dispose();
 }
 ```
 
-{{% alert color="warning" %}} 
-Ne feledje, hogy a `setSlidesLayoutOptions` metódus csak bizonyos kimeneti formátumokhoz érhető el, például PDF, HTML, TIFF, és képként történő renderelés esetén.
+{{% alert color="warning" title="Warning" %}}
+Vegye figyelembe, hogy a `setSlidesLayoutOptions` metódus csak bizonyos kimeneti formátumoknál érhető el, például PDF, HTML, TIFF, valamint képként történő megjelenítéskor.
 {{% /alert %}} 
 
 ## **GYIK**
 
-**Mi a maximális diaképlet száma oldalanként a Kézikönyv módban?**
+**Mennyi a maximális dia‑bélyegkép száma oldalanként Kézikönyv módban?**
 
-Az Aspose.Slides [előre beállított](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/handouttype/) lehetőségeket támogat, amelyek legfeljebb 9 bélyegképet tesznek lehetővé oldalanként vízszintes vagy függőleges sorrendben: 1, 2, 3, 4 (vízszintes/függőleges), 6 (vízszintes/függőleges) és 9 (vízszintes/függőleges).
+Az Aspose.Slides támogatja a [presets](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/handouttype/) legfeljebb 9 bélyegkép oldalanként, vízszintes vagy függőleges rendezéssel: 1, 2, 3, 4 (vízszintes/függőleges), 6 (vízszintes/függőleges) és 9 (vízszintes/függőleges).
 
-**Létrehozhatok egy egyedi rácsot, például 5 vagy 8 diát oldalanként?**
+**Definiálhatok egy egyéni rácsot, például 5 vagy 8 diát oldalanként?**
 
-Nem. A bélyegképek száma és sorrendje szigorúan a [HandoutType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/handouttype/) osztály által van vezérelve; tetszőleges elrendezések nem támogatottak.
+Nem. A bélyegképek száma és rendezése szigorúan a [HandoutType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/handouttype/) osztály által van meghatározva; tetszőleges elrendezések nem támogatottak.
 
-**Tudok rejtett diákat is belefoglalni a Kézikönyv kimenetbe?**
+**Tartalmazhatok rejtett diát a Kézikönyv kimenetben?**
 
-Igen. A rejtett diák engedélyezhetők a `setShowHiddenSlides` metódus használatával a célformátum export beállításaiban, például a [PdfOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/htmloptions/), vagy a [TiffOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/) esetén.
+Igen. A rejtett diák engedélyezhetők a `setShowHiddenSlides` metódus használatával az exportbeállításokban a célformátumhoz, például a [PdfOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/htmloptions/) vagy [TiffOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/tiffoptions/) esetén.

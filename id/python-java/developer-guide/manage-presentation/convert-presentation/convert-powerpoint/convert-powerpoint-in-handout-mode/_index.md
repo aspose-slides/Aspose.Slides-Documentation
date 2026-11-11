@@ -1,5 +1,5 @@
 ---
-title: Konversi Presentasi PowerPoint dalam Mode Handout Menggunakan Python
+title: Konversi Presentasi PowerPoint ke Mode Handout dengan Python
 linktitle: Mode Handout
 type: docs
 weight: 150
@@ -16,17 +16,19 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Konversi presentasi PowerPoint menjadi handout dalam Python via Java. Atur beberapa slide per halaman dan ekspor ke PDF dengan Aspose.Slides."
+description: "Konversi presentasi PowerPoint menjadi handout di Python melalui Java. Atur beberapa slide per halaman dan ekspor ke PDF dengan Aspose.Slides."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides for Python via Java memungkinkan Anda mengekspor presentasi dalam mode handout, mengatur beberapa slide pada satu halaman. Hal ini berguna untuk mencetak materi presentasi untuk konferensi, seminar, dan acara serupa.
+Aspose.Slides for Python via Java memungkinkan Anda mengekspor presentasi dalam mode handout, menata beberapa slide pada satu halaman. Ini berguna untuk mencetak materi presentasi untuk konferensi, seminar, dan acara serupa.
 
 Konfigurasikan tata letak melalui metode [setSlidesLayoutOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions). Tata letak handout didukung oleh [PdfOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/htmloptions/), dan [TiffOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/tiffoptions/). Gunakan objek [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/handoutlayoutingoptions/) untuk menentukan pengaturan tata letak dan tampilan.
 
+Untuk mengatur dimensi dan orientasi halaman handout sebelum mengekspor, lihat [Notes Page Size](/slides/id/python-java/notes-size/).
+
 ## **Ekspor Mode Handout**
 
-Untuk mengekspor presentasi dalam mode handout, buat sebuah instance [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/handoutlayoutingoptions/) dan tetapkan ke opsi ekspor target menggunakan [setSlidesLayoutOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+Untuk mengekspor presentasi dalam mode handout, buat instance [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/handoutlayoutingoptions/) dan tetapkan ke opsi ekspor target menggunakan [setSlidesLayoutOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
 
 Contoh berikut memuat `sample.pptx` dan mengekspornya ke PDF dengan empat slide per halaman dalam urutan horizontal. Contoh ini menyertakan nomor slide dan bingkai di sekitar slide, serta mengecualikan komentar.
 
@@ -59,18 +61,18 @@ finally:
 ```
 
 {{% alert color="warning" title="Peringatan" %}}
-Pengaturan tata letak handout berlaku untuk format output yang didukung, seperti PDF, HTML, TIFF, dan gambar yang dirender. Mereka tidak mengubah urutan slide dalam presentasi sumber.
+Pengaturan tata letak handout berlaku untuk format output yang didukung, seperti PDF, HTML, TIFF, dan gambar yang dirender. Pengaturan ini tidak mengubah urutan slide dalam presentasi sumber.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Berapa jumlah maksimum thumbnail slide per halaman dalam mode handout?**
+**Berapa jumlah maksimal thumbnail slide per halaman dalam mode handout?**
 
-Aspose.Slides mendukung hingga sembilan thumbnail per halaman. Preset [HandoutType](https://reference.aspose.com/slides/id/python-java/aspose.slides/handouttype/) menyediakan satu, dua, tiga, empat, enam, atau sembilan slide per halaman. Preset empat, enam, dan sembilan slide menawarkan urutan horizontal dan vertikal.
+Aspose.Slides mendukung hingga sembilan thumbnail per halaman. Prasetelan [HandoutType](https://reference.aspose.com/slides/id/python-java/aspose.slides/handouttype/) menyediakan satu, dua, tiga, empat, enam, atau sembilan slide per halaman. Prasetelan empat, enam, dan sembilan slide menawarkan urutan horizontal dan vertikal.
 
-**Apakah saya dapat menentukan kisi khusus, seperti lima atau delapan slide per halaman?**
+**Apakah saya dapat menentukan grid khusus, seperti lima atau delapan slide per halaman?**
 
-Tidak. Jumlah dan urutan thumbnail dikendalikan oleh nilai [HandoutType](https://reference.aspose.com/slides/id/python-java/aspose.slides/handouttype/) yang telah ditentukan sebelumnya. Kisi sembarangan tidak didukung oleh pengaturan tata letak handout ini.
+Tidak. Jumlah dan urutan thumbnail dikendalikan oleh nilai [HandoutType](https://reference.aspose.com/slides/id/python-java/aspose.slides/handouttype/) yang telah ditentukan. Grid arbitrer tidak didukung oleh pengaturan tata letak handout ini.
 
 **Apakah saya dapat menyertakan slide tersembunyi dalam output handout?**
 

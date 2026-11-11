@@ -1,5 +1,5 @@
 ---
-title: 在 PHP 中管理演示文稿备注
+title: 管理 PHP 中的演示文稿备注
 linktitle: 演示文稿备注
 type: docs
 weight: 110
@@ -16,22 +16,20 @@ keywords:
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP via Java 定制演示文稿备注。无缝处理 PowerPoint 和 OpenDocument 备注，提高工作效率。"
+description: "使用 Aspose.Slides for PHP via Java 定制演示文稿备注。无缝处理 PowerPoint 和 OpenDocument 备注，提高您的工作效率。"
 ---
+## **概述**
 
-{{% alert color="primary" %}}
+Aspose.Slides 支持从演示文稿中删除备注幻灯片。在本主题中，我们将介绍此功能，包括如何删除备注以及怎样对演示文稿中的备注幻灯片应用样式。Aspose.Slides 允许您删除任意幻灯片的备注，并对已有备注应用样式。开发人员可以通过以下方式删除备注：
 
-Aspose.Slides 支持从演示文稿中删除备注幻灯片。在本主题中，我们将介绍删除备注以及为任何演示文稿添加备注样式幻灯片的此新功能。
+- 删除演示文稿中特定幻灯片的备注。
+- 删除演示文稿中所有幻灯片的备注。
 
-{{% /alert %}}
-
-Aspose.Slides for PHP via Java 提供了删除任意幻灯片备注以及为现有备注添加样式的功能。开发人员可以通过以下方式删除备注：
-
-* 删除演示文稿中特定幻灯片的备注。
-* 删除演示文稿中所有幻灯片的备注。
+要读取或更改备注页尺寸、切换方向以及检查导出行为，请参阅[备注页大小](/slides/zh/php-java/notes-size/)。
 
 ## **从幻灯片中删除备注**
-可以删除某些特定幻灯片的备注，如下例所示：
+可以按如下示例删除特定幻灯片的备注：
+
 ```php
   # 实例化一个表示演示文稿文件的 Presentation 对象
   $pres = new Presentation("presWithNotes.pptx");
@@ -48,9 +46,9 @@ Aspose.Slides for PHP via Java 提供了删除任意幻灯片备注以及为现�
   }
 ```
 
-
 ## **从演示文稿中删除备注**
-可以删除演示文稿中所有幻灯片的备注，如下例所示：
+可以按如下示例删除演示文稿中所有幻灯片的备注：
+
 ```php
   # 实例化一个表示演示文稿文件的 Presentation 对象
   $pres = new Presentation("presWithNotes.pptx");
@@ -70,9 +68,9 @@ Aspose.Slides for PHP via Java 提供了删除任意幻灯片备注以及为现�
   }
 ```
 
-
 ## **添加备注样式**
-[getNotesStyle](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) 方法已分别添加到 [MasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide) 类中。此属性指定备注文本的样式。下面的示例演示了该实现。
+[MasterNotesSlide](https://reference.aspose.com/slides/zh/php-java/aspose.slides/MasterNotesSlide) 类的[getNotesStyle](https://reference.aspose.com/slides/zh/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) 方法提供对备注文本样式的访问。下面的示例演示了具体实现。
+
 ```php
   # 实例化一个表示演示文稿文件的 Presentation 对象
   $pres = new Presentation("demo.pptx");
@@ -81,7 +79,7 @@ Aspose.Slides for PHP via Java 提供了删除任意幻灯片备注以及为现�
     if (!java_is_null($notesMaster)) {
       # 获取 MasterNotesSlide 文本样式
       $notesStyle = $notesMaster->getNotesStyle();
-      # 为第一层段落设置符号项目符号
+      # 为第一级段落设置符号项目符号
       $paragraphFormat = $notesStyle->getLevel(0);
       $paragraphFormat::getBullet()->setType(BulletType::Symbol);
     }
@@ -93,13 +91,12 @@ Aspose.Slides for PHP via Java 提供了删除任意幻灯片备注以及为现�
   }
 ```
 
-
 ## **常见问题**
 
 **哪个 API 实体提供对特定幻灯片备注的访问？**
 
-备注通过幻灯片的备注管理器访问：幻灯片拥有一个 [NotesSlideManager](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/) 和一个返回备注对象的 [方法](https://reference.aspose.com/slides/php-java/aspose.slides/notesslidemanager/getnotesslide/)，如果没有备注则返回 `null`。
+备注通过幻灯片的备注管理器访问：该幻灯片拥有一个[NotesSlideManager](https://reference.aspose.com/slides/zh/php-java/aspose.slides/notesslidemanager/)以及一个返回备注对象（若无备注则返回 `null`）的[method](https://reference.aspose.com/slides/zh/php-java/aspose.slides/notesslidemanager/getnotesslide/)。
 
-**库在不同 PowerPoint 版本中的备注支持是否存在差异？**
+**库在不同的 PowerPoint 版本中对备注的支持是否存在差异？**
 
-该库针对广泛的 Microsoft PowerPoint 格式（97 及更高版本）以及 ODP；这些格式均支持备注，且不依赖于已安装的 PowerPoint。
+该库面向广泛的 Microsoft PowerPoint 格式（97 及以后版本）以及 ODP；在这些格式中均支持备注，且不依赖于已安装的 PowerPoint 副本。

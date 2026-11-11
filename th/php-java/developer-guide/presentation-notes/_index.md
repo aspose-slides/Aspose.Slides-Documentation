@@ -1,41 +1,44 @@
 ---
-title: จัดการโน้ตงานนำเสนอใน PHP
-linktitle: โน้ตงานนำเสนอ
+title: จัดการบันทึกการนำเสนอใน PHP
+linktitle: บันทึกการนำเสนอ
 type: docs
 weight: 110
 url: /th/php-java/presentation-notes/
 keywords:
-- โน้ต
-- สไลด์โน้ต
-- เพิ่มโน้ต
-- ลบโน้ต
-- สไตล์โน้ต
-- มาสเตอร์โน้ต
+- บันทึก
+- สไลด์บันทึก
+- เพิ่มบันทึก
+- ลบบันทึก
+- สไตล์บันทึก
+- บันทึกหลัก
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "ปรับแต่งโน้ตของงานนำเสนอด้วย Aspose.Slides สำหรับ PHP ผ่าน Java ทำงานกับโน้ตของ PowerPoint และ OpenDocument อย่างราบรื่นเพื่อเพิ่มประสิทธิภาพการทำงานของคุณ."
+description: "ปรับแต่งบันทึกการนำเสนอด้วย Aspose.Slides สำหรับ PHP ผ่าน Java ทำงานร่วมกับบันทึก PowerPoint และ OpenDocument อย่างราบรื่นเพื่อเพิ่มประสิทธิภาพการทำงานของคุณ."
 ---
-## **Overview**
+## **ภาพรวม**
 
-Aspose.Slides รองรับการลบสไลด์โน้ตออกจากงานนำเสนอ ในหัวข้อนี้ เราจะอธิบายคุณลักษณะนี้ รวมถึงวิธีการลบโน้ตและวิธีการนำสไตล์ไปใช้กับสไลด์โน้ตในงานนำเสนอ Aspose.Slides ช่วยให้คุณสามารถลบโน้ตจากสไลด์ใดก็ได้และยังสามารถใช้การตกแต่งกับโน้ตที่มีอยู่ นักพัฒนาสามารถลบโน้ตได้ตามวิธีต่อไปนี้:
+Aspose.Slides รองรับการลบสไลด์บันทึกจากงานนำเสนอ ในหัวข้อนี้ เราจะอธิบายฟีเจอร์นี้ รวมถึงวิธีการลบบันทึกและวิธีการใช้สไตล์กับสไลด์บันทึกในงานนำเสนอ Aspose.Slides ช่วยให้คุณลบบันทึกจากสไลด์ใดก็ได้และยังสามารถปรับสไตล์ให้กับบันทึกที่มีอยู่ได้ นักพัฒนาสามารถลบบันทึกได้ตามวิธีต่อไปนี้:
 
-- ลบโน้ตจากสไลด์เฉพาะในงานนำเสนอ
-- ลบโน้ตจากสไลด์ทั้งหมดในงานนำเสนอ
+- ลบบันทึกจากสไลด์เฉพาะในงานนำเสนอ
+- ลบบันทึกจากสไลด์ทั้งหมดในงานนำเสนอ
 
-## **Remove Notes from a Slide**
-โน้ตของสไลด์ที่ระบุสามารถลบได้ตามตัวอย่างด้านล่าง:
+หากต้องการอ่านหรือเปลี่ยนขนาดหน้าบันทึก, สลับทิศทาง, และตรวจสอบพฤติกรรมการส่งออก ดูที่ [ขนาดหน้าบันทึก](/slides/th/php-java/notes-size/).
+
+## **ลบบันทึกจากสไลด์**
+
+บันทึกจากสไลด์เฉพาะสามารถลบได้ตามตัวอย่างด้านล่าง:
 
 ```php
-  # สร้างอ็อบเจกต์ Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ
+  # สร้างอ็อบเจกต์ Presentation ที่แทนไฟล์การนำเสนอ
   $pres = new Presentation("presWithNotes.pptx");
   try {
-    # ลบโน้ตของสไลด์แรก
+    # ลบบันทึกของสไลด์แรก
     $mgr = $pres->getSlides()->get_Item(0)->getNotesSlideManager();
     $mgr->removeNotesSlide();
-    # บันทึกงานนำเสนอลงดิสก์
+    # บันทึกการนำเสนอลงดิสก์
     $pres->save("test.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -44,20 +47,21 @@ Aspose.Slides รองรับการลบสไลด์โน้ตออ
   }
 ```
 
-## **Remove Notes from a Presentation**
-โน้ตของสไลด์ทั้งหมดในงานนำเสนอสามารถลบได้ตามตัวอย่างด้านล่าง:
+## **ลบบันทึกจากงานนำเสนอ**
+
+บันทึกจากสไลด์ทั้งหมดในงานนำเสนอสามารถลบได้ตามตัวอย่างด้านล่าง:
 
 ```php
-  # สร้างอ็อบเจกต์ Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ
+  # สร้างอ็อบเจ็กต์ Presentation ที่แทนไฟล์การนำเสนอ
   $pres = new Presentation("presWithNotes.pptx");
   try {
-    # ลบโน้ตของสไลด์ทั้งหมด
+    # ลบบันทึกของสไลด์ทั้งหมด
     $mgr = null;
     for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
       $mgr = $pres->getSlides()->get_Item($i)->getNotesSlideManager();
       $mgr->removeNotesSlide();
     }
-    # บันทึกงานนำเสนอลงดิสก์
+    # บันทึกการนำเสนอลงดิสก์
     $pres->save("test.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -66,18 +70,19 @@ Aspose.Slides รองรับการลบสไลด์โน้ตออ
   }
 ```
 
-## **Add a Notes Style**
-[getNotesStyle](https://reference.aspose.com/slides/th/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) เมธอดได้ถูกเพิ่มลงในคลาส [MasterNotesSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/MasterNotesSlide) ตามลำดับ คุณสมบัตินี้ระบุสไตล์ของข้อความโน้ต การใช้งานได้แสดงในตัวอย่างด้านล่าง
+## **เพิ่มสไตล์ให้บันทึก**
+
+เมธอด [getNotesStyle](https://reference.aspose.com/slides/th/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) ของคลาส [MasterNotesSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/MasterNotesSlide) ให้การเข้าถึงสไตล์ข้อความบันทึก การทำงานแสดงในตัวอย่างด้านล่าง.
 
 ```php
-  # สร้างอ็อบเจกต์ Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ
+  # สร้างอ็อบเจ็กต์ Presentation ที่แทนไฟล์การนำเสนอ
   $pres = new Presentation("demo.pptx");
   try {
     $notesMaster = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
     if (!java_is_null($notesMaster)) {
-      # รับสไตล์ข้อความของ MasterNotesSlide
+      # ดึงสไตล์ข้อความของ MasterNotesSlide
       $notesStyle = $notesMaster->getNotesStyle();
-      # ตั้งค่า bullet แบบสัญลักษณ์สำหรับย่อหน้าระดับแรก
+      # ตั้งสัญลักษณ์ bullet สำหรับย่อหน้าในระดับแรก
       $paragraphFormat = $notesStyle->getLevel(0);
       $paragraphFormat::getBullet()->setType(BulletType::Symbol);
     }
@@ -89,12 +94,12 @@ Aspose.Slides รองรับการลบสไลด์โน้ตออ
   }
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**Which API entity provides access to the notes of a specific slide?**
+**คำนำ API ใดที่ให้การเข้าถึงบันทึกของสไลด์เฉพาะ?**
 
-โน้ตถูกเข้าถึงผ่านตัวจัดการโน้ตของสไลด์: สไลด์มี [NotesSlideManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/notesslidemanager/) และ [method](https://reference.aspose.com/slides/th/php-java/aspose.slides/notesslidemanager/getnotesslide/) ที่ส่งคืนอ็อบเจกต์โน้ต หรือ `null` หากไม่มีโน้ต
+บันทึกถูกเข้าถึงผ่านผู้จัดการบันทึกของสไลด์: สไลด์มี [NotesSlideManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/notesslidemanager/) และ [เมธอด](https://reference.aspose.com/slides/th/php-java/aspose.slides/notesslidemanager/getnotesslide/) ที่คืนค่าอ็อบเจ็กต์บันทึก, หรือ `null` หากไม่มีบันทึก
 
-**Are there differences in notes support across the PowerPoint versions the library works with?**
+**มีความแตกต่างในการสนับสนุนบันทึกระหว่างเวอร์ชัน PowerPoint ที่ไลบรารีทำงานกับหรือไม่?**
 
-ไลบรารีรองรับรูปแบบ Microsoft PowerPoint ช่วงกว้าง (ตั้งแต่รุ่น 97 จนถึงรุ่นใหม่) และ ODP; โน้ตได้รับการสนับสนุนในรูปแบบเหล่านี้โดยไม่ต้องอิงกับการติดตั้ง PowerPoint
+ไลบรารีรองรับรูปแบบ Microsoft PowerPoint อย่างกว้างขวาง (รุ่น 97–newer) และ ODP; บันทึกได้รับการสนับสนุนในรูปแบบเหล่านี้โดยไม่ต้องพึ่งพาติดตั้ง PowerPoint

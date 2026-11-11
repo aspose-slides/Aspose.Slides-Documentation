@@ -20,15 +20,17 @@ description: "Konvertera PowerPoint-presentationer till handouts i Python via Ja
 ---
 ## **Introduktion**
 
-Aspose.Slides för Python via Java låter dig exportera presentationer i handout-läge, där flera bilder placeras på en enda sida. Detta är användbart för att skriva ut presentationsmaterial för konferenser, seminarier och liknande evenemang.
+Aspose.Slides för Python via Java gör det möjligt att exportera presentationer i handout‑läge, där flera bilder placeras på en enda sida. Detta är användbart för att skriva ut presentationsmaterial för konferenser, seminarier och liknande evenemang.
 
-Konfigurera layouten via metoden [setSlidesLayoutOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions). Handout-layouter stöds av [PdfOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/) och [TiffOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/tiffoptions/). Använd ett [HandoutLayoutingOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/handoutlayoutingoptions/)-objekt för att ange layout- och visningsinställningar.
+Konfigurera layouten via metoden [setSlidesLayoutOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions). Handout‑layouter stöds av [PdfOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/) och [TiffOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/tiffoptions/). Använd ett [HandoutLayoutingOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/handoutlayoutingoptions/)‑objekt för att ange layout‑ och visningsinställningar.
 
-## **Export i handout-läge**
+För att ställa in handout‑sidans dimensioner och orientering före export, se [Notes Page Size](/slides/sv/python-java/notes-size/).
 
-För att exportera en presentation i handout-läge, skapa en [HandoutLayoutingOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/handoutlayoutingoptions/)-instans och tilldela den till mål-exportalternativen med [setSlidesLayoutOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+## **Export i handout‑läge**
 
-Följande exempel läser in `sample.pptx` och exporterar den till PDF med fyra bilder per sida i horisontell ordning. Det inkluderar bildnummer och ramar runt bilderna samt exkluderar kommentarer.
+För att exportera en presentation i handout‑läge, skapa en [HandoutLayoutingOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/handoutlayoutingoptions/)‑instans och tilldela den till mål‑exportalternativen med [setSlidesLayoutOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+
+Följande exempel läser in `sample.pptx` och exporterar den till PDF med fyra bilder per sida i horisontell ordning. Det inkluderar bildnummer och ramar runt bilderna, och exkluderar kommentarer.
 
 ```python
 import jpype
@@ -39,7 +41,7 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import HandoutLayoutingOptions, HandoutType, PdfOptions, Presentation, SaveFormat
 
-# Ladda en presentation.
+# Läs in en presentation.
 presentation = Presentation("sample.pptx")
 try:
     # Konfigurera handout-layouten.
@@ -59,19 +61,19 @@ finally:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Handout‑layoutinställningarna gäller för stödda utdataformat, såsom PDF, HTML, TIFF och renderade bilder. De omarrangerar inte bilderna i källpresentationen.
+Handout‑layoutinställningar gäller för stödjade utdataformat, såsom PDF, HTML, TIFF och renderade bilder. De omarrangerar inte bilder i källpresentationen.
 {{% /alert %}}
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Vad är det maximala antalet bildminiatyrer per sida i handout-läge?**
+**Vad är det maximala antalet bildminiatyrer per sida i handout‑läge?**
 
-Aspose.Slides stödjer upp till nio miniatyrer per sida. Förinställningarna i [HandoutType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/handouttype/) erbjuder en, två, tre, fyra, sex eller nio bilder per sida. Förinställningarna för fyra, sex och nio bilder ger horisontell och vertikal ordning.
+Aspose.Slides stödjer upp till nio miniatyrer per sida. [HandoutType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/handouttype/)-förinställningarna erbjuder en, två, tre, fyra, sex eller nio bilder per sida. Förinställningarna för fyra, sex och nio bilder erbjuder horisontell och vertikal ordning.
 
-**Kan jag definiera ett anpassat rutnät, till exempel fem eller åtta bilder per sida?**
+**Kan jag definiera ett eget rutnät, till exempel fem eller åtta bilder per sida?**
 
-Nej. Antalet och ordningen på miniatyrerna styrs av de fördefinierade värdena i [HandoutType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/handouttype/). Godtyckliga rutnät stöds inte av dessa handout‑layoutinställningar.
+Nej. Antalet och ordningen på miniatyrerna styrs av de fördefinierade [HandoutType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/handouttype/)-värdena. Godtyckliga rutnät stöds inte av dessa handout‑layoutinställningar.
 
-**Kan jag inkludera dolda bilder i handout-utdata?**
+**Kan jag inkludera dolda bilder i handout‑utdata?**
 
 Ja. Aktivera dolda bilder i exportinställningarna för målformatet. För PDF, anropa [PdfOptions.setShowHiddenSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) med `True` innan du sparar presentationen.

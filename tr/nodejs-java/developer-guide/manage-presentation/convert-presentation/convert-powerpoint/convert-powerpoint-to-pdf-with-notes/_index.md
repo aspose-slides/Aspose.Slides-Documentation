@@ -1,15 +1,15 @@
 ---
-title: JavaScript'te Notlarla PowerPoint Sunumlarını PDF'ye Dönüştür
-linktitle: Notlarla PowerPoint'ten PDF
+title: PowerPoint Sunumlarını Notlarla PDF'ye JavaScript'te Dönüştür
+linktitle: PowerPoint'i Notlarla PDF'ye
 type: docs
 weight: 50
 url: /tr/nodejs-java/convert-powerpoint-to-pdf-with-notes/
 keywords:
-- PowerPoint dönüştür
-- sunum dönüştür
-- slayt dönüştür
-- PPT dönüştür
-- PPTX dönüştür
+- PowerPoint'i dönüştür
+- sunumu dönüştür
+- slaytı dönüştür
+- PPT'yi dönüştür
+- PPTX'i dönüştür
 - PowerPoint'ten PDF'ye
 - sunumdan PDF'ye
 - slayttan PDF'ye
@@ -29,30 +29,36 @@ description: "Aspose.Slides for Node.js kullanarak JavaScript'te PPT ve PPTX for
 ---
 ## **Genel Bakış**
 
-Bu makalede, Aspose.Slides kullanarak PowerPoint sunumlarını konuşmacı notlarıyla birlikte PDF formatına nasıl dönüştüreceğinizi öğreneceksiniz. Bu kılavuz gerekli adımları kapsar ve görevi verimli bir şekilde gerçekleştirmenize yardımcı olacak kod örnekleri sunar. Makale sonunda şunları başarabileceksiniz:
+Bu makalede, Aspose.Slides kullanarak PowerPoint sunumlarını konuşmacı notlarıyla PDF formatına nasıl dönüştüreceğinizi öğreneceksiniz. Bu kılavuz gerekli adımları kapsar ve bu görevi verimli bir şekilde gerçekleştirmenize yardımcı olacak kod örnekleri sunar. Makalenin sonunda şu yeteneklere sahip olacaksınız:
 
 - Konuşmacı notlarını koruyarak PowerPoint slaytlarını PDF belgelerine dönüştürme sürecini uygulamak.
-- Çıktı PDF'sini, konuşmacı notlarının dahil edildiğinden ve ihtiyaçlarınıza göre biçimlendirildiğinden emin olmak için özelleştirmek.
+- Çıktı PDF'yi özelleştirerek konuşmacı notlarının dahil edilmesini ve gereksinimlerinize göre biçimlendirilmesini sağlamak.
 
-## **Notlarla PowerPoint'i PDF'ye Dönüştür**
+Dışa aktarmadan önce not sayfası boyutlarını ve yönünü ayarlamak için [Not Sayfası Boyutu](/slides/tr/nodejs-java/notes-size/) bölümüne bakın.
 
-`save` yöntemi, [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfında, bir PPT veya PPTX sunumunu konuşmacı notlarıyla birlikte PDF'ye dönüştürmek için kullanılabilir. Aspose.Slides ile sadece sunumu yükleyin, konuşmacı notlarını eklemek için [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/notescommentslayoutingoptions/) sınıfını kullanarak düzen seçeneklerini yapılandırın ve ardından dosyayı PDF olarak kaydedin. Aşağıdaki kod parçacığı, örnek bir sunumu Notlar Slayt görünümünde PDF'ye dönüştürmeyi göstermektedir.
+## **PowerPoint'i Notlarla PDF'ye Dönüştür**
+
+`save` yöntemi, [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfında bir PPT veya PPTX sunumunu konuşmacı notlarıyla PDF'ye dönüştürmek için kullanılabilir. Aspose.Slides ile sadece sunumu yükler, konuşmacı notlarını eklemek için [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/notescommentslayoutingoptions/) sınıfını kullanarak düzen seçeneklerini yapılandırır ve ardından dosyayı PDF olarak kaydedersiniz. Aşağıdaki kod parçacığı, örnek bir sunumu Not Slayt görünümünde PDF'ye nasıl dönüştüreceğinizi gösterir.
 
 ```js
+const asposeSlides = require("aspose.slides.via.java");
+
 let presentation = new asposeSlides.Presentation("sample.pptx");
 
-// Konuşmacı notlarını renderlamak için PDF seçeneklerini yapılandır.
+// Konuşmacı notlarını işlemek için PDF seçeneklerini yapılandır.
 let notesOptions = new asposeSlides.NotesCommentsLayoutingOptions();
-notesOptions.setNotesPosition(asposeSlides.NotesPositions.BottomFull); // Konuşmacı notlarını slaytın altında göster.
+notesOptions.setNotesPosition(asposeSlides.NotesPositions.BottomFull); // Konuşmacı notlarını slaytın altına getir.
 
 let pdfOptions = new asposeSlides.PdfOptions();
 pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-// Sunumu konuşmacı notlarıyla birlikte PDF olarak kaydet.
+// Konuşmacı notlarıyla sunumu PDF olarak kaydet.
 presentation.save("output.pdf", asposeSlides.SaveFormat.Pdf, pdfOptions);
 presentation.dispose();
 ```
 
-{{% alert color="primary" %}} 
-Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/tr/conversion) adresine göz atabilirsiniz. 
+{{% alert color="info" title="Note" %}}
+
+Aspose [Çevrimiçi PowerPoint'ten PDF'ye Dönüştürücü](https://products.aspose.app/slides/tr/conversion) adresine göz atmak isteyebilirsiniz.
+
 {{% /alert %}}

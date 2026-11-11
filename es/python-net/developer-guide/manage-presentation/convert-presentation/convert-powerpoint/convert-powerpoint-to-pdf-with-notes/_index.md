@@ -1,36 +1,57 @@
 ---
-title: Convertir PowerPoint a PDF con Notas
+title: Convertir presentaciones a PDF con notas en Python
+linktitle: Presentación a PDF con notas
 type: docs
 weight: 50
 url: /es/python-net/convert-powerpoint-to-pdf-with-notes/
-keywords: "convertir PowerPoint, Presentación, PowerPoint a PDF, notas, Python, Aspose.Slides"
-description: "Convertir PowerPoint a PDF con notas usando Python"
+keywords:
+- convertir PowerPoint
+- convertir OpenDocument
+- convertir presentación
+- convertir PPT
+- convertir PPTX
+- convertir ODP
+- PowerPoint a PDF
+- OpenDocument a PDF
+- presentación a PDF
+- PPT a PDF
+- PPTX a PDF
+- ODP a PDF
+- notas del orador
+- PDF con notas
+- Python
+- Aspose.Slides
+description: "Convertir los formatos PPT, PPTX y ODP a PDF con notas utilizando Aspose.Slides para Python. Conservar diseños y notas del orador para presentaciones profesionales."
 ---
+## **Visión general**
 
-El método [Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) expuesto por la clase Presentation se puede usar para convertir una presentación de PowerPoint PPT o PPTX a PDF con notas. Guardar una presentación de Microsoft PowerPoint en PDF con notas utilizando Aspose.Slides para Python a través de .NET es un proceso de dos líneas. Simplemente abres la presentación y la guardas como PDF con notas. Los fragmentos de código a continuación actualizan la presentación de muestra a PDF en vista de Diapositivas de Notas:
+En este artículo, aprenderá cómo convertir presentaciones de PowerPoint a formato PDF con notas del orador utilizando Aspose.Slides. Esta guía cubrirá los pasos necesarios y proporcionará ejemplos de código para ayudarle a realizar esta tarea de forma eficiente. Al final de este artículo, podrá:
+
+- Implementar el proceso de conversión para transformar diapositivas de PowerPoint en documentos PDF manteniendo las notas del orador.
+- Personalizar el PDF de salida para garantizar que las notas del orador se incluyan y se formateen según sus requisitos.
+
+Para establecer las dimensiones y la orientación de la página de notas antes de la exportación, consulte [Tamaño de la página de notas](/slides/es/python-net/notes-size/).
+
+## **Convertir PowerPoint a PDF con notas**
+
+El método `save` de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) puede usarse para convertir una presentación PPT o PPTX a PDF con notas del orador. Con Aspose.Slides, simplemente carga la presentación, configura las opciones de diseño mediante la clase [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/es/python-net/aspose.slides.export/notescommentslayoutingoptions/) para incluir las notas del orador y, a continuación, guarda el archivo como PDF. El siguiente fragmento de código muestra cómo convertir una presentación de ejemplo a PDF en la vista de diapositiva de notas.
 
 ```py
 import aspose.slides as slides
 
-# Instanciar un objeto Presentation que representa un archivo de presentación 
-presentation = slides.Presentation("SelectedSlides.pptx")
-auxPresentation = slides.Presentation()
+with slides.Presentation("sample.pptx") as presentation:
 
-slide = presentation.slides[0]
+    # Configurar opciones PDF para renderizar notas del orador.
+    notes_options = slides.export.NotesCommentsLayoutingOptions()
+    notes_options.notes_position = slides.export.NotesPositions.BOTTOM_FULL
 
-auxPresentation.slides.insert_clone(0, slide)
+    pdf_options = slides.export.PdfOptions()
+    pdf_options.slides_layout_options = notes_options
 
-# Configuración del Tipo y Tamaño de Diapositiva 
-auxPresentation.slide_size.set_size(612, 792, slides.SlideSizeScaleType.ENSURE_FIT)
-
-pdfOptions = slides.export.PdfOptions()
-pdfOptions.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
-
-auxPresentation.save("PDFnotes_out.pdf", slides.export.SaveFormat.PDF, pdfOptions)
+    # Guardar la presentación en PDF con notas del orador.
+    presentation.save("output.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-{{% alert color="primary" %}} 
-
-Es posible que desees consultar el conversor de Aspose [PowerPoint a PDF](https://products.aspose.app/slides/conversion) o [PPT a PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf). 
-
+{{% alert color="info" title="Note" %}}
+Es posible que desee consultar el [Conversor en línea de PowerPoint a PDF](https://products.aspose.app/slides/es/conversion) de Aspose.
 {{% /alert %}}

@@ -1,6 +1,6 @@
 ---
-title: Konvertera PowerPoint-presentationer till PDF med noteringar på Android
-linktitle: PowerPoint till PDF med noteringar
+title: Konvertera PowerPoint-presentationer till PDF med noter på Android
+linktitle: PowerPoint till PDF med noter
 type: docs
 weight: 50
 url: /sv/androidjava/convert-powerpoint-to-pdf-with-notes/
@@ -20,41 +20,45 @@ keywords:
 - spara PPTX som PDF
 - exportera PPT till PDF
 - exportera PPTX till PDF
-- talarnoteringar
-- PDF med noteringar
+- talarnoter
+- PDF med noter
 - Android
 - Java
 - Aspose.Slides
-description: "Konvertera formaten PPT och PPTX till PDF med noteringar med hjälp av Aspose.Slides för Android via Java. Bevara layouter och talarnoteringar för professionella presentationer."
+description: "Konvertera formaten PPT och PPTX till PDF med noter med hjälp av Aspose.Slides för Android via Java. Bevara layouter och talarnoter för professionella presentationer."
 ---
 ## **Översikt**
 
-I den här artikeln kommer du att lära dig hur du konverterar PowerPoint‑presentationer till PDF‑format med talarnoteringar med hjälp av Aspose.Slides. Denna guide täcker de nödvändiga stegen och ger kodexempel för att du ska kunna utföra uppgiften effektivt. I slutet av artikeln kommer du att kunna:
+I den här artikeln kommer du att lära dig hur du konverterar PowerPoint‑presentationer till PDF‑format med talarnoter med hjälp av Aspose.Slides. Denna guide täcker de nödvändiga stegen och ger kodexempel för att hjälpa dig att utföra uppgiften effektivt. I slutet av artikeln kommer du att kunna:
 
-- Implementera konverteringsprocessen för att omvandla PowerPoint‑bilder till PDF‑dokument samtidigt som talarnoteringarna bevaras.
-- Anpassa den genererade PDF‑filen så att talarnoteringarna inkluderas och formateras enligt dina krav.
+- Implementera konverteringsprocessen för att omvandla PowerPoint‑bilder till PDF‑dokument samtidigt som talarnoterna bevaras.
+- Anpassa den genererade PDF‑filen så att talarnoterna inkluderas och formateras enligt dina krav.
 
-## **Konvertera PowerPoint till PDF med anteckningar**
+För att ställa in notssidans dimensioner och orientering innan export, se [Notssidans storlek](/slides/sv/androidjava/notes-size/).
 
-Metoden `save` i klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) kan användas för att konvertera en PPT‑ eller PPTX‑presentation till en PDF med talarnoteringar. Med Aspose.Slides laddar du bara presentationen, konfigurerar layoutalternativen med klassen [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/notescommentslayoutingoptions/) för att inkludera talarnoteringar och sparar sedan filen som en PDF. Följande kodexempel visar hur du konverterar en exempelpresentation till en PDF i vy med notesslides.
+## **Konvertera PowerPoint till PDF med noter**
+
+`save`‑metoden i [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/)‑klassen kan användas för att konvertera en PPT‑ eller PPTX‑presentation till en PDF med talarnoter. Med Aspose.Slides laddar du bara presentationen, konfigurerar layoutalternativen med hjälp av klassen [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/notescommentslayoutingoptions/) för att inkludera talarnoter, och sparar sedan filen som en PDF. Följande kodsnutt visar hur du konverterar en exempelpresentation till en PDF i vy för notssidor.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-	// Konfigurera PDF-alternativ för att rendera talarnoteringar.
+	// Konfigurera PDF-alternativ för rendering av talarnoter.
 	NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
-	notesOptions.setNotesPosition(NotesPositions.BottomFull); // Rendera talarnoteringar under bilden.
+	notesOptions.setNotesPosition(NotesPositions.BottomFull); // Rendera talarnoter under bilden.
 
 	PdfOptions pdfOptions = new PdfOptions();
 	pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-	// Spara presentationen som PDF med talarnoteringar.
+	// Spara presentationen till PDF med talarnoter.
 	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
 	if (presentation != null) presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-Du kanske vill kolla in Aspose [Online PowerPoint till PDF‑konverterare](https://products.aspose.app/slides/sv/conversion). 
+{{% alert color="info" title="Note" %}}
+Du kanske vill titta på Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/sv/conversion).
 {{% /alert %}}

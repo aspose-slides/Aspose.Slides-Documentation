@@ -20,19 +20,21 @@ description: "Anpassa presentationsanteckningar med Aspose.Slides för PHP via J
 ---
 ## **Översikt**
 
-Aspose.Slides stöder att ta bort noteringsbilder från en presentation. I det här ämnet kommer vi att introducera den här funktionen, inklusive hur man tar bort noteringar och hur man applicerar en stil på noteringsbilder i en presentation. Aspose.Slides låter dig ta bort noteringar från vilken bild som helst och även applicera formatering på befintliga noteringar. Utvecklare kan ta bort noteringar på följande sätt:
+Aspose.Slides stöder att ta bort anteckningsbilder från en presentation. I det här avsnittet introducerar vi funktionen, inklusive hur man tar bort anteckningar och hur man applicerar en stil på anteckningsbilder i en presentation. Aspose.Slides låter dig ta bort anteckningar från vilken bild som helst och även tillämpa stil på befintliga anteckningar. Utvecklare kan ta bort anteckningar på följande sätt:
 
-- Ta bort noteringar från en specifik bild i en presentation.
-- Ta bort noteringar från alla bilder i en presentation.
+- Ta bort anteckningar från en specifik bild i en presentation.
+- Ta bort anteckningar från alla bilder i en presentation.
 
-## **Ta bort noteringar från en bild**
-Noteringar för en viss bild kan tas bort som visas i exemplet nedan:
+För att läsa eller ändra anteckningssidans dimensioner, byta orientering och kontrollera exportbeteende, se [Notssida storlek](/slides/sv/php-java/notes-size/).
+
+## **Ta bort anteckningar från en bild**
+Anteckningar från en specifik bild kan tas bort enligt exemplet nedan:
 
 ```php
-  # Instansiera ett Presentation-objekt som representerar en presentationsfil
+  # Skapa ett Presentation-objekt som representerar en presentationsfil
   $pres = new Presentation("presWithNotes.pptx");
   try {
-    # Tar bort noteringar från den första bilden
+    # Tar bort anteckningar från den första bilden
     $mgr = $pres->getSlides()->get_Item(0)->getNotesSlideManager();
     $mgr->removeNotesSlide();
     # Sparar presentationen till disk
@@ -44,14 +46,14 @@ Noteringar för en viss bild kan tas bort som visas i exemplet nedan:
   }
 ```
 
-## **Ta bort noteringar från en presentation**
-Noteringar för alla bilder i en presentation kan tas bort som visas i exemplet nedan:
+## **Ta bort anteckningar från en presentation**
+Anteckningar från alla bilder i en presentation kan tas bort enligt exemplet nedan:
 
 ```php
-  # Instansiera ett Presentation-objekt som representerar en presentationsfil
+  # Skapa ett Presentation-objekt som representerar en presentationsfil
   $pres = new Presentation("presWithNotes.pptx");
   try {
-    # Tar bort noteringar från alla bilder
+    # Tar bort anteckningar från alla bilder
     $mgr = null;
     for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
       $mgr = $pres->getSlides()->get_Item($i)->getNotesSlideManager();
@@ -66,11 +68,11 @@ Noteringar för alla bilder i en presentation kan tas bort som visas i exemplet 
   }
 ```
 
-## **Lägg till en noteringsstil**
-[getNotesStyle](https://reference.aspose.com/slides/sv/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) metod har lagts till i [MasterNotesSlide](https://reference.aspose.com/slides/sv/php-java/aspose.slides/MasterNotesSlide) klassen respektive. Denna egenskap anger stilen för en noteringstext. Implementeringen demonstreras i exemplet nedan.
+## **Lägg till en anteckningsstil**
+Metoden [getNotesStyle](https://reference.aspose.com/slides/sv/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) i klassen [MasterNotesSlide](https://reference.aspose.com/slides/sv/php-java/aspose.slides/MasterNotesSlide) ger åtkomst till anteckningstextens stil. Implementeringen demonstreras i exemplet nedan.
 
 ```php
-  # Instansiera ett Presentation-objekt som representerar en presentationsfil
+  # Skapa ett Presentation-objekt som representerar en presentationsfil
   $pres = new Presentation("demo.pptx");
   try {
     $notesMaster = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
@@ -89,12 +91,12 @@ Noteringar för alla bilder i en presentation kan tas bort som visas i exemplet 
   }
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Vilken API‑entitet ger åtkomst till noteringarna för en specifik bild?**
+**Vilken API‑entitet ger åtkomst till anteckningarna för en specifik bild?**
 
-Noteringar nås via bildens noteringshanterare: bilden har en [NotesSlideManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/notesslidemanager/) och en [method](https://reference.aspose.com/slides/sv/php-java/aspose.slides/notesslidemanager/getnotesslide/) som returnerar noteringsobjektet, eller `null` om det inte finns några noteringar.
+Anteckningarna nås via bildens anteckningshanterare: bilden har en [NotesSlideManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/notesslidemanager/) och en [method](https://reference.aspose.com/slides/sv/php-java/aspose.slides/notesslidemanager/getnotesslide/) som returnerar anteckningsobjektet, eller `null` om det inte finns några anteckningar.
 
-**Finns det skillnader i noteringsstöd mellan de PowerPoint‑versioner som biblioteket fungerar med?**
+**Finns det skillnader i anteckningsstöd mellan de PowerPoint‑versioner som biblioteket fungerar med?**
 
-Biblioteket riktar sig mot ett brett spektrum av Microsoft PowerPoint‑format (97–nyare) och ODP; noteringar stöds i dessa format utan att vara beroende av en installerad kopia av PowerPoint.
+Biblioteket riktar sig mot ett brett spektrum av Microsoft PowerPoint‑format (97–nyare) och ODP; anteckningar stöds i dessa format utan att kräva en installerad kopia av PowerPoint.
