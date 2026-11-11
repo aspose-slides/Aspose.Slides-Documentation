@@ -1,5 +1,5 @@
 ---
-title: Rendera presentationsbilder som SVG-bilder i .NET
+title: Rendera presentationsbilder som SVG‑bilder i .NET
 linktitle: Bild till SVG
 type: docs
 weight: 50
@@ -10,24 +10,24 @@ keywords:
 - bild till SVG
 - PPT till SVG
 - PPTX till SVG
-- SVG-exportalternativ
+- SVG‑exportalternativ
 - interaktiv SVG
 - PowerPoint
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Exportera PowerPoint-bilder som SVG-bilder i .NET och kontrollera teckensnitt, text, bilder, ID:n och händelser med Aspose.Slides."
+description: "Exportera PowerPoint‑bilder som SVG‑bilder i .NET och kontrollera teckensnitt, text, bilder, ID:n och händelser med Aspose.Slides."
 ---
 ## **Översikt**
 
-SVG är ett skalbart XML-baserat bildformat som fungerar bra för webbpublicering, bildspelsvisare, tillgänglighetsarbetsflöden och automatiserad efterbehandling. Aspose.Slides exporterar varje bild till en separat SVG-fil och låter dig kontrollera hur text, teckensnitt, bilder och SVG-element skrivs.
+SVG är ett skalbart XML-baserat bildformat som fungerar bra för webbpublicering, bildspelvisare, tillgänglighetsarbetsflöden och automatiserad efterbehandling. Aspose.Slides exporterar varje bild till en separat SVG-fil och låter dig kontrollera hur text, teckensnitt, bilder och SVG-element skrivs.
 
-Använd [SVGOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/) när den exporterade SVG-filen måste vara kompakt, förutsägbar i olika webbläsare eller klar för interaktiv användning.
+Använd [SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) när den exporterade SVG-filen måste vara kompakt, förutsägbar i olika webbläsare eller klar för interaktiv användning.
 
 ## **Exportera en bild som SVG**
 
-Skapa en [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/), välj en bild och skriv den till en ström. Följande exempel exporterar varje bild i en presentation som en separat SVG-fil.
+Skapa en [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), välj en bild och skriv den till en ström. Följande exempel exporterar varje bild i en presentation som en separat SVG-fil.
 
 ```csharp
 using Aspose.Slides;
@@ -41,11 +41,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-Filnamnet använder [ISlide.SlideNumber](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/slidenumber/) istället för loop-indexet. Du kan också exportera en enskild form med [IShape.WriteAsSvg](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/writeassvg/) när en bildvisare eller webbsida bara behöver den formen.
+Filnamnet använder [ISlide.SlideNumber](https://reference.aspose.com/slides/net/aspose.slides/islide/slidenumber/) istället för loop‑indexet. Du kan också exportera en enskild form med [IShape.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/ishape/writeassvg/) när en bildvisare eller webbsida bara behöver den formen.
 
 ## **Konfigurera SVG‑utdata**
 
-[SVGOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/) styr SVG-rendering. För textramar inkluderar [SVGOptions.UseFrameSize](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/useframesize/) textramen i renderingsområdet, och [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/useframerotation/) bestämmer om ramens rotation tillämpas. Ställ in [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/disablefontligatures/) till `true` när text måste renderas utan ligaturer.
+[SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) styr SVG-rendering. För textramar inkluderar [SVGOptions.UseFrameSize](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframesize/) textramen i renderingsområdet, och [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/useframerotation/) bestämmer om ramrotationen tillämpas. Ställ in [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/disablefontligatures/) på `true` när text måste renderas utan ligaturer.
 
 ```csharp
 using Aspose.Slides;
@@ -66,9 +66,11 @@ presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 
 ## **Styr text och teckensnitt**
 
+När du exporterar bilder till SVG kan du styra om text förblir som text eller konverteras till vektorgrafik, samt hur externa teckensnitt inkluderas eller refereras. Följande alternativ hjälper dig att balansera visuell konsistens, textmarkering och teckensnittsberoenden i den exporterade SVG-filen.
+
 ### **Vektorisera all text**
 
-Ställ in [SVGOptions.VectorizeText](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/vectorizetext/) till `true` för att skriva all bildtext som vektorgrafik. Detta tar bort beroenden av teckensnitt och gör det visuella resultatet mer enhetligt i olika webbläsare, men texten blir inte längre valbar eller sökbar som SVG-text.
+Ställ in [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) på `true` för att skriva all bildtext som vektorgrafik. Detta eliminerar teckensnittsberoenden och gör det visuella resultatet mer konsistent i olika webbläsare, men texten blir inte längre valbar eller sökbar som SVG‑text.
 
 ```csharp
 using Aspose.Slides;
@@ -87,7 +89,7 @@ presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 
 ### **Välj hur externa teckensnitt hanteras**
 
-[SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/externalfontshandling/) använder ett [SvgExternalFontsHandling](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgexternalfontshandling/)‑värde för teckensnitt som laddas externt. Välj `AddLinksToFontFiles` för att referera separata teckensnitts-filer, `Embed` för att inkludera teckensnittsdata i SVG-filen, eller `Vectorize` för att rendera endast text som använder externa teckensnitt som grafik. Kontrollera teckensnittslicenser innan du bäddar in teckensnitt.
+[SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/externalfontshandling/) använder ett [SvgExternalFontsHandling](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/)‑värde för teckensnitt som laddas externt. Välj `AddLinksToFontFiles` för att referera separata teckensnittsfiler, `Embed` för att inkludera teckensnittsdata i SVG:n, eller `Vectorize` för att rendera endast text som använder externa teckensnitt som grafik. Verifiera teckensnittslicenser innan du bäddar in teckensnitt.
 
 ```csharp
 using Aspose.Slides;
@@ -120,9 +122,9 @@ using var vectorizedExternalFontsStream = File.Create("slide-with-vectorized-ext
 presentation.Slides[0].WriteAsSvg(vectorizedExternalFontsStream, vectorizedExternalFontsOptions);
 ```
 
-## **Minska storleken på inbäddade bilder**
+## **Minska storlek på inbäddade bilder**
 
-Använd [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/picturescompression/) för att minska upplösningen på inbäddade bilder, [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) för att utelämna beskurna källområden, och [SVGOptions.JpegQuality](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/jpegquality/) för att styra JPEG‑kodningskvalitet. Dessa inställningar minskar filstorleken på bekostnad av bildens noggrannhet eller bevarade bilddata.
+Använd [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) för att minska upplösningen på inbäddade bilder, [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) för att utelämna beskurna källområden, och [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) för att styra JPEG‑kodningskvalitet. Dessa inställningar minskar filstorleken på bekostnad av bildkvalitet eller bevarad bilddata.
 
 ```csharp
 using Aspose.Slides;
@@ -141,11 +143,52 @@ using var svgStream = File.Create("compressed-slide.svg");
 presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
 ```
 
+## **Styr rasteriseringsupplösning för metafiler**
+
+[SVGOptions.MetafileRasterizationDpi](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/metafilerasterizationdpi/) sätter den lägre upplösningsgränsen för rasterisering av metafiler under SVG‑export. Använd den för att balansera detaljrikedom och filstorlek när en EMF‑ eller WMF‑bild rasteriseras. Den definierar inte ett globalt DPI för SVG:n eller tvingar varje objekt på bilden att bli en rasterbild.
+
+Ladda ner [metafile-rasterization.pptx](metafile-rasterization.pptx), som innehåller en EMF‑bild med tät placerade diagonala linjer. Följande exempel exporterar dess första bild i tre rasteriseringsupplösningar via [ISlide.WriteAsSvg](https://reference.aspose.com/slides/net/aspose.slides/islide/writeassvg/). Alla andra exportinställningar förblir identiska så att resultaten kan jämföras.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("metafile-rasterization.pptx");
+
+foreach (var dpi in new[] { 72, 150, 300 })
+{
+    var svgOptions = new SVGOptions
+    {
+        MetafileRasterizationDpi = dpi,
+        PicturesCompression = PicturesCompression.Dpi330,
+        JpegQuality = 90
+    };
+
+    using var svgStream = File.Create($"slide-{dpi}.svg");
+    presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+}
+```
+
+I resultatet blir EMF en inbäddad PNG i varje SVG. Följande mått gäller den medföljande presentationen; de är inte en allmän formel för att konvertera DPI till pixeldimensioner.
+
+| Metafils rasteriserings‑DPI | Inbäddade PNG-dimensioner | SVG‑filstorlek (byte) |
+| --- | --- | --- |
+| 72 | 1196 × 596 | 170,221 |
+| 150 | 2492 × 1242 | 423,149 |
+| 300 | 4983 × 2483 | 1,027,169 |
+
+Jämförelsen nedan visar samma område av den inbäddade rasterbilden i samma förstorade visningsstorlek. Diagonal linjer visar synlig pixelering vid 72 DPI och mjukare kanter vid högre upplösningar, samtidigt som SVG‑filen växer. Att öka värdet förbättrar inte nödvändigtvis varje detalj eller ändrar varje exporterad bild.
+
+![Förstorad detalj av diagonal linje vid 72, 150 och 300 DPI](metafile-rasterization-comparison.png)
+
+[SVGOptions.PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/picturescompression/) styr reduktion av bildupplösning och kan maskera effekten av att ändra metafils rasteriseringsupplösning. [SVGOptions.JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/jpegquality/) styr JPEG‑kodningskvalitet, inte metafils rasteriseringsupplösning.
+
 ## **Tilldela stabila ID:n till former och text**
 
-Använd [ISvgShapeFormattingController](https://reference.aspose.com/slides/sv/net/aspose.slides.export/isvgshapeformattingcontroller/) för att ange [ISvgShape.Id](https://reference.aspose.com/slides/sv/net/aspose.slides.export/isvgshape/id/) för varje SVG-form. För att även sätta [ISvgTSpan.Id](https://reference.aspose.com/slides/sv/net/aspose.slides.export/isvgtspan/id/)‑värden på text-`tspan`-element, implementera [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/sv/net/aspose.slides.export/isvgshapeandtextformattingcontroller/). Tilldela någon av kontrollerna med [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/shapeformattingcontroller/).
+Använd [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/) för att ange [ISvgShape.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/id/) för varje SVG‑form. För att även sätta [ISvgTSpan.Id](https://reference.aspose.com/slides/net/aspose.slides.export/isvgtspan/id/)‑värden på text‑`tspan`‑element, implementera [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeandtextformattingcontroller/). Tilldela någon av kontrollerna med [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/).
 
-Följande kontroller använder [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/officeinteropshapeid/), vilket är stabilt under formens livstid, och en upprepningsbar räknare för dess text-spans. Detta gör de genererade ID:n lämpliga för efterbehandling av en oförändrad presentation.
+Följande kontroller använder [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/net/aspose.slides/ishape/officeinteropshapeid/), som är stabil under formens livstid, samt en repeterbar räknare för dess textsprång. Detta gör de genererade ID:n lämpliga för efterbehandling av en oförändrad presentation.
 
 ```csharp
 using Aspose.Slides;
@@ -184,7 +227,7 @@ class StableSvgIdController : ISvgShapeAndTextFormattingController
 
 ## **Lägg till SVG‑händelsehanterare**
 
-I en [ISvgShapeFormattingController](https://reference.aspose.com/slides/sv/net/aspose.slides.export/isvgshapeformattingcontroller/) anropar du [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/sv/net/aspose.slides.export/isvgshape/seteventhandler/) med ett [SvgEvent](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgevent/)‑värde för att lägga till en JavaScript‑händelsehanterare till en exporterad form. Tilldela kontrollern med [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) och definiera JavaScript‑funktionen på sidan eller i SVG‑dokumentet som innehåller resultatet.
+I en [ISvgShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshapeformattingcontroller/) anropar du [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape/seteventhandler/) med ett [SvgEvent](https://reference.aspose.com/slides/net/aspose.slides.export/svgevent/)-värde för att lägga till en JavaScript‑händelsehanterare på en exporterad form. Tilldela kontrolleren med [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) och definiera JavaScript‑funktionen på sidan eller i SVG‑dokumentet som innehåller resultatet.
 
 ```csharp
 using Aspose.Slides;
@@ -215,16 +258,16 @@ class SvgEventController : ISvgShapeFormattingController
 
 Värdsidan kan definiera JavaScript‑funktionen som refereras av hanteraren. Att tilldela ID:n och händelsehanterare möjliggör bildvisare, förbättringar för tillgänglighet och andra interaktiva SVG‑arbetsflöden.
 
-## **Vanliga frågor**
+## **FAQ**
 
-**När bör jag använda [SVGOptions.VectorizeText](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/vectorizetext/) istället för [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgexternalfontshandling/)?**
+**När bör jag använda [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) istället för [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/)?**
 
-Använd [SVGOptions.VectorizeText](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgoptions/vectorizetext/) när all text måste vara oberoende av teckensnitt. Använd [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/sv/net/aspose.slides.export/svgexternalfontshandling/) när endast text som använder externa teckensnitt ska omvandlas till grafik.
+Använd [SVGOptions.VectorizeText](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/vectorizetext/) när all text måste vara oberoende av teckensnitt. Använd [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/net/aspose.slides.export/svgexternalfontshandling/) när endast text som använder externa teckensnitt ska konverteras till grafik.
 
 **Vad är det bästa sättet att göra en SVG mindre?**
 
-Börja med att komprimera inbäddade bilder, ta bort beskurna bildområden och välja länkade teckensnitts-filer när målmiljön kan leverera dem. Testa resultatet eftersom lägre bildupplösning, lägre JPEG-kvalitet och vektorisering av text alla har olika kvalitets- och storleksavvägningar.
+Börja med att komprimera inbäddade bilder, ta bort beskurna bildområden och välja länkade teckensnittsfiler när målmiljön kan leverera dem. Testa resultatet eftersom lägre bildupplösning, lägre JPEG‑kvalitet och vektorisering av text har olika kompromisser mellan kvalitet och storlek.
 
 **Kan jag ändra exporterade SVG‑element efter export?**
 
-Ja. Tilldela ID:n via en formateringskontroller och välj sedan de matchande SVG‑elementen i ditt efterbehandlingsverktyg eller browserskript.
+Ja. Tilldela ID:n via en formateringskontroller och välj sedan de motsvarande SVG‑elementen i ditt efterbehandlingsverktyg eller browserskript.

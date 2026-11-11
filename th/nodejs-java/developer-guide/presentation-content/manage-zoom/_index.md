@@ -1,5 +1,5 @@
 ---
-title: จัดการการซูมการนำเสนอใน JavaScript
+title: จัดการการซูมของพรีเซนเทชันใน JavaScript
 linktitle: จัดการซูม
 type: docs
 weight: 60
@@ -16,533 +16,492 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "สร้างและปรับแต่งการซูมด้วย Aspose.Slides สำหรับ Node.js — กระโดดระหว่างส่วนต่าง ๆ เพิ่มภาพย่อและการเปลี่ยนผ่านในงานนำเสนอรูปแบบ PPT, PPTX และ ODP."
+description: "สร้างและปรับแต่งซูมด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java — กระโดดระหว่างส่วนต่าง ๆ, เพิ่มภาพย่อและการเปลี่ยนภาพในพรีเซนเทชัน PowerPoint."
 ---
 ## **บทนำ**
 
-Zoom ใน PowerPoint ช่วยให้คุณสามารถกระโดดไปและกลับจากสไลด์, ส่วน, และช่วงต่าง ๆ ของการนำเสนอได้ เมื่อคุณกำลังพรีเซนต์ ความสามารถในการนำทางอย่างรวดเร็วผ่านเนื้อหาเหล่านี้อาจเป็นประโยชน์อย่างมาก. 
+Zoom ของ PowerPoint ช่วยให้คุณนำทางระหว่างสไลด์และส่วนต่าง ๆ ระหว่างการพรีเซนเทชัน ด้วย Aspose.Slides for Node.js ผ่าน Java คุณสามารถสร้าง slide, section, และ summary zooms และปรับแต่งการแสดงตัวอย่าง, เฟรม, และการเปลี่ยนภาพได้.
 
-![ภาพรวม](overview.png)
+![ภาพรวมของ PowerPoint zoom](overview.png)
 
-* เพื่อสรุปการนำเสนอทั้งหมดในสไลด์เดียว ให้ใช้ [Summary Zoom](#Summary-Zoom).
-* เพื่อแสดงเฉพาะสไลด์ที่เลือก ให้ใช้ [Slide Zoom](#Slide-Zoom).
-* เพื่อแสดงส่วนเดียวเท่านั้น ให้ใช้ [Section Zoom](#Section-Zoom).
+* เพื่อสรุปการพรีเซนเทชันทั้งหมดในสไลด์เดียว ให้ใช้ [Summary Zoom](#summary-zoom).
+* เพื่อแสดงสไลด์ที่เลือกเท่านั้น ให้ใช้ [Slide Zoom](#slide-zoom).
+* เพื่อแสดงส่วนเดียวเท่านั้น ให้ใช้ [Section Zoom](#section-zoom).
 
 ## **Zoom สไลด์**
 
-Zoom สไลด์สามารถทำให้การนำเสนอของคุณมีความไดนามิกมากขึ้น โดยให้คุณนำทางระหว่างสไลด์ได้อย่างอิสระตามลำดับที่ต้องการโดยไม่ขัดจังหวะการพรีเซนต์ Zoom สไลด์เหมาะสำหรับการนำเสนอสั้น ๆ ที่ไม่มีหลายส่วนมาก แต่คุณก็สามารถใช้มันในสถาณการณ์การนำเสนอประเภทต่าง ๆ ได้เช่นกัน
+Zoom สไลด์สามารถทำให้การพรีเซนเทชันของคุณมีความไดนามิกมากขึ้นโดยให้คุณนำทางอย่างอิสระระหว่างสไลด์ในลำดับใดก็ได้ตามที่คุณเลือกโดยไม่ขัดจังหวะการไหลของการพรีเซนเทชัน. Zoom สไลด์เหมาะสำหรับพรีเซนเทชันสั้น ๆ ที่ไม่มีหลายส่วน แต่คุณยังสามารถใช้มันในสถานการณ์การพรีเซนเทชันต่าง ๆ ได้.
 
-Zoom สไลด์ช่วยให้คุณเจาะลึกข้อมูลหลายส่วนขณะยังคงรู้สึกว่าอยู่บนผ้าใบเดียวกัน 
+Zoom สไลด์ช่วยให้คุณสำรวจข้อมูลที่เกี่ยวข้องจากสไลด์ภาพรวมเดียว.
 
-![ภาพรวมสไลด์ซูม](slidezoomsel.png)
+![การเลือกสไลด์สำหรับ Zoom สไลด์](slidezoomsel.png)
 
-สำหรับอ็อบเจกต์ Zoom สไลด์ Aspose.Slides มีการแสดงผลแบบ enumeration [ZoomImageType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ZoomImageType) , คลาส [ZoomFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ZoomFrame) และเมธอดบางส่วนในคลาส [ShapeCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ShapeCollection) 
+สำหรับวัตถุ slide zoom, Aspose.Slides ให้บริการ enumeration [ZoomImageType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomimagetype/) , class [ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/) , และ methods บน class [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) .
 
-### **การสร้าง Zoom Frame**
+### **สร้างกรอบ Zoom**
 
-คุณสามารถเพิ่ม Zoom Frame ลงในสไลด์ได้ดังนี้:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) class.
-2.	Create new slides to which you intend to link the zoom frames. 
-3.	Add an identification text and background to the created slides.
-4.	Add zoom frames (containing the references to created slides) to the first slide.
-5.	Write the modified presentation as a PPTX file.
-
-This JavaScript code shows you how to create a zoom frame on a slide:
+ใช้ [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame) เพื่อวางลิงก์ไปยังสไลด์แต่ละสไลด์บนสไลด์ภาพรวม ตัวอย่างนี้สร้างสไลด์เป้าหมายสองสไลด์ที่มีพื้นหลังและป้ายกำกับที่แตกต่างกัน แล้วเพิ่มการแสดงตัวอย่างของแต่ละสไลด์ไปยังสไลด์แรกและบันทึกพรีเซนเทชันเป็น PPTX ตำแหน่งและขนาดของกรอบระบุเป็น points.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // สร้างพื้นหลังสำหรับสไลด์ที่สอง
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // สร้างกล่องข้อความสำหรับสไลด์ที่สอง
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // สร้างพื้นหลังสำหรับสไลด์ที่สาม
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // สร้างกล่องข้อความสำหรับสไลด์ที่สาม
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // เพิ่มอ็อบเจกต์ ZoomFrame
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // บันทึกงานนำเสนอ
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **การสร้าง Zoom Frame ด้วยภาพกำหนดเอง**
+### **สร้างกรอบ Zoom ด้วยภาพกำหนดเอง**
 
-ด้วย Aspose.Slides for Node.js via Java คุณสามารถสร้าง Zoom Frame พร้อมภาพพรีวิวสไลด์ที่ต่างออกไปได้ดังนี้:
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) class.
-2.	Create a new slide to which you intend to link the zoom frame. 
-3.	Add an identification text and background to the slide.
-4.	Create an [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) object that will be used to fill the frame.
-5.	Add zoom frames (containing the reference to created slide) to the first slide.
-6.	Write the modified presentation as a PPTX file.
-
-This JavaScript code shows you how to create a zoom frame with a different image:
+ส่งภาพกำหนดเองไปยัง [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame) เพื่อแทนที่การแสดงตัวอย่างเริ่มต้นของสไลด์เป้าหมาย ตัวอย่างนี้ต้องใช้ภาพในเครื่อง โหลดภาพด้วย [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) และเพิ่มภาพไปยังพรีเซนเทชันด้วย [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) กรอบที่ได้จะแสดงภาพนั้นในขณะที่ยังลิงก์ไปยังสไลด์ที่สอง.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // สร้างพื้นหลังสำหรับสไลด์ที่สอง
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // สร้างกล่องข้อความสำหรับสไลด์ที่สาม
-    var autoshape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // สร้างภาพใหม่สำหรับอ็อบเจกต์ซูม
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
+        image.dispose();
+    }
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 300, 200, slide, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **จัดรูปแบบกรอบ Zoom**
+
+ตัวอย่างนี้ปรับแต่งกรอบ Zoom สองกรอบ โดยกำหนดภาพในเครื่องให้กับกรอบแรกผ่าน [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) และให้กรอบที่สองมีขอบสีชมพูขนาดห้า‑point แบบ dash‑dot ผ่าน [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) การส่ง `false` ไปยัง [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground) จะซ่อนพื้นหลังของกรอบที่สอง ภาพในเครื่องจำเป็นสำหรับการแสดงตัวอย่างกำหนดเอง; ทั้งสองกรอบยังคงเชื่อมกับสไลด์เป้าหมายในไฟล์ PPTX ที่บันทึกไว้.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    let firstZoomFrame = overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    let secondZoomFrame = overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
+    try {
+        previewImage = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
+
+    firstZoomFrame.setZoomImage(previewImage);
+
+    secondZoomFrame.getLineFormat().setWidth(5);
+    secondZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 105, 180));
+    secondZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
+    secondZoomFrame.setShowBackground(false);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Zoom ส่วน**
+
+Zoom ส่วนลิงก์ไปยังส่วนหนึ่งของพรีเซนเทชัน ใช้เพื่อกลับไปยังหัวข้อเดิมหรือแสดงว่าต่างส่วนเชื่อมโยงกันอย่างไร
+
+![การเลือกส่วนสำหรับ Zoom ส่วน](seczoomsel.png)
+
+สำหรับวัตถุ section zoom, Aspose.Slides ให้บริการ class [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) และ methods บน class [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) .
+
+### **สร้างกรอบ Zoom ส่วน**
+
+สร้างส่วนด้วย [SectionCollection.addSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectioncollection/#addSection) แล้วส่งส่วนที่ได้ไปยัง [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame) ตัวอย่างนี้วาง Zoom ส่วนบนสไลด์แรกและลิงก์ไปยังส่วนที่เริ่มต้นด้วยสไลด์สีต่าง ๆ ตำแหน่งและขนาดของกรอบระบุเป็น points และบันทึกพรีเซนเทชันเป็น PPTX.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **สร้างกรอบ Zoom ส่วนด้วยภาพกำหนดเอง**
+
+ออฟโหลดรูปของ [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame) ทำให้คุณแสดงตัวอย่างกำหนดเองโดยไม่เปลี่ยนส่วนปลายทาง ตัวอย่างนี้ต้องใช้ภาพในเครื่องซึ่งโหลดด้วย [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) และเพิ่มผ่าน [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) พรีเซนเทชันที่บันทึกมี Zoom ส่วนบนสไลด์แรกที่ลิงก์ไปยังส่วนที่สร้างใหม่.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
+    try {
+        previewImage = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **เปลี่ยนส่วนเป้าหมายของ Zoom ส่วน**
+
+ใช้ [SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/#setTargetSection) เพื่อเปลี่ยนทิศทางของ Zoom ส่วนที่มีอยู่โดยไม่ต้องสร้างใหม่ เลือกส่วนที่มีข้อมูลจากคอลเลกชัน [Presentation.getSections](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSections) ของพรีเซนเทชันเดียวกัน การกำหนดส่วนเปล่าจะทำให้เป้าหมายปัจจุบันคงไว้ ดังนั้นให้ตรวจสอบ [Section.getSlidesListOfSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSlidesListOfSection) ก่อนกำหนด ดูรายละเอียดเพิ่มเติมเกี่ยวกับส่วนใน [จัดการส่วนของสไลด์](/slides/th/nodejs-java/slide-section/).
+
+ตัวอย่างต่อไปนี้โหลดไฟล์พรีเซนเทชันซึ่งต้องมีหลายส่วนที่มีข้อมูล, มี Zoom ส่วนที่ชื่อ `Section navigation` อยู่แล้ว, และมีส่วนที่ชื่อแบบเอกลักษณ์ `Results`. มันค้นหาทุกสไลด์เพื่อหา Zoom และหาปลายทางโดยใช้ชื่อแทนการอ้างอิงตามดัชนีที่อาจเปลี่ยนเมื่อจัดลำดับส่วนใหม่ หากชื่อไม่เป็นเอกลักษณ์ ให้ใช้ [Section.getSectionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSectionId) เพื่อระบุปลายทางแทน.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("section-zoom.pptx");
+try {
+    let zoom = null;
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        for (let j = 0; j < slide.getShapes().size(); j++) {
+            const shape = slide.getShapes().get_Item(j);
+            if (java.instanceOf(shape, "com.aspose.slides.ISectionZoomFrame") && shape.getName() === "Section navigation") {
+                zoom = shape;
+                break;
+            }
+        }
+        if (zoom != null) {
+            break;
         }
     }
-    // เพิ่มอ็อบเจกต์ ZoomFrame
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
-    // บันทึกงานนำเสนอ
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
 
-### **การจัดรูปแบบ Zoom Frame**
-
-ในส่วนก่อนหน้า เราได้แสดงวิธีสร้าง Zoom Frame อย่างง่าย เพื่อสร้าง Zoom Frame ที่ซับซ้อนมากขึ้น คุณต้องปรับเปลี่ยนการจัดรูปแบบของ Frame อย่างง่าย มีตัวเลือกการจัดรูปแบบหลายอย่างที่คุณสามารถนำไปใช้กับ Zoom Frame ได้ 
-
-คุณสามารถควบคุมการจัดรูปแบบของ Zoom Frame บนสไลด์ได้ดังนี้:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) class.
-2.	Create new slides to link to which you intend to link the zoom frame. 
-3.	Add some identification text and background to the created slides.
-4.	Add zoom frames (containing the references to the created slides) to the first slide.
-5.	Create an [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) object that will be used to fill the frame.
-6	Set a custom image for the first zoom frame object.
-7	Change the line format for the second zoom frame object.
-8	Remove the background from an image of the second zoom frame object.
-9	Write the modified presentation as a PPTX file.
-
-This JavaScript code shows you how to change a zoom frame's formatting on a slide:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // สร้างพื้นหลังสำหรับสไลด์ที่สอง
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // สร้างกล่องข้อความสำหรับสไลด์ที่สอง
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // สร้างพื้นหลังสำหรับสไลด์ที่สาม
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // สร้างกล่องข้อความสำหรับสไลด์ที่สาม
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // เพิ่มอ็อบเจกต์ ZoomFrame
-    var zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    var zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // สร้างภาพใหม่สำหรับอ็อบเจกต์ซูม
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+    let targetSection = null;
+    for (let i = 0; i < presentation.getSections().size(); i++) {
+        const section = presentation.getSections().get_Item(i);
+        if (section.getName() === "Results") {
+            targetSection = section;
+            break;
         }
     }
-    // ตั้งค่าภาพกำหนดเองสำหรับอ็อบเจกต์ zoomFrame1
-    zoomFrame1.setImage(picture);
-    // ตั้งค่ารูปแบบ Zoom Frame สำหรับอ็อบเจกต์ zoomFrame2
-    zoomFrame2.getLineFormat().setWidth(5);
-    zoomFrame2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "pink"));
-    zoomFrame2.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // การตั้งค่าสำหรับไม่แสดงพื้นหลังสำหรับอ็อบเจกต์ zoomFrame2
-    zoomFrame2.setShowBackground(false);
-    // บันทึกงานนำเสนอ
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (zoom == null || targetSection == null) {
+        console.log("The section zoom or destination section was not found.");
+    } else if (targetSection.getSlidesListOfSection().size() == 0) {
+        console.log("The destination section is empty.");
+    } else {
+        let currentSection = zoom.getTargetSection();
+        console.log("Current section: " + (currentSection == null ? "" : currentSection.getName()));
+        zoom.setTargetSection(targetSection);
+        presentation.save("section-zoom-updated.pptx", aspose.slides.SaveFormat.Pptx);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Section Zoom**
+### **จัดรูปแบบกรอบ Zoom ส่วน**
 
-Section Zoom เป็นลิงก์ไปยังส่วนหนึ่งในงานนำเสนอของคุณ คุณสามารถใช้ Section Zoom เพื่อกลับไปยังส่วนที่ต้องการเน้นย้ำ หรือใช้เพื่อชี้ให้เห็นว่าชิ้นส่วนต่าง ๆ ของการนำเสนอของคุณเชื่อมโยงกันอย่างไร 
-
-![ภาพรวมส่วนซูม](seczoomsel.png)
-
-สำหรับอ็อบเจกต์ Section Zoom Aspose.Slides มีคลาส [SectionZoomFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SectionZoomFrame) และเมธอดบางส่วนในคลาส [ShapeCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ShapeCollection) 
-
-### **การสร้าง Section Zoom Frame**
-
-คุณสามารถเพิ่ม Section Zoom Frame ลงในสไลด์ได้ดังนี้:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) class.
-2.	Create a new slide. 
-3.	Add an identification background to the created slide.
-4.	Create a new section to which you intend to link the zoom frame. 
-5.	Add a section zoom frame (containing references to the created section) to the first slide.
-6.Write the modified presentation as a PPTX file.
-
-This JavaScript code shows you how to create a zoom frame on a slide:
+ตัวอย่างนี้ย้ายและปรับขนาด Zoom ส่วนเป็น 100 x 75 points, กำหนดภาพในเครื่องผ่าน [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) และใช้ขอบสีน้ำตาล dash‑dot ขนาด 2.5‑point. เปิดใช้งาน [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) เพื่อกลับสู่สไลด์ต้นทางหลังจากส่วน, ปิด [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground) และตั้งค่า [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) เป็น 1.5 วินาที. ภาพในเครื่องจำเป็นสำหรับการแสดงตัวอย่างกำหนดเอง.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // เพิ่ม Section ใหม่ไปยังงานนำเสนอ
-    pres.getSections().addSection("Section 1", slide);
-    // เพิ่มอ็อบเจกต์ SectionZoomFrame
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // บันทึกงานนำเสนอ
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
 
-### **การสร้าง Section Zoom Frame ด้วยภาพกำหนดเอง**
+    let section = presentation.getSections().addSection("Section 1", slide);
 
-โดยใช้ Aspose.Slides for Node.js via Java คุณสามารถสร้าง Section Zoom Frame พร้อมภาพพรีวิวสไลด์ที่ต่างออกไปได้ดังนี้:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) class.
-2.	Create a new slide.
-3.	Add an identification background to created slide.
-4.	Create a new section to which you intend to link the zoom frame. 
-5.	Create an [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) object that will be used to fill the frame.
-6	Add a section zoom frame (containing a reference to the created section) to the first slide.
-7	Write the modified presentation as a PPTX file.
-
-This JavaScript code shows you how to create a zoom frame with a different image:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // เพิ่ม Section ใหม่ไปยังงานนำเสนอ
-    pres.getSections().addSection("Section 1", slide);
-    // สร้างภาพใหม่สำหรับอ็อบเจกต์ซูม
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    // เพิ่มอ็อบเจกต์ SectionZoomFrame
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
-    // บันทึกงานนำเสนอ
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-### **การจัดรูปแบบ Section Zoom Frame**
-
-เพื่อสร้าง Section Zoom Frame ที่ซับซ้อนมากขึ้น คุณต้องปรับเปลี่ยนการจัดรูปแบบของ Frame อย่างง่าย มีตัวเลือกการจัดรูปแบบหลายอย่างที่คุณสามารถนำไปใช้กับ Section Zoom Frame ได้ 
-
-คุณสามารถควบคุมการจัดรูปแบบของ Section Zoom Frame บนสไลด์ได้ดังนี้:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) class.
-2.	Create a new slide.
-3.	Add identification background to created slide.
-4.	Create a new section to which you intend to link the zoom frame. 
-5.Add a section zoom frame (containing references to created section) to the first slide.
-6.Change the size and position for the created section zoom object.
-7.Create an [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) object that will be used to fill the frame.
-8.Set a custom image for the created section zoom frame object.
-9.Set the *return to the original slide from the linked section* ability. 
-10.Remove the background from an image of the section zoom frame object.
-11.Change the line format for the second zoom frame object.
-12.Change the transition duration.
-13.Write the modified presentation as a PPTX file.
-
-This JavaScript code shows you how to change a section zoom frame's formatting:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // เพิ่ม Section ใหม่ไปยังงานนำเสนอ
-    pres.getSections().addSection("Section 1", slide);
-    // เพิ่มอ็อบเจกต์ SectionZoomFrame
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // การจัดรูปแบบสำหรับ SectionZoomFrame
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
     sectionZoomFrame.setHeight(75);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    sectionZoomFrame.setImage(picture);
+
+    sectionZoomFrame.setZoomImage(previewImage);
+
     sectionZoomFrame.setReturnToParent(true);
     sectionZoomFrame.setShowBackground(false);
+
     sectionZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    sectionZoomFrame.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    sectionZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     sectionZoomFrame.getLineFormat().setWidth(2.5);
-    sectionZoomFrame.setTransitionDuration(1.5);
-    // บันทึกงานนำเสนอ
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    sectionZoomFrame.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Summary Zoom**
+## **Zoom สรุป**
 
-Summary Zoom คล้ายกับหน้าลงจอดที่แสดงชิ้นส่วนทั้งหมดของการนำเสนอพร้อมกัน เมื่อคุณพรีเซนต์ คุณสามารถใช้ Zoom เพื่อไปจากตำแหน่งหนึ่งไปอีกตำแหน่งหนึ่งในลำดับที่คุณต้องการได้ คุณสามารถทำแบบสร้างสรรค์ ข้ามไปข้างหน้า หรือกลับไปดูส่วนต่าง ๆ ของสไลด์โชว์โดยไม่ทำให้การไหลของการนำเสนอขัดจังหวะ
+Zoom สรุปให้ภาพรวมของส่วนต่าง ๆ ของพรีเซนเทชัน ระหว่างการพรีเซนเทชันคุณสามารถใช้เพื่อกระโดดไปยังส่วน, ข้ามไปข้างหน้า, หรือกลับไปยังหัวข้อโดยไม่ต้องตามลำดับสไลด์.
 
-![ภาพรวมสรุปซูม](sumzoomsel.png)
+![การเลือกส่วนสำหรับ Zoom สรุป](sumzoomsel.png)
 
-สำหรับอ็อบเจกต์ Summary Zoom Aspose.Slides มีคลาส [SummaryZoomFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SummaryZoomFrame), [SummaryZoomSection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SummaryZoomSection) และ [SummaryZoomSectionCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SummaryZoomSectionCollection) รวมถึงเมธอดบางส่วนในคลาส [ShapeCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ShapeCollection) 
+สำหรับวัตถุ summary zoom, Aspose.Slides ให้บริการ class [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/), และ [SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/) พร้อม methods บน class [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) .
 
-### **การสร้าง Summary Zoom**
+### **สร้าง Zoom สรุป**
 
-คุณสามารถเพิ่ม Summary Zoom Frame ลงในสไลด์ได้ดังนี้:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.	Add the summary zoom frame to the first slide.
-4.Write the modified presentation as a PPTX file.
-
-This JavaScript code shows you how to create a summary zoom frame on a slide:
+ใช้ [ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSummaryZoomFrame) เพื่อสร้างภาพรวมของส่วนต่าง ๆ ของพรีเซนเทชัน ตัวอย่างนี้สร้างสี่ส่วนที่มีพื้นหลังสไลด์แตกต่างกันและเพิ่ม summary zoom ไปยังสไลด์แรก ตำแหน่งและขนาดของกรอบระบุเป็น points และบันทึกภาพรวมเป็นพรีเซนเทชัน PPTX.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // เพิ่ม Section ใหม่ไปยังงานนำเสนอ
-    pres.getSections().addSection("Section 1", slide);
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // เพิ่ม Section ใหม่ไปยังงานนำเสนอ
-    pres.getSections().addSection("Section 2", slide);
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // เพิ่ม Section ใหม่ไปยังงานนำเสนอ
-    pres.getSections().addSection("Section 3", slide);
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 3", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "green"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // เพิ่ม Section ใหม่ไปยังงานนำเสนอ
-    pres.getSections().addSection("Section 4", slide);
-    // เพิ่มอ็อบเจกต์ SummaryZoomFrame
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // บันทึกงานนำเสนอ
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 100, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 4", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **การเพิ่มและลบ Summary Zoom Section**
+### **เพิ่มและลบส่วนของ Zoom สรุป**
 
-ทุก Section ใน Summary Zoom Frame แสดงด้วยอ็อบเจกต์ [SummaryZoomSection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SummaryZoomSection) ซึ่งจัดเก็บในอ็อบเจกต์ [SummaryZoomSectionCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SummaryZoomSectionCollection) คุณสามารถเพิ่มหรือเอาอ็อบเจกต์ Summary Zoom Section ออกได้ผ่านคลาส [SummaryZoomSectionCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SummaryZoomSectionCollection) ดังนี้:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.	Add a summary zoom frame into the first slide.
-4.Add a new slide and section to the presentation.
-5.Add the created section to the summary zoom frame.
-6.Remove the first section from the summary zoom frame.
-7.Write the modified presentation as a PPTX file.
-
-This JavaScript code shows you how to add and remove sections in a summary zoom frame:
+Zoom สรุปเก็บวัตถุ [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/) ใน [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) ตัวอย่างนี้สร้างภาพรวมของสองส่วน, เพิ่มส่วนที่สามด้วย [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) และลบรายการของส่วนแรกด้วย [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection) การลบรายการจะไม่กระทบต่อส่วนและสไลด์ของพรีเซนเทชัน.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // เพิ่ม Section ใหม่ไปยังงานนำเสนอ
-    pres.getSections().addSection("Section 1", slide);
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let firstSection = presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // เพิ่ม Section ใหม่ไปยังงานนำเสนอ
-    pres.getSections().addSection("Section 2", slide);
-    // เพิ่มอ็อบเจกต์ SummaryZoomFrame
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // เพิ่ม Section ใหม่ไปยังงานนำเสนอ
-    var section3 = pres.getSections().addSection("Section 3", slide);
-    // เพิ่ม Section ไปยัง Summary Zoom
-    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
-    // ลบ Section จาก Summary Zoom
-    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
-    // บันทึกงานนำเสนอ
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let thirdSection = presentation.getSections().addSection("Section 3", slide);
+
+    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(thirdSection);
+
+    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(firstSection);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **การจัดรูปแบบ Summary Zoom Section**
+### **จัดรูปแบบส่วนของ Zoom สรุป**
 
-เพื่อสร้างอ็อบเจกต์ Summary Zoom Section ที่ซับซ้อนมากขึ้น คุณต้องปรับเปลี่ยนการจัดรูปแบบของ Frame อย่างง่าย มีตัวเลือกการจัดรูปแบบหลายอย่างที่คุณสามารถนำไปใช้กับอ็อบเจกต์ Summary Zoom Section ได้ 
-
-คุณสามารถควบคุมการจัดรูปแบบของอ็อบเจกต์ Summary Zoom Section ใน Summary Zoom Frame ได้ดังนี้:
-
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) class.
-2.	Create new slides with identification background and new sections for created slides.
-3.	Add a summary zoom frame to the first slide.
-4.Get a summary zoom section object for the first object from the `ISummaryZoomSectionCollection`.
-5.Create an [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PPImage) object by adding an image to the images collection associated with the [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) object that will be used to fill the frame.
-6.Set a custom image for the created section zoom frame object.
-7.Set the *return to the original slide from the linked section* ability. 
-8.Change the line format for the second zoom frame object.
-9.Change the transition duration.
-10.Write the modified presentation as a PPTX file.
-
-This JavaScript code shows you how to change the formatting for a summary zoom section object:
+ตัวอย่างนี้จัดรูปแบบรายการแรกใน [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) โดยใช้ดัชนีศูนย์ `0`. จำเป็นต้องใช้ภาพในเครื่องสำหรับ [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage), ใช้ขอบสีดำ dash‑dot ขนาด 1.5‑point, และตั้งค่า [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) เป็น 1.5 วินาที การส่ง `false` ไปยัง [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) จะปิดการกลับอัตโนมัติไปยังสไลด์สรุปสำหรับรายการนี้.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // เพิ่ม Section ใหม่ไปยังงานนำเสนอ
-    pres.getSections().addSection("Section 1", slide);
-    // เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // เพิ่ม Section ใหม่ไปยังงานนำเสนอ
-    pres.getSections().addSection("Section 2", slide);
-    // เพิ่มอ็อบเจกต์ SummaryZoomFrame
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // ดึงอ็อบเจกต์ SummaryZoomSection ตัวแรก
-    var summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
-    // การจัดรูปแบบสำหรับอ็อบเจกต์ SummaryZoomSection
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    let summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(picture);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    summarySection.setImage(picture);
+
+    summarySection.setZoomImage(previewImage);
     summarySection.setReturnToParent(false);
+
     summarySection.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "black"));
-    summarySection.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    summarySection.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     summarySection.getLineFormat().setWidth(1.5);
-    summarySection.setTransitionDuration(1.5);
-    // บันทึกงานนำเสนอ
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    summarySection.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**Can I control returning to the 'parent' slide after showing the target?**
+**ฉันสามารถควบคุมการกลับไปยังสไลด์ 'แม่' หลังจากแสดงเป้าหมายได้หรือไม่?**
 
-Yes. The [Zoom frame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/zoomframe/) or [section](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sectionzoomframe/) has a `setReturnToParent` method that, when enabled, sends viewers back to the originating slide after they visit the target content.
+ใช่. เรียก [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) ด้วยค่า `true` เพื่อกลับไปยังสไลด์ต้นทางหลังจากแสดงเนื้อหาเป้าหมายแล้ว.
 
-**Can I adjust the 'speed' or duration of the Zoom transition?**
+**ฉันสามารถปรับ 'ความเร็ว' หรือระยะเวลาในการเปลี่ยนแปลงของ Zoom ได้หรือไม่?**
 
-Yes. Zoom exposes a `setTransitionDuration` method so you can control how long the jump animation takes.
+ใช่. ใช้ [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) เพื่อควบคุมระยะเวลาในการเปลี่ยนภาพเป็นวินาที.
 
-**Are there limits on how many Zoom objects a presentation can contain?**
+**มีข้อจำกัดจำนวนวัตถุ Zoom ที่พรีเซนเทชันสามารถมีได้หรือไม่?**
 
-There is no hard API limit documented. Practical limits depend on overall presentation complexity and the viewer's performance. You can add many Zoom frames, but consider file size and rendering time.
+ไม่มีข้อจำกัดแบบ API ที่ระบุอย่างชัดเจน ข้อจำกัดเชิงปฏิบัติเกี่ยวข้องกับความซับซ้อนโดยรวมของพรีเซนเทชันและประสิทธิภาพของอุปกรณ์ผู้ชม คุณสามารถเพิ่มกรอบ Zoom ได้หลายอัน แต่ควรคำนึงถึงขนาดไฟล์และเวลาการเรนเดอร์.

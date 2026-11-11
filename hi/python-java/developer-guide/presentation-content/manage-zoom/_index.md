@@ -1,53 +1,46 @@
 ---
-title: Python के माध्यम से Java में प्रस्तुति ज़ूम प्रबंधन
-linktitle: ज़ूम प्रबंधन
+title: Python via Java में प्रस्तुति ज़ूम प्रबंधित करें
+linktitle: ज़ूम प्रबंधित करें
 type: docs
 weight: 60
 url: /hi/python-java/manage-zoom/
 keywords:
 - ज़ूम
-- ज़ूम फ़्रेम
+- ज़ूम फ्रेम
 - स्लाइड ज़ूम
 - सेक्शन ज़ूम
 - सारांश ज़ूम
 - ज़ूम जोड़ें
-- पावरपॉइंट
+- पॉवरपॉइंट
 - प्रस्तुति
-- पाइथन
+- पायथन
 - जावा
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java के साथ ज़ूम बनाएं और अनुकूलित करें — स्लाइड, PPT, PPTX और ODP प्रस्तुतियों में सेक्शन के बीच कूदें, थंबनेल और ट्रांज़िशन जोड़ें।"
+description: "Aspose.Slides for Python via Java के साथ ज़ूम बनाएं और कस्टमाइज़ करें — सेक्शन के बीच कूदें, थंबनेल और ट्रांज़िशन PowerPoint प्रस्तुतियों में जोड़ें।"
 ---
 ## **परिचय**
 
-PowerPoint में ज़ूम आपको प्रस्तुति के विशिष्ट स्लाइड, सेक्शन और हिस्सों के बीच कूदने की सुविधा देता है। जब आप प्रस्तुति दे रहे होते हैं, तो सामग्री में तेज़ी से नेविगेट करने की यह क्षमता बहुत उपयोगी साबित हो सकती है।
+PowerPoint ज़ूम आपको स्लाइड शो के दौरान विशिष्ट स्लाइड और सेक्शन के बीच नेविगेट करने देते हैं। Aspose.Slides for Python via Java के साथ, आप स्लाइड, सेक्शन और सारांश ज़ूम बना सकते हैं और उनके प्रीव्यू, बॉर्डर और ट्रांज़िशन को कस्टमाइज़ कर सकते हैं।
 
-![overview_image](overview.png)
+![PowerPoint ज़ूम अवलोकन](overview.png)
 
-* संपूर्ण प्रस्तुति को एक ही स्लाइड पर सारांशित करने के लिए, एक [सारांश ज़ूम](#summary-zoom) का उपयोग करें।
-* केवल चयनित स्लाइड दिखाने के लिए, एक [स्लाइड ज़ूम](#slide-zoom) का उपयोग करें।
-* केवल एक सेक्शन दिखाने के लिए, एक [सेक्शन ज़ूम](#section-zoom) का उपयोग करें।
+* एक ही स्लाइड पर पूरी प्रस्तुति का सारांश बनाने के लिए, [सारांश ज़ूम](#summary-zoom) का उपयोग करें।
+* केवल चयनित स्लाइड्स दिखाने के लिए, [स्लाइड ज़ूम](#slide-zoom) का उपयोग करें।
+* केवल एक सेक्शन दिखाने के लिए, [सेक्शन ज़ूम](#section-zoom) का उपयोग करें।
 
 ## **स्लाइड ज़ूम**
-एक स्लाइड ज़ूम आपकी प्रस्तुति को अधिक गतिशील बना सकता है, जिससे आप किसी भी क्रम में स्लाइड के बीच स्वतंत्र रूप से नेविगेट कर सकते हैं बिना प्रस्तुति के प्रवाह को बाधित किए। स्लाइड ज़ूम छोटे प्रस्तुतियों के लिए बहुत उपयुक्त होते हैं जिनमें अधिक सेक्शन नहीं होते, लेकिन आप इन्हें विभिन्न प्रस्तुति परिदृश्यों में भी उपयोग कर सकते हैं।
 
-स्लाइड ज़ूम आपको कई जानकारी के भागों में गहराई से प्रवेश करने में मदद करते हैं जबकि आप ऐसा महसूस करते हैं कि आप एक ही कैनवास पर हैं।
+एक स्लाइड ज़ूम आपकी प्रस्तुति को अधिक गतिशील बना सकता है, जिससे आप स्लाइड्स के बीच किसी भी क्रम में स्वतंत्र रूप से नेविगेट कर सकते हैं बिना प्रस्तुति के प्रवाह को बाधित किए। स्लाइड ज़ूम छोटे प्रस्तुतियों के लिए उपयुक्त हैं जिनमें कई सेक्शन नहीं होते, लेकिन आप इन्हें विभिन्न प्रस्तुति परिदृश्यों में भी उपयोग कर सकते हैं।
 
-![overview_image](slidezoomsel.png)
+स्लाइड ज़ूम आपको एक ही अवलोकन स्लाइड से संबंधित जानकारी को खोजने की अनुमति देते हैं।
 
-स्लाइड ज़ूम वस्तुओं के लिए, Aspose.Slides प्रदान करता है [ZoomImageType](https://reference.aspose.com/slides/hi/python-java/aspose.slides/zoomimagetype/) एन्यूमरेशन, [ZoomFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/zoomframe/) क्लास, और [ShapeCollection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shapecollection/) क्लास में कुछ मेथड्स।
+![स्लाइड ज़ूम के लिए स्लाइड चयन](slidezoomsel.png)
+
+स्लाइड ज़ूम ऑब्जेक्ट्स के लिए, Aspose.Slides [ZoomImageType](https://reference.aspose.com/slides/python-java/aspose.slides/zoomimagetype/) enumeration, [ZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/zoomframe/) क्लास, और [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/) क्लास पर मेथड्स प्रदान करता है।
 
 ### **ज़ूम फ्रेम बनाएं**
 
-आप स्लाइड पर ज़ूम फ्रेम इस तरह जोड़ सकते हैं:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. नई स्लाइड बनाएं जिन्हें आप ज़ूम फ्रेम से लिंक करना चाहते हैं।
-3. बनाए गए स्लाइड में पहचानने योग्य टेक्स्ट और बैकग्राउंड जोड़ें।
-4. पहले स्लाइड में ज़ूम फ्रेम (बनाए गए स्लाइड के रेफ़रेंस सहित) जोड़ें।
-5. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
-
-यह Python कोड दिखाता है कि स्लाइड पर ज़ूम फ्रेम कैसे बनाएं:
+एक अवलोकन स्लाइड पर व्यक्तिगत स्लाइड्स के लिंक रखने के लिए [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) का उपयोग करें। यह उदाहरण दो लक्ष्य स्लाइड्स बनाता है जिनके पृष्ठभूमि अलग-अलग होते हैं और लेबल होते हैं, फिर प्रत्येक का प्रीव्यू पहली स्लाइड में जोड़ता है और प्रस्तुति को PPTX के रूप में सहेजता है। फ्रेम की स्थिति और आयाम पॉइंट्स में निर्दिष्ट होते हैं।
 
 ```python
 import jpype
@@ -61,47 +54,36 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # नई स्लाइड्स को प्रस्तुति में जोड़ता है
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  दूसरी स्लाइड के लिए पृष्ठभूमि बनाता है
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  दूसरी स्लाइड के लिए टेक्स्ट बॉक्स बनाता है
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  तीसरी स्लाइड के लिए पृष्ठभूमि बनाता है
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  तीसरी स्लाइड के लिए टेक्स्ट बॉक्स बनाता है
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # ZoomFrame ऑब्जेक्ट जोड़ता है
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  प्रस्तुति को सहेजता है
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **कस्टम इमेज के साथ ज़ूम फ्रेम बनाएं**
-Aspose.Slides for Python via Java के साथ, आप अलग स्लाइड प्रीव्यू इमेज के साथ ज़ूम फ्रेम इस तरह बना सकते हैं:
-1. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. नई स्लाइड बनाएं जिसे आप ज़ूम फ्रेम से लिंक करना चाहते हैं।
-3. स्लाइड में पहचानने योग्य टेक्स्ट और बैकग्राउंड जोड़ें।
-4. एक [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) ऑब्जेक्ट बनाएं, इसे उस इमेज को जोड़कर जो [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) ऑब्जेक्ट की इमेज कलेक्शन में है, जो फ्रेम को भरने के लिए उपयोग होगी।
-5. पहले स्लाइड में ज़ूम फ्रेम (बनाए गए स्लाइड के रेफ़रेंस सहित) जोड़ें।
-6. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
 
-यह Python कोड दिखाता है कि अलग इमेज के साथ ज़ूम फ्रेम कैसे बनाएं:
+### **कस्टम इमेज के साथ ज़ूम फ्रेम बनाएं**
+
+लक्ष्य स्लाइड के डिफ़ॉल्ट प्रीव्यू को बदलने के लिए कस्टम इमेज को [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) में पास करें। यह उदाहरण एक स्थानीय इमेज की आवश्यकता रखता है, इसे [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) से लोड करता है, और [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) का उपयोग करके प्रस्तुति में जोड़ता है। परिणामी फ्रेम उस इमेज को दिखाता है जबकि अभी भी द्वितीय स्लाइड से लिंक रहता है।
 
 ```python
 import jpype
@@ -115,55 +97,32 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Adds a new slide to the presentation
-    # प्रस्तुति में नई स्लाइड जोड़ता है
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  Creates a background for the second slide
-    #  दूसरी स्लाइड के लिए पृष्ठभूमि बनाता है
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().setType(BackgroundType.OwnBackground)
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  Creates a text box for the second slide
-    #  दूसरी स्लाइड के लिए टेक्स्ट बॉक्स बनाता है
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Creates a new image for the zoom object
-    #  ज़ूम ऑब्जेक्ट के लिए नई छवि बनाता है
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    # Adds the ZoomFrame object
-    # ZoomFrame ऑब्जेक्ट जोड़ता है
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture)
+    overview_slide.getShapes().addZoomFrame(20, 20, 300, 200, slide, preview_image)
 
-    #  Saves the presentation
-    #  प्रस्तुति को सहेजता है
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **ज़ूम फ्रेम का स्वरूप बदलें**
-पिछले हिस्सों में हमने सरल ज़ूम फ्रेम बनाने का तरीका दिखाया था। अधिक जटिल ज़ूम फ्रेम बनाने के लिए आपको सरल फ्रेम के स्वरूप को बदलना होगा। ज़ूम फ्रेम पर लागू करने के लिए कई स्वरूप विकल्प उपलब्ध हैं।
 
-आप स्लाइड पर ज़ूम फ्रेम के स्वरूप को इस तरह नियंत्रित कर सकते हैं:
+### **ज़ूम फ्रेम को फॉर्मेट करें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. नई स्लाइड बनाएं जिन्हें आप ज़ूम फ्रेम से लिंक करना चाहते हैं।
-3. बनाए गए स्लाइड में पहचानने योग्य टेक्स्ट और बैकग्राउंड जोड़ें।
-4. पहले स्लाइड में ज़ूम फ्रेम (बनाए गए स्लाइड के रेफ़रेंस सहित) जोड़ें।
-5. एक [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) ऑब्जेक्ट बनाएं, इसे उस इमेज को जोड़कर जो [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) ऑब्जेक्ट की इमेज कलेक्शन में है, जो फ्रेम को भरने के लिए उपयोग होगी।
-6. पहले ज़ूम फ्रेम ऑब्जेक्ट के लिए कस्टम इमेज सेट करें।
-7. दूसरे ज़ूम फ्रेम ऑब्जेक्ट के लिए लाइन स्वरूप बदलें।
-8. दूसरे ज़ूम फ्रेम ऑब्जेक्ट की इमेज से बैकग्राउंड हटाएं।
-9. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
-
-यह Python कोड दिखाता है कि स्लाइड पर ज़ूम फ्रेम के स्वरूप को कैसे बदलें:
+यह उदाहरण दो स्लाइड ज़ूम फ्रेम को कस्टमाइज़ करता है। यह पहले फ्रेम को एक स्थानीय इमेज [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) के माध्यम से असाइन करता है, और दूसरे फ्रेम को पाँच पॉइंट, डैश-डॉट पिंक बॉर्डर [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) के माध्यम से देता है। [ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground) में `False` पास करने से दूसरे फ्रेम की पृष्ठभूमि छिप जाती है। कस्टम प्रीव्यू के लिए एक स्थानीय इमेज आवश्यक है; दोनों फ्रेम अपने स्लाइड टारगेट को सहेजे गए PPTX में बरकरार रखते हैं।
 
 ```python
 import jpype
@@ -177,63 +136,43 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Adds new slides to the presentation
-    # प्रस्तुति में नई स्लाइड्स जोड़ता है
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  Creates a background for the second slide
-    #  दूसरी स्लाइड के लिए पृष्ठभूमि बनाता है
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  Creates a text box for the second slide
-    #  दूसरी स्लाइड के लिए टेक्स्ट बॉक्स बनाता है
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Creates a background for the third slide
-    #  तीसरी स्लाइड के लिए पृष्ठभूमि बनाता है
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  Creates a text box for the third slide
-    #  तीसरी स्लाइड के लिए टेक्स्ट बॉक्स बनाता है
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # Adds ZoomFrame objects
-    # ZoomFrame ऑब्जेक्ट जोड़ता है
-    first_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    second_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    first_zoom_frame = overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    second_zoom_frame = overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  Creates a new image for the zoom object
-    #  ज़ूम ऑब्जेक्ट के लिए नई छवि बनाता है
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  Sets custom image for first_zoom_frame object
-    #  first_zoom_frame ऑब्जेक्ट के लिए कस्टम इमेज सेट करता है
-    first_zoom_frame.setZoomImage(picture)
+    first_zoom_frame.setZoomImage(preview_image)
 
-    #  Sets a zoom frame format for the second_zoom_frame object
-    #  second_zoom_frame ऑब्जेक्ट के लिए ज़ूम फ्रेम स्वरूप सेट करता है
     second_zoom_frame.getLineFormat().setWidth(5)
     second_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink)
+    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(255, 105, 180))
     second_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
 
-    #  Setting for Do not show background for second_zoom_frame object
-    #  second_zoom_frame ऑब्जेक्ट के लिए पृष्ठभूमि न दिखाने की सेटिंग
     second_zoom_frame.setShowBackground(False)
 
-    #  Saves the presentation
-    #  प्रस्तुति को सहेजता है
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -241,24 +180,15 @@ finally:
 
 ## **सेक्शन ज़ूम**
 
-सेक्शन ज़ूम आपका प्रस्तुति में किसी सेक्शन से लिंक करता है। आप सेक्शन ज़ूम का उपयोग उन सेक्शन पर वापस जाने के लिए कर सकते हैं जिन्हें आप वास्तव में जोर देना चाहते हैं। या आप इसका उपयोग यह दिखाने के लिए कर सकते हैं कि आपकी प्रस्तुति के विभिन्न भाग कैसे जुड़ते हैं।
+एक सेक्शन ज़ूम आपकी प्रस्तुति में एक सेक्शन से लिंक करता है। इसका उपयोग किसी टॉपिक को फिर से देखने या यह दिखाने के लिए करें कि प्रस्तुति के विभिन्न भाग कैसे जुड़े हैं।
 
-![overview_image](seczoomsel.png)
+![सेक्शन ज़ूम के लिए सेक्शन चयन](seczoomsel.png)
 
-सेक्शन ज़ूम वस्तुओं के लिए, Aspose.Slides प्रदान करता है [SectionZoomFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/sectionzoomframe/) क्लास और [ShapeCollection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shapecollection/) क्लास में कुछ मेथड्स।
+सेक्शन ज़ूम ऑब्जेक्ट्स के लिए, Aspose.Slides [SectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/) क्लास और [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/) क्लास पर मेथड्स प्रदान करता है।
 
 ### **सेक्शन ज़ूम फ्रेम बनाएं**
 
-आप स्लाइड पर सेक्शन ज़ूम फ्रेम इस तरह जोड़ सकते हैं:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. नई स्लाइड बनाएं।
-3. बनाई गई स्लाइड में एक विशेष बैकग्राउंड जोड़ें।
-4. नया सेक्शन बनाएं जिसे आप ज़ूम फ्रेम से लिंक करना चाहते हैं।
-5. पहले स्लाइड में सेक्शन ज़ूम फ्रेम (बनाए गए सेक्शन के रेफ़रेंस सहित) जोड़ें।
-6. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
-
-यह Python कोड दिखाता है कि स्लाइड पर ज़ूम फ्रेम कैसे बनाएं:
+एक सेक्शन बनाएं [SectionCollection.addSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectioncollection/#addSection) के साथ, फिर लौटाए गए सेक्शन को [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame) में पास करें। यह उदाहरण पहली स्लाइड पर एक सेक्शन ज़ूम रखता है और इसे एक रंगीन स्लाइड से शुरू होने वाले सेक्शन से लिंक करता है। फ्रेम की स्थिति और आयाम पॉइंट्स में निर्दिष्ट होते हैं, और प्रस्तुति को PPTX के रूप में सहेजा जाता है।
 
 ```python
 import jpype
@@ -272,36 +202,24 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # प्रस्तुति में नई स्लाइड जोड़ता है
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  प्रस्तुति में नया सेक्शन जोड़ता है
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
 
-    #  SectionZoomFrame ऑब्जेक्ट जोड़ता है
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  प्रस्तुति को सहेजता है
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
+
 ### **कस्टम इमेज के साथ सेक्शन ज़ूम फ्रेम बनाएं**
 
-Aspose.Slides for Python via Java के साथ, आप अलग स्लाइड प्रीव्यू इमेज के साथ सेक्शन ज़ूम फ्रेम इस तरह बना सकते हैं:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. नई स्लाइड बनाएं।
-3. बनाई गई स्लाइड में एक विशेष बैकग्राउंड जोड़ें।
-4. नया सेक्शन बनाएं जिसे आप ज़ूम फ्रेम से लिंक करना चाहते हैं।
-5. एक [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) ऑब्जेक्ट बनाएं, इसे उस इमेज को जोड़कर जो [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) ऑब्जेक्ट की इमेज कलेक्शन में है, जो फ्रेम को भरने के लिए उपयोग होगी।
-6. पहले स्लाइड में सेक्शन ज़ूम फ्रेम (बनाए गए सेक्शन के रेफ़रेंस सहित) जोड़ें।
-7. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
-
-यह Python कोड दिखाता है कि अलग इमेज के साथ सेक्शन ज़ूम फ्रेम कैसे बनाएं:
+[ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame) का इमेज ओवरलोड आपको गंतव्य सेक्शन बदले बिना कस्टम प्रीव्यू दिखाने देता है। यह उदाहरण एक स्थानीय इमेज की आवश्यकता रखता है, जिसे [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) से लोड किया जाता है और [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) के माध्यम से जोड़ा जाता है। सहेजी गई प्रस्तुति में पहली स्लाइड पर एक सेक्शन ज़ूम होता है जो नए बनाए गए सेक्शन से लिंक्ड है।
 
 ```python
 import jpype
@@ -315,51 +233,76 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # प्रस्तुति में नई स्लाइड जोड़ता है
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  प्रस्तुति में नया सेक्शन जोड़ता है
-    presentation.getSections().addSection("Section 1", slide)
-
-    #  ज़ूम ऑब्जेक्ट के लिए नई छवि बनाता है
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  SectionZoomFrame ऑब्जेक्ट जोड़ता है
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1), picture)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, preview_image)
 
-    #  प्रस्तुति को सहेजता है
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **सेक्शन ज़ूम फ्रेम का स्वरूप बदलें**
 
-अधिक जटिल सेक्शन ज़ूम फ्रेम बनाने के लिए आपको सरल फ्रेम के स्वरूप को बदलना होगा। सेक्शन ज़ूम फ्रेम पर लागू करने के लिए कई स्वरूप विकल्प उपलब्ध हैं।
+### **सेक्शन ज़ूम के लक्ष्य सेक्शन को बदलें**
 
-आप स्लाइड पर सेक्शन ज़ूम फ्रेम के स्वरूप को इस तरह नियंत्रित कर सकते हैं:
+एक मौजूदा सेक्शन ज़ूम को बिना पुनः निर्माण किए पुनः निर्देशित करने के लिए [SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/#setTargetSection) का उपयोग करें। उसी प्रस्तुति के [Presentation.getSections](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSections) संग्रह से एक भरा हुआ सेक्शन चुनें। खाली सेक्शन असाइन करने से वर्तमान लक्ष्य अपरिवर्तित रहता है, इसलिए असाइन करने से पहले [Section.getSlidesListOfSection](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSlidesListOfSection) जांचें। सेक्शनों के बारे में अधिक जानकारी के लिए देखें [स्लाइड सेक्शन प्रबंधन](/slides/hi/python-java/slide-section/)।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. नई स्लाइड बनाएं।
-3. बनाई गई स्लाइड में एक विशेष बैकग्राउंड जोड़ें।
-4. नया सेक्शन बनाएं जिसे आप ज़ूम फ्रेम से लिंक करना चाहते हैं।
-5. पहले स्लाइड में सेक्शन ज़ूम फ्रेम (बनाए गए सेक्शन के रेफ़रेंस सहित) जोड़ें।
-6. बनाए गए सेक्शन ज़ूम ऑब्जेक्ट का आकार और स्थिति बदलें।
-7. एक [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) ऑब्जेक्ट बनाएं, इसे उस इमेज को जोड़कर जो [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) ऑब्जेक्ट की इमेज कलेक्शन में है, जो फ्रेम को भरने के लिए उपयोग होगी।
-8. बनाए गए सेक्शन ज़ूम फ्रेम ऑब्जेक्ट के लिए कस्टम इमेज सेट करें।
-9. *लिंक किए गए सेक्शन से मूल स्लाइड पर लौटने* की क्षमता सेट करें।
-10. सेक्शन ज़ूम फ्रेम ऑब्जेक्ट की इमेज से बैकग्राउंड हटाएं।
-11. सेक्शन ज़ूम फ्रेम ऑब्जेक्ट के लिए लाइन स्वरूप बदलें।
-12. ट्रांज़िशन अवधि बदलें।
-13. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+निम्न उदाहरण एक प्रस्तुति फ़ाइल लोड करता है, जिसमें कई भरे हुए सेक्शन होने चाहिए, एक मौजूदा सेक्शन ज़ूम जिसका नाम `Section navigation` है, और `Results` नाम का एक यूनिक सेक्शन। यह सभी स्लाइड्स में ज़ूम को खोजता है और लक्ष्य को नाम द्वारा ढूँढता है न कि संग्रह इंडेक्स द्वारा, जो सेक्शन पुनः क्रमबद्ध होने पर बदल सकता है। यदि नाम यूनिक नहीं हैं, तो गंतव्य को पहचानने के लिए [Section.getSectionId](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSectionId) का उपयोग करें।
 
-यह Python कोड दिखाता है कि सेक्शन ज़ूम फ्रेम के स्वरूप को कैसे बदलें:
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, SectionZoomFrame
+
+presentation = Presentation("section-zoom.pptx")
+try:
+    zoom = None
+    for slide in presentation.getSlides():
+        for shape in slide.getShapes():
+            if isinstance(shape, SectionZoomFrame) and shape.getName() == "Section navigation":
+                zoom = shape
+                break
+        if zoom is not None:
+            break
+
+    target_section = None
+    for section in presentation.getSections():
+        if section.getName() == "Results":
+            target_section = section
+            break
+
+    if zoom is None or target_section is None:
+        print("The section zoom or destination section was not found.")
+    elif target_section.getSlidesListOfSection().size() == 0:
+        print("The destination section is empty.")
+    else:
+        current_section = zoom.getTargetSection()
+        current_name = "" if current_section is None else current_section.getName()
+        print("Current section: " + str(current_name))
+        zoom.setTargetSection(target_section)
+        presentation.save("section-zoom-updated.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+### **सेक्शन ज़ूम फ्रेम को फॉर्मेट करें**
+
+यह उदाहरण एक सेक्शन ज़ूम को 100 बाय 75 पॉइंट्स पर ले जाता है और उसका आकार बदलता है, [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) के माध्यम से एक स्थानीय इमेज असाइन करता है, और 2.5 पॉइंट, डैश-डॉट ब्राउन बॉर्डर लागू करता है। यह [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) को सक्षम करता है ताकि सेक्शन के बाद मूल स्लाइड पर लौट सकें, [ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground) को अक्षम करता है, और [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) को 1.5 सेकंड पर सेट करता है। कस्टम प्रीव्यू के लिए एक स्थानीय इमेज आवश्यक है।
 
 ```python
 import jpype
@@ -373,19 +316,16 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # प्रस्तुति में नई स्लाइड जोड़ता है
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  प्रस्तुति में नया सेक्शन जोड़ता है
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
 
-    #  SectionZoomFrame ऑब्जेक्ट जोड़ता है
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  SectionZoomFrame के लिए स्वरूपण
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
     section_zoom_frame.setX(100)
     section_zoom_frame.setY(300)
     section_zoom_frame.setWidth(100)
@@ -393,46 +333,38 @@ try:
 
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    section_zoom_frame.setZoomImage(picture)
+
+    section_zoom_frame.setZoomImage(preview_image)
 
     section_zoom_frame.setReturnToParent(True)
     section_zoom_frame.setShowBackground(False)
 
     section_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     section_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     section_zoom_frame.getLineFormat().setWidth(2.5)
 
     section_zoom_frame.setTransitionDuration(1.5)
 
-    #  प्रस्तुति को सहेजता है
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-
 
 ## **सारांश ज़ूम**
 
-सारांश ज़ूम एक लैंडिंग पेज जैसा है जहाँ आपकी प्रस्तुति के सभी भाग एक साथ दिखाए जाते हैं। जब आप प्रस्तुति दे रहे होते हैं, तो आप ज़ूम का उपयोग करके अपनी प्रस्तुति के किसी भी हिस्से से किसी भी क्रम में दूसरे हिस्से पर जा सकते हैं। आप रचनात्मक हो सकते हैं, आगे कूद सकते हैं, या स्लाइड शो के भागों को फिर से देख सकते हैं बिना प्रस्तुति के प्रवाह को बाधित किए।
+एक सारांश ज़ूम प्रस्तुति के सेक्शनों का अवलोकन प्रदान करता है। स्लाइड शो के दौरान, आप इसे सेक्शन में कूदने, आगे स्किप करने, या बिना स्लाइड क्रम के टॉपिक को फिर से देखने के लिए उपयोग कर सकते हैं।
 
-![overview_image](sumzoomsel.png)
+![सारांश ज़ूम के लिए सेक्शन चयन](sumzoomsel.png)
 
-सारांश ज़ूम वस्तुओं के लिए, Aspose.Slides प्रदान करता है [SummaryZoomFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/summaryzoomsection/), और [SummaryZoomSectionCollection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/summaryzoomsectioncollection/) क्लास और [ShapeCollection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shapecollection/) क्लास में कुछ मेथड्स।
+सारांश ज़ूम ऑब्जेक्ट्स के लिए, Aspose.Slides [SummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/), और [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/) क्लासेस तथा [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/) क्लास पर मेथड्स प्रदान करता है।
 
 ### **सारांश ज़ूम बनाएं**
 
-आप स्लाइड पर सारांश ज़ूम फ्रेम इस तरह जोड़ सकते हैं:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. नई स्लाइड बनाएं जिनमें विशेष बैकग्राउंड और नई सेक्शन हों।
-3. पहले स्लाइड में सारांश ज़ूम फ्रेम जोड़ें।
-4. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
-
-यह Python कोड दिखाता है कि स्लाइड पर सारांश ज़ूम फ्रेम कैसे बनाएं:
+[ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSummaryZoomFrame) का उपयोग करके प्रस्तुति के सेक्शनों का एक अवलोकन बनाएं। यह उदाहरण चार सेक्शन बनाता है जिनके स्लाइड बैकग्राउंड अलग हैं और पहली स्लाइड पर एक सारांश ज़ूम जोड़ता है। फ्रेम की स्थिति और आयाम पॉइंट्स में निर्दिष्ट होते हैं, और परिणामी अवलोकन एक PPTX प्रस्तुति में सहेजा जाता है।
 
 ```python
 import jpype
@@ -446,66 +378,46 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # प्रस्तुति में नई स्लाइड जोड़ता है
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  प्रस्तुति में नया सेक्शन जोड़ता है
     presentation.getSections().addSection("Section 1", slide)
 
-    # Adds a new slide to the presentation
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Adds a new section to the presentation
     presentation.getSections().addSection("Section 2", slide)
 
-    # Adds a new slide to the presentation
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Adds a new section to the presentation
     presentation.getSections().addSection("Section 3", slide)
 
-    # Adds a new slide to the presentation
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(0, 100, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Adds a new section to the presentation
     presentation.getSections().addSection("Section 4", slide)
 
-    #  Adds a SummaryZoomFrame object
-    #  SummaryZoomFrame ऑब्जेक्ट जोड़ता है
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  Saves the presentation
-    #  प्रस्तुति को सहेजता है
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **सारांश ज़ूम सेक्शन जोड़ें और हटाएं**
+### **सारांश ज़ूम सेक्शन जोड़ें और हटाएँ**
 
-सारांश ज़ूम फ्रेम में सभी सेक्शन [SummaryZoomSection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/summaryzoomsection/) ऑब्जेक्ट द्वारा दर्शाए जाते हैं, जो [SummaryZoomSectionCollection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/summaryzoomsectioncollection/) ऑब्जेक्ट में संग्रहित होते हैं। आप [SummaryZoomSectionCollection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/summaryzoomsectioncollection/) क्लास के माध्यम से सारांश ज़ूम सेक्शन ऑब्जेक्ट को जोड़ या हटा सकते हैं:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. नई स्लाइड बनाएं जिनमें विशेष बैकग्राउंड और नई सेक्शन हों।
-3. पहले स्लाइड में सारांश ज़ूम फ्रेम जोड़ें।
-4. प्रस्तुति में एक नई स्लाइड और सेक्शन जोड़ें।
-5. बनाये गये सेक्शन को सारांश ज़ूम फ्रेम में जोड़ें।
-6. सारांश ज़ूम फ्रेम से पहली सेक्शन हटाएं।
-7. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
-
-यह Python कोड दिखाता है कि सारांश ज़ूम फ्रेम में सेक्शन कैसे जोड़ें और हटाएँ:
+एक सारांश ज़ूम अपने [SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/) ऑब्जेक्ट्स को [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) में सहेजता है। यह उदाहरण दो सेक्शनों का एक अवलोकन बनाता है, फिर [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) का उपयोग करके तीसरा सेक्शन जोड़ता है, और [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection) से पहले सेक्शन की एंट्री हटाता है। एंट्री हटाने से प्रस्तुति सेक्शन और उसकी स्लाइड्स अपरिवर्तित रहती हैं।
 
 ```python
 import jpype
@@ -519,66 +431,43 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # नई स्लाइड को प्रस्तुति में जोड़ता है
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  प्रस्तुति में नया सेक्शन जोड़ता है
-    presentation.getSections().addSection("Section 1", slide)
+    first_section = presentation.getSections().addSection("Section 1", slide)
 
-    # नई स्लाइड को प्रस्तुति में जोड़ता है
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  प्रस्तुति में नया सेक्शन जोड़ता है
     presentation.getSections().addSection("Section 2", slide)
 
-    #  SummaryZoomFrame ऑब्जेक्ट जोड़ता है
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    # नई स्लाइड को प्रस्तुति में जोड़ता है
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  प्रस्तुति में नया सेक्शन जोड़ता है
     third_section = presentation.getSections().addSection("Section 3", slide)
 
-    #  Summary Zoom में एक सेक्शन जोड़ता है
     summary_zoom_frame.getSummaryZoomCollection().addSummaryZoomSection(third_section)
 
-    #  Summary Zoom से सेक्शन हटाता है
-    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(presentation.getSections().get_Item(1))
+    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(first_section)
 
-    #  प्रस्तुति को सहेजता है
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **सारांश ज़ूम सेक्शन का स्वरूप बदलें**
+### **सारांश ज़ूम सेक्शनों को फॉर्मेट करें**
 
-अधिक जटिल सारांश ज़ूम सेक्शन ऑब्जेक्ट बनाने के लिए आपको सरल फ्रेम के स्वरूप को बदलना होगा। सारांश ज़ूम सेक्शन ऑब्जेक्ट पर लागू करने के लिए कई स्वरूप विकल्प उपलब्ध हैं।
-
-आप सारांश ज़ूम फ्रेम में सारांश ज़ूम सेक्शन ऑब्जेक्ट के स्वरूप को इस तरह नियंत्रित कर सकते हैं:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. नई स्लाइड बनाएं जिनमें विशेष बैकग्राउंड और नई सेक्शन हों।
-3. पहले स्लाइड में सारांश ज़ूम फ्रेम जोड़ें।
-4. [SummaryZoomSectionCollection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/summaryzoomsectioncollection/) से पहली सारांश ज़ूम सेक्शन ऑब्जेक्ट प्राप्त करें।
-5. एक [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) ऑब्जेक्ट बनाएं, इसे उस इमेज को जोड़कर जो [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) ऑब्जेक्ट की इमेज कलेक्शन में है, जो फ्रेम को भरने के लिए उपयोग होगी।
-6. सारांश ज़ूम सेक्शन ऑब्जेक्ट के लिए कस्टम इमेज सेट करें।
-7. *लिंक किए गए सेक्शन से मूल स्लाइड पर लौटने* की क्षमता सेट करें।
-8. सारांश ज़ूम सेक्शन ऑब्जेक्ट के लिए लाइन स्वरूप बदलें।
-9. ट्रांज़िशन अवधि बदलें।
-10. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
-
-यह Python कोड दिखाता है कि सारांश ज़ूम सेक्शन ऑब्जेक्ट के स्वरूप को कैसे बदलें:
+यह उदाहरण [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) में पहली एंट्री को फॉर्मेट करता है, शून्य-आधारित इंडेक्स `0` का उपयोग करते हुए। यह [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) के लिए एक स्थानीय इमेज आवश्यक करता है, 1.5 पॉइंट, डैश-डॉट ब्लैक बॉर्डर लागू करता है, और [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) को 1.5 सेकंड पर सेट करता है। [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) में `False` पास करने से इस एंट्री के लिए स्वचालित रूप से सारांश स्लाइड पर वापसी निष्क्रिय हो जाती है।
 
 ```python
 import jpype
@@ -592,63 +481,57 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # नई स्लाइड को प्रस्तुति में जोड़ता है
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  प्रस्तुति में नया सेक्शन जोड़ता है
     presentation.getSections().addSection("Section 1", slide)
 
-    # नई स्लाइड को प्रस्तुति में जोड़ता है
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  प्रस्तुति में दूसरा सेक्शन जोड़ता है
     presentation.getSections().addSection("Section 2", slide)
 
-    #  SummaryZoomFrame ऑब्जेक्ट जोड़ता है
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  पहला SummaryZoomSection ऑब्जेक्ट प्राप्त करता है
     summary_section = summary_zoom_frame.getSummaryZoomCollection().get_Item(0)
 
-    #  SummaryZoomSection ऑब्जेक्ट के लिए स्वरूपण
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    summary_section.setZoomImage(picture)
 
+    summary_section.setZoomImage(preview_image)
     summary_section.setReturnToParent(False)
 
     summary_section.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.black)
+    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     summary_section.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     summary_section.getLineFormat().setWidth(1.5)
 
     summary_section.setTransitionDuration(1.5)
 
-    #  प्रस्तुति को सहेजता है
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
 **क्या मैं लक्ष्य दिखाने के बाद 'पैरेंट' स्लाइड पर लौटने को नियंत्रित कर सकता हूँ?**
 
-हाँ। [ZoomFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/zoomframe/) या [SectionZoomFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/sectionzoomframe/) [setReturnToParent](https://reference.aspose.com/slides/hi/python-java/aspose.slides/zoomobject/#setReturnToParent) के माध्यम से मूल स्लाइड पर लौटने का समर्थन करता है, जो सक्षम होने पर दर्शकों को लक्ष्य सामग्री देखने के बाद वापस भेजता है।
+हां। लक्ष्य सामग्री दिखाने के बाद मूल स्लाइड पर लौटने के लिए `True` के साथ [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) को कॉल करें।
 
 **क्या मैं ज़ूम ट्रांज़िशन की 'स्पीड' या अवधि को समायोजित कर सकता हूँ?**
 
-हाँ। ज़ूम [setTransitionDuration](https://reference.aspose.com/slides/hi/python-java/aspose.slides/zoomobject/#setTransitionDuration) के साथ ट्रांज़िशन अवधि सेट करने का समर्थन करता है, जिससे आप कूद एनीमेशन की अवधि को नियंत्रित कर सकते हैं।
+हां। ट्रांज़िशन अवधि को सेकंड में नियंत्रित करने के लिए [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) का उपयोग करें।
 
-**क्या प्रस्तुति में ज़ूम ऑब्जेक्ट की संख्या पर कोई सीमा है?**
+**क्या प्रस्तुति में ज़ूम ऑब्जेक्ट्स की संख्या पर कोई सीमा है?**
 
-दस्तावेज़ में कोई कठोर API सीमा नहीं बताई गई है। व्यावहारिक सीमाएँ कुल प्रस्तुति की जटिलता और दर्शक के प्रदर्शन पर निर्भर करती हैं। आप कई ज़ूम फ्रेम जोड़ सकते हैं, लेकिन फ़ाइल आकार और रेंडरिंग समय पर ध्यान दें।
+दस्तावेज़ में कोई कठोर API सीमा नहीं बताई गई है। व्यावहारिक सीमाएँ पूरी प्रस्तुति की जटिलता और दर्शक की प्रदर्शन क्षमता पर निर्भर करती हैं। आप कई ज़ूम फ्रेम जोड़ सकते हैं, लेकिन फ़ाइल आकार और रेंडरिंग समय पर विचार करें।

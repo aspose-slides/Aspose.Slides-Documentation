@@ -6,50 +6,41 @@ weight: 60
 url: /id/python-java/manage-zoom/
 keywords:
 - zoom
-- kerangka zoom
+- bingkai zoom
 - zoom slide
 - zoom bagian
-- zoom ringkasan
+- zoom rangkuman
 - tambahkan zoom
 - PowerPoint
 - presentasi
 - Python
 - Java
 - Aspose.Slides
-description: "Buat dan sesuaikan Zoom dengan Aspose.Slides untuk Python via Java — lompat antara bagian, tambahkan thumbnail dan transisi di seluruh presentasi PPT, PPTX, dan ODP."
+description: "Buat dan sesuaikan Zoom dengan Aspose.Slides untuk Python via Java — lompat antar bagian, tambahkan thumbnail dan transisi dalam presentasi PowerPoint."
 ---
 ## **Pendahuluan**
 
-Zoom di PowerPoint memungkinkan Anda melompat ke dan dari slide, bagian, serta bagian tertentu dari sebuah presentasi. Saat Anda menyajikan, kemampuan untuk menavigasi dengan cepat di seluruh konten ini dapat sangat berguna.
+Zoom PowerPoint memungkinkan Anda menavigasi antara slide dan bagian tertentu selama pertunjukan slide. Dengan Aspose.Slides untuk Python via Java, Anda dapat membuat zoom slide, zoom bagian, dan zoom rangkuman serta menyesuaikan pratinjau, batas, dan transisinya.
 
-![overview_image](overview.png)
+![Ikhtisar zoom PowerPoint](overview.png)
 
-* Untuk meringkas seluruh presentasi pada satu slide, gunakan [Summary Zoom](#summary-zoom).
-* Untuk menampilkan hanya slide terpilih, gunakan [Slide Zoom](#slide-zoom).
-* Untuk menampilkan hanya satu bagian, gunakan [Section Zoom](#section-zoom).
+* Untuk merangkum seluruh presentasi pada satu slide, gunakan [Zoom Rangkuman](#summary-zoom).
+* Untuk menampilkan hanya slide tertentu, gunakan [Zoom Slide](#slide-zoom).
+* Untuk menampilkan hanya satu bagian, gunakan [Zoom Bagian](#section-zoom).
 
-## **Slide Zoom**
-A slide zoom can make your presentation more dynamic, allowing you to navigate freely between slides in any order you choose without interrupting the flow of your presentation. Slide zooms are great for short presentations without many sections, but you can still use them in different presentation scenarios.
+## **Zoom Slide**
 
-Zoom slide dapat membuat presentasi Anda lebih dinamis, memungkinkan Anda menavigasi secara bebas antara slide dalam urutan apa pun yang Anda pilih tanpa mengganggu alur presentasi. Zoom slide sangat cocok untuk presentasi singkat tanpa banyak bagian, namun Anda tetap dapat menggunakannya dalam berbagai skenario presentasi.
+Zoom slide dapat membuat presentasi Anda lebih dinamis, memungkinkan Anda menavigasi bebas antara slide dalam urutan apa pun yang Anda pilih tanpa mengganggu alur presentasi. Zoom slide sangat cocok untuk presentasi singkat tanpa banyak bagian, tetapi Anda tetap dapat menggunakannya dalam berbagai skenario presentasi.
 
-Zoom slide membantu Anda menelusuri banyak potongan informasi sekaligus seolah-olah berada di satu kanvas.
+Zoom slide memungkinkan Anda menjelajahi informasi terkait dari satu slide ikhtisar.
 
-![overview_image](slidezoomsel.png)
+![Memilih slide untuk zoom slide](slidezoomsel.png)
 
-Untuk objek zoom slide, Aspose.Slides menyediakan enumerasi [ZoomImageType](https://reference.aspose.com/slides/id/python-java/aspose.slides/zoomimagetype/) , kelas [ZoomFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/zoomframe/) , dan beberapa metode dalam kelas [ShapeCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/) .
+Untuk objek zoom slide, Aspose.Slides menyediakan enumerasi [ZoomImageType](https://reference.aspose.com/slides/python-java/aspose.slides/zoomimagetype/), kelas [ZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/zoomframe/), dan metode pada kelas [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/).
 
 ### **Buat Bingkai Zoom**
 
-Anda dapat menambahkan bingkai zoom pada slide dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Buat slide baru yang akan Anda tautkan dengan bingkai zoom.
-3. Tambahkan teks identifikasi dan latar belakang ke slide yang dibuat.
-4. Tambahkan bingkai zoom (yang berisi referensi ke slide yang dibuat) ke slide pertama.
-5. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat bingkai zoom pada slide:
+Gunakan [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) untuk menempatkan tautan ke slide individu pada slide ikhtisar. Contoh ini membuat dua slide target dengan latar belakang dan label yang berbeda, lalu menambahkan pratinjau masing‑masing ke slide pertama dan menyimpan presentasi sebagai PPTX. Posisi dan dimensi bingkai ditentukan dalam poin.
 
 ```python
 import jpype
@@ -63,47 +54,36 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Menambahkan slide baru ke presentasi
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  Membuat latar belakang untuk slide kedua
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  Membuat kotak teks untuk slide kedua
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Membuat latar belakang untuk slide ketiga
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  Membuat kotak teks untuk slide ketiga
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # Menambahkan objek ZoomFrame
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  Menyimpan presentasi
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **Buat Bingkai Zoom dengan Gambar Kustom**
-Dengan Aspose.Slides untuk Python via Java, Anda dapat membuat bingkai zoom dengan gambar pratinjau slide yang berbeda dengan cara berikut:
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Buat slide baru yang akan Anda tautkan dengan bingkai zoom.
-3. Tambahkan teks identifikasi dan latar belakang ke slide.
-4. Buat objek [PPImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/ppimage/) dengan menambahkan gambar ke koleksi gambar yang terkait dengan objek [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) yang akan digunakan untuk mengisi bingkai.
-5. Tambahkan bingkai zoom (yang berisi referensi ke slide yang dibuat) ke slide pertama.
-6. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode Python berikut menunjukkan cara membuat bingkai zoom dengan gambar yang berbeda:
+### **Buat Bingkai Zoom dengan Gambar Kustom**
+
+Berikan gambar kustom ke [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) untuk mengganti pratinjau default slide target. Contoh ini memerlukan gambar lokal, memuatnya dengan [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile), dan menambahkannya ke presentasi menggunakan [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage). Bingkai yang dihasilkan menampilkan gambar tersebut sekaligus tetap menautkan ke slide kedua.
 
 ```python
 import jpype
@@ -117,49 +97,32 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Menambahkan slide baru ke presentasi
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  Membuat latar belakang untuk slide kedua
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().setType(BackgroundType.OwnBackground)
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  Membuat kotak teks untuk slide kedua
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Membuat gambar baru untuk objek zoom
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    # Menambahkan objek ZoomFrame
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture)
+    overview_slide.getShapes().addZoomFrame(20, 20, 300, 200, slide, preview_image)
 
-    #  Menyimpan presentasi
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
+
 ### **Format Bingkai Zoom**
-Dalam bagian sebelumnya, kami menunjukkan cara membuat bingkai zoom sederhana. Untuk membuat bingkai zoom yang lebih rumit, Anda harus mengubah format bingkai sederhana. Ada beberapa opsi format yang dapat Anda terapkan pada bingkai zoom.
 
-Anda dapat mengontrol format bingkai zoom pada slide dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Buat slide baru yang akan Anda tautkan dengan bingkai zoom.
-3. Tambahkan teks identifikasi dan latar belakang ke slide yang dibuat.
-4. Tambahkan bingkai zoom (yang berisi referensi ke slide yang dibuat) ke slide pertama.
-5. Buat objek [PPImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/ppimage/) dengan menambahkan gambar ke koleksi gambar yang terkait dengan objek [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) yang akan digunakan untuk mengisi bingkai.
-6. Setel gambar kustom untuk objek bingkai zoom pertama.
-7. Ubah format garis untuk objek bingkai zoom kedua.
-8. Hapus latar belakang dari gambar objek bingkai zoom kedua.
-9. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara mengubah format bingkai zoom pada slide:
+Contoh ini menyesuaikan dua bingkai zoom slide. Ia menetapkan gambar lokal ke bingkai pertama melalui [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage), dan memberikan bingkai kedua batas merah muda dash‑dot setebal lima poin melalui [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat). Menetapkan `False` pada [ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground) menyembunyikan latar belakang bingkai kedua. Gambar lokal diperlukan untuk pratinjau kustom; kedua bingkai tetap mempertahankan target slide mereka dalam PPTX yang disimpan.
 
 ```python
 import jpype
@@ -173,77 +136,59 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Menambahkan slide baru ke presentasi
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  Membuat latar belakang untuk slide kedua
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  Membuat kotak teks untuk slide kedua
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Membuat latar belakang untuk slide ketiga
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  Membuat kotak teks untuk slide ketiga
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # Menambahkan objek ZoomFrame
-    first_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    second_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    first_zoom_frame = overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    second_zoom_frame = overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  Membuat gambar baru untuk objek zoom
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  Menetapkan gambar kustom untuk objek first_zoom_frame
-    first_zoom_frame.setZoomImage(picture)
+    first_zoom_frame.setZoomImage(preview_image)
 
-    #  Menetapkan format bingkai zoom untuk objek second_zoom_frame
     second_zoom_frame.getLineFormat().setWidth(5)
     second_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink)
+    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(255, 105, 180))
     second_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
 
-    #  Pengaturan untuk tidak menampilkan latar belakang pada objek second_zoom_frame
     second_zoom_frame.setShowBackground(False)
 
-    #  Menyimpan presentasi
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Section Zoom**
+## **Zoom Bagian**
 
-Zoom bagian adalah tautan ke sebuah bagian dalam presentasi Anda. Anda dapat menggunakan zoom bagian untuk kembali ke bagian yang ingin Anda tekankan. Atau Anda dapat menggunakannya untuk menyoroti bagaimana potongan tertentu dalam presentasi Anda terhubung.
+Zoom bagian menautkan ke sebuah bagian dalam presentasi Anda. Gunakan untuk mengunjungi kembali topik atau menunjukkan bagaimana bagian‑bagian berbeda dari presentasi saling terhubung.
 
-![overview_image](seczoomsel.png)
+![Memilih bagian untuk zoom bagian](seczoomsel.png)
 
-Untuk objek zoom bagian, Aspose.Slides menyediakan kelas [SectionZoomFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/sectionzoomframe/) dan beberapa metode dalam kelas [ShapeCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/) .
+Untuk objek zoom bagian, Aspose.Slides menyediakan kelas [SectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/) dan metode pada kelas [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/).
 
 ### **Buat Bingkai Zoom Bagian**
 
-Anda dapat menambahkan bingkai zoom bagian ke slide dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Buat slide baru.
-3. Tambahkan latar belakang yang khas ke slide yang dibuat.
-4. Buat bagian baru yang akan Anda tautkan dengan bingkai zoom.
-5. Tambahkan bingkai zoom bagian (yang berisi referensi ke bagian yang dibuat) ke slide pertama.
-6. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat bingkai zoom pada slide:
+Buat bagian dengan [SectionCollection.addSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectioncollection/#addSection), lalu berikan bagian yang dikembalikan ke [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame). Contoh ini menempatkan zoom bagian pada slide pertama dan menautkannya ke bagian yang dimulai dengan slide berwarna. Posisi dan dimensi bingkai ditentukan dalam poin, dan presentasi disimpan sebagai PPTX.
 
 ```python
 import jpype
@@ -257,36 +202,24 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Menambahkan slide baru ke presentasi
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Menambahkan Section baru ke presentasi
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
 
-    #  Menambahkan objek SectionZoomFrame
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  Menyimpan presentasi
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
+
 ### **Buat Bingkai Zoom Bagian dengan Gambar Kustom**
 
-Menggunakan Aspose.Slides untuk Python via Java, Anda dapat membuat bingkai zoom bagian dengan gambar pratinjau slide yang berbeda dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Buat slide baru.
-3. Tambahkan latar belakang yang khas ke slide yang dibuat.
-4. Buat bagian baru yang akan Anda tautkan dengan bingkai zoom.
-5. Buat objek [PPImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/ppimage/) dengan menambahkan gambar ke koleksi gambar yang terkait dengan objek [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) yang akan digunakan untuk mengisi bingkai.
-6. Tambahkan bingkai zoom bagian (yang berisi referensi ke bagian yang dibuat) ke slide pertama.
-7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat bingkai zoom dengan gambar yang berbeda:
+Overload gambar dari [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame) memungkinkan Anda menampilkan pratinjau kustom tanpa mengubah bagian tujuan. Contoh ini memerlukan gambar lokal, yang dimuat dengan [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) dan ditambahkan melalui [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage). Presentasi yang disimpan berisi zoom bagian pada slide pertama yang ditautkan ke bagian yang baru dibuat.
 
 ```python
 import jpype
@@ -300,51 +233,76 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Menambahkan slide baru ke presentasi
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Menambahkan Section baru ke presentasi
-    presentation.getSections().addSection("Section 1", slide)
-
-    #  Membuat gambar baru untuk objek zoom
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  Menambahkan objek SectionZoomFrame
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1), picture)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, preview_image)
 
-    #  Menyimpan presentasi
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
+
+### **Ubah Bagian Target Zoom Bagian**
+
+Gunakan [SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/#setTargetSection) untuk mengarahkan ulang zoom bagian yang sudah ada tanpa membuatnya kembali. Pilih sebuah bagian yang sudah terisi dari koleksi [Presentation.getSections](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSections) presentasi yang sama. Menetapkan bagian kosong tidak mengubah target saat ini, jadi periksa [Section.getSlidesListOfSection](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSlidesListOfSection) sebelum menentukannya. Lihat [Kelola Bagian Slide](/slides/id/python-java/slide-section/) untuk informasi lebih lanjut tentang bagian.
+
+Contoh berikut memuat file presentasi, yang harus berisi beberapa bagian terisi, sebuah zoom bagian yang ada bernama `Section navigation`, dan sebuah bagian dengan nama unik `Results`. Ia mencari semua slide untuk zoom tersebut dan menemukan tujuan berdasarkan nama bukan indeks koleksi yang dapat berubah ketika bagian diurutkan ulang. Jika nama tidak unik, gunakan [Section.getSectionId](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSectionId) untuk mengidentifikasi tujuan sebagai gantinya.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, SectionZoomFrame
+
+presentation = Presentation("section-zoom.pptx")
+try:
+    zoom = None
+    for slide in presentation.getSlides():
+        for shape in slide.getShapes():
+            if isinstance(shape, SectionZoomFrame) and shape.getName() == "Section navigation":
+                zoom = shape
+                break
+        if zoom is not None:
+            break
+
+    target_section = None
+    for section in presentation.getSections():
+        if section.getName() == "Results":
+            target_section = section
+            break
+
+    if zoom is None or target_section is None:
+        print("The section zoom or destination section was not found.")
+    elif target_section.getSlidesListOfSection().size() == 0:
+        print("The destination section is empty.")
+    else:
+        current_section = zoom.getTargetSection()
+        current_name = "" if current_section is None else current_section.getName()
+        print("Current section: " + str(current_name))
+        zoom.setTargetSection(target_section)
+        presentation.save("section-zoom-updated.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
 ### **Format Bingkai Zoom Bagian**
 
-Untuk membuat bingkai zoom bagian yang lebih rumit, Anda harus mengubah format bingkai sederhana. Ada beberapa opsi format yang dapat Anda terapkan pada bingkai zoom bagian.
-
-Anda dapat mengontrol format bingkai zoom bagian pada slide dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Buat slide baru.
-3. Tambahkan latar belakang yang khas ke slide yang dibuat.
-4. Buat bagian baru yang akan Anda tautkan dengan bingkai zoom.
-5. Tambahkan bingkai zoom bagian (yang berisi referensi ke bagian yang dibuat) ke slide pertama.
-6. Ubah ukuran dan posisi untuk objek zoom bagian yang dibuat.
-7. Buat objek [PPImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/ppimage/) dengan menambahkan gambar ke koleksi gambar yang terkait dengan objek [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) yang akan digunakan untuk mengisi bingkai.
-8. Setel gambar kustom untuk objek bingkai zoom bagian yang dibuat.
-9. Aktifkan kemampuan *kembali ke slide asli dari bagian yang ditautkan*.
-10. Hapus latar belakang dari gambar objek bingkai zoom bagian.
-11. Ubah format garis untuk objek bingkai zoom bagian.
-12. Ubah durasi transisi.
-13. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara mengubah format bingkai zoom bagian:
+Contoh ini memindahkan dan mengubah ukuran zoom bagian menjadi 100 x 75 poin, menetapkan gambar lokal melalui [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage), dan menerapkan batas coklat dash‑dot setebal 2,5 poin. Ia mengaktifkan [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) untuk kembali ke slide asal setelah bagian, menonaktifkan [ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground), dan menetapkan [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) ke 1,5 detik. Gambar lokal diperlukan untuk pratinjau kustom.
 
 ```python
 import jpype
@@ -358,19 +316,16 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Menambahkan slide baru ke presentasi
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Menambahkan Section baru ke presentasi
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
 
-    #  Menambahkan objek SectionZoomFrame
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  Pemformatan untuk SectionZoomFrame
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
     section_zoom_frame.setX(100)
     section_zoom_frame.setY(300)
     section_zoom_frame.setWidth(100)
@@ -378,46 +333,38 @@ try:
 
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    section_zoom_frame.setZoomImage(picture)
+
+    section_zoom_frame.setZoomImage(preview_image)
 
     section_zoom_frame.setReturnToParent(True)
     section_zoom_frame.setShowBackground(False)
 
     section_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     section_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     section_zoom_frame.getLineFormat().setWidth(2.5)
 
     section_zoom_frame.setTransitionDuration(1.5)
 
-    #  Menyimpan presentasi
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **Zoom Rangkuman**
 
-## **Summary Zoom**
+Zoom rangkuman menyediakan ikhtisar bagian‑bagian presentasi. Selama pertunjukan slide, Anda dapat menggunakannya untuk melompat ke sebuah bagian, melewatkan ke depan, atau mengunjungi kembali topik tanpa mengikuti urutan slide.
 
-Summary zoom adalah seperti halaman landas di mana semua bagian presentasi Anda ditampilkan sekaligus. Saat Anda menyajikan, Anda dapat menggunakan zoom untuk berpindah dari satu tempat ke tempat lain dalam presentasi dengan urutan apa pun yang Anda suka. Anda dapat berkreasi, melompat ke depan, atau kembali ke bagian-bagian slide show tanpa mengganggu alur presentasi.
+![Memilih bagian untuk zoom rangkuman](sumzoomsel.png)
 
-![overview_image](sumzoomsel.png)
+Untuk objek zoom rangkuman, Aspose.Slides menyediakan kelas [SummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/), dan [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/) serta metode pada kelas [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/).
 
-Untuk objek summary zoom, Aspose.Slides menyediakan kelas [SummaryZoomFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/id/python-java/aspose.slides/summaryzoomsection/), dan [SummaryZoomSectionCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/summaryzoomsectioncollection/) serta beberapa metode dalam kelas [ShapeCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/) .
+### **Buat Zoom Rangkuman**
 
-### **Buat Summary Zoom**
-
-Anda dapat menambahkan bingkai summary zoom ke slide dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Buat slide baru dengan latar belakang yang khas dan bagian baru untuk slide yang dibuat.
-3. Tambahkan bingkai summary zoom ke slide pertama.
-4. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara membuat bingkai summary zoom pada slide:
+Gunakan [ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSummaryZoomFrame) untuk membuat ikhtisar bagian‑bagian presentasi. Contoh ini membuat empat bagian dengan latar belakang slide yang berbeda dan menambahkan zoom rangkuman ke slide pertama. Posisi dan dimensi bingkai ditentukan dalam poin, dan ikhtisar yang dihasilkan disimpan dalam presentasi PPTX.
 
 ```python
 import jpype
@@ -431,64 +378,46 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Menambahkan slide baru ke presentasi
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Menambahkan section baru ke presentasi
     presentation.getSections().addSection("Section 1", slide)
 
-    # Menambahkan slide baru ke presentasi
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Menambahkan section baru ke presentasi
     presentation.getSections().addSection("Section 2", slide)
 
-    # Menambahkan slide baru ke presentasi
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Menambahkan section baru ke presentasi
     presentation.getSections().addSection("Section 3", slide)
 
-    # Menambahkan slide baru ke presentasi
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(0, 100, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Menambahkan section baru ke presentasi
     presentation.getSections().addSection("Section 4", slide)
 
-    #  Menambahkan objek SummaryZoomFrame
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  Menyimpan presentasi
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Tambahkan dan Hapus Bagian Summary Zoom**
+### **Tambah dan Hapus Seksi Zoom Rangkuman**
 
-Semua bagian dalam bingkai summary zoom direpresentasikan oleh objek [SummaryZoomSection](https://reference.aspose.com/slides/id/python-java/aspose.slides/summaryzoomsection/) , yang disimpan dalam objek [SummaryZoomSectionCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/summaryzoomsectioncollection/) . Anda dapat menambahkan atau menghapus objek bagian summary zoom melalui kelas [SummaryZoomSectionCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/summaryzoomsectioncollection/) dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Buat slide baru dengan latar belakang yang khas dan bagian baru untuk slide yang dibuat.
-3. Tambahkan bingkai summary zoom ke slide pertama.
-4. Tambahkan slide dan bagian baru ke presentasi.
-5. Tambahkan bagian yang dibuat ke bingkai summary zoom.
-6. Hapus bagian pertama dari bingkai summary zoom.
-7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara menambahkan dan menghapus bagian dalam bingkai summary zoom:
+Zoom rangkuman menyimpan objek [SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/) dalam [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection). Contoh ini membuat ikhtisar dua bagian, menambahkan bagian ketiga menggunakan [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection), dan menghapus entri bagian pertama menggunakan [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection). Menghapus entri meninggalkan bagian presentasi dan slide‑nya tetap utuh.
 
 ```python
 import jpype
@@ -502,66 +431,43 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Menambahkan slide baru ke presentasi
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Menambahkan section baru ke presentasi
-    presentation.getSections().addSection("Section 1", slide)
+    first_section = presentation.getSections().addSection("Section 1", slide)
 
-    # Menambahkan slide baru ke presentasi
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Menambahkan section baru ke presentasi
     presentation.getSections().addSection("Section 2", slide)
 
-    #  Menambahkan objek SummaryZoomFrame
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    # Menambahkan slide baru ke presentasi
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Menambahkan section baru ke presentasi
     third_section = presentation.getSections().addSection("Section 3", slide)
 
-    #  Menambahkan section ke Summary Zoom
     summary_zoom_frame.getSummaryZoomCollection().addSummaryZoomSection(third_section)
 
-    #  Menghapus section dari Summary Zoom
-    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(presentation.getSections().get_Item(1))
+    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(first_section)
 
-    #  Menyimpan presentasi
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Format Bagian Summary Zoom**
+### **Format Seksi Zoom Rangkuman**
 
-Untuk membuat objek bagian summary zoom yang lebih rumit, Anda harus mengubah format bingkai sederhana. Ada beberapa opsi format yang dapat Anda terapkan pada objek bagian summary zoom.
-
-Anda dapat mengontrol format untuk objek bagian summary zoom dalam bingkai summary zoom dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Buat slide baru dengan latar belakang yang khas dan bagian baru untuk slide yang dibuat.
-3. Tambahkan bingkai summary zoom ke slide pertama.
-4. Dapatkan objek bagian summary zoom pertama dari [SummaryZoomSectionCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/summaryzoomsectioncollection/) .
-5. Buat objek [PPImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/ppimage/) dengan menambahkan gambar ke koleksi gambar yang terkait dengan objek [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) yang akan digunakan untuk mengisi bingkai.
-6. Setel gambar kustom untuk objek bagian summary zoom.
-7. Aktifkan kemampuan *kembali ke slide asli dari bagian yang ditautkan*.
-8. Ubah format garis untuk objek bagian summary zoom.
-9. Ubah durasi transisi.
-10. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara mengubah format objek bagian summary zoom:
+Contoh ini memformat entri pertama dalam [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection), menggunakan indeks berbasis nol `0`. Ia memerlukan gambar lokal untuk [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage), menerapkan batas hitam dash‑dot setebal 1,5 poin, dan menetapkan [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) ke 1,5 detik. Menetapkan `False` pada [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) menonaktifkan pengembalian otomatis ke slide rangkuman untuk entri ini.
 
 ```python
 import jpype
@@ -575,63 +481,57 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Menambahkan slide baru ke presentasi
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Menambahkan section baru ke presentasi
     presentation.getSections().addSection("Section 1", slide)
 
-    # Menambahkan slide baru ke presentasi
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Menambahkan section baru ke presentasi
     presentation.getSections().addSection("Section 2", slide)
 
-    #  Menambahkan objek SummaryZoomFrame
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  Mendapatkan objek SummaryZoomSection pertama
     summary_section = summary_zoom_frame.getSummaryZoomCollection().get_Item(0)
 
-    #  Pemformatan untuk objek SummaryZoomSection
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    summary_section.setZoomImage(picture)
 
+    summary_section.setZoomImage(preview_image)
     summary_section.setReturnToParent(False)
 
     summary_section.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.black)
+    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     summary_section.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     summary_section.getLineFormat().setWidth(1.5)
 
     summary_section.setTransitionDuration(1.5)
 
-    #  Menyimpan presentasi
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Apakah saya dapat mengontrol kembali ke slide 'induk' setelah menampilkan target?**
+**Apakah saya dapat mengontrol pengembalian ke slide 'induk' setelah menampilkan target?**
 
-Ya. [ZoomFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/zoomframe/) atau [SectionZoomFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/sectionzoomframe/) mendukung pengembalian ke slide asal melalui [setReturnToParent](https://reference.aspose.com/slides/id/python-java/aspose.slides/zoomobject/#setReturnToParent) , yang mengirim penonton kembali setelah mereka mengunjungi konten target ketika diaktifkan.
+Ya. Panggil [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) dengan `True` untuk kembali ke slide asal setelah konten target ditampilkan.
 
 **Apakah saya dapat menyesuaikan 'kecepatan' atau durasi transisi Zoom?**
 
-Ya. Zoom mendukung pengaturan durasi transisi dengan [setTransitionDuration](https://reference.aspose.com/slides/id/python-java/aspose.slides/zoomobject/#setTransitionDuration) sehingga Anda dapat mengontrol berapa lama animasi lompatan berlangsung.
+Ya. Gunakan [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) untuk mengontrol durasi transisi dalam detik.
 
-**Apakah ada batasan berapa banyak objek Zoom yang dapat dimiliki sebuah presentasi?**
+**Apakah ada batas berapa banyak objek Zoom yang dapat dimiliki presentasi?**
 
-Tidak ada batasan API keras yang didokumentasikan. Batas praktis tergantung pada kompleksitas presentasi secara keseluruhan dan kinerja penampil. Anda dapat menambahkan banyak bingkai Zoom, tetapi pertimbangkan ukuran file dan waktu render.
+Tidak ada batas API keras yang didokumentasikan. Batas praktis bergantung pada kompleksitas keseluruhan presentasi dan kinerja penampil. Anda dapat menambahkan banyak bingkai Zoom, tetapi pertimbangkan ukuran file dan waktu rendering.

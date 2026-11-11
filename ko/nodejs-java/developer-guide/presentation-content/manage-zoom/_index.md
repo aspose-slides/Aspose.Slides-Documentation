@@ -1,548 +1,507 @@
 ---
-title: JavaScript에서 프레젠테이션 확대 관리
-linktitle: 확대 관리
+title: JavaScript에서 프레젠테이션 줌 관리
+linktitle: 줌 관리
 type: docs
 weight: 60
 url: /ko/nodejs-java/manage-zoom/
 keywords:
-- 확대
-- 확대 프레임
-- 슬라이드 확대
-- 섹션 확대
-- 요약 확대
-- 확대 추가
-- 파워포인트
+- 줌
+- 줌 프레임
+- 슬라이드 줌
+- 섹션 줌
+- 요약 줌
+- 줌 추가
+- PowerPoint
 - 프레젠테이션
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js를 사용하여 확대/축소를 만들고 사용자 정의합니다 — 섹션 간 이동, 썸네일 및 전환 효과를 PPT, PPTX 및 ODP 프레젠테이션에 추가합니다."
+description: "Aspose.Slides for Node.js via Java를 사용하여 줌을 만들고 사용자 지정하십시오 — 섹션 간 이동, 썸네일 및 전환을 PowerPoint 프레젠테이션에 추가합니다."
 ---
 ## **소개**
 
-PowerPoint의 확대/축소 기능을 사용하면 프레젠테이션의 특정 슬라이드, 섹션 및 부분으로 자유롭게 이동할 수 있습니다. 프레젠테이션 중에 콘텐츠를 빠르게 탐색할 수 있는 이 기능은 매우 유용할 수 있습니다. 
+PowerPoint 줌을 사용하면 슬라이드 쇼 중에 특정 슬라이드와 섹션 사이를 탐색할 수 있습니다. Aspose.Slides for Node.js via Java를 사용하면 슬라이드 줌, 섹션 줌 및 요약 줌을 만들고 미리보기, 테두리 및 전환을 사용자 지정할 수 있습니다.
 
-![overview_image](overview.png)
+![PowerPoint 줌 개요](overview.png)
 
-* 전체 프레젠테이션을 한 슬라이드에 요약하려면 [요약 확대](#Summary-Zoom)를 사용합니다.
-* 선택한 슬라이드만 표시하려면 [슬라이드 확대](#Slide-Zoom)를 사용합니다.
-* 단일 섹션만 표시하려면 [섹션 확대](#Section-Zoom)를 사용합니다.
+* 전체 프레젠테이션을 한 슬라이드에 요약하려면 [요약 줌](#summary-zoom)을 사용합니다.
+* 선택한 슬라이드만 표시하려면 [슬라이드 줌](#slide-zoom)을 사용합니다.
+* 단일 섹션만 표시하려면 [섹션 줌](#section-zoom)을 사용합니다.
 
-## **슬라이드 확대**
+## **슬라이드 줌**
 
-슬라이드 확대를 사용하면 발표 흐름을 방해하지 않고 원하는 순서대로 슬라이드 사이를 자유롭게 이동할 수 있어 프레젠테이션을 보다 역동적으로 만들 수 있습니다. 슬라이드 확대는 섹션이 많지 않은 짧은 프레젠테이션에 적합하지만 다양한 시나리오에서도 사용할 수 있습니다.
+슬라이드 줌을 사용하면 프레젠테이션이 보다 역동적으로 변하며, 원하는 순서대로 슬라이드 사이를 자유롭게 탐색하면서 프레젠테이션 흐름을 방해하지 않을 수 있습니다. 슬라이드 줌은 섹션이 많지 않은 짧은 프레젠테이션에 적합하지만, 다양한 프레젠테이션 시나리오에서도 사용할 수 있습니다.
 
-슬라이드 확대를 통해 하나의 캔버스에 있는 듯한 느낌으로 여러 정보를 자세히 들여다볼 수 있습니다. 
+슬라이드 줌을 사용하면 단일 개요 슬라이드에서 관련 정보를 탐색할 수 있습니다.
 
-![overview_image](slidezoomsel.png)
+![슬라이드 줌을 위한 슬라이드 선택](slidezoomsel.png)
 
-슬라이드 확대 개체와 관련하여 Aspose.Slides는 [ZoomImageType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/ZoomImageType) 열거형, [ZoomFrame](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/ZoomFrame) 클래스 및 [ShapeCollection](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/ShapeCollection) 클래스의 일부 메서드를 제공합니다.
+슬라이드 줌 객체에 대해 Aspose.Slides는 [ZoomImageType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomimagetype/) 열거형, [ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/) 클래스 및 [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) 클래스의 메서드를 제공합니다.
 
-### **확대 프레임 만들기**
+### **줌 프레임 만들기**
 
-다음과 같이 슬라이드에 확대 프레임을 추가할 수 있습니다:
-
-1.	[Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-2.	확대 프레임을 연결할 새 슬라이드를 만듭니다. 
-3.	생성한 슬라이드에 식별 텍스트와 배경을 추가합니다.
-4.	첫 번째 슬라이드에 확대 프레임(생성한 슬라이드에 대한 참조 포함)을 추가합니다.
-5.	수정된 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 JavaScript 코드는 슬라이드에 확대 프레임을 만드는 방법을 보여줍니다:
+개요 슬라이드에 개별 슬라이드에 대한 링크를 배치하려면 [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame)을 사용합니다. 이 예제는 배경과 레이블이 다른 두 개의 대상 슬라이드를 만든 다음 각각의 미리보기를 첫 번째 슬라이드에 추가하고 프레젠테이션을 PPTX로 저장합니다. 프레임 위치와 크기는 포인트 단위로 지정됩니다.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // 두 번째 슬라이드에 배경을 생성합니다
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // 두 번째 슬라이드에 텍스트 상자를 생성합니다
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // 세 번째 슬라이드에 배경을 생성합니다
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // 세 번째 슬라이드에 텍스트 상자를 생성합니다
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // ZoomFrame 개체를 추가합니다
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // 프레젠테이션을 저장합니다
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **사용자 지정 이미지가 있는 확대 프레임 만들기**
+### **맞춤 이미지로 줌 프레임 만들기**
 
-Node.js용 Aspose.Slides for Java를 사용하면 다음과 같이 다른 슬라이드 미리보기 이미지를 사용한 확대 프레임을 만들 수 있습니다:
-1.	[Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-2.	확대 프레임을 연결할 새 슬라이드를 만듭니다. 
-3.	슬라이드에 식별 텍스트와 배경을 추가합니다.
-4.	프레임을 채우는 데 사용할 [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 개체와 연결된 Images 컬렉션에 이미지를 추가하여 [PPImage](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/PPImage) 개체를 만듭니다.
-5.	첫 번째 슬라이드에 확대 프레임(생성한 슬라이드에 대한 참조 포함)을 추가합니다.
-6.	수정된 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 JavaScript 코드는 다른 이미지를 사용한 확대 프레임을 만드는 방법을 보여줍니다:
+맞춤 이미지를 [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame)에 전달하면 대상 슬라이드의 기본 미리보기를 교체할 수 있습니다. 이 예제는 로컬 이미지를 필요로 하며, 이를 [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile)로 로드하고 [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage)를 사용해 프레젠테이션에 추가합니다. 결과 프레임은 해당 이미지를 표시하면서 두 번째 슬라이드에 여전히 연결됩니다.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // 두 번째 슬라이드에 배경을 생성합니다
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // 세 번째 슬라이드에 텍스트 상자를 생성합니다
-    var autoshape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // 확대 개체를 위한 새 이미지를 생성합니다
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
+        image.dispose();
+    }
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 300, 200, slide, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **줌 프레임 서식 지정**
+
+이 예제는 두 개의 슬라이드 줌 프레임을 사용자 지정합니다. 첫 번째 프레임에는 [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage)을 통해 로컬 이미지를 할당하고, 두 번째 프레임에는 [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat)을 사용해 5포인트 점선-점선(대시-도트) 분홍색 테두리를 적용합니다. [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground)에 `false`를 전달하면 두 번째 프레임의 배경이 숨겨집니다. 맞춤 미리보기를 위해 로컬 이미지가 필요하며, 두 프레임 모두 저장된 PPTX에서 슬라이드 대상이 유지됩니다.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    let firstZoomFrame = overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    let secondZoomFrame = overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
+    try {
+        previewImage = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
+
+    firstZoomFrame.setZoomImage(previewImage);
+
+    secondZoomFrame.getLineFormat().setWidth(5);
+    secondZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 105, 180));
+    secondZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
+    secondZoomFrame.setShowBackground(false);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **섹션 줌**
+
+섹션 줌은 프레젠테이션의 섹션에 연결됩니다. 이를 사용해 주제를 다시 살펴보거나, 프레젠테이션의 다양한 부분이 어떻게 연결되는지 보여줄 수 있습니다.
+
+![섹션 줌을 위한 섹션 선택](seczoomsel.png)
+
+섹션 줌 객체에 대해 Aspose.Slides는 [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) 클래스와 [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) 클래스의 메서드를 제공합니다.
+
+### **섹션 줌 프레임 만들기**
+
+[SectionCollection.addSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectioncollection/#addSection)으로 섹션을 만든 후 반환된 섹션을 [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame)에 전달합니다. 이 예제는 첫 번째 슬라이드에 섹션 줌을 배치하고 색상이 있는 슬라이드로 시작하는 섹션에 연결합니다. 프레임 위치와 크기는 포인트 단위이며, 프레젠테이션은 PPTX로 저장됩니다.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **맞춤 이미지로 섹션 줌 프레임 만들기**
+
+[ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame)의 이미지 오버로드를 사용하면 대상 섹션을 변경하지 않고도 맞춤 미리보기를 표시할 수 있습니다. 이 예제는 로컬 이미지가 필요하며, 이를 [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile)으로 로드하고 [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage)으로 추가합니다. 저장된 프레젠테이션에는 첫 번째 슬라이드에 새로 만든 섹션에 연결된 섹션 줌이 포함됩니다.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
+    try {
+        previewImage = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **섹션 줌의 대상 섹션 변경**
+
+[SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/#setTargetSection)을 사용하면 기존 섹션 줌을 다시 만들지 않고 대상 섹션을 재지정할 수 있습니다. 동일한 프레젠테이션의 [Presentation.getSections](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSections) 컬렉션에서 채워진 섹션을 선택하십시오. 빈 섹션을 할당하면 현재 대상이 변경되지 않으므로 할당하기 전에 [Section.getSlidesListOfSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSlidesListOfSection)을 확인합니다. 섹션에 대한 자세한 내용은 [슬라이드 섹션 관리](/slides/ko/nodejs-java/slide-section/)를 참조하십시오.
+
+다음 예제는 프레젠테이션 파일을 로드합니다. 이 파일에는 여러 개의 채워진 섹션, `Section navigation`이라는 기존 섹션 줌, 그리고 고유 이름 `Results`를 가진 섹션이 있어야 합니다. 모든 슬라이드를 검색해 줌을 찾고, 섹션이 재정렬될 때 변할 수 있는 컬렉션 인덱스 대신 이름으로 목적지를 찾습니다. 이름이 고유하지 않은 경우 [Section.getSectionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSectionId)를 사용해 목적지를 식별합니다.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("section-zoom.pptx");
+try {
+    let zoom = null;
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        for (let j = 0; j < slide.getShapes().size(); j++) {
+            const shape = slide.getShapes().get_Item(j);
+            if (java.instanceOf(shape, "com.aspose.slides.ISectionZoomFrame") && shape.getName() === "Section navigation") {
+                zoom = shape;
+                break;
+            }
+        }
+        if (zoom != null) {
+            break;
         }
     }
-    // ZoomFrame 개체를 추가합니다
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
-    // 프레젠테이션을 저장합니다
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
 
-### **확대 프레임 서식 지정**
-
-앞섹션에서는 간단한 확대 프레임을 만드는 방법을 보여주었습니다. 보다 복잡한 확대 프레임을 만들려면 단순 프레임의 서식을 변경해야 합니다. 확대 프레임에 적용할 수 있는 서식 옵션은 여러 가지가 있습니다. 
-
-다음과 같이 슬라이드에서 확대 프레임의 서식을 제어할 수 있습니다:
-
-1.	[Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-2.	확대 프레임을 연결할 새 슬라이드를 만듭니다. 
-3.	생성한 슬라이드에 식별 텍스트와 배경을 추가합니다.
-4.	첫 번째 슬라이드에 확대 프레임(생성한 슬라이드에 대한 참조 포함)을 추가합니다.
-5.	프레임을 채우는 데 사용할 [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 개체와 연결된 Images 컬렉션에 이미지를 추가하여 [PPImage](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/PPImage) 개체를 만듭니다.
-6.	첫 번째 확대 프레임 개체에 사용자 지정 이미지를 설정합니다.
-7.	두 번째 확대 프레임 개체의 선 서식을 변경합니다.
-8.	두 번째 확대 프레임 개체 이미지의 배경을 제거합니다.
-5.	수정된 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 JavaScript 코드는 슬라이드에서 확대 프레임의 서식을 변경하는 방법을 보여줍니다:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // 두 번째 슬라이드에 배경을 생성합니다
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // 두 번째 슬라이드에 텍스트 상자를 생성합니다
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // 세 번째 슬라이드에 배경을 생성합니다
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // 세 번째 슬라이드에 텍스트 상자를 생성합니다
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // ZoomFrame 개체를 추가합니다
-    var zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    var zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // 확대 개체를 위한 새 이미지를 생성합니다
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+    let targetSection = null;
+    for (let i = 0; i < presentation.getSections().size(); i++) {
+        const section = presentation.getSections().get_Item(i);
+        if (section.getName() === "Results") {
+            targetSection = section;
+            break;
         }
     }
-    // zoomFrame1 개체에 사용자 지정 이미지를 설정합니다
-    zoomFrame1.setImage(picture);
-    // zoomFrame2 개체에 확대 프레임 서식을 설정합니다
-    zoomFrame2.getLineFormat().setWidth(5);
-    zoomFrame2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "pink"));
-    zoomFrame2.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // zoomFrame2 개체에 대해 배경을 표시하지 않도록 설정합니다
-    zoomFrame2.setShowBackground(false);
-    // 프레젠테이션을 저장합니다
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (zoom == null || targetSection == null) {
+        console.log("The section zoom or destination section was not found.");
+    } else if (targetSection.getSlidesListOfSection().size() == 0) {
+        console.log("The destination section is empty.");
+    } else {
+        let currentSection = zoom.getTargetSection();
+        console.log("Current section: " + (currentSection == null ? "" : currentSection.getName()));
+        zoom.setTargetSection(targetSection);
+        presentation.save("section-zoom-updated.pptx", aspose.slides.SaveFormat.Pptx);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **섹션 확대**
+### **섹션 줌 프레임 서식 지정**
 
-섹션 확대는 프레젠테이션 내 섹션에 대한 링크입니다. 강조하고 싶은 섹션으로 돌아가거나 프레젠테이션의 특정 부분이 어떻게 연결되는지 강조하는 데 사용할 수 있습니다. 
-
-![overview_image](seczoomsel.png)
-
-섹션 확대 개체와 관련하여 Aspose.Slides는 [SectionZoomFrame](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/SectionZoomFrame) 클래스 및 [ShapeCollection](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/ShapeCollection) 클래스의 일부 메서드를 제공합니다.
-
-### **섹션 확대 프레임 만들기**
-
-다음과 같이 슬라이드에 섹션 확대 프레임을 추가할 수 있습니다:
-
-1.	[Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-2.	새 슬라이드를 만듭니다. 
-3.	생성한 슬라이드에 식별 배경을 추가합니다.
-4.	확대 프레임을 연결할 새 섹션을 만듭니다. 
-5.	첫 번째 슬라이드에 섹션 확대 프레임(생성한 섹션에 대한 참조 포함)을 추가합니다.
-6.	수정된 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 JavaScript 코드는 슬라이드에 확대 프레임을 만드는 방법을 보여줍니다:
+이 예제는 섹션 줌을 100×75 포인트로 이동 및 크기 조정하고, [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage)을 통해 로컬 이미지를 할당하며, 2.5포인트 대시-점선 갈색 테두리를 적용합니다. 섹션 이후 원본 슬라이드로 돌아가도록 [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent)을 활성화하고, [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground)를 비활성화하며, [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration)를 1.5초로 설정합니다. 맞춤 미리보기를 위해 로컬 이미지가 필요합니다.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 프레젠테이션에 새 섹션을 추가합니다
-    pres.getSections().addSection("Section 1", slide);
-    // SectionZoomFrame 객체를 추가합니다
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // 프레젠테이션을 저장합니다
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
 
-### **사용자 지정 이미지가 있는 섹션 확대 프레임 만들기**
+    let section = presentation.getSections().addSection("Section 1", slide);
 
-Node.js용 Aspose.Slides for Java를 사용하면 다음과 같이 다른 슬라이드 미리보기 이미지를 사용한 섹션 확대 프레임을 만들 수 있습니다:
-
-1.	[Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-2.	새 슬라이드를 만듭니다.
-3.	생성한 슬라이드에 식별 배경을 추가합니다.
-4.	확대 프레임을 연결할 새 섹션을 만듭니다. 
-5.	프레임을 채우는 데 사용할 [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 개체와 연결된 Images 컬렉션에 이미지를 추가하여 [PPImage](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/PPImage) 개체를 만듭니다.
-5.	첫 번째 슬라이드에 섹션 확대 프레임(생성한 섹션에 대한 참조 포함)을 추가합니다.
-6.	수정된 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 JavaScript 코드는 다른 이미지를 사용한 확대 프레임을 만드는 방법을 보여줍니다:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 프레젠테이션에 새 섹션을 추가합니다
-    pres.getSections().addSection("Section 1", slide);
-    // 확대 개체를 위한 새 이미지를 생성합니다
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    // SectionZoomFrame 객체를 추가합니다
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
-    // 프레젠테이션을 저장합니다
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-### **섹션 확대 프레임 서식 지정**
-
-보다 복잡한 섹션 확대 프레임을 만들려면 단순 프레임의 서식을 변경해야 합니다. 섹션 확대 프레임에 적용할 수 있는 서식 옵션은 여러 가지가 있습니다. 
-
-다음과 같이 슬라이드에서 섹션 확대 프레임의 서식을 제어할 수 있습니다:
-
-1.	[Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-2.	새 슬라이드를 만듭니다.
-3.	생성한 슬라이드에 식별 배경을 추가합니다.
-4.	확대 프레임을 연결할 새 섹션을 만듭니다. 
-5.	첫 번째 슬라이드에 섹션 확대 프레임(생성한 섹션에 대한 참조 포함)을 추가합니다.
-6.	생성한 섹션 확대 개체의 크기와 위치를 변경합니다.
-7.	프레임을 채우는 데 사용할 [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 개체와 연결된 Images 컬렉션에 이미지를 추가하여 [PPImage](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/PPImage) 개체를 만듭니다.
-8.	생성한 섹션 확대 프레임 개체에 사용자 지정 이미지를 설정합니다.
-9.	*링크된 섹션에서 원본 슬라이드로 돌아가기* 기능을 설정합니다. 
-10.	섹션 확대 프레임 개체 이미지의 배경을 제거합니다.
-11.	두 번째 확대 프레임 개체의 선 서식을 변경합니다.
-12.	전환 지속 시간을 변경합니다.
-13.	수정된 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 JavaScript 코드는 섹션 확대 프레임의 서식을 변경하는 방법을 보여줍니다:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 프레젠테이션에 새 섹션을 추가합니다
-    pres.getSections().addSection("Section 1", slide);
-    // SectionZoomFrame 객체를 추가합니다
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // SectionZoomFrame의 서식 지정
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
     sectionZoomFrame.setHeight(75);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    sectionZoomFrame.setImage(picture);
+
+    sectionZoomFrame.setZoomImage(previewImage);
+
     sectionZoomFrame.setReturnToParent(true);
     sectionZoomFrame.setShowBackground(false);
+
     sectionZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    sectionZoomFrame.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    sectionZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     sectionZoomFrame.getLineFormat().setWidth(2.5);
-    sectionZoomFrame.setTransitionDuration(1.5);
-    // 프레젠테이션을 저장합니다
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    sectionZoomFrame.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **요약 확대**
+## **요약 줌**
 
-요약 확대는 프레젠테이션의 모든 부분을 한 번에 표시하는 랜딩 페이지와 같습니다. 발표 중에 원하는 순서대로 프레젠테이션의 한 위치에서 다른 위치로 이동할 수 있습니다. 창의적으로 진행하거나 앞쪽을 건너뛰거나 슬라이드 쇼의 일부를 다시 살펴볼 수 있어 발표 흐름을 방해하지 않습니다.
+요약 줌은 프레젠테이션 섹션의 개요를 제공합니다. 슬라이드 쇼 중에 섹션으로 이동하거나, 앞을 건너뛰거나, 슬라이드 순서를 따르지 않고 주제를 다시 살펴볼 수 있습니다.
 
-![overview_image](sumzoomsel.png)
+![요약 줌을 위한 섹션 선택](sumzoomsel.png)
 
-요약 확대 개체와 관련하여 Aspose.Slides는 [SummaryZoomFrame](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/SummaryZoomFrame), [SummaryZoomSection](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/SummaryZoomSection) 및 [SummaryZoomSectionCollection](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/SummaryZoomSectionCollection) 클래스를 제공하며, [ShapeCollection](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/ShapeCollection) 클래스의 일부 메서드도 사용할 수 있습니다.
+요약 줌 객체에 대해 Aspose.Slides는 [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/), [SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/) 클래스와 [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) 클래스의 메서드를 제공합니다.
 
-### **요약 확대 만들기**
+### **요약 줌 만들기**
 
-다음과 같이 슬라이드에 요약 확대 프레임을 추가할 수 있습니다:
-
-1.	[Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-2.	식별 배경과 새 섹션이 포함된 새 슬라이드를 생성합니다.
-3.	첫 번째 슬라이드에 요약 확대 프레임을 추가합니다.
-4.	수정된 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 JavaScript 코드는 슬라이드에 요약 확대 프레임을 만드는 방법을 보여줍니다:
+[ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSummaryZoomFrame)을 사용해 프레젠테이션 섹션의 개요를 만듭니다. 이 예제는 배경이 다른 네 개의 섹션을 만든 뒤 첫 번째 슬라이드에 요약 줌을 추가합니다. 프레임 위치와 크기는 포인트 단위이며, 결과 개요는 PPTX 프레젠테이션으로 저장됩니다.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 프레젠테이션에 새 섹션을 추가합니다
-    pres.getSections().addSection("Section 1", slide);
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 프레젠테이션에 새 섹션을 추가합니다
-    pres.getSections().addSection("Section 2", slide);
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 프레젠테이션에 새 섹션을 추가합니다
-    pres.getSections().addSection("Section 3", slide);
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 3", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "green"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 프레젠테이션에 새 섹션을 추가합니다
-    pres.getSections().addSection("Section 4", slide);
-    // SummaryZoomFrame 객체를 추가합니다
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // 프레젠테이션을 저장합니다
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 100, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 4", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **요약 확대 섹션 추가 및 제거**
+### **요약 줌 섹션 추가 및 제거**
 
-요약 확대 프레임의 모든 섹션은 [SummaryZoomSection](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/SummaryZoomSection) 개체로 표시되며, 이는 [SummaryZoomSectionCollection](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/SummaryZoomSectionCollection) 객체에 저장됩니다. 다음과 같이 [SummaryZoomSectionCollection](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/SummaryZoomSectionCollection) 클래스를 통해 요약 확대 섹션 개체를 추가하거나 제거할 수 있습니다:
-
-1.	[Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-2.	식별 배경과 새 섹션이 포함된 새 슬라이드를 생성합니다.
-3.	첫 번째 슬라이드에 요약 확대 프레임을 추가합니다.
-4.	프레젠테이션에 새 슬라이드와 섹션을 추가합니다.
-5.	생성한 섹션을 요약 확대 프레임에 추가합니다.
-6.	요약 확대 프레임에서 첫 번째 섹션을 제거합니다.
-7.	수정된 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 JavaScript 코드는 요약 확대 프레임에서 섹션을 추가하고 제거하는 방법을 보여줍니다:
+요약 줌은 [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/) 객체를 [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection)에 저장합니다. 이 예제는 두 개 섹션의 개요를 만든 뒤 [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection)으로 세 번째 섹션을 추가하고, [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection)으로 첫 번째 섹션 항목을 제거합니다. 항목을 제거해도 프레젠테이션 섹션 및 해당 슬라이드는 그대로 유지됩니다.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 프레젠테이션에 새 섹션을 추가합니다
-    pres.getSections().addSection("Section 1", slide);
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let firstSection = presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 프레젠테이션에 새 섹션을 추가합니다
-    pres.getSections().addSection("Section 2", slide);
-    // SummaryZoomFrame 객체를 추가합니다
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 프레젠테이션에 새 섹션을 추가합니다
-    var section3 = pres.getSections().addSection("Section 3", slide);
-    // Summary Zoom에 섹션을 추가합니다
-    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
-    // Summary Zoom에서 섹션을 제거합니다
-    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
-    // 프레젠테이션을 저장합니다
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let thirdSection = presentation.getSections().addSection("Section 3", slide);
+
+    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(thirdSection);
+
+    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(firstSection);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **요약 확대 섹션 서식 지정**
+### **요약 줌 섹션 서식 지정**
 
-보다 복잡한 요약 확대 섹션 개체를 만들려면 단순 프레임의 서식을 변경해야 합니다. 요약 확대 섹션 개체에 적용할 수 있는 서식 옵션은 여러 가지가 있습니다. 
-
-다음과 같이 요약 확대 프레임 내 섹션 개체의 서식을 제어할 수 있습니다:
-
-1.	[Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-2.	식별 배경과 새 섹션이 포함된 새 슬라이드를 생성합니다.
-3.	첫 번째 슬라이드에 요약 확대 프레임을 추가합니다.
-4.	`ISummaryZoomSectionCollection`에서 첫 번째 섹션 개체를 가져옵니다.
-7.	프레임을 채우는 데 사용할 [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 개체와 연결된 Images 컬렉션에 이미지를 추가하여 [PPImage](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/PPImage) 개체를 만듭니다.
-8.	생성한 섹션 확대 프레임 개체에 사용자 지정 이미지를 설정합니다.
-9.	*링크된 섹션에서 원본 슬라이드로 돌아가기* 기능을 설정합니다. 
-11.	두 번째 확대 프레임 개체의 선 서식을 변경합니다.
-12.	전환 지속 시간을 변경합니다.
-13.	수정된 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 JavaScript 코드는 요약 확대 섹션 개체의 서식을 변경하는 방법을 보여줍니다:
+이 예제는 [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) 의 첫 번째 항목(0 기반 인덱스 `0`)을 서식 지정합니다. [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) 에 로컬 이미지가 필요하며, 1.5포인트 대시-점선 검은색 테두리를 적용하고, [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration)를 1.5초로 설정합니다. [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent)에 `false`를 전달하면 해당 항목에 대해 요약 슬라이드로 자동 반환이 비활성화됩니다.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 프레젠테이션에 새 섹션을 추가합니다
-    pres.getSections().addSection("Section 1", slide);
-    // 프레젠테이션에 새 슬라이드를 추가합니다
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 프레젠테이션에 새 섹션을 추가합니다
-    pres.getSections().addSection("Section 2", slide);
-    // SummaryZoomFrame 객체를 추가합니다
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // 첫 번째 SummaryZoomSection 객체를 가져옵니다
-    var summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
-    // SummaryZoomSection 객체의 서식 지정
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    let summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(picture);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    summarySection.setImage(picture);
+
+    summarySection.setZoomImage(previewImage);
     summarySection.setReturnToParent(false);
+
     summarySection.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "black"));
-    summarySection.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    summarySection.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     summarySection.getLineFormat().setWidth(1.5);
-    summarySection.setTransitionDuration(1.5);
-    // 프레젠테이션을 저장합니다
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    summarySection.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **자주 묻는 질문**
 
-**대상 내용을 표시한 후 '상위' 슬라이드로 돌아가는 것을 제어할 수 있나요?**
+**대상 슬라이드를 표시한 후 '부모' 슬라이드로 돌아가는 것을 제어할 수 있나요?**
 
-예. [Zoom frame](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/zoomframe/) 또는 [section](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/sectionzoomframe/) 에는 `setReturnToParent` 메서드가 있으며, 이를 활성화하면 사용자를 대상 콘텐츠를 본 후 원본 슬라이드로 되돌릴 수 있습니다.
+예. 대상 콘텐츠가 표시된 후 원본 슬라이드로 돌아가려면 `true`와 함께 [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent)를 호출하세요.
 
 **Zoom 전환의 '속도' 또는 지속 시간을 조정할 수 있나요?**
 
-예. Zoom에는 `setTransitionDuration` 메서드가 있어 점프 애니메이션의 길이를 제어할 수 있습니다.
+예. 전환 지속 시간을 초 단위로 제어하려면 [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration)를 사용하십시오.
 
-**프레젠테이션에 포함될 수 있는 Zoom 개체 수에 제한이 있나요?**
+**프레젠테이션에 포함될 수 있는 Zoom 객체 수에 제한이 있나요?**
 
-문서화된 강제 API 제한은 없습니다. 실제 제한은 전체 프레젠테이션 복잡도와 뷰어 성능에 따라 달라집니다. 많은 Zoom 프레임을 추가할 수 있지만 파일 크기와 렌더링 시간을 고려해야 합니다.
+문서화된 명확한 API 제한은 없습니다. 실제 제한은 프레젠테이션 전체 복잡성과 뷰어 성능에 따라 달라집니다. 많은 Zoom 프레임을 추가할 수 있지만 파일 크기 및 렌더링 시간을 고려하십시오.

@@ -1,548 +1,507 @@
 ---
-title: "Διαχείριση Zoom Παρουσίασης σε JavaScript"
-linktitle: "Διαχείριση Zoom"
+title: Διαχείριση Zoom Παρουσίασης σε JavaScript
+linktitle: Διαχείριση Zoom
 type: docs
 weight: 60
 url: /el/nodejs-java/manage-zoom/
 keywords:
 - ζουμ
 - πλαίσιο ζουμ
-- ζουμ διαφάνειας
-- ζουμ ενότητας
-- ζουμ περίληψης
+- zoom διαφάνειας
+- zoom ενότητας
+- zoom περίληψης
 - προσθήκη ζουμ
 - PowerPoint
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Δημιουργήστε και προσαρμόστε το Zoom με Aspose.Slides για Node.js — μεταβείτε μεταξύ ενοτήτων, προσθέστε μικρογραφίες και μεταβάσεις σε παρουσιάσεις PPT, PPTX και ODP."
+description: "Δημιουργήστε και προσαρμόστε το Zoom με Aspose.Slides για Node.js μέσω Java — μεταπηδήστε μεταξύ ενοτήτων, προσθέστε μικρογραφίες και μεταβάσεις σε παρουσιάσεις PowerPoint."
 ---
 ## **Εισαγωγή**
 
-Τα Zoom στο PowerPoint σάς επιτρέπουν να πηδείτε προς και από συγκεκριμένες διαφάνειες, ενότητες και τμήματα μιας παρουσίασης. Όταν παρουσιάζετε, αυτή η δυνατότητα γρήγορης πλοήγησης στο περιεχόμενο μπορεί να αποδειχθεί πολύ χρήσιμη. 
+Τα Zoom του PowerPoint σάς επιτρέπουν να περιηγηθείτε μεταξύ συγκεκριμένων διαφανειών και ενοτήτων κατά τη διάρκεια μιας παρουσίασης. Με το Aspose.Slides για Node.js μέσω Java, μπορείτε να δημιουργήσετε zoom διαφανειών, ενοτήτων και περιλήψεων και να προσαρμόσετε τις προεπισκοπήσεις, τα περιγράμματα και τις μεταβάσεις τους.
 
-![overview_image](overview.png)
+![PowerPoint zoom overview](overview.png)
 
-* Για να συνοψίσετε μια ολόκληρη παρουσίαση σε μία διαφάνεια, χρησιμοποιήστε ένα [Περίληψη Zoom](#Summary-Zoom).
-* Για να εμφανίσετε μόνο επιλεγμένες διαφάνειες, χρησιμοποιήστε ένα [Zoom Διαφάνειας](#Slide-Zoom).
-* Για να εμφανίσετε μόνο μία ενότητα, χρησιμοποιήστε ένα [Zoom Ενότητας](#Section-Zoom).
+* Για να συνοψίσετε ολόκληρη την παρουσίαση σε μία διαφάνεια, χρησιμοποιήστε ένα [Summary Zoom](#summary-zoom).
+* Για να εμφανίσετε μόνο τις επιλεγμένες διαφάνειες, χρησιμοποιήστε ένα [Slide Zoom](#slide-zoom).
+* Για να εμφανίσετε μόνο μία ενότητα, χρησιμοποιήστε ένα [Section Zoom](#section-zoom).
 
 ## **Zoom Διαφάνειας**
 
-Ένα zoom διαφάνειας μπορεί να κάνει την παρουσίασή σας πιο δυναμική, επιτρέποντάς σας να πλοηγηθείτε ελεύθερα μεταξύ διαφανειών με την σειρά που θέλετε χωρίς να διακόπτετε τη ροή της παρουσίασης. Τα zoom διαφανειών είναι ιδανικά για σύντομες παρουσιάσεις χωρίς πολλές ενότητες, αλλά μπορείτε να τα χρησιμοποιήσετε και σε διαφορετικά σενάρια παρουσίασης.
+Ένα zoom διαφάνειας μπορεί να κάνει την παρουσίασή σας πιο δυναμική, επιτρέποντάς σας να περιηγηθείτε ελεύθερα μεταξύ των διαφανειών σε οποιαδήποτε σειρά επιλέγετε χωρίς να διακόπτετε τη ροή της παρουσίασης. Τα zoom διαφανειών είναι ιδανικά για σύντομες παρουσιάσεις χωρίς πολλές ενότητες, αλλά μπορείτε να τα χρησιμοποιήσετε και σε διαφορετικά σενάρια παρουσίασης.
 
-Τα zoom διαφάνειες σας βοηθούν να εμβαθύνετε σε πολλαπλά κομμάτια πληροφορίας ενώ νιώθετε ότι βρίσκεστε σε έναν ενιαίο καμβά. 
+Τα zoom διαφανειών σας επιτρέπουν να εξερευνήσετε σχετικές πληροφορίες από μία ενιαία διαφάνεια επισκόπησης.
 
-![overview_image](slidezoomsel.png)
+![Selecting slides for a slide zoom](slidezoomsel.png)
 
-Για αντικείμενα zoom διαφάνειας, το Aspose.Slides παρέχει την απαρίθμηση [ZoomImageType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ZoomImageType), την κλάση [ZoomFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ZoomFrame) και μερικές μεθόδους στην κλάση [ShapeCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ShapeCollection).
+Για αντικείμενα zoom διαφάνειας, το Aspose.Slides παρέχει την αρίθμηση [ZoomImageType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomimagetype/), την κλάση [ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/) και μεθόδους στην κλάση [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/).
 
 ### **Δημιουργία Πλαισίων Zoom**
 
-Μπορείτε να προσθέσετε ένα πλαίσιο zoom σε μια διαφάνεια με τον εξής τρόπο:
-
-1.	Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2.	Δημιουργήστε νέες διαφάνειες στις οποίες σκοπεύετε να συνδέσετε τα πλαίσια zoom. 
-3.	Προσθέστε κείμενο ταυτοποίησης και φόντο στις δημιουργημένες διαφάνειες.
-4.	Προσθέστε πλαίσια zoom (που περιέχουν τις αναφορές στις δημιουργημένες διαφάνειες) στην πρώτη διαφάνεια.
-5.	Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα πλαίσιο zoom σε μια διαφάνεια:
+Χρησιμοποιήστε το [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame) για να τοποθετήσετε συνδέσμους σε μεμονωμένες διαφάνειες σε μια διαφάνεια επισκόπησης. Αυτό το παράδειγμα δημιουργεί δύο διαφάνειες-στόχους με διαφορετικά φόντα και ετικέτες, προσθέτει μια προεπισκόπηση του καθένα στην πρώτη διαφάνεια και αποθηκεύει την παρουσίαση ως PPTX. Οι θέσεις και οι διαστάσεις των πλαισίων καθορίζονται σε σημεία.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Προσθέτει νέες διαφάνειες στην παρουσίαση
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // Δημιουργεί φόντο για τη δεύτερη διαφάνεια
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // Δημιουργεί πλαίσιο κειμένου για τη δεύτερη διαφάνεια
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // Δημιουργεί φόντο για την τρίτη διαφάνεια
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // Δημιουργεί πλαίσιο κειμένου για την τρίτη διαφάνεια
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // Προσθέτει αντικείμενα ZoomFrame
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // Αποθηκεύει την παρουσίαση
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ### **Δημιουργία Πλαισίων Zoom με Προσαρμοσμένες Εικόνες**
 
-Με το Aspose.Slides for Node.js via Java, μπορείτε να δημιουργήσετε ένα πλαίσιο zoom με διαφορετική εικόνα προεπισκόπησης διαφάνειας ως εξής:
-1.	Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2.	Δημιουργήστε μια νέα διαφάνεια στην οποία θα συνδέσετε το πλαίσιο zoom. 
-3.	Προσθέστε κείμενο ταυτοποίησης και φόντο στην διαφάνεια.
-4.	Δημιουργήστε ένα αντικείμενο [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PPImage) προσθέτοντας μια εικόνα στη συλλογή Images που συνδέεται με το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) και θα χρησιμοποιηθεί για το γέμισμα του πλαισίου.
-5.	Προσθέστε πλαίσια zoom (που περιέχουν την αναφορά στη δημιουργημένη διαφάνεια) στην πρώτη διαφάνεια.
-6.	Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα πλαίσιο zoom με διαφορετική εικόνα:
+Περάστε μια προσαρμοσμένη εικόνα στη [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame) για να αντικαταστήσετε την προεπιλεγμένη προεπισκόπηση της διαφάνειας-στόχου. Αυτό το παράδειγμα απαιτεί μια τοπική εικόνα, τη φορτώνει με το [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) και τη προσθέτει στην παρουσίαση χρησιμοποιώντας το [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage). Το αποτέλεσμα είναι ένα πλαίσιο που εμφανίζει αυτήν την εικόνα ενώ παραμένει συνδεδεμένο με τη δεύτερη διαφάνεια.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // Δημιουργεί φόντο για τη δεύτερη διαφάνεια
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // Δημιουργεί πλαίσιο κειμένου για την τρίτη διαφάνεια
-    var autoshape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // Δημιουργεί μια νέα εικόνα για το αντικείμενο zoom
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // Προσθέτει το αντικείμενο ZoomFrame
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
-    // Αποθηκεύει την παρουσίαση
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 300, 200, slide, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Μορφοποίηση Πλαισίων Zoom**
+### **Διαμόρφωση Πλαισίων Zoom**
 
-Στις προηγούμενες ενότητες, σας δείξαμε πώς να δημιουργήσετε απλά πλαίσια zoom. Για να δημιουργήσετε πιο σύνθετα πλαίσια zoom, πρέπει να τροποποιήσετε τη μορφοποίηση ενός απλού πλαισίου. Υπάρχουν αρκετές επιλογές μορφοποίησης που μπορείτε να εφαρμόσετε σε ένα πλαίσιο zoom. 
-
-Μπορείτε να ελέγξετε τη μορφοποίηση ενός πλαισίου zoom σε μια διαφάνεια με τον εξής τρόπο:
-
-1.	Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2.	Δημιουργήστε νέες διαφάνειες που θα συνδέσετε με το πλαίσιο zoom. 
-3.	Προσθέστε κάποιο κείμενο ταυτοποίησης και φόντο στις δημιουργημένες διαφάνειες.
-4.	Προσθέστε πλαίσια zoom (που περιέχουν τις αναφορές στις δημιουργημένες διαφάνειες) στην πρώτη διαφάνεια.
-5.	Δημιουργήστε ένα αντικείμενο [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PPImage) προσθέτοντας μια εικόνα στη συλλογή Images που συνδέεται με το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) και θα χρησιμοποιηθεί για το γέμισμα του πλαισίου.
-6.	Ορίστε μια προσαρμοσμένη εικόνα για το πρώτο αντικείμενο πλαισίου zoom.
-7.	Αλλάξτε τη μορφή της γραμμής για το δεύτερο αντικείμενο πλαισίου zoom.
-8.	Αφαιρέστε το φόντο από μια εικόνα του δεύτερου αντικειμένου πλαισίου zoom.
-5.	Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να αλλάξετε τη μορφοποίηση ενός πλαισίου zoom σε μια διαφάνεια:
+Αυτό το παράδειγμα προσαρμόζει δύο πλαίσια zoom διαφάνειας. Αναθέτει μια τοπική εικόνα στο πρώτο πλαίσιο μέσω του [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) και δίνει στο δεύτερο πλαίσιο ένα 5‑σημείων, παύση‑τελεία ροζ περίγραμμα μέσω του [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat). Η μεταφορά του `false` στη [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground) κρύβει το φόντο του δεύτερου πλαισίου. Απαιτείται μια τοπική εικόνα για την προσαρμοσμένη προεπισκόπηση· και τα δύο πλαίσια διατηρούν τους στόχους διαφάνειας τους στο αποθηκευμένο PPTX.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Προσθέτει νέες διαφάνειες στην παρουσίαση
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // Δημιουργεί φόντο για τη δεύτερη διαφάνεια
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // Δημιουργεί πλαίσιο κειμένου για τη δεύτερη διαφάνεια
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // Δημιουργεί φόντο για την τρίτη διαφάνεια
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // Δημιουργεί πλαίσιο κειμένου για την τρίτη διαφάνεια
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // Προσθέτει αντικείμενα ZoomFrame
-    var zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    var zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // Δημιουργεί μια νέα εικόνα για το αντικείμενο zoom
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    let firstZoomFrame = overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    let secondZoomFrame = overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // Ορίζει προσαρμοσμένη εικόνα για το αντικείμενο zoomFrame1
-    zoomFrame1.setImage(picture);
-    // Ορίζει μορφοποίηση πλαισίου zoom για το αντικείμενο zoomFrame2
-    zoomFrame2.getLineFormat().setWidth(5);
-    zoomFrame2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "pink"));
-    zoomFrame2.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // Ρύθμιση για να μην εμφανίζεται φόντο στο αντικείμενο zoomFrame2
-    zoomFrame2.setShowBackground(false);
-    // Αποθηκεύει την παρουσίαση
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    firstZoomFrame.setZoomImage(previewImage);
+
+    secondZoomFrame.getLineFormat().setWidth(5);
+    secondZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 105, 180));
+    secondZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
+    secondZoomFrame.setShowBackground(false);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Zoom Ενότητας**
 
-Ένα zoom ενότητας είναι ένας σύνδεσμος προς μια ενότητα στην παρουσίασή σας. Μπορείτε να χρησιμοποιήσετε τα zoom ενότητας για να επιστρέψετε σε ενότητες που θέλετε να τονίσετε ιδιαίτερα. Ή μπορείτε να τα χρησιμοποιήσετε για να τονίσετε πώς συγκεκριμένα κομμάτια της παρουσίασής σας συνδέονται. 
+Ένα zoom ενότητας συνδέεται με μια ενότητα στην παρουσίασή σας. Χρησιμοποιήστε το για να επαναλάβετε ένα θέμα ή να δείξετε πώς συνδέονται διάφορα τμήματα της παρουσίασης.
 
-![overview_image](seczoomsel.png)
+![Selecting a section for a section zoom](seczoomsel.png)
 
-Για αντικείμενα zoom ενότητας, το Aspose.Slides παρέχει την κλάση [SectionZoomFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SectionZoomFrame) και μερικές μεθόδους στην κλάση [ShapeCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ShapeCollection).
+Για αντικείμενα zoom ενότητας, το Aspose.Slides παρέχει την κλάση [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) και μεθόδους στην κλάση [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/).
 
 ### **Δημιουργία Πλαισίων Zoom Ενότητας**
 
-Μπορείτε να προσθέσετε ένα πλαίσιο zoom ενότητας σε μια διαφάνεια ως εξής:
-
-1.	Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2.	Δημιουργήστε μια νέα διαφάνεια. 
-3.	Προσθέστε φόντο ταυτοποίησης στη δημιουργημένη διαφάνεια.
-4.	Δημιουργήστε μια νέα ενότητα στην οποία σκοπεύετε να συνδέσετε το πλαίσιο zoom. 
-5.	Προσθέστε ένα πλαίσιο zoom ενότητας (που περιέχει αναφορές στη δημιουργημένη ενότητα) στην πρώτη διαφάνεια.
-6.	Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα πλαίσιο zoom σε μια διαφάνεια:
+Δημιουργήστε μια ενότητα με το [SectionCollection.addSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectioncollection/#addSection), στη συνέχεια περάστε την επιστρεφόμενη ενότητα στη [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame). Αυτό το παράδειγμα τοποθετεί ένα zoom ενότητας στην πρώτη διαφάνεια και το συνδέει με μια ενότητα που αρχίζει με μια χρωματιστή διαφάνεια. Η θέση και οι διαστάσεις του πλαισίου ορίζονται σε σημεία, και η παρουσίαση αποθηκεύεται ως PPTX.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    pres.getSections().addSection("Section 1", slide);
-    // Προσθέτει ένα αντικείμενο SectionZoomFrame
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // Αποθηκεύει την παρουσίαση
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ### **Δημιουργία Πλαισίων Zoom Ενότητας με Προσαρμοσμένες Εικόνες**
 
-Χρησιμοποιώντας το Aspose.Slides for Node.js via Java, μπορείτε να δημιουργήσετε ένα πλαίσιο zoom ενότητας με διαφορετική εικόνα προεπισκόπησης διαφάνειας ως εξής:
-
-1.	Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2.	Δημιουργήστε μια νέα διαφάνεια.
-3.	Προσθέστε φόντο ταυτοποίησης στη δημιουργημένη διαφάνεια.
-4.	Δημιουργήστε μια νέα ενότητα στην οποία σκοπεύετε να συνδέσετε το πλαίσιο zoom. 
-5.	Δημιουργήστε ένα αντικείμενο [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PPImage) προσθέτοντας μια εικόνα στη συλλογή Images που συνδέεται με το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) και θα χρησιμοποιηθεί για το γέμισμα του πλαισίου.
-5.	Προσθέστε ένα πλαίσιο zoom ενότητας (που περιέχει μια αναφορά στη δημιουργημένη ενότητα) στην πρώτη διαφάνεια.
-6.	Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα πλαίσιο zoom με διαφορετική εικόνα:
+Η υπερφόρτωση εικόνας του [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame) σας επιτρέπει να εμφανίσετε μια προσαρμοσμένη προεπισκόπηση χωρίς να αλλάξετε την προοριστική ενότητα. Αυτό το παράδειγμα απαιτεί μια τοπική εικόνα, η οποία φορτώνεται με το [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) και προστίθεται μέσω του [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage). Η αποθηκευμένη παρουσίαση περιέχει ένα zoom ενότητας στην πρώτη διαφάνεια συνδεδεμένο με τη νεοδημιουργημένη ενότητα.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    pres.getSections().addSection("Section 1", slide);
-    // Δημιουργεί μια νέα εικόνα για το αντικείμενο zoom
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // Προσθέτει αντικείμενο SectionZoomFrame
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
-    // Αποθηκεύει την παρουσίαση
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Μορφοποίηση Πλαισίων Zoom Ενότητας**
+### **Αλλαγή Στόχου Ενότητας Zoom**
 
-Για να δημιουργήσετε πιο σύνθετα πλαίσια zoom ενότητας, πρέπει να τροποποιήσετε τη μορφοποίηση ενός απλού πλαισίου. Υπάρχουν πολλές επιλογές μορφοποίησης που μπορείτε να εφαρμόσετε σε ένα πλαίσιο zoom ενότητας. 
+Χρησιμοποιήστε το [SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/#setTargetSection) για να ανακατευθύνετε ένα υπάρχον zoom ενότητας χωρίς να το ξαναδημιουργήσετε. Επιλέξτε μια γεμάτη ενότητα από τη συλλογή [Presentation.getSections](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSections) της ίδιας παρουσίασης. Η ανάθεση μιας κενής ενότητας αφήνει αμετάβλητο τον τρέχοντα στόχο, γι’ αυτό ελέγξτε το [Section.getSlidesListOfSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSlidesListOfSection) πριν την ανάθεση. Δείτε το [Διαχείριση Ενοτήτων Διαφάνειας](/slides/el/nodejs-java/slide-section/) για περισσότερα σχετικά με τις ενότητες.
 
-Μπορείτε να ελέγξετε τη μορφοποίηση ενός πλαισίου zoom ενότητας σε μια διαφάνεια ως εξής:
-
-1.	Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2.	Δημιουργήστε μια νέα διαφάνεια.
-3.	Προσθέστε φόντο ταυτοποίησης στη δημιουργημένη διαφάνεια.
-4.	Δημιουργήστε μια νέα ενότητα στην οποία σκοπεύετε να συνδέσετε το πλαίσιο zoom. 
-5.	Προσθέστε ένα πλαίσιο zoom ενότητας (που περιέχει αναφορές στη δημιουργημένη ενότητα) στην πρώτη διαφάνεια.
-6.	Αλλάξτε το μέγεθος και τη θέση του δημιουργημένου αντικειμένου zoom ενότητας.
-7.	Δημιουργήστε ένα αντικείμενο [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PPImage) προσθέτοντας μια εικόνα στη συλλογή Images που συνδέεται με το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) και θα χρησιμοποιηθεί για το γέμισμα του πλαισίου.
-8.	Ορίστε μια προσαρμοσμένη εικόνα για το δημιουργημένο αντικείμενο zoom ενότητας.
-9.	Ορίστε τη δυνατότητα *επιστροφής στη αρχική διαφάνεια από την συνδεόμενη ενότητα*.
-10.	Αφαιρέστε το φόντο από μια εικόνα του αντικειμένου zoom ενότητας.
-11.	Αλλάξτε τη μορφή της γραμμής για το δεύτερο αντικείμενο πλαισίου zoom.
-12.	Αλλάξτε τη διάρκεια της μετάβασης.
-13.	Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να αλλάξετε τη μορφοποίηση ενός πλαισίου zoom ενότητας:
+Το παρακάτω παράδειγμα φορτώνει ένα αρχείο παρουσίασης, το οποίο πρέπει να περιέχει πολλαπλές γεμάτες ενότητες, ένα υπάρχον zoom ενότητας με όνομα `Section navigation` και μια ενότητα με το μοναδικό όνομα `Results`. Αναζητά σε όλες τις διαφάνειες το zoom και βρίσκει τον προορισμό με βάση το όνομα αντί για δείκτη συλλογής που μπορεί να αλλάξει όταν οι ενότητες ξαναταξινομούνται. Εάν τα ονόματα δεν είναι μοναδικά, χρησιμοποιήστε το [Section.getSectionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSectionId) για να εντοπίσετε τον προορισμό.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("section-zoom.pptx");
 try {
-    // Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let zoom = null;
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        for (let j = 0; j < slide.getShapes().size(); j++) {
+            const shape = slide.getShapes().get_Item(j);
+            if (java.instanceOf(shape, "com.aspose.slides.ISectionZoomFrame") && shape.getName() === "Section navigation") {
+                zoom = shape;
+                break;
+            }
+        }
+        if (zoom != null) {
+            break;
+        }
+    }
+
+    let targetSection = null;
+    for (let i = 0; i < presentation.getSections().size(); i++) {
+        const section = presentation.getSections().get_Item(i);
+        if (section.getName() === "Results") {
+            targetSection = section;
+            break;
+        }
+    }
+
+    if (zoom == null || targetSection == null) {
+        console.log("The section zoom or destination section was not found.");
+    } else if (targetSection.getSlidesListOfSection().size() == 0) {
+        console.log("The destination section is empty.");
+    } else {
+        let currentSection = zoom.getTargetSection();
+        console.log("Current section: " + (currentSection == null ? "" : currentSection.getName()));
+        zoom.setTargetSection(targetSection);
+        presentation.save("section-zoom-updated.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Διαμόρφωση Πλαισίων Zoom Ενότητας**
+
+Αυτό το παράδειγμα μετακινεί και αλλάζει το μέγεθος ενός zoom ενότητας σε 100 × 75 σημεία, αναθέτει μια τοπική εικόνα μέσω του [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) και εφαρμόζει ένα 2.5‑σημείων, παύση‑τελεία καφέ περίγραμμα. Ενεργοποιεί το [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) ώστε να επιστρέφει στη διαφάνεια προέλευσης μετά την ενότητα, απενεργοποιεί το [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground) και ρυθμίζει το [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) σε 1.5 δευτερόλεπτα. Απαιτείται τοπική εικόνα για την προσαρμοσμένη προεπισκόπηση.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    pres.getSections().addSection("Section 1", slide);
-    // Προσθέτει αντικείμενο SectionZoomFrame
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // Μορφοποίηση για SectionZoomFrame
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
     sectionZoomFrame.setHeight(75);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    sectionZoomFrame.setImage(picture);
+
+    sectionZoomFrame.setZoomImage(previewImage);
+
     sectionZoomFrame.setReturnToParent(true);
     sectionZoomFrame.setShowBackground(false);
+
     sectionZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    sectionZoomFrame.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    sectionZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     sectionZoomFrame.getLineFormat().setWidth(2.5);
-    sectionZoomFrame.setTransitionDuration(1.5);
-    // Αποθηκεύει την παρουσίαση
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    sectionZoomFrame.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Zoom Συνοψίσεων**
+## **Zoom Περίληψης**
 
-Ένα zoom συνοψίσεων λειτουργεί σαν μια σελίδα προορισμού όπου όλα τα τμήματα της παρουσίασής σας εμφανίζονται ταυτόχρονα. Όταν παρουσιάζετε, μπορείτε να χρησιμοποιήσετε το zoom για να μεταβείτε από ένα σημείο της παρουσίασης σε άλλο με οποιαδήποτε σειρά επιθυμείτε. Μπορείτε να είστε δημιουργικοί, να παραλείψετε μέρη ή να επιστρέψετε σε τμήματα της παρουσίασης χωρίς να διακόψετε τη ροή.
+Ένα zoom περίληψης παρέχει μια επισκόπηση των ενοτήτων της παρουσίασης. Κατά τη διάρκεια μιας παρουσίασης, μπορείτε να το χρησιμοποιήσετε για να μεταβείτε σε μια ενότητα, να προχωρήσετε γρήγορα ή να επανεξετάσετε ένα θέμα χωρίς να ακολουθήσετε τη σειρά των διαφανειών.
 
-![overview_image](sumzoomsel.png)
+![Selecting sections for a summary zoom](sumzoomsel.png)
 
-Για αντικείμενα zoom συνοψίσεων, το Aspose.Slides παρέχει τις κλάσεις [SummaryZoomFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SummaryZoomFrame), [SummaryZoomSection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SummaryZoomSection) και [SummaryZoomSectionCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SummaryZoomSectionCollection) καθώς και μερικές μεθόδους στην κλάση [ShapeCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ShapeCollection).
+Για αντικείμενα zoom περίληψης, το Aspose.Slides παρέχει τις κλάσεις [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/) και [SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/) και μεθόδους στην κλάση [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/).
 
-### **Δημιουργία Zoom Συνοψίσεων**
+### **Δημιουργία Zoom Περίληψης**
 
-Μπορείτε να προσθέσετε ένα πλαίσιο zoom συνοψίσεων σε μια διαφάνεια ως εξής:
-
-1.	Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2.	Δημιουργήστε νέες διαφάνειες με φόντο ταυτοποίησης και νέες ενότητες για τις δημιουργημένες διαφάνειες.
-3.	Προσθέστε το πλαίσιο zoom συνοψίσεων στην πρώτη διαφάνεια.
-4.	Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα πλαίσιο zoom συνοψίσεων σε μια διαφάνεια:
+Χρησιμοποιήστε το [ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSummaryZoomFrame) για να δημιουργήσετε μια επισκόπηση των ενοτήτων της παρουσίασης. Αυτό το παράδειγμα δημιουργεί τέσσερις ενότητες με διαφορετικά φόντα διαφανειών και προσθέτει ένα zoom περίληψης στην πρώτη διαφάνεια. Η θέση και οι διαστάσεις του πλαισίου καθορίζονται σε σημεία, και η προκύπτουσα επισκόπηση αποθηκεύεται σε παρουσίαση PPTX.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Προσθέτει μια νέα ενότητα στην παρουσίαση
-    pres.getSections().addSection("Section 1", slide);
-    // Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Προσθέτει μια νέα ενότητα στην παρουσίαση
-    pres.getSections().addSection("Section 2", slide);
-    // Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Προσθέτει μια νέα ενότητα στην παρουσίαση
-    pres.getSections().addSection("Section 3", slide);
-    // Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 3", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "green"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Προσθέτει μια νέα ενότητα στην παρουσίαση
-    pres.getSections().addSection("Section 4", slide);
-    // Προσθέτει ένα αντικείμενο SummaryZoomFrame
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // Αποθηκεύει την παρουσίαση
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 100, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 4", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Προσθήκη και Αφαίρεση Ενότητα Zoom Συνοψίσεων**
+### **Προσθήκη και Αφαίρεση Ενότητας Zoom Περίληψης**
 
-Όλες οι ενότητες σε ένα πλαίσιο zoom συνοψίσεων αντιπροσωπεύονται από αντικείμενα [SummaryZoomSection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SummaryZoomSection), τα οποία αποθηκεύονται στο αντικείμενο [SummaryZoomSectionCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SummaryZoomSectionCollection). Μπορείτε να προσθέσετε ή να αφαιρέσετε μια ενότητα zoom συνοψίσεων μέσω της κλάσης [SummaryZoomSectionCollection] με τον εξής τρόπο:
-
-1.	Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2.	Δημιουργήστε νέες διαφάνειες με φόντο ταυτοποίησης και νέες ενότητες για τις δημιουργημένες διαφάνειες.
-3.	Προσθέστε ένα πλαίσιο zoom συνοψίσεων στην πρώτη διαφάνεια.
-4.	Προσθέστε μια νέα διαφάνεια και ενότητα στην παρουσίαση.
-5.	Προσθέστε τη δημιουργημένη ενότητα στο πλαίσιο zoom συνοψίσεων.
-6.	Αφαιρέστε την πρώτη ενότητα από το πλαίσιο zoom συνοψίσεων.
-7.	Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να προσθέσετε και να αφαιρέσετε ενότητες σε ένα πλαίσιο zoom συνοψίσεων:
+Ένα zoom περίληψης αποθηκεύει τα αντικείμενα [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/) του στη συλλογή που επιστρέφει το [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection). Αυτό το παράδειγμα δημιουργεί μια επισκόπηση δύο ενοτήτων, προσθέτει μια τρίτη ενότητα χρησιμοποιώντας το [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) και αφαιρεί την πρώτη εγγραφή με τη χρήση του [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection). Η αφαίρεση της εγγραφής διατηρεί αμετάβλητες τις ενότητες της παρουσίασης και τις διαφάνειές τους.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Προσθέτει μια νέα ενότητα στην παρουσίαση
-    pres.getSections().addSection("Section 1", slide);
-    // Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let firstSection = presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Προσθέτει μια νέα ενότητα στην παρουσίαση
-    pres.getSections().addSection("Section 2", slide);
-    // Προσθέτει αντικείμενο SummaryZoomFrame
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Προσθέτει μια νέα ενότητα στην παρουσίαση
-    var section3 = pres.getSections().addSection("Section 3", slide);
-    // Προσθέτει ενότητα στο Summary Zoom
-    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
-    // Αφαιρεί ενότητα από το Summary Zoom
-    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
-    // Αποθηκεύει την παρουσίαση
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let thirdSection = presentation.getSections().addSection("Section 3", slide);
+
+    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(thirdSection);
+
+    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(firstSection);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Μορφοποίηση Ενοτήτων Zoom Συνοψίσεων**
+### **Διαμόρφωση Ενοτήτων Zoom Περίληψης**
 
-Για να δημιουργήσετε πιο σύνθετα αντικείμενα ενότητας zoom συνοψίσεων, πρέπει να τροποποιήσετε τη μορφοποίηση ενός απλού πλαισίου. Υπάρχουν πολλές επιλογές μορφοποίησης που μπορείτε να εφαρμόσετε σε ένα αντικείμενο ενότητας zoom συνοψίσεων. 
-
-Μπορείτε να ελέγξετε τη μορφοποίηση ενός αντικειμένου ενότητας zoom συνοψίσεων σε ένα πλαίσιο zoom συνοψίσεων ως εξής:
-
-1.	Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2.	Δημιουργήστε νέες διαφάνειες με φόντο ταυτοποίησης και νέες ενότητες για τις δημιουργημένες διαφάνειες.
-3.	Προσθέστε ένα πλαίσιο zoom συνοψίσεων στην πρώτη διαφάνεια.
-4.	Αποκτήστε ένα αντικείμενο ενότητας zoom συνοψίσεων για το πρώτο αντικείμενο από το `ISummaryZoomSectionCollection`.
-7.	Δημιουργήστε ένα αντικείμενο [PPImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PPImage) προσθέτοντας μια εικόνα στη συλλογή images που συνδέεται με το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) και θα χρησιμοποιηθεί για το γέμισμα του πλαισίου.
-8.	Ορίστε μια προσαρμοσμένη εικόνα για το δημιουργημένο αντικείμενο zoom ενότητας.
-9.	Ορίστε τη δυνατότητα *επιστροφής στη αρχική διαφάνεια από την συνδεόμενη ενότητα*.
-11.	Αλλάξτε τη μορφή της γραμμής για το δεύτερο αντικείμενο πλαισίου zoom.
-12.	Αλλάξτε τη διάρκεια της μετάβασης.
-13.	Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να αλλάξετε τη μορφοποίηση ενός αντικειμένου ενότητας zoom συνοψίσεων:
+Αυτό το παράδειγμα διαμορφώνει την πρώτη εγγραφή στη συλλογή που επιστρέφει το [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection), χρησιμοποιώντας τον μηδενικό δείκτη `0`. Απαιτείται τοπική εικόνα για το [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage), εφαρμόζει ένα 1.5‑σημείων, παύση‑τελεία μαύρο περίγραμμα και ορίζει το [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) σε 1.5 δευτερόλεπτα. Η μεταφορά του `false` στη [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) απενεργοποιεί την αυτόματη επιστροφή στη διαφάνεια περίληψης για αυτήν την εγγραφή.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Προσθέτει μια νέα ενότητα στην παρουσίαση
-    pres.getSections().addSection("Section 1", slide);
-    // Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Προσθέτει μια νέα ενότητα στην παρουσίαση
-    pres.getSections().addSection("Section 2", slide);
-    // Προσθέτει ένα αντικείμενο SummaryZoomFrame
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // Λαμβάνει το πρώτο αντικείμενο SummaryZoomSection
-    var summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
-    // Μορφοποίηση για το αντικείμενο SummaryZoomSection
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    let summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(picture);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    summarySection.setImage(picture);
+
+    summarySection.setZoomImage(previewImage);
     summarySection.setReturnToParent(false);
+
     summarySection.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "black"));
-    summarySection.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    summarySection.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     summarySection.getLineFormat().setWidth(1.5);
-    summarySection.setTransitionDuration(1.5);
-    // Αποθηκεύει την παρουσίαση
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    summarySection.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Συχνές Ερωτήσεις**
 
-**Μπορώ να ελέγξω την επιστροφή στη «μητρική» διαφάνεια μετά την προβολή του στόχου;**
+**Μπορώ να ελέγξω την επιστροφή στη «γονική» διαφάνεια μετά την προβολή του στόχου;**
 
-Ναι. Το [Zoom frame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/zoomframe/) ή το [section](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sectionzoomframe/) διαθέτει τη μέθοδο `setReturnToParent` που, όταν είναι ενεργοποιημένη, επιστρέφει τους θεατές στην αρχική διαφάνεια μετά την επίσκεψη στο περιεχόμενο-στόχο.
+Ναι. Καλέστε το [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) με `true` για να επιστρέψετε στη διαφάνεια προέλευσης μετά την εμφάνιση του περιεχομένου-στόχου.
 
 **Μπορώ να ρυθμίσω την «ταχύτητα» ή τη διάρκεια της μετάβασης Zoom;**
 
-Ναι. Το Zoom παρέχει τη μέθοδο `setTransitionDuration` ώστε να ελέγχετε πόσο χρόνο διαρκεί το εφέ μετάβασης.
+Ναι. Χρησιμοποιήστε το [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) για να ελέγξετε τη διάρκεια της μετάβασης σε δευτερόλεπτα.
 
-**Υπάρχουν όρια στον αριθμό των αντικειμένων Zoom που μπορεί να περιέχει μια παρουσίαση;**
+**Υπάρχουν περιορισμοί στον αριθμό των αντικειμένων Zoom που μπορεί να περιέχει μια παρουσίαση;**
 
-Δεν υπάρχει σκληρό όριο API που να έχει τεκμηριωθεί. Τα πρακτικά όρια εξαρτώνται από τη συνολική πολυπλοκότητα της παρουσίασης και την απόδοση του θεατή. Μπορείτε να προσθέσετε πολλά πλαίσια Zoom, αλλά να λαμβάνετε υπόψη το μέγεθος του αρχείου και το χρόνο απόδοσης.
+Δεν υπάρχει σκληρός περιορισμός που να τεκμηριώνεται στο API. Οι πρακτικοί περιορισμοί εξαρτώνται από τη συνολική πολυπλοκότητα της παρουσίασης και τις δυνατότητες του προγράμματος προβολής. Μπορείτε να προσθέσετε πολλά πλαίσια Zoom, αλλά σκεφτείτε το μέγεθος του αρχείου και το χρόνο απόδοσης.

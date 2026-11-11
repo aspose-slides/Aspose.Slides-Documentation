@@ -1,6 +1,6 @@
 ---
-title: "Prezentáció Zoom kezelése JavaScriptben"
-linktitle: "Zoom kezelése"
+title: Bemutató zoom kezelése JavaScriptben
+linktitle: Zoom kezelése
 type: docs
 weight: 60
 url: /hu/nodejs-java/manage-zoom/
@@ -16,515 +16,492 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Hozzon létre és testreszabjon Zoom-ot az Aspose.Slides for Node.js segítségével – ugorjon szakaszok között, adjon hozzá bélyegképeket és átmeneteket PPT, PPTX és ODP prezentációkban."
+description: "Hozzon létre és testreszabjon zoomot az Aspose.Slides for Node.js via Java segítségével — ugorjon szakaszok között, adjon hozzá bélyegképeket és átmeneteket a PowerPoint prezentációkban."
 ---
 ## **Bevezetés**
 
-A PowerPoint zoomok lehetővé teszik, hogy egy adott diára, szakaszra vagy a bemutató egy részére ugorjon, és visszatérjen onnan. Előadás közben ez a gyors navigálási képesség nagyon hasznos lehet. 
+A PowerPoint zoomok lehetővé teszik, hogy egy diavetítés során adott diák és szakaszok között navigálj. Az Aspose.Slides for Node.js Java-on keresztül segítségével létrehozhatsz dia-, szakasz- és összefoglaló zoomokat, és testreszabhatod azok előnézeteit, szegélyeit és átmeneteit.
 
-![overview_image](overview.png)
+![PowerPoint zoom áttekintés](overview.png)
 
-* Egy teljes bemutató összefoglalásához egyetlen dián, használja az [Összefoglaló Zoom](#Summary-Zoom) lehetőséget.
-* Csak kiválasztott diák megjelenítéséhez használja a [Dia Zoom](#Slide-Zoom) lehetőséget.
-* Egyetlen szakasz megjelenítéséhez használja a [Szakasz Zoom](#Section-Zoom) lehetőséget.
+* Az egész bemutató egyetlen dián való összefoglalásához használj egy [Summary Zoom](#summary-zoom).
+* Csak a kiválasztott diák megjelenítéséhez használd a [Slide Zoom](#slide-zoom).
+* Egyetlen szakasz megjelenítéséhez használd a [Section Zoom](#section-zoom).
 
 ## **Dia Zoom**
 
-A dia zoom dinamikusabbá teheti a bemutatót, mivel lehetővé teszi, hogy szabadon navigáljon a diák között tetszőleges sorrendben, a bemutató folyamatát megzavarva. A dia zoomok ideálisak rövid, kevés szakaszos bemutatókhoz, de más bemutatási szituációkban is használhatók.
+A dia zoom dinamikusabbá teheti a bemutatódat, lehetővé téve, hogy a kívánt sorrendben szabadon navigálj a diák között anélkül, hogy megszakítanád a bemutató folyamát. A dia zoomok nagyszerűek rövid, kevés szakasz nélküli bemutatókhoz, de más bemutatási szituációkban is használhatók.
 
-A dia zoomok segítenek több információs darabot mélyebben megvizsgálni, mintha egyetlen vásznon dolgozna. 
+A dia zoomok lehetővé teszik, hogy egyetlen áttekintő diáról fedezz fel kapcsolódó információkat.
 
-![overview_image](slidezoomsel.png)
+![Diák kiválasztása dia zoomhoz](slidezoomsel.png)
 
-A dia zoom objektumokhoz az Aspose.Slides a [ZoomImageType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ZoomImageType) felsorolást, a [ZoomFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ZoomFrame) osztályt, valamint néhány metódust a [ShapeCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ShapeCollection) osztályban biztosítja.
+Dia zoom objektumokhoz az Aspose.Slides biztosítja a [ZoomImageType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomimagetype/) , a [ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/) , valamint a [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) osztály metódusait.
 
-### **Zoomkeretek létrehozása**
+### **Zoom keretek létrehozása**
 
-Zoomkeretet az alábbi módon adhat hozzá egy diához:
-
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2.	Hozzon új diákat, amelyekhez a zoomkereteket kapcsolja. 
-3.	Adjon az új diákhoz azonosító szöveget és hátteret.
-4.	Adjon hozzá zoomkereteket (amelyek a létrehozott diákra mutató hivatkozásokat tartalmazzák) az első diához.
-5.	Irja a módosított bemutatót PPTX fájlként.
+A [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame) használatával helyezhetsz el hivatkozásokat egyedi diákra egy áttekintő dián. Ez a példa két cél diát hoz létre eltérő háttérrel és címkékkel, majd mindegyik előnézetét hozzáadja az első diához, és PPTX formátumban menti a bemutatót. A keret pozíciója és mérete pontokban van megadva.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Új diák hozzáadása a prezentációhoz
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // Háttér létrehozása a második dia számára
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // Szövegdoboz létrehozása a második dia számára
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // Háttér létrehozása a harmadik dia számára
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // Szövegdoboz létrehozása a harmadik dia számára
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // ZoomFrame objektumok hozzáadása
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // Prezentáció mentése
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Egyéni képekkel rendelkező zoomkeretek létrehozása**
+### **Egyéni képekkel rendelkező Zoom keretek létrehozása**
 
-Az Aspose.Slides for Node.js via Java segítségével egy eltérő diakép előnézettel rendelkező zoomkeretet az alábbi módon hozhat létre:
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2.	Hozzon egy új diát, amelyhez a zoomkeretet kapcsolni kívánja. 
-3.	Adjon azonosító szöveget és hátteret a diának.
-4.	Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PPImage) objektumot úgy, hogy képet ad a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) objektumhoz tartozó Images gyűjteményhez, amely a keret kitöltésére szolgál.
-5.	Adjon hozzá zoomkereteket (amelyek a létrehozott diára mutató hivatkozást tartalmaznak) az első diához.
-6.	Irja a módosított bemutatót PPTX fájlként.
+Az egyéni képet a [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame) metódusnak átadva felülírhatod a cél dia alapértelmezett előnézetét. Ez a példa egy helyi képet igényel, amelyet a [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) segítségével tölt be, és a [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) metódusával ad a bemutatóhoz. Az így kapott keret azt a képet jeleníti meg, miközben továbbra is a második diára hivatkozik.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Új dia hozzáadása a prezentációhoz
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // Háttér létrehozása a második dia számára
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // Szövegdoboz létrehozása a harmadik dia számára
-    var autoshape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // Új kép létrehozása a zoom objektumhoz
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // ZoomFrame objektum hozzáadása
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
-    // Prezentáció mentése
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 300, 200, slide, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Zoomkeretek formázása**
+### **Zoom keretek formázása**
 
-Az előző szakaszokban megmutattuk, hogyan kell egyszerű zoomkereteket létrehozni. Bonyolultabb zoomkeretek létrehozásához módosítani kell egy egyszerű keret formázását. Számos formázási lehetőség áll rendelkezésre egy zoomkerethez. 
-
-A zoomkeret formázását a dián az alábbi módon szabályozhatja:
-
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2.	Hozzon új diákat, amelyekhez a zoomkeretet kapcsolni kívánja. 
-3.	Adjon némi azonosító szöveget és hátteret a létrehozott diákhoz.
-4.	Adjon hozzá zoomkereteket (amelyek a létrehozott diákra mutató hivatkozásokat tartalmaznak) az első diához.
-5.	Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PPImage) objektumot úgy, hogy képet ad a Images gyűjteményhez, amely a keret kitöltésére szolgál.
-6.	Állítson be egy egyéni képet az első zoomkeret objektumhoz.
-7.	Módosítsa a vonalformátumot a második zoomkeret objektumnál.
-8.	Távolítsa el a hátteret a második zoomkeret objektum képéről.
-9.	Irja a módosított bemutatót PPTX fájlként.
+Ez a példa testreszabja a két dia zoom keretet. Az első kerethez egy helyi képet rendel a [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) , a második keretet pedig öt pont vastagságú, pontvonalas rózsaszín szegéllyel látja el a [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) segítségével. A `false` érték átadása a [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground) metódusnak elrejti a második keret háttérét. Az egyéni előnézethez helyi kép szükséges; mindkét keret megtartja a cél dia hivatkozását a mentett PPTX-ben.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Új diák hozzáadása a prezentációhoz
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // Háttér létrehozása a második dia számára
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // Szövegdoboz létrehozása a második dia számára
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // Háttér létrehozása a harmadik dia számára
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // Szövegdoboz létrehozása a harmadik dia számára
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // ZoomFrame objektumok hozzáadása
-    var zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    var zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // Új kép létrehozása a zoom objektumhoz
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    let firstZoomFrame = overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    let secondZoomFrame = overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // Egyéni kép beállítása a zoomFrame1 objektumhoz
-    zoomFrame1.setImage(picture);
-    // Zoom keret formátumának beállítása a zoomFrame2 objektumnál
-    zoomFrame2.getLineFormat().setWidth(5);
-    zoomFrame2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "pink"));
-    zoomFrame2.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // Beállítás: háttér ne jelenjen meg a zoomFrame2 objektumnál
-    zoomFrame2.setShowBackground(false);
-    // Prezentáció mentése
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    firstZoomFrame.setZoomImage(previewImage);
+
+    secondZoomFrame.getLineFormat().setWidth(5);
+    secondZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 105, 180));
+    secondZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
+    secondZoomFrame.setShowBackground(false);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Szakasz Zoom**
 
-A szakasz zoom egy hivatkozás a bemutató egy szakaszára. Szakasz zoomokkal visszaléphet azokba a szakaszokba, amelyeket különösen hangsúlyozni szeretne. Vagy használhatja őket annak kiemelésére, hogy a bemutató egyes részei hogyan kapcsolódnak egymáshoz. 
+A szakasz zoom egy szakaszra hivatkozik a bemutatódban. Használd, hogy visszatérj egy témához vagy megmutasd, hogyan kapcsolódnak a bemutató különböző részei.
 
-![overview_image](seczoomsel.png)
+![Szakasz kiválasztása szakasz zoomhoz](seczoomsel.png)
 
-A szakasz zoom objektumokhoz az Aspose.Slides biztosítja a [SectionZoomFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/SectionZoomFrame) osztályt, valamint néhány metódust a [ShapeCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ShapeCollection) osztályban.
+Szakasz zoom objektumokhoz az Aspose.Slides biztosítja a [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) , valamint a [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) osztály metódusait.
 
-### **Szakasz Zoomkeretek létrehozása**
+### **Szakasz Zoom keretek létrehozása**
 
-Szakasz zoomkeretet az alábbi módon adhat hozzá egy diához:
-
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2.	Hozzon egy új diát. 
-3.	Adjon azonosító hátteret a létrehozott diának.
-4.	Hozzon egy új szakaszt, amelyhez a zoomkeretet kapcsolni kívánja. 
-5.	Adjon hozzá egy szakasz zoomkeretet (amely a létrehozott szakaszra mutató hivatkozásokat tartalmaz) az első diához.
-6.	Irja a módosított bemutatót PPTX fájlként.
+Hozz létre egy szakaszt a [SectionCollection.addSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectioncollection/#addSection) segítségével, majd a visszaadott szakaszt add át a [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame) metódusnak. Ez a példa egy szakasz zoomot helyez el az első dián, és egy színes diával kezdődő szakaszra hivatkozik. A keret pozíciója és mérete pontokban van megadva, a bemutató pedig PPTX formátumban mentésre kerül.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Új dia hozzáadása a prezentációhoz
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Új szakasz hozzáadása a prezentációhoz
-    pres.getSections().addSection("Section 1", slide);
-    // SectionZoomFrame objektum hozzáadása
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // Prezentáció mentése
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Egyéni képekkel rendelkező szakasz zoomkeretek létrehozása**
+### **Egyéni képekkel rendelkező Szakasz Zoom keretek létrehozása**
 
-Az Aspose.Slides for Node.js via Java segítségével egy eltérő diakép előnézettel rendelkező szakasz zoomkeretet az alábbi módon hozhat létre:
-
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2.	Hozzon egy új diát.
-3.	Adjon azonosító hátteret a létrehozott diának.
-4.	Hozzon egy új szakaszt, amelyhez a zoomkeretet kapcsolni kívánja. 
-5.	Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PPImage) objektumot úgy, hogy képet ad a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) objektumhoz tartozó Images gyűjteményhez, amely a keret kitöltésére szolgál.
-6.	Adjon hozzá egy szakasz zoomkeretet (amely a létrehozott szakaszra mutató hivatkozást tartalmaz) az első diához.
-7.	Irja a módosított bemutatót PPTX fájlként.
+A [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame) képalapú túlterhelése lehetővé teszi, hogy egyedi előnézetet jeleníts meg a cél szakasz módosítása nélkül. Ez a példa egy helyi képet igényel, amelyet a [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) segítségével tölt be, és a [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) metódussal ad a bemutatóhoz. A mentett bemutató egy szakasz zoomot tartalmaz az első dián, amely az újonnan létrehozott szakaszra mutat.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Új dia hozzáadása a prezentációhoz
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Új szakasz hozzáadása a prezentációhoz
-    pres.getSections().addSection("Section 1", slide);
-    // Új kép létrehozása a zoom objektumhoz
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
+        image.dispose();
+    }
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Szakasz Zoom cél szakaszának módosítása**
+
+A [SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/#setTargetSection) használatával átirányíthatod a meglévő szakasz zoomot anélkül, hogy újra létrehoznád. Válassz egy feltöltött szakaszt a ugyanabból a bemutatóból származó [Presentation.getSections](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSections) gyűjteményből. Üres szakasz hozzárendelése nem változtatja meg a jelenlegi célt, ezért a hozzárendelés előtt ellenőrizd a [Section.getSlidesListOfSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSlidesListOfSection) metódust. További információért a szakaszokról lásd a [Manage Slide Sections](/slides/hu/nodejs-java/slide-section/) oldalt.
+
+A következő példa betölt egy bemutató fájlt, amelynek több feltöltött szakaszt, egy meglévő `Section navigation` nevű szakasz zoomot és egy `Results` egyedi nevű szakaszt kell tartalmaznia. A zoomot az összes dián keresik, és a célt név alapján találják meg, nem a gyűjtemény indexe alapján, mivel az szekciók átrendezésekor változhat. Ha a nevek nem egyediek, akkor a [Section.getSectionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSectionId) segítségével azonosítsd a célt helyette.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("section-zoom.pptx");
+try {
+    let zoom = null;
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        for (let j = 0; j < slide.getShapes().size(); j++) {
+            const shape = slide.getShapes().get_Item(j);
+            if (java.instanceOf(shape, "com.aspose.slides.ISectionZoomFrame") && shape.getName() === "Section navigation") {
+                zoom = shape;
+                break;
+            }
+        }
+        if (zoom != null) {
+            break;
         }
     }
-    // SectionZoomFrame objektum hozzáadása
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
-    // Prezentáció mentése
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    let targetSection = null;
+    for (let i = 0; i < presentation.getSections().size(); i++) {
+        const section = presentation.getSections().get_Item(i);
+        if (section.getName() === "Results") {
+            targetSection = section;
+            break;
+        }
     }
+
+    if (zoom == null || targetSection == null) {
+        console.log("The section zoom or destination section was not found.");
+    } else if (targetSection.getSlidesListOfSection().size() == 0) {
+        console.log("The destination section is empty.");
+    } else {
+        let currentSection = zoom.getTargetSection();
+        console.log("Current section: " + (currentSection == null ? "" : currentSection.getName()));
+        zoom.setTargetSection(targetSection);
+        presentation.save("section-zoom-updated.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
-### **Szakasz Zoomkeretek formázása**
+### **Szakasz Zoom keretek formázása**
 
-Bonyolultabb szakasz zoomkeretek létrehozásához módosítani kell egy egyszerű keret formázását. Számos formázási lehetőség áll rendelkezésre egy szakasz zoomkerethez. 
-
-A szakasz zoomkeret formázását a dián az alábbi módon szabályozhatja:
-
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2.	Hozzon egy új diát.
-3.	Adjon azonosító hátteret a létrehozott diának.
-4.	Hozzon egy új szakaszt, amelyhez a zoomkeretet kapcsolni kívánja. 
-5.	Adjon hozzá egy szakasz zoomkeretet (amely a létrehozott szakaszra mutató hivatkozásokat tartalmaz) az első diához.
-6.	Módosítsa a létrehozott szakasz zoom objektum méretét és pozícióját.
-7.	Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PPImage) objektumot úgy, hogy képet ad a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) objektumhoz tartozó Images gyűjteményhez, amely a keret kitöltésére szolgál.
-8.	Állítson be egy egyéni képet a létrehozott szakasz zoomkeret objektumhoz.
-9.	Állítsa be a *visszatérés a kapcsolt szakaszból az eredeti diára* lehetőséget. 
-10.	Távolítsa el a háttérképet a szakasz zoomkeret objektum képéről.
-11.	Módosítsa a vonalformátumot a második zoomkeret objektumnál.
-12.	Módosítsa a transzíciós időtartamot.
-13.	Irja a módosított bemutatót PPTX fájlként.
+Ez a példa áthelyezi és átméretezi a szakasz zoomot 100 x 75 pontra, egy helyi képet rendel a [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) segítségével, és 2,5 pontos, pontvonalas barna szegélyt alkalmaz. Engedélyezi a [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) metódust, hogy a szakasz után visszatérjen a kiindulási diára, letiltja a [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground), és a [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) értéket 1,5 másodpercre állítja. Az egyéni előnézethez helyi kép szükséges.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Új dia hozzáadása a prezentációhoz
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Új szakasz hozzáadása a prezentációhoz
-    pres.getSections().addSection("Section 1", slide);
-    // SectionZoomFrame objektum hozzáadása
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // Formázás a SectionZoomFrame számára
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
     sectionZoomFrame.setHeight(75);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    sectionZoomFrame.setImage(picture);
+
+    sectionZoomFrame.setZoomImage(previewImage);
+
     sectionZoomFrame.setReturnToParent(true);
     sectionZoomFrame.setShowBackground(false);
+
     sectionZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    sectionZoomFrame.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    sectionZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     sectionZoomFrame.getLineFormat().setWidth(2.5);
-    sectionZoomFrame.setTransitionDuration(1.5);
-    // Prezentáció mentése
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    sectionZoomFrame.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Összefoglaló Zoom**
 
-Az összefoglaló zoom olyan, mint egy kezdőlap, ahol a bemutató összes része egyszerre jelenik meg. Előadás közben a zoom segítségével bármilyen sorrendben ugorhat egyik részről a másikra. Kreatív lehet, előre ugorhat, vagy visszatérhet a diavetítés egyes részeihez anélkül, hogy megszakítaná a bemutató folyamatát.
+Az összefoglaló zoom áttekintést nyújt a bemutató szakaszairól. Egy diavetítés során használhatod egy szakaszra való ugráshoz, előre léptetéshez vagy egy téma újbóli megtekintéséhez anélkül, hogy a diák sorrendjét követned kellene.
 
-![overview_image](sumzoomsel.png)
+![Szakaszok kiválasztása összefoglaló zoomhoz](sumzoomsel.png)
 
-Az összefoglaló zoom objektumokhoz az Aspose.Slides biztosítja a [SummaryZoomFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/SummaryZoomFrame), a [SummaryZoomSection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/SummaryZoomSection) és a [SummaryZoomSectionCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/SummaryZoomSectionCollection) osztályokat, valamint néhány metódust a [ShapeCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ShapeCollection) osztályban.
+Az összefoglaló zoom objektumokhoz az Aspose.Slides biztosítja a [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/), a [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/), és a [SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/) osztályokat, valamint a [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) osztály metódusait.
 
 ### **Összefoglaló Zoom létrehozása**
 
-Összefoglaló zoomkeretet az alábbi módon adhat hozzá egy diához:
-
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2.	Hozzon új diákat azonosító háttérrel és új szakaszokkal a létrehozott diákhoz.
-3.	Adja hozzá az összefoglaló zoomkeretet az első diához.
-4.	Irja a módosított bemutatót PPTX fájlként.
+A [ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSummaryZoomFrame) használatával hozhatsz létre egy áttekintést a bemutató szakaszairól. Ez a példa négy szakaszt hoz létre eltérő dia hátterekkel, és egy summary zoomot ad az első diához. A keret pozíciója és mérete pontokban van megadva, az így kapott áttekintés pedig PPTX formátumban kerül mentésre.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Új dia hozzáadása a prezentációhoz
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Új szakasz hozzáadása a prezentációhoz
-    pres.getSections().addSection("Section 1", slide);
-    // Új dia hozzáadása a prezentációhoz
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Új szakasz hozzáadása a prezentációhoz
-    pres.getSections().addSection("Section 2", slide);
-    // Új dia hozzáadása a prezentációhoz
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Új szakasz hozzáadása a prezentációhoz
-    pres.getSections().addSection("Section 3", slide);
-    // Új dia hozzáadása a prezentációhoz
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 3", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "green"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Új szakasz hozzáadása a prezentációhoz
-    pres.getSections().addSection("Section 4", slide);
-    // SummaryZoomFrame objektum hozzáadása
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // Prezentáció mentése
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 100, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 4", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Összefoglaló Zoom Szakaszok hozzáadása és eltávolítása**
+### **Összefoglaló Zoom szakasz hozzáadása és eltávolítása**
 
-Az összefoglaló zoomkeret összes szakaszát a [SummaryZoomSection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/SummaryZoomSection) objektumok képviselik, amelyeket a [SummaryZoomSectionCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/SummaryZoomSectionCollection) tárol. Egy összefoglaló zoom szakasz objektumot a [SummaryZoomSectionCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/SummaryZoomSectionCollection) osztályon keresztül az alábbi módon adhat hozzá vagy távolíthat el:
-
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2.	Hozzon új diákat azonosító háttérrel és új szakaszokkal a létrehozott diákhoz.
-3.	Adjon egy összefoglaló zoomkeretet az első diához.
-4.	Adjon egy új diát és szakaszt a bemutatóhoz.
-5.	Adja hozzá a létrehozott szakaszt az összefoglaló zoomkerethez.
-6.	Távolítsa el az első szakaszt az összefoglaló zoomkeretből.
-7.	Irja a módosított bemutatót PPTX fájlként.
+Az összefoglaló zoom a [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/) objektumait a [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) tárolja. Ez a példa két szakasz áttekintését hozza létre, egy harmadik szakaszt ad hozzá a [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) segítségével, és az első szakasz bejegyzését eltávolítja a [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection) metódussal. A bejegyzés eltávolítása után a bemutató szakasza és diái érintetlenek maradnak.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Új dia hozzáadása a prezentációhoz
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Új szakasz hozzáadása a prezentációhoz
-    pres.getSections().addSection("Section 1", slide);
-    // Új dia hozzáadása a prezentációhoz
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let firstSection = presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Új szakasz hozzáadása a prezentációhoz
-    pres.getSections().addSection("Section 2", slide);
-    // SummaryZoomFrame objektum hozzáadása
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // Új dia hozzáadása a prezentációhoz
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Új szakasz hozzáadása a prezentációhoz
-    var section3 = pres.getSections().addSection("Section 3", slide);
-    // Szakasz hozzáadása a Summary Zoom-hoz
-    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
-    // Szakasz eltávolítása a Summary Zoom-ból
-    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
-    // Prezentáció mentése
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let thirdSection = presentation.getSections().addSection("Section 3", slide);
+
+    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(thirdSection);
+
+    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(firstSection);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Összefoglaló Zoom Szakaszok formázása**
+### **Összefoglaló Zoom szakaszok formázása**
 
-Bonyolultabb összefoglaló zoom szakasz objektumok létrehozásához módosítani kell egy egyszerű keret formázását. Számos formázási lehetőség áll rendelkezésre egy összefoglaló zoom szakasz objektumhoz. 
-
-Az összefoglaló zoomszakasz objektum formázását egy összefoglaló zoomkereten az alábbi módon szabályozhatja:
-
-1.	Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2.	Hozzon új diákat azonosító háttérrel és új szakaszokkal a létrehozott diákhoz.
-3.	Adjon egy összefoglaló zoomkeretet az első diához.
-4.	Gyűjtse be az első objektumot a `ISummaryZoomSectionCollection`‑ból egy összefoglaló zoomszakasz objektumként.
-5.	Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PPImage) objektumot úgy, hogy képet ad a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) objektumhoz tartozó images gyűjteményhez, amely a keret kitöltésére szolgál.
-6.	Állítson be egy egyéni képet a létrehozott szakasz zoomkeret objektumhoz.
-7.	Állítsa be a *visszatérés a kapcsolt szakaszból az eredeti diára* lehetőséget. 
-8.	Módosítsa a vonalformátumot a második zoomkeret objektumnál.
-9.	Módosítsa a transzíciós időtartamot.
-10.	Irja a módosított bemutatót PPTX fájlként.
+Ez a példa formázza a [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) első bejegyzését a nulláról induló `0` index használatával. A [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) helyi képet igényel, 1,5 pontos, pontvonalas fekete szegélyt alkalmaz, és a [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) értéket 1,5 másodpercre állítja. A `false` átadása a [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) metódusnak letiltja az automatikus visszatérést az összefoglaló diára ebben a bejegyzésben.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Új dia hozzáadása a prezentációhoz
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Új szakasz hozzáadása a prezentációhoz
-    pres.getSections().addSection("Section 1", slide);
-    // Új dia hozzáadása a prezentációhoz
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // Új szakasz hozzáadása a prezentációhoz
-    pres.getSections().addSection("Section 2", slide);
-    // SummaryZoomFrame objektum hozzáadása
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // Az első SummaryZoomSection objektum lekérése
-    var summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
-    // Formázás a SummaryZoomSection objektumhoz
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    let summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(picture);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    summarySection.setImage(picture);
+
+    summarySection.setZoomImage(previewImage);
     summarySection.setReturnToParent(false);
+
     summarySection.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "black"));
-    summarySection.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    summarySection.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     summarySection.getLineFormat().setWidth(1.5);
-    summarySection.setTransitionDuration(1.5);
-    // Prezentáció mentése
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    summarySection.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **GYIK**
 
-**Vissza tudok irányítani a 'szülő' diára a cél megjelenítése után?**
+**Visszatérhetek a 'szülő' diára a cél megjelenítése után?**
 
-Igen. A [Zoom frame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/zoomframe/) vagy a [section](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sectionzoomframe/) rendelkezik egy `setReturnToParent` metódussal, amely bekapcsolt állapotban visszaküldi a nézőket a kiindulási diára a cél tartalom megtekintése után.
+Igen. Hívd meg a [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) metódust `true` értékkel, hogy a cél tartalom megjelenítése után visszatérj a kiindulási diára.
 
 **Módosíthatom a Zoom átmenet 'sebességét' vagy időtartamát?**
 
-Igen. A Zoom egy `setTransitionDuration` metódust biztosít, amellyel szabályozható, mennyi ideig tart az ugrás animációja.
+Igen. Használd a [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) metódust a másodpercben megadott átmeneti időtartam szabályozásához.
 
-**Vannak korlátok arra vonatkozóan, hány Zoom objektumot tartalmazhat egy bemutató?**
+**Van korlátozás arra, hogy hány Zoom objektumot tartalmazhat egy bemutató?**
 
-A dokumentációban nincs rögzített API korlát. A gyakorlati korlátok a bemutató összetettségétől és a megjelenítő teljesítményétől függenek. Sok Zoom keretet hozzáadhat, de vegye figyelembe a fájlméretet és a renderelési időt.
+Nincs dokumentált szigorú API-korlátozás. A gyakorlati korlátok a bemutató összetettségétől és a nézők teljesítményétől függenek. Sok Zoom keretet hozzáadhatsz, de vedd figyelembe a fájlméretet és a renderelési időt.

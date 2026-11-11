@@ -6,48 +6,41 @@ weight: 60
 url: /zh-hant/python-java/manage-zoom/
 keywords:
 - 縮放
-- 縮放框格
+- 縮放框架
 - 投影片縮放
-- 節縮放
-- 概覽縮放
+- 章節縮放
+- 摘要縮放
 - 新增縮放
 - PowerPoint
 - 簡報
 - Python
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via Java 建立並自訂縮放 — 在 PPT、PPTX 與 ODP 簡報中在各節之間跳轉、加入縮圖與過渡效果。"
+description: "使用 Aspose.Slides for Python via Java 建立並自訂縮放 — 在 PowerPoint 簡報中在章節之間跳轉、加入縮圖與轉場效果。"
 ---
 ## **簡介**
 
-PowerPoint 中的縮放功能讓您可以在簡報的特定投影片、節與區段之間來回跳轉。當您在演示時，快速在內容之間導覽的能力可能非常有用。
+PowerPoint 縮放功能允許您在投影片放映期間在特定投影片和章節之間導覽。使用 Aspose.Slides for Python via Java，您可以建立投影片縮放、章節縮放和摘要縮放，並自訂它們的預覽、框線和轉場效果。
 
-![概覽圖像](overview.png)
+![PowerPoint 縮放概觀](overview.png)
 
-* 若要在單張投影片上彙總整個簡報，請使用[概覽縮放](#summary-zoom)。
-* 若只想顯示選取的投影片，請使用[投影片縮放](#slide-zoom)。
-* 若只想顯示單一節，請使用[節縮放](#section-zoom)。
+* 要在單一投影片上概述整個簡報，請使用[Summary Zoom](#summary-zoom)。
+* 若只顯示所選投影片，請使用[Slide Zoom](#slide-zoom)。
+* 若只顯示單一章節，請使用[Section Zoom](#section-zoom)。
 
 ## **投影片縮放**
-投影片縮放可以讓您的簡報更具活力，讓您可以自由選擇任意順序在投影片之間導航，而不會中斷簡報的流程。投影片縮放非常適合沒有太多節的簡短簡報，但您仍可在不同的簡報情境中使用它們。
 
-投影片縮放協助您深入多個資訊片段，同時感覺仍位於單一畫布上。
+投影片縮放可以讓您的簡報更具動態性，允許您在任意順序自由導覽投影片而不會中斷簡報的流程。投影片縮放非常適合章節較少的簡短簡報，但在其他簡報情境中仍可使用。
 
-![概覽圖像](slidezoomsel.png)
+投影片縮放讓您從單一概觀投影片探索相關資訊。
 
-對於投影片縮放物件，Aspose.Slides 提供 [ZoomImageType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/zoomimagetype/) 列舉、[ZoomFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/zoomframe/) 類別，以及 [ShapeCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shapecollection/) 類別中的一些方法。
+![選取投影片以建立投影片縮放](slidezoomsel.png)
 
-### **建立縮放框格**
+對於投影片縮放物件，Aspose.Slides 提供 [ZoomImageType](https://reference.aspose.com/slides/python-java/aspose.slides/zoomimagetype/) 列舉、[ZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/zoomframe/) 類別，以及 [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/) 類別上的方法。
 
-您可以使用以下方式在投影片上加入縮放框格：
+### **建立縮放框架**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 建立您打算連結縮放框格的新投影片。
-3. 為建立的投影片加入辨識文字與背景。
-4. 將縮放框格（含所建立投影片的參考）加入第一張投影片。
-5. 將修改後的簡報寫入為 PPTX 檔案。
-
-以下 Python 程式碼示範如何在投影片上建立縮放框格：
+使用 [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) 在概觀投影片上放置指向個別投影片的連結。本範例建立兩個具有不同背景和標籤的目標投影片，然後在第一張投影片加入每個投影片的預覽，並將簡報儲存為 PPTX。框架的位置與尺寸以點 (points) 為單位指定。
 
 ```python
 import jpype
@@ -61,47 +54,36 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # 新增投影片至簡報
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  為第二張投影片建立背景
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  為第二張投影片建立文字方塊
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  為第三張投影片建立背景
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  為第三張投影片建立文字方塊
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # 新增 ZoomFrame 物件
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  儲存簡報
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **使用自訂影像建立縮放框格**
-使用 Aspose.Slides for Python via Java，您可以透過以下方式建立使用不同投影片預覽影像的縮放框格：
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 建立您打算連結縮放框格的新投影片。
-3. 為該投影片加入辨識文字與背景。
-4. 透過將影像加入與 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 物件相關聯的影像集合，建立 [PPImage](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/ppimage/) 物件，以填充框格。
-5. 將縮放框格（含所建立投影片的參考）加入第一張投影片。
-6. 將修改後的簡報寫入為 PPTX 檔案。
 
-以下 Python 程式碼示範如何使用不同影像建立縮放框格：
+### **使用自訂影像建立縮放框架**
+
+將自訂影像傳遞給 [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) 以取代目標投影片的預設預覽。本範例需要本機影像，使用 [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) 載入，並透過 [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) 新增至簡報。產生的框架會顯示該影像，同時仍連結至第二張投影片。
 
 ```python
 import jpype
@@ -115,49 +97,32 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # 新增投影片至簡報
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  為第二張投影片建立背景
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().setType(BackgroundType.OwnBackground)
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  為第二張投影片建立文字方塊
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  為縮放物件建立新影像
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    # 新增 ZoomFrame 物件
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture)
+    overview_slide.getShapes().addZoomFrame(20, 20, 300, 200, slide, preview_image)
 
-    #  儲存簡報
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **格式化縮放框格**
-在前面的章節中，我們示範了如何建立簡單的縮放框格。若要建立更複雜的縮放框格，您必須變更簡單框格的格式。您可以對縮放框格套用多種格式化選項。
 
-您可以使用以下方式在投影片上控制縮放框格的格式：
+### **格式化縮放框架**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 建立您打算連結縮放框格的新投影片。
-3. 為建立的投影片加入辨識文字與背景。
-4. 將縮放框格（含所建立投影片的參考）加入第一張投影片。
-5. 透過將影像加入與 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 物件相關聯的影像集合，建立 [PPImage](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/ppimage/) 物件，以填充框格。
-6. 為第一個縮放框格物件設定自訂影像。
-7. 變更第二個縮放框格物件的線條格式。
-8. 移除第二個縮放框格物件影像的背景。
-9. 將修改後的簡報寫入為 PPTX 檔案。
-
-以下 Python 程式碼示範如何在投影片上變更縮放框格的格式：
+本範例自訂兩個投影片縮放框架。它透過 [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) 為第一個框架指定本機影像，並透過 [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) 為第二個框架設定五點、虛點線、粉紅色的框線。將 `False` 傳遞給 [ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground) 會隱藏第二個框架的背景。自訂預覽需要本機影像；兩個框架在儲存的 PPTX 中仍保留其投影片目標。
 
 ```python
 import jpype
@@ -171,77 +136,59 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # 新增投影片至簡報
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  為第二張投影片建立背景
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  為第二張投影片建立文字方塊
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  為第三張投影片建立背景
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  為第三張投影片建立文字方塊
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # 新增 ZoomFrame 物件
-    first_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    second_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    first_zoom_frame = overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    second_zoom_frame = overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  為縮放物件建立新影像
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  為 first_zoom_frame 物件設定自訂影像
-    first_zoom_frame.setZoomImage(picture)
+    first_zoom_frame.setZoomImage(preview_image)
 
-    #  為 second_zoom_frame 物件設定縮放框格格式
     second_zoom_frame.getLineFormat().setWidth(5)
     second_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink)
+    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(255, 105, 180))
     second_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
 
-    #  設定不顯示 second_zoom_frame 物件的背景
     second_zoom_frame.setShowBackground(False)
 
-    #  儲存簡報
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **節縮放**
+## **章節縮放**
 
-節縮放是指向簡報中某個節的連結。您可以使用節縮放返回您想特別強調的節，或用來突顯簡報中各部分之間的關聯。
+章節縮放會連結至簡報中的特定章節。可用來重新檢視主題或展示簡報不同部分之間的關聯。
 
-![概覽圖像](seczoomsel.png)
+![選取章節以建立章節縮放](seczoomsel.png)
 
-對於節縮放物件，Aspose.Slides 提供 [SectionZoomFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/sectionzoomframe/) 類別，以及 [ShapeCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shapecollection/) 類別中的一些方法。
+對於章節縮放物件，Aspose.Slides 提供 [SectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/) 類別以及 [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/) 類別上的方法。
 
-### **建立節縮放框格**
+### **建立章節縮放框架**
 
-您可以使用以下方式在投影片上加入節縮放框格：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 建立新投影片。
-3. 為建立的投影片加入顯眼的背景。
-4. 建立您打算連結縮放框格的新節。
-5. 將節縮放框格（含所建立節的參考）加入第一張投影片。
-6. 將修改後的簡報寫入為 PPTX 檔案。
-
-以下 Python 程式碼示範如何在投影片上建立節縮放框格：
+使用 [SectionCollection.addSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectioncollection/#addSection) 建立章節，然後將回傳的章節傳遞給 [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame)。本範例在第一張投影片上放置章節縮放，並將其連結至以彩色投影片開始的章節。框架的位置與尺寸以點為單位指定，簡報儲存為 PPTX。
 
 ```python
 import jpype
@@ -255,36 +202,24 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # 新增投影片至簡報
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  新增節至簡報
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
 
-    #  新增 SectionZoomFrame 物件
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  儲存簡報
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **使用自訂影像建立節縮放框格**
 
-使用 Aspose.Slides for Python via Java，您可以透過以下方式建立使用不同投影片預覽影像的節縮放框格：
+### **使用自訂影像建立章節縮放框架**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 建立新投影片。
-3. 為建立的投影片加入顯眼的背景。
-4. 建立您打算連結縮放框格的新節。
-5. 透過將影像加入與 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 物件相關聯的影像集合，建立 [PPImage](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/ppimage/) 物件，以填充框格。
-6. 將節縮放框格（含所建立節的參考）加入第一張投影片。
-7. 將修改後的簡報寫入為 PPTX 檔案。
-
-以下 Python 程式碼示範如何使用不同影像建立節縮放框格：
+使用自訂影像的 [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame) 讓您在不變更目的章節的情況下顯示自訂預覽。本範例需要本機影像，透過 [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) 載入，並使用 [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) 新增。儲存的簡報在第一張投影片包含一個連結至新建立章節的章節縮放。
 
 ```python
 import jpype
@@ -298,51 +233,76 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # 新增投影片至簡報
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  新增節至簡報
-    presentation.getSections().addSection("Section 1", slide)
-
-    #  為縮放物件建立新影像
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  新增 SectionZoomFrame 物件
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1), picture)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, preview_image)
 
-    #  儲存簡報
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **格式化節縮放框格**
 
-若要建立更複雜的節縮放框格，您必須變更簡單框格的格式。您可以對節縮放框格套用多種格式化選項。
+### **變更章節縮放的目標章節**
 
-您可以使用以下方式在投影片上控制節縮放框格的格式：
+使用 [SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/#setTargetSection) 可在不重新建立的情況下重新指向現有的章節縮放。從同一簡報的 [Presentation.getSections](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSections) 集合中選取已填充的章節。指派空的章節會保留當前目標不變，因此在指派前請先檢查 [Section.getSlidesListOfSection](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSlidesListOfSection)。更多關於章節的資訊，請參閱[管理投影片章節](/slides/zh-hant/python-java/slide-section/)。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 建立新投影片。
-3. 為建立的投影片加入顯眼的背景。
-4. 建立您打算連結縮放框格的新節。
-5. 將節縮放框格（含所建立節的參考）加入第一張投影片。
-6. 變更已建立節縮放物件的大小與位置。
-7. 透過將影像加入與 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 物件相關聯的影像集合，建立 [PPImage](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/ppimage/) 物件，以填充框格。
-8. 為已建立的節縮放框格物件設定自訂影像。
-9. 設定*從連結的節返回原始投影片*的功能。
-10. 移除節縮放框格物件影像的背景。
-11. 變更節縮放框格物件的線條格式。
-12. 變更過渡持續時間。
-13. 將修改後的簡報寫入為 PPTX 檔案。
+以下範例載入一個簡報檔案，該檔案必須包含多個已填充章節、一個名為 `Section navigation` 的現有章節縮放，以及一個唯一名稱為 `Results` 的章節。它會在所有投影片中搜尋縮放，並以名稱而非可能因章節重排而變動的集合索引來找到目標。如果名稱不唯一，請改用 [Section.getSectionId](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSectionId) 來辨識目標。
 
-以下 Python 程式碼示範如何變更節縮放框格的格式：
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, SectionZoomFrame
+
+presentation = Presentation("section-zoom.pptx")
+try:
+    zoom = None
+    for slide in presentation.getSlides():
+        for shape in slide.getShapes():
+            if isinstance(shape, SectionZoomFrame) and shape.getName() == "Section navigation":
+                zoom = shape
+                break
+        if zoom is not None:
+            break
+
+    target_section = None
+    for section in presentation.getSections():
+        if section.getName() == "Results":
+            target_section = section
+            break
+
+    if zoom is None or target_section is None:
+        print("The section zoom or destination section was not found.")
+    elif target_section.getSlidesListOfSection().size() == 0:
+        print("The destination section is empty.")
+    else:
+        current_section = zoom.getTargetSection()
+        current_name = "" if current_section is None else current_section.getName()
+        print("Current section: " + str(current_name))
+        zoom.setTargetSection(target_section)
+        presentation.save("section-zoom-updated.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+### **格式化章節縮放框架**
+
+本範例將章節縮放移動並調整大小為 100 x 75 點，透過 [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) 指派本機影像，並套用 2.5 點、虛點線、棕色框線。它啟用 [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) 以在章節結束後返回來源投影片，停用 [ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground)，並將 [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) 設為 1.5 秒。自訂預覽需要本機影像。
 
 ```python
 import jpype
@@ -356,19 +316,16 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # 新增投影片至簡報
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  新增節至簡報
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
 
-    #  新增 SectionZoomFrame 物件
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  SectionZoomFrame 的格式設定
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
     section_zoom_frame.setX(100)
     section_zoom_frame.setY(300)
     section_zoom_frame.setWidth(100)
@@ -376,45 +333,38 @@ try:
 
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    section_zoom_frame.setZoomImage(picture)
+
+    section_zoom_frame.setZoomImage(preview_image)
 
     section_zoom_frame.setReturnToParent(True)
     section_zoom_frame.setShowBackground(False)
 
     section_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     section_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     section_zoom_frame.getLineFormat().setWidth(2.5)
 
     section_zoom_frame.setTransitionDuration(1.5)
 
-    #  儲存簡報
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **概覽縮放**
+## **摘要縮放**
 
-概覽縮放就像一個著陸頁，會一次顯示簡報的所有部分。當您在演示時，可以使用縮放在簡報的任意位置之間跳轉，順序隨心所欲。您可以發揮創意，跳過或重新檢視投影片秀的某些片段，而不會中斷簡報的流程。
+摘要縮放提供簡報章節的概觀。於投影片放映期間，您可使用它跳轉至章節、快進或重新檢視主題，而不必遵循投影片順序。
 
-![概覽圖像](sumzoomsel.png)
+![選取章節以建立摘要縮放](sumzoomsel.png)
 
-對於概覽縮放物件，Aspose.Slides 提供 [SummaryZoomFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/summaryzoomframe/)、[SummaryZoomSection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/summaryzoomsection/)、[SummaryZoomSectionCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/summaryzoomsectioncollection/) 類別，以及 [ShapeCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shapecollection/) 類別中的一些方法。
+對於摘要縮放物件，Aspose.Slides 提供 [SummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/)、[SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/) 與 [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/) 類別，以及 [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/) 類別上的方法。
 
-### **建立概覽縮放**
+### **建立摘要縮放**
 
-您可以使用以下方式在投影片上加入概覽縮放框格：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 為建立的投影片建立顯眼的背景與新節。
-3. 將概覽縮放框格加入第一張投影片。
-4. 將修改後的簡報寫入為 PPTX 檔案。
-
-以下 Python 程式碼示範如何在投影片上建立概覽縮放框格：
+使用 [ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSummaryZoomFrame) 建立簡報章節的概觀。本範例建立四個具有不同投影片背景的章節，並在第一張投影片加入摘要縮放。框架的位置與尺寸以點為單位指定，最終概觀儲存為 PPTX 簡報。
 
 ```python
 import jpype
@@ -428,64 +378,46 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # 新增投影片至簡報
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  新增節至簡報
     presentation.getSections().addSection("Section 1", slide)
 
-    # 新增投影片至簡報
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  新增節至簡報
     presentation.getSections().addSection("Section 2", slide)
 
-    # 新增投影片至簡報
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  新增節至簡報
     presentation.getSections().addSection("Section 3", slide)
 
-    # 新增投影片至簡報
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(0, 100, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  新增節至簡報
     presentation.getSections().addSection("Section 4", slide)
 
-    #  新增 SummaryZoomFrame 物件
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  儲存簡報
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **新增與移除概覽縮放節**
+### **新增與移除摘要縮放章節**
 
-概覽縮放框格中的所有節皆以 [SummaryZoomSection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/summaryzoomsection/) 物件表示，這些物件儲存在 [SummaryZoomSectionCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/summaryzoomsectioncollection/) 物件中。您可以透過 [SummaryZoomSectionCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/summaryzoomsectioncollection/) 類別加入或移除概覽縮放節物件，方式如下：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 為建立的投影片建立顯眼的背景與新節。
-3. 在第一張投影片加入概覽縮放框格。
-4. 為簡報新增投影片與節。
-5. 將新建立的節加入概覽縮放框格。
-6. 從概覽縮放框格中移除第一個節。
-7. 將修改後的簡報寫入為 PPTX 檔案。
-
-以下 Python 程式碼示範如何在概覽縮放框格中新增與移除節：
+摘要縮放將其 [SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/) 物件儲存在 [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) 中。本範例建立兩個章節的概觀，使用 [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) 新增第三個章節，並使用 [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection) 移除第一個章節的條目。移除條目後，簡報的章節及其投影片仍保持完整。
 
 ```python
 import jpype
@@ -499,66 +431,43 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # 新增投影片至簡報
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  新增節至簡報
-    presentation.getSections().addSection("Section 1", slide)
+    first_section = presentation.getSections().addSection("Section 1", slide)
 
-    # 新增投影片至簡報
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  新增節至簡報
     presentation.getSections().addSection("Section 2", slide)
 
-    #  新增 SummaryZoomFrame 物件
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    # 新增投影片至簡報
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  新增節至簡報
     third_section = presentation.getSections().addSection("Section 3", slide)
 
-    #  為 Summary Zoom 新增節
     summary_zoom_frame.getSummaryZoomCollection().addSummaryZoomSection(third_section)
 
-    #  從 Summary Zoom 移除節
-    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(presentation.getSections().get_Item(1))
+    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(first_section)
 
-    #  儲存簡報
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **格式化概覽縮放節**
+### **格式化摘要縮放章節**
 
-若要建立更複雜的概覽縮放節物件，您必須變更簡單框格的格式。您可以對概覽縮放節物件套用多種格式化選項。
-
-您可以使用以下方式在概覽縮放框格中控制概覽縮放節物件的格式：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
-2. 為建立的投影片建立顯眼的背景與新節。
-3. 將概覽縮放框格加入第一張投影片。
-4. 從 [SummaryZoomSectionCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/summaryzoomsectioncollection/) 取得第一個概覽縮放節物件。
-5. 透過將影像加入與 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 物件相關聯的影像集合，建立 [PPImage](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/ppimage/) 物件，以填充框格。
-6. 為概覽縮放節物件設定自訂影像。
-7. 設定*從連結的節返回原始投影片*的功能。
-8. 變更概覽縮放節物件的線條格式。
-9. 變更過渡持續時間。
-10. 將修改後的簡報寫入為 PPTX 檔案。
-
-以下 Python 程式碼示範如何變更概覽縮放節物件的格式：
+本範例格式化 [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) 中的第一個條目，使用零基索引 `0`。它需要本機影像以供 [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) 使用，套用 1.5 點、虛點線、黑色框線，並將 [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) 設為 1.5 秒。將 `False` 傳遞給 [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) 會停用此條目自動返回摘要投影片的功能。
 
 ```python
 import jpype
@@ -572,48 +481,42 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # 新增投影片至簡報
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  新增節至簡報
     presentation.getSections().addSection("Section 1", slide)
 
-    # 新增投影片至簡報
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  新增節至簡報
     presentation.getSections().addSection("Section 2", slide)
 
-    #  新增 SummaryZoomFrame 物件
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  取得第一個 SummaryZoomSection 物件
     summary_section = summary_zoom_frame.getSummaryZoomCollection().get_Item(0)
 
-    #  SummaryZoomSection 物件的格式設定
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    summary_section.setZoomImage(picture)
 
+    summary_section.setZoomImage(preview_image)
     summary_section.setReturnToParent(False)
 
     summary_section.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.black)
+    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     summary_section.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     summary_section.getLineFormat().setWidth(1.5)
 
     summary_section.setTransitionDuration(1.5)
 
-    #  儲存簡報
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -621,14 +524,14 @@ finally:
 
 ## **常見問題**
 
-**顯示目標後，我可以控制是否返回「父」投影片嗎？**
+**顯示目標後，我可以控制返回「父」投影片嗎？**
 
-可以。[ZoomFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/zoomframe/) 或 [SectionZoomFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/sectionzoomframe/) 支援透過 [setReturnToParent](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/zoomobject/#setReturnToParent) 讓觀眾在造訪目標內容後返回原始投影片。
+可以。呼叫 [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) 並傳入 `True`，即可在顯示目標內容後返回來源投影片。
 
-**我可以調整縮放過渡的「速度」或持續時間嗎？**
+**我可以調整縮放轉場的「速度」或持續時間嗎？**
 
-可以。縮放支援使用 [setTransitionDuration](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/zoomobject/#setTransitionDuration) 設定過渡持續時間，讓您控制跳轉動畫的長度。
+可以。使用 [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) 以秒為單位控制轉場持續時間。
 
-**簡報中可以包含多少個縮放物件有限制嗎？**
+**簡報中可包含的縮放物件數量有限制嗎？**
 
-目前文件未列出硬性 API 限制。實際限制取決於簡報的整體複雜度與觀眾的效能。您可以新增許多縮放框格，但仍需考量檔案大小與渲染時間。
+文件中未記載嚴格的 API 限制。實際上限取決於簡報的整體複雜度及檢視器的效能。雖然可以加入大量縮放框架，但仍需考量檔案大小與渲染時間。

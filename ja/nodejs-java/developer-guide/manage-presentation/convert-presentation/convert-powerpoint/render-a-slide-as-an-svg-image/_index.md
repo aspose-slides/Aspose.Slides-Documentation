@@ -1,33 +1,33 @@
 ---
-title: JavaScriptでプレゼンテーションスライドをSVG画像としてレンダリング
-linktitle: スライドをSVGに変換
+title: JavaScript でプレゼンテーションスライドを SVG 画像としてレンダリング
+linktitle: スライドを SVG に変換
 type: docs
 weight: 50
 url: /ja/nodejs-java/render-a-slide-as-an-svg-image/
 keywords:
 - PowerPoint を SVG に変換
-- プレゼンテーション を SVG に変換
-- スライド を SVG に変換
+- プレゼンテーションを SVG に変換
+- スライドを SVG に変換
 - PPT を SVG に変換
 - PPTX を SVG に変換
-- SVG エクスポート オプション
+- SVG エクスポートオプション
 - インタラクティブ SVG
 - PowerPoint
 - プレゼンテーション
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScriptでPowerPointスライドをSVG画像としてエクスポートし、フォント、テキスト、画像、ID、イベントをAspose.Slidesで制御します。"
+description: "JavaScript で PowerPoint のスライドを SVG 画像としてエクスポートし、フォント、テキスト、画像、ID、イベントを Aspose.Slides で制御します。"
 ---
 ## **概要**
 
-SVG は、Web 公開、スライド ビューア、アクセシビリティ ワークフロー、そして自動ポストプロセッシングに適した、スケーラブルな XML ベースの画像フォーマットです。Aspose.Slides for Node.js via Java は、各スライドを個別の SVG ファイルとしてエクスポートし、テキスト、フォント、画像、SVG 要素の書き出し方法を制御できます。
+SVGは、スケーラブルなXMLベースの画像フォーマットで、Web公開、スライドビューア、アクセシビリティワークフロー、そして自動ポストプロセッシングに適しています。Aspose.Slides for Node.js via Javaは各スライドを個別のSVGファイルにエクスポートし、テキスト、フォント、画像、SVG要素の書き出し方法を制御できます。
 
-エクスポートされた SVG をコンパクトに、ブラウザ間で予測可能に、またはインタラクティブに使用できるようにする必要がある場合は、[SVGOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/) を使用します。
+エクスポートされたSVGがコンパクトで、ブラウザ間で予測可能、またはインタラクティブに使用できる必要がある場合は、[SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) を使用します。
 
-## **スライドを SVG としてエクスポート**
+## **スライドをSVGとしてエクスポート**
 
-[Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) を作成し、スライドを選択して、[Slide.writeAsSvg](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slide/writeassvg/) でストリームに書き込みます。以下の例は、プレゼンテーション内のすべてのスライドを個別の SVG ファイルとしてエクスポートします。
+[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) を作成し、スライドを選択して、[Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/) でストリームに書き込みます。以下の例は、プレゼンテーション内のすべてのスライドを個別のSVGファイルとしてエクスポートします。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -51,11 +51,11 @@ try {
 }
 ```
 
-ファイル名はループインデックスではなく、[Slide.getSlideNumber](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slide/getslidenumber/) を使用します。また、スライドビューアやウェブページが特定の形状だけを必要とする場合は、[Shape.writeAsSvg](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/writeassvg/) を使用して個別の形状をエクスポートすることもできます。
+ファイル名はループインデックスではなく [Slide.getSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidenumber/) を使用します。また、スライドビューアやウェブページが特定のシェイプだけを必要とする場合は、[Shape.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) で個々のシェイプをエクスポートすることもできます。
 
-## **SVG 出力の構成**
+## **SVG出力の構成**
 
-[SVGOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/) は SVG のレンダリングを制御します。テキストフレームの場合、[SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/setuseframesize/) はレンダリング領域にテキストフレームを含め、[SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/setuseframerotation/) はフレームの回転を適用するかどうかを決定します。テキストを合字なしでレンダリングする必要がある場合は、[SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/#setDisableFontLigatures) を `true` に設定します。
+[SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) はSVGのレンダリングを制御します。テキストフレームの場合、[SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframesize/) はレンダリング領域にテキストフレームを含め、[SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframerotation/) はフレームの回転が適用されるかどうかを決定します。テキストをリガチャなしでレンダリングする必要がある場合は、[SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableFontLigatures) を `true` に設定します。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -85,9 +85,11 @@ try {
 
 ## **テキストとフォントの制御**
 
-### **すべてのテキストをベクトル化**
+スライドをSVGにエクスポートする際、テキストをテキストのまま保持するかベクターグラフィックに変換するか、外部フォントをどのように含めるか、参照するかを制御できます。以下のオプションは、エクスポートされたSVGにおける視覚的一貫性、テキスト選択、フォント依存性のバランスを取るのに役立ちます。
 
-[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) を `true` に設定すると、スライドのすべてのテキストがベクトルグラフィックスとして書き出されます。これによりフォントへの依存がなくなり、ブラウザ間で視覚的な結果がより一貫しますが、テキストは SVG テキストとして選択や検索ができなくなります。
+### **すべてのテキストをベクター化**
+
+[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) を `true` に設定すると、すべてのスライドテキストがベクターグラフィックとして書き出されます。これによりフォント依存性がなくなり、ブラウザ間で視覚的な結果がより一貫しますが、テキストはSVGテキストとして選択や検索ができなくなります。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -113,9 +115,9 @@ try {
 }
 ```
 
-### **外部フォントの処理方法を選択**
+### **外部フォントの取り扱い方法を選択**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/setexternalfontshandling/) は、外部から読み込まれるフォントに対して [SvgExternalFontsHandling](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgexternalfontshandling/) の値を使用します。`AddLinksToFontFiles` を選択すると個別のフォントファイルへの参照が作成され、`Embed` を選択するとフォントデータが SVG に埋め込まれ、`Vectorize` を選択すると外部フォントを使用するテキストのみがグラフィックとしてレンダリングされます。フォントを埋め込む前にライセンスを確認してください。
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setexternalfontshandling/) は、外部から読み込まれるフォントに対して [SvgExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) の値を使用します。`AddLinksToFontFiles` を選択すると別々のフォントファイルへの参照が作成され、`Embed` を選択するとフォントデータがSVGに含まれ、`Vectorize` を選択すると外部フォントを使用するテキストのみがグラフィックとしてレンダリングされます。フォントを埋め込む前に、フォントのライセンスを確認してください。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -173,7 +175,7 @@ try {
 
 ## **埋め込み画像サイズの削減**
 
-[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) を使用して埋め込み画像の解像度を下げ、[SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/setdeletepicturescroppedareas/) で切り抜かれた元領域を省略し、[SVGOptions.setJpegQuality](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/setjpegquality/) で JPEG エンコード品質を制御します。これらの設定は、画像の忠実度や保持データを犠牲にしてファイルサイズを削減します。
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) を使用して埋め込み画像の解像度を下げ、[SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setdeletepicturescroppedareas/) でクロップされた元領域を省略し、[SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) で JPEG エンコード品質を制御します。これらの設定は、画像の忠実度や保持データを犠牲にしてファイルサイズを削減します。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -198,11 +200,56 @@ try {
 }
 ```
 
-## **形状とテキストに安定した ID を割り当てる**
+## **メタファイルラスタライズ解像度の制御**
 
-[SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) にフォーマットコントローラを渡すことで、各 SVG 形状に対して [SvgShape.setId](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgshape/setid/) を設定できます。テキストスパンも処理するコントローラは、テキスト `tspan` 要素に対して [SvgTSpan.setId](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgtspan/setid/) の値を設定できます。
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) は、SVGエクスポート時にメタファイルをラスタライズする際の下限解像度を設定します。EMF または WMF 画像がラスタライズされる際のディテールとファイルサイズのバランスを取るために使用します。これは SVG 全体の DPI を定義するものでも、スライド上のすべてのオブジェクトをラスタ画像に変換するものでもありません。
 
-以下のコントローラは、形状の存続期間中に安定した [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) と、テキストスパン用の再現可能なカウンタを使用します。これにより、生成された ID が変更されていないプレゼンテーションのポストプロセスに適したものになります。
+[metafile-rasterization.pptx](metafile-rasterization.pptx) をダウンロードしてください。この文件には、間隔の狭い対角線を持つ EMF 画像が含まれています。以下の例は、[Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/) を使用して最初のスライドを 3 つのラスタライズ解像度でエクスポートします。他のエクスポート設定はすべて同一に保たれ、結果を比較できるようにしています。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("metafile-rasterization.pptx");
+try {
+    for (const dpi of [72, 150, 300]) {
+        const svgOptions = new slides.SVGOptions();
+        svgOptions.setMetafileRasterizationDpi(dpi);
+        svgOptions.setPicturesCompression(slides.PicturesCompression.Dpi330);
+        svgOptions.setJpegQuality(90);
+
+        const outputFileName = `slide-${dpi}.svg`;
+        const svgStream = java.newInstanceSync("java.io.FileOutputStream", outputFileName);
+        try {
+            presentation.getSlides().get_Item(0).writeAsSvg(svgStream, svgOptions);
+        } finally {
+            svgStream.close();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+出力では、EMF が各 SVG に埋め込まれた PNG に変換されています。以下の測定値は提供されたプレゼンテーションに対するものであり、DPI をピクセル寸法に変換する一般的な式ではありません。
+
+| メタファイル ラスタライズ DPI | 埋め込み PNG の寸法 | SVG ファイルサイズ（バイト） |
+| --- | --- | --- |
+| 72 | 1196 × 596 | 170,221 |
+| 150 | 2492 × 1242 | 423,149 |
+| 300 | 4983 × 2483 | 1,027,169 |
+
+以下の比較は、拡大表示サイズが同じで埋め込みラスタの同一エリアを示しています。対角線は 72 DPI でピクセル化が目立ち、解像度が高くなるにつれてエッジが滑らかになりますが、SVG ファイルは大きくなります。値を上げてもすべてのディテールが向上したり、すべてのエクスポート画像が変わるわけではありません。
+
+![72、150、300 DPI の拡大対角線ディテール](metafile-rasterization-comparison.png)
+
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) は画像解像度の低減を制御し、メタファイルのラスタライズ解像度変更の影響を隠すことがあります。[SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) は JPEG エンコード品質を制御し、メタファイルのラスタライズ解像度を制御するものではありません。
+
+## **シェイプとテキストに安定した ID を割り当て**
+
+[SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) にフォーマッティングコントローラを渡して、各 SVG シェイプに対して [SvgShape.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/setid/) を設定します。テキストスパンも扱うコントローラは、テキスト `tspan` 要素に対して [SvgTSpan.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgtspan/setid/) の値を設定できます。
+
+以下のコントローラは [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) を使用します。この ID はシェイプの存続期間中安定しており、テキストスパンには再利用可能なカウンタを使用します。これにより生成された ID は、変更されていないプレゼンテーションのポストプロセッシングに適しています。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -262,9 +309,9 @@ try {
 }
 ```
 
-## **SVG イベントハンドラの追加**
+## **SVG イベントハンドラを追加**
 
-フォーマットコントローラ内で、[SvgShape.setEventHandler](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgshape/seteventhandler/) に [SvgEvent](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgevent/) の値を渡すことで、エクスポートされた形状に JavaScript イベントハンドラを追加できます。[SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) でコントローラを割り当て、結果をホストするページまたは SVG ドキュメント内で JavaScript 関数を定義します。
+フォーマッティングコントローラ内で、[SvgShape.setEventHandler](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/seteventhandler/) に [SvgEvent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgevent/) の値を渡して、エクスポートされたシェイプに JavaScript イベントハンドラを追加します。[SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) でコントローラを割り当て、結果をホストするページまたは SVG ドキュメント内で JavaScript 関数を定義してください。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -312,18 +359,18 @@ try {
 }
 ```
 
-ホストページはハンドラが参照する JavaScript 関数を定義できます。ID とイベントハンドラを割り当てることで、スライドビューア、アクセシビリティの向上、その他のインタラクティブな SVG ワークフローが可能になります。
+ホストページはハンドラが参照する JavaScript 関数を定義できます。ID とイベントハンドラを割り当てることで、スライドビューア、アクセシビリティ向上、その他のインタラクティブ SVG ワークフローが可能になります。
 
 ## **FAQ**
 
-**[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) を [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgexternalfontshandling/) の代わりに使用すべきタイミングは？**
+**いつ [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) を使用すべきで、[SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) を使用すべきではないですか？**
 
-[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) は、すべてのテキストがフォントに依存しない必要がある場合に使用します。[SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/svgexternalfontshandling/) は、外部フォントを使用するテキストのみをグラフィックに変換したい場合に使用します。
+すべてのテキストがフォントに依存しない必要がある場合は [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) を使用します。外部フォントを使用するテキストのみをグラフィックに変換すべき場合は [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) を使用します。
 
 **SVG を小さくする最善の方法は何ですか？**
 
-まずは埋め込み画像を圧縮し、切り抜かれた画像領域を削除し、対象環境で提供できる場合はリンクされたフォントファイルを選択します。画像解像度の低下、JPEG 品質の低下、ベクトル化されたテキストはそれぞれ品質とサイズのトレードオフが異なるため、結果をテストしてください。
+まず、埋め込み画像を圧縮し、クロップされた画像領域を削除し、対象環境で配信可能な場合はリンクされたフォントファイルを選択します。画像解像度の低下、JPEG 品質の低下、テキストのベクター化はそれぞれ品質とサイズのトレードオフが異なるため、結果をテストしてください。
 
 **エクスポート後に SVG 要素を変更できますか？**
 
-はい。フォーマットコントローラで ID を割り当てた後、ポストプロセッシングツールやブラウザスクリプトで該当する SVG 要素を選択できます。
+はい。フォーマッティングコントローラで ID を割り当て、ポストプロセッシングツールやブラウザスクリプトで該当する SVG 要素を選択してください。

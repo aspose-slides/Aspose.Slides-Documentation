@@ -6,7 +6,7 @@ weight: 60
 url: /id/php-java/manage-zoom/
 keywords:
 - zoom
-- bingkai zoom
+- frame zoom
 - zoom slide
 - zoom bagian
 - zoom ringkasan
@@ -15,527 +15,527 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Buat dan sesuaikan Zoom dengan Aspose.Slides untuk PHP via Java — lompat antar bagian, tambahkan thumbnail dan transisi pada presentasi PPT, PPTX, dan ODP."
+description: "Buat dan sesuaikan Zoom dengan Aspose.Slides untuk PHP via Java — melompat antar bagian, menambahkan gambar mini dan transisi dalam presentasi PowerPoint."
 ---
 ## **Pendahuluan**
 
-Zoom di PowerPoint memungkinkan Anda melompat ke dan dari slide, bagian, serta bagian-bagian tertentu dari presentasi. Saat Anda melakukan presentasi, kemampuan ini untuk menavigasi dengan cepat ke seluruh konten dapat sangat berguna. 
+Zoom PowerPoint memungkinkan Anda menavigasi antar slide dan bagian tertentu selama pertunjukan slide. Dengan Aspose.Slides untuk PHP melalui Java, Anda dapat membuat zoom slide, zoom bagian, dan zoom ringkasan serta menyesuaikan pratinjau, batas, dan transisinya.
 
-![overview_image](overview.png)
+![Ikhtisar zoom PowerPoint](overview.png)
 
-* Untuk merangkum seluruh presentasi dalam satu slide, gunakan [Summary Zoom](#Summary-Zoom).
-* Untuk menampilkan slide tertentu saja, gunakan [Slide Zoom](#Slide-Zoom).
-* Untuk menampilkan satu bagian saja, gunakan [Section Zoom](#Section-Zoom).
+* Untuk merangkum seluruh presentasi dalam satu slide, gunakan [Ringkasan Zoom](#summary-zoom).
+* Untuk menampilkan hanya slide tertentu, gunakan [Zoom Slide](#slide-zoom).
+* Untuk menampilkan hanya satu bagian, gunakan [Zoom Bagian](#section-zoom).
 
-## **Slide Zoom**
-Slide zoom dapat membuat presentasi Anda lebih dinamis, memungkinkan Anda menavigasi secara bebas antara slide dalam urutan apa pun yang Anda pilih tanpa mengganggu alur presentasi. Slide zoom sangat cocok untuk presentasi singkat tanpa banyak bagian, namun Anda tetap dapat menggunakannya dalam berbagai skenario presentasi.
+## **Zoom Slide**
 
-Slide zoom membantu Anda menelusuri banyak informasi sekaligus sambil terasa seolah berada pada satu kanvas. 
+Zoom slide dapat membuat presentasi Anda lebih dinamis, memungkinkan Anda menavigasi bebas antar slide dalam urutan apa pun tanpa mengganggu alur presentasi. Zoom slide cocok untuk presentasi singkat tanpa banyak bagian, tetapi Anda tetap dapat menggunakannya dalam berbagai skenario presentasi.
 
-![overview_image](slidezoomsel.png)
+Zoom slide memungkinkan Anda menjelajahi informasi terkait dari satu slide ikhtisar.
 
-Untuk objek slide zoom, Aspose.Slides menyediakan enumerasi [ZoomImageType](https://reference.aspose.com/slides/id/php-java/aspose.slides/zoomimagetype/) , kelas [ZoomFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/zoomframe/) , dan beberapa metode di bawah kelas [ShapeCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/) .
+![Memilih slide untuk zoom slide](slidezoomsel.png)
 
-### **Buat Bingkai Zoom**
+Untuk objek zoom slide, Aspose.Slides menyediakan enumerasi [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/zoomimagetype/), kelas [ZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/), dan metode pada kelas [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
 
-Anda dapat menambahkan bingkai zoom pada slide dengan cara berikut:
+### **Membuat Frame Zoom**
 
-1.	Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
-2.	Buat slide baru yang akan Anda tautkan dengan bingkai zoom. 
-3.	Tambahkan teks identifikasi dan latar belakang ke slide yang dibuat.
-4.	Tambahkan bingkai zoom (yang berisi referensi ke slide yang dibuat) ke slide pertama.
-5.	Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-This PHP code shows you how to create a zoom frame on a slide:
+Gunakan [ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) untuk menempatkan tautan ke slide individual pada slide ikhtisar. Contoh ini membuat dua slide target dengan latar belakang dan label yang berbeda, lalu menambahkan pratinjau masing‑masing ke slide pertama dan menyimpan presentasi sebagai PPTX. Posisi dan ukuran frame ditentukan dalam poin.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Menambahkan slide baru ke presentasi
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # Membuat latar belakang untuk slide kedua
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # Membuat kotak teks untuk slide kedua
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # Membuat latar belakang untuk slide ketiga
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # Membuat kotak teks untuk slide ketiga
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # Menambahkan objek ZoomFrame
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # Menyimpan presentasi
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-### **Buat Bingkai Zoom dengan Gambar Kustom**
-Dengan Aspose.Slides untuk PHP via Java, Anda dapat membuat bingkai zoom dengan gambar pratinjau slide yang berbeda dengan cara berikut:
-1.	Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
-2.	Buat slide baru yang akan Anda tautkan dengan bingkai zoom. 
-3.	Tambahkan teks identifikasi dan latar belakang ke slide.
-4.	Buat sebuah objek [PPImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/ppimage/) dengan menambahkan gambar ke koleksi Images yang terkait dengan objek [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) , yang akan digunakan untuk mengisi bingkai.
-5.	Tambahkan bingkai zoom (yang berisi referensi ke slide yang dibuat) ke slide pertama.
-6.	Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-This PHP code shows you how to create a zoom frame with a different image:
+### **Membuat Frame Zoom dengan Gambar Kustom**
+
+Berikan gambar kustom ke [ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) untuk mengganti pratinjau default slide target. Contoh ini membutuhkan gambar lokal, memuatnya dengan [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile), dan menambahkannya ke presentasi menggunakan [ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage). Frame yang dihasilkan menampilkan gambar tersebut sambil tetap menautkan ke slide kedua.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Menambahkan slide baru ke presentasi
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # Membuat latar belakang untuk slide kedua
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # Membuat kotak teks untuk slide ketiga
-    $autoshape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # Membuat gambar baru untuk objek zoom
-    $picture;
-    $image = Images->fromFile("image.png");
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # Menambahkan objek ZoomFrame
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $picture);
-    # Menyimpan presentasi
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-### **Format Bingkai Zoom**
-Pada bagian sebelumnya, kami menunjukkan cara membuat bingkai zoom sederhana. Untuk membuat bingkai zoom yang lebih rumit, Anda harus mengubah format bingkai sederhana. Ada beberapa opsi format yang dapat Anda terapkan pada bingkai zoom. 
 
-Anda dapat mengontrol format bingkai zoom pada slide dengan cara berikut:
+### **Memformat Frame Zoom**
 
-1.	Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
-2.	Buat slide baru yang akan Anda tautkan dengan bingkai zoom. 
-3.	Tambahkan beberapa teks identifikasi dan latar belakang ke slide yang dibuat.
-4.	Tambahkan bingkai zoom (yang berisi referensi ke slide yang dibuat) ke slide pertama.
-5.	Buat sebuah objek [PPImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/ppimage/) dengan menambahkan gambar ke koleksi Images yang terkait dengan objek [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) yang akan digunakan untuk mengisi bingkai.
-6.	Tetapkan gambar kustom untuk objek bingkai zoom pertama.
-7.	Ubah format garis untuk objek bingkai zoom kedua.
-8.	Hapus latar belakang dari gambar objek bingkai zoom kedua.
-5.	Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-This PHP code shows you how to change a zoom frame's formatting on a slide:
+Contoh ini menyesuaikan dua frame zoom slide. Ia menetapkan gambar lokal ke frame pertama melalui [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage), dan memberi frame kedua batas pink dash‑dot berukuran lima poin melalui [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat). Memberikan `false` ke [ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground) menyembunyikan latar belakang frame kedua. Gambar lokal diperlukan untuk pratinjau kustom; kedua frame tetap mempertahankan target slide mereka dalam PPTX yang disimpan.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Menambahkan slide baru ke presentasi
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # Membuat latar belakang untuk slide kedua
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # Membuat kotak teks untuk slide kedua
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # Membuat latar belakang untuk slide ketiga
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # Membuat kotak teks untuk slide ketiga
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # Menambahkan objek ZoomFrame
-    $zoomFrame1 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $zoomFrame2 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # Membuat gambar baru untuk objek zoom
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $firstZoomFrame = $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $secondZoomFrame = $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # Menetapkan gambar kustom untuk objek zoomFrame1
-    $zoomFrame1->setImage($picture);
-    # Menetapkan format bingkai zoom untuk objek zoomFrame2
-    $zoomFrame2->getLineFormat()->setWidth(5);
-    $zoomFrame2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $zoomFrame2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->pink);
-    $zoomFrame2->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
-    # Pengaturan untuk tidak menampilkan latar belakang pada objek zoomFrame2
-    $zoomFrame2->setShowBackground(false);
-    # Menyimpan presentasi
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $firstZoomFrame->setZoomImage($previewImage);
+
+    $secondZoomFrame->getLineFormat()->setWidth(5);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 255, 105, 180);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $secondZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
+
+    $secondZoomFrame->setShowBackground(false);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Section Zoom**
+## **Zoom Bagian**
 
-Section zoom adalah tautan ke bagian dalam presentasi Anda. Anda dapat menggunakan section zoom untuk kembali ke bagian yang ingin Anda tekankan secara khusus. Atau Anda dapat menggunakannya untuk menyoroti bagaimana potongan tertentu dari presentasi Anda terhubung. 
+Zoom bagian menautkan ke sebuah bagian dalam presentasi Anda. Gunakan untuk mengunjungi kembali sebuah topik atau menunjukkan bagaimana bagian‑bagian berbeda dalam presentasi saling terhubung.
 
-![overview_image](seczoomsel.png)
+![Memilih bagian untuk zoom bagian](seczoomsel.png)
 
-Untuk objek section zoom, Aspose.Slides menyediakan kelas [SectionZoomFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/sectionzoomframe/) dan beberapa metode di bawah kelas [ShapeCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/) .
+Untuk objek zoom bagian, Aspose.Slides menyediakan kelas [SectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) dan metode pada kelas [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
 
-### **Buat Bingkai Section Zoom**
+### **Membuat Frame Zoom Bagian**
 
-Anda dapat menambahkan bingkai section zoom ke slide dengan cara berikut:
-
-1.	Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
-2.	Buat slide baru. 
-3.	Tambahkan latar belakang identifikasi ke slide yang dibuat.
-4.	Buat bagian baru yang akan Anda tautkan dengan bingkai zoom. 
-5.	Tambahkan bingkai section zoom (yang berisi referensi ke bagian yang dibuat) ke slide pertama.
-6.	Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-This PHP code shows you how to create a zoom frame on a slide:
+Buat sebuah bagian dengan [SectionCollection::addSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectioncollection/#addSection), lalu berikan bagian yang dikembalikan ke [ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame). Contoh ini menempatkan zoom bagian pada slide pertama dan menautkannya ke bagian yang dimulai dengan slide berwarna. Posisi dan ukuran frame ditentukan dalam poin, dan presentasi disimpan sebagai PPTX.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Menambahkan slide baru ke presentasi
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Menambahkan Section baru ke presentasi
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Menambahkan objek SectionZoomFrame
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # Menyimpan presentasi
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-### **Buat Bingkai Section Zoom dengan Gambar Kustom**
 
-Dengan Aspose.Slides untuk PHP via Java, Anda dapat membuat bingkai section zoom dengan gambar pratinjau slide yang berbeda dengan cara berikut:
+### **Membuat Frame Zoom Bagian dengan Gambar Kustom**
 
-1.	Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
-2.	Buat slide baru.
-3.	Tambahkan latar belakang identifikasi ke slide yang dibuat.
-4.	Buat bagian baru yang akan Anda tautkan dengan bingkai zoom. 
-5.	Buat sebuah objek [PPImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/ppimage/) dengan menambahkan gambar ke koleksi Images yang terkait dengan objek [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) yang akan digunakan untuk mengisi bingkai.
-5.	Tambahkan bingkai section zoom (yang berisi referensi ke bagian yang dibuat) ke slide pertama.
-6.	Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-This PHP code shows you how to create a zoom frame with a different image:
+Overload gambar dari [ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame) memungkinkan Anda menampilkan pratinjau kustom tanpa mengubah bagian tujuan. Contoh ini membutuhkan gambar lokal, yang dimuat dengan [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) dan ditambahkan melalui [ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage). Presentasi yang disimpan berisi zoom bagian pada slide pertama yang ditautkan ke bagian yang baru dibuat.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Menambahkan slide baru ke presentasi
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Menambahkan Section baru ke presentasi
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Membuat gambar baru untuk objek zoom
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # Menambahkan objek SectionZoomFrame
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1), $picture);
-    # Menyimpan presentasi
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-### **Format Bingkai Section Zoom**
 
-Untuk membuat bingkai section zoom yang lebih rumit, Anda harus mengubah format bingkai sederhana. Ada beberapa opsi format yang dapat Anda terapkan pada bingkai section zoom. 
+### **Mengubah Bagian Target Zoom Bagian**
 
-Anda dapat mengontrol format bingkai section zoom pada slide dengan cara berikut:
+Gunakan [SectionZoomFrame::setTargetSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/#setTargetSection) untuk mengarahkan ulang zoom bagian yang ada tanpa membuatnya kembali. Pilih sebuah bagian terisi dari koleksi [Presentation::getSections](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSections) pada presentasi yang sama. Menetapkan bagian kosong membiarkan target saat ini tidak berubah, jadi periksa [Section::getSlidesListOfSection](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSlidesListOfSection) sebelum menetapkannya. Lihat [Manage Slide Sections](/slides/id/php-java/slide-section/) untuk informasi lebih lanjut tentang bagian.
 
-1.	Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
-2.	Buat slide baru.
-3.	Tambahkan latar belakang identifikasi ke slide yang dibuat.
-4.	Buat bagian baru yang akan Anda tautkan dengan bingkai zoom. 
-5.	Tambahkan bingkai section zoom (yang berisi referensi ke bagian yang dibuat) ke slide pertama.
-6.	Ubah ukuran dan posisi objek section zoom yang dibuat.
-7.	Buat sebuah objek [PPImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/ppimage/) dengan menambahkan gambar ke koleksi Images yang terkait dengan objek [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) yang akan digunakan untuk mengisi bingkai.
-8.	Tetapkan gambar kustom untuk objek bingkai section zoom yang dibuat.
-9.	Atur kemampuan *kembali ke slide asli dari bagian yang ditautkan*.
-10.	Hapus latar belakang dari gambar objek bingkai section zoom.
-11.	Ubah format garis untuk objek bingkai zoom kedua.
-12.	Ubah durasi transisi.
-13.	Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-This PHP code shows you how to change a section zoom frame's formatting:
+Contoh berikut memuat berkas presentasi, yang harus berisi beberapa bagian terisi, sebuah zoom bagian yang ada bernama `Section navigation`, dan sebuah bagian dengan nama unik `Results`. Ia mencari semua slide untuk zoom tersebut dan menemukan tujuan berdasarkan nama, bukan indeks koleksi yang dapat berubah ketika bagian diurutkan ulang. Jika nama tidak unik, gunakan [Section::getSectionId](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSectionId) untuk mengidentifikasi tujuan.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Menambahkan slide baru ke presentasi
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("section-zoom.pptx");
+try {
+    $zoom = null;
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($i = 0; $i < $slideCount; $i++) {
+        $slide = $presentation->getSlides()->get_Item($i);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($j = 0; $j < $shapeCount; $j++) {
+            $shape = $slide->getShapes()->get_Item($j);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.ISectionZoomFrame")) && java_values($shape->getName()) === "Section navigation") {
+                $zoom = $shape;
+                break;
+            }
+        }
+        if ($zoom != null) {
+            break;
+        }
+    }
+
+    $targetSection = null;
+    $sectionCount = java_values($presentation->getSections()->size());
+    for ($i = 0; $i < $sectionCount; $i++) {
+        $section = $presentation->getSections()->get_Item($i);
+        if (java_values($section->getName()) === "Results") {
+            $targetSection = $section;
+            break;
+        }
+    }
+
+    if ($zoom == null || $targetSection == null) {
+        echo "The section zoom or destination section was not found.", PHP_EOL;
+    } else if (java_values($targetSection->getSlidesListOfSection()->size()) == 0) {
+        echo "The destination section is empty.", PHP_EOL;
+    } else {
+        $currentSection = $zoom->getTargetSection();
+        echo "Current section: " . (java_is_null($currentSection) ? "" : java_values($currentSection->getName())), PHP_EOL;
+        $zoom->setTargetSection($targetSection);
+        $presentation->save("section-zoom-updated.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Memformat Frame Zoom Bagian**
+
+Contoh ini memindahkan dan mengubah ukuran zoom bagian menjadi 100 × 75 poin, menetapkan gambar lokal melalui [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage), dan menerapkan batas coklat dash‑dot berukuran 2,5 poin. Ia mengaktifkan [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) untuk kembali ke slide asal setelah bagian, menonaktifkan [ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground), serta mengatur [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) ke 1,5 detik. Gambar lokal diperlukan untuk pratinjau kustom.
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Menambahkan Section baru ke presentasi
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Menambahkan objek SectionZoomFrame
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # Pemformatan untuk SectionZoomFrame
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
     $sectionZoomFrame->setX(100);
     $sectionZoomFrame->setY(300);
     $sectionZoomFrame->setWidth(100);
     $sectionZoomFrame->setHeight(75);
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    $sectionZoomFrame->setImage($picture);
+
+    $sectionZoomFrame->setZoomImage($previewImage);
+
     $sectionZoomFrame->setReturnToParent(true);
     $sectionZoomFrame->setShowBackground(false);
+
     $sectionZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
-    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
     $sectionZoomFrame->getLineFormat()->setWidth(2.5);
+
     $sectionZoomFrame->setTransitionDuration(1.5);
-    # Menyimpan presentasi
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Zoom Ringkasan**
 
-## **Summary Zoom**
+Zoom ringkasan menyediakan ikhtisar bagian‑bagian presentasi. Selama pertunjukan slide, Anda dapat menggunakannya untuk melompat ke sebuah bagian, melewatkan ke depan, atau mengunjungi kembali sebuah topik tanpa mengikuti urutan slide.
 
-Summary zoom seperti halaman arahan di mana semua bagian presentasi Anda ditampilkan sekaligus. Saat Anda mempresentasikan, Anda dapat menggunakan zoom untuk berpindah dari satu tempat ke tempat lain dalam presentasi dengan urutan apa pun yang Anda suka. Anda dapat berkreasi, melompati bagian, atau mengunjungi kembali bagian-bagian slide show tanpa mengganggu alur presentasi.
+![Memilih bagian untuk zoom ringkasan](sumzoomsel.png)
 
-![overview_image](sumzoomsel.png)
+Untuk objek zoom ringkasan, Aspose.Slides menyediakan kelas [SummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/), dan [SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/), serta metode pada kelas [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
 
-Untuk objek summary zoom, Aspose.Slides menyediakan kelas [SummaryZoomFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/summaryzoomframe/) , [SummaryZoomSection](https://reference.aspose.com/slides/id/php-java/aspose.slides/summaryzoomsection/) , dan [SummaryZoomSectionCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/summaryzoomsectioncollection/) serta beberapa metode di bawah kelas [ShapeCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/) .
+### **Membuat Zoom Ringkasan**
 
-### **Buat Summary Zoom**
-
-Anda dapat menambahkan bingkai summary zoom ke slide dengan cara berikut:
-
-1.	Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
-2.	Buat slide baru dengan latar belakang identifikasi dan bagian baru untuk slide yang dibuat.
-3.	Tambahkan bingkai summary zoom ke slide pertama.
-4.	Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-This PHP code shows you how to create a summary zoom frame on a slide:
+Gunakan [ShapeCollection::addSummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSummaryZoomFrame) untuk membuat ikhtisar bagian‑bagian presentasi. Contoh ini membuat empat bagian dengan latar belakang slide yang berbeda dan menambahkan zoom ringkasan ke slide pertama. Posisi dan ukuran frame ditentukan dalam poin, dan ikhtisar yang dihasilkan disimpan dalam presentasi PPTX.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Menambahkan slide baru ke presentasi
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Menambahkan section baru ke presentasi
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Menambahkan slide baru ke presentasi
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Menambahkan section baru ke presentasi
-    $pres->getSections()->addSection("Section 2", $slide);
-    # Menambahkan slide baru ke presentasi
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Menambahkan section baru ke presentasi
-    $pres->getSections()->addSection("Section 3", $slide);
-    # Menambahkan slide baru ke presentasi
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 3", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->green);
+    $color = new Java("java.awt.Color", 0, 100, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Menambahkan section baru ke presentasi
-    $pres->getSections()->addSection("Section 4", $slide);
-    # Menambahkan objek SummaryZoomFrame
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # Menyimpan presentasi
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->getSections()->addSection("Section 4", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Tambah dan Hapus Section Summary Zoom**
+### **Menambah dan Menghapus Bagian Zoom Ringkasan**
 
-Semua bagian dalam bingkai summary zoom direpresentasikan oleh objek [SummaryZoomSection](https://reference.aspose.com/slides/id/php-java/aspose.slides/summaryzoomsection/) , yang disimpan dalam objek [SummaryZoomSectionCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/summaryzoomsectioncollection/) . Anda dapat menambah atau menghapus objek section summary zoom melalui kelas [SummaryZoomSectionCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/summaryzoomsectioncollection/) dengan cara berikut:
-
-1.	Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
-2.	Buat slide baru dengan latar belakang identifikasi dan bagian baru untuk slide yang dibuat.
-3.	Tambahkan bingkai summary zoom ke slide pertama.
-4.	Tambahkan slide dan bagian baru ke presentasi.
-5.	Tambahkan bagian yang dibuat ke bingkai summary zoom.
-6.	Hapus bagian pertama dari bingkai summary zoom.
-7.	Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-This PHP code shows you how to add and remove sections in a summary zoom frame:
+Zoom ringkasan menyimpan objek [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) dalam [SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection). Contoh ini membuat ikhtisar dua bagian, menambahkan bagian ketiga menggunakan [SummaryZoomSectionCollection::addSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection), dan menghapus entri bagian pertama menggunakan [SummaryZoomSectionCollection::removeSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection). Penghapusan entri tidak mengubah bagian presentasi dan slidennya.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Menambahkan slide baru ke presentasi
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Menambahkan section baru ke presentasi
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Menambahkan slide baru ke presentasi
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $firstSection = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Menambahkan section baru ke presentasi
-    $pres->getSections()->addSection("Section 2", $slide);
-    # Menambahkan objek SummaryZoomFrame
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # Menambahkan slide baru ke presentasi
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Menambahkan section baru ke presentasi
-    $section3 = $pres->getSections()->addSection("Section 3", $slide);
-    # Menambahkan section ke Summary Zoom
-    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($section3);
-    # Menghapus section dari Summary Zoom
-    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($pres->getSections()->get_Item(1));
-    # Menyimpan presentasi
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $thirdSection = $presentation->getSections()->addSection("Section 3", $slide);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($thirdSection);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($firstSection);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Format Section Summary Zoom**
+### **Memformat Bagian Zoom Ringkasan**
 
-Untuk membuat objek section summary zoom yang lebih rumit, Anda harus mengubah format bingkai sederhana. Ada beberapa opsi format yang dapat Anda terapkan pada objek section summary zoom. 
-
-Anda dapat mengontrol format objek section summary zoom dalam bingkai summary zoom dengan cara berikut:
-
-1.	Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
-2.	Buat slide baru dengan latar belakang identifikasi dan bagian baru untuk slide yang dibuat.
-3.	Tambahkan bingkai summary zoom ke slide pertama.
-4.	Dapatkan objek summary zoom section untuk objek pertama dari `SummaryZoomSectionCollection` .
-7.	Buat sebuah objek [PPImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/ppimage/) dengan menambahkan gambar ke koleksi images yang terkait dengan objek [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) yang akan digunakan untuk mengisi bingkai.
-8.	Tetapkan gambar kustom untuk objek bingkai section zoom yang dibuat.
-9.	Atur kemampuan *kembali ke slide asli dari bagian yang ditautkan*.
-11.	Ubah format garis untuk objek bingkai zoom kedua.
-12.	Ubah durasi transisi.
-13.	Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-This PHP code shows you how to change the formatting for a summary zoom section object:
+Contoh ini memformat entri pertama dalam [SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection), menggunakan indeks berbasis nol `0`. Ia memerlukan gambar lokal untuk [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage), menerapkan batas hitam dash‑dot berukuran 1,5 poin, dan mengatur [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) ke 1,5 detik. Memberikan `false` ke [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) menonaktifkan pengembalian otomatis ke slide ringkasan untuk entri ini.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Menambahkan slide baru ke presentasi
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Menambahkan section baru ke presentasi
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Menambahkan slide baru ke presentasi
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Menambahkan section baru ke presentasi
-    $pres->getSections()->addSection("Section 2", $slide);
-    # Menambahkan objek SummaryZoomFrame
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # Mengambil objek SummaryZoomSection pertama
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
     $summarySection = $summaryZoomFrame->getSummaryZoomCollection()->get_Item(0);
-    # Pemformatan untuk objek SummaryZoomSection
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($picture);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    $summarySection->setImage($picture);
+
+    $summarySection->setZoomImage($previewImage);
     $summarySection->setReturnToParent(false);
+
     $summarySection->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->black);
-    $summarySection->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
+    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $summarySection->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
     $summarySection->getLineFormat()->setWidth(1.5);
+
     $summarySection->setTransitionDuration(1.5);
-    # Menyimpan presentasi
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-**Bisakah saya mengontrol kembali ke slide 'induk' setelah menampilkan target?**
+**Apakah saya dapat mengontrol pengembalian ke slide ‘parent’ setelah menampilkan target?**
 
-Ya. Bingkai [Zoom](https://reference.aspose.com/slides/id/php-java/aspose.slides/zoomframe/) atau [section](https://reference.aspose.com/slides/id/php-java/aspose.slides/sectionzoomframe/) memiliki perilaku `ReturnToParent` yang, bila diaktifkan, mengirim penonton kembali ke slide asal setelah mereka mengunjungi konten target.
+Ya. Panggil [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) dengan `true` untuk kembali ke slide asal setelah konten target ditampilkan.
 
-**Bisakah saya mengatur 'kecepatan' atau durasi transisi Zoom?**
+**Apakah saya dapat menyesuaikan ‘kecepatan’ atau durasi transisi Zoom?**
 
-Ya. Zoom mendukung pengaturan `TransitionDuration` sehingga Anda dapat mengontrol berapa lama animasi lompatan berlangsung.
+Ya. Gunakan [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) untuk mengatur durasi transisi dalam detik.
 
 **Apakah ada batasan berapa banyak objek Zoom yang dapat dimiliki sebuah presentasi?**
 
-Tidak ada batasan API keras yang didokumentasikan. Batas praktis tergantung pada kompleksitas keseluruhan presentasi dan kinerja penampil. Anda dapat menambahkan banyak bingkai Zoom, namun pertimbangkan ukuran file dan waktu rendering.
+Tidak ada batas API keras yang didokumentasikan. Batas praktis tergantung pada kompleksitas keseluruhan presentasi dan kinerja penampil. Anda dapat menambahkan banyak frame Zoom, tetapi pertimbangkan ukuran berkas dan waktu render.

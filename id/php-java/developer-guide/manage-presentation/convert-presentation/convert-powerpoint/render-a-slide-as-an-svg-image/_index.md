@@ -16,17 +16,17 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Ekspor slide PowerPoint sebagai gambar SVG di PHP dan kendalikan font, teks, gambar, ID, serta acara dengan Aspose.Slides."
+description: "Ekspor slide PowerPoint sebagai gambar SVG di PHP dan kontrol font, teks, gambar, ID, serta peristiwa dengan Aspose.Slides."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-SVG adalah format gambar berbasis XML yang dapat diskalakan dan cocok untuk penerbitan web, penampil slide, alur kerja aksesibilitas, serta pemrosesan otomatis pasca produksi. Aspose.Slides mengekspor setiap slide ke file SVG terpisah dan memungkinkan Anda mengontrol bagaimana teks, font, gambar, dan elemen SVG dituliskan.
+SVG adalah format gambar berbasis XML yang skalabel dan bekerja dengan baik untuk publikasi web, penampil slide, alur kerja aksesibilitas, serta pemrosesan otomatis. Aspose.Slides mengekspor setiap slide ke file SVG terpisah dan memungkinkan Anda mengontrol bagaimana teks, font, gambar, dan elemen SVG ditulis.
 
-Gunakan [SVGOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/) ketika SVG yang diekspor harus kompak, dapat diprediksi di semua browser, atau siap untuk penggunaan interaktif.
+Gunakan [SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) ketika SVG yang diekspor harus kompak, dapat diprediksi di berbagai peramban, atau siap untuk penggunaan interaktif.
 
 ## **Ekspor Slide sebagai SVG**
 
-Buat sebuah [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/), pilih sebuah slide, dan tulis ke aliran dengan [Slide.writeAsSvg](https://reference.aspose.com/slides/id/php-java/aspose.slides/slide/#writeAsSvg). Contoh berikut mengekspor setiap slide dalam sebuah presentasi sebagai file SVG terpisah.
+Buat [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), pilih sebuah slide, dan tulis ke aliran dengan [Slide.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#writeAsSvg). Contoh berikut mengekspor setiap slide dalam presentasi sebagai file SVG terpisah.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -47,11 +47,11 @@ try {
 }
 ```
 
-Nama file menggunakan [Slide.getSlideNumber](https://reference.aspose.com/slides/id/php-java/aspose.slides/slide/#getSlideNumber) bukan indeks perulangan. Anda juga dapat mengekspor sebuah shape individual dengan [Shape.writeAsSvg](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/#writeAsSvg) ketika penampil slide atau halaman web hanya membutuhkan shape tersebut.
+Nama berkas menggunakan [Slide.getSlideNumber](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getSlideNumber) alih‑alih indeks perulangan. Anda juga dapat mengekspor bentuk individual dengan [Shape.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#writeAsSvg) ketika penampil slide atau halaman web hanya memerlukan bentuk tersebut.
 
-## **Konfigurasi Output SVG**
+## **Konfigurasikan Output SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/) mengontrol rendering SVG. Untuk bingkai teks, [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/#setUseFrameSize) menyertakan bingkai teks dalam area rendering, dan [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/#setUseFrameRotation) menentukan apakah rotasi bingkai diterapkan. Atur [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/#setDisableFontLigatures) ke `true` ketika teks harus dirender tanpa ligatur.
+[SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) mengontrol rendering SVG. Untuk bingkai teks, [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setUseFrameSize) menyertakan bingkai teks dalam area rendering, dan [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setUseFrameRotation) menentukan apakah rotasi bingkai diterapkan. Atur [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setDisableFontLigatures) ke `true` ketika teks harus dirender tanpa ligatur.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -71,11 +71,13 @@ try {
 }
 ```
 
-## **Kontrol Teks dan Font**
+## **Kendalikan Teks dan Font**
 
-### **Vektorisasi Semua Teks**
+Saat mengekspor slide ke SVG, Anda dapat mengendalikan apakah teks tetap berupa teks atau diubah menjadi grafik vektor, serta bagaimana font eksternal disertakan atau dirujuk. Opsi berikut membantu menyeimbangkan konsistensi visual, kemampuan memilih teks, dan ketergantungan font dalam SVG yang diekspor.
 
-Atur [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/#setVectorizeText) ke `true` untuk menulis semua teks slide sebagai grafis vektor. Ini menghilangkan ketergantungan pada font dan membuat hasil visual lebih konsisten di semua browser, namun teks tidak lagi dapat dipilih atau dicari sebagai teks SVG.
+### **Vektor-kan Semua Teks**
+
+Atur [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) ke `true` untuk menulis semua teks slide sebagai grafik vektor. Ini menghilangkan ketergantungan pada font dan membuat hasil visual lebih konsisten di berbagai peramban, namun teks tidak lagi dapat dipilih atau dicari sebagai teks SVG.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -93,9 +95,9 @@ try {
 }
 ```
 
-### **Pilih Cara Penanganan Font Eksternal**
+### **Pilih Cara Menangani Font Eksternal**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/#setExternalFontsHandling) menggunakan nilai [SvgExternalFontsHandling](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgexternalfontshandling/) untuk font yang dimuat secara eksternal. Pilih `AddLinksToFontFiles` untuk merujuk file font terpisah, `Embed` untuk menyertakan data font dalam SVG, atau `Vectorize` untuk merender hanya teks yang menggunakan font eksternal sebagai grafis. Verifikasi lisensi font sebelum menyematkan font.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setExternalFontsHandling) menggunakan nilai [SvgExternalFontsHandling](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/) untuk font yang dimuat secara eksternal. Pilih `AddLinksToFontFiles` untuk merujuk file font terpisah, `Embed` untuk menyertakan data font dalam SVG, atau `Vectorize` untuk merender hanya teks yang menggunakan font eksternal sebagai grafik. Verifikasi lisensi font sebelum menyematkan font.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -135,7 +137,7 @@ try {
 
 ## **Kurangi Ukuran Gambar Tersemat**
 
-Gunakan [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/#setPicturesCompression) untuk mengurangi resolusi gambar tersemat, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas) untuk menghilangkan area sumber yang dipotong, dan [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/#setJpegQuality) untuk mengontrol kualitas enkoding JPEG. Pengaturan ini mengurangi ukuran file dengan mengorbankan ketelitian gambar atau data gambar yang dipertahankan.
+Gunakan [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setPicturesCompression) untuk mengurangi resolusi gambar tersemat, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas) untuk menghilangkan area gambar yang dipotong, dan [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setJpegQuality) untuk mengontrol kualitas enkoding JPEG. Pengaturan ini mengurangi ukuran berkas dengan mengorbankan kesetiaan gambar atau data gambar yang dipertahankan.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -155,13 +157,57 @@ try {
 }
 ```
 
-## **Berikan ID Stabil pada Shape dan Teks**
+## **Kendalikan Resolusi Rasterisasi Metafile**
 
-Berikan callback pemformatan ke [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/#setShapeFormattingController) untuk menetapkan [SvgShape.setId](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgshape/#setId) bagi setiap shape SVG. Callback juga dapat menetapkan nilai [SvgTSpan.setId](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgtspan/#setId) pada elemen `tspan` teks.
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setmetafilerasterizationdpi/) menetapkan batas resolusi terendah untuk merasterkan metafile selama ekspor SVG. Gunakan untuk menyeimbangkan detail dan ukuran berkas ketika gambar EMF atau WMF dirasterkan. Ini tidak mendefinisikan DPI global untuk SVG maupun memaksa setiap objek pada slide menjadi gambar raster.
 
-PhpJavaBridge tidak dapat memanggil callback PHP dari `writeAsSvg` saat berjalan dalam mode aliran. Tempatkan logika pemformatan dalam kelas pembantu Java kecil, kompilasi, dan tambahkan file JAR yang dihasilkan ke classpath bridge. Pembantu dapat menggunakan [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/#getOfficeInteropShapeId), yang stabil selama masa hidup shape, serta counter yang dapat diulang untuk span teksnya. Lihat [implementasi Java dari `StableSvgIdController`](/slides/id/java/render-a-slide-as-an-svg-image/#assign-stable-ids-to-shapes-and-text) untuk kode pembantu.
+Unduh [metafile-rasterization.pptx](metafile-rasterization.pptx), yang berisi gambar EMF dengan garis diagonal berjarak rapat. Contoh berikut mengekspor slide pertamanya dengan tiga resolusi rasterisasi melalui [Slide.writeAsSvg](https://reference.aspose.com/slides/php-java/aspose.slides/slide/writeassvg/). Semua pengaturan ekspor lainnya tetap identik sehingga hasilnya dapat dibandingkan.
 
-Setelah menambahkan kelas `com.example.slides.StableSvgIdController` yang telah dikompilasi ke classpath bridge, buat instansinya dari PHP dan tetapkan ke `SVGOptions`:
+```php
+$presentation = new Presentation("metafile-rasterization.pptx");
+
+try {
+    foreach ([72, 150, 300] as $dpi) {
+        $svgOptions = new SVGOptions();
+        $svgOptions->setMetafileRasterizationDpi($dpi);
+        $svgOptions->setPicturesCompression(PicturesCompression::Dpi330);
+        $svgOptions->setJpegQuality(90);
+
+        $outputFileName = sprintf("slide-%d.svg", $dpi);
+        $svgStream = new Java("java.io.FileOutputStream", $outputFileName);
+
+        try {
+            $presentation->getSlides()->get_Item(0)->writeAsSvg($svgStream, $svgOptions);
+        } finally {
+            $svgStream->close();
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Pada output, EMF menjadi satu PNG tersemat di setiap SVG. Pengukuran berikut untuk presentasi yang disediakan; bukan rumus umum untuk mengonversi DPI ke dimensi piksel.
+
+| DPI rasterisasi metafile | Dimensi PNG tersemat | Ukuran berkas SVG (byte) |
+| --- | --- | --- |
+| 72 | 1196 × 596 | 170,221 |
+| 150 | 2492 × 1242 | 423,149 |
+| 300 | 4983 × 2483 | 1,027,169 |
+
+Perbandingan di bawah menampilkan area raster tersemat yang sama pada ukuran tampilan yang diperbesar. Garis diagonal menunjukkan pikselasi yang terlihat pada 72 DPI dan tepi yang lebih halus pada resolusi lebih tinggi, sementara ukuran berkas SVG bertambah. Meningkatkan nilai tidak selalu memperbaiki setiap detail atau mengubah setiap gambar yang diekspor.
+
+![Detail garis diagonal yang diperbesar pada 72, 150, dan 300 DPI](metafile-rasterization-comparison.png)
+
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setpicturescompression/) mengontrol pengurangan resolusi gambar dan dapat menyamarkan efek perubahan resolusi rasterisasi metafile. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/setjpegquality/) mengontrol kualitas enkoding JPEG, bukan resolusi rasterisasi metafile.
+
+## **Tetapkan ID Stabil untuk Bentuk dan Teks**
+
+Berikan callback pemformatan ke [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setShapeFormattingController) untuk menetapkan [SvgShape.setId](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/#setId) bagi tiap bentuk SVG. Callback juga dapat menetapkan nilai [SvgTSpan.setId](https://reference.aspose.com/slides/php-java/aspose.slides/svgtspan/#setId) pada elemen `tspan` teks.
+
+PhpJavaBridge tidak dapat memanggil callback PHP dari `writeAsSvg` ketika dijalankan dalam mode aliran. Letakkan logika pemformatan dalam kelas pembantu Java kecil, kompilasi, dan tambahkan berkas JAR hasil ke classpath bridge. Pembantu dapat menggunakan [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getOfficeInteropShapeId), yang stabil selama umur bentuk, serta penghitung berulang untuk rentang teksnya. Lihat [implementasi Java dari `StableSvgIdController`](/slides/id/java/render-a-slide-as-an-svg-image/#assign-stable-ids-to-shapes-and-text) untuk kode pembantu.
+
+Setelah menambahkan kelas terkompilasi `com.example.slides.StableSvgIdController` ke classpath bridge, buat instance dari PHP dan tetapkan ke `SVGOptions`:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -181,11 +227,11 @@ try {
 }
 ```
 
-## **Tambahkan Penangkap Acara SVG**
+## **Tambahkan Penangan Peristiwa SVG**
 
-Dalam callback pemformatan, panggil [SvgShape.setEventHandler](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgshape/#setEventHandler) dengan nilai [SvgEvent](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgevent/) untuk menambahkan penangkap acara JavaScript ke sebuah shape yang diekspor. Tetapkan callback dengan [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/#setShapeFormattingController) dan definisikan fungsi JavaScript di halaman atau dokumen SVG yang menampung hasil.
+Dalam callback pemformatan, panggil [SvgShape.setEventHandler](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/#setEventHandler) dengan nilai [SvgEvent](https://reference.aspose.com/slides/php-java/aspose.slides/svgevent/) untuk menambahkan penangan peristiwa JavaScript ke bentuk yang diekspor. Tetapkan callback dengan [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setShapeFormattingController) dan definisikan fungsi JavaScript di halaman atau dokumen SVG yang menampung hasil.
 
-Seperti halnya ID stabil, terapkan callback dalam pembantu Java ketika PhpJavaBridge menggunakan mode aliran. [Implementasi Java dari `SvgEventController`](/slides/id/java/render-a-slide-as-an-svg-image/#add-svg-event-handlers) menetapkan ID dan penangkap `OnClick` ke shape bernama `ActionButton`. Kompilasi pembantu tersebut, tambahkan ke classpath bridge sebagai `com.example.slides.SvgEventController`, dan gunakan dari PHP seperti berikut:
+Seperti pada ID stabil, implementasikan callback dalam pembantu Java ketika PhpJavaBridge menggunakan mode aliran. [Implementasi Java dari `SvgEventController`](/slides/id/java/render-a-slide-as-an-svg-image/#add-svg-event-handlers) menetapkan ID dan penangan `OnClick` ke bentuk bernama `ActionButton`. Kompilasi pembantu tersebut, tambahkan ke classpath bridge sebagai `com.example.slides.SvgEventController`, dan gunakan dari PHP seperti berikut:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -205,18 +251,18 @@ try {
 }
 ```
 
-Halaman host dapat mendefinisikan fungsi JavaScript yang direferensikan oleh penangkap. Penetapan ID dan penangkap acara memungkinkan penampil slide, peningkatan aksesibilitas, dan alur kerja SVG interaktif lainnya.
+Halaman host dapat mendefinisikan fungsi JavaScript yang dirujuk oleh penangan. Penetapan ID dan penangan peristiwa memungkinkan penampil slide, peningkatan aksesibilitas, dan alur kerja SVG interaktif lainnya.
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Kapan saya harus menggunakan [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/#setVectorizeText) alih-alih [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgexternalfontshandling/)?**
+**Kapan saya harus menggunakan [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) alih-alih [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/)?**
 
-Gunakan [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgoptions/#setVectorizeText) ketika semua teks harus independen dari font. Gunakan [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgexternalfontshandling/) ketika hanya teks yang menggunakan font eksternal yang harus dikonversi menjadi grafis.
+Gunakan [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/#setVectorizeText) ketika semua teks harus independen dari font. Gunakan [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/php-java/aspose.slides/svgexternalfontshandling/) ketika hanya teks yang menggunakan font eksternal yang harus diubah menjadi grafik.
 
-**Apa cara terbaik untuk memperkecil ukuran SVG?**
+**Apa cara terbaik untuk mengecilkan ukuran SVG?**
 
-Mulailah dengan mengompres gambar tersemat, menghapus area gambar yang dipotong, dan memilih file font yang ditautkan ketika lingkungan target dapat menyediakannya. Uji hasilnya karena resolusi gambar yang lebih rendah, kualitas JPEG yang lebih rendah, dan teks yang vektorisasi masing‑masing memiliki kompromi kualitas dan ukuran yang berbeda.
+Mulailah dengan mengompres gambar tersemat, menghapus area gambar yang dipotong, dan memilih file font yang ditautkan ketika lingkungan target dapat menyediakannya. Uji hasilnya karena resolusi gambar yang lebih rendah, kualitas JPEG yang lebih rendah, dan teks yang di‑vektorkan memiliki kompromi kualitas dan ukuran yang berbeda.
 
-**Apakah saya dapat memodifikasi elemen SVG yang diekspor setelah ekspor?**
+**Bisakah saya memodifikasi elemen SVG yang diekspor setelah ekspor?**
 
-Ya. Tetapkan ID melalui callback pemformatan, kemudian pilih elemen SVG yang cocok dalam alat pasca‑pemrosesan atau skrip peramban Anda.
+Ya. Tetapkan ID melalui callback pemformatan, lalu pilih elemen SVG yang cocok dalam alat pasca‑pemrosesan atau skrip peramban Anda.

@@ -1,5 +1,5 @@
 ---
-title: Vykreslit snímky prezentace jako obrázky SVG na Androidu
+title: Vykreslit snímky prezentace jako SVG obrázky na Androidu
 linktitle: Snímek na SVG
 type: docs
 weight: 50
@@ -10,23 +10,24 @@ keywords:
 - snímek na SVG
 - PPT na SVG
 - PPTX na SVG
-- možnosti exportu SVG
+- Možnosti exportu SVG
 - interaktivní SVG
 - PowerPoint
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Exportujte snímky PowerPointu jako obrázky SVG na Androidu a pomocí Aspose.Slides řiďte písma, text, obrázky, ID a události."
+description: "Exportujte snímky PowerPointu jako SVG obrázky na Androidu a ovládejte písma, text, obrázky, ID a události pomocí Aspose.Slides."
 ---
 ## **Přehled**
 
-SVG je škálovatelný formát obrázků založený na XML, který se dobře hodí pro webové publikování, prohlížeče snímků, workflow přístupnosti a automatické post-processing. Aspose.Slides for Android via Java exportuje každou snímek do samostatného souboru SVG a umožňuje vám řídit, jak jsou zapisovány text, písma, obrázky a prvky SVG.  
-Použijte [SVGOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgoptions/) , když exportované SVG musí být kompaktní, předvídatelné napříč prohlížeči nebo připravené pro interaktivní použití.
+SVG je škálovatelný formát obrázků založený na XML, který dobře funguje pro webové publikování, prohlížeče snímků, workflow přístupnosti a automatické následné zpracování. Aspose.Slides for Android via Java exportuje každý snímek do samostatného souboru SVG a umožňuje vám řídit, jak jsou zapisovány text, písma, obrázky a SVG prvky.
+
+Použijte [SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) když musí být exportovaný SVG kompaktní, předvídatelný napříč prohlížeči nebo připravený pro interaktivní použití.
 
 ## **Exportovat snímek jako SVG**
 
-Vytvořte [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/), vyberte snímek a zapište jej do proudu pomocí [ISlide.writeAsSvg](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-). Následující příklad exportuje každý snímek v prezentaci do samostatného souboru SVG.
+Vytvořte [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), vyberte snímek a zapíšete jej do proudu pomocí [ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-). Následující příklad exportuje každý snímek v prezentaci do samostatného souboru SVG.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -43,11 +44,11 @@ try {
 }
 ```
 
-Název souboru používá [ISlide.getSlideNumber](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#getSlideNumber--) místo indexu smyčky. Můžete také exportovat jednotlivý tvar pomocí [IShape.writeAsSvg](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-), pokud prohlížeč snímků nebo webová stránka potřebuje jen tento tvar.
+The filename uses [ISlide.getSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideNumber--) místo indexu smyčky. Můžete také exportovat jednotlivý tvar pomocí [IShape.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) když prohlížeč snímků nebo webová stránka potřebuje pouze ten tvar.
 
 ## **Konfigurovat výstup SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgoptions/) řídí vykreslování SVG. Pro textové rámy [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) zahrnuje textový rám do oblasti vykreslování a [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) určuje, zda se má aplikovat rotace rámu. Nastavte [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) na `true`, když musí být text vykreslen bez ligatur.
+[SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) řídí vykreslování SVG. Pro textové rámečky [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) zahrnuje textový rámec do vykreslovací oblasti a [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) určuje, zda se použije rotace rámce. Nastavte [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) na `true`, když text musí být vykreslen bez ligatur.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -66,11 +67,13 @@ try {
 }
 ```
 
-## **Řízení textu a písem**
+## **Ovládání textu a písem**
+
+Při exportu snímků do SVG můžete řídit, zda text zůstane jako text nebo bude převeden na vektorovou grafiku, a jak jsou zahrnuta nebo odkazována externí písma. Následující možnosti vám pomohou vyvážit vizuální konzistenci, výběr textu a závislosti na písmách v exportovaném SVG.
 
 ### **Vektorizovat celý text**
 
-Nastavte [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) na `true`, aby byl celý text snímku zapisován jako vektorová grafika. Tím se odstraní závislosti na písmech a výsledek bude vizuálně konzistentnější napříč prohlížeči, avšak text již nebude možné v SVG vybrat ani vyhledávat.
+Nastavte [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) na `true`, aby byl veškerý text snímku zapisován jako vektorová grafika. Tím se eliminují závislosti na písmenech a výsledek je vizuálně konzistentnější napříč prohlížeči, ale text již nebude možné vybrat ani vyhledávat jako SVG text.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -87,9 +90,9 @@ try {
 }
 ```
 
-### **Zvolte, jak jsou zpracovávána externí písma**
+### **Zvolte, jak jsou externí písma zpracovávána**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) používá hodnotu [SvgExternalFontsHandling](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgexternalfontshandling/) pro písma načítaná externě. Zvolte [SvgExternalFontsHandling.AddLinksToFontFiles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgexternalfontshandling/) pro odkazování na samostatné soubory písem, [SvgExternalFontsHandling.Embed](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgexternalfontshandling/) pro vložení dat písem do SVG, nebo [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgexternalfontshandling/) pro vykreslení pouze textu používajícího externí písma jako grafiky. Před vložením písem ověřte licencování písem.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) používá hodnotu [SvgExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) pro písma, která jsou načítána externě. Zvolte [SvgExternalFontsHandling.AddLinksToFontFiles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) pro odkazování na samostatné soubory písem, [SvgExternalFontsHandling.Embed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) pro zahrnutí dat písem do SVG, nebo [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) pro vykreslení pouze textu používajícího externí písma jako grafiku. Před začleněním písem ověřte licencování písem.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -120,7 +123,7 @@ try {
 
 ## **Snížit velikost vložených obrázků**
 
-Použijte [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) ke snížení rozlišení vložených obrázků, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) k vynechání oříznutých oblastí zdroje a [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) ke kontrole kvality JPEG kódování. Tato nastavení zmenšují velikost souboru na úkor věrnosti obrazu nebo zachovaných dat obrázku.
+Použijte [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) aby se snížilo rozlišení vložených obrázků, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) k vynechání oříznutých oblastí zdrojových obrázků a [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) k řízení kvality JPEG kódování. Tato nastavení snižují velikost souboru na úkor věrnosti obrazu nebo zachování dat obrázků.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -139,11 +142,55 @@ try {
 }
 ```
 
+## **Řízení rozlišení rasterizace metafile**
+
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setMetafileRasterizationDpi-int-) nastavuje dolní limit rozlišení pro rasterizaci metafile během exportu SVG. Použijte jej k vyvážení detailu a velikosti souboru, když je EMF nebo WMF obrázek rasterizován. Nedefinuje globální DPI pro SVG ani nenutí každý objekt na snímku stát se rastrovým obrázkem.
+
+Stáhněte [metafile-rasterization.pptx](metafile-rasterization.pptx), který obsahuje EMF obrázek s těsně spojenými úhlopříčnými čarami. Následující příklad exportuje jeho první snímek ve třech rozlišeních rasterizace pomocí [ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-). Všechna ostatní nastavení exportu zůstávají identická, aby bylo možné výsledky porovnat.
+
+```java
+import com.aspose.slides.PicturesCompression;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SVGOptions;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("metafile-rasterization.pptx");
+try {
+    for (int dpi : new int[] { 72, 150, 300 }) {
+        SVGOptions svgOptions = new SVGOptions();
+        svgOptions.setMetafileRasterizationDpi(dpi);
+        svgOptions.setPicturesCompression(PicturesCompression.Dpi330);
+        svgOptions.setJpegQuality(90);
+
+        String outputFileName = String.format("slide-%d.svg", dpi);
+        try (FileOutputStream svgStream = new FileOutputStream(outputFileName)) {
+            presentation.getSlides().get_Item(0).writeAsSvg(svgStream, svgOptions);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Ve výstupu se EMF změnil na jeden vložený PNG v každém SVG. Následující měření jsou pro dodanou prezentaci; nejsou obecnou formulí pro převod DPI na rozměry v pixelech.
+
+| Rasterizace metafile DPI | Rozměry vloženého PNG | Velikost souboru SVG (bajty) |
+| --- | --- | --- |
+| 72 | 1196 × 596 | 170,221 |
+| 150 | 2492 × 1242 | 423,149 |
+| 300 | 4983 × 2483 | 1,027,169 |
+
+Srovnání níže ukazuje stejnou oblast vloženého rastrového obrázku při stejném zvětšeném zobrazení. Úhlopříčné čáry vykazují viditelnou pixelaci při 72 DPI a hladší hrany při vyšších rozlišeních, zatímco velikost souboru SVG roste. Zvýšení hodnoty nutně nezlepší každý detail ani nezmění každý exportovaný obrázek.
+
+![Zvětšený detail úhlopříčných čar při 72, 150 a 300 DPI](metafile-rasterization-comparison.png)
+
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) řídí snižování rozlišení obrázku a může maskovat vliv změny rozlišení rasterizace metafile. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) řídí kvalitu JPEG kódování, nikoli rozlišení rasterizace metafile.
+
 ## **Přiřadit stabilní ID tvarům a textu**
 
-Použijte [ISvgShapeFormattingController](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) k nastavení [ISvgShape.setId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgshape/#setId-java.lang.String-) pro každý tvar SVG. Pro nastavení hodnot [ISvgTSpan.setId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgtspan/#setId-java.lang.String-) na elementech textu `tspan` rovněž implementujte [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgshapeandtextformattingcontroller/). Přidělte jeden z těchto kontrolerů pomocí [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-).
+Použijte [ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) abyste nastavili [ISvgShape.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setId-java.lang.String-) pro každý SVG tvar. Pro nastavení hodnot [ISvgTSpan.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgtspan/#setId-java.lang.String-) u textových elementů `tspan` také implementujte [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeandtextformattingcontroller/). Přiřaďte kterýkoli z kontrolerů pomocí [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-).
 
-Následující kontroler používá [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--), který je stabilní po celou dobu existence tvaru, a opakovatelný čítač pro jeho textové spany. To činí generovaná ID vhodná pro post-processing nezměněné prezentace.
+Následující kontroler používá [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--), který je stabilní po celou životnost tvaru, a opakovatelný čítač pro jeho textové spany. To činí generovaná ID vhodná pro následné zpracování nezměněné prezentace.
 
 ```java
 class StableSvgIdController implements ISvgShapeAndTextFormattingController {
@@ -175,9 +222,9 @@ try {
 }
 ```
 
-## **Přidat SVG událostní obslužné funkce**
+## **Přidat SVG obslužné rutiny událostí**
 
-V [ISvgShapeFormattingController](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) zavolejte [ISvgShape.setEventHandler](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) s hodnotou [SvgEvent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgevent/) pro přidání JavaScriptového obslužného funkce události k exportovanému tvaru. Přidělte kontroler pomocí [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) a definujte JavaScriptovou funkci na stránce nebo v SVG dokumentu, který výsledek hostuje.
+V [ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) zavolejte [ISvgShape.setEventHandler](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) s hodnotou [SvgEvent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgevent/) , abyste přidali JavaScriptový obslužný kód události k exportovanému tvaru. Přiřaďte kontroler pomocí [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) a definujte JavaScriptovou funkci na stránce nebo v SVG dokumentu, který výsledek hostí.
 
 ```java
 class SvgEventController implements ISvgShapeFormattingController {
@@ -203,18 +250,18 @@ try {
 }
 ```
 
-Hostitelská stránka může definovat JavaScriptovou funkci odkazovanou obslužným prvkem. Přiřazování ID a obslužných funkcí událostí umožňuje prohlížeče snímků, vylepšení přístupnosti a další interaktivní SVG workflow.
+Hostitelská stránka může definovat JavaScriptovou funkci odkazovanou obslužným kódem. Přiřazování ID a obslužných rutin událostí umožňuje prohlížečům snímků, vylepšení přístupnosti a další interaktivní SVG workflow.
 
 ## **Často kladené otázky**
 
-**Kdy bych měl použít [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) místo [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgexternalfontshandling/)?**
+**Kdy mám použít [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) místo [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/)?**
 
-Použijte [SVGOptions.setVectorizeText], když musí být celý text nezávislý na písmech. Použijte [SvgExternalFontsHandling.Vectorize], když by měl být převáděn na grafiku pouze text, který používá externí písma.
+Použijte [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-), když musí být celý text nezávislý na písmenech. Použijte [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/), když by měl být převeden jen text využívající externí písma na grafiku.
 
 **Jaký je nejlepší způsob, jak zmenšit SVG?**
 
 Začněte kompresí vložených obrázků, odstraněním oříznutých oblastí obrázků a výběrem odkazovaných souborů písem, pokud cílové prostředí může tyto soubory poskytovat. Otestujte výsledek, protože nižší rozlišení obrázku, nižší kvalita JPEG a vektorizovaný text mají různé kompromisy mezi kvalitou a velikostí.
 
-**Mohu po exportu upravit exportované SVG elementy?**
+**Mohu po exportu upravovat exportované SVG elementy?**
 
-Ano. Přidělte ID pomocí kontroleru formátování a poté vyberte odpovídající SVG elementy ve vašem post-processing nástroji nebo skriptu v prohlížeči.
+Ano. Přiřaďte ID pomocí formátovacího kontroleru a poté vyberte odpovídající SVG elementy ve vašem nástroji pro následné zpracování nebo v prohlížečovém skriptu.

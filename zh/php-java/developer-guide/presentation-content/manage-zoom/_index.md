@@ -1,535 +1,541 @@
 ---
-title: 管理 PHP 中的演示文稿缩放
+title: 在 PHP 中管理演示文稿缩放
 linktitle: 管理缩放
 type: docs
 weight: 60
 url: /zh/php-java/manage-zoom/
 keywords:
 - 缩放
-- 缩放框架
+- 缩放帧
 - 幻灯片缩放
 - 章节缩放
-- 摘要缩放
+- 汇总缩放
 - 添加缩放
 - PowerPoint
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP via Java 创建和自定义缩放 —— 在章节之间跳转，在 PPT、PPTX 和 ODP 演示文稿中添加缩略图和过渡效果。"
+description: "使用 Aspose.Slides for PHP via Java 创建并自定义缩放——在章节之间跳转，在 PowerPoint 演示文稿中添加缩略图和过渡效果。"
 ---
+## **简介**
 
-## **概述**
-PowerPoint 中的缩放功能允许您在演示文稿的特定幻灯片、章节和部分之间跳转。当您进行演示时，这种快速跨内容导航的能力可能非常有用。
+PowerPoint 缩放功能可让您在幻灯片放映期间在特定幻灯片和章节之间导航。使用 Aspose.Slides for PHP via Java，您可以创建幻灯片缩放、章节缩放和汇总缩放，并自定义它们的预览、边框和过渡效果。
 
-![overview_image](overview.png)
+![PowerPoint 缩放概览](overview.png)
 
-* 要在单张幻灯片上概括整个演示文稿，请使用[Summary Zoom](#Summary-Zoom)。
-* 只显示选定的幻灯片，请使用[Slide Zoom](#Slide-Zoom)。
-* 只显示单个章节，请使用[Section Zoom](#Section-Zoom)。
+* 要在单个幻灯片上汇总整个演示文稿，请使用 [汇总缩放](#summary-zoom)。
+* 仅显示选定的幻灯片，请使用 [幻灯片缩放](#slide-zoom)。
+* 仅显示单个章节，请使用 [章节缩放](#section-zoom)。
 
 ## **幻灯片缩放**
-幻灯片缩放可以使您的演示更加生动，允许您在任意顺序自由地在幻灯片之间跳转，而不会中断演示的流程。幻灯片缩放非常适合章节不多的短篇演示，但您仍可在各种演示场景中使用它们。
 
-幻灯片缩放帮助您深入多个信息块，同时保持在同一画布上的感觉。
+幻灯片缩放可以使您的演示更加动态，允许您在任意顺序自由导航幻灯片，而不会中断演示的流程。幻灯片缩放非常适合章节不多的短篇演示，但在其他演示场景中也可以使用。
 
-![overview_image](slidezoomsel.png)
+幻灯片缩放让您可以从单个概览幻灯片中探索相关信息。
 
-对于幻灯片缩放对象，Aspose.Slides 提供了 [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/zoomimagetype/) 枚举、[ZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) 类以及 [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) 类下的一些方法。
+![选择幻灯片进行幻灯片缩放](slidezoomsel.png)
 
-### **创建缩放框架**
-您可以按照以下方式在幻灯片上添加缩放框架：
+对于幻灯片缩放对象，Aspose.Slides 提供了 [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/zoomimagetype/) 枚举、[ZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) 类以及 [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) 类中的方法。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。
-2. 创建您打算链接缩放框架的新幻灯片。
-3. 为创建的幻灯片添加标识文本和背景。
-4. 向第一张幻灯片添加缩放框架（包含对已创建幻灯片的引用）。
-5. 将修改后的演示文稿写入为 PPTX 文件。
+### **创建缩放帧**
 
-下面的 PHP 代码展示了如何在幻灯片上创建缩放框架：
+使用 [ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) 在概览幻灯片上放置指向各个幻灯片的链接。此示例创建两个具有不同背景和标签的目标幻灯片，然后在第一张幻灯片上添加每个的预览并将演示文稿保存为 PPTX。帧的位置和尺寸以点为单位指定。
+
 ```php
-  $pres = new Presentation();
-  try {
-    # 添加新的幻灯片到演示文稿
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # 为第二张幻灯片创建背景
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # 为第二张幻灯片创建文本框
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # 为第三张幻灯片创建背景
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # 为第三张幻灯片创建文本框
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # 添加 ZoomFrame 对象
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # 保存演示文稿
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+### **使用自定义图像创建缩放帧**
 
-### **使用自定义图像创建缩放框架**
-使用 Aspose.Slides for PHP via Java，您可以按以下方式创建具有不同幻灯片预览图像的缩放框架：
+向 [ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) 传递自定义图像，以替代目标幻灯片的默认预览。本示例需要本地图像，使用 [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) 将其加载，并通过 [ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage) 将其添加到演示文稿中。生成的帧显示该图像，同时仍然链接到第二张幻灯片。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。
-2. 创建一个您打算链接缩放框架的新幻灯片。 
-3. 为幻灯片添加标识文本和背景。
-4. 通过向与 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 对象关联的 Images 集合中添加图像，创建一个 [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) 对象，以用于填充框架。
-5. 向第一张幻灯片添加缩放框架（包含对已创建幻灯片的引用）。
-6. 将修改后的演示文稿写入为 PPTX 文件。
-
-下面的 PHP 代码展示了如何使用不同的图像创建缩放框架：
 ```php
-  $pres = new Presentation();
-  try {
-    # 添加一个新的幻灯片到演示文稿
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # 为第二张幻灯片创建背景
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # 为第三张幻灯片创建文本框
-    $autoshape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # 为缩放对象创建新图像
-    $picture;
-    $image = Images->fromFile("image.png");
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # 添加 ZoomFrame 对象
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $picture);
-    # 保存演示文稿
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+### **格式化缩放帧**
 
-### **格式化缩放框架**
-在前面的章节中，我们展示了如何创建简单的缩放框架。要创建更复杂的缩放框架，您必须更改简单框架的格式。您可以对缩放框架应用多种格式选项。
+此示例自定义了两个幻灯片缩放帧。它通过 [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage) 为第一个帧分配本地图像，并通过 [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) 为第二个帧设置五点、点划线的粉色边框。向 [ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground) 传入 `false` 可隐藏第二个帧的背景。自定义预览需要本地图像；两帧在保存的 PPTX 中仍保留其幻灯片目标。
 
-您可以按照以下方式在幻灯片上控制缩放框架的格式：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。
-2. 创建您打算链接缩放框架的新幻灯片。
-3. 为创建的幻灯片添加一些标识文本和背景。
-4. 向第一张幻灯片添加缩放框架（包含对已创建幻灯片的引用）。
-5. 通过向与 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 对象关联的 Images 集合中添加图像，创建一个 [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) 对象，以用于填充框架。
-6. 为第一个缩放框架对象设置自定义图像。
-7. 更改第二个缩放框架对象的线条格式。
-8. 移除第二个缩放框架对象图像的背景。
-9. 将修改后的演示文稿写入为 PPTX 文件。
-
-下面的 PHP 代码展示了如何在幻灯片上更改缩放框架的格式：
 ```php
-  $pres = new Presentation();
-  try {
-    # 添加新幻灯片到演示文稿
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # 为第二张幻灯片创建背景
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # 为第二张幻灯片创建文本框
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # 为第三张幻灯片创建背景
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # 为第三张幻灯片创建文本框
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # 添加 ZoomFrame 对象
-    $zoomFrame1 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $zoomFrame2 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # 为缩放对象创建新图像
-    $picture;
-    $image = Images->fromFile("image.png");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # 为 zoomFrame1 对象设置自定义图像
-    $zoomFrame1->setImage($picture);
-    # 为 zoomFrame2 对象设置缩放框架格式
-    $zoomFrame2->getLineFormat()->setWidth(5);
-    $zoomFrame2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $zoomFrame2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->pink);
-    $zoomFrame2->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
-    # 设置 zoomFrame2 对象不显示背景
-    $zoomFrame2->setShowBackground(false);
-    # 保存演示文稿
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $firstZoomFrame = $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $secondZoomFrame = $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+    $image = Images::fromFile("image.png");
+    try {
+        $previewImage = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
+
+    $firstZoomFrame->setZoomImage($previewImage);
+
+    $secondZoomFrame->getLineFormat()->setWidth(5);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 255, 105, 180);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $secondZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
+
+    $secondZoomFrame->setShowBackground(false);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **章节缩放**
-章节缩放是指向您演示文稿中某个章节的链接。您可以使用章节缩放返回到您想特别强调的章节，或用来突出演示文稿中某些部分之间的关联。
 
-![overview_image](seczoomsel.png)
+章节缩放链接到演示文稿中的某个章节。可用于重新访问主题或展示演示不同部分之间的关联。
 
-对于章节缩放对象，Aspose.Slides 提供了 [SectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) 类以及 [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) 类下的一些方法。
+![选择章节进行章节缩放](seczoomsel.png)
 
-### **创建章节缩放框架**
-您可以按照以下方式向幻灯片添加章节缩放框架：
+对于章节缩放对象，Aspose.Slides 提供了 [SectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) 类以及 [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) 类中的方法。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。
-2. 创建一个新幻灯片。 
-3. 为创建的幻灯片添加标识背景。
-4. 创建一个您打算链接缩放框架的新章节。 
-5. 向第一张幻灯片添加章节缩放框架（包含对已创建章节的引用）。
-6. 将修改后的演示文稿写入为 PPTX 文件。
+### **创建章节缩放帧**
 
-下面的 PHP 代码展示了如何在幻灯片上创建缩放框架：
+使用 [SectionCollection::addSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectioncollection/#addSection) 创建章节，然后将返回的章节传递给 [ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame)。本示例在第一张幻灯片上放置章节缩放，并将其链接到以彩色幻灯片开头的章节。帧的位置和尺寸以点为单位指定，演示文稿保存为 PPTX。
+
 ```php
-  $pres = new Presentation();
-  try {
-    # 添加一个新的幻灯片到演示文稿
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # 向演示文稿添加一个新章节
-    $pres->getSections()->addSection("Section 1", $slide);
-    # 添加 SectionZoomFrame 对象
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # 保存演示文稿
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+### **使用自定义图像创建章节缩放帧**
 
-### **使用自定义图像创建章节缩放框架**
-使用 Aspose.Slides for PHP via Java，您可以按以下方式创建具有不同幻灯片预览图像的章节缩放框架：
+[ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame) 的图像重载允许您在不更改目标章节的情况下显示自定义预览。本示例需要本地图像，使用 [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) 加载，并通过 [ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage) 添加。保存的演示文稿在第一张幻灯片上包含一个链接到新创建章节的章节缩放。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。
-2. 创建一个新幻灯片。
-3. 为创建的幻灯片添加标识背景。
-4. 创建一个您打算链接缩放框架的新章节。 
-5. 通过向与 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 对象关联的 Images 集合中添加图像，创建一个 [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) 对象，以用于填充框架。
-6. 向第一张幻灯片添加章节缩放框架（包含对已创建章节的引用）。
-7. 将修改后的演示文稿写入为 PPTX 文件。
-
-下面的 PHP 代码展示了如何使用不同的图像创建缩放框架：
 ```php
-  $pres = new Presentation();
-  try {
-    # 添加新的幻灯片到演示文稿
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # 添加一个新章节到演示文稿
-    $pres->getSections()->addSection("Section 1", $slide);
-    # 为缩放对象创建新图像
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # 添加 SectionZoomFrame 对象
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1), $picture);
-    # 保存演示文稿
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+### **更改章节缩放的目标章节**
 
-### **格式化章节缩放框架**
-要创建更复杂的章节缩放框架，您必须更改简单框架的格式。您可以对章节缩放框架应用多种格式选项。
+使用 [SectionZoomFrame::setTargetSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/#setTargetSection) 可以在不重新创建的情况下重新定向现有的章节缩放。请选择同一演示文稿的 [Presentation::getSections](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSections) 集合中的已填充章节。将空章节分配给它会保持当前目标不变，因此在分配之前请检查 [Section::getSlidesListOfSection](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSlidesListOfSection)。有关章节的更多信息，请参阅 [Manage Slide Sections](/slides/zh/php-java/slide-section/)。
 
-您可以按照以下方式在幻灯片上控制章节缩放框架的格式：
+下面的示例加载一个演示文稿文件，该文件必须包含多个已填充章节、一个名为 `Section navigation` 的现有章节缩放，以及一个唯一名称为 `Results` 的章节。它在所有幻灯片中搜索该缩放，并通过名称而不是可能因章节重新排序而变化的集合索引来找到目标。如果名称不唯一，请改用 [Section::getSectionId](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSectionId) 来标识目标。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。
-2. 创建一个新幻灯片。
-3. 为创建的幻灯片添加标识背景。
-4. 创建一个您打算链接缩放框架的新章节。 
-5. 向第一张幻灯片添加章节缩放框架（包含对已创建章节的引用）。
-6. 更改已创建章节缩放对象的大小和位置。
-7. 通过向与 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 对象关联的 images 集合中添加图像，创建一个 [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) 对象，以用于填充框架。
-8. 为已创建的章节缩放框架对象设置自定义图像。
-9. 设置*从链接章节返回原始幻灯片*的功能。
-10. 移除章节缩放框架对象图像的背景。
-11. 更改第二个缩放框架对象的线条格式。
-12. 更改过渡持续时间。
-13. 将修改后的演示文稿写入为 PPTX 文件。
-
-下面的 PHP 代码展示了如何更改章节缩放框架的格式：
 ```php
-  $pres = new Presentation();
-  try {
-    # 添加一个新幻灯片到演示文稿
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("section-zoom.pptx");
+try {
+    $zoom = null;
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($i = 0; $i < $slideCount; $i++) {
+        $slide = $presentation->getSlides()->get_Item($i);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($j = 0; $j < $shapeCount; $j++) {
+            $shape = $slide->getShapes()->get_Item($j);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.ISectionZoomFrame")) && java_values($shape->getName()) === "Section navigation") {
+                $zoom = $shape;
+                break;
+            }
+        }
+        if ($zoom != null) {
+            break;
+        }
+    }
+
+    $targetSection = null;
+    $sectionCount = java_values($presentation->getSections()->size());
+    for ($i = 0; $i < $sectionCount; $i++) {
+        $section = $presentation->getSections()->get_Item($i);
+        if (java_values($section->getName()) === "Results") {
+            $targetSection = $section;
+            break;
+        }
+    }
+
+    if ($zoom == null || $targetSection == null) {
+        echo "The section zoom or destination section was not found.", PHP_EOL;
+    } else if (java_values($targetSection->getSlidesListOfSection()->size()) == 0) {
+        echo "The destination section is empty.", PHP_EOL;
+    } else {
+        $currentSection = $zoom->getTargetSection();
+        echo "Current section: " . (java_is_null($currentSection) ? "" : java_values($currentSection->getName())), PHP_EOL;
+        $zoom->setTargetSection($targetSection);
+        $presentation->save("section-zoom-updated.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **格式化章节缩放帧**
+
+此示例将章节缩放移动并调整大小为 100×75 点，通过 [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage) 分配本地图像，并应用 2.5 点、点划线的棕色边框。它启用 [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) 以在章节结束后返回到源幻灯片，禁用 [ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground)，并将 [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) 设置为 1.5 秒。自定义预览需要本地图像。
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # 向演示文稿添加一个新章节
-    $pres->getSections()->addSection("Section 1", $slide);
-    # 添加 SectionZoomFrame 对象
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # SectionZoomFrame 的格式设置
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
     $sectionZoomFrame->setX(100);
     $sectionZoomFrame->setY(300);
     $sectionZoomFrame->setWidth(100);
     $sectionZoomFrame->setHeight(75);
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    $sectionZoomFrame->setImage($picture);
+
+    $sectionZoomFrame->setZoomImage($previewImage);
+
     $sectionZoomFrame->setReturnToParent(true);
     $sectionZoomFrame->setShowBackground(false);
+
     $sectionZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
-    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
     $sectionZoomFrame->getLineFormat()->setWidth(2.5);
+
     $sectionZoomFrame->setTransitionDuration(1.5);
-    # 保存演示文稿
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **汇总缩放**
 
-## **摘要缩放**
-摘要缩放类似于一个着陆页，展示您演示文稿的所有部分。当您进行演示时，可以使用缩放在演示的任意位置之间跳转，顺序随意。您可以发挥创意，提前跳过或重新访问幻灯片的各个部分，而不会中断演示的流程。
+汇总缩放提供演示章节的概览。在幻灯片放映期间，您可以使用它跳转到某个章节、快进或重新访问主题，而无需遵循幻灯片顺序。
 
-![overview_image](sumzoomsel.png)
+![选择章节进行汇总缩放](sumzoomsel.png)
 
-对于摘要缩放对象，Aspose.Slides 提供了 [SummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/), [SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) 类以及 [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) 类下的一些方法。
+对于汇总缩放对象，Aspose.Slides 提供了 [SummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/)、[SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) 和 [SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) 类以及 [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) 类中的方法。
 
-### **创建摘要缩放**
-您可以按照以下方式向幻灯片添加摘要缩放框架：
+### **创建汇总缩放**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。
-2. 为创建的幻灯片创建带有标识背景和新章节的幻灯片。
-3. 将摘要缩放框架添加到第一张幻灯片。
-4. 将修改后的演示文稿写入为 PPTX 文件。
+使用 [ShapeCollection::addSummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSummaryZoomFrame) 创建演示章节的概览。本示例创建四个具有不同幻灯片背景的章节，并在第一张幻灯片上添加汇总缩放。帧的位置和尺寸以点为单位指定，生成的概览保存在 PPTX 演示文稿中。
 
-下面的 PHP 代码展示了如何在幻灯片上创建摘要缩放框架：
 ```php
-  $pres = new Presentation();
-  try {
-    # 添加一个新幻灯片到演示文稿
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # 向演示文稿添加一个新章节
-    $pres->getSections()->addSection("Section 1", $slide);
-    # 添加一个新幻灯片到演示文稿
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # 向演示文稿添加一个新章节
-    $pres->getSections()->addSection("Section 2", $slide);
-    # 添加一个新幻灯片到演示文稿
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # 向演示文稿添加一个新章节
-    $pres->getSections()->addSection("Section 3", $slide);
-    # 添加一个新幻灯片到演示文稿
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 3", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->green);
+    $color = new Java("java.awt.Color", 0, 100, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # 向演示文稿添加一个新章节
-    $pres->getSections()->addSection("Section 4", $slide);
-    # 添加 SummaryZoomFrame 对象
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # 保存演示文稿
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->getSections()->addSection("Section 4", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+### **添加和删除汇总缩放章节**
 
-### **添加和移除摘要缩放章节**
-摘要缩放框架中的所有章节均由 [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) 对象表示，这些对象存储在 [SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) 中。您可以通过以下方式使用 [SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) 类添加或移除摘要缩放章节对象：
+汇总缩放将其 [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) 对象存储在 [SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) 中。本示例创建两个章节的概览，使用 [SummaryZoomSectionCollection::addSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) 添加第三个章节，并使用 [SummaryZoomSectionCollection::removeSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection) 删除第一个章节的条目。删除该条目后，演示文稿的章节及其幻灯片保持完整。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。
-2. 为创建的幻灯片创建带有标识背景和新章节的幻灯片。
-3. 将摘要缩放框架添加到第一张幻灯片中。
-4. 向演示文稿中添加新的幻灯片和章节。
-5. 将已创建的章节添加到摘要缩放框架中。
-6. 从摘要缩放框架中移除第一章节。
-7. 将修改后的演示文稿写入为 PPTX 文件。
-
-下面的 PHP 代码展示了如何在摘要缩放框架中添加和移除章节：
 ```php
-  $pres = new Presentation();
-  try {
-    # 添加一个新幻灯片到演示文稿
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # 添加一个新章节到演示文稿
-    $pres->getSections()->addSection("Section 1", $slide);
-    # 添加一个新幻灯片到演示文稿
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $firstSection = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # 添加一个新章节到演示文稿
-    $pres->getSections()->addSection("Section 2", $slide);
-    # 添加 SummaryZoomFrame 对象
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # 添加一个新幻灯片到演示文稿
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # 添加一个新章节到演示文稿
-    $section3 = $pres->getSections()->addSection("Section 3", $slide);
-    # 向 Summary Zoom 添加章节
-    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($section3);
-    # 从 Summary Zoom 移除章节
-    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($pres->getSections()->get_Item(1));
-    # 保存演示文稿
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $thirdSection = $presentation->getSections()->addSection("Section 3", $slide);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($thirdSection);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($firstSection);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+### **格式化汇总缩放章节**
 
-### **格式化摘要缩放章节**
-要创建更复杂的摘要缩放章节对象，您必须更改简单框架的格式。您可以对摘要缩放章节对象应用多种格式选项。
+此示例使用零基索引 `0` 对 [SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) 中的首个条目进行格式化。它需要本地图像用于 [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage)，并应用 1.5 点、点划线的黑色边框，同时将 [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) 设置为 1.5 秒。向 [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) 传入 `false` 可禁用此条目自动返回汇总幻灯片的功能。
 
-您可以按照以下方式在摘要缩放框架中控制摘要缩放章节对象的格式：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。
-2. 为创建的幻灯片创建带有标识背景和新章节的幻灯片。
-3. 将摘要缩放框架添加到第一张幻灯片。
-4. 从 `SummaryZoomSectionCollection` 中获取第一个对象的摘要缩放章节对象。
-5. 通过向与 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 对象关联的 images 集合中添加图像，创建一个 [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) 对象，以用于填充框架。
-6. 为已创建的章节缩放框架对象设置自定义图像。
-7. 设置*从链接章节返回原始幻灯片*的功能。
-8. 更改第二个缩放框架对象的线条格式。
-9. 更改过渡持续时间。
-10. 将修改后的演示文稿写入为 PPTX 文件。
-
-下面的 PHP 代码展示了如何更改摘要缩放章节对象的格式：
 ```php
-  $pres = new Presentation();
-  try {
-    # 添加一个新幻灯片到演示文稿
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # 添加一个新章节到演示文稿
-    $pres->getSections()->addSection("Section 1", $slide);
-    # 添加一个新幻灯片到演示文稿
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # 添加一个新章节到演示文稿
-    $pres->getSections()->addSection("Section 2", $slide);
-    # 添加 SummaryZoomFrame 对象
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # 获取第一个 SummaryZoomSection 对象
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
     $summarySection = $summaryZoomFrame->getSummaryZoomCollection()->get_Item(0);
-    # 为 SummaryZoomSection 对象设置格式
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($picture);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    $summarySection->setImage($picture);
-    $summarySection->setReturnToParent(false);
-    $summarySection->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->black);
-    $summarySection->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
-    $summarySection->getLineFormat()->setWidth(1.5);
-    $summarySection->setTransitionDuration(1.5);
-    # 保存演示文稿
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
 
+    $summarySection->setZoomImage($previewImage);
+    $summarySection->setReturnToParent(false);
+
+    $summarySection->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $summarySection->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
+    $summarySection->getLineFormat()->setWidth(1.5);
+
+    $summarySection->setTransitionDuration(1.5);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **常见问题**
-**我可以控制在显示目标后返回“父”幻灯片吗？**
 
-是的。[Zoom frame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) 或 [section](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) 具有 `ReturnToParent` 行为，启用后会在观看者浏览目标内容后将其返回到原始幻灯片。
+**我可以控制在显示目标后返回到“父”幻灯片吗？**
+
+是的。调用 [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) 并传入 `true`，即可在显示目标内容后返回到源幻灯片。
 
 **我可以调整缩放过渡的“速度”或持续时间吗？**
 
-是的。Zoom 支持设置 `TransitionDuration`，您可以控制跳转动画的时长。
+是的。使用 [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) 可控制过渡持续时间（秒）。
 
-**演示文稿中可以包含的 Zoom 对象数量有限制吗？**
+**演示文稿中可以包含的缩放对象数量有限制吗？**
 
-文档中未列出硬性 API 限制。实际限制取决于整体演示的复杂度和观看者的性能。您可以添加大量 Zoom 框，但需要考虑文件大小和渲染时间。
+文档中未注明硬性 API 限制。实际限制取决于演示文稿的整体复杂度以及查看器的性能。您可以添加大量缩放帧，但需考虑文件大小和渲染时间。

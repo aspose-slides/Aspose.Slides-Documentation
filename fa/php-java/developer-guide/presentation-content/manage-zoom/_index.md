@@ -10,531 +10,532 @@ keywords:
 - زوم اسلاید
 - زوم بخش
 - زوم خلاصه
-- اضافه کردن زوم
-- PowerPoint
+- افزودن زوم
+- پاورپوینت
 - ارائه
 - PHP
 - Aspose.Slides
-description: "ایجاد و سفارشی‌سازی زوم با Aspose.Slides برای PHP از طریق Java — پرش بین بخش‌ها، افزودن تصویر بندانگشتی و انتقال‌ها در ارائه‌های PPT، PPTX و ODP."
+description: "ایجاد و سفارشی‌سازی زوم با Aspose.Slides برای PHP از طریق Java — پرش بین بخش‌ها، افزودن تصویر بندانگشتی و انتقال‌ها در ارائه‌های PowerPoint."
 ---
 ## **مقدمه**
 
-Zoomها در PowerPoint به شما اجازه می‌دهند تا به اسلایدها، بخش‌ها و قسمت‌های خاصی از یک ارائه پرش کنید و از آن‌ها بازگردید. وقتی ارائه می‌دهید، این قابلیت برای ناوبری سریع در میان محتوا می‌تواند بسیار مفید باشد. 
+زاوم‌های پاورپوینت به شما اجازه می‌دهند بین اسلایدها و بخش‌های خاص در حین نمایش اسلاید حرکت کنید. با Aspose.Slides برای PHP از طریق Java می‌توانید زوم‌های اسلاید، بخش و خلاصه‌وار را ایجاد کرده و پیش‌نمایش‌ها، حاشیه‌ها و انتقال‌های آن‌ها را سفارشی کنید.
 
-![overview_image](overview.png)
+![نمای کلی زوم پاورپوینت](overview.png)
 
-* برای خلاصه‌سازی کل ارائه در یک اسلاید واحد، از [Summary Zoom](#Summary-Zoom) استفاده کنید.
-* برای نمایش فقط اسلایدهای انتخاب شده، از [Slide Zoom](#Slide-Zoom) استفاده کنید.
-* برای نمایش فقط یک بخش، از [Section Zoom](#Section-Zoom) استفاده کنید.
+* برای خلاصه‌کردن کل ارائه در یک اسلاید، از یک [خلاصه زوم](#summary-zoom) استفاده کنید.
+* برای نمایش فقط اسلایدهای انتخاب‌شده، از یک [زوم اسلاید](#slide-zoom) استفاده کنید.
+* برای نمایش فقط یک بخش، از یک [زوم بخش](#section-zoom) استفاده کنید.
 
 ## **زوم اسلاید**
-یک زوم اسلاید می‌تواند ارائه شما را پویا تر کند و به شما اجازه می‌دهد تا به‌صورت آزادانه بین اسلایدها به هر ترتیبی که می‌خواهید حرکت کنید بدون اینکه جریان ارائه مختلط شود. زوم‌های اسلاید برای ارائه‌های کوتاه بدون بخش‌های متعدد عالی هستند، اما می‌توانید آن‌ها را در سناریوهای مختلف ارائه نیز به کار ببرید.
 
-زوم‌های اسلاید به شما کمک می‌کنند تا به چندین قطعه اطلاعات عمیقاً نگاه کنید درحالی‌که حس می‌کنید بر روی یک بوم واحد هستید. 
+یک زوم اسلاید می‌تواند ارائه شما را پویا‌تر کند و به شما امکان می‌دهد به‌صورت آزادانه بین اسلایدها به هر ترتیب دلخواه حرکت کنید بدون اینکه جریان ارائه شما قطع شود. زوم‌های اسلاید برای ارائه‌های کوتاه بدون بخش‌های زیاد عالی هستند، اما می‌توانید همچنان از آن‌ها در سناریوهای مختلف ارائه استفاده کنید.
 
-![overview_image](slidezoomsel.png)
+زوم‌های اسلاید به شما امکان می‌دهند اطلاعات مرتبط را از یک اسلاید نمای کلی بررسی کنید.
 
-برای اشیای زوم اسلاید، Aspose.Slides شمارش‌گر [ZoomImageType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/zoomimagetype/)، کلاس [ZoomFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/zoomframe/) و برخی متدها در زیر کلاس [ShapeCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/) را ارائه می‌دهد.
+![انتخاب اسلایدها برای زوم اسلاید](slidezoomsel.png)
+
+برای اشیای زوم اسلاید، Aspose.Slides شمارنده [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/zoomimagetype/)، کلاس [ZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) و روش‌هایی در کلاس [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) را فراهم می‌کند.
 
 ### **ایجاد فریم‌های زوم**
 
-می‌توانید یک فریم زوم را بر روی اسلاید به این شکل اضافه کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-2. اسلایدهای جدیدی که می‌خواهید فریم‌های زوم به آن‌ها لینک شود، ایجاد کنید. 
-3. به اسلایدهای ایجاد شده متن شناسایی و پس‌زمینه اضافه کنید.
-4. فریم‌های زوم (حاوی ارجاع به اسلایدهای ایجاد شده) را به اسلاید اول اضافه کنید.
-5. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
-
-این کد PHP نشان می‌دهد چگونه یک فریم زوم را بر روی اسلاید ایجاد کنید:
+از [ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) برای قرار دادن پیوندهایی به اسلایدهای منفرد در یک اسلاید نمای کلی استفاده کنید. این مثال دو اسلاید هدف با پس‌زمینه‌ها و برچسب‌های متمایز ایجاد می‌کند، سپس پیش‌نمایشی از هر کدام را به اسلاید اول اضافه می‌کند و ارائه را به‌صورت PPTX ذخیره می‌کند. موقعیت‌ها و اندازه‌های فریم به واحد نقطه (points) مشخص شده‌اند.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # اسلایدهای جدید را به ارائه اضافه می‌کند
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # پس‌زمینه‌ای برای اسلاید دوم ایجاد می‌کند
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # یک جعبه متن برای اسلاید دوم ایجاد می‌کند
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # پس‌زمینه‌ای برای اسلاید سوم ایجاد می‌کند
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # یک جعبه متن برای اسلاید سوم ایجاد می‌کند
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # اشیای ZoomFrame را اضافه می‌کند
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # ارائه را ذخیره می‌کند
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-### **ایجاد فریم‌های زوم با تصاویر سفارشی**
-با Aspose.Slides برای PHP از طریق Java، می‌توانید فریم زومی با تصویر پیش‌نمایش اسلاید متفاوت به این شکل ایجاد کنید:
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-2. یک اسلاید جدید که می‌خواهید فریم زوم به آن لینک شود، ایجاد کنید. 
-3. به اسلاید متن شناسایی و پس‌زمینه اضافه کنید.
-4. یک شیء [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) با افزودن یک تصویر به مجموعه Images مرتبط با شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) که برای پر کردن فریم استفاده خواهد شد، ایجاد کنید.
-5. فریم‌های زوم (حاوی ارجاع به اسلاید ایجاد شده) را به اسلاید اول اضافه کنید.
-6. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد PHP نشان می‌دهد چگونه یک فریم زوم را با تصویر متفاوت ایجاد کنید:
+### **ایجاد فریم‌های زوم با تصاویر سفارشی**
+
+یک تصویر سفارشی را به [ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) پاس دهید تا پیش‌نمایش پیش‌فرض اسلاید هدف را جایگزین کنید. این مثال به یک تصویر محلی نیاز دارد، آن را با [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) بارگذاری می‌کند و با استفاده از [ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage) به ارائه اضافه می‌شود. فریم حاصل آن تصویر را نمایش می‌دهد در حالی که همچنان به اسلاید دوم پیوند دارد.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # یک اسلاید جدید به ارائه اضافه می‌کند
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # پس‌زمینه‌ای برای اسلاید دوم ایجاد می‌کند
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # یک جعبه متن برای اسلاید سوم ایجاد می‌کند
-    $autoshape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # یک تصویر جدید برای شیء زوم ایجاد می‌کند
-    $picture;
-    $image = Images->fromFile("image.png");
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # شیء ZoomFrame را اضافه می‌کند
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $picture);
-    # ارائه را ذخیره می‌کند
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
 ### **قالب‌بندی فریم‌های زوم**
-در بخش‌های قبل، به شما نشان دادیم چگونه فریم‌های زوم ساده را ایجاد کنید. برای ساخت فریم‌های زوم پیچیده‌تر، باید قالب‌بندی یک فریم ساده را تغییر دهید. گزینه‌های قالب‌بندی متعددی وجود دارد که می‌توانید بر روی یک فریم زوم اعمال کنید. 
 
-می‌توانید قالب‌بندی فریم زوم را بر روی اسلاید به این شکل کنترل کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-2. اسلایدهای جدیدی که می‌خواهید فریم زوم به آن‌ها لینک شود، ایجاد کنید. 
-3. به اسلایدهای ایجاد شده متن شناسایی و پس‌زمینه‌ای اضافه کنید.
-4. فریم‌های زوم (حاوی ارجاع به اسلایدهای ایجاد شده) را به اسلاید اول اضافه کنید.
-5. یک شیء [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) با افزودن یک تصویر به مجموعه Images مرتبط با شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) که برای پر کردن فریم استفاده خواهد شد، ایجاد کنید.
-6. برای اولین شیء فریم زوم، تصویر سفارشی تنظیم کنید.
-7. قالب خط را برای شیء فریم زوم دوم تغییر دهید.
-8. پس‌زمینه تصویر شیء فریم زوم دوم را حذف کنید.
-5. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
-
-این کد PHP نشان می‌دهد چگونه قالب‌بندی یک فریم زوم را بر روی اسلاید تغییر دهید:
+این مثال دو فریم زوم اسلاید را سفارشی می‌کند. یک تصویر محلی به فریم اول از طریق [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage) اختصاص می‌دهد و به فریم دوم حاشیه‌ای به‌عرض پنج نقطه، خط نقطه‌خطی صورتی از طریق [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) می‌گذارد. با ارسال `false` به [ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground) پس‌زمینه فریم دوم مخفی می‌شود. برای پیش‌نمایش سفارشی یک تصویر محلی لازم است؛ هر دو فریم هدف اسلاید خود را در PPTX ذخیره‌شده حفظ می‌کنند.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # اسلایدهای جدید را به ارائه اضافه می‌کند
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # پس‌زمینه‌ای برای اسلاید دوم ایجاد می‌کند
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # یک جعبه متن برای اسلاید دوم ایجاد می‌کند
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # پس‌زمینه‌ای برای اسلاید سوم ایجاد می‌کند
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # یک جعبه متن برای اسلاید سوم ایجاد می‌کند
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # اشیای ZoomFrame را اضافه می‌کند
-    $zoomFrame1 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $zoomFrame2 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # یک تصویر جدید برای شیء زوم ایجاد می‌کند
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $firstZoomFrame = $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $secondZoomFrame = $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # تصویر سفارشی را برای شیء zoomFrame1 تنظیم می‌کند
-    $zoomFrame1->setImage($picture);
-    # قالب فریم زوم را برای شیء zoomFrame2 تنظیم می‌کند
-    $zoomFrame2->getLineFormat()->setWidth(5);
-    $zoomFrame2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $zoomFrame2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->pink);
-    $zoomFrame2->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
-    # تنظیم برای عدم نمایش پس‌زمینه برای شیء zoomFrame2
-    $zoomFrame2->setShowBackground(false);
-    # ارائه را ذخیره می‌کند
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $firstZoomFrame->setZoomImage($previewImage);
+
+    $secondZoomFrame->getLineFormat()->setWidth(5);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 255, 105, 180);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $secondZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
+
+    $secondZoomFrame->setShowBackground(false);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **زوم بخش**
 
-یک زوم بخش لینک‌گذاری به یک بخش در ارائه شما است. می‌توانید از زوم‌های بخش برای بازگشت به بخش‌هایی که می‌خواهید به‌خوبی تأکید کنید استفاده کنید. یا می‌توانید از آن‌ها برای برجسته‌سازی نحوه ارتباط بخش‌های مختلف ارائه‌تان استفاده کنید. 
+یک زوم بخش به یک بخش در ارائه شما پیوند می‌دهد. از آن برای بازدید مجدد از یک موضوع یا نشان دادن چگونگی ارتباط بخش‌های مختلف ارائه استفاده کنید.
 
-![overview_image](seczoomsel.png)
+![انتخاب یک بخش برای زوم بخش](seczoomsel.png)
 
-برای اشیای زوم بخش، Aspose.Slides کلاس [SectionZoomFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sectionzoomframe/) و برخی متدها در زیر کلاس [ShapeCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/) را ارائه می‌دهد.
+برای اشیای زوم بخش، Aspose.Slides کلاس [SectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) و روش‌هایی در کلاس [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) را فراهم می‌کند.
 
 ### **ایجاد فریم‌های زوم بخش**
 
-می‌توانید یک فریم زوم بخش را بر روی اسلاید به این شکل اضافه کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-2. یک اسلاید جدید ایجاد کنید. 
-3. به اسلاید ایجاد شده پس‌زمینه شناسایی اضافه کنید.
-4. یک بخش جدید که می‌خواهید فریم زوم به آن لینک شود، ایجاد کنید. 
-5. فریم زوم بخش (حاوی ارجاع به بخش ایجاد شده) را به اسلاید اول اضافه کنید.
-6. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
-
-این کد PHP نشان می‌دهد چگونه یک فریم زوم را بر روی اسلاید ایجاد کنید:
+یک بخش را با [SectionCollection::addSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectioncollection/#addSection) ایجاد کنید، سپس بخش بازگشتی را به [ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame) بدهید. این مثال یک زوم بخش را بر روی اسلاید اول قرار می‌دهد و آن را به بخشی که با اسلاید رنگی شروع می‌شود پیوند می‌دهد. موقعیت و ابعاد فریم به واحد نقطه (points) مشخص می‌شود و ارائه به صورت PPTX ذخیره می‌شود.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # یک اسلاید جدید به ارائه اضافه می‌کند
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # یک بخش جدید به ارائه اضافه می‌کند
-    $pres->getSections()->addSection("Section 1", $slide);
-    # یک شیء SectionZoomFrame اضافه می‌کند
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # ارائه را ذخیره می‌کند
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
 ### **ایجاد فریم‌های زوم بخش با تصاویر سفارشی**
 
-با Aspose.Slides برای PHP از طریق Java، می‌توانید فریم زوم بخش با تصویر پیش‌نمایش اسلاید متفاوت به این شکل ایجاد کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-2. یک اسلاید جدید ایجاد کنید.
-3. به اسلاید ایجاد شده پس‌زمینه شناسایی اضافه کنید.
-4. یک بخش جدید که می‌خواهید فریم زوم به آن لینک شود، ایجاد کنید. 
-5. یک شیء [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) با افزودن یک تصویر به مجموعه Images مرتبط با شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) که برای پر کردن فریم استفاده خواهد شد، ایجاد کنید.
-5. فریم زوم بخش (حاوی ارجاع به بخش ایجاد شده) را به اسلاید اول اضافه کنید.
-6. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
-
-این کد PHP نشان می‌دهد چگونه یک فریم زوم را با تصویر متفاوت ایجاد کنید:
+بارگذاری نسخه‌ی تصویری [ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame) به شما امکان می‌دهد پیش‌نمایش سفارشی را بدون تغییر بخش مقصد نمایش دهید. این مثال به یک تصویر محلی نیاز دارد که با [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) بارگذاری می‌شود و از طریق [ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage) به ارائه اضافه می‌گردد. ارائه ذخیره‌شده شامل یک زوم بخش بر روی اسلاید اول است که به بخش تازه‌ساخته‌شده پیوند دارد.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # یک اسلاید جدید به ارائه اضافه می‌کند
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # یک بخش جدید به ارائه اضافه می‌کند
-    $pres->getSections()->addSection("Section 1", $slide);
-    # یک تصویر جدید برای شیء زوم ایجاد می‌کند
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # یک شیء SectionZoomFrame اضافه می‌کند
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1), $picture);
-    # ارائه را ذخیره می‌کند
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+### **تغییر بخش هدف زوم بخش**
+
+از [SectionZoomFrame::setTargetSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/#setTargetSection) برای تغییر مسیر یک زوم بخش موجود بدون ایجاد مجدد آن استفاده کنید. یک بخش پرشده از مجموعه‌ی [Presentation::getSections](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSections) همان ارائه انتخاب کنید. اختصاص یک بخش خالی هدف جاری را دست‌نخورده می‌گذارد، بنابراین قبل از اختصاص باید [Section::getSlidesListOfSection](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSlidesListOfSection) را بررسی کنید. برای جزئیات بیشتر درباره بخش‌ها به [Manage Slide Sections](/slides/fa/php-java/slide-section/) مراجعه کنید.
+
+مثال زیر یک فایل ارائه را بارگذاری می‌کند که باید شامل چندین بخش پر شده باشد، یک زوم بخش موجود به نام `Section navigation` و یک بخش با نام منحصر به فرد `Results` داشته باشد. تمام اسلایدها برای پیدا کردن زوم جستجو می‌شوند و مقصد بر اساس نام پیدا می‌شود نه بر اساس اندیس مجموعه‌ای که ممکن است با جابه‌جایی بخش‌ها تغییر کند. اگر نام‌ها منحصر به فرد نباشند، می‌توانید از [Section::getSectionId](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSectionId) برای شناسایی مقصد استفاده کنید.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("section-zoom.pptx");
+try {
+    $zoom = null;
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($i = 0; $i < $slideCount; $i++) {
+        $slide = $presentation->getSlides()->get_Item($i);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($j = 0; $j < $shapeCount; $j++) {
+            $shape = $slide->getShapes()->get_Item($j);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.ISectionZoomFrame")) && java_values($shape->getName()) === "Section navigation") {
+                $zoom = $shape;
+                break;
+            }
+        }
+        if ($zoom != null) {
+            break;
+        }
+    }
+
+    $targetSection = null;
+    $sectionCount = java_values($presentation->getSections()->size());
+    for ($i = 0; $i < $sectionCount; $i++) {
+        $section = $presentation->getSections()->get_Item($i);
+        if (java_values($section->getName()) === "Results") {
+            $targetSection = $section;
+            break;
+        }
+    }
+
+    if ($zoom == null || $targetSection == null) {
+        echo "The section zoom or destination section was not found.", PHP_EOL;
+    } else if (java_values($targetSection->getSlidesListOfSection()->size()) == 0) {
+        echo "The destination section is empty.", PHP_EOL;
+    } else {
+        $currentSection = $zoom->getTargetSection();
+        echo "Current section: " . (java_is_null($currentSection) ? "" : java_values($currentSection->getName())), PHP_EOL;
+        $zoom->setTargetSection($targetSection);
+        $presentation->save("section-zoom-updated.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
 ### **قالب‌بندی فریم‌های زوم بخش**
 
-برای ساخت فریم‌های زوم بخش پیچیده‌تر، باید قالب‌بندی یک فریم ساده را تغییر دهید. گزینه‌های قالب‌بندی متعددی وجود دارد که می‌توانید بر روی یک فریم زوم بخش اعمال کنید. 
-
-می‌توانید قالب‌بندی فریم زوم بخش را بر روی اسلاید به این شکل کنترل کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-2. یک اسلاید جدید ایجاد کنید.
-3. به اسلاید ایجاد شده پس‌زمینه شناسایی اضافه کنید.
-4. یک بخش جدید که می‌خواهید فریم زوم به آن لینک شود، ایجاد کنید. 
-5. فریم زوم بخش (حاوی ارجاع به بخش ایجاد شده) را به اسلاید اول اضافه کنید.
-6. اندازه و موقعیت شیء زوم بخش ایجاد شده را تغییر دهید.
-7. یک شیء [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) با افزودن یک تصویر به مجموعه Images مرتبط با شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) که برای پر کردن فریم استفاده خواهد شد، ایجاد کنید.
-8. برای شیء فریم زوم بخش ایجاد شده، تصویر سفارشی تنظیم کنید.
-9. قابلیت *بازگشت به اسلاید اصلی از بخش لینک‌شده* را فعال کنید. 
-10. پس‌زمینه تصویر شیء فریم زوم بخش را حذف کنید.
-11. قالب خط را برای شیء فریم زوم دوم تغییر دهید.
-12. مدت زمان انتقال را تغییر دهید.
-13. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
-
-این کد PHP نشان می‌دهد چگونه قالب‌بندی یک فریم زوم بخش را تغییر دهید:
+این مثال یک زوم بخش را به‌صورت 100×75 نقطه جابه‌جا و اندازه‌گذاری می‌کند، یک تصویر محلی از طریق [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage) اختصاص می‌دهد و حاشیه‌ای به‌عرض 2.5 نقطه، خط نقطه‌خطی قهوه‌ای اعمال می‌کند. همچنین [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) را فعال می‌کند تا پس از پایان بخش به اسلاید مبداء بازگردد، [ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground) را غیرفعال می‌سازد و [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) را روی 1.5 ثانیه تنظیم می‌کند. برای پیش‌نمایش سفارشی یک تصویر محلی لازم است.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # یک اسلاید جدید به ارائه اضافه می‌کند
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # یک بخش جدید به ارائه اضافه می‌کند
-    $pres->getSections()->addSection("Section 1", $slide);
-    # اضافه کردن شیء SectionZoomFrame
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # قالب‌بندی برای SectionZoomFrame
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
     $sectionZoomFrame->setX(100);
     $sectionZoomFrame->setY(300);
     $sectionZoomFrame->setWidth(100);
     $sectionZoomFrame->setHeight(75);
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    $sectionZoomFrame->setImage($picture);
+
+    $sectionZoomFrame->setZoomImage($previewImage);
+
     $sectionZoomFrame->setReturnToParent(true);
     $sectionZoomFrame->setShowBackground(false);
+
     $sectionZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
-    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
     $sectionZoomFrame->getLineFormat()->setWidth(2.5);
+
     $sectionZoomFrame->setTransitionDuration(1.5);
-    # ارائه را ذخیره می‌کند
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **زوم خلاصه**
 
-یک زوم خلاصه مانند صفحهٔ فرودی است که تمام قطعات ارائه‌تان به‌همین‌لحظه نمایش داده می‌شود. وقتی ارائه می‌دهید، می‌توانید با زوم از یک محل به محل دیگر در هر ترتیبی که می‌خواهید بروید. می‌توانید خلاق باشید، پیش‌روی کنید یا بخش‌های مختلف اسلایدشو را بدون قطع جریان ارائه مرور کنید.
+یک زوم خلاصه نمای کلی از بخش‌های ارائه را فراهم می‌کند. در حین نمایش اسلاید می‌توانید از آن برای پرش به یک بخش، پیشروی یا بازدید مجدد از یک موضوع استفاده کنید بدون این‌که ترتیب اسلایدها را دنبال کنید.
 
-![overview_image](sumzoomsel.png)
+![انتخاب بخش‌ها برای زوم خلاصه](sumzoomsel.png)
 
-برای اشیای زوم خلاصه، Aspose.Slides کلاس‌های [SummaryZoomFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/summaryzoomframe/)، [SummaryZoomSection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/summaryzoomsection/)، و [SummaryZoomSectionCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/summaryzoomsectioncollection/) و برخی متدها در زیر کلاس [ShapeCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/) را فراهم می‌کند.
+برای اشیای زوم خلاصه، Aspose.Slides کلاس‌های [SummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/)، [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) و [SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) و روش‌هایی در کلاس [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) را فراهم می‌کند.
 
-### **ایجاد یک زوم خلاصه**
+### **ایجاد زوم خلاصه**
 
-می‌توانید یک فریم زوم خلاصه را بر روی اسلاید به این شکل اضافه کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-2. اسلایدهای جدید با پس‌زمینه شناسایی و بخش‌های جدید برای اسلایدهای ایجاد شده ایجاد کنید.
-3. فریم زوم خلاصه را به اسلاید اول اضافه کنید.
-4. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
-
-این کد PHP نشان می‌دهد چگونه یک فریم زوم خلاصه را بر روی اسلاید ایجاد کنید:
+از [ShapeCollection::addSummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSummaryZoomFrame) برای ایجاد نمای کلی از بخش‌های ارائه استفاده کنید. این مثال چهار بخش با پس‌زمینه‌های متمایز اسلاید ایجاد می‌کند و یک زوم خلاصه را بر روی اسلاید اول اضافه می‌کند. موقعیت و ابعاد فریم به واحد نقطه (points) مشخص شده‌اند و نمای کلی حاصل در یک ارائه PPTX ذخیره می‌شود.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # یک اسلاید جدید به ارائه اضافه می‌کند
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # یک بخش جدید به ارائه اضافه می‌کند
-    $pres->getSections()->addSection("Section 1", $slide);
-    # یک اسلاید جدید به ارائه اضافه می‌کند
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # یک بخش جدید به ارائه اضافه می‌کند
-    $pres->getSections()->addSection("Section 2", $slide);
-    # یک اسلاید جدید به ارائه اضافه می‌کند
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # یک بخش جدید به ارائه اضافه می‌کند
-    $pres->getSections()->addSection("Section 3", $slide);
-    # یک اسلاید جدید به ارائه اضافه می‌کند
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 3", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->green);
+    $color = new Java("java.awt.Color", 0, 100, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # یک بخش جدید به ارائه اضافه می‌کند
-    $pres->getSections()->addSection("Section 4", $slide);
-    # یک شیء SummaryZoomFrame اضافه می‌کند
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # ارائه را ذخیره می‌کند
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->getSections()->addSection("Section 4", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **افزودن و حذف یک بخش زوم خلاصه**
+### **افزودن و حذف بخش زوم خلاصه**
 
-همهٔ بخش‌ها در یک فریم زوم خلاصه توسط اشیای [SummaryZoomSection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/summaryzoomsection/) نمایان می‌شوند که در شیء [SummaryZoomSectionCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/summaryzoomsectioncollection/) ذخیره می‌شوند. می‌توانید یک شیء بخش زوم خلاصه را از طریق کلاس [SummaryZoomSectionCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/summaryzoomsectioncollection/) به این شکل اضافه یا حذف کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-2. اسلایدهای جدید با پس‌زمینه شناسایی و بخش‌های جدید برای اسلایدهای ایجاد شده ایجاد کنید.
-3. فریم زوم خلاصه را به اسلاید اول اضافه کنید.
-4. یک اسلاید و یک بخش جدید به ارائه اضافه کنید.
-5. بخش ایجاد شده را به فریم زوم خلاصه اضافه کنید.
-6. بخش اول را از فریم زوم خلاصه حذف کنید.
-7. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
-
-این کد PHP نشان می‌دهد چگونه بخش‌ها را در یک فریم زوم خلاصه اضافه و حذف کنید:
+یک زوم خلاصه اشیای [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) خود را در [SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) ذخیره می‌کند. این مثال نمای کلی دو بخش را ایجاد می‌کند، یک بخش سوم را با استفاده از [SummaryZoomSectionCollection::addSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) اضافه می‌کند و ورودی اولین بخش را با استفاده از [SummaryZoomSectionCollection::removeSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection) حذف می‌کند. حذف ورودی بخش‌های ارائه و اسلایدهای مربوطه را دست‌نخورده می‌گذارد.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # یک اسلاید جدید به ارائه اضافه می‌کند
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # یک بخش جدید به ارائه اضافه می‌کند
-    $pres->getSections()->addSection("Section 1", $slide);
-    # یک اسلاید جدید به ارائه اضافه می‌کند
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $firstSection = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # یک بخش جدید به ارائه اضافه می‌کند
-    $pres->getSections()->addSection("Section 2", $slide);
-    # یک شیء SummaryZoomFrame اضافه می‌کند
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # یک اسلاید جدید به ارائه اضافه می‌کند
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # یک بخش جدید به ارائه اضافه می‌کند
-    $section3 = $pres->getSections()->addSection("Section 3", $slide);
-    # یک بخش به Summary Zoom اضافه می‌کند
-    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($section3);
-    # بخش را از Summary Zoom حذف می‌کند
-    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($pres->getSections()->get_Item(1));
-    # ارائه را ذخیره می‌کند
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $thirdSection = $presentation->getSections()->addSection("Section 3", $slide);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($thirdSection);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($firstSection);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ### **قالب‌بندی بخش‌های زوم خلاصه**
 
-برای ساخت اشیای بخش زوم خلاصه پیچیده‌تر، باید قالب‌بندی یک فریم ساده را تغییر دهید. گزینه‌های قالب‌بندی متعددی وجود دارد که می‌توانید بر روی یک شیء بخش زوم خلاصه اعمال کنید. 
-
-می‌توانید قالب‌بندی یک شیء بخش زوم خلاصه در یک فریم زوم خلاصه را به این شکل کنترل کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-2. اسلایدهای جدید با پس‌زمینه شناسایی و بخش‌های جدید برای اسلایدهای ایجاد شده ایجاد کنید.
-3. فریم زوم خلاصه را به اسلاید اول اضافه کنید.
-4. یک شیء بخش زوم خلاصه را از `SummaryZoomSectionCollection` برای اولین شیء دریافت کنید.
-5. یک شیء [PPImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/ppimage/) با افزودن یک تصویر به مجموعه images مرتبط با شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) که برای پر کردن فریم استفاده خواهد شد، ایجاد کنید.
-6. تصویر سفارشی برای شیء فریم زوم بخش ایجاد شده تنظیم کنید.
-7. قابلیت *بازگشت به اسلاید اصلی از بخش لینک‌شده* را فعال کنید. 
-8. قالب خط را برای شیء فریم زوم دوم تغییر دهید.
-9. مدت زمان انتقال را تغییر دهید.
-10. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
-
-این کد PHP نشان می‌دهد چگونه قالب‌بندی یک شیء بخش زوم خلاصه را تغییر دهید:
+این مثال اولین ورودی در [SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) را که اندیس صفر‑مبنا دارد، قالب‌بندی می‌کند. برای [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage) نیاز به یک تصویر محلی دارد، حاشیه‌ای به‌عرض 1.5 نقطه، خط نقطه‌خطی سیاه اعمال می‌کند و [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) را روی 1.5 ثانیه تنظیم می‌کند. ارسال `false` به [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) بازگشت خودکار به اسلاید خلاصه برای این ورودی را غیرفعال می‌کند.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # یک اسلاید جدید به ارائه اضافه می‌کند
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # یک بخش جدید به ارائه اضافه می‌کند
-    $pres->getSections()->addSection("Section 1", $slide);
-    # یک اسلاید جدید به ارائه اضافه می‌کند
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # یک بخش جدید به ارائه اضافه می‌کند
-    $pres->getSections()->addSection("Section 2", $slide);
-    # یک شیء SummaryZoomFrame اضافه می‌کند
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # شیء SummaryZoomSection اول را دریافت می‌کند
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
     $summarySection = $summaryZoomFrame->getSummaryZoomCollection()->get_Item(0);
-    # قالب‌بندی برای شیء SummaryZoomSection
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($picture);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    $summarySection->setImage($picture);
+
+    $summarySection->setZoomImage($previewImage);
     $summarySection->setReturnToParent(false);
+
     $summarySection->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->black);
-    $summarySection->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
+    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $summarySection->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
     $summarySection->getLineFormat()->setWidth(1.5);
+
     $summarySection->setTransitionDuration(1.5);
-    # ارائه را ذخیره می‌کند
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **سوالات متداول**
 
-**آیا می‌توانم بازگشت به اسلاید 'والد' پس از نمایش هدف را کنترل کنم؟**
+**آیا می‌توانم بازگشت به اسلاید «والد» پس از نمایش هدف را کنترل کنم؟**
 
-بله. فریم [Zoom frame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/zoomframe/) یا [section](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sectionzoomframe/) دارای رفتار `ReturnToParent` است که وقتی فعال باشد، پس از بازدید از محتوای هدف، بینندگان را به اسلاید مبدأ باز می‌گرداند.
+بله. با فراخوانی [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) با مقدار `true` می‌توانید پس از نمایش محتوای هدف، به اسلاید منبع بازگردید.
 
 **آیا می‌توانم «سرعت» یا مدت زمان انتقال زوم را تنظیم کنم؟**
 
-بله. زوم از تنظیم `TransitionDuration` پشتیبانی می‌کند تا بتوانید مدت زمان انیمیشن پرش را کنترل کنید.
+بله. از [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) برای تنظیم مدت زمان انتقال بر حسب ثانیه استفاده کنید.
 
 **آیا محدودیتی برای تعداد اشیای زوم در یک ارائه وجود دارد؟**
 
-هیچ محدودیت سخت‌گیرانه‌ای در API مستند نشده است. محدودیت‌های عملی به پیچیدگی کلی ارائه و عملکرد نمایشگر بستگی دارد. می‌توانید تعداد زیادی فریم زوم اضافه کنید، اما به حجم فایل و زمان رندرینگ توجه داشته باشید.
+هیچ محدودیت سختی در API مستند نشده است. محدودیت‌های عملی به پیچیدگی کلی ارائه و عملکرد نمایش‌دهنده بستگی دارد. می‌توانید فریم‌های زوم زیادی اضافه کنید، اما باید به اندازه فایل و زمان رندرینگ توجه داشته باشید.

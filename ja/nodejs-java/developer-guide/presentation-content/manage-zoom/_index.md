@@ -1,538 +1,507 @@
 ---
-title: "ズームの管理"
+title: JavaScript でプレゼンテーションズームを管理する
+linktitle: ズームを管理する
 type: docs
 weight: 60
 url: /ja/nodejs-java/manage-zoom/
-keywords: "ズーム、ズームフレーム、ズームの追加、ズームフレームの書式設定、サマリズーム、PowerPoint プレゼンテーション、Java、Aspose.Slides for Node.js via Java"
-description: "PowerPoint プレゼンテーションにズームまたはズームフレームを JavaScript で追加する"
+keywords:
+- ズーム
+- ズームフレーム
+- スライドズーム
+- セクションズーム
+- サマリズーム
+- ズームの追加
+- PowerPoint
+- プレゼンテーション
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides for Node.js via Java を使用してズームを作成およびカスタマイズし、PowerPoint プレゼンテーションでセクション間をジャンプし、サムネイルとトランジションを追加します。"
 ---
-
 ## **概要**
 
-PowerPoint のズーム機能を使用すると、プレゼンテーション内の特定のスライド、セクション、または領域へジャンプしたり、そこから戻ったりできます。プレゼンテーション中に、コンテンツを素早くナビゲートできるこの機能は非常に便利です。 
+PowerPoint ズームを使用すると、スライドショー中に特定のスライドやセクション間をナビゲートできます。Aspose.Slides for Node.js via Java を使えば、スライドズーム、セクションズーム、サマリーズームを作成し、プレビュー、境界線、トランジションをカスタマイズできます。
 
-![overview_image](overview.png)
+![PowerPoint ズームの概要](overview.png)
 
-* プレゼンテーション全体を 1 枚のスライドにまとめるには、[Summary Zoom](#Summary-Zoom) を使用します。  
-* 選択したスライドのみを表示するには、[Slide Zoom](#Slide-Zoom) を使用します。  
-* 単一のセクションのみを表示するには、[Section Zoom](#Section-Zoom) を使用します。  
+* 単一のスライドにプレゼンテーション全体を要約するには、[Summary Zoom](#summary-zoom) を使用します。
+* 選択したスライドだけを表示するには、[Slide Zoom](#slide-zoom) を使用します。
+* 単一のセクションだけを表示するには、[Section Zoom](#section-zoom) を使用します。
 
 ## **スライドズーム**
 
-スライドズームを使用すると、プレゼンテーションの流れを中断せずに、任意の順序でスライド間を自由にナビゲートできます。スライドズームは、セクションが少ない短いプレゼンテーションに最適ですが、さまざまなシナリオでも活用できます。
+スライドズームを使用すると、プレゼンテーションをよりダイナミックにし、任意の順序でスライド間を自由にナビゲートでき、プレゼンテーションの流れを中断しません。スライドズームはセクションが少ない短いプレゼンテーションに最適ですが、さまざまなシナリオでも利用できます。
 
-スライドズームを使用すると、単一のキャンバス上にいるかのように複数の情報にドリルダウンできます。  
+スライドズームを使うと、1枚の概要スライドから関連情報を探索できます。
 
-![overview_image](slidezoomsel.png)
+![スライドズーム用にスライドを選択](slidezoomsel.png)
 
-スライドズーム用オブジェクトについては、Aspose.Slides が [ZoomImageType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ZoomImageType) 列挙、[ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ZoomFrame) クラス、そして [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) クラスのいくつかのメソッドを提供します。
+スライドズームオブジェクトについては、Aspose.Slides が [ZoomImageType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomimagetype/) 列挙型、[ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/) クラス、および [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) クラスのメソッドを提供します。
 
 ### **ズームフレームの作成**
 
-スライドにズームフレームを追加する手順は次のとおりです。
+[ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame) を使用して、概要スライド上に個々のスライドへのリンクを配置します。この例は、異なる背景とラベルを持つ 2 つのターゲット スライドを作成し、各スライドのプレビューを最初のスライドに追加して PPTX として保存します。フレームの位置とサイズはポイントで指定します。
 
-1.	[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2.	ズームフレームをリンクしたい新規スライドを作成します。  
-3.	作成したスライドに識別テキストと背景を追加します。  
-4.	最初のスライドにズームフレーム（作成したスライドへの参照を含む）を追加します。  
-5.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
-
-この JavaScript コードは、スライドにズームフレームを作成する方法を示しています。  
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // プレゼンテーションに新しいスライドを追加します
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // 2番目のスライドの背景を作成します
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // 2番目のスライドのテキストボックスを作成します
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // 3番目のスライドの背景を作成します
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // 3番目のスライドのテキストボックスを作成します
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // ZoomFrame オブジェクトを追加します
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // プレゼンテーションを保存します
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ### **カスタム画像付きズームフレームの作成**
 
-Node.js 用 Aspose.Slides for Java を使用して、別のスライドプレビュー画像を持つズームフレームを作成する手順は次のとおりです。
+[ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame) にカスタム画像を渡すと、ターゲット スライドのデフォルトプレビューを置き換えられます。この例ではローカル画像が必要で、[Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) で読み込み、[ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) を使用してプレゼンテーションに追加します。結果のフレームはその画像を表示しつつ、2 番目のスライドへリンクします。
 
-1.	[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2.	ズームフレームをリンクしたい新規スライドを作成します。  
-3.	スライドに識別テキストと背景を追加します。  
-4.	[PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) オブジェクトに関連付けられた Images コレクションに画像を追加してフレームを埋めます。  
-5.	最初のスライドにズームフレーム（作成したスライドへの参照を含む）を追加します。  
-6.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
-
-この JavaScript コードは、別の画像を使用したズームフレームの作成方法を示しています。  
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // プレゼンテーションに新しいスライドを追加します
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // 2番目のスライドの背景を作成します
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // 3番目のスライドのテキストボックスを作成します
-    var autoshape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // ズームオブジェクト用の新しい画像を作成します
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // ZoomFrame オブジェクトを追加します
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
-    // プレゼンテーションを保存します
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 300, 200, slide, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ### **ズームフレームの書式設定**
 
-前述のセクションではシンプルなズームフレームの作成方法を示しました。より複雑なズームフレームを作成するには、シンプルなフレームの書式を変更する必要があります。ズームフレームに適用できる書式設定オプションは多数あります。
+この例では 2 つのスライドズームフレームをカスタマイズします。最初のフレームには [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) でローカル画像を割り当て、2 番目のフレームには [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) を使用して 5 ポイントの破線ピンク境界線を設定します。[ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground) に `false` を渡すと、2 番目のフレームの背景が非表示になります。カスタムプレビューにはローカル画像が必要ですが、両フレームは保存された PPTX でスライド ターゲットを保持します。
 
-スライド上でズームフレームの書式を制御する手順は次のとおりです。
-
-1.	[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2.	リンクしたい新規スライドを作成します。  
-3.	作成したスライドに識別テキストと背景を追加します。  
-4.	最初のスライドにズームフレーム（作成したスライドへの参照を含む）を追加します。  
-5.	[PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) に関連付けられた Images コレクションに画像を追加してフレームを埋めます。  
-6.	最初のズームフレームオブジェクトにカスタム画像を設定します。  
-7.	2 番目のズームフレームオブジェクトの線の書式を変更します。  
-8.	2 番目のズームフレームオブジェクトの画像から背景を削除します。  
-9.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
-
-この JavaScript コードは、スライド上でズームフレームの書式を変更する方法を示しています。  
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // プレゼンテーションに新しいスライドを追加します
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // 2番目のスライドの背景を作成します
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // 2番目のスライドのテキストボックスを作成します
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // 3番目のスライドの背景を作成します
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // 3番目のスライドのテキストボックスを作成します
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // ZoomFrame オブジェクトを追加します
-    var zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    var zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // ズームオブジェクト用の新しい画像を作成します
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    let firstZoomFrame = overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    let secondZoomFrame = overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // zoomFrame1 オブジェクトにカスタム画像を設定します
-    zoomFrame1.setImage(picture);
-    // zoomFrame2 オブジェクトのズームフレーム書式を設定します
-    zoomFrame2.getLineFormat().setWidth(5);
-    zoomFrame2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "pink"));
-    zoomFrame2.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // zoomFrame2 オブジェクトの背景非表示設定
-    zoomFrame2.setShowBackground(false);
-    // プレゼンテーションを保存します
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    firstZoomFrame.setZoomImage(previewImage);
+
+    secondZoomFrame.getLineFormat().setWidth(5);
+    secondZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 105, 180));
+    secondZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
+    secondZoomFrame.setShowBackground(false);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **セクションズーム**
 
-セクションズームは、プレゼンテーション内の特定のセクションへのリンクです。重要なセクションに戻ったり、プレゼンテーションのつながりを強調したりするのに使用できます。  
+セクションズームはプレゼンテーション内のセクションにリンクします。トピックに再度アクセスしたり、プレゼンテーションの異なる部分のつながりを示すのに使用します。
 
-![overview_image](seczoomsel.png)
+![セクションズーム用にセクションを選択](seczoomsel.png)
 
-セクションズーム用オブジェクトについては、Aspose.Slides が [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SectionZoomFrame) クラスと、[ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) クラスのいくつかのメソッドを提供します。
+セクションズームオブジェクトについては、Aspose.Slides が [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) クラスと [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) クラスのメソッドを提供します。
 
 ### **セクションズームフレームの作成**
 
-スライドにセクションズームフレームを追加する手順は次のとおりです。
+[SectionCollection.addSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectioncollection/#addSection) でセクションを作成し、返されたセクションを [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame) に渡します。この例は、最初のスライドにセクションズームを配置し、カラー スライドで始まるセクションにリンクします。フレームの位置とサイズはポイントで指定し、プレゼンテーションは PPTX として保存されます。
 
-1.	[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2.	新規スライドを作成します。  
-3.	作成したスライドに識別用背景を追加します。  
-4.	ズームフレームをリンクしたい新規セクションを作成します。  
-5.	最初のスライドにセクションズームフレーム（作成したセクションへの参照を含む）を追加します。  
-6.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
-
-この JavaScript コードは、スライドにセクションズームフレームを作成する方法を示しています。  
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // プレゼンテーションに新しいスライドを追加します
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // プレゼンテーションに新しいセクションを追加します
-    pres.getSections().addSection("Section 1", slide);
-    // SectionZoomFrame オブジェクトを追加します
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // プレゼンテーションを保存します
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ### **カスタム画像付きセクションズームフレームの作成**
 
-Node.js 用 Aspose.Slides for Java を使用して、別のスライドプレビュー画像を持つセクションズームフレームを作成する手順は次のとおりです。
+[ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame) の画像オーバーロードを使用すると、宛先セクションを変更せずにカスタムプレビューを表示できます。この例ではローカル画像が必要で、[Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) で読み込み、[ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) で追加します。保存されたプレゼンテーションには、最初のスライドに新規作成したセクションにリンクされたセクションズームが含まれます。
 
-1.	[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2.	新規スライドを作成します。  
-3.	作成したスライドに識別用背景を追加します。  
-4.	ズームフレームをリンクしたい新規セクションを作成します。  
-5.	[PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) に関連付けられた Images コレクションに画像を追加してフレームを埋めます。  
-6.	最初のスライドにセクションズームフレーム（作成したセクションへの参照を含む）を追加します。  
-7.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
-
-この JavaScript コードは、別の画像を使用したセクションズームフレームの作成方法を示しています。  
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // プレゼンテーションに新しいスライドを追加します
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // プレゼンテーションに新しいセクションを追加します
-    pres.getSections().addSection("Section 1", slide);
-    // ズームオブジェクト用の新しい画像を作成します
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // SectionZoomFrame オブジェクトを追加します
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
-    // プレゼンテーションを保存します
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **セクションズームのターゲット セクションを変更する**
+
+[SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/#setTargetSection) を使用すると、既存のセクションズームを再作成せずにリダイレクトできます。同じプレゼンテーションの [Presentation.getSections](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSections) コレクションから対象セクションを選択します。空のセクションを割り当てると現在のターゲットは変更されませんので、割り当てる前に [Section.getSlidesListOfSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSlidesListOfSection) を確認してください。セクションの詳細については [Manage Slide Sections](/slides/ja/nodejs-java/slide-section/) を参照してください。
+
+以下の例では、複数のセクションが含まれるプレゼンテーション ファイル、既存のセクションズーム「Section navigation」、および一意の名前「Results」を持つセクションをロードします。すべてのスライドを検索してズームを見つけ、インデックスが変わる可能性のあるコレクション インデックスではなく名前で宛先を特定します。名前が一意でない場合は、[Section.getSectionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSectionId) を使用して宛先を識別してください。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("section-zoom.pptx");
+try {
+    let zoom = null;
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        for (let j = 0; j < slide.getShapes().size(); j++) {
+            const shape = slide.getShapes().get_Item(j);
+            if (java.instanceOf(shape, "com.aspose.slides.ISectionZoomFrame") && shape.getName() === "Section navigation") {
+                zoom = shape;
+                break;
+            }
+        }
+        if (zoom != null) {
+            break;
+        }
+    }
+
+    let targetSection = null;
+    for (let i = 0; i < presentation.getSections().size(); i++) {
+        const section = presentation.getSections().get_Item(i);
+        if (section.getName() === "Results") {
+            targetSection = section;
+            break;
+        }
+    }
+
+    if (zoom == null || targetSection == null) {
+        console.log("The section zoom or destination section was not found.");
+    } else if (targetSection.getSlidesListOfSection().size() == 0) {
+        console.log("The destination section is empty.");
+    } else {
+        let currentSection = zoom.getTargetSection();
+        console.log("Current section: " + (currentSection == null ? "" : currentSection.getName()));
+        zoom.setTargetSection(targetSection);
+        presentation.save("section-zoom-updated.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
 ### **セクションズームフレームの書式設定**
 
-より複雑なセクションズームフレームを作成するには、シンプルなフレームの書式を変更する必要があります。セクションズームフレームに適用できる書式設定オプションは多数あります。
+この例では、セクションズームを 100×75 ポイントに移動およびサイズ変更し、[ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) でローカル画像を割り当て、2.5 ポイントの破線ブラウン境界線を適用します。[ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) を有効にしてセクション終了後に元のスライドに戻り、[ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground) を無効にし、[ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) を 1.5 秒に設定します。カスタムプレビューにはローカル画像が必要です。
 
-スライド上でセクションズームフレームの書式を制御する手順は次のとおりです。
-
-1.	[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2.	新規スライドを作成します。  
-3.	作成したスライドに識別用背景を追加します。  
-4.	ズームフレームをリンクしたい新規セクションを作成します。  
-5.	最初のスライドにセクションズームフレーム（作成したセクションへの参照を含む）を追加します。  
-6.	作成したセクションズームオブジェクトのサイズと位置を変更します。  
-7.	[PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) に関連付けられた Images コレクションに画像を追加してフレームを埋めます。  
-8.	作成したセクションズームフレームオブジェクトにカスタム画像を設定します。  
-9.	*リンクされたセクションから元のスライドに戻る* 機能を設定します。  
-10.	セクションズームフレームオブジェクトの画像から背景を削除します。  
-11.	2 番目のズームフレームオブジェクトの線の書式を変更します。  
-12.	トランジションの継続時間を変更します。  
-13.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
-
-この JavaScript コードは、セクションズームフレームの書式を変更する方法を示しています。  
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // プレゼンテーションに新しいスライドを追加します
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // プレゼンテーションに新しいセクションを追加します
-    pres.getSections().addSection("Section 1", slide);
-    // SectionZoomFrame オブジェクトを追加します
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // SectionZoomFrame の書式設定
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
     sectionZoomFrame.setHeight(75);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    sectionZoomFrame.setImage(picture);
+
+    sectionZoomFrame.setZoomImage(previewImage);
+
     sectionZoomFrame.setReturnToParent(true);
     sectionZoomFrame.setShowBackground(false);
+
     sectionZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    sectionZoomFrame.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    sectionZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     sectionZoomFrame.getLineFormat().setWidth(2.5);
-    sectionZoomFrame.setTransitionDuration(1.5);
-    // プレゼンテーションを保存します
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    sectionZoomFrame.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **サマリーズーム**
 
-## **サマリズーム**
+サマリーズームはプレゼンテーションのセクション全体の概要を提供します。スライドショー中に、サマリーズームを使ってセクションへジャンプしたり、先へ進んだり、トピックを再訪したりできます。
 
-サマリズームは、プレゼンテーションの全体像を一度に表示できるランディングページのようなものです。プレゼンテーション中に、任意の順序でスライド間をジャンプしたり、前に戻ったり、スキップしたりして、流れを中断せずに内容を自由に操作できます。  
+![サマリーズーム用にセクションを選択](sumzoomsel.png)
 
-![overview_image](sumzoomsel.png)
+サマリーズームオブジェクトについては、Aspose.Slides が [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/)、[SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/)、[SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/) クラスと [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) クラスのメソッドを提供します。
 
-サマリズーム用オブジェクトについては、Aspose.Slides が [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomFrame)、[SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomSection)、[SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomSectionCollection) クラスと、[ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) クラスのいくつかのメソッドを提供します。
+### **サマリーズームの作成**
 
-### **サマリズームの作成**
+[ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSummaryZoomFrame) を使用して、プレゼンテーションのセクション概要を作成します。この例は、異なるスライド背景を持つ 4 つのセクションを作成し、最初のスライドにサマリーズームを追加します。フレームの位置とサイズはポイントで指定し、結果の概要は PPTX プレゼンテーションとして保存されます。
 
-スライドにサマリズームフレームを追加する手順は次のとおりです。
-
-1.	[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2.	識別用背景と新規セクションを持つ新しいスライドを作成します。  
-3.	最初のスライドにサマリズームフレームを追加します。  
-4.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
-
-この JavaScript コードは、スライドにサマリズームフレームを作成する方法を示しています。  
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // プレゼンテーションに新しいスライドを追加します
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // プレゼンテーションに新しいセクションを追加します
-    pres.getSections().addSection("Section 1", slide);
-    // プレゼンテーションに新しいスライドを追加します
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // プレゼンテーションに新しいセクションを追加します
-    pres.getSections().addSection("Section 2", slide);
-    // プレゼンテーションに新しいスライドを追加します
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // プレゼンテーションに新しいセクションを追加します
-    pres.getSections().addSection("Section 3", slide);
-    // プレゼンテーションに新しいスライドを追加します
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 3", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "green"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // プレゼンテーションに新しいセクションを追加します
-    pres.getSections().addSection("Section 4", slide);
-    // SummaryZoomFrame オブジェクトを追加します
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // プレゼンテーションを保存します
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 100, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 4", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **サマリーズーム セクションの追加と削除**
 
-### **サマリズームセクションの追加と削除**
+サマリーズームは [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/) オブジェクトを [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) に格納します。この例では 2 つのセクションの概要を作成し、[SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) で 3 番目のセクションを追加し、[SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection) で最初のセクションのエントリを削除します。エントリを削除してもプレゼンテーションのセクションとスライドはそのまま残ります。
 
-サマリズームフレーム内のすべてのセクションは [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomSection) オブジェクトで表され、[SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomSectionCollection) オブジェクトに格納されます。セクションの追加または削除は、[SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomSectionCollection) クラスを介して行います。
-
-1.	[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2.	識別用背景と新規セクションを持つ新しいスライドを作成します。  
-3.	最初のスライドにサマリズームフレームを追加します。  
-4.	プレゼンテーションに新しいスライドとセクションを追加します。  
-5.	作成したセクションをサマリズームフレームに追加します。  
-6.	サマリズームフレームから最初のセクションを削除します。  
-7.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
-
-この JavaScript コードは、サマリズームフレーム内のセクションを追加および削除する方法を示しています。  
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // プレゼンテーションに新しいスライドを追加します
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // プレゼンテーションに新しいセクションを追加します
-    pres.getSections().addSection("Section 1", slide);
-    // プレゼンテーションに新しいスライドを追加します
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let firstSection = presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // プレゼンテーションに新しいセクションを追加します
-    pres.getSections().addSection("Section 2", slide);
-    // SummaryZoomFrame オブジェクトを追加します
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // プレゼンテーションに新しいスライドを追加します
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // プレゼンテーションに新しいセクションを追加します
-    var section3 = pres.getSections().addSection("Section 3", slide);
-    // Summary Zoom にセクションを追加します
-    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
-    // Summary Zoom からセクションを削除します
-    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
-    // プレゼンテーションを保存します
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let thirdSection = presentation.getSections().addSection("Section 3", slide);
+
+    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(thirdSection);
+
+    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(firstSection);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **サマリーズーム セクションの書式設定**
 
-### **サマリズームセクションの書式設定**
+この例では、[SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) の最初のエントリ（インデックス `0`）を書式設定します。[ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) 用のローカル画像が必要で、1.5 ポイントの破線黒境界線を適用し、[ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) を 1.5 秒に設定します。[ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) に `false` を渡すと、このエントリの自動的なサマリー スライドへの戻りが無効になります。
 
-より複雑なサマリズームセクションオブジェクトを作成するには、シンプルなフレームの書式を変更する必要があります。サマリズームセクションオブジェクトに適用できる書式設定オプションは多数あります。
-
-サマリズームフレーム内のセクションオブジェクトの書式を制御する手順は次のとおりです。
-
-1.	[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2.	識別用背景と新規セクションを持つ新しいスライドを作成します。  
-3.	最初のスライドにサマリズームフレームを追加します。  
-4.	`ISummaryZoomSectionCollection` から最初のオブジェクトのサマリズームセクションを取得します。  
-5.	[PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) に関連付けられた images コレクションに画像を追加してフレームを埋めます。  
-6.	作成したセクションズームフレームオブジェクトにカスタム画像を設定します。  
-7.	*リンクされたセクションから元のスライドに戻る* 機能を設定します。  
-8.	2 番目のズームフレームオブジェクトの線の書式を変更します。  
-9.	トランジションの継続時間を変更します。  
-10.	変更したプレゼンテーションを PPTX ファイルとして書き出します。  
-
-この JavaScript コードは、サマリズームセクションオブジェクトの書式を変更する方法を示しています。  
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // プレゼンテーションに新しいスライドを追加します
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // プレゼンテーションに新しいセクションを追加します
-    pres.getSections().addSection("Section 1", slide);
-    // プレゼンテーションに新しいスライドを追加します
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // プレゼンテーションに新しいセクションを追加します
-    pres.getSections().addSection("Section 2", slide);
-    // SummaryZoomFrame オブジェクトを追加します
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // 最初の SummaryZoomSection オブジェクトを取得します
-    var summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
-    // SummaryZoomSection オブジェクトの書式設定
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    let summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(picture);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    summarySection.setImage(picture);
+
+    summarySection.setZoomImage(previewImage);
     summarySection.setReturnToParent(false);
+
     summarySection.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "black"));
-    summarySection.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    summarySection.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     summarySection.getLineFormat().setWidth(1.5);
-    summarySection.setTransitionDuration(1.5);
-    // プレゼンテーションを保存します
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    summarySection.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **FAQ**
 
-**対象スライドを表示した後、親スライドに戻す制御は可能ですか？**
+**対象を表示した後に「親」スライドへ戻る動作を制御できますか？**
 
-はい。 [Zoom frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/) または [section](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) には `setReturnToParent` メソッドがあり、有効にすると閲覧者は対象コンテンツ閲覧後に元のスライドへ戻ります。
+はい。`true` を指定して [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) を呼び出すと、対象コンテンツ表示後に元のスライドへ戻ります。
 
-**ズーム遷移の「速度」や継続時間を調整できますか？**
+**ズーム トランジションの「速度」や継続時間を調整できますか？**
 
-はい。Zoom には `setTransitionDuration` メソッドが用意されており、ジャンプアニメーションの長さを制御できます。
+はい。[ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) を使用して、秒単位でトランジションの継続時間を制御できます。
 
-**プレゼンテーションに含められるズームオブジェクトの数に制限はありますか？**
+**プレゼンテーションに含められるズーム オブジェクトの数に制限はありますか？**
 
-明確な API 上の上限はドキュメントに記載されていません。実際の制限はプレゼンテーション全体の複雑さや閲覧環境のパフォーマンスに依存します。多数のズームフレームを追加できますが、ファイルサイズや描画時間を考慮してください。
+ドキュメント化されたハードな API 制限はありません。実際の制限はプレゼンテーション全体の複雑さやビューアのパフォーマンスに依存します。多くのズームフレームを追加できますが、ファイルサイズとレンダリング時間を考慮してください。

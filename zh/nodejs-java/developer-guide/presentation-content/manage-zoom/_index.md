@@ -1,529 +1,507 @@
 ---
-title: 管理缩放
+title: 管理 JavaScript 中的演示文稿缩放
+linktitle: 管理缩放
 type: docs
 weight: 60
 url: /zh/nodejs-java/manage-zoom/
-keywords: "缩放, 缩放框架, 添加缩放, 格式化缩放框架, 概要缩放, PowerPoint 演示文稿, Java, Aspose.Slides for Node.js via Java"
-description: "在 JavaScript 中向 PowerPoint 演示文稿添加缩放或缩放框架"
+keywords:
+- 缩放
+- 缩放帧
+- 幻灯片缩放
+- 章节缩放
+- 摘要缩放
+- 添加缩放
+- PowerPoint
+- 演示文稿
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "使用 Aspose.Slides for Node.js via Java 创建和自定义缩放 — 在 PowerPoint 演示文稿中在章节之间跳转，添加缩略图和过渡效果。"
 ---
+## **介绍**
 
-## **概述**
+PowerPoint 缩放功能让您在幻灯片放映期间在特定幻灯片和章节之间导航。使用 Aspose.Slides for Node.js via Java，您可以创建幻灯片、章节和摘要缩放，并自定义它们的预览、边框和过渡效果。
 
-PowerPoint 中的缩放功能允许您在演示文稿的特定幻灯片、章节和部分之间跳转。在演示时，这种快速跨内容导航的能力可能非常有用。
+![PowerPoint 缩放概览](overview.png)
 
-![overview_image](overview.png)
-
-* 要在单张幻灯片上概览整个演示文稿，请使用[概要缩放](#Summary-Zoom)。
-* 仅显示选定幻灯片，请使用[幻灯片缩放](#Slide-Zoom)。
-* 仅显示单个章节，请使用[章节缩放](#Section-Zoom)。
+* 要在单张幻灯片上汇总整个演示文稿，请使用[摘要缩放](#summary-zoom)。
+* 只显示选定幻灯片，请使用[幻灯片缩放](#slide-zoom)。
+* 只显示单个章节，请使用[章节缩放](#section-zoom)。
 
 ## **幻灯片缩放**
 
-幻灯片缩放可以使您的演示更具活力，允许您以任意顺序自由在幻灯片之间导航，而不会中断演示的流程。幻灯片缩放非常适合章节不多的短篇演示，但您仍可在不同的演示场景中使用它们。
+幻灯片缩放可以让您的演示文稿更具动态性，允许您自由选择任意顺序在幻灯片之间导航，而不会中断演示的整体流程。幻灯片缩放非常适合章节不多的短篇演示，但在不同的演示场景中同样可以使用。
 
-幻灯片缩放帮助您在感觉像在单一画布上的同时深入多个信息块。
+幻灯片缩放让您可以从单个概览幻灯片探索相关信息。
 
-![overview_image](slidezoomsel.png)
+![选择用于幻灯片缩放的幻灯片](slidezoomsel.png)
 
-对于幻灯片缩放对象，Aspose.Slides 提供了 [ZoomImageType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ZoomImageType) 枚举、[ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ZoomFrame) 类以及 [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) 类下的部分方法。
+对于幻灯片缩放对象，Aspose.Slides 提供了 [ZoomImageType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomimagetype/) 枚举、[ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/) 类以及 [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) 类上的方法。
 
 ### **创建缩放帧**
 
-您可以通过以下方式在幻灯片上添加缩放帧：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 创建您打算链接缩放帧的新幻灯片。
-3. 向创建的幻灯片添加标识文本和背景。
-4. 向第一张幻灯片添加缩放帧（包含对创建的幻灯片的引用）。
-5. 将修改后的演示文稿写入为 PPTX 文件。
+使用[ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame)在概览幻灯片上放置指向单个幻灯片的链接。本示例创建两个具有不同背景和标签的目标幻灯片，然后将每个幻灯片的预览添加到第一张幻灯片并保存为 PPTX。帧的位置和尺寸以点为单位指定。
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 向演示文稿添加新幻灯片
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // 为第二张幻灯片创建背景
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // 为第二张幻灯片创建文本框
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // 为第三张幻灯片创建背景
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // 为第三张幻灯片创建文本框
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // 添加 ZoomFrame 对象
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // 保存演示文稿
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ### **使用自定义图像创建缩放帧**
 
-使用 Aspose.Slides for Node.js via Java，您可以通过以下方式创建带有不同幻灯片预览图像的缩放帧：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 创建您打算链接缩放帧的新幻灯片。
-3. 向该幻灯片添加标识文本和背景。
-4. 通过向与 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 对象关联的 Images 集合中添加图像，创建一个 [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) 对象，以用于填充帧。
-5. 向第一张幻灯片添加缩放帧（包含对创建的幻灯片的引用）。
-6. 将修改后的演示文稿写入为 PPTX 文件。
+向[ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame)传入自定义图像，以替换目标幻灯片的默认预览。本示例需要本地图像，使用[Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile)加载，并通过[ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage)将其添加到演示文稿中。生成的帧显示该图像，同时仍链接到第二张幻灯片。
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 向演示文稿添加新幻灯片
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // 为第二张幻灯片创建背景
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // 为第三张幻灯片创建文本框
-    var autoshape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // 为缩放对象创建新图像
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // 添加 ZoomFrame 对象
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
-    // 保存演示文稿
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 300, 200, slide, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ### **格式化缩放帧**
 
-在前面的章节中，我们向您展示了如何创建简单的缩放帧。要创建更复杂的缩放帧，您必须更改简单帧的格式。您可以对缩放帧应用多种格式选项。
-
-您可以通过以下方式控制幻灯片上缩放帧的格式：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 创建您打算链接缩放帧的新幻灯片。
-3. 向创建的幻灯片添加一些标识文本和背景。
-4. 向第一张幻灯片添加缩放帧（包含对创建的幻灯片的引用）。
-5. 通过向与 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 对象关联的 Images 集合中添加图像，创建一个 [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) 对象，以用于填充帧。
-6. 为第一个缩放帧对象设置自定义图像。
-7. 更改第二个缩放帧对象的线条格式。
-8. 移除第二个缩放帧对象图像的背景。
-5. 将修改后的演示文稿写入为 PPTX 文件。
+本示例自定义了两个幻灯片缩放帧。它通过[ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage)为第一帧分配本地图像，并通过[Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat)为第二帧设置五点、点划线的粉红色边框。向[ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground)传入`false`可隐藏第二帧的背景。自定义预览需要本地图像；两个帧在保存的 PPTX 中仍保留各自的幻灯片目标。
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 向演示文稿添加新幻灯片
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // 为第二张幻灯片创建背景
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // 为第二张幻灯片创建文本框
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // 为第三张幻灯片创建背景
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // 为第三张幻灯片创建文本框
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // 添加 ZoomFrame 对象
-    var zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    var zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // 为缩放对象创建新图像
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    let firstZoomFrame = overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    let secondZoomFrame = overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // 为 zoomFrame1 对象设置自定义图像
-    zoomFrame1.setImage(picture);
-    // 为 zoomFrame2 对象设置缩放框架格式
-    zoomFrame2.getLineFormat().setWidth(5);
-    zoomFrame2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "pink"));
-    zoomFrame2.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // 设置 zoomFrame2 对象不显示背景
-    zoomFrame2.setShowBackground(false);
-    // 保存演示文稿
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    firstZoomFrame.setZoomImage(previewImage);
+
+    secondZoomFrame.getLineFormat().setWidth(5);
+    secondZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 105, 180));
+    secondZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
+    secondZoomFrame.setShowBackground(false);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **章节缩放**
 
-章节缩放是指向演示文稿中章节的链接。您可以使用章节缩放返回您想要重点强调的章节，或用来突出演示文稿中某些部分之间的关联。
+章节缩放链接到演示文稿中的某个章节。使用它可以重新访问主题或展示演示文稿不同部分之间的关联。
 
-![overview_image](seczoomsel.png)
+![选择用于章节缩放的章节](seczoomsel.png)
 
-对于章节缩放对象，Aspose.Slides 提供了 [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SectionZoomFrame) 类以及 [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) 类下的部分方法。
+对于章节缩放对象，Aspose.Slides 提供了 [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) 类以及 [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) 类上的方法。
 
-### **创建章节缩放框架**
+### **创建章节缩放帧**
 
-您可以通过以下方式在幻灯片上添加章节缩放框架：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 创建一张新幻灯片。
-3. 向创建的幻灯片添加标识背景。
-4. 创建您打算链接缩放帧的新章节。
-5. 向第一张幻灯片添加章节缩放框架（包含对创建的章节的引用）。
-6. 将修改后的演示文稿写入为 PPTX 文件。
+使用[SectionCollection.addSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectioncollection/#addSection)创建章节，然后将返回的章节传递给[ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame)。本示例在第一张幻灯片上放置一个章节缩放，并将其链接到以彩色幻灯片开头的章节。帧的位置和尺寸以点为单位指定，演示文稿保存为 PPTX。
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 向演示文稿添加新幻灯片
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 向演示文稿添加新章节
-    pres.getSections().addSection("Section 1", slide);
-    // 添加 SectionZoomFrame 对象
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // 保存演示文稿
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **使用自定义图像创建章节缩放帧**
 
-### **使用自定义图像创建章节缩放框架**
-
-使用 Aspose.Slides for Node.js via Java，您可以通过以下方式创建带有不同幻灯片预览图像的章节缩放框架：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 创建一张新幻灯片。
-3. 向创建的幻灯片添加标识背景。
-4. 创建您打算链接缩放帧的新章节。
-5. 通过向与 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 对象关联的 Images 集合中添加图像，创建一个 [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) 对象，以用于填充帧。
-5. 向第一张幻灯片添加章节缩放框架（包含对创建的章节的引用）。
-6. 将修改后的演示文稿写入为 PPTX 文件。
+[ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame) 的图像重载允许您在不更改目标章节的情况下显示自定义预览。本示例需要本地图像，通过[Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile)加载，并使用[ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage)添加。保存的演示文稿在第一张幻灯片上包含一个链接到新创建章节的章节缩放。
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 向演示文稿添加新幻灯片
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 向演示文稿添加新章节
-    pres.getSections().addSection("Section 1", slide);
-    // 为缩放对象创建新图像
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
+        image.dispose();
+    }
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **更改章节缩放的目标章节**
+
+使用[SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/#setTargetSection)可在不重新创建的情况下重定向现有章节缩放。选择同一演示文稿的[Presentation.getSections](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSections)集合中的已填充章节。将空章节赋予目标会保持当前目标不变，因此在赋值前请检查[Section.getSlidesListOfSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSlidesListOfSection)。更多章节信息请参阅[管理幻灯片章节](/slides/zh/nodejs-java/slide-section/)。
+
+以下示例加载一个包含多个已填充章节、一个名为`Section navigation`的现有章节缩放以及一个唯一名称为`Results`的章节的演示文稿。它在所有幻灯片中搜索该缩放，并通过名称而非可能因章节重排而变化的集合索引找到目标。如果名称不唯一，请使用[Section.getSectionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSectionId)来标识目标。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("section-zoom.pptx");
+try {
+    let zoom = null;
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        for (let j = 0; j < slide.getShapes().size(); j++) {
+            const shape = slide.getShapes().get_Item(j);
+            if (java.instanceOf(shape, "com.aspose.slides.ISectionZoomFrame") && shape.getName() === "Section navigation") {
+                zoom = shape;
+                break;
+            }
+        }
+        if (zoom != null) {
+            break;
         }
     }
-    // 添加 SectionZoomFrame 对象
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
-    // 保存演示文稿
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    let targetSection = null;
+    for (let i = 0; i < presentation.getSections().size(); i++) {
+        const section = presentation.getSections().get_Item(i);
+        if (section.getName() === "Results") {
+            targetSection = section;
+            break;
+        }
     }
+
+    if (zoom == null || targetSection == null) {
+        console.log("The section zoom or destination section was not found.");
+    } else if (targetSection.getSlidesListOfSection().size() == 0) {
+        console.log("The destination section is empty.");
+    } else {
+        let currentSection = zoom.getTargetSection();
+        console.log("Current section: " + (currentSection == null ? "" : currentSection.getName()));
+        zoom.setTargetSection(targetSection);
+        presentation.save("section-zoom-updated.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
+### **格式化章节缩放帧**
 
-### **格式化章节缩放框架**
-
-要创建更复杂的章节缩放框架，您必须更改简单帧的格式。您可以对章节缩放框架应用多种格式选项。
-
-您可以通过以下方式控制幻灯片上章节缩放框架的格式：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 创建一张新幻灯片。
-3. 向创建的幻灯片添加标识背景。
-4. 创建您打算链接缩放帧的新章节。
-5. 向第一张幻灯片添加章节缩放框架（包含对创建的章节的引用）。
-6. 更改创建的章节缩放对象的大小和位置。
-7. 通过向与 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 对象关联的 Images 集合中添加图像，创建一个 [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) 对象，以用于填充帧。
-8. 为创建的章节缩放框架对象设置自定义图像。
-9. 设置*从链接的章节返回到原始幻灯片*的功能。
-10. 移除章节缩放框架对象图像的背景。
-11. 更改第二个缩放帧对象的线条格式。
-12. 更改过渡持续时间。
-13. 将修改后的演示文稿写入为 PPTX 文件。
+本示例将章节缩放移动并重新设置大小为 100×75 点，通过[ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage)分配本地图像，并应用 2.5 点、点划线的棕色边框。它启用[ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent)以在章节结束后返回到来源幻灯片，禁用[ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground)，并将[ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration)设置为 1.5 秒。自定义预览仍需本地图像。
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 向演示文稿添加新幻灯片
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 向演示文稿添加新章节
-    pres.getSections().addSection("Section 1", slide);
-    // 添加 SectionZoomFrame 对象
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // SectionZoomFrame 的格式设置
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
     sectionZoomFrame.setHeight(75);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    sectionZoomFrame.setImage(picture);
+
+    sectionZoomFrame.setZoomImage(previewImage);
+
     sectionZoomFrame.setReturnToParent(true);
     sectionZoomFrame.setShowBackground(false);
+
     sectionZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    sectionZoomFrame.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    sectionZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     sectionZoomFrame.getLineFormat().setWidth(2.5);
-    sectionZoomFrame.setTransitionDuration(1.5);
-    // 保存演示文稿
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    sectionZoomFrame.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **摘要缩放**
 
-## **概要缩放**
+摘要缩放提供演示文稿章节的概览。在放映过程中，您可以使用它跳转到某个章节、快进或重新访问某个主题，而无需遵循幻灯片顺序。
 
-概要缩放类似于一个登陆页，所有演示文稿的片段一次性展示。当您进行演示时，可以使用缩放在演示的任意位置之间任意顺序跳转。您可以创意无限，快进或回顾幻灯片的各个部分，而不会打断演示的流程。
+![选择用于摘要缩放的章节](sumzoomsel.png)
 
-![overview_image](sumzoomsel.png)
+对于摘要缩放对象，Aspose.Slides 提供了 [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/)、[SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/) 和 [SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/) 类以及 [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) 类上的方法。
 
-对于概要缩放对象，Aspose.Slides 提供了 [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomFrame)、[SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomSection) 与 [SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomSectionCollection) 类以及 [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) 类下的部分方法。
+### **创建摘要缩放**
 
-### **创建概要缩放**
-
-您可以通过以下方式在幻灯片上添加概要缩放框架：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 为创建的幻灯片创建带有标识背景的新幻灯片并创建新章节。
-3. 将概要缩放框架添加到第一张幻灯片。
-4. 将修改后的演示文稿写入为 PPTX 文件。
+使用[ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSummaryZoomFrame)创建演示文稿章节的概览。本示例创建四个具有不同幻灯片背景的章节，并在第一张幻灯片上添加摘要缩放。帧的位置和尺寸以点为单位指定，生成的概览保存为 PPTX 演示文稿。
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 添加新的幻灯片到演示文稿
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 添加新的章节到演示文稿
-    pres.getSections().addSection("Section 1", slide);
-    // 添加新的幻灯片到演示文稿
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 添加新的章节到演示文稿
-    pres.getSections().addSection("Section 2", slide);
-    // 添加新的幻灯片到演示文稿
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 添加新的章节到演示文稿
-    pres.getSections().addSection("Section 3", slide);
-    // 添加新的幻灯片到演示文稿
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 3", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "green"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 添加新的章节到演示文稿
-    pres.getSections().addSection("Section 4", slide);
-    // 添加 SummaryZoomFrame 对象
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // 保存演示文稿
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 100, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 4", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **添加和移除摘要缩放章节**
 
-### **添加和删除概要缩放章节**
-
-所有概要缩放框架中的章节均由 [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomSection) 对象表示，这些对象存储在 [SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SummaryZoomSectionCollection) 对象中。您可以通过以下方式使用 [SummaryZoomSectionCollection] 类添加或删除概要缩放章节对象：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 为创建的幻灯片创建带有标识背景的新幻灯片并创建新章节。
-3. 将概要缩放框架添加到第一张幻灯片。
-4. 向演示文稿添加新幻灯片和章节。
-5. 将创建的章节添加到概要缩放框架中。
-6. 从概要缩放框架中移除第一章节。
-7. 将修改后的演示文稿写入为 PPTX 文件。
+摘要缩放将其 [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/) 对象存储在 [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) 中。本示例创建两个章节的概览，使用[SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection)添加第三个章节，并使用[SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection)移除第一章节的条目。移除条目后，演示文稿的章节及其幻灯片保持完整。
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 添加新的幻灯片到演示文稿
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 向演示文稿添加新章节
-    pres.getSections().addSection("Section 1", slide);
-    // 添加新的幻灯片到演示文稿
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let firstSection = presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 向演示文稿添加新章节
-    pres.getSections().addSection("Section 2", slide);
-    // 添加 SummaryZoomFrame 对象
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // 添加新的幻灯片到演示文稿
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 向演示文稿添加新章节
-    var section3 = pres.getSections().addSection("Section 3", slide);
-    // 向 Summary Zoom 添加章节
-    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
-    // 从 Summary Zoom 中移除章节
-    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
-    // 保存演示文稿
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let thirdSection = presentation.getSections().addSection("Section 3", slide);
+
+    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(thirdSection);
+
+    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(firstSection);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **格式化摘要缩放章节**
 
-### **格式化概要缩放章节**
-
-要创建更复杂的概要缩放章节对象，您必须更改简单帧的格式。您可以对概要缩放章节对象应用多种格式选项。
-
-您可以通过以下方式控制概要缩放框架中概要缩放章节对象的格式：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 为创建的幻灯片创建带有标识背景的新幻灯片并创建新章节。
-3. 将概要缩放框架添加到第一张幻灯片。
-4. 从 `ISummaryZoomSectionCollection` 中获取第一个对象的概要缩放章节对象。
-7. 通过向与 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 对象关联的 images 集合中添加图像，创建一个 [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) 对象，以用于填充帧。
-8. 为创建的章节缩放框架对象设置自定义图像。
-9. 设置*从链接的章节返回到原始幻灯片*的功能。
-11. 更改第二个缩放帧对象的线条格式。
-12. 更改过渡持续时间。
-13. 将修改后的演示文稿写入为 PPTX 文件。
+本示例格式化 [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) 中的第一条目（使用基于零的索引 `0`）。它需要本地图像用于[ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage)，应用 1.5 点、点划线的黑色边框，并将[ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration)设为 1.5 秒。向[ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent)传入`false`可禁用此条目返回到摘要幻灯片的自动返回。
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 向演示文稿添加新幻灯片
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 向演示文稿添加新章节
-    pres.getSections().addSection("Section 1", slide);
-    // 向演示文稿添加新幻灯片
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // 向演示文稿添加新章节
-    pres.getSections().addSection("Section 2", slide);
-    // 添加 SummaryZoomFrame 对象
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // 获取第一个 SummaryZoomSection 对象
-    var summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
-    // 对 SummaryZoomSection 对象进行格式设置
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    let summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(picture);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    summarySection.setImage(picture);
+
+    summarySection.setZoomImage(previewImage);
     summarySection.setReturnToParent(false);
+
     summarySection.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "black"));
-    summarySection.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    summarySection.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     summarySection.getLineFormat().setWidth(1.5);
-    summarySection.setTransitionDuration(1.5);
-    // 保存演示文稿
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    summarySection.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **常见问题**
 
-**我可以控制在显示目标后返回“父”幻灯片吗？**
+**我可以控制在显示目标后返回到“父”幻灯片吗？**
 
-是的。[Zoom 框架](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/)或[章节](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/)都有 `setReturnToParent` 方法，启用后在观看者访问目标内容后会返回到原始幻灯片。
+是的。调用[ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent)并传入`true`，即可在目标内容显示后返回到来源幻灯片。
 
-**我可以调整 Zoom 过渡的“速度”或持续时间吗？**
+**我可以调整缩放过渡的“速度”或持续时间吗？**
 
-可以。Zoom 提供 `setTransitionDuration` 方法，您可以控制跳转动画的持续时间。
+是的。使用[ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration)来控制过渡持续时间（秒）。
 
-**演示文稿中可以包含多少个 Zoom 对象有上限吗？**
+**演示文稿中可以包含的缩放对象数量是否有限制？**
 
-没有文档中硬性的 API 限制。实际限制取决于演示文稿的整体复杂度和观看者的性能。您可以添加很多 Zoom 框架，但需考虑文件大小和渲染时间。
+没有文档中记录的硬性 API 限制。实际限制取决于整体演示文稿的复杂性和查看器的性能。您可以添加许多缩放帧，但需考虑文件大小和渲染时间。

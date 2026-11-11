@@ -1,32 +1,32 @@
 ---
-title: Kết xuất slide bài thuyết trình dưới dạng hình ảnh SVG trong Java
+title: Xuất các slide trình chiếu dưới dạng hình ảnh SVG trong Java
 linktitle: Slide sang SVG
 type: docs
 weight: 50
 url: /vi/java/render-a-slide-as-an-svg-image/
 keywords:
 - PowerPoint sang SVG
-- bài thuyết trình sang SVG
+- trình chiếu sang SVG
 - slide sang SVG
 - PPT sang SVG
 - PPTX sang SVG
 - tùy chọn xuất SVG
 - SVG tương tác
 - PowerPoint
-- bài thuyết trình
+- trình chiếu
 - Java
 - Aspose.Slides
-description: "Xuất slide PowerPoint dưới dạng hình ảnh SVG trong Java và kiểm soát phông chữ, văn bản, hình ảnh, ID và sự kiện với Aspose.Slides."
+description: "Xuất các slide PowerPoint dưới dạng hình ảnh SVG trong Java và kiểm soát phông chữ, văn bản, hình ảnh, ID và sự kiện với Aspose.Slides."
 ---
 ## **Tổng quan**
 
-SVG là định dạng hình ảnh dựa trên XML có khả năng mở rộng, phù hợp cho việc xuất bản trên web, trình xem slide, quy trình tiếp cận, và xử lý hậu kỳ tự động. Aspose.Slides xuất mỗi slide thành một tệp SVG riêng và cho phép bạn kiểm soát cách văn bản, phông chữ, hình ảnh và các phần tử SVG được ghi.
+SVG là định dạng hình ảnh dựa trên XML có khả năng mở rộng, hoạt động tốt cho việc xuất bản web, trình xem slide, quy trình truy cập và xử lý tự động. Aspose.Slides xuất mỗi slide thành một tệp SVG riêng và cho phép bạn kiểm soát cách văn bản, phông chữ, hình ảnh và các phần tử SVG được ghi.
 
-Use [SVGOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/) when the exported SVG must be compact, predictable across browsers, or ready for interactive use.
+Sử dụng [SVGOptions](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/) khi SVG xuất ra cần gọn nhẹ, dự đoán được trên các trình duyệt, hoặc sẵn sàng cho việc tương tác.
 
-## **Xuất một slide dưới dạng SVG**
+## **Xuất Slide dưới dạng SVG**
 
-Create a [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/), select a slide, and write it to a stream with [ISlide.writeAsSvg](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-). The following example exports every slide in a presentation as a separate SVG file.
+Tạo một [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), chọn một slide và ghi nó vào luồng bằng [ISlide.writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-). Ví dụ sau xuất mỗi slide trong một bản trình chiếu thành một tệp SVG riêng.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -43,11 +43,11 @@ try {
 }
 ```
 
-The filename uses [ISlide.getSlideNumber](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#getSlideNumber--) rather than the loop index. You can also export an individual shape with [IShape.writeAsSvg](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) when a slide viewer or web page needs only that shape.
+Tên tệp sử dụng [ISlide.getSlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getSlideNumber--) thay vì chỉ số vòng lặp. Bạn cũng có thể xuất một hình dạng riêng lẻ bằng [IShape.writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) khi trình xem slide hoặc trang web chỉ cần hình dạng đó.
 
 ## **Cấu hình đầu ra SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/) controls SVG rendering. For text frames, [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) includes the text frame in the rendering area, and [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) determines whether the frame rotation is applied. Set [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) to `true` when text must be rendered without ligatures.
+[SVGOptions](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/) kiểm soát việc render SVG. Đối với khung văn bản, [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) bao gồm khung văn bản trong khu vực render, và [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) xác định liệu phép quay khung có được áp dụng hay không. Đặt [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) thành `true` khi văn bản phải được render mà không có ligature.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -66,11 +66,13 @@ try {
 }
 ```
 
-## **Kiểm soát văn bản và phông chữ**
+## **Kiểm soát Văn bản và Phông chữ**
 
-### **Vector hoá toàn bộ văn bản**
+Khi xuất slide sang SVG, bạn có thể kiểm soát việc văn bản giữ nguyên dạng văn bản hay được chuyển thành đồ họa vector, và cách các phông chữ ngoài được bao gồm hoặc tham chiếu. Các tùy chọn dưới đây giúp bạn cân bằng giữa tính nhất quán về hình ảnh, việc chọn văn bản và phụ thuộc phông chữ trong SVG đã xuất.
 
-Set [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) to `true` to write all slide text as vector graphics. This eliminates font dependencies and makes the visual result more consistent across browsers, but the text is no longer selectable or searchable as SVG text.
+### **Vector hoá toàn bộ Văn bản**
+
+Đặt [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) thành `true` để ghi toàn bộ văn bản slide dưới dạng đồ họa vector. Điều này loại bỏ phụ thuộc phông chữ và làm cho kết quả hình ảnh nhất quán hơn trên các trình duyệt, nhưng văn bản sẽ không còn có thể chọn hay tìm kiếm dưới dạng văn bản SVG.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -87,9 +89,9 @@ try {
 }
 ```
 
-### **Chọn cách xử lý phông chữ bên ngoài**
+### **Chọn cách Xử lý Phông chữ Ngoài**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) uses a [SvgExternalFontsHandling](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgexternalfontshandling/) value for fonts that are loaded externally. Choose `AddLinksToFontFiles` to reference separate font files, `Embed` to include font data in the SVG, or `Vectorize` to render only text that uses external fonts as graphics. Verify font licensing before embedding fonts.
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) sử dụng một giá trị [SvgExternalFontsHandling](https://reference.aspose.com/slides/java/com.aspose.slides/svgexternalfontshandling/) cho các phông chữ được tải từ bên ngoài. Chọn `AddLinksToFontFiles` để tham chiếu đến các tệp phông chữ riêng biệt, `Embed` để bao gồm dữ liệu phông chữ trong SVG, hoặc `Vectorize` để render chỉ văn bản sử dụng phông chữ ngoài dưới dạng đồ họa. Kiểm tra giấy phép phông chữ trước khi nhúng phông chữ.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -118,9 +120,9 @@ try {
 }
 ```
 
-## **Giảm kích thước hình ảnh nhúng**
+## **Giảm Kích thước Hình ảnh Nhúng**
 
-Use [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/#setPicturesCompression-int-) to reduce the resolution of embedded pictures, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) to omit cropped source areas, and [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/#setJpegQuality-int-) to control JPEG encoding quality. These settings reduce file size at the cost of image fidelity or retained image data.
+Sử dụng [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setPicturesCompression-int-) để giảm độ phân giải của hình ảnh nhúng, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) để bỏ qua các khu vực đã cắt nguồn, và [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setJpegQuality-int-) để kiểm soát chất lượng mã hoá JPEG. Các cài đặt này giảm kích thước tệp với chi phí là độ trung thực hoặc dữ liệu hình ảnh được giữ lại.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -139,11 +141,55 @@ try {
 }
 ```
 
-## **Gán ID ổn định cho hình dạng và văn bản**
+## **Kiểm soát Độ phân giải Raster hoá Metafile**
 
-Use [ISvgShapeFormattingController](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isvgshapeformattingcontroller/) to set [ISvgShape.setId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isvgshape/#setId-java.lang.String-) for each SVG shape. To set [ISvgTSpan.setId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isvgtspan/#setId-java.lang.String-) values on text `tspan` elements as well, implement [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isvgshapeandtextformattingcontroller/). Assign either controller with [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-).
+[SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setMetafileRasterizationDpi-int-) thiết lập giới hạn độ phân giải thấp nhất cho việc raster hoá metafile trong quá trình xuất SVG. Sử dụng nó để cân bằng chi tiết và kích thước tệp khi một hình ảnh EMF hoặc WMF được raster hoá. Nó không định nghĩa DPI toàn cục cho SVG hoặc buộc mọi đối tượng trên slide trở thành hình ảnh raster.
 
-The following controller uses [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--), which is stable for the lifetime of the shape, and a repeatable counter for its text spans. This makes the generated IDs suitable for post-processing an unchanged presentation.
+Tải xuống [metafile-rasterization.pptx](metafile-rasterization.pptx), tệp chứa hình ảnh EMF với các đường chéo gần nhau. Ví dụ sau xuất slide đầu tiên của nó ở ba độ phân giải raster hoá khác nhau thông qua [ISlide.writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-). Tất cả các cài đặt xuất khác giữ nguyên để có thể so sánh kết quả.
+
+```java
+import com.aspose.slides.PicturesCompression;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SVGOptions;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("metafile-rasterization.pptx");
+try {
+    for (int dpi : new int[] { 72, 150, 300 }) {
+        SVGOptions svgOptions = new SVGOptions();
+        svgOptions.setMetafileRasterizationDpi(dpi);
+        svgOptions.setPicturesCompression(PicturesCompression.Dpi330);
+        svgOptions.setJpegQuality(90);
+
+        String outputFileName = String.format("slide-%d.svg", dpi);
+        try (FileOutputStream svgStream = new FileOutputStream(outputFileName)) {
+            presentation.getSlides().get_Item(0).writeAsSvg(svgStream, svgOptions);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Trong kết quả, EMF đã chuyển thành một PNG nhúng trong mỗi SVG. Các đo lường sau dành cho bản trình chiếu được cung cấp; chúng không phải là công thức chung để chuyển đổi DPI sang kích thước pixel.
+
+| DPI raster hoá Metafile | Kích thước PNG nhúng | Kích thước tệp SVG (byte) |
+| --- | --- | --- |
+| 72 | 1196 × 596 | 170,221 |
+| 150 | 2492 × 1242 | 423,149 |
+| 300 | 4983 × 2483 | 1,027,169 |
+
+So sánh dưới đây hiển thị cùng một vùng raster nhúng ở kích thước hiển thị phóng to giống nhau. Các đường chéo cho thấy hiện tượng pixel hoá rõ ràng ở 72 DPI và các cạnh mượt hơn ở độ phân giải cao hơn, trong khi tệp SVG tăng kích thước. Tăng giá trị không nhất thiết cải thiện mọi chi tiết hoặc thay đổi mọi hình ảnh đã xuất.
+
+![Chi tiết đường chéo phóng to ở 72, 150 và 300 DPI](metafile-rasterization-comparison.png)
+
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setPicturesCompression-int-) điều khiển việc giảm độ phân giải hình ảnh và có thể che giấu tác động của việc thay đổi độ phân giải raster hoá metafile. [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setJpegQuality-int-) điều khiển chất lượng mã hoá JPEG, không phải độ phân giải raster hoá metafile.
+
+## **Gán ID Ổn định cho Hình dạng và Văn bản**
+
+Sử dụng [ISvgShapeFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshapeformattingcontroller/) để đặt [ISvgShape.setId](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshape/#setId-java.lang.String-) cho mỗi hình dạng SVG. Để đặt giá trị [ISvgTSpan.setId](https://reference.aspose.com/slides/java/com.aspose.slides/isvgtspan/#setId-java.lang.String-) trên các phần tử `tspan` của văn bản, triển khai [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshapeandtextformattingcontroller/). Gán bất kỳ controller nào bằng [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-).
+
+Controller dưới đây sử dụng [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--), giá trị này ổn định trong suốt vòng đời của hình dạng, và một bộ đếm có thể lặp lại cho các đoạn văn bản của nó. Điều này làm cho các ID được tạo phù hợp cho việc xử lý hậu kỳ một bản trình chiếu không thay đổi.
 
 ```java
 class StableSvgIdController implements ISvgShapeAndTextFormattingController {
@@ -166,7 +212,7 @@ try {
     SVGOptions svgOptions = new SVGOptions();
     svgOptions.setShapeFormattingController(new StableSvgIdController());
 
-    ISvgShape slide = presentation.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
     try (FileOutputStream svgStream = new FileOutputStream("slide-with-stable-ids.svg")) {
         slide.writeAsSvg(svgStream, svgOptions);
     }
@@ -175,9 +221,9 @@ try {
 }
 ```
 
-## **Thêm bộ xử lý sự kiện SVG**
+## **Thêm Bộ xử lý Sự kiện SVG**
 
-In an [ISvgShapeFormattingController](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isvgshapeformattingcontroller/), call [ISvgShape.setEventHandler](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) with a [SvgEvent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgevent/) value to add a JavaScript event handler to an exported shape. Assign the controller with [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) and define the JavaScript function in the page or SVG document that hosts the result.
+Trong một [ISvgShapeFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshapeformattingcontroller/), gọi [ISvgShape.setEventHandler](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) với giá trị [SvgEvent](https://reference.aspose.com/slides/java/com.aspose.slides/svgevent/) để thêm bộ xử lý sự kiện JavaScript vào một hình dạng đã xuất. Gán controller bằng [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) và định nghĩa hàm JavaScript trong trang hoặc tài liệu SVG chứa kết quả.
 
 ```java
 class SvgEventController implements ISvgShapeFormattingController {
@@ -203,18 +249,18 @@ try {
 }
 ```
 
-The host page can define the JavaScript function referenced by the handler. Assigning IDs and event handlers enables slide viewers, accessibility enhancements, and other interactive SVG workflows.
+Trang chủ có thể định nghĩa hàm JavaScript được tham chiếu bởi bộ xử lý. Gán ID và bộ xử lý sự kiện cho phép trình xem slide, cải thiện khả năng truy cập và các quy trình làm việc SVG tương tác khác.
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**When should I use [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) instead of [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgexternalfontshandling/)?**
+**Khi nào tôi nên sử dụng [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) thay vì [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/java/com.aspose.slides/svgexternalfontshandling/)?**
 
-Use [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) when all text must be independent of fonts. Use [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgexternalfontshandling/) when only text that uses external fonts should be converted to graphics.
+Sử dụng [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/java/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) khi tất cả văn bản phải không phụ thuộc vào phông chữ. Sử dụng [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/java/com.aspose.slides/svgexternalfontshandling/) khi chỉ những văn bản sử dụng phông chữ ngoài cần được chuyển thành đồ họa.
 
-**What is the best way to make an SVG smaller?**
+**Cách tốt nhất để làm cho SVG nhỏ hơn là gì?**
 
-Start by compressing embedded pictures, deleting cropped image areas, and choosing linked font files when the target environment can serve them. Test the result because lower image resolution, lower JPEG quality, and vectorized text each have different quality and size tradeoffs.
+Bắt đầu bằng việc nén các hình ảnh nhúng, xóa các khu vực hình ảnh đã cắt và chọn các tệp phông chữ được liên kết khi môi trường đích có thể cung cấp chúng. Kiểm thử kết quả vì độ phân giải hình ảnh thấp hơn, chất lượng JPEG thấp hơn và văn bản vector hoá mỗi yếu tố đều có sự đánh đổi giữa chất lượng và kích thước.
 
-**Can I modify exported SVG elements after export?**
+**Tôi có thể chỉnh sửa các phần tử SVG đã xuất sau khi xuất không?**
 
-Yes. Assign IDs through a formatting controller, then select the matching SVG elements in your post-processing tool or browser script.
+Có. Gán ID thông qua một controller định dạng, sau đó chọn các phần tử SVG tương ứng trong công cụ xử lý hậu kỳ hoặc script trình duyệt của bạn.

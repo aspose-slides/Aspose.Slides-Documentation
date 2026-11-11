@@ -15,526 +15,527 @@ keywords:
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Δημιουργήστε και προσαρμόστε το Zoom με Aspose.Slides για PHP μέσω Java — μεταβείτε μεταξύ ενοτήτων, προσθέστε μικρογραφίες και μεταβάσεις σε παρουσιάσεις PPT, PPTX και ODP."
+description: "Δημιουργήστε και προσαρμόστε το Zoom με το Aspose.Slides για PHP μέσω Java — μεταβείτε μεταξύ ενοτήτων, προσθέστε μικρογραφίες και μεταβάσεις σε παρουσιάσεις PowerPoint."
 ---
 ## **Εισαγωγή**
 
-Τα Zoom στο PowerPoint σας επιτρέπουν να μεταβαίνετε σε συγκεκριμένες διαφάνειες, ενότητες και τμήματα μιας παρουσίασης και πίσω. Κατά την παρουσίαση, αυτή η δυνατότητα γρήγορης περιήγησης στο περιεχόμενο μπορεί να αποδειχθεί πολύ χρήσιμη. 
+Τα zoom του PowerPoint σάς επιτρέπουν να πλοηγηθείτε μεταξύ συγκεκριμένων διαφανειών και ενοτήτων κατά τη διάρκεια μιας παρουσίασης. Με το Aspose.Slides for PHP via Java, μπορείτε να δημιουργήσετε zoom διαφάνειας, ενότητας και σύνοψης και να προσαρμόσετε τις προεπισκοπήσεις, τα σύνορα και τις μεταβάσεις τους.
 
-![overview_image](overview.png)
+![Επισκόπηση ζουμ PowerPoint](overview.png)
 
-* Για να συνοψίσετε ολόκληρη την παρουσίαση σε μία μόνο διαφάνεια, χρησιμοποιήστε ένα [Zoom Σύνοψη](#Summary-Zoom).
-* Για να εμφανίσετε μόνο επιλεγμένες διαφάνειες, χρησιμοποιήστε ένα [Zoom Διαφάνειας](#Slide-Zoom).
-* Για να εμφανίσετε μόνο μία ενότητα, χρησιμοποιήσετε ένα [Zoom Ενότητας](#Section-Zoom).
+* Για να συνοψίσετε ολόκληρη την παρουσίαση σε μία διαφάνεια, χρησιμοποιήστε ένα [Summary Zoom](#summary-zoom).
+* Για να εμφανίσετε μόνο επιλεγμένες διαφάνειες, χρησιμοποιήστε ένα [Slide Zoom](#slide-zoom).
+* Για να εμφανίσετε μόνο μία ενότητα, χρησιμοποιήστε ένα [Section Zoom](#section-zoom).
 
-## **Zoom Διαφάνειας**
-Το Zoom διαφάνειας μπορεί να κάνει την παρουσίασή σας πιο δυναμική, επιτρέποντας ελεύθερη περιήγηση μεταξύ των διαφανειών με τη σειρά που επιλέγετε χωρίς να διακόπτετε τη ροή της παρουσίασης. Τα Zoom διαφάνειας είναι ιδανικά για σύντομες παρουσιάσεις χωρίς πολλές ενότητες, αλλά μπορείτε ακόμη να τα χρησιμοποιήσετε σε διαφορετικά σενάρια παρουσίασης.
+## **Slide Zoom**
 
-Τα Zoom διαφάνειας σας βοηθούν να εμβαθύνετε σε πολλαπλά τμήματα πληροφορίας ενώ αισθάνεστε ότι βρίσκεστε σε ένα ενιαίο καμβά. 
+Ένα zoom διαφάνειας μπορεί να κάνει την παρουσίασή σας πιο δυναμική, επιτρέποντάς σας να πλοηγηθείτε ελεύθερα μεταξύ των διαφανειών με τη σειρά που επιθυμείτε χωρίς να διακόπτετε τη ροή της παρουσίασης. Τα zoom διαφάνειας είναι ιδανικά για σύντομες παρουσιάσεις χωρίς πολλές ενότητες, αλλά μπορείτε να τα χρησιμοποιήσετε και σε διαφορετικά σενάρια παρουσίασης.
 
-![overview_image](slidezoomsel.png)
+Τα zoom διαφάνειας σας επιτρέπουν να εξερευνήσετε σχετικές πληροφορίες από μία ενιαία διαφάνεια επισκόπησης.
 
-Για αντικείμενα Zoom διαφάνειας, το Aspose.Slides παρέχει την αρίθμηση [ZoomImageType](https://reference.aspose.com/slides/el/php-java/aspose.slides/zoomimagetype/) , την κλάση [ZoomFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/zoomframe/) και κάποιες μεθόδους κάτω από την κλάση [ShapeCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/) .
+![Επιλογή διαφανειών για zoom διαφάνειας](slidezoomsel.png)
 
-### **Δημιουργία Πλαισίων Zoom**
+Για αντικείμενα zoom διαφάνειας, το Aspose.Slides παρέχει την απαρίθμηση [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/zoomimagetype/), την κλάση [ZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) και μεθόδους στην κλάση [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
 
-Μπορείτε να προσθέσετε ένα πλαίσιο zoom σε μια διαφάνεια ως εξής:
+### **Δημιουργία πλαισίων Zoom**
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
-2. Δημιουργήστε νέες διαφάνειες στις οποίες σκοπεύετε να συνδέσετε τα πλαίσια zoom. 
-3. Προσθέστε κείμενο αναγνώρισης και φόντο στις δημιουργημένες διαφάνειες.
-4. Προσθέστε πλαίσια zoom (που περιέχουν τις αναφορές στις δημιουργημένες διαφάνειες) στην πρώτη διαφάνεια.
-5. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα πλαίσιο zoom σε μια διαφάνεια:
+Χρησιμοποιήστε το [ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) για να τοποθετήσετε συνδέσμους σε μεμονωμένες διαφάνειες σε μια διαφάνεια επισκόπησης. Αυτό το παράδειγμα δημιουργεί δύο διαφάνειες-στόχους με διαφορετικά φόντα και ετικέτες, προσθέτει μια προεπισκόπηση της κάθε μιας στη πρώτη διαφάνεια και αποθηκεύει την παρουσίαση ως PPTX. Οι θέσεις και οι διαστάσεις των πλαισίων ορίζονται σε σημεία.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Προσθέτει νέες διαφάνειες στην παρουσίαση
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # Δημιουργεί φόντο για τη δεύτερη διαφάνεια
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # Δημιουργεί πλαίσιο κειμένου για τη δεύτερη διαφάνεια
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # Δημιουργεί φόντο για την τρίτη διαφάνεια
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # Δημιουργεί πλαίσιο κειμένου για την τρίτη διαφάνεια
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # Προσθέτει αντικείμενα ZoomFrame
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # Αποθηκεύει την παρουσίαση
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-### **Δημιουργία Πλαισίων Zoom με Προσαρμοσμένες Εικόνες**
-Με το Aspose.Slides για PHP μέσω Java, μπορείτε να δημιουργήσετε ένα πλαίσιο zoom με διαφορετική προεπισκόπηση διαφάνειας ως εξής:
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
-2. Δημιουργήστε μια νέα διαφάνεια στην οποία σκοπεύετε να συνδέσετε το πλαίσιο zoom. 
-3. Προσθέστε κείμενο αναγνώρισης και φόντο στη διαφάνεια.
-4. Δημιουργήστε ένα αντικείμενο [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/) προσθέτοντας μια εικόνα στη συλλογή Images που συνδέεται με το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) που θα χρησιμοποιηθεί για τη γέμισμα του πλαισίου.
-5. Προσθέστε πλαίσια zoom (που περιέχουν την αναφορά στη δημιουργημένη διαφάνεια) στην πρώτη διαφάνεια.
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα πλαίσιο zoom με διαφορετική εικόνα:
+### **Δημιουργία πλαισίων Zoom με προσαρμοσμένες εικόνες**
+
+Περάστε μια προσαρμοσμένη εικόνα στο [ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) για να αντικαταστήσετε την προεπιλεγμένη προεπισκόπηση της διαφάνειας-στόχου. Αυτό το παράδειγμα απαιτεί μια τοπική εικόνα, τη φορτώνει με το [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) και την προσθέτει στην παρουσίαση χρησιμοποιώντας το [ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage). Το τελικό πλαίσιο εμφανίζει εκείνη την εικόνα ενώ εξακολουθεί να συνδέεται με τη δεύτερη διαφάνεια.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # Δημιουργεί φόντο για τη δεύτερη διαφάνεια
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # Δημιουργεί πλαίσιο κειμένου για την τρίτη διαφάνεια
-    $autoshape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # Δημιουργεί νέα εικόνα για το αντικείμενο Zoom
-    $picture;
-    $image = Images->fromFile("image.png");
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # Προσθέτει το αντικείμενο ZoomFrame
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $picture);
-    # Αποθηκεύει την παρουσίαση
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-### **Μορφοποίηση Πλαισίων Zoom**
-Στις προηγούμενες ενότητες, σας δείξαμε πώς να δημιουργήσετε απλά πλαίσια zoom. Για να δημιουργήσετε πιο σύνθετα πλαίσια zoom, πρέπει να τροποποιήσετε τη μορφοποίηση ενός απλού πλαισίου. Υπάρχουν διάφορες επιλογές μορφοποίησης που μπορείτε να εφαρμόσετε σε ένα πλαίσιο zoom. 
 
-Μπορείτε να ελέγξετε τη μορφοποίηση ενός πλαισίου zoom σε μια διαφάνεια ως εξής:
+### **Διαμόρφωση πλαισίων Zoom**
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
-2. Δημιουργήστε νέες διαφάνειες στις οποίες σκοπεύετε να συνδέσετε το πλαίσιο zoom. 
-3. Προσθέστε κάποιο κείμενο αναγνώρισης και φόντο στις δημιουργημένες διαφάνειες.
-4. Προσθέστε πλαίσια zoom (που περιέχουν τις αναφορές στις δημιουργημένες διαφάνειες) στην πρώτη διαφάνεια.
-5. Δημιουργήστε ένα αντικείμενο [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/) προσθέτοντας μια εικόνα στη συλλογή Images που συνδέεται με το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) που θα χρησιμοποιηθεί για τη γέμισμα του πλαισίου.
-6. Ορίστε προσαρμοσμένη εικόνα για το πρώτο αντικείμενο πλαισίου zoom.
-7. Αλλάξτε τη μορφοποίηση της γραμμής για το δεύτερο αντικείμενο πλαισίου zoom.
-8. Αφαιρέστε το φόντο από μια εικόνα του δεύτερου αντικειμένου πλαισίου zoom.
-5. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας PHP δείχνει πώς να αλλάξετε τη μορφοποίηση ενός πλαισίου zoom σε μια διαφάνεια:
+Αυτό το παράδειγμα προσαρμόζει δύο πλαίσια zoom διαφάνειας. Αναθέτει μια τοπική εικόνα στο πρώτο πλαίσιο μέσω του [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage) και δίνει στο δεύτερο πλαίσιο ένα 5‑σημείων, παύλα‑κουκκίδα ροζ περίγραμμα μέσω του [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat). ΠPassing `false` στο [ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground) κρύβει το φόντο του δεύτερου πλαισίου. Απαιτείται τοπική εικόνα για την προσαρμοσμένη προεπισκόπηση· και τα δύο πλαίσια διατηρούν τους στόχους διαφάνειας στο αποθηκευμένο PPTX.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Προσθέτει νέες διαφάνειες στην παρουσίαση
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # Δημιουργεί φόντο για τη δεύτερη διαφάνεια
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # Δημιουργεί πλαίσιο κειμένου για τη δεύτερη διαφάνεια
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # Δημιουργεί φόντο για την τρίτη διαφάνεια
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # Δημιουργεί πλαίσιο κειμένου για την τρίτη διαφάνεια
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # Προσθέτει αντικείμενα ZoomFrame
-    $zoomFrame1 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $zoomFrame2 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # Δημιουργεί νέα εικόνα για το αντικείμενο zoom
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $firstZoomFrame = $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $secondZoomFrame = $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # Ορίζει προσαρμοσμένη εικόνα για το αντικείμενο zoomFrame1
-    $zoomFrame1->setImage($picture);
-    # Ορίζει μορφοποίηση πλαισίου zoom για το αντικείμενο zoomFrame2
-    $zoomFrame2->getLineFormat()->setWidth(5);
-    $zoomFrame2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $zoomFrame2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->pink);
-    $zoomFrame2->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
-    # Ρύθμιση για μη εμφάνιση φόντου για το αντικείμενο zoomFrame2
-    $zoomFrame2->setShowBackground(false);
-    # Αποθηκεύει την παρουσίαση
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $firstZoomFrame->setZoomImage($previewImage);
+
+    $secondZoomFrame->getLineFormat()->setWidth(5);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 255, 105, 180);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $secondZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
+
+    $secondZoomFrame->setShowBackground(false);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Zoom Ενότητας**
+## **Section Zoom**
 
-Το Zoom ενότητας είναι ένας σύνδεσμος σε μια ενότητα της παρουσίασής σας. Μπορείτε να χρησιμοποιήσετε τα Zoom ενότητας για να επιστρέψετε σε ενότητες που θέλετε να τονίσετε. Ή μπορείτε να τα χρησιμοποιήσετε για να επισημάνετε πώς συγκεκριμένα τμήματα της παρουσίασής σας συνδέονται. 
+Ένα zoom ενότητας συνδέεται με μια ενότητα στην παρουσίασή σας. Χρησιμοποιήστε το για να επιστρέψετε σε ένα θέμα ή να δείξετε πώς διαφορετικά τμήματα της παρουσίασης συνδέονται μεταξύ τους.
 
-![overview_image](seczoomsel.png)
+![Επιλογή ενότητας για zoom ενότητας](seczoomsel.png)
 
-Για αντικείμενα Zoom ενότητας, το Aspose.Slides παρέχει την κλάση [SectionZoomFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/sectionzoomframe/) και κάποιες μεθόδους κάτω από την κλάση [ShapeCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/) .
+Για αντικείμενα zoom ενότητας, το Aspose.Slides παρέχει την κλάση [SectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) και μεθόδους στην κλάση [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
 
-### **Δημιουργία Πλαισίων Zoom Ενότητας**
+### **Δημιουργία πλαισίων Section Zoom**
 
-Μπορείτε να προσθέσετε ένα πλαίσιο Zoom ενότητας σε μια διαφάνεια ως εξής:
-
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
-2. Δημιουργήστε μια νέα διαφάνεια. 
-3. Προσθέστε φόντο αναγνώρισης στην δημιουργημένη διαφάνεια.
-4. Δημιουργήστε μια νέα ενότητα στην οποία σκοπεύετε να συνδέσετε το πλαίσιο zoom. 
-5. Προσθέστε ένα πλαίσιο Zoom ενότητας (που περιέχει αναφορές στην δημιουργημένη ενότητα) στην πρώτη διαφάνεια.
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα πλαίσιο zoom σε μια διαφάνεια:
+Δημιουργήστε μια ενότητα με το [SectionCollection::addSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectioncollection/#addSection) και στη συνέχεια περάστε την επιστρεφόμενη ενότητα στο [ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame). Αυτό το παράδειγμα τοποθετεί ένα zoom ενότητας στην πρώτη διαφάνεια και το συνδέει με μια ενότητα που αρχίζει με μια χρωματιστή διαφάνεια. Η θέση και οι διαστάσεις του πλαισίου ορίζονται σε σημεία και η παρουσίαση αποθηκεύεται ως PPTX.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Προσθέτει αντικείμενο SectionZoomFrame
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # Αποθηκεύει την παρουσίαση
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-### **Δημιουργία Πλαισίων Zoom Ενότητας με Προσαρμοσμένες Εικόνες**
 
-Χρησιμοποιώντας το Aspose.Slides για PHP μέσω Java, μπορείτε να δημιουργήσετε ένα πλαίσιο Zoom ενότητας με διαφορετική προεπισκόπηση διαφάνειας ως εξής:
+### **Δημιουργία πλαισίων Section Zoom με προσαρμοσμένες εικόνες**
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
-2. Δημιουργήστε μια νέα διαφάνεια.
-3. Προσθέστε φόντο αναγνώρισης στην δημιουργημένη διαφάνεια.
-4. Δημιουργήστε μια νέα ενότητα στην οποία σκοπεύετε να συνδέσετε το πλαίσιο zoom. 
-5. Δημιουργήστε ένα αντικείμενο [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/) προσθέτοντας μια εικόνα στη συλλογή Images που συνδέεται με το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) που θα χρησιμοποιηθεί για τη γέμισμα του πλαισίου.
-5. Προσθέστε ένα πλαίσιο Zoom ενότητας (που περιέχει μια αναφορά στην δημιουργημένη ενότητα) στην πρώτη διαφάνεια.
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα πλαίσιο zoom με διαφορετική εικόνα:
+Η υπερφόρτωση εικόνας του [ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame) σας επιτρέπει να εμφανίσετε μια προσαρμοσμένη προεπισκόπηση χωρίς να αλλάζετε την προορισμένη ενότητα. Αυτό το παράδειγμα απαιτεί μια τοπική εικόνα, η οποία φορτώνεται με το [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) και προστίθεται μέσω του [ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage). Η αποθηκευμένη παρουσίαση περιέχει ένα zoom ενότητας στην πρώτη διαφάνεια που συνδέεται με τη νεόσυστατη ενότητα.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Προσθέτει νέα διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Δημιουργεί νέα εικόνα για το αντικείμενο zoom
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # Προσθέτει αντικείμενο SectionZoomFrame
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1), $picture);
-    # Αποθηκεύει την παρουσίαση
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
-### **Μορφοποίηση Πλαισίων Zoom Ενότητας**
 
-Για να δημιουργήσετε πιο σύνθετα πλαίσια Zoom ενότητας, πρέπει να τροποποιήσετε τη μορφοποίηση ενός απλού πλαισίου. Υπάρχουν διάφορες επιλογές μορφοποίησης που μπορείτε να εφαρμόσετε σε ένα πλαίσιο Zoom ενότητας. 
+### **Αλλαγή της ενότητας-στόχου ενός Section Zoom**
 
-Μπορείτε να ελέγξετε τη μορφοποίηση ενός πλαισίου Zoom ενότητας σε μια διαφάνεια ως εξής:
+Χρησιμοποιήστε το [SectionZoomFrame::setTargetSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/#setTargetSection) για να μετατοπίσετε ένα υπάρχον zoom ενότητας χωρίς να το ξαναδημιουργήσετε. Επιλέξτε μια γεμάτη ενότητα από τη συλλογή [Presentation::getSections](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSections) της ίδιας παρουσίασης. Η ανάθεση κενής ενότητας αφήνει αμετάβλητο τον τρέχοντα στόχο, επομένως ελέγξτε το [Section::getSlidesListOfSection](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSlidesListOfSection) πριν την ανάθεση. Δείτε τη σελίδα [Manage Slide Sections](/slides/el/php-java/slide-section/) για περισσότερες πληροφορίες σχετικά με τις ενότητες.
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
-2. Δημιουργήστε μια νέα διαφάνεια.
-3. Προσθέστε φόντο αναγνώρισης στην δημιουργημένη διαφάνεια.
-4. Δημιουργήστε μια νέα ενότητα στην οποία σκοπεύετε να συνδέσετε το πλαίσιο zoom. 
-5. Προσθέστε ένα πλαίσιο Zoom ενότητας (που περιέχει αναφορές στην δημιουργημένη ενότητα) στην πρώτη διαφάνεια.
-6. Αλλάξτε το μέγεθος και τη θέση του δημιουργημένου αντικειμένου Zoom ενότητας.
-7. Δημιουργήστε ένα αντικείμενο [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/) προσθέτοντας μια εικόνα στη συλλογή Images που συνδέεται με το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) που θα χρησιμοποιηθεί για τη γέμισμα του πλαισίου.
-8. Ορίστε προσαρμοσμένη εικόνα για το δημιουργημένο αντικείμενο Zoom ενότητας.
-9. Ορίστε τη δυνατότητα *επιστροφής στην αρχική διαφάνεια από την συνδεδεμένη ενότητα*. 
-10. Αφαιρέστε το φόντο από μια εικόνα του αντικειμένου Zoom ενότητας.
-11. Αλλάξτε τη μορφοποίηση της γραμμής για το δεύτερο πλαίσιο zoom.
-12. Αλλάξτε τη διάρκεια της μετάβασης.
-13. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας PHP δείχνει πώς να αλλάξετε τη μορφοποίηση ενός πλαισίου Zoom ενότητας:
+Το παρακάτω παράδειγμα φορτώνει ένα αρχείο παρουσίασης που πρέπει να περιέχει πολλαπλές γεμάτες ενότητες, ένα υπάρχον zoom ενότητας με όνομα `Section navigation` και μια ενότητα με το μοναδικό όνομα `Results`. Αναζητά όλες τις διαφάνειες για το zoom και βρίσκει τον προορισμό με βάση το όνομα αντί για τον δείκτη της συλλογής, ο οποίος μπορεί να αλλάξει όταν οι ενότητες αναδιατάσσονται. Εάν τα ονόματα δεν είναι μοναδικά, χρησιμοποιήστε το [Section::getSectionId](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSectionId) για να εντοπίσετε τον προορισμό.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("section-zoom.pptx");
+try {
+    $zoom = null;
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($i = 0; $i < $slideCount; $i++) {
+        $slide = $presentation->getSlides()->get_Item($i);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($j = 0; $j < $shapeCount; $j++) {
+            $shape = $slide->getShapes()->get_Item($j);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.ISectionZoomFrame")) && java_values($shape->getName()) === "Section navigation") {
+                $zoom = $shape;
+                break;
+            }
+        }
+        if ($zoom != null) {
+            break;
+        }
+    }
+
+    $targetSection = null;
+    $sectionCount = java_values($presentation->getSections()->size());
+    for ($i = 0; $i < $sectionCount; $i++) {
+        $section = $presentation->getSections()->get_Item($i);
+        if (java_values($section->getName()) === "Results") {
+            $targetSection = $section;
+            break;
+        }
+    }
+
+    if ($zoom == null || $targetSection == null) {
+        echo "The section zoom or destination section was not found.", PHP_EOL;
+    } else if (java_values($targetSection->getSlidesListOfSection()->size()) == 0) {
+        echo "The destination section is empty.", PHP_EOL;
+    } else {
+        $currentSection = $zoom->getTargetSection();
+        echo "Current section: " . (java_is_null($currentSection) ? "" : java_values($currentSection->getName())), PHP_EOL;
+        $zoom->setTargetSection($targetSection);
+        $presentation->save("section-zoom-updated.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Διαμόρφωση πλαισίων Section Zoom**
+
+Αυτό το παράδειγμα μετακινεί και αλλάζει το μέγεθος ενός zoom ενότητας σε 100 × 75 σημεία, αναθέτει μια τοπική εικόνα μέσω του [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage) και εφαρμόζει ένα 2,5‑σημείων, παύλα‑κουκκίδα καστανό περίγραμμα. Ενεργοποιεί το [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) για επιστροφή στη διαφάνεια προέλευσης μετά την ενότητα, απενεργοποιεί το [ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground) και ορίζει το [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) σε 1,5 δευτερόλεπτα. Απαιτείται τοπική εικόνα για την προσαρμοσμένη προεπισκόπηση.
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Προσθέτει αντικείμενο SectionZoomFrame
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # Μορφοποίηση για SectionZoomFrame
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
     $sectionZoomFrame->setX(100);
     $sectionZoomFrame->setY(300);
     $sectionZoomFrame->setWidth(100);
     $sectionZoomFrame->setHeight(75);
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    $sectionZoomFrame->setImage($picture);
+
+    $sectionZoomFrame->setZoomImage($previewImage);
+
     $sectionZoomFrame->setReturnToParent(true);
     $sectionZoomFrame->setShowBackground(false);
+
     $sectionZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
-    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
     $sectionZoomFrame->getLineFormat()->setWidth(2.5);
+
     $sectionZoomFrame->setTransitionDuration(1.5);
-    # Αποθηκεύει την παρουσίαση
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Zoom Σύνοψης**
+## **Summary Zoom**
 
-Το Zoom σύνοψης είναι σαν μια αρχική σελίδα όπου όλα τα τμήματα της παρουσίασής σας εμφανίζονται ταυτόχρονα. Κατά τη διάρκεια της παρουσίασης, μπορείτε να χρησιμοποιήσετε το zoom για να μεταβείτε από ένα σημείο της παρουσίασης σε άλλο με την σειρά που θέλετε. Μπορείτε να είστε δημιουργικοί, να παραλείψετε μέρη ή να επιστρέψετε σε τμήματα της παρουσίασης χωρίς να διακόπτετε τη ροή.
+Ένα summary zoom παρέχει μια επισκόπηση των ενοτήτων της παρουσίασης. Κατά τη διάρκεια μιας παρουσίασης, μπορείτε να το χρησιμοποιήσετε για να μεταβείτε σε μια ενότητα, να παραλείψετε προς τα εμπρός ή να επανεξετάσετε ένα θέμα χωρίς να ακολουθείτε τη σειρά των διαφανειών.
 
-![overview_image](sumzoomsel.png)
+![Επιλογή ενοτήτων για summary zoom](sumzoomsel.png)
 
-Για αντικείμενα Zoom σύνοψης, το Aspose.Slides παρέχει τις κλάσεις [SummaryZoomFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/el/php-java/aspose.slides/summaryzoomsection/) και [SummaryZoomSectionCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/summaryzoomsectioncollection/) και κάποιες μεθόδους κάτω από την κλάση [ShapeCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/) .
+Για αντικείμενα summary zoom, το Aspose.Slides παρέχει τις κλάσεις [SummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) και [SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) και μεθόδους στην κλάση [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
 
-### **Δημιουργία Zoom Σύνοψης**
+### **Δημιουργία Summary Zoom**
 
-Μπορείτε να προσθέσετε ένα πλαίσιο Zoom σύνοψης σε μια διαφάνεια ως εξής:
-
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
-2. Δημιουργήστε νέες διαφάνειες με φόντο αναγνώρισης και νέες ενότητες για τις δημιουργημένες διαφάνειες.
-3. Προσθέστε το πλαίσιο Zoom σύνοψης στην πρώτη διαφάνεια.
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα πλαίσιο Zoom σύνοψης σε μια διαφάνεια:
+Χρησιμοποιήστε το [ShapeCollection::addSummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSummaryZoomFrame) για να δημιουργήσετε μια επισκόπηση των ενοτήτων της παρουσίασης. Αυτό το παράδειγμα δημιουργεί τέσσερις ενότητες με διαφορετικά φόντα διαφανειών και προσθέτει ένα summary zoom στην πρώτη διαφάνεια. Η θέση και οι διαστάσεις του πλαισίου ορίζονται σε σημεία και η τελική επισκόπηση αποθηκεύεται σε μια παρουσίαση PPTX.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    $pres->getSections()->addSection("Section 2", $slide);
-    # Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    $pres->getSections()->addSection("Section 3", $slide);
-    # Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 3", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->green);
+    $color = new Java("java.awt.Color", 0, 100, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    $pres->getSections()->addSection("Section 4", $slide);
-    # Προσθέτει αντικείμενο SummaryZoomFrame
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # Αποθηκεύει την παρουσίαση
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->getSections()->addSection("Section 4", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Προσθήκη και Αφαίρεση Ενότητας Zoom Σύνοψης**
+### **Προσθήκη και αφαίρεση Section σε Summary Zoom**
 
-Όλες οι ενότητες σε ένα πλαίσιο Zoom σύνοψης αντιπροσωπεύονται από αντικείμενα [SummaryZoomSection](https://reference.aspose.com/slides/el/php-java/aspose.slides/summaryzoomsection/) , τα οποία αποθηκεύονται στην συλλογή [SummaryZoomSectionCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/summaryzoomsectioncollection/) . Μπορείτε να προσθέσετε ή να αφαιρέσετε ένα αντικείμενο ενότητας Zoom σύνοψης μέσω της κλάσης [SummaryZoomSectionCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/summaryzoomsectioncollection/) ως εξής:
-
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
-2. Δημιουργήστε νέες διαφάνειες με φόντο αναγνώρισης και νέες ενότητες για τις δημιουργημένες διαφάνειες.
-3. Προσθέστε ένα πλαίσιο Zoom σύνοψης στην πρώτη διαφάνεια.
-4. Προσθέστε μια νέα διαφάνεια και ενότητα στην παρουσίαση.
-5. Προσθέστε τη δημιουργημένη ενότητα στο πλαίσιο Zoom σύνοψης.
-6. Αφαιρέστε την πρώτη ενότητα από το πλαίσιο Zoom σύνοψης.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας PHP δείχνει πώς να προσθέσετε και να αφαιρέσετε ενότητες σε ένα πλαίσιο Zoom σύνοψης:
+Ένα summary zoom αποθηκεύει τα αντικείμενα [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) στο [SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection). Αυτό το παράδειγμα δημιουργεί μια επισκόπηση δύο ενοτήτων, προσθέτει μια τρίτη ενότητα χρησιμοποιώντας το [SummaryZoomSectionCollection::addSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) και αφαιρεί την καταχώρηση της πρώτης ενότητας με το [SummaryZoomSectionCollection::removeSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection). Η αφαίρεση διατηρεί την ενότητα της παρουσίασης και τις διαφάνειές της ανέπαφες.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $firstSection = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    $pres->getSections()->addSection("Section 2", $slide);
-    # Προσθέτει αντικείμενο SummaryZoomFrame
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    $section3 = $pres->getSections()->addSection("Section 3", $slide);
-    # Προσθέτει μια ενότητα στο Summary Zoom
-    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($section3);
-    # Αφαιρεί ενότητα από το Summary Zoom
-    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($pres->getSections()->get_Item(1));
-    # Αποθηκεύει την παρουσίαση
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $thirdSection = $presentation->getSections()->addSection("Section 3", $slide);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($thirdSection);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($firstSection);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Μορφοποίηση Ενοτήτων Zoom Σύνοψης**
+### **Διαμόρφωση Section σε Summary Zoom**
 
-Για να δημιουργήσετε πιο σύνθετα αντικείμενα ενότητας Zoom σύνοψης, πρέπει να τροποποιήσετε τη μορφοποίηση ενός απλού πλαισίου. Υπάρχουν διάφορες επιλογές μορφοποίησης που μπορείτε να εφαρμόσετε σε ένα αντικείμενο ενότητας Zoom σύνοψης. 
-
-Μπορείτε να ελέγξετε τη μορφοποίηση μιας ενότητας Zoom σύνοψης σε ένα πλαίσιο Zoom σύνοψης ως εξής:
-
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
-2. Δημιουργήστε νέες διαφάνειες με φόντο αναγνώρισης και νέες ενότητες για τις δημιουργημένες διαφάνειες.
-3. Προσθέστε ένα πλαίσιο Zoom σύνοψης στην πρώτη διαφάνεια.
-4. Παίρετε ένα αντικείμενο ενότητας Zoom σύνοψης για το πρώτο αντικείμενο από το `SummaryZoomSectionCollection`.
-7. Δημιουργήστε ένα αντικείμενο [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/) προσθέτοντας μια εικόνα στη συλλογή images που συνδέεται με το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) που θα χρησιμοποιηθεί για τη γέμισμα του πλαισίου.
-8. Ορίστε προσαρμοσμένη εικόνα για το δημιουργημένο αντικείμενο Zoom ενότητας.
-9. Ορίστε τη δυνατότητα *επιστροφής στην αρχική διαφάνεια από την συνδεδεμένη ενότητα*. 
-11. Αλλάξτε τη μορφοποίηση της γραμμής για το δεύτερο πλαίσιο zoom.
-12. Αλλάξτε τη διάρκεια της μετάβασης.
-13. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας PHP δείχνει πώς να αλλάξετε τη μορφοποίηση ενός αντικειμένου ενότητας Zoom σύνοψης:
+Αυτό το παράδειγμα μορφοποιεί την πρώτη καταχώρηση στο [SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection), χρησιμοποιώντας τον μηδενικό δείκτη `0`. Απαιτεί τοπική εικόνα για το [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage), εφαρμόζει ένα 1,5‑σημείων, παύλα‑κουκκίδα μαύρο περίγραμμα και ορίζει το [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) σε 1,5 δευτερόλεπτα. ΠPassing `false` στο [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) απενεργοποιεί την αυτόματη επιστροφή στη διαφάνεια σύνοψης για αυτήν την καταχώρηση.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    $pres->getSections()->addSection("Section 1", $slide);
-    # Προσθέτει μια νέα διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # Προσθέτει μια νέα Ενότητα στην παρουσίαση
-    $pres->getSections()->addSection("Section 2", $slide);
-    # Προσθέτει αντικείμενο SummaryZoomFrame
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # Παίρνει το πρώτο αντικείμενο SummaryZoomSection
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
     $summarySection = $summaryZoomFrame->getSummaryZoomCollection()->get_Item(0);
-    # Μορφοποίηση για το αντικείμενο SummaryZoomSection
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($picture);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    $summarySection->setImage($picture);
+
+    $summarySection->setZoomImage($previewImage);
     $summarySection->setReturnToParent(false);
+
     $summarySection->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->black);
-    $summarySection->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
+    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $summarySection->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
     $summarySection->getLineFormat()->setWidth(1.5);
+
     $summarySection->setTransitionDuration(1.5);
-    # Αποθηκεύει την παρουσίαση
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Συχνές Ερωτήσεις**
+## **FAQ**
 
 **Μπορώ να ελέγξω την επιστροφή στη «γονική» διαφάνεια μετά την εμφάνιση του στόχου;**
 
-Ναι. Το [Zoom frame](https://reference.aspose.com/slides/el/php-java/aspose.slides/zoomframe/) ή το [section](https://reference.aspose.com/slides/el/php-java/aspose.slides/sectionzoomframe/) διαθέτει τη συμπεριφορά `ReturnToParent` που, όταν ενεργοποιηθεί, επιστρέφει τους θεατές στην αρχική διαφάνεια μετά την επίσκεψη στο περιεχόμενο-στόχο.
+Ναι. Καλέστε το [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) με `true` για να επιστρέψετε στη διαφάνεια προέλευσης μετά την εμφάνιση του περιεχομένου-στόχου.
 
-**Μπορώ να ρυθμίσω την «ταχύτητα» ή την διάρκεια της μετάβασης Zoom;**
+**Μπορώ να ρυθμίσω την «ταχύτητα» ή τη διάρκεια της μετάβασης του Zoom;**
 
-Ναι. Το Zoom υποστηρίζει τον καθορισμό μιας `TransitionDuration` ώστε να μπορείτε να ελέγξετε πόσο χρόνο διαρκεί η κίνηση.
+Ναι. Χρησιμοποιήστε το [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) για να ελέγξετε τη διάρκεια της μετάβασης σε δευτερόλεπτα.
 
 **Υπάρχουν περιορισμοί στον αριθμό των αντικειμένων Zoom που μπορεί να περιέχει μια παρουσίαση;**
 
-Δεν υπάρχει σκληρός περιορισμός API που να τεκμηριώνεται. Οι πρακτικοί περιορισμοί εξαρτώνται από τη συνολική πολυπλοκότητα της παρουσίασης και την απόδοση του θεατή. Μπορείτε να προσθέσετε πολλά πλαίσια Zoom, αλλά λάβετε υπόψη το μέγεθος του αρχείου και τον χρόνο απόδοσης.
+Δεν υπάρχει σκληρός περιορισμός API που να τεκμηριώνεται. Οι πρακτικοί περιορισμοί εξαρτώνται από τη συνολική πολυπλοκότητα της παρουσίασης και τις επιδόσεις του προγράμματος προβολής. Μπορείτε να προσθέσετε πολλά πλαίσια Zoom, αλλά λάβετε υπόψη το μέγεθος του αρχείου και το χρόνο απόδοσης.

@@ -15,505 +15,529 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إنشاء وتخصيص التكبير باستخدام Aspose.Slides لـ PHP عبر Java — الانتقال بين الأقسام، إضافة صور مصغرة وانتقالات عبر عروض PPT و PPTX و ODP."
+description: "إنشاء وتخصيص التكبير باستخدام Aspose.Slides لـ PHP عبر Java — الانتقال بين الأقسام، وإضافة الصور المصغرة والانتقالات في عروض PowerPoint."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
-Zooms in PowerPoint allow you to jump to and from specific slides, sections, and portions of a presentation. When you are presenting, this ability to navigate quickly across content might prove very useful. 
+تتيح لك تكبيرات PowerPoint التنقل بين الشرائح المحددة والأقسام أثناء عرض الشرائح. باستخدام Aspose.Slides لـ PHP عبر Java، يمكنك إنشاء تكبيرات للشرائح، والأقسام، والملخص وتخصيص معايناتها، وحدودها، وانتقالاتِها.
 
-![overview_image](overview.png)
+![نظرة عامة على تكبيرات PowerPoint](overview.png)
 
-* لتلخص عرض تقديمي كامل على شريحة واحدة، استخدم [Summary Zoom](#Summary-Zoom).
-* لعرض الشرائح المحددة فقط، استخدم [Slide Zoom](#Slide-Zoom).
-* لعرض قسم واحد فقط، استخدم [Section Zoom](#Section-Zoom).
+* لتلخيص العرض التقديمي بالكامل على شريحة واحدة، استخدم [ملخص التكبير](#summary-zoom).
+* لعرض الشرائح المحددة فقط، استخدم [تكبير الشريحة](#slide-zoom).
+* لعرض قسم واحد فقط، استخدم [تكبير القسم](#section-zoom).
 
 ## **تكبير الشريحة**
-يمكن لتكبير الشريحة أن يجعل عرضك التقديمي أكثر ديناميكية، مما يسمح لك بالانتقال بحرية بين الشرائح بأي ترتيب تختاره دون إيقاف تدفق العرض. تكبيرات الشرائح رائعة للعروض القصيرة التي لا تحتوي على أقسام كثيرة، ولكن يمكنك أيضًا استخدامها في سيناريوهات عرض مختلفة.
 
-تساعدك تكبيرات الشرائح على التعمق في معلومات متعددة بينما تشعر وكأنك على لوحة واحدة. 
+يمكن لتكبير الشريحة أن يجعل عرضك أكثر ديناميكية، حيث يسمح لك بالتنقل بحرية بين الشرائح بأي ترتيب تختاره دون مقاطعة تدفق العرض. تكبيرات الشرائح ممتازة للعروض القصيرة التي لا تحتوي على أقسام كثيرة، ولكن يمكنك أيضًا استخدامها في سيناريوهات عرض مختلفة.
 
-![overview_image](slidezoomsel.png)
+تتيح لك تكبيرات الشرائح استكشاف معلومات ذات صلة من شريحة نظرة عامة واحدة.
 
-بالنسبة لكائنات تكبير الشريحة، توفر Aspose.Slides تعداد [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/zoomimagetype/)، فئة [ZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/)، وبعض الأساليب تحت فئة [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
+![اختيار الشرائح لتكبير الشريحة](slidezoomsel.png)
 
-### **إنشاء إطارات التكبير**
-يمكنك إضافة إطار تكبير إلى شريحة بهذه الطريقة:
+بالنسبة لكائنات تكبير الشريحة، توفر Aspose.Slides النوعية [ZoomImageType](https://reference.aspose.com/slides/php-java/aspose.slides/zoomimagetype/)، والفئة [ZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/)، والطرق في فئة [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. إنشاء شرائح جديدة التي تنوي ربط إطارات التكبير بها. 
-3. إضافة نص تعريف وخلفية إلى الشرائح التي تم إنشاؤها.
-4. إضافة إطارات التكبير (التي تحتوي على مراجع الشرائح التي تم إنشاؤها) إلى الشريحة الأولى.
-5. كتابة العرض المعدل كملف PPTX.
+### **إنشاء إطارات تكبير**
+
+استخدم [ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) لوضع روابط إلى شرائح فردية على شريحة نظرة عامة. يُنشئ هذا المثال شريحتين هدفيتين بخلفيات وعناوين متميزة، ثم يضيف معاينة لكل منهما إلى الشريحة الأولى ويحفظ العرض كملف PPTX. تُحدد مواضع الإطارات وأبعادها بالنقاط.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # يضيف شرائح جديدة إلى العرض التقديمي
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # ينشئ خلفية للشريحة الثانية
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # ينشئ صندوق نص للشريحة الثانية
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # ينشئ خلفية للشريحة الثالثة
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # ينشئ صندوق نص للشريحة الثالثة
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # يضيف كائنات ZoomFrame
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # يحفظ العرض التقديمي
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ### **إنشاء إطارات تكبير بصور مخصصة**
-باستخدام Aspose.Slides ل PHP عبر Java، يمكنك إنشاء إطار تكبير بصورة معاينة شريحة مختلفة بهذه الطريقة:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. إنشاء شريحة جديدة التي تنوي ربط إطار التكبير بها. 
-3. إضافة نص تعريف وخلفية إلى الشريحة.
-4. إنشاء كائن [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) عن طريق إضافة صورة إلى مجموعة Images المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) الذي سيُستخدم لملء الإطار.
-5. إضافة إطارات التكبير (التي تحتوي على مرجع الشريحة التي تم إنشاؤها) إلى الشريحة الأولى.
-6. كتابة العرض المعدل كملف PPTX.
+مرّر صورة مخصصة إلى [ShapeCollection::addZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addZoomFrame) لاستبدال المعاينة الافتراضية لشريحة الهدف. يتطلب هذا المثال صورة محلية، يتم تحميلها باستخدام [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile)، وتُضيف إلى العرض عبر [ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage). يعرض الإطار الناتج تلك الصورة مع الحفاظ على الربط بالشر
+
+حة الثانية.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # يضيف شريحة جديدة إلى العرض التقديمي
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # ينشئ خلفية للشريحة الثانية
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # ينشئ صندوق نص للشريحة الثالثة
-    $autoshape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # ينشئ صورة جديدة لكائن التكبير
-    $picture;
-    $image = Images->fromFile("image.png");
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # يضيف كائن ZoomFrame
-    $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $picture);
-    # يحفظ العرض التقديمي
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $overviewSlide->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ### **تنسيق إطارات التكبير**
-في الأقسام السابقة، أظهرنا لك كيفية إنشاء إطارات تكبير بسيطة. لإنشاء إطارات تكبير أكثر تعقيدًا، عليك تعديل تنسيق الإطار البسيط. هناك عدة خيارات تنسيق يمكنك تطبيقها على إطار التكبير. 
 
-يمكنك التحكم في تنسيق إطار التكبير على شريحة بهذه الطريقة:
-
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. إنشاء شرائح جديدة للربط والتي تنوي ربط إطار التكبير بها. 
-3. إضافة بعض نصوص التعريف وخلفية إلى الشرائح التي تم إنشاؤها.
-4. إضافة إطارات التكبير (التي تحتوي على مراجع الشرائح التي تم إنشاؤها) إلى الشريحة الأولى.
-5. إنشاء كائن [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) عن طريق إضافة صورة إلى مجموعة Images المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) الذي سيُستخدم لملء الإطار.
-6. تعيين صورة مخصصة لكائن إطار التكبير الأول.
-7. تغيير تنسيق الخط لكائن إطار التكبير الثاني.
-8. إزالة الخلفية من صورة كائن إطار التكبير الثاني.
-5. كتابة العرض المعدل كملف PPTX.
+يُخصّص هذا المثال إطارين لتكبير الشريحة. يُعيّن صورة محلية للإطار الأول عبر [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage)، ويمنح الإطار الثاني حدًا ورديًا من نقطة‑خمسة، متقطع‑نقطة‑متقطع عبر [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat). تمرير `false` إلى [ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground) يُخفي خلفية الإطار الثاني. تُطلب صورة محلية للمعاينة المخصصة؛ كلا الإطارين يحتفظان بأهداف الشرائح في ملف PPTX المحفوظ.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # يضيف شرائح جديدة إلى العرض التقديمي
-    $slide2 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    $slide3 = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
-    # ينشئ خلفية للشريحة الثانية
-    $slide2->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide2->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide2->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
-    # ينشئ صندوق نص للشريحة الثانية
-    $autoshape = $slide2->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Second Slide");
-    # ينشئ خلفية للشريحة الثالثة
-    $slide3->getBackground()->setType(BackgroundType::OwnBackground);
-    $slide3->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide3->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->darkGray);
-    # ينشئ صندوق نص للشريحة الثالثة
-    $autoshape = $slide3->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
-    $autoshape->getTextFrame()->setText("Trird Slide");
-    # يضيف كائنات ZoomFrame
-    $zoomFrame1 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
-    $zoomFrame2 = $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
-    # ينشئ صورة جديدة لكائن التكبير
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $secondSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
+
+    $secondSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $secondSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $secondSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
+
+    $textBox = $secondSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Second Slide");
+
+    $thirdSlide->getBackground()->setType(BackgroundType::OwnBackground);
+    $thirdSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 189, 183, 107);
+    $thirdSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+    $textBox = $thirdSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 500, 200);
+    $textBox->getTextFrame()->setText("Third Slide");
+
+    $firstZoomFrame = $overviewSlide->getShapes()->addZoomFrame(20, 20, 250, 200, $secondSlide);
+    $secondZoomFrame = $overviewSlide->getShapes()->addZoomFrame(200, 250, 250, 200, $thirdSlide);
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # يحدد صورة مخصصة لكائن zoomFrame1
-    $zoomFrame1->setImage($picture);
-    # يحدد تنسيق إطار التكبير لكائن zoomFrame2
-    $zoomFrame2->getLineFormat()->setWidth(5);
-    $zoomFrame2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $zoomFrame2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->pink);
-    $zoomFrame2->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
-    # إعداد عدم إظهار الخلفية لكائن zoomFrame2
-    $zoomFrame2->setShowBackground(false);
-    # يحفظ العرض التقديمي
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $firstZoomFrame->setZoomImage($previewImage);
+
+    $secondZoomFrame->getLineFormat()->setWidth(5);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $color = new Java("java.awt.Color", 255, 105, 180);
+    $secondZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $secondZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
+
+    $secondZoomFrame->setShowBackground(false);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-
 ## **تكبير القسم**
-تكبير القسم هو رابط إلى قسم في عرضك التقديمي. يمكنك استخدام تكبيرات الأقسام للعودة إلى الأقسام التي تريد التأكيد عليها. أو يمكنك استخدامها لتسليط الضوء على كيفية ارتباط أجزاء معينة من عرضك التقديمي. 
 
-![overview_image](seczoomsel.png)
+يرتبط تكبير القسم بقسم في عرضك. استخدمه لإعادة زيارة موضوع أو لإظهار كيفية ارتباط أجزاء العرض المختلفة.
 
-بالنسبة لكائنات تكبير القسم، توفر Aspose.Slides فئة [SectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) وبعض الأساليب تحت فئة [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
+![اختيار قسم لتكبير القسم](seczoomsel.png)
+
+بالنسبة لكائنات تكبير القسم، توفر Aspose.Slides الفئة [SectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) والطرق في فئة [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
 
 ### **إنشاء إطارات تكبير القسم**
-يمكنك إضافة إطار تكبير القسم إلى شريحة بهذه الطريقة:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. إنشاء شريحة جديدة. 
-3. إضافة خلفية تعريفية إلى الشريحة التي تم إنشاؤها.
-4. إنشاء قسم جديد ترغب في ربط إطار التكبير به. 
-5. إضافة إطار تكبير القسم (الذي يحتوي على مراجع للقسم الذي تم إنشاؤه) إلى الشريحة الأولى.
-6. كتابة العرض المعدل كملف PPTX.
+أنشئ قسمًا باستخدام [SectionCollection::addSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectioncollection/#addSection)، ثم مرّر القسم المُعاد إلى [ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame). يضع هذا المثال تكبيرًا للقسم على الشريحة الأولى ويربطه بقسم يبدأ بشريحة ملونة. تُحدد مواضع الإطار وأبعاده بالنقاط، ويُحفظ العرض كملف PPTX.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # يضيف شريحة جديدة إلى العرض التقديمي
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # يضيف قسمًا جديدًا إلى العرض التقديمي
-    $pres->getSections()->addSection("Section 1", $slide);
-    # يضيف كائن SectionZoomFrame
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # يحفظ العرض التقديمي
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ### **إنشاء إطارات تكبير القسم بصور مخصصة**
-باستخدام Aspose.Slides ل PHP عبر Java، يمكنك إنشاء إطار تكبير القسم بصورة معاينة شريحة مختلفة بهذه الطريقة:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. إنشاء شريحة جديدة.
-3. إضافة خلفية تعريفية إلى الشريحة التي تم إنشاؤها.
-4. إنشاء قسم جديد ترغب في ربط إطار التكبير به. 
-5. إنشاء كائن [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) عن طريق إضافة صورة إلى مجموعة Images المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) الذي سيُستخدم لملء الإطار.
-5. إضافة إطار تكبير القسم (الذي يحتوي على مرجع للقسم الذي تم إنشاؤه) إلى الشريحة الأولى.
-6. كتابة العرض المعدل كملف PPTX.
+يسمح لك التحميل الزائد للصورة في [ShapeCollection::addSectionZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSectionZoomFrame) بعرض معاينة مخصصة دون تغيير قسم الوجهة. يتطلب هذا المثال صورة محلية، تُحمَّل باستخدام [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) وتُضاف عبر [ImageCollection::addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/#addImage). يحتوي العرض المحفوظ على تكبير قسم على الشريحة الأولى مرتبط بالقسم الذي تم إنشاؤه حديثًا.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # يضيف شريحة جديدة إلى العرض التقديمي
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # يضيف قسمًا جديدًا إلى العرض التقديمي
-    $pres->getSections()->addSection("Section 1", $slide);
-    # ينشئ صورة جديدة لكائن التكبير
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    # يضيف كائن SectionZoomFrame
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1), $picture);
-    # يحفظ العرض التقديمي
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section, $previewImage);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **تغيير قسم الهدف لتكبير القسم**
+
+استخدم [SectionZoomFrame::setTargetSection](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/#setTargetSection) لإعادة توجيه تكبير قسم موجود دون إعادة إنشائه. اختر قسمًا مُعبَّأً من مجموعة [Presentation::getSections](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSections) في نفس العرض. يترك تعيين قسم فارغ الهدف الحالي دون تغيير، لذا تحقق من [Section::getSlidesListOfSection](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSlidesListOfSection) قبل التعيين. راجع [Manage Slide Sections](/slides/ar/php-java/slide-section/) لمزيد من المعلومات حول الأقسام.
+
+السيناريو التالي يحمل ملف عرض يجب أن يحتوي على أقسام مُعبَّأة متعددة، وتكبير قسم موجود اسمه `Section navigation`، وقسم بالاسم الفريد `Results`. يبحث في جميع الشرائح عن التكبير ويجد الوجهة بالاسم بدلاً من فهرس المجموعة الذي قد يتغيّر عند إعادة ترتيب الأقسام. إذا لم تكن الأسماء فريدة، استخدم [Section::getSectionId](https://reference.aspose.com/slides/php-java/aspose.slides/section/#getSectionId) لتحديد الوجهة بدلاً من ذلك.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("section-zoom.pptx");
+try {
+    $zoom = null;
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($i = 0; $i < $slideCount; $i++) {
+        $slide = $presentation->getSlides()->get_Item($i);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($j = 0; $j < $shapeCount; $j++) {
+            $shape = $slide->getShapes()->get_Item($j);
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.ISectionZoomFrame")) && java_values($shape->getName()) === "Section navigation") {
+                $zoom = $shape;
+                break;
+            }
+        }
+        if ($zoom != null) {
+            break;
+        }
     }
-  }
+
+    $targetSection = null;
+    $sectionCount = java_values($presentation->getSections()->size());
+    for ($i = 0; $i < $sectionCount; $i++) {
+        $section = $presentation->getSections()->get_Item($i);
+        if (java_values($section->getName()) === "Results") {
+            $targetSection = $section;
+            break;
+        }
+    }
+
+    if ($zoom == null || $targetSection == null) {
+        echo "The section zoom or destination section was not found.", PHP_EOL;
+    } else if (java_values($targetSection->getSlidesListOfSection()->size()) == 0) {
+        echo "The destination section is empty.", PHP_EOL;
+    } else {
+        $currentSection = $zoom->getTargetSection();
+        echo "Current section: " . (java_is_null($currentSection) ? "" : java_values($currentSection->getName())), PHP_EOL;
+        $zoom->setTargetSection($targetSection);
+        $presentation->save("section-zoom-updated.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ### **تنسيق إطارات تكبير القسم**
-لإنشاء إطارات تكبير قسم أكثر تعقيدًا، عليك تعديل تنسيق إطار بسيط. هناك عدة خيارات تنسيق يمكنك تطبيقها على إطار تكبير القسم. 
 
-يمكنك التحكم في تنسيق إطار تكبير القسم على شريحة بهذه الطريقة:
-
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. إنشاء شريحة جديدة.
-3. إضافة خلفية تعريفية إلى الشريحة التي تم إنشاؤها.
-4. إنشاء قسم جديد ترغب في ربط إطار التكبير به. 
-5. إضافة إطار تكبير القسم (الذي يحتوي على مراجع للقسم الذي تم إنشاؤه) إلى الشريحة الأولى.
-6. تغيير الحجم والموقع لكائن تكبير القسم الذي تم إنشاؤه.
-7. إنشاء كائن [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) عن طريق إضافة صورة إلى مجموعة Images المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) الذي سيُستخدم لملء الإطار.
-8. تعيين صورة مخصصة لكائن إطار تكبير القسم الذي تم إنشاؤه.
-9. تعيين قدرة *العودة إلى الشريحة الأصلية من القسم المرتبط*.
-10. إزالة الخلفية من صورة كائن إطار تكبير القسم.
-11. تغيير تنسيق الخط لكائن إطار التكبير الثاني.
-12. تغيير مدة الانتقال.
-13. كتابة العرض المعدل كملف PPTX.
+ينقل هذا المثال ويعيد تحجيم تكبير القسم إلى 100×75 نقطة، يُعيّن صورة محلية عبر [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage)، ويطبق حدًا بنيًا من نقطة‑2.5 متقطعة‑نقطة‑متقطعة. يفعّل [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) للعودة إلى الشريحة الأصلية بعد القسم، ويعطل [ZoomObject::setShowBackground](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setShowBackground)، ويضبط [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) على 1.5 ثانية. تُطلب صورة محلية للمعاينة المخصصة.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # يضيف شريحة جديدة إلى العرض التقديمي
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->yellow);
+    $color = new Java("java.awt.Color", 154, 205, 50);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # يضيف قسمًا جديدًا إلى العرض التقديمي
-    $pres->getSections()->addSection("Section 1", $slide);
-    # يضيف كائن SectionZoomFrame
-    $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
-    # تنسيق كائن SectionZoomFrame
+
+    $section = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $sectionZoomFrame = $overviewSlide->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $section);
     $sectionZoomFrame->setX(100);
     $sectionZoomFrame->setY(300);
     $sectionZoomFrame->setWidth(100);
     $sectionZoomFrame->setHeight(75);
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    $sectionZoomFrame->setImage($picture);
+
+    $sectionZoomFrame->setZoomImage($previewImage);
+
     $sectionZoomFrame->setReturnToParent(true);
     $sectionZoomFrame->setShowBackground(false);
+
     $sectionZoomFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
-    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $sectionZoomFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($color);
+    $sectionZoomFrame->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
     $sectionZoomFrame->getLineFormat()->setWidth(2.5);
+
     $sectionZoomFrame->setTransitionDuration(1.5);
-    # يحفظ العرض التقديمي
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **ملخص التكبير**
 
-## **تكبير الملخص**
-تكبير الملخص يشبه صفحة هبوط يتم فيها عرض جميع أجزاء العرض التقديمي دفعة واحدة. عند تقديمك، يمكنك استخدام التكبير للانتقال من مكان إلى آخر في عرضك بأي ترتيب ترغب فيه. يمكنك الإبداع، الانتقال إلى الأمام، أو مراجعة أجزاء من الشرائح دون إيقاف تدفق العرض. 
+يوفر ملخص التكبير نظرة عامة على أقسام العرض. أثناء عرض الشرائح، يمكنك استخدامه للقفز إلى قسم، أو التخطي إلى الأمام، أو إعادة زيارة موضوع دون اتباع ترتيب الشرائح.
 
-![overview_image](sumzoomsel.png)
+![اختيار أقسام لتكبير الملخص](sumzoomsel.png)
 
-بالنسبة لكائنات تكبير الملخص، توفر Aspose.Slides الفئات [SummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/)، [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/)، و[SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/) وبعض الأساليب تحت فئة [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
+بالنسبة لكائنات ملخص التكبير، توفر Aspose.Slides الفئات [SummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/)، [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/)، و[SummaryZoomSectionCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/)، والطرق في فئة [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/).
 
-### **إنشاء تكبير ملخص**
-يمكنك إضافة إطار تكبير ملخص إلى شريحة بهذه الطريقة:
+### **إنشاء ملخص تكبير**
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. إنشاء شرائح جديدة مع خلفية تعريفية وأقسام جديدة للشرائح التي تم إنشاؤها.
-3. إضافة إطار تكبير الملخص إلى الشريحة الأولى.
-4. كتابة العرض المعدل كملف PPTX.
+استخدم [ShapeCollection::addSummaryZoomFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addSummaryZoomFrame) لإنشاء نظرة عامة على أقسام العرض. يُنشئ هذا المثال أربعة أقسام بخلفيات شرائح متميزة ويضيف ملخص تكبير إلى الشريحة الأولى. تُحدد مواضع الإطار وأبعاده بالنقاط، وتُحفظ النظرة العامة في عرض PPTX.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # يضيف شريحة جديدة إلى العرض التقديمي
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # يضيف قسمًا جديدًا إلى العرض التقديمي
-    $pres->getSections()->addSection("Section 1", $slide);
-    # يضيف شريحة جديدة إلى العرض التقديمي
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # يضيف قسمًا جديدًا إلى العرض التقديمي
-    $pres->getSections()->addSection("Section 2", $slide);
-    # يضيف شريحة جديدة إلى العرض التقديمي
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # يضيف قسمًا جديدًا إلى العرض التقديمي
-    $pres->getSections()->addSection("Section 3", $slide);
-    # يضيف شريحة جديدة إلى العرض التقديمي
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 3", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->green);
+    $color = new Java("java.awt.Color", 0, 100, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # يضيف قسمًا جديدًا إلى العرض التقديمي
-    $pres->getSections()->addSection("Section 4", $slide);
-    # يضيف كائن SummaryZoomFrame
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # يحفظ العرض التقديمي
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->getSections()->addSection("Section 4", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+### **إضافة وإزالة قسم من ملخص التكبير**
 
-### **إضافة وإزالة قسم تكبير الملخص**
-جميع الأقسام في إطار تكبير الملخص تمثلها كائنات [SummaryZoomSection]، والتي تُخزن في كائن [SummaryZoomSectionCollection]. يمكنك إضافة أو إزالة كائن قسم تكبير ملخص عبر فئة [SummaryZoomSectionCollection] بهذه الطريقة:
-
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. إنشاء شرائح جديدة مع خلفية تعريفية وأقسام جديدة للشرائح التي تم إنشاؤها.
-3. إضافة إطار تكبير الملخص إلى الشريحة الأولى.
-4. إضافة شريحة جديدة وقسم إلى العرض.
-5. إضافة القسم الذي تم إنشاؤه إلى إطار تكبير الملخص.
-6. إزالة القسم الأول من إطار تكبير الملخص.
-7. كتابة العرض المعدل كملف PPTX.
+يخزن ملخص التكبير كائناته من النوع [SummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsection/) في [SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection). يُنشئ هذا المثال نظرة عامة على قسمين، يضيف قسمًا ثالثًا باستخدام [SummaryZoomSectionCollection::addSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection)، ويزيل إدخال القسم الأول باستخدام [SummaryZoomSectionCollection::removeSummaryZoomSection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection). يترك إزالة الإدخال القسم وعرض الشرائح الخاص به دون تغيير.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # يضيف شريحة جديدة إلى العرض التقديمي
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # يضيف قسماً جديدًا إلى العرض التقديمي
-    $pres->getSections()->addSection("Section 1", $slide);
-    # يضيف شريحة جديدة إلى العرض التقديمي
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $firstSection = $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # يضيف قسماً جديدًا إلى العرض التقديمي
-    $pres->getSections()->addSection("Section 2", $slide);
-    # يضيف كائن SummaryZoomFrame
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # يضيف شريحة جديدة إلى العرض التقديمي
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->magenta);
+    $color = new Java("java.awt.Color", 127, 255, 0);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # يضيف قسماً جديدًا إلى العرض التقديمي
-    $section3 = $pres->getSections()->addSection("Section 3", $slide);
-    # يضيف قسماً إلى Summary Zoom
-    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($section3);
-    # يزيل قسماً من Summary Zoom
-    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($pres->getSections()->get_Item(1));
-    # يحفظ العرض التقديمي
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $thirdSection = $presentation->getSections()->addSection("Section 3", $slide);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->addSummaryZoomSection($thirdSection);
+
+    $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($firstSection);
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+### **تنسيق أقسام ملخص التكبير**
 
-### **تنسيق أقسام تكبير الملخص**
-لإنشاء كائنات أقسام تكبير ملخص أكثر تعقيدًا، عليك تعديل تنسيق إطار بسيط. هناك عدة خيارات تنسيق يمكنك تطبيقها على كائن قسم تكبير الملخص. 
-
-يمكنك التحكم في تنسيق كائن قسم تكبير الملخص داخل إطار تكبير الملخص بهذه الطريقة:
-
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. إنشاء شرائح جديدة مع خلفية تعريفية وأقسام جديدة للشرائح التي تم إنشاؤها.
-3. إضافة إطار تكبير الملخص إلى الشريحة الأولى.
-4. احصل على كائن قسم تكبير الملخص للعنصر الأول من `SummaryZoomSectionCollection`.
-7. إنشاء كائن [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) عن طريق إضافة صورة إلى مجموعة images المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) الذي سيُستخدم لملء الإطار.
-8. تعيين صورة مخصصة لكائن إطار تكبير القسم الذي تم إنشاؤه.
-9. تعيين قدرة *العودة إلى الشريحة الأصلية من القسم المرتبط*.
-11. تغيير تنسيق الخط لكائن إطار التكبير الثاني.
-12. تغيير مدة الانتقال.
-13. كتابة العرض المعدل كملف PPTX.
+ينسّق هذا المثال الإدخال الأول في [SummaryZoomFrame::getSummaryZoomCollection](https://reference.aspose.com/slides/php-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) باستخدام الفهرس الصفري `0`. يتطلب صورة محلية لـ [ZoomObject::setZoomImage](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setZoomImage)، يطبق حدًا أسودًا من نقطة‑1.5 متقطعة‑نقطة‑متقطعة، ويضبط [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) على 1.5 ثانية. تمرير `false` إلى [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) يعطل العودة التلقائية إلى شريحة الملخص لهذا الإدخال.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # يضيف شريحة جديدة إلى العرض التقديمي
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $overviewSlide = $presentation->getSlides()->get_Item(0);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->gray);
+    $color = new Java("java.awt.Color", 165, 42, 42);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # يضيف قسماً جديدًا إلى العرض التقديمي
-    $pres->getSections()->addSection("Section 1", $slide);
-    # يضيف شريحة جديدة إلى العرض التقديمي
-    $slide = $pres->getSlides()->addEmptySlide($pres->getSlides()->get_Item(0)->getLayoutSlide());
+
+    $presentation->getSections()->addSection("Section 1", $slide);
+
+    $slide = $presentation->getSlides()->addEmptySlide($overviewSlide->getLayoutSlide());
     $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
-    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->cyan);
+    $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     $slide->getBackground()->setType(BackgroundType::OwnBackground);
-    # يضيف قسماً جديدًا إلى العرض التقديمي
-    $pres->getSections()->addSection("Section 2", $slide);
-    # يضيف كائن SummaryZoomFrame
-    $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
-    # يحصل على أول كائن SummaryZoomSection
+
+    $presentation->getSections()->addSection("Section 2", $slide);
+
+    $summaryZoomFrame = $overviewSlide->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
+
     $summarySection = $summaryZoomFrame->getSummaryZoomCollection()->get_Item(0);
-    # تنسيق كائن SummaryZoomSection
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
-      $picture = $pres->getImages()->addImage($picture);
+        $previewImage = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
         $image->dispose();
-      }
     }
-    $summarySection->setImage($picture);
+
+    $summarySection->setZoomImage($previewImage);
     $summarySection->setReturnToParent(false);
+
     $summarySection->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->black);
-    $summarySection->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
+    $summarySection->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $summarySection->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
     $summarySection->getLineFormat()->setWidth(1.5);
+
     $summarySection->setTransitionDuration(1.5);
-    # يحفظ العرض التقديمي
-    $pres->save("presentation.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **الأسئلة المتكررة**
 
-## **الأسئلة الشائعة**
-**هل يمكنني التحكم في العودة إلى الشريحة "الأصل" بعد عرض الهدف؟**  
-نعم. يحتوي كل من [Zoom frame](https://reference.aspose.com/slides/php-java/aspose.slides/zoomframe/) أو [section](https://reference.aspose.com/slides/php-java/aspose.slides/sectionzoomframe/) على سلوك `ReturnToParent`، وعند تفعيله يُعيد المشاهدين إلى الشريحة الأصلية بعد زيارة المحتوى المستهدف.
+**هل يمكنني التحكم في العودة إلى الشريحة "الأم" بعد عرض الهدف؟**
 
-**هل يمكنني ضبط "السرعة" أو مدة انتقال التكبير؟**  
-نعم. يدعم Zoom ضبط خاصية `TransitionDuration` لتحديد مدة الحركة الانتقالية.
+نعم. استدعِ [ZoomObject::setReturnToParent](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setReturnToParent) مع `true` للعودة إلى الشريحة الأصلية بعد ظهور محتوى الهدف.
 
-**هل هناك حدود لعدد كائنات Zoom التي يمكن أن يحتويها عرض تقديمي؟**  
-لا يوجد حد ثابت موثّق في الـ API. تعتمد الحدود العملية على تعقّـي العرض وأداء المشاهد. يمكنك إضافة العديد من إطارات Zoom، لكن يجدر الانتباه إلى حجم الملف ووقت التقديم.
+**هل يمكنني تعديل "السرعة" أو مدة انتقال التكبير؟**
+
+نعم. استخدم [ZoomObject::setTransitionDuration](https://reference.aspose.com/slides/php-java/aspose.slides/zoomobject/#setTransitionDuration) للتحكم في مدة الانتقال بالثواني.
+
+**هل هناك حدود لعدد كائنات التكبير التي يمكن أن يحتويها العرض؟**
+
+لا توجد حدود صريحة موثقة في واجهة البرمجة. تعتمد الحدود العملية على تعقيد العرض الكلي وأداء المشاهد. يمكنك إضافة العديد من إطارات التكبير، ولكن ضع في اعتبارك حجم الملف ووقت التصيير.

@@ -1,5 +1,5 @@
 ---
-title: JavaScript में प्रेज़ेंटेशन ज़ूम प्रबंधित करें
+title: जावास्क्रिप्ट में प्रेजेंटेशन ज़ूम प्रबंधित करें
 linktitle: ज़ूम प्रबंधित करें
 type: docs
 weight: 60
@@ -12,519 +12,496 @@ keywords:
 - सारांश ज़ूम
 - ज़ूम जोड़ें
 - PowerPoint
-- प्रेज़ेंटेशन
+- प्रेजेंटेशन
 - Node.js
-- JavaScript
+- जावास्क्रिप्ट
 - Aspose.Slides
-description: "Aspose.Slides for Node.js के साथ ज़ूम बनाएं और अनुकूलित करें — PPT, PPTX और ODP प्रस्तुतियों में सेक्शन के बीच कूदें, थंबनेल और ट्रांज़िशन जोड़ें।"
+description: "Aspose.Slides for Node.js via Java के साथ ज़ूम बनाएं और अनुकूलित करें — सेक्शनों के बीच कूदें, थंबनेल और ट्रांज़िशन PowerPoint प्रेजेंटेशन में जोड़ें।"
 ---
 ## **परिचय**
 
-PowerPoint में Zoom आपको प्रस्तुति की विशिष्ट स्लाइड्स, सेक्शन और भागों के बीच कूदने की अनुमति देता है। जब आप प्रस्तुति दे रहे हों, तो सामग्री के बीच तेज़ी से नेविगेट करने की यह क्षमता अत्यंत उपयोगी हो सकती है।
+PowerPoint ज़ूम आपको स्लाइड शो के दौरान विशिष्ट स्लाइडों और अनुभागों के बीच नेविगेट करने की अनुमति देते हैं। Aspose.Slides for Node.js via Java के साथ, आप स्लाइड, सेक्शन और समरी ज़ूम बना सकते हैं और उनके प्रीव्यू, बॉर्डर और ट्रांज़िशन को अनुकूलित कर सकते हैं।
 
-![overview_image](overview.png)
+![PowerPoint ज़ूम ओवरव्यू](overview.png)
 
-* संपूर्ण प्रस्तुति को एक ही स्लाइड पर सारांशित करने के लिए, एक [Summary Zoom](#Summary-Zoom) का उपयोग करें।
-* केवल चयनित स्लाइड्स दिखाने के लिए, एक [Slide Zoom](#Slide-Zoom) का उपयोग करें।
-* केवल एक सेक्शन दिखाने के लिए, एक [Section Zoom](#Section-Zoom) का उपयोग करें।
+* पूरे प्रेजेंटेशन को एक ही स्लाइड पर सारांशित करने के लिए, एक [सारांश ज़ूम](#summary-zoom) का उपयोग करें।
+* केवल चयनित स्लाइड दिखाने के लिए, एक [स्लाइड ज़ूम](#slide-zoom) का उपयोग करें।
+* केवल एक सेक्शन दिखाने के लिए, एक [सेक्शन ज़ूम](#section-zoom) का उपयोग करें।
 
 ## **स्लाइड ज़ूम**
 
-स्लाइड ज़ूम आपके प्रस्तुति को अधिक गतिशील बना सकता है, जिससे आप अपनी मनचाही क्रम में स्लाइड्स के बीच स्वतंत्र रूप से नेविगेट कर सकते हैं बिना प्रस्तुति के प्रवाह को बाधित किए। स्लाइड ज़ूम छोटे प्रस्तुतियों में बहुत उपयोगी होते हैं जिनमें कई सेक्शन नहीं होते, लेकिन आप इन्हें विभिन्न प्रस्तुतियों के परिदृश्यों में भी उपयोग कर सकते हैं।
+एक स्लाइड ज़ूम आपके प्रेजेंटेशन को अधिक गतिशील बना सकता है, जिससे आप किसी भी क्रम में स्लाइडों के बीच स्वतंत्र रूप से नेविगेट कर सकते हैं बिना प्रेजेंटेशन के प्रवाह को बाधित किए। स्लाइड ज़ूम छोटे प्रेजेंटेशन के लिए उपयोगी हैं जिनमें कई सेक्शन नहीं होते, लेकिन आप उन्हें विभिन्न प्रेजेंटेशन परिदृश्यों में भी उपयोग कर सकते हैं।
 
-स्लाइड ज़ूम आपको कई जानकारी के टुकड़े एक ही कैनवास पर देखने जैसा महसूस कराते हैं।
+स्लाइड ज़ूम आपको एक ही ओवरव्यू स्लाइड से संबंधित जानकारी का अन्वेषण करने की अनुमति देते हैं।
 
-![overview_image](slidezoomsel.png)
+![स्लाइड ज़ूम के लिए स्लाइड चयन](slidezoomsel.png)
 
-स्लाइड ज़ूम ऑब्जेक्ट्स के लिए, Aspose.Slides [ZoomImageType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ZoomImageType) enumeration, [ZoomFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ZoomFrame) class, और [ShapeCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ShapeCollection) class के तहत कुछ विधियों को प्रदान करता है।
+स्लाइड ज़ूम ऑब्जेक्ट्स के लिए, Aspose.Slides [ZoomImageType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomimagetype/) एन्यूमरेशन, [ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/) क्लास, और [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) क्लास पर मेथड्स प्रदान करती है।
 
-### **जूम फ्रेम बनाना**
+### **ज़ूम फ्रेम बनाएं**
 
-आप स्लाइड पर इस प्रकार जूम फ्रेम जोड़ सकते हैं:
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) वर्ग का उदाहरण बनाएं।
-2. जूम फ्रेम को लिंक करने के लिए नई स्लाइड्स बनाएं। 
-3. बनाई गई स्लाइड्स में एक पहचान पाठ और पृष्ठभूमि जोड़ें।
-4. पहली स्लाइड में जूम फ्रेम्स (बनाई गई स्लाइड्स के रेफ़रेंस सहित) जोड़ें।
-5. परिवर्तनशुदा प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+एक ओवरव्यू स्लाइड पर व्यक्तिगत स्लाइडों के लिंक रखने के लिए [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame) का उपयोग करें। यह उदाहरण दो लक्ष्य स्लाइड बनाता है जिनके बैकग्राउंड और लेबल अलग-अलग हैं, फिर प्रत्येक का प्रीव्यू पहली स्लाइड में जोड़ता है और प्रेजेंटेशन को PPTX के रूप में सहेजता है। फ्रेम की स्थिति और आयाम पॉइंट्स में निर्दिष्ट किए गए हैं।
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // प्रस्तुति में नई स्लाइड्स जोड़ता है
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // दूसरी स्लाइड के लिए बैकग्राउंड बनाता है
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // दूसरी स्लाइड के लिए टेक्स्ट बॉक्स बनाता है
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // तीसरी स्लाइड के लिए बैकग्राउंड बनाता है
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // तीसरी स्लाइड के लिए टेक्स्ट बॉक्स बनाता है
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // ZoomFrame ऑब्जेक्ट्स जोड़ता है
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // प्रस्तुति को सेव करता है
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **कस्टम इमेज के साथ जूम फ्रेम बनाना**
+### **कस्टम इमेज के साथ ज़ूम फ्रेम बनाएं**
 
-Aspose.Slides for Node.js via Java के साथ आप इस प्रकार एक अलग स्लाइड प्रीव्यू इमेज के साथ जूम फ्रेम बना सकते हैं:
-1. एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) वर्ग का उदाहरण बनाएं।
-2. जूम फ्रेम को लिंक करने के लिए नई स्लाइड बनाएं। 
-3. स्लाइड में पहचान पाठ और पृष्ठभूमि जोड़ें।
-4. एक [PPImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/PPImage) ऑब्जेक्ट बनाएं जिससे इमेज को उन Images संग्रह में जोड़ें जो [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) ऑब्जेक्ट से संबंधित हों और जो फ्रेम को भरने के लिए उपयोग की जाएगी।
-5. पहली स्लाइड में जूम फ्रेम्स (बनाई गई स्लाइड के रेफ़रेंस सहित) जोड़ें।
-6. परिवर्तनशुदा प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+लक्षित स्लाइड के डिफ़ॉल्ट प्रीव्यू को बदलने के लिए कस्टम इमेज को [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addZoomFrame) में पास करें। यह उदाहरण एक लोकल इमेज की आवश्यकता रखता है, इसे [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) से लोड करता है, और इसे प्रेजेंटेशन में [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) का उपयोग करके जोड़ता है। परिणामी फ्रेम वह इमेज दिखाता है जबकि अभी भी दूसरी स्लाइड से लिंक करता है।
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // प्रेज़ेंटेशन में एक नई स्लाइड जोड़ता है
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // दूसरी स्लाइड के लिए बैकग्राउंड बनाता है
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // तीसरी स्लाइड के लिए टेक्स्ट बॉक्स बनाता है
-    var autoshape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // ज़ूम ऑब्जेक्ट के लिए नई इमेज बनाता है
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // ZoomFrame ऑब्जेक्ट जोड़ता है
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
-    // प्रेज़ेंटेशन को सेव करता है
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    overviewSlide.getShapes().addZoomFrame(20, 20, 300, 200, slide, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **जूम फ्रेम का स्वरूपण**
+### **ज़ूम फ्रेम फ़ॉर्मेट करें**
 
-पिछले अनुभागों में हमने सरल जूम फ्रेम बनाना दर्शाया। अधिक जटिल जूम फ्रेम बनाने के लिए आपको एक साधारण फ्रेम के स्वरूपण को बदलना होगा। जूम फ्रेम पर लागू करने योग्य कई स्वरूपण विकल्प हैं। 
-
-आप स्लाइड पर जूम फ्रेम के स्वरूपण को इस प्रकार नियंत्रित कर सकते हैं:
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) वर्ग का उदाहरण बनाएं।
-2. जूम फ्रेम को लिंक करने के लिए नई स्लाइड्स बनाएं। 
-3. बनाई गई स्लाइड्स में कुछ पहचान पाठ और पृष्ठभूमि जोड़ें।
-4. पहली स्लाइड में जूम फ्रेम्स (बनाई गई स्लाइड्स के रेफ़रेंस सहित) जोड़ें।
-5. एक [PPImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/PPImage) ऑब्जेक्ट बनाएं जिससे इमेज को उन Images संग्रह में जोड़ें जो [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) ऑब्जेक्ट से संबंधित हों और जो फ्रेम को भरने के लिए उपयोग की जाएगी।
-6. पहले जूम फ्रेम ऑब्जेक्ट के लिए एक कस्टम इमेज सेट करें।
-7. दूसरे जूम फ्रेम ऑब्जेक्ट के लिए लाइन फ़ॉर्मेट बदलें।
-8. दूसरे जूम फ्रेम ऑब्जेक्ट की इमेज से पृष्ठभूमि हटाएँ।
-5. परिवर्तनशुदा प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+यह उदाहरण दो स्लाइड ज़ूम फ्रेम को कस्टमाइज़ करता है। यह पहले फ्रेम को [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) के माध्यम से एक लोकल इमेज असाइन करता है, और दूसरा फ्रेम पाँच पॉइंट, डैश-डॉट पिंक बॉर्डर [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) के द्वारा देता है। [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground) को `false` पास करने से दूसरे फ्रेम की पृष्ठभूमि छिप जाती है। कस्टम प्रीव्यू के लिए एक लोकल इमेज आवश्यक है; दोनों फ्रेम सहेजे गए PPTX में अपने स्लाइड टार्गेट को बनाए रखते हैं।
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // प्रस्तुति में नई स्लाइड्स जोड़ता है
-    var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-    // दूसरी स्लाइड के लिए बैकग्राउंड बनाता है
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    // दूसरी स्लाइड के लिए टेक्स्ट बॉक्स बनाता है
-    var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Second Slide");
-    // तीसरी स्लाइड के लिए बैकग्राउंड बनाता है
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
-    // तीसरी स्लाइड के लिए टेक्स्ट बॉक्स बनाता है
-    autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
-    // ZoomFrame ऑब्जेक्ट्स जोड़ता है
-    var zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
-    var zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
-    // ज़ूम ऑब्जेक्ट के लिए नई इमेज बनाता है
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let secondSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+    let thirdSlide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
+
+    secondSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    secondSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+
+    let textBox = secondSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Second Slide");
+
+    thirdSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    thirdSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 189, 183, 107));
+
+    textBox = thirdSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+    textBox.getTextFrame().setText("Third Slide");
+
+    let firstZoomFrame = overviewSlide.getShapes().addZoomFrame(20, 20, 250, 200, secondSlide);
+    let secondZoomFrame = overviewSlide.getShapes().addZoomFrame(200, 250, 250, 200, thirdSlide);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    // zoomFrame1 ऑब्जेक्ट के लिए कस्टम इमेज सेट करता है
-    zoomFrame1.setImage(picture);
-    // zoomFrame2 ऑब्जेक्ट के लिए ज़ूम फ्रेम फ़ॉर्मेट सेट करता है
-    zoomFrame2.getLineFormat().setWidth(5);
-    zoomFrame2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "pink"));
-    zoomFrame2.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // zoomFrame2 ऑब्जेक्ट के लिए पृष्ठभूमि न दिखाने की सेटिंग
-    zoomFrame2.setShowBackground(false);
-    // प्रस्तुति को सेव करता है
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    firstZoomFrame.setZoomImage(previewImage);
+
+    secondZoomFrame.getLineFormat().setWidth(5);
+    secondZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 105, 180));
+    secondZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
+    secondZoomFrame.setShowBackground(false);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **सेक्शन ज़ूम**
 
-सेक्शन ज़ूम आपके प्रस्तुति के एक सेक्शन के लिए लिंक होता है। आप सेक्शन ज़ूम का उपयोग उन सेक्शन पर वापस जाने के लिए कर सकते हैं जिन्हें आप विशेष रूप से उजागर करना चाहते हैं। या आप इसका उपयोग करके दिखा सकते हैं कि आपके प्रस्तुति के कुछ भाग कैसे आपस में जुड़े हुए हैं। 
+एक सेक्शन ज़ूम आपके प्रेजेंटेशन के एक सेक्शन से लिंक करता है। इसका उपयोग किसी विषय को फिर से देखने या बताने के लिए किया जाता है कि प्रेजेंटेशन के विभिन्न भाग कैसे जुड़े हैं।
 
-![overview_image](seczoomsel.png)
+![सेक्शन ज़ूम के लिए सेक्शन चयन](seczoomsel.png)
 
-सेक्शन ज़ूम ऑब्जेक्ट्स के लिए, Aspose.Slides [SectionZoomFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/SectionZoomFrame) क्लास और [ShapeCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ShapeCollection) क्लास के तहत कुछ मेथड प्रदान करता है।
+सेक्शन ज़ूम ऑब्जेक्ट्स के लिए, Aspose.Slides [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) क्लास और [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) क्लास पर मेथड्स प्रदान करती है।
 
-### **सेक्शन ज़ूम फ्रेम बनाना**
+### **सेक्शन ज़ूम फ्रेम बनाएं**
 
-आप स्लाइड पर इस प्रकार सेक्शन ज़ूम फ्रेम जोड़ सकते हैं:
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) वर्ग का उदाहरण बनाएं।
-2. एक नई स्लाइड बनाएं। 
-3. बनाई गई स्लाइड में पहचान पृष्ठभूमि जोड़ें।
-4. वह नया सेक्शन बनाएं जिसे आप जूम फ्रेम के साथ लिंक करना चाहते हैं। 
-5. पहली स्लाइड में सेक्शन ज़ूम फ्रेम (बनाए गए सेक्शन के रेफ़रेंस सहित) जोड़ें।
-6. परिवर्तनशुदा प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+[SectionCollection.addSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectioncollection/#addSection) से एक सेक्शन बनाएं, फिर लौटाए गए सेक्शन को [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame) में पास करें। यह उदाहरण पहली स्लाइड पर एक सेक्शन ज़ूम रखता है और इसे एक रंगीन स्लाइड से शुरू होने वाले सेक्शन से लिंक करता है। फ्रेम की स्थिति और आयाम पॉइंट्स में निर्दिष्ट हैं, और प्रेजेंटेशन को PPTX के रूप में सहेजा जाता है।
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // प्रेज़ेंटेशन में एक नई स्लाइड जोड़ता है
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // प्रेज़ेंटेशन में एक नया सेक्शन जोड़ता है
-    pres.getSections().addSection("Section 1", slide);
-    // SectionZoomFrame ऑब्जेक्ट जोड़ता है
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // प्रेज़ेंटेशन को सेव करता है
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **कस्टम इमेज के साथ सेक्शन ज़ूम फ्रेम बनाना**
+### **कस्टम इमेज के साथ सेक्शन ज़ूम फ्रेम बनाएं**
 
-Aspose.Slides for Node.js via Java का उपयोग करके आप इस प्रकार एक अलग स्लाइड प्रीव्यू इमेज के साथ सेक्शन ज़ूम फ्रेम बना सकते हैं:
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) वर्ग का उदाहरण बनाएं।
-2. नई स्लाइड बनाएं।
-3. बनाई गई स्लाइड में पहचान पृष्ठभूमि जोड़ें।
-4. वह नया सेक्शन बनाएं जिसे आप जूम फ्रेम के साथ लिंक करना चाहते हैं। 
-5. एक [PPImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/PPImage) ऑब्जेक्ट बनाएं जिससे इमेज को उन Images संग्रह में जोड़ें जो [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) ऑब्जेक्ट से संबंधित हों और जो फ्रेम को भरने के लिए उपयोग की जाएगी।
-5. पहली स्लाइड में सेक्शन ज़ूम फ्रेम (बनाए गए सेक्शन के रेफ़रेंस सहित) जोड़ें।
-6. परिवर्तनशुदा प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+कस्टम इमेज के साथ सेक्शन ज़ूम फ्रेम बनाने के लिए [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSectionZoomFrame) का इमेज ओवरलोड आपको लक्ष्य सेक्शन बदले बिना कस्टम प्रीव्यू दिखाने की अनुमति देता है। यह उदाहरण एक लोकल इमेज की आवश्यकता रखता है, जिसे [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) से लोड किया जाता है और [ImageCollection.addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) के माध्यम से जोड़ा जाता है। सहेजा गया प्रेजेंटेशन पहली स्लाइड पर एक सेक्शन ज़ूम रखता है जो नई बनाई गयी सेक्शन से लिंक है।
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // प्रेज़ेंटेशन में नई स्लाइड जोड़ता है
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // प्रेज़ेंटेशन में नया सेक्शन जोड़ता है
-    pres.getSections().addSection("Section 1", slide);
-    // ज़ूम ऑब्जेक्ट के लिए नई इमेज बनाता है
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
+        image.dispose();
+    }
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, previewImage);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **सेक्शन ज़ूम के लक्ष्य सेक्शन को बदलें**
+
+[SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/#setTargetSection) का उपयोग करके मौजूदा सेक्शन ज़ूम को पुनर्निर्देशित किया जा सकता है बिना उसे पुनः बनाने के। समान प्रेजेंटेशन की [Presentation.getSections](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSections) संग्रह से एक भरा हुआ सेक्शन चुनें। खाली सेक्शन असाइन करने से वर्तमान लक्ष्य अपरिवर्तित रहता है, इसलिए असाइन करने से पहले [Section.getSlidesListOfSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSlidesListOfSection) जाँचें। सेक्शन के बारे में अधिक जानकारी के लिए देखें [स्लाइड सेक्शन प्रबंधन](/slides/hi/nodejs-java/slide-section/)।
+
+निम्न उदाहरण एक प्रेजेंटेशन फाइल लोड करता है, जिसमें कई भरे हुए सेक्शन, `Section navigation` नामक मौजूदा सेक्शन ज़ूम, तथा `Results` नामक यूनिक सेक्शन मौजूद होना चाहिए। यह सभी स्लाइड्स में ज़ूम खोजता है और नाम द्वारा गंतव्य ढूँढता है, न कि उस संग्रह इंडेक्स से जो सेक्शन पुनः क्रमबद्ध होने पर बदल सकता है। यदि नाम अद्वितीय नहीं हैं, तो गंतव्य पहचानने के लिए [Section.getSectionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/section/#getSectionId) का उपयोग करें।
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("section-zoom.pptx");
+try {
+    let zoom = null;
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        for (let j = 0; j < slide.getShapes().size(); j++) {
+            const shape = slide.getShapes().get_Item(j);
+            if (java.instanceOf(shape, "com.aspose.slides.ISectionZoomFrame") && shape.getName() === "Section navigation") {
+                zoom = shape;
+                break;
+            }
+        }
+        if (zoom != null) {
+            break;
         }
     }
-    // SectionZoomFrame ऑब्जेक्ट जोड़ता है
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
-    // प्रेज़ेंटेशन को सेव करता है
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    let targetSection = null;
+    for (let i = 0; i < presentation.getSections().size(); i++) {
+        const section = presentation.getSections().get_Item(i);
+        if (section.getName() === "Results") {
+            targetSection = section;
+            break;
+        }
     }
+
+    if (zoom == null || targetSection == null) {
+        console.log("The section zoom or destination section was not found.");
+    } else if (targetSection.getSlidesListOfSection().size() == 0) {
+        console.log("The destination section is empty.");
+    } else {
+        let currentSection = zoom.getTargetSection();
+        console.log("Current section: " + (currentSection == null ? "" : currentSection.getName()));
+        zoom.setTargetSection(targetSection);
+        presentation.save("section-zoom-updated.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
-### **सेक्शन ज़ूम फ्रेम का स्वरूपण**
+### **सेक्शन ज़ूम फ्रेम फ़ॉर्मेट करें**
 
-अधिक जटिल सेक्शन ज़ूम फ्रेम बनाने के लिए आपको एक साधारण फ्रेम के स्वरूपण को बदलना होगा। सेक्शन ज़ूम फ्रेम पर लागू करने योग्य कई स्वरूपण विकल्प हैं। 
-
-आप स्लाइड पर सेक्शन ज़ूम फ्रेम के स्वरूपण को इस प्रकार नियंत्रित कर सकते हैं:
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) वर्ग का उदाहरण बनाएं।
-2. नई स्लाइड बनाएं।
-3. बनाई गई स्लाइड में पहचान पृष्ठभूमि जोड़ें।
-4. वह नया सेक्शन बनाएं जिसे आप जूम फ्रेम के साथ लिंक करना चाहते हैं। 
-5. पहली स्लाइड में सेक्शन ज़ूम फ्रेम (बनाए गए सेक्शन के रेफ़रेंस सहित) जोड़ें।
-6. बनाए गए सेक्शन ज़ूम ऑब्जेक्ट का आकार और स्थिति बदलें।
-7. एक [PPImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/PPImage) ऑब्जेक्ट बनाएं जिससे इमेज को उन Images संग्रह में जोड़ें जो [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) ऑब्जेक्ट से संबंधित हों और जो फ्रेम को भरने के लिए उपयोग की जाएगी।
-8. बनाए गए सेक्शन ज़ूम फ्रेम ऑब्जेक्ट के लिए कस्टम इमेज सेट करें।
-9. *लिंक्ड सेक्शन से मूल स्लाइड पर लौटने* की क्षमता सेट करें। 
-10. सेक्शन ज़ूम फ्रेम ऑब्जेक्ट की इमेज से पृष्ठभूमि हटाएँ।
-11. दूसरे जूम फ्रेम ऑब्जेक्ट के लिए लाइन फ़ॉर्मेट बदलें।
-12. ट्रांज़िशन की अवधि बदलें।
-13. परिवर्तनशुदा प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+यह उदाहरण सेक्शन ज़ूम को 100 बाय 75 पॉइंट्स में मूव और रिसाइज़ करता है, [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) के माध्यम से एक लोकल इमेज असाइन करता है, और 2.5 पॉइंट, डैश-डॉट ब्राउन बॉर्डर लागू करता है। यह [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) को सक्षम करता है ताकि सेक्शन के बाद मूल स्लाइड पर लौट सकें, [ZoomObject.setShowBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setShowBackground) को निष्क्रिय करता है, और [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) को 1.5 सेकंड पर सेट करता है। कस्टम प्रीव्यू के लिए एक लोकल इमेज आवश्यक है।
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // प्रेज़ेंटेशन में नई स्लाइड जोड़ता है
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // प्रेज़ेंटेशन में नया सेक्शन जोड़ता है
-    pres.getSections().addSection("Section 1", slide);
-    // SectionZoomFrame ऑब्जेक्ट जोड़ता है
-    var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
-    // SectionZoomFrame के लिये स्वरूपण
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 154, 205, 50));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let section = presentation.getSections().addSection("Section 1", slide);
+
+    let sectionZoomFrame = overviewSlide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section);
     sectionZoomFrame.setX(100);
     sectionZoomFrame.setY(300);
     sectionZoomFrame.setWidth(100);
     sectionZoomFrame.setHeight(75);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    sectionZoomFrame.setImage(picture);
+
+    sectionZoomFrame.setZoomImage(previewImage);
+
     sectionZoomFrame.setReturnToParent(true);
     sectionZoomFrame.setShowBackground(false);
+
     sectionZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    sectionZoomFrame.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    sectionZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     sectionZoomFrame.getLineFormat().setWidth(2.5);
-    sectionZoomFrame.setTransitionDuration(1.5);
-    // प्रेज़ेंटेशन को सेव करता है
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    sectionZoomFrame.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **सारांश ज़ूम**
 
-सारांश ज़ूम एक लैंडिंग पेज की तरह है जहाँ आपके प्रस्तुति के सभी भाग एक साथ प्रदर्शित होते हैं। जब आप प्रस्तुति दे रहे हों, तो आप ज़ूम का उपयोग करके अपनी प्रस्तुति के किसी भी हिस्से से किसी भी क्रम में दूसरे हिस्से पर जा सकते हैं। आप रचनात्मक हो सकते हैं, आगे कूद सकते हैं, या अपने स्लाइड शो के हिस्सों को बिना प्रस्तुति के प्रवाह को बाधित किए पुनः देख सकते हैं।
+सारांश ज़ूम प्रेजेंटेशन सेक्शन्स का ओवरव्यू प्रदान करता है। स्लाइड शो के दौरान, आप इसका उपयोग सेक्शन पर कूदने, आगे बढ़ने, या विषय को फिर से देखने के लिए कर सकते हैं बिना स्लाइड क्रम का पालन किए।
 
-![overview_image](sumzoomsel.png)
+![सारांश ज़ूम के लिए सेक्शन चयन](sumzoomsel.png)
 
-सारांश ज़ूम ऑब्जेक्ट्स के लिए, Aspose.Slides [SummaryZoomFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/SummaryZoomFrame), [SummaryZoomSection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/SummaryZoomSection), और [SummaryZoomSectionCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/SummaryZoomSectionCollection) क्लास और [ShapeCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ShapeCollection) क्लास के तहत कुछ मेथड प्रदान करता है।
+सारांश ज़ूम ऑब्जेक्ट्स के लिए, Aspose.Slides [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/), और [SummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/) क्लास तथा [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) क्लास पर मेथड्स प्रदान करती है।
 
-### **सारांश ज़ूम बनाना**
+### **सारांश ज़ूम बनाएं**
 
-आप स्लाइड पर इस प्रकार सारांश ज़ूम फ्रेम जोड़ सकते हैं:
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) वर्ग का उदाहरण बनाएं।
-2. नई स्लाइड्स बनाएं जिनमें पहचान पृष्ठभूमि और नई सेक्शन हों।
-3. पहली स्लाइड में सारांश ज़ूम फ्रेम जोड़ें।
-4. परिवर्तनशुदा प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+[ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addSummaryZoomFrame) का उपयोग करके प्रेजेंटेशन के सेक्शन्स का ओवरव्यू बनाएं। यह उदाहरण चार सेक्शन बनाता है जिनके स्लाइड बैकग्राउंड अलग हैं और पहली स्लाइड में एक सारांश ज़ूम जोड़ता है। फ्रेम की स्थिति और आयाम पॉइंट्स में निर्दिष्ट हैं, और परिणामी ओवरव्यू PPTX प्रेजेंटेशन में सहेजा जाता है।
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // प्रेज़ेंटेशन में नई स्लाइड जोड़ता है
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // प्रेज़ेंटेशन में नया सेक्शन जोड़ता है
-    pres.getSections().addSection("Section 1", slide);
-    // प्रेज़ेंटेशन में नई स्लाइड जोड़ता है
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // प्रेज़ेंटेशन में नया सेक्शन जोड़ता है
-    pres.getSections().addSection("Section 2", slide);
-    // प्रेज़ेंटेशन में नई स्लाइड जोड़ता है
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // प्रेज़ेंटेशन में नया सेक्शन जोड़ता है
-    pres.getSections().addSection("Section 3", slide);
-    // प्रेज़ेंटेशन में नई स्लाइड जोड़ता है
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 3", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "green"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // प्रेज़ेंटेशन में नया सेक्शन जोड़ता है
-    pres.getSections().addSection("Section 4", slide);
-    // सारांश ज़ूम फ्रेम ऑब्जेक्ट जोड़ता है
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // प्रेज़ेंटेशन को सेव करता है
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 100, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 4", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **सारांश ज़ूम सेक्शन जोड़ना और हटाना**
+### **सारांश ज़ूम सेक्शन जोड़ें और हटाएँ**
 
-सभी सेक्शन एक सारांश ज़ूम फ्रेम में [SummaryZoomSection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/SummaryZoomSection) ऑब्जेक्ट द्वारा दर्शाए जाते हैं, जो [SummaryZoomSectionCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/SummaryZoomSectionCollection) ऑब्जेक्ट में संग्रहीत होते हैं। आप [SummaryZoomSectionCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/SummaryZoomSectionCollection) क्लास के माध्यम से सारांश ज़ूम सेक्शन ऑब्जेक्ट को जोड़ या हटा सकते हैं:
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) वर्ग का उदाहरण बनाएं।
-2. नई स्लाइड्स बनाएं जिनमें पहचान पृष्ठभूमि और नई सेक्शन हों।
-3. पहली स्लाइड में एक सारांश ज़ूम फ्रेम जोड़ें।
-4. प्रस्तुति में एक नई स्लाइड और सेक्शन जोड़ें।
-5. बनाए गए सेक्शन को सारांश ज़ूम फ्रेम में जोड़ें।
-6. सारांश ज़ूम फ्रेम से पहली सेक्शन को हटाएँ।
-7. परिवर्तनशुदा प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+सारांश ज़ूम अपने [SummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsection/) ऑब्जेक्ट को [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) में संग्रहीत करता है। यह उदाहरण दो सेक्शन का ओवरव्यू बनाता है, फिर [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) से तृतीय सेक्शन जोड़ता है, और [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection) से प्रथम सेक्शन का एंट्री हटाता है। एंट्री हटाने से प्रेजेंटेशन सेक्शन और उसकी स्लाइड्स अनछुए रहती हैं।
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // प्रेज़ेंटेशन में नई स्लाइड जोड़ता है
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // प्रेज़ेंटेशन में नया सेक्शन जोड़ता है
-    pres.getSections().addSection("Section 1", slide);
-    // प्रेज़ेंटेशन में नई स्लाइड जोड़ता है
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let firstSection = presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // प्रेज़ेंटेशन में नया सेक्शन जोड़ता है
-    pres.getSections().addSection("Section 2", slide);
-    // SummaryZoomFrame ऑब्जेक्ट जोड़ता है
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // प्रेज़ेंटेशन में नई स्लाइड जोड़ता है
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // प्रेज़ेंटेशन में नया सेक्शन जोड़ता है
-    var section3 = pres.getSections().addSection("Section 3", slide);
-    // Summary Zoom में सेक्शन जोड़ता है
-    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
-    // Summary Zoom से सेक्शन हटाता है
-    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
-    // प्रेज़ेंटेशन को सेव करता है
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 127, 255, 0));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    let thirdSection = presentation.getSections().addSection("Section 3", slide);
+
+    summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(thirdSection);
+
+    summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(firstSection);
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **सारांश ज़ूम सेक्शन का स्वरूपण**
+### **सारांश ज़ूम सेक्शन फ़ॉर्मेट करें**
 
-अधिक जटिल सारांश ज़ूम सेक्शन ऑब्जेक्ट बनाने के लिए आपको एक साधारण फ्रेम के स्वरूपण को बदलना होगा। सारांश ज़ूम सेक्शन ऑब्जेक्ट पर लागू करने योग्य कई स्वरूपण विकल्प हैं। 
-
-आप सारांश ज़ूम फ्रेम में सारांश ज़ूम सेक्शन ऑब्जेक्ट के स्वरूपण को इस प्रकार नियंत्रित कर सकते हैं:
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) वर्ग का उदाहरण बनाएं।
-2. नई स्लाइड्स बनाएं जिनमें पहचान पृष्ठभूमि और नई सेक्शन हों।
-3. पहली स्लाइड में सारांश ज़ूम फ्रेम जोड़ें।
-4. `ISummaryZoomSectionCollection` से पहली ऑब्जेक्ट का सारांश ज़ूम सेक्शन ऑब्जेक्ट प्राप्त करें।
-7. एक [PPImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/PPImage) ऑब्जेक्ट बनाएं जिससे इमेज को उन images संग्रह में जोड़ें जो [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) ऑब्जेक्ट से संबंधित हों और जो फ्रेम को भरने के लिए उपयोग की जाएगी।
-8. बनाए गए सेक्शन ज़ूम फ्रेम ऑब्जेक्ट के लिए कस्टम इमेज सेट करें।
-9. *लिंक्ड सेक्शन से मूल स्लाइड पर लौटने* की क्षमता सेट करें। 
-11. दूसरे ज़ूम फ्रेम ऑब्जेक्ट के लिए लाइन फ़ॉर्मेट बदलें।
-12. ट्रांज़िशन की अवधि बदलें।
-13. परिवर्तनशुदा प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+यह उदाहरण [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) में पहले एंट्री को, शून्य-आधारित इंडेक्स `0` का उपयोग करके, फ़ॉर्मेट करता है। यह [ZoomObject.setZoomImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setZoomImage) के लिए एक लोकल इमेज आवश्यक करता है, 1.5 पॉइंट, डैश-डॉट ब्लैक बॉर्डर लागू करता है, और [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) को 1.5 सेकंड पर सेट करता है। [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) को `false` पास करने से इस एंट्री के लिए स्वचालित रूप से सारांश स्लाइड पर लौटना बंद हो जाता है।
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // प्रेज़ेंटेशन में नई स्लाइड जोड़ता है
-    var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    let overviewSlide = presentation.getSlides().get_Item(0);
+
+    let slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // प्रेज़ेंटेशन में नया सेक्शन जोड़ता है
-    pres.getSections().addSection("Section 1", slide);
-    // प्रेज़ेंटेशन में नई स्लाइड जोड़ता है
-    slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 165, 42, 42));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 1", slide);
+
+    slide = presentation.getSlides().addEmptySlide(overviewSlide.getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    // प्रेज़ेंटेशन में नया सेक्शन जोड़ता है
-    pres.getSections().addSection("Section 2", slide);
-    // SummaryZoomFrame ऑब्जेक्ट जोड़ता है
-    var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
-    // पहला SummaryZoomSection ऑब्जेक्ट प्राप्त करता है
-    var summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
-    // SummaryZoomSection ऑब्जेक्ट के लिये स्वरूपण
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+
+    presentation.getSections().addSection("Section 2", slide);
+
+    let summaryZoomFrame = overviewSlide.getShapes().addSummaryZoomFrame(150, 50, 300, 200);
+
+    let summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
+
+    let previewImage;
+    let image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(picture);
+        previewImage = presentation.getImages().addImage(image);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        image.dispose();
     }
-    summarySection.setImage(picture);
+
+    summarySection.setZoomImage(previewImage);
     summarySection.setReturnToParent(false);
+
     summarySection.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "black"));
-    summarySection.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    summarySection.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     summarySection.getLineFormat().setWidth(1.5);
-    summarySection.setTransitionDuration(1.5);
-    // प्रेज़ेंटेशन को सेव करता है
-    pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    summarySection.setTransitionDuration(java.newFloat(1.5));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
 **क्या मैं लक्ष्य दिखाने के बाद 'पैरेंट' स्लाइड पर लौटने को नियंत्रित कर सकता हूँ?**
 
-हाँ। [Zoom frame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/zoomframe/) या [section](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sectionzoomframe/) में `setReturnToParent` मेथड है जो सक्षम होने पर दर्शकों को लक्ष्य सामग्री देखने के बाद मूल स्लाइड पर वापस भेज देता है।
+हाँ। लक्ष्य सामग्री दिखाने के बाद मूल स्लाइड पर लौटने के लिए [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setReturnToParent) को `true` के साथ कॉल करें।
 
 **क्या मैं ज़ूम ट्रांज़िशन की 'गति' या अवधि को समायोजित कर सकता हूँ?**
 
-हाँ। ज़ूम में `setTransitionDuration` मेथड उपलब्ध है जिससे आप एनीमेशन की अवधि को नियंत्रित कर सकते हैं।
+हाँ। ट्रांज़िशन अवधि को सेकंड में नियंत्रित करने के लिए [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomobject/#setTransitionDuration) का उपयोग करें।
 
-**क्या प्रस्तुति में ज़ूम ऑब्जेक्ट्स की संख्या पर कोई सीमा है?**
+**क्या किसी प्रेजेंटेशन में ज़ूम ऑब्जेक्ट्स की संख्या पर कोई सीमा है?**
 
-दस्तावेज़ित किसी कठोर API सीमा नहीं है। व्यावहारिक सीमाएँ प्रस्तुति की कुल जटिलता और दर्शक के प्रदर्शन पर निर्भर करती हैं। आप कई ज़ूम फ्रेम जोड़ सकते हैं, लेकिन फ़ाइल आकार और रेंडरिंग समय का ध्यान रखें।
+दस्तावेज़ में कोई कठोर API सीमा नहीं है। व्यावहारिक सीमाएँ कुल प्रेजेंटेशन की जटिलता और दर्शक के प्रदर्शन पर निर्भर करती हैं। आप कई ज़ूम फ्रेम जोड़ सकते हैं, लेकिन फ़ाइल आकार और रेंडरिंग समय का ध्यान रखें।

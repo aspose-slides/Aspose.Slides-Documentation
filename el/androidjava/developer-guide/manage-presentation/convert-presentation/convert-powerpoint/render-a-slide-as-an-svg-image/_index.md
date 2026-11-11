@@ -1,6 +1,6 @@
 ---
-title: Απόδοση διαφανειών παρουσίασης ως εικόνες SVG σε Android
-linktitle: Διαφάνεια σε SVG
+title: Render Presentation Slides as SVG Images on Android
+linktitle: Slide to SVG
 type: docs
 weight: 50
 url: /el/androidjava/render-a-slide-as-an-svg-image/
@@ -17,17 +17,17 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Εξάγετε διαφάνειες PowerPoint ως εικόνες SVG σε Android και ελέγξτε τις γραμματοσειρές, το κείμενο, τις εικόνες, τα αναγνωριστικά και τα συμβάντα με το Aspose.Slides."
+description: "Εξαγωγή διαφανειών PowerPoint ως εικόνων SVG σε Android και έλεγχος γραμματοσειρών, κειμένου, εικόνων, αναγνωριστικών και συμβάντων με το Aspose.Slides."
 ---
 ## **Επισκόπηση**
 
-Το SVG είναι μια κλιμακώσιμη μορφή εικόνας βασισμένη σε XML που λειτουργεί καλά για δημοσίευση στο web, προβολείς διαφανειών, διαδικασίες προσβασιμότητας και αυτοματοποιημένη μετα-επεξεργασία. Το Aspose.Slides for Android μέσω Java εξάγει κάθε διαφάνεια σε ξεχωριστό αρχείο SVG και σας επιτρέπει να ελέγξετε πώς γράφονται το κείμενο, οι γραμματοσειρές, οι εικόνες και τα στοιχεία SVG.
+Το SVG είναι μια κλιμακώσιμη μορφή εικόνας βασισμένη σε XML που λειτουργεί καλά για τη δημοσίευση στο web, προγράμματα προβολής διαφανειών, διαδικασίες προσβασιμότητας και αυτοματοποιημένη μετα‑επεξεργασία. Το Aspose.Slides for Android μέσω Java εξάγει κάθε διαφάνεια σε ξεχωριστό αρχείο SVG και σας επιτρέπει να ελέγχετε πώς γράφονται το κείμενο, οι γραμματοσειρές, οι εικόνες και τα στοιχεία SVG.
 
-Χρησιμοποιήστε [SVGOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/) όταν το εξαγόμενο SVG πρέπει να είναι συμπαγές, προβλέψιμο σε διαφορετικά προγράμματα περιήγησης ή έτοιμο για διαδραστική χρήση.
+Χρησιμοποιήστε [SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) όταν το εξαγόμενο SVG πρέπει να είναι συμπαγές, προβλέψιμο σε όλα τα προγράμματα περιήγησης ή έτοιμο για διαδραστική χρήση.
 
 ## **Εξαγωγή διαφάνειας ως SVG**
 
-Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/), επιλέξτε μια διαφάνεια και γράψτε την σε ροή με τη μέθοδο [ISlide.writeAsSvg](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-). Το ακόλουθο παράδειγμα εξάγει κάθε διαφάνεια σε μια παρουσίαση ως ξεχωριστό αρχείο SVG.
+Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), επιλέξτε μια διαφάνεια και γράψτε την σε ροή με [ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-). Το παρακάτω παράδειγμα εξάγει κάθε διαφάνεια σε μια παρουσίαση ως ξεχωριστό αρχείο SVG.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -44,11 +44,11 @@ try {
 }
 ```
 
-Το όνομα αρχείου χρησιμοποιεί το [ISlide.getSlideNumber](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islide/#getSlideNumber--) αντί για το δείκτη βρόχου. Μπορείτε επίσης να εξάγετε ένα μεμονωμένο σχήμα με τη μέθοδο [IShape.writeAsSvg](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) όταν ένας προβολέας διαφανειών ή μια ιστοσελίδα χρειάζεται μόνο αυτό το σχήμα.
+Το όνομα αρχείου χρησιμοποιεί το [ISlide.getSlideNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getSlideNumber--) αντί για το δείκτη του βρόχου. Μπορείτε επίσης να εξάγετε ένα μεμονωμένο σχήμα με το [IShape.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) όταν ένας προβάτης διαφανειών ή μια ιστοσελίδα χρειάζεται μόνο εκείνο το σχήμα.
 
 ## **Διαμόρφωση εξόδου SVG**
 
-[SVGOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/) ελέγχει την απόδοση του SVG. Για πλαίσια κειμένου, το [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) περιλαμβάνει το πλαίσιο κειμένου στην περιοχή απόδοσης, και το [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) καθορίζει αν εφαρμόζεται η περιστροφή του πλαισίου. Ορίστε το [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) σε `true` όταν το κείμενο πρέπει να αποδίδεται χωρίς λιγάρτες.
+[SVGOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/) ελέγχει την απόδοση SVG. Για πλαίσια κειμένου, το [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) περιλαμβάνει το πλαίσιο κειμένου στην περιοχή απόδοσης, και το [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) καθορίζει αν θα εφαρμοστεί η περιστροφή του πλαισίου. Ορίστε το [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) σε `true` όταν το κείμενο πρέπει να αποδίδεται χωρίς συνδέσεις.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -69,9 +69,11 @@ try {
 
 ## **Έλεγχος κειμένου και γραμματοσειρών**
 
-### **Διανυσματισμός όλου του κειμένου**
+Κατά την εξαγωγή διαφανειών σε SVG, μπορείτε να ελέγξετε εάν το κείμενο παραμένει ως κείμενο ή μετατρέπεται σε διανυσματικά γραφικά, καθώς και πώς ενσωματώνονται ή αναφέρονται οι εξωτερικές γραμματοσειρές. Οι παρακάτω επιλογές σας βοηθούν να ισορροπήσετε την οπτική συνέπεια, την επιλογή κειμένου και τις εξαρτήσεις γραμματοσειρών στο εξαγόμενο SVG.
 
-Ορίστε το [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) σε `true` για να γράψετε όλο το κείμενο της διαφάνειας ως διανυσματικά γραφικά. Αυτό εξαλείφει τις εξαρτήσεις από γραμματοσειρές και καθιστά το οπτικό αποτέλεσμα πιο συνεπές σε διαφορετικά προγράμματα περιήγησης, όμως το κείμενο δεν είναι πλέον επιλέξιμο ή αναζητήσιμο ως κείμενο SVG.
+### **Διανυσματοποίηση όλου του κειμένου**
+
+Ορίστε το [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) σε `true` για να γράψετε όλο το κείμενο της διαφάνειας ως διανυσματικά γραφικά. Αυτό εξαλείφει τις εξαρτήσεις γραμματοσειρών και κάνει το οπτικό αποτέλεσμα πιο συνεπές σε όλα τα προγράμματα περιήγησης, όμως το κείμενο δεν είναι πλέον επιλέξιμο ή αναζητήσιμο ως κείμενο SVG.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -88,9 +90,9 @@ try {
 }
 ```
 
-### **Επιλέξτε πώς θα διαχειρίζονται οι εξωτερικές γραμματοσειρές**
+### **Επιλέξτε πώς διαχειρίζονται οι εξωτερικές γραμματοσειρές**
 
-[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) χρησιμοποιεί μια τιμή [SvgExternalFontsHandling](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgexternalfontshandling/) για γραμματοσειρές που φορτώνονται εξωτερικά. Επιλέξτε [SvgExternalFontsHandling.AddLinksToFontFiles](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgexternalfontshandling/) για να αναφέρετε ξεχωριστά αρχεία γραμματοσειρών, [SvgExternalFontsHandling.Embed](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgexternalfontshandling/) για να συμπεριλάβετε τα δεδομένα γραμματοσειράς στο SVG, ή [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgexternalfontshandling/) για να αποδώσετε μόνο το κείμενο που χρησιμοποιεί εξωτερικές γραμματοσειρές ως γραφικά. Επαληθεύστε την άδεια χρήσης των γραμματοσειρών πριν από την ενσωμάτωσή τους.
+Το [SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) χρησιμοποιεί μια τιμή [SvgExternalFontsHandling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) για γραμματοσειρές που φορτώνονται εξωτερικά. Επιλέξτε το [SvgExternalFontsHandling.AddLinksToFontFiles](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) για να αναφερθείτε σε ξεχωριστά αρχεία γραμματοσειρών, το [SvgExternalFontsHandling.Embed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) για να συμπεριλάβετε τα δεδομένα γραμματοσειράς στο SVG, ή το [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) για να αποτυπώσετε μόνο το κείμενο που χρησιμοποιεί εξωτερικές γραμματοσειρές ως γραφικά. Επαληθεύστε τις άδειες γραμματοσειρών πριν την ενσωμάτωση.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -121,7 +123,7 @@ try {
 
 ## **Μείωση μεγέθους ενσωματωμένων εικόνων**
 
-Χρησιμοποιήστε το [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) για να μειώσετε την ανάλυση των ενσωματωμένων εικόνων, το [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) για να παραλείψετε περιοχές που έχουν περικοπεί, και το [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) για να ελέγξετε την ποιότητα κωδικοποίησης JPEG. Αυτές οι ρυθμίσεις μειώνουν το μέγεθος του αρχείου με κόστος την πιστότητα της εικόνας ή τα διατηρημένα δεδομένα εικόνας.
+Χρησιμοποιήστε το [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) για να μειώσετε την ανάλυση των ενσωματωμένων εικόνων, το [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) για να παραλείψετε τις περικομμένες περιοχές προέλευσης, και το [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) για να ελέγχετε την ποιότητα κωδικοποίησης JPEG. Αυτές οι ρυθμίσεις μειώνουν το μέγεθος του αρχείου με κόστος την πιστότητα της εικόνας ή τα διατηρημένα δεδομένα εικόνας.
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -140,9 +142,55 @@ try {
 }
 ```
 
-## **Ανάθεση σταθερών ID σε σχήματα και κείμενο**
+## **Έλεγχος ανάλυσης rasterization μετααρχείου**
 
-Χρησιμοποιήστε το [ISvgShapeFormattingController](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) για να ορίσετε το [ISvgShape.setId](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isvgshape/#setId-java.lang.String-) για κάθε σχήμα SVG. Για να ορίσετε επίσης τιμές [ISvgTSpan.setId](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isvgtspan/#setId-java.lang.String-) σε στοιχεία κειμένου `tspan`, υλοποιήστε το [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isvgshapeandtextformattingcontroller/). Αναθέστε οποιονδήποτε από τους ελεγκτές με το [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-).
+Το [SVGOptions.setMetafileRasterizationDpi](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setMetafileRasterizationDpi-int-) ορίζει το κάτω όριο ανάλυσης για τη rasterization των μετααρχείων κατά την εξαγωγή SVG. Χρησιμοποιήστε το για να εξισορροπήσετε τις λεπτομέρειες και το μέγεθος του αρχείου όταν μια εικόνα EMF ή WMF rasterizes. Δεν ορίζει ένα παγκόσμιο DPI για το SVG ούτε αναγκάζει κάθε αντικείμενο στη διαφάνεια να μετατραπεί σε raster εικόνα.
+
+Κατεβάστε το [metafile-rasterization.pptx](metafile-rasterization.pptx), το οποίο περιέχει μια εικόνα EMF με στενά τοποθετημένες διαγώνιες γραμμές. Το παρακάτω παράδειγμα εξάγει την πρώτη του διαφάνεια σε τρεις αναλύσεις rasterization μέσω του [ISlide.writeAsSvg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-). Όλες οι άλλες ρυθμίσεις εξαγωγής παραμένουν ίδιες ώστε τα αποτελέσματα να μπορούν να συγκριθούν.
+
+```java
+import com.aspose.slides.PicturesCompression;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SVGOptions;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("metafile-rasterization.pptx");
+try {
+    for (int dpi : new int[] { 72, 150, 300 }) {
+        SVGOptions svgOptions = new SVGOptions();
+        svgOptions.setMetafileRasterizationDpi(dpi);
+        svgOptions.setPicturesCompression(PicturesCompression.Dpi330);
+        svgOptions.setJpegQuality(90);
+
+        String outputFileName = String.format("slide-%d.svg", dpi);
+        try (FileOutputStream svgStream = new FileOutputStream(outputFileName)) {
+            presentation.getSlides().get_Item(0).writeAsSvg(svgStream, svgOptions);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Στο αποτέλεσμα, το EMF μετατράπηκε σε ένα ενσωματωμένο PNG σε κάθε SVG. Οι παρακάτω μετρήσεις αφορούν την παρεχόμενη παρουσίαση· δεν αποτελούν γενική τύπο μετατροπής DPI σε διαστάσεις εικονοστοιχείων.
+
+| Rasterization DPI μετααρχείου | Διαστάσεις ενσωματωμένου PNG | Μέγεθος αρχείου SVG (bytes) |
+| --- | --- | --- |
+| 72 | 1196 × 596 | 170,221 |
+| 150 | 2492 × 1242 | 423,149 |
+| 300 | 4983 × 2483 | 1,027,169 |
+
+Η σύγκριση παρακάτω δείχνει την ίδια περιοχή του ενσωματωμένου raster στην ίδια μεγεθυμένη προβολή. Οι διαγώνιες γραμμές εμφανίζουν καθαρή εικονοκλίμακα στα 72 DPI και πιο ομαλές άκρες σε υψηλότερες αναλύσεις, ενώ το αρχείο SVG μεγαλώνει. Η αύξηση της τιμής δεν βελτιώνει απαραίτητα κάθε λεπτομέρεια ή αλλάζει κάθε εξαγόμενη εικόνα.
+
+![Μεγεθυμένη λεπτομέρεια διαγωνίων γραμμών σε 72, 150 και 300 DPI](metafile-rasterization-comparison.png)
+
+Το [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) ελέγχει τη μείωση της ανάλυσης της εικόνας και μπορεί να καλύψει το αποτέλεσμα της αλλαγής της ανάλυσης rasterization του μετααρχείου. Το [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) ελέγχει την ποιότητα κωδικοποίησης JPEG, όχι την ανάλυση rasterization του μετααρχείου.
+
+## **Ανάθεση σταθερών αναγνωριστικών σε σχήματα και κείμενο**
+
+Χρησιμοποιήστε το [ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) για να ορίσετε το [ISvgShape.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setId-java.lang.String-) για κάθε σχήμα SVG. Για να ορίσετε τιμές [ISvgTSpan.setId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgtspan/#setId-java.lang.String-) στα στοιχεία κειμένου `tspan`, υλοποιήστε το [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeandtextformattingcontroller/). Εκχωρήστε οποιονδήποτε από τους ελεγκτές με το [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-).
+
+Ο παρακάτω ελεγκτής χρησιμοποιεί το [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--), το οποίο είναι σταθερό για τη διάρκεια ζωής του σχήματος, και έναν επαναλαμβανόμενο μετρητή για τα κείμενα του. Αυτό καθιστά τα παραγόμενα αναγνωριστικά κατάλληλα για μετα‑επεξεργασία μιας αμετάβλητης παρουσίασης.
 
 ```java
 class StableSvgIdController implements ISvgShapeAndTextFormattingController {
@@ -174,9 +222,9 @@ try {
 }
 ```
 
-## **Προσθήκη χειριστών συμβάντων SVG**
+## **Πρόσθεση χειριστών συμβάντων SVG**
 
-Σε έναν [ISvgShapeFormattingController](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isvgshapeformattingcontroller/), καλέστε το [ISvgShape.setEventHandler](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) με μια τιμή [SvgEvent](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgevent/) για να προσθέσετε έναν χειριστή JavaScript σε ένα εξαγόμενο σχήμα. Αναθέστε τον ελεγκτή με το [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) και ορίστε τη λειτουργία JavaScript στη σελίδα ή στο έγγραφο SVG που φιλοξενεί το αποτέλεσμα.
+Σε έναν [ISvgShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshapeformattingcontroller/), καλέστε το [ISvgShape.setEventHandler](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) με μια τιμή [SvgEvent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgevent/) για να προσθέσετε έναν χειριστή JavaScript σε ένα εξαγόμενο σχήμα. Εκχωρήστε τον ελεγκτή με το [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) και ορίστε τη λειτουργία JavaScript στη σελίδα ή στο έγγραφο SVG που φιλοξενεί το αποτέλεσμα.
 
 ```java
 class SvgEventController implements ISvgShapeFormattingController {
@@ -202,18 +250,18 @@ try {
 }
 ```
 
-Η σελίδα-φιλοξενητής μπορεί να ορίσει τη λειτουργία JavaScript που αναφέρεται από το χειριστή. Η ανάθεση ID και χειριστών συμβάντων ενεργοποιεί προβολείς διαφανειών, βελτιώσεις προσβασιμότητας και άλλες διαδραστικές ροές εργασίας SVG.
+Η σελίδα κεντρικού υποδοχέα μπορεί να ορίσει τη λειτουργία JavaScript που αναφέρεται από τον χειριστή. Η εκχώρηση αναγνωριστικών και χειριστών συμβάντων ενεργοποιεί προγράμματα προβολής διαφανειών, βελτιώσεις προσβασιμότητας και άλλες διαδραστικές ροές εργασίας SVG.
 
-## **Συχνές Ερωτήσεις**
+## **FAQ**
 
-**Πότε πρέπει να χρησιμοποιήσω το [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) αντί για το [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgexternalfontshandling/);**
+**Πότε πρέπει να χρησιμοποιήσω [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) αντί για [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/);**
 
-Χρησιμοποιήστε το [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) όταν όλο το κείμενο πρέπει να είναι ανεξάρτητο από γραμματοσειρές. Χρησιμοποιήστε το [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgexternalfontshandling/) όταν μόνο το κείμενο που χρησιμοποιεί εξωτερικές γραμματοσειρές πρέπει να μετατραπεί σε γραφικά.
+Χρησιμοποιήστε το [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) όταν όλο το κείμενο πρέπει να είναι ανεξάρτητο από τις γραμματοσειρές. Χρησιμοποιήστε το [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/svgexternalfontshandling/) όταν μόνο το κείμενο που χρησιμοποιεί εξωτερικές γραμματοσειρές θα πρέπει να μετατραπεί σε γραφικά.
 
-**Ποιος είναι ο καλύτερος τρόπος να μειωθεί το μέγεθος ενός SVG;**
+**Ποιος είναι ο καλύτερος τρόπος να μικρύνετε ένα SVG;**
 
-Ξεκινήστε με συμπίεση των ενσωματωμένων εικόνων, διαγραφή των περικομμένων περιοχών εικόνας και επιλογή συνδεδεμένων αρχείων γραμματοσειρών όταν το περιβάλλον-στόχος μπορεί να τα εξυπηρετήσει. Δοκιμάστε το αποτέλεσμα, επειδή η χαμηλότερη ανάλυση εικόνας, η χαμηλότερη ποιότητα JPEG και ο διανυσματισμός του κειμένου έχουν διαφορετικές ανταλλαγές ποιότητας‑μεγέθους.
+Ξεκινήστε με τη συμπίεση των ενσωματωμένων εικόνων, τη διαγραφή των περικομμένων περιοχών εικόνας και την επιλογή συνδεδεμένων αρχείων γραμματοσειρών όταν το περιβάλλον‑στόχος μπορεί να τα εξυπηρετήσει. Δοκιμάστε το αποτέλεσμα, επειδή η χαμηλότερη ανάλυση εικόνας, η χαμηλότερη ποιότητα JPEG και το διανυσματοποιημένο κείμενο έχουν διαφορετικές ανταλλαγές ποιότητας και μεγέθους.
 
-**Μπορώ να τροποποιήσω τα στοιχεία SVG μετά την εξαγωγή;**
+**Μπορώ να τροποποιήσω τα εξαγόμενα στοιχεία SVG μετά την εξαγωγή;**
 
-Ναι. Ανάθετε ID μέσω ενός ελεγκτή μορφοποίησης, έπειτα επιλέξτε τα αντίστοιχα στοιχεία SVG στο εργαλείο ή το σενάριο του προγράμματος περιήγησης που χρησιμοποιείτε για μετα‑επεξεργασία.
+Ναι. Εκχωρήστε αναγνωριστικά μέσω ενός ελεγκτή μορφοποίησης, έπειτα επιλέξτε τα αντίστοιχα στοιχεία SVG στο εργαλείο μετά‑επεξεργασίας ή στο σενάριο του προγράμματος περιήγησης.

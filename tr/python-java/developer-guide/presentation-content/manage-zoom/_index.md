@@ -1,6 +1,6 @@
 ---
-title: Python üzerinden Java ile Sunum Zoom'unu Yönet
-linktitle: Zoom'u Yönet
+title: Python üzerinden Java ile Sunum Yakınlaştırmasını Yönet
+linktitle: Yakınlaştırmayı Yönet
 type: docs
 weight: 60
 url: /tr/python-java/manage-zoom/
@@ -9,45 +9,38 @@ keywords:
 - yakınlaştırma çerçevesi
 - slayt yakınlaştırması
 - bölüm yakınlaştırması
-- özet yakınlaştırması
+- özet yakınlaştırma
 - yakınlaştırma ekle
 - PowerPoint
 - sunum
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java ile Zoom oluşturun ve özelleştirin — bölümler arasında atlayın, PPT, PPTX ve ODP sunumları içinde küçük resimler ve geçişler ekleyin."
+description: "Aspose.Slides for Python via Java ile Yakınlaştırma oluşturun ve özelleştirin — bölümler arasında geçiş yapın, PowerPoint sunumlarına küçük resimler ve geçişler ekleyin."
 ---
 ## **Giriş**
 
-PowerPoint'teki Zoom'lar, sunumunuzun belirli slaytları, bölümleri ve parçaları arasında atlamanızı sağlar. Sunum yaparken, içeriği hızlıca gezme yeteneği çok faydalı olabilir.
+PowerPoint yakınlaştırmaları, bir slayt gösterisi sırasında belirli slaytlar ve bölümler arasında gezinmenizi sağlar. Aspose.Slides for Python via Java ile slayt, bölüm ve özet yakınlaştırmaları oluşturabilir ve ön izlemelerini, kenarlıklarını ve geçişlerini özelleştirebilirsiniz.
 
-![overview_image](overview.png)
+![PowerPoint yakınlaştırma genel bakışı](overview.png)
 
-* Tek bir slaytta tüm sunumu özetlemek için bir [Özet Zoom](#summary-zoom) kullanın.
-* Yalnızca seçili slaytları göstermek için bir [Slayt Zoom](#slide-zoom) kullanın.
-* Yalnızca tek bir bölümü göstermek için bir [Bölüm Zoom](#section-zoom) kullanın.
+* Tek bir slaytta tüm sunumu özetlemek için bir [Özet Yakınlaştırma](#summary-zoom) kullanın.
+* Yalnızca seçili slaytları göstermek için bir [Slayt Yakınlaştırma](#slide-zoom) kullanın.
+* Yalnızca tek bir bölümü göstermek için bir [Bölüm Yakınlaştırma](#section-zoom) kullanın.
 
-## **Slayt Zoom**
-Slayt zoom, sunumunuzu daha dinamik hâle getirir, istediğiniz sırayla slaytlar arasında kesintisiz gezinmenizi sağlar. Slayt zoom, çok fazla bölümü olmayan kısa sunumlar için idealdir, ancak farklı sunum senaryolarında da kullanılabilir.
+## **Slayt Yakınlaştırma**
 
-Slayt zoomlar, tek bir tuval üzerindeymiş gibi birden fazla bilgi parçasına derinlemenize yardımcı olur.
+Bir slayt yakınlaştırması, sunumunuzu daha dinamik hâle getirir ve sunum akışını kesintiye uğratmadan istediğiniz sırayla slaytlar arasında özgürce gezinmenizi sağlar. Slayt yakınlaştırmaları, çok bölümlü olmayan kısa sunumlar için harikadır, ancak farklı sunum senaryolarında da kullanılabilir.
 
-![overview_image](slidezoomsel.png)
+Slayt yakınlaştırmaları, tek bir genel bakış slaytından ilişkili bilgileri keşfetmenizi sağlar.
 
-Slayt zoom nesneleri için Aspose.Slides, ZoomImageType enumarasyonunu, ZoomFrame sınıfını ve ShapeCollection sınıfındaki bazı yöntemleri sağlar.
+![Slayt yakınlaştırması için slaytların seçilmesi](slidezoomsel.png)
+
+Slayt yakınlaştırma nesneleri için Aspose.Slides, [ZoomImageType](https://reference.aspose.com/slides/python-java/aspose.slides/zoomimagetype/) enumunu, [ZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/zoomframe/) sınıfını ve [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/) sınıfındaki yöntemleri sağlar.
 
 ### **Zoom Çerçeveleri Oluşturma**
 
-Bir slayta zoom çerçevesi aşağıdaki şekilde eklenebilir:
-
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Zoom çerçevelerini bağlamayı amaçladığınız yeni slaytlar oluşturun.
-3. Oluşturulan slaytlara tanımlayıcı metin ve arka plan ekleyin.
-4. Zoom çerçevelerini (oluşturulan slaytlara referansları içeren) ilk slayta ekleyin.
-5. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki Python kodu, bir slayta zoom çerçevesi oluşturmayı gösterir:
+Bireysel slaytlara bağlantılar eklemek için [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) kullanın. Bu örnek, farklı arka planlara ve etiketlere sahip iki hedef slayt oluşturur, ardından her birinin ön izlemesini ilk slayta ekler ve sunumu PPTX olarak kaydeder. Çerçeve konumları ve boyutları puan (point) cinsinden belirtilir.
 
 ```python
 import jpype
@@ -61,47 +54,36 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Sunuma yeni slaytlar ekler
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  İkinci slayt için bir arka plan oluşturur
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  İkinci slayt için bir metin kutusu oluşturur
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Üçüncü slayt için bir arka plan oluşturur
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  Üçüncü slayt için bir metin kutusu oluşturur
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # ZoomFrame nesneleri ekler
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  Sunumu kaydeder
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **Özel Görsellerle Zoom Çerçeveleri Oluşturma**
-Aspose.Slides for Python via Java kullanarak, farklı bir slayt önizleme görseliyle zoom çerçevesi aşağıdaki şekilde oluşturabilirsiniz:
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Zoom çerçevesini bağlamayı amaçladığınız yeni bir slayt oluşturun.
-3. Slayta tanımlayıcı metin ve arka plan ekleyin.
-4. Presentation nesnesine bağlı görsel koleksiyonuna bir görüntü ekleyerek bir PPImage nesnesi oluşturun; bu, çerçeveyi doldurmak için kullanılacaktır.
-5. Zoom çerçevelerini (oluşturulan slayta referans içeren) ilk slayta ekleyin.
-6. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki Python kodu, farklı bir görsel ile zoom çerçevesi oluşturmayı gösterir:
+### **Özel Görsellerle Zoom Çerçeveleri Oluşturma**
+
+Hedef slaydın varsayılan ön izlemesini değiştirmek için [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) yöntemine özel bir görsel geçirin. Bu örnek yerel bir görsel gerektirir, görseli [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) ile yükler ve [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) aracılığıyla sunuma ekler. Oluşan çerçeve, ikinci slayta hâlâ bağlanırken bu görseli gösterir.
 
 ```python
 import jpype
@@ -115,49 +97,32 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Sunuma yeni bir slayt ekler
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  İkinci slayt için bir arka plan oluşturur
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().setType(BackgroundType.OwnBackground)
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  İkinci slayt için bir metin kutusu oluşturur
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Yakınlaştırma nesnesi için yeni bir görüntü oluşturur
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    # ZoomFrame nesnesini ekler
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture)
+    overview_slide.getShapes().addZoomFrame(20, 20, 300, 200, slide, preview_image)
 
-    #  Sunumu kaydeder
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **Zoom Çerçevelerinin Biçimlendirilmesi**
-Önceki bölümlerde basit zoom çerçevelerinin nasıl oluşturulacağını gösterdik. Daha karmaşık zoom çerçeveleri oluşturmak için basit bir çerçevenin biçimini değiştirmek gerekir. Zoom çerçevesine uygulanabilecek çeşitli biçimlendirme seçenekleri vardır.
 
-Bir slaytta bir zoom çerçevesinin biçimini aşağıdaki şekilde kontrol edebilirsiniz:
+### **Zoom Çerçevelerini Biçimlendirme**
 
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Zoom çerçevelerini bağlamayı amaçladığınız yeni slaytlar oluşturun.
-3. Oluşturulan slaytlara tanımlayıcı metin ve arka plan ekleyin.
-4. Zoom çerçevelerini (oluşturulan slaytlara referansları içeren) ilk slayta ekleyin.
-5. Presentation nesnesine bağlı görsel koleksiyonuna bir görüntü ekleyerek bir PPImage nesnesi oluşturun; bu, çerçeveyi doldurmak için kullanılacaktır.
-6. İlk zoom çerçevesi nesnesi için özel bir görsel ayarlayın.
-7. İkinci zoom çerçevesi nesnesinin çizgi biçimini değiştirin.
-8. İkinci zoom çerçevesi nesnesinin görüntüsünden arka planı kaldırın.
-9. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki Python kodu, bir slaytta zoom çerçevesinin biçimini değiştirmenizi gösterir:
+Bu örnek iki slayt yakınlaştırma çerçevesini özelleştirir. İlk çerçeveye yerel bir görseli [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) aracılığıyla atar ve ikinci çerçeveye [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) kullanarak beş puanlık, tire‑nokta pembe bir kenarlık verir. [ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground) metoduna `False` geçirerek ikinci çerçevenin arka planını gizler. Özel ön izleme için yerel bir görsel gerekir; her iki çerçeve de kaydedilen PPTX’te slayt hedeflerini korur.
 
 ```python
 import jpype
@@ -171,76 +136,59 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Sunuma yeni slaytlar ekler
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  İkinci slayt için bir arka plan oluşturur
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  İkinci slayt için bir metin kutusu oluşturur
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  Üçüncü slayt için bir arka plan oluşturur
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  Üçüncü slayt için bir metin kutusu oluşturur
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # ZoomFrame nesneleri ekler
-    first_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    second_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    first_zoom_frame = overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    second_zoom_frame = overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  Yakınlaştırma nesnesi için yeni bir görüntü oluşturur
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  first_zoom_frame nesnesi için özel görsel ayarlar
-    first_zoom_frame.setZoomImage(picture)
+    first_zoom_frame.setZoomImage(preview_image)
 
-    #  second_zoom_frame nesnesi için bir zoom çerçeve biçimi ayarlar
     second_zoom_frame.getLineFormat().setWidth(5)
     second_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink)
+    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(255, 105, 180))
     second_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
 
-    #  second_zoom_frame nesnesi için arka planı gösterme ayarı
     second_zoom_frame.setShowBackground(False)
 
-    #  Sunumu kaydeder
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Bölüm Zoom**
+## **Bölüm Yakınlaştırma**
 
-Bölüm zoomu, sunumunuzdaki bir bölüme bağlantıdır. Gerçekten vurgulamak istediğiniz bölümlere geri dönmek için bölüm zoomlarını kullanabilirsiniz. Veya sunumunuzun belirli bölümlerinin nasıl bağlandığını vurgulamak için de kullanabilirsiniz.
+Bir bölüm yakınlaştırması, sunumunuzdaki bir bölüme bağlanır. Konuyu yeniden gözden geçirmek veya sunumun farklı bölümlerinin nasıl bağlandığını göstermek için kullanın.
 
-![overview_image](seczoomsel.png)
+![Bölüm yakınlaştırması için bir bölümün seçilmesi](seczoomsel.png)
 
-Bölüm zoom nesneleri için Aspose.Slides, SectionZoomFrame sınıfını ve ShapeCollection sınıfındaki bazı yöntemleri sağlar.
+Bölüm yakınlaştırma nesneleri için Aspose.Slides, [SectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/) sınıfını ve [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/) sınıfındaki yöntemleri sağlar.
 
-### **Bölüm Zoom Çerçeveleri Oluşturma**
-Bir slayta bölüm zoom çerçevesi aşağıdaki şekilde eklenebilir:
+### **Bölüm Yakınlaştırma Çerçeveleri Oluşturma**
 
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Yeni bir slayt oluşturun.
-3. Oluşturulan slayta ayırt edici bir arka plan ekleyin.
-4. Zoom çerçevesini bağlamayı düşündüğünüz yeni bir bölüm oluşturun.
-5. Bölüm zoom çerçevesini (oluşturulan bölüme referansları içeren) ilk slayta ekleyin.
-6. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki Python kodu, bir slayta zoom çerçevesi oluşturmayı gösterir:
+[SectionCollection.addSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectioncollection/#addSection) ile bir bölüm oluşturun, ardından döndürülen bölümü [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame) metoduna iletin. Bu örnek, ilk slayta bir bölüm yakınlaştırması ekler ve onu renkli bir slaytla başlayan bir bölüme bağlar. Çerçeve konumu ve boyutları puan cinsinden belirtilir ve sunum PPTX olarak kaydedilir.
 
 ```python
 import jpype
@@ -254,35 +202,24 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Sunuma yeni bir slayt ekler
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Sunuma yeni bir Bölüm ekler
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
 
-    #  SectionZoomFrame nesnesi ekler
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  Sunumu kaydeder
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **Özel Görsellerle Bölüm Zoom Çerçeveleri Oluşturma**
-Aspose.Slides for Python via Java kullanarak, farklı bir slayt önizleme görseliyle bölüm zoom çerçevesi aşağıdaki şekilde oluşturabilirsiniz:
 
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Yeni bir slayt oluşturun.
-3. Oluşturulan slayta ayırt edici bir arka plan ekleyin.
-4. Zoom çerçevesini bağlamayı düşündüğünüz yeni bir bölüm oluşturun.
-5. Presentation nesnesine bağlı görsel koleksiyonuna bir görüntü ekleyerek bir PPImage nesnesi oluşturun; bu, çerçeveyi doldurmak için kullanılacaktır.
-6. Bölüm zoom çerçevesini (oluşturulan bölüme referans içeren) ilk slayta ekleyin.
-7. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+### **Özel Görsellerle Bölüm Yakınlaştırma Çerçeveleri Oluşturma**
 
-Aşağıdaki Python kodu, farklı bir görsel ile zoom çerçevesi oluşturmayı gösterir:
+[ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame) yönteminin görsel aşırı yüklemesi, hedef bölümü değiştirmeden özel bir ön izleme görüntülemenizi sağlar. Bu örnek yerel bir görsel gerektirir, görseli [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) ile yükler ve [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) aracılığıyla ekler. Kaydedilen sunum, yeni oluşturulan bölüme bağlanan bir bölüm yakınlaştırmasını ilk slayta içerir.
 
 ```python
 import jpype
@@ -296,50 +233,76 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Sunuma yeni slayt ekler
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Sunuma yeni Bir Bölüm ekler
-    presentation.getSections().addSection("Section 1", slide)
-
-    #  Yakınlaştırma nesnesi için yeni bir görüntü oluşturur
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  SectionZoomFrame nesnesi ekler
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1), picture)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, preview_image)
 
-    #  Sunumu kaydeder
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **Bölüm Zoom Çerçevelerinin Biçimlendirilmesi**
-Daha karmaşık bölüm zoom çerçeveleri oluşturmak için basit bir çerçevenin biçimini değiştirmeniz gerekir. Bir bölüm zoom çerçevesine uygulanabilecek çeşitli biçimlendirme seçenekleri vardır.
 
-Bir slaytta bir bölüm zoom çerçevesinin biçimini aşağıdaki şekilde kontrol edebilirsiniz:
+### **Bir Bölüm Yakınlaştırmasının Hedef Bölümünü Değiştirme**
 
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Yeni bir slayt oluşturun.
-3. Oluşturulan slayta ayırt edici bir arka plan ekleyin.
-4. Zoom çerçevesini bağlamayı düşündüğünüz yeni bir bölüm oluşturun.
-5. Bölüm zoom çerçevesini (oluşturulan bölüme referansları içeren) ilk slayta ekleyin.
-6. Oluşturulan bölüm zoom nesnesinin boyut ve konumunu değiştirin.
-7. Presentation nesnesine bağlı görsel koleksiyonuna bir görüntü ekleyerek bir PPImage nesnesi oluşturun; bu, çerçeveyi doldurmak için kullanılacaktır.
-8. Oluşturulan bölüm zoom çerçevesi nesnesi için özel bir görsel ayarlayın.
-9. Bağlantılı bölüme geri dönüş (orijinal slayta dönüş) özelliğini ayarlayın.
-10. Bölüm zoom çerçevesi nesnesinin görüntüsünden arka planı kaldırın.
-11. Bölüm zoom çerçevesi nesnesinin çizgi biçimini değiştirin.
-12. Geçiş süresini değiştirin.
-13. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+Mevcut bir bölüm yakınlaştırmasını yeniden oluşturmak zorunda kalmadan yönlendirmek için [SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/#setTargetSection) kullanın. Aynı sunumdaki [Presentation.getSections](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSections) koleksiyonundan doldurulmuş bir bölümü seçin. Boş bir bölüm atamak mevcut hedefi değiştirmez; bu yüzden atamadan önce [Section.getSlidesListOfSection](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSlidesListOfSection) kontrol edin. Bölümler hakkında daha fazla bilgi için [Slayt Bölümlerini Yönet](/slides/tr/python-java/slide-section/) sayfasına bakın.
 
-Aşağıdaki Python kodu, bir bölüm zoom çerçevesinin biçimini değiştirmenizi gösterir:
+Aşağıdaki örnek, birden çok doldurulmuş bölümü, `Section navigation` adlı mevcut bir bölüm yakınlaştırmasını ve `Results` adında benzersiz bir bölümü içeren bir sunum dosyasını yükler. Yakınlaştırmayı tüm slaytlarda arar ve bölümü adla bulur; bölüm indeksleri yeniden sıralandığında değişebileceği için bu yöntem tercih edilir. İsimler benzersiz değilse, hedefi belirlemek için [Section.getSectionId](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSectionId) kullanın.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, SectionZoomFrame
+
+presentation = Presentation("section-zoom.pptx")
+try:
+    zoom = None
+    for slide in presentation.getSlides():
+        for shape in slide.getShapes():
+            if isinstance(shape, SectionZoomFrame) and shape.getName() == "Section navigation":
+                zoom = shape
+                break
+        if zoom is not None:
+            break
+
+    target_section = None
+    for section in presentation.getSections():
+        if section.getName() == "Results":
+            target_section = section
+            break
+
+    if zoom is None or target_section is None:
+        print("The section zoom or destination section was not found.")
+    elif target_section.getSlidesListOfSection().size() == 0:
+        print("The destination section is empty.")
+    else:
+        current_section = zoom.getTargetSection()
+        current_name = "" if current_section is None else current_section.getName()
+        print("Current section: " + str(current_name))
+        zoom.setTargetSection(target_section)
+        presentation.save("section-zoom-updated.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+### **Bölüm Yakınlaştırma Çerçevelerini Biçimlendirme**
+
+Bu örnek bir bölüm yakınlaştırmasını 100 × 75 puana yeniden boyutlandırır, yerel bir görseli [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) aracılığıyla atar ve 2,5 puanlık, tire‑nokta kahverengi bir kenarlık uygular. Bölüm sonlandığında kaynak slayta dönmek için [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) etkinleştirilir, arka plan gizlenir ([ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground)), ve geçiş süresi [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) 1,5 saniye olarak ayarlanır. Özel ön izleme için yerel bir görsel gerekir.
 
 ```python
 import jpype
@@ -353,19 +316,16 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Sunuma yeni bir slayt ekler
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Sunuma yeni bir Bölüm ekler
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
 
-    #  SectionZoomFrame nesnesi ekler
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  SectionZoomFrame için biçimlendirme
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
     section_zoom_frame.setX(100)
     section_zoom_frame.setY(300)
     section_zoom_frame.setWidth(100)
@@ -373,44 +333,38 @@ try:
 
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    section_zoom_frame.setZoomImage(picture)
+
+    section_zoom_frame.setZoomImage(preview_image)
 
     section_zoom_frame.setReturnToParent(True)
     section_zoom_frame.setShowBackground(False)
 
     section_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     section_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     section_zoom_frame.getLineFormat().setWidth(2.5)
 
     section_zoom_frame.setTransitionDuration(1.5)
 
-    #  Sunumu kaydeder
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Özet Zoom**
+## **Özet Yakınlaştırma**
 
-Özet zoom, sunumunuzun tüm bölümlerinin bir arada gösterildiği bir başlangıç sayfası gibidir. Sunum yaparken, zoomu kullanarak sunumunuzdaki bir konumdan başka bir konuma istediğiniz sırayla gidebilirsiniz. Yaratıcı olabilir, ileri atlayabilir veya slayt gösterinizin bölümlerine akışı bozmayacak şekilde yeniden göz atabilirsiniz.
+Bir özet yakınlaştırması, sunum bölümlerinin genel bir görünümünü sunar. Slayt gösterisi sırasında bir bölüme atlamak, ileri atlamak veya bir konuyu yeniden gözden geçirmek için, slayt sırasını takip etmeksizin kullanabilirsiniz.
 
-![overview_image](sumzoomsel.png)
+![Özet yakınlaştırma için bölümlerin seçilmesi](sumzoomsel.png)
 
-Özet zoom nesneleri için Aspose.Slides, SummaryZoomFrame, SummaryZoomSection ve SummaryZoomSectionCollection sınıflarını ve ShapeCollection sınıfındaki bazı yöntemleri sağlar.
+Özet yakınlaştırma nesneleri için Aspose.Slides, [SummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/) ve [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/) sınıflarını ve [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/) sınıfındaki yöntemleri sağlar.
 
-### **Bir Özet Zoom Oluşturma**
-Bir slayta özet zoom çerçevesi aşağıdaki şekilde eklenebilir:
+### **Özet Yakınlaştırma Oluşturma**
 
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Oluşturulan slaytlar için ayırt edici bir arka plan ve yeni bölümlerle yeni slaytlar oluşturun.
-3. Özet zoom çerçevesini ilk slayta ekleyin.
-4. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki Python kodu, bir slayta özet zoom çerçevesi oluşturmayı gösterir:
+Sunumun bölümlerinin bir genel görünümünü oluşturmak için [ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSummaryZoomFrame) kullanın. Bu örnek, farklı slayt arka planlarına sahip dört bölüm oluşturur ve ilk slayta bir özet yakınlaştırma ekler. Çerçeve konumu ve boyutları puan cinsinden belirtilir ve ortaya çıkan genel bakış PPTX sunumuna kaydedilir.
 
 ```python
 import jpype
@@ -424,63 +378,46 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Sunuma yeni bir slayt ekler
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Sunuma yeni bir bölüm ekler
     presentation.getSections().addSection("Section 1", slide)
 
-    # Sunuma yeni bir slayt ekler
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Sunuma yeni bir bölüm ekler
     presentation.getSections().addSection("Section 2", slide)
 
-    # Sunuma yeni bir slayt ekler
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Sunuma yeni bir bölüm ekler
     presentation.getSections().addSection("Section 3", slide)
 
-    # Sunuma yeni bir slayt ekler
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(0, 100, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Sunuma yeni bir bölüm ekler
     presentation.getSections().addSection("Section 4", slide)
 
-    #  SummaryZoomFrame nesnesi ekler
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  Sunumu kaydeder
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Özet Zoom Bölümü Ekleme ve Kaldırma**
-Özet zoom çerçevesindeki tüm bölümler SummaryZoomSection nesneleriyle temsil edilir ve SummaryZoomSectionCollection nesnesinde depolanır. SummaryZoomSectionCollection sınıfı aracılığıyla bir özet zoom bölümü nesnesi ekleyebilir veya kaldırabilirsiniz:
+### **Özet Yakınlaştırma Bölümü Ekleme ve Kaldırma**
 
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Oluşturulan slaytlar için ayırt edici bir arka plan ve yeni bölümlerle yeni slaytlar oluşturun.
-3. İlk slayta bir özet zoom çerçevesi ekleyin.
-4. Sunuma yeni bir slayt ve bölüm ekleyin.
-5. Oluşturulan bölümü özet zoom çerçevesine ekleyin.
-6. İlk bölümü özet zoom çerçevesinden kaldırın.
-7. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki Python kodu, bir özet zoom çerçevesine bölümler ekleme ve kaldırma işlemini gösterir:
+Bir özet yakınlaştırma, [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) içinde [SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/) nesnelerini saklar. Bu örnek iki bölümün bir genel görünümünü oluşturur, üçüncü bölümü [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) ile ekler ve ilk bölümün girdisini [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection) ile kaldırır. Girdinin kaldırılması, sunum bölümünü ve slaytlarını etkilenmemiş bırakır.
 
 ```python
 import jpype
@@ -494,65 +431,43 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Sunuma yeni bir slayt ekler
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Sunuma yeni bir bölüm ekler
-    presentation.getSections().addSection("Section 1", slide)
+    first_section = presentation.getSections().addSection("Section 1", slide)
 
-    # Sunuma yeni bir slayt ekler
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Sunuma yeni bir bölüm ekler
     presentation.getSections().addSection("Section 2", slide)
 
-    #  SummaryZoomFrame nesnesi ekler
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    # Sunuma yeni bir slayt ekler
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Sunuma yeni bir bölüm ekler
     third_section = presentation.getSections().addSection("Section 3", slide)
 
-    #  Summary Zoom'a bir bölüm ekler
     summary_zoom_frame.getSummaryZoomCollection().addSummaryZoomSection(third_section)
 
-    #  Summary Zoom'dan bölümü kaldırır
-    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(presentation.getSections().get_Item(1))
+    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(first_section)
 
-    #  Sunumu kaydeder
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Özet Zoom Bölümlerinin Biçimlendirilmesi**
-Daha karmaşık özet zoom bölüm nesneleri oluşturmak için basit bir çerçevenin biçimini değiştirmeniz gerekir. Özet zoom bölüm nesnesine uygulanabilecek çeşitli biçimlendirme seçenekleri vardır.
+### **Özet Yakınlaştırma Bölümlerini Biçimlendirme**
 
-Bir özet zoom çerçevesinde bir özet zoom bölüm nesnesinin biçimini aşağıdaki şekilde kontrol edebilirsiniz:
-
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Oluşturulan slaytlar için ayırt edici bir arka plan ve yeni bölümlerle yeni slaytlar oluşturun.
-3. İlk slayta bir özet zoom çerçevesi ekleyin.
-4. SummaryZoomSectionCollection'dan ilk özet zoom bölüm nesnesini alın.
-5. Presentation nesnesine bağlı görsel koleksiyonuna bir görüntü ekleyerek bir PPImage nesnesi oluşturun; bu, çerçeveyi doldurmak için kullanılacaktır.
-6. Özet zoom bölüm nesnesi için özel bir görsel ayarlayın.
-7. Bağlantılı bölüme geri dönüş (orijinal slayta dönüş) özelliğini ayarlayın.
-8. Özet zoom bölüm nesnesinin çizgi biçimini değiştirin.
-9. Geçiş süresini değiştirin.
-10. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
-
-Aşağıdaki Python kodu, bir özet zoom bölüm nesnesinin biçimini değiştirmenizi gösterir:
+Bu örnek, [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) içinde sıfır‑tabanlı `0` indeksli ilk girdiyi biçimlendirir. [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) için yerel bir görsel gerekir, 1,5 puanlık tire‑nokta siyah bir kenarlık uygulanır ve geçiş süresi [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) 1,5 saniye olarak ayarlanır. Bu girdi için otomatik olarak özet slayta dönüşü devre dışı bırakmak üzere [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) `False` olarak ayarlanır.
 
 ```python
 import jpype
@@ -566,48 +481,42 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Sunuma yeni bir slayt ekler
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Sunuma yeni bir bölüm ekler
     presentation.getSections().addSection("Section 1", slide)
 
-    # Sunuma yeni bir slayt ekler
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Sunuma yeni bir bölüm ekler
     presentation.getSections().addSection("Section 2", slide)
 
-    #  SummaryZoomFrame nesnesi ekler
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  İlk SummaryZoomSection nesnesini alır
     summary_section = summary_zoom_frame.getSummaryZoomCollection().get_Item(0)
 
-    #  SummaryZoomSection nesnesi için biçimlendirme
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    summary_section.setZoomImage(picture)
 
+    summary_section.setZoomImage(preview_image)
     summary_section.setReturnToParent(False)
 
     summary_section.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.black)
+    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     summary_section.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     summary_section.getLineFormat().setWidth(1.5)
 
     summary_section.setTransitionDuration(1.5)
 
-    #  Sunumu kaydeder
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -615,14 +524,14 @@ finally:
 
 ## **SSS**
 
-**Hedef gösterildikten sonra 'ana' slayta dönüşü kontrol edebilir miyim?**
+**Hedef gösterildikten sonra 'ana' slayta dönmeyi kontrol edebilir miyim?**
 
-Evet. ZoomFrame veya SectionZoomFrame, setReturnToParent aracılığıyla orijinal slayta dönüşü destekler; etkinleştirildiğinde izleyicileri hedef içeriği ziyaret ettikten sonra geri gönderir.
+Evet. Hedef içerik gösterildikten sonra kaynak slayta dönmek için [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) metodunu `True` ile çağırın.
 
-**Zoom geçişinin 'hızını' veya süresini ayarlayabilir miyim?**
+**Yakınlaştırma geçişinin 'hızını' ya da süresini ayarlayabilir miyim?**
 
-Evet. Zoom, setTransitionDuration ile bir geçiş süresi ayarlamayı destekler; böylece atlama animasyonunun ne kadar süreceğini kontrol edebilirsiniz.
+Evet. Geçiş süresini saniye cinsinden kontrol etmek için [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) metodunu kullanın.
 
-**Bir sunumun içerebileceği Zoom nesnesi sayısıyla ilgili sınırlamalar var mı?**
+**Bir sunum kaç tane Yakınlaştırma nesnesi içerebilir konusunda sınırlamalar var mı?**
 
-Belirtilen sabit bir API sınırı yoktur. Pratik sınırlamalar, genel sunum karmaşıklığına ve izleyicinin performansına bağlıdır. Çok sayıda Zoom çerçevesi ekleyebilirsiniz, ancak dosya boyutu ve render süresini göz önünde bulundurun.
+Belgelenmiş katı bir API sınırlaması yoktur. Pratik sınırlar, sunumun genel karmaşıklığına ve izleyicinin performansına bağlıdır. Çok sayıda Zoom çerçevesi ekleyebilirsiniz, ancak dosya boyutu ve oluşturma süresini göz önünde bulundurun.

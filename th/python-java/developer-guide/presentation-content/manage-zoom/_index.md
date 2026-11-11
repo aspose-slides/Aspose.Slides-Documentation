@@ -1,12 +1,12 @@
 ---
-title: จัดการการซูมของการนำเสนอใน Python ผ่าน Java
+title: จัดการการซูมการนำเสนอใน Python ผ่าน Java
 linktitle: จัดการซูม
 type: docs
 weight: 60
 url: /th/python-java/manage-zoom/
 keywords:
 - ซูม
-- เฟรมซูม
+- กรอบซูม
 - ซูมสไลด์
 - ซูมส่วน
 - ซูมสรุป
@@ -16,38 +16,31 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "สร้างและปรับแต่งการซูมด้วย Aspose.Slides สำหรับ Python ผ่าน Java — กระโจนระหว่างส่วนต่าง ๆ เพิ่มภาพย่อและการเปลี่ยนฉากในงานนำเสนอรูปแบบ PPT, PPTX และ ODP"
+description: "สร้างและปรับแต่งซูมด้วย Aspose.Slides สำหรับ Python ผ่าน Java — กระโดดระหว่างส่วน, เพิ่มภาพย่อและการเปลี่ยนภาพในการนำเสนอ PowerPoint."
 ---
 ## **บทนำ**
 
-Zooms ใน PowerPoint ช่วยให้คุณกระ跳ไปยังสไลด์ ส่วนต่าง ๆ และส่วนของการนำเสนอได้อย่างรวดเร็ว เมื่อคุณกำลังนำเสนอ ความสามารถในการนำทางอย่างรวดเร็วนี้อาจเป็นประโยชน์อย่างมาก
+PowerPoint zooms ให้คุณนำทางระหว่างสไลด์และส่วนที่เจาะจงระหว่างการนำเสนอแบบสไลด์โชว์ ด้วย Aspose.Slides สำหรับ Python ผ่าน Java คุณสามารถสร้างซูมสไลด์, ซูมส่วน, และซูมสรุป พร้อมปรับแต่งการแสดงตัวอย่าง, เส้นขอบและการเปลี่ยนภาพได้
 
-![ภาพรวม](overview.png)
+![ภาพรวม Zoom ของ PowerPoint](overview.png)
 
-* เพื่อสรุปการนำเสนอทั้งหมดในสไลด์เดียว ให้ใช้ [Summary Zoom](#summary-zoom).
-* เพื่อแสดงเฉพาะสไลด์ที่เลือก ให้ใช้ [Slide Zoom](#slide-zoom).
-* เพื่อแสดงเฉพาะส่วนเดียว ให้ใช้ [Section Zoom](#section-zoom).
+* เพื่อสรุปการนำเสนอทั้งหมดบนสไลด์เดียว ให้ใช้ [สรุป Zoom](#summary-zoom)
+* เพื่อแสดงสไลด์ที่เลือกเท่านั้น ให้ใช้ [ซูมสไลด์](#slide-zoom)
+* เพื่อแสดงส่วนเดียวเท่านั้น ให้ใช้ [ซูมส่วน](#section-zoom)
 
-## **Slide Zoom**
-สไลด์ซูมสามารถทำให้การนำเสนอของคุณมีความไดนามิกมากขึ้น โดยให้คุณนำทางระหว่างสไลด์ได้อย่างอิสระในลำดับที่ต้องการโดยไม่ทำให้การนำเสนอหยุดชะงัก สไลด์ซูมเหมาะกับการนำเสนอสั้น ๆ ที่ไม่มีหลายส่วน แต่คุณก็ยังสามารถใช้ได้ในสถานการณ์การนำเสนอที่แตกต่างกัน
+## **ซูมสไลด์**
 
-สไลด์ซูมช่วยให้คุณเจาะลึกข้อมูลหลายส่วนในขณะที่รู้สึกเหมือนอยู่บนผืนผ้าเดียว
+ซูมสไลด์สามารถทำให้การนำเสนอของคุณมีความไดนามิกมากขึ้น โดยอนุญาตให้คุณนำทางอย่างอิสระระหว่างสไลด์ในลำดับใดก็ได้โดยไม่ต้องหยุดการไหลของการนำเสนอ ซูมสไลด์เหมาะสำหรับการนำเสนอสั้น ๆ ที่ไม่มีหลายส่วนมาก แต่คุณยังสามารถใช้ในสถานการณ์การนำเสนอที่หลากหลายได้
 
-![ภาพรวม](slidezoomsel.png)
+ซูมสไลด์ช่วยให้คุณสำรวจข้อมูลที่เกี่ยวข้องจากสไลด์ภาพรวมเดียว
 
-สำหรับวัตถุสไลด์ซูม Aspose.Slides มี enumeration [ZoomImageType](https://reference.aspose.com/slides/th/python-java/aspose.slides/zoomimagetype/), คลาส [ZoomFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/zoomframe/) และบางเมธอดในคลาส [ShapeCollection](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapecollection/)
+![การเลือกสไลด์สำหรับซูมสไลด์](slidezoomsel.png)
 
-### **สร้างเฟรมซูม**
+สำหรับออบเจ็กต์ซูมสไลด์ Aspose.Slides มีการนับจำนวน [ZoomImageType](https://reference.aspose.com/slides/python-java/aspose.slides/zoomimagetype/) , คลาส [ZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/zoomframe/) และเมธอดบนคลาส [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/)
 
-คุณสามารถเพิ่มเฟรมซูมบนสไลด์ได้ดังนี้
+### **สร้างกรอบซูม**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/).
-2. สร้างสไลด์ใหม่ที่คุณต้องการเชื่อมโยงกับเฟรมซูม
-3. เพิ่มข้อความระบุตัวตนและพื้นหลังให้กับสไลด์ที่สร้าง
-4. เพิ่มเฟรมซูม (ซึ่งอ้างอิงสไลด์ที่สร้าง) ไปยังสไลด์แรก
-5. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Python นี้แสดงวิธีสร้างเฟรมซูมบนสไลด์:
+ใช้ [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) เพื่อวางลิงก์ไปยังสไลด์แต่ละสไลด์บนสไลด์ภาพรวม ตัวอย่างนี้สร้างสไลด์เป้าหมายสองสไลด์ที่มีพื้นหลังและป้ายกำกับที่แตกต่างกัน แล้วเพิ่มการแสดงตัวอย่างของแต่ละสไลด์ลงในสไลด์แรกและบันทึกการนำเสนอเป็น PPTX ตำแหน่งและขนาดของกรอบระบุเป็นพอยต์
 
 ```python
 import jpype
@@ -61,47 +54,36 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  สร้างพื้นหลังสำหรับสไลด์ที่สอง
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  สร้างกล่องข้อความสำหรับสไลด์ที่สอง
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  สร้างพื้นหลังสำหรับสไลด์ที่สาม
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  สร้างกล่องข้อความสำหรับสไลด์ที่สาม
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # เพิ่มอ็อบเจกต์ ZoomFrame
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  บันทึกงานนำเสนอ
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **สร้างเฟรมซูมด้วยรูปภาพที่กำหนดเอง**
-ด้วย Aspose.Slides for Python via Java คุณสามารถสร้างเฟรมซูมที่มีภาพตัวอย่างสไลด์ต่างออกไปได้ดังนี้
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/).
-2. สร้างสไลด์ใหม่ที่คุณต้องการเชื่อมโยงกับเฟรมซูม
-3. เพิ่มข้อความระบุตัวตนและพื้นหลังให้กับสไลด์
-4. สร้างออบเจ็กต์ [PPImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/ppimage/) โดยเพิ่มรูปภาพเข้าไปในคอลเลกชัน images ที่เชื่อมกับออบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) เพื่อใช้เติมเฟรม
-5. เพิ่มเฟรมซูม (ซึ่งอ้างอิงสไลด์ที่สร้าง) ไปยังสไลด์แรก
-6. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด Python นี้แสดงวิธีสร้างเฟรมซูมที่มีรูปภาพต่างออกไป:
+### **สร้างกรอบซูมด้วยรูปภาพแบบกำหนดเอง**
+
+ส่งรูปภาพที่กำหนดเองไปยัง [ShapeCollection.addZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addZoomFrame) เพื่อแทนที่การแสดงตัวอย่างเริ่มต้นของสไลด์เป้าหมาย ตัวอย่างนี้ต้องการรูปภาพในเครื่อง โหลดด้วย [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) และเพิ่มลงในการนำเสนอด้วย [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) กรอบที่ได้จะแสดงรูปภาพนั้นพร้อมกับลิงก์ไปยังสไลด์ที่สอง
 
 ```python
 import jpype
@@ -115,49 +97,32 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  สร้างพื้นหลังสำหรับสไลด์ที่สอง
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().setType(BackgroundType.OwnBackground)
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  สร้างกล่องข้อความสำหรับสไลด์ที่สอง
-    auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  สร้างภาพใหม่สำหรับอ็อบเจกต์ซูม
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    # เพิ่มอ็อบเจกต์ ZoomFrame
-    presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture)
+    overview_slide.getShapes().addZoomFrame(20, 20, 300, 200, slide, preview_image)
 
-    #  บันทึกงานนำเสนอ
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **จัดรูปแบบเฟรมซูม**
-ในส่วนก่อนหน้า เราได้แสดงวิธีสร้างเฟรมซูมแบบง่าย ๆ เพื่อสร้างเฟรมซูมที่ซับซ้อนมากขึ้น คุณต้องปรับเปลี่ยนการจัดรูปแบบของเฟรมง่าย ๆ มีหลายตัวเลือกในการจัดรูปแบบเฟรมซูมที่คุณสามารถใช้ได้
 
-คุณสามารถควบคุมการจัดรูปแบบของเฟรมซูมบนสไลด์ได้ดังนี้
+### **จัดรูปแบบกรอบซูม**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/).
-2. สร้างสไลด์ใหม่ที่คุณต้องการเชื่อมโยงกับเฟรมซูม
-3. เพิ่มข้อความระบุตัวตนและพื้นหลังให้กับสไลด์ที่สร้าง
-4. เพิ่มเฟรมซูม (ซึ่งอ้างอิงสไลด์ที่สร้าง) ไปยังสไลด์แรก
-5. สร้างออบเจ็กต์ [PPImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/ppimage/) โดยเพิ่มรูปภาพเข้าไปในคอลเลกชัน images ที่เชื่อมกับออบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) เพื่อใช้เติมเฟรม
-6. ตั้งค่ารูปภาพที่กำหนดเองสำหรับออบเจ็กต์เฟรมซูมแรก
-7. เปลี่ยนรูปแบบเส้นสำหรับออบเจ็กต์เฟรมซูมที่สอง
-8. ลบพื้นหลังจากภาพของออบเจ็กต์เฟรมซูมที่สอง
-9. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Python นี้แสดงวิธีเปลี่ยนการจัดรูปแบบของเฟรมซูมบนสไลด์:
+ตัวอย่างนี้ปรับแต่งกรอบซูมสไลด์สองกรอบ มอบรูปภาพในเครื่องให้กับกรอบแรกผ่าน [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) และให้กรอบที่สองมีเส้นขอบสีชมพูแบบ dash‑dot หนา 5 พอยต์ผ่าน [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) การส่งค่า `False` ไปยัง [ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground) จะซ่อนพื้นหลังของกรอบที่สอง รูปภาพในเครื่องจำเป็นสำหรับการแสดงตัวอย่างแบบกำหนดเอง; ทั้งสองกรอบยังคงรักษาเป้าหมายสไลด์ไว้ในไฟล์ PPTX ที่บันทึก
 
 ```python
 import jpype
@@ -171,77 +136,59 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-    second_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
-    third_slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
 
-    #  สร้างพื้นหลังสำหรับสไลด์ที่สอง
+    second_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+    third_slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
+
     second_slide.getBackground().setType(BackgroundType.OwnBackground)
     second_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    second_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
 
-    #  สร้างกล่องข้อความสำหรับสไลด์ที่สอง
-    auto_shape = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Second Slide")
+    text_box = second_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Second Slide")
 
-    #  สร้างพื้นหลังสำหรับสไลด์ที่สาม
     third_slide.getBackground().setType(BackgroundType.OwnBackground)
     third_slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray)
+    third_slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(189, 183, 107))
 
-    #  สร้างกล bboxข้อความสำหรับสไลด์ที่สาม
-    auto_shape = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
-    auto_shape.getTextFrame().setText("Third Slide")
+    text_box = third_slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200)
+    text_box.getTextFrame().setText("Third Slide")
 
-    # เพิ่มอ็อบเจกต์ ZoomFrame objects
-    first_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
-    second_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
+    first_zoom_frame = overview_slide.getShapes().addZoomFrame(20, 20, 250, 200, second_slide)
+    second_zoom_frame = overview_slide.getShapes().addZoomFrame(200, 250, 250, 200, third_slide)
 
-    #  สร้างภาพใหม่สำหรับอ็อบเจกต์ซูม
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  ตั้งค่าภาพกำหนดเองสำหรับอ็อบเจกต์ first_zoom_frame object
-    first_zoom_frame.setZoomImage(picture)
+    first_zoom_frame.setZoomImage(preview_image)
 
-    #  ตั้งค่ารูปแบบเฟรมซูมสำหรับอ็อบเจกต์ second_zoom_frame object
     second_zoom_frame.getLineFormat().setWidth(5)
     second_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink)
+    second_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(255, 105, 180))
     second_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
 
-    #  ตั้งค่าสำหรับไม่แสดงพื้นหลังของอ็อบเจกต์ second_zoom_frame object
     second_zoom_frame.setShowBackground(False)
 
-    #  บันทึกงานนำเสนอ
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Section Zoom**
+## **ซูมส่วน**
 
-Section Zoom คือลิงก์ไปยังส่วนหนึ่งของการนำเสนอ คุณสามารถใช้ Section Zoom เพื่อกลับไปยังส่วนที่ต้องการเน้นย้ำ หรือใช้เพื่อแสดงให้เห็นว่าชิ้นส่วนต่าง ๆ ของการนำเสนอเชื่อมต่อกันอย่างไร
+ซูมส่วนเชื่อมโยงไปยังส่วนในการนำเสนอของคุณ ใช้เพื่อกลับมาที่หัวข้อเดิมหรือแสดงว่าตรงส่วนต่าง ๆ ของการนำเสนอเชื่อมต่อกันอย่างไร
 
-![ภาพรวม](seczoomsel.png)
+![การเลือกส่วนสำหรับซูมส่วน](seczoomsel.png)
 
-สำหรับวัตถุ Section Zoom Aspose.Slides มีคลาส [SectionZoomFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/sectionzoomframe/) และบางเมธอดในคลาส [ShapeCollection](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapecollection/)
+สำหรับออบเจ็กต์ซูมส่วน Aspose.Slides มีคลาส [SectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/) และเมธอดบนคลาส [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/)
 
-### **สร้างเฟรม Section Zoom**
+### **สร้างกรอบซูมส่วน**
 
-คุณสามารถเพิ่มเฟรม Section Zoom ไปยังสไลด์ได้ดังนี้
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/).
-2. สร้างสไลด์ใหม่
-3. เพิ่มพื้นหลังที่โดดเด่นให้กับสไลด์ที่สร้าง
-4. สร้างส่วนใหม่ที่คุณต้องการเชื่อมโยงกับเฟรมซูม
-5. เพิ่มเฟรม Section Zoom (ซึ่งอ้างอิงส่วนที่สร้าง) ไปยังสไลด์แรก
-6. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Python นี้แสดงวิธีสร้างเฟรมซูมบนสไลด์:
+สร้างส่วนด้วย [SectionCollection.addSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectioncollection/#addSection) แล้วส่งส่วนที่ได้ให้กับ [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame) ตัวอย่างนี้วางซูมส่วนบนสไลด์แรกและลิงก์ไปยังส่วนที่เริ่มด้วยสไลด์สี การกำหนดตำแหน่งและขนาดของกรอบระบุเป็นพอยต์ และบันทึกการนำเสนอเป็น PPTX
 
 ```python
 import jpype
@@ -255,36 +202,24 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  เพิ่ม Section ใหม่ลงในงานนำเสนอ
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
 
-    #  เพิ่มอ็อบเจ็กต์ SectionZoomFrame
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  บันทึกงานนำเสนอ
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **สร้างเฟรม Section Zoom ด้วยรูปภาพที่กำหนดเอง**
 
-ด้วย Aspose.Slides for Python via Java คุณสามารถสร้างเฟรม Section Zoom ที่มีภาพตัวอย่างสไลด์ต่างออกไปได้ดังนี้
+### **สร้างกรอบซูมส่วนด้วยรูปภาพแบบกำหนดเอง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/).
-2. สร้างสไลด์ใหม่
-3. เพิ่มพื้นหลังที่โดดเด่นให้กับสไลด์ที่สร้าง
-4. สร้างส่วนใหม่ที่คุณต้องการเชื่อมโยงกับเฟรมซูม
-5. สร้างออบเจ็กต์ [PPImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/ppimage/) โดยเพิ่มรูปภาพเข้าไปในคอลเลกชัน images ที่เชื่อมกับออบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) เพื่อใช้เติมเฟรม
-6. เพิ่มเฟรม Section Zoom (ซึ่งอ้างอิงส่วนที่สร้าง) ไปยังสไลด์แรก
-7. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Python นี้แสดงวิธีสร้างเฟรมซูมที่มีรูปภาพต่างออกไป:
+โอเวอร์โหลดรูปภาพของ [ShapeCollection.addSectionZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSectionZoomFrame) ให้คุณแสดงตัวอย่างแบบกำหนดเองโดยไม่เปลี่ยนส่วนปลายทาง ตัวอย่างนี้ต้องการรูปภาพในเครื่อง ซึ่งโหลดด้วย [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) และเพิ่มผ่าน [ImageCollection.addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) การบันทึกการนำเสนอจะมีซูมส่วนบนสไลด์แรกที่เชื่อมโยงกับส่วนที่สร้างใหม่
 
 ```python
 import jpype
@@ -298,51 +233,76 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  เพิ่ม Section ใหม่ลงในงานนำเสนอ
-    presentation.getSections().addSection("Section 1", slide)
-
-    #  สร้างภาพใหม่สำหรับอ็อบเจกต์ซูม
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
 
-    #  เพิ่มอ็อบเจ็กต์ SectionZoomFrame
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1), picture)
+    section = presentation.getSections().addSection("Section 1", slide)
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section, preview_image)
 
-    #  บันทึกงานนำเสนอ
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-### **จัดรูปแบบเฟรม Section Zoom**
 
-เพื่อสร้างเฟรม Section Zoom ที่ซับซ้อนมากขึ้น คุณต้องปรับการจัดรูปแบบของเฟรมง่าย ๆ มีหลายตัวเลือกในการจัดรูปแบบเฟรม Section Zoom ที่คุณสามารถใช้ได้
+### **เปลี่ยนส่วนเป้าหมายของซูมส่วน**
 
-คุณสามารถควบคุมการจัดรูปแบบของเฟรม Section Zoom บนสไลด์ได้ดังนี้
+ใช้ [SectionZoomFrame.setTargetSection](https://reference.aspose.com/slides/python-java/aspose.slides/sectionzoomframe/#setTargetSection) เพื่อเปลี่ยนเส้นทางของซูมส่วนที่มีอยู่โดยไม่ต้องสร้างใหม่ เลือกส่วนที่เต็มจากคอลเลกชัน [Presentation.getSections](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSections) ของการนำเสนอเดียวกัน การกำหนดส่วนเปล่าไว้จะไม่เปลี่ยนเป้าหมายปัจจุบัน ดังนั้นควรตรวจสอบ [Section.getSlidesListOfSection](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSlidesListOfSection) ก่อนกำหนด ดูเพิ่มเติมใน [Manage Slide Sections](/slides/th/python-java/slide-section/)
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/).
-2. สร้างสไลด์ใหม่
-3. เพิ่มพื้นหลังที่โดดเด่นให้กับสไลด์ที่สร้าง
-4. สร้างส่วนใหม่ที่คุณต้องการเชื่อมโยงกับเฟรมซูม
-5. เพิ่มเฟรม Section Zoom (ซึ่งอ้างอิงส่วนที่สร้าง) ไปยังสไลด์แรก
-6. เปลี่ยนขนาดและตำแหน่งของออบเจ็กต์ Section Zoom ที่สร้าง
-7. สร้างออบเจ็กต์ [PPImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/ppimage/) โดยเพิ่มรูปภาพเข้าไปในคอลเลกชัน images ที่เชื่อมกับออบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) เพื่อใช้เติมเฟรม
-8. ตั้งค่ารูปภาพที่กำหนดเองสำหรับออบเจ็กต์ Section Zoom ที่สร้าง
-9. ตั้งค่าความสามารถ *กลับไปยังสไลด์เดิมจากส่วนที่เชื่อมโยง*
-10. ลบพื้นหลังจากภาพของออบเจ็กต์ Section Zoom
-11. เปลี่ยนรูปแบบเส้นสำหรับออบเจ็กต์ Section Zoom
-12. เปลี่ยนระยะเวลาการเปลี่ยนฉาก
-13. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+ตัวอย่างต่อไปโหลดไฟล์การนำเสนอซึ่งต้องมีหลายส่วนที่เต็ม, มีซูมส่วนชื่อ `Section navigation` และมีส่วนที่ชื่อเฉพาะ `Results` มองหาซูมในทุกสไลด์และหาระดับปลายทางตามชื่อไม่ใช่ตามดัชนีคอลเลกชันที่อาจเปลี่ยนเมื่อส่วนถูกจัดลำดับใหม่ หากชื่อไม่เป็นเอกลักษณ์ ให้ใช้ [Section.getSectionId](https://reference.aspose.com/slides/python-java/aspose.slides/section/#getSectionId) เพื่อระบุปลายทางแทน
 
-โค้ด Python นี้แสดงวิธีเปลี่ยนการจัดรูปแบบของเฟรม Section Zoom:
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, SectionZoomFrame
+
+presentation = Presentation("section-zoom.pptx")
+try:
+    zoom = None
+    for slide in presentation.getSlides():
+        for shape in slide.getShapes():
+            if isinstance(shape, SectionZoomFrame) and shape.getName() == "Section navigation":
+                zoom = shape
+                break
+        if zoom is not None:
+            break
+
+    target_section = None
+    for section in presentation.getSections():
+        if section.getName() == "Results":
+            target_section = section
+            break
+
+    if zoom is None or target_section is None:
+        print("The section zoom or destination section was not found.")
+    elif target_section.getSlidesListOfSection().size() == 0:
+        print("The destination section is empty.")
+    else:
+        current_section = zoom.getTargetSection()
+        current_name = "" if current_section is None else current_section.getName()
+        print("Current section: " + str(current_name))
+        zoom.setTargetSection(target_section)
+        presentation.save("section-zoom-updated.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+### **จัดรูปแบบกรอบซูมส่วน**
+
+ตัวอย่างนี้ย้ายและปรับขนาดซูมส่วนเป็น 100 × 75 พอยต์ มอบรูปภาพในเครื่องผ่าน [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) และใช้เส้นขอบสีน้ำตาลแบบ dash‑dot หนา 2.5 พอยต์ เปิดใช้งาน [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) ให้กลับไปสไลด์ต้นฉบับหลังจากส่วนเสร็จ, ปิด [ZoomObject.setShowBackground](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setShowBackground) และตั้งค่า [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) เป็น 1.5 วินาที รูปภาพในเครื่องจำเป็นสำหรับการแสดงตัวอย่างแบบกำหนดเอง
 
 ```python
 import jpype
@@ -356,19 +316,16 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(154, 205, 50))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  เพิ่ม Section ใหม่ลงในงานนำเสนอ
-    presentation.getSections().addSection("Section 1", slide)
+    section = presentation.getSections().addSection("Section 1", slide)
 
-    #  เพิ่มอ็อบเจ็กต์ SectionZoomFrame
-    section_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, presentation.getSections().get_Item(1))
-
-    #  การจัดรูปแบบสำหรับ SectionZoomFrame
+    section_zoom_frame = overview_slide.getShapes().addSectionZoomFrame(20, 20, 300, 200, section)
     section_zoom_frame.setX(100)
     section_zoom_frame.setY(300)
     section_zoom_frame.setWidth(100)
@@ -376,46 +333,38 @@ try:
 
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    section_zoom_frame.setZoomImage(picture)
+
+    section_zoom_frame.setZoomImage(preview_image)
 
     section_zoom_frame.setReturnToParent(True)
     section_zoom_frame.setShowBackground(False)
 
     section_zoom_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    section_zoom_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     section_zoom_frame.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     section_zoom_frame.getLineFormat().setWidth(2.5)
 
     section_zoom_frame.setTransitionDuration(1.5)
 
-    #  บันทึกงานนำเสนอ
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **ซูมสรุป**
 
-## **Summary Zoom**
+ซูมสรุปให้ภาพรวมของส่วนการนำเสนอในระหว่างการสไลด์โชว์ คุณสามารถใช้เพื่อกระโดดไปยังส่วน, ข้ามหน้าต่อไป, หรือกลับมาที่หัวข้อโดยไม่ต้องตามลำดับสไลด์
 
-Summary Zoom คือหน้าแสดงผลที่รวมชิ้นส่วนทั้งหมดของการนำเสนอไว้ในครั้งเดียว เมื่อคุณนำเสนอ คุณสามารถใช้ซูมเพื่อไปจากตำแหน่งหนึ่งไปยังอีกตำแหน่งหนึ่งตามลำดับที่ต้องการ คุณสามารถสร้างสรรค์ข้ามไปข้ามมา หรือกลับมาดูส่วนต่าง ๆ ของสไลด์โชว์โดยไม่ขัดจังหวะการนำเสนอ
+![การเลือกส่วนสำหรับซูมสรุป](sumzoomsel.png)
 
-![ภาพรวม](sumzoomsel.png)
+สำหรับออบเจ็กต์ซูมสรุป Aspose.Slides มีคลาส [SummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/), และ [SummaryZoomSectionCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/) รวมถึงเมธอดบนคลาส [ShapeCollection](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/)
 
-สำหรับวัตถุ Summary Zoom Aspose.Slides มีคลาส [SummaryZoomFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/summaryzoomframe/), [SummaryZoomSection](https://reference.aspose.com/slides/th/python-java/aspose.slides/summaryzoomsection/), และ [SummaryZoomSectionCollection](https://reference.aspose.com/slides/th/python-java/aspose.slides/summaryzoomsectioncollection/) พร้อมบางเมธอดในคลาส [ShapeCollection](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapecollection/)
+### **สร้างซูมสรุป**
 
-### **สร้าง Summary Zoom**
-
-คุณสามารถเพิ่มเฟรม Summary Zoom ไปยังสไลด์ได้ดังนี้
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/).
-2. สร้างสไลด์ใหม่พร้อมพื้นหลังที่โดดเด่นและส่วนใหม่สำหรับสไลด์ที่สร้าง
-3. เพิ่มเฟรม Summary Zoom ไปยังสไลด์แรก
-4. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Python นี้แสดงวิธีสร้างเฟรม Summary Zoom บนสไลด์:
+ใช้ [ShapeCollection.addSummaryZoomFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addSummaryZoomFrame) เพื่อสร้างภาพรวมของส่วนการนำเสนอ ตัวอย่างนี้สร้างสี่ส่วนที่มีพื้นหลังสไลด์แตกต่างกันและเพิ่มซูมสรุปลงในสไลด์แรก ตำแหน่งและขนาดของกรอบระบุเป็นพอยต์ และบันทึกภาพรวมในไฟล์ PPTX
 
 ```python
 import jpype
@@ -429,64 +378,46 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  เพิ่ม Section ใหม่ลงในงานนำเสนอ
     presentation.getSections().addSection("Section 1", slide)
 
-    # เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  เพิ่ม Section ใหม่ลงในงานนำเสนอ
     presentation.getSections().addSection("Section 2", slide)
 
-    # เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  เพิ่ม Section ใหม่ลงในงานนำเสนอ
     presentation.getSections().addSection("Section 3", slide)
 
-    # เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(0, 100, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  เพิ่ม Section ใหม่ลงในงานนำเสนอ
     presentation.getSections().addSection("Section 4", slide)
 
-    #  เพิ่มอ็อบเจ็กต์ SummaryZoomFrame
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  บันทึกงานนำเสนอ
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **เพิ่มและลบส่วน Summary Zoom**
+### **เพิ่มและลบส่วนของซูมสรุป**
 
-ทุกส่วนในเฟรม Summary Zoom แสดงด้วยออบเจ็กต์ [SummaryZoomSection](https://reference.aspose.com/slides/th/python-java/aspose.slides/summaryzoomsection/) ซึ่งจัดเก็บในออบเจ็กต์ [SummaryZoomSectionCollection](https://reference.aspose.com/slides/th/python-java/aspose.slides/summaryzoomsectioncollection/) คุณสามารถเพิ่มหรือเอาออบเจ็กต์ส่วน Summary Zoom ออกได้ผ่านคลาส [SummaryZoomSectionCollection](https://reference.aspose.com/slides/th/python-java/aspose.slides/summaryzoomsectioncollection/) ดังนี้
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/).
-2. สร้างสไลด์ใหม่พร้อมพื้นหลังที่โดดเด่นและส่วนใหม่สำหรับสไลด์ที่สร้าง
-3. เพิ่มเฟรม Summary Zoom ลงในสไลด์แรก
-4. เพิ่มสไลด์และส่วนใหม่เข้าไปในการนำเสนอ
-5. เพิ่มส่วนที่สร้างลงในเฟรม Summary Zoom
-6. เอาส่วนแรกออกจากเฟรม Summary Zoom
-7. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Python นี้แสดงวิธีเพิ่มและลบส่วนในเฟรม Summary Zoom:
+ซูมสรุปเก็บออบเจ็กต์ [SummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsection/) ใน [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) ตัวอย่างนี้สร้างภาพรวมของสองส่วน, เพิ่มส่วนที่สามด้วย [SummaryZoomSectionCollection.addSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#addSummaryZoomSection) และลบรายการของส่วนแรกด้วย [SummaryZoomSectionCollection.removeSummaryZoomSection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomsectioncollection/#removeSummaryZoomSection) การลบรายการจะทำให้ส่วนการนำเสนอและสไลด์ของมันคงอยู่
 
 ```python
 import jpype
@@ -500,66 +431,43 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  เพิ่ม Section ใหม่ลงในงานนำเสนอ
-    presentation.getSections().addSection("Section 1", slide)
+    first_section = presentation.getSections().addSection("Section 1", slide)
 
-    # เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  เพิ่ม Section ใหม่ลงในงานนำเสนอ
     presentation.getSections().addSection("Section 2", slide)
 
-    #  เพิ่มอ็อบเจ็กต์ SummaryZoomFrame
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    # เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(127, 255, 0))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  เพิ่ม Section ใหม่ลงในงานนำเสนอ
     third_section = presentation.getSections().addSection("Section 3", slide)
 
-    #  เพิ่ม Section ไปยัง Summary Zoom
     summary_zoom_frame.getSummaryZoomCollection().addSummaryZoomSection(third_section)
 
-    #  ลบ Section จาก Summary Zoom
-    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(presentation.getSections().get_Item(1))
+    summary_zoom_frame.getSummaryZoomCollection().removeSummaryZoomSection(first_section)
 
-    #  บันทึกงานนำเสนอ
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **จัดรูปแบบส่วน Summary Zoom**
+### **จัดรูปแบบส่วนของซูมสรุป**
 
-เพื่อสร้างออบเจ็กต์ส่วน Summary Zoom ที่ซับซ้อนขึ้น คุณต้องปรับการจัดรูปแบบของเฟรมง่าย ๆ มีหลายตัวเลือกในการจัดรูปแบบออบเจ็กต์ส่วน Summary Zoom ที่คุณสามารถใช้ได้
-
-คุณสามารถควบคุมการจัดรูปแบบของออบเจ็กต์ส่วน Summary Zoom ในเฟรม Summary Zoom ได้ดังนี้
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/).
-2. สร้างสไลด์ใหม่พร้อมพื้นหลังที่โดดเด่นและส่วนใหม่สำหรับสไลด์ที่สร้าง
-3. เพิ่มเฟรม Summary Zoom ไปยังสไลด์แรก
-4. ดึงออบเจ็กต์ Summary Zoom Section แรกจาก [SummaryZoomSectionCollection](https://reference.aspose.com/slides/th/python-java/aspose.slides/summaryzoomsectioncollection/).
-5. สร้างออบเจ็กต์ [PPImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/ppimage/) โดยเพิ่มรูปภาพเข้าไปในคอลเลกชัน images ที่เชื่อมกับออบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) เพื่อใช้เติมเฟรม
-6. ตั้งค่ารูปภาพที่กำหนดเองสำหรับออบเจ็กต์ Summary Zoom Section
-7. ตั้งค่าความสามารถ *กลับไปยังสไลด์เดิมจากส่วนที่เชื่อมโยง*
-8. เปลี่ยนรูปแบบเส้นสำหรับออบเจ็กต์ Summary Zoom Section
-9. เปลี่ยนระยะเวลาการเปลี่ยนฉาก
-10. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Python นี้แสดงวิธีเปลี่ยนการจัดรูปแบบของออบเจ็กต์ Summary Zoom Section:
+ตัวอย่างนี้จัดรูปแบบรายการแรกใน [SummaryZoomFrame.getSummaryZoomCollection](https://reference.aspose.com/slides/python-java/aspose.slides/summaryzoomframe/#getSummaryZoomCollection) โดยใช้ดัชนีเริ่มที่ศูนย์ `0` จำเป็นต้องมีรูปภาพในเครื่องสำหรับ [ZoomObject.setZoomImage](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setZoomImage) ใช้เส้นขอบสีดำแบบ dash‑dot หนา 1.5 พอยต์ และตั้งค่า [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) เป็น 1.5 วินาที การส่งค่า `False` ไปยัง [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) จะปิดการกลับอัตโนมัติไปยังสไลด์สรุปสำหรับรายการนี้
 
 ```python
 import jpype
@@ -573,63 +481,57 @@ from java.awt import Color
 
 presentation = Presentation()
 try:
-    # Adds a new slide to the presentation
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    overview_slide = presentation.getSlides().get_Item(0)
+
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color(165, 42, 42))
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Adds a new section to the presentation
     presentation.getSections().addSection("Section 1", slide)
 
-    # Adds a new slide to the presentation
-    slide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide())
+    slide = presentation.getSlides().addEmptySlide(overview_slide.getLayoutSlide())
     slide.getBackground().getFillFormat().setFillType(FillType.Solid)
-    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan)
+    slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.CYAN)
     slide.getBackground().setType(BackgroundType.OwnBackground)
 
-    #  Adds a new section to the presentation
     presentation.getSections().addSection("Section 2", slide)
 
-    #  Adds a SummaryZoomFrame object
-    summary_zoom_frame = presentation.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200)
+    summary_zoom_frame = overview_slide.getShapes().addSummaryZoomFrame(150, 50, 300, 200)
 
-    #  Gets the first SummaryZoomSection object
     summary_section = summary_zoom_frame.getSummaryZoomCollection().get_Item(0)
 
-    #  Formatting for SummaryZoomSection object
     image = Images.fromFile("image.png")
     try:
-        picture = presentation.getImages().addImage(image)
+        preview_image = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    summary_section.setZoomImage(picture)
 
+    summary_section.setZoomImage(preview_image)
     summary_section.setReturnToParent(False)
 
     summary_section.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.black)
+    summary_section.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     summary_section.getLineFormat().setDashStyle(LineDashStyle.DashDot)
     summary_section.getLineFormat().setWidth(1.5)
 
     summary_section.setTransitionDuration(1.5)
 
-    #  Saves the presentation
     presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันสามารถควบคุมการกลับไปยังสไลด์ 'แม่' หลังแสดงเป้าหมายได้หรือไม่?**
+**ฉันสามารถควบคุมการกลับไปสไลด์ 'แม่' หลังจากแสดงเป้าหมายได้ไหม?**
 
-ได้ [ZoomFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/zoomframe/) หรือ [SectionZoomFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/sectionzoomframe/) รองรับการกลับไปยังสไลด์ต้นทางผ่าน [setReturnToParent](https://reference.aspose.com/slides/th/python-java/aspose.slides/zoomobject/#setReturnToParent) ซึ่งจะส่งผู้ชมกลับหลังจากเยี่ยมชมเนื้อหาเป้าหมายเมื่อเปิดใช้งาน
+ใช่. เรียกใช้ [ZoomObject.setReturnToParent](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setReturnToParent) พร้อมค่า `True` เพื่อกลับไปสไลด์ต้นฉบับหลังจากแสดงเนื้อหาเป้าหมาย
 
-**ฉันสามารถปรับ 'ความเร็ว' หรือระยะเวลาการเปลี่ยนฉากของ Zoom ได้หรือไม่?**
+**ฉันสามารถปรับ 'ความเร็ว' หรือระยะเวลาของการเปลี่ยนซูมได้ไหม?**
 
-ได้ Zoom รองรับการตั้งค่าระยะเวลาเปลี่ยนฉากด้วย [setTransitionDuration](https://reference.aspose.com/slides/th/python-java/aspose.slides/zoomobject/#setTransitionDuration) เพื่อคุณสามารถควบคุมช่วงเวลาที่แอนิเมชันกระโดดใช้
+ใช่. ใช้ [ZoomObject.setTransitionDuration](https://reference.aspose.com/slides/python-java/aspose.slides/zoomobject/#setTransitionDuration) เพื่อควบคุมระยะเวลาการเปลี่ยนภาพเป็นวินาที
 
-**มีขีดจำกัดจำนวนวัตถุ Zoom ที่การนำเสนอสามารถมีได้หรือไม่?**
+**มีขีดจำกัดจำนวนออบเจ็กต์ซูมที่การนำเสนอสามารถมีได้หรือไม่?**
 
-ไม่มีขีดจำกัด API ที่ระบุในเอกสาร ขีดจำกัดเชิงปฏิบัติขึ้นอยู่กับความซับซ้อนของการนำเสนอทั้งหมดและประสิทธิภาพของผู้ชม คุณสามารถเพิ่มเฟรม Zoom จำนวนมากได้ แต่ควรคำนึงถึงขนาดไฟล์และเวลาการเรนเดอร์
+ไม่มีขีดจำกัด API ที่ระบุไว้อย่างชัดเจน ขีดจำกัดเชิงปฏิบัติจะแตกต่างไปตามความซับซ้อนของการนำเสนอและประสิทธิภาพของอุปกรณ์ผู้ชม คุณสามารถเพิ่มกรอบซูมได้จำนวนมาก แต่ควรพิจารณาขนาดไฟล์และเวลาในการเรนเดอร์
