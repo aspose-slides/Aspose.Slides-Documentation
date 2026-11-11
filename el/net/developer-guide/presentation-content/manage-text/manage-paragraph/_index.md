@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση παραγράφων κειμένου PowerPoint σε .NET
-linktitle: Διαχείριση παραγράφου
+title: Διαχειριστείτε τις παραγράφους κειμένου PowerPoint σε .NET
+linktitle: Διαχείριση Παραγράφου
 type: docs
 weight: 40
 url: /el/net/manage-paragraph/
@@ -32,25 +32,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε παραγράφους, τμήματα, κουκίδες, αριθμημένες λίστες, εσοχές, περιεχόμενο HTML και εικόνες παραγράφου με το Aspose.Slides για .NET."
+description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε παραγράφους, τμήματα, κουκίδες, αριθμημένες λίστες, εσοχές, περιεχόμενο HTML και εικόνες παραγράφων με το Aspose.Slides για .NET."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides για .NET αντιπροσωπεύει το κείμενο ως ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
+Το Aspose.Slides για .NET αντιπροσωπεύει το κείμενο ως μια ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
 
-* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) αντιπροσωπεύει το κοντέινερ κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή παραγράφων του.
-* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) αντιπροσωπεύει μία παράγραφο σε ένα πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματα και στη μορφοποίηση επιπέδου παραγράφου.
-* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) αντιπροσωπεύει μια ακολουθία κειμένου μέσα σε μία παράγραφο. Κάθε τμήμα μπορεί να έχει τη δική του μορφοποίηση χαρακτήρα.
+* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) αντιπροσωπεύει το δοχείο κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή παραγράφων του.
+* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) αντιπροσωπεύει μία παράγραφο σε ένα πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματα και τη διαμόρφωση σε επίπεδο παραγράφου.
+* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) αντιπροσωπεύει μια ακολουθία κειμένου μέσα σε μια παράγραφο. Κάθε τμήμα μπορεί να έχει τη δική του μορφοποίηση κειμένου και χαρακτήρων.
 
-Έτσι, μία παράγραφος μπορεί να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλες μορφοποιήσεις, χρησιμοποιώντας πολλαπλά τμήματα.
+Έτσι, μια παράγραφος μπορεί να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλες μορφοποιήσεις χρησιμοποιώντας πολλαπλά τμήματα.
 
-## **Δημιουργία και μορφοποίηση παραγράφων**
+## **Δημιουργία και Διαμόρφωση Παραγράφων**
 
-Δημιουργήστε παραγράφους σε ένα πλαίσιο κειμένου σχήματος και χρησιμοποιήστε τμήματα για τη μορφοποίηση μεμονωμένων ακολουθιών κειμένου. Αυτή η ενότητα δείχνει πώς να συνδυάσετε πολλαπλά τμήματα σε κάθε παράγραφο και να εφαρμόσετε διαφορετικά χρώματα, μεγέθη γραμματοσειράς και στυλ.
+Δημιουργήστε παραγράφους στο πλαίσιο κειμένου ενός σχήματος και χρησιμοποιήστε τμήματα για να διαμορφώσετε μεμονωμένες ακολουθίες κειμένου. Αυτή η ενότητα δείχνει πώς να συνδυάσετε πολλαπλά τμήματα μέσα σε κάθε παράγραφο και να εφαρμόσετε διαφορετικά χρώματα, μεγέθη γραμματοσειράς και στυλ.
 
-### **Δημιουργία παραγράφων με πολλαπλά τμήματα**
+### **Δημιουργία Παραγράφων με Πολλαπλά Τμήματα**
 
-Το ακόλουθο παράδειγμα C# δημιουργεί τρεις παραγράφους, καθεμία με τρία τμήματα κειμένου στη συλλογή [IParagraph.Portions](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/portions/). Επαναχρησιμοποιεί την προεπιλεγμένη παράγραφο και το κενό τμήμα της, στη συνέχεια προσθέτει τις υπόλοιπες παραγράφους και τμήματα. Η μορφοποίηση εφαρμόζεται μέσω [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/): το πρώτο τμήμα σε κάθε παράγραφο είναι κόκκινο, έντονο και 15 σημεία· το δεύτερο είναι μπλε, πλάγιο και 18 σημεία. Το τρίτο τμήμα διατηρεί την προεπιλεγμένη του μορφοποίηση:
+Το παρακάτω παράδειγμα C# δημιουργεί τ three παράγραφους, καθεμία με τρία τμήματα κειμένου στη συλλογή [IParagraph.Portions](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/portions/). Επαναχρησιμοποιεί την προεπιλεγμένη παράγραφο και το κενό τμήμα της, στη συνέχεια προσθέτει τις υπόλοιπες παραγράφους και τμήματα. Η μορφοποίηση εφαρμόζεται μέσω [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/): το πρώτο τμήμα σε κάθε παράγραφο είναι κόκκινο, έντονο και 15 σημεία· το δεύτερο είναι μπλε, πλάγιο και 18 σημεία. Το τρίτο τμήμα διατηρεί τη προεπιλεγμένη μορφοποίηση:
 
 ```csharp
 using System.Drawing;
@@ -109,15 +109,15 @@ for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 ```
 
-## **Δημιουργία λιστών με κουκίδες και αριθμητικές**
+## **Δημιουργία Λιστών με Στιγμές και Αρίθμηση**
 
-Οργανώστε το κείμενο παραγράφου σε λίστες με σύμβολα, αριθμούς ή προσαρμοσμένες εικόνες. Τα παραδείγματα σε αυτήν την ενότητα καλύπτουν τη μορφοποίηση κουκίδων, τις πολυεπίπεδες λίστες και τις προσαρμοσμένες αρχικές τιμές.
+Οργανώστε το κείμενο της παραγράφου σε λίστες με σημεία, αριθμούς ή προσαρμοσμένες εικόνες. Τα παραδείγματα σε αυτήν την ενότητα καλύπτουν τη μορφοποίηση των σημείων, τις πολυεπίπεδες λίστες και τους προσαρμοσμένους αριθμούς έναρξης.
 
-### **Δημιουργία λίστας με κουκίδες ή αριθμητική**
+### **Δημιουργία Λίστας με Σημεία ή Αρίθμηση**
 
-Οι κουκίδες και η αρίθμηση κάνουν τα σχετικά στοιχεία πιο εύκολα στην ανάγνωση. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/).
+Τα σημεία και η αρίθμηση κάνουν τα σχετικά στοιχεία πιο εύκολα στην ανάγνωση. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/).
 
-Αυτό το παράδειγμα C# προσθέτει μια κουκίδα συμβόλου και ένα αριθμημένο στοιχείο στο ίδιο πλαίσιο κειμένου. Το [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) επιλέγει τον τύπο της κουκίδας, ενώ το [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) παρέχει το σύμβολο και το [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstyle/) επιλέγει το στυλ αρίθμησης. Και τα δύο στοιχεία χρησιμοποιούν μαύρες κουκίδες με ύψος 100 % και εσοχή παραγράφου 25 σημεία:
+Αυτό το παράδειγμα C# προσθέτει ένα σημείο συμβόλου και ένα αριθμημένο στοιχείο στο ίδιο πλαίσιο κειμένου. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) επιλέγει τον τύπο του σημείου, ενώ [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) παρέχει το σύμβολο και [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstyle/) επιλέγει το στυλ αρίθμησης. Και τα δύο στοιχεία χρησιμοποιούν μαύρα σημεία με ύψος 100 % και εσοχή παραγράφου 25 σημεία:
 
 ```csharp
 using System;
@@ -155,11 +155,11 @@ textFrame.Paragraphs.Add(numberedParagraph);
 presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Χρήση εικόνας ως κουκίδα**
+### **Χρήση Εικόνας ως Σημείο**
 
-Οι εικόνες ως κουκίδες σας επιτρέπουν να χρησιμοποιήσετε μια προσαρμοσμένη εικόνα αντί για σύμβολο ή αριθμό.
+Τα σημεία εικόνας σας επιτρέπουν να χρησιμοποιήσετε μια προσαρμοσμένη εικόνα αντί για σύμβολο ή αριθμό.
 
-Αυτό το παράδειγμα C# προσθέτει μια εικόνα στη συλλογή εικόνων της παρουσίασης ως [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) και την χρησιμοποιεί ως κουκίδα παραγράφου. Ορίζει το [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) σε εικόνα κουκίδας και αντιστοιχεί την εικόνα μέσω του [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/). Το [IBulletFormat.Height](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/height/) ορίζεται σε 100 % για να προσαρμόσει το μέγεθος της κουκίδας σχετικά με το κείμενο της παραγράφου:
+Αυτό το παράδειγμα C# προσθέτει μια εικόνα στη συλλογή εικόνων της παρουσίασης ως [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) και τη χρησιμοποιεί ως σημείο παραγράφου. Ορίζει το [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) σε εικόνα σημείου και αντιστοιχίζει την εικόνα μέσω [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/). Το [IBulletFormat.Height](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/height/) ορίζεται σε 100 % για να προσαρμόσει το μέγεθος του σημείου σε σχέση με το κείμενο της παραγράφου:
 
 ```csharp
 using Aspose.Slides;
@@ -185,11 +185,11 @@ presentation.Save("picture_bullet.pptx", SaveFormat.Pptx);
 presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 ```
 
-### **Δημιουργία πολυεπίπεδης λίστας**
+### **Δημιουργία Πολυεπίπεδης Λίστας**
 
-Ορίστε το [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) για να τοποθετήσετε παραγράφους σε διαφορετικά επίπεδα λίστας. Το ανώτατο επίπεδο έχει βάθος `0`.
+Ορίστε το [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) για να τοποθετήσετε τις παραγράφους σε διαφορετικά επίπεδα λίστας. Το υψηλότερο επίπεδο έχει βάθος `0`.
 
-Αυτό το παράδειγμα C# αντιστοιχίζει τιμές [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) από 0 έως 3 σε τέσσερις παραγράφους, δημιουργώντας ιεραρχία μέσα σε ένα πλαίσιο κειμένου. Κάθε παράγραφος χρησιμοποιεί μια κουκίδα συμβόλου, με το [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) να εναλλάσσεται μεταξύ στρογγυλής κουκίδας και εντουμενίου για τη διάκριση των γειτονικών επιπέδων:
+Αυτό το παράδειγμα C# εκχωρεί τιμές [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) από 0 έως 3 σε τέσσερις παραγράφους, δημιουργώντας ιεραρχία μέσα σε ένα πλαίσιο κειμένου. Κάθε παράγραφος χρησιμοποιεί σημείο σύμβολο, με το [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) εναλλασσόμενο μεταξύ στρογγυλού σημείου και παύλας για να διακρίνει τα γειτονικά επίπεδα:
 
 ```csharp
 using System;
@@ -240,11 +240,11 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Έναρξη αριθμημένων στοιχείων λίστας με προσαρμοσμένες τιμές**
+### **Έναρξη Αριθμημένων Στοιχείων Λίστας με Προσαρμοσμένες Τιμές**
 
-Χρησιμοποιήστε το [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) για να ορίσετε τον αρχικό αριθμό που εμφανίζεται για μια αριθμημένη παράγραφο.
+Χρησιμοποιήστε το [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) για να ορίσετε τον αρχικό αριθμό που εμφανίζεται σε μια αριθμημένη παράγραφο.
 
-Αυτό το παράδειγμα C# ορίζει το [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) σε αρίθμηση για τρεις παραγράφους και ορίζει τιμές [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) 2, 3 και 7. Η αρχική τιμή ρυθμίζεται ξεχωριστά για κάθε παράγραφο, επιτρέποντας την παράλειψη αριθμών:
+Αυτό το παράδειγμα C# ορίζει το [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) σε αριθμημένη μορφή για τρεις παραγράφους και εκχωρεί τιμές [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) 2, 3 και 7. Η αρχική τιμή ρυθμίζεται χωριστά για κάθε παράγραφο, επιτρέποντας την παράλειψη αριθμών:
 
 ```csharp
 using Aspose.Slides;
@@ -275,17 +275,17 @@ textFrame.Paragraphs.Add(thirdParagraph);
 presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **Έλεγχος διάταξης παραγράφων και ιδιοτήτων τέλους**
+## **Έλεγχος Διάταξης Παραγράφων και Ιδιοτήτων Τέλους**
 
-Ρυθμίστε τα περιθώρια και τις εσοχές της παραγράφου για να ελέγξετε τη θέση της πρώτης γραμμής και των έμμεσων γραμμών. Μπορείτε επίσης να μορφοποιήσετε το σημάδι τέλους παραγράφου ξεχωριστά από τα ορατά τμήματα κειμένου.
+Ρυθμίστε τα περιθώρια και τις εσοχές των παραγράφων για να ελέγξετε τη θέση της πρώτης γραμμής και των γραμμών που τυλίγονται. Μπορείτε επίσης να μορφοποιήσετε το σύμβολο τέλους παραγράφου ξεχωριστά από τα ορατά τμήματα κειμένου.
 
-### **Ορισμός εσοχής πρώτης γραμμής**
+### **Ορισμός Εσοχής Πρώτης Γραμμής**
 
-Χρησιμοποιήστε την ιδιότητα [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Αυτή η ιδιότητα μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μία θετική τιμή μετατοπίζει την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
+Χρησιμοποιήστε την ιδιότητα [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Η ιδιότητα αυτή μετακινεί μόνο την πρώτη γραμμή σχετικά με το αριστερό περιθώριο της παραγράφου. Μια θετική τιμή μετατοπίζει την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
 
-Χρησιμοποιήστε το [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) όταν χρειάζεται να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) όταν χρειάζεται να μετακινήσετε μόνο την πρώτη γραμμή.
+Χρησιμοποιήστε το [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) όταν θέλετε να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) όταν θέλετε να μετακινήσετε μόνο την πρώτη γραμμή.
 
-Το παρακάτω παράδειγμα δίνει τρεις παραγράφους το ίδιο [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) 20 σημείων και τιμές [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) 0, 20 και 40 σημεία. Οι πρώτες γραμμές αρχίζουν σε αυξανόμενες αποστάσεις, ενώ οι έμμεσες γραμμές διατηρούν το ίδιο αριστερό περιθώριο:
+Το παρακάτω παράδειγμα δίνει σε τρεις παραγράφους το ίδιο [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) των 20 σημείων και τιμές [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) 0, 20 και 40 σημεία. Οι πρώτες γραμμές αρχίζουν με σταδιακά μεγαλύτερες μετατοπίσεις, ενώ οι τυλιγμένες γραμμές διατηρούν το ίδιο αριστερό περιθώριο:
 
 ```csharp
 using System.Drawing;
@@ -333,15 +333,15 @@ presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 
 ![Η εσοχή πρώτης γραμμής των παραγράφων](first_line_indent.png)
 
-### **Ορισμός κρεμαστής εσοχής**
+### **Ορισμός Κρεματής Εσοχής**
 
-Μια κρεμαστή εσοχή είναι διάταξη παραγράφου όπου η πρώτη γραμμή ξεκινά προς τα αριστερά των υπολοίπων γραμμών. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με την ιδιότητα [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/). Ορίστε το `Indent` σε αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή αριστερά σε σχέση με το σώμα της παραγράφου.
+Η κρεματή εσοχή είναι μια διάταξη παραγράφου όπου η πρώτη γραμμή ξεκινά αριστερότερα από τις υπόλοιπες γραμμές. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με την ιδιότητα [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/). Ορίστε το `Indent` σε αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή αριστερά σε σχέση με το σώμα της παραγράφου.
 
-Στην πράξη, το [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) ορίζει τη θέση αριστερά του σώματος της παραγράφου, και το [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) ορίζει τη θέση της πρώτης γραμμής ως προς αυτό το περιθώριο. Για να δημιουργήσετε κρεμαστή εσοχή, ορίστε μια θετική τιμή στο `MarginLeft` και μια αρνητική τιμή στο `Indent`.
+Στην πράξη, το [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) ορίζει τη θέση αριστερά του σώματος της παραγράφου, ενώ το [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) ορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για να δημιουργήσετε κρεματή εσοχή, ορίστε μια θετική τιμή για το `MarginLeft` και μια αρνητική τιμή για το `Indent`.
 
-Η μορφοποίηση αυτή είναι χρήσιμη για βιβλιογραφίες, παραπομπές, γλωσσάρια και άλλες παραγράφους όπου οι έμμεσες γραμμές πρέπει να ευθυγραμμιστούν κάτω από το σώμα της παραγράφου αντί κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
+Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, παραπομπές, εγγραφές γλωσσολογικού λεξικού και άλλες παραγράφους όπου οι τυλιγμένες γραμμές πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου και όχι κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
 
-Το παρακάτω παράδειγμα C# συνδυάζει τιμές [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) 40 και 60 σημείων με τιμές [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) –20 και –30 σημεία. Σε κάθε παράγραφο, η πρώτη γραμμή ξεκινά προς τα αριστερά των έμμεσων γραμμών· η δεύτερη παράγραφος έχει βαθύτερη κρεμαστή εσοχή:
+Το παρακάτω παράδειγμα C# συνδυάζει τιμές [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) 40 και 60 σημεία με τιμές [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) -20 και -30 σημεία. Σε κάθε παράγραφο, η πρώτη γραμμή ξεκινά αριστερότερα από τις τυλιγμένες γραμμές· η δεύτερη παράγραφος έχει πιο βαθιά κρεματή εσοχή:
 
 ```csharp
 using System.Drawing;
@@ -380,11 +380,11 @@ presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
 
 Το αποτέλεσμα:
 
-![Η κρεμαστή εσοχή των παραγράφων](hanging_indent.png)
+![Η κρεματή εσοχή των παραγράφων](hanging_indent.png)
 
-### **Ορισμός ιδιοτήτων τερματικού τμήματος παραγράφου**
+### **Ορισμός Ιδιοτήτων Τέλους Παραγράφου**
 
-Η ιδιότητα [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) ελέγχει τη μορφοποίηση του σημείου τέλους παραγράφου. Το παρακάτω παράδειγμα δημιουργεί ένα [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) με το [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) ορισμένο σε 48 σημεία και το [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) σε Times New Roman. Αναθέτει αυτή τη μορφή στο σημείο τέλους της δεύτερης παραγράφου, αφήνοντας τα ορατά τμήματα κειμένου αμετάβλητα:
+Η ιδιότητα [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) ελέγχει τη μορφοποίηση του συμβόλου τέλους παραγράφου. Το παρακάτω παράδειγμα δημιουργεί ένα [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) με [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) 48 σημεία και [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) ορισμένο σε Times New Roman. Αναθέτει αυτή τη μορφοποίηση στο τέλος της δεύτερης παραγράφου, αφήνοντας τα ορατά τμήματα κειμένου αμετάβλητα:
 
 ```csharp
 using Aspose.Slides;
@@ -414,15 +414,15 @@ textFrame.Paragraphs.Add(secondParagraph);
 presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 ```
 
-## **Καταμέτρηση αποτυπωμένων γραμμών**
+## **Καταμέτρηση Σχεδιασμένων Γραμμών**
 
-Για κανόνες παραγράφων που επηρεάζουν την αυτόματη αναδίπλωση και την στίξη στο τέλος των γραμμών, δείτε [Control Line Breaking](/slides/el/net/text-formatting/#control-line-breaking) και [Control Hanging Punctuation](/slides/el/net/text-formatting/#control-hanging-punctuation).
+Για κανόνες παραγράφων που επηρεάζουν την αυτόματη αναδίπλωση και τη στίξη στα τέλη των γραμμών, δείτε [Control Line Breaking](/slides/el/net/text-formatting/#control-line-breaking) και [Control Hanging Punctuation](/slides/el/net/text-formatting/#control-hanging-punctuation).
 
 Χρησιμοποιήστε το [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) για να μετρήσετε τις γραμμές που καταλαμβάνει μια παράγραφος μετά τη διάταξη του κειμένου, συμπεριλαμβανομένης της αυτόματης αναδίπλωσης. Αυτό είναι χρήσιμο όταν ελέγχετε το μήκος και τη διάταξη του κειμένου σε πρότυπα παρουσίασης.
 
-Μία παράγραφος είναι ένα στοιχείο στη [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), και μπορεί να καταλάβει πολλές αποτυπωμένες γραμμές. Ένα ρητό line break μέσα σε μια παράγραφο δημιουργεί νέα γραμμή χωρίς να δημιουργήσει νέα παράγραφο. Η αυτόματη αναδίπλωση δημιουργεί γραμμές βάσει του διαθέσιμου πλάτους χωρίς να εισάγει ρητές αλλαγές γραμμής στο κείμενο. Επομένως, η μέτρηση παραγράφων ή χαρακτήρων αλλαγής γραμμής δεν δίνει τον πραγματικό αριθμό αποτυπωμένων γραμμών.
+Μια παράγραφος είναι ένα στοιχείο στη [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), και μπορεί να καταλαμβάνει πολλές σχεδιασμένες γραμμές. Ένα ρητό αλλαγή γραμμής μέσα σε μια παράγραφο αναγκάζει νέα γραμμή χωρίς να δημιουργήσει νέα παράγραφο. Η αυτόματη αναδίπλωση δημιουργεί γραμμές βάσει του διαθέσιμου πλάτους χωρίς να εισάγει ρητές αλλαγές γραμμής στο κείμενο. Συνεπώς, η καταμέτρηση παραγράφων ή χαρακτήρων αλλαγής γραμμής δεν δίνει τον αριθμό των σχεδιασμένων γραμμών.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα κειμένου, μετρά τις γραμμές του, στενώνει το σχήμα και στη συνέχεια αντικαθιστά το κείμενο με ένα σύντομο κείμενο. Το παράδειγμα ενεργοποιεί το [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) και απενεργοποιεί το [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) ώστε το πλάτος του σχήματος να ελέγχει την αναδίπλωση χωρίς αυτόματη σμίκρυνση του κειμένου ή αλλαγή μεγέθους του σχήματος. Κάθε μέτρηση χρησιμοποιεί το [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/). Οι διαστάσεις του σχήματος είναι σε σημεία. Τέλος, το παράδειγμα προσθέτει μια ακόμη παράγραφο και αθροίζει τις μετρήσεις γραμμών σε όλο το πλαίσιο κειμένου.
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα κειμένου, μετρά τις γραμμές του, στενεύει το σχήμα και στη συνέχεια αντικαθιστά το κείμενο με ένα πιο σύντομο. Το παράδειγμα ενεργοποιεί το [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) και απενεργοποιεί το [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) ώστε το πλάτος του σχήματος να ελέγχει την αναδίπλωση χωρίς αυτόματη συρρίκνωση του κειμένου ή αλλαγή μεγέθους του σχήματος. Κάθε μέτρηση χρησιμοποιεί το [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/). Οι διαστάσεις του σχήματος δίνονται σε σημεία. Τέλος, το παράδειγμα προσθέτει μια ακόμη παράγραφο και αθροίζει τους μετρητές γραμμών σε όλο το πλαίσιο κειμένου.
 
 ```csharp
 using System;
@@ -459,19 +459,19 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-Με αυτό το κείμενο και αυτές τις διαστάσεις, η στένωση του σχήματος αυξάνει τον αριθμό γραμμών, ενώ η αντικατάσταση του κειμένου με το σύντομο κείμενο τον μειώνει. Οι ακριβείς μετρήσεις μπορεί να διαφέρουν ανάλογα με τη διαθέσιμη γραμματοσειρά και την αντικατάστασή της, το μέγεθος γραμματοσειράς, τα περιθώρια, την εσοχή, την αναδίπλωση και τις ρυθμίσεις αυτόματης προσαρμογής. Χρησιμοποιήστε τις γραμματοσειρές και τις ρυθμίσεις διάταξης που προορίζονται για το περιβάλλον στόχο όταν ελέγχετε ένα πρότυπο.
+Με αυτό το κείμενο και αυτές τις διαστάσεις, η στένωση του σχήματος αυξάνει τον αριθμό γραμμών, ενώ η αντικατάσταση του κειμένου με το σύντομο κείμενο τον μειώνει. Οι ακριβείς μετρήσεις μπορεί να διαφέρουν ανάλογα με τη διαθεσιμότητα και αντικατάσταση γραμματοσειρών, το μέγεθος γραμματοσειράς, τα περιθώρια, την εσοχή, την αναδίπλωση και τις ρυθμίσεις autofit. Χρησιμοποιήστε τις γραμματοσειρές και τις ρυθμίσεις διάταξης που προορίζονται για το περιβάλλον στόχο κατά τον έλεγχο ενός προτύπου.
 
-Ο μόνος αριθμός γραμμών δεν καθορίζει αν το κείμενο υπερβαίνει το κοντέινερ του. Σημαντικό είναι επίσης το διαθέσιμο ύψος, τα ύψη των γραμμών, η απόσταση μεταξύ παραγράφων και γραμμών, και η συμπεριφορά της αυτόματης προσαρμογής· ακόμη και μία μόνο γραμμή μπορεί να υπερβεί το διαθέσιμο πλάτος όταν η αναδίπλωση είναι απενεργοποιημένη.
+Ο μόνος ο αριθμός γραμμών δεν καθορίζει αν το κείμενο υπερχειλίζει το δοχείο του. Το διαθέσιμο ύψος, το ύψος των γραμμών, η απόσταση παραγράφου‑γραμμής και η συμπεριφορά autofit παίζει επίσης ρόλο· ακόμη και μια μόνο γραμμή μπορεί να ξεπεράσει το διαθέσιμο πλάτος όταν η αναδίπλωση είναι απενεργοποιημένη.
 
-## **Εισαγωγή και εξαγωγή περιεχομένου παραγράφων**
+## **Εισαγωγή και Εξαγωγή Περιεχομένου Παραγράφων**
 
-Χρησιμοποιήστε HTML για να εισάγετε κείμενο σε μια παρουσίαση ή να εξάγετε υπάρχουσες παραγράφους για χρήση εκτός αυτής. Αυτή η ενότητα δείχνει επίσης πώς να αποδίδετε μεμονωμένες παραγράφους ως εικόνες, συμπεριλαμβανομένων των παραγράφων σε κελιά πινάκων.
+Χρησιμοποιήστε HTML για να εισάγετε κείμενο σε μια παρουσίαση ή να εξάγετε υπάρχουσες παραγράφους για χρήση εκτός αυτής. Αυτή η ενότητα δείχνει επίσης πώς να αποδίδεται κάθε παράγραφος ως εικόνα, συμπεριλαμβανομένων των παραγράφων σε κελιά πινάκων.
 
-### **Εισαγωγή κειμένου HTML σε παραγράφους**
+### **Εισαγωγή HTML Κειμένου σε Παραγράφους**
 
 Χρησιμοποιήστε το [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) για να μετατρέψετε σήμανση HTML σε παραγράφους και τμήματα σε ένα πλαίσιο κειμένου.
 
-Αυτό το παράδειγμα C# διαβάζει HTML από αρχείο και περνά τη σήμανση στο [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/). Καθαρίζει την προεπιλεγμένη παράγραφο του πλαισίου κειμένου ώστε το πλαίσιο να περιέχει μόνο το εισαγόμενο περιεχόμενο. Το ορθογώνιο σχήμα αφήνει περιθώριο 10 σημείων σε κάθε πλευρά της διαφάνειας:
+Αυτό το παράδειγμα C# διαβάζει HTML από αρχείο και το περνά στο [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/). Καθαρίζει την προεπιλεγμένη παράγραφο του πλαισίου κειμένου ώστε το πλαίσιο να περιέχει μόνο το εισαγόμενο περιεχόμενο. Το ορθογώνιο σχήμα αφήνει περιθώριο 10 σημείων σε κάθε πλευρά της διαφάνειας:
 
 ```csharp
 using System.IO;
@@ -494,18 +494,18 @@ shape.TextFrame.Paragraphs.AddFromHtml(html);
 presentation.Save("html_text.pptx", SaveFormat.Pptx);
 ```
 
-### **Εξαγωγή κειμένου παραγράφου σε HTML**
+### **Εξαγωγή Κειμένου Παραγράφου σε HTML**
 
-Χρησιμοποιήστε το [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) για να εξάγετε ένα επιλεγμένο εύρος παραγράφων ως HTML. Όταν επαναχρησιμοποιείτε το κείμενο της παρουσίασης σε ιστότοπο, ίσως θέλετε να διατηρήσετε τη τοπική έμφαση χωρίς να μεταφέρετε τη γραμματοσειρά, το μέγεθος ή τα στυλ του πλαισίου κειμένου. Ορίστε το [TextToHtmlConversionOptions.TextInheritanceLimit](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/textinheritancelimit/) για να ελέγξετε πόσο μακριά ακολουθεί ο εξαγωγέας την κληρονομικότητα μορφοποίησης.
+Χρησιμοποιήστε το [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) για να εξάγετε μια επιλεγμένη περιοχή παραγράφων ως HTML. Όταν επαναχρησιμοποιείτε κείμενο παρουσίασης σε ιστότοπο, ίσως θέλετε να διατηρήσετε την τοπική έντονη μορφοποίηση χωρίς να μεταφέρετε τις γραμματοσειρές, τα μεγέθη ή τα στυλ πλαισίων κειμένου της παρουσίασης. Ορίστε το [TextToHtmlConversionOptions.TextInheritanceLimit](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/textinheritancelimit/) για να ελέγξετε πόσο βαθιά ακολουθεί ο εξαγωγέας την κληρονομικότητα μορφοποίησης.
 
-Κατεβάστε [the sample presentation](text-inheritance.pptx) και τοποθετήστε το στον φάκελο εργασίας της εφαρμογής. Η πρώτη διαφάνειά του περιέχει ένα σχήμα κειμένου με το κείμενο «Inherited text; explicit red 18pt». Η είσοδος χρησιμοποιεί σκόπιμα αρκετά επίπεδα μορφοποίησης:
+Κατεβάστε [το δείγμα παρουσίασης](text-inheritance.pptx) και τοποθετήστε το στον κατάλογο εργασίας της εφαρμογής. Η πρώτη διαφάνειά του περιέχει ένα σχήμα κειμένου με το κείμενο «Inherited text; explicit red 18pt». Η είσοδος χρησιμοποιεί σκόπιμα πολλά επίπεδα μορφοποίησης:
 
 - Το προεπιλεγμένο στυλ κειμένου της παρουσίασης παρέχει Calibri και μέγεθος 28 pt.
 - Το στυλ κειμένου πρώτου επιπέδου του πλαισίου κειμένου παρέχει μπλε κείμενο και πλάγια γραφή.
 - Η παράγραφος ορίζει ρητά έντονο κείμενο.
 - Το δεύτερο τμήμα, «explicit red 18pt», ορίζει ρητά κόκκινο κείμενο και μέγεθος 18 pt.
 
-Το παρακάτω πλήρες παράδειγμα εξάγει τις ίδιες παραγράφους τρεις φορές. Περνά το [TextToHtmlConversionOptions](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/) στη μέθοδο εξαγωγής και γράφει κάθε αποτέλεσμα σε ξεχωριστό αρχείο HTML UTF‑8:
+Το παρακάτω ολοκληρωμένο παράδειγμα εξάγει τις ίδιες παραγράφους τρεις φορές. Περνάει το [TextToHtmlConversionOptions](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/) στη μέθοδο εξαγωγής και γράφει κάθε αποτέλεσμα σε ξεχωριστό αρχείο HTML UTF‑8:
 
 ```csharp
 using System.IO;
@@ -528,31 +528,56 @@ foreach (var mode in modes)
 }
 ```
 
-Το παραγόμενο HTML περιλαμβάνει το ακόλουθο CSS για το πρώτο τμήμα, «Inherited text; ». Ο παρακάτω πίνακας εμφανίζει τις σχετικές δηλώσεις· άλλες παραγόμενες ιδιότητες παραλείπονται για σαφήνεια.
+Το παραγόμενο HTML περιέχει το παρακάτω CSS για το πρώτο τμήμα, «Inherited text; ». Ο πίνακας παραθέτει τις σχετικές δηλώσεις· άλλες παραγόμενες ιδιότητες παραλείπονται για σαφήνεια.
 
-| Αποτέλεσμα | Σχετικό CSS για το πρώτο τμήμα | Εμφάνιση |
+| Output | Relevant CSS for the first portion | Appearance |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Μπλε, έντονο, πλάγιο κείμενο σε 28 pt με Calibri, εάν αυτή η γραμματοσειρά είναι διαθέσιμη. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Μπλε, έντονο, πλάγιο κείμενο· η περιβάλλουσα σελίδα ή ο περιηγητής παρέχει την οικογένεια γραμματοσειράς και το μέγεθος. |
-| `ParagraphOnly.html` | `font-weight:bold` | Έντονο κείμενο· η περιβάλλουσα σελίδα ή ο περιηγητής παρέχει την οικογένεια γραμματοσειράς, το μέγεθος, το χρώμα και το πλάγιο στυλ. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Μπλε, έντονο, πλάγιο κείμενο 28 pt σε Calibri, αν η γραμματοσειρά είναι διαθέσιμη. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Μπλε, έντονο, πλάγιο κείμενο· η σελίδα ή ο φυλλομετρητής παρέχει τη γραμματοσειρά και το μέγεθος. |
+| `ParagraphOnly.html` | `font-weight:bold` | Έντονο κείμενο· η σελίδα ή ο φυλλομετρητής παρέχει τη γραμματοσειρά, το μέγεθος, το χρώμα και την πλάγια γραφή. |
 
-Το δεύτερο τμήμα διατηρεί `color:#ff0000`, `font-size:18pt` και `font-weight:bold` και στα τρία αποτελέσματα. Διατηρεί επίσης πλάγια γραφή στα `All` και `TextBox`, αλλά όχι στο `ParagraphOnly`. Ο περιορισμός κληρονομικότητας έτσι δεν αφαιρεί τη μορφοποίηση που έχει οριστεί ρητά σε μια παράγραφο ή τμήμα.
+Το δεύτερο τμήμα διατηρεί `color:#ff0000`, `font-size:18pt` και `font-weight:bold` σε όλα τα τρία αποτελέσματα. Διατηρεί επίσης πλάγια γραφή στα `All` και `TextBox`, αλλά όχι στο `ParagraphOnly`. Η περιορισμένη κληρονομικότητα επομένως δεν αφαιρεί μορφοποίηση που έχει οριστεί ρητά σε παράγραφο ή τμήμα.
 
-Ανοίξτε τα αρχεία στον ίδιο περιηγητή για να τα συγκρίνετε. Στις δύο περιορισμένες λειτουργίες, οι παραλειπόμενες ιδιότητες CSS επιλύονται από τα στυλ της σελίδας προορισμού ή από τις προεπιλογές του περιηγητή, οπότε η τελική εμφάνιση εξαρτάται από το πού χρησιμοποιείται το HTML.
+Ανοίξτε τα αρχεία στον ίδιο φυλλομετρητή για να τα συγκρίνετε. Στις δύο περιορισμένες λειτουργίες, οι παραλειπόμενες ιδιότητες CSS λύνουνται από τα στυλ της σελίδας προορισμού ή τις προκαθορισμένες τιμές του φυλλομετρητή, οπότε η τελική εμφάνιση εξαρτάται από το που χρησιμοποιείται το HTML.
 
-### **Απόδοση παραγράφου ως εικόνα**
+### **Δημιουργία HTML Fragment για Πρόχειρο (Clipboard)**
 
-Το [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) αποδίδει μια μεμονωμένη παράγραφο απευθείας και επιστρέφει ένα [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Αποθηκεύστε το αποτέλεσμα σε αρχείο ή ροή με το [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Δεν χρειάζεται να αποδώσετε το σχήμα που το περιέχει ή να περικόψετε το bitmap χειροκίνητα.
+Ορίστε το [AddClipboardFragmentHeader](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/addclipboardfragmentheader/) σε `false` για κανονικό HTML ή σε `true` για να συμπεριλάβετε κεφαλίδα πρόχειρου. Και οι δύο κλήσεις επιστρέφουν μια συμβολοσειρά. Η κεφαλίδα δίνει τις θέσεις byte UTF‑8 του περιβάλλοντος HTML (`StartHTML` και `EndHTML`) και του περιεχομένου προς επικόλληση (`StartFragment` και `EndFragment`).
 
-Το [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) μπορεί να επιστρέψει `null` εάν η παράγραφος δεν βρεθεί στη γονική της συλλογή, δεν έχει έγκυρα όρια απόδοσης ή δεν μπορεί να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και αποδεσμεύστε την εικόνα μετά τη χρήση.
+Αυτό το παράδειγμα εξάγει δύο μορφοποιημένες παραγράφους ως κανονικό HTML (`html`) και ως HTML fragment για πρόχειρο (`clipboardHtml`). Η εγγραφή του fragment στο σύστημα πρόχειρου είναι ξεχωριστό βήμα εφαρμογής. Ένα API πρόχειρου που δέχεται ακατέργαστα HTML bytes απαιτεί UTF‑8 χωρίς BOM.
 
-#### **Απόδοση παραγράφου στην προεπιλεγμένη κλίμακα**
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Το παράδειγμα χρησιμοποιεί μια παρουσίαση με μία διαφάνεια της οποίας το πρώτο σχήμα είναι ένα πλαίσιο κειμένου που περιέχει τρεις παραγράφους.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 400, 100);
+var paragraphs = shape.TextFrame.Paragraphs;
+paragraphs.Clear();
+paragraphs.AddFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+var options = new TextToHtmlConversionOptions { AddClipboardFragmentHeader = false };
+var html = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+
+options.AddClipboardFragmentHeader = true;
+var clipboardHtml = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+```
+
+### **Απόδοση Παραγράφου ως Εικόνας**
+
+Το [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) αποδίδει απευθείας μια μοναδική παράγραφο και επιστρέφει ένα [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Αποθηκεύστε το αποτέλεσμα σε αρχείο ή ροή με το [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Δεν χρειάζεται να αποδώσετε το σχήμα που το περιέχει ή να περικόψετε το bitmap χειροκίνητα.
+
+Το [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) μπορεί να επιστρέψει `null` αν η παράγραφος δεν βρεθεί στη γονική συλλογή, δεν έχει έγκυρα όρια απόδοσης ή δεν μπορεί να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και απελευθερώστε την επιστρεφόμενη εικόνα μετά τη χρήση.
+
+#### **Απόδοση Παραγράφου στην Προεπιλεγμένη Κλίμακα**
+
+Το παράδειγμα χρησιμοποιεί μια παρουσίαση με μία διαφάνεια της οποίας το πρώτο σχήμα είναι πλαίσιο κειμένου με τρεις παραγράφους.
 
 ![Το πλαίσιο κειμένου με τρεις παραγράφους](paragraph_to_image_input.png)
 
-Το παρακάτω παράδειγμα επιλέγει τη δεύτερη παράγραφο με δείκτη 1 και καλεί το [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) χωρίς παραμέτρους κλίμακας. Ελέγχει ότι το σχήμα περιέχει την απαιτούμενη παράγραφο και ότι η απόδοση επιστρέφει εικόνα πριν καλέσει το [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) για αποθήκευση σε μορφή PNG. Η δήλωση `using` αποδεσμεύει την εικόνα μετά τη χρήση.
+Το παρακάτω παράδειγμα επιλέγει τη δεύτερη παράγραφο στο ευρετήριο 1 και καλεί το [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) χωρίς παραμέτρους κλίμακας. Ελέγχει ότι το σχήμα περιέχει την απαιτούμενη παράγραφο και ότι η απόδοση επιστρέφει εικόνα πριν καλέσει το [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) για αποθήκευση σε μορφή PNG. Η δήλωση `using` απελευθερώνει την εικόνα μετά τη χρήση.
 
 ```csharp
 using System;
@@ -587,9 +612,9 @@ else
 
 ![Η εικόνα της παραγράφου](paragraph_to_image_output.png)
 
-#### **Απόδοση παραγράφου σε κελί πίνακα με κλιμάκωση**
+#### **Απόδοση Παραγράφου σε Κελί Πίνακα με Κλίμακα**
 
-Χρησιμοποιήστε την υπερφόρτωση του [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) που δέχεται παραμέτρους `float scaleX` και `float scaleY` για να ορίσετε τους οριζόντιους και κάθετους συντελεστές κλίμακας. Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο του κελί με διπλάσιο προεπιλεγμένο πλάτος και ύψος, και αποθηκεύει το αποτέλεσμα ως εικόνα PNG.
+Χρησιμοποιήστε το υπερφορτωμένο [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) που δέχεται παραμέτρους `float scaleX` και `float scaleY` για να ορίσετε τους οριζόντιους και κατακόρυφους συντελεστές κλίμακας. Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο του κελί σε διπλάσιο πλάτος και ύψος από το προεπιλεγμένο και αποθηκεύει το αποτέλεσμα ως εικόνα PNG.
 
 ```csharp
 using System;
@@ -616,26 +641,26 @@ else
 }
 ```
 
-Ένας συντελεστής κλίμακας `1` διατηρεί αυτόν τον άξονα στο προεπιλεγμένο μέγεθός του σε εικονοστοιχεία. Για παράδειγμα, `2` και για τους δύο παράγοντες παράγει εικόνα του οποίου το πλάτος και το ύψος είναι περίπου διπλάσιο από τις προεπιλεγμένες διαστάσεις, με αποτέλεσμα τέσσερις φορές περισσότερα pixel. Μεγαλύτεροι συντελεστές συνήθως δίνουν πιο οξύ κείμενο για ζουμ ή εκτυπώσεις υψηλής ανάλυσης, αλλά αυξάνουν και τη χρήση μνήμης και το μέγεθος του αρχείου. Συντελεστές κάτω από `1` παράγουν μικρότερες εικόνες με λιγότερη λεπτομέρεια. Χρησιμοποιήστε ίσους συντελεστές για να διατηρήσετε την αναλογία διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κάθετοι συντελεστές τεντώνουν την έξοδο ανεξάρτητα.
+Ένας συντελεστής κλίμακας `1` διατηρεί τον άξονα στο προεπιλεγμένο μέγεθος pixel. Για παράδειγμα, `2` και για τους δύο παράγοντες παράγει εικόνα του οποίου το πλάτος και το ύψος είναι περίπου το διπλάσιο των προεπιλεγμένων διαστάσεων, δηλαδή τέσσερις φορές περισσότερα pixel. Μεγαλύτεροι παράγοντες γενικά παράγουν πιο οξύ κείμενο για ζουμ ή εξαγωγή υψηλής ανάλυσης, αλλά αυξάνουν και τη χρήση μνήμης και το μέγεθος αρχείου. Παράγοντες κάτω από `1` παράγουν μικρότερες εικόνες με λιγότερη λεπτομέρεια. Χρησιμοποιήστε ίσους παράγοντες για να διατηρήσετε την αναλογία διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κατακόρυφοι παράγοντες τεντώνουν το αποτέλεσμα ανεξάρτητα.
 
-Η απόδοση ολόκληρου σχήματος με το [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) παραμένει χρήσιμη όταν η έξοδος πρέπει να περιλαμβάνει το γέμισμα, το περίγραμμα ή άλλο οπτικό περιεχόμενο του σχήματος. Για εικόνα μόνο παραγράφου, χρησιμοποιήστε το [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/).
+Η απόδοση ολόκληρου σχήματος με το [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) παραμένει χρήσιμη όταν το αποτέλεσμα πρέπει να περιλαμβάνει τη γέμίση, το περίγραμμα ή άλλο οπτικό πλαίσιο του σχήματος. Για εικόνα μόνο παραγράφου, χρησιμοποιήστε το [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/).
 
-## **Συχνές ερωτήσεις**
+## **ΣΥΝΗΘΕΣ (FAQ)**
 
 **Μπορώ να απενεργοποιήσω εντελώς την αναδίπλωση γραμμών μέσα σε ένα πλαίσιο κειμένου;**
 
-Ναι. Ορίστε το [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) ώστε να απενεργοποιήσετε την αναδίπλωση ώστε οι γραμμές να μη σπάζουν στις άκρες του πλαισίου κειμένου.
+Ναι. Ορίστε το [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) για να απενεργοποιήσετε την αναδίπλωση ώστε οι γραμμές να μην σπάνε στις άκρες του πλαισίου κειμένου.
 
-**Πώς μπορώ να λάβω τα ακριβή όρια εντός διαφάνειας μιας συγκεκριμένης παραγράφου;**
+**Πώς μπορώ να λάβω τα ακριβή όρια της συγκεκριμένης παραγράφου μέσα στη διαφάνεια;**
 
-Χρησιμοποιήστε το [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) για να ανακτήσετε το ορθογώνιο που περιβάλλει την παράγραφο. Το [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) παρέχει τα όρια ενός μεμονωμένου τμήματος.
+Χρησιμοποιήστε το [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) για να ανακτήσετε το ορθογώνιο περιορισμού της παραγράφου. Το [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) παρέχει τα όρια ενός μεμονωμένου τμήματος.
 
-**Πού ελέγχεται η στοίχιση παραγράφου (αριστερά, δεξιά, κέντρο ή πλήρης στοίχιση);**
+**Πού ελέγχεται η στοίχιση παραγράφων (αριστερά, δεξιά, κέντρο ή πλήρης στοίχιση);**
 
-Το [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) είναι ρύθμιση επιπέδου παραγράφου και εφαρμόζεται σε ολόκληρη την παράγραφο ανεξάρτητα από τη μορφοποίηση των επιμέρους τμημάτων.
+Το [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) είναι ρύθμιση επιπέδου παραγράφου και εφαρμόζεται σε ολόκληρη την παράγραφο ανεξαρτήτως μορφοποίησης των τμημάτων.
 
-Για κάθετη στοίχιση τμημάτων διαφορετικών μεγεθών γραμματοσειράς μέσα σε κάθε γραμμή, δείτε [Align Fonts Within a Line](/slides/el/net/text-formatting/#align-fonts-within-a-line).
+Για κάθετη στοίχιση τμημάτων με διαφορετικά μεγέθη γραμματοσειράς μέσα σε κάθε γραμμή, δείτε [Align Fonts Within a Line](/slides/el/net/text-formatting/#align-fonts-within-a-line).
 
-**Μπορώ να ορίσω τη γλώσσα διόρθωσης για μέρος μιας παραγράφου;**
+**Μπορώ να ορίσω τη γλώσσα επιμέλειας για μέρος μιας παραγράφου;**
 
 Ναι. Ορίστε το [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) για μεμονωμένα τμήματα, ώστε μια παράγραφος να μπορεί να περιέχει κείμενο σε πολλές γλώσσες.

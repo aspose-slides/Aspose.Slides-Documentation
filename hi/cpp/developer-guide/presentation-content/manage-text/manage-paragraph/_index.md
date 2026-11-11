@@ -1,6 +1,6 @@
 ---
-title: "C++ में PowerPoint टेक्स्ट पैराग्राफ़ प्रबंधित करें"
-linktitle: "पैराग्राफ प्रबंधित करें"
+title: C++ में PowerPoint टेक्स्ट पैराग्राफ प्रबंधित करें
+linktitle: पैराग्राफ प्रबंधित करें
 type: docs
 weight: 40
 url: /hi/cpp/manage-paragraph/
@@ -8,56 +8,46 @@ aliases:
   - /cpp/paragraph/
   - /cpp/portion/
 keywords:
-  - "टेक्स्ट जोड़ें"
-  - "पैराग्राफ जोड़ें"
-  - "टेक्स्ट प्रबंधित करें"
-  - "पैराग्राफ प्रबंधित करें"
-  - "बुलेट प्रबंधित करें"
-  - "पैराग्राफ इंडेंट"
-  - "हैंगिंग इंडेंट"
-  - "पैराग्राफ बुलेट"
-  - "क्रमांकित सूची"
-  - "बुलेटेड सूची"
-  - "पैराग्राफ गुण"
-  - "HTML आयात"
-  - "टेक्स्ट से HTML"
-  - "पैराग्राफ से HTML"
-  - "पैराग्राफ से छवि"
-  - "टेक्स्ट से छवि"
-  - "पैराग्राफ निर्यात"
-  - "PowerPoint"
-  - "प्रेजेंटेशन"
-  - "C++"
-  - "Aspose.Slides"
-description: "Aspose.Slides for C++ के साथ पैराग्राफ, पोर्शन, बुलेट, क्रमांकित सूचियों, इंडेंट, HTML सामग्री, और पैराग्राफ छवियों को बनाने और स्वरूपित करने का तरीका सीखें।"
+- टेक्स्ट जोड़ें
+- पैराग्राफ जोड़ें
+- टेक्स्ट प्रबंधित करें
+- पैराग्राफ प्रबंधित करें
+- बुलेट प्रबंधित करें
+- पैराग्राफ इंडेंट
+- हैंगिंग इंडेंट
+- पैराग्राफ बुलेट
+- क्रमांकित सूची
+- बुलेटेड सूची
+- पैराग्राफ गुण
+- HTML आयात
+- टेक्स्ट को HTML में
+- पैराग्राफ को HTML में
+- पैराग्राफ को इमेज में
+- टेक्स्ट को इमेज में
+- पैराग्राफ निर्यात करें
+- PowerPoint
+- प्रस्तुति
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ के साथ पैराग्राफ, भाग, बुलेट, क्रमांकित सूचियाँ, इंडेंट, HTML सामग्री, और पैराग्राफ इमेजेज बनाना और स्वरूपित करना सीखें।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides for C++ पाठ को टेक्स्ट फ्रेम, पैराग्राफ और पोर्शन की पदानुक्रम के रूप में दर्शाता है:
+Aspose.Slides for C++ टेक्स्ट को टेक्स्ट फ्रेम, पैराग्राफ और भागों की पदानुक्रम में दर्शाता है:
 
-* [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) एक आकार में टेक्स्ट कंटेनर का प्रतिनिधित्व करता है और इसके पैराग्राफ संग्रह तक पहुंच प्रदान करता है।
-* [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) टेक्स्ट फ्रेम में एक पैराग्राफ का प्रतिनिधित्व करता है और इसके पोर्शन और पैराग्राफ-स्तरीय स्वरूपण तक पहुंच प्रदान करता है।
-* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) पैराग्राफ के भीतर एक टेक्स्ट रन का प्रतिनिधित्व करता है। प्रत्येक पोर्शन का अपना टेक्स्ट और कैरेक्टर-स्तरीय स्वरूपण हो सकता है।
+* [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) आकार में टेक्स्ट कंटेनर को दर्शाता है और इसके पैराग्राफ संग्रह तक पहुँच प्रदान करता है।
+* [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) एक टेक्स्ट फ्रेम में एक पैराग्राफ को दर्शाता है और इसके भागों तथा पैराग्राफ‑स्तर फ़ॉर्मेटिंग तक पहुँच प्रदान करता है।
+* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) एक पैराग्राफ के भीतर टेक्स्ट रन को दर्शाता है। प्रत्येक भाग अपना स्वयं का टेक्स्ट और अक्षर‑स्तर फ़ॉर्मेटिंग रख सकता है।
 
-इस प्रकार एक पैराग्राफ में विभिन्न फ़ॉन्ट, रंग, आकार और अन्य स्वरूपण वाले टेक्स्ट को कई पोर्शन का उपयोग करके रखा जा सकता है।
+इस प्रकार एक पैराग्राफ कई भागों का उपयोग करके विभिन्न फ़ॉन्ट, रंग, आकार और अन्य फ़ॉर्मेटिंग वाले टेक्स्ट को समेट सकता है।
 
 ## **पैराग्राफ बनाना और स्वरूपित करना**
 
-### **एकाधिक पोर्शन के साथ पैराग्राफ बनाना**
+आकार के टेक्स्ट फ्रेम में पैराग्राफ बनाएं और भागों का उपयोग करके व्यक्तिगत टेक्स्ट रन को स्वरूपित करें। यह अनुभाग प्रत्येक पैराग्राफ के भीतर कई भागों को मिलाकर विभिन्न रंग, फ़ॉन्ट आकार और शैली लागू करने का तरीका दिखाता है।
 
-निम्नलिखित चरण तीन पैराग्राफ वाले टेक्स्ट फ्रेम को बनाते हैं, जहाँ प्रत्येक में तीन पोर्शन होते हैं:
+### **कई भागों के साथ पैराग्राफ बनाना**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसके अनुक्रमणिका के माध्यम से संबंधित स्लाइड का संदर्भ प्राप्त करें।
-3. स्लाइड में एक आयताकार [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
-4. शैप की [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) तक पहुंचें।
-5. डिफ़ॉल्ट पैराग्राफ का उपयोग करके दो अतिरिक्त [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) ऑब्जेक्ट टेक्स्ट फ्रेम में जोड़ें।
-6. प्रत्येक पैराग्राफ के लिए पर्याप्त [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) ऑब्जेक्ट जोड़ें ताकि प्रत्येक में तीन पोर्शन हों। डिफ़ॉल्ट पैराग्राफ में पहले से एक खाली पोर्शन होता है।
-7. प्रत्येक पोर्शन का टेक्स्ट सेट करें।
-8. [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/) के माध्यम से कैरेक्टर-स्तरीय स्वरूपण लागू करें।
-9. संशोधित प्रस्तुति को सहेजें।
-
-यह C++ उदाहरण इन चरणों को लागू करता है:
+निम्नलिखित C++ उदाहरण तीन पैराग्राफ बनाता है, जिनमें प्रत्येक में उसके [IParagraph::get_Portions](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_portions/) संग्रह में तीन टेक्स्ट रन होते हैं। यह डिफ़ॉल्ट पैराग्राफ और उसके खाली भाग को पुन: उपयोग करता है, फिर शेष पैराग्राफ और भाग जोड़ता है। फ़ॉर्मेटिंग [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/) के माध्यम से लागू की जाती है: प्रत्येक पैराग्राफ का पहला भाग लाल, बोल्ड और 15 पॉइंट है; दूसरा नीला, इटैलिक और 18 पॉइंट है। तीसरा भाग अपनी डिफ़ॉल्ट फ़ॉर्मेटिंग बनाए रखता है:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -80,6 +70,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
 auto textFrame = shape->get_TextFrame();
 
@@ -100,11 +91,11 @@ thirdParagraph->get_Portions()->Add(MakeObject<Portion>());
 textFrame->get_Paragraphs()->Add(thirdParagraph);
 
 auto paragraphCount = textFrame->get_Paragraphs()->get_Count();
-for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+for (auto paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 {
     auto paragraph = textFrame->get_Paragraph(paragraphIndex);
     auto portionCount = paragraph->get_Portions()->get_Count();
-    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
+    for (auto portionIndex = 0; portionIndex < portionCount; portionIndex++)
     {
         auto portion = paragraph->get_Portion(portionIndex);
         portion->set_Text(String::Format(u"Portion {0}.{1}", paragraphIndex + 1, portionIndex + 1));
@@ -131,26 +122,15 @@ presentation->Save(u"paragraphs_with_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **बुलेटेड और नंबरेड सूचियाँ बनाना**
+## **बुलेटेड और क्रमांकित सूचियाँ बनाना**
 
-### **बुलेटेड या नंबरेड सूची बनाना**
+पैराग्राफ टेक्स्ट को प्रतीकों, संख्याओं या कस्टम छवियों के साथ सूचियों में व्यवस्थित करें। इस अनुभाग में बुलेट फ़ॉर्मेटिंग, बहु‑स्तरीय सूचियों और कस्टम प्रारम्भिक संख्याओं के उदाहरण शामिल हैं।
 
-बुलेट और नंबरिंग संबंधित आइटम को स्कैन करना आसान बनाते हैं। Aspose.Slides में सूची सेटिंग्स को [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/) के माध्यम से परिभाषित किया जाता है।
+### **बुलेटेड या क्रमांकित सूची बनाना**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसके अनुक्रमणिका के माध्यम से संबंधित स्लाइड का संदर्भ प्राप्त करें।
-3. चयनित स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
-4. शैप की [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) तक पहुंचें।
-5. टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ हटाएँ।
-6. एक प्रतीक बुलेट के लिए एक [Paragraph](https://reference.aspose.com/slides/cpp/aspose.slides/paragraph/) बनाएं।
-7. [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) को [BulletType::Symbol](https://reference.aspose.com/slides/cpp/aspose.slides/bullettype/) पर सेट करें और बुलेट कैरेक्टर निर्दिष्ट करें।
-8. पैराग्राफ टेक्स्ट, इंडेंट, बुलेट रंग और बुलेट ऊँचाई सेट करें।
-9. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-10. दूसरा पैराग्राफ बनाएं और [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) को [BulletType::Numbered](https://reference.aspose.com/slides/cpp/aspose.slides/bullettype/) पर सेट करें।
-11. नंबरेड बुलेट शैली को कॉन्फ़िगर करें और पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-12. प्रस्तुति को सहेजें।
+बुलेट और क्रमांकन संबंधित आइटमों को स्कैन करना आसान बनाते हैं। Aspose.Slides में सूची सेटिंग्स को [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/) के माध्यम से परिभाषित किया जाता है।
 
-यह C++ उदाहरण प्रतीक बुलेट और नंबरेड बुलेट बनाता है:
+यह C++ उदाहरण एक प्रतीक बुलेट और एक क्रमांकित आइटम को एक ही टेक्स्ट फ्रेम में जोड़ता है। [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) बुलेट प्रकार चुनता है, जबकि [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) प्रतीक प्रदान करता है और [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) क्रमांक शैली चुनता है। दोनों आइटम काली बुलेट्स का उपयोग 100 % ऊँचाई और 25 पॉइंट पैराग्राफ इंडेंट के साथ करते हैं:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -173,6 +153,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -203,22 +184,11 @@ presentation->Save(u"bulleted_and_numbered_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **चित्र बुलेट का उपयोग करना**
+### **चित्र बुलेट्स का उपयोग करें**
 
-चित्र बुलेट आपको प्रतीक या संख्या के बजाय एक कस्टम इमेज का उपयोग करने की अनुमति देता है।
+चित्र बुलेट्स आपको प्रतीक या संख्या के बजाय कस्टम छवि का उपयोग करने की अनुमति देते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. उसके अनुक्रमणिका के माध्यम से संबंधित स्लाइड का संदर्भ प्राप्त करें।
-3. एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें और उसकी [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) तक पहुंचें।
-4. टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ हटाएँ।
-5. बुलेट इमेज लोड करें और इसे प्रस्तुति की इमेज कलेक्शन में एक [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) के रूप में जोड़ें।
-6. एक [Paragraph](https://reference.aspose.com/slides/cpp/aspose.slides/paragraph/) बनाकर उसका टेक्स्ट सेट करें।
-7. [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) को [BulletType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/bullettype/) पर सेट करें।
-8. [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/) के माध्यम से इमेज असाइन करें और बुलेट ऊँचाई सेट करें।
-9. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-10. संशोधित प्रस्तुति को सहेजें।
-
-यह C++ उदाहरण चित्र बुलेट बनाता है:
+उदाहरण को कार्यशील निर्देशिका में `bullets.png` चाहिए। यह C++ उदाहरण प्रस्तुति की इमेज कलेक्शन में एक छवि को [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) के रूप में जोड़ता है और इसे पैराग्राफ बुलेट के रूप में उपयोग करता है। यह [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) को चित्र बुलेट उपयोग करने के लिए सेट करता है और छवि को [IBulletFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/get_picture/) के माध्यम से असाइन करता है। बुलेट के आकार को पैराग्राफ टेक्स्ट के सापेक्ष रखने हेतु [IBulletFormat::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_height/) को 100 % पर सेट किया जाता है:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -259,17 +229,11 @@ presentation->Save(u"picture_bullet.ppt", SaveFormat::Ppt);
 presentation->Dispose();
 ```
 
-### **बहु-स्तरीय सूची बनाना**
+### **बहु‑स्तरीय सूची बनाना**
 
-[IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) को सेट करके पैराग्राफ को सूची के विभिन्न स्तरों पर रखा जा सकता है। शीर्ष स्तर का गहराई `0` होती है।
+[IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) को सेट करके पैराग्राफ को सूची की विभिन्न स्तरों पर रखा जाता है। शीर्ष स्तर की गहराई `0` है।
 
-1. एक [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) बनाकर एक स्लाइड तक पहुंचें।
-2. एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें और उसकी टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ को साफ़ करें।
-3. चार पैराग्राफ बनाएं और उनके बुलेट प्रतीकों को कॉन्फ़िगर करें।
-4. उनके [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) मानों को क्रमशः `0`, `1`, `2` और `3` सेट करें।
-5. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें और प्रस्तुति को सहेजें।
-
-यह C++ उदाहरण चार‑स्तरीय बुलेटेड सूची बनाता है:
+यह C++ उदाहरण चार पैराग्राफ को 0 से 3 तक के [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) मान देता है, जिससे एक ही टेक्स्ट फ्रेम में पदानुक्रम बनता है। प्रत्येक पैराग्राफ एक प्रतीक बुलेट का उपयोग करता है, जहाँ [IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) गोल बुलेट और हाइफ़न के बीच बदलता रहता है ताकि क्रमागत स्तरों को अलग किया जा सके:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -290,6 +254,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -335,17 +300,11 @@ presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **कस्टम मानों से क्रमांकित सूची आइटम शुरू करना**
+### **कस्टम मानों से क्रमांकित सूची आइटम शुरू करें**
 
-[IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) का उपयोग करके क्रमांकित पैराग्राफ के प्रारम्भिक नंबर को सेट किया जा सकता है।
+क्रमांकित पैराग्राफ के लिए प्रारम्भिक संख्या सेट करने के लिये [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) का उपयोग करें।
 
-1. एक [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) बनाकर एक स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
-2. शैप के टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ को साफ़ करें।
-3. तीन क्रमांकित पैराग्राफ बनाएं।
-4. संबंधित पैराग्राफ के लिए [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) को क्रमशः `2`, `3` और `7` पर सेट करें।
-5. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें और प्रस्तुति को सहेजें।
-
-यह C++ उदाहरण प्रत्येक पैराग्राफ को कस्टम प्रारम्भिक संख्या प्रदान करता है:
+यह C++ उदाहरण तीन पैराग्राफ के लिये क्रमांकन उपयोग करने हेतु [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) सेट करता है और क्रमागत प्रारम्भिक मान 2, 3 और 7 को [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) से असाइन करता है। प्रत्येक पैराग्राफ के लिये प्रारम्भिक मान अलग‑अलग कॉन्फ़िगर किया जाता है, जिससे प्रदर्शित संख्याएँ मानों को छोड़ सकती हैं:
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -362,6 +321,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -390,23 +350,15 @@ presentation->Dispose();
 
 ## **पैराग्राफ लेआउट और अंत गुण नियंत्रित करना**
 
-### **पहली पंक्ति का इंडेंट सेट करना**
+पहली पंक्ति और रैप्ड पंक्तियों की स्थिति को नियंत्रित करने हेतु पैराग्राफ मार्जिन और इंडेंट को समायोजित करें। आप दृश्यमान टेक्स्ट भागों से अलग पैराग्राफ अंत चिह्न को भी स्वरूपित कर सकते हैं।
 
-[IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) का उपयोग करके पैराग्राफ की पहली पंक्ति का इंडेंट नियंत्रित किया जाता है। यह मेथड केवल पहली पंक्ति को पैराग्राफ की बायीं सीमा के सापेक्ष स्थानांतरित करता है। सकारात्मक मान पहली पंक्ति को दाईं ओर शिफ्ट करता है, जबकि शेष पंक्तियां पैराग्राफ बॉडी के साथ संरेखित रहती हैं।
+### **पहली पंक्ति का इंडेंट सेट करें**
 
-पूरे पैराग्राफ को स्थानांतरित करने की आवश्यकता होने पर [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) का उपयोग करें। केवल पहली पंक्ति को स्थानांतरित करने के लिए [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) का उपयोग करें।
+पहली‑पंक्ति इंडेंट को नियंत्रित करने के लिये [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) मेथड का उपयोग करें। यह मेथड केवल पैराग्राफ के बाएँ मार्जिन के सापेक्ष पहली पंक्ति को ही ले जाता है। सकारात्मक मान पहली पंक्ति को दाएँ शिफ्ट करता है, जबकि शेष पंक्तियाँ पैराग्राफ बॉडी के साथ संरेखित रहती हैं।
 
-निम्न उदाहरण कई पैराग्राफ बनाता है और विभिन्न [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) मान लागू करता है ताकि दिखाया जा सके कि पहली पंक्ति का इंडेंट पैराग्राफ लेआउट को कैसे प्रभावित करता है।
+पूरा पैराग्राफ ले जाने की आवश्यकता होने पर [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) का उपयोग करें। केवल पहली पंक्ति ले जाने की आवश्यकता होने पर [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) का उपयोग करें।
 
-1. एक [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास का उदाहरण बनाएं।
-2. लक्ष्य स्लाइड तक पहुंचें।
-3. स्लाइड में एक आयताकार [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
-4. शैप की [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) तक पहुंचें और डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-5. कई पैराग्राफ बनाएं और उनके लिए विभिन्न [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) मान सेट करें।
-6. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-7. संशोधित प्रस्तुति को सहेजें।
-
-यह कोड दिखाता है कि पैराग्राफ इंडेंट कैसे सेट करें:
+निम्न उदाहरण तीन पैराग्राफ को समान [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) 20 पॉइंट और [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) 0, 20 और 40 पॉइंट देता है। पहली पंक्तियाँ क्रमशः बड़े ऑफ़सेट पर शुरू होती हैं, जबकि रैप्ड पंक्तियाँ समान बाएँ मार्जिन बनाए रखती हैं:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -426,6 +378,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -466,26 +419,17 @@ presentation->Dispose();
 
 परिणाम:
 
-![पैराग्राफ की पहली पंक्ति का इंडेंट](first_line_indent.png)
+![पैराग्राफों की पहली पंक्ति का इंडेंट](first_line_indent.png)
 
-### **हैंगिंग इंडेंट सेट करना**
+### **हैंगिंग इंडेंट सेट करें**
 
-हैंगिंग इंडेंट वह पैराग्राफ लेआउट है जिसमें पहली पंक्ति शेष पंक्तियों से बायीं ओर शुरू होती है। Aspose.Slides में आप यह प्रभाव [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) के माध्यम से बनाते हैं। इंडेंट को नकारात्मक मान पर सेट करके पहली पंक्ति को पैराग्राफ बॉडी के सापेक्ष बाएँ ले जाया जाता है।
+हैंगिंग इंडेंट वह पैराग्राफ लेआउट है जिसमें पहली पंक्ति शेष पंक्तियों से बाएँ शुरू होती है। Aspose.Slides में इसे आप [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) मेथड से बना सकते हैं। बाएँ शिफ्ट करने हेतु नकारात्मक मान पास करें।
 
-व्यावहारिक रूप से, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) पैराग्राफ बॉडी की बायाँ स्थिति निर्धारित करता है, जबकि [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) पहली पंक्ति की स्थिति को उस मार्जिन के सापेक्ष परिभाषित करता है। हैंगिंग इंडेंट बनाने के लिए सकारात्मक margin‑left मान और नकारात्मक indent मान सेट करें।
+व्यावहारिक रूप से, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) पैराग्राफ बॉडी की बाएँ स्थिति निर्धारित करता है, और [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) उस मार्जिन के सापेक्ष पहली पंक्ति की स्थिति निर्धारित करता है। हैंगिंग इंडेंट बनाने के लिये एक सकारात्मक `MarginLeft` मान और एक नकारात्मक `Indent` मान सेट करें।
 
-यह स्वरूपण ग्रंथसूची, संदर्भ, शब्दावली प्रविष्टियों और अन्य पैराग्राफ में उपयोगी है जहाँ रैप्ड पंक्तियों को पैराग्राफ बॉडी के नीचे संरेखित होना चाहिए, न कि पहली पंक्ति के पहले अक्षर के नीचे।
+यह फ़ॉर्मेटिंग ग्रंथसूची, संदर्भ, शब्दकोश प्रविष्टियों और अन्य पैराग्राफ़ों में उपयोगी होती है जहाँ रैप्ड पंक्तियों को पैराग्राफ बॉडी के नीचे संरेखित रखना आवश्यक होता है, न कि पहली पंक्ति के पहले अक्षर के नीचे।
 
-1. एक [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास का उदाहरण बनाएं।
-2. लक्ष्य स्लाइड तक पहुंचें।
-3. स्लाइड में एक आयताकार [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
-4. शैप की [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) तक पहुंचें और डिफ़ॉल्ट पैराग्राफ हटाएँ।
-5. प्रत्येक पैराग्राफ के लिए सकारात्मक [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) मान सेट करके पैराग्राफ बनाएं।
-6. हैंगिंग इंडेंट प्रभाव बनाने के लिए नकारात्मक [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) मान सेट करें।
-7. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-8. संशोधित प्रस्तुति को सहेजें।
-
-यह कोड दिखाता है कि पैराग्राफ के लिए हैंगिंग इंडेंट कैसे सेट करें:
+निम्न C++ उदाहरण [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) 40 और 60 पॉइंट मान को [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) -20 और -30 पॉइंट मानों के साथ जोड़ता है। प्रत्येक पैराग्राफ में पहली पंक्ति रैप्ड पंक्तियों से बाएँ शुरू होती है; द्वितीय पैराग्राफ में गहरा हैंगिंग इंडेंट होता है:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -505,6 +449,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -531,23 +476,17 @@ secondParagraph->get_ParagraphFormat()->set_Indent(-30);
 textFrame->get_Paragraphs()->Add(firstParagraph);
 textFrame->get_Paragraphs()->Add(secondParagraph);
 
-presentation->Save(u"hhang
+presentation->Save(u"hanging_indent.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 परिणाम:
 
-![पैराग्राफ की हैंगिंग इंडेंट](hanging_indent.png)
+![पैराग्राफों का हैंगिंग इंडेंट](hanging_indent.png)
 
-### **अंत पैराग्राफ रन गुण सेट करना**
+### **परिच्छेद अंत रन गुण सेट करें**
 
-[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) पैराग्राफ के अंत चिन्ह के स्वरूपण को नियंत्रित करता है। निम्न उदाहरण दूसरे पैराग्राफ के अंत चिन्ह को फ़ॉन्ट आकार और लैटिन फ़ॉन्ट असाइन करता है:
-
-1. एक [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) लोड करें और एक स्लाइड तक पहुंचें।
-2. एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें और उसका डिफ़ॉल्ट पैराग्राफ साफ़ करें।
-3. दो पैराग्राफ बनाएं और उनमें टेक्स्ट पोर्शन जोड़ें।
-4. दूसरे पैराग्राफ के अंत चिन्ह के लिए एक [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) बनाएं।
-5. [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) और [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/) सेट करें।
-6. इस स्वरूप को [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) के साथ असाइन करें और प्रस्तुति को सहेजें।
+[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) मेथड पैराग्राफ अंत चिह्न के फ़ॉर्मेट को नियंत्रित करता है। उदाहरण `Test.pptx` लोड करता है, जिसमें कम से कम एक स्लाइड होनी चाहिए। निम्न उदाहरण एक [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) बनाता है जिसमें [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) 48 पॉइंट और [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/) Times New Roman पर सेट है। यह फ़ॉर्मेट दूसरे पैराग्राफ के अंत चिह्न को असाइन करता है, जबकि दृश्यमान टेक्स्ट भाग अपरिवर्तित रहता है:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -567,6 +506,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Test.pptx");
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
 auto textFrame = shape->get_TextFrame();
 textFrame->get_Paragraphs()->Clear();
@@ -589,15 +529,15 @@ presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **रेंडर की गई पंक्तियों की गणना करना**
+## **रेंडर की गई पंक्तियों की गिनती**
 
-पैराग्राफ नियम जो स्वचालित रैपिंग और पंक्ति अंत में विराम चिन्हों को प्रभावित करते हैं, उनके लिए देखें [Control Line Breaking](/slides/hi/cpp/text-formatting/#control-line-breaking) और [Control Hanging Punctuation](/slides/hi/cpp/text-formatting/#control-hanging-punctuation)।
+उन पैराग्राफ नियमों के लिये जो स्वतः रैपिंग और लाइन समाप्ति पर विराम चिह्न को प्रभावित करते हैं, देखें [Control Line Breaking](/slides/hi/cpp/text-formatting/#control-line-breaking) और [Control Hanging Punctuation](/slides/hi/cpp/text-formatting/#control-hanging-punctuation)।
 
-[IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) का उपयोग करके टेक्स्ट लेआउट के बाद पैराग्राफ द्वारा अभिप्रेत पंक्तियों की गिनती की जा सकती है, जिसमें स्वचालित रैपिंग शामिल है। यह प्रस्तुति टेम्प्लेट में टेक्स्ट लंबाई और लेआउट की जाँच के लिए उपयोगी है।
+[IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) का उपयोग करके पैराग्राफ के टेक्स्ट लेआउट के बाद वह कितनी पंक्तियों में फैला है, इसे गिन सकते हैं, जिसमें स्वचालित रैपिंग भी शामिल है। यह प्रस्तुति टेम्पलेट में टेक्स्ट की लंबाई और लेआउट की जाँच में उपयोगी है।
 
-पैराग्राफ एक आइटम है [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/) में, और यह कई रेंडर की गई पंक्तियों को घेर सकता है। पैराग्राफ के भीतर स्पष्ट लाइन ब्रेक नई पंक्ति बनाता है बिना अतिरिक्त पैराग्राफ बनाए। स्वचालित रैपिंग उपलब्ध चौड़ाई के आधार पर पंक्तियों का निर्माण करता है, बिना टेक्स्ट में स्पष्ट लाइन ब्रेक डाले। इसलिए पैराग्राफ या लाइन‑ब्रेक कैरेक्टर की गिनती रेंडर की गई पंक्ति संख्या नहीं देती।
+[ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/) में पैराग्राफ एक वस्तु है, और वह कई रेंडर की गई पंक्तियों को ले सकता है। पैराग्राफ के भीतर स्पष्ट लाइन ब्रेक नई पंक्ति बनाता है बिना नया पैराग्राफ बनाए। स्वचालित रैपिंग उपलब्ध चौड़ाई के आधार पर पंक्तियाँ बनाता है, बिना टेक्स्ट में स्पष्ट लाइन‑ब्रेक डालते। इसलिए पैराग्राफ या लाइन‑ब्रेक अक्षरों की गिनती करने से रेंडर की गई पंक्तियों की गिनती नहीं मिलती।
 
-निम्न उदाहरण एक टेक्स्ट शैप बनाता है, उसकी पंक्तियों की गिनती करता है, शैप को संकरी करता है, और फिर टेक्स्ट को एक छोटे स्ट्रिंग से बदलता है। रैपिंग सक्षम है और ऑटोफ़िट अक्षम किया गया है ताकि शैप की चौड़ाई रैपिंग को नियंत्रित करे, टेक्स्ट या शैप का आकार स्वतः नहीं बदलता। शैप आयाम पॉइंट में हैं। अंत में, उदाहरण एक और पैराग्राफ जोड़ता है और टेक्स्ट फ्रेम में कुल पंक्ति गिनती को जोड़ता है।
+निम्न उदाहरण एक टेक्स्ट शैप बनाता है, उसकी पंक्तियों की गिनती करता है, शैप को संकरी करता है, और फिर टेक्स्ट को छोटे स्ट्रिंग से बदलता है। उदाहरण [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) को सक्षम करता है और [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) को निष्क्रिय करता है ताकि शैप की चौड़ाई रैपिंग को नियंत्रित करे, बिना टेक्स्ट को स्वतः छोटा किए या शैप को रिसाइज़ किए। प्रत्येक माप [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) से किया जाता है। शैप आयाम पॉइंट में होते हैं। अंत में, उदाहरण एक और पैराग्राफ जोड़ता है और टेक्स्ट फ्रेम की कुल पंक्तियों की गिनती करता है:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -645,24 +585,19 @@ Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
 presentation->Dispose();
 ```
 
-इन टेक्स्ट और आयामों के साथ, शैप को संकरी करने से पंक्ति संख्या बढ़ती है, जबकि छोटे स्ट्रिंग से बदलने से घटती है। सटीक गणना फ़ॉन्ट उपलब्धता, प्रतिस्थापन, फ़ॉन्ट आकार, मार्जिन, इंडेंटेशन, रैपिंग और ऑटोफ़िट सेटिंग्स पर निर्भर करती है। टेम्प्लेट की जाँच के समय लक्षित वातावरण के लिए उपयुक्त फ़ॉन्ट और लेआउट सेटिंग्स का उपयोग करें।
+इन टेक्स्ट और आयामों के साथ, शैप को संकरी करने से पंक्तियों की संख्या बढ़ती है, जबकि छोटे स्ट्रिंग से बदलने पर घटती है। सटीक संख्या फ़ॉन्ट उपलब्धता, प्रतिस्थापन, फ़ॉन्ट आकार, मार्जिन, इंडेंटेशन, रैपिंग और ऑटोफिट सेटिंग्स पर निर्भर करती है। टेम्पलेट की जाँच करते समय लक्ष्य वातावरण के लिये नियत फ़ॉन्ट और लेआउट सेटिंग्स का उपयोग करें।
 
-केवल पंक्ति संख्या यह निर्धारित नहीं करती कि टेक्स्ट कंटेनर से अधिक हो रहा है या नहीं। उपलब्ध ऊँचाई, लाइन‑हाइट, पैराग्राफ और लाइन स्पेसिंग, तथा ऑटोफ़िट व्यवहार भी महत्वपूर्ण हैं; रैपिंग बंद रहने पर एक ही पंक्ति भी उपलब्ध चौड़ाई से अधिक हो सकती है।
+केवल पंक्तियों की गिनती यह निर्धारित नहीं करती कि टेक्स्ट अपने कंटेनर से बाहर निकलता है या नहीं। उपलब्ध ऊँचाई, पंक्ति ऊँचाई, पैराग्राफ और पंक्ति स्पेसिंग, तथा ऑटोफिट व्यवहार भी महत्वपूर्ण होते हैं; यहाँ तक कि एक पंक्ति भी रैपिंग निष्क्रिय होने पर उपलब्ध चौड़ाई से अधिक हो सकती है।
 
-## **पैराग्राफ सामग्री आयात और निर्यात करना**
+## **पैराग्राफ सामग्री आयात और निर्यात**
 
-### **HTML टेक्स्ट को पैराग्राफ में आयात करना**
+HTML का उपयोग करके टेक्स्ट को प्रस्तुति में लाएँ या मौजूदा पैराग्राफ को बाहर उपयोग के लिये निर्यात करें। यह अनुभाग यह भी दर्शाता है कि व्यक्तिगत पैराग्राफ को छवि के रूप में कैसे रेंडर करें, जिसमें टेबल सेल में पैराग्राफ भी शामिल हैं।
 
-[IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/addfromhtml/) का उपयोग करके HTML मार्कअप को टेक्स्ट फ्रेम के पैराग्राफ और पोर्शन में परिवर्तित किया जा सकता है।
+### **HTML टेक्स्ट को पैराग्राफ में आयात करें**
 
-1. एक [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास का उदाहरण बनाएं।
-2. एक स्लाइड तक पहुंचें और एक [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) जोड़ें।
-3. शैप की [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) तक पहुंचें और डिफ़ॉल्ट पैराग्राफ को साफ़ करें।
-4. स्रोत HTML फ़ाइल पढ़ें।
-5. HTML स्ट्रिंग को [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/addfromhtml/) में पास करें।
-6. संशोधित प्रस्तुति को सहेजें।
+[ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) का उपयोग करके HTML मार्कअप को टेक्स्ट फ्रेम में पैराग्राफ और भागों में परिवर्तित करें।
 
-यह C++ उदाहरण HTML को टेक्स्ट फ्रेम में आयात करता है:
+यह C++ उदाहरण फ़ाइल से HTML पढ़ता है और मार्कअप को [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) को पास करता है। यह टेक्स्ट फ्रेम के डिफ़ॉल्ट पैराग्राफ को साफ़ करता है ताकि फ्रेम केवल आयातित सामग्री रखे। आयताकार शैप स्लाइड के प्रत्येक किनारे पर 10‑पॉइंट मार्जिन छोड़ता है:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -681,6 +616,7 @@ using namespace System::IO;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto slideSize = presentation->get_SlideSize()->get_Size();
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, slideSize.get_Width() - 20, slideSize.get_Height() - 20);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -697,41 +633,53 @@ presentation->Dispose();
 
 ### **पैराग्राफ टेक्स्ट को HTML में निर्यात करना**
 
-[IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/exporttohtml/) का उपयोग करके चयनित पैराग्राफ रेंज को HTML के रूप में निर्यात किया जा सकता है।
+[ParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/exporttohtml/) का उपयोग करके चयनित पैराग्राफ रेंज को HTML के रूप में निर्यात करें। जब प्रस्तुति टेक्स्ट को वेबसाइट पर पुन: उपयोग करते हैं, तो आप स्थानीय इम्फेसिस को फ़ॉन्ट, आकार या टेक्स्ट बॉक्स शैली को ले जाए बिना संरक्षित रखना चाह सकते हैं। निर्यातकर्ता के फ़ॉर्मेटिंग इनहेरिटेंस के अनुसरण को नियंत्रित करने के लिये [TextToHtmlConversionOptions::set_TextInheritanceLimit](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_textinheritancelimit/) सेट करें।
 
-1. एक [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास का उदाहरण बनाएं और वांछित प्रस्तुति लोड करें।
-2. स्लाइड तक पहुंचें और वह [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) खोजें जिसमें टेक्स्ट है।
-3. शैप की [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) तक पहुंचें।
-4. प्रारंभिक पैराग्राफ इंडेक्स और निर्यात करने वाले पैराग्राफ की संख्या के साथ [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphcollection/exporttohtml/) को कॉल करें।
-5. प्राप्त HTML स्ट्रिंग को फ़ाइल में लिखें।
+[text-inheritance.pptx](text-inheritance.pptx) को डाउनलोड करके एप्लिकेशन की कार्यशील निर्देशिका में रखें। इसकी पहली स्लाइड में एक टेक्स्ट शैप है जिसमें टेक्स्ट “Inherited text; explicit red 18pt” है। इनपुट जानबूझकर कई फ़ॉर्मेटिंग स्तरों का उपयोग करता है:
 
-यह C++ उदाहरण पहले टेक्स्ट शैप के सभी पैराग्राफ निर्यात करता है:
+- प्रस्तुति की डिफ़ॉल्ट टेक्स्ट शैली Calibri और 28 pt आकार प्रदान करती है।
+- टेक्स्ट फ्रेम की प्रथम‑स्तर टेक्स्ट शैली नीला टेक्स्ट और इटैलिक प्रदान करती है।
+- पैराग्राफ स्पष्ट रूप से बोल्ड टेक्स्ट सेट करता है।
+- दूसरा भाग, “explicit red 18pt”, स्पष्ट रूप से लाल टेक्स्ट और 18 pt आकार सेट करता है।
+
+निम्न उदाहरण वही पैराग्राफ तीन बार निर्यात करता है। यह निर्यात मेथड को [TextToHtmlConversionOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/) पास करता है और प्रत्येक परिणाम को अलग‑अलग UTF‑8 HTML फ़ाइल के रूप में लिखता है:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/Presentation.h>
+#include <Export/TextInheritanceLimit.h>
+#include <Export/TextToHtmlConversionOptions.h>
+#include <system/array.h>
 #include <system/console.h>
-#include <system/io/stream_writer.h>
+#include <system/io/file.h>
 #include <system/object_ext.h>
 #include <system/text/encoding.h>
 
 using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 using namespace System::Text;
 
-auto presentation = MakeObject<Presentation>(u"ExportingHTMLText.pptx");
+auto presentation = MakeObject<Presentation>(u"text-inheritance.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 auto textShape = AsCast<IAutoShape>(shape);
 
 if (textShape != nullptr && textShape->get_TextFrame() != nullptr)
 {
     auto paragraphs = textShape->get_TextFrame()->get_Paragraphs();
-    auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), nullptr);
-    auto writer = MakeObject<StreamWriter>(u"paragraphs.html", false, Encoding::get_UTF8());
-    writer->Write(html);
-    writer->Close();
+    auto modes = MakeArray<TextInheritanceLimit>({TextInheritanceLimit::All, TextInheritanceLimit::TextBox, TextInheritanceLimit::ParagraphOnly});
+    auto fileNames = MakeArray<String>({u"All.html", u"TextBox.html", u"ParagraphOnly.html"});
+
+    for (auto i = 0; i < modes->get_Length(); i++)
+    {
+        auto options = MakeObject<TextToHtmlConversionOptions>();
+        options->set_TextInheritanceLimit(modes[i]);
+
+        auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+        File::WriteAllText(fileNames[i], html, Encoding::get_UTF8());
+    }
 }
 else
 {
@@ -741,19 +689,68 @@ else
 presentation->Dispose();
 ```
 
-### **पैराग्राफ को इमेज के रूप में रेंडर करना**
+निर्मित HTML में प्रथम भाग, “Inherited text; ” के लिये निम्न CSS शामिल है। तालिका संबंधित घोषणा सूचीबद्ध करती है; अन्य उत्पन्न गुण स्पष्टता हेतु छोड़े गए हैं।
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) व्यक्तिगत पैराग्राफ को सीधे रेंडर करता है और एक [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/) लौटाता है। परिणाम को [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) द्वारा फ़ाइल या स्ट्रीम में सहेजा जा सकता है। पूरे शैप को रेंडर करने या बिटमैप को मैन्युअली क्रॉप करने की आवश्यकता नहीं है।
+| आउटपुट | पहले भाग के लिए संबंधित CSS | दिखावट |
+| --- | --- | --- |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | नीला, बोल्ड, इटैलिक टेक्स्ट 28 pt में Calibri, यदि वह फ़ॉन्ट उपलब्ध है। |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | नीला, बोल्ड, इटैलिक टेक्स्ट; आसपास का पेज या ब्राउज़र फ़ॉन्ट परिवार और आकार प्रदान करता है। |
+| `ParagraphOnly.html` | `font-weight:bold` | बोल्ड टेक्स्ट; आसपास का पेज या ब्राउज़र फ़ॉन्ट परिवार, आकार, रंग और इटैलिक शैली प्रदान करता है। |
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) `nullptr` लौटा सकता है यदि पैराग्राफ अपने पैरेंट कलेक्शन में नहीं मिलता, वैध रेंडरिंग बाउंड नहीं होते, या रेंडर नहीं हो सकता। सहेजने से पहले परिणाम की जाँच करें और उपयोग के बाद लौटाए गए इमेज को डिस्पोज़ करें।
+दूसरा भाग सभी तीन आउटपुट में `color:#ff0000`, `font-size:18pt` और `font-weight:bold` को बरकरार रखता है। यह `All` और `TextBox` में इटैलिक भी रखता है, लेकिन `ParagraphOnly` में नहीं। इसलिए इनहेरिटेंस प्रतिबंध पैराग्राफ या भाग को स्पष्ट रूप से असाइन किए गए फ़ॉर्मेट को नहीं हटाता।
 
-#### **डिफ़ॉल्ट स्केल पर पैराग्राफ रेंडर करना**
+फ़ाइलों को एक ही ब्राउज़र में खोलकर तुलना करें। दो प्रतिबंधित मोड में, छोड़ी गई CSS प्रॉपर्टीज़ गंतव्य पेज की शैलियों या ब्राउज़र डिफ़ॉल्ट से हल होती हैं, इसलिए अंतिम दिखावट इस पर निर्भर करती है कि HTML कहाँ उपयोग किया जाता है।
 
-मान लीजिए हमारे पास sample.pptx नामक एक प्रस्तुति फ़ाइल है जिसमें एक स्लाइड है, और पहला शैप तीन पैराग्राफ वाला टेक्स्ट बॉक्स है।
+### **HTML क्लिपबोर्ड फ्रैगमेंट उत्पन्न करें**
+
+सामान्य HTML के लिये [TextToHtmlConversionOptions::set_AddClipboardFragmentHeader](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_addclipboardfragmentheader/) को `false` और क्लिपबोर्ड हेडर शामिल करने के लिये `true` सेट करें। हेडर आसपास के HTML (`StartHTML` और `EndHTML`) और पेस्ट करने योग्य फ़्रैगमेंट (`StartFragment` और `EndFragment`) के UTF‑8 बाइट ऑफ़सेट देता है।
+
+यह उदाहरण दो स्वरूपित पैराग्राफ को सामान्य HTML (`html`) और HTML क्लिपबोर्ड फ्रैगमेंट (`clipboardHtml`) के रूप में निर्यात करता है। फ्रैगमेंट को सिस्टम क्लिपबोर्ड में लिखना एक अलग एप्लिकेशन कदम है। वह क्लिपबोर्ड API जो कच्चा HTML क्लिपबोर्ड बाइट्स स्वीकार करता है, उसे BOM‑रहित UTF‑8 चाहिए।
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/TextToHtmlConversionOptions.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0, 0, 400, 100);
+auto paragraphs = shape->get_TextFrame()->get_Paragraphs();
+paragraphs->Clear();
+paragraphs->AddFromHtml(u"<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+auto options = MakeObject<TextToHtmlConversionOptions>();
+options->set_AddClipboardFragmentHeader(false);
+auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+
+options->set_AddClipboardFragmentHeader(true);
+auto clipboardHtml = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+presentation->Dispose();
+```
+
+### **पैराग्राफ को इमेज के रूप में रेंडर करें**
+
+[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) एकल पैराग्राफ को सीधे रेंडर करता है और एक [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/) लौटाता है। परिणाम को फ़ाइल या स्ट्रीम में [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) से सहेजें। आपको कंटेनिंग शैप को रेंडर करने या बिटमैप को मैन्युअल रूप से क्रॉप करने की आवश्यकता नहीं है।
+
+यदि पैराग्राफ पैरेंट संग्रह में नहीं मिला, वैध रेंडरिंग बॉन्ड नहीं है या रेंडर नहीं हो सकता तो [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) `nullptr` लौटा सकता है। सहेजने से पहले परिणाम की जाँच करें और उपयोग के बाद लौटाई गई इमेज को डिस्पोज़ करें।
+
+#### **डिफ़ॉल्ट स्केल पर पैराग्राफ रेंडर करें**
+
+उदाहरण `sample.pptx` का उपयोग करता है, जिसमें एक स्लाइड है और उसकी पहली शैप एक टेक्स्ट बॉक्स है जिसमें तीन पैराग्राफ हैं।
 
 ![तीन पैराग्राफ वाला टेक्स्ट बॉक्स](paragraph_to_image_input.png)
 
-निम्न उदाहरण दूसरे पैराग्राफ को सामान्य टेक्स्ट शैप में डिफ़ॉल्ट स्केल पर रेंडर करता है और परिणाम को PNG प्रारूप में सहेजता है।
+निम्न उदाहरण इंडेक्स 1 पर दूसरे पैराग्राफ को चुनता है और स्केल पैरामीटर के बिना [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) को कॉल करता है। यह जाँचता है कि शैप आवश्यक पैराग्राफ रखता है और रेंडरिंग इमेज लौटाती है, फिर [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) से PNG प्रारूप में सहेजता है। उदाहरण इमेज को सहेजने के बाद डिस्पोज़ करता है।
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -798,9 +795,9 @@ presentation->Dispose();
 
 ![पैराग्राफ इमेज](paragraph_to_image_output.png)
 
-#### **टेबल सेल में स्केलिंग के साथ पैराग्राफ रेंडर करना**
+#### **टेबल सेल में पैराग्राफ को स्केलिंग के साथ रेंडर करें**
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) ओवरलोड का उपयोग करके `float scaleX` और `float scaleY` पैरामीटर पास किए जा सकते हैं ताकि क्षैतिज और अनुलंब स्केल फैक्टर सेट हो सके। निम्न उदाहरण एक टेबल बनाता है, पहले सेल में पैराग्राफ को उसकी डिफ़ॉल्ट चौड़ाई और ऊँचाई से दोगुना स्केल पर रेंडर करता है, और परिणाम को PNG इमेज के रूप में सहेजता है।
+[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) के ओवरलोड का उपयोग करें जो `float scaleX` और `float scaleY` पैरामीटर स्वीकार करता है ताकि क्षैतिज और लंबवत स्केल फैक्टर सेट हों। निम्न उदाहरण एक टेबल बनाता है, पैराग्राफ को उसकी पहली सेल में डिफ़ॉल्ट चौड़ाई और ऊँचाई के दो गुना पर रेंडर करता है, और परिणाम को PNG इमेज के रूप में सहेजता है।
 
 ```cpp
 #include <DOM/IParagraph.h>
@@ -819,6 +816,7 @@ auto scaleY = 2.0f;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto table = slide->get_Shapes()->AddTable(50, 50, MakeArray<double>({300}), MakeArray<double>({80}));
 auto paragraph = table->idx_get(0, 0)->get_TextFrame()->get_Paragraph(0);
 paragraph->set_Text(u"Text in a table cell");
@@ -837,26 +835,26 @@ else
 presentation->Dispose();
 ```
 
-स्केल फैक्टर `1` उस अक्ष को उसके डिफ़ॉल्ट पिक्सेल आकार पर रखता है। उदाहरण के लिए, दोनों फ़ैक्टर के लिए `2` देने पर इमेज की चौड़ाई और ऊँचाई लगभग डिफ़ॉल्ट आयामों के दो गुना हो जाती है, जिससे चार गुना पिक्सेल बनते हैं। बड़े फ़ैक्टर ज़ूम या हाई‑रेज़ॉल्यूशन आउटपुट के लिए अधिक तेज़ टेक्स्ट देते हैं, लेकिन मेमोरी उपयोग और फ़ाइल आकार भी बढ़ाते हैं। `1` से नीचे के फ़ैक्टर छोटे इमेज बनाते हैं जिनमें कम विवरण होता है। पैराग्राफ के अनुपात को संरक्षित रखने के लिए समान फ़ैक्टर उपयोग करें; अलग-अलग क्षैतिज और अनुलंब फ़ैक्टर आउटपुट को स्वतंत्र रूप से खींचते हैं।
+`1` का स्केल फैक्टर उस अक्ष को इसका डिफ़ॉल्ट पिक्सेल आकार रखता है। उदाहरण के लिये, दोनों फैक्टर के लिये `2` सेट करने से इमेज की चौड़ाई और ऊँचाई लगभग डिफ़ॉल्ट आयामों के दो गुना हो जाती है, जिससे चार गुना पिक्सेल बनते हैं। बड़े फैक्टर आमतौर पर ज़ूम या हाई‑रिज़ॉल्यूशन आउटपुट हेतु तेज़ टेक्स्ट देते हैं, परन्तु मेमोरी उपयोग और फ़ाइल आकार भी बढ़ाते हैं। `1` से नीचे के फैक्टर छोटे इमेज कम विवरण के साथ बनाते हैं। समान फैक्टर उपयोग करके पैराग्राफ का अनुपात बनायीँ रखें; विभिन्न क्षैतिज और लंबवत फैक्टर आउटपुट को स्वतंत्र रूप से खींचते हैं।
 
-पूरा शैप [IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) के साथ रेंडर करना उपयोगी है जब आउटपुट में शैप का फ़िल, बॉर्डर या अन्य दृश्य संदर्भ शामिल होना आवश्यक हो। केवल पैराग्राफ‑इमेज के लिए, [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) का उपयोग करें।
+जब आउटपुट को शैप के फ़िल, बॉर्डर या अन्य दृश्य संदर्भ सहित चाहिए, तब [IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) से पूरे शैप को रेंडर करना उपयोगी रहता है। केवल पैराग्राफ‑इमेज के लिये, [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) का उपयोग करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं टेक्स्ट फ्रेम के अंदर लाइन रैपिंग को पूरी तरह बंद कर सकता हूँ?**
+**क्या मैं टेक्स्ट फ्रेम के अंदर लाइन रैपिंग को पूरी तरह अक्षम कर सकता हूँ?**
 
-हाँ। [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) का उपयोग करके रैपिंग बंद की जा सकती है जिससे पंक्तियाँ टेक्स्ट फ्रेम की किनारों पर नहीं टूटतीं।
+हाँ। लाइन ब्रेकेज को अक्षम करने के लिये [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) का उपयोग करें, जिससे पंक्तियाँ टेक्स्ट फ्रेम के किनारों पर नहीं टूटेंगी।
 
-**मैं किसी विशिष्ट पैराग्राफ की स्लाइड पर वास्तविक सीमाएँ कैसे प्राप्त करूँ?**
+**मैं किसी विशिष्ट पैराग्राफ की स्लाइड पर सटीक सीमाएं कैसे प्राप्त कर सकता हूँ?**
 
-[IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) का उपयोग करके पैराग्राफ का बाउंडिंग रेक्टैंगल प्राप्त किया जाता है। [IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) व्यक्तिगत पोर्शन की सीमाएँ दर्शाता है।
+पैराग्राफ की बाउंडिंग आयत प्राप्त करने के लिये [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) का उपयोग करें। व्यक्तिगत भाग की सीमाएं प्राप्त करने के लिये [IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) उपयोग करें।
 
-**पैराग्राफ का संरेखण (बायाँ, दायाँ, केंद्र, या जस्टिफ़ाई) कहाँ नियंत्रित किया जाता है?**
+**पैराग्राफ संरेखण (बाएँ, दाएँ, केंद्र, या जस्टिफाई) कहाँ नियंत्रित होता है?**
 
-[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) पैराग्राफ‑स्तरीय सेटिंग है और पूरे पैराग्राफ पर लागू होती है, चाहे व्यक्तिगत पोर्शन का स्वरूपण कुछ भी हो।
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) पैराग्राफ‑स्तर की सेटिंग है और व्यक्तिगत भाग के फ़ॉर्मेटिंग से अलग होकर पूरे पैराग्राफ पर लागू होती है।
 
-विभिन्न फ़ॉन्ट आकारों वाले पोर्शन को प्रत्येक पंक्ति में वर्टीकली संरेखित करने के लिए देखें [Align Fonts Within a Line](/slides/hi/cpp/text-formatting/#align-fonts-within-a-line)।
+एक पंक्ति में विभिन्न फ़ॉन्ट आकारों के भागों को लंबवत संरेखित करने के लिये देखें [एक पंक्ति में फ़ॉन्ट संरेखित करना](/slides/hi/cpp/text-formatting/#align-fonts-within-a-line)।
 
-**क्या मैं पैराग्राफ के किसी भाग के लिए प्रूफ़िंग भाषा सेट कर सकता हूँ?**
+**क्या मैं पैराग्राफ के भाग के लिए प्रूफ़िंग भाषा सेट कर सकता हूँ?**
 
-हाँ। व्यक्तिगत पोर्शन के लिए [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) का उपयोग करें, जिससे एक पैराग्राफ में कई भाषाओं का टेक्स्ट रखा जा सकता है।
+हाँ। व्यक्तिगत भागों के लिये [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) का उपयोग करें, ताकि एक पैराग्राफ में कई भाषाओं का टेक्स्ट हो सके।

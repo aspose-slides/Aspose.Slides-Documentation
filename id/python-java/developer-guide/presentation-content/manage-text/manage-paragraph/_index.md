@@ -1,5 +1,5 @@
 ---
-title: Kelola Paragraf Teks PowerPoint dalam Python via Java
+title: Kelola Paragraf Teks PowerPoint di Python via Java
 linktitle: Kelola Paragraf
 type: docs
 weight: 40
@@ -12,12 +12,12 @@ keywords:
 - tambahkan paragraf
 - kelola teks
 - kelola paragraf
-- kelola butir
+- kelola bullet
 - indentasi paragraf
-- indentasi gantung
-- butir paragraf
+- indentasi menggantung
+- bullet paragraf
 - daftar bernomor
-- daftar berbutir
+- daftar berbulu
 - properti paragraf
 - impor HTML
 - teks ke HTML
@@ -30,25 +30,25 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Pelajari cara membuat dan memformat paragraf, bagian, butir, daftar bernomor, indentasi, konten HTML, dan gambar paragraf dengan Aspose.Slides untuk Python via Java."
+description: "Pelajari cara membuat dan memformat paragraf, bagian, bullet, daftar bernomor, indentasi, konten HTML, dan gambar paragraf dengan Aspose.Slides untuk Python via Java."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides untuk Python via Java merepresentasikan teks sebagai hierarki bingkai teks, paragraf, dan bagian:
+Aspose.Slides untuk Python melalui Java merepresentasikan teks sebagai hierarki bingkai teks, paragraf, dan bagian:
 
 * [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) mewakili wadah teks dalam sebuah bentuk dan menyediakan akses ke koleksi paragrafnya.
-* [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) mewakili satu paragraf dalam bingkai teks dan menyediakan akses ke bagian-bagiannya serta pemformatan tingkat paragraf.
-* [Portion](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) mewakili rangkaian teks dalam sebuah paragraf. Setiap bagian dapat memiliki teks dan pemformatan tingkat karakter masing‑masing.
+* [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) mewakili satu paragraf dalam bingkai teks dan menyediakan akses ke bagian-bagiannya serta format pada tingkat paragraf.
+* [Portion](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) mewakili jalur teks dalam sebuah paragraf. Setiap bagian dapat memiliki teks dan format pada tingkat karakter masing‑masing.
 
-Dengan demikian, sebuah paragraf dapat berisi teks dengan font, warna, ukuran, dan pemformatan lain yang berbeda‑beda dengan menggunakan beberapa bagian.
+Dengan demikian, sebuah paragraf dapat berisi teks dengan font, warna, ukuran, dan format lain yang berbeda dengan menggunakan beberapa bagian.
 
 ## **Buat dan Format Paragraf**
 
-Buat paragraf dalam bingkai teks sebuah bentuk dan gunakan bagian‑bagian untuk memformat rangkaian teks individu. Bagian ini menunjukkan cara menggabungkan beberapa bagian dalam setiap paragraf serta menerapkan warna, ukuran font, dan gaya yang berbeda.
+Buat paragraf dalam bingkai teks sebuah bentuk dan gunakan bagian untuk memformat jalur teks individu. Bagian ini menunjukkan cara menggabungkan beberapa bagian dalam setiap paragraf dan menerapkan warna, ukuran font, serta gaya yang berbeda.
 
 ### **Buat Paragraf dengan Beberapa Bagian**
 
-Contoh Python berikut membuat tiga paragraf, masing‑masing berisi tiga rangkaian teks dalam koleksi yang dikembalikan oleh [Paragraph.getPortions](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getPortions). Ia menggunakan kembali paragraf default dan bagian kosongnya, lalu menambahkan paragraf serta bagian yang tersisa. Pemformatan diterapkan melalui [Portion.getPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getPortionFormat): bagian pertama dalam setiap paragraf berwarna merah, tebal, dan 15 poin; yang kedua berwarna biru, miring, dan 18 poin. Bagian ketiga mempertahankan pemformatan defaultnya:
+Contoh Python berikut membuat tiga paragraf, masing‑masing berisi tiga jalur teks dalam koleksi yang dikembalikan oleh [Paragraph.getPortions](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getPortions). Contoh ini menggunakan kembali paragraf default dan bagian kosongnya, lalu menambahkan paragraf dan bagian yang tersisa. Format diterapkan melalui [Portion.getPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getPortionFormat): bagian pertama di setiap paragraf berwarna merah, tebal, dan 15 poin; bagian kedua berwarna biru, miring, dan 18 poin. Bagian ketiga mempertahankan format defaultnya:
 
 ```python
 import jpype
@@ -107,15 +107,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Buat Daftar Berbutir dan Bernomor**
+## **Buat Daftar Berbulu dan Bernomor**
 
-Atur teks paragraf menjadi daftar dengan simbol, angka, atau gambar khusus. Contoh-contoh dalam bagian ini mencakup pemformatan butir, daftar berjenjang, dan angka awal khusus.
+Susun teks paragraf menjadi daftar dengan simbol, angka, atau gambar khusus. Contoh‑contoh pada bagian ini mencakup pemformatan bullet, daftar berjenjang, dan angka mula khusus.
 
-### **Buat Daftar Berbutir atau Bernomor**
+### **Buat Daftar Berbulu atau Bernomor**
 
-Butir dan penomoran memudahkan pemindaian item terkait. Dalam Aspose.Slides, pengaturan daftar didefinisikan melalui [BulletFormat](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/).
+Bullet dan penomoran memudahkan pemindaian item terkait. Di Aspose.Slides, pengaturan daftar didefinisikan melalui [BulletFormat](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/).
 
-Contoh Python ini menambahkan butir simbol dan item bernomor ke bingkai teks yang sama. [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) memilih tipe butir, sementara [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) menyediakan simbol dan [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) memilih gaya penomoran. Kedua item menggunakan butir hitam dengan tinggi 100 persen dan indentasi paragraf 25 poin:
+Contoh Python ini menambahkan bullet simbol dan item bernomor ke bingkai teks yang sama. [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) memilih jenis bullet, sementara [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) menyediakan simbol dan [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) memilih gaya penomoran. Kedua item menggunakan bullet hitam dengan tinggi 100 % dan indent paragraf 25 poin:
 
 ```python
 import jpype
@@ -162,11 +162,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Gunakan Butir Gambar**
+### **Gunakan Bullet Gambar**
 
-Butir gambar memungkinkan Anda menggunakan gambar khusus alih‑alih simbol atau angka.
+Bullet gambar memungkinkan Anda menggunakan gambar khusus alih‑alih simbol atau angka.
 
-Contoh Python ini menambahkan gambar ke koleksi gambar presentasi sebagai [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) dan menggunakannya sebagai butir paragraf. Ia memanggil [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) untuk menggunakan butir gambar dan menetapkan gambar melalui [BulletFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getPicture). [BulletFormat.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setHeight) diatur ke 100 persen untuk menyesuaikan ukuran butir relatif terhadap teks paragraf:
+Contoh Python ini menambahkan gambar ke koleksi gambar presentasi sebagai [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) dan menggunakannya sebagai bullet paragraf. Ia memanggil [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) untuk menggunakan bullet gambar dan menetapkan gambar melalui [BulletFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getPicture). [BulletFormat.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setHeight) diset ke 100 % agar bullet berukuran relatif terhadap teks paragraf:
 
 ```python
 import jpype
@@ -206,9 +206,9 @@ finally:
 
 ### **Buat Daftar Berjenjang**
 
-Atur [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) untuk menempatkan paragraf pada tingkat yang berbeda dalam sebuah daftar. Tingkat teratas memiliki kedalaman `0`.
+Setel [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) untuk menempatkan paragraf pada level yang berbeda dalam sebuah daftar. Level teratas memiliki kedalaman `0`.
 
-Contoh Python ini menetapkan nilai [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) dari 0 hingga 3 pada empat paragraf, membuat hierarki dalam satu bingkai teks. Setiap paragraf menggunakan butir simbol, dengan [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) bergantian antara butir bulat dan tanda hubung untuk membedakan tingkat yang berdekatan:
+Contoh Python ini menetapkan nilai [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) dari 0 hingga 3 untuk empat paragraf, menciptakan hierarki dalam satu bingkai teks. Setiap paragraf menggunakan bullet simbol, dengan [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) bergantian antara bullet bulat dan tanda hubung untuk membedakan level yang berdekatan:
 
 ```python
 import jpype
@@ -270,11 +270,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Mulai Item Daftar Bernomor dengan Nilai Kustom**
+### **Mulai Item Daftar Bernomor dengan Nilai Khusus**
 
-Gunakan [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) untuk menetapkan nomor awal yang ditampilkan pada paragraf bernomor.
+Gunakan [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) untuk menentukan angka awal yang ditampilkan untuk paragraf bernomor.
 
-Contoh Python ini mengatur [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) untuk menggunakan penomoran pada tiga paragraf dan menetapkan nilai [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) masing‑masing 2, 3, dan 7. Nilai awal dikonfigurasi terpisah untuk setiap paragraf, memungkinkan nomor yang ditampilkan melompati nilai tertentu:
+Contoh Python ini menetapkan [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) untuk menggunakan penomoran pada tiga paragraf dan menetapkan nilai [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) menjadi 2, 3, dan 7. Nilai mula dikonfigurasi terpisah untuk setiap paragraf, sehingga angka yang ditampilkan dapat melompati nilai tertentu:
 
 ```python
 import jpype
@@ -317,17 +317,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Kendalikan Tata Letak Paragraf dan Properti Akhir**
+## **Kontrol Tata Letak Paragraf dan Properti Akhir**
 
-Sesuaikan margin dan indentasi paragraf untuk mengendalikan posisi baris pertama dan baris yang dibungkus. Anda juga dapat memformat tanda akhir paragraf secara terpisah dari bagian teks yang terlihat.
+Sesuaikan margin dan indent paragraf untuk mengontrol posisi baris pertama serta baris yang dibungkus. Anda juga dapat memformat tanda akhir paragraf secara terpisah dari bagian teks yang terlihat.
 
-### **Atur Inden Baris Pertama**
+### **Setel Indent Baris Pertama**
 
-Gunakan metode [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) untuk mengendalikan inden baris pertama pada sebuah paragraf. Pengaturan ini menggerakkan hanya baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sementara baris lainnya tetap rata dengan isi paragraf.
+Gunakan metode [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) untuk mengontrol indent baris pertama suatu paragraf. Pengaturan ini memindahkan hanya baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sementara baris‑baris lainnya tetap rata dengan badan paragraf.
 
 Gunakan [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) ketika Anda perlu memindahkan seluruh paragraf. Gunakan [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) ketika Anda hanya perlu memindahkan baris pertama.
 
-Contoh berikut memberikan tiga paragraf margin kiri yang sama dengan [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) sebesar 20 poin dan nilai [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) masing‑masing 0, 20, dan 40 poin. Baris pertama mulai pada offset yang semakin besar, sementara baris yang dibungkus mempertahankan margin kiri yang sama:
+Contoh berikut memberikan tiga paragraf margin kiri yang sama menggunakan [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) sebesar 20 poin dan nilai [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) masing‑masing 0, 20, dan 40 poin. Baris pertama mulai dengan offset yang semakin besar, sementara baris yang dibungkus mempertahankan margin kiri yang sama:
 
 ```python
 import jpype
@@ -361,8 +361,8 @@ try:
 
     second_paragraph = Paragraph()
     second_paragraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.")
-    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
-    second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setSolidFillColor(Color.BLACK)
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     second_paragraph.getParagraphFormat().setMarginLeft(20.0)
     second_paragraph.getParagraphFormat().setIndent(20.0)
 
@@ -382,19 +382,19 @@ finally:
     presentation.dispose()
 ```
 
-Hasil:
+Hasilnya:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Indent baris pertama paragraf](first_line_indent.png)
 
-### **Atur Inden Gantung**
+### **Setel Indent Menggantung**
 
-Indentasi gantung adalah tata letak paragraf di mana baris pertama dimulai di sebelah kiri baris‑bari berikutnya. Di Aspose.Slides, Anda membuat efek ini dengan properti [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent). Atur `Indent` ke nilai negatif untuk memindahkan baris pertama ke kiri relatif terhadap isi paragraf.
+Indent menggantung adalah tata letak paragraf di mana baris pertama dimulai di sebelah kiri baris‑baris berikutnya. Di Aspose.Slides, Anda membuat efek ini dengan properti [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent). Setel `Indent` ke nilai negatif untuk menggeser baris pertama ke kiri relatif terhadap badan paragraf.
 
-Secara praktik, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) menentukan posisi kiri isi paragraf, dan [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indentasi gantung, atur nilai `MarginLeft` positif dan nilai `Indent` negatif.
+Secara praktik, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) menentukan posisi kiri badan paragraf, dan [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent menggantung, setel nilai `MarginLeft` positif dan nilai `Indent` negatif.
 
-Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris yang dibungkus harus rata di bawah isi paragraf, bukan di bawah karakter pertama baris pertama.
+Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris yang dibungkus harus rata di bawah badan paragraf, bukan di bawah karakter pertama baris pertama.
 
-Contoh Python berikut memadukan nilai [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) 40 dan 60 poin dengan nilai [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) -20 dan -30 poin. Pada setiap paragraf, baris pertama dimulai di sebelah kiri baris yang dibungkus; paragraf kedua memiliki indentasi gantung yang lebih dalam:
+Contoh Python berikut memadukan nilai [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) sebesar 40 dan 60 poin dengan nilai [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) masing‑masing -20 dan -30 poin. Pada setiap paragraf, baris pertama dimulai di sebelah kiri baris‑baris yang dibungkus; paragraf kedua memiliki indent menggantung yang lebih dalam:
 
 ```python
 import jpype
@@ -441,13 +441,13 @@ finally:
     presentation.dispose()
 ```
 
-Hasil:
+Hasilnya:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Indent menggantung paragraf](hanging_indent.png)
 
-### **Atur Properti Jalur Akhir Paragraf**
+### **Setel Properti Run Akhir Paragraf**
 
-Metode [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) mengendalikan pemformatan tanda akhir paragraf. Contoh berikut membuat sebuah [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) dengan [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) diatur ke 48 poin dan [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLatinFont) diatur ke Times New Roman. Ia menetapkan format ini ke tanda akhir paragraf kedua, meninggalkan bagian teks yang terlihat tidak berubah:
+Metode [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) mengontrol pemformatan tanda akhir paragraf. Contoh berikut membuat [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) dengan [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) diset ke 48 poin dan [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLatinFont) diset ke Times New Roman. Format ini diterapkan pada tanda akhir paragraf kedua, sementara bagian teks yang terlihat tetap tidak berubah:
 
 ```python
 import jpype
@@ -488,15 +488,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Hitung Baris yang Dihasilkan**
+## **Hitung Baris yang Dirender**
 
-Untuk aturan paragraf yang memengaruhi pembungkus otomatis dan tanda baca pada akhir baris, lihat [Kontrol Pemutusan Baris](/slides/id/python-java/text-formatting/#control-line-breaking) dan [Kontrol Tanda Baca Gantung](/slides/id/python-java/text-formatting/#control-hanging-punctuation).
+Untuk aturan paragraf yang memengaruhi pembungkus otomatis dan tanda baca di akhir baris, lihat [Control Line Breaking](/slides/id/python-java/text-formatting/#control-line-breaking) dan [Control Hanging Punctuation](/slides/id/python-java/text-formatting/#control-hanging-punctuation).
 
-Gunakan [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount) untuk menghitung baris yang ditempati oleh sebuah paragraf setelah tata letak teks, termasuk pembungkus otomatis. Ini berguna saat memeriksa panjang teks dan tata letak dalam templat presentasi.
+Gunakan [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount) untuk menghitung jumlah baris yang ditempati oleh sebuah paragraf setelah tata letak teks, termasuk pembungkus otomatis. Ini berguna saat memeriksa panjang teks dan tata letak dalam templat presentasi.
 
-Sebuah paragraf adalah satu item dalam [TextFrame.getParagraphs](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParagraphs), dan dapat menempati beberapa baris yang dihasilkan. Pemutusan baris eksplisit dalam paragraf memaksa baris baru tanpa membuat paragraf lain. Pembungkus otomatis membuat baris berdasarkan lebar yang tersedia tanpa menyisipkan pemutusan baris eksplisit ke dalam teks. Oleh karena itu, menghitung paragraf atau karakter pemutusan baris tidak menghasilkan jumlah baris yang dihasilkan.
+Sebuah paragraf adalah satu item dalam [TextFrame.getParagraphs](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParagraphs), dan dapat menempati beberapa baris yang dirender. Pemutusan baris eksplisit dalam paragraf memaksa baris baru tanpa membuat paragraf lain. Pembungkus otomatis membuat baris berdasarkan lebar yang tersedia tanpa menyisipkan pemutusan baris eksplisit ke dalam teks. Karena itu menghitung paragraf atau karakter pemutusan baris tidak memberikan jumlah baris yang dirender.
 
-Contoh berikut membuat sebuah bentuk teks, menghitung barisnya, mengecilkan bentuk, dan kemudian mengganti teks dengan string yang lebih pendek. Contoh tersebut mengaktifkan pembungkus dengan [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) dan menonaktifkan autofit dengan [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) sehingga lebar bentuk mengendalikan pembungkus tanpa secara otomatis mengecilkan teks atau mengubah ukuran bentuk. Setiap pengukuran menggunakan [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount). Dimensi bentuk dalam poin. Akhirnya, contoh menambahkan paragraf lain dan menjumlahkan jumlah baris di seluruh bingkai teks.
+Contoh berikut membuat sebuah bentuk teks, menghitung barisnya, mempersempit bentuk, lalu mengganti teks dengan string yang lebih pendek. Contoh ini mengaktifkan pembungkus dengan [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) dan menonaktifkan autofit dengan [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) sehingga lebar bentuk mengendalikan pembungkus tanpa secara otomatis memperkecil teks atau mengubah ukuran bentuk. Setiap pengukuran menggunakan [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount). Dimensi bentuk dalam poin. Akhirnya, contoh menambahkan paragraf lain dan menjumlahkan jumlah baris di seluruh bingkai teks.
 
 ```python
 import jpype
@@ -540,19 +540,19 @@ finally:
     presentation.dispose()
 ```
 
-Dengan teks dan dimensi ini, mempersempit bentuk meningkatkan jumlah baris, sementara mengganti teks dengan string pendek menguranginya. Hitungan yang tepat dapat bervariasi tergantung pada ketersediaan dan substitusi font, ukuran font, margin, indentasi, pembungkus, dan pengaturan autofit. Gunakan font dan pengaturan tata letak yang dimaksudkan untuk lingkungan target saat memeriksa sebuah templat.
+Dengan teks dan dimensi ini, mempersempit bentuk meningkatkan jumlah baris, sementara mengganti teks dengan string pendek menguranginya. Jumlah pasti dapat bervariasi tergantung pada ketersediaan font dan substitusi, ukuran font, margin, indentasi, pembungkus, dan pengaturan autofit. Gunakan font dan pengaturan tata letak yang ditujukan untuk lingkungan target saat memeriksa templat.
 
-Jumlah baris saja tidak menentukan apakah teks melampaui kontainernya. Tinggi yang tersedia, tinggi baris, spasi paragraf dan baris, serta perilaku autofit juga penting; bahkan satu baris dapat melebihi lebar yang tersedia ketika pembungkus dinonaktifkan.
+Jumlah baris saja tidak menentukan apakah teks meluap dari kontainernya. Tinggi yang tersedia, tinggi baris, spasi paragraf dan baris, serta perilaku autofit juga berpengaruh; bahkan satu baris dapat melampaui lebar yang tersedia ketika pembungkus dinonaktifkan.
 
 ## **Impor dan Ekspor Konten Paragraf**
 
 Gunakan HTML untuk memasukkan teks ke dalam presentasi atau mengekspor paragraf yang ada untuk digunakan di luar presentasi. Bagian ini juga menunjukkan cara merender paragraf individu sebagai gambar, termasuk paragraf dalam sel tabel.
 
-### **Impor Teks HTML ke dalam Paragraf**
+### **Impor Teks HTML ke Paragraf**
 
-Gunakan [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml) untuk mengonversi markup HTML menjadi paragraf dan bagian dalam sebuah bingkai teks.
+Gunakan [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml) untuk mengonversi markup HTML menjadi paragraf dan bagian dalam bingkai teks.
 
-Contoh Python ini membaca HTML dari sebuah file dan mengirimkan markup ke [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml). Ia membersihkan paragraf default bingkai teks sehingga bingkai hanya berisi konten yang diimpor. Bentuk persegi panjang meninggalkan margin 10 poin pada setiap sisi slide:
+Contoh Python ini membaca HTML dari sebuah file dan meneruskan markup ke [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml). Ia membersihkan paragraf default bingkai teks sehingga bingkai hanya berisi konten yang diimpor. Bentuk persegi panjang meninggalkan margin 10 poin di setiap sisi slide:
 
 ```python
 import jpype
@@ -588,16 +588,16 @@ finally:
 
 ### **Ekspor Teks Paragraf ke HTML**
 
-Gunakan [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml) untuk mengekspor rentang paragraf terpilih sebagai HTML. Saat menggunakan kembali teks presentasi di situs web, Anda mungkin ingin mempertahankan penekanan lokal tanpa membawa font, ukuran, atau gaya kotak teks presentasi. Atur [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) untuk mengontrol seberapa jauh exporter mengikuti pewarisan pemformatan.
+Gunakan [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml) untuk mengekspor rentang paragraf terpilih sebagai HTML. Saat menggunakan kembali teks presentasi di situs web, Anda mungkin ingin mempertahankan penekanan lokal tanpa membawa font, ukuran, atau gaya kotak teks presentasi. Setel [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) untuk mengontrol seberapa jauh exporter mengikuti pewarisan format.
 
-Unduh [the sample presentation](text-inheritance.pptx) dan letakkan di direktori kerja aplikasi. Slide pertama berisi satu bentuk teks dengan teks "Inherited text; explicit red 18pt". Input dengan sengaja menggunakan beberapa tingkat pemformatan:
+Unduh [presentasi contoh](text-inheritance.pptx) dan letakkan di direktori kerja aplikasi. Slide pertama berisi satu bentuk teks dengan teks "Inherited text; explicit red 18pt". Input sengaja menggunakan beberapa tingkat format:
 
-- Gaya teks default presentasi menyediakan Calibri dan ukuran 28 pt.
-- Gaya teks tingkat pertama bingkai teks menyediakan teks biru dan miring.
+- Gaya teks default presentasi menyediakan Calibri dengan ukuran 28 pt.
+- Gaya teks level pertama bingkai teks menyediakan teks biru dan miring.
 - Paragraf secara eksplisit mengatur teks tebal.
 - Bagian kedua, "explicit red 18pt", secara eksplisit mengatur teks merah dan ukuran 18 pt.
 
-Contoh lengkap berikut mengekspor paragraf yang sama tiga kali. Ia meneruskan [TextToHtmlConversionOptions](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/) ke metode ekspor dan menulis setiap hasil sebagai file HTML UTF-8 terpisah:
+Contoh lengkap berikut mengekspor paragraf yang sama tiga kali. Ia meneruskan [TextToHtmlConversionOptions](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/) ke metode ekspor dan menulis setiap hasil sebagai file HTML UTF‑8 terpisah:
 
 ```python
 import jpype
@@ -638,31 +638,65 @@ finally:
     presentation.dispose()
 ```
 
-HTML yang dihasilkan berisi CSS berikut untuk bagian pertama, "Inherited text; ". Tabel menampilkan deklarasi yang relevan; properti lain yang dihasilkan dihilangkan demi kejelasan.
+HTML yang dihasilkan berisi CSS berikut untuk bagian pertama, "Inherited text; ". Tabel menampilkan deklarasi yang relevan; properti yang dihasilkan lainnya dihilangkan demi kejelasan.
 
 | Output | CSS Relevan untuk bagian pertama | Penampilan |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Teks biru, tebal, miring berukuran 28 pt dalam Calibri, jika font tersebut tersedia. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Teks biru, tebal, miring; halaman atau browser di sekitarnya menyediakan keluarga font dan ukuran. |
-| `ParagraphOnly.html` | `font-weight:bold` | Teks tebal; halaman atau browser di sekitarnya menyediakan keluarga font, ukuran, warna, dan gaya miring. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Teks biru, tebal, miring berukuran 28 pt dalam Calibri, bila font tersebut tersedia. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Teks biru, tebal, miring; halaman atau peramban menyediakan keluarga font dan ukuran. |
+| `ParagraphOnly.html` | `font-weight:bold` | Teks tebal; halaman atau peramban menyediakan keluarga font, ukuran, warna, dan gaya miring. |
 
-Bagian kedua mempertahankan `color:#ff0000`, `font-size:18pt`, dan `font-weight:bold` di ketiga output. Ia juga mempertahankan miring pada `All` dan `TextBox`, namun tidak pada `ParagraphOnly`. Membatasi pewarisan sehingga tidak menghapus pemformatan yang secara eksplisit ditetapkan pada paragraf atau bagian.
+Bagian kedua mempertahankan `color:#ff0000`, `font-size:18pt`, dan `font-weight:bold` di ketiga output. Ia juga mempertahankan miring pada `All` dan `TextBox`, namun tidak pada `ParagraphOnly`. Membatasi pewarisan sehingga tidak menghapus format yang secara eksplisit ditetapkan pada paragraf atau bagian.
 
-Buka file-file tersebut di browser yang sama untuk membandingkannya. Dalam dua mode terbatas, properti CSS yang dihilangkan diselesaikan oleh gaya halaman tujuan atau default browser, sehingga tampilan yang dihasilkan tergantung pada tempat HTML digunakan.
+Buka file‑file tersebut di peramban yang sama untuk membandingkannya. Pada dua mode terbatas, properti CSS yang dihilangkan diselesaikan oleh gaya halaman tujuan atau standar peramban, sehingga tampilan akhir tergantung pada tempat HTML digunakan.
+
+### **Hasilkan Fragmen Clipboard HTML**
+
+Gunakan [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader) untuk memilih format output dari [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml). Dengan `False`, metode mengembalikan HTML biasa. Dengan `True`, ia menambahkan header clipboard Windows. bidang `StartHTML` dan `EndHTML` memberi offset byte UTF‑8 HTML. bidang `StartFragment` dan `EndFragment` menandai konten yang akan ditempel.
+
+Contoh ini mengekspor dua paragraf yang diformat sebagai HTML biasa (`html`) dan sebagai fragmen clipboard HTML (`clipboard_html`). Aplikasi kemudian dapat menulis fragmen ke clipboard sistem. Jika API clipboard mengharapkan byte mentah, gunakan `clipboard_html.encode("utf-8")` untuk mengenkode fragmen tanpa byte order mark (BOM).
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ShapeType, TextToHtmlConversionOptions
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 400, 100)
+    paragraphs = shape.getTextFrame().getParagraphs()
+    paragraphs.clear()
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>")
+
+    options = TextToHtmlConversionOptions()
+    options.setAddClipboardFragmentHeader(False)
+    html = str(paragraphs.exportToHtml(0, paragraphs.getCount(), options))
+
+    options.setAddClipboardFragmentHeader(True)
+    clipboard_html = str(paragraphs.exportToHtml(0, paragraphs.getCount(), options))
+finally:
+    presentation.dispose()
+```
 
 ### **Render Paragraf sebagai Gambar**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) merender paragraf individu secara langsung dan mengembalikan objek gambar. Simpan hasilnya ke file atau aliran dengan metode `save`. Anda tidak perlu merender bentuk yang menyertakan atau memotong bitmap secara manual.
+[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) merender paragraf individu secara langsung dan mengembalikan objek gambar. Simpan hasilnya ke file atau stream dengan metode `save`. Anda tidak perlu merender bentuk yang mengandungnya atau memotong bitmap secara manual.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) dapat mengembalikan `None` jika paragraf tidak dapat ditemukan dalam koleksi induknya, tidak memiliki batas render yang valid, atau tidak dapat dirender. Periksa hasilnya sebelum menyimpannya dan buang gambar yang dikembalikan setelah penggunaan.
+[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) dapat mengembalikan `None` jika paragraf tidak ditemukan dalam koleksi induknya, tidak memiliki batas render yang valid, atau tidak dapat dirender. Periksa hasil sebelum menyimpannya dan bebaskan gambar yang dikembalikan setelah selesai digunakan.
 
-#### **Render Paragraf pada Skala Default**
+#### **Render Paragraf dengan Skala Default**
 
-Contoh ini menggunakan sebuah presentasi dengan satu slide yang bentuk pertamanya adalah kotak teks berisi tiga paragraf.
+Contoh ini menggunakan presentasi dengan satu slide yang bentuk pertamanya adalah kotak teks berisi tiga paragraf.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![Kotak teks dengan tiga paragraf](paragraph_to_image_input.png)
 
-Contoh berikut memilih paragraf kedua pada indeks 1 dan memanggil [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) tanpa parameter skala. Ia memeriksa bahwa bentuk berisi paragraf yang diperlukan dan bahwa proses render mengembalikan gambar sebelum memanggil metode `save`-nya untuk menyimpannya dalam format PNG. Blok `finally` membuang gambar setelah penggunaan.
+Contoh berikut memilih paragraf kedua pada indeks 1 dan memanggil [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) tanpa parameter skala. Ia memeriksa bahwa bentuk berisi paragraf yang diperlukan dan bahwa render mengembalikan gambar sebelum memanggil metode `save`‑nya untuk menyimpannya dalam format PNG. Blok `finally` membebaskan gambar setelah selesai digunakan.
 
 ```python
 import jpype
@@ -699,13 +733,13 @@ finally:
     presentation.dispose()
 ```
 
-Hasil:
+Hasilnya:
 
-![The paragraph image](paragraph_to_image_output.png)
+![Gambar paragraf](paragraph_to_image_output.png)
 
 #### **Render Paragraf dalam Sel Tabel dengan Skala**
 
-Gunakan overload [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) yang menerima parameter `scale_x` dan `scale_y` untuk mengatur faktor skala horizontal dan vertikal. Contoh berikut membuat tabel, merender paragraf dalam sel pertamanya dengan lebar dan tinggi dua kali lipat dari default, dan menyimpan hasilnya sebagai gambar PNG.
+Gunakan overload [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) yang menerima parameter `scale_x` dan `scale_y` untuk mengatur faktor skala horizontal dan vertikal. Contoh berikut membuat tabel, merender paragraf di sel pertama dengan lebar dan tinggi dua kali lipat dari ukuran default, dan menyimpan hasilnya sebagai gambar PNG.
 
 ```python
 import jpype
@@ -740,24 +774,26 @@ finally:
     presentation.dispose()
 ```
 
-Faktor skala `1` menjaga sumbu tersebut pada ukuran piksel defaultnya. Misalnya, `2` untuk kedua faktor menghasilkan gambar yang lebar dan tingginya kira‑kira dua kali dimensi default, menghasilkan empat kali lebih banyak piksel. Faktor yang lebih besar biasanya menghasilkan teks yang lebih tajam untuk pembesaran atau output resolusi tinggi, tetapi juga meningkatkan penggunaan memori dan ukuran file. Faktor di bawah `1` menghasilkan gambar lebih kecil dengan detail lebih sedikit. Gunakan faktor yang sama untuk mempertahankan rasio aspek paragraf; faktor horizontal dan vertikal yang berbeda meregangkan output secara terpisah.
+Faktor skala `1` mempertahankan ukuran piksel default pada sumbu tersebut. Misalnya, `2` untuk kedua faktor menghasilkan gambar dengan lebar dan tinggi kira‑kira dua kali dimensi default, sehingga empat kali lebih banyak piksel. Faktor yang lebih besar umumnya menghasilkan teks yang lebih tajam untuk zoom atau output resolusi tinggi, namun mereka juga meningkatkan penggunaan memori dan ukuran file. Faktor di bawah `1` menghasilkan gambar lebih kecil dengan detail lebih sedikit. Gunakan faktor yang sama untuk mempertahankan rasio aspek paragraf; faktor horizontal dan vertikal yang berbeda akan meregangkan output secara terpisah.
 
-Merender seluruh bentuk dengan [Shape.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) tetap berguna ketika output harus mencakup isi, tepi, atau konteks visual lain dari bentuk. Untuk gambar hanya paragraf, gunakan [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/).
+Merender seluruh bentuk dengan [Shape.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) tetap berguna ketika output harus mencakup isian, batas, atau konteks visual bentuk. Untuk gambar yang hanya berisi paragraf, gunakan [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/).
 
 ## **FAQ**
 
-**Apakah saya dapat sepenuhnya menonaktifkan pembungkus garis di dalam bingkai teks?**
+**Apakah saya dapat benar‑benar menonaktifkan pembungkus baris di dalam bingkai teks?**
 
-Ya. Atur [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) untuk menonaktifkan pembungkus sehingga garis tidak terputus pada tepi bingkai teks.
+Ya. Setel [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) untuk menonaktifkan pembungkus sehingga baris tidak terputus di tepi bingkai teks.
 
-**Bagaimana cara mendapatkan batas tepat pada slide untuk paragraf tertentu?**
+**Bagaimana cara mendapatkan batas pada‑slide yang tepat untuk paragraf tertentu?**
 
-Gunakan [Paragraph.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getRect) untuk mengambil persegi batas paragraf. [Portion.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getRect) menyediakan batas sebuah bagian individu.
+Gunakan [Paragraph.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getRect) untuk mengambil persegi batas paragraf. [Portion.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getRect) menyediakan batas bagian individu.
 
-**Di mana pengaturan perataan paragraf (kiri, kanan, tengah, atau rata) dikontrol?**
+**Di mana pengaturan perataan paragraf (kiri, kanan, tengah, atau rata‑kan) dikontrol?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) adalah pengaturan tingkat paragraf dan berlaku pada seluruh paragraf terlepas dari pemformatan bagian individu. Untuk meratakan secara vertikal bagian dengan ukuran font berbeda dalam setiap baris, lihat [Ratakan Font dalam Baris](/slides/id/python-java/text-formatting/#align-fonts-within-a-line).
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) adalah pengaturan tingkat paragraf dan diterapkan pada seluruh paragraf terlepas dari format bagian individu.
+
+Untuk menyejajarkan secara vertikal bagian dengan ukuran font berbeda dalam setiap baris, lihat [Align Fonts Within a Line](/slides/id/python-java/text-formatting/#align-fonts-within-a-line).
 
 **Apakah saya dapat mengatur bahasa pemeriksaan ejaan untuk sebagian paragraf?**
 
-Ya. Atur [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId) untuk bagian individu, sehingga satu paragraf dapat berisi teks dalam beberapa bahasa.
+Ya. Setel [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId) untuk bagian individu, sehingga satu paragraf dapat berisi teks dalam sejumlah bahasa.

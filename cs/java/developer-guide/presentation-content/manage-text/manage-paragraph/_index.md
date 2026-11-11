@@ -1,5 +1,5 @@
 ---
-title: Spravovat odstavce textu PowerPointu v Javě
+title: Spravovat text odstavců PowerPoint v Javě
 linktitle: Spravovat odstavec
 type: docs
 weight: 40
@@ -14,7 +14,7 @@ keywords:
 - spravovat odstavec
 - spravovat odrážku
 - odsazení odstavce
-- závěsné odsazení
+- zavěšené odsazení
 - odrážka odstavce
 - číslovaný seznam
 - odrážkový seznam
@@ -22,32 +22,32 @@ keywords:
 - importovat HTML
 - text do HTML
 - odstavec do HTML
-- odstavec do obrázku
-- text do obrázku
+- odstavec na obrázek
+- text na obrázek
 - exportovat odstavec
 - PowerPoint
 - prezentace
 - Java
 - Aspose.Slides
-description: "Naučte se vytvářet a formátovat odstavce, části, odrážky, číslované seznamy, odsazení, HTML obsah a obrázky odstavců pomocí Aspose.Slides pro Javu."
+description: "Naučte se, jak vytvářet a formátovat odstavce, části, odrážky, číslované seznamy, odsazení, HTML obsah a obrázky odstavců pomocí Aspose.Slides pro Javu."
 ---
 ## **Přehled**
 
-Aspose.Slides pro Java představuje text jako hierarchii textových rámců, odstavců a částí:
+Aspose.Slides for Java reprezentuje text jako hierarchii textových rámců, odstavců a částí:
 
 * [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) představuje kontejner textu ve tvaru a poskytuje přístup k jeho kolekci odstavců.
 * [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) představuje jeden odstavec v textovém rámci a poskytuje přístup k jeho částem a formátování na úrovni odstavce.
-* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) představuje běh textu v rámci odstavce. Každá část může mít vlastní text a formátování na úrovni znaků.
+* [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/) představuje úsek textu v odstavci. Každá část může mít vlastní text a formátování na úrovni znaků.
 
-Odstavec tak může obsahovat text s různými písmy, barvami, velikostmi a dalším formátováním pomocí více částí.
+Odstavec tak může obsahovat text s různými fonty, barvami, velikostmi a dalším formátováním pomocí více částí.
 
 ## **Vytváření a formátování odstavců**
 
-Vytvářejte odstavce v textovém rámci tvaru a použijte části k formátování jednotlivých běhů textu. Tato sekce ukazuje, jak kombinovat více částí v každém odstavci a použít různé barvy, velikosti písma a styly.
+Vytvářejte odstavce v textovém rámci tvaru a používejte části k formátování jednotlivých úseků textu. Tato sekce ukazuje, jak kombinovat více částí v každém odstavci a použít různé barvy, velikosti fontů a styly.
 
 ### **Vytvořit odstavce s více částmi**
 
-Následující Java příklad vytváří tři odstavce, z nichž každý obsahuje tři běhy textu ve sbírce vrácené metodou [IParagraph.getPortions](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getPortions--) . Znovu používá výchozí odstavec a jeho prázdnou část, poté přidává zbývající odstavce a části. Formátování se aplikuje pomocí [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--): první část v každém odstavci je červená, tučná a 15 bodů; druhá je modrá, kurzíva a 18 bodů. Třetí část si zachovává výchozí formátování:
+Následující Java příklad vytváří tři odstavce, z nichž každý obsahuje tři úseky textu ve sbírce vrácené metodou [IParagraph.getPortions](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getPortions--) . Opět využívá výchozí odstavec a jeho prázdnou část, poté přidává zbývající odstavce a části. Formátování se aplikuje pomocí [IPortion.getPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getPortionFormat--): první část v každém odstavci je červená, tučná a má velikost 15 bodů; druhá je modrá, kurzíva a 18 bodů. Třetí část zachovává výchozí formátování:
 
 ```java
 import com.aspose.slides.*;
@@ -104,15 +104,15 @@ try {
 }
 ```
 
-## **Vytváření odrážkových a číslovaných seznamů**
+## **Vytvoření odrážkových a číslovaných seznamů**
 
-Uspořádejte text odstavců do seznamů se symboly, čísly nebo vlastními obrázky. Příklady v této sekci pokrývají formátování odrážek, vícestupňové seznamy a vlastní počáteční čísla.
+Organizujte text odstavců do seznamů se symboly, čísly nebo vlastními obrázky. Příklady v této sekci pokrývají formátování odrážek, víceroúrovňové seznamy a vlastní počáteční čísla.
 
 ### **Vytvořit odrážkový nebo číslovaný seznam**
 
-Odrážky a číslování usnadňují skenování souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována přes [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/).
+Odrážky a číslování usnadňují procházení souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována pomocí [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/).
 
-Tento Java příklad přidává do stejného textového rámce symbolickou odrážku a číslovanou položku. [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) vybírá typ odrážky, zatímco [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) dodává symbol a [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) vybírá styl číslování. Obě položky používají černé odrážky s výškou 100 % a odsazením odstavce 25 bodů:
+Tento Java příklad přidává symbol odrážky a číslovanou položku do stejného textového rámce. [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) vybírá typ odrážky, zatímco [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) poskytuje symbol a [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) volí styl číslování. Obě položky používají černé odrážky s výškou 100 % a odsazením odstavce 25 bodů:
 
 ```java
 import com.aspose.slides.*;
@@ -154,11 +154,11 @@ try {
 }
 ```
 
-### **Použít obrázkové odrážky**
+### **Použití obrázkových odrážek**
 
-Obrázkové odrážky vám umožní použít vlastní obrázek místo symbolu nebo čísla.
+Obrázkové odrážky vám umožňují použít vlastní obrázek místo symbolu nebo čísla.
 
-Tento Java příklad přidává obrázek do kolekce obrázků prezentace jako [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) a používá jej jako odrážku odstavce. Volá [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) pro použití obrázkové odrážky a přiřazuje obrázek přes [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--). [IBulletFormat.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setHeight-float-) je nastaveno na 100 % pro velikost odrážky relativně k textu odstavce:
+Tento Java příklad přidává obrázek do kolekce obrázků prezentace jako [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) a používá jej jako odrážku odstavce. Volá [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) pro použití obrázkové odrážky a přiřazuje obrázek přes [IBulletFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#getPicture--). [IBulletFormat.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setHeight-float-) je nastaven na 100 % pro velikost odrážky relativně k textu odstavce:
 
 ```java
 import com.aspose.slides.*;
@@ -193,11 +193,11 @@ try {
 }
 ```
 
-### **Vytvořit vícestupňový seznam**
+### **Vytvořit víceúrovňový seznam**
 
 Nastavte [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) pro umístění odstavců na různé úrovně seznamu. Nejvyšší úroveň má hloubku `0`.
 
-Tento Java příklad přiřazuje hodnoty [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) od 0 do 3 čtyřem odstavcům, čímž vytváří hierarchii v jediném textovém rámci. Každý odstavec používá symbolickou odrážku, přičemž [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) střídavě používá kulatou odrážku a pomlčku pro rozlišení sousedních úrovní:
+Tento Java příklad přiřazuje [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDepth-short-) hodnoty od 0 do 3 čtyřem odstavcům, čímž vytváří hierarchii v rámci jednoho textového rámce. Každý odstavec používá symbol odrážky, přičemž [IBulletFormat.setChar](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setChar-char-) střídavě používá kulatou odrážku a pomlčku pro rozlišení sousedních úrovní:
 
 ```java
 import com.aspose.slides.*;
@@ -254,11 +254,11 @@ try {
 }
 ```
 
-### **Zahájit číslované položky seznamu vlastními hodnotami**
+### **Začátek číslovaných položek seznamu s vlastními hodnotami**
 
-Použijte [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) pro nastavení počátečního čísla zobrazeného u číslovaného odstavce.
+Použijte [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) pro nastavení počátečního čísla zobrazovaného pro číslovaný odstavec.
 
-Tento Java příklad nastavuje [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) pro číslování tří odstavců a přiřazuje hodnoty [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 2, 3 a 7. Počáteční hodnota je konfigurována samostatně pro každý odstavec, což umožňuje přeskočit hodnoty:
+Tento Java příklad nastavuje [IBulletFormat.setType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setType-byte-) pro použití číslování u tří odstavců a přiřazuje [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) hodnoty 2, 3 a 7. Počáteční hodnota je nastavena samostatně pro každý odstavec, což umožňuje vynechat hodnoty v zobrazených číslech:
 
 ```java
 import com.aspose.slides.*;
@@ -297,15 +297,15 @@ try {
 
 ## **Řízení rozvržení odstavce a koncových vlastností**
 
-Upravte okraje a odsazení odstavců pro kontrolu polohy první řádky a řádků zabalujících se. Můžete také formátovat koncový znak odstavce odděleně od viditelných textových částí.
+Upravujte okraje a odsazení odstavců pro řízení pozice první řádky a zalomených řádků. Můžete také formátovat konečný znak odstavce odděleně od viditelných částí textu.
 
-### **Nastavit odsazení první řádky**
+### **Nastavení odsazení první řádky**
 
-Použijte metodu [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) ke kontrole odsazení první řádky odstavce. Toto nastavení posouvá pouze první řádku relativně k levému okraji odstavce. Kladná hodnota posouvá první řádku doprava, zatímco zbývající řádky zůstávají zarovnané k tělu odstavce.
+Použijte metodu [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) pro řízení odsazení první řádky odstavce. Toto nastavení posouvá pouze první řádku relativně k levému okraji odstavce. Kladná hodnota posouvá první řádku doprava, zatímco zbylé řádky zůstávají zarovnány k tělu odstavce.
 
-Použijte [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) když potřebujete posunout celý odstavec. Použijte [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) když chcete posunout jen první řádku.
+Použijte [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) když potřebujete posunout celý odstavec. Použijte [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) když potřebujete posunout pouze první řádku.
 
-Následující příklad přiřazuje třem odstavcům stejný [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 20 bodů a [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) hodnoty 0, 20 a 40 bodů. První řádky začínají postupně většími posuny, zatímco zalomené řádky si zachovávají stejný levý okraj:
+Následující příklad dává třem odstavcům stejný [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 20 bodů a hodnoty [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 0, 20 a 40 bodů. První řádky začínají postupně většími posuny, zatímco zalomené řádky zachovávají stejný levý okraj:
 
 ```java
 import com.aspose.slides.*;
@@ -359,15 +359,15 @@ Výsledek:
 
 ![Odsazení první řádky odstavců](first_line_indent.png)
 
-### **Nastavit závěsné odsazení**
+### **Nastavení zavěšeného odsazení**
 
-Závěsné odsazení je rozvržení odstavce, kdy první řádka začíná vlevo od zbývajících řádků. V Aspose.Slides vytvoříte tento efekt pomocí vlastnosti [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Nastavte `Indent` na zápornou hodnotu pro posunutí první řádky doleva relativně k tělu odstavce.
+Zavěšené odsazení je rozvržení odstavce, při kterém první řádka začíná nalevo od zbývajících řádků. V Aspose.Slides tento efekt vytváříte pomocí vlastnosti [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Nastavte `Indent` na zápornou hodnotu, aby se první řádka posunula nalevo relativně k tělu odstavce.
 
-V praxi [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) určuje levou pozici těla odstavce a [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) určuje pozici první řádky relativně k tomuto okraji. Pro vytvoření závěsného odsazení nastavte kladnou hodnotu `MarginLeft` a zápornou hodnotu `Indent`.
+V praxi [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) určuje levou pozici těla odstavce a [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) určuje pozici první řádky relativně k tomuto okraji. Pro vytvoření zavěšeného odsazení nastavte kladnou hodnotu `MarginLeft` a zápornou hodnotu `Indent`.
 
-Toto formátování je užitečné pro bibliografie, odkazy, položky glosáře a další odstavce, kde musí zarovnávat zalomené řádky pod tělo odstavce, nikoli pod první znak první řádky.
+Toto formátování je užitečné pro bibliografie, odkazy, glosáře a další odstavce, kde musí být zalomené řádky zarovnány pod tělo odstavce spíše než pod první znak první řádky.
 
-Následující Java příklad spojuje hodnoty [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 40 a 60 bodů s hodnotami [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) –20 a –30 bodů. V každém odstavci první řádka začíná vlevo od zalomených řádků; druhý odstavec má hlubší závěsné odsazení:
+Následující Java příklad spojuje hodnoty [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 40 a 60 bodů s hodnotami [IParagraphFormat.setIndent](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setIndent-float-) -20 a -30 bodů. V každém odstavci první řádka začíná nalevo od zalomených řádků; druhý odstavec má hlubší zavěšené odsazení:
 
 ```java
 import com.aspose.slides.*;
@@ -411,11 +411,11 @@ try {
 
 Výsledek:
 
-![Závěsné odsazení odstavců](hanging_indent.png)
+![Zavěšené odsazení odstavců](hanging_indent.png)
 
-### **Nastavit vlastnosti koncového běhu odstavce**
+### **Nastavení vlastností koncového běhu odstavce**
 
-Metoda [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) řídí formátování koncového znaku odstavce. Následující příklad vytváří [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) s [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) nastaveným na 48 bodů a [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) nastaveným na Times New Roman. Tento formát přiřadí druhému odstavci k jeho koncovému znaku, přičemž viditelné textové části zůstávají nezměněny:
+Metoda [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) řídí formátování koncového znaku odstavce. Následující příklad vytváří [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) s [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) nastaveným na 48 bodů a [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) nastaveným na Times New Roman. Tento formát přiřadí koncovému znaku druhého odstavce, aniž by změnil viditelné části textu:
 
 ```java
 import com.aspose.slides.*;
@@ -450,13 +450,13 @@ try {
 
 ## **Počítání vykreslených řádků**
 
-Pro pravidla odstavců, která ovlivňují automatické zalamování a interpunkci na koncích řádků, viz [Řízení zalomení řádků](/slides/cs/java/text-formatting/#control-line-breaking) a [Řízení závěsné interpunkce](/slides/cs/java/text-formatting/#control-hanging-punctuation).
+Pro pravidla odstavců, která ovlivňují automatické zalamování a interpunkci na koncích řádků, viz [Řízení zalamování řádků](/slides/cs/java/text-formatting/#control-line-breaking) a [Řízení zavěšené interpunkce](/slides/cs/java/text-formatting/#control-hanging-punctuation).
 
-Použijte [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) pro spočítání řádků obsazených odstavcem po rozvržení textu, včetně automatického zalamování. To je užitečné při kontrole délky textu a rozvržení v šablonách prezentací.
+Použijte [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--) pro spočítání řádků, které odstavec zabírá po uspořádání textu, včetně automatického zalamování. To je užitečné při kontrole délky textu a rozvržení v šablonách prezentací.
 
-Odstavec je jednou položkou v [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--), a může zabírat několik vykreslených řádků. Výslovný zalomení řádku uvnitř odstavce vynutí nový řádek, aniž by vytvořilo nový odstavec. Automatické zalamování vytváří řádky na základě dostupné šířky, aniž by vkládalo výslovné znaky konce řádku do textu. Počítání odstavců nebo znaků konců řádků proto nedává počet vykreslených řádků.
+Odstavec je jedna položka v [ITextFrame.getParagraphs](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParagraphs--) a může zabírat několik vykreslených řádků. Explicitní zalomení řádku v odstavci vynutí nový řádek bez vytvoření dalšího odstavce. Automatické zalamování vytváří řádky na základě dostupné šířky, aniž by vkládalo explicitní zalomení řádků do textu. Počítání odstavců nebo znaků konců řádků tedy nedává počet vykreslených řádků.
 
-Následující příklad vytváří textový tvar, počítá jeho řádky, zužuje tvar a pak nahrazuje text kratším řetězcem. Příklad povoluje zalamování pomocí [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) a vypíná automatické přizpůsobení pomocí [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-), takže šířka tvaru kontroluje zalamování bez automatického zmenšování textu nebo změny velikosti tvaru. Každé měření používá [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--). Rozměry tvaru jsou v bodech. Nakonec příklad přidá další odstavec a sečte počet řádků napříč textovým rámcem.
+Následující příklad vytvoří textový tvar, spočítá jeho řádky, zúží tvar a poté nahradí text kratším řetězcem. Příklad povoluje zalamování pomocí [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) a zakazuje automatické přizpůsobení pomocí [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-), takže šířka tvaru řídí zalamování bez automatického zmenšování textu nebo změny velikosti tvaru. Každé měření používá [IParagraph.getLinesCount](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getLinesCount--). Rozměry tvaru jsou v bodech. Nakonec příklad přidá další odstavec a sečte počty řádků napříč textovým rámcem.
 
 ```java
 import com.aspose.slides.*;
@@ -496,19 +496,19 @@ try {
 }
 ```
 
-S tímto textem a těmito rozměry zužování tvaru zvyšuje počet řádků, zatímco nahrazení textu krátkým řetězcem ho snižuje. Přesné počty se mohou lišit podle dostupnosti písma a substituce, velikosti písma, okrajů, odsazení, zalamování a nastavení automatického přizpůsobení. Použijte písma a nastavení rozvržení určená pro cílové prostředí při kontrole šablony.
+S tímto textem a těmito rozměry zúžení tvaru zvyšuje počet řádků, zatímco nahrazení textu krátkým řetězcem jej snižuje. Přesné počty se mohou lišit podle dostupnosti a náhrady fontů, velikosti fontu, okrajů, odsazení, zalamování a nastavení automatického přizpůsobení. Používejte fonty a nastavení rozvržení určené pro cílové prostředí při kontrole šablony.
 
-Samotný počet řádků neurčuje, zda text přesahuje svůj kontejner. Důležitá je také dostupná výška, výšky řádků, mezery mezi odstavci a řádky a chování automatického přizpůsobení; i jediný řádek může překročit dostupnou šířku, pokud je zalamování vypnuté.
+Samotný počet řádků neurčuje, zda text přesahuje svůj kontejner. Důležitá je také dostupná výška, výšky řádků, mezery mezi odstavci a řádky a chování automatického přizpůsobení; i jediný řádek může překročit dostupnou šířku, pokud je zalamování zakázáno.
 
 ## **Import a export obsahu odstavců**
 
-Použijte HTML pro vložení textu do prezentace nebo exportujte existující odstavce pro použití mimo ni. Tato sekce také ukazuje, jak vykreslit jednotlivé odstavce jako obrázky, včetně odstavců v buňkách tabulek.
+Použijte HTML k přenesení textu do prezentace nebo k exportu existujících odstavců pro použití mimo ni. Tato sekce také ukazuje, jak vykreslit jednotlivé odstavce jako obrázky, včetně odstavců v buňkách tabulek.
 
-### **Importovat HTML text do odstavců**
+### **Import HTML textu do odstavců**
 
-Použijte [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) pro převod HTML značek na odstavce a části v textovém rámci.
+Použijte [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) pro konverzi HTML značkování na odstavce a části v textovém rámci.
 
-Tento Java příklad čte HTML ze souboru a předává značky metodě [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-). Vyčistí výchozí odstavec textového rámce, takže rámec obsahuje jen importovaný obsah. Obdélníkový tvar ponechává na každé straně snímku okraj 10 bodů:
+Tento Java příklad čte HTML ze souboru a předává značkování metodě [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-). Vyčistí výchozí odstavec textového rámce, aby rámec obsahoval pouze importovaný obsah. Obdélníkový tvar ponechává okraj 10 bodů na každé straně snímku:
 
 ```java
 import com.aspose.slides.*;
@@ -540,18 +540,18 @@ try {
 }
 ```
 
-### **Exportovat text odstavce do HTML**
+### **Export textu odstavců do HTML**
 
-Použijte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) pro export vybraného rozsahu odstavců jako HTML. Při opětovném použití textu prezentace na webových stránkách možná budete chtít zachovat místní zvýraznění, aniž byste přenesli písmo, velikost nebo styly textového pole prezentace. Nastavte [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) pro řízení, jak daleko exportér následuje dědění formátování.
+Použijte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) pro export vybrané oblasti odstavců jako HTML. Při opětovném využití textu prezentace na webu můžete chtít zachovat místní zvýraznění bez převzetí fontu, velikosti nebo stylů textového pole prezentace. Nastavte [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit-int-) pro řízení, jak daleko exportér sleduje dědičnost formátování.
 
-Stáhněte [vzorek prezentace](text-inheritance.pptx) a umístěte jej do pracovního adresáře aplikace. Jeho první snímek obsahuje jeden textový tvar s textem "Inherited text; explicit red 18pt". Vstup vědomě používá několik úrovní formátování:
+Stáhněte si [the sample presentation](text-inheritance.pptx) a umístěte ji do pracovního adresáře aplikace. První snímek obsahuje jeden textový tvar s textem „Inherited text; explicit red 18pt“. Vstup úmyslně používá několik úrovní formátování:
 
-- Výchozí styl textu prezentace poskytuje písmo Calibri a velikost 28 pt.
-- Styl textu první úrovně textového rámce poskytuje modrý text a kurzívu.
+- Výchozí textový styl prezentace poskytuje Calibri a velikost 28 pt.
+- Textový rámec první úrovně poskytuje modrý text a kurzívu.
 - Odstavec explicitně nastavuje tučný text.
-- Druhá část, "explicit red 18pt", explicitně nastavuje červený text a velikost 18 pt.
+- Druhá část, „explicit red 18pt“, explicitně nastavuje červený text a velikost 18 pt.
 
-Následující kompletní příklad exportuje stejné odstavce třikrát. Předává [TextToHtmlConversionOptions](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/) metodě exportu a zapisuje každý výsledek jako samostatný UTF‑8 HTML soubor:
+Následující kompletní příklad exportuje stejné odstavce třikrát. Přenáší [TextToHtmlConversionOptions](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/) do exportní metody a zapisuje každý výsledek jako samostatný UTF‑8 HTML soubor:
 
 ```java
 import com.aspose.slides.*;
@@ -596,31 +596,60 @@ try {
 }
 ```
 
-Vygenerované HTML obsahuje následující CSS pro první část, "Inherited text; ". Tabulka uvádí relevantní deklarace; ostatní vygenerované vlastnosti jsou vynechány pro přehlednost.
+Vygenerované HTML obsahuje následující CSS pro první část, „Inherited text; “. Tabulka uvádí relevantní deklarace; ostatní generované vlastnosti jsou vynechané pro přehlednost.
 
 | Výstup | Relevantní CSS pro první část | Vzhled |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Modrý, tučný, kurzíva text o velikosti 28 pt v Calibri, pokud je toto písmo k dispozici. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Modrý, tučný, kurzíva text; okolní stránka nebo prohlížeč poskytuje rodinu písma a velikost. |
-| `ParagraphOnly.html` | `font-weight:bold` | Tučný text; okolní stránka nebo prohlížeč poskytuje rodinu písma, velikost, barvu a kurzívu. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Modrý, tučný, kurzíva text o velikosti 28 pt v Calibri, pokud je tento font dostupný. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Modrý, tučný, kurzíva text; okolní stránka nebo prohlížeč poskytuje rodinu fontu a velikost. |
+| `ParagraphOnly.html` | `font-weight:bold` | Tučný text; okolní stránka nebo prohlížeč poskytuje rodinu fontu, velikost, barvu a kurzívu. |
 
-Druhá část zachovává `color:#ff0000`, `font-size:18pt` a `font-weight:bold` ve všech třech výstupech. Také zachovává kurzívu v `All` a `TextBox`, ale ne v `ParagraphOnly`. Omezení dědění tedy neodstraňuje formátování explicitně přiřazené odstavci nebo části.
+Druhá část si v všech třech výstupech zachovává `color:#ff0000`, `font-size:18pt` a `font-weight:bold`. Také si zachovává kurzívu v `All` a `TextBox`, ale ne v `ParagraphOnly`. Omezení dědičnosti tedy neodstraňuje formátování explicitně přiřazené odstavci nebo části.
 
-Otevřete soubory ve stejném prohlížeči pro jejich porovnání. Ve dvou omezených režimech jsou vynechané CSS vlastnosti řešeny styly cílové stránky nebo výchozími hodnotami prohlížeče, takže výsledný vzhled závisí na tom, kde je HTML použito.
+Otevřete soubory ve stejném prohlížeči pro jejich porovnání. V dvou omezených režimech jsou vynechané CSS vlastnosti řešeny styly cílové stránky nebo výchozími nastaveními prohlížeče, takže výsledný vzhled závisí na tom, kde je HTML použito.
 
-### **Vykreslit odstavec jako obrázek**
+### **Generování HTML fragmentu pro schránku**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) vykresluje jednotlivý odstavec přímo a vrací [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). Uložte výsledek do souboru nebo proudu pomocí [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Nemusíte vykreslovat celý tvar nebo ručně ořezávat bitmapu.
+Použijte [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/java/com.aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader-boolean-) pro volbu výstupu z [IParagraphCollection.exportToHtml](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-). S `false` metoda vrací běžné HTML. S `true` vrácený řetězec začíná hlavičkou Windows schránky. Jeho pole `StartHTML` a `EndHTML` udávají byte offsety HTML v UTF‑8, zatímco `StartFragment` a `EndFragment` určují obsah k vložení.
 
-[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) může vrátit `null`, pokud odstavec nelze najít v jeho nadřazené kolekci, nemá platné vykreslovací ohraničení nebo jej nelze vykreslit. Zkontrolujte výsledek před uložením a po použití uvolněte vrácený obrázek.
+Tento příklad exportuje dva formátované odstavce jako běžné HTML (`html`) a jako HTML fragment pro schránku (`clipboardHtml`). Aplikace pak může fragment zapsat do systémové schránky. Pokud API schránky očekává surové bajty, zakódujte fragment jako UTF‑8 bez byte order mark (BOM).
 
-#### **Vykreslit odstavec v výchozím měřítku**
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 400, 100);
+    IParagraphCollection paragraphs = shape.getTextFrame().getParagraphs();
+    paragraphs.clear();
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+    TextToHtmlConversionOptions options = new TextToHtmlConversionOptions();
+    options.setAddClipboardFragmentHeader(false);
+    String html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+
+    options.setAddClipboardFragmentHeader(true);
+    String clipboardHtml = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Vykreslení odstavce jako obrázku**
+
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) vykreslí jednotlivý odstavec přímo a vrátí [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). Výsledek uložte do souboru nebo proudu pomocí [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-). Není nutné vykreslovat obsahující tvar nebo ručně ořezávat bitmapu.
+
+[IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) může vrátit `null`, pokud odstavec nelze v nadřazené kolekci najít, nemá platné vykreslovací ohraničení nebo nelze vykreslit. Výsledek před uložením zkontrolujte a po použití uvolněte vrácený obrázek.
+
+#### **Vykreslit odstavec ve výchozím měřítku**
 
 Příklad používá prezentaci s jedním snímkem, jehož první tvar je textové pole obsahující tři odstavce.
 
 ![Textové pole se třemi odstavci](paragraph_to_image_input.png)
 
-Následující příklad vybírá druhý odstavec s indexem 1 a volá [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) bez parametrů měřítka. Ověřuje, že tvar obsahuje požadovaný odstavec a že vykreslení vrací obrázek, předtím než zavolá [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) pro uložení ve formátu PNG. Blok `finally` uvolní obrázek po použití.
+Následující příklad vybere druhý odstavec s indexem 1 a zavolá [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--) bez parametrů měřítka. Zkontroluje, že tvar obsahuje požadovaný odstavec a že vykreslení vrátí obrázek, než zavolá [IImage.save](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/#save-java.lang.String-int-) pro uložení ve formátu PNG. V bloku `finally` se po použití obrázek uvolní.
 
 ```java
 import com.aspose.slides.*;
@@ -662,7 +691,7 @@ Výsledek:
 
 #### **Vykreslit odstavec v buňce tabulky se škálováním**
 
-Použijte přetížení [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) přijímající parametry `float scaleX` a `float scaleY` pro nastavení horizontálního a vertikálního měřítka. Následující příklad vytvoří tabulku, vykreslí odstavec v její první buňce dvojnásobně v šířce i výšce oproti výchozímu a uloží výsledek jako PNG obrázek.
+Použijte přetížení [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage-float-float-) přijímající parametry `float scaleX` a `float scaleY` pro nastavení horizontálního a vertikálního měřítka. Následující příklad vytvoří tabulku, vykreslí odstavec v první buňce dvojnásobně oproti výchozí šířce a výšce a výsledek uloží jako PNG obrázek.
 
 ```java
 import com.aspose.slides.*;
@@ -693,7 +722,7 @@ try {
 }
 ```
 
-Faktor měřítka `1` zachová danou osu v její výchozí velikosti pixelů. Například `2` pro oba faktory vytvoří obrázek, jehož šířka a výška jsou přibližně dvojnásobné výchozích rozměrů, což vede ke čtyřnásobku pixelů. Větší faktory obecně poskytují ostřejší text pro zvětšení nebo výstup ve vysokém rozlišení, ale také zvyšují spotřebu paměti a velikost souboru. Faktory pod `1` produkují menší obrázky s méně podrobným obsahem. Použijte stejné faktory k zachování poměru stran odstavce; různé horizontální a vertikální faktory roztačí výstup nezávisle.
+Měřítko `1` zachová danou osu v její výchozí velikosti pixelů. Například `2` pro oba faktory vytvoří obrázek, jehož šířka i výška jsou přibližně dvojnásobkem výchozích rozměrů, což dává čtyřikrát více pixelů. Větší faktory obvykle poskytují ostřejší text pro zvětšování nebo výstup ve vysokém rozlišení, ale zároveň zvyšují paměťovou náročnost a velikost souboru. Faktory pod `1` vytvářejí menší obrázky s menšími detaily. Používejte stejné faktory pro zachování poměru stran odstavce; různé horizontální a vertikální faktory roztačí výstup nezávisle.
 
 Vykreslování celého tvaru pomocí [IShape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getImage--) zůstává užitečné, když výstup musí zahrnovat výplň, okraj nebo jiný vizuální kontext tvaru. Pro obrázek pouze odstavce použijte [IParagraph.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getImage--).
 
@@ -701,18 +730,18 @@ Vykreslování celého tvaru pomocí [IShape.getImage](https://reference.aspose.
 
 **Mohu zcela zakázat zalamování řádků uvnitř textového rámce?**
 
-Ano. Nastavte [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) pro vypnutí zalamování, aby řádky neprováděly přerušení na okrajích textového rámce.
+Ano. Nastavte [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) pro zakázání zalamování, aby se řádky nelámal na okrajích textového rámce.
 
-**Jak mohu získat přesné ohraničení konkrétního odstavce na snímku?**
+**Jak mohu získat přesné hranice konkrétního odstavce na snímku?**
 
-Použijte [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) k získání ohraničujícího obdélníku odstavce. [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) poskytuje ohraničení jednotlivé části.
+Použijte [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getRect--) pro získání ohraničujícího obdélníku odstavce. [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/iportion/#getRect--) poskytuje ohraničení jednotlivé části.
 
-**Kde se řídí zarovnání odstavce (vlevo, vpravo, na střed nebo do bloku)?**
+**Kde je řízena zarovnání odstavce (vlevo, vpravo, na střed nebo do bloku)?**
 
 [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) je nastavení na úrovni odstavce a platí pro celý odstavec bez ohledu na formátování jednotlivých částí.
 
-Pro vertikální zarovnání částí s různými velikostmi písma v rámci každého řádku viz [Zarovnat písma v řádku](/slides/cs/java/text-formatting/#align-fonts-within-a-line).
+Pro vertikální zarovnání částí s různými velikostmi fontu v rámci řádku viz [Zarovnání fontů v řádku](/slides/cs/java/text-formatting/#align-fonts-within-a-line).
 
 **Mohu nastavit jazyk kontroly pravopisu pro část odstavce?**
 
-Ano. Nastavte [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) pro jednotlivé části, aby jeden odstavec mohl obsahovat text v několika jazycích.
+Ano. Nastavte [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) pro jednotlivé části, takže jeden odstavec může obsahovat text v několika jazycích.

@@ -1,5 +1,5 @@
 ---
-title: Hantera PowerPoint‑textstycken i PHP
+title: Hantera PowerPoint-textstycken i PHP
 linktitle: Hantera stycke
 type: docs
 weight: 40
@@ -18,7 +18,7 @@ keywords:
 - styckepunkt
 - numrerad lista
 - punktlista
-- styckeegenskaper
+- styckegenskaper
 - importera HTML
 - text till HTML
 - stycke till HTML
@@ -29,25 +29,25 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Lär dig hur du skapar och formaterar stycken, portioner, punkter, numrerade listor, indrag, HTML-innehåll och styckebilder med Aspose.Slides för PHP via Java."
+description: "Lär dig hur du skapar och formaterar stycken, delar, punkter, numrerade listor, indrag, HTML-innehåll och styckebilder med Aspose.Slides för PHP via Java."
 ---
 ## **Översikt**
 
-Aspose.Slides för PHP via Java representerar text som en hierarki av textramar, stycken och portioner:
+Aspose.Slides för PHP via Java representerar text som en hierarki av textramar, stycken och delar:
 
 * [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) representerar textbehållaren i en form och ger åtkomst till dess stycke‑samling.
-* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) representerar ett stycke i en textram och ger åtkomst till dess portioner och formatering på styckenivå.
-* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) representerar ett textkör i ett stycke. Varje portion kan ha sin egen text och teckenformatering.
+* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) representerar ett stycke i en textram och ger åtkomst till dess delar och styckesnivå‑formatering.
+* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) representerar ett textkörning inom ett stycke. Varje del kan ha sin egen text och teckennivå‑formatering.
 
-Ett stycke kan därför innehålla text med olika typsnitt, färger, storlekar och annan formatering genom att använda flera portioner.
+Ett stycke kan därför innehålla text med olika typsnitt, färger, storlekar och annan formatering genom att använda flera delar.
 
 ## **Skapa och formatera stycken**
 
-Skapa stycken i en formes textram och använd portioner för att formatera enskilda textkörningar. Detta avsnitt visar hur man kombinerar flera portioner inom varje stycke och använder olika färger, fontstorlekar och stilar.
+Skapa stycken i en formes textram och använd delar för att formatera enskilda textkörningar. Detta avsnitt visar hur man kombinerar flera delar inom varje stycke och tillämpar olika färger, teckenstorlekar och stilar.
 
-### **Skapa stycken med flera portioner**
+### **Skapa stycken med flera delar**
 
-Följande PHP‑exempel skapar tre stycken, var och en innehållande tre textkörningar i samlingen som returneras av [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions). Det återanvänder standardstycket och dess tomma portion, och lägger sedan till resterande stycken och portioner. Formatering appliceras via [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat): den första portionen i varje stycke är röd, fet och 15 pt; den andra är blå, kursiv och 18 pt. Den tredje portionen behåller sin standardformatering:
+Följande PHP‑exempel skapar två stycken, var och en innehållande tre textkörningar i samlingen som returneras av [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions). Det återanvänder standardstycket och dess tomma del, och lägger sedan till de återstående styckena och delarna. Formatering tillämpas via [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat): den första delen i varje stycke är röd, fet och 15 punkter; den andra är blå, kursiv och 18 punkter. Den tredje delen behåller sin standardformatering:
 
 ```php
 use aspose\slides\FillType;
@@ -111,13 +111,13 @@ try {
 
 ## **Skapa punktlistor och numrerade listor**
 
-Organisera stycketext i listor med symboler, siffror eller anpassade bilder. Exemplen i detta avsnitt täcker punktformatering, flernivålistor och anpassade startnummer.
+Organisera stycketext i listor med symboler, siffror eller anpassade bilder. Exemplen i detta avsnitt täcker punktformatering, flernivålistor och egna startnummer.
 
-### **Skapa en punkt- eller nummerlista**
+### **Skapa en punkt- eller numrerad lista**
 
-Punkter och numrering gör relaterade objekt enklare att skanna. I Aspose.Slides definieras listinställningar via [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/).
+Punkter och numrering gör relaterade objekt lättare att skanna. I Aspose.Slides definieras listinställningar via [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/).
 
-Detta PHP‑exempel lägger till en symbolpunkt och ett numrerat objekt i samma textram. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) väljer punkttyp, medan [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) anger symbolen och [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) väljer numreringsstil. Båda objekten använder svarta punkter med en höjd på 100 % och ett styckeindrag på 25 pt:
+Detta PHP‑exempel lägger till en symbolpunkt och ett numrerat objekt i samma textram. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) väljer punkttypen, medan [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) anger symbolen och [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) väljer numreringsstilen. Båda objekten använder svarta punkter med en höjd på 100 procent och ett styckeindrag på 25 punkter:
 
 ```php
 use aspose\slides\BulletType;
@@ -167,9 +167,9 @@ try {
 
 ### **Använd bildpunkter**
 
-Bildpunkter låter dig använda en anpassad bild istället för en symbol eller siffra.
+Bildpunkter låter dig använda en anpassad bild istället för en symbol eller ett nummer.
 
-Detta PHP‑exempel lägger till en bild i presentationens bildsamling som en [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) och använder den som styckepunkt. Det anropar [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) för att använda en bildpunkt och tilldelar bilden via [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture). [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) sätts till 100 % för att anpassa punkten relativt stycketexten:
+Detta PHP‑exempel lägger till en bild i presentationens bildsamling som en [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) och använder den som styckepunkt. Det anropar [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) för att använda en bildpunkt och tilldelar bilden via [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture). [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) sätts till 100 procent för att dimensionera punkten relativt stycketexten:
 
 ```php
 use aspose\slides\BulletType;
@@ -210,9 +210,9 @@ try {
 
 ### **Skapa en flernivålista**
 
-Ställ in [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) för att placera stycken på olika nivåer i en lista. Top‑nivån har ett djup på `0`.
+Sätt [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) för att placera stycken på olika nivåer i en lista. Den översta nivån har ett djup på `0`.
 
-Detta PHP‑exempel tilldelar [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) värden från 0 till 3 till fyra stycken, vilket skapar en hierarki i en textram. Varje stycke använder en symbolpunkt, där [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) växlar mellan en rund punkt och ett bindestreck för att särskilja intilliggande nivåer:
+Detta PHP‑exempel tilldelar [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) värden från 0 till 3 för fyra stycken, vilket skapar en hierarki inom en textram. Varje stycke använder en symbolpunkt, där [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) växlar mellan en rund punkt och ett bindestreck för att särskilja intilliggande nivåer:
 
 ```php
 use aspose\slides\BulletType;
@@ -273,11 +273,11 @@ try {
 }
 ```
 
-### **Starta numrerade listobjekt med anpassade värden**
+### **Starta numrerade listobjekt med egna värden**
 
-Använd [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) för att ange det initiala numret som visas för ett numrerat stycke.
+Använd [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) för att ange det initiala tal som visas för ett numrerat stycke.
 
-Detta PHP‑exempel sätter [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) för att använda numrering för tre stycken och tilldelar [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) värdena 2, 3 och 7. Startvärdet konfigureras separat för varje stycke, vilket gör att de visade numren kan hoppa över värden:
+Detta PHP‑exempel sätter [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) för att använda numrering för tre stycken och tilldelar [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) värdena 2, 3 och 7. Startvärdet konfigureras separat för varje stycke, vilket gör att de visade siffrorna kan hoppa över värden:
 
 ```php
 use aspose\slides\BulletType;
@@ -318,17 +318,17 @@ try {
 }
 ```
 
-## **Styr stycke layout och slutegenskaper**
+## **Styr stycke­layout och slutegenskaper**
 
-Justera styckemarginaler och indrag för att kontrollera positionen för den första raden och radbrytna rader. Du kan också formatera paragrafens slutmarkering separat från de synliga textportionerna.
+Justera styckemarginaler och indrag för att styra positionen för den första raden och de radbrytade raderna. Du kan också formatera styckets sluttecken separat från de synliga textdelarna.
 
-### **Ställ in ett indrag för första raden**
+### **Ställ in indrag för första raden**
 
-Använd metoden [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) för att kontrollera indraget för första raden i ett stycke. Denna inställning flyttar endast den första raden relativt styckets vänstra marginal. Ett positivt värde förskjuter den första raden åt höger, medan resterande rader förblir justerade med styckets kropp.
+Använd metoden [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) för att kontrollera indraget för första raden i ett stycke. Denna inställning flyttar endast den första raden relativt styckets vänstermarginal. Ett positivt värde förskjuter den första raden åt höger, medan de återstående raderna förblir justerade med styckekroppen.
 
-Använd [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) när du behöver flytta hela stycket. Använd [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) när du bara vill flytta den första raden.
+Använd [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) när du behöver flytta hela stycket. Använd [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) när du endast behöver flytta den första raden.
 
-Följande exempel ger tre stycken samma [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) på 20 pt samt [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) värdena 0, 20 och 40 pt. Första raderna börjar på successivt större avstånd, medan radbrytna rader behåller samma vänstra marginal:
+Följande exempel ger tre stycken samma [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) på 20 punkter och [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) värden på 0, 20 och 40 punkter. Första raderna börjar med successivt större förskjutning, medan radbrytade rader behåller samma vänstermarginal:
 
 ```php
 use aspose\slides\FillType;
@@ -384,17 +384,17 @@ try {
 
 Resultatet:
 
-![Indrag för den första raden i styckena](first_line_indent.png)
+![Indent för första raden i styckena](first_line_indent.png)
 
-### **Ställ in ett hängande indrag**
+### **Ställ in hängande indrag**
 
-Ett hängande indrag är en stycke‑layout där den första raden startar till vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med egenskapen [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent). Sätt `Indent` till ett negativt värde för att flytta den första raden åt vänster relativt styckets kropp.
+Ett hängande indrag är en stycke­layout där den första raden startar till vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med egenskapen [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent). Sätt `Indent` till ett negativt värde för att flytta den första raden åt vänster relativt styckekroppen.
 
-I praktiken definierar [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) den vänstra positionen för styckets kropp, och [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) definierar positionen för den första raden relativt den marginalen. För att skapa ett hängande indrag, sätt ett positivt `MarginLeft`‑värde och ett negativt `Indent`‑värde.
+I praktiken definierar [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) den vänstra positionen för styckekroppen, och [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) definierar positionen för den första raden relativt den marginalen. För att skapa ett hängande indrag, ange ett positivt `MarginLeft`‑värde och ett negativt `Indent`‑värde.
 
-Denna formatering är användbar för bibliografier, referenser, glossarposter och andra stycken där radbrytna rader måste justeras under styckets kropp snarare än under första tecknet i första raden.
+Denna formatering är användbar för bibliografier, referenser, ordlistposteringar och andra stycken där radbrytade rader måste justeras under styckekroppen snarare än under första tecknet i den första raden.
 
-Följande PHP‑exempel parar [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) värdena 40 och 60 pt med [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) värdena –20 och –30 pt. I varje stycke startar den första raden till vänster om de radbrytna raderna; det andra stycket har ett djupare hängande indrag:
+Följande PHP‑exempel kombinerar [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) värden på 40 och 60 punkter med [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) värden på -20 och -30 punkter. I varje stycke startar den första raden till vänster om de radbrytade raderna; det andra stycket har ett djupare hängande indrag:
 
 ```php
 use aspose\slides\FillType;
@@ -442,11 +442,11 @@ try {
 
 Resultatet:
 
-![Hängande indrag för styckena](hanging_indent.png)
+![Hängande indrag i styckena](hanging_indent.png)
 
-### **Ställ in egenskaper för paragrafens slutsegment**
+### **Ställ in egenskaper för styckets slutkörning**
 
-Metoden [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) styr formateringen av paragrafens slutmarkering. Följande exempel skapar ett [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) med [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) satt till 48 pt och [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) satt till Times New Roman. Det tilldelar detta format till den andra paragrafens slutmarkering, medan de synliga textportionerna förblir oförändrade:
+[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat)‑metoden styr formateringen av styckets sluttecken. Följande exempel skapar ett [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) med [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) satt till 48 punkter och [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) satt till Times New Roman. Det tilldelar detta format till den andra styckets sluttecken, medan de synliga textdelarna förblir oförändrade:
 
 ```php
 use aspose\slides\FontData;
@@ -487,13 +487,13 @@ try {
 
 ## **Räkna renderade rader**
 
-För styckeregler som påverkar automatisk radbrytning och interpunktion vid radslut, se [Control Line Breaking](/slides/sv/php-java/text-formatting/#control-line-breaking) och [Control Hanging Punctuation](/slides/sv/php-java/text-formatting/#control-hanging-punctuation).
+För stycke‑regler som påverkar automatisk radbrytning och skiljetecken vid radslut, se [Control Line Breaking](/slides/sv/php-java/text-formatting/#control-line-breaking) och [Control Hanging Punctuation](/slides/sv/php-java/text-formatting/#control-hanging-punctuation).
 
-Använd [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) för att räkna de rader som ett stycke upptar efter textlayout, inklusive automatisk radbrytning. Detta är användbart när du kontrollerar textlängd och layout i presentationsmallar.
+Använd [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) för att räkna raderna som ett stycke upptar efter textlayout, inklusive automatisk radbrytning. Detta är användbart när du kontrollerar textlängd och layout i presentationsmallar.
 
-Ett stycke är ett objekt i [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs) och kan uppta flera renderade rader. Ett explicit radbrytningstecken i ett stycke tvingar en ny rad utan att skapa ett nytt stycke. Automatisk radbrytning skapar rader baserat på tillgänglig bredd utan att infoga explicita radbrytningstecken i texten. Därför ger en räkning av stycken eller radbrytningstecken inte den renderade radantalet.
+Ett stycke är ett objekt i [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs), och det kan upptaga flera renderade rader. ett explicit radbrytning inom ett stycke tvingar en ny rad utan att skapa ett nytt stycke. Automatisk radbrytning skapar rader baserat på tillgänglig bredd utan att infoga explicita radbrytningstecken i texten. Att räkna stycken eller radbrytnings­tecken ger därför inte det renderade radantalet.
 
-Följande exempel skapar en textrams, räknar dess rader, smalnar av formen och ersätter sedan texten med en kortare sträng. Exemplet aktiverar radbrytning med [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) och inaktiverar autofit med [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) så att formens bredd styr radbrytning utan att automatiskt krympa texten eller ändra storlek på formen. Varje mätning använder [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount). Formens dimensioner är i punkter. Slutligen lägger exemplet till ett ytterligare stycke och summerar radantalet över textramen.
+Följande exempel skapar en textruta, räknar dess rader, smalnar av rutan och ersätter sedan texten med en kortare sträng. Exemplet aktiverar radbrytning med [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) och inaktiverar autofit med [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) så att rutfältets bredd styr radbrytning utan att automatiskt krympa texten eller ändra rutans storlek. Varje mätning använder [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount). Rutans dimensioner är i punkter. Slutligen lägger exemplet till ett ytterligare stycke och summerar radantalet över hela textramen.
 
 ```php
 use aspose\slides\NullableBool;
@@ -538,19 +538,19 @@ try {
 }
 ```
 
-Med denna text och dessa dimensioner ökar radantalet när formen smalnas av, medan ersättning av texten med den korta strängen minskar det. Exakta räknar kan variera beroende på typsnittstillgänglighet och -substitution, typsnittsstorlek, marginaler, indrag, radbrytning och autofit‑inställningar. Använd de typsnitt och layoutinställningar som är avsedda för målmiljön när du kontrollerar en mall.
+Med denna text och dessa dimensioner ökar radantalet när rutan smalnas, medan ersättning av texten med den korta strängen minskar det. Exakta antal kan variera beroende på tillgång till och ersättning av teckensnitt, teckenstorlek, marginaler, indrag, radbrytning och autofit‑inställningar. Använd de teckensnitt och layoutinställningar som är avsedda för målmiljön när du kontrollerar en mall.
 
-Radantalet i sig bestämmer inte om texten överskrider sin behållare. Tillgänglig höjd, radhöjd, stycke‑ och radavstånd samt autofit‑beteende spelar också roll; även en enstaka rad kan överskrida den tillgängliga bredden när radbrytning är inaktiverad.
+Radantalet ensamt avgör inte om texten överskrider sin behållare. Tillgänglig höjd, radhöjder, stycke‑ och radavstånd samt autofit‑beteende spelar också in; även en enda rad kan överstiga tillgänglig bredd när radbrytning är inaktiverad.
 
 ## **Importera och exportera styckeinnehåll**
 
-Använd HTML för att föra in text i en presentation eller exportera befintliga stycken för användning utanför den. Detta avsnitt visar också hur man renderar enskilda stycken som bilder, inklusive stycken i tabellceller.
+Använd HTML för att importera text till en presentation eller exportera befintliga stycken för användning utanför den. Detta avsnitt visar också hur man renderar enskilda stycken som bilder, inklusive stycken i tabellceller.
 
-### **Importera HTML‑text till stycken**
+### **Importera HTML‑text i stycken**
 
-Använd [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) för att konvertera HTML‑markup till stycken och portioner i en textram.
+Använd [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) för att konvertera HTML‑markup till stycken och delar i en textram.
 
-Detta PHP‑exempel läser HTML från en fil och skickar markupen till [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml). Det rensar textrammens standardstycke så att ramen endast innehåller den importerade innehållet. Den rektangulära formen lämnar ett marginal på 10 pt på varje sida av bilden:
+Detta PHP‑exempel läser HTML från en fil och skickar markupen till [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml). Det rensar textrammans standardstycke så att ramen endast innehåller det importerade innehållet. Den rektangulära formen lämnar en marginal på 10 punkter på varje sida av bilden:
 
 ```php
 use aspose\slides\FillType;
@@ -580,18 +580,18 @@ try {
 }
 ```
 
-### **Exportera styckettext till HTML**
+### **Exportera stycketext till HTML**
 
-Använd [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) för att exportera ett valt intervall av stycken som HTML. När du återanvänder presentations‑text på en webbplats kan du vilja bevara lokal betoning utan att föra över presentationens typsnitt, storlek eller textrutestilar. Ställ in [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) för att kontrollera hur långt exportören följer formateringsarv.
+Använd [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) för att exportera ett valt område av stycken som HTML. När du återanvänder presentations‑text på en webbplats kan du vilja bevara lokala betoningar utan att föra med dig presentationens typsnitt, storlek eller textrutestilar. Ställ in [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) för att kontrollera hur långt exportören följer formaterings‑arv.
 
-Ladda ner [the sample presentation](text-inheritance.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller en textruta med texten “Inherited text; explicit red 18pt”. Inmatningen använder medvetet flera formateringsnivåer:
+Ladda ner [the sample presentation](text-inheritance.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller en textruta med texten "Inherited text; explicit red 18pt". Inmatningen använder avsiktligt flera formateringsnivåer:
 
 - Presentationens standardtextstil tillhandahåller Calibri och en storlek på 28 pt.
-- Textramens förstalinjens textstil tillhandahåller blå text och kursiv.
-- Stycket anger explicit fet text.
-- Den andra portionen, “explicit red 18pt”, anger explicit röd text och en storlek på 18 pt.
+- Textrammans första‑nivå‑textstil tillhandahåller blå text och kursiv.
+- Stycket anger uttryckligen fet text.
+- Den andra delen, "explicit red 18pt", anger uttryckligen röd text och en storlek på 18 pt.
 
-Följande kompletta exempel exporterar samma stycken tre gånger. Det skickar [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) till exportmetoden och skriver varje resultat till en separat UTF‑8‑HTML‑fil:
+Följande kompletta exempel exporterar samma stycken tre gånger. Det skickar [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) till exportmetoden och skriver varje resultat som en separat UTF‑8‑HTML‑fil:
 
 ```php
 use aspose\slides\Presentation;
@@ -630,17 +630,48 @@ try {
 }
 ```
 
-Den genererade HTML‑koden innehåller följande CSS för den första portionen, “Inherited text; ”. Tabellen listar de relevanta deklarationerna; andra genererade egenskaper har utelämnats för tydlighet.
+Den genererade HTML‑koden innehåller följande CSS för den första delen, "Inherited text; ". Tabellen listar de relevanta deklarationerna; andra genererade egenskaper har utelämnats för tydlighet.
 
-| Utdata | Relevant CSS för den första portionen | Utseende |
+| Utdata | Relevant CSS för den första delen | Utseende |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Blå, fet, kursiv text på 28 pt i Calibri, om det typsnittet är tillgängligt. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Blå, fet, kursiv text; den omgivande sidan eller webbläsaren tillhandahåller teckensnittsfamiljen och storleken. |
-| `ParagraphOnly.html` | `font-weight:bold` | Fet text; den omgivande sidan eller webbläsaren tillhandahåller teckensnittsfamiljen, storleken, färgen och kursiv stil. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Blå, fet, kursiv text vid 28 pt i Calibri, om det teckensnittet är tillgängligt. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Blå, fet, kursiv text; den omgivande sidan eller webbläsaren levererar typsnittsfamiljen och storleken. |
+| `ParagraphOnly.html` | `font-weight:bold` | Fet text; den omgivande sidan eller webbläsaren levererar typsnittsfamiljen, storleken, färgen och kursiv stil. |
 
-Den andra portionen behåller `color:#ff0000`, `font-size:18pt` och `font-weight:bold` i alla tre utskrifterna. Den behåller också kursiv stil i `All` och `TextBox`, men inte i `ParagraphOnly`. Att begränsa arv tar därför inte bort formatering som uttryckligen tilldelats ett stycke eller en portion.
+Den andra delen behåller `color:#ff0000`, `font-size:18pt` och `font-weight:bold` i alla tre utdata. Den behåller även kursiv med `All` och `TextBox`, men inte med `ParagraphOnly`. Att begränsa arv tar därför inte bort formatering som uttryckligen tilldelats ett stycke eller en del.
 
-Öppna filerna i samma webbläsare för att jämföra dem. I de två begränsade lägena löses utelämnade CSS‑egenskaper av destinationssidans stilar eller webbläsarstandarder, så det slutgiltiga utseendet beror på var HTML‑koden används.
+Öppna filerna i samma webbläsare för att jämföra dem. I de två begränsade lägena löses utelämnade CSS‑egenskaper av destinationssidans stilar eller webbläsarstandarder, så det slutliga utseendet beror på var HTML‑koden används.
+
+### **Generera ett HTML‑urklippsfragment**
+
+Använd [TextToHtmlConversionOptions::setAddClipboardFragmentHeader](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader) för att välja utskriften från [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml). Med `false` returnerar metoden vanlig HTML. Med `true` börjar den returnerade strängen med ett Windows‑urklippshuvud. Dess fält `StartHTML` och `EndHTML` ger UTF‑8‑byte‑offsetarna för HTML‑koden, medan `StartFragment` och `EndFragment` identifierar innehållet att klistra in.
+
+Detta exempel exporterar två formaterade stycken som vanlig HTML (`$html`) och som ett HTML‑urklippsfragment (`$clipboardHtml`). Applikationen kan sedan skriva fragmentet till systemets urklipp. Om urklipps‑API:et förväntar råa byte, leverera fragmentet som UTF‑8 utan byte‑order‑mark (BOM).
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextToHtmlConversionOptions;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 400, 100);
+    $paragraphs = $shape->getTextFrame()->getParagraphs();
+    $paragraphs->clear();
+    $paragraphs->addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+    $options = new TextToHtmlConversionOptions();
+    $options->setAddClipboardFragmentHeader(false);
+    $html = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
+
+    $options->setAddClipboardFragmentHeader(true);
+    $clipboardHtml = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
+} finally {
+    $presentation->dispose();
+}
+```
 
 ### **Rendera ett stycke som en bild**
 
@@ -654,7 +685,7 @@ Exemplet använder en presentation med en bild där den första formen är en te
 
 ![Textrutan med tre stycken](paragraph_to_image_input.png)
 
-Följande exempel väljer det andra stycket på index 1 och anropar [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) utan skalningsparametrar. Det kontrollerar att formen innehåller det erforderliga stycket och att renderingen returnerar en bild innan den anropar [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) för att spara den i PNG‑format. `finally`‑blocket frigör bilden efter användning.
+Följande exempel väljer det andra stycket med index 1 och anropar [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) utan skal‑parametrar. Det kontrollerar att formen innehåller det erforderliga stycket och att renderingen returnerar en bild innan [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) anropas för att spara den i PNG‑format. `finally`‑blocket frigör bilden efter användning.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -692,11 +723,11 @@ try {
 
 Resultatet:
 
-![Stycke bilden](paragraph_to_image_output.png)
+![Stycke‑bilden](paragraph_to_image_output.png)
 
 #### **Rendera ett stycke i en tabellcell med skalning**
 
-Använd [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage)‑överladdningen som accepterar parametrarna `$scaleX` och `$scaleY` för att ange horisontella och vertikala skalningsfaktorer. Följande exempel skapar en tabell, renderar stycket i dess första cell med dubbelt så stor bredd och höjd som standard, och sparar resultatet som en PNG‑bild.
+Använd den [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage)‑överladdning som accepterar `$scaleX`‑ och `$scaleY`‑parametrar för att sätta horisontella och vertikala skalningsfaktorer. Följande exempel skapar en tabell, renderar stycket i dess första cell med dubbelt så stor bredd och höjd som standard, och sparar resultatet som en PNG‑bild.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -728,26 +759,26 @@ try {
 }
 ```
 
-En skalningsfaktor på `1` behåller den axeln i sin standardpixelstorlek. Till exempel ger `2` för båda faktorerna en bild vars bredd och höjd är ungefär dubbelt så stora som standardmåtten, vilket ger fyra gånger så många pixlar. Större faktorer ger i allmänhet skarpare text för zoomning eller högupplöst utskrift, men de ökar även minnesanvändning och filstorlek. Faktorer under `1` ger mindre bilder med mindre detalj. Använd lika faktorer för att bevara styckets bildförhållande; olika horisontella och vertikala faktorer sträcker ut resultatet oberoende av varandra.
+En skalfaktor på `1` behåller den axeln på dess standard‑pixelstorlek. Till exempel ger `2` för båda faktorerna en bild vars bredd och höjd är ungefär dubbelt så stora som standardmåtten, vilket ger fyra gånger så många pixlar. Större faktorer ger generellt skarpare text för zoomning eller högupplöst utskrift, men de ökar även minnesanvändning och filstorlek. Faktorer under `1` ger mindre bilder med mindre detalj. Använd lika faktorer för att bevara styckets bildförhållande; olika horisontella och vertikala faktorer sträcker utdata oberoende.
 
-Att rendera en hel form med [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) är fortfarande användbart när resultatet måste inkludera formens fyllning, kant eller annan visuell kontext. För en ren bild av ett stycke, använd [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage).
+Att rendera en hel form med [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) är fortfarande användbart när utskriften måste inkludera formens fyllning, ram eller annan visuell kontext. För en bild som bara innehåller ett stycke, använd [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage).
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Kan jag helt inaktivera radbrytning i en textram?**
 
-Ja. Ställ in [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) för att inaktivera radbrytning så att raderna inte bryts vid textrammens kanter.
+Ja. Sätt [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) för att inaktivera radbrytning så att rader inte bryts vid textrammens kanter.
 
-**Hur kan jag få de exakta gränserna för ett specifikt stycke på bilden?**
+**Hur kan jag få de exakta gränserna på bilden för ett specifikt stycke?**
 
-Använd [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) för att hämta paragrafens omgivande rektangel. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) ger gränserna för en enskild portion.
+Använd [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) för att hämta styckets omgivande rektangel. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) ger gränserna för en enskild del.
 
-**Var styrs styckejustering (vänster, höger, centrerat eller justerat)?**
+**Var styrs styckejustering (vänster, höger, centrerad eller marginaljusterad)?**
 
-[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) är en styckenivåinställning och tillämpas på hela stycket oavsett individuell portionsformatering.
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) är en inställning på styckelnivå och tillämpas på hela stycket oavsett individuell del‑formatering.  
 
-För att vertikalt justera portioner med olika teckenstorlekar inom varje rad, se [Align Fonts Within a Line](/slides/sv/php-java/text-formatting/#align-fonts-within-a-line).
+[Justera typsnitt inom en rad](/slides/sv/php-java/text-formatting/#align-fonts-within-a-line)
 
-**Kan jag ange språkgranskning för en del av ett stycke?**
+**Kan jag ange korrekturspråk för en del av ett stycke?**
 
-Ja. Ställ in [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) för enskilda portioner, så att ett stycke kan innehålla text på flera språk.
+Ja. Sätt [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) för enskilda delar, så att ett stycke kan innehålla text på flera språk.

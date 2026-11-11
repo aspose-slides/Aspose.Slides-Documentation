@@ -1,54 +1,55 @@
 ---
-title: Gérer les paragraphes de texte PowerPoint en .NET
+title: Gérer les paragraphes de texte PowerPoint dans .NET
 linktitle: Gérer le paragraphe
 type: docs
 weight: 40
 url: /fr/net/manage-paragraph/
 aliases:
-  - /net/paragraph/
+  - /net/paragraphe/
   - /net/portion/
+  - /net/paragraph/
 keywords:
-- ajouter du texte
-- ajouter un paragraphe
-- gérer le texte
-- gérer le paragraphe
-- gérer les puces
-- retrait de paragraphe
-- retrait suspendu
-- puce de paragraphe
-- liste numérotée
-- liste à puces
-- propriétés du paragraphe
-- importer HTML
-- texte en HTML
-- paragraphe en HTML
-- paragraphe en image
-- texte en image
-- exporter le paragraphe
-- PowerPoint
-- présentation
-- .NET
-- C#
-- Aspose.Slides
-description: "Apprenez comment créer et formater des paragraphes, des portions, des puces, des listes numérotées, des retraits, du contenu HTML et des images de paragraphes avec Aspose.Slides pour .NET."
+  - ajouter du texte
+  - ajouter un paragraphe
+  - gérer le texte
+  - gérer le paragraphe
+  - gérer les puces
+  - retrait de paragraphe
+  - retrait suspendu
+  - puce de paragraphe
+  - liste numérotée
+  - liste à puces
+  - propriétés du paragraphe
+  - importer HTML
+  - texte vers HTML
+  - paragraphe vers HTML
+  - paragraphe vers image
+  - texte vers image
+  - exporter le paragraphe
+  - PowerPoint
+  - présentation
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Apprenez à créer et formater des paragraphes, des portions, des puces, des listes numérotées, des retraits, du contenu HTML et des images de paragraphes avec Aspose.Slides pour .NET."
 ---
 ## **Vue d'ensemble**
 
-Aspose.Slides for .NET représente le texte comme une hiérarchie de zones de texte, de paragraphes et de portions :
+Aspose.Slides for .NET représente le texte comme une hiérarchie de cadres de texte, de paragraphes et de portions :
 
-* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) représente le conteneur de texte d’une forme et fournit l’accès à sa collection de paragraphes.
-* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) représente un paragraphe dans une zone de texte et fournit l’accès à ses portions et à la mise en forme au niveau du paragraphe.
-* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) représente une séquence de texte au sein d’un paragraphe. Chaque portion peut avoir son propre texte et une mise en forme au niveau des caractères.
+* [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) représente le conteneur de texte dans une forme et fournit l'accès à sa collection de paragraphes.  
+* [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) représente un paragraphe dans un cadre de texte et fournit l'accès à ses portions ainsi qu'au formatage au niveau du paragraphe.  
+* [IPortion](https://reference.aspose.com/slides/net/aspose.slides/iportion/) représente un flux de texte au sein d'un paragraphe. Chaque portion peut avoir son propre texte et son propre formatage de caractère.
 
-Un paragraphe peut donc contenir du texte avec différentes polices, couleurs, tailles et autres mises en forme en utilisant plusieurs portions.
+Un paragraphe peut donc contenir du texte avec différentes polices, couleurs, tailles et autres formats en utilisant plusieurs portions.
 
 ## **Créer et formater des paragraphes**
 
-Créez des paragraphes dans la zone de texte d’une forme et utilisez des portions pour formater des séquences de texte individuelles. Cette section montre comment combiner plusieurs portions dans chaque paragraphe et appliquer différentes couleurs, tailles de police et styles.
+Créez des paragraphes dans le cadre de texte d'une forme et utilisez les portions pour formater des flux de texte individuels. Cette section montre comment combiner plusieurs portions au sein de chaque paragraphe et appliquer différentes couleurs, tailles de police et styles.
 
 ### **Créer des paragraphes avec plusieurs portions**
 
-Le code C# suivant crée trois paragraphes, chacun contenant trois séquences de texte dans sa collection [IParagraph.Portions](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/portions/). Il réutilise le paragraphe par défaut et sa portion vide, puis ajoute les paragraphes et portions restants. La mise en forme est appliquée via [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/) : la première portion de chaque paragraphe est rouge, en gras et de 15 points ; la deuxième est bleue, en italique et de 18 points. La troisième portion conserve sa mise en forme par défaut :
+L'exemple C# suivant crée trois paragraphes, chacun contenant trois flux de texte dans sa collection [IParagraph.Portions](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/portions/). Il réutilise le paragraphe par défaut et sa portion vide, puis ajoute les paragraphes et portions restants. Le formatage est appliqué via [IPortion.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportion/portionformat/) : la première portion de chaque paragraphe est rouge, en gras, et de 15 points ; la seconde est bleue, en italique, et de 18 points. La troisième portion conserve son formatage par défaut :
 
 ```csharp
 using System.Drawing;
@@ -109,13 +110,13 @@ presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 
 ## **Créer des listes à puces et numérotées**
 
-Organisez le texte des paragraphes en listes avec des symboles, des numéros ou des images personnalisées. Les exemples de cette section couvrent le formatage des puces, les listes à plusieurs niveaux et les numéros de départ personnalisés.
+Organisez le texte des paragraphes en listes avec des symboles, des chiffres ou des images personnalisées. Les exemples de cette section couvrent le formatage des puces, les listes à plusieurs niveaux et les numéros de départ personnalisés.
 
 ### **Créer une liste à puces ou numérotée**
 
-Les puces et la numérotation facilitent la lecture des éléments connexes. Dans Aspose.Slides, les paramètres de liste sont définis via [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/).
+Les puces et la numérotation facilitent la lecture des éléments associés. Dans Aspose.Slides, les paramètres de liste sont définis via [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/).
 
-Ce code C# ajoute une puce symbolique et un élément numéroté dans la même zone de texte. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) sélectionne le type de puce, tandis que [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) fournit le symbole et [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstyle/) sélectionne le style de numérotation. Les deux éléments utilisent des puces noires d’une hauteur de 100 % et un retrait de paragraphe de 25 points :
+Cet exemple C# ajoute une puce symbole et un élément numéroté au même cadre de texte. [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) sélectionne le type de puce, tandis que [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) fournit le symbole et [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstyle/) choisit le style de numérotation. Les deux éléments utilisent des puces noires d'une hauteur de 100 % et un retrait de paragraphe de 25 points :
 
 ```csharp
 using System;
@@ -153,11 +154,11 @@ textFrame.Paragraphs.Add(numberedParagraph);
 presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Utiliser des puces image**
+### **Utiliser des puces d'image**
 
-Les puces image vous permettent d’utiliser une image personnalisée à la place d’un symbole ou d’un numéro.
+Les puces d'image vous permettent d'utiliser une image personnalisée à la place d'un symbole ou d'un chiffre.
 
-Ce code C# ajoute une image à la collection d’images de la présentation en tant que [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) et l’utilise comme puce de paragraphe. Il définit [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) pour utiliser une puce image et assigne l’image via [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/). [IBulletFormat.Height](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/height/) est réglé à 100 % pour dimensionner la puce par rapport au texte du paragraphe :
+Cet exemple C# ajoute une image à la collection d'images de la présentation en tant que [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) et l'utilise comme puce de paragraphe. Il définit [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) pour utiliser une puce d'image et assigne l'image via [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/). [IBulletFormat.Height](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/height/) est fixé à 100 % pour dimensionner la puce par rapport au texte du paragraphe :
 
 ```csharp
 using Aspose.Slides;
@@ -187,7 +188,7 @@ presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 
 Définissez [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) pour placer les paragraphes à différents niveaux d’une liste. Le niveau supérieur a une profondeur de `0`.
 
-Ce code C# assigne des valeurs [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) de 0 à 3 à quatre paragraphes, créant une hiérarchie dans une seule zone de texte. Chaque paragraphe utilise une puce symbolique, avec [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) alternant entre une puce ronde et un trait d’union pour distinguer les niveaux adjacents :
+Cet exemple C# affecte des valeurs de [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) de 0 à 3 à quatre paragraphes, créant une hiérarchie au sein d’un même cadre de texte. Chaque paragraphe utilise une puce symbole, avec [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/) alternant entre une puce ronde et un trait d’union pour différencier les niveaux adjacents :
 
 ```csharp
 using System;
@@ -238,11 +239,11 @@ textFrame.Paragraphs.Add(fourthParagraph);
 presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-### **Commencer les éléments numérotés à des valeurs personnalisées**
+### **Démarrer les éléments de liste numérotée avec des valeurs personnalisées**
 
 Utilisez [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) pour définir le numéro initial affiché pour un paragraphe numéroté.
 
-Ce code C# définit [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) pour utiliser la numérotation sur trois paragraphes et assigne des valeurs [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) de 2, 3 et 7. La valeur de départ est configurée séparément pour chaque paragraphe, permettant aux numéros affichés de sauter des valeurs :
+Cet exemple C# définit [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) pour utiliser la numérotation sur trois paragraphes et assigne des valeurs de [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) de 2, 3 et 7. La valeur de départ est configurée séparément pour chaque paragraphe, ce qui permet aux nombres affichés d'ignorer des valeurs :
 
 ```csharp
 using Aspose.Slides;
@@ -275,15 +276,15 @@ presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 
 ## **Contrôler la mise en page des paragraphes et les propriétés de fin**
 
-Ajustez les marges et les retraits des paragraphes pour contrôler la position de la première ligne et des lignes renvoyées. Vous pouvez également formater le signe de fin de paragraphe séparément des portions de texte visibles.
+Ajustez les marges et les retraits des paragraphes pour contrôler la position de la première ligne et des lignes enveloppées. Vous pouvez également formater le marqueur de fin de paragraphe séparément du texte visible.
 
 ### **Définir un retrait de première ligne**
 
-Utilisez la propriété [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) pour contrôler le retrait de la première ligne d’un paragraphe. Cette propriété ne déplace que la première ligne par rapport à la marge gauche du paragraphe. Une valeur positive décale la première ligne vers la droite, tandis que les lignes restantes restent alignées avec le corps du paragraphe.
+Utilisez la propriété [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) pour contrôler le retrait de première ligne d’un paragraphe. Cette propriété ne décale que la première ligne par rapport à la marge gauche du paragraphe. Une valeur positive décale la première ligne vers la droite, tandis que les lignes restantes restent alignées avec le corps du paragraphe.
 
-Utilisez [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) lorsque vous devez déplacer l’ensemble du paragraphe. Utilisez [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) lorsque vous devez déplacer uniquement la première ligne.
+Utilisez [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) lorsque vous devez déplacer l’ensemble du paragraphe. Utilisez [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) lorsque vous ne devez déplacer que la première ligne.
 
-L’exemple suivant donne à trois paragraphes la même [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) de 20 points et des valeurs [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) de 0, 20 et 40 points. Les premières lignes commencent à des décalages progressivement plus grands, tandis que les lignes renvoyées conservent la même marge gauche :
+L'exemple suivant donne à trois paragraphes la même [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) de 20 points et des valeurs de [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) de 0, 20 et 40 points. Les premières lignes commencent à des décalages progressivement plus grands, tandis que les lignes enveloppées conservent la même marge gauche :
 
 ```csharp
 using System.Drawing;
@@ -333,13 +334,13 @@ Le résultat :
 
 ### **Définir un retrait suspendu**
 
-Un retrait suspendu est une mise en page de paragraphe dans laquelle la première ligne commence à gauche des lignes restantes. Dans Aspose.Slides, vous créez cet effet avec la propriété [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/). Définissez `Indent` à une valeur négative pour déplacer la première ligne à gauche par rapport au corps du paragraphe.
+Un retrait suspendu est une mise en page de paragraphe où la première ligne commence à gauche des lignes suivantes. Dans Aspose.Slides, vous créez cet effet avec la propriété [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/). Définissez `Indent` à une valeur négative pour déplacer la première ligne vers la gauche par rapport au corps du paragraphe.
 
-En pratique, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) définit la position gauche du corps du paragraphe, et [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) définit la position de la première ligne par rapport à cette marge. Pour créer un retrait suspendu, définissez une valeur positive `MarginLeft` et une valeur négative `Indent`.
+En pratique, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) définit la position gauche du corps du paragraphe, et [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) définit la position de la première ligne par rapport à cette marge. Pour créer un retrait suspendu, définissez une valeur positive pour `MarginLeft` et une valeur négative pour `Indent`.
 
-Ce formatage est utile pour les bibliographies, références, entrées de glossaire et autres paragraphes où les lignes renvoyées doivent s’aligner sous le corps du paragraphe plutôt que sous le premier caractère de la première ligne.
+Ce formatage est utile pour les bibliographies, références, entrées de glossaire et autres paragraphes où les lignes enveloppées doivent s’aligner sous le corps du paragraphe plutôt que sous le premier caractère de la première ligne.
 
-L’exemple C# suivant associe des valeurs [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) de 40 et 60 points avec des valeurs [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) de -20 et -30 points. Dans chaque paragraphe, la première ligne démarre à gauche des lignes renvoyées ; le deuxième paragraphe possède un retrait suspendu plus profond :
+L'exemple C# suivant associe des valeurs de [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginleft/) de 40 et 60 points avec des valeurs de [IParagraphFormat.Indent](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/indent/) de -20 et -30 points. Dans chaque paragraphe, la première ligne commence à gauche des lignes enveloppées ; le deuxième paragraphe possède un retrait suspendu plus important :
 
 ```csharp
 using System.Drawing;
@@ -380,9 +381,9 @@ Le résultat :
 
 ![Le retrait suspendu des paragraphes](hanging_indent.png)
 
-### **Définir les propriétés de fin du paragraphe**
+### **Définir les propriétés de fin de paragraphe**
 
-La propriété [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) contrôle le formatage du signe de fin de paragraphe. Le paragraphe suivant crée un [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) avec [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) défini à 48 points et [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) défini à Times New Roman. Il assigne ce format au signe de fin du deuxième paragraphe, laissant les portions de texte visibles inchangées :
+La propriété [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/endparagraphportionformat/) contrôle le formatage du marqueur de fin de paragraphe. L'exemple suivant crée un [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) avec [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) réglé à 48 points et [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/latinfont/) à Times New Roman. Il affecte ce format au marqueur de fin du deuxième paragraphe, laissant les portions de texte visibles inchangées :
 
 ```csharp
 using Aspose.Slides;
@@ -414,13 +415,13 @@ presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
 
 ## **Compter les lignes rendues**
 
-Pour les règles de paragraphe qui affectent le renvoi automatique et la ponctuation en fin de ligne, voir [Control Line Breaking](/slides/fr/net/text-formatting/#control-line-breaking) et [Control Hanging Punctuation](/slides/fr/net/text-formatting/#control-hanging-punctuation).
+Pour les règles de paragraphe qui affectent le retour à la ligne automatique et la ponctuation en fin de ligne, voir [Contrôler la césure de ligne](/slides/fr/net/text-formatting/#control-line-breaking) et [Contrôler la ponctuation en retrait](/slides/fr/net/text-formatting/#control-hanging-punctuation).
 
-Utilisez [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) pour compter les lignes occupées par un paragraphe après la mise en page du texte, y compris le renvoi automatique. Ceci est utile lors de la vérification de la longueur du texte et de la mise en page dans les modèles de présentation.
+Utilisez [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/) pour compter les lignes occupées par un paragraphe après la mise en page du texte, y compris les retours à la ligne automatiques. Cela est utile lors de la vérification de la longueur du texte et de la mise en page dans les modèles de présentation.
 
-Un paragraphe est un élément de [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), et il peut occuper plusieurs lignes rendues. Un saut de ligne explicite dans un paragraphe force une nouvelle ligne sans créer un autre paragraphe. Le renvoi automatique crée des lignes en fonction de la largeur disponible sans insérer de sauts de ligne explicites dans le texte. Compter les paragraphes ou les caractères de saut de ligne ne donne donc pas le nombre de lignes rendues.
+Un paragraphe est un élément de [ITextFrame.Paragraphs](https://reference.aspose.com/slides/net/aspose.slides/itextframe/paragraphs/), et il peut occuper plusieurs lignes rendues. Un saut de ligne explicite à l'intérieur d'un paragraphe force une nouvelle ligne sans créer un autre paragraphe. Le retour à la ligne automatique crée des lignes en fonction de la largeur disponible sans insérer de caractères de saut explicite dans le texte. Compter les paragraphes ou les caractères de saut ne donne donc pas le nombre de lignes rendues.
 
-L’exemple suivant crée une forme de texte, compte ses lignes, rétrécit la forme, puis remplace le texte par une chaîne plus courte. L’exemple active [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) et désactive [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) afin que la largeur de la forme contrôle le renvoi sans réduire automatiquement le texte ou redimensionner la forme. Chaque mesure utilise [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/). Les dimensions de la forme sont en points. Enfin, l’exemple ajoute un autre paragraphe et additionne les comptes de lignes à travers la zone de texte.
+L'exemple suivant crée une forme de texte, compte ses lignes, rétrécit la forme, puis remplace le texte par une chaîne plus courte. L'exemple active [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) et désactive [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) afin que la largeur de la forme contrôle le retour à la ligne sans réduire automatiquement le texte ni redimensionner la forme. Chaque mesure utilise [IParagraph.GetLinesCount](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getlinescount/). Les dimensions de la forme sont exprimées en points. Enfin, l'exemple ajoute un autre paragraphe et additionne les comptes de lignes sur l'ensemble du cadre de texte.
 
 ```csharp
 using System;
@@ -457,19 +458,19 @@ foreach (var currentParagraph in textFrame.Paragraphs)
 Console.WriteLine($"Total lines in the text frame: {totalLineCount}");
 ```
 
-Avec ce texte et ces dimensions, rétrécir la forme augmente le nombre de lignes, tandis que remplacer le texte par la chaîne courte le réduit. Les comptes exacts peuvent varier selon la disponibilité et la substitution des polices, la taille de la police, les marges, l’indentation, le renvoi et les paramètres de redimensionnement automatique. Utilisez les polices et les paramètres de mise en page prévus pour l’environnement cible lors de la vérification d’un modèle.
+Avec ce texte et ces dimensions, le rétrécissement de la forme augmente le nombre de lignes, tandis que le remplacement du texte par la chaîne courte le réduit. Les comptes exacts peuvent varier selon la disponibilité des polices et les substitutions, la taille de la police, les marges, les retraits, le retour à la ligne et les paramètres d’ajustement automatique. Utilisez les polices et les paramètres de mise en page prévus pour l'environnement cible lors de la vérification d’un modèle.
 
-Le simple compte de lignes ne détermine pas si le texte dépasse son conteneur. La hauteur disponible, les hauteurs de ligne, l’interligne du paragraphe et du texte, et le comportement d’ajustement automatique sont également importants ; même une seule ligne peut dépasser la largeur disponible lorsque le renvoi est désactivé.
+Le nombre de lignes seul ne détermine pas si le texte dépasse son conteneur. La hauteur disponible, la hauteur des lignes, l'espacement des paragraphes et des lignes, ainsi que le comportement d’ajustement automatique sont également importants ; même une seule ligne peut dépasser la largeur disponible lorsque le retour à la ligne est désactivé.
 
 ## **Importer et exporter le contenu des paragraphes**
 
-Utilisez HTML pour importer du texte dans une présentation ou exporter des paragraphes existants pour une utilisation extérieure. Cette section montre également comment rendre des paragraphes individuels en images, y compris les paragraphes dans les cellules de tableau.
+Utilisez HTML pour introduire du texte dans une présentation ou exporter les paragraphes existants afin de les réutiliser en dehors de celle‑ci. Cette section montre également comment rendre des paragraphes individuels en images, y compris les paragraphes dans les cellules de tableau.
 
 ### **Importer du texte HTML dans des paragraphes**
 
-Utilisez [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) pour convertir le balisage HTML en paragraphes et portions dans une zone de texte.
+Utilisez [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/) pour convertir le balisage HTML en paragraphes et portions dans un cadre de texte.
 
-Ce code C# lit le HTML d’un fichier et transmet le balisage à [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/). Il vide le paragraphe par défaut de la zone de texte afin que la zone ne contienne que le contenu importé. La forme rectangulaire laisse une marge de 10 points de chaque côté de la diapositive :
+Cet exemple C# lit le HTML depuis un fichier et transmet le balisage à [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/addfromhtml/). Il efface le paragraphe par défaut du cadre de texte afin que le cadre ne contienne que le contenu importé. La forme rectangulaire laisse une marge de 10 points de chaque côté de la diapositive :
 
 ```csharp
 using System.IO;
@@ -492,18 +493,18 @@ shape.TextFrame.Paragraphs.AddFromHtml(html);
 presentation.Save("html_text.pptx", SaveFormat.Pptx);
 ```
 
-### **Exporter le texte du paragraphe vers HTML**
+### **Exporter le texte des paragraphes en HTML**
 
-Utilisez [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) pour exporter une plage sélectionnée de paragraphes au format HTML. Lors de la réutilisation du texte d’une présentation sur un site web, vous pouvez souhaiter conserver l’emphase locale sans transférer la police, la taille ou les styles de zone de texte de la présentation. Définissez [TextToHtmlConversionOptions.TextInheritanceLimit](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/textinheritancelimit/) pour contrôler jusqu’où l’exportateur suit l’héritage de mise en forme.
+Utilisez [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/net/aspose.slides/paragraphcollection/exporttohtml/) pour exporter une plage sélectionnée de paragraphes au format HTML. Lors de la réutilisation du texte d’une présentation sur un site web, vous pouvez vouloir conserver la mise en emphase locale sans transférer la police, la taille ou les styles de zone de texte de la présentation. Réglez [TextToHtmlConversionOptions.TextInheritanceLimit](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/textinheritancelimit/) pour contrôler jusqu’où l’exportateur suit l’héritage du formatage.
 
-Téléchargez [la présentation d’exemple](text-inheritance.pptx) et placez‑la dans le répertoire de travail de l’application. Sa première diapositive contient une forme de texte avec le texte « Inherited text; explicit red 18pt ». L’entrée utilise délibérément plusieurs niveaux de mise en forme :
+Téléchargez [la présentation d’exemple](text-inheritance.pptx) et placez‑la dans le répertoire de travail de l’application. Sa première diapositive contient une forme de texte avec le texte « Inherited text; explicit red 18pt ». L’entrée utilise délibérément plusieurs niveaux de formatage :
 
-- Le style de texte par défaut de la présentation fournit Calibri et une taille de 28 pt.
-- Le style de texte de premier niveau de la zone de texte fournit du texte bleu et de l’italique.
-- Le paragraphe définit explicitement le texte en gras.
-- La deuxième portion, « explicit red 18pt », définit explicitement le texte rouge et une taille de 18 pt.
+- Le style de texte par défaut de la présentation fournit Calibri en 28 pt.  
+- Le style de texte de premier niveau du cadre fournit du texte bleu et italique.  
+- Le paragraphe définit explicitement du texte en gras.  
+- La deuxième portion, « explicit red 18pt », définit explicitement du texte rouge et une taille de 18 pt.
 
-L’exemple complet suivant exporte les mêmes paragraphes trois fois. Il transmet [TextToHtmlConversionOptions](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/) à la méthode d’exportation et écrit chaque résultat dans un fichier HTML UTF‑8 distinct :
+L’exemple complet suivant exporte les mêmes paragraphes trois fois. Il transmet [TextToHtmlConversionOptions](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/) à la méthode d’export et écrit chaque résultat dans un fichier HTML UTF‑8 distinct :
 
 ```csharp
 using System.IO;
@@ -530,27 +531,52 @@ Le HTML généré contient le CSS suivant pour la première portion, « Inherite
 
 | Sortie | CSS pertinent pour la première portion | Apparence |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Bleu, texte gras et italique à 28 pt en Calibri, si cette police est disponible. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Texte bleu, gras et italique ; la page ou le navigateur environnant fournit la police et la taille. |
-| `ParagraphOnly.html` | `font-weight:bold` | Texte gras ; la page ou le navigateur environnant fournit la police, la taille, la couleur et le style italique. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Texte bleu, gras, italique à 28 pt en Calibri, si cette police est disponible. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Texte bleu, gras, italique ; la page ou le navigateur environnant fournit la famille de police et la taille. |
+| `ParagraphOnly.html` | `font-weight:bold` | Texte gras ; la page ou le navigateur environnant fournit la famille de police, la taille, la couleur et le style italique. |
 
-La deuxième portion conserve `color:#ff0000`, `font-size:18pt` et `font-weight:bold` dans les trois sorties. Elle conserve également l’italique avec `All` et `TextBox`, mais pas avec `ParagraphOnly`. Restreindre l’héritage ne supprime donc pas la mise en forme explicitement assignée à un paragraphe ou à une portion.
+La deuxième portion conserve `color:#ff0000`, `font-size:18pt` et `font-weight:bold` dans les trois sorties. Elle conserve également l’italique avec **All** et **TextBox**, mais pas avec **ParagraphOnly**. Restreindre l’héritage ne supprime donc pas le formatage explicitement attribué à un paragraphe ou à une portion.
 
-Ouvrez les fichiers dans le même navigateur pour les comparer. Dans les deux modes restreints, les propriétés CSS omises sont résolues par les styles de la page de destination ou les paramètres par défaut du navigateur, de sorte que l’apparence résultante dépend de l’endroit où le HTML est utilisé.
+Ouvrez les fichiers dans le même navigateur pour les comparer. Dans les deux modes restreints, les propriétés CSS omises sont résolues par les styles de la page de destination ou par les valeurs par défaut du navigateur, de sorte que l’apparence résultante dépend de l’endroit où le HTML est utilisé.
+
+### **Générer un fragment HTML du presse‑papiers**
+
+Définissez [AddClipboardFragmentHeader](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/addclipboardfragmentheader/) à `false` pour un HTML ordinaire ou à `true` pour inclure un en‑tête de presse‑papiers. Les deux appels renvoient une chaîne. L’en‑tête donne les offsets octets UTF‑8 du HTML environnant (`StartHTML` et `EndHTML`) ainsi que le contenu à coller (`StartFragment` et `EndFragment`).
+
+Cet exemple exporte deux paragraphes formatés en HTML ordinaire (`html`) et en fragment HTML du presse‑papiers (`clipboardHtml`). L’écriture du fragment dans le presse‑papiers du système est une étape d’application distincte. Une API de presse‑papiers qui accepte les octets HTML bruts nécessite UTF‑8 sans BOM.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 400, 100);
+var paragraphs = shape.TextFrame.Paragraphs;
+paragraphs.Clear();
+paragraphs.AddFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+var options = new TextToHtmlConversionOptions { AddClipboardFragmentHeader = false };
+var html = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+
+options.AddClipboardFragmentHeader = true;
+var clipboardHtml = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+```
 
 ### **Rendre un paragraphe en image**
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) rend directement un paragraphe individuel et renvoie une [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Enregistrez le résultat dans un fichier ou un flux avec [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Vous n’avez pas besoin de rendre la forme contenant le texte ou de recadrer manuellement un bitmap.
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) rend directement un paragraphe individuel et renvoie un [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Enregistrez le résultat dans un fichier ou un flux avec [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). Vous n’avez pas besoin de rendre la forme contenant le paragraphe ni de recadrer manuellement un bitmap.
 
-[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) peut renvoyer `null` si le paragraphe est introuvable dans sa collection parente, n’a pas de limites de rendu valides ou ne peut pas être rendu. Vérifiez le résultat avant de l’enregistrer et libérez l’image retournée après utilisation.
+[IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) peut renvoyer `null` si le paragraphe est introuvable dans sa collection parente, s’il n’a pas de limites de rendu valides, ou s’il ne peut pas être rendu. Vérifiez le résultat avant de l’enregistrer et libérez l’image retournée après utilisation.
 
-#### **Rendre un paragraphe à l’échelle par défaut**
+#### **Rendre un paragraphe à l'échelle par défaut**
 
-L’exemple utilise une présentation contenant une diapositive dont la première forme est une zone de texte contenant trois paragraphes.
+L’exemple utilise une présentation avec une diapositive dont la première forme est une zone de texte contenant trois paragraphes.
 
 ![La zone de texte avec trois paragraphes](paragraph_to_image_input.png)
 
-L’exemple suivant sélectionne le deuxième paragraphe à l’index 1 et appelle [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) sans paramètres d’échelle. Il vérifie que la forme contient le paragraphe requis et que le rendu renvoie une image avant d’appeler [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) pour l’enregistrer au format PNG. La déclaration `using` libère l’image après utilisation.
+L’exemple suivant sélectionne le deuxième paragraphe (indice 1) et appelle [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) sans paramètres d’échelle. Il vérifie que la forme contient le paragraphe requis et que le rendu renvoie une image avant d’appeler [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) pour l’enregistrer au format PNG. La déclaration `using` libère l’image après utilisation.
 
 ```csharp
 using System;
@@ -583,11 +609,11 @@ else
 
 Le résultat :
 
-![L’image du paragraphe](paragraph_to_image_output.png)
+![L'image du paragraphe](paragraph_to_image_output.png)
 
-#### **Rendre un paragraphe dans une cellule de tableau avec mise à l’échelle**
+#### **Rendre un paragraphe dans une cellule de tableau avec mise à l'échelle**
 
-Utilisez la surcharge de [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) qui accepte les paramètres `float scaleX` et `float scaleY` pour définir les facteurs d’échelle horizontaux et verticaux. L’exemple suivant crée un tableau, rend le paragraphe dans sa première cellule à deux fois sa largeur et hauteur par défaut, et enregistre le résultat au format PNG.
+Utilisez la surcharge de [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) acceptant les paramètres `float scaleX` et `float scaleY` pour définir les facteurs d’échelle horizontaux et verticaux. L’exemple suivant crée un tableau, rend le paragraphe de sa première cellule à deux fois sa largeur et hauteur par défaut, et enregistre le résultat sous forme d’image PNG.
 
 ```csharp
 using System;
@@ -614,25 +640,26 @@ else
 }
 ```
 
-Un facteur d’échelle de `1` maintient cet axe à sa taille de pixel par défaut. Par exemple, `2` pour les deux facteurs produit une image dont la largeur et la hauteur sont approximativement deux fois les dimensions par défaut, ce qui donne quatre fois plus de pixels. Des facteurs plus grands produisent généralement un texte plus net pour le zoom ou la sortie haute résolution, mais augmentent aussi l’usage mémoire et la taille du fichier. Des facteurs inférieurs à `1` produisent des images plus petites avec moins de détails. Utilisez des facteurs égaux pour conserver le rapport d’aspect du paragraphe ; des facteurs horizontaux et verticaux différents étirent la sortie indépendamment.
+Un facteur d’échelle de `1` conserve cet axe à sa taille de pixel par défaut. Par exemple, `2` pour les deux facteurs produit une image dont la largeur et la hauteur sont approximativement le double des dimensions d’origine, ce qui donne quatre fois plus de pixels. Des facteurs plus élevés produisent généralement du texte plus net pour le zoom ou les sorties haute résolution, mais augmentent également l’utilisation de mémoire et la taille du fichier. Des facteurs inférieurs à `1` produisent des images plus petites avec moins de détails. Utilisez des facteurs égaux pour conserver le ratio d’aspect du paragraphe ; des facteurs horizontaux et verticaux différents étirent la sortie indépendamment.
 
-Rendre une forme entière avec [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) reste utile lorsque la sortie doit inclure le remplissage, la bordure ou autre contexte visuel de la forme. Pour une image uniquement du paragraphe, utilisez [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/).
+Rendre une forme entière avec [IShape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/ishape/getimage/) reste utile lorsque la sortie doit inclure le remplissage, la bordure ou d’autres contextes visuels de la forme. Pour une image ne contenant que le paragraphe, utilisez [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/).
 
 ## **FAQ**
 
-**Puis-je désactiver complètement le renvoi à la ligne dans une zone de texte ?**
+**Puis-je désactiver complètement le retour à la ligne dans un cadre de texte ?**
 
-Oui. Définissez [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) pour désactiver le renvoi afin que les lignes ne se coupent pas aux bords de la zone de texte.
+Oui. Définissez [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/) pour désactiver le retour à la ligne afin que les lignes ne se coupent pas aux bords du cadre de texte.
 
-**Comment obtenir les limites exactes sur la diapositive d’un paragraphe spécifique ?**
+**Comment obtenir les limites exactes sur la diapositive d'un paragraphe spécifique ?**
 
 Utilisez [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) pour récupérer le rectangle englobant du paragraphe. [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) fournit les limites d’une portion individuelle.
 
-**Où le alignement des paragraphes (gauche, droite, centre ou justifié) est‑il contrôlé ?**
+**Où l'alignement du paragraphe (gauche, droite, centre ou justifié) est‑il contrôlé ?**
 
-[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) est un paramètre au niveau du paragraphe et s’applique à l’ensemble du paragraphe indépendamment du formatage des portions individuelles.  
-Pour aligner verticalement les portions de tailles de police différentes au sein de chaque ligne, voir [Align Fonts Within a Line](/slides/fr/net/text-formatting/#align-fonts-within-a-line).
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) est un paramètre au niveau du paragraphe et s’applique à tout le paragraphe, indépendamment du formatage des portions individuelles.
 
-**Puis‑je définir la langue de vérification pour une partie d’un paragraphe ?**
+Pour aligner verticalement des portions de tailles de police différentes au sein de chaque ligne, voir [Align Fonts Within a Line](/slides/fr/net/text-formatting/#align-fonts-within-a-line).
 
-Oui. Définissez [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) pour les portions individuelles, afin qu’un paragraphe puisse contenir du texte en plusieurs langues.
+**Puis-je définir la langue de relecture pour une partie d'un paragraphe ?**
+
+Oui. Définissez [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) pour les portions individuelles, de sorte qu’un paragraphe puisse contenir du texte en plusieurs langues.

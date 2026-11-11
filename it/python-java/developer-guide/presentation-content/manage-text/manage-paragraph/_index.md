@@ -1,5 +1,5 @@
 ---
-title: Gestire i paragrafi di testo PowerPoint in Python tramite Java
+title: Gestisci i paragrafi di testo PowerPoint in Python tramite Java
 linktitle: Gestisci Paragrafo
 type: docs
 weight: 40
@@ -14,8 +14,8 @@ keywords:
 - gestisci paragrafo
 - gestisci punto elenco
 - rientro paragrafo
-- rientro sospeso
-- punto elenco paragrafo
+- rientro pendente
+- punto elenco del paragrafo
 - elenco numerato
 - elenco puntato
 - proprietà del paragrafo
@@ -34,21 +34,21 @@ description: "Scopri come creare e formattare paragrafi, porzioni, punti elenco,
 ---
 ## **Panoramica**
 
-Aspose.Slides per Python tramite Java rappresenta il testo come una gerarchia di TextFrame, Paragraph e Portion:
+Aspose.Slides for Python via Java rappresenta il testo come una gerarchia di frame di testo, paragrafi e porzioni:
 
 * [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) rappresenta il contenitore di testo in una forma e fornisce l'accesso alla sua collezione di paragrafi.
-* [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) rappresenta un singolo paragrafo in un TextFrame e fornisce l'accesso alle sue porzioni e alla formattazione a livello di paragrafo.
-* [Portion](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) rappresenta un segmento di testo all'interno di un paragrafo. Ogni porzione può avere il proprio testo e la propria formattazione a livello di carattere.
+* [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) rappresenta un singolo paragrafo in un frame di testo e fornisce l'accesso alle sue porzioni e alla formattazione a livello di paragrafo.
+* [Portion](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) rappresenta un run di testo all'interno di un paragrafo. Ogni porzione può avere il proprio testo e formattazione a livello di carattere.
 
-Un paragrafo può quindi contenere testo con font, colori, dimensioni e altre formattazioni diverse utilizzando più porzioni.
+Un paragrafo può quindi contenere testo con diversi caratteri, colori, dimensioni e altra formattazione utilizzando più porzioni.
 
-## **Creare e Formattare i Paragrafi**
+## **Crea e formatta paragrafi**
 
-Crea paragrafi nel TextFrame di una forma e utilizza le porzioni per formattare singoli segmenti di testo. Questa sezione mostra come combinare più porzioni all'interno di ciascun paragrafo e applicare colori, dimensioni di carattere e stili diversi.
+Crea paragrafi nel frame di testo di una forma e utilizza le porzioni per formattare singoli run di testo. Questa sezione mostra come combinare più porzioni all'interno di ciascun paragrafo e applicare colori, dimensioni di carattere e stili diversi.
 
-### **Creare Paragrafi con Più Porzioni**
+### **Crea paragrafi con più porzioni**
 
-Il seguente esempio Python crea tre paragrafi, ognuno contenente tre segmenti di testo nella collezione restituita da [Paragraph.getPortions](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getPortions). Riutilizza il paragrafo predefinito e la sua porzione vuota, quindi aggiunge i paragrafi e le porzioni rimanenti. La formattazione viene applicata tramite [Portion.getPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getPortionFormat): la prima porzione in ogni paragrafo è rossa, in grassetto e 15 punti; la seconda è blu, in corsivo e 18 punti. La terza porzione mantiene la formattazione predefinita:
+Il seguente esempio Python crea tre paragrafi, ognuno contenente tre run di testo nella collezione restituita da [Paragraph.getPortions](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getPortions). Riutilizza il paragrafo predefinito e la sua porzione vuota, quindi aggiunge i paragrafi e le porzioni rimanenti. La formattazione è applicata tramite [Portion.getPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getPortionFormat): la prima porzione di ogni paragrafo è rossa, grassetto e 15 punti; la seconda è blu, corsivo e 18 punti. La terza porzione mantiene la formattazione predefinita:
 
 ```python
 import jpype
@@ -107,15 +107,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Creare Elenchi Puntati e Numerati**
+## **Crea elenchi puntati e numerati**
 
-Organizza il testo dei paragrafi in elenchi con simboli, numeri o immagini personalizzate. Gli esempi in questa sezione coprono la formattazione dei punti elenco, gli elenchi multilivello e l'impostazione di numeri di partenza personalizzati.
+Organizza il testo del paragrafo in elenchi con simboli, numeri o immagini personalizzate. Gli esempi in questa sezione coprono la formattazione dei punti elenco, gli elenchi mult Livello e i numeri di partenza personalizzati.
 
-### **Creare un Elenco Puntato o Numerato**
+### **Crea un elenco puntato o numerato**
 
-I punti elenco e la numerazione rendono gli elementi correlati più facili da scansionare. In Aspose.Slides, le impostazioni dell'elenco sono definite tramite [BulletFormat](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/).
+I punti elenco e la numerazione rendono più facile la scansione degli elementi correlati. In Aspose.Slides, le impostazioni dell'elenco sono definite tramite [BulletFormat](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/).
 
-Questo esempio Python aggiunge un punto simbolo e un elemento numerato allo stesso TextFrame. [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) seleziona il tipo di punto, mentre [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) fornisce il simbolo e [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) seleziona lo stile di numerazione. Entrambi gli elementi usano punti neri con un'altezza del 100 % e un rientro del paragrafo di 25 punti:
+Questo esempio Python aggiunge un punto simbolico e un elemento numerato allo stesso frame di testo. [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) seleziona il tipo di punto, mentre [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) fornisce il simbolo e [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) seleziona lo stile di numerazione. Entrambi gli elementi usano punti neri con un'altezza del 100 percento e un rientro del paragrafo di 25 punti:
 
 ```python
 import jpype
@@ -162,11 +162,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Utilizzare Punti Immagine**
+### **Usa puntini immagine**
 
-I punti immagine consentono di utilizzare un'immagine personalizzata al posto di un simbolo o di un numero.
+I puntini immagine consentono di utilizzare un'immagine personalizzata al posto di un simbolo o di un numero.
 
-Questo esempio Python aggiunge un'immagine alla collezione di immagini della presentazione come un [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) e la utilizza come punto del paragrafo. Chiama [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) per utilizzare un punto immagine e assegna l'immagine tramite [BulletFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getPicture). [BulletFormat.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setHeight) è impostato al 100 % per dimensionare il punto in relazione al testo del paragrafo:
+Questo esempio Python aggiunge un'immagine alla collezione di immagini della presentazione come [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) e la utilizza come punto del paragrafo. Chiama [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) per usare un punto immagine e assegna l'immagine tramite [BulletFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getPicture). [BulletFormat.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setHeight) è impostato al 100 percento per dimensionare il punto in proporzione al testo del paragrafo:
 
 ```python
 import jpype
@@ -204,11 +204,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Creare un Elenco Multilivello**
+### **Crea un elenco mult Livello**
 
 Imposta [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) per posizionare i paragrafi a diversi livelli di un elenco. Il livello superiore ha una profondità di `0`.
 
-Questo esempio Python assegna valori di [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) da 0 a 3 a quattro paragrafi, creando una gerarchia all'interno di un unico TextFrame. Ogni paragrafo usa un punto simbolo, con [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) alternato tra un punto rotondo e un trattino per distinguere i livelli adiacenti:
+Questo esempio Python assegna valori di [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) da 0 a 3 a quattro paragrafi, creando una gerarchia all'interno di un singolo frame di testo. Ogni paragrafo utilizza un punto simbolico, con [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) alternato tra un punto rotondo e un trattino per distinguere i livelli adiacenti:
 
 ```python
 import jpype
@@ -270,11 +270,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Impostare Valori Personalizzati per l'Inizio degli Elementi Numerati**
+### **Inizia gli elementi numerati con valori personalizzati**
 
-Usa [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) per definire il numero iniziale visualizzato per un paragrafo numerato.
+Usa [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) per impostare il numero iniziale visualizzato per un paragrafo numerato.
 
-Questo esempio Python imposta [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) per utilizzare la numerazione per tre paragrafi e assegna valori di [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) di 2, 3 e 7. Il valore di partenza viene configurato separatamente per ciascun paragrafo, consentendo di saltare numeri visualizzati:
+Questo esempio Python imposta [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) per usare la numerazione per tre paragrafi e assegna valori di [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) di 2, 3 e 7. Il valore di partenza è configurato separatamente per ciascun paragrafo, consentendo di saltare numeri nella visualizzazione:
 
 ```python
 import jpype
@@ -317,17 +317,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Controllare il Layout del Paragrafo e le Proprietà di Fine**
+## **Controlla layout del paragrafo e proprietà finali**
 
-Regola i margini e i rientri dei paragrafi per controllare la posizione della prima linea e delle linee a capo. È inoltre possibile formattare il segno di fine paragrafo separatamente dalle porzioni di testo visibili.
+Regola i margini e i rientri del paragrafo per controllare la posizione della prima riga e delle righe a capo. Puoi anche formattare il segno di fine paragrafo separatamente dalle porzioni di testo visibili.
 
-### **Impostare un Rientro della Prima Linea**
+### **Imposta un rientro della prima riga**
 
-Usa il metodo [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) per controllare il rientro della prima linea di un paragrafo. Questa impostazione sposta solo la prima linea rispetto al margine sinistro del paragrafo. Un valore positivo sposta la prima linea verso destra, mentre le linee rimanenti rimangono allineate al corpo del paragrafo.
+Usa il metodo [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) per controllare il rientro della prima riga di un paragrafo. Questa impostazione sposta solo la prima riga rispetto al margine sinistro del paragrafo. Un valore positivo sposta la prima riga verso destra, mentre le righe rimanenti rimangono allineate al corpo del paragrafo.
 
-Usa [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) quando devi spostare l'intero paragrafo. Usa [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) quando devi spostare solo la prima linea.
+Usa [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) quando devi spostare l'intero paragrafo. Usa [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) quando devi spostare solo la prima riga.
 
-L'esempio seguente assegna a tre paragrafi lo stesso [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) di 20 punti e valori di [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) di 0, 20 e 40 punti. Le prime linee iniziano a offset progressivamente maggiori, mentre le linee a capo conservano lo stesso margine sinistro:
+L'esempio seguente assegna a tre paragrafi lo stesso [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) di 20 punti e valori di [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) di 0, 20 e 40 punti. Le prime righe iniziano a offset progressivamente più grandi, mentre le righe a capo mantengono lo stesso margine sinistro:
 
 ```python
 import jpype
@@ -361,14 +361,14 @@ try:
 
     second_paragraph = Paragraph()
     second_paragraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.")
-    second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
     second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     second_paragraph.getParagraphFormat().setMarginLeft(20.0)
     second_paragraph.getParagraphFormat().setIndent(20.0)
 
     third_paragraph = Paragraph()
     third_paragraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.")
-    third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    third_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
     third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     third_paragraph.getParagraphFormat().setMarginLeft(20.0)
     third_paragraph.getParagraphFormat().setIndent(40.0)
@@ -384,17 +384,17 @@ finally:
 
 Il risultato:
 
-![Il rientro della prima linea dei paragrafi](first_line_indent.png)
+![Il rientro della prima riga dei paragrafi](first_line_indent.png)
 
-### **Impostare un Rientro Sospeso**
+### **Imposta un rientro pendente**
 
-Un rientro sospeso è un layout di paragrafo in cui la prima linea inizia a sinistra delle linee restanti. In Aspose.Slides, crei questo effetto con la proprietà [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent). Imposta `Indent` a un valore negativo per spostare la prima linea verso sinistra rispetto al corpo del paragrafo.
+Un rientro pendente è un layout del paragrafo in cui la prima riga inizia a sinistra delle righe rimanenti. In Aspose.Slides, crei questo effetto con la proprietà [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent). Imposta `Indent` a un valore negativo per spostare la prima riga a sinistra rispetto al corpo del paragrafo.
 
-In pratica, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) definisce la posizione sinistra del corpo del paragrafo, e [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) definisce la posizione della prima linea rispetto a quel margine. Per creare un rientro sospeso, imposta un valore positivo di `MarginLeft` e un valore negativo di `Indent`.
+In pratica, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) definisce la posizione sinistra del corpo del paragrafo, e [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) definisce la posizione della prima riga rispetto a quel margine. Per creare un rientro pendente, imposta un valore positivo per `MarginLeft` e un valore negativo per `Indent`.
 
-Questa formattazione è utile per bibliografie, riferimenti, voci di glossario e altri paragrafi in cui le linee a capo devono allinearsi sotto il corpo del paragrafo anziché sotto il primo carattere della prima linea.
+Questa formattazione è utile per bibliografie, riferimenti, voci di glossario e altri paragrafi in cui le righe a capo devono essere allineate sotto il corpo del paragrafo anziché sotto il primo carattere della prima riga.
 
-L'esempio Python seguente abbina valori di [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) di 40 e 60 punti con valori di [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) di -20 e -30 punti. In ciascun paragrafo, la prima linea inizia a sinistra delle linee a capo; il secondo paragrafo ha un rientro sospeso più profondo:
+L'esempio Python seguente associa valori di [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) di 40 e 60 punti a valori di [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) di -20 e -30 punti. In ogni paragrafo, la prima riga inizia a sinistra delle righe a capo; il secondo paragrafo ha un rientro pendente più profondo:
 
 ```python
 import jpype
@@ -443,9 +443,9 @@ finally:
 
 Il risultato:
 
-![Il rientro sospeso dei paragrafi](hanging_indent.png)
+![Il rientro pendente dei paragrafi](hanging_indent.png)
 
-### **Impostare le Proprietà di Fine Paragrafo**
+### **Imposta le proprietà di esecuzione del segno di fine paragrafo**
 
 Il metodo [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) controlla la formattazione del segno di fine paragrafo. L'esempio seguente crea un [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) con [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) impostato a 48 punti e [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLatinFont) impostato a Times New Roman. Assegna questo formato al segno di fine del secondo paragrafo, lasciando inalterate le porzioni di testo visibili:
 
@@ -488,15 +488,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Conteggiare le Linee Renderizzate**
+## **Conta le linee renderizzate**
 
-Per le regole di paragrafo che influenzano il ritorno automatico a capo e la punteggiatura finale, vedi [Control Line Breaking](/slides/it/python-java/text-formatting/#control-line-breaking) e [Control Hanging Punctuation](/slides/it/python-java/text-formatting/#control-hanging-punctuation).
+Per le regole dei paragrafi che influenzano l'andata a capo automatica e la punteggiatura a fine riga, vedere [Controllo interruzione di riga](/slides/it/python-java/text-formatting/#control-line-breaking) e [Controllo punteggiatura sospesa](/slides/it/python-java/text-formatting/#control-hanging-punctuation).
 
-Usa [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount) per contare le linee occupate da un paragrafo dopo il layout del testo, includendo il ritorno automatico a capo. È utile per verificare la lunghezza del testo e il layout nei modelli di presentazione.
+Usa [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount) per contare le linee occupate da un paragrafo dopo il layout del testo, includendo l'andata a capo automatica. È utile per verificare la lunghezza e il layout del testo nei modelli di presentazione.
 
-Un paragrafo è un elemento in [TextFrame.getParagraphs](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParagraphs) e può occupare diverse linee renderizzate. Un ritorno a capo esplicito all'interno di un paragrafo forza una nuova linea senza creare un altro paragrafo. Il ritorno automatico a capo crea linee in base alla larghezza disponibile senza inserire interruzioni di linea esplicite nel testo. Pertanto contare i paragrafi o i caratteri di ritorno a capo non fornisce il conteggio delle linee renderizzate.
+Un paragrafo è un elemento in [TextFrame.getParagraphs](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParagraphs) e può occupare diverse linee renderizzate. Un'interruzione di riga esplicita all'interno di un paragrafo forza una nuova linea senza creare un altro paragrafo. L'andata a capo automatica genera linee in base alla larghezza disponibile senza inserire interruzioni di riga esplicite nel testo. Pertanto, contare i paragrafi o i caratteri di interruzione di riga non fornisce il conteggio delle linee renderizzate.
 
-L'esempio seguente crea una forma di testo, conta le sue linee, riduce la larghezza della forma e poi sostituisce il testo con una stringa più corta. L'esempio abilita il ritorno a capo con [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) e disabilita l'autofit con [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) in modo che la larghezza della forma controlli il ritorno a capo senza ridimensionare automaticamente il testo o la forma. Ogni misura utilizza [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount). Le dimensioni della forma sono in punti. Infine, l'esempio aggiunge un altro paragrafo e somma i conteggi delle linee in tutto il TextFrame.
+L'esempio seguente crea una forma di testo, ne conta le linee, restringe la forma e poi sostituisce il testo con una stringa più breve. L'esempio abilita l'andata a capo con [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) e disabilita l'autoadattamento con [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) in modo che la larghezza della forma controlli l'andata a capo senza ridimensionare automaticamente il testo o la forma. Ogni misurazione utilizza [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount). Le dimensioni della forma sono in punti. Infine, l'esempio aggiunge un altro paragrafo e somma i conteggi delle linee nell'intero frame di testo.
 
 ```python
 import jpype
@@ -540,19 +540,19 @@ finally:
     presentation.dispose()
 ```
 
-Con questo testo e queste dimensioni, ridurre la larghezza della forma aumenta il conteggio delle linee, mentre sostituire il testo con la stringa corta lo riduce. I conteggi esatti possono variare in base alla disponibilità dei font e alle sostituzioni, alla dimensione del carattere, ai margini, all'indentazione, al ritorno a capo e alle impostazioni di autofit. Usa i font e le impostazioni di layout previsti per l'ambiente di destinazione durante la verifica di un modello.
+Con questo testo e queste dimensioni, restringere la forma aumenta il conteggio delle linee, mentre sostituire il testo con la stringa corta lo riduce. I conteggi esatti possono variare in base alla disponibilità e sostituzione dei caratteri, dimensione del carattere, margini, rientri, andata a capo e impostazioni di autoadattamento. Usa i caratteri e le impostazioni di layout previste per l'ambiente di destinazione quando verifichi un modello.
 
-Il solo conteggio delle linee non determina se il testo supera il contenitore. Anche l'altezza disponibile, l'altezza delle linee, la spaziatura di paragrafi e linee e il comportamento di autofit sono rilevanti; anche una singola linea può eccedere la larghezza disponibile quando il ritorno a capo è disattivato.
+Il solo conteggio delle linee non determina se il testo supera i confini del contenitore. Anche l'altezza disponibile, le altezze delle linee, la spaziatura di paragrafi e linee e il comportamento di autoadattamento influenzano; anche una singola linea può superare la larghezza disponibile quando l'andata a capo è disabilitata.
 
-## **Importare ed Esportare il Contenuto dei Paragrafi**
+## **Importa ed esporta contenuto dei paragrafi**
 
-Usa HTML per importare testo in una presentazione o per esportare paragrafi esistenti per utilizzi esterni. Questa sezione mostra anche come renderizzare singoli paragrafi come immagini, inclusi i paragrafi nelle celle delle tabelle.
+Usa HTML per portare il testo in una presentazione o per esportare paragrafi esistenti per utilizzo esterno. Questa sezione mostra anche come rendere singoli paragrafi come immagini, inclusi paragrafi in celle di tabella.
 
-### **Importare Testo HTML nei Paragrafi**
+### **Importa testo HTML nei paragrafi**
 
-Usa [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml) per convertire markup HTML in paragrafi e porzioni in un TextFrame.
+Usa [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml) per convertire il markup HTML in paragrafi e porzioni in un frame di testo.
 
-Questo esempio Python legge HTML da un file e passa il markup a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml). Cancella il paragrafo predefinito del TextFrame in modo che il frame contenga solo il contenuto importato. La forma rettangolare lascia un margine di 10 punti su ogni lato della diapositiva:
+Questo esempio Python legge HTML da un file e passa il markup a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#addFromHtml). Cancella il paragrafo predefinito del frame di testo in modo che il frame contenga solo il contenuto importato. La forma rettangolare lascia un margine di 10 punti su ciascun lato della slide:
 
 ```python
 import jpype
@@ -586,16 +586,16 @@ finally:
     presentation.dispose()
 ```
 
-### **Esportare il Testo del Paragrafo in HTML**
+### **Esporta testo del paragrafo in HTML**
 
-Usa [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml) per esportare un intervallo selezionato di paragrafi in HTML. Quando riutilizzi il testo della presentazione su un sito web, potresti voler conservare l'enfasi locale senza trasportare lo stile di font, dimensione o casella di testo della presentazione. Imposta [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) per controllare fino a che punto l'esportatore segue l'eredità della formattazione.
+Usa [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml) per esportare un intervallo selezionato di paragrafi come HTML. Quando riutilizzi il testo della presentazione su un sito web, potresti voler preservare l'enfasi locale senza trasferire il carattere, la dimensione o gli stili della casella di testo della presentazione. Imposta [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) per controllare fino a che punto l'esportatore segue l'eredità della formattazione.
 
-Scarica [la presentazione di esempio](text-inheritance.pptx) e posizionala nella directory di lavoro dell'applicazione. La sua prima diapositiva contiene una forma di testo con il testo "Inherited text; explicit red 18pt". L'input usa deliberatamente diversi livelli di formattazione:
+Scarica [la presentazione di esempio](text-inheritance.pptx) e posizionala nella directory di lavoro dell'applicazione. La sua prima slide contiene una forma di testo con il testo "Inherited text; explicit red 18pt". L'input utilizza deliberatamente diversi livelli di formattazione:
 
 - Lo stile di testo predefinito della presentazione fornisce Calibri e una dimensione di 28 pt.
-- Lo stile di testo di primo livello del TextFrame fornisce testo blu e corsivo.
+- Lo stile di testo di primo livello del frame fornisce testo blu e corsivo.
 - Il paragrafo imposta esplicitamente il testo in grassetto.
-- La seconda porzione, "explicit red 18pt", imposta esplicitamente testo rosso e una dimensione di 18 pt.
+- La seconda porzione, "explicit red 18pt", imposta esplicitamente il testo rosso e una dimensione di 18 pt.
 
 Il seguente esempio completo esporta gli stessi paragrafi tre volte. Passa [TextToHtmlConversionOptions](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/) al metodo di esportazione e scrive ogni risultato in un file HTML UTF‑8 separato:
 
@@ -638,31 +638,65 @@ finally:
     presentation.dispose()
 ```
 
-L'HTML generato contiene il seguente CSS per la prima porzione, "Inherited text; ". La tabella elenca le dichiarazioni pertinenti; le altre proprietà generate sono omesse per chiarezza.
+L'HTML generato contiene il seguente CSS per la prima porzione, "Inherited text; ". La tabella elenca le dichiarazioni rilevanti; altre proprietà generate sono omesse per chiarezza.
 
-| Output | CSS Rilevante per la Prima Porzione | Aspetto |
+| Output | CSS rilevante per la prima porzione | Aspetto |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Testo blu, grassetto, corsivo a 28 pt in Calibri, se il font è disponibile. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Testo blu, grassetto, corsivo; la pagina o il browser forniscono famiglia di font e dimensione. |
-| `ParagraphOnly.html` | `font-weight:bold` | Testo in grassetto; la pagina o il browser forniscono famiglia di font, dimensione, colore e stile corsivo. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Testo blu, grassetto, corsivo a 28 pt in Calibri, se quel carattere è disponibile. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Testo blu, grassetto, corsivo; la pagina o il browser forniscano famiglia di caratteri e dimensione. |
+| `ParagraphOnly.html` | `font-weight:bold` | Testo in grassetto; la pagina o il browser forniscano famiglia di caratteri, dimensione, colore e stile corsivo. |
 
-La seconda porzione mantiene `color:#ff0000`, `font-size:18pt` e `font-weight:bold` in tutti e tre gli output. Mantiene anche il corsivo in `All` e `TextBox`, ma non in `ParagraphOnly`. Limitare l'eredità quindi non rimuove la formattazione assegnata esplicitamente a un paragrafo o a una porzione.
+La seconda porzione conserva `color:#ff0000`, `font-size:18pt` e `font-weight:bold` in tutti e tre gli output. Mantiene anche il corsivo in `All` e `TextBox`, ma non in `ParagraphOnly`. Limitare l'eredità non rimuove dunque la formattazione assegnata esplicitamente a un paragrafo o a una porzione.
 
-Apri i file nello stesso browser per confrontarli. Nei due modi limitati, le proprietà CSS omesse sono risolte dagli stili della pagina di destinazione o dai valori predefiniti del browser, quindi l'aspetto finale dipende da dove viene utilizzato l'HTML.
+Apri i file nello stesso browser per confrontarli. Nelle due modalità limitate, le proprietà CSS omesse sono risolte dagli stili della pagina di destinazione o dai valori predefiniti del browser, quindi l'aspetto risultante dipende da dove l'HTML è usato.
 
-### **Renderizzare un Paragrafo come Immagine**
+### **Genera un frammento HTML per gli appunti**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) renderizza direttamente un singolo paragrafo e restituisce un oggetto immagine. Salva il risultato in un file o stream con il suo metodo `save`. Non è necessario renderizzare la forma contenente o ritagliare manualmente una bitmap.
+Usa [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader) per scegliere il formato di output di [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml). Con `False`, il metodo restituisce HTML ordinario. Con `True`, prefissa un'intestazione degli appunti di Windows. I campi `StartHTML` e `EndHTML` forniscono gli offset in byte UTF‑8 dell'HTML. I campi `StartFragment` e `EndFragment` delimitano il contenuto da incollare.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) può restituire `None` se il paragrafo non è trovato nella collezione padre, non ha limiti di rendering validi o non può essere renderizzato. Verifica il risultato prima di salvarlo e rilascia l'immagine restituita dopo l'uso.
+Questo esempio esporta due paragrafi formattati come HTML ordinario (`html`) e come frammento HTML per gli appunti (`clipboard_html`). Un'applicazione può quindi scrivere il frammento negli appunti di sistema. Se l'API degli appunti si aspetta byte grezzi, usa `clipboard_html.encode("utf-8")` per codificare il frammento senza marcatore di ordine dei byte (BOM).
 
-#### **Renderizzare un Paragrafo alla Scala Predefinita**
+```python
+import jpype
+import asposeslides
 
-L'esempio utilizza una presentazione con una diapositiva la cui prima forma è una casella di testo contenente tre paragrafi.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ShapeType, TextToHtmlConversionOptions
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 400, 100)
+    paragraphs = shape.getTextFrame().getParagraphs()
+    paragraphs.clear()
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>")
+
+    options = TextToHtmlConversionOptions()
+    options.setAddClipboardFragmentHeader(False)
+    html = str(paragraphs.exportToHtml(0, paragraphs.getCount(), options))
+
+    options.setAddClipboardFragmentHeader(True)
+    clipboard_html = str(paragraphs.exportToHtml(0, paragraphs.getCount(), options))
+finally:
+    presentation.dispose()
+```
+
+### **Renderizza un paragrafo come immagine**
+
+[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) rende direttamente un singolo paragrafo e restituisce un oggetto immagine. Salva il risultato in un file o stream con il suo metodo `save`. Non è necessario rendere l'intera forma contenente o ritagliare manualmente un bitmap.
+
+[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) può restituire `None` se il paragrafo non è trovato nella collezione genitore, non ha limiti di rendering validi o non può essere renderizzato. Controlla il risultato prima di salvarlo e rilascia l'immagine restituita dopo l'uso.
+
+#### **Renderizza un paragrafo alla scala predefinita**
+
+L'esempio utilizza una presentazione con una slide il cui primo forma è una casella di testo contenente tre paragrafi.
 
 ![La casella di testo con tre paragrafi](paragraph_to_image_input.png)
 
-Il seguente esempio seleziona il secondo paragrafo all'indice 1 e chiama [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) senza parametri di scala. Verifica che la forma contenga il paragrafo richiesto e che il rendering restituisca un'immagine prima di chiamare il suo metodo `save` per salvare il risultato in formato PNG. Il blocco `finally` rilascia l'immagine dopo l'uso.
+L'esempio seguente seleziona il secondo paragrafo all'indice 1 e chiama [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) senza parametri di scala. Verifica che la forma contenga il paragrafo richiesto e che il rendering restituisca un'immagine prima di chiamare il suo metodo `save` per salvarla in formato PNG. Il blocco `finally` rilascia l'immagine dopo l'uso.
 
 ```python
 import jpype
@@ -703,9 +737,9 @@ Il risultato:
 
 ![L'immagine del paragrafo](paragraph_to_image_output.png)
 
-#### **Renderizzare un Paragrafo in una Cella di Tabella con Scaling**
+#### **Renderizza un paragrafo in una cella di tabella con scala**
 
-Usa la sovraccarico di [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) che accetta i parametri `scale_x` e `scale_y` per impostare i fattori di scala orizzontale e verticale. Il seguente esempio crea una tabella, renderizza il paragrafo nella sua prima cella con una larghezza e altezza doppie rispetto al valore predefinito, e salva il risultato come immagine PNG.
+Usa la sovraccarico di [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) che accetta i parametri `scale_x` e `scale_y` per impostare i fattori di scala orizzontale e verticale. L'esempio seguente crea una tabella, rende il paragrafo nella sua prima cella al doppio della sua larghezza e altezza predefinite, e salva il risultato come immagine PNG.
 
 ```python
 import jpype
@@ -740,25 +774,25 @@ finally:
     presentation.dispose()
 ```
 
-Un fattore di scala di `1` mantiene quell'asse alla sua dimensione pixel predefinita. Per esempio, `2` per entrambi i fattori produce un'immagine la cui larghezza e altezza sono approssimativamente il doppio delle dimensioni predefinite, risultando in quattro volte più pixel. Fattori più grandi producono generalmente testo più nitido per lo zoom o output ad alta risoluzione, ma aumentano anche l'uso di memoria e la dimensione del file. Fattori inferiori a `1` producono immagini più piccole con meno dettagli. Usa fattori uguali per preservare il rapporto d'aspetto del paragrafo; fattori diversi per gli assi orizzontale e verticale allungano l'output in modo indipendente.
+Un fattore di scala di `1` mantiene quell'asse alla dimensione pixel predefinita. Per esempio, `2` per entrambi i fattori produce un'immagine la cui larghezza e altezza sono approssimativamente il doppio delle dimensioni predefinite, risultando in quattro volte più pixel. Fattori più grandi producono generalmente testo più nitido per zoom o output ad alta risoluzione, ma aumentano anche l'uso di memoria e la dimensione del file. Fattori inferiori a `1` producono immagini più piccole con meno dettagli. Usa fattori uguali per preservare le proporzioni del paragrafo; fattori orizzontali e verticali diversi allungano l'output in modo indipendente.
 
-Renderizzare un'intera forma con [Shape.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) rimane utile quando l'output deve includere il riempimento, il bordo o altri contesti visivi della forma. Per un'immagine contenente solo il paragrafo, usa [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/).
+Renderizzare un'intera forma con [Shape.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) rimane utile quando l'output deve includere il riempimento, il bordo o altro contesto visivo della forma. Per un'immagine solo del paragrafo, usa [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/).
 
 ## **FAQ**
 
-**Posso disabilitare completamente il ritorno a capo all'interno di un TextFrame?**
+**Posso disabilitare completamente l'andata a capo all'interno di un frame di testo?**
 
-Sì. Imposta [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) per disabilitare il ritorno a capo così le linee non si interrompono ai bordi del TextFrame.
+Sì. Imposta [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) per disabilitare l'andata a capo in modo che le linee non si interrompano ai bordi del frame di testo.
 
-**Come posso ottenere le coordinate precise di un paragrafo specifico sulla diapositiva?**
+**Come posso ottenere i limiti esatti sullo slide di un paragrafo specifico?**
 
 Usa [Paragraph.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getRect) per recuperare il rettangolo di delimitazione del paragrafo. [Portion.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getRect) fornisce i limiti di una singola porzione.
 
-**Dove viene controllato l'allineamento del paragrafo (sinistra, destra, centrato o giustificato)?**
+**Dove è controllato l'allineamento del paragrafo (sinistra, destra, centro o giustificato)?**
 
 [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) è un'impostazione a livello di paragrafo e si applica all'intero paragrafo indipendentemente dalla formattazione delle singole porzioni.
 
-Per allineare verticalmente le porzioni con dimensioni di carattere diverse all'interno di ogni linea, vedi [Align Fonts Within a Line](/slides/it/python-java/text-formatting/#align-fonts-within-a-line).
+Per allineare verticalmente le porzioni di diverse dimensioni di carattere all'interno di ogni linea, vedi [Allinea i caratteri all'interno di una linea](/slides/it/python-java/text-formatting/#align-fonts-within-a-line).
 
 **Posso impostare la lingua di correzione per una parte di un paragrafo?**
 

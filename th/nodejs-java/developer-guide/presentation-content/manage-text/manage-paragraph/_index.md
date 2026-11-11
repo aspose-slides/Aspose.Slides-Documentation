@@ -1,5 +1,5 @@
 ---
-title: จัดการย่อหน้าข้อความ PowerPoint ใน JavaScript
+title: จัดการย่อข้อความ PowerPoint ใน JavaScript
 linktitle: จัดการย่อหน้า
 type: docs
 weight: 40
@@ -12,43 +12,43 @@ keywords:
 - เพิ่มย่อหน้า
 - จัดการข้อความ
 - จัดการย่อหน้า
-- จัดการหัวข้อ
-- การเยื้อมันท์ย่อหน้า
-- การเยื้อมันท์ห้อย
-- หัวข้อย่อหน้า
+- จัดการหัวข้อรายการ
+- การเยื้องย่อหน้า
+- การเยื้องห้อย
+- หัวข้อรายการย่อหน้า
 - รายการลำดับเลข
 - รายการหัวข้อ
-- คุณสมบัติเย่อหน้า
+- คุณสมบัติย่อหน้า
 - นำเข้า HTML
 - ข้อความเป็น HTML
 - ย่อหน้าเป็น HTML
-- ย่อหน้าเป็นภาพ
-- ข้อความเป็นภาพ
+- ย่อหน้าเป็นรูปภาพ
+- ข้อความเป็นรูปภาพ
 - ส่งออกย่อหน้า
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและจัดรูปแบบย่อหน้า, ส่วนข้อความ, จุดหัวข้อ, รายการลำดับเลข, การเยื้อมันท์, เนื้อหา HTML, และรูปภาพย่อหน้าด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
+description: "เรียนรู้วิธีสร้างและกำหนดรูปแบบย่อหน้า, ส่วนย่อย, หัวข้อรายการ, รายการลำดับเลข, การเยื้อง, เนื้อหา HTML, และรูปภาพย่อหน้าด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for Node.js ผ่าน Java แสดงข้อความเป็นโครงสร้างลำดับชั้นของ text frames, paragraphs, และ portions:
+Aspose.Slides สำหรับ Node.js ผ่าน Java แสดงข้อความเป็นโครงสร้างชั้นของกรอบข้อความ, ย่อหน้า, และส่วนย่อย:
 
-* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) เป็นคอนเทนเนอร์ข้อความในรูปร่างและให้การเข้าถึงคอลเลกชันของย่อหน้า
-* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) แทนย่อหน้าหนึ่งใน text frame และให้การเข้าถึงส่วนย่อย (portions) และการจัดรูปแบบระดับย่อหน้า
-* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) แสดงส่วนของข้อความภายในย่อหน้า แต่ละ portion สามารถมีข้อความและการจัดรูปแบบระดับอักขระของตนเองได้
+* [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) เป็นตัวบรรจุข้อความในรูปทรงและให้เข้าถึงคอลเลกชันย่อหน้า
+* [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) แสดงย่อหน้าเดียวในกรอบข้อความและให้เข้าถึงส่วนย่อยและการกำหนดรูปแบบระดับย่อหน้า
+* [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) เป็นการทำงานของข้อความภายในย่อหน้า แต่ละส่วนย่อยสามารถมีข้อความและการกำหนดรูปแบบระดับอักขระของตนเองได้
 
-ดังนั้นย่อหน้าจึงสามารถมีข้อความที่ใช้ฟอนต์ สี ขนาด และการจัดรูปแบบอื่น ๆ แตกต่างกันได้โดยใช้หลาย portion
+ย่อหน้าจึงสามารถบรรจุข้อความที่มีแบบอักษร, สี, ขนาด, และการกำหนดรูปแบบอื่น ๆ ที่แตกต่างกันโดยใช้หลายส่วนย่อย
 
 ## **สร้างและกำหนดรูปแบบย่อหน้า**
 
-สร้างย่อหน้าใน text frame ของรูปร่างและใช้ portion เพื่อจัดรูปแบบแต่ละส่วนของข้อความ ส่วนนี้จะแสดงวิธีการรวมหลาย portion ในแต่ละย่อหน้าและใช้สี ขนาดฟอนต์ และสไตล์ต่าง ๆ
+สร้างย่อหน้าในกรอบข้อความของรูปทรงและใช้ส่วนย่อยเพื่อกำหนดรูปแบบการทำงานของข้อความแต่ละส่วน ข้อความนี้แสดงวิธีรวมหลายส่วนย่อยภายในแต่ละย่อหน้าและใช้สี, ขนาดแบบอักษร, และสไตล์ที่ต่างกัน
 
-### **สร้างย่อหน้าด้วยหลาย Portion**
+### **สร้างย่อหน้าด้วยหลายส่วนย่อย**
 
-ตัวอย่าง JavaScript ต่อไปนี้สร้างย่อหน้า 3 ย่อหน้า โดยแต่ละย่อหน้ามี portion 3 ชิ้นในคอลเลกชันที่คืนค่าจาก [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/). ตัวอย่างใช้ย่อหน้าเริ่มต้นและ portion ว่างที่มีอยู่แล้ว แล้วเพิ่มย่อหน้าและ portion ที่เหลือ การจัดรูปแบบทำผ่าน [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/): portion แรกของแต่ละย่อหน้าจะเป็นสีแดง ตัวหนา ขนาด 15 pt; portion ที่สองเป็นสีน้ำเงิน ตัวเอียง ขนาด 18 pt; portion ที่สามคงฟอร์แมตเริ่มต้นไว้:
+ตัวอย่าง JavaScript ต่อไปนี้สร้างย่อหน้า 3 ย่อหน้า แต่ละย่อหน้าเป็นส่วนย่อยข้อความ 3 ส่วนในคอลเลกชันที่ส่งกลับโดย [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/) มันใช้ย่อหน้าเริ่มต้นและส่วนย่อยว่างเปล่าของมันซ้ำ แล้วเพิ่มย่อหน้าและส่วนย่อยที่เหลือ การกำหนดรูปแบบทำผ่าน [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/) ส่วนแรกในแต่ละย่อหน้าเป็นสีแดง, หนา, ขนาด 15 จุด; ส่วนที่สองเป็นสีน้ำเงิน, ตัวเอียง, ขนาด 18 จุด; ส่วนที่สามคงรูปแบบเริ่มต้นไว้:
 
 ```javascript
 var aspose = aspose || {};
@@ -106,15 +106,15 @@ try {
 }
 ```
 
-## **สร้างรายการหัวข้อและลำดับเลข**
+## **สร้างรายการแบบหัวข้อและลำดับเลข**
 
-จัดข้อความย่อหน้าให้เป็นรายการด้วยสัญลักษณ์ ตัวเลข หรือรูปภาพกำหนดเอง ตัวอย่างในส่วนนี้ครอบคลุมการจัดรูปแบบหัวข้อ รายการหลายระดับ และการกำหนดเลขเริ่มต้นแบบกำหนดเอง
+จัดระเบียบข้อความย่อหน้าเป็นรายการโดยใช้สัญลักษณ์, ตัวเลข, หรือรูปภาพแบบกำหนดเอง ตัวอย่างในส่วนนี้ครอบคลุมการกำหนดรูปแบบหัวข้อ, รายการหลายระดับ, และตัวเลขเริ่มต้นแบบกำหนดเอง
 
 ### **สร้างรายการหัวข้อหรือรายการลำดับเลข**
 
-หัวข้อและเลขลำดับทำให้การสแกนรายการที่เกี่ยวข้องง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการกำหนดผ่าน [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/)
+หัวข้อและการตั้งหมายเลขทำให้รายการที่เกี่ยวข้องอ่านง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการถูกกำหนดผ่าน [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/)
 
-ตัวอย่าง JavaScript นี้เพิ่มหัวข้อสัญลักษณ์และรายการเลขใน text frame เดียวกัน [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) เลือกประเภทหัวข้อ, [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) ระบุสัญลักษณ์, และ [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) เลือกสไตล์การนับเลข ทั้งสองรายการใช้หัวข้อสีดำ ความสูง 100% และระยะเยื้อมันท์ของย่อหน้า 25 pt:
+ตัวอย่าง JavaScript นี้เพิ่มหัวข้อสัญลักษณ์และรายการลำดับเลขในกรอบข้อความเดียวกัน [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) เลือกประเภทหัวข้อ, ขณะที่ [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) ระบุสัญลักษณ์และ [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) เลือกสไตล์การลำดับเลข รายการทั้งสองใช้หัวข้อสีดำ มีความสูง 100% และเยื้องย่อหน้า 25 จุด:
 
 ```javascript
 var aspose = aspose || {};
@@ -159,9 +159,9 @@ try {
 
 ### **ใช้หัวข้อรูปภาพ**
 
-หัวข้อรูปภาพทำให้คุณใช้รูปภาพกำหนดเองแทนสัญลักษณ์หรือเลข
+หัวข้อรูปภาพทำให้คุณใช้รูปภาพกำหนดเองแทนสัญลักษณ์หรือหมายเลข
 
-ตัวอย่าง JavaScript นี้โหลด `image.png` จากไดเรกทอรีทำงานของแอปพลิเคชัน, เพิ่มรูปภาพไปยังคอลเลกชันรูปของงานนำเสนอเป็น [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) และใช้เป็นหัวข้อย่อหน้าโดยเรียก [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) เพื่อใช้หัวข้อรูปภาพและกำหนดรูปภาพผ่าน [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/). [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) ตั้งเป็น 100% เพื่อให้หัวข้อมีขนาดสัมพันธ์กับข้อความย่อหน้า:
+ตัวอย่าง JavaScript นี้โหลด `image.png` จากไดเรกทอรีทำงานของแอปพลิเคชัน, เพิ่มรูปภาพไปยังคอลเลกชันรูปภาพของงานนำเสนอเป็น [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) และใช้เป็นหัวข้อย่อหน้า มันเรียก [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) เพื่อใช้หัวข้อรูปภาพและกำหนดรูปภาพผ่าน [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/) [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) ตั้งค่าเป็น 100% เพื่อกำหนดขนาดหัวข้อสัมพันธ์กับข้อความย่อหน้า:
 
 ```javascript
 var aspose = aspose || {};
@@ -200,9 +200,9 @@ try {
 
 ### **สร้างรายการหลายระดับ**
 
-ตั้งค่า [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) เพื่อกำหนดระดับของย่อหน้าในรายการ ระดับบนสุดมีความลึก `0`
+ตั้งค่า [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) เพื่อจัดย่อหน้าให้อยู่ที่ระดับต่าง ๆ ของรายการ ระดับบนสุดมีความลึก `0`
 
-ตัวอย่าง JavaScript นี้กำหนดค่า [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) ตั้งแต่ 0 ถึง 3 ให้กับย่อหน้า 4 ย่อหน้า สร้างลำดับชั้นภายใน text frame เดียวกัน แต่ละย่อหน้าใช้หัวข้อสัญลักษณ์ โดย [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) สลับระหว่างหัวข้อตรงและเครื่องหมายขีดเพื่อแยกระดับที่อยู่ติดกัน:
+ตัวอย่าง JavaScript นี้กำหนดค่า [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) จาก 0 ถึง 3 ให้กับย่อหน้า 4 ย่อหน้า สร้างโครงสร้างชั้นภายในกรอบข้อความเดียวกัน ย่อหน้าแต่ละข้อใช้หัวข้อสัญลักษณ์, โดย [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) สลับระหว่างหัวข้อกลมและขีดเพื่อแยกระดับที่อยู่ถัดกัน:
 
 ```javascript
 var aspose = aspose || {};
@@ -260,11 +260,11 @@ try {
 }
 ```
 
-### **เริ่มรายการลำดับเลขที่ค่ากำหนดเอง**
+### **เริ่มรายการลำดับเลขด้วยค่ากำหนดเอง**
 
-ใช้ [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) เพื่อตั้งหมายเลขเริ่มต้นของย่อหน้าลำดับเลข
+ใช้ [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) เพื่อกำหนดหมายเลขเริ่มต้นที่แสดงสำหรับย่อหน้าลำดับเลข
 
-ตัวอย่าง JavaScript นี้ตั้ง [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) ให้ใช้การนับเลขสำหรับย่อหน้า 3 ย่อหน้าและกำหนดค่า [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) เป็น 2, 3, และ 7 ค่าที่เริ่มต้นนี้กำหนดแยกตามย่อหน้า ทำให้หมายเลขที่แสดงข้ามค่าได้:
+ตัวอย่าง JavaScript นี้ตั้งค่า [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) ให้ใช้การลำดับเลขสำหรับย่อหน้า 3 ตัวและกำหนดค่า [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) เป็น 2, 3, และ 7 ค่าที่เริ่มต้นถูกตั้งแยกตามแต่ละย่อหน้า ทำให้หมายเลขที่แสดงข้ามค่าได้:
 
 ```javascript
 var aspose = aspose || {};
@@ -303,17 +303,17 @@ try {
 }
 ```
 
-## **ควบคุมการจัดวางย่อหน้าและคุณสมบัติสุดท้าย**
+## **ควบคุมการจัดวางย่อหน้าและคุณสมบัติสิ้นสุด**
 
-ปรับระยะขอบและระยะเยื้อมันท์ของย่อหน้าเพื่อควบคุมตำแหน่งของบรรทัดแรกและบรรทัดที่ห่อ wrap คุณยังสามารถกำหนดรูปแบบของเครื่องหมายจบย่อหน้าแยกจากส่วนข้อความที่มองเห็นได้
+ปรับระยะขอบและเยื้องของย่อหน้าเพื่อควบคุมตำแหน่งของบรรทัดแรกและบรรทัดที่ตัดบรรทัด คุณยังสามารถกำหนดรูปแบบเครื่องหมายสิ้นสุดของย่อหน้าแยกจากส่วนข้อความที่มองเห็นได้
 
-### **ตั้งระยะเยื้อมันท์บรรทัดแรก**
+### **ตั้งค่าเยื้องบรรทัดแรก**
 
-ใช้เมธอด [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) เพื่อควบคุมระยะเยื้อมันท์ของบรรทัดแรกของย่อหน้า การตั้งค่านี้จะย้ายบรรทัดแรกเท่านั้นเมื่อเทียบกับระยะขอบซ้ายของย่อหน้า ค่าเป็นบวกจะเลื่อนบรรทัดแรกไปทางขวา ส่วนบรรทัดที่เหลือคงอยู่ตรงกับเนื้อหาย่อหน้า
+ใช้เมธอด [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) เพื่อควบคุมเยื้องบรรทัดแรกของย่อหน้า การตั้งค่านี้จะย้ายบรรทัดแรกเท่านั้นตามระยะห่างจากขอบซ้ายของย่อหน้า ค่าบวกจะเลื่อนบรรทัดแรกไปทางขวา ส่วนบรรทัดที่เหลือคงอยู่ตามแนวของเนื้อย่อหน้า
 
-ใช้ [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) เมื่อคุณต้องการย้ายย่อหน้าทั้งหมด ใช้ [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) เมื่อคุณต้องการย้ายเฉพาะบรรทัดแรก
+ใช้ [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) เมื่อคุณต้องการย้ายย่อหน้าทั้งหมด ใช้ [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) เมื่อคุณต้องการย้ายบรรทัดแรกเท่านั้น
 
-ตัวอย่างต่อไปนี้ให้ย่อหน้า 3 ย่อหน้ามี [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) เท่ากับ 20 pt และค่า [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) เป็น 0, 20, และ 40 pt ตามลำดับ บรรทัดแรกจะเริ่มที่ออฟเซ็ตที่เพิ่มขึ้นเรื่อย ๆ ในขณะที่บรรทัดที่ห่อ wrap ยังคงระยะขอบซ้ายเดียวกัน:
+ตัวอย่างต่อไปนี้ให้ย่อหน้า 3 ย่อหน้ามี [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) ที่ 20 จุด และค่า [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) ที่ 0, 20, และ 40 จุด บรรทัดแรกเริ่มที่ระยะห่างที่เพิ่มขึ้นเรื่อย ๆ ขณะที่บรรทัดตัดต่อคงระยะขอบซ้ายเท่าเดิม:
 
 ```javascript
 var aspose = aspose || {};
@@ -366,17 +366,17 @@ try {
 
 ผลลัพธ์:
 
-![ระยะเยื้อมันท์บรรทัดแรกของย่อหน้า](first_line_indent.png)
+![เยื้องบรรทัดแรกของย่อหน้า](first_line_indent.png)
 
-### **ตั้งระยะเยื้อมันท์ห้อย**
+### **ตั้งค่าเยื้องห้อย**
 
-ระยะเยื้อมันท์ห้อยคือการจัดวางย่อหน้าในรูปแบบที่บรรทัดแรกเริ่มอยู่ด้านซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วยเมธอด [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) ตั้งระยะเยื้อมันท์เป็นค่าลบเพื่อย้ายบรรทัดแรกไปด้านซ้ายเมื่อเทียบกับเนื้อหาย่อหน้า
+เยื้องห้อยคือการจัดวางย่อหน้าโดยที่บรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วยเมธอด [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) ตั้งค่าเยื้องเป็นค่าลบเพื่อย้ายบรรทัดแรกไปทางซ้ายสัมพันธ์กับเนื้อย่อหน้า
 
-โดยปฏิบัติการ [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) กำหนดตำแหน่งซ้ายของเนื้อหาย่อหน้า และ [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) กำหนดตำแหน่งของบรรทัดแรกเมื่อเทียบกับระยะขอบนั้น เพื่อสร้างระยะเยื้อมันท์ห้อย ให้ตั้งระยะขอบซ้ายเป็นบวกและระยะเยื้อมันท์เป็นลบ
+โดยปฏิบัติ, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) กำหนดตำแหน่งซ้ายของเนื้อย่อหน้า, และ [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) กำหนดตำแหน่งของบรรทัดแรกสัมพันธ์กับขอบซ้ายนั้น เพื่อสร้างเยื้องห้อยให้ตั้งขอบซ้ายเป็นค่าบวกและเยื้องเป็นค่าลบ
 
-การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม, แหล่งอ้างอิง, รายการพจนานุกรม และย่อหน้าอื่น ๆ ที่ต้องการให้บรรทัดที่ห่อ wrap เรียงตรงใต้เนื้อหาย่อหน้าไม่ใช่ใต้ตัวอักษรแรกของบรรทัดแรก
+การกำหนดรูปแบบนี้เป็นประโยชน์สำหรับบรรณานุกรม, การอ้างอิง, รายการอภิธานศัพท์, และย่อหน้าอื่น ๆ ที่ต้องการให้บรรทัดตัดต่อจัดชิดกับเนื้อย่อหน้าแทนที่จะชิดกับอักขระแรกของบรรทัดแรก
 
-ตัวอย่าง JavaScript ต่อไปนี้จับคู่ค่า [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) ที่ 40 และ 60 pt กับค่า [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) ที่ -20 และ -30 pt ในแต่ละย่อหน้า บรรทัดแรกจะเริ่มอยู่ด้านซ้ายของบรรทัดที่ห่อ wrap; ย่อหน้าที่สองมีระยะเยื้อมันท์ห้อยที่ลึกกว่า:
+ตัวอย่าง JavaScript ต่อไปนี้จับคู่ค่า [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) ที่ 40 และ 60 จุด กับค่า [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) ที่ -20 และ -30 จุด ในแต่ละย่อหน้า บรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่ตัดต่อ; ย่อหน้าที่สองมีเยื้องห้อยลึกขึ้น:
 
 ```javascript
 var aspose = aspose || {};
@@ -421,11 +421,11 @@ try {
 
 ผลลัพธ์:
 
-![ระยะเยื้อมันท์ห้อยของย่อหน้า](hanging_indent.png)
+![เยื้องห้อยของย่อหน้า](hanging_indent.png)
 
-### **ตั้งคุณสมบัติการรันของย่อหน้าสุดท้าย**
+### **ตั้งค่าคุณสมบัติรันสิ้นสุดของย่อหน้า**
 
-เมธอด [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) ควบคุมการจัดรูปแบบของเครื่องหมายจบย่อหน้า ตัวอย่างต่อไปนี้สร้าง [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) ที่ตั้ง [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) เป็น 48 pt และ [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) เป็น Times New Roman จากนั้นกำหนดฟอร์แมตนี้ให้กับเครื่องหมายจบของย่อหน้าที่สองโดยไม่กระทบต่อส่วนข้อความที่มองเห็น:
+เมธอด [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) ควบคุมการกำหนดรูปแบบของเครื่องหมายสิ้นสุดย่อหน้า ตัวอย่างต่อไปนี้สร้าง [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) ที่มี [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) ตั้งเป็น 48 จุดและ [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) ตั้งเป็น Times New Roman จากนั้นกำหนดรูปแบบนี้ให้กับเครื่องหมายสิ้นสุดของย่อหน้าที่สองโดยไม่กระทบต่อส่วนข้อความที่มองเห็นได้:
 
 ```javascript
 var aspose = aspose || {};
@@ -459,15 +459,15 @@ try {
 }
 ```
 
-## **นับจำนวนบรรทัดที่แสดงผล**
+## **นับจำนวนบรรทัดที่เรนเดอร์**
 
-สำหรับกฎของย่อหน้าที่ส่งผลต่อการห่อ wrap อัตโนมัติและการใส่เครื่องหมายวรรคตอนที่ตอนจบบรรทัด ดูที่ [Control Line Breaking](/slides/th/nodejs-java/text-formatting/#control-line-breaking) และ [Control Hanging Punctuation](/slides/th/nodejs-java/text-formatting/#control-hanging-punctuation)
+สำหรับกฎของย่อหน้าที่ส่งผลต่อการตัดบรรทัดอัตโนมัติและเครื่องหมายวรรคตอนที่ตำแหน่งสุดท้ายของบรรทัด ดู [Control Line Breaking](/slides/th/nodejs-java/text-formatting/#control-line-breaking) และ [Control Hanging Punctuation](/slides/th/nodejs-java/text-formatting/#control-hanging-punctuation)
 
-ใช้ [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) เพื่อนับจำนวนบรรทัดที่ย่อหน้าใช้หลังจากการจัดวางข้อความรวมถึงการห่อ wrap อัตโนมัติ ซึ่งมีประโยชน์เมื่อทำการตรวจสอบความยาวและการจัดวางของข้อความในเทมเพลตงานนำเสนอ
+ใช้ [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) เพื่อคืนค่าจำนวนบรรทัดที่ย่อหน้าครอบครองหลังจากการวางตำแหน่งข้อความรวมถึงการตัดบรรทัดอัตโนมัติ สิ่งนี้มีประโยชน์เมื่อทำการตรวจสอบความยาวข้อความและการจัดวางในเทมเพลตพรีเซนเทชั่น
 
-ย่อหน้าเป็นรายการหนึ่งใน [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/), และอาจใช้หลายบรรทัดที่แสดงผล การตัดบรรทัดแบบชัดเจนภายในย่อหน้าจะบังคับให้ขึ้นบรรทัดใหม่โดยไม่สร้างย่อหน้าใหม่ การห่อ wrap อัตโนมัติสร้างบรรทัดตามความกว้างที่เหลือโดยไม่มีการแทรกบรรทัดใหม่ลงในข้อความ การนับย่อหน้าหรืออักขระตัดบรรทัดจึงไม่ได้ให้จำนวนบรรทัดที่แสดงผล
+ย่อหน้าเป็นรายการหนึ่งใน [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/) และอาจครอบคลุมหลายบรรทัดที่เรนเดอร์ การใส่การตัดบรรทัดโดยชัดเจนภายในย่อหน้าจะบังคับให้ขึ้นบรรทัดใหม่โดยไม่สร้างย่อหน้าใหม่ การตัดบรรทัดอัตโนมัติสร้างบรรทัดตามความกว้างที่มีโดยไม่แทรกอักขระตัดบรรทัดลงในข้อความ ดังนั้นการนับจำนวนย่อหน้าหรืออักขระตัดบรรทัดจึงไม่ให้จำนวนบรรทัดที่เรนเดอร์ได้
 
-ตัวอย่างต่อไปนี้สร้างรูปร่างข้อความ, นับบรรทัดของมัน, ลดความกว้างของรูปร่าง, แล้วแทนที่ข้อความด้วยสตริงสั้นกว่า ตัวอย่างเปิดใช้งานการห่อ wrap ด้วย [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) และปิดการปรับขนาดอัตโนมัติด้วย [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/) เพื่อให้ความกว้างของรูปร่างควบคุมการห่อ wrap โดยไม่ทำให้ข้อความหรือรูปร่างลดขนาดโดยอัตโนมัติ การวัดแต่ละครั้งใช้ [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) มิติของรูปร่างเป็นหน่วยจุด สุดท้ายตัวอย่างเพิ่มย่อหน้าอีกหนึ่งย่อหน้าและรวมจำนวนบรรทัดทั้งหมดใน text frame
+ตัวอย่างต่อไปนี้สร้างรูปทรงข้อความ, นับบรรทัดของมัน, ลดความกว้างของรูปทรง, แล้วแทนที่ข้อความด้วยสตริงสั้นกว่า ตัวอย่างเปิดใช้การตัดบรรทัดด้วย [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) และปิดการปรับขนาดอัตโนมัติด้วย [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/) เพื่อให้ความกว้างของรูปทรงควบคุมการตัดบรรทัดโดยไม่ย่อข้อความหรือปรับขนาดรูปทรงโดยอัตโนมัติ การวัดแต่ละครั้งใช้ [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) มิติของรูปทรงเป็นหน่วยจุด ในที่สุดตัวอย่างเพิ่มย่อหน้าอีกหนึ่งย่อหน้าและรวมจำนวนบรรทัดทั้งหมดของกรอบข้อความ:
 
 ```javascript
 var aspose = aspose || {};
@@ -510,15 +510,19 @@ try {
 }
 ```
 
+ด้วยข้อความและมิติเหล่านี้ การลดความกว้างของรูปทรงจะเพิ่มจำนวนบรรทัด, ขณะที่การแทนที่ข้อความด้วยสตริงสั้นจะลดจำนวนบรรทัด จำนวนที่แน่นอนอาจแตกต่างตามความพร้อมใช้งานของแบบอักษรและการแทนที่, ขนาดแบบอักษร, ระยะขอบ, ระยะเยื้อง, การตัดบรรทัด, และการตั้งค่าการปรับขนาดอัตโนมัติ ใช้แบบอักษรและการตั้งค่าการจัดวางที่กำหนดสำหรับสภาพแวดล้อมเป้าหมายเมื่อทำการตรวจสอบเทมเพลต
+
+จำนวนบรรทัดเพียงอย่างเดียวไม่ได้กำหนดว่าข้อความจะล้นคอนเทนเนอร์หรือไม่ ความสูงที่ใช้ได้, ความสูงของบรรทัด, ระยะห่างระหว่างย่อหน้าและบรรทัด, และพฤติกรรมการปรับขนาดอัตโนมัติทั้งหมดมีผล; แม้บรรทัดเดียวก็อาจเกินความกว้างที่ใช้ได้เมื่อปิดการตัดบรรทัด
+
 ## **นำเข้าและส่งออกเนื้อหาย่อหน้า**
 
-ใช้ HTML เพื่อดึงข้อความเข้าสู่งานนำเสนอหรือส่งออกย่อหน้าที่มีอยู่เพื่อใช้ภายนอก ส่วนนี้ยังแสดงวิธีการเรนเดอร์ย่อหน้าแต่ละอันเป็นภาพ รวมถึงย่อหน้าที่อยู่ในเซลล์ตาราง
+ใช้ HTML เพื่อนำข้อความเข้าสู่พรีเซนเทชั่นหรือส่งออกย่อหน้าที่มีอยู่เพื่อใช้งานภายนอก ส่วนนี้ยังแสดงวิธีเรนเดอร์ย่อหน้าแต่ละรายการเป็นรูปภาพ รวมถึงย่อหน้าในเซลล์ตารางด้วย
 
-### **นำเข้าข้อความ HTML ไปยังย่อหน้า**
+### **นำเข้า HTML เป็นข้อความในย่อหน้า**
 
-ใช้ [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) เพื่อแปลงมาร์กอัป HTML ให้เป็นย่อหน้าและ portion ใน text frame
+ใช้ [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) เพื่อแปลงมาร์กอัป HTML เป็นย่อหน้าและส่วนย่อยในกรอบข้อความ
 
-ตัวอย่าง JavaScript นี้อ่าน HTML จาก `file.html` ในไดเรกทอรีทำงานของแอปพลิเคชันและส่งมาร์กอัปให้กับ [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/). มันล้างย่อหน้าเริ่มต้นของ text frame เพื่อให้เฟรมมีเพียงเนื้อหา import เท่านั้น รูปร่างสี่เหลี่ยมทิ้งระยะขอบ 10 pt ไว้ที่ทุกด้านของสไลด์:
+ตัวอย่าง JavaScript นี้อ่าน HTML จาก `file.html` ในไดเรกทอรีทำงานของแอปพลิเคชันและส่งมาร์กอัปไปยัง [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) มันลบย่อหน้าเริ่มต้นของกรอบข้อความเพื่อให้กรอบมีเฉพาะเนื้อหาที่นำเข้า รูปทรงสี่เหลี่ยมทำให้มีขอบ 10 จุดในแต่ละด้านของสไลด์:
 
 ```javascript
 var aspose = aspose || {};
@@ -546,16 +550,16 @@ try {
 
 ### **ส่งออกข้อความย่อหน้าเป็น HTML**
 
-ใช้ [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) เพื่อส่งออกช่วงย่อหน้าที่เลือกเป็น HTML เมื่อใช้ข้อความของงานนำเสนอซ้ำบนเว็บไซต์ คุณอาจต้องการคงความเน้นในระดับท้องถิ่นโดยไม่ต้องพกฟอนต์ ขนาด หรือสไตล์ของกล่องข้อความของงานนำเสนอ ตั้งค่า [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/) เพื่อควบคุมความลึกที่ตัวแปลงตามการสืบทอดฟอร์แมต
+ใช้ [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) เพื่อส่งออกช่วงย่อหน้าที่เลือกเป็น HTML เมื่อใช้ข้อความพรีเซนเทชั่นบนเว็บไซต์ คุณอาจต้องการรักษาการเน้นในระดับท้องถิ่นโดยไม่ต้องนำฟอนต์, ขนาด, หรือสไตล์กล่องข้อความของพรีเซนเทชั่นไปด้วย ตั้งค่า [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/) เพื่อควบคุมว่าตัวแปลงจะสืบทอดการกำหนดรูปแบบไกลแค่ไหน
 
-ดาวน์โหลด [ตัวอย่างงานนำเสนอ](text-inheritance.pptx) และวางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกมีรูปทรงข้อความหนึ่งรูปที่มีข้อความ "Inherited text; explicit red 18pt". อินพุตตั้งใจใช้ระดับการฟอร์แมตหลายระดับ:
+ดาวน์โหลด [ตัวอย่างพรีเซนเทชั่น](text-inheritance.pptx) แล้ววางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกมีรูปทรงข้อความที่มีข้อความ "Inherited text; explicit red 18pt" อินพุตมีการใช้หลายระดับของการกำหนดรูปแบบอย่างเจตนา:
 
-- สไตล์ข้อความเริ่มต้นของงานนำเสนอใช้ฟอนต์ Calibri ขนาด 28 pt
-- สไตล์ข้อความระดับแรกของ text frame ใช้ข้อความสีน้ำเงินและเป็นตัวเอียง
-- ย่อหน้าตั้งค่าข้อความตัวหนาอย่างชัดเจน
-- portion ที่สอง, "explicit red 18pt", ตั้งค่าสีแดงและขนาด 18 pt อย่างชัดเจน
+- สไตล์ข้อความเริ่มต้นของพรีเซนเทชั่นใช้ Calibri ขนาด 28 pt
+- สไตล์ข้อความระดับแรกของกรอบข้อความใช้ข้อความสีน้ำเงินและตัวเอียง
+- ย่อหน้ากำหนดข้อความหนาอย่างชัดเจน
+- ส่วนที่สอง "explicit red 18pt" กำหนดข้อความสีแดงและขนาด 18 pt อย่างชัดเจน
 
-ตัวอย่างเต็มต่อไปนี้ส่งออกย่อหน้าเดียวกันสามครั้ง โดยส่งผ่าน [TextToHtmlConversionOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/) ไปยังเมธอดส่งออกและเขียนผลลัพธ์แต่ละอันเป็นไฟล์ HTML UTF‑8 แยกไฟล์:
+ตัวอย่างเต็มต่อไปนี้ส่งออกย่อหน้าเดียวกันสามครั้ง มันส่งผ่าน [TextToHtmlConversionOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/) ไปยังเมธอดส่งออกและเขียนผลลัพธ์แต่ละอันเป็นไฟล์ HTML UTF-8 แยกกัน:
 
 ```javascript
 var aspose = aspose || {};
@@ -593,31 +597,60 @@ try {
 }
 ```
 
-HTML ที่สร้างจะมี CSS ต่อไปนี้สำหรับ portion แรก, "Inherited text; ". ตารางแสดงการประกาศที่เกี่ยวข้อง; คุณสมบัติที่สร้างอื่น ๆ ถูกละเว้นเพื่อความกระจ่าง
+HTML ที่สร้างมี CSS ต่อไปนี้สำหรับส่วนแรก "Inherited text; " ตารางแสดงการประกาศที่เกี่ยวข้อง; คุณสมบัติเพิ่มเติมที่สร้างจะถูกละเว้นเพื่อความกระชับ
 
-| ผลลัพธ์ | CSS ที่เกี่ยวข้องสำหรับ portion แรก | ลักษณะ |
+| ผลลัพธ์ | CSS ที่เกี่ยวข้องสำหรับส่วนแรก | ลักษณะการแสดงผล |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | ข้อความสีน้ำเงิน ตัวหนา ตัวเอียง ขนาด 28 pt ใน Calibri หากฟอนต์นั้นมีอยู่ |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | ข้อความสีน้ำเงิน ตัวหนา ตัวเอียง; หน้าหรือเบราว์เซอร์จะกำหนดฟอนต์และขนาด |
-| `ParagraphOnly.html` | `font-weight:bold` | ข้อความตัวหนา; หน้าหรือเบราว์เซอร์จะกำหนดฟอนต์ ขนาด สี และสไตล์เอียง |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | ข้อความสีน้ำเงิน, หนา, ตัวเอียง ขนาด 28 pt ใน Calibri หากฟอนต์พร้อมใช้งาน |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | ข้อความสีน้ำเงิน, หนา, ตัวเอียง; หน้าเว็บหรือเบราว์เซอร์กำหนดฟอนต์และขนาด |
+| `ParagraphOnly.html` | `font-weight:bold` | ข้อความหนา; หน้าเว็บหรือเบราว์เซอร์กำหนดฟอนต์, ขนาด, สี, และสไตล์ตัวเอียง |
 
-portion ที่สองคง `color:#ff0000`, `font-size:18pt`, และ `font-weight:bold` ในทุกผลลัพธ์ ทั้งยังคงเอียงใน `All` และ `TextBox` แต่ไม่ค่อยใน `ParagraphOnly` การจำกัดการสืบทอดจึงไม่ได้ลบฟอร์แมตที่กำหนดโดยตรงให้กับย่อหน้าหรือ portion
+ส่วนที่สองคง `color:#ff0000`, `font-size:18pt`, และ `font-weight:bold` ในทุก ๆ ผลลัพธ์ ทั้งสามไฟล์ยังคงตัวเอียงใน `All` และ `TextBox` แต่ไม่คงใน `ParagraphOnly` การจำกัดการสืบทอดจึงไม่ลบการกำหนดรูปแบบที่ตั้งไว้โดยตรงสำหรับย่อหน้า或ส่วนย่อย
 
-เปิดไฟล์ในเบราว์เซอร์เดียวกันเพื่อเปรียบเทียบ ในโหมดจำกัดสองแบบ คุณสมบัติ CSS ที่ละเว้นจะถูกแก้โดยสไตล์ของหน้าเป้าหมายหรือค่าเริ่มต้นของเบราว์เซอร์ ดังนั้นผลลัพธ์ที่แสดงจึงขึ้นอยู่กับที่ใช้ HTML
+เปิดไฟล์ในเบราว์เซอร์เดียวกันเพื่อเปรียบเทียบ ในสองโหมดที่จำกัด คุณสมบัติ CSS ที่ละเว้นจะถูกใช้โดยสไตล์ของหน้าเป้าหมายหรือค่าเริ่มต้นของเบราว์เซอร์ ดังนั้นลักษณะการแสดงผลจะขึ้นกับที่ใช้งาน HTML นั้น
+
+### **สร้างส่วนคลิปบอร์ด HTML**
+
+ใช้ [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/setaddclipboardfragmentheader/) เพื่อเลือกผลลัพธ์จาก [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) เมื่อเป็น `false` เมธอดจะคืนค่า HTML ธรรมดา เมื่อเป็น `true` สตริงที่คืนค่าจะขึ้นต้นด้วยหัวข้อคลิปบอร์ดของ Windows ฟิลด์ `StartHTML` และ `EndHTML` ให้ตำแหน่งไบต์ UTF‑8 ของ HTML, ส่วน `StartFragment` และ `EndFragment` ระบุเนื้อหาที่จะวาง
+
+ตัวอย่างนี้ส่งออกย่อหน้าที่มีการกำหนดรูปแบบสองย่อหน้าเป็น HTML ธรรมดา (`html`) และเป็นคลิปบอร์ด HTML (`clipboardHtml`) หลังจากนั้นแอปพลิเคชันสามารถเขียนคลิปบอร์ดไปยังระบบคลิปบอร์ดได้ หาก API ของคลิปบอร์ดคาดหวังไบต์ดิบ ใหเข้ารหัสคลิปบอร์ดเป็น UTF‑8 โดยไม่มี BOM
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 0, 0, 400, 100);
+    const paragraphs = shape.getTextFrame().getParagraphs();
+    paragraphs.clear();
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+    const options = new slides.TextToHtmlConversionOptions();
+    options.setAddClipboardFragmentHeader(false);
+    const html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+
+    options.setAddClipboardFragmentHeader(true);
+    const clipboardHtml = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+} finally {
+    presentation.dispose();
+}
+```
 
 ### **เรนเดอร์ย่อหน้าเป็นรูปภาพ**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) เรนเดอร์ย่อหน้าเดี่ยวโดยตรงและคืนค่าเป็น [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). สามารถบันทึกผลลัพธ์เป็นไฟล์หรือสตรีมด้วย [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). ไม่จำเป็นต้องเรนเดอร์รูปร่างที่บรรจุหรือครอปบิตแมพด้วยตนเอง
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) เรนเดอร์ย่อหน้าเดี่ยวโดยตรงและคืนค่าเป็น [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) บันทึกผลลัพธ์ลงไฟล์หรือสตรีมด้วย [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) คุณไม่จำเป็นต้องเรนเดอร์รูปทรงโดยรวมหรือครอปบิตแมพด้วยตนเอง
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) อาจคืนค่า `null` หากไม่พบย่อหน้าในคอลเลกชันแม่, ไม่มีขอบเขตการเรนเดอร์ที่ถูกต้อง, หรือไม่สามารถเรนเดอร์ได้ ตรวจสอบผลลัพธ์ก่อนบันทึกและกำจัดภาพที่คืนค่าหลังใช้งาน
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) อาจคืนค่า `null` หากย่อหน้าไม่พบในคอลเลกชันแม่, ไม่มีขอบเขตการเรนเดอร์ที่ถูกต้อง, หรือไม่สามารถเรนเดอร์ได้ ให้ตรวจสอบผลลัพธ์ก่อนบันทึกและทำลายภาพที่คืนค่าหลังใช้งาน
 
-#### **เรนเดอร์ย่อหน้าที่สเกลเริ่มต้น**
+#### **เรนเดอร์ย่อหน้าที่อัตราส่วนเริ่มต้น**
 
-ตัวอย่างสร้างงานนำเสนอที่มีสไลด์หนึ่งซึ่งรูปร่างแรกเป็นกล่องข้อความที่มีย่อหน้า 3 ย่อหน้า
+ตัวอย่างนี้สร้างพรีเซนเทชั่นที่มีสไลด์หนึ่งสไลด์ที่รูปทรงแรกเป็นกล่องข้อความที่มีย่อหน้า 3 ย่อหน้า
 
-![กล่องข้อความที่มีสามย่อหน้า](paragraph_to_image_input.png)
+![กล่องข้อความที่มีย่อหน้า 3 ย่อหน้า](paragraph_to_image_input.png)
 
-ตัวอย่างต่อไปนี้เลือกย่อหน้าที่สองที่ตำแหน่ง 1 แล้วเรียก [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) โดยไม่มีพารามิเตอร์สเกล ตรวจสอบว่ารูปร่างมีย่อหน้าที่ต้องการและการเรนเดอร์ให้ภาพก่อนเรียก [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) เพื่อบันทึกเป็น PNG บล็อก `finally` จะกำจัดภาพหลังการใช้งาน
+ตัวอย่างต่อไปนี้เลือกย่อหน้าที่สองที่อินเด็กซ์ 1 และเรียก [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) โดยไม่มีพารามิเตอร์สเกล มันตรวจสอบว่ารูปทรงมีย่อหน้าที่ต้องการและการเรนเดอร์คืนภาพก่อนเรียก [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) เพื่อบันทึกเป็น PNG บล็อก `finally` ทำลายภาพหลังใช้งาน
 
 ```javascript
 var aspose = aspose || {};
@@ -666,11 +699,11 @@ try {
 
 ผลลัพธ์:
 
-![รูปภาพย่อหน้า](paragraph_to_image_output.png)
+![ภาพย่อหน้า](paragraph_to_image_output.png)
 
-#### **เรนเดอร์ย่อหน้าในเซลล์ตารางด้วยการสเกล**
+#### **เรนเดอร์ย่อหน้าในเซลล์ตารางพร้อมการสเกล**
 
-ใช้โอเวอร์โหลดของ [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) ที่รับพารามิเตอร์ `scaleX` และ `scaleY` เพื่อกำหนดตัวคูณสเกลในแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้สร้างตาราง, เรนเดอร์ย่อหน้าในเซลล์แรกโดยเพิ่มความกว้างและสูงเป็นสองเท่าของค่าเริ่มต้น, แล้วบันทึกผลเป็นภาพ PNG
+ใช้โอเวอร์โหลดของ [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) ที่รับพารามิเตอร์ `scaleX` และ `scaleY` เพื่อกำหนดปัจจัยสเกลแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้สร้างตาราง, เรนเดอร์ย่อหน้าในเซลล์แรกที่กว้างและสูงเป็นสองเท่าของค่าเริ่มต้น, แล้วบันทึกผลเป็น PNG
 
 ```javascript
 var aspose = aspose || {};
@@ -705,22 +738,26 @@ try {
 }
 ```
 
-ค่าตัวคูณสเกล `1` จะคงแกนนั้นที่ขนาดพิก셀เริ่มต้น ตัวอย่างเช่น `2` สำหรับทั้งสองตัวคูณจะให้ภาพที่ความกว้างและสูงประมาณสองเท่าของขนาดเริ่มต้น ส่งผลให้มีพิกเซลสี่เท่า การใช้ค่าตัวคูณใหญ่กว่าจะทำให้ข้อความคมชัดขึ้นสำหรับการซูมหรือเอาต์พุตความละเอียดสูง แต่จะเพิ่มการใช้หน่วยความจำและขนาดไฟล์ ค่าตัวคูณต่ำกว่า `1` จะให้ภาพขนาดเล็กลงพร้อมรายละเอียดน้อยลง ใช้ค่าตัวคูณเท่ากันเพื่อรักษาอัตราส่วนของย่อหน้า; ค่าตัวคูณแนวนอนและแนวตั้งต่างกันจะทำให้เอาต์พุตยืดหยุ่นแต่ละทิศ
+ค่าปัจจัยสเกล `1` รักษาขนาดพิกเซลตามค่าเริ่มต้น ตัวอย่างเช่น `2` สำหรับทั้งสองปัจจัยจะได้ภาพที่ความกว้างและความสูงประมาณสองเท่าของมิติเริ่มต้น ทำให้พิกเซลเพิ่มเป็นสี่เท่า ปัจจัยที่ใหญ่กว่าให้ข้อความคมชัดยิ่งขึ้นสำหรับการซูมหรือเอาต์พุตความละเอียดสูง แต่ก็เพิ่มการใช้หน่วยความจำและขนาดไฟล์ ปัจจัยที่ต่ำกว่า `1` ให้ภาพขนาดเล็กลงพร้อมรายละเอียดน้อยลง ใช้ปัจจัยเท่ากันเพื่อคงอัตราส่วนของย่อหน้า; ปัจจัยแนวนอนและแนวตั้งที่ต่างกันจะยืดภาพอย่างอิสระ
 
-การเรนเดอร์รูปทรงทั้งหมดด้วย [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) ยังคงมีประโยชน์เมื่อเอาต์พุตต้องรวมการเติมพื้น, เส้นขอบ หรือบริบทภาพอื่น ๆ สำหรับภาพย่อหน้าเดียวเท่านั้น ให้ใช้ [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage)
+การเรนเดอร์รูปทรงทั้งหมดด้วย [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) ยังคงมีประโยชน์เมื่อเอาต์พุตต้องรวมพื้นหลัง, ขอบ, หรือบริบทภาพอื่น ๆ สำหรับภาพที่มีเพียงย่อหน้าให้ใช้ [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage)
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันสามารถปิดการตัดบรรทัดภายใน text frame ได้อย่างสมบูรณ์หรือไม่?**  
-ได้. ตั้งค่า [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) เพื่อปิดการห่อ wrap ทำให้บรรทัดไม่ตัดที่ขอบของ text frame
+**ฉันสามารถปิดการตัดบรรทัดอัตโนมัติในกรอบข้อความได้หรือไม่?**
 
-**ฉันจะรับขอบเขตบนสไลด์ที่แน่นอนของย่อหน้าเฉพาะได้อย่างไร?**  
-ใช้ [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) เพื่อดึงสี่เหลี่ยมขอบเขตของย่อหน้า [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) ให้ขอบเขตของ portion แต่ละอัน
+ได้. ตั้งค่า [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) เพื่อปิดการตัดบรรทัดเพื่อให้บรรทัดไม่ตัดที่ขอบของกรอบข้อความ
 
-**การจัดแนวย่อหน้า (ซ้าย, ขวา, กลาง หรือเต็ม) ถูกควบคุมที่ไหน?**  
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) เป็นการตั้งค่าระดับย่อหน้าซึ่งใช้กับย่อหน้าทั้งหมดโดยไม่คำนึงถึงฟอร์แมตของ portion แยกต่างหาก
+**ฉันจะรับขอบเขตบนสไลด์ที่แน่นอนของย่อหน้าเฉพาะได้อย่างไร?**
 
-เพื่อจัดแนวแนวตั้งของ portion ที่มีขนาดฟอนต์ต่างกันภายในบรรทัดเดียวกัน ดูที่ [Align Fonts Within a Line](/slides/th/nodejs-java/text-formatting/#align-fonts-within-a-line)
+ใช้ [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) เพื่อดึงสี่เหลี่ยมขอบของย่อหน้า ส่วน [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) ให้ขอบของส่วนย่อยแต่ละส่วน
 
-**ฉันสามารถตั้งค่าภาษา proofing สำหรับส่วนหนึ่งของย่อหน้าได้หรือไม่?**  
-ได้. ตั้งค่า [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) สำหรับ portion แยกแต่ละอัน ทำให้ย่อหน้าหนึ่งสามารถมีข้อความหลายภาษาได้
+**การจัดแนวย่อหน้า (ซ้าย, ขวา, กลาง, หรือจัดเต็ม) ถูกควบคุมที่ไหน?**
+
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) เป็นการตั้งค่าระดับย่อหน้าและใช้กับย่อหน้าทั้งหมดโดยไม่คำนึงถึงการกำหนดรูปแบบของส่วนย่อยแต่ละส่วน
+
+เพื่อจัดแนวแนวตั้งของส่วนย่อยที่มีขนาดฟอนต์ต่างกันภายในบรรทัดเดียวกัน ดู [Align Fonts Within a Line](/slides/th/nodejs-java/text-formatting/#align-fonts-within-a-line)
+
+**ฉันสามารถตั้งค่าภาษา proofing สำหรับส่วนหนึ่งของย่อหน้าได้หรือไม่?**
+
+ได้. ตั้งค่า [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) สำหรับส่วนย่อยแต่ละส่วน เพื่อให้ย่อหน้าเดียวสามารถมีข้อความหลายภาษาผสมกัน

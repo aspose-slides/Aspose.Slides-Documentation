@@ -1,6 +1,6 @@
 ---
-title: C++でPowerPointテキスト段落を管理する
-linktitle: 段落を管理する
+title: C++ で PowerPoint テキスト段落を管理する
+linktitle: 段落の管理
 type: docs
 weight: 40
 url: /ja/cpp/manage-paragraph/
@@ -16,38 +16,38 @@ keywords:
   - 段落インデント
   - ハンギングインデント
   - 段落箇条書き
-  - 番号付きリスト
+  - 番号リスト
   - 箇条書きリスト
   - 段落プロパティ
-  - HTMLをインポート
-  - テキストをHTMLへ
-  - 段落をHTMLへ
-  - 段落を画像へ
-  - テキストを画像へ
-  - 段落をエクスポート
+  - HTML のインポート
+  - テキストから HTML へ
+  - 段落から HTML へ
+  - 段落から画像へ
+  - テキストから画像へ
+  - 段落のエクスポート
   - PowerPoint
   - プレゼンテーション
   - C++
   - Aspose.Slides
-description: "Aspose.Slides for C++ を使用して、段落、ポーション、箇条書き、番号付きリスト、インデント、HTML コンテンツ、段落画像の作成と書式設定方法を学びます。"
+description: "Aspose.Slides for C++ を使用して、段落、ポーション、箇条書き、番号リスト、インデント、HTML コンテンツ、段落画像の作成と書式設定の方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for C++ はテキストをテキストフレーム、段落、ポーションの階層として表現します。
+Aspose.Slides for C++ は、テキストをテキストフレーム、段落、およびポーションの階層として表現します。
 
-* [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) はシェイプ内のテキストコンテナを表し、段落コレクションへのアクセスを提供します。
-* [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) はテキストフレーム内の 1 つの段落を表し、ポーションと段落レベルの書式設定へのアクセスを提供します。
-* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) は段落内のテキストランを表します。各ポーションは独自のテキストと文字レベルの書式設定を持つことができます。
+* [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) は、シェイプ内のテキスト コンテナを表し、段落コレクションへのアクセスを提供します。
+* [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) は、テキストフレーム内の 1 つの段落を表し、ポーションおよび段落レベルの書式設定へのアクセスを提供します。
+* [IPortion](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/) は、段落内のテキスト ランを表します。各ポーションは独自のテキストと文字レベルの書式設定を持つことができます。
 
-したがって、段落は複数のポーションを使用することで、フォント、色、サイズ、その他の書式設定が異なるテキストを含めることができます。
+したがって、段落は複数のポーションを使用することで、フォント、色、サイズ、その他の書式が異なるテキストを含めることができます。
 
 ## **段落の作成と書式設定**
 
-シェイプのテキストフレーム内に段落を作成し、ポーションを使用して個々のテキストランの書式設定を行います。このセクションでは、各段落内で複数のポーションを組み合わせ、色、フォントサイズ、スタイルを変える方法を示します。
+シェイプのテキストフレーム内に段落を作成し、ポーションを使用して個々のテキスト ランを書式設定します。このセクションでは、各段落内で複数のポーションを組み合わせ、異なる色、フォント サイズ、スタイルを適用する方法を示します。
 
 ### **複数のポーションを持つ段落の作成**
 
-次の C++ の例は、3 つの段落を作成し、それぞれの [IParagraph::get_Portions](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_portions/) コレクションに 3 つのテキストランを格納します。デフォルトの段落と空のポーションを再利用し、残りの段落とポーションを追加します。書式設定は [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/) を通じて適用されます。各段落の最初のポーションは赤、太字、15 ポイント、2 番目は青、イタリック、18 ポイント、3 番目はデフォルトの書式設定のままです。
+以下の C++ サンプルは、3 つの段落を作成し、各段落の [IParagraph::get_Portions](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_portions/) コレクションに 3 つのテキスト ランを格納します。デフォルトの段落と空のポーションを再利用し、残りの段落とポーションを追加します。書式設定は [IPortion::get_PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/get_portionformat/) を介して行われます。各段落の最初のポーションは赤・太字・15pt、2 番目は青・斜体・18pt、3 番目はデフォルトの書式を保持します。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -122,15 +122,15 @@ presentation->Save(u"paragraphs_with_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **箇条書きと番号付きリストの作成**
+## **箇条書きおよび番号付きリストの作成**
 
-段落テキストをシンボル、番号、またはカスタム画像でリスト化します。このセクションの例は、箇条書きの書式設定、多層リスト、カスタム開始番号を扱います。
+段落テキストを記号、番号、またはカスタム画像で構成されたリストに整理します。このセクションの例では、箇条書きの書式設定、階層リスト、カスタム開始番号を扱います。
 
 ### **箇条書きまたは番号付きリストの作成**
 
-箇条書きと番号付けは、関連項目を視覚的に把握しやすくします。Aspose.Slides では、リスト設定は [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/) を介して定義されます。
+箇条書きと番号付けにより、関連項目を視認しやすくなります。Aspose.Slides では、リスト設定は [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/) を通じて定義します。
 
-この C++ の例は、同じテキストフレームにシンボル箇条書きと番号付き項目を追加します。[IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) で箇条書きの種類を選択し、[IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) でシンボルを指定し、[IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) で番号付けスタイルを選択します。両方の項目は黒い箇条書きで、サイズは 100% 高さ、段落インデントは 25 ポイントです。
+この C++ サンプルは、同じテキストフレームに記号箇条書きと番号付き項目を追加します。[IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) で箇条書きの種類を選択し、[IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) で記号を指定し、[IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) で番号スタイルを選択します。両方の項目は黒色の箇条書きを使用し、高さは 100% 、段落インデントは 25pt に設定されます。
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -186,9 +186,9 @@ presentation->Dispose();
 
 ### **画像箇条書きの使用**
 
-画像箇条書きを使用すると、シンボルや番号の代わりにカスタム画像を使用できます。
+画像箇条書きを使用すると、記号や番号の代わりにカスタム画像を使用できます。
 
-この例では作業ディレクトリに `bullets.png` が必要です。C++ の例は、画像を [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) としてプレゼンテーションの画像コレクションに追加し、段落の箇条書きとして使用します。[IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) を画像箇条書きに設定し、[IBulletFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/get_picture/) で画像を割り当てます。[IBulletFormat::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_height/) を 100% に設定し、段落テキストに対する箇条書きのサイズを指定します。
+この例では作業ディレクトリに `bullets.png` が必要です。C++ 例は画像をプレゼンテーションの画像コレクションに [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) として追加し、段落の箇条書きとして使用します。[IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) を画像箇条書きに設定し、画像は [IBulletFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/get_picture/) で割り当てます。[IBulletFormat::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_height/) は段落テキストに対する相対サイズとして 100% に設定します。
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -229,11 +229,11 @@ presentation->Save(u"picture_bullet.ppt", SaveFormat::Ppt);
 presentation->Dispose();
 ```
 
-### **多層リストの作成**
+### **階層リストの作成**
 
-[IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) を設定して、リスト内の段落を異なる階層に配置します。最上位レベルの深さは `0` です。
+[IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) を設定して、段落をリストの異なるレベルに配置します。最上位レベルの深さは `0` です。
 
-この C++ の例は、[IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) の値を 0 から 3 まで 4 つの段落に割り当て、1 つのテキストフレーム内に階層を作ります。各段落はシンボル箇条書きを使用し、[IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) で丸い箇条書きとハイフンを交互に設定して隣接レベルを区別します。
+この C++ 例は、[IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_depth/) の値を 0 から 3 まで 4 つの段落に割り当て、1 つのテキストフレーム内に階層を作成します。各段落は記号箇条書きを使用し、[IBulletFormat::set_Char](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_char/) で丸い箇条書きとハイフンを交互に設定して隣接レベルを区別します。
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -300,11 +300,11 @@ presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **カスタム開始番号で番号付きリスト項目を開始**
+### **カスタム開始番号で番号付きリストを作成**
 
 [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) を使用して、番号付き段落の最初に表示される番号を設定します。
 
-この C++ の例は、3 つの段落に対して [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) を番号付けに設定し、[IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) の値をそれぞれ 2、3、7 に設定します。開始番号は段落ごとに個別に設定でき、番号が飛びます。
+この C++ 例は、3 つの段落で番号付けを使用するように [IBulletFormat::set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_type/) を設定し、[IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) にそれぞれ 2、3、7 の値を割り当てます。開始値は段落ごとに個別に構成され、表示番号がスキップされます。
 
 ```cpp
 #include <DOM/BulletType.h>
@@ -348,17 +348,17 @@ presentation->Save(u"custom_numbered_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **段落のレイアウトと終了プロパティの制御**
+## **段落のレイアウトと終端プロパティの制御**
 
-段落の余白とインデントを調整して、最初の行と折り返し行の位置を制御します。段落の終了マークを可視テキストのポーションとは別に書式設定することもできます。
+段落の余白とインデントを調整して、最初の行と折り返し行の位置を制御します。段落終端記号を可視テキストのポーションとは別に書式設定することもできます。
 
-### **先頭行インデントの設定**
+### **最初の行インデントの設定**
 
-[IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) メソッドを使用して段落の先頭行インデントを制御します。このメソッドは段落の左余白に対して最初の行だけを移動させます。正の値は先頭行を右へシフトし、残りの行は段落本体に揃ったままです。
+[IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) メソッドを使用して段落の最初の行インデントを制御します。このメソッドは段落左余白に対して最初の行だけを移動させます。正の値は最初の行を右にシフトし、残りの行は段落本体に揃ったままです。
 
-段落全体を移動したい場合は [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) を使用します。最初の行だけを移動したい場合は [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) を使用します。
+段落全体を移動したい場合は [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) を使用し、最初の行だけを移動したい場合は [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) を使用します。
 
-次の例は、3 つの段落に同じ [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) 20 ポイントと、[IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) の値をそれぞれ 0、20、40 ポイント設定します。先頭行は徐々に大きなオフセットで開始し、折り返し行は同じ左余白を保持します。
+以下の例は、3 つの段落に同じ [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) 20pt と、[IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) の値を 0、20、40pt と設定します。最初の行は段階的に大きなオフセットで開始し、折り返し行は同じ左余白を保持します。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -417,19 +417,19 @@ presentation->Save(u"paragraph_indent.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果:
+結果：
 
-![段落の先頭行インデント](first_line_indent.png)
+![段落の最初の行インデント](first_line_indent.png)
 
 ### **ハンギングインデントの設定**
 
-ハンギングインデントは、最初の行が残りの行より左側から始まる段落レイアウトです。Aspose.Slides では、[IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) メソッドに負の値を渡して、段落本体に対して最初の行を左へ移動させます。
+ハンギングインデントは、最初の行が残りの行より左に開始する段落レイアウトです。Aspose.Slides では、[IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) メソッドに負の値を渡すことで実現します。
 
-実際には、[IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) が段落本体の左位置を定義し、[IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) がその余白に対する最初の行の位置を定義します。ハンギングインデントを作成するには、正の `MarginLeft` と負の `Indent` を組み合わせます。
+実際には、[IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) が段落本体の左位置を定義し、[IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) がその余白に対する最初の行の位置を定義します。ハンギングインデントを作成するには、正の `MarginLeft` 値と負の `Indent` 値を設定します。
 
-この書式設定は、文献リスト、参考文献、用語集エントリなど、折り返し行が段落本体の下に揃う必要がある段落で便利です。
+この書式設定は、参考文献、用語集エントリ、その他折り返し行が段落本体の下に揃える必要がある段落で便利です。
 
-次の C++ の例は、[IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) の値を 40 と 60 ポイントに、[IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) の値をそれぞれ -20 と -30 ポイントに設定します。各段落で最初の行は折り返し行の左側に開始し、2 番目の段落はより深いハンギングインデントになります。
+以下の C++ 例は、[IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginleft/) を 40 と 60pt に、[IParagraphFormat::set_Indent](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_indent/) をそれぞれ -20 と -30pt に設定します。各段落で最初の行は折り返し行の左側に開始し、2 番目の段落はより深いハンギングインデントになります。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -480,13 +480,13 @@ presentation->Save(u"hanging_indent.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果:
+結果：
 
 ![段落のハンギングインデント](hanging_indent.png)
 
-### **段落終了ランプロパティの設定**
+### **段落終端ランのプロパティ設定**
 
-[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) メソッドは段落終了マークの書式設定を制御します。例は `Test.pptx` を読み込みます。このファイルは少なくとも 1 つのスライドを含んでいる必要があります。次の例は、[PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) を作成し、[IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) を 48 ポイント、[IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/) を Times New Roman に設定します。この書式を第 2 段落の終了マークに割り当て、可視テキストのポーションは変更しません。
+[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) メソッドは、段落終端記号の書式設定を制御します。例では `Test.pptx`（少なくとも 1 スライドを含む）を読み込みます。以下の例は、[PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/) を作成し、[IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_fontheight/) を 48pt、[IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_latinfont/) を Times New Roman に設定します。この書式を第 2 段落の終端記号に割り当て、可視テキストのポーションは変更しません。
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -529,15 +529,15 @@ presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **レンダリングされた行数の取得**
+## **描画された行数の取得**
 
-行末の自動折り返しや句読点制御に関するルールについては、[Control Line Breaking](/slides/ja/cpp/text-formatting/#control-line-breaking) と [Control Hanging Punctuation](/slides/ja/cpp/text-formatting/#control-hanging-punctuation) を参照してください。
+行末の自動折り返しや句読点に影響する段落ルールについては、[Control Line Breaking](/slides/ja/cpp/text-formatting/#control-line-breaking) および [Control Hanging Punctuation](/slides/ja/cpp/text-formatting/#control-hanging-punctuation) を参照してください。
 
-[IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) を使用して、テキストレイアウト後の段落が占有する行数をカウントできます（自動折り返しを含む）。テンプレート内のテキスト長やレイアウトを確認する際に便利です。
+[IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) を使用すると、テキスト配置後の段落が占める行数（自動折り返しを含む）を取得できます。プレゼンテーションのテンプレートでテキスト長やレイアウトを確認する際に便利です。
 
-段落は [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/) の 1 アイテムであり、複数のレンダリング行を占めることがあります。段落内の明示的な改行は新しい段落を作らずに新行を強制します。自動折り返しは利用可能幅に基づいて行を生成します。したがって、段落数や改行文字だけを数えても実際のレンダリング行数は得られません。
+段落は [ITextFrame::get_Paragraphs](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_paragraphs/) の項目の 1 つであり、複数の描画行を占めることがあります。段落内の明示的な改行は新しい段落を作成せずに新しい行を強制します。自動折り返しは利用可能な幅に基づいて行を生成し、テキストに明示的な改行文字を挿入しません。そのため、段落数や改行文字の数だけでは描画行数は分かりません。
 
-次の例はテキストシェイプを作成し、行数をカウントし、シェイプを狭め、テキストを短い文字列に置き換えます。例は [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) を有効にし、[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) を無効にして、シェイプ幅が折り返しを制御し、テキストやシェイプの自動縮小を行わないようにします。各測定は [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) を使用します。シェイプの寸法はポイント単位です。最後に別の段落を追加し、テキストフレーム全体の行数を合計します。
+以下の例はテキスト シェイプを作成し、行数をカウントし、シェイプを狭め、テキストを短い文字列に置き換えます。例では [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) を有効にし、[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) を無効にして、シェイプ幅が折り返しを制御し、テキストやシェイプの自動縮小を行わないようにしています。各測定は [IParagraph::GetLinesCount](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getlinescount/) を使用します。シェイプ寸法はポイント単位です。最後に別の段落を追加し、テキストフレーム全体の行数を合計します。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -585,19 +585,19 @@ Console::WriteLine(u"Total lines in the text frame: {0}", totalLineCount);
 presentation->Dispose();
 ```
 
-このテキストと寸法でシェイプを狭めると行数が増え、短い文字列に置き換えると減ります。正確なカウントはフォントの有無や代替、フォントサイズ、余白、インデント、折り返し、オートフィット設定により変わります。テンプレートをチェックする際は、対象環境で使用するフォントとレイアウト設定を使用してください。
+このテキストと寸法でシェイプを狭めると行数が増加し、短い文字列に置き換えると減少します。正確なカウントはフォントの可用性と置換、フォントサイズ、余白、インデント、折り返し、オートフィット設定に依存します。テンプレートを確認する際は、対象環境で使用するフォントとレイアウト設定を使用してください。
 
-行数だけではテキストがコンテナをはみ出すかどうかは判断できません。利用可能な高さ、行の高さ、段落と行の間隔、オートフィットの動作も重要です。折り返しが無効の場合、1 行だけでも幅を超えることがあります。
+行数だけではテキストがコンテナをはみ出すかどうかは判断できません。利用可能な高さ、行の高さ、段落と行の間隔、オートフィットの動作も重要です。折り返しが無効の場合、1 行でも幅を超えることがあります。
 
 ## **段落コンテンツのインポートとエクスポート**
 
-HTML を使用してテキストをプレゼンテーションに取り込んだり、既存の段落を外部で使用できるようにエクスポートしたりします。このセクションでは、テーブルセル内の段落を含む個別段落の画像化方法も示します。
+HTML を使用してテキストをプレゼンテーションに取り込んだり、既存の段落を外部で使用できるようにエクスポートしたりします。このセクションでは、テーブル セル内の段落を含む、段落を画像としてレンダリングする方法も示します。
 
 ### **HTML テキストを段落にインポート**
 
 [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) を使用して、HTML マークアップをテキストフレーム内の段落とポーションに変換します。
 
-この C++ の例はファイルから HTML を読み取り、マークアップを [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) に渡します。テキストフレームのデフォルト段落をクリアして、フレームにインポートされたコンテンツだけが残るようにします。矩形シェイプはスライドの各側に 10 ポイントの余白を残します。
+この C++ 例はファイルから HTML を読み取り、マークアップを [ParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/addfromhtml/) に渡します。テキストフレームのデフォルト段落をクリアし、フレームにインポートされたコンテンツのみが含まれるようにします。矩形シェイプはスライドの各側に 10pt の余白を残します。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -633,16 +633,16 @@ presentation->Dispose();
 
 ### **段落テキストを HTML にエクスポート**
 
-[ParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/exporttohtml/) を使用して、選択した段落範囲を HTML としてエクスポートします。Web サイトでプレゼンテーションのテキストを再利用する場合、フォント、サイズ、テキストボックスのスタイルを保持せずに強調表示だけを保持したいことがあります。[TextToHtmlConversionOptions::set_TextInheritanceLimit](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_textinheritancelimit/) を設定して、エクスポート時の書式継承の深さを制御します。
+[ParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphcollection/exporttohtml/) を使用して、選択した段落範囲を HTML としてエクスポートします。プレゼンテーションのテキストを Web サイトで再利用する場合、フォントやサイズ、テキスト ボックス スタイルを引き継がずにローカルの強調表示だけを保持したいことがあります。[TextToHtmlConversionOptions::set_TextInheritanceLimit](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_textinheritancelimit/) を設定して、エクスポーターが書式継承をどこまでたどるかを制御します。
 
-[the sample presentation](text-inheritance.pptx) をダウンロードし、アプリケーションの作業ディレクトリに配置します。最初のスライドには「Inherited text; explicit red 18pt」というテキストを含む 1 つのテキストシェイプがあります。入力は意図的に複数の書式レベルを使用しています。
+[サンプル プレゼンテーション](text-inheritance.pptx) をダウンロードし、アプリケーションの作業ディレクトリに配置します。最初のスライドにはテキスト「Inherited text; explicit red 18pt」を含むテキスト シェイプが 1 つあります。入力は意図的に複数の書式レベルを使用しています。
 
-- プレゼンテーションのデフォルトテキストスタイルは Calibri 28pt を提供します。
-- テキストフレームの第一レベルテキストスタイルは青文字とイタリックを提供します。
-- 段落は太字を明示的に設定します。
-- 第二ポーション「explicit red 18pt」は赤文字と 18pt を明示的に設定します。
+- プレゼンテーションのデフォルト テキスト スタイルは Calibri と 28pt を提供します。
+- テキストフレームの第 1 レベル テキスト スタイルは青色テキストと斜体を提供します。
+- 段落は明示的に太字テキストを設定します。
+- 2 番目のポーション「explicit red 18pt」は赤色テキストと 18pt のサイズを明示的に設定します。
 
-次の例は同じ段落を 3 回エクスポートします。[TextToHtmlConversionOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/) をエクスポートメソッドに渡し、各結果を別々の UTF-8 HTML ファイルとして書き出します。
+以下の例は同じ段落を 3 回エクスポートします。[TextToHtmlConversionOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/) をエクスポート メソッドに渡し、各結果を別々の UTF-8 HTML ファイルとして書き出します。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -689,31 +689,68 @@ else
 presentation->Dispose();
 ```
 
-生成された HTML には最初のポーション（"Inherited text; "）用の以下の CSS が含まれます。表は関連する宣言を示し、その他の生成プロパティは簡潔さのため省略しています。
+生成された HTML には、最初のポーション「Inherited text; 」のための以下の CSS が含まれます。表は関連する宣言を示し、他の生成プロパティは簡潔さのために省略しています。
 
-| 出力 | 最初のポーションの関連 CSS | 外観 |
+| 出力 | 最初のポーションの関連 CSS | 表示 |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Calibri が利用可能な場合、28pt の青色太字イタリックテキスト。 |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | 青色太字イタリックテキスト。フォントファミリとサイズはページまたはブラウザが供給します。 |
-| `ParagraphOnly.html` | `font-weight:bold` | 太字テキスト。フォントファミリ、サイズ、色、イタリックはページまたはブラウザが供給します。 |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Calibri が利用可能な場合、28pt の青・太字・斜体テキスト |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | 青・太字・斜体テキスト；フォントファミリとサイズはページまたはブラウザが提供 |
+| `ParagraphOnly.html` | `font-weight:bold` | 太字テキスト；フォントファミリ、サイズ、色、斜体はページまたはブラウザが提供 |
 
-2 番目のポーションはすべての出力で `color:#ff0000`、`font-size:18pt`、`font-weight:bold` を保持します。`All` と `TextBox` ではイタリックも保持しますが、`ParagraphOnly` では保持しません。継承を制限しても、段落またはポーションに明示的に割り当てられた書式は削除されません。
+2 番目のポーションはすべての出力で `color:#ff0000`、`font-size:18pt`、`font-weight:bold` を保持します。`All` と `TextBox` では斜体も保持されますが、`ParagraphOnly` では保持されません。継承を制限しても、段落またはポーションに明示的に割り当てられた書式は削除されません。
 
-同じブラウザでファイルを開いて比較してください。制限モードでは省略された CSS プロパティが宛先ページのスタイルまたはブラウザデフォルトで解決されるため、最終的な見た目は HTML の使用場所によって変わります。
+同じブラウザでファイルを開いて比較してください。制限モードでは省略された CSS プロパティが宛先ページのスタイルやブラウザのデフォルトで解決されるため、最終的な表示は HTML の使用場所に依存します。
+
+### **HTML クリップボード フラグメントの生成**
+
+[TextToHtmlConversionOptions::set_AddClipboardFragmentHeader](https://reference.aspose.com/slides/cpp/aspose.slides.export/texttohtmlconversionoptions/set_addclipboardfragmentheader/) を `false` に設定すると普通の HTML、`true` に設定するとクリップボード ヘッダー付きの HTML が生成されます。ヘッダーは周囲の HTML のバイトオフセット（`StartHTML` と `EndHTML`）と貼り付け対象フラグメント（`StartFragment` と `EndFragment`）を示します。
+
+この例は 2 つの書式付き段落を普通の HTML（`html`）と HTML クリップボード フラグメント（`clipboardHtml`）としてエクスポートします。フラグメントをシステム クリップボードに書き込むには別途アプリケーション側で処理が必要です。生の HTML クリップボード バイトを受け取る API では、BOM のない UTF-8 が必要です。
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/TextToHtmlConversionOptions.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0, 0, 400, 100);
+auto paragraphs = shape->get_TextFrame()->get_Paragraphs();
+paragraphs->Clear();
+paragraphs->AddFromHtml(u"<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+auto options = MakeObject<TextToHtmlConversionOptions>();
+options->set_AddClipboardFragmentHeader(false);
+auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+
+options->set_AddClipboardFragmentHeader(true);
+auto clipboardHtml = paragraphs->ExportToHtml(0, paragraphs->get_Count(), options);
+presentation->Dispose();
+```
 
 ### **段落を画像としてレンダリング**
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) は個別の段落を直接レンダリングし、[IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/) を返します。結果は [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) でファイルまたはストリームに保存できます。含むシェイプ全体をレンダリングしたり、ビットマップを手動で切り取ったりする必要はありません。
+[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) は個々の段落を直接レンダリングし、[IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/) を返します。結果は [IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) でファイルまたはストリームに保存できます。含むシェイプ全体をレンダリングしたり、ビットマップを手動で切り取ったりする必要はありません。
 
-[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) は、段落が親コレクションに存在しない、レンダリング境界が有効でない、またはレンダリングできない場合に `nullptr` を返すことがあります。保存前に結果を確認し、使用後は返された画像を破棄してください。
+[IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) は、段落が親コレクションに見つからない、レンダリング境界が有効でない、またはレンダリングできない場合に `nullptr` を返すことがあります。保存する前に結果を確認し、使用後は返された画像を破棄してください。
 
 #### **デフォルトスケールで段落をレンダリング**
 
-例は 1 スライドを持つプレゼンテーション `sample.pptx` を使用し、最初のシェイプは 3 段落を含むテキストボックスです。
+例では 1 枚のスライドを持つプレゼンテーション `sample.pptx` を使用し、最初のシェイプは 3 段落を含むテキスト ボックスです。
 
-![3 段落を含むテキストボックス](paragraph_to_image_input.png)
+![3 段落があるテキスト ボックス](paragraph_to_image_input.png)
 
-次の例はインデックス 1 の第 2 段落を選択し、スケールパラメータなしで [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) を呼び出します。シェイプに対象段落が含まれていること、レンダリングが画像を返すことを確認したうえで、[IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) で PNG 形式で保存します。保存後に画像を破棄します。
+以下の例はインデックス 1 の 2 番目の段落を選択し、スケール パラメータなしで [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) を呼び出します。シェイプに対象段落が存在することと、レンダリングが画像を返すことを確認した上で、[IImage::Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) で PNG 形式で保存します。保存後に画像を破棄します。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -754,13 +791,13 @@ else
 presentation->Dispose();
 ```
 
-結果:
+結果：
 
 ![段落画像](paragraph_to_image_output.png)
 
-#### **テーブルセル内の段落をスケーリングしてレンダリング**
+#### **テーブル セル内の段落をスケーリングしてレンダリング**
 
-`float scaleX` と `float scaleY` パラメータを受け取る [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) のオーバーロードを使用して、横方向と縦方向のスケール係数を設定します。次の例はテーブルを作成し、最初のセル内の段落をデフォルト幅と高さの 2 倍でレンダリングし、PNG 画像として保存します。
+`float scaleX` と `float scaleY` パラメータを受け取る [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) のオーバーロードを使用して、横方向と縦方向のスケール係数を設定します。以下の例はテーブルを作成し、最初のセル内の段落をデフォルト幅と高さの 2 倍でレンダリングし、PNG 画像として保存します。
 
 ```cpp
 #include <DOM/IParagraph.h>
@@ -798,26 +835,26 @@ else
 presentation->Dispose();
 ```
 
-スケール係数 `1` はその軸をデフォルトのピクセルサイズに保ちます。たとえば両方を `2` にすると、幅と高さが約 2 倍になり、ピクセル数は 4 倍になります。大きな係数はズームや高解像度出力でよりシャープなテキストを生成しますが、メモリ使用量とファイルサイズも増加します。`1` 未満の係数は詳細が減少した小さな画像を生成します。段落のアスペクト比を保ちたい場合は等しい係数を使用し、横縦で異なる係数を指定すると出力がそれぞれ伸び縮みします。
+スケール係数 `1` はその軸をデフォルトのピクセルサイズに保ちます。たとえば、両方の係数を `2` にすると、幅と高さが概ねデフォルトの 2 倍になり、ピクセル数は 4 倍になります。大きな係数はズームや高解像度出力でテキストをより鮮明にしますが、メモリ使用量とファイルサイズも増加します。`1` 未満の係数は詳細が減少した小さな画像を生成します。段落のアスペクト比を維持したい場合は同一係数を使用し、横・縦で異なる係数を使用すると出力が独立に伸びます。
 
-シェイプ全体を画像化するには [IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) が有用です。段落だけの画像が必要な場合は [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) を使用してください。
+[IShape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getimage/) を使用してシェイプ全体をレンダリングすることは、シェイプの塗りつぶし、枠線、その他の視覚的コンテキストを含める必要がある場合に有用です。段落だけの画像が必要な場合は [IParagraph::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getimage/) を使用してください。
 
 ## **FAQ**
 
-**テキストフレーム内で行折り返しを完全に無効にできますか？**
+**テキスト フレーム内で行の折り返しを完全に無効にできますか？**
 
-はい。[ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) を使用して折り返しを無効にすると、行はテキストフレームの端で改行しません。
+はい。[ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) を使用して折り返しを無効にし、行がテキストフレームの端で折り返さないようにできます。
 
-**特定の段落のスライド上の正確な境界を取得するにはどうすればよいですか？**
+**特定の段落のスライド上での正確な境界を取得するにはどうすればよいですか？**
 
-[IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) を使用して段落のバウンディング矩形を取得します。[IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) は個々のポーションの境界を提供します。
+[IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) を使用して段落の境界矩形を取得します。[IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) は個々のポーションの境界を提供します。
 
-**段落の配置（左、右、中央、両端揃え）はどこで制御されますか？**
+**段落の配置（左揃え、右揃え、中央揃え、または両端揃え）はどこで制御されますか？**
 
-[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) は段落レベルの設定であり、個々のポーションの書式に関係なく段落全体に適用されます。
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) は段落レベルの設定であり、個々のポーションの書式設定に関係なく段落全体に適用されます。
 
-各行内でフォントサイズが異なるポーションを垂直方向に揃える方法については、[Align Fonts Within a Line](/slides/ja/cpp/text-formatting/#align-fonts-within-a-line) を参照してください。
+各行内でフォント サイズが異なるポーションを垂直方向に揃える方法については、[Align Fonts Within a Line](/slides/ja/cpp/text-formatting/#align-fonts-within-a-line) を参照してください。
 
-**段落の一部に校正言語を設定できますか？**
+**段落の一部に対して校正言語を設定できますか？**
 
-はい。個々のポーションに対して [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) を使用すれば、1 つの段落内で複数の言語のテキストを含めることができます。
+はい。個々のポーションに対して [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) を使用すれば、1 段落内に複数の言語のテキストを含めることができます。

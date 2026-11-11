@@ -1,6 +1,6 @@
 ---
-title: Z​arządzanie akapitami tekstu PowerPoint w Pythonie przy użyciu Java
-linktitle: Zarządzaj akapitem
+title: Zarządzanie akapitami tekstu PowerPoint w Pythonie przez Java
+linktitle: Zarządzanie akapitem
 type: docs
 weight: 40
 url: /pl/python-java/manage-paragraph/
@@ -30,25 +30,25 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, wypunktowania, listy numerowane, wcięcia, treść HTML oraz obrazy akapitów przy użyciu Aspose.Slides dla Pythona poprzez Java."
+description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, wypunktowania, listy numerowane, wcięcia, zawartość HTML oraz obrazy akapitów przy użyciu Aspose.Slides dla Pythona przez Java."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Python via Java reprezentuje tekst jako hierarchię ramek tekstowych, akapitów i fragmentów:
+Aspose.Slides for Python via Java reprezentuje tekst jako hierarchię ram tekstowych, akapitów i fragmentów:
 
-* [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) reprezentuje kontener tekstu w kształcie i zapewnia dostęp do jego kolekcji akapitów.
-* [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) reprezentuje pojedynczy akapit w ramce tekstowej i zapewnia dostęp do jego fragmentów oraz formatowania na poziomie akapitu.
-* [Portion](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) reprezentuje fragment tekstu w akapicie. Każdy fragment może mieć własny tekst i formatowanie na poziomie znaków.
+* [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) reprezentuje kontener tekstowy w kształcie i zapewnia dostęp do jego kolekcji akapitów.
+* [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) reprezentuje jeden akapit w ramce tekstowej i zapewnia dostęp do jego fragmentów oraz formatowania na poziomie akapitu.
+* [Portion](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) reprezentuje ciąg tekstowy w obrębie akapitu. Każdy fragment może mieć własny tekst oraz formatowanie znakowe.
 
-Akapit może więc zawierać tekst o różnych czcionkach, kolorach, rozmiarach i innych formatach, używając wielu fragmentów.
+Akapit może więc zawierać tekst o różnych czcionkach, kolorach, rozmiarach i innym formatowaniu, używając wielu fragmentów.
 
 ## **Tworzenie i formatowanie akapitów**
 
-Twórz akapity w ramce tekstowej kształtu i używaj fragmentów do formatowania poszczególnych fragmentów tekstu. Ten rozdział pokazuje, jak łączyć wiele fragmentów w każdym akapicie i stosować różne kolory, rozmiary czcionek oraz style.
+Twórz akapity w ramce tekstowej kształtu i używaj fragmentów do formatowania pojedynczych fragmentów tekstu. Ta sekcja pokazuje, jak łączyć wiele fragmentów w każdym akapicie oraz stosować różne kolory, rozmiary czcionek i style.
 
 ### **Tworzenie akapitów z wieloma fragmentami**
 
-Poniższy przykład w Pythonie tworzy trzy akapity, z których każdy zawiera trzy fragmenty tekstu w kolekcji zwracanej przez [Paragraph.getPortions](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getPortions). Ponownie używa domyślnego akapitu i jego pustego fragmentu, a następnie dodaje pozostałe akapity i fragmenty. Formatowanie jest stosowane poprzez [Portion.getPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getPortionFormat): pierwszy fragment w każdym akapicie jest czerwony, pogrubiony i ma 15 punktów; drugi jest niebieski, kursywa i 18 punktów. Trzeci fragment zachowuje domyślne formatowanie:
+Poniższy przykład w Pythonie tworzy trzy akapity, z których każdy zawiera trzy ciągi tekstowe w kolekcji zwracanej przez [Paragraph.getPortions](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getPortions). Ponownie wykorzystuje domyślny akapit i jego pusty fragment, a następnie dodaje pozostałe akapity i fragmenty. Formatowanie jest stosowane za pomocą [Portion.getPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getPortionFormat): pierwszy fragment w każdym akapicie jest czerwony, pogrubiony i ma 15 punktów; drugi jest niebieski, kursywny i ma 18 punktów. Trzeci fragment zachowuje domyślne formatowanie:
 
 ```python
 import jpype
@@ -109,13 +109,13 @@ finally:
 
 ## **Tworzenie list wypunktowanych i numerowanych**
 
-Organizuj tekst akapitu w listy ze znakami, numerami lub własnymi obrazami. Przykłady w tej sekcji obejmują formatowanie wypunktowań, listy wielopoziomowe oraz niestandardowe liczby początkowe.
+Organizuj tekst akapitu w listy przy użyciu symboli, liczb lub własnych obrazów. Przykłady w tej sekcji obejmują formatowanie wypunktowań, listy wielopoziomowe oraz niestandardowe wartości początkowe numeracji.
 
 ### **Tworzenie listy wypunktowanej lub numerowanej**
 
-Wypunktowania i numeracja ułatwiają skanowanie powiązanych elementów. W Aspose.Slides ustawienia listy definiowane są przez [BulletFormat](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/).
+Wypunktowania i numeracje ułatwiają skanowanie powiązanych elementów. W Aspose.Slides ustawienia listy definiuje się za pomocą [BulletFormat](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/).
 
-Ten przykład w Pythonie dodaje symbol wypunktowania i element numerowany do tej samej ramki tekstowej. [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) wybiera typ wypunktowania, [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) podaje symbol, a [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) wybiera styl numeracji. Oba elementy używają czarnych wypunktowań o wysokości 100 % i wcięcia akapitu 25 punktów:
+Ten przykład w Pythonie dodaje symbol wypunktowania i element numerowany do tej samej ramki tekstowej. [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) wybiera typ wypunktowania, [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) podaje symbol, a [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) wybiera styl numeracji. Oba elementy używają czarnych wypunktowań o wysokości 100 % i wcięcia akapitu wynoszącego 25 punktów:
 
 ```python
 import jpype
@@ -162,11 +162,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Użycie wypunktowań graficznych**
+### **Użycie wypunktowania obrazkowego**
 
-Wypunktowania graficzne pozwalają używać własnego obrazu zamiast symbolu lub liczby.
+Wypunktowanie obrazkowe pozwala użyć własnego obrazu zamiast symbolu lub liczby.
 
-Ten przykład w Pythonie dodaje obraz do kolekcji obrazów prezentacji jako [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) i używa go jako wypunktowanie akapitu. Wywołuje [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType), aby zastosować wypunktowanie graficzne i przypisuje obraz poprzez [BulletFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getPicture). [BulletFormat.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setHeight) jest ustawione na 100 % aby dopasować rozmiar wypunktowania względem tekstu akapitu:
+Ten przykład w Pythonie dodaje obraz do kolekcji obrazów prezentacji jako [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) i używa go jako wypunktowanie akapitu. Wywołuje [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType), aby użyć wypunktowania obrazkowego, i przypisuje obraz za pomocą [BulletFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getPicture). [BulletFormat.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setHeight) jest ustawione na 100 % aby dopasować wielkość wypunktowania względem tekstu akapitu:
 
 ```python
 import jpype
@@ -208,7 +208,7 @@ finally:
 
 Ustaw [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth), aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
 
-Ten przykład w Pythonie przypisuje wartości [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) od 0 do 3 czterem akapitom, tworząc hierarchię w jednej ramce tekstowej. Każdy akapit używa wypunktowania symbolicznego, przy czym [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) naprzemiennie stosuje okrągłe wypunktowanie i myślnik, aby odróżnić kolejne poziomy:
+Ten przykład w Pythonie przypisuje wartości [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) od 0 do 3 czterem akapitom, tworząc hierarchię w jednej ramce tekstowej. Każdy akapit używa wypunktowania symbolicznego, a [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar) przełącza się między okrągłym wypunktowaniem a kreską, aby odróżnić kolejne poziomy:
 
 ```python
 import jpype
@@ -270,11 +270,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Rozpoczęcie numeracji list od wartości niestandardowych**
+### **Rozpoczęcie elementów listy numerowanej od niestandardowych wartości**
 
 Użyj [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith), aby ustawić początkową liczbę wyświetlaną dla numerowanego akapitu.
 
-Ten przykład w Pythonie ustawia [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) na numerację dla trzech akapitów i przypisuje [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) wartości 2, 3 i 7. Wartość początkowa jest konfigurowana osobno dla każdego akapitu, co pozwala pomijać wybrane liczby:
+Ten przykład w Pythonie ustawia [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) na numerację dla trzech akapitów i przypisuje wartości [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) 2, 3 i 7. Wartość początkowa jest konfigurowana oddzielnie dla każdego akapitu, co pozwala na pomijanie liczb:
 
 ```python
 import jpype
@@ -319,15 +319,15 @@ finally:
 
 ## **Kontrola układu akapitu i właściwości końcowych**
 
-Dostosuj marginesy i wcięcia akapitu, aby kontrolować pozycję pierwszej linii oraz linii łamanych. Możesz także formatować znak końca akapitu oddzielnie od widocznych fragmentów tekstu.
+Dostosuj marginesy i wcięcia akapitu, aby kontrolować pozycję pierwszej linii i linii zawijanych. Możesz także formatować znak końca akapitu oddzielnie od widocznych fragmentów tekstu.
 
 ### **Ustawienie wcięcia pierwszej linii**
 
-Użyj metody [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent), aby kontrolować wcięcie pierwszej linii akapitu. To ustawienie przemieszcza tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, podczas gdy pozostałe linie pozostają wyrównane do ciała akapitu.
+Użyj metody [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent), aby kontrolować wcięcie pierwszej linii akapitu. To ustawienie przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, podczas gdy pozostałe linie pozostają wyrównane do ciała akapitu.
 
-Użyj [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft), gdy potrzebujesz przesunąć cały akapit. Użyj [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent), gdy chcesz przesunąć tylko pierwszą linię.
+Użyj [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft), gdy potrzebujesz przesunąć cały akapit. Użyj [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent), gdy potrzebujesz przesunąć tylko pierwszą linię.
 
-Poniższy przykład nadaje trzem akapitom taki sam [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) = 20 punktów oraz wartości [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) = 0, 20 i 40 punktów. Pierwsze linie zaczynają się kolejno dalej, podczas gdy linie łamane zachowują ten sam lewy margines:
+Poniższy przykład nadaje trzem akapitom ten sam [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) równy 20 punktom oraz wartości [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) 0, 20 i 40 punktów. Pierwsze linie zaczynają się w coraz większych odległościach, podczas gdy linie zawijane zachowują ten sam lewy margines:
 
 ```python
 import jpype
@@ -361,14 +361,14 @@ try:
 
     second_paragraph = Paragraph()
     second_paragraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.")
-    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     second_paragraph.getParagraphFormat().setMarginLeft(20.0)
     second_paragraph.getParagraphFormat().setIndent(20.0)
 
     third_paragraph = Paragraph()
     third_paragraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.")
-    third_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
+    third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     third_paragraph.getParagraphFormat().setMarginLeft(20.0)
     third_paragraph.getParagraphFormat().setIndent(40.0)
@@ -388,13 +388,13 @@ Wynik:
 
 ### **Ustawienie wcięcia wiszącego**
 
-Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides efekt ten uzyskuje się przy pomocy własności [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent). Ustaw `Indent` na wartość ujemną, aby przesunąć pierwszą linię w lewo względem ciała akapitu.
+Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides tworzysz ten efekt przy pomocy właściwości [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent). Ustaw `Indent` na wartość ujemną, aby przesunąć pierwszą linię w lewo względem ciała akapitu.
 
-W praktyce [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) definiuje lewą pozycję ciała akapitu, a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) określa pozycję pierwszej linii względem tego marginesu. Aby stworzyć wcięcie wiszące, ustaw dodatnią wartość `MarginLeft` i ujemną wartość `Indent`.
+W praktyce [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) określa lewą pozycję ciała akapitu, a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) określa pozycję pierwszej linii względem tego marginesu. Aby utworzyć wcięcie wiszące, ustaw dodatnią wartość `MarginLeft` i ujemną wartość `Indent`.
 
-To formatowanie jest przydatne w bibliografiach, odniesieniach, hasłach słownika i innych akapitach, w których linie łamane muszą być wyrównane pod ciałem akapitu, a nie pod pierwszym znakiem pierwszej linii.
+To formatowanie jest przydatne w bibliografiach, przypisach, hasłach słownika i innych akapitach, w których linie zawijane muszą być wyrównane pod ciałem akapitu, a nie pod pierwszym znakiem pierwszej linii.
 
-Poniższy przykład w Pythonie łączy wartości [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) = 40 i 60 punktów z wartościami [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) = -20 i -30 punktów. W każdym akapicie pierwsza linia zaczyna się po lewej stronie linii łamanych; drugi akapit ma głębsze wcięcie wiszące:
+Poniższy przykład w Pythonie łączy wartości [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginLeft) 40 i 60 punktów z wartościami [ParagraphFormat.setIndent](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setIndent) –20 i –30 punktów. W każdym akapicie pierwsza linia zaczyna się po lewej stronie linii zawijanych; drugi akapit ma głębsze wcięcie wiszące:
 
 ```python
 import jpype
@@ -447,7 +447,7 @@ Wynik:
 
 ### **Ustawienie właściwości końcowego fragmentu akapitu**
 
-Metoda [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) kontroluje formatowanie znaku końca akapitu. Poniższy przykład tworzy [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) z [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) = 48 punktów oraz [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLatinFont) ustawioną na Times New Roman. Przypisuje ten format do znaku końca drugiego akapitu, pozostawiając niezmienione widoczne fragmenty tekstu:
+Metoda [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) kontroluje formatowanie znaku końca akapitu. Poniższy przykład tworzy [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) z ustawionym [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) na 48 punktów oraz [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLatinFont) na Times New Roman. Przypisuje ten format do znaku końcowego drugiego akapitu, pozostawiając niezmienione widoczne fragmenty tekstu:
 
 ```python
 import jpype
@@ -488,15 +488,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Zliczanie renderowanych linii**
+## **Zliczanie wyrenderowanych linii**
 
-W odniesieniu do reguł akapitu wpływających na automatyczne łamanie i interpunkcję na końcach linii, zobacz [Control Line Breaking](/slides/pl/python-java/text-formatting/#control-line-breaking) oraz [Control Hanging Punctuation](/slides/pl/python-java/text-formatting/#control-hanging-punctuation).
+Poziomy akapitu wpływające na automatyczne zawijanie i interpunkcję na końcu linii opisano w [Control Line Breaking](/slides/pl/python-java/text-formatting/#control-line-breaking) i [Control Hanging Punctuation](/slides/pl/python-java/text-formatting/#control-hanging-punctuation).
 
-Użyj [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount), aby policzyć linie zajmowane przez akapit po rozmieszczeniu tekstu, w tym automatyczne łamanie. Jest to przydatne przy sprawdzaniu długości tekstu i układu w szablonach prezentacji.
+Użyj [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount), aby policzyć linie zajmowane przez akapit po ułożeniu tekstu, w tym automatyczne zawijanie. Jest to przydatne przy sprawdzaniu długości tekstu i układu w szablonach prezentacji.
 
-Akapit jest jednym elementem w [TextFrame.getParagraphs](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParagraphs) i może zajmować kilka renderowanych linii. Jawny podział wiersza w akapicie wymusza nową linię bez tworzenia kolejnego akapitu. Automatyczne łamanie tworzy linie w oparciu o dostępną szerokość, nie wstawiając jawnych znaków podziału w tekście. Dlatego liczenie akapitów lub znaków podziału nie daje liczby renderowanych linii.
+Akapit jest jednym elementem w [TextFrame.getParagraphs](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParagraphs) i może zajmować kilka wyrenderowanych linii. Jawny znak podziału linii w akapicie wymusza nową linię bez tworzenia nowego akapitu. Automatyczne zawijanie tworzy linie na podstawie dostępnej szerokości, nie wstawiając jawnych znaków podziału do tekstu. Dlatego liczenie akapitów lub znaków podziału nie daje liczby wyrenderowanych linii.
 
-Poniższy przykład tworzy kształt tekstowy, liczy jego linie, zwęża kształt, a następnie zastępuje tekst krótszym ciągiem. Przykład włącza łamanie za pomocą [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) i wyłącza autofit przy pomocy [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType), tak aby szerokość kształtu kontrolowała łamanie bez automatycznego zmniejszania tekstu ani rozmiaru kształtu. Każdy pomiar używa [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount). Wymiary kształtu podane są w punktach. Na końcu przykład dodaje kolejny akapit i sumuje liczbę linii w całej ramce tekstowej.
+Poniższy przykład tworzy kształt tekstowy, liczy jego linie, zwęża kształt, a następnie zastępuje tekst krótszym ciągiem. Przykład włącza zawijanie za pomocą [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) i wyłącza autofit za pomocą [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType), tak aby szerokość kształtu kontrolowała zawijanie bez automatycznego zmniejszania tekstu lub zmiany rozmiaru kształtu. Każdy pomiar używa [Paragraph.getLinesCount](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getLinesCount). Wymiary kształtu podane są w punktach. Na końcu przykład dodaje kolejny akapit i sumuje liczbę linii w całej ramce tekstowej.
 
 ```python
 import jpype
@@ -540,9 +540,9 @@ finally:
     presentation.dispose()
 ```
 
-Przy tym tekście i tych wymiarach zwężenie kształtu zwiększa liczbę linii, natomiast zastąpienie tekstu krótkim ciągiem ją zmniejsza. Dokładne liczby mogą się różnić w zależności od dostępności czcionek i ich zastępowania, rozmiaru czcionki, marginesów, wcięć, łamania i ustawień autofitu. Używaj czcionek i ustawień układu przeznaczonych dla docelowego środowiska przy sprawdzaniu szablonu.
+Przy podanym tekście i wymiarach zwężenie kształtu zwiększa liczbę linii, natomiast zastąpienie tekstu krótkim ciągiem ją zmniejsza. Dokładne liczby mogą się różnić w zależności od dostępności czcionek i ich zamienników, rozmiaru czcionki, marginesów, wcięć, zawijania i ustawień autofitu. Używaj czcionek i ustawień układu przeznaczonych dla środowiska docelowego przy sprawdzaniu szablonu.
 
-Sama liczba linii nie określa, czy tekst wykracza poza kontener. Ważne są dostępna wysokość, wysokości linii, odstępy między akapitami i liniami oraz zachowanie autofitu; nawet pojedyncza linia może przekraczać dostępną szerokość, gdy łamanie jest wyłączone.
+Jedna liczba linii nie określa, czy tekst wykracza poza swój kontener. Ważne są również dostępna wysokość, wysokość linii, odstępy akapitów i linii oraz zachowanie autofitu; nawet pojedyncza linia może przekroczyć dostępną szerokość, gdy zawijanie jest wyłączone.
 
 ## **Import i eksport zawartości akapitów**
 
@@ -588,16 +588,16 @@ finally:
 
 ### **Eksport tekstu akapitu do HTML**
 
-Użyj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml), aby wyeksportować wybrany zakres akapitów jako HTML. Przy ponownym użyciu tekstu prezentacji na stronie internetowej możesz chcieć zachować lokalne wyróżnienia bez przenoszenia czcionki, rozmiaru ani stylów pola tekstowego. Ustaw [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit), aby kontrolować, jak daleko eksporter podąża za dziedziczeniem formatowania.
+Użyj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml), aby wyeksportować wybrany zakres akapitów jako HTML. Gdy ponownie używasz tekstu prezentacji na stronie internetowej, możesz chcieć zachować lokalne wyróżnienia bez przenoszenia czcionek, rozmiaru czy stylów pola tekstowego prezentacji. Ustaw [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit), aby kontrolować, jak daleko eksporter podąża za dziedziczeniem formatowania.
 
-Pobierz [próbkę prezentacji](text-inheritance.pptx) i umieść ją w katalogu roboczym aplikacji. Jej pierwszy slajd zawiera jedną ramkę tekstową z tekstem „Inherited text; explicit red 18pt”. Wejście celowo używa kilku poziomów formatowania:
+Pobierz [próbkę prezentacji](text-inheritance.pptx) i umieść ją w katalogu roboczym aplikacji. Jej pierwszy slajd zawiera jeden kształt tekstowy z tekstem „Inherited text; explicit red 18pt”. Wejście celowo używa kilku poziomów formatowania:
 
 - Domyślny styl tekstu prezentacji dostarcza czcionkę Calibri i rozmiar 28 pt.
 - Styl tekstu pierwszego poziomu ramki tekstowej dostarcza niebieski tekst i kursywę.
-- Akapit explicite ustawia pogrubiony tekst.
+- Akapit explicite ustawia tekst pogrubiony.
 - Drugi fragment, „explicit red 18pt”, explicite ustawia czerwony tekst i rozmiar 18 pt.
 
-Poniższy kompletny przykład eksportuje te same akapity trzykrotnie. Przekazuje [TextToHtmlConversionOptions](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/) do metody eksportu i zapisuje każdy wynik jako oddzielny plik HTML UTF‑8:
+Poniższy kompletny przykład eksportuje te same akapity trzykrotnie. Przekazuje [TextToHtmlConversionOptions](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/) do metody eksportu i zapisuje każdy wynik jako osobny plik HTML w kodowaniu UTF‑8:
 
 ```python
 import jpype
@@ -638,31 +638,65 @@ finally:
     presentation.dispose()
 ```
 
-Wygenerowany HTML zawiera następujący CSS dla pierwszego fragmentu, „Inherited text; ”. Tabela wymienia istotne deklaracje; pozostałe wygenerowane właściwości zostały pominięte dla przejrzystości.
+Wygenerowany HTML zawiera następujący CSS dla pierwszego fragmentu, „Inherited text; ”. Tabela wymienia odpowiednie deklaracje; inne wygenerowane właściwości zostały pominięte dla przejrzystości.
 
 | Wyjście | Odpowiedni CSS dla pierwszego fragmentu | Wygląd |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Niebieski, pogrubiony, kursywa tekst o rozmiarze 28 pt w czcionce Calibri, jeśli ta czcionka jest dostępna. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Niebieski, pogrubiony, kursywa tekst; otaczająca strona lub przeglądarka dostarcza rodzinę czcionki i rozmiar. |
-| `ParagraphOnly.html` | `font-weight:bold` | Pogrubiony tekst; otaczająca strona lub przeglądarka dostarcza rodzinę czcionki, rozmiar, kolor i styl kursywy. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Niebieski, pogrubiony, kursywny tekst o rozmiarze 28 pt w czcionce Calibri, jeśli jest dostępna. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Niebieski, pogrubiony, kursywny tekst; rodzicielska strona lub przeglądarka dostarcza rodzinę czcionki i rozmiar. |
+| `ParagraphOnly.html` | `font-weight:bold` | Pogrubiony tekst; rodzicielska strona lub przeglądarka dostarcza rodzinę czcionki, rozmiar, kolor i styl kursywy. |
 
-Drugi fragment zachowuje `color:#ff0000`, `font-size:18pt` i `font-weight:bold` we wszystkich trzech wyjściach. Zachowuje także kursywę w `All` i `TextBox`, ale nie w `ParagraphOnly`. Ograniczenie dziedziczenia nie usuwa więc formatowania explicite przypisanego do akapitu lub fragmentu.
+Drugi fragment zachowuje `color:#ff0000`, `font-size:18pt` i `font-weight:bold` we wszystkich trzech wyjściach. Zachowuje także kursywę w `All` i `TextBox`, ale nie w `ParagraphOnly`. Ograniczanie dziedziczenia nie usuwa więc formatowania przypisanego explicite do akapitu lub fragmentu.
 
-Otwórz pliki w tej samej przeglądarce, aby je porównać. W dwóch ograniczonych trybach pominięte właściwości CSS są rozwiązywane przez style docelowej strony lub domyślne przeglądarki, więc ostateczny wygląd zależy od miejsca użycia HTML.
+Otwórz pliki w tej samej przeglądarce, aby je porównać. W dwóch trybach ograniczonych pominięte właściwości CSS są rozwiązywane przez style strony docelowej lub domyślne przeglądarki, więc ostateczny wygląd zależy od miejsca użycia HTML.
+
+### **Generowanie fragmentu schowka HTML**
+
+Użyj [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/python-java/aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader), aby wybrać format wyjściowy [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphcollection/#exportToHtml). Przy wartości `False` metoda zwraca zwykły HTML. Przy wartości `True` dodaje nagłówek schowka systemu Windows. Pola `StartHTML` i `EndHTML` podają offsety bajtowe UTF‑8 HTML. Pola `StartFragment` i `EndFragment` delimitują zawartość do wklejenia.
+
+Ten przykład eksportuje dwa sformatowane akapity jako zwykły HTML (`html`) oraz jako fragment schowka HTML (`clipboard_html`). Aplikacja może następnie zapisać fragment do systemowego schowka. Jeśli API schowka oczekuje surowych bajtów, użyj `clipboard_html.encode("utf-8")`, aby zakodować fragment bez znacznika kolejności bajtów (BOM).
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ShapeType, TextToHtmlConversionOptions
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 400, 100)
+    paragraphs = shape.getTextFrame().getParagraphs()
+    paragraphs.clear()
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>")
+
+    options = TextToHtmlConversionOptions()
+    options.setAddClipboardFragmentHeader(False)
+    html = str(paragraphs.exportToHtml(0, paragraphs.getCount(), options))
+
+    options.setAddClipboardFragmentHeader(True)
+    clipboard_html = str(paragraphs.exportToHtml(0, paragraphs.getCount(), options))
+finally:
+    presentation.dispose()
+```
 
 ### **Renderowanie akapitu jako obrazu**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) renderuje pojedynczy akapit bezpośrednio i zwraca obiekt obrazu. Zapisz wynik do pliku lub strumienia metodą `save`. Nie musisz renderować zawierającego kształtu ani ręcznie przycinać bitmapy.
+[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) renderuje pojedynczy akapit bezpośrednio i zwraca obiekt obrazu. Zapisz wynik do pliku lub strumienia metodą `save`. Nie musisz renderować całego kształtu ani ręcznie przycinać bitmapy.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) może zwrócić `None`, jeśli akapit nie zostanie znaleziony w kolekcji nadrzędnej, nie ma prawidłowych granic renderowania lub nie może być renderowany. Sprawdź wynik przed zapisaniem i zwolnij zwrócony obraz po użyciu.
+[Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) może zwrócić `None`, jeśli akapit nie zostanie znaleziony w kolekcji nadrzędnej, nie ma prawidłowych granic renderowania lub nie może zostać wyrenderowany. Sprawdź wynik przed zapisaniem i zwolnij zwrócony obraz po użyciu.
 
 #### **Renderowanie akapitu w domyślnej skali**
 
-Przykład używa prezentacji z jednym slajdem, którego pierwszy kształt jest ramką tekstową zawierającą trzy akapity.
+Przykład używa prezentacji z jednym slajdem, którego pierwszym kształtem jest pole tekstowe zawierające trzy akapity.
 
-![Ramka tekstowa z trzema akapitami](paragraph_to_image_input.png)
+![Pole tekstowe z trzema akapitami](paragraph_to_image_input.png)
 
-Poniższy przykład wybiera drugi akapit o indeksie 1 i wywołuje [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) bez parametrów skali. Sprawdza, czy kształt zawiera wymagany akapit i czy renderowanie zwraca obraz, zanim wywoła metodę `save` w formacie PNG. Blok `finally` zwalnia obraz po użyciu.
+Poniższy przykład wybiera drugi akapit o indeksie 1 i wywołuje [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) bez parametrów skali. Sprawdza, czy kształt zawiera wymagany akapit i czy renderowanie zwróciło obraz, zanim wywoła jego metodę `save`, aby zapisać go w formacie PNG. Blok `finally` zwalnia obraz po użyciu.
 
 ```python
 import jpype
@@ -705,7 +739,7 @@ Wynik:
 
 #### **Renderowanie akapitu w komórce tabeli ze skalowaniem**
 
-Użyj przeciążenia [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/), które przyjmuje parametry `scale_x` i `scale_y`, aby ustawić czynniki skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w jej pierwszej komórce dwukrotnie zwiększając domyślną szerokość i wysokość, i zapisuje wynik jako obraz PNG.
+Użyj przeciążenia [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/), które przyjmuje parametry `scale_x` i `scale_y`, aby ustawić czynniki skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w pierwszej komórce dwukrotnie zwiększając jego domyślną szerokość i wysokość, i zapisuje wynik jako obraz PNG.
 
 ```python
 import jpype
@@ -740,23 +774,23 @@ finally:
     presentation.dispose()
 ```
 
-Współczynnik skali `1` zachowuje oś w domyślnym rozmiarze pikseli. Na przykład `2` dla obu współczynników tworzy obraz, którego szerokość i wysokość są mniej więcej dwa razy większe od domyślnych wymiarów, co daje cztery razy więcej pikseli. Większe współczynniki zazwyczaj dają ostrzejszy tekst przy powiększaniu lub wyjściu wysokiej rozdzielczości, ale zwiększają zużycie pamięci i rozmiar pliku. Współczynniki poniżej `1` tworzą mniejsze obrazy z mniejszą szczegółowością. Używaj równych współczynników, aby zachować proporcje akapitu; różne współczynniki poziome i pionowe rozciągają wyjście niezależnie.
+Współczynnik skali `1` utrzymuje dany oś w domyślnym rozmiarze pikseli. Na przykład `2` dla obu współczynników daje obraz, którego szerokość i wysokość są w przybliżeniu dwukrotnością domyślnych wymiarów, co daje czterokrotnie więcej pikseli. Wyższe współczynniki zazwyczaj dają ostrzejszy tekst przy przybliżaniu lub wyjściu wysokiej rozdzielczości, ale zwiększają także zużycie pamięci i rozmiar pliku. Współczynniki poniżej `1` dają mniejsze obrazy z mniejszą szczegółowością. Używaj równych współczynników, aby zachować proporcje akapitu; różne współczynniki poziome i pionowe rozciągają wynik niezależnie.
 
-Renderowanie całego kształtu przy pomocy [Shape.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) pozostaje przydatne, gdy wynik musi zawierać wypełnienie, obramowanie lub inny kontekst wizualny kształtu. Dla obrazu tylko akapitu użyj [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/).
+Renderowanie całego kształtu przy pomocy [Shape.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) pozostaje przydatne, gdy wynik musi zawierać wypełnienie, obramowanie lub inne konteksty wizualne kształtu. Dla obrazu zawierającego tylko akapit, użyj [Paragraph.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/).
 
 ## **FAQ**
 
-**Czy mogę całkowicie wyłączyć łamanie linii wewnątrz ramki tekstowej?**
+**Czy mogę całkowicie wyłączyć zawijanie linii w ramce tekstowej?**
 
-Tak. Ustaw [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) na wyłączenie łamania, aby linie nie przerywały się na krawędziach ramki tekstowej.
+Tak. Ustaw [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) na wyłączenie zawijania, aby linie nie łamały się przy krawędziach ramki tekstowej.
 
 **Jak uzyskać dokładne granice akapitu na slajdzie?**
 
-Użyj [Paragraph.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getRect), aby pobrać prostokąt otaczający akapit. [Portion.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getRect) dostarcza granice pojedynczego fragmentu.
+Użyj [Paragraph.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getRect), aby pobrać prostokąt graniczny akapitu. [Portion.getRect](https://reference.aspose.com/slides/python-java/aspose.slides/portion/#getRect) dostarcza granice poszczególnego fragmentu.
 
-**Gdzie kontrolowane jest wyrównanie akapitu (lewo, prawo, środek lub justowanie)?**
+**Gdzie kontrolowane jest wyrównanie akapitu (lewe, prawe, wyśrodkowane lub wyjustowane)?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) jest ustawieniem na poziomie akapitu i dotyczy całego akapitu niezależnie od formatowania poszczególnych fragmentów.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) jest ustawieniem na poziomie akapitu i ma zastosowanie do całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
 
 Aby pionowo wyrównać fragmenty o różnych rozmiarach czcionek w każdej linii, zobacz [Align Fonts Within a Line](/slides/pl/python-java/text-formatting/#align-fonts-within-a-line).
 

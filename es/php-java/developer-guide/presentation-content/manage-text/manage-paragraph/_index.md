@@ -8,46 +8,46 @@ aliases:
   - /php-java/paragraph/
   - /php-java/portion/
 keywords:
-  - añadir texto
-  - añadir párrafo
-  - gestionar texto
-  - gestionar párrafo
-  - gestionar viñeta
-  - sangría de párrafo
-  - sangría colgante
-  - viñeta de párrafo
-  - lista numerada
-  - lista con viñetas
-  - propiedades del párrafo
-  - importar HTML
-  - texto a HTML
-  - párrafo a HTML
-  - párrafo a imagen
-  - texto a imagen
-  - exportar párrafo
-  - PowerPoint
-  - presentación
-  - PHP
-  - Aspose.Slides
-description: "Aprenda a crear y dar formato a párrafos, porciones, viñetas, listas numeradas, sangrías, contenido HTML y imágenes de párrafos con Aspose.Slides para PHP vía Java."
+- añadir texto
+- añadir párrafo
+- gestionar texto
+- gestionar párrafo
+- gestionar viñeta
+- sangría de párrafo
+- sangría colgante
+- viñeta de párrafo
+- lista numerada
+- lista con viñetas
+- propiedades del párrafo
+- importar HTML
+- texto a HTML
+- párrafo a HTML
+- párrafo a imagen
+- texto a imagen
+- exportar párrafo
+- PowerPoint
+- presentación
+- PHP
+- Aspose.Slides
+description: "Aprenda a crear y dar formato a párrafos, porciones, viñetas, listas numeradas, sangrías, contenido HTML e imágenes de párrafo con Aspose.Slides para PHP a través de Java."
 ---
 ## **Visión general**
 
-Aspose.Slides for PHP via Java representa el texto como una jerarquía de marcos de texto, párrafos y porciones:
+Aspose.Slides para PHP a través de Java representa el texto como una jerarquía de marcos de texto, párrafos y porciones:
 
 * [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) representa el contenedor de texto en una forma y proporciona acceso a su colección de párrafos.
-* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) representa un párrafo dentro de un marco de texto y proporciona acceso a sus porciones y al formato a nivel de párrafo.
+* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) representa un párrafo en un marco de texto y proporciona acceso a sus porciones y al formato a nivel de párrafo.
 * [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) representa una ejecución de texto dentro de un párrafo. Cada porción puede tener su propio texto y formato a nivel de carácter.
 
-Por lo tanto, un párrafo puede contener texto con diferentes fuentes, colores, tamaños y demás formatos mediante el uso de varias porciones.
+Por lo tanto, un párrafo puede contener texto con diferentes fuentes, colores, tamaños y otro formato mediante el uso de varias porciones.
 
 ## **Crear y dar formato a los párrafos**
 
-Cree párrafos en el marco de texto de una forma y utilice porciones para dar formato a ejecuciones de texto individuales. Esta sección muestra cómo combinar varias porciones dentro de cada párrafo y aplicar distintos colores, tamaños de fuente y estilos.
+Cree párrafos en el marco de texto de una forma y use porciones para dar formato a ejecuciones de texto individuales. Esta sección muestra cómo combinar varias porciones dentro de cada párrafo y aplicar colores, tamaños de fuente y estilos diferentes.
 
 ### **Crear párrafos con varias porciones**
 
-El siguiente ejemplo en PHP crea tres párrafos, cada uno con tres ejecuciones de texto en la colección devuelta por [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions). Reutiliza el párrafo predeterminado y su porción vacía, y luego añade los párrafos y porciones restantes. El formato se aplica mediante [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat): la primera porción de cada párrafo es roja, en negrita y de 15 puntos; la segunda es azul, en cursiva y de 18 puntos. La tercera porción conserva su formato predeterminado:
+El siguiente ejemplo en PHP crea tres párrafos, cada uno con tres ejecuciones de texto en la colección devuelta por [Paragraph::getPortions](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getPortions). Reutiliza el párrafo predeterminado y su porción vacía, luego agrega los párrafos y porciones restantes. El formato se aplica mediante [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat): la primera porción de cada párrafo es roja, en negrita y de 15 puntos; la segunda es azul, en cursiva y de 18 puntos. La tercera porción conserva su formato predeterminado:
 
 ```php
 use aspose\slides\FillType;
@@ -109,15 +109,15 @@ try {
 }
 ```
 
-## **Crear listas con viñetas y numeración**
+## **Crear listas con viñetas y numeradas**
 
-Organice el texto de los párrafos en listas con símbolos, números o imágenes personalizadas. Los ejemplos de esta sección cubren el formato de viñetas, listas multinivel y números de inicio personalizados.
+Organice el texto del párrafo en listas con símbolos, números o imágenes personalizadas. Los ejemplos de esta sección cubren el formato de viñetas, listas multinivel y números de inicio personalizados.
 
 ### **Crear una lista con viñetas o numerada**
 
-Las viñetas y la numeración facilitan la lectura de elementos relacionados. En Aspose.Slides, la configuración de la lista se define mediante [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/).
+Las viñetas y la numeración hacen que los elementos relacionados sean más fáciles de escanear. En Aspose.Slides, la configuración de la lista se define a través de [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/).
 
-Este ejemplo en PHP añade una viñeta de símbolo y un elemento numerado al mismo marco de texto. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) selecciona el tipo de viñeta, mientras que [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) proporciona el símbolo y [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) selecciona el estilo de numeración. Ambos elementos utilizan viñetas negras con una altura del 100 por ciento y una sangría de párrafo de 25 puntos:
+Este ejemplo en PHP agrega una viñeta de símbolo y un elemento numerado al mismo marco de texto. [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) selecciona el tipo de viñeta, mientras que [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) suministra el símbolo y [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) selecciona el estilo de numeración. Ambos elementos usan viñetas negras con una altura del 100 por ciento y una sangría de párrafo de 25 puntos:
 
 ```php
 use aspose\slides\BulletType;
@@ -165,11 +165,11 @@ try {
 }
 ```
 
-### **Usar viñetas de imagen**
+### **Usar viñetas con imágenes**
 
-Las viñetas de imagen le permiten usar una imagen personalizada en lugar de un símbolo o número.
+Las viñetas con imágenes le permiten usar una imagen personalizada en lugar de un símbolo o número.
 
-Este ejemplo en PHP añade una imagen a la colección de imágenes de la presentación como un [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) y la utiliza como viñeta de párrafo. Llama a [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) para usar una viñeta de imagen y asigna la imagen mediante [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture). [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) se establece al 100 por ciento para dimensionar la viñeta en relación con el texto del párrafo:
+Este ejemplo en PHP agrega una imagen a la colección de imágenes de la presentación como un [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) y la usa como viñeta de párrafo. Llama a [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) para usar una viñeta de imagen y asigna la imagen mediante [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture). [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) se establece al 100 por ciento para dimensionar la viñeta en relación con el texto del párrafo:
 
 ```php
 use aspose\slides\BulletType;
@@ -212,7 +212,7 @@ try {
 
 Establezca [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) para colocar los párrafos en diferentes niveles de una lista. El nivel superior tiene una profundidad de `0`.
 
-Este ejemplo en PHP asigna valores de [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) de 0 a 3 a cuatro párrafos, creando una jerarquía dentro de un mismo marco de texto. Cada párrafo utiliza una viñeta de símbolo, con [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) alternando entre una viñeta circular y un guion para distinguir los niveles adyacentes:
+Este ejemplo en PHP asigna valores de [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) de 0 a 3 a cuatro párrafos, creando una jerarquía dentro de un marco de texto. Cada párrafo usa una viñeta de símbolo, con [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar) alternando entre una viñeta redonda y un guión para distinguir los niveles adyacentes:
 
 ```php
 use aspose\slides\BulletType;
@@ -275,7 +275,7 @@ try {
 
 ### **Iniciar elementos de lista numerada con valores personalizados**
 
-Utilice [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) para establecer el número inicial que se muestra en un párrafo numerado.
+Utilice [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) para definir el número inicial que se muestra en un párrafo numerado.
 
 Este ejemplo en PHP establece [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) para usar numeración en tres párrafos y asigna valores de [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) de 2, 3 y 7. El valor de inicio se configura por separado para cada párrafo, permitiendo que los números mostrados omitan valores:
 
@@ -318,17 +318,17 @@ try {
 }
 ```
 
-## **Controlar la distribución del párrafo y sus propiedades finales**
+## **Controlar el diseño del párrafo y sus propiedades finales**
 
-Ajuste los márgenes y sangrías del párrafo para controlar la posición de la primera línea y de las líneas continuas. También puede dar formato al signo de fin de párrafo de forma independiente del texto visible.
+Ajuste los márgenes y sangrías del párrafo para controlar la posición de la primera línea y de las líneas ajustadas. También puede dar formato al signo de fin de párrafo por separado del texto visible.
 
-### **Establecer sangría de primera línea**
+### **Establecer una sangría de primera línea**
 
-Utilice el método [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) para controlar la sangría de la primera línea de un párrafo. Esta configuración desplaza solo la primera línea respecto al margen izquierdo del párrafo. Un valor positivo mueve la primera línea a la derecha, mientras que las líneas restantes permanecen alineadas con el cuerpo del párrafo.
+Utilice el método [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) para controlar la sangría de la primera línea de un párrafo. Esta configuración mueve solo la primera línea con respecto al margen izquierdo del párrafo. Un valor positivo desplaza la primera línea a la derecha, mientras que las líneas restantes permanecen alineadas con el cuerpo del párrafo.
 
 Use [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) cuando necesite mover todo el párrafo. Use [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) cuando necesite mover solo la primera línea.
 
-El siguiente ejemplo asigna a tres párrafos el mismo [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) de 20 puntos y valores de [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) de 0, 20 y 40 puntos. Las primeras líneas empiezan en desplazamientos progresivamente mayores, mientras que las líneas continuas conservan el mismo margen izquierdo:
+El siguiente ejemplo asigna a tres párrafos el mismo [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) de 20 puntos y valores de [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) de 0, 20 y 40 puntos. Las primeras líneas empiezan en desplazamientos progresivamente mayores, mientras que las líneas ajustadas conservan el mismo margen izquierdo:
 
 ```php
 use aspose\slides\FillType;
@@ -384,17 +384,17 @@ try {
 
 El resultado:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![La sangría de primera línea de los párrafos](first_line_indent.png)
 
-### **Establecer sangría colgante**
+### **Establecer una sangría suspendida**
 
-Una sangría colgante es una disposición de párrafo en la que la primera línea comienza a la izquierda de las líneas restantes. En Aspose.Slides, crea este efecto con la propiedad [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent). Establezca `Indent` a un valor negativo para mover la primera línea a la izquierda respecto al cuerpo del párrafo.
+Una sangría suspendida es un diseño de párrafo en el que la primera línea comienza a la izquierda de las líneas restantes. En Aspose.Slides, crea este efecto con la propiedad [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent). Establezca `Indent` a un valor negativo para mover la primera línea a la izquierda respecto al cuerpo del párrafo.
 
-En la práctica, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) define la posición izquierda del cuerpo del párrafo, y [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) define la posición de la primera línea respecto a ese margen. Para crear una sangría colgante, establezca un valor positivo en `MarginLeft` y un valor negativo en `Indent`.
+En la práctica, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) define la posición izquierda del cuerpo del párrafo, y [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) define la posición de la primera línea respecto a ese margen. Para crear una sangría suspendida, establezca un valor positivo en `MarginLeft` y un valor negativo en `Indent`.
 
-Este formato es útil para bibliografías, referencias, entradas de glosario y otros párrafos donde las líneas continuas deben alinearse bajo el cuerpo del párrafo y no bajo el primer carácter de la primera línea.
+Este formato es útil para bibliografías, referencias, entradas de glosario y otros párrafos donde las líneas ajustadas deben alinearse bajo el cuerpo del párrafo en lugar de bajo el primer carácter de la primera línea.
 
-El siguiente ejemplo en PHP combina valores de [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) de 40 y 60 puntos con valores de [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) de -20 y -30 puntos. En cada párrafo, la primera línea comienza a la izquierda de las líneas continuas; el segundo párrafo tiene una sangría colgante más profunda:
+El siguiente ejemplo en PHP combina valores de [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft) de 40 y 60 puntos con valores de [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent) de -20 y -30 puntos. En cada párrafo, la primera línea comienza a la izquierda de las líneas ajustadas; el segundo párrafo tiene una sangría suspendida más profunda:
 
 ```php
 use aspose\slides\FillType;
@@ -442,11 +442,11 @@ try {
 
 El resultado:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![La sangría suspendida de los párrafos](hanging_indent.png)
 
-### **Establecer propiedades del final del párrafo**
+### **Establecer propiedades de ejecución al final del párrafo**
 
-El método [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) controla el formato del signo de fin de párrafo. El siguiente ejemplo crea un [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) con [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) establecido en 48 puntos y [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) establecido en Times New Roman. Asigna este formato al signo de fin del segundo párrafo, dejando sin cambios las porciones de texto visibles:
+El método [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) controla el formato del signo de fin de párrafo. El siguiente ejemplo crea un [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) con [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) establecido a 48 puntos y [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont) a Times New Roman. Asigna este formato al signo de fin del segundo párrafo, dejando sin cambios las porciones de texto visibles:
 
 ```php
 use aspose\slides\FontData;
@@ -491,9 +491,9 @@ Para reglas de párrafo que afectan el ajuste automático y la puntuación al fi
 
 Utilice [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount) para contar las líneas ocupadas por un párrafo después del diseño del texto, incluido el ajuste automático. Esto es útil al comprobar la longitud del texto y el diseño en plantillas de presentación.
 
-Un párrafo es un elemento en [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs) y puede ocupar varias líneas renderizadas. Un salto de línea explícito dentro de un párrafo fuerza una nueva línea sin crear otro párrafo. El ajuste automático crea líneas según el ancho disponible sin insertar saltos de línea explícitos en el texto. Por lo tanto, contar párrafos o caracteres de salto de línea no proporciona el recuento de líneas renderizadas.
+Un párrafo es un elemento en [TextFrame::getParagraphs](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParagraphs), y puede ocupar varias líneas renderizadas. Un salto de línea explícito dentro de un párrafo fuerza una nueva línea sin crear otro párrafo. El ajuste automático crea líneas basándose en el ancho disponible sin insertar saltos de línea explícitos en el texto. Por lo tanto, contar párrafos o caracteres de salto de línea no brinda el recuento de líneas renderizadas.
 
-El siguiente ejemplo crea una forma de texto, cuenta sus líneas, estrecha la forma y luego reemplaza el texto por una cadena más corta. El ejemplo habilita el ajuste mediante [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) y deshabilita el autofit con [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) para que el ancho de la forma controle el ajuste sin reducir automáticamente el texto ni redimensionar la forma. Cada medida usa [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount). Las dimensiones de la forma están en puntos. Finalmente, el ejemplo añade otro párrafo y suma los recuentos de líneas de todo el marco de texto.
+El siguiente ejemplo crea una forma de texto, cuenta sus líneas, estrecha la forma y luego reemplaza el texto por una cadena más corta. El ejemplo habilita el ajuste con [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) y desactiva el ajuste automático con [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) para que el ancho de la forma controle el ajuste sin reducir automáticamente el texto ni redimensionar la forma. Cada medición usa [Paragraph::getLinesCount](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getLinesCount). Las dimensiones de la forma están en puntos. Finalmente, el ejemplo agrega otro párrafo y suma los recuentos de líneas en todo el marco de texto.
 
 ```php
 use aspose\slides\NullableBool;
@@ -538,19 +538,19 @@ try {
 }
 ```
 
-Con este texto y estas dimensiones, estrechar la forma aumenta el recuento de líneas, mientras que sustituir el texto por la cadena corta lo reduce. Los recuentos exactos pueden variar según la disponibilidad y sustitución de fuentes, el tamaño de fuente, márgenes, sangría, ajuste y configuraciones de autofit. Use las fuentes y opciones de diseño previstas para el entorno de destino al comprobar una plantilla.
+Con este texto y estas dimensiones, estrechar la forma incrementa el recuento de líneas, mientras que reemplazar el texto por la cadena corta lo reduce. Los recuentos exactos pueden variar según la disponibilidad y sustitución de fuentes, el tamaño de la fuente, los márgenes, la sangría, el ajuste y la configuración de ajuste automático. Use las fuentes y la configuración de diseño previstas para el entorno de destino al verificar una plantilla.
 
-El recuento de líneas por sí solo no determina si el texto se desborda del contenedor. También importan la altura disponible, la altura de línea, el espaciado de párrafo y línea, y el comportamiento de autofit; incluso una sola línea puede superar el ancho disponible cuando el ajuste está desactivado.
+El número de líneas por sí solo no determina si el texto sobresale de su contenedor. También influyen la altura disponible, la altura de las líneas, el espaciado entre párrafos y líneas, y el comportamiento de ajuste automático; incluso una sola línea puede exceder el ancho disponible cuando el ajuste está desactivado.
 
 ## **Importar y exportar contenido de párrafos**
 
-Utilice HTML para introducir texto en una presentación o exportar párrafos existentes para usarlos fuera de ella. Esta sección también muestra cómo renderizar párrafos individuales como imágenes, incluidos los párrafos en celdas de tabla.
+Use HTML para introducir texto en una presentación o exportar párrafos existentes para utilizarlos fuera de ella. Esta sección también muestra cómo renderizar párrafos individuales como imágenes, incluidos los párrafos en celdas de tabla.
 
 ### **Importar texto HTML en párrafos**
 
-Use [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) para convertir marcado HTML en párrafos y porciones dentro de un marco de texto.
+Utilice [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml) para convertir marcado HTML en párrafos y porciones en un marco de texto.
 
-Este ejemplo en PHP lee HTML de un archivo y pasa el marcado a [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml). Limpia el párrafo predeterminado del marco de texto para que el marco contenga solo el contenido importado. La forma rectangular deja un margen de 10 puntos en cada lado de la diapositiva:
+Este ejemplo en PHP lee HTML de un archivo y pasa el marcado a [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml). Borra el párrafo predeterminado del marco de texto para que el marco contenga solo el contenido importado. La forma rectangular deja un margen de 10 puntos en cada lado de la diapositiva:
 
 ```php
 use aspose\slides\FillType;
@@ -580,18 +580,18 @@ try {
 }
 ```
 
-### **Exportar texto del párrafo a HTML**
+### **Exportar texto de párrafo a HTML**
 
-Use [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) para exportar un rango seleccionado de párrafos como HTML. Cuando reutilice el texto de una presentación en un sitio web, puede querer conservar el énfasis local sin trasladar la fuente, el tamaño o los estilos de cuadro de texto de la presentación. Establezca [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) para controlar hasta dónde sigue el exportador la herencia de formato.
+Utilice [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml) para exportar un rango seleccionado de párrafos como HTML. Cuando reutilice texto de una presentación en un sitio web, puede querer preservar el énfasis local sin trasladar la fuente, el tamaño o los estilos del cuadro de texto de la presentación. Establezca [TextToHtmlConversionOptions::setTextInheritanceLimit](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setTextInheritanceLimit) para controlar hasta dónde el exportador sigue la herencia de formato.
 
-Descargue [la presentación de ejemplo](text-inheritance.pptx) y colóquela en el directorio de trabajo de la aplicación. Su primera diapositiva contiene una forma de texto con el texto “Inherited text; explicit red 18pt”. La entrada utiliza deliberadamente varios niveles de formato:
+Descargue [la presentación de ejemplo](text-inheritance.pptx) y colóquela en el directorio de trabajo de la aplicación. Su primera diapositiva contiene una forma de texto con el texto "Inherited text; explicit red 18pt". La entrada usa deliberadamente varios niveles de formato:
 
 - El estilo de texto predeterminado de la presentación suministra Calibri y un tamaño de 28 pt.
-- El estilo de texto de primer nivel del marco de texto suministra texto azul e itálica.
+- El estilo de texto de primer nivel del marco de texto suministra texto azul e itálicas.
 - El párrafo establece explícitamente texto en negrita.
-- La segunda porción, “explicit red 18pt”, establece explícitamente texto rojo y un tamaño de 18 pt.
+- La segunda porción, "explicit red 18pt", establece explícitamente texto rojo y un tamaño de 18 pt.
 
-El siguiente ejemplo completo exporta los mismos párrafos tres veces. Pasa [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) al método de exportación y escribe cada resultado en un archivo HTML UTF‑8 separado:
+El siguiente ejemplo completo exporta los mismos párrafos tres veces. Pasa [TextToHtmlConversionOptions](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/) al método de exportación y escribe cada resultado como un archivo HTML UTF‑8 separado:
 
 ```php
 use aspose\slides\Presentation;
@@ -630,31 +630,62 @@ try {
 }
 ```
 
-El HTML generado contiene el siguiente CSS para la primera porción, “Inherited text;”. La tabla enumera las declaraciones relevantes; otras propiedades generadas se omiten por claridad.
+El HTML generado contiene el siguiente CSS para la primera porción, "Inherited text; ". La tabla muestra las declaraciones relevantes; otras propiedades generadas se omiten para mayor claridad.
 
-| Output | CSS relevante para la primera porción | Apariencia |
+| Salida | CSS relevante para la primera porción | Apariencia |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Texto azul, negrita, itálica a 28 pt en Calibri, si esa fuente está disponible. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Texto azul, negrita, itálica; la página o el navegador suministran la familia y el tamaño de fuente. |
-| `ParagraphOnly.html` | `font-weight:bold` | Texto en negrita; la página o el navegador suministran familia, tamaño, color y estilo itálico. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Texto azul, negrita, cursiva a 28 pt en Calibri, si esa fuente está disponible. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Texto azul, negrita, cursiva; la página o el navegador suministran la familia y el tamaño de fuente. |
+| `ParagraphOnly.html` | `font-weight:bold` | Texto en negrita; la página o el navegador suministran la familia, el tamaño, el color y el estilo cursiva. |
 
-La segunda porción conserva `color:#ff0000`, `font-size:18pt` y `font-weight:bold` en los tres resultados. También conserva la itálica en `All` y `TextBox`, pero no en `ParagraphOnly`. Limitar la herencia, por tanto, no elimina el formato asignado explícitamente a un párrafo o a una porción.
+La segunda porción conserva `color:#ff0000`, `font-size:18pt` y `font-weight:bold` en las tres salidas. También conserva cursiva en `All` y `TextBox`, pero no en `ParagraphOnly`. Limitar la herencia, por tanto, no elimina el formato asignado explícitamente a un párrafo o porción.
 
-Abra los archivos en el mismo navegador para compararlos. En los dos modos restringidos, las propiedades CSS omitidas se resuelven mediante los estilos de la página de destino o los valores predeterminados del navegador, de modo que la apariencia resultante depende de dónde se utilice el HTML.
+Abra los archivos en el mismo navegador para compararlos. En los dos modos restringidos, las propiedades CSS omitidas se resuelven mediante los estilos de la página de destino o los valores predeterminados del navegador, por lo que la apariencia resultante depende del lugar donde se use el HTML.
 
-### **Renderizar un párrafo como una imagen**
+### **Generar un fragmento de portapapeles HTML**
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) renderiza directamente un párrafo individual y devuelve un [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Guarde el resultado en un archivo o flujo con [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save). No es necesario renderizar la forma contenedora ni recortar manualmente un mapa de bits.
+Utilice [TextToHtmlConversionOptions::setAddClipboardFragmentHeader](https://reference.aspose.com/slides/php-java/aspose.slides/texttohtmlconversionoptions/#setAddClipboardFragmentHeader) para elegir la salida de [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml). Con `false`, el método devuelve HTML ordinario. Con `true`, la cadena devuelta comienza con un encabezado de portapapeles de Windows. Sus campos `StartHTML` y `EndHTML` indican los desplazamientos en bytes UTF‑8 del HTML, mientras que `StartFragment` y `EndFragment` identifican el contenido a pegar.
 
-[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) puede devolver `null` si el párrafo no se encuentra en su colección padre, no tiene límites de renderizado válidos o no puede renderizarse. Compruebe el resultado antes de guardarlo y libere la imagen devuelta tras su uso.
+Este ejemplo exporta dos párrafos con formato como HTML ordinario (`$html`) y como fragmento de portapapeles HTML (`$clipboardHtml`). La aplicación puede then escribir el fragmento en el portapapeles del sistema. Si la API del portapapeles espera bytes sin marca de orden de bytes (BOM), suministre el fragmento como UTF‑8 sin BOM.
 
-#### **Renderizar un párrafo a escala predeterminada**
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextToHtmlConversionOptions;
 
-El ejemplo usa una presentación con una diapositiva cuya primera forma es un cuadro de texto que contiene tres párrafos.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 400, 100);
+    $paragraphs = $shape->getTextFrame()->getParagraphs();
+    $paragraphs->clear();
+    $paragraphs->addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+    $options = new TextToHtmlConversionOptions();
+    $options->setAddClipboardFragmentHeader(false);
+    $html = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
 
-El siguiente ejemplo selecciona el segundo párrafo en el índice 1 y llama a [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) sin parámetros de escala. Comprueba que la forma contiene el párrafo requerido y que la renderización devuelve una imagen antes de invocar [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) para guardarla en formato PNG. El bloque `finally` libera la imagen tras su uso.
+    $options->setAddClipboardFragmentHeader(true);
+    $clipboardHtml = java_values($paragraphs->exportToHtml(0, $paragraphs->getCount(), $options));
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Renderizar un párrafo como imagen**
+
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) renderiza directamente un párrafo individual y devuelve un [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Guarde el resultado en un archivo o flujo con [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save). No es necesario renderizar la forma contenedora ni recortar un mapa de bits manualmente.
+
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) puede devolver `null` si el párrafo no se encuentra en su colección padre, no tiene límites de renderizado válidos o no puede renderizarse. Verifique el resultado antes de guardarlo y libere la imagen devuelta después de su uso.
+
+#### **Renderizar un párrafo a la escala predeterminada**
+
+El ejemplo usa una presentación con una diapositiva cuyo primer forma es un cuadro de texto que contiene tres párrafos.
+
+![El cuadro de texto con tres párrafos](paragraph_to_image_input.png)
+
+El siguiente ejemplo selecciona el segundo párrafo en el índice 1 y llama a [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) sin parámetros de escala. Comprueba que la forma contiene el párrafo requerido y que la renderización devuelve una imagen antes de llamar a [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save) para guardarla en formato PNG. El bloque `finally` libera la imagen tras su uso.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -692,11 +723,11 @@ try {
 
 El resultado:
 
-![The paragraph image](paragraph_to_image_output.png)
+![La imagen del párrafo](paragraph_to_image_output.png)
 
 #### **Renderizar un párrafo en una celda de tabla con escalado**
 
-Utilice la sobrecarga de [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) que acepta los parámetros `$scaleX` y `$scaleY` para establecer los factores de escala horizontal y vertical. El siguiente ejemplo crea una tabla, renderiza el párrafo en su primera celda al doble de su anchura y altura predeterminadas y guarda el resultado como una imagen PNG.
+Use la sobrecarga de [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage) que acepta los parámetros `$scaleX` y `$scaleY` para establecer los factores de escala horizontal y vertical. El siguiente ejemplo crea una tabla, renderiza el párrafo en su primera celda a doble anchura y altura respecto a los valores predeterminados, y guarda el resultado como una imagen PNG.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -728,26 +759,26 @@ try {
 }
 ```
 
-Un factor de escala de `1` mantiene ese eje en su tamaño de píxel predeterminado. Por ejemplo, `2` para ambos factores produce una imagen cuya anchura y altura son aproximadamente el doble de las dimensiones predeterminadas, lo que da cuatro veces más píxeles. Factores mayores suelen producir texto más nítido para ampliaciones o salidas de alta resolución, pero también aumentan el uso de memoria y el tamaño del archivo. Factores inferiores a `1` generan imágenes más pequeñas con menos detalle. Use factores iguales para conservar la proporción del párrafo; factores diferentes en horizontal y vertical estiran la salida de forma independiente.
+Un factor de escala de `1` mantiene ese eje en su tamaño de píxel predeterminado. Por ejemplo, `2` para ambos factores produce una imagen cuya anchura y altura son aproximadamente el doble de las dimensiones predeterminadas, lo que genera cuatro veces más píxeles. Factores mayores suelen producir texto más nítido para ampliación o salida de alta resolución, pero también aumentan el consumo de memoria y el tamaño del archivo. Factores por debajo de `1` generan imágenes más pequeñas con menos detalle. Use factores iguales para preservar la proporción del párrafo; factores horizontales y verticales diferentes estiran la salida de forma independiente.
 
-Renderizar una forma completa con [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) sigue siendo útil cuando la salida debe incluir el relleno, el borde u otro contexto visual de la forma. Para una imagen solo del párrafo, use [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage).
+Renderizar una forma completa con [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) sigue siendo útil cuando la salida debe incluir el relleno, el borde u otro contexto visual de la forma. Para una imagen únicamente del párrafo, use [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage).
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Puedo desactivar completamente el ajuste de línea dentro de un marco de texto?**
+**¿Puedo desactivar completamente el ajuste de líneas dentro de un marco de texto?**
 
-Sí. Establezca [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) para desactivar el ajuste y que las líneas no se rompan en los bordes del marco de texto.
+Sí. Establezca [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) para desactivar el ajuste de modo que las líneas no se rompan en los bordes del marco de texto.
 
 **¿Cómo puedo obtener los límites exactos en la diapositiva de un párrafo específico?**
 
-Utilice [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) para obtener el rectángulo delimitador del párrafo. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) proporciona los límites de una porción individual.
+Use [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect) para obtener el rectángulo delimitador del párrafo. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect) proporciona los límites de una porción individual.
 
 **¿Dónde se controla la alineación del párrafo (izquierda, derecha, centrado o justificado)?**
 
 [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) es una configuración a nivel de párrafo y se aplica a todo el párrafo independientemente del formato de las porciones individuales.
 
-Para alinear verticalmente porciones con diferentes tamaños de fuente dentro de cada línea, consulte [Align Fonts Within a Line](/slides/es/php-java/text-formatting/#align-fonts-within-a-line).
+Para alinear verticalmente porciones de diferentes tamaños de fuente dentro de cada línea, consulte [Align Fonts Within a Line](/slides/es/php-java/text-formatting/#align-fonts-within-a-line).
 
-**¿Puedo establecer el idioma de revisión para una parte de un párrafo?**
+**¿Puedo establecer el idioma de corrección para una parte de un párrafo?**
 
 Sí. Establezca [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) para porciones individuales, de modo que un párrafo pueda contener texto en varios idiomas.

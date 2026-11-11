@@ -1,6 +1,6 @@
 ---
-title: Gestionar párrafos de texto de PowerPoint en JavaScript
-linktitle: Gestionar párrafo
+title: Administrar párrafos de texto de PowerPoint en JavaScript
+linktitle: Administrar párrafo
 type: docs
 weight: 40
 url: /es/nodejs-java/manage-paragraph/
@@ -8,33 +8,33 @@ aliases:
   - /nodejs-java/paragraph/
   - /nodejs-java/portion/
 keywords:
-- añadir texto
-- añadir párrafo
-- gestionar texto
-- gestionar párrafo
-- gestionar viñeta
-- sangría de párrafo
-- sangría colgante
-- viñeta de párrafo
-- lista numerada
-- lista con viñetas
-- propiedades de párrafo
-- importar HTML
-- texto a HTML
-- párrafo a HTML
-- párrafo a imagen
-- texto a imagen
-- exportar párrafo
-- PowerPoint
-- presentación
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Aprenda a crear y dar formato a párrafos, porciones, viñetas, listas numeradas, sangrías, contenido HTML y imágenes de párrafos con Aspose.Slides para Node.js a través de Java."
+  - añadir texto
+  - añadir párrafo
+  - gestionar texto
+  - gestionar párrafo
+  - gestionar viñeta
+  - sangría de párrafo
+  - sangría colgante
+  - viñeta de párrafo
+  - lista numerada
+  - lista con viñetas
+  - propiedades del párrafo
+  - importar HTML
+  - texto a HTML
+  - párrafo a HTML
+  - párrafo a imagen
+  - texto a imagen
+  - exportar párrafo
+  - PowerPoint
+  - presentación
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: "Aprenda cómo crear y dar formato a párrafos, porciones, viñetas, listas numeradas, sangrías, contenido HTML y imágenes de párrafos con Aspose.Slides para Node.js a través de Java."
 ---
 ## **Visión general**
 
-Aspose.Slides for Node.js a través de Java representa el texto como una jerarquía de marcos de texto, párrafos y porciones:
+Aspose.Slides for Node.js via Java representa el texto como una jerarquía de marcos de texto, párrafos y porciones:
 
 * [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) representa el contenedor de texto en una forma y proporciona acceso a su colección de párrafos.
 * [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) representa un párrafo en un marco de texto y proporciona acceso a sus porciones y al formato a nivel de párrafo.
@@ -42,13 +42,13 @@ Aspose.Slides for Node.js a través de Java representa el texto como una jerarqu
 
 Por lo tanto, un párrafo puede contener texto con diferentes fuentes, colores, tamaños y otros formatos mediante el uso de varias porciones.
 
-## **Crear y Formatear Párrafos**
+## **Crear y dar formato a párrafos**
 
-Cree párrafos en el marco de texto de una forma y use porciones para formatear ejecuciones de texto individuales. Esta sección muestra cómo combinar múltiples porciones dentro de cada párrafo y aplicar diferentes colores, tamaños de fuente y estilos.
+Cree párrafos en el marco de texto de una forma y utilice porciones para dar formato a ejecuciones de texto individuales. Esta sección muestra cómo combinar múltiples porciones dentro de cada párrafo y aplicar colores, tamaños de fuente y estilos diferentes.
 
 ### **Crear párrafos con múltiples porciones**
 
-El siguiente ejemplo de JavaScript crea tres párrafos, cada uno con tres ejecuciones de texto en la colección devuelta por [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/). Reutiliza el párrafo predeterminado y su porción vacía, luego agrega los párrafos y porciones restantes. El formato se aplica a través de [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/): la primera porción en cada párrafo es roja, en negrita y de 15 puntos; la segunda es azul, itálica y de 18 puntos. La tercera porción conserva su formato predeterminado:
+El siguiente ejemplo en JavaScript crea tres párrafos, cada uno con tres ejecuciones de texto en la colección devuelta por [Paragraph.getPortions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getportions/). Reutiliza el párrafo predeterminado y su porción vacía, y luego añade los párrafos y porciones restantes. El formato se aplica mediante [Portion.getPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getportionformat/): la primera porción de cada párrafo es roja, en negrita y de 15 puntos; la segunda es azul, cursiva y de 18 puntos. La tercera porción conserva su formato predeterminado:
 
 ```javascript
 var aspose = aspose || {};
@@ -106,15 +106,15 @@ try {
 }
 ```
 
-## **Crear listas con viñetas y numeradas**
+## **Crear listas con viñetas y numeración**
 
-Organice el texto de los párrafos en listas con símbolos, números o imágenes personalizadas. Los ejemplos en esta sección cubren el formato de viñetas, listas multinivel y números de inicio personalizados.
+Organice el texto de los párrafos en listas con símbolos, números o imágenes personalizadas. Los ejemplos de esta sección cubren el formato de viñetas, listas multinivel y números iniciales personalizados.
 
 ### **Crear una lista con viñetas o numerada**
 
 Las viñetas y la numeración facilitan la exploración de elementos relacionados. En Aspose.Slides, la configuración de la lista se define a través de [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/).
 
-Este ejemplo de JavaScript agrega una viñeta de símbolo y un elemento numerado al mismo marco de texto. [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) selecciona el tipo de viñeta, mientras que [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) proporciona el símbolo y [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) selecciona el estilo de numeración. Ambos elementos usan viñetas negras con una altura del 100 por ciento y una sangría de párrafo de 25 puntos:
+Este ejemplo en JavaScript añade una viñeta de símbolo y un elemento numerado al mismo marco de texto. [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) selecciona el tipo de viñeta, mientras que [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) suministra el símbolo y [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstyle/) selecciona el estilo de numeración. Ambos elementos usan viñetas negras con una altura del 100 por ciento y una sangría de párrafo de 25 puntos:
 
 ```javascript
 var aspose = aspose || {};
@@ -146,7 +146,7 @@ try {
     numberedParagraph.getParagraphFormat().getBullet().setNumberedBulletStyle(java.newByte(aspose.slides.NumberedBulletStyle.BulletCircleNumWDBlackPlain));
     numberedParagraph.getParagraphFormat().setIndent(25);
     numberedParagraph.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
-    numberedParagraph.getParagraphFormat().getBullet().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     numberedParagraph.getParagraphFormat().getBullet().setBulletHardColor(java.newByte(aspose.slides.NullableBool.True));
     numberedParagraph.getParagraphFormat().getBullet().setHeight(100);
     textFrame.getParagraphs().add(numberedParagraph);
@@ -157,11 +157,11 @@ try {
 }
 ```
 
-### **Usar viñetas de imagen**
+### **Usar viñetas con imágenes**
 
-Las viñetas de imagen le permiten usar una imagen personalizada en lugar de un símbolo o número.
+Las viñetas con imágenes le permiten usar una imagen personalizada en lugar de un símbolo o número.
 
-Este ejemplo de JavaScript carga `image.png` desde el directorio de trabajo de la aplicación, añade la imagen a la colección de imágenes de la presentación como un [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) y la usa como viñeta de párrafo. Llama a [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) para usar una viñeta de imagen y asigna la imagen mediante [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/). [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) se establece en 100 por ciento para dimensionar la viñeta en relación con el texto del párrafo:
+Este ejemplo en JavaScript carga `image.png` desde el directorio de trabajo de la aplicación, añade la imagen a la colección de imágenes de la presentación como una [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) y la usa como viñeta de párrafo. Llama a [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) para usar una viñeta de imagen y asigna la imagen mediante [BulletFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/getpicture/). [BulletFormat.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setheight/) se establece en el 100 por ciento para dimensionar la viñeta en relación con el texto del párrafo:
 
 ```javascript
 var aspose = aspose || {};
@@ -200,9 +200,9 @@ try {
 
 ### **Crear una lista multinivel**
 
-Establezca [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) para colocar párrafos en diferentes niveles de una lista. El nivel superior tiene una profundidad de `0`.
+establezca [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) para colocar los párrafos en diferentes niveles de una lista. El nivel superior tiene una profundidad de `0`.
 
-Este ejemplo de JavaScript asigna valores de [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) de 0 a 3 a cuatro párrafos, creando una jerarquía dentro de un marco de texto. Cada párrafo usa una viñeta de símbolo, con [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) alternando entre una viñeta redonda y un guion para distinguir los niveles adyacentes:
+Este ejemplo en JavaScript asigna valores de [ParagraphFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setdepth/) de 0 a 3 a cuatro párrafos, creando una jerarquía dentro de un mismo marco de texto. Cada párrafo usa una viñeta de símbolo, con [BulletFormat.setChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setchar/) alternando entre una viñeta redonda y un guión para distinguir los niveles adyacentes:
 
 ```javascript
 var aspose = aspose || {};
@@ -260,11 +260,11 @@ try {
 }
 ```
 
-### **Iniciar elementos numerados de lista con valores personalizados**
+### **Iniciar elementos numerados con valores personalizados**
 
 Use [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) para establecer el número inicial que se muestra en un párrafo numerado.
 
-Este ejemplo de JavaScript establece [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) para usar numeración en tres párrafos y asigna valores de [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) de 2, 3 y 7. El valor de inicio se configura por separado para cada párrafo, lo que permite que los números mostrados omitan valores:
+Este ejemplo en JavaScript establece [BulletFormat.setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/settype/) para usar numeración en tres párrafos y asigna valores de [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) de 2, 3 y 7. El valor de inicio se configura por separado para cada párrafo, lo que permite que los números mostrados salten valores:
 
 ```javascript
 var aspose = aspose || {};
@@ -303,17 +303,17 @@ try {
 }
 ```
 
-## **Controlar el diseño de párrafos y propiedades de fin**
+## **Controlar el diseño y las propiedades finales del párrafo**
 
-Ajuste los márgenes y sangrías de los párrafos para controlar la posición de la primera línea y de las líneas ajustadas. También puede formatear la marca de final de párrafo por separado del texto visible.
+Ajuste los márgenes y sangrías del párrafo para controlar la posición de la primera línea y de las líneas envueltas. También puede dar formato al signo de fin de párrafo por separado del texto visible.
 
 ### **Establecer una sangría de primera línea**
 
-Utilice el método [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) para controlar la sangría de la primera línea de un párrafo. Este ajuste solo mueve la primera línea respecto al margen izquierdo del párrafo. Un valor positivo desplaza la primera línea a la derecha, mientras que las líneas restantes permanecen alineadas con el cuerpo del párrafo.
+Utilice el método [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) para controlar la sangría de la primera línea de un párrafo. Esta configuración desplaza solo la primera línea respecto al margen izquierdo del párrafo. Un valor positivo desplaza la primera línea a la derecha, mientras que las líneas restantes permanecen alineadas con el cuerpo del párrafo.
 
 Use [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) cuando necesite mover todo el párrafo. Use [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) cuando necesite mover solo la primera línea.
 
-El siguiente ejemplo asigna a tres párrafos el mismo [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) de 20 puntos y valores de [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) de 0, 20 y 40 puntos. Las primeras líneas comienzan en desplazamientos progresivamente mayores, mientras que las líneas ajustadas conservan el mismo margen izquierdo:
+El siguiente ejemplo asigna a tres párrafos el mismo [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) de 20 puntos y valores de [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) de 0, 20 y 40 puntos. Las primeras líneas comienzan en desplazamientos progresivamente mayores, mientras que las líneas envueltas mantienen el mismo margen izquierdo:
 
 ```javascript
 var aspose = aspose || {};
@@ -366,17 +366,17 @@ try {
 
 El resultado:
 
-![La sangría de la primera línea de los párrafos](first_line_indent.png)
+![Sangría de primera línea de los párrafos](first_line_indent.png)
 
 ### **Establecer una sangría colgante**
 
-Una sangría colgante es un diseño de párrafo en el que la primera línea comienza a la izquierda del resto de líneas. En Aspose.Slides, crea este efecto con el método [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Establezca la sangría con un valor negativo para mover la primera línea a la izquierda respecto al cuerpo del párrafo.
+Una sangría colgante es un diseño de párrafo en el que la primera línea comienza a la izquierda del resto de las líneas. En Aspose.Slides, crea este efecto con el método [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/). Establezca la sangría en un valor negativo para mover la primera línea a la izquierda respecto al cuerpo del párrafo.
 
 En la práctica, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) define la posición izquierda del cuerpo del párrafo, y [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) define la posición de la primera línea respecto a ese margen. Para crear una sangría colgante, establezca un margen izquierdo positivo y una sangría negativa.
 
-Este formato es útil para bibliografías, referencias, entradas de glosario y otros párrafos donde las líneas ajustadas deben alinearse bajo el cuerpo del párrafo y no bajo el primer carácter de la primera línea.
+Este formato es útil para bibliografías, referencias, entradas de glosario y otros párrafos donde las líneas envueltas deben alinearse bajo el cuerpo del párrafo y no bajo el primer carácter de la primera línea.
 
-El siguiente ejemplo de JavaScript combina valores de [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) de 40 y 60 puntos con valores de [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) de -20 y -30 puntos. En cada párrafo, la primera línea comienza a la izquierda de las líneas ajustadas; el segundo párrafo tiene una sangría colgante más profunda:
+El siguiente ejemplo en JavaScript combina valores de [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) de 40 y 60 puntos con valores de [ParagraphFormat.setIndent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setindent/) de –20 y –30 puntos. En cada párrafo, la primera línea comienza a la izquierda de las líneas envueltas; el segundo párrafo tiene una sangría colgante más profunda:
 
 ```javascript
 var aspose = aspose || {};
@@ -421,11 +421,11 @@ try {
 
 El resultado:
 
-![La sangría colgante de los párrafos](hanging_indent.png)
+![Sangría colgante de los párrafos](hanging_indent.png)
 
-### **Establecer propiedades de ejecución al final del párrafo**
+### **Establecer propiedades de ejecución del final del párrafo**
 
-El método [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) controla el formato de la marca de final del párrafo. El siguiente ejemplo crea un [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) con [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) establecido a 48 puntos y [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) establecido a Times New Roman. Asigna este formato a la marca de final del segundo párrafo, dejando sin cambios las porciones de texto visibles:
+El método [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) controla el formato del signo de fin de párrafo. El siguiente ejemplo crea un [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) con [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) establecido en 48 puntos y [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLatinFont) configurado en Times New Roman. Asigna este formato al signo de fin del segundo párrafo, dejando sin cambios las porciones de texto visibles:
 
 ```javascript
 var aspose = aspose || {};
@@ -461,13 +461,13 @@ try {
 
 ## **Contar líneas renderizadas**
 
-Para reglas de párrafo que afectan el ajuste automático y la puntuación al final de línea, vea [Control Line Breaking](/slides/es/nodejs-java/text-formatting/#control-line-breaking) y [Control Hanging Punctuation](/slides/es/nodejs-java/text-formatting/#control-hanging-punctuation).
+Para reglas de párrafo que afectan el ajuste automático y la puntuación al final de las líneas, consulte [Control Line Breaking](/slides/es/nodejs-java/text-formatting/#control-line-breaking) y [Control Hanging Punctuation](/slides/es/nodejs-java/text-formatting/#control-hanging-punctuation).
 
-Utilice [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) para contar las líneas ocupadas por un párrafo después del diseño del texto, incluido el ajuste automático. Esto es útil al comprobar la longitud y el diseño del texto en plantillas de presentación.
+Utilice [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount) para contar las líneas que ocupa un párrafo después de la disposición del texto, incluido el ajuste automático. Esto es útil al verificar la longitud y el diseño del texto en plantillas de presentaciones.
 
-Un párrafo es un elemento en [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/), y puede ocupar varias líneas renderizadas. Un salto de línea explícito dentro de un párrafo fuerza una nueva línea sin crear otro párrafo. El ajuste automático crea líneas en función del ancho disponible sin insertar saltos de línea explícitos en el texto. Por lo tanto, contar párrafos o caracteres de salto de línea no proporciona el recuento de líneas renderizadas.
+Un párrafo es un elemento de [TextFrame.getParagraphs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/getparagraphs/), y puede ocupar varias líneas renderizadas. Un salto de línea explícito dentro de un párrafo obliga a una nueva línea sin crear otro párrafo. El ajuste automático genera líneas según el ancho disponible sin insertar saltos de línea explícitos en el texto. Por lo tanto, contar párrafos o caracteres de salto de línea no proporciona el recuento de líneas renderizadas.
 
-El siguiente ejemplo crea una forma de texto, cuenta sus líneas, estrecha la forma y luego reemplaza el texto por una cadena más corta. El ejemplo habilita el ajuste con [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) y desactiva el autofit con [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/) para que el ancho de la forma controle el ajuste sin reducir automáticamente el texto ni redimensionar la forma. Cada medición utiliza [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount). Las dimensiones de la forma están en puntos. Finalmente, el ejemplo añade otro párrafo y suma los recuentos de líneas del marco de texto.
+El siguiente ejemplo crea una forma de texto, cuenta sus líneas, estrecha la forma y luego sustituye el texto por una cadena más corta. El ejemplo habilita el ajuste con [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) y desactiva el autofit con [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setautofittype/) de modo que el ancho de la forma controla el ajuste sin reducir automáticamente el texto ni cambiar el tamaño de la forma. Cada medición utiliza [Paragraph.getLinesCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getLinesCount). Las dimensiones de la forma se expresan en puntos. Finalmente, el ejemplo añade otro párrafo y suma los recuentos de líneas en todo el marco de texto.
 
 ```javascript
 var aspose = aspose || {};
@@ -510,19 +510,19 @@ try {
 }
 ```
 
-Con este texto y estas dimensiones, estrechar la forma incrementa el recuento de líneas, mientras que sustituir el texto por la cadena corta lo reduce. Los recuentos exactos pueden variar según la disponibilidad y sustitución de fuentes, el tamaño de la fuente, los márgenes, la sangría, el ajuste y la configuración de autofit. Utilice las fuentes y la configuración de diseño previstas para el entorno de destino al comprobar una plantilla.
+Con este texto y estas dimensiones, estrechar la forma incrementa el número de líneas, mientras que sustituir el texto por la cadena corta lo reduce. Los recuentos exactos pueden variar según la disponibilidad y sustitución de fuentes, el tamaño de la fuente, los márgenes, la sangría, el ajuste y la configuración de autofit. Utilice las fuentes y ajustes de diseño previstos para el entorno de destino al comprobar una plantilla.
 
-El recuento de líneas por sí solo no determina si el texto se desborda de su contenedor. También importan la altura disponible, la altura de línea, el espaciado de párrafos y líneas, y el comportamiento de autofit; incluso una sola línea puede exceder el ancho disponible cuando el ajuste está desactivado.
+El número de líneas por sí solo no determina si el texto desbordará su contenedor. También influyen la altura disponible, la altura de las líneas, el interlineado del párrafo y la conducta del autofit; incluso una sola línea puede superar el ancho disponible cuando el ajuste está desactivado.
 
 ## **Importar y exportar contenido de párrafos**
 
-Utilice HTML para introducir texto en una presentación o exportar párrafos existentes para usarlos fuera de ella. Esta sección también muestra cómo renderizar párrafos individuales como imágenes, incluidas las que están en celdas de tabla.
+Utilice HTML para introducir texto en una presentación o exportar párrafos existentes para usarlos fuera de ella. Esta sección también muestra cómo renderizar párrafos individuales como imágenes, incluidos los párrafos en celdas de tabla.
 
 ### **Importar texto HTML en párrafos**
 
-Utilice [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) para convertir marcado HTML en párrafos y porciones dentro de un marco de texto.
+Use [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) para convertir el marcado HTML en párrafos y porciones en un marco de texto.
 
-Este ejemplo de JavaScript lee HTML de `file.html` en el directorio de trabajo de la aplicación y pasa el marcado a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/). Borra el párrafo predeterminado del marco de texto para que el marco contenga solo el contenido importado. La forma rectangular deja un margen de 10 puntos en cada lado de la diapositiva:
+Este ejemplo en JavaScript lee HTML desde `file.html` en el directorio de trabajo de la aplicación y pasa el marcado a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/). Elimina el párrafo predeterminado del marco de texto para que el marco contenga solo el contenido importado. La forma rectangular deja un margen de 10 puntos en cada lado de la diapositiva:
 
 ```javascript
 var aspose = aspose || {};
@@ -550,14 +550,14 @@ try {
 
 ### **Exportar texto de párrafo a HTML**
 
-Utilice [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) para exportar un rango seleccionado de párrafos como HTML. Al reutilizar texto de una presentación en un sitio web, puede que desee conservar el énfasis local sin trasladar la fuente, tamaño o estilos del cuadro de texto de la presentación. Establezca [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/) para controlar hasta dónde sigue el exportador la herencia de formato.
+Use [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) para exportar un rango seleccionado de párrafos como HTML. Al reutilizar el texto de una presentación en un sitio web, puede querer conservar el énfasis local sin trasladar la fuente, el tamaño o los estilos del cuadro de texto de la presentación. Establezca [TextToHtmlConversionOptions.setTextInheritanceLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/settextinheritancelimit/) para controlar hasta dónde el exportador sigue la herencia de formato.
 
-Descargue [the sample presentation](text-inheritance.pptx) y colóquelo en el directorio de trabajo de la aplicación. Su primera diapositiva contiene una forma de texto con el texto “Inherited text; explicit red 18pt”. La entrada usa deliberadamente varios niveles de formato:
+Descargue [la presentación de ejemplo](text-inheritance.pptx) y colóquela en el directorio de trabajo de la aplicación. Su primera diapositiva contiene una forma de texto con el texto "Inherited text; explicit red 18pt". La entrada utiliza deliberadamente varios niveles de formato:
 
-- El estilo de texto predeterminado de la presentación proporciona Calibri y un tamaño de 28 pt.
-- El estilo de texto de primer nivel del marco de texto proporciona texto azul e itálicas.
+- El estilo de texto predeterminado de la presentación suministra Calibri y un tamaño de 28 pt.
+- El estilo de texto de primer nivel del marco de texto suministra texto azul e itálicas.
 - El párrafo establece explícitamente texto en negrita.
-- La segunda porción, “explicit red 18pt”, establece explícitamente texto rojo y un tamaño de 18 pt.
+- La segunda porción, "explicit red 18pt", establece explícitamente texto rojo y un tamaño de 18 pt.
 
 El siguiente ejemplo completo exporta los mismos párrafos tres veces. Pasa [TextToHtmlConversionOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/) al método de exportación y escribe cada resultado como un archivo HTML UTF‑8 separado:
 
@@ -597,31 +597,60 @@ try {
 }
 ```
 
-El HTML generado contiene el siguiente CSS para la primera porción, “Inherited text; ”. La tabla enumera las declaraciones relevantes; otras propiedades generadas se omiten por claridad.
+El HTML generado contiene el siguiente CSS para la primera porción, "Inherited text; ". La tabla enumera las declaraciones relevantes; se omiten otras propiedades generadas por claridad.
 
 | Salida | CSS relevante para la primera porción | Apariencia |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Texto azul, negrita, itálica a 28 pt en Calibri, si esa fuente está disponible. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Texto azul, negrita, itálica; la página o el navegador circundante suministran la familia y el tamaño de fuente. |
-| `ParagraphOnly.html` | `font-weight:bold` | Texto en negrita; la página o el navegador circundante suministran la familia de fuente, tamaño, color y estilo itálico. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | Texto azul, negrita e itálica a 28 pt en Calibri, si esa fuente está disponible. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | Texto azul, negrita e itálica; la página o el navegador proporcionan la familia y el tamaño de fuente. |
+| `ParagraphOnly.html` | `font-weight:bold` | Texto en negrita; la página o el navegador proporcionan la familia, el tamaño, el color y el estilo itálico. |
 
 La segunda porción conserva `color:#ff0000`, `font-size:18pt` y `font-weight:bold` en los tres resultados. También conserva itálicas en `All` y `TextBox`, pero no en `ParagraphOnly`. Limitar la herencia, por tanto, no elimina el formato asignado explícitamente a un párrafo o porción.
 
-Abra los archivos en el mismo navegador para compararlos. En los dos modos restringidos, las propiedades CSS omitidas se resuelven mediante los estilos de la página de destino o los valores predeterminados del navegador, de modo que la apariencia resultante depende del lugar donde se utilice el HTML.
+Abra los archivos en el mismo navegador para compararlos. En los dos modos restringidos, las propiedades CSS omitidas se resuelven mediante los estilos de la página de destino o los valores predeterminados del navegador, de modo que la apariencia resultante depende del entorno donde se utilice el HTML.
 
-### **Renderizar un párrafo como una imagen**
+### **Generar un fragmento de portapapeles HTML**
+
+Utilice [TextToHtmlConversionOptions.setAddClipboardFragmentHeader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/texttohtmlconversionoptions/setaddclipboardfragmentheader/) para elegir la salida de [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/). Con `false`, el método devuelve HTML corriente. Con `true`, la cadena devuelta comienza con un encabezado de portapapeles de Windows. Sus campos `StartHTML` y `EndHTML` indican los desplazamientos de bytes UTF‑8 del HTML, mientras que `StartFragment` y `EndFragment` identifican el contenido a pegar.
+
+Este ejemplo exporta dos párrafos formateados como HTML ordinario (`html`) y como un fragmento de portapapeles HTML (`clipboardHtml`). La aplicación puede entonces escribir el fragmento en el portapapeles del sistema. Si la API del portapapeles espera bytes sin procesar, codifique el fragmento como UTF‑8 sin marca de orden de bytes (BOM).
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 0, 0, 400, 100);
+    const paragraphs = shape.getTextFrame().getParagraphs();
+    paragraphs.clear();
+    paragraphs.addFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+    const options = new slides.TextToHtmlConversionOptions();
+    options.setAddClipboardFragmentHeader(false);
+    const html = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+
+    options.setAddClipboardFragmentHeader(true);
+    const clipboardHtml = paragraphs.exportToHtml(0, paragraphs.getCount(), options);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Renderizar un párrafo como imagen**
 
 [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) renderiza directamente un párrafo individual y devuelve un [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/). Guarde el resultado en un archivo o flujo con [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save). No es necesario renderizar la forma contenedora ni recortar manualmente un mapa de bits.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) puede devolver `null` si el párrafo no se encuentra en su colección padre, no tiene límites de renderizado válidos o no puede renderizarse. Verifique el resultado antes de guardarlo y libere la imagen devuelta después de su uso.
+[Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) puede devolver `null` si el párrafo no se encuentra en su colección padre, no tiene límites de renderizado válidos o no puede renderizarse. Verifique el resultado antes de guardarlo y libere la imagen devuelta tras su uso.
 
 #### **Renderizar un párrafo a escala predeterminada**
 
-El ejemplo crea una presentación con una diapositiva cuyo primer elemento es un cuadro de texto que contiene tres párrafos.
+El ejemplo crea una presentación con una diapositiva cuyo primer forma es un cuadro de texto que contiene tres párrafos.
 
 ![El cuadro de texto con tres párrafos](paragraph_to_image_input.png)
 
-El siguiente ejemplo selecciona el segundo párrafo en el índice 1 y llama a [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) sin parámetros de escala. Comprueba que la forma contiene el párrafo requerido y que la renderización devuelve una imagen antes de llamar a [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) para guardarla en formato PNG. El bloque `finally` libera la imagen tras su uso.
+El siguiente ejemplo selecciona el segundo párrafo (índice 1) y llama a [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) sin parámetros de escala. Verifica que la forma contiene el párrafo requerido y que el renderizado devuelve una imagen antes de llamar a [IImage.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/#save) para guardarla en formato PNG. El bloque `finally` libera la imagen tras su uso.
 
 ```javascript
 var aspose = aspose || {};
@@ -674,7 +703,7 @@ El resultado:
 
 #### **Renderizar un párrafo en una celda de tabla con escalado**
 
-Utilice la sobrecarga de [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) que acepta los parámetros `scaleX` y `scaleY` para establecer los factores de escala horizontal y vertical. El siguiente ejemplo crea una tabla, renderiza el párrafo en su primera celda al doble de su ancho y alto predeterminados, y guarda el resultado como una imagen PNG.
+Utilice la sobrecarga de [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage) que acepta los parámetros `scaleX` y `scaleY` para establecer los factores de escala horizontal y vertical. El siguiente ejemplo crea una tabla, renderiza el párrafo en su primera celda al doble de su ancho y alto predeterminados y guarda el resultado como una imagen PNG.
 
 ```javascript
 var aspose = aspose || {};
@@ -709,26 +738,26 @@ try {
 }
 ```
 
-Un factor de escala de `1` mantiene ese eje en su tamaño de píxel predeterminado. Por ejemplo, `2` para ambos factores produce una imagen cuyo ancho y alto son aproximadamente el doble de las dimensiones originales, resultando en cuatro veces más píxeles. Factores mayores generalmente producen texto más nítido para ampliación o salida de alta resolución, pero también aumentan el uso de memoria y el tamaño del archivo. Factores inferiores a `1` generan imágenes más pequeñas con menos detalle. Use factores iguales para preservar la relación de aspecto del párrafo; factores diferentes en los ejes horizontal y vertical estiran la salida de forma independiente.
+Un factor de escala de `1` mantiene ese eje en su tamaño de píxel predeterminado. Por ejemplo, `2` para ambos factores produce una imagen cuya anchura y altura son aproximadamente el doble de las dimensiones predeterminadas, resultando en cuatro veces más píxeles. Factores mayores normalmente producen texto más nítido para ampliaciones o salidas de alta resolución, pero también aumentan el uso de memoria y el tamaño del archivo. Los factores inferiores a `1` generan imágenes más pequeñas con menos detalle. Use factores iguales para conservar la proporción del párrafo; factores diferentes en horizontal y vertical estiran la salida de manera independiente.
 
-Renderizar una forma completa con [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) sigue siendo útil cuando la salida debe incluir el relleno, borde u otro contexto visual de la forma. Para una imagen solo de párrafo, use [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
+Renderizar una forma completa con [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) sigue siendo útil cuando la salida debe incluir el relleno, el contorno u otro contexto visual de la forma. Para una imagen únicamente del párrafo, use [Paragraph.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getImage).
 
 ## **Preguntas frecuentes**
 
 **¿Puedo desactivar completamente el ajuste de línea dentro de un marco de texto?**
 
-Sí. Establezca [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) para desactivar el ajuste de modo que las líneas no se partan en los bordes del marco de texto.
+Sí. Establezca [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/) para desactivar el ajuste y que las líneas no se rompan en los bordes del marco de texto.
 
-**¿Cómo puedo obtener los límites exactos en la diapositiva de un párrafo específico?**
+**¿Cómo puedo obtener los límites exactos en la diapositiva de un párrafo concreto?**
 
 Utilice [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) para obtener el rectángulo delimitador del párrafo. [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) proporciona los límites de una porción individual.
 
 **¿Dónde se controla la alineación del párrafo (izquierda, derecha, centrado o justificado)?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) es una configuración a nivel de párrafo y se aplica a todo el párrafo independientemente del formato de las porciones individuales.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) es una configuración a nivel de párrafo y se aplica a todo el párrafo independientemente del formato de cada porción.
 
-Para alinear verticalmente porciones con diferentes tamaños de fuente dentro de cada línea, vea [Align Fonts Within a Line](/slides/es/nodejs-java/text-formatting/#align-fonts-within-a-line).
+Para alinear verticalmente porciones con diferentes tamaños de fuente dentro de cada línea, consulte [Align Fonts Within a Line](/slides/es/nodejs-java/text-formatting/#align-fonts-within-a-line).
 
-**¿Puedo establecer el idioma de corrección para una parte de un párrafo?**
+**¿Puedo establecer el idioma de revisión para una parte del párrafo?**
 
 Sí. Establezca [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) para porciones individuales, de modo que un párrafo pueda contener texto en varios idiomas.

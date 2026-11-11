@@ -12,10 +12,10 @@ keywords:
 - افزودن پاراگراف
 - مدیریت متن
 - مدیریت پاراگراف
-- مدیریت نقطه
+- مدیریت بولت
 - تورفتگی پاراگراف
 - تورفتگی معلق
-- نقطه پاراگراف
+- بولت پاراگراف
 - فهرست شماره‌دار
 - فهرست نقطه‌دار
 - ویژگی‌های پاراگراف
@@ -25,29 +25,29 @@ keywords:
 - پاراگراف به تصویر
 - متن به تصویر
 - صادرات پاراگراف
-- PowerPoint
+- پاورپوینت
 - ارائه
-- Python
+- پایتون
 - Aspose.Slides
-description: "یاد بگیرید چگونه پاراگراف‌ها، بخش‌ها، نقطه‌ها، فهرست‌های شماره‌دار، تورفتگی‌ها، محتوای HTML و تصاویر پاراگراف را با Aspose.Slides برای پایتون از طریق .NET ایجاد و قالب‌بندی کنید."
+description: "یاد بگیرید چگونه پاراگراف‌ها، بخش‌ها، بولت‌ها، فهرست‌های شماره‌دار، تورفتگی‌ها، محتوای HTML و تصاویر پاراگراف را با Aspose.Slides برای پایتون از طریق .NET ایجاد و قالب‌بندی کنید."
 ---
-## **مرور کلی**
+## **نگاه کلی**
 
-Aspose.Slides برای Python از طریق .NET متن را به صورت یک سلسله‌مراتبی از چارچوب‌های متن، پاراگراف‌ها و بخش‌ها نمایش می‌دهد:
+Aspose.Slides برای Python از طریق .NET متن را به صورت سلسله‌مراتبی از فریم‌های متنی، پاراگراف‌ها و بخش‌ها نشان می‌دهد:
 
-* [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) نمایانگر محفظه متن در یک شکل است و دسترسی به مجموعه پاراگراف‌های آن را فراهم می‌کند.
-* [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) نمایانگر یک پاراگراف در یک چارچوب متن است و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را فراهم می‌کند.
-* [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) نمایانگر یک بخش متن در داخل یک پاراگراف است. هر بخش می‌تواند متن و قالب‌بندی سطح کاراکتر خاص خود را داشته باشد.
+* [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) فریم متنی در یک شکل را نشان می‌دهد و دسترسی به مجموعه پاراگراف‌های آن را فراهم می‌کند.
+* [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) یک پاراگراف در فریم متنی را نمایش می‌دهد و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را فراهم می‌کند.
+* [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) یک بخش متن درون پاراگراف را نشان می‌دهد. هر بخش می‌تواند متن و قالب‌بندی سطح کاراکتر خود را داشته باشد.
 
-بدین ترتیب یک پاراگراف می‌تواند متن با قلم‌ها، رنگ‌ها، اندازه‌ها و قالب‌بندی‌های متفاوت را با استفاده از بخش‌های متعدد شامل شود.
+بنابراین یک پاراگراف می‌تواند متن با فونت‌ها، رنگ‌ها، اندازه‌ها و قالب‌بندی‌های متفاوت را با استفاده از چندین بخش در خود داشته باشد.
 
-## **ایجاد و فرمت‌بندی پاراگراف‌ها**
+## **ایجاد و قالب‌بندی پاراگراف‌ها**
 
-پاراگراف‌ها را در چارچوب متن یک شکل ایجاد کنید و از بخش‌ها برای قالب‌بندی اجراهای متنی جداگانه استفاده کنید. این بخش نشان می‌دهد چگونه چندین بخش را در هر پاراگراف ترکیب کنید و رنگ‌ها، اندازه‌های قلم و سبک‌های مختلف را اعمال کنید.
+پاراگراف‌ها را در فریم متنی یک شکل ایجاد کنید و از بخش‌ها برای قالب‌بندی اجرای‌های متن استفاده کنید. این بخش نشان می‌دهد چگونه چندین بخش را در هر پاراگراف ترکیب کنید و رنگ‌ها، اندازه‌های قلم و سبک‌های متفاوت را اعمال کنید.
 
-### **ایجاد پاراگراف‌ها با بخش‌های متعدد**
+### **ایجاد پاراگراف‌ها با چندین بخش**
 
-مثال پایتون زیر سه پاراگراف ایجاد می‌کند که هر کدام شامل سه اجرای متنی در مجموعهٔ [Paragraph.portions](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/portions/) خود هستند. این مثال پاراگراف پیش‌فرض و بخش خالی آن را مجدداً استفاده می‌کند، سپس پاراگراف‌ها و بخش‌های باقی‌مانده را اضافه می‌کند. قالب‌بندی از طریق [Portion.portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/portion/portion_format/) اعمال می‌شود: اولین بخش در هر پاراگراف قرمز، توپر و به اندازهٔ 15 پوینت است؛ دومین بخش آبی، ایتالیک و به اندازهٔ 18 پوینت؛ بخش سوم قالب‌بندی پیش‌فرض خود را حفظ می‌کند:
+مثال زیر در پایتون سه پاراگراف ایجاد می‌کند که هر یک شامل سه اجرای متن در مجموعه [Paragraph.portions](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/portions/) خود هستند. این مثال پاراگراف پیش‌فرض و بخش خالی آن را دوباره استفاده می‌کند، سپس پاراگراف‌ها و بخش‌های باقی‌مانده را اضافه می‌کند. قالب‌بندی از طریق [Portion.portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/portion/portion_format/) اعمال می‌شود: اولین بخش در هر پاراگراف قرمز، پررنگ و 15 پوینت است؛ دومین بخش آبی، کج و 18 پوینت؛ بخش سوم قالب‌بندی پیش‌فرض خود را حفظ می‌کند:
 
 ```python
 import aspose.pydrawing as draw
@@ -97,13 +97,13 @@ with slides.Presentation() as presentation:
 
 ## **ایجاد فهرست‌های نقطه‌دار و شماره‌دار**
 
-متن پاراگراف را به صورت فهرست‌ها با نمادها، اعداد یا تصاویر سفارشی سازمان‌دهی کنید. مثال‌های این بخش شامل قالب‌بندی نقطه‌ها، فهرست‌های چندسطحی و شماره‌گذاری‌های سفارشی است.
+متن پاراگراف‌ها را به فهرست‌های دارای نماد، عدد یا تصویر سفارشی سازماندهی کنید. مثال‌های این بخش شامل قالب‌بندی نشانه‌گذاری، فهرست‌های چندسطحی و اعداد شروع سفارشی می‌باشند.
 
 ### **ایجاد فهرست نقطه‌دار یا شماره‌دار**
 
-نقطه‌ها و شماره‌گذاری موارد مرتبط را برای اسکن آسان‌تر می‌کند. در Aspose.Slides تنظیمات فهرست از طریق [BulletFormat](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/) تعریف می‌شود.
+نشانه‌های نقطه‌ای و شماره‌گذاری موارد مرتبط را برای اسکن راحت‌تر می‌سازند. در Aspose.Slides تنظیمات فهرست از طریق [BulletFormat](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/) تعریف می‌شود.
 
-این مثال پایتون یک نقطه نمادین و یک آیتم شماره‌دار را به همان چارچوب متن اضافه می‌کند. [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) نوع نقطه را انتخاب می‌کند، در حالی که [BulletFormat.char](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/char/) نماد را فراهم می‌کند و [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_style/) سبک شماره‌گذاری را انتخاب می‌کند. هر دو مورد از نقطه‌های سیاه با ارتفاع 100 درصد و تورفتگی پاراگراف 25 پوینت استفاده می‌کنند:
+این مثال پایتون یک نشانه نمادین و یک آیتم شماره‌دار را به همان فریم متنی اضافه می‌کند. [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) نوع نشانه را انتخاب می‌کند، در حالی که [BulletFormat.char](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/char/) نماد را فراهم می‌کند و [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_style/) سبک شماره‌گذاری را انتخاب می‌کند. هر دو آیتم از نشانه‌های مشکی با ارتفاع 100 درصد و تورفتگی پاراگراف 25 پوینت استفاده می‌کنند:
 
 ```python
 import aspose.pydrawing as draw
@@ -141,11 +141,11 @@ with slides.Presentation() as presentation:
     presentation.save("bulleted_and_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **استفاده از نقطه‌های تصویری**
+### **استفاده از نشانه‌های تصویری**
 
-نقطه‌های تصویری به شما اجازه می‌دهند به جای نماد یا عدد از یک تصویر سفارشی استفاده کنید.
+نشانه‌های تصویری به شما اجازه می‌دهند به جای نماد یا عدد از یک تصویر سفارشی استفاده کنید.
 
-این مثال به فایل `bullets.png` در پوشهٔ کاری نیاز دارد. این مثال پایتون تصویری را به مجموعهٔ تصاویر ارائه به عنوان یک [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) اضافه می‌کند و از آن به عنوان نقطهٔ پاراگراف استفاده می‌کند. [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) برای استفاده از نقطهٔ تصویری تنظیم می‌شود و تصویر از طریق [BulletFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/picture/) تخصیص داده می‌شود. [BulletFormat.height](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/height/) به 100 درصد تنظیم می‌شود تا نقطه نسبت به متن پاراگراف اندازه‌گیری شود:
+این مثال نیاز به `bullets.png` در پوشه کاری دارد. این مثال پایتون تصویری را به مجموعه تصاویر ارائه اضافه می‌کند به عنوان یک [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) و آن را به عنوان نشانه پاراگراف استفاده می‌کند. [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) به استفاده از نشانه تصویری تنظیم می‌شود و تصویر از طریق [BulletFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/picture/) اختصاص داده می‌شود. [BulletFormat.height](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/height/) بر روی 100 درصد تنظیم شده تا اندازه نشانه نسبت به متن پاراگراف باشد:
 
 ```python
 import aspose.slides as slides
@@ -173,9 +173,9 @@ with slides.Presentation() as presentation:
 
 ### **ایجاد فهرست چندسطحی**
 
-[ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) را تنظیم کنید تا پاراگراف‌ها در سطوح مختلف فهرست قرار گیرند. سطح بالا دارای عمق `0` است.
+[ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) را تنظیم کنید تا پاراگراف‌ها در سطوح مختلف فهرست قرار گیرند. سطح بالایی عمق `0` دارد.
 
-این مثال پایتون مقادیر [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) را از 0 تا 3 به چهار پاراگراف اختصاص می‌دهد و یک سلسله‌مراتب در یک چارچوب متن ایجاد می‌کند. هر پاراگراف از نقطهٔ نمادین استفاده می‌کند و [BulletFormat.char](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/char/) بین نقطهٔ گرد و خط تیره برای تمایز سطوح مجاور تعویض می‌شود:
+این مثال پایتون مقادیر [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) را از 0 تا 3 به چهار پاراگراف اختصاص می‌دهد و یک سلسله‌مراتب در یک فریم متنی ایجاد می‌کند. هر پاراگراف از نشانه نمادین استفاده می‌کند، به‌طوری که [BulletFormat.char](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/char/) بین یک نشانه دایره‌ای و یک خط تیره برای تمایز سطوح مجاور چرخش می‌کند:
 
 ```python
 import aspose.pydrawing as draw
@@ -232,7 +232,7 @@ with slides.Presentation() as presentation:
 
 از [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) برای تنظیم عدد اولیه نمایش داده شده برای پاراگراف شماره‌دار استفاده کنید.
 
-این مثال پایتون [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) را برای استفاده از شماره‌گذاری در سه پاراگراف تنظیم می‌کند و مقادیر [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) را به ترتیب 2، 3 و 7 اختصاص می‌دهد. مقدار شروع به طور جداگانه برای هر پاراگراف پیکربندی می‌شود تا اعداد نمایش داده شده مقادیر را از بین ببرند:
+این مثال پایتون [BulletFormat.type](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/type/) را برای استفاده از شماره‌گذاری برای سه پاراگراف تنظیم می‌کند و مقادیر [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) را به ترتیب 2، 3 و 7 اختصاص می‌دهد. مقدار شروع به‌صورت جداگانه برای هر پاراگراف پیکربندی می‌شود تا اعداد نمایش داده شده مقادیر را رد کنند:
 
 ```python
 import aspose.slides as slides
@@ -265,17 +265,17 @@ with slides.Presentation() as presentation:
     presentation.save("custom_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **کنترل چیدمان پاراگراف و ویژگی‌های انتهای آن**
+## **کنترل چیدمان پاراگراف و ویژگی‌های انتهایی**
 
-حاشیه‌ها و تورفتگی‌های پاراگراف را تنظیم کنید تا موقعیت خط اول و خطوط بسته‌شده را کنترل کنید. همچنین می‌توانید علامت پایان پاراگراف را جدا از بخش‌های متنی قابل مشاهده فرمت‌بندی کنید.
+حاشیه‌ها و تورفتگی‌های پاراگراف را تنظیم کنید تا موقعیت خط اول و خطوط پیچیده را کنترل کنید. همچنین می‌توانید علامت پایان پاراگراف را به‌صورت جداگانه از بخش‌های متنی قابل مشاهده قالب‌بندی کنید.
 
 ### **تنظیم تورفتگی خط اول**
 
-از ویژگی [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این ویژگی فقط خط اول را نسبت به حاشیه سمت چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به راست می‌برد، در حالی که خطوط باقی‌مانده به تراز بدنهٔ پاراگراف می‌مانند.
+از ویژگی [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این ویژگی تنها خط اول را نسبت به حاشیه چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به سمت راست حرکت می‌دهد، در حالی که خطوط باقی‌مانده به بدنه پاراگراف تراز می‌شوند.
 
-از [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) زمانی که نیاز به جابه‌جایی کل پاراگراف دارید استفاده کنید. از [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) زمانی که تنها خط اول را می‌خواهید جابه‌جا کنید استفاده کنید.
+از [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) زمانی استفاده کنید که نیاز به جابه‌جایی کل پاراگراف دارید. از [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) زمانی استفاده کنید که فقط خط اول را می‌خواهید جابه‌جا کنید.
 
-مثال زیر سه پاراگراف را با همان [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) برابر با 20 پوینت و مقادیر [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) برابر با 0، 20 و 40 پوینت تنظیم می‌کند. خطوط اول به تدریج در افست‌های بزرگتر شروع می‌شوند، در حالی که خطوط بسته‌شده همان حاشیهٔ چپ را حفظ می‌کنند:
+مثال زیر سه پاراگراف را با همان [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) برابر 20 پوینت و مقادیر [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) برابر 0، 20 و 40 پوینت تنظیم می‌کند. خطوط اول به‌تدریج با افست‌های بزرگتر شروع می‌شوند، در حالی که خطوط پیچیده همان حاشیه چپ را حفظ می‌کنند:
 
 ```python
 import aspose.pydrawing as draw
@@ -327,13 +327,13 @@ with slides.Presentation() as presentation:
 
 ### **تنظیم تورفتگی معلق**
 
-تورفتگی معلق نوعی چیدمان پاراگراف است که در آن خط اول نسبت به بقیه خطوط به سمت چپ شروع می‌شود. در Aspose.Slides این اثر را با ویژگی [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) ایجاد می‌کنید. مقدار `indent` را به یک مقدار منفی تنظیم کنید تا خط اول نسبت به بدنهٔ پاراگراف به سمت چپ حرکت کند.
+تورفتگی معلق چیدمان پاراگرافی است که در آن خط اول نسبت به خطوط باقی‌مانده به سمت چپ شروع می‌شود. در Aspose.Slides، این اثر را با ویژگی [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) ایجاد می‌کنید. مقدار `indent` را منفی کنید تا خط اول نسبت به بدنه پاراگراف به سمت چپ جابه‌جا شود.
 
-در عمل، [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) موقعیت چپ بدنهٔ پاراگراف را تعریف می‌کند و [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) موقعیت خط اول را نسبت به آن حاشیه تعیین می‌کند. برای ایجاد تورفتگی معلق، مقدار `margin_left` را مثبت و مقدار `indent` را منفی تنظیم کنید.
+در عمل، [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) موقعیت چپ بدنه پاراگراف را تعیین می‌کند و [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) موقعیت خط اول را نسبت به آن حاشیه تعریف می‌کند. برای ایجاد تورفتگی معلق، مقدار مثبت `margin_left` و مقدار منفی `indent` تنظیم کنید.
 
-این قالب‌بندی برای کتابشناسی‌ها، مراجع، واژه‌نامه‌ها و دیگر پاراگراف‌هایی که خطوط بسته‌شده باید زیر بدنهٔ پاراگراف تراز شوند مفید است.
+این قالب‌بندی برای کتاب‌شناسی‌ها، مراجع، ورودی‌های واژه‌نامه و سایر پاراگراف‌هایی که خطوط پیچیده باید زیر بدنه پاراگراف تراز شوند مفید است.
 
-مثال پایتون زیر مقادیر [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) برابر با 40 و 60 پوینت را با مقادیر [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) برابر با -20 و -30 پوینت ترکیب می‌کند. در هر پاراگراف، خط اول نسبت به خطوط بسته‌شده به سمت چپ شروع می‌شود؛ پاراگراف دوم تورفتگی معلق عمیق‌تری دارد:
+مثال پایتون زیر مقادیر [ParagraphFormat.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_left/) برابر 40 و 60 پوینت را با مقادیر [ParagraphFormat.indent](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/indent/) برابر -20 و -30 پوینت ترکیب می‌کند. در هر پاراگراف، خط اول نسبت به خطوط پیچیده به سمت چپ شروع می‌شود؛ پاراگراف دوم تورفتگی معلق عمیق‌تری دارد:
 
 ```python
 import aspose.pydrawing as draw
@@ -377,7 +377,7 @@ with slides.Presentation() as presentation:
 
 ### **تنظیم ویژگی‌های انتهای پاراگراف**
 
-ویژگی [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) قالب‌بندی علامت پایان پاراگراف را کنترل می‌کند. مثال فایل `Test.pptx` را بارگذاری می‌کند (باید حداقل یک اسلاید داشته باشد) و یک [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) با [PortionFormat.font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) برابر 48 پوینت و [PortionFormat.latin_font](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/latin_font/) برابر Times New Roman ایجاد می‌کند. این قالب را به علامت پایان پاراگراف دوم اختصاص می‌دهد، در حالی که بخش‌های متنی قابل مشاهده بدون تغییر می‌مانند:
+ویژگی [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) قالب‌بندی علامت پایان پاراگراف را کنترل می‌کند. مثال `Test.pptx` را بارگذاری می‌کند که باید حداقل یک اسلاید داشته باشد و یک [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) با [PortionFormat.font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) برابر 48 پوینت و [PortionFormat.latin_font](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/latin_font/) برابر Times New Roman ایجاد می‌کند. این قالب به علامت پایان پاراگرف دوم اختصاص می‌یابد، در حالی که بخش‌های متنی قابل مشاهده بدون تغییر می‌مانند:
 
 ```python
 import aspose.slides as slides
@@ -406,15 +406,15 @@ with slides.Presentation("Test.pptx") as presentation:
     presentation.save("end_paragraph_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **شمارش خطوط رندر شده**
+## **شمارش خطوط رندرسازی شده**
 
-برای قوانین پاراگراف که بر بسته شدن خودکار و نقطه‌گذاری در انتهای خطوط تأثیر می‌گذارند، به [Control Line Breaking](/slides/fa/python-net/text-formatting/#control-line-breaking) و [Control Hanging Punctuation](/slides/fa/python-net/text-formatting/#control-hanging-punctuation) مراجعه کنید.
+برای قواعد پاراگراف که بر شکست خودکار خطوط و علامت‌های نگارشی در انتهای خطوط تأثیر می‌گذارند، به [Control Line Breaking](/slides/fa/python-net/text-formatting/#control-line-breaking) و [Control Hanging Punctuation](/slides/fa/python-net/text-formatting/#control-hanging-punctuation) مراجعه کنید.
 
-از [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/) برای شمارش خطوطی که یک پاراگراف پس از چیدمان متن اشغال می‌کند (از جمله بسته شدن خودکار) استفاده کنید. این برای بررسی طول متن و چیدمان در قالب‌های ارائه مفید است.
+از [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/) برای شمارش خطوطی که یک پاراگراف پس از چیدمان متن اشغال می‌کند، شامل شکست خودکار، استفاده کنید. این برای بررسی طول متن و چیدمان در قالب‌های ارائه مفید است.
 
-یک پاراگراف یک مورد در [TextFrame.paragraphs](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/paragraphs/) است و می‌تواند چندین خط رندر شده را اشغال کند. یک شکست خط صریح داخل پاراگراف یک خط جدید ایجاد می‌کند بدون اینکه پاراگراف دیگری ساخته شود. بسته شدن خودکار خطوط را بر اساس عرض موجود بدون درج شکست‌های خط صریح در متن ایجاد می‌کند. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط، تعداد خطوط رندر شده را نمی‌دهد.
+یک پاراگراف یک مورد در [TextFrame.paragraphs](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/paragraphs/) است و می‌تواند چندین خط رندرسازی شده اشغال کند. یک شکست خط صریح داخل پاراگراف یک خط جدید ایجاد می‌کند بدون اینکه پاراگراف جدیدی ساخته شود. بسته‌بندی خودکار خطوط بر اساس عرض موجود بدون افزودن شکست‌های صریح به متن ایجاد می‌شود. بنابراین شمارش پاراگراف‌ها یا کاراکترهای شکست خط، تعداد خطوط رندرسازی شده را نمی‌دهد.
 
-مثال زیر یک شکل متنی ایجاد می‌کند، خطوط آن را می‌شمارد، شکل را باریک می‌کند و سپس متن را با رشتهٔ کوتاه‌تری جایگزین می‌کند. این مثال [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) را فعال و [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) را غیرفعال می‌کند تا عرض شکل بسته شدن خودکار متن یا تغییر اندازهٔ شکل را کنترل نکند. هر اندازه‌گیری از [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/) استفاده می‌کند. ابعاد شکل بر حسب پوینت هستند. در نهایت، مثال یک پاراگراف دیگر اضافه می‌کند و تعداد خطوط را در تمام چارچوب متن جمع می‌کند:
+مثال زیر یک شکل متنی ایجاد می‌کند، خطوط آن را می‌شمارد، شکل را باریک می‌کند و سپس متن را با رشته کوتاه‌تری جایگزین می‌کند. مثال [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) را فعال می‌کند و [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) را غیرفعال می‌سازد تا عرض شکل کنترل‌کننده بسته‌بندی باشد بدون اینکه متن به‌صورت خودکار کوچک یا شکل تغییر اندازه دهد. هر اندازه‌گیری از [Paragraph.get_lines_count](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_lines_count/) استفاده می‌کند. ابعاد شکل بر حسب پوینت است. در پایان، مثال یک پاراگراف دیگر اضافه می‌کند و تعداد خطوط را در کل فریم متنی جمع می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -449,19 +449,19 @@ with slides.Presentation() as presentation:
     print(f"Total lines in the text frame: {total_line_count}")
 ```
 
-با این متن و این ابعاد، باریک کردن شکل تعداد خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشتهٔ کوتاه تعداد خطوط را کاهش می‌دهد. شمارش دقیق می‌تواند بسته به در دسترس بودن قلم‌ها و جایگزینی‌ها، اندازهٔ قلم، حاشیه‌ها، تورفتگی، بسته شدن و تنظیمات autofit متفاوت باشد. از قلم‌ها و تنظیمات چیدمانی که برای محیط هدف در نظر گرفته‌اید هنگام بررسی یک قالب استفاده کنید.
+با این متن و این ابعاد، باریک کردن شکل تعداد خطوط را افزایش می‌دهد، در حالی که جایگزینی متن با رشته کوتاه تعداد آن را کاهش می‌دهد. شمارش دقیق می‌تواند بسته به در دسترس بودن فونت و جایگزینی، اندازه قلم، حاشیه‌ها، تورفتگی، بسته‌بندی و تنظیمات autofit متفاوت باشد. برای بررسی قالب، از فونت‌ها و تنظیمات چیدمان مورد نظر برای محیط هدف استفاده کنید.
 
-تنها شمارش خطوط تعیین نمی‌کند که متن از محفظه‌اش عبور می‌کند یا نه. ارتفاع موجود، ارتفاع خطوط، فاصلهٔ پاراگرافی و خطی، و رفتار autofit نیز اهمیت دارند؛ حتی یک خط واحد می‌تواند عرض موجود را هنگام غیرفعال بودن بسته شدن تجاوز کند.
+تعداد خطوط به تنهایی تعیین نمی‌کند که متن از ظرف خود عبور می‌کند یا نه. ارتفاع موجود، ارتفاع خطوط، فاصله پاراگراف و خط، و رفتار autofit نیز مهم هستند؛ حتی یک خط واحد می‌تواند عرض موجود را وقتی بسته‌بندی غیرفعال باشد، تجاوز کند.
 
 ## **واردات و صادرات محتوای پاراگراف**
 
-از HTML برای آوردن متن به یک ارائه یا صادرات پاراگراف‌های موجود برای استفاده خارج از آن استفاده کنید. این بخش همچنین نشان می‌دهد چگونه پاراگراف‌های فرد را به عنوان تصویر رندر کنید، از جمله پاراگراف‌های داخل سلول‌های جدول.
+از HTML برای وارد کردن متن به ارائه یا صادرات پاراگراف‌های موجود برای استفاده خارج از آن استفاده کنید. این بخش همچنین نشان می‌دهد چگونه پاراگراف‌های جداگانه را به عنوان تصویر رندر کنید، از جمله پاراگراف‌ها در سلول‌های جدول.
 
 ### **وارد کردن متن HTML به پاراگراف‌ها**
 
-از [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/) برای تبدیل نشانه‌گذاری HTML به پاراگراف‌ها و بخش‌ها در یک چارچوب متن استفاده کنید.
+از [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/) برای تبدیل نشانه‌گذاری HTML به پاراگراف‌ها و بخش‌ها در یک فریم متنی استفاده کنید.
 
-این مثال پایتون HTML را از `file.html` در پوشهٔ کاری می‌خواند و نشانه‌گذاری را به [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/) منتقل می‌کند. پاراگراف پیش‌فرض چارچوب متن را پاک می‌کند تا چارچوب فقط شامل محتویات وارد شده باشد. شکل مستطیلی حاشیهٔ 10 پوینت در هر سمت اسلاید باقی می‌گذارد:
+این مثال پایتون HTML را از `file.html` در پوشه کاری می‌خواند و نشانه‌گذاری را به [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/add_from_html/) می‌فرستد. پاراگراف پیش‌فرض فریم متنی را پاک می‌کند تا فریم فقط شامل محتوای وارد شده باشد. شکل مستطیلی حاشیه 10 پوینتی در هر سمت اسلاید باقی می‌گذارد:
 
 ```python
 import aspose.slides as slides
@@ -484,16 +484,16 @@ with slides.Presentation() as presentation:
 
 ### **صادرات متن پاراگراف به HTML**
 
-از [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) برای صادرات یک بازهٔ انتخابی از پاراگراف‌ها به HTML استفاده کنید. هنگام استفاده مجدد از متن ارائه در یک وب‌سایت، ممکن است بخواهید تأکید محلی را بدون حمل قلم، اندازه یا سبک‌های جعبهٔ متن ارائه حفظ کنید. برای کنترل میزان ارث‌بری قالب‌بندی، [TextToHtmlConversionOptions.text_inheritance_limit](https://reference.aspose.com/slides/python-net/aspose.slides.export/texttohtmlconversionoptions/text_inheritance_limit/) را تنظیم کنید.
+از [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) برای صادرات محدوده‌ای انتخابی از پاراگراف‌ها به شکل HTML استفاده کنید. وقتی متن ارائه را برای یک وب‌سایت دوباره استفاده می‌کنید، ممکن است بخواهید تأکید محلی را بدون انتقال قلم، اندازه یا سبک جعبه متن ارائه حفظ کنید. [TextToHtmlConversionOptions.text_inheritance_limit](https://reference.aspose.com/slides/python-net/aspose.slides.export/texttohtmlconversionoptions/text_inheritance_limit/) را تنظیم کنید تا میزان ارث‌بری قالب‌بندی توسط خروجی‌کننده کنترل شود.
 
-[نمونهٔ ارائه را دانلود کنید](text-inheritance.pptx) و آن را در پوشهٔ کاری برنامه قرار دهید. اسلاید اول شامل یک شکل متنی با متن «Inherited text; explicit red 18pt» است. ورودی به‌صورت عمدی چندین سطح قالب‌بندی دارد:
+نمونه ارائه را دانلود کنید ([نمونه ارائه](text-inheritance.pptx)). اسلاید اول آن شامل یک شکل متنی با متن «متن ارث‌دار؛ قرمز واضح 18pt» است. ورودی به‌صورت عمدی چندین سطح قالب‌بندی دارد:
 
-- سبک پیش‌فرض متن ارائه Calibri به اندازهٔ 28 پوینت است.
-- سبک متن اولین سطح چارچوب متن متن آبی و ایتالیک فراهم می‌کند.
-- پاراگراف به‌طور صریح متن توپر تنظیم می‌کند.
-- بخش دوم، «explicit red 18pt»، به‌صورت صریح متن قرمز و اندازهٔ 18 پوینت تنظیم می‌کند.
+- سبک متنی پیش‌فرض ارائه قلم Calibri و اندازه 28 pt را فراهم می‌کند.
+- سبک متنی سطح اول فریم متنی متن آبی و کج را فراهم می‌کند.
+- پاراگراف به‌صورت صریح متن پررنگ را تنظیم می‌کند.
+- بخش دوم، «قرمز واضح 18pt»، به‌صورت صریح متن قرمز و اندازه 18 pt را تنظیم می‌کند.
 
-مثال کامل زیر همان پاراگراف‌ها را سه بار صادر می‌کند. [TextToHtmlConversionOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/texttohtmlconversionoptions/) را به روش صادرات پاس می‌دهد و هر نتیجه را به‌صورت یک فایل HTML UTF‑8 جداگانه می‌نویسد:
+مثال کامل زیر همان پاراگراف‌ها را سه بار صادر می‌کند. [TextToHtmlConversionOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/texttohtmlconversionoptions/) به روش صادرات پاس داده می‌شود و هر نتیجه به‌صورت یک فایل HTML UTF‑8 جداگانه نوشته می‌شود:
 
 ```python
 import aspose.slides as slides
@@ -517,31 +517,56 @@ with slides.Presentation("text-inheritance.pptx") as presentation:
             html_stream.write(html)
 ```
 
-HTML تولید شده شامل CSS زیر برای اولین بخش، «Inherited text; » است. جدول اعلان‌های مربوطه را فهرست می‌کند؛ سایر ویژگی‌های تولید شده برای وضوح حذف شده‌اند.
+HTML تولید شده CSS زیر را برای اولین بخش، «متن ارث‌دار؛ » شامل می‌شود. جدول اعلامیات مربوطه را نشان می‌دهد؛ سایر ویژگی‌های تولید شده برای وضوح حذف شده‌اند.
 
-| خروجی | CSS مربوط به اولین بخش | ظاهر |
+| خروجی | CSS مرتبط برای اولین بخش | ظاهر |
 | --- | --- | --- |
-| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، توپر، ایتالیک با 28 پوینت در Calibri، اگر قلم موجود باشد. |
-| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، توپر، ایتالیک؛ صفحه یا مرورگر حاشیهٔ قلم و اندازه را فراهم می‌کند. |
-| `ParagraphOnly.html` | `font-weight:bold` | متن توپر؛ صفحه یا مرورگر قلم، اندازه، رنگ و سبک ایتالیک را فراهم می‌کند. |
+| `All.html` | `font-family:'Calibri'; font-size:28pt; color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، پررنگ، کج در 28 پوینت با Calibri، اگر آن قلم موجود باشد. |
+| `TextBox.html` | `color:#0000ff; font-style:italic; font-weight:bold` | متن آبی، پررنگ، کج؛ قلم و اندازه توسط صفحه یا مرورگر اطراف تامین می‌شود. |
+| `ParagraphOnly.html` | `font-weight:bold` | متن پررنگ؛ قلم، اندازه، رنگ و سبک کج توسط صفحه یا مرورگر اطراف تامین می‌شود. |
 
-بخش دوم `color:#ff0000`، `font-size:18pt` و `font-weight:bold` را در هر سه خروجی حفظ می‌کند. همچنین ایتالیک را در `ALL` و `TEXT_BOX` حفظ می‌کند اما در `PARAGRAPH_ONLY` نیست. محدود کردن ارث‌بری بنابراین قالب‌بندی صریحاً به پاراگراف یا بخش اختصاص داده شده را حذف نمی‌کند.
+بخش دوم `color:#ff0000`، `font-size:18pt` و `font-weight:bold` را در هر سه خروجی حفظ می‌کند. همچنین ایتالیك در `ALL` و `TEXT_BOX` حفظ می‌شود، اما در `PARAGRAPH_ONLY` نیست. محدود کردن ارث‌بری بنابراین قالب‌بندی اختصاصی به پاراگراف یا بخش را حذف نمی‌کند.
 
-فایل‌ها را در همان مرورگر باز کنید تا آن‌ها را مقایسه کنید. در دو حالت محدود، خصوصیات CSS حذف‌شده توسط سبک‌های صفحه مقصد یا پیش‌فرض‌های مرورگر حل می‌شوند، بنابراین ظاهر نهایی به مکانی که HTML استفاده می‌شود بستگی دارد.
+فایل‌ها را در همان مرورگر باز کنید تا آن‌ها را مقایسه کنید. در دو حالت محدود، ویژگی‌های CSS حذف‌شده توسط سبک‌های صفحه مقصد یا پیش‌فرض مرورگر حل می‌شوند، بنابراین ظاهر نهایی به محلی که HTML استفاده می‌شود بستگی دارد.
+
+### **تولید یک قطعه کلیپ‌بورد HTML**
+
+[ParagraphCollection.export_to_html](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/export_to_html/) یک رشته HTML برمی‌گرداند. [TextToHtmlConversionOptions.add_clipboard_fragment_header](https://reference.aspose.com/slides/python-net/aspose.slides.export/texttohtmlconversionoptions/add_clipboard_fragment_header/) را به `False` برای HTML عادی یا به `True` برای گنجاندن سرآیند کلیپ‌بورد ویندوز تنظیم کنید. سرآیند آفستهای بایتی UTF‑8 HTML پیرامون (`StartHTML` و `EndHTML`) و قطعه‌ای که باید چسبانده شود (`StartFragment` و `EndFragment`) را می‌دهد.
+
+این مثال دو پاراگراف قالب‌بندی‌شده را به‌عنوان HTML عادی (`html`) و به‌عنوان یک قطعه کلیپ‌بورد HTML (`clipboard_html`) صادر می‌کند. نوشتن قطعه به کلیپ‌بورد سیستم یک گام برنامه‌ای جداگانه است. اگر API کلیپ‌بورد انتظار بایت‌های خام داشته باشد، قطعه را به‌صورت UTF‑8 بدون BOM رمزگذاری کنید.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 400, 100)
+    paragraphs = shape.text_frame.paragraphs
+    paragraphs.clear()
+    paragraphs.add_from_html("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>")
+
+    options = slides.export.TextToHtmlConversionOptions()
+    options.add_clipboard_fragment_header = False
+    html = paragraphs.export_to_html(0, paragraphs.count, options)
+
+    options.add_clipboard_fragment_header = True
+    clipboard_html = paragraphs.export_to_html(0, paragraphs.count, options)
+```
 
 ### **رندر یک پاراگراف به عنوان تصویر**
 
-[Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) یک پاراگراف منفرد را مستقیم رندر می‌کند و یک [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) برمی‌گرداند. نتیجه را با [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) به فایل یا جریان ذخیره کنید. نیازی به رندر شکل حاوی یا برش بیت‌مپ به ‌صورت دستی ندارید.
+[Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) پاراگراف فردی را مستقیماً رندر می‌کند و یک [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) برمی‌گرداند. نتیجه را با [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) به فایل یا جریان ذخیره کنید. نیازی به رندر شکل حاوی آن یا برش بیت‌مپ به‌صورت دستی نیست.
 
-[Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) می‌تواند `None` برگرداند اگر پاراگراف در مجموعهٔ والد خود یافت نشود، مرزهای رندر معتبری نداشته باشد یا قابل رندر نباشد. قبل از ذخیره‌سازی نتیجه را بررسی کنید و پس از استفاده تصویر بازگردانده شده را آزاد کنید.
+[Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) می‌تواند `None` بازگرداند اگر پاراگراف در مجموعه والد خود پیدا نشود، مرزهای رندر معتبری نداشته باشد یا نتواند رندر شود. پیش از ذخیره نتیجه را بررسی کنید و پس از استفاده تصویر بازگردانده‌شده را آزاد کنید.
 
-#### **رندر پاراگراف با مقیاس پیش‌فرض**
+#### **رندر پاراگراف در مقیاس پیش‌فرض**
 
-این مثال از `sample.pptx` استفاده می‌کند که یک اسلاید دارد و شکل اول آن یک جعبهٔ متن حاوی سه پاراگراف است.
+مثال از `sample.pptx` استفاده می‌کند، یک ارائه با یک اسلاید که اولین شکل آن یک کادر متنی شامل سه پاراگراف است.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![کادر متنی با سه پاراگراف](paragraph_to_image_input.png)
 
-مثال زیر پاراگراف دوم را در شاخص 1 انتخاب می‌کند و بدون پارامترهای مقیاس به [Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) فراخوانی می‌کند. ابتدا بررسی می‌کند که شکل شامل پاراگراف مورد نیاز است و رندر یک تصویر برمی‌گرداند قبل از اینکه [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) را برای ذخیره در فرمت PNG صدا بزند. مدیر زمینه پس از استفاده منابع تصویر را آزاد می‌کند.
+مثال زیر پاراگراف دوم را در ایندکس 1 انتخاب می‌کند و بدون پارامترهای مقیاس [Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) را فراخوانی می‌کند. بررسی می‌کند که شکل پاراگراف مورد نیاز را دارد و رندر تصویر را قبل از فراخوانی [IImage.save](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/) برای ذخیره به فرمت PNG بررسی می‌کند. مدیر زمینه پس از استفاده منابع تصویر را آزاد می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -564,11 +589,11 @@ with slides.Presentation("sample.pptx") as presentation:
 
 نتیجه:
 
-![The paragraph image](paragraph_to_image_output.png)
+![تصویر پاراگراف](paragraph_to_image_output.png)
 
-#### **رندر پاراگراف در سلول جدول با مقیاس‌دهی**
+#### **رندر پاراگراف در یک سلول جدول با مقیاس‌بندی**
 
-از بارگذاری [Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) که پارامترهای `scale_x` و `scale_y` را می‌پذیرد استفاده کنید تا عوامل مقیاس افقی و عمودی را تنظیم کنید. مثال زیر یک جدول ایجاد می‌کند، پاراگراف را در اولین سلول آن با دو برابر عرض و ارتفاع پیش‌فرض رندر می‌کند و نتیجه را به عنوان تصویر PNG ذخیره می‌کند.
+از فراخوانی [Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) که پارامترهای `scale_x` و `scale_y` را می‌پذیرد استفاده کنید تا عوامل مقیاس افقی و عمودی را تنظیم کنید. مثال زیر یک جدول ایجاد می‌کند، پاراگراف را در اولین سلول دو برابر عرض و ارتفاع پیش‌فرض رندر می‌کند و نتیجه را به‌صورت تصویر PNG ذخیره می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -591,26 +616,26 @@ with slides.Presentation() as presentation:
         print("The paragraph could not be rendered.")
 ```
 
-فاکتور مقیاس `1` آن محور را در اندازهٔ پیکسل پیش‌فرض خود نگه می‌دارد. به عنوان مثال، `2` برای هر دو فاکتور تصویری تولید می‌کند که عرض و ارتفاع آن تقریباً دو برابر ابعاد پیش‌فرض است و در نتیجه چهار برابر پیکسل دارد. عوامل بزرگ‌تر معمولاً متن واضح‌تری برای بزرگ‌نمایی یا خروجی با وضوح بالا تولید می‌کنند، اما مصرف حافظه و حجم فایل را نیز افزایش می‌دهند. عوامل زیر `1` تصاویر کوچکتری با جزئیات کمتر تولید می‌کنند. برای حفظ نسبت عرض به ارتفاع پاراگراف، فاکتورهای مساوی استفاده کنید؛ عوامل متفاوت افقی و عمودی خروجی را به‌صورت مستقل کش می‌دهند.
+عامل مقیاس `1` آن محور را در اندازه پیکسل پیش‌فرض نگه می‌دارد. به‌عنوان مثال، `2` برای هر دو عامل تصویری تولید می‌کند که عرض و ارتفاع آن تقریباً دو برابر ابعاد پیش‌فرض است و بنابراین چهار برابر پیکسل دارد. عوامل بزرگتر معمولاً متن واضح‌تری برای بزرگ‌نمایی یا خروجی با وضوح بالا تولید می‌کنند، اما میزان حافظه و حجم فایل را نیز افزایش می‌دهند. عوامل زیر `1` تصاویر کوچکتری با جزئیات کمتر تولید می‌کنند. برای حفظ نسبت ابعاد پاراگراف از عوامل مساوی استفاده کنید؛ عوامل افقی و عمودی متفاوت خروجی را به‌صورت مستقل کش می‌سازند.
 
-رندر کل شکل با [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) همچنان وقتی که خروجی باید پرکن، حاشیه یا سایر زمینه‌های بصری شکل را شامل شود مفید است. برای تصویر تنها پاراگراف، از [Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) استفاده کنید.
+رندر تمام شکل با [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) زمانی مفید است که خروجی باید شامل پر کردن، حاشیه یا سایر زمینه‌های بصری شکل باشد. برای تصویر فقط پاراگراف، از [Paragraph.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_image/) استفاده کنید.
 
 ## **سوالات متداول**
 
-**آیا می‌توانم به‌طور کامل بسته شدن خطوط داخل یک چارچوب متن را غیر فعال کنم؟**
+**آیا می‌توانم بسته‌بندی خطوط داخل فریم متنی را به‌طور کامل غیرفعال کنم؟**
 
-بله. برای غیرفعال کردن بسته شدن، [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) را تنظیم کنید تا خطوط در لبه‌های چارچوب متن شکسته نشوند.
+بله. [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) را تنظیم کنید تا بسته‌بندی غیرفعال شود و خطوط در لبه‌های فریم متنی شکسته نشوند.
 
-**چگونه می‌توانم محدودهٔ دقیق بر روی اسلاید یک پاراگراف خاص را دریافت کنم؟**
+**چگونه می‌توانم حدود دقیق یک پاراگراف خاص روی اسلاید را به‌دست آورم؟**
 
-از [Paragraph.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_rect/) برای بازیابی مستطیل محدودهٔ پاراگراف استفاده کنید. [Portion.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/portion/get_rect/) مرزهای یک بخش فردی را فراهم می‌کند.
+از [Paragraph.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/get_rect/) برای بازیابی مستطیل محدوده پاراگراف استفاده کنید. [Portion.get_rect](https://reference.aspose.com/slides/python-net/aspose.slides/portion/get_rect/) حدود یک بخش فرد را فراهم می‌کند.
 
-**کنترل ترازبندی پاراگراف (چپ، راست، وسط یا توزیع) در کجا قرار دارد؟**
+**کنترل تراز پاراگراف (چپ، راست، مرکز یا توزیع) در کجا قرار دارد؟**
 
-[ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) یک تنظیم سطح پاراگراف است و بر تمام پاراگراف اعمال می‌شود صرف‌نظر از قالب‌بندی بخش‌های جداگانه.
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) یک تنظیم سطح پاراگراف است و بر تمام پاراگراف اعمال می‌شود، صرف‌نظر از قالب‌بندی بخش‌های فردی.
 
-برای ترازبندی عمودی بخش‌های با اندازهٔ قلم متفاوت در هر خط، به [Align Fonts Within a Line](/slides/fa/python-net/text-formatting/#align-fonts-within-a-line) مراجعه کنید.
+برای تراز عمودی بخش‌های با اندازه قلم متفاوت در هر خط، به [Align Fonts Within a Line](/slides/fa/python-net/text-formatting/#align-fonts-within-a-line) مراجعه کنید.
 
-**آیا می‌توانم زبانproofing را برای بخشی از پاراگراف تنظیم کنم؟**
+**آیا می‌توانم زبان اصلاح‌گری را برای بخشی از یک پاراگراف تنظیم کنم؟**
 
-بله. برای بخش‌های جداگند [PortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) را تنظیم کنید تا یک پاراگراف بتواند متنی با چند زبان مختلف داشته باشد.
+بله. برای هر بخش [PortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) را تنظیم کنید تا یک پاراگراف بتواند متن در چندین زبان مختلف داشته باشد.
