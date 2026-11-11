@@ -68,6 +68,8 @@ Keep in mind that the `setSlidesLayoutOptions` method is available only for cert
 *The same four numbered slides exported as one slide per PDF page and as a horizontal handout. The handout includes printed slide numbers and frames.*
 <!-- visual-explanation:convert-powerpoint-in-handout-mode:end -->
 
+**Note:** When `HandoutLayoutingOptions.setPrintComments(true)` is used, comments may be truncated in the resulting PDF. This limitation is resolved in Aspose.Slides for Java version **26.11** and later. Upgrade to that version to ensure comments are fully visible.
+
 ## **FAQ**
 
 **What is the maximum number of slide thumbnails per page in Handout mode?**
