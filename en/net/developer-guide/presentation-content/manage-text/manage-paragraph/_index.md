@@ -539,6 +539,31 @@ The second portion retains `color:#ff0000`, `font-size:18pt`, and `font-weight:b
 
 Open the files in the same browser to compare them. In the two restricted modes, omitted CSS properties are resolved by the destination page's styles or browser defaults, so the resulting appearance depends on where the HTML is used.
 
+### **Generate an HTML Clipboard Fragment**
+
+Set [AddClipboardFragmentHeader](https://reference.aspose.com/slides/net/aspose.slides.export/texttohtmlconversionoptions/addclipboardfragmentheader/) to `false` for ordinary HTML or `true` to include a clipboard header. Both calls return a string. The header gives the UTF-8 byte offsets of the surrounding HTML (`StartHTML` and `EndHTML`) and the content to paste (`StartFragment` and `EndFragment`).
+
+This example exports two formatted paragraphs as ordinary HTML (`html`) and as an HTML clipboard fragment (`clipboardHtml`). Writing the fragment to the system clipboard is a separate application step. A clipboard API that accepts raw HTML clipboard bytes requires UTF-8 without a BOM.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 400, 100);
+var paragraphs = shape.TextFrame.Paragraphs;
+paragraphs.Clear();
+paragraphs.AddFromHtml("<p>Status: <b>Ready</b></p><p><i>Next steps</i></p>");
+
+var options = new TextToHtmlConversionOptions { AddClipboardFragmentHeader = false };
+var html = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+
+options.AddClipboardFragmentHeader = true;
+var clipboardHtml = paragraphs.ExportToHtml(0, paragraphs.Count, options);
+```
+
 ### **Render a Paragraph as an Image**
 
 [IParagraph.GetImage](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getimage/) renders an individual paragraph directly and returns an [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Save the result to a file or stream with [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/). You do not need to render the containing shape or crop a bitmap manually.
