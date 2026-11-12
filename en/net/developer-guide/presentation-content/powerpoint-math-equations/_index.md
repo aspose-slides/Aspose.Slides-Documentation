@@ -385,9 +385,9 @@ In PowerPoint, compare the rows to see the effect of growth. In the top row, the
 
 ## **Add a Border Box**
 
-Use [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) when the equation itself should be framed.
+Call [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) on a fraction to frame the entire expression. The returned [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) shows all four sides by default. Use [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/), and [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) to remove individual sides.
 
-![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
+The example places six copies of the same fraction on one slide. To show cancellation, hide all four sides and set [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) for a rising diagonal (↗) or [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) for a falling diagonal (↘). You can also use [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) or [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) with any combination of visible sides.
 
 ```csharp
 using Aspose.Slides;
@@ -395,23 +395,39 @@ using Aspose.Slides.Export;
 using Aspose.Slides.MathText;
 
 using var presentation = new Presentation();
+presentation.SlideSize.SetSize(540, 220, SlideSizeScaleType.DoNotScale);
 var slide = presentation.Slides[0];
 
-var mathShape = slide.Shapes.AddMathShape(20, 20, 700, 100);
-var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+IMathBorderBox AddFraction(float x, float y, bool hideBorder = false)
+{
+    var fraction = new MathematicalText("x+1").Divide("y+2");
+    var box = fraction.ToBorderBox();
+    box.HideTop = box.HideBottom = box.HideLeft = box.HideRight = hideBorder;
 
-var boxedEquation = new MathematicalText("a")
-    .SetSuperscript("2")
-    .Join("=")
-    .Join(new MathematicalText("b").SetSuperscript("2"))
-    .Join("+")
-    .Join(new MathematicalText("c").SetSuperscript("2"))
-    .ToBorderBox();
+    var shape = slide.Shapes.AddMathShape(x, y, 160, 90);
+    var portion = (MathPortion)shape.TextFrame.Paragraphs[0].Portions[0];
+    portion.PortionFormat.FontHeight = 28;
+    portion.MathParagraph.Add(new MathBlock(box));
+    return box;
+}
 
-mathParagraph.Add(new MathBlock(boxedEquation));
+AddFraction(10, 10);
+
+var partial = AddFraction(190, 10);
+partial.HideTop = true;
+partial.HideRight = true;
+
+AddFraction(370, 10, hideBorder: true).StrikethroughBottomLeftToTopRight = true;
+AddFraction(10, 120, hideBorder: true).StrikethroughTopLeftToBottomRight = true;
+AddFraction(190, 120, hideBorder: true).StrikethroughHorizontal = true;
+AddFraction(370, 120).StrikethroughVertical = true;
 
 presentation.Save("border-box.pptx", SaveFormat.Pptx);
 ```
+
+![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border.](border-box-fractions.png)
+
+On this fraction, the horizontal strike overlaps the fraction bar. The vertical strike crosses both the numerator and the denominator while the surrounding border stays visible. These lines decorate the whole expression. Ordinary text strikethrough applies to characters in a text run. After reopening the presentation in PowerPoint, you can still edit the numerator and denominator independently.
 
 ## **Group Terms**
 
