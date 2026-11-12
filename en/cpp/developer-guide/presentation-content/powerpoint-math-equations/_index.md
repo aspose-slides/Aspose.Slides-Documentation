@@ -378,6 +378,189 @@ presentation->Save(u"equation-array.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+### **Align an Array with Surrounding Elements**
+
+[IMathArray::set_BaseJustification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_basejustification/) controls the vertical alignment of an array relative to the mathematical elements beside it. The example below compares alignment with the first row, the center of the array, and the last row.
+
+The following example creates three identical arrays, each with three rows and the neighboring elements `A=` and `=B`. All mathematical text uses Cambria Math at 24 points. Only the array alignment changes.
+
+```cpp
+#include <system/array.h>
+#include <system/console.h>
+#include <drawing/color.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathArray.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathJustification.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathVerticalAlignment.h>
+#include <DOM/MathText/MathRowSpacingRule.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/TextAnchorType.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
+auto createText = [](System::String value)
+{
+    auto text = System::MakeObject<MathematicalText>(value);
+    text->get_Format()->set_FontHeight(24);
+    auto font = System::MakeObject<FontData>(u"Cambria Math");
+    text->get_Format()->set_LatinFont(font);
+    return text;
+};
+
+auto presentation = System::MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(780, 200, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+MathVerticalAlignment alignments[] = {MathVerticalAlignment::Top, MathVerticalAlignment::Center, MathVerticalAlignment::Bottom};
+System::String labels[] = {u"Top", u"Center", u"Bottom"};
+
+for (auto i = 0; i < 3; i++)
+{
+    auto label = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20 + i * 260, 10, 240, 30);
+    label->get_FillFormat()->set_FillType(FillType::NoFill);
+    label->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+    label->get_TextFrame()->set_Text(labels[i]);
+    auto labelFormat = label->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat();
+    labelFormat->set_FontHeight(16);
+    labelFormat->get_FillFormat()->set_FillType(FillType::Solid);
+    labelFormat->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
+
+    auto mathShape = slide->get_Shapes()->AddMathShape(20 + i * 260, 60, 240, 130);
+    mathShape->get_TextFrame()->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Top);
+    auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+    auto mathParagraph = mathPortion->get_MathParagraph();
+    mathParagraph->set_Justification(MathJustification::LeftJustified);
+
+    auto rows = System::MakeArray<System::SharedPtr<IMathElement>>({createText(u"x+y=3"), createText(u"x-y=1"), createText(u"x=2")});
+    auto equationArray = System::MakeObject<MathArray>(rows);
+    equationArray->set_BaseJustification(alignments[i]);
+    auto leftText = createText(u"A=");
+    auto rightText = createText(u"=B");
+    auto equation = System::MakeObject<MathBlock>(leftText)->Join(equationArray)->Join(rightText);
+    mathParagraph->Add(equation);
+}
+
+presentation->Save(u"equation-array-alignment.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The following comparison shows the saved presentation in PowerPoint. Notice the position of `A=` and `=B` beside each array.
+
+![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
+
+### **Configure Row Spacing**
+
+[set_RowSpacingRule](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacingrule/) selects the spacing rule for rows within the array. [set_RowSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacing/) supplies a numeric value for an explicit spacing rule and is ignored by the preset rules.
+
+For exact spacing, the value is measured in points. For proportional spacing, it is measured in half-lines: the value `3` in the example specifies 1.5 lines. Call both setters when specifying an explicit value; changing the numeric value alone does not select a spacing rule.
+
+The example below saves five presentations with the same equations, alignment, and font settings. The first three use presets; the last two show explicit values.
+
+```cpp
+#include <system/array.h>
+#include <system/console.h>
+#include <drawing/color.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathArray.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathJustification.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathVerticalAlignment.h>
+#include <DOM/MathText/MathRowSpacingRule.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
+auto createText = [](System::String value)
+{
+    auto text = System::MakeObject<MathematicalText>(value);
+    text->get_Format()->set_FontHeight(24);
+    auto font = System::MakeObject<FontData>(u"Cambria Math");
+    text->get_Format()->set_LatinFont(font);
+    return text;
+};
+
+struct ArraySettings
+{
+    MathRowSpacingRule rule;
+    uint32_t spacing;
+    System::String name;
+};
+
+ArraySettings settings[] =
+{
+    {MathRowSpacingRule::SingleLineGap, 0, u"SingleLineGap"},
+    {MathRowSpacingRule::OneAndAHalfLineGap, 0, u"OneAndAHalfLineGap"},
+    {MathRowSpacingRule::TwoLineGap, 0, u"TwoLineGap"},
+    {MathRowSpacingRule::Exactly, 20, u"Exactly"},
+    {MathRowSpacingRule::Multiple, 3, u"Multiple"}
+};
+
+for (const auto& setting : settings)
+{
+    auto fileName = u"equation-array-" + setting.name + u".pptx";
+    auto presentation = System::MakeObject<Presentation>();
+    auto mathShape = presentation->get_Slide(0)->get_Shapes()->AddMathShape(20, 20, 600, 300);
+    auto paragraph = mathShape->get_TextFrame()->get_Paragraph(0);
+    paragraph->get_ParagraphFormat()->set_SpaceBefore(0);
+    paragraph->get_ParagraphFormat()->set_SpaceAfter(0);
+    auto mathPortion = System::ExplicitCast<MathPortion>(paragraph->get_Portion(0));
+    auto mathParagraph = mathPortion->get_MathParagraph();
+    mathParagraph->set_Justification(MathJustification::LeftJustified);
+
+    auto rows = System::MakeArray<System::SharedPtr<IMathElement>>({createText(u"x+y=3"), createText(u"x-y=1"), createText(u"x=2")});
+    auto equationArray = System::MakeObject<MathArray>(rows);
+    equationArray->set_BaseJustification(MathVerticalAlignment::Center);
+    equationArray->set_RowSpacingRule(setting.rule);
+    equationArray->set_RowSpacing(setting.spacing);
+    auto leftText = createText(u"A=");
+    auto rightText = createText(u"=B");
+    auto equation = System::MakeObject<MathBlock>(leftText)->Join(equationArray)->Join(rightText);
+    mathParagraph->Add(equation);
+
+    presentation->Save(fileName, SaveFormat::Pptx);
+    presentation->Dispose();
+}
+```
+
+Array row spacing is separate from paragraph spacing. [set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) and [set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/) add space around the containing paragraph, not between array rows. Likewise, [IMathParagraph::set_Justification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/set_justification/) positions the whole math paragraph horizontally; it does not replace the array's vertical alignment setting.
+
 ## **Add Trigonometric Functions**
 
 Use [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) when the argument is the current element and the function name is known.

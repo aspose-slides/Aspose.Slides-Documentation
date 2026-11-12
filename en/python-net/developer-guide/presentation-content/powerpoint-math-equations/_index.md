@@ -264,6 +264,113 @@ with slides.Presentation() as presentation:
     presentation.save("equation-array.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Align an Array with Surrounding Elements**
+
+[IMathArray.base_justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imatharray/base_justification/) controls the vertical alignment of an array relative to the mathematical elements beside it. The example below compares alignment with the first row, the center of the array, and the last row.
+
+The following example creates three identical arrays, each with three rows and the neighboring elements `A=` and `=B`. All mathematical text uses Cambria Math at 24 points. Only the array alignment changes.
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+
+def create_text(value):
+    text = math.MathematicalText(value)
+    text.format.font_height = 24
+    text.format.latin_font = slides.FontData("Cambria Math")
+    return text
+
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(780, 200, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+    alignments = [math.MathVerticalAlignment.TOP, math.MathVerticalAlignment.CENTER, math.MathVerticalAlignment.BOTTOM]
+    labels = ["Top", "Center", "Bottom"]
+
+    for i, alignment in enumerate(alignments):
+        label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20 + i * 260, 10, 240, 30)
+        label.fill_format.fill_type = slides.FillType.NO_FILL
+        label.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+        label.text_frame.text = labels[i]
+        label_format = label.text_frame.paragraphs[0].portions[0].portion_format
+        label_format.font_height = 16
+        label_format.fill_format.fill_type = slides.FillType.SOLID
+        label_format.fill_format.solid_fill_color.color = slides.Color.black
+
+        math_shape = slide.shapes.add_math_shape(20 + i * 260, 60, 240, 130)
+        math_shape.text_frame.text_frame_format.anchoring_type = slides.TextAnchorType.TOP
+        math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+        math_paragraph.justification = math.MathJustification.LEFT_JUSTIFIED
+
+        rows = [create_text("x+y=3"), create_text("x-y=1"), create_text("x=2")]
+        equation_array = math.MathArray(rows)
+        equation_array.base_justification = alignment
+        left_text = create_text("A=")
+        right_text = create_text("=B")
+        equation = math.MathBlock(left_text).join(equation_array).join(right_text)
+        math_paragraph.add(equation)
+
+    presentation.save("equation-array-alignment.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The following comparison shows the saved presentation in PowerPoint. Notice the position of `A=` and `=B` beside each array.
+
+![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
+
+### **Configure Row Spacing**
+
+[row_spacing_rule](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imatharray/row_spacing_rule/) selects the spacing rule for rows within the array. [row_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imatharray/row_spacing/) supplies a numeric value for an explicit spacing rule and is ignored by the preset rules.
+
+For exact spacing, the value is measured in points. For proportional spacing, it is measured in half-lines: the value `3` in the example specifies 1.5 lines. Set both properties when specifying an explicit value; changing the numeric value alone does not select a spacing rule.
+
+The example below saves five presentations with the same equations, alignment, and font settings. The first three use presets; the last two show explicit values.
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+
+def create_text(value):
+    text = math.MathematicalText(value)
+    text.format.font_height = 24
+    text.format.latin_font = slides.FontData("Cambria Math")
+    return text
+
+
+settings = [
+    (math.MathRowSpacingRule.SINGLE_LINE_GAP, 0),
+    (math.MathRowSpacingRule.ONE_AND_A_HALF_LINE_GAP, 0),
+    (math.MathRowSpacingRule.TWO_LINE_GAP, 0),
+    (math.MathRowSpacingRule.EXACTLY, 20),
+    (math.MathRowSpacingRule.MULTIPLE, 3)
+]
+
+for rule, spacing in settings:
+    file_name = f"equation-array-{rule.name}.pptx"
+    with slides.Presentation() as presentation:
+        math_shape = presentation.slides[0].shapes.add_math_shape(20, 20, 600, 300)
+        paragraph = math_shape.text_frame.paragraphs[0]
+        paragraph.paragraph_format.space_before = 0
+        paragraph.paragraph_format.space_after = 0
+        math_paragraph = paragraph.portions[0].math_paragraph
+        math_paragraph.justification = math.MathJustification.LEFT_JUSTIFIED
+
+        rows = [create_text("x+y=3"), create_text("x-y=1"), create_text("x=2")]
+        equation_array = math.MathArray(rows)
+        equation_array.base_justification = math.MathVerticalAlignment.CENTER
+        equation_array.row_spacing_rule = rule
+        equation_array.row_spacing = spacing
+        left_text = create_text("A=")
+        right_text = create_text("=B")
+        equation = math.MathBlock(left_text).join(equation_array).join(right_text)
+        math_paragraph.add(equation)
+
+        presentation.save(file_name, slides.export.SaveFormat.PPTX)
+```
+
+Array row spacing is separate from paragraph spacing. [space_before](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraphformat/space_before/) and [space_after](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraphformat/space_after/) add space around the containing paragraph, not between array rows. Likewise, [IMathParagraph.justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathparagraph/justification/) positions the whole math paragraph horizontally; it does not replace the array's vertical alignment setting.
+
 ## **Add Trigonometric Functions**
 
 Use [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) when the argument is the current element and the function name is known.

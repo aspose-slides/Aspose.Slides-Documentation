@@ -264,6 +264,120 @@ mathParagraph.Add(new MathBlock(equationArray));
 presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 ```
 
+### **Align an Array with Surrounding Elements**
+
+[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) controls the vertical alignment of an array relative to the mathematical elements beside it. The example below compares alignment with the first row, the center of the array, and the last row.
+
+The following example creates three identical arrays, each with three rows and the neighboring elements `A=` and `=B`. All mathematical text uses Cambria Math at 24 points. Only the array alignment changes.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(780, 200, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var alignments = new[] { MathVerticalAlignment.Top, MathVerticalAlignment.Center, MathVerticalAlignment.Bottom };
+
+for (int i = 0; i < alignments.Length; i++)
+{
+    var label = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20 + i * 260, 10, 240, 30);
+    label.FillFormat.FillType = FillType.NoFill;
+    label.LineFormat.FillFormat.FillType = FillType.NoFill;
+    label.TextFrame.Text = alignments[i].ToString();
+    var labelFormat = label.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+    labelFormat.FontHeight = 16;
+    labelFormat.FillFormat.FillType = FillType.Solid;
+    labelFormat.FillFormat.SolidFillColor.Color = System.Drawing.Color.Black;
+
+    var mathShape = slide.Shapes.AddMathShape(20 + i * 260, 60, 240, 130);
+    mathShape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Top;
+    var mathParagraph = ((IMathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+    mathParagraph.Justification = MathJustification.LeftJustified;
+
+    var rows = new IMathElement[] { CreateText("x+y=3"), CreateText("x-y=1"), CreateText("x=2") };
+    var equationArray = new MathArray(rows);
+    equationArray.BaseJustification = alignments[i];
+    var equation = new MathBlock(CreateText("A=")).Join(equationArray).Join(CreateText("=B"));
+    mathParagraph.Add(equation);
+}
+
+presentation.Save("equation-array-alignment.pptx", SaveFormat.Pptx);
+
+MathematicalText CreateText(string value)
+{
+    var text = new MathematicalText(value);
+    text.Format.FontHeight = 24;
+    text.Format.LatinFont = new FontData("Cambria Math");
+    return text;
+}
+```
+
+The following comparison shows the saved presentation in PowerPoint. Notice the position of `A=` and `=B` beside each array.
+
+![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
+
+### **Configure Row Spacing**
+
+[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) selects the spacing rule for rows within the array. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) supplies a numeric value for an explicit spacing rule and is ignored by the preset rules.
+
+For exact spacing, the value is measured in points. For proportional spacing, it is measured in half-lines: the value `3` in the example specifies 1.5 lines. Set both properties when specifying an explicit value; changing the numeric value alone does not select a spacing rule.
+
+The example below saves five presentations with the same equations, alignment, and font settings. The first three use presets; the last two show explicit values.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+var settings = new (MathRowSpacingRule Rule, uint Spacing)[]
+{
+    (MathRowSpacingRule.SingleLineGap, 0),
+    (MathRowSpacingRule.OneAndAHalfLineGap, 0),
+    (MathRowSpacingRule.TwoLineGap, 0),
+    (MathRowSpacingRule.Exactly, 20),
+    (MathRowSpacingRule.Multiple, 3)
+};
+
+foreach (var setting in settings)
+{
+    var fileName = $"equation-array-{setting.Rule}.pptx";
+    using (var presentation = new Presentation())
+    {
+        var mathShape = presentation.Slides[0].Shapes.AddMathShape(20, 20, 600, 300);
+        var paragraph = mathShape.TextFrame.Paragraphs[0];
+        paragraph.ParagraphFormat.SpaceBefore = 0;
+        paragraph.ParagraphFormat.SpaceAfter = 0;
+        var mathParagraph = ((IMathPortion)paragraph.Portions[0]).MathParagraph;
+        mathParagraph.Justification = MathJustification.LeftJustified;
+
+        var rows = new IMathElement[] { CreateText("x+y=3"), CreateText("x-y=1"), CreateText("x=2") };
+        var equationArray = new MathArray(rows);
+        equationArray.BaseJustification = MathVerticalAlignment.Center;
+        equationArray.RowSpacingRule = setting.Rule;
+        equationArray.RowSpacing = setting.Spacing;
+        var equation = new MathBlock(CreateText("A=")).Join(equationArray).Join(CreateText("=B"));
+        mathParagraph.Add(equation);
+
+        presentation.Save(fileName, SaveFormat.Pptx);
+    }
+
+}
+
+MathematicalText CreateText(string value)
+{
+    var text = new MathematicalText(value);
+    text.Format.FontHeight = 24;
+    text.Format.LatinFont = new FontData("Cambria Math");
+    return text;
+}
+```
+
+Array row spacing is separate from paragraph spacing. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) and [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) add space around the containing paragraph, not between array rows. Likewise, [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) positions the whole math paragraph horizontally; it does not replace the array's vertical alignment setting.
+
+
 ## **Add Trigonometric Functions**
 
 Use [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) when the argument is the current element and the function name is known.
