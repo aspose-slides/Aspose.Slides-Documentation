@@ -18,37 +18,41 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Εισαγωγή και επεξεργασία μαθηματικών εξισώσεων σε PowerPoint PPT και PPTX με το Aspose.Slides για .NET, υποστηρίζοντας OMML, ελέγχους μορφοποίησης και σαφή παραδείγματα κώδικα C#."
+description: "Εισαγωγή και επεξεργασία μαθηματικών εξισώσεων σε PowerPoint PPT και PPTX με το Aspose.Slides για .NET, υποστηρίζοντας OMML, εργαλεία μορφοποίησης και σαφή παραδείγματα κώδικα C#."
 ---
 ## **Επισκόπηση**
 
-Το PowerPoint αποθηκεύει εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides για .NET, μπορείτε να δημιουργήσετε το ίδιο είδος μαθηματικού περιεχομένου προγραμματιστικά: κλάσματα, ριζάκια, συναρτήσεις, όρια, τελεστές N-ary, πίνακες, ακολουθίες και μορφοποιημένα μπλοκ μαθηματικών.
+Το PowerPoint αποθηκεύει εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides για .NET, μπορείτε να δημιουργήσετε το ίδιο είδος μαθηματικού περιεχομένου προγραμματιστικά: κλάσματα, ρίζες, συναρτήσεις, όρια, N‑ary τελεστές, πίνακες, σειρές και μορφοποιημένα μαθηματικά μπλοκ.
 
-Στο PowerPoint, οι χρήστες συνήθως προσθέτουν εξισώσεις από **Insert > Equation**:
+In PowerPoint, users normally add equations from **Insert > Equation**:
 
 ![Καρτέλα Insert του PowerPoint με την εντολή Equation επιλεγμένη](powerpoint-math-equations_1.png)
 
-Το αποτέλεσμα είναι επεξεργάσιμο μαθηματικό κείμενο στη διαφάνεια:
+The result is editable math text on the slide:
 
 ![Διαφάνεια PowerPoint που περιέχει επεξεργάσιμη μαθηματική εξίσωση](powerpoint-math-equations_2.png)
 
-Το Aspose.Slides δημιουργεί αυτό το μαθηματικό κείμενο μέσω τριών κύριων αντικειμένων:
+Aspose.Slides builds that math text through three main objects:
 
-- Ένα μαθηματικό σχήμα, που δημιουργείται με [AddMathShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/addmathshape/), είναι το σχήμα που περιέχει την εξίσωση.
-- [MathPortion](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/mathportion/) αποθηκεύει το μαθηματικό περιεχόμενο μέσα στο πλαίσιο κειμένου του σχήματος.
-- [MathParagraph](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/mathparagraph/) περιέχει ένα ή περισσότερα αντικείμενα [MathBlock](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/mathblock/).
+- Ένα μαθηματικό σχήμα, δημιουργημένο με [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/), είναι το σχήμα που περιέχει την εξίσωση.
+- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) αποθηκεύει το μαθηματικό περιεχόμενο μέσα στο πλαίσιο κειμένου του σχήματος.
+- [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) περιέχει ένα ή περισσότερα αντικείμενα [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/).
 
-Η πλειονότητα των παραδειγμάτων παρακάτω χρησιμοποιεί το [MathematicalText](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/mathematicaltext/) και τις αλυσιδωτές μεθόδους από το [IMathElement](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/) για να διατηρήσει τον κώδικα σύντομο και εύκολο στην ανάγνωση.
+Τα περισσότερα παραδείγματα παρακάτω χρησιμοποιούν το [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) και τις αλυσιδωτές μεθόδους από το [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) ώστε ο κώδικας να παραμένει σύντομος και ευανάγνωστος.
 
-Για σενάρια εξαγωγής MathML, δείτε [Εξαγωγή μαθηματικών εξισώσεων από παρουσιάσεις σε .NET](/slides/el/net/exporting-math-equations/).
+Για MathML export scenarios, see [Εξαγωγή μαθηματικών εξισώσεων από παρουσιάσεις σε .NET](/slides/el/net/exporting-math-equations/).
 
-## **Δημιουργία Εξίσωσης**
+## **Δημιουργία εξίσωσης**
 
-Αυτό το παράδειγμα δημιουργεί ένα μαθηματικό σχήμα και προσθέτει το θεώρημα του Πυθαγόρα:
+Αυτό το παράδειγμα χρησιμοποιεί το [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) για να δημιουργήσει ένα μαθηματικό σχήμα και προσθέτει το Πυθαγόρειο θεώρημα:
 
-![Η εξίσωση c² = a² + b²](powerpoint-math-equations_3.png)
+![Η εξίσωση c στο τετράγωνο ισούται με a στο τετράγωνο συν b στο τετράγωνο](powerpoint-math-equations_3.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -67,17 +71,21 @@ mathParagraph.Add(equation);
 presentation.Save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}}
-`AddMathShape` δημιουργεί ένα σχήμα που ήδη περιέχει μια μαθηματική παράγραφο. Πρόσβαση στο πρώτο `MathPortion`, λήψη του `MathParagraph` και προσθήκη μαθηματικών μπλοκ ή μαθηματικών στοιχείων σε αυτό.
+{{% alert color="info" title="Note" %}}
+[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) δημιουργεί ένα σχήμα που ήδη περιέχει μια μαθηματική παράγραφο. Πρόσβαση στην πρώτη [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), λήψη του [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/), και προσθήκη μαθηματικών μπλοκ ή στοιχείων σε αυτήν.
 {{% /alert %}}
 
-## **Προσθήκη Κλασμάτων**
+## **Προσθήκη κλασμάτων**
 
-Χρησιμοποιήστε το `Divide` για να δημιουργήσετε ένα κλάσμα. Μπορείτε να επιλέξετε στυλ κλάσματος με το [MathFractionTypes](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/mathfractiontypes/).
+Χρησιμοποιήστε το [Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) για τη δημιουργία ενός κλάσματος. Μπορείτε να επιλέξετε ένα στυλ κλάσματος με το [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/).
 
-![Κλίβδον μαθηματικό κλάσμα που δείχνει 1 δια x](powerpoint-math-equations_4.png)
+![Ένα λοξό μαθηματικό κλάσμα που δείχνει το ένα διαιρεμένο με x](powerpoint-math-equations_4.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -92,19 +100,25 @@ mathParagraph.Add(new MathBlock(fraction));
 presentation.Save("fraction.pptx", SaveFormat.Pptx);
 ```
 
-Για ένα στοιβαγμένο κλάσμα, χρησιμοποιήστε `MathFractionTypes.Bar`:
+Για ένα στοιβαγμένο κλάσμα, χρησιμοποιήστε το [MathFractionTypes.Bar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/):
 
 ```csharp
+using Aspose.Slides.MathText;
+
 var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Προσθήκη Ριζών**
+## **Προσθήκη ριζών**
 
-Χρησιμοποιήστε το `Radical` για να δημιουργήσετε τετραγωνική ρίζα, κυβική ρίζα ή άλλη ρίζα. Το τρέχον στοιχείο γίνεται η βάση, και το όρισμα γίνεται ο εκθέτης.
+Χρησιμοποιήστε το [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) για τη δημιουργία τετραγωνικής ρίζας, κυβικής ρίζας ή άλλης ρίζας. Το τρέχον στοιχείο γίνεται η βάση και το όρισμα γίνεται ο εκθέτης.
 
-![Έκφραση ρίζας n-ου βαθμού με x κάτω από το σύμβολο ρίζας](powerpoint-math-equations_5.png)
+![Μια έκφραση n‑ης ρίζας με x κάτω από το σύμβολο ρίζας](powerpoint-math-equations_5.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -119,13 +133,17 @@ mathParagraph.Add(new MathBlock(radical));
 presentation.Save("radical.pptx", SaveFormat.Pptx);
 ```
 
-## **Προσθήκη Συναρτήσεων και Ορίων**
+## **Προσθήκη συναρτήσεων και ορίων**
 
-Χρησιμοποιήστε `AsArgumentOfFunction` ή `Function` για συναρτήσεις όπως `sin(x)`, `log(x)`, ή προσαρμοσμένα ονόματα συναρτήσεων. Για όρια, βάλτε `lim` σε ένα [MathLimit](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/mathlimit/) ή χρησιμοποιήστε το `SetLowerLimit`.
+Χρησιμοποιήστε το [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) ή το [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) για συναρτήσεις όπως `sin(x)`, `log(x)`, ή προσαρμοσμένα ονόματα συναρτήσεων. Για όρια, τοποθετήστε `lim` σε ένα [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) ή χρησιμοποιήστε το [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).
 
-![Το όριο του x καθώς το x προσεγγίζει το άπειρο](powerpoint-math-equations_8.png)
+![Το όριο του x όταν το x τείνει στο άπειρο](powerpoint-math-equations_8.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -141,19 +159,25 @@ mathParagraph.Add(new MathBlock(limit));
 presentation.Save("functions-and-limits.pptx", SaveFormat.Pptx);
 ```
 
-Για προσαρμοσμένο όνομα συνάρτησης, κάντε το όνομα της συνάρτησης το τρέχον στοιχείο:
+Για προσαρμοσμένο όνομα συνάρτησης, θέστε το όνομα της συνάρτησης ως τρέχον στοιχείο και καλέστε το [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) με το όρισμα του:
 
 ```csharp
+using Aspose.Slides.MathText;
+
 var customFunction = new MathematicalText("f").Function("x + 1");
 ```
 
-## **Προσθήκη N-ary Τελεστών και Ολοκληρωμάτων**
+## **Προσθήκη N-ary τελεστών και ολοκληρωμάτων**
 
-Χρησιμοποιήστε το `Nary` για αθροίσεις, ενώσεις, τομές και άλλους μεγάλους τελεστές. Χρησιμοποιήστε το `Integral` για ολοκληρώματα. Και οι δύο μέθοδοι σας επιτρέπουν να ορίσετε τα κάτω και τα άνω όρια.
+Χρησιμοποιήστε το [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) για άθροισμα, ένωση, τομή και άλλους μεγάλους τελεστές. Χρησιμοποιήστε το [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) για ολοκληρώματα. Και οι δύο μέθοδοι επιτρέπουν τον ορισμό κατώτερου και ανώτερου ορίου.
 
-![Αθροιστικό με κάτω και άνω όρια](powerpoint-math-equations_7.png)
+![Μία άθροιση με κατώτερο και ανώτερο όριο](powerpoint-math-equations_7.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -171,22 +195,28 @@ mathParagraph.Add(new MathBlock(summation));
 presentation.Save("nary-operators.pptx", SaveFormat.Pptx);
 ```
 
-Οι τελεστές N-ary προορίζονται για μεγάλους τελεστές με προαιρετικά όρια. Απλοί τελεστές όπως `+`, `-`, και `=` συνήθως προστίθενται ως `MathematicalText` και ενσωματώνονται στην έκφραση.
+Οι N-ary τελεστές προορίζονται για μεγάλους τελεστές με προαιρετικά όρια. Απλοί τελεστές όπως `+`, `-`, και `=` συνήθως προστίθενται ως [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) και ενώνται στην έκφραση.
 
-Για ολοκλήρωμα, χρησιμοποιήστε το `Integral`:
+Για ένα ολοκλήρωμα, χρησιμοποιήστε το [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/):
 
 ```csharp
+using Aspose.Slides.MathText;
+
 var integralBase = new MathematicalText("x").Join(new MathematicalText("dx").ToBox());
 var integral = integralBase.Integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Προσθήκη Πινάκων**
+## **Προσθήκη πινάκων**
 
-Χρησιμοποιήστε το [MathMatrix](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/mathmatrix/) για γραμμές και στήλες. Οι πίνακες δεν περιλαμβάνουν αγκύλες από προεπιλογή, γι' αυτό περιορίστε τον πίνακα όταν χρειάζεστε παρενθέσεις, αγκύλες ή άγκιστρα.
+Χρησιμοποιήστε το [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) για γραμμές και στήλες. Τα πλέγματα (πίνακες) δεν περιλαμβάνουν αγκύλες κατά προεπιλογή, οπότε τυλίξτε τον πίνακα όταν χρειάζεστε παρενθέσεις, αγκύλες ή άγκιστρα.
 
-![Μαθηματικός πίνακας δύο γραμμών με ένα κενό κελί](powerpoint-math-equations_10.png)
+![Ένας μαθηματικός πίνακας δύο γραμμών με ένα κενό κελί](powerpoint-math-equations_10.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -205,13 +235,17 @@ mathParagraph.Add(new MathBlock(matrix));
 presentation.Save("matrix.pptx", SaveFormat.Pptx);
 ```
 
-## **Προσθήκη Πινάκων Εξισώσεων**
+## **Προσθήκη πινάκων εξισώσεων**
 
-Χρησιμοποιήστε το `ToMathArray` όταν χρειάζεστε ευθυγραμμισμένες εξισώσεις ή κατακόρυφο στοίβαγμα εκφράσεων.
+Χρησιμοποιήστε το [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) όταν χρειάζεστε ευθυγραμμισμένες εξισώσεις ή κάθετο σύνολο εκφράσεων.
 
-![Κατακόρυφος μαθηματικός πίνακας με x πάνω από y](powerpoint-math-equations_11.png)
+![Μία κάθετη μαθηματική διάταξη με x πάνω από y](powerpoint-math-equations_11.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -227,13 +261,17 @@ mathParagraph.Add(new MathBlock(equationArray));
 presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 ```
 
-## **Προσθήκη Τριγωνομετρικών Συναρτήσεων**
+## **Προσθήκη τριγωνομετρικών συναρτήσεων**
 
-Χρησιμοποιήστε το `AsArgumentOfFunction` όταν το όρισμα είναι το τρέχον στοιχείο και το όνομα της συνάρτησης είναι γνωστό.
+Χρησιμοποιήστε το [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) όταν το όρισμα είναι το τρέχον στοιχείο και το όνομα της συνάρτησης είναι γνωστό.
 
-![Η τριγωνομετρική συνάρτηση cos εφαρμοσμένη στο 2x](powerpoint-math-equations_6.png)
+![Η τριγωνομετρική συνάρτηση cos που εφαρμόζεται στο 2x](powerpoint-math-equations_6.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -248,13 +286,17 @@ mathParagraph.Add(new MathBlock(cosine));
 presentation.Save("trigonometric-function.pptx", SaveFormat.Pptx);
 ```
 
-## **Προσθήκη Δεικτών και Εκθέτες**
+## **Προσθήκη δεικτών και εκθετών**
 
-Χρησιμοποιήστε τις βοηθητικές λειτουργίες υποδείκτη και εκθέτη για δείκτες και δυνάμεις. Όταν οι δείκτες πρέπει να εμφανίζονται στην αριστερή πλευρά της βάσης, χρησιμοποιήστε το `SetSubSuperscriptOnTheLeft`.
+Χρησιμοποιήστε τις βοηθητικές συναρτήσεις για δείκτες και εκθέτες. Όταν οι δείκτες πρέπει να εμφανίζονται στην αριστερή πλευρά της βάσης, χρησιμοποιήστε το [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
 
-![Ένα κεφαλαίο Y με αριστερό υποδείκτη 1 και εκθέτη n](powerpoint-math-equations_9.png)
+![Ένα κεφαλαίο Y με αριστερό δείκτη 1 και εκθέτη n](powerpoint-math-equations_9.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -269,13 +311,17 @@ mathParagraph.Add(new MathBlock(scripts));
 presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 ```
 
-## **Προσθήκη Οριοθετών**
+## **Προσθήκη οριοθετητών**
 
-Χρησιμοποιήστε το `Enclose` για να τοποθετήσετε μια έκφραση μέσα σε οριοθέτες. Μπορείτε επίσης να ορίσετε χαρακτήρα διαχωριστή για εκφράσεις οριοθετών που περιέχουν πολλά στοιχεία.
+Χρησιμοποιήστε το [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) για να τοποθετήσετε μια έκφραση μέσα σε οριοθετητές. Μπορείτε επίσης να ορίσετε χαρακτήρα διαχωριστή για εκφράσεις οριοθετητών που περιέχουν πολλά στοιχεία.
 
-![Μία έκφραση οριοθέτη που περιέχει x, y και z χωρισμένα με κατακόρυφες γραμμές](powerpoint-math-equations_13.png)
+![Μία έκφραση οριοθετητών που περιέχει x, y και z χωρισμένα με κάθετες γραμμές](powerpoint-math-equations_13.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -293,13 +339,58 @@ mathParagraph.Add(new MathBlock(delimiter));
 presentation.Save("delimiters.pptx", SaveFormat.Pptx);
 ```
 
-## **Προσθήκη Πλαισίου Περιγράμματος**
+### **Μέγεθος και Στοίχιση Οριοθετητών**
 
-Χρησιμοποιήστε το `ToBorderBox` όταν η εξίσωση πρέπει να περιβληθεί από πλαίσιο.
+Ορίστε το [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) σε `true` ώστε οι παρενθέσεις να μεγαλώνουν γύρω από ένα ψηλό όργανο, ή σε `false` ώστε να παραμείνουν στο κανονικό μέγεθος. Το [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) δέχεται μία από τις δύο τιμές [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/). `Centered` κεντράρει τις παρενθέσεις στον μαθηματικό άξονα, που περνάει από το μέσο του συμβόλου ισότητας. `Match` τις στοιχίζει με το περιεχόμενο. Και οι δύο ρυθμίσεις επηρεάζουν μόνο τους οριοθετητές. Η έκφραση μέσα παραμένει η ίδια.
 
-![Μια εξίσωση σε πλαίσιο που δείχνει a² = b² + c²](powerpoint-math-equations_12.png)
+Το παράδειγμα τοποθετεί ένα κλάσμα στον εκθέτη του `x` ώστε η έκφραση να εκτείνεται περισσότερο πάνω από τη γραμμή βάσης απ’ότι κάτω της. Οι τέσσερις εξισώσεις χρησιμοποιούν τις ίδιες παρενθέσεις και ρυθμίσεις γραμματοσειράς.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+void AddExpression(float left, float top, bool grow, MathDelimiterShape shape)
+{
+    var fraction = new MathematicalText("a + b").Divide("c + d");
+    var power = new MathematicalText("x").SetSuperscript(fraction);
+    var delimiter = power.Enclose('(', ')');
+    delimiter.GrowToMatchOperandHeight = grow;
+    delimiter.DelimiterShape = shape;
+
+    var mathShape = slide.Shapes.AddMathShape(left, top, 300, 100);
+    var portion = (MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0];
+    portion.PortionFormat.FontHeight = 32;
+    var equation = new MathematicalText("y = ").Join(delimiter);
+    portion.MathParagraph.Add(equation);
+}
+
+AddExpression(20, 20, true, MathDelimiterShape.Centered);
+AddExpression(350, 20, true, MathDelimiterShape.Match);
+AddExpression(20, 140, false, MathDelimiterShape.Centered);
+AddExpression(350, 140, false, MathDelimiterShape.Match);
+
+presentation.Save("delimiter-sizing.pptx", SaveFormat.Pptx);
+```
+
+Στο PowerPoint, συγκρίνετε τις σειρές για να δείτε το αποτέλεσμα της μεγέθυνσης. Στην πρώτη σειρά, οι παρενθέσεις μεγαλώνουν ώστε να περικλείουν τον εκθέτη και φαίνονται όμοιες για τα δύο σχήματα. Στη δεύτερη σειρά, η μεγέθυνση είναι ανενεργή. Οι μικρότερες παρενθέσεις στα αριστερά (`Centered`) ευθυγραμμίζονται με το σύμβολο ισότητας, ενώ αυτές στα δεξιά (`Match`) είναι ψηλότερες γύρω από την έκφραση.
+
+![Τέσσερις εξισώσεις στο PowerPoint με ενεργή τη μεγέθυνση οριοθετητών πάνω και ανενεργή κάτω, και Centered στα αριστερά και Match στα δεξιά](delimiter-sizing.png)
+
+## **Προσθήκη πλαισίου**
+
+Χρησιμοποιήστε το [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) όταν η ίδια η εξίσωση πρέπει να περιβάλλεται από πλαίσιο.
+
+![Μια εξίσωση σε πλαίσιο που δείχνει a στο τετράγωνο ίσο με b στο τετράγωνο συν c στο τετράγωνο](powerpoint-math-equations_12.png)
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -319,13 +410,17 @@ mathParagraph.Add(new MathBlock(boxedEquation));
 presentation.Save("border-box.pptx", SaveFormat.Pptx);
 ```
 
-## **Ομαδοποίηση Όρων**
+## **Ομαδοποίηση όρων**
 
-Χρησιμοποιήστε το `Group` για να τοποθετήσετε έναν χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε όριο για να ετικετοποιήσετε τους ομαδοποιημένους όρους.
+Χρησιμοποιήστε το [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) για να τοποθετήσετε ένα χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε ένα όριο για να επισημάνετε τους ομαδοποιημένους όρους.
 
-![Η έκφραση x + y ομαδοποιημένη με την ετικέτα οποιοδήποτε κείμενο κάτω από αυτή](powerpoint-math-equations_15.png)
+![Η έκφραση x συν y ομαδοποιημένη με την ετικέτα οποιοδήποτε κείμενο κάτω από αυτή](powerpoint-math-equations_15.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -341,13 +436,17 @@ mathParagraph.Add(new MathBlock(grouped));
 presentation.Save("grouped-terms.pptx", SaveFormat.Pptx);
 ```
 
-## **Μορφοποίηση Μαθηματικών Στοιχείων**
+## **Μορφοποίηση μαθηματικών στοιχείων**
 
-Χρησιμοποιήστε βοηθητικές μορφοποιήσεις μόνο όπου διευκρινίζουν τη φόρμουλα. Για παράδειγμα, το `Overbar` τοποθετεί μια μπάρα πάνω από ένα μαθηματικό στοιχείο.
+Χρησιμοποιήστε τις βοηθητικές μορφοποιήσεις μόνο όπου διευκρινίζουν τον τύπο. Για παράδειγμα, το [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) τοποθετεί μια μπάρα πάνω από ένα μαθηματικό στοιχείο.
 
-![Μαθηματική έκφραση ABC με μπάρα πάνω](powerpoint-math-equations_14.png)
+![Μία μαθηματική έκφραση ABC με μπάρα από πάνω](powerpoint-math-equations_14.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -361,35 +460,83 @@ mathParagraph.Add(new MathBlock(overbar));
 presentation.Save("overbar.pptx", SaveFormat.Pptx);
 ```
 
-## **Γρήγορη Αναφορά**
+### **Μορφοποίηση κειμένου σε υπάρχουσα εξίσωση**
 
-| Εργασία | Κύριο API |
+Για να μορφοποιήσετε κείμενο σε μια υπάρχουσα εξίσωση, διασχίστε το δέντρο στοιχείων κάθε μαθηματικού μπλοκ. Η μέθοδος [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) επιστρέφει μόνο τα άμεσα παιδιά, επομένως καλέστε την αναδρομικά για να φτάσετε στο κείμενο μέσα σε κλάσματα, εκθέτες, ρίζες και άλλα ένθετα δομές. Ελέγξτε τόσο το τρέχον στοιχείο όσο και τα παιδιά του ώστε να συμπεριλάβετε το αρχικό στοιχείο όταν είναι [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/).
+
+Αυτό το παράδειγμα υποθέτει ότι μια παρουσίαση περιέχει μια εξίσωση όπως `z = xᵢ / ∛y`, με ένα κλάσμα που έχει δείκτη στον αριθμητή του και ρίζα στον παρονομαστή του. Η επεξεργασία μόνο των στοιχείων κορυφής του μπλοκ θα παρείχε παραβίαση του κειμένου μέσα στο κλάσμα. Το παράδειγμα βρίσκει μαθηματικές περιοχές σε πλαίσια κειμένου διαφανειών, προσπελάζει τα μπλοκ τους μέσω του [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/), και ορίζει το [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) στα 28 points μέσω της ιδιότητας [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) κάθε στοιχείου κειμένου.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is not IAutoShape autoShape || autoShape.TextFrame == null)
+            continue;
+
+        foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                if (portion is IMathPortion mathPortion)
+                {
+                    foreach (var block in mathPortion.MathParagraph)
+                        FormatMathText(block);
+                }
+            }
+        }
+    }
+}
+
+presentation.Save("formatted-equations.pptx", SaveFormat.Pptx);
+
+void FormatMathText(IMathElement element)
+{
+    if (element is MathematicalText text)
+        text.Format.FontHeight = 28;
+
+    foreach (var child in element.GetChildren())
+        FormatMathText(child);
+}
+```
+
+Η αποθηκευμένη παρουσίαση περιέχει την ενημερωμένη μορφοποίηση κειμένου σε κάθε επίπεδο κάθε επεξεργασμένης εξίσωσης, διατηρώντας το περιεχόμενο κειμένου και τη μαθηματική δομή.
+
+## **Σύντομη Αναφορά**
+
+| Καθήκον | Κύριο API |
 | --- | --- |
-| Δημιουργία μαθηματικού κειμένου | [MathematicalText](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/mathematicaltext/) |
-| Συνδυασμός στοιχείων | [IMathElement.Join](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/join/) |
-| Δημιουργία κλασμάτων | [IMathElement.Divide](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/divide/) |
-| Προσθήκη εκθέτη ή δείκτη | [SetSuperscript](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/setsubscript/) |
-| Προσθήκη συναρτήσεων | [Function](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
-| Προσθήκη ριζών | [IMathElement.Radical](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/radical/) |
-| Προσθήκη ορίων | [SetLowerLimit](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| Προσθήκη δεικτών στην αριστερή πλευρά | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| Προσθήκη αθροίσεων και ολοκληρωμάτων | [Nary](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/integral/) |
-| Προσθήκη πινάκων | [MathMatrix](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/mathmatrix/) |
-| Προσθήκη πινάκων εξισώσεων | [ToMathArray](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/tomatharray/) |
-| Πρόσθεση οριοθετών | [Enclose](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/enclose/) |
-| Προσθήκη γραμμών και περιγραμμάτων | [Overbar](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/toborderbox/) |
-| Ομαδοποίηση όρων | [Group](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathelement/group/) |
+| Δημιουργία μαθηματικού κειμένου | [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) |
+| Συνδυασμός στοιχείων | [IMathElement.Join](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/join/) |
+| Δημιουργία κλασμάτων | [IMathElement.Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) |
+| Προσθήκη εκθέτη ή δείκτη | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
+| Προσθήκη συναρτήσεων | [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
+| Προσθήκη ριζών | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
+| Προσθήκη ορίων | [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| Προσθήκη δεικτών αριστερά | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Προσθήκη αθροίσεων και ολοκληρωμάτων | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
+| Προσθήκη πινάκων | [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) |
+| Προσθήκη πινάκων εξισώσεων | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
+| Προσθήκη οριοθετητών | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
+| Προσθήκη μπαρών και πλαισίων | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
+| Ομαδοποίηση όρων | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **Συχνές Ερωτήσεις**
 
 **Μπορώ να επεξεργαστώ μια υπάρχουσα εξίσωση PowerPoint;**
 
-Ναι. Ανοίξτε την παρουσίαση, βρείτε το σχήμα που περιέχει ένα `MathPortion`, λάβετε το `MathParagraph` του και ενημερώστε τα μαθηματικά μπλοκ σε αυτήν την παράγραφο.
+Ναι. Ανοίξτε την παρουσίαση, εντοπίστε το σχήμα που περιέχει ένα [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), λάβετε το [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/), και ενημερώστε τα μαθηματικά μπλοκ σε αυτήν την παράγραφο.
 
-**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμο μαθηματικό PowerPoint;**
+**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμα μαθηματικά PowerPoint;**
 
 Ναι. Όταν αποθηκεύετε σε PPTX, το Aspose.Slides γράφει την εξίσωση ως επεξεργάσιμο περιεχόμενο Office math.
 
-**Μπορώ να εξάγω τις εξισώσεις σε LaTeX;**
+**Μπορώ να εξάγω εξισώσεις σε LaTeX;**
 
-Ναι. Λάβετε το [IMathParagraph](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathparagraph/) της εξίσωσης από το [MathPortion](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/mathportion/), και καλέστε το [IMathParagraph.ToLatex](https://reference.aspose.com/slides/el/net/aspose.slides.mathtext/imathparagraph/tolatex/) για να το εξάγετε απευθείας. Για πλήρες παράδειγμα, δείτε [Εξαγωγή μαθηματικών εξισώσεων από παρουσιάσεις σε .NET](/slides/el/net/exporting-math-equations/#export-math-equations-to-latex).
+Ναι. Λάβετε το [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) της εξίσωσης από το [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), και καλέστε το [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) για να τη εξάγετε απευθείας. Για ένα πλήρες παράδειγμα, δείτε το [Εξαγωγή μαθηματικών εξισώσεων από παρουσιάσεις σε .NET](/slides/el/net/exporting-math-equations/#export-math-equations-to-latex).

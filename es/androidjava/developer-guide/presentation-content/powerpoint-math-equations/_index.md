@@ -1,6 +1,6 @@
 ---
-title: "Agregar ecuaciones matemáticas a presentaciones de PowerPoint en Android"
-linktitle: "Ecuaciones matemáticas de PowerPoint"
+title: Añadir ecuaciones matemáticas a presentaciones de PowerPoint en Android
+linktitle: Ecuaciones matemáticas de PowerPoint
 type: docs
 weight: 80
 url: /es/androidjava/powerpoint-math-equations/
@@ -22,9 +22,9 @@ description: "Insertar y editar ecuaciones matemáticas en PowerPoint PPT y PPTX
 ---
 ## **Visión general**
 
-PowerPoint almacena las ecuaciones como Office Math Markup Language (OMML). Con Aspose.Slides for Android via Java, puedes crear el mismo tipo de contenido matemático de forma programática: fracciones, radicales, funciones, límites, operadores n‑arios, matrices, arreglos y bloques matemáticos con formato.
+PowerPoint almacena ecuaciones como Office Math Markup Language (OMML). Con Aspose.Slides for Android a través de Java, puedes crear el mismo tipo de contenido matemático de forma programada: fracciones, radicales, funciones, límites, operadores n-arios, matrices, arreglos y bloques matemáticos con formato.
 
-En PowerPoint, los usuarios normalmente añaden ecuaciones desde **Insertar > Ecuación**:
+En PowerPoint, los usuarios normalmente añaden ecuaciones mediante **Insertar > Ecuación**:
 
 ![Pestaña Insertar de PowerPoint con el comando Ecuación seleccionado](powerpoint-math-equations_1.png)
 
@@ -32,23 +32,25 @@ El resultado es texto matemático editable en la diapositiva:
 
 ![Una diapositiva de PowerPoint que contiene una ecuación matemática editable](powerpoint-math-equations_2.png)
 
-Aspose.Slides construye ese texto matemático a través de tres objetos principales:
+Aspose.Slides crea ese texto matemático a través de tres objetos principales:
 
-- Una forma matemática, creada con [addMathShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishapecollection/), es la forma que contiene la ecuación.
-- [MathPortion](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mathportion/) almacena el contenido matemático dentro del marco de texto de la forma.
-- [MathParagraph](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mathparagraph/) contiene uno o más objetos [MathBlock](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mathblock/).
+- Una forma matemática, creada con [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/), es la forma que contiene la ecuación.
+- [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) almacena el contenido matemático dentro del marco de texto de la forma.
+- [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) contiene uno o más objetos [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/).
 
-La mayoría de los ejemplos a continuación usan [MathematicalText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mathematicaltext/) y los métodos fluidos de [IMathElement](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/) para que el código sea breve y legible.
+La mayoría de los ejemplos a continuación utilizan [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) y los métodos fluidos de [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) para mantener el código corto y legible.
 
-Para escenarios de exportación a MathML, consulta [Exportar ecuaciones matemáticas desde presentaciones en Android](/slides/es/androidjava/exporting-math-equations/).
+Para escenarios de exportación a MathML, consulte [Exportar ecuaciones matemáticas de presentaciones en Android](/slides/es/androidjava/exporting-math-equations/).
 
 ## **Crear una ecuación**
 
-Este ejemplo crea una forma matemática y añade el teorema de Pitágoras:
+Este ejemplo utiliza [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) para crear una forma matemática y añade el teorema de Pitágoras:
 
 ![La ecuación c al cuadrado es igual a a al cuadrado más b al cuadrado](powerpoint-math-equations_3.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -72,17 +74,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-`addMathShape` crea una forma que ya contiene un párrafo matemático. Acceda al primer `MathPortion`, obtenga su `MathParagraph` y añada bloques matemáticos o elementos matemáticos a él.
+{{% alert color="info" title="Note" %}}
+[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) crea una forma que ya contiene un párrafo matemático. Accede al primer [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/), llama a [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), y añade bloques matemáticos o elementos matemáticos a él.
 {{% /alert %}}
 
 ## **Añadir fracciones**
 
-Utiliza `divide` para crear una fracción. Puedes elegir un estilo de fracción con [MathFractionTypes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mathfractiontypes/).
+Utiliza [divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) para crear una fracción. Puedes elegir un estilo de fracción con [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/).
 
 ![Una fracción matemática sesgada que muestra uno dividido por x](powerpoint-math-equations_4.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -102,19 +106,23 @@ try {
 }
 ```
 
-Para una fracción apilada, usa `MathFractionTypes.Bar`:
+Para una fracción apilada, utiliza [MathFractionTypes.Bar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/#Bar):
 
 ```java
+import com.aspose.slides.*;
+
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
 ## **Añadir radicales**
 
-Utiliza `radical` para crear una raíz cuadrada, cúbica u otra raíz. El elemento actual se convierte en la base y el argumento en el grado.
+Utiliza [radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) para crear una raíz cuadrada, raíz cúbica u otra raíz. El elemento actual se convierte en la base y el argumento en el exponente.
 
-![Una expresión radical de n‑ésima raíz con x bajo el signo radical](powerpoint-math-equations_5.png)
+![Una expresión radical de raíz n-ésima con x bajo el signo radical](powerpoint-math-equations_5.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -136,11 +144,13 @@ try {
 
 ## **Añadir funciones y límites**
 
-Utiliza `asArgumentOfFunction` o `function` para funciones como `sin(x)`, `log(x)` o nombres de funciones personalizados. Para límites, coloca `lim` en un [MathLimit](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mathlimit/) o usa `setLowerLimit`.
+Utiliza [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) o [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) para funciones como `sin(x)`, `log(x)` o nombres de funciones personalizados. Para límites, coloca `lim` en un [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) o usa [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-).
 
 ![El límite de x cuando x tiende a infinito](powerpoint-math-equations_8.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -161,19 +171,23 @@ try {
 }
 ```
 
-Para un nombre de función personalizado, haz que el nombre de la función sea el elemento actual:
+Para un nombre de función personalizado, convierte el nombre de la función en el elemento actual y llama a [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) con su argumento:
 
 ```java
+import com.aspose.slides.*;
+
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **Añadir operadores n‑arios e integrales**
+## **Añadir operadores n-arios e integrales**
 
-Utiliza `nary` para sumas, uniones, intersecciones y otros operadores grandes. Utiliza `integral` para integrales. Ambos métodos permiten establecer límites inferior y superior.
+Utiliza [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) para sumas, uniones, intersecciones y otros operadores grandes. Utiliza [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) para integrales. Ambos métodos permiten establecer límites inferior y superior.
 
 ![Una suma con límites inferior y superior](powerpoint-math-equations_7.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -196,22 +210,26 @@ try {
 }
 ```
 
-Los operadores n‑arios son para operadores grandes con límites opcionales. Los operadores simples como `+`, `-` y `=` suelen añadirse como `MathematicalText` y unirse a la expresión.
+Los operadores n-arios son para operadores grandes con límites opcionales. Los operadores simples como `+`, `-` y `=` suelen añadirse como [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) y unirse a la expresión.
 
-Para una integral, usa `integral`:
+Para una integral, utiliza [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-):
 
 ```java
+import com.aspose.slides.*;
+
 IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("dx").toBox());
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
 ## **Añadir matrices**
 
-Utiliza [MathMatrix](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mathmatrix/) para filas y columnas. Las matrices no incluyen corchetes por defecto, así que encierra la matriz cuando necesites paréntesis, corchetes o llaves.
+Utiliza [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) para filas y columnas. Las matrices no incluyen corchetes por defecto, así que encierra la matriz cuando necesites paréntesis, corchetes o llaves.
 
 ![Una matriz matemática de dos filas con una celda vacía](powerpoint-math-equations_10.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -235,13 +253,15 @@ try {
 }
 ```
 
-## **Añadir arreglos de ecuaciones**
+## **Añadir matrices de ecuaciones**
 
-Utiliza `toMathArray` cuando necesites ecuaciones alineadas o una pila vertical de expresiones.
+Utiliza [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--) cuando necesites ecuaciones alineadas o una pila vertical de expresiones.
 
-![Un arreglo matemático vertical con x sobre y](powerpoint-math-equations_11.png)
+![Una matriz matemática vertical con x sobre y](powerpoint-math-equations_11.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -264,11 +284,13 @@ try {
 
 ## **Añadir funciones trigonométricas**
 
-Utiliza `asArgumentOfFunction` cuando el argumento sea el elemento actual y el nombre de la función sea conocido.
+Utiliza [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) cuando el argumento es el elemento actual y el nombre de la función es conocido.
 
 ![La función trigonométrica cos aplicada a 2x](powerpoint-math-equations_6.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -290,11 +312,13 @@ try {
 
 ## **Añadir subíndices y superíndices**
 
-Utiliza los ayudantes de subíndice y superíndice para índices y potencias. Cuando los índices deben aparecer en el lado izquierdo de la base, usa `setSubSuperscriptOnTheLeft`.
+Utiliza los ayudantes de subíndice y superíndice para índices y potencias. Cuando los índices deben aparecer en el lado izquierdo de la base, usa [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-).
 
 ![Una Y mayúscula con subíndice izquierdo 1 y superíndice n](powerpoint-math-equations_9.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -316,11 +340,13 @@ try {
 
 ## **Añadir delimitadores**
 
-Utiliza `enclose` para colocar una expresión dentro de delimitadores. También puedes establecer un carácter separador para expresiones delimitadas que contengan varios elementos.
+Utiliza [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) para colocar una expresión dentro de delimitadores. También puedes establecer un carácter separador para expresiones delimitadas que contengan varios elementos.
 
 ![Una expresión delimitada que contiene x, y y z separados por barras verticales](powerpoint-math-equations_13.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -343,13 +369,52 @@ try {
 }
 ```
 
-## **Añadir un cuadro con borde**
+### **Tamaño y alineación de delimitadores**
 
-Utiliza `toBorderBox` cuando la ecuación misma debe estar enmarcada.
+Pasa `true` a [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) para que los paréntesis crezcan alrededor de un operando alto, o pasa `false` para mantener su tamaño normal. Usa [setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) con uno de los dos valores de [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/). `Centered` centra los paréntesis en el eje matemático, que atraviesa la mitad del signo igual. `Match` los alinea con el contenido encerrado. Ambas configuraciones afectan solo a los delimitadores. La expresión interior permanece igual.
 
-![Una ecuación enmarcada que muestra a al cuadrado es igual a b al cuadrado más c al cuadrado](powerpoint-math-equations_12.png)
+El ejemplo coloca una fracción en el exponente de `x` de modo que la expresión se extienda más por encima de la línea base que por debajo de ella. Las cuatro ecuaciones utilizan los mismos paréntesis y configuraciones de fuente.
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    for (int row = 0; row < 2; row++) {
+        for (int column = 0; column < 2; column++) {
+            IMathFraction fraction = new MathematicalText("a + b").divide("c + d");
+            IMathSuperscriptElement power = new MathematicalText("x").setSuperscript(fraction);
+            IMathDelimiter delimiter = power.enclose('(', ')');
+            delimiter.setGrowToMatchOperandHeight(row == 0);
+            delimiter.setDelimiterShape(column == 0 ? MathDelimiterShape.Centered : MathDelimiterShape.Match);
+
+            IAutoShape mathShape = slide.getShapes().addMathShape(20 + 330 * column, 20 + 120 * row, 300, 100);
+            MathPortion portion = (MathPortion) mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+            portion.getPortionFormat().setFontHeight(32);
+            IMathBlock equation = new MathematicalText("y = ").join(delimiter);
+            portion.getMathParagraph().add(equation);
+        }
+    }
+    presentation.save("delimiter-sizing.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+En PowerPoint, compara las filas para ver el efecto del crecimiento. En la fila superior, los paréntesis crecen para encerrar el exponente y se ven iguales en ambas formas. En la fila inferior, el crecimiento está desactivado. Los paréntesis más pequeños a la izquierda (`Centered`) se alinean con el signo igual, mientras que los de la derecha (`Match`) quedan más altos alrededor de la expresión.
+
+![Cuatro ecuaciones en PowerPoint con el crecimiento de delimitadores habilitado arriba y deshabilitado abajo, y Centered a la izquierda y Match a la derecha](delimiter-sizing.png)
+
+## **Añadir un cuadro con borde**
+
+Utiliza [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) cuando la propia ecuación debe estar enmarcada.
+
+![Una ecuación en un cuadro que muestra a al cuadrado es igual a b al cuadrado más c al cuadrado](powerpoint-math-equations_12.png)
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -376,11 +441,13 @@ try {
 
 ## **Agrupar términos**
 
-Utiliza `group` para colocar un carácter de agrupación encima o debajo de una expresión. Añade un límite para etiquetar los términos agrupados.
+Utiliza [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) para colocar un carácter de agrupación encima o debajo de una expresión. Añade un límite para etiquetar los términos agrupados.
 
 ![La expresión x más y agrupada con la etiqueta cualquier texto debajo de ella](powerpoint-math-equations_15.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -403,11 +470,13 @@ try {
 
 ## **Dar formato a los elementos matemáticos**
 
-Utiliza los ayudantes de formato solo donde clarifiquen la fórmula. Por ejemplo, `overbar` coloca una barra sobre un elemento matemático.
+Utiliza los ayudantes de formato solo donde aclaren la fórmula. Por ejemplo, [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) coloca una barra sobre un elemento matemático.
 
 ![Una expresión matemática ABC con una barra superior](powerpoint-math-equations_14.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -426,35 +495,92 @@ try {
 }
 ```
 
+### **Dar formato al texto en una ecuación existente**
+
+Para dar formato al texto en toda una ecuación existente, recorre el árbol de elementos de cada bloque matemático. [IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) devuelve solo los hijos inmediatos, por lo que hay que llamarlo recursivamente para alcanzar el texto dentro de fracciones, scripts, radicales y otras estructuras anidadas. Verifica el elemento actual así como sus hijos para incluir el elemento inicial cuando es [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/).
+
+Este ejemplo asume que `input.pptx` contiene una ecuación como `z = xᵢ / ∛y`, con una fracción que contiene un subíndice en su numerador y un radical en su denominador. Procesar solo los elementos de nivel superior del bloque perdería el texto dentro de la fracción. El ejemplo encuentra porciones matemáticas en los marcos de texto de diapositivas, accede a sus bloques mediante [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), y utiliza [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) para establecer el tamaño de fuente a 28 puntos a través del método [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--) de cada elemento de texto.
+
+```java
+import com.aspose.slides.*;
+
+class MathTextFormatter {
+    void formatMathText(IMathElement element) {
+        if (element instanceof MathematicalText) {
+            MathematicalText text = (MathematicalText) element;
+            text.getFormat().setFontHeight(28);
+        }
+
+        for (IMathElement child : element.getChildren()) {
+            formatMathText(child);
+        }
+    }
+}
+
+MathTextFormatter formatter = new MathTextFormatter();
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    if (portion instanceof IMathPortion) {
+                        IMathPortion mathPortion = (IMathPortion) portion;
+                        for (IMathBlock block : mathPortion.getMathParagraph()) {
+                            formatter.formatMathText(block);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    presentation.save("formatted-equations.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+La presentación guardada contiene el formato de texto actualizado en cada nivel de cada ecuación procesada, manteniendo su contenido textual y estructura matemática.
+
 ## **Referencia rápida**
 
 | Tarea | API principal |
 | --- | --- |
-| Crear texto matemático | [MathematicalText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mathematicaltext/) |
-| Combinar elementos | [IMathElement.join](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/) |
-| Crear fracciones | [IMathElement.divide](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/) |
-| Añadir superíndice o subíndice | [setSuperscript](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/) |
-| Añadir funciones | [function](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/) |
-| Añadir radicales | [IMathElement.radical](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/) |
-| Añadir límites | [setLowerLimit](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/) |
-| Añadir scripts del lado izquierdo | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/) |
-| Añadir sumas e integrales | [nary](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/) |
-| Añadir matrices | [MathMatrix](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mathmatrix/) |
-| Añadir arreglos de ecuaciones | [toMathArray](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/) |
-| Añadir delimitadores | [enclose](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/) |
-| Añadir barras y bordes | [overbar](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/) |
-| Agrupar términos | [group](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathelement/) |
+| Crear texto matemático | [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) |
+| Combinar elementos | [IMathElement.join](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Crear fracciones | [IMathElement.divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Añadir superíndice o subíndice | [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Añadir funciones | [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Añadir radicales | [IMathElement.radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Añadir límites | [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Añadir scripts del lado izquierdo | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Añadir sumas e integrales | [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Añadir matrices | [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) |
+| Añadir matrices de ecuaciones | [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Añadir delimitadores | [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Añadir barras y bordes | [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Agrupar términos | [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 
 ## **Preguntas frecuentes**
 
 **¿Puedo editar una ecuación existente de PowerPoint?**
 
-Sí. Abre la presentación, localiza la forma que contiene un `MathPortion`, obtén su `MathParagraph` y actualiza los bloques matemáticos en ese párrafo.
+Sí. Abre la presentación, encuentra la forma que contiene un [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/), llama a [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), y actualiza los bloques matemáticos en ese párrafo.
 
 **¿Se guardan las ecuaciones como matemáticas editables de PowerPoint?**
 
-Sí. Al guardar en PPTX, Aspose.Slides escribe la ecuación como contenido matemático de Office editable.
+Sí. Cuando guardas en PPTX, Aspose.Slides escribe la ecuación como contenido matemático de Office editable.
 
 **¿Puedo exportar ecuaciones a LaTeX?**
 
-Sí. Obtén el [IMathParagraph](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathparagraph/) de su [IMathPortion](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathportion/) y llama a [IMathParagraph.toLatex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imathparagraph/#toLatex--) para exportarlo directamente. Para un ejemplo completo, consulta [Exportar ecuaciones matemáticas desde presentaciones en Android vía Java](/slides/es/androidjava/exporting-math-equations/#export-math-equations-to-latex).
+Sí. Obtén el [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) de la ecuación a partir de su [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/), y llama a [IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) para exportarlo directamente. Para un ejemplo completo, consulta [Exportar ecuaciones matemáticas de presentaciones en Android a través de Java](/slides/es/androidjava/exporting-math-equations/#export-math-equations-to-latex).

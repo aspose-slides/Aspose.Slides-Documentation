@@ -1,5 +1,5 @@
 ---
-title: Добавление математических уравнений в презентации PowerPoint на Android
+title: Добавить математические уравнения в презентации PowerPoint на Android
 linktitle: Математические уравнения PowerPoint
 type: docs
 weight: 80
@@ -18,37 +18,39 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Вставляйте и редактируйте математические уравнения в PowerPoint PPT и PPTX с помощью Aspose.Slides для Android, поддерживая OMML, средства форматирования и понятные образцы кода на Java."
+description: "Вставляйте и редактируйте математические уравнения в PowerPoint PPT и PPTX с помощью Aspose.Slides для Android, поддерживая OMML, средства форматирования и понятные примеры кода на Java."
 ---
 ## **Обзор**
 
-PowerPoint хранит уравнения в формате Office Math Markup Language (OMML). С помощью Aspose.Slides for Android via Java вы можете программно создавать такие же математические конструкции: дроби, радикалы, функции, пределы, N‑арные операторы, матрицы, массивы и отформатированные блоки математических формул.
+PowerPoint хранит формулы в виде Office Math Markup Language (OMML). С помощью Aspose.Slides for Android via Java вы можете программно создавать такой же математический контент: дроби, радикалы, функции, пределы, n‑арные операторы, матрицы, массивы и отформатированные блоки формул.
 
-В PowerPoint пользователи обычно добавляют уравнения через **Insert > Equation**:
+В PowerPoint пользователи обычно добавляют формулы через **Insert > Equation**:
 
 ![Вкладка Insert в PowerPoint с выбранной командой Equation](powerpoint-math-equations_1.png)
 
-Результат — редактируемый математический текст на слайде:
+Результат – редактируемый математический текст на слайде:
 
-![Слайд PowerPoint, содержащий редактируемое математическое уравнение](powerpoint-math-equations_2.png)
+![Слайд PowerPoint, содержащий редактируемую математическую формулу](powerpoint-math-equations_2.png)
 
-Aspose.Slides создает этот математический текст с помощью трех основных объектов:
+Aspose.Slides создаёт этот математический текст через три основных объекта:
 
-- Математическая фигура, созданная с помощью [addMathShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishapecollection/), — это фигура, содержащая уравнение.
-- [MathPortion](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mathportion/) хранит математическое содержимое внутри текстового кадра фигуры.
-- [MathParagraph](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mathparagraph/) содержит один или несколько объектов [MathBlock](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mathblock/).
+- Графический объект math shape, созданный с помощью [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/), — это объект, содержащий уравнение.
+- [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) хранит математическое содержимое внутри текстового фрейма фигуры.
+- [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) содержит один или несколько объектов [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/).
 
-Большинство примеров ниже используют [MathematicalText](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mathematicaltext/) и методы из [IMathElement](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/) для короткого и читабельного кода.
+Большинство примеров ниже используют [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) и цепочечные методы из [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) для краткости и читаемости кода.
 
-Для сценариев экспорта MathML см. [Export Math Equations from Presentations on Android](/slides/ru/androidjava/exporting-math-equations/).
+Для сценариев экспорта MathML см. [Экспорт математических уравнений из презентаций на Android](/slides/ru/androidjava/exporting-math-equations/).
 
-## **Создание уравнения**
+## **Создать уравнение**
 
-Этот пример создает математическую фигуру и добавляет теорему Пифагора:
+Этот пример использует [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) для создания math shape и добавляет теорему Пифагора:
 
-![Уравнение c² = a² + b²](powerpoint-math-equations_3.png)
+![Уравнение c в квадрате равно a в квадрате плюс b в квадрате](powerpoint-math-equations_3.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -72,17 +74,21 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-`addMathShape` создает фигуру, уже содержащую математический абзац. Получите первый `MathPortion`, возьмите его `MathParagraph` и добавьте в него математические блоки или элементы.
+{{% alert color="info" title="Примечание" %}}
+
+[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) создаёт фигуру, которая уже содержит math paragraph. Получите первый [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/), вызовите [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), и добавьте к нему математические блоки или элементы.
+
 {{% /alert %}}
 
-## **Добавление дробей**
+## **Добавить дроби**
 
-Для создания дроби используйте `divide`. Вы можете выбрать стиль дроби с помощью [MathFractionTypes](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mathfractiontypes/).
+Используйте [divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) для создания дроби. Вы можете выбрать стиль дроби с помощью [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/).
 
-![Наклоненная математическая дробь, показывающая 1 делённое на x](powerpoint-math-equations_4.png)
+![Наклонённая дробь в математике, показывающая один делённый на x](powerpoint-math-equations_4.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -102,19 +108,23 @@ try {
 }
 ```
 
-Для вертикальной (stacked) дроби используйте `MathFractionTypes.Bar`:
+Для сложенной (stacked) дроби используйте [MathFractionTypes.Bar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/#Bar):
 
 ```java
+import com.aspose.slides.*;
+
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Добавление радикалов**
+## **Добавить радикалы**
 
-Для создания квадратного корня, кубического корня или другого корня используйте `radical`. Текущий элемент становится основанием, а аргумент — степенью.
+Используйте [radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) для создания квадратного корня, кубического корня или другого корня. Текущий элемент становится основанием, а аргумент – степенью.
 
-![Выражение n‑го корня с x под радикалом](powerpoint-math-equations_5.png)
+![Выражение радикала n‑й корень с x под знаком радикала](powerpoint-math-equations_5.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -134,13 +144,15 @@ try {
 }
 ```
 
-## **Добавление функций и пределов**
+## **Добавить функции и пределы**
 
-Для функций, таких как `sin(x)`, `log(x)`, или пользовательских имен функций, используйте `asArgumentOfFunction` или `function`. Для пределов поместите `lim` в [MathLimit](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mathlimit/) или используйте `setLowerLimit`.
+Используйте [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) или [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) для функций типа `sin(x)`, `log(x)` или произвольных имён функций. Для пределов поместите `lim` в [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) или используйте [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-).
 
 ![Предел x при x стремящемся к бесконечности](powerpoint-math-equations_8.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -161,19 +173,23 @@ try {
 }
 ```
 
-Для пользовательского имени функции сделайте имя функции текущим элементом:
+Для произвольного имени функции сделайте имя функции текущим элементом и вызовите [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) с его аргументом:
 
 ```java
+import com.aspose.slides.*;
+
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **Добавление N‑арных операторов и интегралов**
+## **Добавить n‑арные операторы и интегралы**
 
-Для сумм, объединений, пересечений и других крупных операторов используйте `nary`. Для интегралов используйте `integral`. Оба метода позволяют задавать нижние и верхние пределы.
+Используйте [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) для сумм, объединений, пересечений и других больших операторов. Используйте [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) для интегралов. Оба метода позволяют задавать нижние и верхние пределы.
 
-![Сумма с нижними и верхними пределами](powerpoint-math-equations_7.png)
+![Суммирование с нижними и верхними пределами](powerpoint-math-equations_7.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -196,22 +212,26 @@ try {
 }
 ```
 
-N‑арные операторы предназначены для крупных операторов с опциональными пределами. Простые операторы такие как `+`, `-` и `=` обычно добавляются как `MathematicalText` и объединяются в выражение.
+n‑арные операторы предназначены для больших операторов с необязательными пределами. Простые операторы такие как `+`, `-` и `=` обычно добавляются как [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) и соединяются в выражение.
 
-Для интеграла используйте `integral`:
+Для интеграла используйте [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-):
 
 ```java
+import com.aspose.slides.*;
+
 IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("dx").toBox());
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Добавление матриц**
+## **Добавить матрицы**
 
-Для строк и столбцов используйте [MathMatrix](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mathmatrix/). По умолчанию матрицы не включают скобки, поэтому заключайте матрицу в скобки, квадратные скобки или фигурные скобки при необходимости.
+Используйте [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) для строк и столбцов. По умолчанию матрицы не включают скобки, поэтому оборачивайте матрицу скобками, если нужны круглые, квадратные или фигурные скобки.
 
-![Математическая матрица с двумя строками и одной пустой ячейкой](powerpoint-math-equations_10.png)
+![Матрица с двумя строками и одной пустой ячейкой](powerpoint-math-equations_10.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -235,13 +255,15 @@ try {
 }
 ```
 
-## **Добавление массивов уравнений**
+## **Добавить массивы уравнений**
 
-Используйте `toMathArray`, когда нужны выровненные уравнения или вертикальная стопка выражений.
+Используйте [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--) когда нужны выровненные уравнения или вертикальная стопка выражений.
 
 ![Вертикальный массив уравнений с x над y](powerpoint-math-equations_11.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -262,13 +284,15 @@ try {
 }
 ```
 
-## **Добавление тригонометрических функций**
+## **Добавить тригонометрические функции**
 
-Используйте `asArgumentOfFunction`, когда аргумент является текущим элементом, а имя функции известно.
+Используйте [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) когда аргумент – текущий элемент и имя функции известно.
 
 ![Тригонометрическая функция cos, применённая к 2x](powerpoint-math-equations_6.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -288,13 +312,15 @@ try {
 }
 ```
 
-## **Добавление индексов и степеней**
+## **Добавить нижние и верхние индексы**
 
-Используйте вспомогательные функции для нижних и верхних индексов. Когда индексы должны располагаться слева от основания, используйте `setSubSuperscriptOnTheLeft`.
+Используйте вспомогательные функции для нижних и верхних индексов. Когда индексы должны располагаться слева от основания, используйте [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-).
 
 ![Заглавная Y с левым индексом 1 и верхним индексом n](powerpoint-math-equations_9.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -314,13 +340,15 @@ try {
 }
 ```
 
-## **Добавление ограничителей**
+## **Добавить разделители**
 
-Используйте `enclose`, чтобы поместить выражение в ограничители. Также можно задать разделительный символ для выражений с несколькими элементами.
+Используйте [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) чтобы поместить выражение в разделители. Также можно задать символ‑разделитель для выражений, содержащих несколько элементов.
 
-![Выражение с ограничителями, содержащие x, y и z, разделённые вертикальными чертами](powerpoint-math-equations_13.png)
+![Выражение с разделителями, содержащими x, y и z, разделённые вертикальными чертами](powerpoint-math-equations_13.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -343,13 +371,52 @@ try {
 }
 ```
 
-## **Добавление рамки‑коробки**
+### **Размер и выравнивание разделителей**
 
-Используйте `toBorderBox`, когда уравнение должно быть заключено в рамку.
+Передайте `true` в [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) – скобки будут увеличиваться вокруг высокого операнда, либо `false` – оставят их обычного размера. Используйте [setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) с одним из двух значений [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/). `Centered` центрирует скобки по математической оси, проходящей через середину знака «=». `Match` выравнивает их по содержимому. Оба параметра влияют только на разделители; внутреннее выражение остаётся без изменений.
 
-![Уравнение в рамке, показывающее a² = b² + c²](powerpoint-math-equations_12.png)
+В примере дробь помещена в показатель степени `x`, поэтому выражение выходит выше базовой линии сильнее, чем ниже. Все четыре уравнения используют одинаковые скобки и настройки шрифта.
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    for (int row = 0; row < 2; row++) {
+        for (int column = 0; column < 2; column++) {
+            IMathFraction fraction = new MathematicalText("a + b").divide("c + d");
+            IMathSuperscriptElement power = new MathematicalText("x").setSuperscript(fraction);
+            IMathDelimiter delimiter = power.enclose('(', ')');
+            delimiter.setGrowToMatchOperandHeight(row == 0);
+            delimiter.setDelimiterShape(column == 0 ? MathDelimiterShape.Centered : MathDelimiterShape.Match);
+
+            IAutoShape mathShape = slide.getShapes().addMathShape(20 + 330 * column, 20 + 120 * row, 300, 100);
+            MathPortion portion = (MathPortion) mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+            portion.getPortionFormat().setFontHeight(32);
+            IMathBlock equation = new MathematicalText("y = ").join(delimiter);
+            portion.getMathParagraph().add(equation);
+        }
+    }
+    presentation.save("delimiter-sizing.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+В PowerPoint сравните строки, чтобы увидеть эффект роста. В верхней строке скобки растут, охватывая показатель, и выглядят одинаково для обеих фигур. В нижней строке рост отключён. Меньшие скобки слева (`Centered`) выравниваются со знаком «=», а правые (`Match`) располагаются выше вокруг выражения.
+
+![Четыре уравнения в PowerPoint с включённым ростом разделителей сверху и выключенным снизу, `Centered` слева и `Match` справа](delimiter-sizing.png)
+
+## **Добавить рамку**
+
+Используйте [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) когда уравнение должно быть обрамлено.
+
+![Уравнение в рамке, показывающее a в квадрате равно b в квадрате плюс c в квадрате](powerpoint-math-equations_12.png)
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -374,13 +441,15 @@ try {
 }
 ```
 
-## **Группировка терминов**
+## **Группировать термы**
 
-Используйте `group`, чтобы разместить группирующий символ над или под выражением. Добавьте предел, чтобы пометить сгруппированные термины.
+Используйте [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) чтобы разместить символ группировки над или под выражением. Добавьте предел, чтобы подписать сгруппированные термы.
 
-![Выражение x + y, сгруппированное с подписью любой текст под ним](powerpoint-math-equations_15.png)
+![Выражение x + y, сгруппированное с подписью любой текст ниже](powerpoint-math-equations_15.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -401,13 +470,15 @@ try {
 }
 ```
 
-## **Форматирование математических элементов**
+## **Форматировать элементы формул**
 
-Используйте вспомогательные функции форматирования только там, где они делают формулу более понятной. Например, `overbar` помещает черту над элементом.
+Используйте вспомогательные функции форматирования только там, где они проясняют формулу. Например, [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) помещает черту над элементом формулы.
 
 ![Математическое выражение ABC с надчеркиванием](powerpoint-math-equations_14.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -426,35 +497,92 @@ try {
 }
 ```
 
-## **Быстрый справочник**
+### **Форматировать текст в существующей формуле**
+
+Чтобы отформатировать текст по всей существующей формуле, пройдите дерево элементов каждого math block. [IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) возвращает только непосредственных детей, поэтому вызывайте его рекурсивно, чтобы добраться до текста внутри дробей, скриптов, радикалов и других вложенных структур. Проверяйте текущий элемент и его детей, включая начальный элемент, если он является [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/).
+
+В этом примере предполагается, что `input.pptx` содержит уравнение вроде `z = xᵢ / ∛y`, где дробь имеет нижний индекс в числителе и радикал в знаменателе. Обработка только верхнего уровня блоков пропустила бы текст внутри дроби. Пример ищет математические части в текстовых фреймах слайдов, получает их блоки через [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), и использует [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) для установки размера шрифта 28 пт через метод [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--) каждого текстового элемента.
+
+```java
+import com.aspose.slides.*;
+
+class MathTextFormatter {
+    void formatMathText(IMathElement element) {
+        if (element instanceof MathematicalText) {
+            MathematicalText text = (MathematicalText) element;
+            text.getFormat().setFontHeight(28);
+        }
+
+        for (IMathElement child : element.getChildren()) {
+            formatMathText(child);
+        }
+    }
+}
+
+MathTextFormatter formatter = new MathTextFormatter();
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    if (portion instanceof IMathPortion) {
+                        IMathPortion mathPortion = (IMathPortion) portion;
+                        for (IMathBlock block : mathPortion.getMathParagraph()) {
+                            formatter.formatMathText(block);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    presentation.save("formatted-equations.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Сохранённая презентация содержит обновлённое форматирование текста на каждом уровне каждой обработанной формулы, при этом сохраняет её текстовое содержание и математическую структуру.
+
+## **Быстрая справка**
 
 | Задача | Основной API |
 | --- | --- |
-| Создание математического текста | [MathematicalText](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mathematicaltext/) |
-| Объединение элементов | [IMathElement.join](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/) |
-| Создание дробей | [IMathElement.divide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/) |
-| Добавление верхнего или нижнего индекса | [setSuperscript](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/) |
-| Добавление функций | [function](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/) |
-| Добавление радикалов | [IMathElement.radical](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/) |
-| Добавление пределов | [setLowerLimit](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/) |
-| Добавление индексов слева | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/) |
-| Добавление сумм и интегралов | [nary](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/) |
-| Добавление матриц | [MathMatrix](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mathmatrix/) |
-| Добавление массивов уравнений | [toMathArray](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/) |
-| Добавление ограничителей | [enclose](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/) |
-| Добавление черт и рамок | [overbar](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/) |
-| Группировка терминов | [group](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathelement/) |
+| Создать математический текст | [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) |
+| Объединить элементы | [IMathElement.join](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Создать дроби | [IMathElement.divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Добавить верхний или нижний индекс | [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Добавить функции | [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Добавить радикалы | [IMathElement.radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Добавить пределы | [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Добавить скрипты слева | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Добавить суммирования и интегралы | [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Добавить матрицы | [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) |
+| Добавить массивы уравнений | [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Добавить разделители | [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Добавить черты и рамки | [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Группировать термы | [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 
-## **Часто задаваемые вопросы**
+## **ЧАВО**
 
-**Можно ли отредактировать существующее уравнение PowerPoint?**
+**Можно ли редактировать существующую формулу PowerPoint?**
 
-Да. Откройте презентацию, найдите фигуру, содержащую `MathPortion`, получите её `MathParagraph` и обновите математические блоки в этом абзаце.
+Да. Откройте презентацию, найдите фигуру, содержащую [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/), вызовите [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), и обновите математические блоки в этом абзаце.
 
-**Сохраняются ли уравнения как редактируемая математическая часть PowerPoint?**
+**Сохраняются ли формулы как редактируемая математика PowerPoint?**
 
-Да. При сохранении в PPTX Aspose.Slides записывает уравнение как редактируемое содержимое Office Math.
+Да. При сохранении в PPTX Aspose.Slides записывает уравнение как редактируемый Office‑math контент.
 
-**Могу ли я экспортировать уравнения в LaTeX?**
+**Можно ли экспортировать формулы в LaTeX?**
 
-Да. Получите [IMathParagraph](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathparagraph/) уравнения из его [IMathPortion](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathportion/), вызовите [IMathParagraph.toLatex](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imathparagraph/#toLatex--) для прямого экспорта. Полный пример смотрите в [Export Math Equations from Presentations in Android via Java](/slides/ru/androidjava/exporting-math-equations/#export-math-equations-to-latex).
+Да. Получите [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) из его [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/), и вызовите [IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) для прямого экспорта. Полный пример см. в статье [Экспорт математических уравнений из презентаций в Android via Java](/slides/ru/androidjava/exporting-math-equations/#export-math-equations-to-latex).
