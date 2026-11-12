@@ -1,6 +1,6 @@
 ---
-title: Thêm Các Phương Trình Toán Học vào Bản Trình Chiếu PowerPoint trong JavaScript
-linktitle: Phương Trình Toán Học PowerPoint
+title: Thêm Phương trình Toán học vào Bản trình chiếu PowerPoint trong JavaScript
+linktitle: Phương trình Toán học PowerPoint
 type: docs
 weight: 80
 url: /vi/nodejs-java/powerpoint-math-equations/
@@ -18,33 +18,33 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Chèn và chỉnh sửa các phương trình toán học trong PowerPoint PPT và PPTX bằng Aspose.Slides cho Node.js qua Java, hỗ trợ OMML, các điều khiển định dạng, và các mẫu mã JavaScript rõ ràng."
+description: "Chèn và chỉnh sửa các phương trình toán học trong PowerPoint PPT và PPTX bằng Aspose.Slides cho Node.js qua Java, hỗ trợ OMML, điều khiển định dạng và các mẫu mã JavaScript rõ ràng."
 ---
 ## **Tổng quan**
 
-PowerPoint lưu trữ các phương trình dưới dạng Office Math Markup Language (OMML). Với Aspose.Slides cho Node.js qua Java, bạn có thể tạo cùng loại nội dung toán học một cách lập trình: phân số, căn bậc, hàm, giới hạn, N-ary operators, matrices, arrays và formatted math blocks.
+PowerPoint lưu các phương trình dưới dạng Office Math Markup Language (OMML). Với Aspose.Slides cho Node.js thông qua Java, bạn có thể tạo các nội dung toán học giống nhau một cách lập trình: phân số, căn bậc, hàm, giới hạn, N-ary operators, ma trận, mảng và các khối toán học được định dạng.
 
 Trong PowerPoint, người dùng thường thêm phương trình từ **Insert > Equation**:
 
-![Tab Chèn của PowerPoint với lệnh Phương trình đã được chọn](powerpoint-math-equations_1.png)
+![Tab Insert trong PowerPoint với lệnh Equation được chọn](powerpoint-math-equations_1.png)
 
 Kết quả là văn bản toán học có thể chỉnh sửa trên slide:
 
-![Slide PowerPoint chứa một phương trình toán học có thể chỉnh sửa](powerpoint-math-equations_2.png)
+![Một slide PowerPoint chứa một phương trình toán học có thể chỉnh sửa](powerpoint-math-equations_2.png)
 
-Aspose.Slides xây dựng văn bản toán học đó qua ba đối tượng chính:
+Aspose.Slides tạo văn bản toán học đó thông qua ba đối tượng chính:
 
-- Một math shape, được tạo bằng [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape), là shape chứa phương trình.
-- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) lưu trữ nội dung toán học bên trong khung văn bản của shape.
-- [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) chứa một hoặc nhiều đối tượng [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/).
+- Một hình dạng toán học, được tạo bằng [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape), là hình dạng chứa phương trình.
+- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) lưu trữ nội dung toán học bên trong khung văn bản của hình dạng.
+- [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) chứa một hoặc nhiều đối tượng [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/) .
 
-Hầu hết các ví dụ dưới đây sử dụng [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) và các phương thức fluent từ [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) để giữ mã ngắn gọn và dễ đọc.
+Hầu hết các ví dụ dưới đây sử dụng [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) và các phương thức linh hoạt từ [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) để giữ mã ngắn gọn và dễ đọc.
 
-Đối với các kịch bản xuất MathML, xem [Xuất các Phương trình Toán học từ Bản trình chiếu trong Node.js qua Java](/slides/vi/nodejs-java/exporting-math-equations/).
+Đối với các kịch bản xuất MathML, xem [Xuất các phương trình toán học từ bản trình chiếu trong Node.js qua Java](/slides/vi/nodejs-java/exporting-math-equations/).
 
 ## **Tạo một Phương trình**
 
-Ví dụ này sử dụng [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) để tạo một math shape và thêm định lý Pythagoras:
+Ví dụ này sử dụng [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) để tạo một hình dạng toán học và thêm định lý Pythagoras:
 
 ![Phương trình c bình phương bằng a bình phương cộng b bình phương](powerpoint-math-equations_3.png)
 
@@ -76,12 +76,12 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) tạo một shape đã chứa sẵn một đoạn toán học. Truy cập [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) đầu tiên, gọi [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), và thêm các khối toán học hoặc các phần tử toán học vào đó.
+[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) tạo một hình dạng đã chứa một đoạn toán học. Truy cập [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) đầu tiên, gọi [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), và thêm các khối toán học hoặc các phần tử toán học vào đó.
 {{% /alert %}}
 
 ## **Thêm Phân số**
 
-Sử dụng [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#divide) để tạo một phân số. Bạn có thể chọn kiểu phân số với [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/).
+Sử dụng [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#divide) để tạo một phân số. Bạn có thể chọn kiểu phân số bằng [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/).
 
 ![Một phân số toán học nghiêng hiển thị một chia cho x](powerpoint-math-equations_4.png)
 
@@ -119,9 +119,9 @@ let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1"
 
 ## **Thêm Căn bậc**
 
-Sử dụng [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical) để tạo căn bậc hai, căn bậc ba hoặc căn bậc khác. Phần tử hiện tại trở thành cơ sở, và đối số trở thành bậc.
+Sử dụng [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical) để tạo căn bậc hai, căn bậc ba hoặc các căn khác. Phần tử hiện tại trở thành cơ sở, và đối số trở thành bậc.
 
-![Biểu thức căn bậc n với x ở dưới dấu căn](powerpoint-math-equations_5.png)
+![Một biểu thức căn bậc n với x dưới dấu căn](powerpoint-math-equations_5.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -150,7 +150,7 @@ try {
 
 Sử dụng [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) hoặc [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) cho các hàm như `sin(x)`, `log(x)`, hoặc tên hàm tùy chỉnh. Đối với giới hạn, đặt `lim` trong một [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/) hoặc sử dụng [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit).
 
-![Giới hạn của x khi x tiến tới vô hạn](powerpoint-math-equations_8.png)
+![Giới hạn của x khi x tiến tới vô cùng](powerpoint-math-equations_8.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -176,7 +176,7 @@ try {
 }
 ```
 
-Đối với tên hàm tùy chỉnh, hãy làm cho tên hàm là phần tử hiện tại và gọi [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) với đối số của nó:
+Đối với tên hàm tùy chỉnh, đặt tên hàm làm phần tử hiện tại và gọi [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) với đối số của nó:
 
 ```javascript
 var aspose = aspose || {};
@@ -187,9 +187,9 @@ let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
 
 ## **Thêm Toán tử N-ary và Tích phân**
 
-Sử dụng [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) cho các tổng, hợp, giao và các toán tử lớn khác. Sử dụng [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) cho tích phân. Cả hai phương thức đều cho phép đặt giới hạn dưới và trên.
+Sử dụng [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) cho tổng, hợp, giao và các toán tử lớn khác. Sử dụng [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) cho tích phân. Cả hai phương thức đều cho phép bạn đặt giới hạn dưới và trên.
 
-![Một tổng với giới hạn dưới và trên](powerpoint-math-equations_7.png)
+![Một phép cộng với giới hạn dưới và trên](powerpoint-math-equations_7.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -217,7 +217,7 @@ try {
 }
 ```
 
-Toán tử N-ary dùng cho các toán tử lớn có giới hạn tùy chọn. Các toán tử đơn giản như `+`, `-`, và `=` thường được thêm dưới dạng [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) và nối vào biểu thức.
+Các toán tử N-ary dùng cho các toán tử lớn có tùy chọn giới hạn. Các toán tử đơn giản như `+`, `-` và `=` thường được thêm dưới dạng [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) và nối vào biểu thức.
 
 Đối với tích phân, sử dụng [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral):
 
@@ -231,9 +231,9 @@ let integral = integralBase.integral(aspose.slides.MathIntegralTypes.Simple, "0"
 
 ## **Thêm Ma trận**
 
-Sử dụng [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) cho các hàng và cột. Ma trận không bao gồm ngoặc theo mặc định, vì vậy bao quanh ma trận khi bạn cần dấu ngoặc tròn, ngoặc vuông hoặc ngoặc nhọn.
+Sử dụng [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) cho các hàng và cột. Ma trận không bao gồm dấu ngoặc theo mặc định, vì vậy hãy bao quanh ma trận khi bạn cần dấu ngoặc tròn, dấu ngoặc vuông hoặc dấu ngoặc nhọn.
 
-![Ma trận toán học hai hàng với một ô trống](powerpoint-math-equations_10.png)
+![Một ma trận toán học hai hàng với một ô trống](powerpoint-math-equations_10.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -266,7 +266,7 @@ try {
 
 Sử dụng [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toMathArray) khi bạn cần các phương trình căn chỉnh hoặc một chồng dọc các biểu thức.
 
-![Mảng toán học dọc với x trên y](powerpoint-math-equations_11.png)
+![Một mảng toán học dọc với x ở trên y](powerpoint-math-equations_11.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -292,11 +292,127 @@ try {
 }
 ```
 
+### **Căn chỉnh Mảng với Các Thành phần Xung quanh**
+
+[setBaseJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setBaseJustification) kiểm soát việc căn chỉnh dọc của một mảng so với các phần tử toán học bên cạnh nó. Ví dụ dưới đây so sánh việc căn chỉnh với hàng đầu tiên, trung tâm của mảng và hàng cuối cùng.
+
+Ví dụ tạo ba mảng giống nhau, mỗi mảng có ba hàng và các phần tử lân cận `A=` và `=B`. Tất cả văn bản toán học sử dụng Cambria Math cỡ 24 điểm. Chỉ có việc căn chỉnh mảng được thay đổi.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function createText(value) {
+    const text = new slides.MathematicalText(value);
+    text.getFormat().setFontHeight(24);
+    text.getFormat().setLatinFont(new slides.FontData("Cambria Math"));
+    return text;
+}
+
+const presentation = new slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(780, 200, slides.SlideSizeScaleType.DoNotScale);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const alignments = [slides.MathVerticalAlignment.Top, slides.MathVerticalAlignment.Center, slides.MathVerticalAlignment.Bottom];
+    const alignmentNames = ["Top", "Center", "Bottom"];
+
+    for (let i = 0; i < alignments.length; i++) {
+        const label = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 20 + i * 260, 10, 240, 30);
+        label.getFillFormat().setFillType(java.newByte(slides.FillType.NoFill));
+        label.getLineFormat().getFillFormat().setFillType(java.newByte(slides.FillType.NoFill));
+        label.getTextFrame().setText(alignmentNames[i]);
+        const labelFormat = label.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        labelFormat.setFontHeight(16);
+        labelFormat.getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+        labelFormat.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+
+        const mathShape = slide.getShapes().addMathShape(20 + i * 260, 60, 240, 130);
+        mathShape.getTextFrame().getTextFrameFormat().setAnchoringType(java.newByte(slides.TextAnchorType.Top));
+        const mathParagraph = mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getMathParagraph();
+        mathParagraph.setJustification(slides.MathJustification.LeftJustified);
+
+        const rows = [createText("x+y=3"), createText("x-y=1"), createText("x=2")];
+        const equationArray = new slides.MathArray(rows[0]);
+        equationArray.getArguments().add(rows[1]);
+        equationArray.getArguments().add(rows[2]);
+        equationArray.setBaseJustification(alignments[i]);
+        const leftText = createText("A=");
+        const rightText = createText("=B");
+        const equation = new slides.MathBlock(leftText).join(equationArray).join(rightText);
+        mathParagraph.add(equation);
+    }
+
+    presentation.save("equation-array-alignment.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+So sánh sau đây hiển thị bản trình chiếu đã lưu trong PowerPoint. Lưu ý vị trí của `A=` và `=B` bên cạnh mỗi mảng.
+
+![Các mảng phương trình trong PowerPoint với căn chỉnh Trên, Trung và Dưới và các phần tử lân cận giống nhau](equation-array-alignment.png)
+
+### **Cấu hình Khoảng cách Giữa các Hàng**
+
+[setRowSpacingRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacingRule) chọn quy tắc khoảng cách cho các hàng trong mảng. [setRowSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacing) cung cấp giá trị số cho một quy tắc khoảng cách cụ thể và sẽ bị bỏ qua bởi các quy tắc mặc định.
+
+Đối với khoảng cách chính xác, giá trị được đo bằng điểm. Đối với khoảng cách tỷ lệ, nó được đo bằng nửa dòng: giá trị `3` trong ví dụ tương đương 1.5 dòng. Đặt cả hai thuộc tính khi chỉ định giá trị cụ thể; việc thay đổi chỉ giá trị số không chọn quy tắc khoảng cách.
+
+Ví dụ dưới đây lưu năm bản trình chiếu với cùng các phương trình, căn chỉnh và cài đặt phông chữ. Ba bản đầu tiên dùng các cài đặt sẵn; hai bản cuối cùng hiển thị các giá trị cụ thể.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function createText(value) {
+    const text = new slides.MathematicalText(value);
+    text.getFormat().setFontHeight(24);
+    text.getFormat().setLatinFont(new slides.FontData("Cambria Math"));
+    return text;
+}
+
+const rules = [slides.MathRowSpacingRule.SingleLineGap, slides.MathRowSpacingRule.OneAndAHalfLineGap, slides.MathRowSpacingRule.TwoLineGap, slides.MathRowSpacingRule.Exactly, slides.MathRowSpacingRule.Multiple];
+const spacingValues = [0, 0, 0, 20, 3];
+const ruleNames = ["SingleLineGap", "OneAndAHalfLineGap", "TwoLineGap", "Exactly", "Multiple"];
+
+for (let i = 0; i < rules.length; i++) {
+    const fileName = "equation-array-" + ruleNames[i] + ".pptx";
+    const presentation = new slides.Presentation();
+    try {
+        const mathShape = presentation.getSlides().get_Item(0).getShapes().addMathShape(20, 20, 600, 300);
+        const paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
+        paragraph.getParagraphFormat().setSpaceBefore(0);
+        paragraph.getParagraphFormat().setSpaceAfter(0);
+        const mathParagraph = paragraph.getPortions().get_Item(0).getMathParagraph();
+        mathParagraph.setJustification(slides.MathJustification.LeftJustified);
+
+        const rows = [createText("x+y=3"), createText("x-y=1"), createText("x=2")];
+        const equationArray = new slides.MathArray(rows[0]);
+        equationArray.getArguments().add(rows[1]);
+        equationArray.getArguments().add(rows[2]);
+        equationArray.setBaseJustification(slides.MathVerticalAlignment.Center);
+        equationArray.setRowSpacingRule(rules[i]);
+        equationArray.setRowSpacing(java.newLong(spacingValues[i]));
+        const leftText = createText("A=");
+        const rightText = createText("=B");
+        const equation = new slides.MathBlock(leftText).join(equationArray).join(rightText);
+        mathParagraph.add(equation);
+
+        presentation.save(fileName, slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+Khoảng cách giữa các hàng của mảng tách biệt với khoảng cách đoạn văn. [setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) và [setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter) thêm khoảng cách quanh đoạn chứa, không phải giữa các hàng của mảng. Tương tự, [MathParagraph.setJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#setJustification) định vị toàn bộ đoạn toán học theo chiều ngang; nó không thay thế cài đặt căn dọc của mảng.
+
 ## **Thêm Hàm lượng giác**
 
 Sử dụng [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) khi đối số là phần tử hiện tại và tên hàm đã biết.
 
-![Hàm lượng giác cos áp dụng cho 2x](powerpoint-math-equations_6.png)
+![Hàm lượng giác cos áp dụng lên 2x](powerpoint-math-equations_6.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -323,9 +439,9 @@ try {
 
 ## **Thêm Chỉ số và Chỉ số trên**
 
-Sử dụng các trợ giúp subscript và superscript cho chỉ mục và lũy thừa. Khi các chỉ mục phải xuất hiện bên trái của cơ sở, sử dụng [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
+Sử dụng các công cụ phụ trợ chỉ số dưới và chỉ số trên cho các chỉ mục và lũy thừa. Khi các chỉ mục phải xuất hiện phía trái của cơ sở, sử dụng [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
-![Chữ Y in hoa với chỉ số dưới phía trái 1 và chỉ số trên n](powerpoint-math-equations_9.png)
+![Chữ Y in hoa với chỉ số dưới bên trái là 1 và chỉ số trên là n](powerpoint-math-equations_9.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -352,9 +468,9 @@ try {
 
 ## **Thêm Dấu phân cách**
 
-Sử dụng [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose) để đặt một biểu thức bên trong dấu phân cách. Bạn cũng có thể đặt ký tự phân tách cho các biểu thức dấu phân cách chứa nhiều phần tử.
+Sử dụng [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose) để đặt một biểu thức bên trong dấu phân cách. Bạn cũng có thể đặt ký tự ngăn cách cho các biểu thức có nhiều phần tử.
 
-![Một biểu thức dấu phân cách chứa x, y và z được phân tách bằng các dấu gạch đứng](powerpoint-math-equations_13.png)
+![Một biểu thức dấu phân cách chứa x, y và z được ngăn cách bằng các thanh dọc](powerpoint-math-equations_13.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -385,9 +501,9 @@ try {
 
 ### **Kích thước và Căn chỉnh Dấu phân cách**
 
-Gửi `true` đến [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) để cho phép ngoặc mở rộng quanh một toán hạng cao, hoặc gửi `false` để giữ nguyên kích thước bình thường. Sử dụng [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape) với một trong hai giá trị [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/). `Centered` căn giữa ngoặc trên trục toán học, trục chạy qua giữa dấu bằng. `Match` căn chúng với nội dung bao quanh. Cả hai cài đặt chỉ ảnh hưởng tới dấu phân cách. Biểu thức bên trong vẫn giữ nguyên.
+Gửi `true` tới [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) để cho dấu ngoặc mở rộng quanh một toán hạng cao, hoặc gửi `false` để giữ chúng ở kích thước bình thường. Sử dụng [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape) với một trong hai giá trị của [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/). `Centered` căn giữa dấu ngoặc trên trục toán học, trục này chạy qua giữa dấu bằng. `Match` căn chúng với nội dung được bao quanh. Cả hai cài đặt chỉ ảnh hưởng đến dấu phân cách. Biểu thức bên trong vẫn giữ nguyên.
 
-Ví dụ đặt một phân số trong lũy thừa của `x` để biểu thức mở rộng cao hơn so với baseline. Bốn phương trình đều sử dụng cùng một dấu ngoặc và cài đặt phông.
+Ví dụ đặt một phân số trong số mũ của `x` để biểu thức mở rộng lên trên đường cơ sở hơn so với dưới. Bốn phương trình đều sử dụng cùng dấu ngoặc và cài đặt phông chữ.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -417,15 +533,15 @@ try {
 }
 ```
 
-Trong PowerPoint, so sánh các hàng để thấy hiệu ứng mở rộng. Ở hàng trên, ngoặc mở rộng để bao quanh lũy thừa và trông giống nhau cho cả hai shape. Ở hàng dưới, tính năng mở rộng tắt. Các ngoặc nhỏ hơn phía trái (`Centered`) căn với dấu bằng, trong khi phía phải (`Match`) nằm cao hơn quanh biểu thức.
+Trong PowerPoint, so sánh các hàng để thấy hiệu ứng mở rộng. Trong hàng trên, dấu ngoặc mở rộng để bao quanh số mũ và trông giống nhau cho cả hai dạng. Trong hàng dưới, tính năng mở rộng bị tắt. Dấu ngoặc nhỏ hơn ở bên trái (`Centered`) căn với dấu bằng, trong khi ở bên phải (`Match`) nằm cao hơn quanh biểu thức.
 
-![Bốn phương trình trong PowerPoint với việc mở rộng dấu phân cách được bật ở trên và tắt ở dưới, và Centered ở phía trái và Match ở phía phải](delimiter-sizing.png)
+![Bốn phương trình trong PowerPoint với dấu phân cách mở rộng bật ở trên và tắt ở dưới, và Centered bên trái, Match bên phải](delimiter-sizing.png)
 
 ## **Thêm Khung Viền**
 
-Gọi [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox) trên một phân số để khung toàn bộ biểu thức. [MathBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/) trả về sẽ hiển thị bốn mặt theo mặc định. Sử dụng [setHideTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideLeft) và [setHideRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideRight) để loại bỏ các mặt riêng lẻ.
+Gọi [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox) trên một phân số để đóng khung toàn bộ biểu thức. [MathBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/) trả về hiển thị bốn phía theo mặc định. Sử dụng [setHideTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideLeft), và [setHideRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideRight) để loại bỏ các phía riêng lẻ.
 
-Ví dụ đặt sáu bản sao của cùng một phân số trên một slide. Để hiển thị việc hủy, ẩn bốn mặt và gửi `true` tới [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) cho đường chéo lên (↗) hoặc [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) cho đường chéo xuống (↘). Bạn cũng có thể dùng [setStrikethroughHorizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) hoặc [setStrikethroughVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughVertical) với bất kỳ tổ hợp nào của các mặt hiển thị.
+Ví dụ đặt sáu bản sao của cùng một phân số trên một slide. Để hiển thị việc gạch bỏ, ẩn bốn phía và gửi `true` tới [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) cho đường chéo lên (↗) hoặc [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) cho đường chéo xuống (↘). Bạn cũng có thể sử dụng [setStrikethroughHorizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) hoặc [setStrikethroughVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughVertical) với bất kỳ kết hợp nào của các phía hiển thị.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -468,15 +584,15 @@ try {
 }
 ```
 
-![Sáu phân số có thể chỉnh sửa trong PowerPoint. Hàng trên: viền đầy đủ, mặt dưới và trái, đường chéo lên. Hàng dưới: đường chéo xuống, gạch ngang, gạch dọc với viền đầy đủ.](border-box-fractions.png)
+![Sáu phân số có thể chỉnh sửa trong PowerPoint. Hàng trên: viền đầy đủ, phía dưới và trái, đường chéo lên. Hàng dưới: đường chéo xuống, gạch ngang, gạch dọc với viền đầy đủ](border-box-fractions.png)
 
-Trong phân số này, gạch ngang chồng lên thanh phân số. Gạch dọc cắt cả tử và mẫu trong khi khung bao quanh vẫn hiển thị. Các đường này trang trí toàn bộ biểu thức. Gạch ngang thông thường áp dụng cho các ký tự trong một đoạn văn bản. Sau khi mở lại bản trình chiếu trong PowerPoint, bạn vẫn có thể chỉnh sửa tử và mẫu độc lập.
+Trong phân số này, gạch ngang chồng lên thanh phân số. Gạch dọc cắt cả tử và mẫu trong khi viền xung quanh vẫn hiển thị. Các đường này trang trí toàn bộ biểu thức. Gạch ngang văn bản thông thường áp dụng cho các ký tự trong một đoạn văn bản. Sau khi mở lại bản trình chiếu trong PowerPoint, bạn vẫn có thể chỉnh sửa tử và mẫu một cách độc lập.
 
-## **Nhóm Các Thuật Ngữ**
+## **Nhóm Các Thành phần**
 
-Sử dụng [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group) để đặt ký tự nhóm phía trên hoặc dưới một biểu thức. Thêm giới hạn để gắn nhãn cho các thuật ngữ đã nhóm.
+Sử dụng [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group) để đặt ký tự nhóm phía trên hoặc dưới một biểu thức. Thêm giới hạn để gắn nhãn cho các thành phần đã nhóm.
 
-![Biểu thức x cộng y được nhóm với nhãn bất kỳ văn bản nào phía dưới](powerpoint-math-equations_15.png)
+![Biểu thức x cộng y được nhóm với nhãn bất kỳ văn bản nào bên dưới](powerpoint-math-equations_15.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -503,11 +619,11 @@ try {
 }
 ```
 
-## **Định dạng Các Phần tử Toán học**
+## **Định dạng Các Thành phần Toán học**
 
-Sử dụng các trợ giúp định dạng chỉ khi chúng làm rõ công thức. Ví dụ, [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) đặt một thanh trên một phần tử toán học.
+Chỉ sử dụng các công cụ định dạng khi chúng làm rõ công thức. Ví dụ, [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) đặt một thanh phía trên một thành phần toán học.
 
-![Biểu thức toán học ABC với một thanh trên](powerpoint-math-equations_14.png)
+![Một biểu thức toán học ABC với thanh trên](powerpoint-math-equations_14.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -531,11 +647,11 @@ try {
 }
 ```
 
-### **Định dạng Văn bản trong Phương trình Đã Tồn tại**
+### **Định dạng Văn bản trong Một Phương trình Đã Có**
 
-Để định dạng văn bản trên toàn bộ một phương trình hiện có, duyệt cây phần tử của mỗi khối toán học. [MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren) trả về chỉ các con trực tiếp, vì vậy gọi đệ quy để tiếp cận văn bản trong phân số, script, radical và các cấu trúc lồng nhau khác. Kiểm tra phần tử hiện tại cũng như các con của nó để bao gồm phần tử bắt đầu khi nó là [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/).
+Để định dạng văn bản trong toàn bộ một phương trình đã tồn tại, duyệt cây phần tử của mỗi khối toán. [MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren) chỉ trả về các con trực tiếp, vì vậy gọi nó đệ quy để tiếp cận văn bản bên trong phân số, chỉ số, căn bậc và các cấu trúc lồng nhau khác. Kiểm tra phần tử hiện tại cũng như các con của nó để bao gồm phần tử bắt đầu khi nó là [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/).
 
-Ví dụ này giả sử `input.pptx` chứa một phương trình như `z = xᵢ / ∛y`, với một phân số chứa chỉ số dưới trong tử và một radical trong mẫu. Xử lý chỉ các phần tử cấp cao nhất của khối sẽ bỏ lỡ văn bản bên trong phân số. Ví dụ tìm các MathPortion trong các khung văn bản slide, truy cập các khối qua [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), và sử dụng [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) để đặt kích thước phông 28 điểm thông qua phương thức [getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat) của mỗi phần tử văn bản.
+Ví dụ này giả định rằng `input.pptx` chứa một phương trình như `z = xᵢ / ∛y`, với một phân số có chỉ số dưới ở tử và một căn bậc ở mẫu. Chỉ xử lý các phần tử cấp cao nhất của khối sẽ bỏ qua văn bản bên trong phân số. Ví dụ tìm các phần toán học trong khung văn bản slide, truy cập các khối qua [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), và sử dụng [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) để đặt kích thước phông chữ là 28 điểm qua phương pháp [getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat) của mỗi phần tử văn bản.
 
 ```javascript
 var aspose = aspose || {};
@@ -589,37 +705,37 @@ try {
 }
 ```
 
-Bản trình chiếu đã lưu chứa định dạng văn bản cập nhật ở mọi mức của mỗi phương trình đã xử lý, đồng thời bảo tồn nội dung văn bản và cấu trúc toán học.
+Bản trình chiếu đã lưu chứa định dạng văn bản đã cập nhật ở mọi cấp độ của mỗi phương trình đã xử lý, đồng thời giữ nguyên nội dung văn bản và cấu trúc toán học.
 
-## **Tham chiếu Nhanh**
+## **Tham chiếu nhanh**
 
-| Nhiệm vụ | API Chính |
+| Nhiệm vụ | API chính |
 | --- | --- |
 | Tạo văn bản toán học | [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) |
-| Kết hợp các phần tử | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Kết hợp các thành phần | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Tạo phân số | [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Thêm chỉ số trên hoặc chỉ số dưới | [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Thêm hàm | [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Thêm căn bậc | [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Thêm giới hạn | [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Thêm chỉ số bên trái | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Thêm chỉ số phía trái | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Thêm tổng và tích phân | [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Thêm ma trận | [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) |
 | Thêm mảng phương trình | [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Thêm dấu phân cách | [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Thêm thanh và viền | [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Nhóm các thuật ngữ | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Nhóm các thành phần | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể chỉnh sửa một phương trình PowerPoint hiện có không?**
+**Có thể chỉnh sửa một phương trình PowerPoint hiện có không?**
 
-Có. Mở bản trình chiếu, tìm shape chứa một [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), gọi [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), và cập nhật các khối toán học trong đoạn văn đó.
+Có. Mở bản trình chiếu, tìm hình dạng chứa một [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), gọi [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), và cập nhật các khối toán trong đoạn đó.
 
 **Các phương trình có được lưu dưới dạng toán học PowerPoint có thể chỉnh sửa không?**
 
-Có. Khi lưu thành PPTX, Aspose.Slides ghi phương trình dưới dạng nội dung Office Math có thể chỉnh sửa.
+Có. Khi bạn lưu thành PPTX, Aspose.Slides ghi phương trình dưới dạng nội dung toán học Office có thể chỉnh sửa.
 
-**Tôi có thể xuất các phương trình sang LaTeX không?**
+**Có thể xuất các phương trình ra LaTeX không?**
 
-Có. Lấy [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) của [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), và gọi [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex) để xuất trực tiếp. Đối với một ví dụ đầy đủ, xem [Xuất các Phương trình Toán học từ Bản trình chiếu trong Node.js qua Java](/slides/vi/nodejs-java/exporting-math-equations/#export-math-equations-to-latex).
+Có. Lấy [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) của phương trình từ [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), và gọi [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex) để xuất trực tiếp. Đối với một ví dụ đầy đủ, xem [Xuất các phương trình toán học từ bản trình chiếu trong Node.js qua Java](/slides/vi/nodejs-java/exporting-math-equations/#export-math-equations-to-latex).
