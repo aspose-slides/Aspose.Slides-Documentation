@@ -17,35 +17,35 @@ keywords:
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Matematikai egyenletek beszúrása és szerkesztése PowerPoint PPT és PPTX fájlokban az Aspose.Slides for Python via .NET segítségével, OMML támogatással, formázási vezérlőkkel és érthető Python kódrészletekkel."
+description: "Matematikai egyenletek beszúrása és szerkesztése PowerPoint PPT és PPTX fájlokban az Aspose.Slides for Python via .NET segítségével, OMML támogatással, formázási vezérlőkkel és tiszta Python kódmintákkal."
 ---
 ## **Áttekintés**
 
-A PowerPoint egyenleteket Office Math Markup Language (OMML) formátumban tárolja. Az Aspose.Slides for Python via .NET segítségével programozottan hozhatók létre ugyanilyen matematikai tartalmak: törtök, gyökök, függvények, határok, N-áris operátorok, mátrixok, tömbök és formázott matematikai blokkok.
+A PowerPoint a képleteket Office Math Markup Language (OMML) formátumban tárolja. Az Aspose.Slides for Python via .NET segítségével programozottan hozhat létre ugyanilyen matematikai tartalmakat: törtöket, gyököket, függvényeket, határokat, N-értékű operátorokat, mátrixokat, tömböket és formázott matematikai blokkokat.
 
-A PowerPointban a felhasználók általában a **Insert > Equation** menüből adják hozzá az egyenleteket:
+PowerPointban a felhasználók általában a **Insert > Equation** menüpontból adnak hozzá egyenleteket:
 
-![PowerPoint Insert lapfül, a Equation parancs kijelölve](powerpoint-math-equations_1.png)
+![PowerPoint Insert lapfül, ahol a Equation parancs ki van jelölve](powerpoint-math-equations_1.png)
 
 Az eredmény szerkeszthető matematikai szöveg a dián:
 
 ![Egy PowerPoint dia, amely szerkeszthető matematikai egyenletet tartalmaz](powerpoint-math-equations_2.png)
 
-Az Aspose.Slides három fő objektumon keresztül építi fel ezt a matematikai szöveget:
+Az Aspose.Slides három fő objektum segítségével építi fel ezt a matematikai szöveget:
 
-- A **math shape**, amelyet a [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) hoz létre, az a forma, amely az egyenletet tartalmazza.
-- A [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) tárolja a matematikai tartalmat a forma szövegkeretében.
-- A [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) egy vagy több [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) objektumot tartalmaz.
+- A math shape, created with [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/), a forma, amely az egyenletet tartalmazza.
+- [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) a matematikai tartalmat a forma szövegdobozában tárolja.
+- [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) egy vagy több [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) objektumot tartalmaz.
 
-A legtöbb példa alább a [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) és az [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) fluent metódusait használja a rövid és olvasható kód érdekében.
+Az alábbi példák a [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) valamint az [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) folyékony metódusait használják, hogy a kód rövid és olvasható legyen.
 
-MathML export esetén lásd a [Export Math Equations from Presentations in Python via .NET](/slides/hu/python-net/exporting-math-equations/) oldalt.
+Exportálja a matematikai egyenleteket a prezentációkból Pythonon keresztül .NET ([Export Math Equations from Presentations in Python via .NET](/slides/hu/python-net/exporting-math-equations/)).
 
 ## **Egyenlet létrehozása**
 
-Ez a példa a [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) használatával hoz létre egy math shape‑t, és hozzáadja a Pitagorasz‑tételt:
+Ez a példa a [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) használatával hoz létre egy math shape-et, és hozzáadja a Pithagorasz-tételt:
 
-![A c² = a² + b² egyenlet](powerpoint-math-equations_3.png)
+![Az egyenlet: c² = a² + b²](powerpoint-math-equations_3.png)
 
 ```py
 import aspose.slides as slides
@@ -71,17 +71,17 @@ with slides.Presentation() as presentation:
     presentation.save("pythagorean-theorem.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="info" title="Megjegyzés" %}}
+{{% alert color="info" title="Note" %}}
 
-[add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) olyan alakzatot hoz létre, amely már tartalmaz egy matematikai bekezdést. Az első [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) elérésével, annak [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/) tulajdonságával, hozzáadhatók matematikai blokkok vagy elemek.
+[add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) olyan alakzatot hoz létre, amely már tartalmaz egy math paragraph-et. A első [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) elérésével, a [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/) lekérdezésével adhat hozzá math block-okat vagy math elemeket.
 
 {{% /alert %}}
 
-## **Törtek hozzáadása**
+## **Tört hozzáadása**
 
-Használja a [divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/) függvényt tört létrehozásához. A tört stílusa a [MathFractionTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/) segítségével választható.
+Használja a [divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/) funkciót tört létrehozásához. A tört stílusát a [MathFractionTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/) segítségével választhatja.
 
-![Egy ferde tört, amely 1‑et oszt x‑szel](powerpoint-math-equations_4.png)
+![Egy ferde matematikai tört, amely 1/x-et mutat](powerpoint-math-equations_4.png)
 
 ```py
 import aspose.slides as slides
@@ -100,7 +100,7 @@ with slides.Presentation() as presentation:
     presentation.save("fraction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Halmozott tört esetén használja a [MathFractionTypes.BAR](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/) értéket:
+A rétegezett tört esetén használja a [MathFractionTypes.BAR](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/)-t:
 
 ```py
 import aspose.slides.mathtext as math
@@ -110,9 +110,9 @@ stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFract
 
 ## **Gyökök hozzáadása**
 
-Használja a [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/) függvényt négyzetgyök, köbgyök vagy más gyök létrehozásához. A jelenlegi elem lesz a gyök alapja, az argumentum pedig a kitevő.
+Használja a [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/) függvényt négyzetgyök, köbgyök vagy más gyök létrehozásához. A jelenlegi elem lesz az alap, a argumentum pedig a fok.
 
-![Egy n‑edik gyök, amelynek alatta a x jel van a gyökjelben](powerpoint-math-equations_5.png)
+![Egy n-dik gyök kifejezés, ahol x a gyökjel alatti](powerpoint-math-equations_5.png)
 
 ```py
 import aspose.slides as slides
@@ -133,7 +133,7 @@ with slides.Presentation() as presentation:
 
 ## **Függvények és határok hozzáadása**
 
-Használja az [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) vagy a [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) függvényeket a `sin(x)`, `log(x)` vagy saját függvénynevekhez. Határok esetén helyezze a `lim`‑et egy [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/)‑be, vagy használja a [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/) függvényt.
+Használja az [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) vagy a [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) függvényt olyan függvényekhez, mint a `sin(x)`, `log(x)`, vagy egyedi függvénynevek. Határok esetén helyezze a `lim`-et egy [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) objektumba, vagy használja a [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/).
 
 ![Az x határa, amikor x a végtelen felé tart](powerpoint-math-equations_8.png)
 
@@ -158,7 +158,7 @@ with slides.Presentation() as presentation:
     presentation.save("functions-and-limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Egyedi függvénynévhez tegye a függvénynevet a jelenlegi elemnek, majd hívja meg a [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/)‑t a paraméterrel:
+Egy egyedi függvény névhez tegye a függvénynevet a jelenlegi elemnek, és hívja meg a [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) a paraméterével:
 
 ```py
 import aspose.slides.mathtext as math
@@ -166,11 +166,11 @@ import aspose.slides.mathtext as math
 custom_function = math.MathematicalText("f").function("x + 1")
 ```
 
-## **N‑áris operátorok és integrálok hozzáadása**
+## **N-értékű operátorok és integrálok hozzáadása**
 
-Használja a [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/) függvényt összegzések, uniók, metszetek és egyéb nagy operátorokhoz. Az integrálokhoz a [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) függvényt használja. Mindkét metódus lehetővé teszi a felső és alsó határ beállítását.
+Használja a [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/) funkciót összegekre, uniókra, metszetekre és egyéb nagy operátorokra. Integrálokhoz használja a [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) függvényt. Mindkét módszerrel beállítható az alsó és felső határ.
 
-![Összegzés alsó és felső határral](powerpoint-math-equations_7.png)
+![Egy összegzés alsó és felső határral](powerpoint-math-equations_7.png)
 
 ```py
 import aspose.slides as slides
@@ -195,9 +195,9 @@ with slides.Presentation() as presentation:
     presentation.save("nary-operators.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Az N‑áris operátorok nagy operátorok opcionális határokkal. Az egyszerű operátorok, mint a `+`, `-` és `=` általában [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/)‑ként kerülnek be, és egyesülnek a kifejezéssel.
+N-értékű operátorok nagy operátorok opcionális határokkal. Egyszerű operátorok, mint a `+`, `-`, és `=` általában [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) segítségével kerülnek a kifejezésbe.
 
-Integrál esetén használja a [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/)‑t:
+Integrál esetén használja a [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/)-t:
 
 ```py
 import aspose.slides.mathtext as math
@@ -208,9 +208,9 @@ integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 
 ## **Mátrixok hozzáadása**
 
-Használja a [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/)‑t sorok és oszlopok definiálásához. Alapértelmezés szerint a mátrixok nem tartalmaznak zárójeleket, ezért ha zárójelekre, szögletes vagy kapcsos zárójelekre van szükség, akkor a mátrixot ezek között kell elhelyezni.
+Használja a [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) oszlopok és sorok kezelésére. A mátrixok alapértelmezés szerint nem tartalmaznak zárójeleket, ezért a mátrixot zárójelek, szögletes zárójelek vagy kapcsos zárójelek közé kell helyezni, ha szükséges.
 
-![Két soros mátrix egy üres cellával](powerpoint-math-equations_10.png)
+![Egy két soros matematikai mátrix egy üres cellával](powerpoint-math-equations_10.png)
 
 ```py
 import aspose.slides as slides
@@ -224,23 +224,21 @@ with slides.Presentation() as presentation:
 
     matrix = math.MathMatrix(2, 3)
 
-    # A mátrixnak nincs saját zárójele, ezért zárójelek közé kell helyezni.
+    # A mátrixnak nincs saját zárójele, ezért zárójelbe kell tenni.
     math_paragraph.add(math.MathBlock(matrix.enclose("(", ")")))
 
     presentation.save("matrix.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="warning" title="Figyelmeztetés" %}}
-
-A `MathMatrix` létrehozza a sor‑ és oszlop‑rácsot, beállítja a réseket köztük, és igazítja az oszlopokat, de az Aspose.Slides for Python via .NET nem biztosít hozzáférést egyedi mátrixcellához. A kódból létrehozott mátrix ezért üres cellákat tartalmaz; egy meglévő prezentációból származó mátrix celláit a `get_children` segítségével olvashatja. Ha kódból kell sorokat feltölteni, használjon egyenlet‑tömböt.
-
+{{% alert color="warning" title="Warning" %}}
+A `MathMatrix` felépíti a sor- és oszlopszövetet, beállítja a közti hézagokat, és igazítja az oszlopokat, de az Aspose.Slides for Python via .NET nem biztosít hozzáférést egyedi mátrixcellához. A kódban létrehozott mátrix ezért üres cellákat tartalmaz; egy meglévő prezentációból származó mátrix cellái `get_children` segítségével olvashatók. Egy egyenlet tömböt használjon, ha sorokat kell kódból feltölteni.
 {{% /alert %}}
 
-## **Egyenlet‑tömbök hozzáadása**
+## **Egyenlet tömbök hozzáadása**
 
-Használja a [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) függvényt, ha igazított egyenletekre vagy függőlegesen halmozott kifejezésekre van szükség.
+A [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) használata ajánlott, ha igazított egyenletekre vagy függőleges kifejezésstack-re van szükség.
 
-![Függőleges egyenlet‑tömb, ahol x felette y‑nak van](powerpoint-math-equations_11.png)
+![Egy függőleges matematikai tömb, ahol x van y felett](powerpoint-math-equations_11.png)
 
 ```py
 import aspose.slides as slides
@@ -265,9 +263,9 @@ with slides.Presentation() as presentation:
 
 ## **Trigonometrikus függvények hozzáadása**
 
-Használja az [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/)‑t, amikor az argumentum a jelenlegi elem, és a függvény neve ismert.
+Használja az [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/)‑t, ha az argumentum a jelenlegi elem, és a függvény neve ismert.
 
-![A `cos` trigonometrikus függvény alkalmazva 2x‑re](powerpoint-math-equations_6.png)
+![A cos trigonometrikus függvény alkalmazva 2x-re](powerpoint-math-equations_6.png)
 
 ```py
 import aspose.slides as slides
@@ -288,11 +286,11 @@ with slides.Presentation() as presentation:
     presentation.save("trigonometric-function.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Alsó‑ és felső indexek hozzáadása**
+## **Alsó- és felsőindexek hozzáadása**
 
-Használja az alindex és felső index segédfüggvényeit indexek és hatványok megadásához. Ha az indexeknek a bázis bal oldalán kell megjelenniük, használja a [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/)‑t.
+Használja az alsó- és felsőindex segédfüggvényeket indexek és hatványok kezelésére. Ha az indexeknek a bázis bal oldalán kell megjelenniük, használja a [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/).
 
-![Egy nagy Y betű baloldali alsó index 1‑el és felső index n‑nel](powerpoint-math-equations_9.png)
+![Egy nagy Y nagybetű baloldali alsóindexszel 1 és felsőindexszel n](powerpoint-math-equations_9.png)
 
 ```py
 import aspose.slides as slides
@@ -311,11 +309,11 @@ with slides.Presentation() as presentation:
     presentation.save("subscript-superscript.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Határoló jelek hozzáadása**
+## **Elválasztók hozzáadása**
 
-Használja az [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/) függvényt egy kifejezés határoló jelek közé helyezéséhez. Több elemet tartalmazó kifejezésekhez beállítható egy elválasztó karakter is.
+Használja a [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/)‑t, hogy egy kifejezést elválasztók közé helyezzen. Több elemet tartalmazó elválasztók kifejezéseknél beállíthat egy elválasztó karaktert is.
 
-![Határoló kifejezés, amely x‑et, y‑t és z‑t tartalmaz, függőleges vonalakkal elválasztva](powerpoint-math-equations_13.png)
+![Egy elválasztó kifejezés, amely x, y és z-t függőleges vonalakkal választ el](powerpoint-math-equations_13.png)
 
 ```py
 import aspose.slides as slides
@@ -340,11 +338,11 @@ with slides.Presentation() as presentation:
     presentation.save("delimiters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Határolók méretezése és igazítása**
+### **Méret és igazítás elválasztók**
 
-Állítsa a [grow_to_match_operand_height](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/grow_to_match_operand_height/) értékét `True`‑ra, hogy a zárójelek a magas operandus körül növekedjenek, vagy `False`‑ra, ha a normál méretet szeretné megtartani. A [delimiter_shape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/delimiter_shape/) a [MathDelimiterShape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimitershape/) két értékének egyét veheti fel. A `CENTERED` a zárójeleket a matematikai tengely közepéhez igazítja, amely áthalad az egyenlőségjel közepén. A `MATCH` a tartalomhoz igazítja őket. Mindkét beállítás csak a határoló jelekre hat, a kifejezés belseje változatlan marad.
+Sételje be a [grow_to_match_operand_height](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/grow_to_match_operand_height/) értékét `True`‑ra, hogy a zárójelek egy magas operandus körül növekedjenek, vagy `False`‑ra, hogy normál méretben maradjanak. A [delimiter_shape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/delimiter_shape/) a két [MathDelimiterShape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimitershape/) közül egyikét veszi fel. A `CENTERED` a zárójeleket a matematikai tengely közepére helyezi, amely áthalad az egyenlőség jel közepén. A `MATCH` a zárójeleket a tartalommal igazítja. Mindkét beállítás csak az elválasztókra hat, a bennük lévő kifejezés változatlan marad.
 
-A példa egy törtet helyez az `x` kitevőjébe, így a kifejezés a vonal felett magasabban nyúlik, mint alatta. Négy egyenlet ugyanazzal a zárójellel és betűtípussal.
+A példában egy törtet helyeznek el az `x` kitevőjébe, így a kifejezés a vonal felett tovább nyúlik, mint alatta. A négy egyenlet ugyanazokat a zárójeleket és betűtípust használja.
 
 ```python
 import aspose.slides as slides
@@ -375,46 +373,60 @@ with slides.Presentation() as presentation:
     presentation.save("delimiter-sizing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-PowerPointban hasonlítsa össze a sorokat, hogy lássa a növekedés hatását. A felső sorban a zárójelek növekednek, hogy befoglalják a kitevőt, és mindkét alakzatnál hasonlóan néznek ki. Az alsó sorban a növekedés ki van kapcsolva. A baloldali kisebb zárójelek (`CENTERED`) az egyenlőségjelhez igazodnak, míg a jobboldali (`MATCH`) magasabban helyezkednek el a kifejezés körül.
+PowerPointban hasonlítsa össze a sorokat a növekedés hatásának megtekintéséhez. A felső sorban a zárójelek növekednek, hogy befoglalják a kitevőt, és mindkét alakzat hasonló lesz. Az alsó sorban a növekedés ki van kapcsolva. A baloldali kisebb zárójelek (`CENTERED`) az egyenlőség jelhez igazodnak, míg a jobb oldali (`MATCH`) magasabban helyezkednek el a kifejezés körül.
 
-![Négy egyenlet PowerPointban, ahol a határolók növekedése be van kapcsolva a felső sorban és ki van kapcsolva az alsó sorban, balra `CENTERED`, jobbra `MATCH`](delimiter-sizing.png)
+![Négy egyenlet PowerPointban, ahol a felső sorban engedélyezett az elválasztó növekedés, az alsóban le van tiltva, balra CENTERED, jobbra MATCH](delimiter-sizing.png)
 
-## **Keretes doboz hozzáadása**
+## **Határdoboz hozzáadása**
 
-Használja a [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) függvényt, ha az egyenletet keretbe kell helyezni.
+Kérje a [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) hívását egy törtön, hogy az egész kifejezést keretet kapja. A visszaadott [IMathBorderBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/) alapértelmezés szerint mind a négy oldalt megjeleníti. A [hide_top](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_top/), [hide_bottom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_bottom/), [hide_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_left/) és [hide_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_right/) használatával eltávolíthatja az egyes oldalakat.
 
-![Egy keretes egyenlet, amelyben a négyzet a b² + c² értékkel egyenlő](powerpoint-math-equations_12.png)
+A példa hat példányt helyez el ugyanabból a törtből egy dián. A megszüntetés megjelenítéséhez rejtse el mind a négy oldalt, és állítsa be a [strikethrough_bottom_left_to_top_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_bottom_left_to_top_right/) egy emelkedő átló (↗) vagy a [strikethrough_top_left_to_bottom_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_top_left_to_bottom_right/) egy lejtő átló (↘) használatával. A [strikethrough_horizontal](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_horizontal/) vagy [strikethrough_vertical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_vertical/) is használható a látható oldalak bármilyen kombinációjával.
 
 ```py
 import aspose.slides as slides
 import aspose.slides.mathtext as math
 
+
+def add_fraction(slide, x, y, hide_border=False):
+    fraction = math.MathematicalText("x+1").divide("y+2")
+    box = fraction.to_border_box()
+    box.hide_top = box.hide_bottom = box.hide_left = box.hide_right = hide_border
+
+    shape = slide.shapes.add_math_shape(x, y, 160, 90)
+    portion = shape.text_frame.paragraphs[0].portions[0]
+    portion.portion_format.font_height = 28
+    portion.math_paragraph.add(math.MathBlock(box))
+    return box
+
+
 with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(540, 220, slides.SlideSizeScaleType.DO_NOT_SCALE)
     slide = presentation.slides[0]
 
-    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
-    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+    add_fraction(slide, 10, 10)
 
-    boxed_equation = (
-        math.MathematicalText("a")
-        .set_superscript("2")
-        .join("=")
-        .join(math.MathematicalText("b").set_superscript("2"))
-        .join("+")
-        .join(math.MathematicalText("c").set_superscript("2"))
-        .to_border_box()
-    )
+    partial = add_fraction(slide, 190, 10)
+    partial.hide_top = True
+    partial.hide_right = True
 
-    math_paragraph.add(math.MathBlock(boxed_equation))
+    add_fraction(slide, 370, 10, hide_border=True).strikethrough_bottom_left_to_top_right = True
+    add_fraction(slide, 10, 120, hide_border=True).strikethrough_top_left_to_bottom_right = True
+    add_fraction(slide, 190, 120, hide_border=True).strikethrough_horizontal = True
+    add_fraction(slide, 370, 120).strikethrough_vertical = True
 
     presentation.save("border-box.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+![Hét szerkeszthető tört PowerPointban. Felső sor: teljes szegély, alsó és bal oldalak, emelkedő átló. Alsó sor: lejtő átló, vízszintes áthúzás, függőleges áthúzás teljes szegéllyel](border-box-fractions.png)
+
+Ezen a törtön a vízszintes áthúzás átfedi a tört vonalát. A függőleges áthúzás áthalad a számlálón és a nevezőn is, miközben a környező szegély látható marad. Ezek a vonalak az egész kifejezést díszítik. A normál szöveg áthúzása a szövegrész karaktereire vonatkozik. A prezentáció PowerPointban való újbóli megnyitása után is szerkesztheti a számlálót és a nevezőt külön-külön.
+
 ## **Kifejezések csoportosítása**
 
-Használja a [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/)‑ot, hogy egy csoportosító jelet helyezzen egy kifejezés fölé vagy alá. Címkézze a csoportosított tagokat limit hozzáadásával.
+Használja a [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/)‑t, hogy egy csoportosító karaktert helyezzen a kifejezés fölé vagy alá. Határozzon meg egy limitet a csoportosított kifejezések címkézéséhez.
 
-![Az `x + y` kifejezés `any text` címkével alul csoportosítva](powerpoint-math-equations_15.png)
+![Az x + y kifejezés csoportosítva, a címke bármilyen szöveg alatta](powerpoint-math-equations_15.png)
 
 ```py
 import aspose.slides as slides
@@ -439,9 +451,9 @@ with slides.Presentation() as presentation:
 
 ## **Matematikai elemek formázása**
 
-Csak ott használjon formázó segédfüggvényeket, ahol az egyenlet érthetőbbé válik. Például a [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/) fölé helyezett vonal egy elem fölött.
+Használja a formázó segédfüggvényeket csak ott, ahol a képletet tisztábbá teszik. Például a [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/) egy vonalat helyez a matematikai elem fölé.
 
-![Az `ABC` kifejezés fölött egy vonal](powerpoint-math-equations_14.png)
+![Egy ABC matematikai kifejezés, amelyen egy túlvonal van](powerpoint-math-equations_14.png)
 
 ```py
 import aspose.slides as slides
@@ -460,11 +472,11 @@ with slides.Presentation() as presentation:
     presentation.save("overbar.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Szöveg formázása meglévő egyenletben**
+### **Szöveg formázása egy meglévő egyenletben**
 
-A szöveg formázásához járja be minden matematikai blokk elemfáját. Az [IMathElement.get_children](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/get_children/) csak a közvetlen gyerekeket adja vissza, ezért rekurzívan hívja meg, hogy elérje a tört, index, gyök és egyéb beágyazott struktúrák szövegét. Vizsgálja meg a jelenlegi elemet és annak gyerekeit is, hogy a [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) elemek is benne legyenek.
+Egy meglévő egyenlet szövegének formázásához járja be minden math block elemfáját. A [IMathElement.get_children](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/get_children/) csak a közvetlen gyermekeket adja vissza, ezért rekurzívan kell hívni, hogy elérje a tört, szkript, gyök és egyéb beágyazott szerkezetek szövegét. Ellenőrizze a jelenlegi elemet és annak gyermekeit is, hogy a kiinduló elemet is belefoglalja, ha az [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/).
 
-Ez a példa feltételezi, hogy a `input.pptx` egy olyan egyenletet tartalmaz, mint `z = xᵢ / ∛y`, ahol a tört számlálója alsó indexet, nevezője pedig gyököt tartalmaz. Ha csak a blokk felső szintű elemeit dolgozza fel, akkor a törtben lévő szöveget kihagyja. A példa megtalálja a matematikai részeket a diák szövegkereteiben, a [MathPortion.math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/) segítségével hozzáfér a blokkokhoz, és a [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) értékét 28 ponttal állítja minden szövegelem [format](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/format/) tulajdonságán keresztül.
+Ez a példa azt feltételezi, hogy az `input.pptx` egy olyan egyenletet tartalmaz, mint például `z = xᵢ / ∛y`, ahol a tört a számlálóban alsóindexet, a nevezőben gyököt tartalmaz. Ha csak a block felső szintű elemeit dolgozzuk fel, a tört belsejében lévő szöveget elmulasztjuk. A példa megtalálja a matematikai részeket a dia szövegdobozokban, eléri azok blockjait a [MathPortion.math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/) segítségével, és [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) értékét 28 pontra állítja minden szövegelem [format](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/format/) tulajdonságán keresztül.
 
 ```py
 import aspose.slides as slides
@@ -494,37 +506,37 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("formatted-equations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A mentett prezentáció minden szinten frissített szövegformázást tartalmaz, miközben megőrzi az eredeti szövegtartalmat és a matematikai struktúrát.
+A mentett prezentáció minden feldolgozott egyenlet minden szintjén tartalmazza a frissített szövegformázást, miközben megőrzi a szöveg tartalmát és a matematikai szerkezetet.
 
-## **Gyors referencia**
+## **Gyorsreferencia**
 
 | Feladat | Fő API |
 | --- | --- |
 | Matematikai szöveg létrehozása | [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) |
-| Elemek kombinálása | [IMathElement.join](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/join/) |
+| Elemt összekapcsolása | [IMathElement.join](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/join/) |
 | Törtek létrehozása | [IMathElement.divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/) |
-| Felső‑ vagy alsó index hozzáadása | [set_superscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
+| Felső- vagy alsóindex hozzáadása | [set_superscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
 | Függvények hozzáadása | [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/), [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) |
 | Gyökök hozzáadása | [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/) |
 | Határok hozzáadása | [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/), [set_upper_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/) |
 | Baloldali indexek hozzáadása | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
-| Összegzések és integrálok | [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/), [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) |
+| Összegek és integrálok hozzáadása | [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/), [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) |
 | Mátrixok hozzáadása | [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) |
-| Egyenlet‑tömbök hozzáadása | [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
-| Határolók hozzáadása | [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/) |
-| Vonalak és keretek | [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
+| Egyenlet tömbök hozzáadása | [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
+| Elválasztók hozzáadása | [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/) |
+| Vonalak és szegélyek hozzáadása | [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
 | Kifejezések csoportosítása | [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **GYIK**
 
-**Szerkeszthetek meglévő PowerPoint‑egyenletet?**
+**Módosíthatok meglévő PowerPoint egyenletet?**
 
-Igen. Nyissa meg a prezentációt, találja meg azt a formát, amely [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/)‑t tartalmaz, szerezze be annak [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/) tulajdonságát, és frissítse a benne lévő matematikai blokkokat.
+Igen. Nyissa meg a prezentációt, keresse meg azt a formát, amely egy [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) tartalmaz, szerezze meg a [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), és frissítse a blockokban található math block-okat abban a bekezdésben.
 
-**Az egyenletek szerkeszthető PowerPoint‑mathként kerülnek mentésre?**
+**A egyenletek szerkeszthető PowerPoint matematikaként vannak mentve?**
 
-Igen. PPTX formátumba mentéskor az Aspose.Slides az egyenletet szerkeszthető Office‑math tartalomként írja.
+Igen. PPTX‑re mentéskor az Aspose.Slides az egyenletet szerkeszthető Office math tartalomként írja.
 
-**Exportálhatom az egyenleteket LaTeX‑be?**
+**Exportálhatok egyenleteket LaTeX‑be?**
 
-Igen. Szerezze be az egyenlet [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/)‑ját a [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/)‑ból, majd hívja meg a [MathParagraph.to_latex](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/to_latex/)‑t a közvetlen exportáláshoz. Teljes példa a [Export Math Equations from Presentations in Python via .NET](/slides/hu/python-net/exporting-math-equations/#export-math-equations-to-latex) oldalon található.
+Igen. Szerezze meg az egyenlet [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) objektumát a [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) segítségével, és hívja meg a [MathParagraph.to_latex](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) metódust a közvetlen exportáláshoz. Teljes példáért tekintse meg a [Exportáljon matematikai egyenleteket a prezentációkból Pythonon keresztül .NET](/slides/hu/python-net/exporting-math-equations/#export-math-equations-to-latex).

@@ -1,5 +1,5 @@
 ---
-title: JavaScript에서 PowerPoint 프레젠테이션에 수학 방정식 추가
+title: JavaScript를 이용한 PowerPoint 프레젠테이션에 수학 방정식 추가
 linktitle: PowerPoint 수학 방정식
 type: docs
 weight: 80
@@ -18,13 +18,13 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java를 사용하여 PowerPoint PPT 및 PPTX에 수학 방정식을 삽입하고 편집할 수 있으며, OMML 지원, 서식 제어 및 명확한 JavaScript 코드 예제를 제공합니다."
+description: "Aspose.Slides for Node.js via Java를 사용하여 PowerPoint PPT 및 PPTX에서 수학 방정식을 삽입하고 편집합니다. OMML 지원, 서식 제어, 명확한 JavaScript 코드 샘플을 제공합니다."
 ---
 ## **개요**
 
-PowerPoint는 방정식을 Office Math Markup Language(OMML) 형식으로 저장합니다. Aspose.Slides for Node.js via Java를 사용하면 같은 종류의 수학 콘텐츠를 프로그래밍 방식으로 만들 수 있습니다: 분수, 근, 함수, 제한, N-ary 연산자, 행렬, 배열 및 형식이 지정된 수학 블록.
+PowerPoint는 수식을 Office Math Markup Language(OMML) 형태로 저장합니다. Aspose.Slides for Node.js via Java를 사용하면 프로그래밍 방식으로 동일한 유형의 수학 콘텐츠를 만들 수 있습니다: 분수, 근호, 함수, 극한, N-ary 연산자, 행렬, 배열 및 형식이 지정된 수학 블록.
 
-PowerPoint에서 사용자는 일반적으로 **삽입 > 수식**을 통해 수식을 추가합니다:
+PowerPoint에서 사용자는 일반적으로 **Insert > Equation** 메뉴에서 수식을 추가합니다:
 
 ![PowerPoint 삽입 탭에서 수식 명령이 선택된 상태](powerpoint-math-equations_1.png)
 
@@ -32,19 +32,19 @@ PowerPoint에서 사용자는 일반적으로 **삽입 > 수식**을 통해 수�
 
 ![편집 가능한 수학 방정식이 포함된 PowerPoint 슬라이드](powerpoint-math-equations_2.png)
 
-Aspose.Slides는 세 가지 주요 객체를 통해 해당 수학 텍스트를 만듭니다:
+Aspose.Slides는 세 가지 주요 객체를 통해 해당 수학 텍스트를 구축합니다:
 
-- 수식이 포함된 모양인 수학 도형은 [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape)을 사용해 생성됩니다.
-- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/)은 도형 텍스트 프레임 내에 수학 콘텐츠를 저장합니다.
+- 수식이 포함된 도형인 수학 도형은 [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape)을 사용하여 생성합니다.
+- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/)은 도형 텍스트 프레임 내부에 수학 콘텐츠를 저장합니다.
 - [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/)은 하나 이상의 [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/) 객체를 포함합니다.
 
-아래 대부분의 예제는 코드를 간결하고 읽기 쉽게 유지하기 위해 [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/)와 [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/)의 유창한 메서드를 사용합니다.
+아래 대부분의 예제는 [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/)과 [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/)의 유창한 메서드를 사용하여 코드를 짧고 읽기 쉽게 유지합니다.
 
-MathML 내보내기 시나리오에 대해서는 [Node.js via Java에서 프레젠테이션의 수학 방정식 내보내기](/slides/ko/nodejs-java/exporting-math-equations/)를 참조하십시오.
+MathML 내보내기 시나리오에 대해서는 [Export Math Equations from Presentations in Node.js via Java](/slides/ko/nodejs-java/exporting-math-equations/)를 참조하십시오.
 
-## **방정식 만들기**
+## **수식 만들기**
 
-이 예제는 [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape)을 사용해 수학 도형을 만들고 피타고라스 정리를 추가합니다:
+이 예제는 [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape)을 사용하여 수학 도형을 만들고 피타고라스 정리를 추가합니다:
 
 ![c² = a² + b² 방정식](powerpoint-math-equations_3.png)
 
@@ -76,14 +76,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape)은 이미 수학 단락을 포함하고 있는 도형을 생성합니다. 첫 번째 [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/)에 접근하고, [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph)을 호출한 뒤, 수학 블록이나 수학 요소를 추가합니다.
+[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape)은 이미 수학 단락을 포함하는 도형을 생성합니다. 첫 번째 [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/)에 접근하고, [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph)을 호출한 뒤, 수학 블록이나 수학 요소를 추가합니다.
 {{% /alert %}}
 
 ## **분수 추가**
 
-[divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#divide)을 사용해 분수를 만들 수 있습니다. [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/)으로 분수 스타일을 선택할 수 있습니다.
+[divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#divide)를 사용하여 분수를 생성합니다. [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/)를 사용하여 분수 스타일을 선택할 수 있습니다.
 
-![x로 나누어지는 1을 표시한 기울어진 수학 분수](powerpoint-math-equations_4.png)
+![1을 x로 나눈 기울어진 수학 분수](powerpoint-math-equations_4.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -108,7 +108,7 @@ try {
 }
 ```
 
-스택형 분수를 위해서는 [MathFractionTypes.Bar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/#Bar)을 사용합니다:
+쌓인 분수를 위해서는 [MathFractionTypes.Bar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/#Bar)를 사용합니다:
 
 ```javascript
 var aspose = aspose || {};
@@ -117,11 +117,11 @@ aspose.slides = require("aspose.slides.via.java");
 let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1", aspose.slides.MathFractionTypes.Bar);
 ```
 
-## **근 추가**
+## **근호 추가**
 
-[radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical)을 사용해 제곱근, 세제곱근 또는 기타 근을 만들 수 있습니다. 현재 요소가 밑이 되고, 인수가 차수가 됩니다.
+[radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical)을 사용하여 제곱근, 세제곱근 또는 기타 근을 생성합니다. 현재 요소가 밑이 되고, 인수가 차수가 됩니다.
 
-![루트 기호 아래에 x가 있는 n 제곱근 표현식](powerpoint-math-equations_5.png)
+![x가 근호 기호 아래에 있는 n번째 근 표현식](powerpoint-math-equations_5.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -146,11 +146,11 @@ try {
 }
 ```
 
-## **함수 및 제한 추가**
+## **함수 및 극한 추가**
 
-[asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) 또는 [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function)을 사용해 `sin(x)`, `log(x)`와 같은 함수 또는 사용자 정의 함수명을 만들 수 있습니다. 제한을 위해서는 `lim`을 [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/)에 넣거나 [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit)를 사용합니다.
+`sin(x)`, `log(x)`와 같은 함수 또는 사용자 정의 함수 이름에 대해 [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) 또는 [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function)을 사용합니다. 극한의 경우 `lim`을 [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/)에 넣거나 [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit)를 사용합니다.
 
-![x가 무한대로 접근할 때의 제한](powerpoint-math-equations_8.png)
+![x가 무한대로 접근할 때의 극한](powerpoint-math-equations_8.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -176,7 +176,7 @@ try {
 }
 ```
 
-사용자 정의 함수명을 위해 함수명을 현재 요소로 만들고, 해당 인수를 사용해 [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function)을 호출합니다:
+사용자 정의 함수 이름의 경우, 함수 이름을 현재 요소로 만들고 그 인수와 함께 [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function)을 호출합니다:
 
 ```javascript
 var aspose = aspose || {};
@@ -187,9 +187,9 @@ let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
 
 ## **N-ary 연산자 및 적분 추가**
 
-합계, 합집합, 교집합 및 기타 큰 연산자를 위해 [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary)를 사용합니다. 적분을 위해서는 [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral)를 사용합니다. 두 메서드 모두 하한 및 상한을 설정할 수 있습니다.
+합계, 합집합, 교집합 및 기타 대형 연산자에 대해 [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary)를 사용합니다. 적분에 대해서는 [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral)를 사용합니다. 두 메서드 모두 하한 및 상한을 설정할 수 있습니다.
 
-![하한 및 상한이 있는 합계](powerpoint-math-equations_7.png)
+![하한과 상한이 있는 합계](powerpoint-math-equations_7.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -217,7 +217,7 @@ try {
 }
 ```
 
-N-ary 연산자는 선택적 제한이 있는 큰 연산자를 위해 사용됩니다. `+`, `-`, `=`와 같은 간단한 연산자는 일반적으로 [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/)로 추가되어 표현식에 결합됩니다.
+N-ary 연산자는 선택적 한계가 있는 대형 연산자를 위한 것입니다. `+`, `-`, `=`와 같은 단순 연산자는 일반적으로 [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/)로 추가되고 표현식에 결합됩니다.
 
 적분의 경우, [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral)을 사용합니다:
 
@@ -231,9 +231,9 @@ let integral = integralBase.integral(aspose.slides.MathIntegralTypes.Simple, "0"
 
 ## **행렬 추가**
 
-행과 열을 위해 [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/)를 사용합니다. 행렬은 기본적으로 대괄호를 포함하지 않으므로 괄호, 대괄호 또는 중괄호가 필요할 경우 행렬을 감싸세요.
+행과 열을 위해 [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/)를 사용합니다. 행렬은 기본적으로 괄호를 포함하지 않으므로 괄호, 대괄호 또는 중괄호가 필요할 경우 행렬을 둘러싸야 합니다.
 
-![한 개의 빈 셀을 포함한 두 행 수학 행렬](powerpoint-math-equations_10.png)
+![한 개의 빈 셀이 있는 두 행 수학 행렬](powerpoint-math-equations_10.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -292,11 +292,11 @@ try {
 }
 ```
 
-## **삼각 함수 추가**
+## **삼각함수 추가**
 
-인수가 현재 요소이고 함수 이름이 알려진 경우에는 [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction)을 사용합니다.
+인수가 현재 요소이고 함수 이름이 알려져 있을 때는 [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction)을 사용합니다.
 
-![2x에 적용된 삼각 함수 cos](powerpoint-math-equations_6.png)
+![2x에 적용된 삼각함수 cos](powerpoint-math-equations_6.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -323,9 +323,9 @@ try {
 
 ## **첨자 및 위첨자 추가**
 
-인덱스와 지수를 위해 첨자와 위첨자 도우미를 사용합니다. 인덱스가 기준 요소의 왼쪽에 나타나야 할 경우 [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft)를 사용합니다.
+인덱스와 거듭제곱을 위해 첨자 및 위첨자 도우미를 사용합니다. 인덱스가 기반 요소의 왼쪽에 표시되어야 할 때는 [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft)를 사용합니다.
 
-![왼쪽에 첨자 1과 위첨자 n이 있는 대문자 Y](powerpoint-math-equations_9.png)
+![왼쪽 첨자 1과 위첨자 n이 있는 대문자 Y](powerpoint-math-equations_9.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -350,11 +350,11 @@ try {
 }
 ```
 
-## **구분 기호 추가**
+## **구분자 추가**
 
-[enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose)를 사용해 표현식을 구분 기호 안에 넣을 수 있습니다. 여러 요소를 포함하는 구분 기호 표현식에 대해 구분 문자도 설정할 수 있습니다.
+표현식을 구분자 안에 넣으려면 [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose)를 사용합니다. 여러 요소를 포함하는 구분자 표현식에 대해 구분 문자도 설정할 수 있습니다.
 
-![x, y, z가 수직 막대로 구분된 구분 기호 표현식](powerpoint-math-equations_13.png)
+![x, y, z가 세로 막대로 구분된 구분자 표현식](powerpoint-math-equations_13.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -383,11 +383,11 @@ try {
 }
 ```
 
-### **구분 기호 크기 및 정렬**
+### **구분자 크기 및 정렬**
 
-`true`를 [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight)에 전달하면 큰 피연산자 주위에 괄호가 확장되고, `false`를 전달하면 정상 크기를 유지합니다. 두 가지 [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/) 값 중 하나와 함께 [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape)를 사용합니다. `Centered`는 등호 기호 중간을 기준으로 수학 축에 괄호를 가운데 정렬하고, `Match`는 포함된 내용에 맞게 정렬합니다. 두 설정은 구분 기호에만 영향을 주며, 내부 표현식은 그대로 유지됩니다.
+`true`를 [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight)에 전달하면 높은 피연산자 주변에 괄호가 커집니다. `false`를 전달하면 정상 크기를 유지합니다. 두 개의 [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/) 값 중 하나와 함께 [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape)를 사용합니다. `Centered`는 등호 기호의 중간을 통과하는 수학 축에 괄호를 중앙에 배치합니다. `Match`는 포함된 내용에 맞게 정렬합니다. 두 설정은 구분자에만 영향을 미치며 내부 표현식은 그대로 유지됩니다.
 
-예제에서는 `x`의 지수에 분수를 배치하여 표현식이 기준선 위쪽으로 더 멀리 확장되도록 합니다. 네 개의 방정식 모두 동일한 괄호와 글꼴 설정을 사용합니다.
+예제는 `x`의 지수에 분수를 배치하여 표현식이 기준선 위로 더 높게 확장되도록 합니다. 네 개의 방정식 모두 동일한 괄호와 글꼴 설정을 사용합니다.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -417,49 +417,66 @@ try {
 }
 ```
 
-PowerPoint에서 행을 비교하여 성장 효과를 확인하십시오. 상단 행에서는 괄호가 지수를 둘러싸도록 확장되어 두 도형이 동일하게 보입니다. 하단 행에서는 성장이 꺼져 있습니다. 왼쪽의 작은 괄호(`Centered`)는 등호와 맞추어 정렬되고, 오른쪽 괄호(`Match`)는 표현식 주위에 더 높게 위치합니다.
+PowerPoint에서 행을 비교하여 성장 효과를 확인하십시오. 상단 행에서는 괄호가 지수를 둘러싸도록 커지고 두 도형 모두 동일하게 보입니다. 하단 행에서는 성장이 비활성화됩니다. 왼쪽의 작은 괄호(`Centered`)는 등호에 맞추어 정렬되고, 오른쪽의 괄호(`Match`)는 표현식 위에 더 높게 위치합니다.
 
-![PowerPoint에서 구분 기호 성장이 위에서는 활성화되고 아래에서는 비활성화된 네 개의 방정식, 왼쪽은 Centered, 오른쪽은 Match](delimiter-sizing.png)
+![PowerPoint에서 구분자 성장이 위에서는 활성화되고 아래에서는 비활성화된 네 개의 방정식, 왼쪽은 Centered, 오른쪽은 Match](delimiter-sizing.png)
 
 ## **테두리 상자 추가**
 
-방정식 자체를 테두리로 둘러야 할 경우 [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox)를 사용합니다.
+분수에 [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox)를 호출하면 전체 표현식을 테두리로 감쌀 수 있습니다. 반환된 [MathBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/)는 기본적으로 네 면을 모두 표시합니다. 개별 면을 제거하려면 [setHideTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideLeft), [setHideRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideRight)를 사용합니다.
 
-![제곱 = b² + c²을 보여주는 테두리 방정식](powerpoint-math-equations_12.png)
+예제는 동일한 분수를 한 슬라이드에 여섯 개 배치합니다. 취소선을 표시하려면 네 면을 모두 숨기고 상승 대각선(↗)에 대해 `true`를 [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight)에, 하강 대각선(↘)에 대해 [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight)에 전달합니다. 또한 [setStrikethroughHorizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) 또는 [setStrikethroughVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughVertical)을 사용하여 표시되는 면을 조합할 수 있습니다.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-let presentation = new aspose.slides.Presentation();
+const presentation = new slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    presentation.getSlideSize().setSize(540, 220, slides.SlideSizeScaleType.DoNotScale);
+    const slide = presentation.getSlides().get_Item(0);
 
-    let mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
-    let mathParagraph = mathShape.getTextFrame().getParagraphs()
-            .get_Item(0).getPortions().get_Item(0).getMathParagraph();
+    function addFraction(x, y, hideBorder) {
+        const fraction = new slides.MathematicalText("x+1").divide("y+2");
+        const box = fraction.toBorderBox();
+        box.setHideTop(hideBorder);
+        box.setHideBottom(hideBorder);
+        box.setHideLeft(hideBorder);
+        box.setHideRight(hideBorder);
 
-    let boxedEquation = new aspose.slides.MathematicalText("a")
-            .setSuperscript("2")
-            .join("=")
-            .join(new aspose.slides.MathematicalText("b").setSuperscript("2"))
-            .join("+")
-            .join(new aspose.slides.MathematicalText("c").setSuperscript("2"))
-            .toBorderBox();
+        const shape = slide.getShapes().addMathShape(x, y, 160, 90);
+        const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+        portion.getPortionFormat().setFontHeight(28);
+        const block = new slides.MathBlock(box);
+        portion.getMathParagraph().add(block);
+        return box;
+    }
 
-    mathParagraph.add(new aspose.slides.MathBlock(boxedEquation));
+    addFraction(10, 10, false);
 
-    presentation.save("border-box.pptx", aspose.slides.SaveFormat.Pptx);
+    const partial = addFraction(190, 10, false);
+    partial.setHideTop(true);
+    partial.setHideRight(true);
+
+    addFraction(370, 10, true).setStrikethroughBottomLeftToTopRight(true);
+    addFraction(10, 120, true).setStrikethroughTopLeftToBottomRight(true);
+    addFraction(190, 120, true).setStrikethroughHorizontal(true);
+    addFraction(370, 120, false).setStrikethroughVertical(true);
+
+    presentation.save("border-box.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **용어 그룹화**
+![PowerPoint의 6개 편집 가능한 분수. 상단 행: 전체 테두리, 아래쪽 및 왼쪽 면, 상승 대각선. 하단 행: 하강 대각선, 가로 취소선, 세로 취소선 및 전체 테두리](border-box-fractions.png)
 
-[group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group)을 사용해 표현식 위나 아래에 그룹 문자를 배치합니다. 그룹화된 용어에 라벨을 달기 위해 제한을 추가합니다.
+이 분수에서는 가로 취소선이 분수선을 겹칩니다. 세로 취소선은 분자와 분모를 모두 가로지르며 주변 테두리는 보입니다. 이러한 선은 전체 표현식을 장식합니다. 일반 텍스트 취소선은 텍스트 실행의 문자에 적용됩니다. PowerPoint에서 프레젠테이션을 다시 열어도 분자와 분모를 독립적으로 편집할 수 있습니다.
 
-![x + y 표현식이 그룹화되고 아래에 라벨 any text이 표시됩니다](powerpoint-math-equations_15.png)
+## **항목 그룹화**
+
+[group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group)을 사용하여 표현식 위나 아래에 그룹화 문자를 배치합니다. 그룹화된 항목에 레이블을 지정하려면 한계를 추가합니다.
+
+![표현식 x + y가 아래에 'any text' 레이블과 함께 그룹화된 모습](powerpoint-math-equations_15.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -486,11 +503,11 @@ try {
 }
 ```
 
-## **수학 요소 서식 지정**
+## **수학 요소 형식 지정**
 
-공식이 명확해지는 경우에만 서식 도우미를 사용하십시오. 예를 들어, [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar)는 수학 요소 위에 막대를 놓습니다.
+포맷 도우미는 식을 명확히 할 때만 사용합니다. 예를 들어, [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar)은 수학 요소 위에 막대를 배치합니다.
 
-![overbar가 있는 수학 표현식 ABC](powerpoint-math-equations_14.png)
+![ABC 수학 표현식에 위에 바가 있는 모습](powerpoint-math-equations_14.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -514,11 +531,11 @@ try {
 }
 ```
 
-### **기존 방정식의 텍스트 서식 지정**
+### **기존 방정식 내 텍스트 형식 지정**
 
-기존 방정식 전체의 텍스트를 서식 지정하려면 각 수학 블록의 요소 트리를 순회합니다. [MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren)은 즉시 자식만 반환하므로, 분수, 스크립트, 근 및 기타 중첩 구조 내부의 텍스트에 도달하려면 재귀적으로 호출합니다. 현재 요소와 그 자식을 모두 확인하여 시작 요소가 [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/)인 경우 포함합니다.
+기존 방정식 전체의 텍스트를 형식 지정하려면 각 수학 블록의 요소 트리를 순회합니다. [MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren)은 직접 자식만 반환하므로, 분수, 첨자/위첨자, 근호 및 기타 중첩 구조 내부의 텍스트에 도달하려면 재귀적으로 호출합니다. 현재 요소가 [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/)인 경우 시작 요소를 포함하도록 현재 요소와 자식을 모두 확인합니다.
 
-이 예제는 `input.pptx`에 `z = xᵢ / ∛y`와 같은 방정식이 포함되어 있다고 가정합니다. 여기서 분수의 분자에 첨자, 분모에 근이 있습니다. 블록의 최상위 요소만 처리하면 분수 내부 텍스트를 놓칠 수 있습니다. 이 예제는 슬라이드 텍스트 프레임에서 수학 부분을 찾아 [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph)을 통해 블록에 접근하고, 각 텍스트 요소의 [getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat) 메서드를 사용해 [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight)로 글꼴 크기를 28포인트로 설정합니다.
+이 예제는 `input.pptx`에 `z = xᵢ / ∛y`와 같은 방정식이 포함되어 있다고 가정합니다. 여기서 분자에 첨자가 있는 분수와 분모에 근이 포함됩니다. 블록의 최상위 요소만 처리하면 분수 내부 텍스트를 놓칠 수 있습니다. 예제는 슬라이드 텍스트 프레임에서 수학 부분을 찾아 [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph)을 통해 블록에 접근하고, 각 텍스트 요소의 [getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat) 메서드를 사용하여 [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight)를 통해 글꼴 크기를 28포인트로 설정합니다.
 
 ```javascript
 var aspose = aspose || {};
@@ -572,32 +589,32 @@ try {
 }
 ```
 
-저장된 프레젠테이션은 처리된 각 방정식의 모든 수준에서 텍스트 서식이 업데이트된 상태를 유지하면서 텍스트 내용과 수학 구조를 보존합니다.
+저장된 프레젠테이션은 각 처리된 방정식의 모든 수준에서 업데이트된 텍스트 형식을 포함하며, 텍스트 내용과 수학 구조는 그대로 유지됩니다.
 
 ## **빠른 참조**
 
-| 작업 | 주요 API |
+| Task | Main API |
 | --- | --- |
-| Create math text | [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) |
-| Combine elements | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Create fractions | [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add superscript or subscript | [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add functions | [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add radicals | [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add limits | [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add left-side scripts | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add summations and integrals | [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add matrices | [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) |
-| Add equation arrays | [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add delimiters | [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add bars and borders | [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Group terms | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 수학 텍스트 만들기 | [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) |
+| 요소 결합 | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 분수 만들기 | [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 위첨자 또는 첨자 추가 | [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 함수 추가 | [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 근호 추가 | [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 극한 추가 | [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 왼쪽 첨자/위첨자 추가 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 합계 및 적분 추가 | [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 행렬 추가 | [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) |
+| 방정식 배열 추가 | [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 구분자 추가 | [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 바 및 테두리 추가 | [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 항목 그룹화 | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 
-## **자주 묻는 질문**
+## **FAQ**
 
 **기존 PowerPoint 방정식을 편집할 수 있나요?**
 
-예. 프레젠테이션을 열고, [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/)을 포함하는 도형을 찾아 [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph)을 호출한 다음 해당 단락의 수학 블록을 업데이트합니다.
+예. 프레젠테이션을 열고, [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/)을 포함하는 도형을 찾은 다음, [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph)을 호출하고 해당 단락의 수학 블록을 업데이트합니다.
 
 **방정식이 편집 가능한 PowerPoint 수학으로 저장되나요?**
 
@@ -605,4 +622,4 @@ try {
 
 **방정식을 LaTeX로 내보낼 수 있나요?**
 
-예. 방정식의 [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/)을 [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/)에서 가져와 [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex)로 직접 내보낼 수 있습니다. 전체 예제는 [Node.js via Java에서 프레젠테이션의 수학 방정식 내보내기](/slides/ko/nodejs-java/exporting-math-equations/#export-math-equations-to-latex)를 참조하십시오.
+예. 방정식의 [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/)을 해당 [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/)에서 가져온 다음, [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex)을 호출하여 바로 내보낼 수 있습니다. 전체 예제는 [Export Math Equations from Presentations in Node.js via Java](/slides/ko/nodejs-java/exporting-math-equations/#export-math-equations-to-latex)를 참조하십시오.
