@@ -1,6 +1,6 @@
 ---
-title: "Wiskundige vergelijkingen toevoegen aan PowerPoint‑presentaties in PHP"
-linktitle: "PowerPoint‑wiskundige vergelijkingen"
+title: Voeg wiskundige vergelijkingen toe aan PowerPoint-presentaties in PHP
+linktitle: PowerPoint wiskundige vergelijkingen
 type: docs
 weight: 80
 url: /nl/php-java/powerpoint-math-equations/
@@ -17,31 +17,31 @@ keywords:
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Wiskundige vergelijkingen invoegen en bewerken in PowerPoint‑PPT en PPTX met Aspose.Slides voor PHP via Java, met ondersteuning voor OMML, opmaak‑controles en duidelijke PHP‑codevoorbeelden."
+description: "Wiskundige vergelijkingen invoegen en bewerken in PowerPoint PPT en PPTX met Aspose.Slides voor PHP via Java, met ondersteuning voor OMML, opmaakcontroles en duidelijke PHP-code-voorbeelden."
 ---
 ## **Overzicht**
 
-PowerPoint slaat vergelijkingen op als Office Math Markup Language (OMML). Met Aspose.Slides voor PHP via Java kun je dezelfde soort wiskundige inhoud programmatisch maken: breuken, wortels, functies, limieten, N-ary‑operatoren, matrices, arrays en opgemaakte wiskundige blokken.
+PowerPoint slaat vergelijkingen op als Office Math Markup Language (OMML). Met Aspose.Slides voor PHP via Java kun je hetzelfde soort wiskundige inhoud programmeren: breuken, wortels, functies, limieten, N-ary‑operatoren, matrices, reeksen en opgemaakte wiskundige blokken.
 
-In PowerPoint voegen gebruikers normaal gesproken vergelijkingen toe via **Insert > Equation**:
+In PowerPoint voegen gebruikers normaal gesproken vergelijkingen toe via **Invoegen > Vergelijking**:
 
-![PowerPoint Invoegen‑tabblad met de opdracht Vergelijking geselecteerd](powerpoint-math-equations_1.png)
+![PowerPoint-tabblad Invoegen met de opdracht Vergelijking geselecteerd](powerpoint-math-equations_1.png)
 
 Het resultaat is bewerkbare wiskundige tekst op de dia:
 
-![Een PowerPoint‑dia met een bewerkbare wiskundige vergelijking](powerpoint-math-equations_2.png)
+![Een PowerPoint-dia met een bewerkbare wiskundige vergelijking](powerpoint-math-equations_2.png)
 
 Aspose.Slides bouwt die wiskundige tekst op via drie hoofdobjecten:
 
 - Een wiskundige vorm, gemaakt met [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape), is de vorm die de vergelijking bevat.
-- [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) slaat wiskundige inhoud op in het tekstvak van de vorm.
-- [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) bevat een of meer [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/)-objecten.
+- [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) slaat wiskundige inhoud op in het tekstframe van de vorm.
+- [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) bevat één of meer [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/)-objecten.
 
-De meeste voorbeelden hieronder gebruiken [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) en de vloeiende methoden van [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) om de code kort en leesbaar te houden.
+De meeste voorbeelden hieronder gebruiken [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) en de fluent‑methoden van [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) om de code kort en leesbaar te houden.
 
 Voor MathML‑exportscenario's, zie [Exporteer wiskundige vergelijkingen uit presentaties in PHP via Java](/slides/nl/php-java/exporting-math-equations/).
 
-## **Maak een vergelijking**
+## **Een vergelijking maken**
 
 Dit voorbeeld gebruikt [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) om een wiskundige vorm te maken en voegt de stelling van Pythagoras toe:
 
@@ -74,14 +74,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) maakt een vorm die al een wiskundig alinea bevat. Toegang tot de eerste [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), roep [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) aan en voeg wiskundige blokken of wiskunde‑elementen toe.
+[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) maakt een vorm die al een wiskundige alinea bevat. Verkrijg de eerste [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), roep [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) aan en voeg wiskundige blokken of wiskundige elementen toe.
 {{% /alert %}}
 
-## **Voeg breuken toe**
+## **Breuken toevoegen**
 
 Gebruik [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#divide) om een breuk te maken. Je kunt een breukstijl kiezen met [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/).
 
-![Een scheve wiskundige breuk die één gedeeld door x weergeeft](powerpoint-math-equations_4.png)
+![Een scheve wiskundige breuk met één gedeeld door x](powerpoint-math-equations_4.png)
 
 ```php
 $presentation = new Presentation();
@@ -111,11 +111,11 @@ Voor een gestapelde breuk, gebruik [MathFractionTypes::Bar](https://reference.as
 $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFractionTypes::Bar);
 ```
 
-## **Voeg wortels toe**
+## **Wortels toevoegen**
 
-Gebruik [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) om een vierkantswortel, derdemachtswortel of andere wortel te maken. Het huidige element wordt de basis, en het argument wordt de graad.
+Gebruik [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) om een vierkantswortel, kubuswortel of een andere wortel te maken. Het huidige element wordt de basis, en het argument wordt de graad.
 
-![Een n‑de wortelradicaal met x onder het wortelteken](powerpoint-math-equations_5.png)
+![Een n‑de wortel met x onder het wortelteken](powerpoint-math-equations_5.png)
 
 ```php
 $presentation = new Presentation();
@@ -139,11 +139,11 @@ try {
 }
 ```
 
-## **Voeg functies en limieten toe**
+## **Functies en limieten toevoegen**
 
-Gebruik [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) of [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) voor functies zoals `sin(x)`, `log(x)`, of aangepaste functienamen. Voor limieten, plaats `lim` in een [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) of gebruik [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit).
+Gebruik [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) of [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) voor functies zoals `sin(x)`, `log(x)` of zelfgekozen functienamen. Voor limieten plaats je `lim` in een [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) of gebruik je [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit).
 
-![De limiet van x wanneer x naar oneindig gaat](powerpoint-math-equations_8.png)
+![De limiet van x wanneer x oneindig nadert](powerpoint-math-equations_8.png)
 
 ```php
 $presentation = new Presentation();
@@ -168,17 +168,17 @@ try {
 }
 ```
 
-Voor een aangepaste functienaam, maak van de functienaam het huidige element en roep [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) aan met zijn argument:
+Voor een eigen functienaam maak je de functienaam het huidige element en roep je [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) aan met zijn argument:
 
 ```php
 $customFunction = (new MathematicalText("f"))->function("x + 1");
 ```
 
-## **Voeg N-ary-operatoren en integralen toe**
+## **N-ary‑operatoren en integralen toevoegen**
 
-Gebruik [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) voor sommaties, unies, intersecties en andere grote operatoren. Gebruik [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) voor integralen. Beide methoden laten je onder‑ en bovengrenzen instellen.
+Gebruik [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) voor sommaties, unies, doorsnedes en andere grote operatoren. Gebruik [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) voor integralen. Beide methoden laten je onder‑ en bovengrenzen instellen.
 
-![Een sommeteken met onder‑ en bovengrens](powerpoint-math-equations_7.png)
+![Een sommatie met onder‑ en bovengrens](powerpoint-math-equations_7.png)
 
 ```php
 $presentation = new Presentation();
@@ -205,7 +205,7 @@ try {
 }
 ```
 
-N‑ary‑operatoren zijn voor grote operatoren met optionele limieten. Simpele operatoren zoals `+`, `-` en `=` worden doorgaans toegevoegd als [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) en aan de expressie gekoppeld.
+N-ary‑operatoren zijn voor grote operatoren met optionele limieten. Simpele operatoren zoals `+`, `-` en `=` worden meestal toegevoegd als [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) en samengevoegd in de uitdrukking.
 
 Voor een integraal, gebruik [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral):
 
@@ -214,11 +214,11 @@ $integralBase = (new MathematicalText("x"))->join((new MathematicalText("dx"))->
 $integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
 ```
 
-## **Voeg matrices toe**
+## **Matrices toevoegen**
 
-Gebruik [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) voor rijen en kolommen. Matrices bevatten standaard geen haakjes, dus omkader de matrix wanneer je haakjes, vierkante haken of accolades nodig hebt.
+Gebruik [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) voor rijen en kolommen. Matrices bevatten standaard geen haken, dus omring de matrix wanneer je haakjes, vierkante haken of accolades nodig hebt.
 
-![Een wiskundige matrix van twee rijen met één lege cel](powerpoint-math-equations_10.png)
+![Een wiskundige matrix met twee rijen en één lege cel](powerpoint-math-equations_10.png)
 
 ```php
 $presentation = new Presentation();
@@ -246,9 +246,9 @@ try {
 }
 ```
 
-## **Voeg vergelijking‑arrays toe**
+## **Vergelijkingsreeksen toevoegen**
 
-Gebruik [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray) wanneer je uitgelijnde vergelijkingen of een verticale stapel expressies nodig hebt.
+Gebruik [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray) wanneer je uitgelijnde vergelijkingen of een verticale stapeling van uitdrukkingen nodig hebt.
 
 ![Een verticale wiskundige array met x boven y](powerpoint-math-equations_11.png)
 
@@ -275,9 +275,9 @@ try {
 }
 ```
 
-## **Voeg trigonometrische functies toe**
+## **Trigonometrische functies toevoegen**
 
-Gebruik [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) wanneer het argument het huidige element is en de functienaam bekend is.
+Gebruik [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) wanneer het argument het huidige element is en de functienaam bekend.
 
 ![De trigonometrische functie cos toegepast op 2x](powerpoint-math-equations_6.png)
 
@@ -303,9 +303,9 @@ try {
 }
 ```
 
-## **Voeg subscripties en superscripties toe**
+## **Subscripties en superscripties toevoegen**
 
-Gebruik de subscript‑ en superscript‑helpers voor indexen en machten. Wanneer de indexen aan de linkerkant van de basis moeten staan, gebruik [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
+Gebruik de subscript‑ en superscript‑helpers voor indexen en exponenten. Wanneer de indexen links van de basis moeten staan, gebruik dan [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
 ![Een hoofdletter Y met links subscript 1 en superscript n](powerpoint-math-equations_9.png)
 
@@ -331,11 +331,11 @@ try {
 }
 ```
 
-## **Voeg scheidingstekens toe**
+## **Delimiteren toevoegen**
 
-Gebruik [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) om een expressie tussen scheidingstekens te plaatsen. Je kunt ook een scheidingsteken‑karakter instellen voor expressies die meerdere elementen bevatten.
+Gebruik [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) om een uitdrukking binnen delimiters te plaatsen. Je kunt ook een scheidingsteken instellen voor delimiter‑uitdrukkingen die meerdere elementen bevatten.
 
-![Een scheidingstekenexpressie met x, y en z gescheiden door verticale balken](powerpoint-math-equations_13.png)
+![Een delimiter‑uitdrukking met x, y en z gescheiden door verticale streepjes](powerpoint-math-equations_13.png)
 
 ```php
 $presentation = new Presentation();
@@ -362,11 +362,11 @@ try {
 }
 ```
 
-### **Grootte en uitlijning van scheidingstekens**
+### **Grootte en uitlijning van delimiters**
 
-Geef `true` door aan [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) zodat de haakjes groeien rond een hoog operand, of geef `false` om ze op normale grootte te laten. Gebruik [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) met een van de twee waarden van [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/). `Centered` centreert de haakjes op de wiskunde‑as, die door het midden van het gelijkteken loopt. `Match` lijnt ze uit met de ingesloten inhoud. Beide instellingen hebben alleen invloed op de scheidingstekens. De expressie binnenin blijft gelijk.
+Geef `true` door aan [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) om de haakjes te laten groeien rond een hoge operand, of `false` om ze op normale grootte te houden. Gebruik [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) met een van de twee [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/)-waarden. `Centered` centreert de haakjes op de wiskunde‑as, die door het midden van het gelijkteken loopt. `Match` legt ze uitgelijnd met de ingesloten inhoud. Beide instellingen hebben alleen invloed op de delimiters. De uitdrukking erin blijft hetzelfde.
 
-Het voorbeeld plaatst een breuk in de exponent van `x` zodat de expressie hoger boven de basislijn uitsteekt dan onder. Alle vier de vergelijkingen gebruiken dezelfde haakjes en lettertype‑instellingen.
+Het voorbeeld plaatst een breuk in de exponent van `x` zodat de uitdrukking hoger boven de basislijn uitsteekt dan eronder. Alle vier de vergelijkingen gebruiken dezelfde haakjes en lettertype‑instellingen.
 
 ```php
 use aspose\slides\MathDelimiterShape;
@@ -400,48 +400,70 @@ try {
 }
 ```
 
-In PowerPoint kun je de rijen vergelijken om het groeieffect te zien. In de bovenste rij groeien de haakjes om de exponent heen en zien ze er voor beide vormen gelijk uit. In de onderste rij is groei uitgeschakeld. De kleinere haakjes links (`Centered`) lijnen uit met het gelijkteken, terwijl die rechts (`Match`) hoger om de expressie heen zitten.
+In PowerPoint kun je de rijen vergelijken om het groeieffect te zien. In de bovenste rij groeien de haakjes om de exponent te omhullen en zien er gelijk uit voor beide vormen. In de onderste rij staat groei uit. De kleinere haakjes links (`Centered`) zijn uitgelijnd met het gelijkteken, terwijl die rechts (`Match`) hoger liggen rond de uitdrukking.
 
-![Vier vergelijkingen in PowerPoint met scheidingsteken‑groei ingeschakeld boven en uitgeschakeld beneden, en Centered links en Match rechts](delimiter-sizing.png)
+![Vier vergelijkingen in PowerPoint met delimiter‑groei ingeschakeld boven en uitgeschakeld hieronder, en Centered links en Match rechts](delimiter-sizing.png)
 
-## **Voeg een randvak toe**
+## **Een randvak toevoegen**
 
-Gebruik [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) wanneer de vergelijking zelf een kader moet hebben.
+Roep [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) op een breuk aan om de hele uitdrukking te omkaderen. De geretourneerde [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) toont standaard alle vier zijden. Gebruik [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft) en [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight) om individuele zijden te verwijderen.
 
-![Een omkaderde vergelijking die a² = b² + c² toont](powerpoint-math-equations_12.png)
+Het voorbeeld plaatst zes exemplaren van dezelfde breuk op één dia. Om annulering te tonen, verberg je alle vier zijden en geef je `true` door aan [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) voor een opgaande diagonaal (↗) of [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) voor een neergaande diagonaal (↘). Je kunt ook [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) of [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical) gebruiken met elke combinatie van zichtbare zijden.
 
 ```php
+use aspose\slides\MathBlock;
+use aspose\slides\MathematicalText;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
 $presentation = new Presentation();
 try {
+    $presentation->getSlideSize()->setSize(540, 220, SlideSizeScaleType::DoNotScale);
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
-    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
-        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+    $addFraction = function ($x, $y, $hideBorder) use ($slide) {
+        $fraction = (new MathematicalText("x+1"))->divide("y+2");
+        $box = $fraction->toBorderBox();
+        $box->setHideTop($hideBorder);
+        $box->setHideBottom($hideBorder);
+        $box->setHideLeft($hideBorder);
+        $box->setHideRight($hideBorder);
 
-    $boxedEquation = (new MathematicalText("a"))
-        - >setSuperscript("2")
-        - >join("=")
-        - >join((new MathematicalText("b"))->setSuperscript("2"))
-        - >join("+")
-        - >join((new MathematicalText("c"))->setSuperscript("2"))
-        - >toBorderBox();
+        $shape = $slide->getShapes()->addMathShape($x, $y, 160, 90);
+        $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+        $portion->getPortionFormat()->setFontHeight(28);
+        $mathBlock = new MathBlock($box);
+        $portion->getMathParagraph()->add($mathBlock);
+        return $box;
+    };
 
-    $mathParagraph->add(new MathBlock($boxedEquation));
+    $addFraction(10, 10, false);
+
+    $partial = $addFraction(190, 10, false);
+    $partial->setHideTop(true);
+    $partial->setHideRight(true);
+
+    $addFraction(370, 10, true)->setStrikethroughBottomLeftToTopRight(true);
+    $addFraction(10, 120, true)->setStrikethroughTopLeftToBottomRight(true);
+    $addFraction(190, 120, true)->setStrikethroughHorizontal(true);
+    $addFraction(370, 120, false)->setStrikethroughVertical(true);
 
     $presentation->save("border-box.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Groeperen van termen**
+![Zes bewerkbare breuken in PowerPoint. Bovenste rij: volledige rand, onder‑ en linkerkant, opgaande diagonaal. Onderste rij: neergaande diagonaal, horizontale streep, verticale streep met een volledige rand.](border-box-fractions.png)
 
-Gebruik [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) om een groeperingskarakter boven of onder een expressie te plaatsen. Voeg een limiet toe om de gegroepeerde termen te labelen.
+Op deze breuk overlapt de horizontale streep de breukstreep. De verticale streep doorsnijdt zowel de teller als de noemer terwijl de omliggende rand zichtbaar blijft. Deze lijnen versieren de hele uitdrukking. Gewone tekst‑doorstrepen geldt voor tekens in een tekstrun. Na het opnieuw openen van de presentatie in PowerPoint kun je de teller en noemer nog steeds onafhankelijk bewerken.
 
-![De expressie x + y gegroepeerd met het label enige tekst eronder](powerpoint-math-equations_15.png)
+## **Termen groeperen**
+
+Gebruik [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) om een groepeerteken boven of onder een uitdrukking te plaatsen. Voeg een limiet toe om de gegroepeerde termen te labelen.
+
+![De uitdrukking x plus y gegroepeerd met het label enige tekst eronder](powerpoint-math-equations_15.png)
 
 ```php
 $presentation = new Presentation();
@@ -466,11 +488,11 @@ try {
 }
 ```
 
-## **Formateer wiskundige elementen**
+## **Wiskundige elementen opmaken**
 
-Gebruik formatteer‑helpers alleen waar ze de formule verduidelijken. Bijvoorbeeld, [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) plaatst een streep boven een wiskundig element.
+Gebruik opmaak‑helpers alleen waar ze de formule verduidelijken. Bijvoorbeeld, [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) plaatst een streep boven een wiskundig element.
 
-![Een wiskundige expressie ABC met een overstreep](powerpoint-math-equations_14.png)
+![Een wiskundige uitdrukking ABC met een overbar](powerpoint-math-equations_14.png)
 
 ```php
 $presentation = new Presentation();
@@ -493,11 +515,11 @@ try {
 }
 ```
 
-### **Formateer tekst in een bestaande vergelijking**
+### **Tekst opmaken in een bestaande vergelijking**
 
-Om tekst door een bestaande vergelijking heen te formatteren, doorloop je de elementboom van elk wiskundig blok. [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) retourneert alleen de directe kinderen, dus roep het recursief aan om tekst in breuken, scripts, wortels en andere geneste structuren te bereiken. Controleer het huidige element en de kinderen om het start‑element op te nemen wanneer het een [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) is.
+Om tekst door de hele bestaande vergelijking heen op te maken, doorloop je de elementboom van elk wiskundig blok. [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) geeft alleen de directe kinderen terug, dus roep je het recursief aan om tekst binnen breuken, scripts, wortels en andere geneste structuren te bereiken. Controleer het huidige element evenals zijn kinderen om het start‑element op te nemen wanneer het een [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) is.
 
-Dit voorbeeld gaat ervan uit dat `input.pptx` een vergelijking bevat zoals `z = xᵢ / ∛y`, met een breuk die een subscript in de teller heeft en een wortel in de noemer. Alleen de boven‑level elementen van het blok verwerken zou de tekst in de breuk missen. Het voorbeeld vindt wiskundige porties in dia‑tekstvakken, krijgt hun blokken via [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) en gebruikt [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) om de lettergrootte op 28 punten te zetten via de [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat)-methode van elk tekstelement.
+Dit voorbeeld gaat ervan uit dat `input.pptx` een vergelijking bevat zoals `z = xᵢ / ∛y`, met een breuk die een subscript in de teller heeft en een wortel in de noemer. Alleen de boven‑niveau‑elementen van het blok verwerken zou de tekst binnen de breuk missen. Het voorbeeld vindt wiskundige porties in dia‑tekstframes, krijgt hun blokken via [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) en gebruikt [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) om de lettergrootte op 28 punten te zetten via elk tekst‑element’s [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat)‑methode.
 
 ```php
 use aspose\slides\Presentation;
@@ -553,36 +575,36 @@ try {
 }
 ```
 
-De opgeslagen presentatie bevat de bijgewerkte tekstformattering op elk niveau van elke verwerkte vergelijking, terwijl de tekstinhoud en wiskundige structuur behouden blijven.
+De opgeslagen presentatie bevat de bijgewerkte tekstopmaak op elk niveau van elke verwerkte vergelijking, terwijl de tekstinhoud en wiskundige structuur behouden blijven.
 
-## **Snelle referentie**
+## **Snelreferentie**
 
-| Taak | Hoofd‑API |
+| Taak | Hoofd-API |
 | --- | --- |
-| Maak wiskundige tekst | [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) |
-| Combineer elementen | [join](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Maak breuken | [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Voeg superscript of subscript toe | [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Voeg functies toe | [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Voeg wortels toe | [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Voeg limieten toe | [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Voeg scripts aan de linkerkant toe | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Voeg sommaties en integralen toe | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Voeg matrices toe | [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) |
-| Voeg vergelijking‑arrays toe | [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Voeg scheidingstekens toe | [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Voeg strepen en randen toe | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Groeperen van termen | [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Wiskundige tekst maken | [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) |
+| Elementen combineren | [join](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Breuken maken | [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Superscript of subscript toevoegen | [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Functies toevoegen | [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Wortels toevoegen | [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Limieten toevoegen | [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Scripts links plaatsen | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Sommaties en integralen toevoegen | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Matrices toevoegen | [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) |
+| Vergelijkingsreeksen toevoegen | [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Delimiters toevoegen | [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Balken en randen toevoegen | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Termen groeperen | [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 
 ## **Veelgestelde vragen**
 
 **Kan ik een bestaande PowerPoint‑vergelijking bewerken?**
 
-Ja. Open de presentatie, zoek de vorm die een [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) bevat, roep [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) aan en werk de wiskundige blokken in die alinea bij.
+Ja. Open de presentatie, vind de vorm die een [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) bevat, roep [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) aan en werk de wiskundige blokken in die alinea bij.
 
 **Worden vergelijkingen opgeslagen als bewerkbare PowerPoint‑wiskunde?**
 
-Ja. Wanneer je opslaat naar PPTX, schrijft Aspose.Slides de vergelijking als bewerkbare Office‑wiskunde‑inhoud.
+Ja. Wanneer je opslaat naar PPTX, schrijft Aspose.Slides de vergelijking als bewerkbare Office‑wiskundige inhoud.
 
 **Kan ik vergelijkingen exporteren naar LaTeX?**
 

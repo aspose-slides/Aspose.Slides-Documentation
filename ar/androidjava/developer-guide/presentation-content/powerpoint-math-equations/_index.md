@@ -1,6 +1,6 @@
 ---
-title: إضافة معادلات رياضية إلى عروض PowerPoint التقديمية على Android
-linktitle: معادلات رياضية في PowerPoint
+title: إضافة معادلات رياضية إلى عروض PowerPoint على Android
+linktitle: معادلات رياضية لبرنامج PowerPoint
 type: docs
 weight: 80
 url: /ar/androidjava/powerpoint-math-equations/
@@ -18,35 +18,35 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "إدراج وتحرير المعادلات الرياضية في ملفات PowerPoint PPT و PPTX باستخدام Aspose.Slides لنظام Android، مع دعم OMML، وضوابط التنسيق، وعينات شفرة Java واضحة."
+description: "إدراج وتحرير المعادلات الرياضية في عروض PowerPoint بصيغ PPT و PPTX باستخدام Aspose.Slides لنظام Android، مع دعم OMML، أدوات تنسيق، وأمثلة شفرة Java واضحة."
 ---
 ## **نظرة عامة**
 
-يخزن PowerPoint المعادلات على شكل لغة علامات الرياضيات التابعة لأوفيس (OMML). باستخدام Aspose.Slides لنظام Android عبر Java، يمكنك إنشاء نفس نوع محتوى الرياضيات برمجيًا: الكسور، الجذور، الدوال، الحدود، عوامل N-ary، المصفوفات، القوائم، وكتل الرياضيات المنسقة.
+PowerPoint يخزن المعادلات كـ Office Math Markup Language (OMML). باستخدام Aspose.Slides for Android عبر Java، يمكنك إنشاء نفس نوع محتوى الرياضيات برمجياً: الكسور، الجذور، الدوال، الحدود، عوامل N-ary، المصفوفات، المصفوفات المتعددة، وكتل الرياضيات المنسقة.
 
 في PowerPoint، يضيف المستخدمون عادةً المعادلات من **Insert > Equation**:
 
-![علامة تبويب Insert في PowerPoint مع تحديد الأمر Equation](powerpoint-math-equations_1.png)
+![علامة تبويب إدراج في PowerPoint مع اختيار أمر المعادلة](powerpoint-math-equations_1.png)
 
-النتيجة هي نص رياضي قابلة للتحرير على الشريحة:
+النتيجة هي نص رياضي قابل للتحرير على الشريحة:
 
 ![شريحة PowerPoint تحتوي على معادلة رياضية قابلة للتحرير](powerpoint-math-equations_2.png)
 
-يبني Aspose.Slides ذلك النص الرياضي عبر ثلاثة كائنات رئيسية:
+Aspose.Slides يبني ذلك النص الرياضي عبر ثلاثة كائنات رئيسية:
 
-- شكل رياضي، يتم إنشاؤه باستخدام [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/)، وهو الشكل الذي يحتوي على المعادلة.
+- شكل رياضي، تم إنشاؤه باستخدام [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/)، هو الشكل الذي يحتوي على المعادلة.
 - [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) يخزن محتوى الرياضيات داخل إطار نص الشكل.
-- [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) يحتوي على كائن واحد أو أكثر من كائنات [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/).
+- [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) يحتوي على كائن واحد أو أكثر من [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/).
 
-تستخدم معظم الأمثلة أدناه [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) والطرق المتسلسلة من [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) لجعل الشيفرة قصيرة ومقروءة.
+معظم الأمثلة أدناه تستخدم [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) والطرق السلسة من [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) لجعل الشيفرة قصيرة ومقروءة.
 
-للحالات التي تتطلب تصدير MathML، راجع [Export Math Equations from Presentations on Android](/slides/ar/androidjava/exporting-math-equations/).
+للتصدير إلى MathML، راجع [Export Math Equations from Presentations on Android](/slides/ar/androidjava/exporting-math-equations/).
 
 ## **إنشاء معادلة**
 
-يستخدم هذا المثال [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) لإنشاء شكل رياضي ويضيف مبرهنة فيثاغورس:
+هذا المثال يستخدم [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) لإنشاء شكل رياضي ويضيف نظرية فيثاغورس:
 
-![المعادلة c تربيع يساوي a تربيع زائد b تربيع](powerpoint-math-equations_3.png)
+![المعادلة c² = a² + b²](powerpoint-math-equations_3.png)
 
 ```java
 import com.aspose.slides.*;
@@ -74,17 +74,15 @@ try {
 }
 ```
 
-{{% alert color="info" title="ملاحظة" %}}
-
-[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) يُنشئ شكلاً يحتوي مسبقًا على فقرة رياضية. احصل على أول [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/)، استدعِ [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--)، وأضف كتلًا رياضية أو عناصر رياضية إليها.
-
+{{% alert color="info" title="Note" %}}
+[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) ينشئ شكلاً يحتوي بالفعل على فقرة رياضية. احصل على أول [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/)، استدعِ [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--)، وأضف كتل رياضية أو عناصر رياضية إليها.
 {{% /alert %}}
 
 ## **إضافة كسور**
 
 استخدم [divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) لإنشاء كسر. يمكنك اختيار نمط الكسر باستخدام [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/).
 
-![كسر مائل يظهر 1 مقسومًا على x](powerpoint-math-equations_4.png)
+![كسر رياضي مائل يظهر 1 مقسومًا على x](powerpoint-math-equations_4.png)
 
 ```java
 import com.aspose.slides.*;
@@ -118,9 +116,9 @@ IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", Ma
 
 ## **إضافة جذور**
 
-استخدم [radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) لإنشاء جذر تربيعي أو جذر مكعب أو أي جذر آخر. العنصر الحالي يصبح القاعدة، والوسيط يصبح الدرجة.
+استخدم [radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) لإنشاء جذر تربيعي أو مكعب أو أي جذر آخر. العنصر الحالي يصبح القاعدة، والوسيط يصبح الدرجة.
 
-![تعبير جذري من النوع n-th مع x تحت علامة الجذر](powerpoint-math-equations_5.png)
+![تعبير جذري من الدرجة n مع x تحت علامة الجذر](powerpoint-math-equations_5.png)
 
 ```java
 import com.aspose.slides.*;
@@ -148,7 +146,7 @@ try {
 
 استخدم [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) أو [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) للدوال مثل `sin(x)`, `log(x)`, أو أسماء دوال مخصصة. للحدود، ضع `lim` داخل [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) أو استخدم [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-).
 
-![حد x عندما يقترب x إلى ما لا نهاية](powerpoint-math-equations_8.png)
+![حد x عندما يقترب x من اللانهاية](powerpoint-math-equations_8.png)
 
 ```java
 import com.aspose.slides.*;
@@ -173,7 +171,7 @@ try {
 }
 ```
 
-لإنشاء دالة مخصصة، اجعل اسم الدالة هو العنصر الحالي واستدعِ [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) مع وسيطها:
+لإضافة اسم دالة مخصص، اجعل اسم الدالة هو العنصر الحالي واستدعِ [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) مع وسيطه:
 
 ```java
 import com.aspose.slides.*;
@@ -181,11 +179,11 @@ import com.aspose.slides.*;
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **إضافة عوامل N-ary وتكامليات**
+## **إضافة عوامل N-ary وتكاملات**
 
-استخدم [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) للمجاميع، الاتحاد، التقاطع، وغيرها من العوامل الكبيرة. استخدم [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) للتكاملات. تسمح الطريقتان بتعيين الحدود السفلية والعلوية.
+استخدم [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) للجمع، الاتحاد، التقاطع، وغيرها من العوامل الكبيرة. استخدم [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) للتكامل. يسمح لك كلا الطريقتين بتعيين الحدود السفلية والعلوية.
 
-![مجموع مع حدود سفلية وعليا](powerpoint-math-equations_7.png)
+![جمع مع حدود سفلية وعليا](powerpoint-math-equations_7.png)
 
 ```java
 import com.aspose.slides.*;
@@ -212,9 +210,9 @@ try {
 }
 ```
 
-العوامل N-ary مخصصة للعوامل الكبيرة مع حدود اختيارية. عادةً ما تُضاف العوامل البسيطة مثل `+`, `-`, و `=` عبر [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) وتُدمج في التعبير.
+العوامل N-ary مخصصة للعوامل الكبيرة مع حدود اختيارية. العوامل البسيطة مثل `+`, `-`, و `=` تُضاف عادةً كـ [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) وتدمج في التعبير.
 
-لإنشاء تكامل، استخدم [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-):
+للتكامل، استخدم [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-):
 
 ```java
 import com.aspose.slides.*;
@@ -225,7 +223,7 @@ IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0"
 
 ## **إضافة مصفوفات**
 
-استخدم [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) للصفوف والأعمدة. لا تشمل المصفوفات الأقواس بشكل افتراضي، لذا قم بإن enclouse المصفوفة عندما تحتاج إلى أقواس أو قوسين أو أقواس معقوفة.
+استخدم [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) للصفوف والأعمدة. لا تتضمن المصفوفات أقواسًا بشكل افتراضي، لذا أحط المصفوفة بأقواس أو أقواس مربعة أو أقواس معقوفة عندما تحتاج ذلك.
 
 ![مصفوفة رياضية ذات صفين وخلية فارغة واحدة](powerpoint-math-equations_10.png)
 
@@ -257,9 +255,9 @@ try {
 
 ## **إضافة مصفوفات معادلات**
 
-استخدم [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--) عندما تحتاج إلى معادلات محاذية أو مجموعة عمودية من التعبيرات.
+استخدم [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--) عندما تحتاج إلى معادلات محاذاة أو رص عمودي للتعبيرات.
 
-![مصفوفة رياضية عمودية مع x فوق y](powerpoint-math-equations_11.png)
+![مصفوفة رياضية رأسية مع x فوق y](powerpoint-math-equations_11.png)
 
 ```java
 import com.aspose.slides.*;
@@ -288,7 +286,7 @@ try {
 
 استخدم [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) عندما يكون الوسيط هو العنصر الحالي ويكون اسم الدالة معروفًا.
 
-![دالة مثلثية cos مطبقة على 2x](powerpoint-math-equations_6.png)
+![الدالة المثلثية cos مطبقة على 2x](powerpoint-math-equations_6.png)
 
 ```java
 import com.aspose.slides.*;
@@ -312,11 +310,11 @@ try {
 }
 ```
 
-## **إضافة أسفلات وعليات**
+## **إضافة مؤشرات وأسفلية**
 
-استخدم المساعدين للأسفلية والعلوية للفهارس والقوى. عندما يجب أن تظهر الفهارس على الجانب الأيسر من القاعدة، استخدم [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-).
+استخدم مساعدي المؤشر والأسفل لتحديد الفهارس والرفع. عندما يجب أن تظهر الفهارس على الجانب الأيسر من القاعدة، استخدم [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-).
 
-![حرف Y كبير مع أسفلية يساوي 1 على اليسار وعلوية n](powerpoint-math-equations_9.png)
+![حرف Y كبير مع مؤشر أسفل على اليسار 1 ورفع n](powerpoint-math-equations_9.png)
 
 ```java
 import com.aspose.slides.*;
@@ -342,9 +340,9 @@ try {
 
 ## **إضافة محددات**
 
-استخدم [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) لوضع تعبير داخل محددات. يمكنك أيضًا تعيين حرف فاصل لتعبير يحتوي على عدة عناصر.
+استخدم [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) لوضع تعبير داخل محددات. يمكنك أيضًا تعيين حرف فاصل لتعبيرات المحدد التي تحتوي على عدة عناصر.
 
-![تعبير محدد يحتوي على x, y, و z مفصولة بأعمدة رأسية](powerpoint-math-equations_13.png)
+![تعبير محدد يحتوي على x و y و z مفصولة بأشرطة عمودية](powerpoint-math-equations_13.png)
 
 ```java
 import com.aspose.slides.*;
@@ -371,11 +369,11 @@ try {
 }
 ```
 
-### **حجم وتنسيق المحددات**
+### **حجم وتوضيب المحددات**
 
-مرر `true` إلى [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) لجعل الأقواس تنمو حول معامل طويل، أو مرر `false` للحفاظ على حجمها الطبيعي. استخدم [setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) مع إحدى قيمتي [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/). `Centered` يضع الأقواس في مركز محور الرياضيات، الذي يمر عبر منتصف علامة المساواة. `Match` يطابقها مع المحتوى المُحاط. كلا الإعدادين يؤثران فقط على المحددات. يبقى التعبير الداخلي دون تغيير.
+مرّر `true` إلى [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) للسماح للأقواس بالنمو حول عامل طويل، أو مرّر `false` لإبقائها بحجمها الطبيعي. استخدم [setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) مع إحدى قيمتي [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/). `Centered` يوسّط الأقواس على محور الرياضيات، الذي يمر عبر منتصف علامة المساواة. `Match` يوضّبها مع المحتوى المحاط. كلا الإعدادين يؤثران فقط على المحددات. يبقى التعبير داخلها كما هو.
 
-المثال يضع كسرًا في قوة `x` بحيث يمتد التعبير أعلى من الخط الأساسي أكثر من أسفله. جميع المعادلات الأربعة تستخدم نفس الأقواس وإعدادات الخط.
+المثال يضع كسرًا في أس `x` بحيث يمتد التعبير أعلى من خط القاعدة. جميع المعادلات الأربعة تستخدم نفس الأقواس وإعدادات الخط.
 
 ```java
 import com.aspose.slides.*;
@@ -404,36 +402,52 @@ try {
 }
 ```
 
-في PowerPoint، قارن الصفوف لتلاحظ تأثير النمو. في الصف العلوي، تنمو الأقواس لتغلق القوة وتبدو متماثلة لكلا الشكلين. في الصف السفلي، تم إيقاف النمو. الأقواس الأصغر على اليسار (`Centered`) تتماشى مع علامة المساواة، بينما تلك على اليمين (`Match`) تقع أعلى حول التعبير.
+في PowerPoint، قارن الصفوف لرؤية تأثير النمو. في الصف الأعلى، تنمو الأقواس لتحتوي على الأس وتظهر متشابهة لكلا الشكلين. في الصف الأسفل، يكون النمو معطَّلًا. الأقواس الأصغر على اليسار (`Centered`) تتماشى مع علامة المساواة، بينما تلك على اليمين (`Match`) تجلس أعلى حول التعبير.
 
-![أربع معادلات في PowerPoint مع تمكين نمو المحددات أعلاه وتعطيله أدناه، مع Centered على اليسار وMatch على اليمين](delimiter-sizing.png)
+![أربع معادلات في PowerPoint مع تمكين نمو المحددات أعلاه وتعطيله أدناه، و`Centered` على اليسار و`Match` على اليمين](delimiter-sizing.png)
 
-## **إضافة إطار حدودي**
+## **إضافة صندوق حد**
 
-استخدم [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) عندما يجب أن تُحاط المعادلة بإطار.
+استدعِ [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) على كسر لتأطير التعبير بالكامل. الصندوق [IMathBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/) المعاد إرجاعه يظهر جميع الجوانب الأربعة افتراضيًا. استخدم [setHideTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideTop-boolean-)، [setHideBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideBottom-boolean-)، [setHideLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideLeft-boolean-)، و [setHideRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideRight-boolean-) لإزالة جوانب معينة.
 
-![معادلة في صندوق توضح a تربيع يساوي b تربيع زائد c تربيع](powerpoint-math-equations_12.png)
+المثال يضع ست نسخ من نفس الكسر على شريحة واحدة. لإظهار الإلغاء، أخفِ جميع الجوانب الأربعة ومرّر `true` إلى [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) للحصول على خط مائل صاعد (↗) أو [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) لخط مائل هابط (↘). يمكنك أيضًا استخدام [setStrikethroughHorizontal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) أو [setStrikethroughVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) مع أي تركيبة من الجوانب المرئية.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
+    presentation.getSlideSize().setSize(540, 220, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
-    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
-            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
+    class FractionBuilder {
+        IMathBorderBox addFraction(float x, float y, boolean hideBorder) {
+            IMathFraction fraction = new MathematicalText("x+1").divide("y+2");
+            IMathBorderBox box = fraction.toBorderBox();
+            box.setHideTop(hideBorder);
+            box.setHideBottom(hideBorder);
+            box.setHideLeft(hideBorder);
+            box.setHideRight(hideBorder);
 
-    IMathBorderBox boxedEquation = new MathematicalText("a")
-            .setSuperscript("2")
-            .join("=")
-            .join(new MathematicalText("b").setSuperscript("2"))
-            .join("+")
-            .join(new MathematicalText("c").setSuperscript("2"))
-            .toBorderBox();
+            IAutoShape shape = slide.getShapes().addMathShape(x, y, 160, 90);
+            MathPortion portion = (MathPortion) shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+            portion.getPortionFormat().setFontHeight(28);
+            portion.getMathParagraph().add(new MathBlock(box));
+            return box;
+        }
+    }
 
-    mathParagraph.add(new MathBlock(boxedEquation));
+    FractionBuilder builder = new FractionBuilder();
+    builder.addFraction(10, 10, false);
+
+    IMathBorderBox partial = builder.addFraction(190, 10, false);
+    partial.setHideTop(true);
+    partial.setHideRight(true);
+
+    builder.addFraction(370, 10, true).setStrikethroughBottomLeftToTopRight(true);
+    builder.addFraction(10, 120, true).setStrikethroughTopLeftToBottomRight(true);
+    builder.addFraction(190, 120, true).setStrikethroughHorizontal(true);
+    builder.addFraction(370, 120, false).setStrikethroughVertical(true);
 
     presentation.save("border-box.pptx", SaveFormat.Pptx);
 } finally {
@@ -441,11 +455,15 @@ try {
 }
 ```
 
+![ستة كسور قابلة للتحرير في PowerPoint. الصف الأعلى: حد كامل، الجانب السفلي واليسار، خط مائل صاعد. الصف الأسفل: خط مائل هابط، خط أفقي، خط عمودي مع حد كامل.](border-box-fractions.png)
+
+على هذا الكسر، يتقاطع الخط الأفقي مع شريط الكسر. الخط العمودي يقطع البسط والمقام مع بقاء الحد المحيط مرئيًا. هذه الخطوط تزين التعبير بأكمله. الخطوط المشطوبة العادية تنطبق على الأحرف داخل مقطع النص. بعد إعادة فتح العرض التقديمي في PowerPoint، لا يزال بإمكانك تحرير البسط والمقام بشكل مستقل.
+
 ## **تجميع المصطلحات**
 
-استخدم [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) لوضع حرف تجميع فوق أو تحت تعبير. أضف حدًا لتسمية المصطلحات المجَمَّعة.
+استخدم [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) لوضع حرف تجميع فوق أو تحت تعبير. أضف حدًا لتسمية المصطلحات المجمعة.
 
-![التعبير x زائد y مُجمَّع مع تسمية أي نص تحته](powerpoint-math-equations_15.png)
+![التعبير x + y مُجَمَّع مع تسمية أي نص تحته](powerpoint-math-equations_15.png)
 
 ```java
 import com.aspose.slides.*;
@@ -472,7 +490,7 @@ try {
 
 ## **تنسيق عناصر الرياضيات**
 
-استخدم مساعدات التنسيق فقط عندما توضح الصيغة. على سبيل المثال، يضع [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) شريطًا فوق عنصر رياضي.
+استخدم مساعدي التنسيق فقط حيث يوضحون الصيغة. على سبيل المثال، [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) يضع شريطًا فوق عنصر رياضي.
 
 ![تعبير رياضي ABC مع شريط فوقه](powerpoint-math-equations_14.png)
 
@@ -499,9 +517,9 @@ try {
 
 ### **تنسيق النص في معادلة موجودة**
 
-لتنسيق النص عبر معادلة موجودة، تجول في شجرة عناصر كل كتلة رياضية. تُعيد [IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) الأطفال الفوريين فقط، لذا استدعِها بشكل متكرر للوصول إلى النص داخل الكسور، والأنصاف، والجذور، والهياكل المتداخلة الأخرى. تحقق من العنصر الحالي وكذلك من أطفاله لتضمين العنصر الابتدائي عندما يكون [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/).
+لتنسيق النص عبر معادلة موجودة،遍历 كل شجرة عناصر الكتلة الرياضية. [IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) يُعيد الأطفال المباشرين فقط، لذا استدعِه بشكل متكرر للوصول إلى النص داخل الكسور، الأسس، الجذور، والهياكل المتداخلة الأخرى. تحقق من العنصر الحالي وكذلك أطفاله لتشمل العنصر الابتدائي عندما يكون [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/).
 
-يفترض هذا المثال أن `input.pptx` يحتوي على معادلة مثل `z = xᵢ / ∛y`، حيث يحتوي الكسر على أسفلية في البسط وجذر في المقام. معالجة عناصر المستوى الأعلى فقط في الكتلة سيفقد النص داخل الكسر. يجد المثال الأجزاء الرياضية في إطارات نص الشرائح، ويصل إلى كتلها عبر [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--)، ويستخدم [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) لتعيين حجم الخط إلى 28 نقطة عبر طريقة [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--) لكل عنصر نصي.
+يفترض هذا المثال أن `input.pptx` يحتوي على معادلة مثل `z = xᵢ / ∛y`، مع كسر يحتوي على مؤشر أسفل في البسط وجذر في المقام. معالجة العناصر العليا فقط للكتلة سيتسبب في فقدان النص داخل الكسر. يجد المثال الأجزاء الرياضية في إطارات نص الشرائح، يصل إلى كتلها عبر [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--)، ويستخدم [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) لتعيين حجم الخط إلى 28 نقطة من خلال طريقة [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--) لكل عنصر نصي.
 
 ```java
 import com.aspose.slides.*;
@@ -552,37 +570,37 @@ try {
 }
 ```
 
-العرض التقديمي المحفوظ يحتوي على تنسيق نص محدث في كل مستوى من كل معادلة معالجة، مع الحفاظ على محتوى النص والهيكل الرياضي.
+العرض التقديمي المحفوظ يحتوي على تنسيق النص المحدث في كل مستوى من كل معادلة تمت معالجتها، مع الحفاظ على محتوى النص والبنية الرياضية.
 
 ## **مرجع سريع**
 
-| المهمة | واجهة برمجة التطبيقات الرئيسية |
+| المهمة | API الرئيسي |
 | --- | --- |
 | إنشاء نص رياضي | [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) |
 | دمج العناصر | [IMathElement.join](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | إنشاء كسور | [IMathElement.divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| إضافة أسفلية أو علوية | [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| إضافة أس فوق أو أس أسفل | [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | إضافة دوال | [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | إضافة جذور | [IMathElement.radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | إضافة حدود | [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| إضافة سكريبتات على الجانب الأيسر | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| إضافة مجموعات وتكامليات | [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| إضافة نصوص على الجانب الأيسر | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| إضافة جمع وتكامل | [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | إضافة مصفوفات | [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) |
 | إضافة مصفوفات معادلات | [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | إضافة محددات | [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| إضافة أشرطة وإطارات | [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| إضافة أشرطة وحدود | [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | تجميع المصطلحات | [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تعديل معادلة PowerPoint موجودة؟**
+**هل يمكن تعديل معادلة PowerPoint موجودة؟**
 
 نعم. افتح العرض التقديمي، ابحث عن الشكل الذي يحتوي على [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/)، استدعِ [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--)، وقم بتحديث كتل الرياضيات في تلك الفقرة.
 
 **هل تُحفظ المعادلات كرياضيات PowerPoint قابلة للتحرير؟**
 
-نعم. عند حفظ العرض إلى PPTX، يكتب Aspose.Slides المعادلة كمت sadrž Office Math قابلة للتحرير.
+نعم. عند الحفظ إلى PPTX، يكتب Aspose.Slides المعادلة كقcontent رياضي Office قابل للتحرير.
 
-**هل يمكنني تصدير المعادلات إلى LaTeX؟**
+**هل يمكن تصدير المعادلات إلى LaTeX؟**
 
-نعم. احصل على [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) من [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/)، ثم استدعِ [IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) لتصديره مباشرة. للحصول على مثال كامل، راجع [Export Math Equations from Presentations in Android via Java](/slides/ar/androidjava/exporting-math-equations/#export-math-equations-to-latex).
+نعم. احصل على [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) للمعادلة من [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/)، واستدعِ [IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) لتصديره مباشرة. لمثال كامل، راجع [Export Math Equations from Presentations in Android via Java](/slides/ar/androidjava/exporting-math-equations/#export-math-equations-to-latex).

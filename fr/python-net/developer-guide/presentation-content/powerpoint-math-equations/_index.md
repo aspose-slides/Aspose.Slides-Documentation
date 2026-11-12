@@ -17,35 +17,35 @@ keywords:
 - présentation
 - Python
 - Aspose.Slides
-description: "Insérer et modifier des équations mathématiques dans PowerPoint PPT et PPTX avec Aspose.Slides pour Python via .NET, prenant en charge OMML, les contrôles de mise en forme et des exemples de code Python clairs."
+description: "Insérer et modifier des équations mathématiques dans PowerPoint PPT et PPTX avec Aspose.Slides pour Python via .NET, en prenant en charge OMML, les contrôles de mise en forme et des exemples de code Python clairs."
 ---
-## **Vue d'ensemble**
+## **Aperçu**
 
-PowerPoint stocke les équations au format Office Math Markup Language (OMML). Avec Aspose.Slides for Python via .NET, vous pouvez créer le même type de contenu mathématique de façon programmatique : fractions, radicaux, fonctions, limites, opérateurs n‑aires, matrices, tableaux et blocs mathématiques formatés.
+PowerPoint stocke les équations au format Office Math Markup Language (OMML). Avec Aspose.Slides for Python via .NET, vous pouvez créer le même type de contenu mathématique de manière programmatique : fractions, radicaux, fonctions, limites, opérateurs n‑aires, matrices, tableaux et blocs mathématiques formatés.
 
-Dans PowerPoint, les utilisateurs ajoutent normalement des équations depuis **Insert > Equation** :
+Dans PowerPoint, les utilisateurs ajoutent généralement des équations via **Insert > Equation** :
 
-![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
+![Onglet Insert de PowerPoint avec la commande Equation sélectionnée](powerpoint-math-equations_1.png)
 
-Le résultat est du texte mathématique éditable sur la diapositive :
+Le résultat est du texte mathématique modifiable sur la diapositive :
 
-![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
+![Une diapositive PowerPoint contenant une équation mathématique modifiable](powerpoint-math-equations_2.png)
 
 Aspose.Slides génère ce texte mathématique à l'aide de trois objets principaux :
 
-- Une forme mathématique, créée avec [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/), est la forme qui contient l’équation.
-- [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) stocke le contenu mathématique à l’intérieur du cadre de texte de la forme.
+- Une forme mathématique, créée avec [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/), est la forme qui contient l'équation.
+- [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) stocke le contenu mathématique à l'intérieur du cadre de texte de la forme.
 - [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) contient un ou plusieurs objets [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/).
 
 La plupart des exemples ci‑dessous utilisent [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) et les méthodes fluides de [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) pour garder le code court et lisible.
 
-Pour les scénarios d’exportation MathML, voir [Exporter des équations mathématiques depuis des présentations en Python via .NET](/slides/fr/python-net/exporting-math-equations/).
+Pour les scénarios d’exportation vers MathML, voir [Exporter des équations mathématiques à partir de présentations en Python via .NET](/slides/fr/python-net/exporting-math-equations/).
 
 ## **Créer une équation**
 
 Cet exemple utilise [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) pour créer une forme mathématique et ajoute le théorème de Pythagore :
 
-![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
+![L'équation c au carré égale a au carré plus b au carré](powerpoint-math-equations_3.png)
 
 ```py
 import aspose.slides as slides
@@ -72,14 +72,14 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="info" title="Note" %}}
-[add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) crée une forme qui contient déjà un paragraphe mathématique. Accédez au premier [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), obtenez son [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), et ajoutez des blocs mathématiques ou des éléments mathématiques.
+[add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) crée une forme qui contient déjà un paragraphe mathématique. Accédez au premier [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), récupérez son [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), et ajoutez des blocs mathématiques ou des éléments mathématiques.
 {{% /alert %}}
 
 ## **Ajouter des fractions**
 
 Utilisez [divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/) pour créer une fraction. Vous pouvez choisir un style de fraction avec [MathFractionTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/).
 
-![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
+![Une fraction mathématique inclinée montrant un divisé par x](powerpoint-math-equations_4.png)
 
 ```py
 import aspose.slides as slides
@@ -108,9 +108,9 @@ stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFract
 
 ## **Ajouter des radicaux**
 
-Utilisez [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/) pour créer une racine carrée, une racine cubique ou une autre racine. L’élément courant devient la base, et l’argument devient le degré.
+Utilisez [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/) pour créer une racine carrée, une racine cubique ou toute autre racine. L'élément actuel devient la base, et l'argument devient le degré.
 
-![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
+![Une expression radicale de n‑ième racine avec x sous le signe radical](powerpoint-math-equations_5.png)
 
 ```py
 import aspose.slides as slides
@@ -131,9 +131,9 @@ with slides.Presentation() as presentation:
 
 ## **Ajouter des fonctions et des limites**
 
-Utilisez [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) ou [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) pour des fonctions telles que `sin(x)`, `log(x)`, ou des noms de fonctions personnalisés. Pour les limites, placez `lim` dans un [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) ou utilisez [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/).
+Utilisez [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) ou [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) pour des fonctions telles que `sin(x)`, `log(x)`, ou des noms de fonction personnalisés. Pour les limites, placez `lim` dans un [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) ou utilisez [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/).
 
-![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
+![La limite de x lorsque x tend vers l'infini](powerpoint-math-equations_8.png)
 
 ```py
 import aspose.slides as slides
@@ -156,7 +156,7 @@ with slides.Presentation() as presentation:
     presentation.save("functions-and-limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pour un nom de fonction personnalisé, faites du nom de fonction l’élément courant et appelez [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) avec son argument :
+Pour un nom de fonction personnalisé, faites du nom de la fonction l'élément actuel et appelez [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) avec son argument :
 
 ```py
 import aspose.slides.mathtext as math
@@ -166,9 +166,9 @@ custom_function = math.MathematicalText("f").function("x + 1")
 
 ## **Ajouter des opérateurs n‑aires et des intégrales**
 
-Utilisez [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/) pour les sommes, les réunions, les intersections et d’autres grands opérateurs. Utilisez [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) pour les intégrales. Les deux méthodes vous permettent de définir les limites inférieure et supérieure.
+Utilisez [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/) pour les sommes, les unions, les intersections et autres grands opérateurs. Utilisez [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) pour les intégrales. Les deux méthodes vous permettent de définir les limites inférieure et supérieure.
 
-![A summation with lower and upper limits](powerpoint-math-equations_7.png)
+![Une sommation avec limites inférieure et supérieure](powerpoint-math-equations_7.png)
 
 ```py
 import aspose.slides as slides
@@ -193,7 +193,7 @@ with slides.Presentation() as presentation:
     presentation.save("nary-operators.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Les opérateurs n‑aires servent aux grands opérateurs avec limites optionnelles. Les opérateurs simples tels que `+`, `-` et `=` sont généralement ajoutés en tant que [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) et concaténés dans l’expression.
+Les opérateurs n‑aires sont destinés aux grands opérateurs avec limites optionnelles. Les opérateurs simples tels que `+`, `-` et `=` sont généralement ajoutés en tant que [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) et joints à l'expression.
 
 Pour une intégrale, utilisez [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) :
 
@@ -206,9 +206,9 @@ integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 
 ## **Ajouter des matrices**
 
-Utilisez [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) pour les lignes et les colonnes. Les matrices n’incluent pas de crochets par défaut, donc encadrez la matrice lorsque vous avez besoin de parenthèses, crochets ou accolades.
+Utilisez [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) pour les lignes et les colonnes. Les matrices n’incluent pas de crochets par défaut, il faut donc entourer la matrice avec des parenthèses, des crochets ou des accolades selon le besoin.
 
-![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
+![Une matrice mathématique à deux lignes avec une cellule vide](powerpoint-math-equations_10.png)
 
 ```py
 import aspose.slides as slides
@@ -222,21 +222,21 @@ with slides.Presentation() as presentation:
 
     matrix = math.MathMatrix(2, 3)
 
-    # Une matrice n'a pas de crochets propres, il faut donc l'enclore entre parenthèses.
+    # Une matrice n'a pas de crochets propres, il faut donc l'entourer de parenthèses.
     math_paragraph.add(math.MathBlock(matrix.enclose("(", ")")))
 
     presentation.save("matrix.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="warning" title="Warning" %}}
-`MathMatrix` construit la grille de lignes et de colonnes, fixe les espaces entre elles et aligne les colonnes, mais Aspose.Slides for Python via .NET n’expose pas d’accesseur pour une cellule de matrice individuelle. Une matrice créée en code conserve donc des cellules vides ; les cellules d’une matrice provenant d’une présentation existante peuvent être lues avec `get_children`. Utilisez un tableau d’équations lorsque vous devez remplir les lignes depuis le code.
+`MathMatrix` construit la grille de lignes et de colonnes, définit les espaces entre elles et aligne les colonnes, mais Aspose.Slides for Python via .NET n’expose pas d’accesseur pour une cellule de matrice individuelle. Une matrice créée par code conserve donc les cellules vides ; les cellules d’une matrice provenant d’une présentation existante peuvent être lues avec `get_children`. Utilisez un tableau d’équations lorsque vous devez remplir les lignes depuis le code.
 {{% /alert %}}
 
 ## **Ajouter des tableaux d’équations**
 
 Utilisez [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) lorsque vous avez besoin d’équations alignées ou d’une pile verticale d’expressions.
 
-![A vertical math array with x above y](powerpoint-math-equations_11.png)
+![Un tableau mathématique vertical avec x au-dessus de y](powerpoint-math-equations_11.png)
 
 ```py
 import aspose.slides as slides
@@ -261,9 +261,9 @@ with slides.Presentation() as presentation:
 
 ## **Ajouter des fonctions trigonométriques**
 
-Utilisez [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) lorsque l’argument est l’élément courant et que le nom de la fonction est connu.
+Utilisez [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) lorsque l’argument est l’élément actuel et que le nom de la fonction est connu.
 
-![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
+![La fonction trigonométrique cos appliquée à 2x](powerpoint-math-equations_6.png)
 
 ```py
 import aspose.slides as slides
@@ -286,9 +286,9 @@ with slides.Presentation() as presentation:
 
 ## **Ajouter des indices et des exposants**
 
-Utilisez les assistants d’indice et d’exposant pour les index et les puissances. Lorsque les index doivent apparaître du côté gauche de la base, utilisez [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) .
+Utilisez les assistants d’indice et d’exposant pour les index et les puissances. Lorsque les index doivent apparaître du côté gauche de la base, utilisez [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) :
 
-![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
+![Un Y majuscule avec indice gauche 1 et exposant n](powerpoint-math-equations_9.png)
 
 ```py
 import aspose.slides as slides
@@ -309,9 +309,9 @@ with slides.Presentation() as presentation:
 
 ## **Ajouter des délimiteurs**
 
-Utilisez [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/) pour placer une expression à l’intérieur de délimiteurs. Vous pouvez également définir un caractère séparateur pour les expressions délimitées contenant plusieurs éléments.
+Utilisez [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/) pour placer une expression entre délimiteurs. Vous pouvez également définir un caractère séparateur pour les expressions délimitées contenant plusieurs éléments.
 
-![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
+![Une expression délimitée contenant x, y et z séparés par des barres verticales](powerpoint-math-equations_13.png)
 
 ```py
 import aspose.slides as slides
@@ -338,9 +338,9 @@ with slides.Presentation() as presentation:
 
 ### **Taille et alignement des délimiteurs**
 
-Définissez [grow_to_match_operand_height](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/grow_to_match_operand_height/) à `True` pour laisser les parenthèses s’agrandir autour d’un opérande haut, ou à `False` pour les garder à leur taille normale. [delimiter_shape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/delimiter_shape/) accepte l’une des deux valeurs [MathDelimiterShape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimitershape/). `CENTERED` centre les parenthèses sur l’axe mathématique, qui passe par le milieu du signe égal. `MATCH` les aligne avec le contenu encadré. Les deux réglages n’affectent que les délimiteurs. L’expression intérieure reste la même.
+Définissez [grow_to_match_operand_height](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/grow_to_match_operand_height/) à `True` pour laisser les parenthèses s’étendre autour d’un opérande haut, ou à `False` pour les garder à leur taille normale. [delimiter_shape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/delimiter_shape/) accepte l’une des deux valeurs [MathDelimiterShape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimitershape/). `CENTERED` centre les parenthèses sur l’axe mathématique, qui passe par le centre du signe égal. `MATCH` les aligne avec le contenu enfermé. Ces réglages n’affectent que les délimiteurs. L’expression interne reste la même.
 
-L’exemple place une fraction dans l’exposant de `x` afin que l’expression s’étende davantage au-dessus de la ligne de base qu’en dessous. Les quatre équations utilisent les mêmes parenthèses et paramètres de police.
+L’exemple place une fraction dans l’exposant de `x` afin que l’expression s’étende davantage au-dessus de la ligne de base qu’en dessous. Les quatre équations utilisent les mêmes parenthèses et les mêmes paramètres de police.
 
 ```python
 import aspose.slides as slides
@@ -371,46 +371,60 @@ with slides.Presentation() as presentation:
     presentation.save("delimiter-sizing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Dans PowerPoint, comparez les lignes pour voir l’effet de l’agrandissement. Dans la ligne supérieure, les parenthèses s’agrandissent pour entourer l’exposant et sont similaires pour les deux formes. Dans la ligne inférieure, l’agrandissement est désactivé. Les parenthèses plus petites à gauche (`CENTERED`) s’alignent avec le signe égal, tandis que celles à droite (`MATCH`) sont plus hautes autour de l’expression.
+Dans PowerPoint, comparez les lignes pour voir l’effet de la croissance. Dans la ligne supérieure, les parenthèses s’étendent pour enfermer l’exposant et sont identiques pour les deux formes. Dans la ligne inférieure, la croissance est désactivée. Les parenthèses plus petites à gauche (`CENTERED`) sont alignées avec le signe égal, tandis que celles à droite (`MATCH`) se situent plus haut autour de l’expression.
 
-![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
+![Quatre équations dans PowerPoint avec la croissance des délimiteurs activée en haut et désactivée en bas, Centered à gauche et Match à droite](delimiter-sizing.png)
 
-## **Ajouter une boîte bordure**
+## **Ajouter une boîte bordée**
 
-Utilisez [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) lorsque l’équation elle‑même doit être encadrée.
+Appelez [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) sur une fraction pour encadrer l’expression entière. Le [IMathBorderBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/) retourné affiche les quatre côtés par défaut. Utilisez [hide_top](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_top/), [hide_bottom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_bottom/), [hide_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_left/), et [hide_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_right/) pour supprimer les côtés individuels.
 
-![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
+L’exemple place six copies de la même fraction sur une diapositive. Pour montrer l’annulation, masquez les quatre côtés et définissez [strikethrough_bottom_left_to_top_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_bottom_left_to_top_right/) pour une diagonale ascendante (↗) ou [strikethrough_top_left_to_bottom_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_top_left_to_bottom_right/) pour une diagonale descendante (↘). Vous pouvez également utiliser [strikethrough_horizontal](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_horizontal/) ou [strikethrough_vertical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_vertical/) avec n’importe quelle combinaison de côtés visibles.
 
 ```py
 import aspose.slides as slides
 import aspose.slides.mathtext as math
 
+
+def add_fraction(slide, x, y, hide_border=False):
+    fraction = math.MathematicalText("x+1").divide("y+2")
+    box = fraction.to_border_box()
+    box.hide_top = box.hide_bottom = box.hide_left = box.hide_right = hide_border
+
+    shape = slide.shapes.add_math_shape(x, y, 160, 90)
+    portion = shape.text_frame.paragraphs[0].portions[0]
+    portion.portion_format.font_height = 28
+    portion.math_paragraph.add(math.MathBlock(box))
+    return box
+
+
 with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(540, 220, slides.SlideSizeScaleType.DO_NOT_SCALE)
     slide = presentation.slides[0]
 
-    math_shape = slide.shapes.add_math_shape(20, 20, 700, 100)
-    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+    add_fraction(slide, 10, 10)
 
-    boxed_equation = (
-        math.MathematicalText("a")
-        .set_superscript("2")
-        .join("=")
-        .join(math.MathematicalText("b").set_superscript("2"))
-        .join("+")
-        .join(math.MathematicalText("c").set_superscript("2"))
-        .to_border_box()
-    )
+    partial = add_fraction(slide, 190, 10)
+    partial.hide_top = True
+    partial.hide_right = True
 
-    math_paragraph.add(math.MathBlock(boxed_equation))
+    add_fraction(slide, 370, 10, hide_border=True).strikethrough_bottom_left_to_top_right = True
+    add_fraction(slide, 10, 120, hide_border=True).strikethrough_top_left_to_bottom_right = True
+    add_fraction(slide, 190, 120, hide_border=True).strikethrough_horizontal = True
+    add_fraction(slide, 370, 120).strikethrough_vertical = True
 
     presentation.save("border-box.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Grouper des termes**
+![Six fractions éditables dans PowerPoint. Ligne supérieure : bord complet, côtés inférieur et gauche, diagonale ascendante. Ligne inférieure : diagonale descendante, barre horizontale, barre verticale avec un bord complet.](border-box-fractions.png)
 
-Utilisez [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/) pour placer un caractère de regroupement au-dessus ou en dessous d’une expression. Ajoutez une limite pour étiqueter les termes regroupés.
+Sur cette fraction, la barre horizontale chevauche la barre de fraction. La barre verticale traverse le numérateur et le dénominateur tandis que le bord entourant reste visible. Ces lignes décorent l’ensemble de l’expression. Le barré de texte ordinaire s’applique aux caractères d’une séquence de texte. Après avoir rouvert la présentation dans PowerPoint, vous pouvez toujours éditer le numérateur et le dénominateur indépendamment.
 
-![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
+## **Regrouper des termes**
+
+Utilisez [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/) pour placer un caractère de regroupement au-dessus ou au-dessous d’une expression. Ajoutez une limite pour étiqueter les termes groupés.
+
+![L’expression x + y groupée avec l’étiquette tout texte en dessous](powerpoint-math-equations_15.png)
 
 ```py
 import aspose.slides as slides
@@ -435,9 +449,9 @@ with slides.Presentation() as presentation:
 
 ## **Formater les éléments mathématiques**
 
-Utilisez les assistants de formatage uniquement lorsqu’ils clarifient la formule. Par exemple, [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/) place une barre au‑dessus d’un élément mathématique.
+Utilisez les assistants de formatage uniquement lorsqu’ils clarifient la formule. Par exemple, [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/) place une barre au-dessus d’un élément mathématique.
 
-![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
+![Une expression mathématique ABC avec une barre supérieure](powerpoint-math-equations_14.png)
 
 ```py
 import aspose.slides as slides
@@ -458,9 +472,9 @@ with slides.Presentation() as presentation:
 
 ### **Formater le texte dans une équation existante**
 
-Pour formater le texte dans toute une équation existante, parcourez l’arbre d’éléments de chaque bloc mathématique. [IMathElement.get_children](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/get_children/) ne renvoie que les enfants immédiats, il faut donc l’appeler récursivement pour atteindre le texte à l’intérieur des fractions, exposants, radicaux et d’autres structures imbriquées. Vérifiez l’élément courant ainsi que ses enfants afin d’inclure l’élément de départ lorsqu’il s’agit de [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/).
+Pour formater le texte dans une équation existante, parcourez l’arbre d’éléments de chaque bloc mathématique. [IMathElement.get_children](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/get_children/) ne renvoie que les enfants immédiats, il faut donc l’appeler de façon récursive pour atteindre le texte à l’intérieur des fractions, exposants, radicaux et autres structures imbriquées. Vérifiez l’élément actuel ainsi que ses enfants afin d’inclure l’élément de départ lorsqu’il s’agit de [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/).
 
-Cet exemple suppose que `input.pptx` contient une équation telle que `z = xᵢ / ∛y`, avec une fraction contenant un indice en numérateur et un radical en dénominateur. Ne traiter que les éléments de niveau supérieur du bloc omettrait le texte à l’intérieur de la fraction. L’exemple trouve les portions mathématiques dans les cadres de texte des diapositives, accède à leurs blocs via [MathPortion.math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), et définit [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) à 28 points pour chaque élément de texte via la propriété [format](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/format/) .
+Cet exemple suppose que `input.pptx` contient une équation telle que `z = xᵢ / ∛y`, avec une fraction contenant un indice dans son numérateur et un radical dans son dénominateur. Ne traiter que les éléments de premier niveau du bloc ferait manquer le texte à l’intérieur de la fraction. L’exemple trouve les portions mathématiques dans les cadres de texte des diapositives, accède à leurs blocs via [MathPortion.math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), et définit [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) à 28 points pour chaque élément de texte via sa propriété [format](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/format/).
 
 ```py
 import aspose.slides as slides
@@ -490,7 +504,7 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("formatted-equations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-La présentation enregistrée contient le formatage du texte mis à jour à chaque niveau de chaque équation traitée, tout en préservant son contenu texte et sa structure mathématique.
+La présentation enregistrée contient le formatage de texte mis à jour à chaque niveau de chaque équation traitée, tout en préservant son contenu textuel et sa structure mathématique.
 
 ## **Référence rapide**
 
@@ -513,14 +527,14 @@ La présentation enregistrée contient le formatage du texte mis à jour à chaq
 
 ## **FAQ**
 
-**Puis‑je modifier une équation PowerPoint existante ?**
+**Puis-je modifier une équation PowerPoint existante ?**
 
-Oui. Ouvrez la présentation, trouvez la forme qui contient une [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), récupérez son [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), et mettez à jour les blocs mathématiques de ce paragraphe.
+Oui. Ouvrez la présentation, trouvez la forme qui contient un [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), récupérez son [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), et mettez à jour les blocs mathématiques de ce paragraphe.
 
-**Les équations sont‑elles enregistrées comme du math PowerPoint éditable ?**
+**Les équations sont‑elles enregistrées en tant que mathématiques PowerPoint éditables ?**
 
-Oui. Lors de l’enregistrement au format PPTX, Aspose.Slides écrit l’équation sous forme de contenu Office mathématique éditable.
+Oui. Lors de l’enregistrement en PPTX, Aspose.Slides écrit l’équation sous forme de contenu mathématique Office éditable.
 
 **Puis‑je exporter des équations vers LaTeX ?**
 
-Oui. Obtenez le [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) de l’équation à partir de son [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), puis appelez [MathParagraph.to_latex](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) pour l’exporter directement. Pour un exemple complet, voir [Exporter des équations mathématiques depuis des présentations en Python via .NET](/slides/fr/python-net/exporting-math-equations/#export-math-equations-to-latex).
+Oui. Récupérez le [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) de l’équation à partir de son [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), puis appelez [MathParagraph.to_latex](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) pour l’exporter directement. Pour un exemple complet, voir [Exporter des équations mathématiques à partir de présentations en Python via .NET](/slides/fr/python-net/exporting-math-equations/#export-math-equations-to-latex).

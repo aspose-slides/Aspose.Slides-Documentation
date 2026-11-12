@@ -17,35 +17,35 @@ keywords:
 - ارائه
 - PHP
 - Aspose.Slides
-description: "درج و ویرایش معادلات ریاضی در فایل‌های PowerPoint PPT و PPTX با Aspose.Slides برای PHP از طریق Java، پشتیبانی از OMML، کنترل‌های قالب‌بندی، و نمونه‌های کد PHP واضح."
+description: "در PowerPoint (PPT و PPTX) معادلات ریاضی را با Aspose.Slides برای PHP از طریق Java وارد و ویرایش کنید، با پشتیبانی از OMML، کنترل‌های قالب‌بندی، و نمونه‌های واضح کد PHP."
 ---
 ## **نمای کلی**
 
-PowerPoint معادلات را به عنوان Office Math Markup Language (OMML) ذخیره می‌کند. با Aspose.Slides برای PHP از طریق Java، می‌توانید همان نوع محتویات ریاضی را به‌صورت برنامه‌نویسی ایجاد کنید: کسرها، رادیکال‌ها، توابع، حدود، عملگرهای N-ary، ماتریس‌ها، آرایه‌ها و بلوک‌های ریاضی قالب‌بندی‌شده.
+PowerPoint معادلات را به‌صورت Office Math Markup Language (OMML) ذخیره می‌کند. با Aspose.Slides برای PHP از طریق Java، می‌توانید همان نوع محتویات ریاضی را به‌صورت برنامه‌نویسی ایجاد کنید: کسرها، رادیکال‌ها، توابع، حدها، عملگرهای N‑ary، ماتریس‌ها، آرایه‌ها و بلوک‌های ریاضی قالب‌بندی شده.
 
 در PowerPoint، کاربران معمولاً معادلات را از **Insert > Equation** اضافه می‌کنند:
 
-![برگه Insert در PowerPoint با فرمان Equation انتخاب شده](powerpoint-math-equations_1.png)
+![زبانه Insert در PowerPoint با فرمان Equation انتخاب شده](powerpoint-math-equations_1.png)
 
-نتیجه متن ریاضی قابل ویرایش روی اسلاید است:
+نتیجه، متن ریاضی قابل ویرایش بر روی اسلاید است:
 
-![یک اسلاید PowerPoint شامل یک معادله ریاضی قابل ویرایش](powerpoint-math-equations_2.png)
+![یک اسلاید PowerPoint حاوی یک معادله ریاضی قابل ویرایش](powerpoint-math-equations_2.png)
 
 Aspose.Slides این متن ریاضی را از طریق سه شیء اصلی می‌سازد:
 
-- یک شکل ریاضی، که با [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) ایجاد می‌شود، شکلی است که معادله را دربر می‌گیرد.
-- [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) محتوای ریاضی را داخل فریم متن شکل ذخیره می‌کند.
+- شکلی ریاضی که با [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) ایجاد می‌شود، شکلی است که معادله را شامل می‌شود.
+- [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) محتویات ریاضی را داخل فریم متن شکل ذخیره می‌کند.
 - [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) شامل یک یا چند شیء [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/) است.
 
-بیشتر مثال‌های زیر از [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) و روش‌های زنجیره‌ای [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) استفاده می‌کنند تا کد کوتاه و خوانا بماند.
+اکثریت مثال‌های زیر از [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) و متدهای زنجیره‌ای [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) استفاده می‌کند تا کد کوتاه و قابل‌خواندن باشد.
 
-برای سناریوهای خروجی MathML، به [صادرات معادلات ریاضی از ارائه‌ها در PHP از طریق Java](/slides/fa/php-java/exporting-math-equations/) مراجعه کنید.
+برای موارد صادرات MathML، به [Export Math Equations from Presentations in PHP via Java](/slides/fa/php-java/exporting-math-equations/) مراجعه کنید.
 
 ## **ایجاد یک معادله**
 
 این مثال از [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) برای ایجاد یک شکل ریاضی استفاده می‌کند و قضیه فیثاغورث را اضافه می‌کند:
 
-![معادله c² برابر a² به‌اضافه b²](powerpoint-math-equations_3.png)
+![معادله c به توان۲ برابر a به توان۲ به‌علاوه b به توان۲](powerpoint-math-equations_3.png)
 
 ```php
 $presentation = new Presentation();
@@ -74,14 +74,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) شکلی ایجاد می‌کند که از پیش شامل یک پاراگراف ریاضی است. اولین [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) را دریافت کنید، [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) را فراخوانی کنید و بلوک‌ها یا عناصر ریاضی را به آن اضافه کنید.
+[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) شکلی ایجاد می‌کند که از پیش شامل یک پاراگراف ریاضی است. اولین [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) را دسترسی پیدا کنید، [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) را فراخوانی کنید و بلوک‌ها یا عناصر ریاضی را به آن اضافه کنید.
 {{% /alert %}}
 
-## **اضافه کردن کسرها**
+## **افزودن کسرها**
 
 از [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#divide) برای ایجاد یک کسر استفاده کنید. می‌توانید سبک کسر را با [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/) انتخاب کنید.
 
-![یک کسر ریاضی کج که یک بر x تقسیم شده را نشان می‌دهد](powerpoint-math-equations_4.png)
+![یک کسر ریاضی کج که یک تقسیم بر x را نشان می‌دهد](powerpoint-math-equations_4.png)
 
 ```php
 $presentation = new Presentation();
@@ -105,17 +105,17 @@ try {
 }
 ```
 
-برای یک کسر stacked، از [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar) استفاده کنید:
+برای یک کسر عمودی، از [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar) استفاده کنید:
 
 ```php
 $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFractionTypes::Bar);
 ```
 
-## **اضافه کردن رادیکال‌ها**
+## **افزودن رادیکال‌ها**
 
-از [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) برای ایجاد ریشه‌ی مربعی، ریشه‌ی مکعب یا سایر ریشه‌ها استفاده کنید. عنصر فعلی به‌عنوان پایه می‌شود و آرگومان به‌عنوان درجه.
+از [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) برای ایجاد رادیکال درجه دوم، رادیکال درجه سوم یا هر رادیکال دیگری استفاده کنید. عنصر فعلی به عنوان پایه می‌شود و آرگومان به عنوان درجه.
 
-![یک عبارت رادیکل n-ام با x زیر علامت رادیکل](powerpoint-math-equations_5.png)
+![یک عبارت رادیکال n‑ام با x زیر علامت رادیکال](powerpoint-math-equations_5.png)
 
 ```php
 $presentation = new Presentation();
@@ -139,11 +139,11 @@ try {
 }
 ```
 
-## **اضافه کردن توابع و حدود**
+## **افزودن توابع و حدها**
 
-از [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) یا [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) برای توابعی مانند `sin(x)`، `log(x)`، یا نام‌های سفارشی تابع استفاده کنید. برای حدود، `lim` را در یک [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) قرار دهید یا از [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit) استفاده کنید.
+از [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) یا [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) برای توابعی مانند `sin(x)`, `log(x)` یا نام‌های تابع سفارشی استفاده کنید. برای حدها، `lim` را در یک [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) قرار دهید یا از [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit) استفاده کنید.
 
-![حد x هنگامی که x به بی‌نهایت می‌رسد](powerpoint-math-equations_8.png)
+![حد x هنگامی که x به بی‌نهایت میل می‌کند](powerpoint-math-equations_8.png)
 
 ```php
 $presentation = new Presentation();
@@ -168,17 +168,17 @@ try {
 }
 ```
 
-برای نام تابع سفارشی، نام تابع را عنصر فعلی کنید و با آرگومان آن، [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) را فراخوانی کنید:
+برای نام تابع سفارشی، نام تابع را به‌عنوان عنصر جاری درآورده و با آرگومان آن، [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) را فراخوانی کنید:
 
 ```php
 $customFunction = (new MathematicalText("f"))->function("x + 1");
 ```
 
-## **اضافه کردن عملگرهای N-ary و انتگرال‌ها**
+## **افزودن عملگرهای N‑ary و انتگرال‌ها**
 
-از [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) برای مجموع‌ها، اتحادیه‌ها، تقاطع‌ها و دیگر عملگرهای بزرگ استفاده کنید. از [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) برای انتگرال‌ها استفاده کنید. هر دو روش به شما امکان تنظیم حدود پایین و بالا را می‌دهند.
+از [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) برای جمع‌ها، اتحادات، اشتراک‌ها و سایر عملگرهای بزرگ استفاده کنید. از [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) برای انتگرال‌ها استفاده کنید. هر دو متد امکان تنظیم حد پایین و بالا را می‌دهند.
 
-![یک جمع با حدود پایین و بالا](powerpoint-math-equations_7.png)
+![یک جمع با حدهای پایین و بالا](powerpoint-math-equations_7.png)
 
 ```php
 $presentation = new Presentation();
@@ -205,7 +205,7 @@ try {
 }
 ```
 
-عملگرهای N-ary برای عملگرهای بزرگ با حدود اختیاری هستند. عملگرهای ساده مانند `+`، `-` و `=` معمولاً به‌عنوان [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) اضافه می‌شوند و به عبارت پیوست می‌شوند.
+عملگرهای N‑ary برای عملگرهای بزرگ با حدهای اختیاری هستند. عملگرهای ساده مانند `+`، `-` و `=` معمولاً به‌عنوان [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) اضافه شده و به عبارت پیوست می‌شوند.
 
 برای یک انتگرال، از [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) استفاده کنید:
 
@@ -214,11 +214,11 @@ $integralBase = (new MathematicalText("x"))->join((new MathematicalText("dx"))->
 $integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
 ```
 
-## **اضافه کردن ماتریس‌ها**
+## **افزودن ماتریس‌ها**
 
-از [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) برای ردیف‌ها و ستون‌ها استفاده کنید. به‌صورت پیش‌فرض ماتریس‌ها شامل براکت نیستند، بنابراین هنگام نیاز به پرانتز، براکت یا کروشه، ماتریس را دربر بگیرید.
+از [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) برای سطرها و ستون‌ها استفاده کنید. به‌طور پیش‌فرض ماتریس‌ها‌کادربند (براکت) ندارند، بنابراین وقتی به پرانتز، براکت یا کروشه نیاز دارید، ماتریس را در آن‌ها بپیچید.
 
-![یک ماتریس ریاضی دو ردیفی با یک سلول خالی](powerpoint-math-equations_10.png)
+![یک ماتریس ریاضی دو سطری با یک سلول خالی](powerpoint-math-equations_10.png)
 
 ```php
 $presentation = new Presentation();
@@ -246,9 +246,9 @@ try {
 }
 ```
 
-## **اضافه کردن آرایه‌های معادله**
+## **افزودن آرایه‌های معادلات**
 
-از [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray) زمانی که به معادلات هم‌تراز یا پشته عمودی عبارات نیاز دارید استفاده کنید.
+از [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray) زمانی که به معادلات هم‌تراز یا یک پشته عمودی از عبارات نیاز دارید، استفاده کنید.
 
 ![یک آرایه عمودی ریاضی با x بالای y](powerpoint-math-equations_11.png)
 
@@ -275,11 +275,11 @@ try {
 }
 ```
 
-## **اضافه کردن توابع مثلثاتی**
+## **افزودن توابع مثلثاتی**
 
-از [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) زمانی که آرگومان عنصر فعلی است و نام تابع شناخته‌شده است استفاده کنید.
+از [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) وقتی آرگومان عنصر جاری است و نام تابع شناخته شده است، استفاده کنید.
 
-![تابع مثلثاتی cos بر 2x اعمال شده](powerpoint-math-equations_6.png)
+![تابع مثلثاتی cos اعمال‌شده بر 2x](powerpoint-math-equations_6.png)
 
 ```php
 $presentation = new Presentation();
@@ -303,11 +303,11 @@ try {
 }
 ```
 
-## **اضافه کردن زیرنویس‌ها و بالانویس‌ها**
+## **افزودن زیرنویس و بالانویس**
 
-از کمک‌کننده‌های زیرنویس و بالانویس برای شاخص‌ها و توان‌ها استفاده کنید. وقتی شاخص‌ها باید در سمت چپ پایه ظاهر شوند، از [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) استفاده کنید.
+از کمک‌کننده‌های زیرنویس و بالانویس برای ایندکس‌ها و توانی‌ها استفاده کنید. وقتی ایندکس‌ها باید در سمت چپ پایه ظاهر شوند، از [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) استفاده کنید.
 
-![یک Y بزرگ با زیرنویس 1 در سمت چپ و بالانویس n](powerpoint-math-equations_9.png)
+![یک Y بزرگ با زیرنویس 1 سمت چپ و بالانویس n](powerpoint-math-equations_9.png)
 
 ```php
 $presentation = new Presentation();
@@ -331,9 +331,9 @@ try {
 }
 ```
 
-## **اضافه کردن جداکننده‌ها**
+## **افزودن جداکننده‌ها**
 
-از [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) برای قرار دادن یک عبارت داخل جداکننده‌ها استفاده کنید. همچنین می‌توانید یک کاراکتر جداکننده برای عبارات دارای چندین عنصر تنظیم کنید.
+از [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) برای قراردادن یک عبارت داخل جداکننده‌ها استفاده کنید. همچنین می‌توانید یک کاراکتر جداکننده برای عبارات جداکننده‌ای که شامل چند عنصر هستند، تنظیم کنید.
 
 ![یک عبارت جداکننده شامل x، y و z که با خطوط عمودی جدا شده‌اند](powerpoint-math-equations_13.png)
 
@@ -362,11 +362,11 @@ try {
 }
 ```
 
-### **اندازه و ترازبندی جداکننده‌ها**
+### **اندازه و تراز جداکننده‌ها**
 
-مقدار `true` را به [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) بدهید تا پرانتزها اطراف عملوند بلند بزرگ شوند، یا مقدار `false` را بدهید تا اندازه عادی خود را حفظ کنند. از [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) همراه با یکی از دو مقدار [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/) استفاده کنید. `Centered` پرانتزها را روی محور ریاضی که از وسط علامت مساوی می‌گذرد، وسط‌گذاری می‌کند. `Match` آن‌ها را با محتوای درون‌ enclosed هم‌راستا می‌کند. هر دو تنظیم فقط بر جداکننده‌ها تأثیر می‌گذارند. عبارت داخل همان‌طور باقی می‌ماند.
+`true` را به [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) بدهید تا پرانتزها دور عملوند بلند رشد کنند، یا `false` بدهید تا اندازهٔ عادی خود را حفظ کنند. از [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) همراه با یکی از دو مقدار [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/) استفاده کنید. `Centered` پرانتزها را بر محور ریاضی که وسط علامت برابر می‌گذرد، متمرکز می‌کند. `Match` آن‌ها را با محتوای داخل هم‌تراز می‌کند. هر دو تنظیم فقط بر جداکننده‌ها تأثیر دارند. عبارت داخل همان‌طور باقی می‌ماند.
 
-در این مثال یک کسر در توان `x` قرار می‌گیرد به‌طوری که عبارت بالاتر از خط پایه بیشتر از زیر آن گسترش یابد. چهار معادلهٔ زیر همگی از همان پرانتزها و تنظیمات قلم استفاده می‌کنند.
+مثال یک کسر را در توان `x` قرار می‌دهد به طوری که عبارت بیشتر بالای خط پایه نسبت به زیر آن گسترش می‌یابد. چهار معادلهٔ زیر از یکسان‌ترین پرانتزها و تنظیمات قلم استفاده می‌کنند.
 
 ```php
 use aspose\slides\MathDelimiterShape;
@@ -400,48 +400,70 @@ try {
 }
 ```
 
-در PowerPoint، سطرها را برای مشاهدهٔ اثر رشد مقایسه کنید. در سطر بالا، پرانتزها برای محاط کردن توان بزرگ می‌شوند و برای هر دو شکل مشابه به‌نظر می‌رسند. در سطر پایین، رشد غیرفعال است. پرانتزهای کوچک‌تر در سمت چپ (`Centered`) با علامت مساوی هم‌راستا می‌شوند، در حالی که پرانتزهای سمت راست (`Match`) بالاتر نسبت به عبارت قرار می‌گیرند.
+در PowerPoint، برای مشاهدهٔ اثر رشد، ردیف‌ها را مقایسه کنید. در ردیف بالا، پرانتزها برای در بر گرفتن توان رشد می‌کنند و برای هر دو شکل مشابه به نظر می‌آیند. در ردیف پایین، رشد غیرفعال است. پرانتزهای کوچکتر در سمت چپ (`Centered`) با علامت مساوی هم‌تراز هستند، در حالی که آن‌ها در سمت راست (`Match`) بالاتر دور عبارت قرار دارند.
 
-![چهار معادله در PowerPoint با فعال بودن رشد جداکننده در بالا و غیرفعال در پایین، و `Centered` در سمت چپ و `Match` در سمت راست](delimiter-sizing.png)
+![چهار معادله در PowerPoint با فعال شدن رشد جداکننده در بالا و غیرفعال شدن در پایین، و Centered در سمت چپ و Match در سمت راست](delimiter-sizing.png)
 
-## **اضافه کردن جعبهٔ حاشیه‌ای**
+## **افزودن جعبهٔ حاشیه**
 
-از [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) وقتی که خود معادله باید در یک قاب قرار گیرد استفاده کنید.
+روی یک کسر، [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) را صدا بزنید تا کل عبارت را چارچوب کنید. [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) برگردانده شده به‌طور پیش‌فرض چهار طرف را نشان می‌دهد. از [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft) و [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight) برای حذف طرف‌های جداگانه استفاده کنید.
 
-![یک معادله درون جعبه که a² برابر b² به‌اضافه c² است](powerpoint-math-equations_12.png)
+مثال شش نسخهٔ یک کسر یکسان را روی یک اسلاید قرار می‌دهد. برای نشان دادن لغو، چهار طرف را مخفی کنید و `true` را به [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) برای قطر صعودی (↗) یا به [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) برای قطر نزولی (↘) بدهید. همچنین می‌توانید از [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) یا [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical) با ترکیبی از طرف‌های قابل مشاهده استفاده کنید.
 
 ```php
+use aspose\slides\MathBlock;
+use aspose\slides\MathematicalText;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
 $presentation = new Presentation();
 try {
+    $presentation->getSlideSize()->setSize(540, 220, SlideSizeScaleType::DoNotScale);
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $mathShape = $slide->getShapes()->addMathShape(20, 20, 700, 100);
-    $mathParagraph = $mathShape->getTextFrame()->getParagraphs()
-        - >get_Item(0)->getPortions()->get_Item(0)->getMathParagraph();
+    $addFraction = function ($x, $y, $hideBorder) use ($slide) {
+        $fraction = (new MathematicalText("x+1"))->divide("y+2");
+        $box = $fraction->toBorderBox();
+        $box->setHideTop($hideBorder);
+        $box->setHideBottom($hideBorder);
+        $box->setHideLeft($hideBorder);
+        $box->setHideRight($hideBorder);
 
-    $boxedEquation = (new MathematicalText("a"))
-        - >setSuperscript("2")
-        - >join("=")
-        - >join((new MathematicalText("b"))->setSuperscript("2"))
-        - >join("+")
-        - >join((new MathematicalText("c"))->setSuperscript("2"))
-        - >toBorderBox();
+        $shape = $slide->getShapes()->addMathShape($x, $y, 160, 90);
+        $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+        $portion->getPortionFormat()->setFontHeight(28);
+        $mathBlock = new MathBlock($box);
+        $portion->getMathParagraph()->add($mathBlock);
+        return $box;
+    };
 
-    $mathParagraph->add(new MathBlock($boxedEquation));
+    $addFraction(10, 10, false);
+
+    $partial = $addFraction(190, 10, false);
+    $partial->setHideTop(true);
+    $partial->setHideRight(true);
+
+    $addFraction(370, 10, true)->setStrikethroughBottomLeftToTopRight(true);
+    $addFraction(10, 120, true)->setStrikethroughTopLeftToBottomRight(true);
+    $addFraction(190, 120, true)->setStrikethroughHorizontal(true);
+    $addFraction(370, 120, false)->setStrikethroughVertical(true);
 
     $presentation->save("border-box.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
+![شش کسر قابل ویرایش در PowerPoint. ردیف بالا: حاشیه کامل، سمت پایین و چپ، قطر صعودی. ردیف پایین: قطر نزولی، خط افقی، خط عمودی با حاشیه کامل](border-box-fractions.png)
+
+در این کسر، خط افقی بر روی میلهٔ کسر می‌نشیند. خط عمودی هر دو صورت و مخرج را می‌گذرد در حالی که حاشیهٔ اطراف قابل مشاهده می‌ماند. این خطوط تمام عبارت را تزئین می‌کنند. Strikethrough معمولی متن بر روی کاراکترهای یک بخش متن اعمال می‌شود. پس از باز کردن مجدد ارائه در PowerPoint، هنوز می‌توانید صورت و مخرج را به‌صورت مستقل ویرایش کنید.
+
 ## **گروه‌بندی عبارات**
 
-از [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) برای قرار دادن یک کاراکتر گروه‌بندی بالا یا پایین یک عبارت استفاده کنید. یک حد اضافه کنید تا عبارات گروه‌بندی‌شده را برچسب‌گذاری کنید.
+از [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) برای قرار دادن یک کاراکتر گروه‌بندی بالا یا پایین یک عبارت استفاده کنید. برای برچسب‌گذاری عبارات گروه‌بندی‌شده، یک حد اضافه کنید.
 
-![عبارت x به‌اضافه y گروه‌بندی شده با برچسب هر متنی در زیر آن](powerpoint-math-equations_15.png)
+![عبارت x به‌همراه y که با برچسب متن دلخواه در زیر آن گروه‌بندی شده است](powerpoint-math-equations_15.png)
 
 ```php
 $presentation = new Presentation();
@@ -468,9 +490,9 @@ try {
 
 ## **قالب‌بندی عناصر ریاضی**
 
-از کمک‌کننده‌های قالب‌بندی فقط در جاهایی که فرمول را واضح می‌کنند استفاده کنید. برای مثال، [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) نوار بالای یک عنصر ریاضی قرار می‌دهد.
+از کمک‌کننده‌های قالب‌بندی فقط در جایی که فرمول را واضح‌تر می‌کنند استفاده کنید. به‌عنوان مثال، [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) یک نوار بالای یک عنصر ریاضی می‌گذارد.
 
-![یک عبارت ریاضی ABC با نوار بالای آن](powerpoint-math-equations_14.png)
+![یک عبارت ریاضی ABC با یک نوار بالایی](powerpoint-math-equations_14.png)
 
 ```php
 $presentation = new Presentation();
@@ -493,11 +515,11 @@ try {
 }
 ```
 
-### **قالب‌بندی متن در یک معادله موجود**
+### **قالب‌بندی متن در یک معادلهٔ موجود**
 
-برای قالب‌بندی متن در سراسر یک معادله موجود، درخت عناصر هر بلوک ریاضی را پیمایش کنید. [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) تنها فرزندان مستقیم را برمی‌گرداند، بنابراین برای دسترسی به متن داخل کسرها، اسکریپت‌ها، رادیکال‌ها و سایر ساختارهای تو در تو، به‌صورت بازگشتی فراخوانی کنید. عنصر فعلی و فرزندان آن را بررسی کنید تا عنصر شروع شامل شود هنگامی که [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) باشد.
+برای قالب‌بندی متن در سراسر یک معادلهٔ موجود، درخت عنصر هر بلوک ریاضی را travers کنید. [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) تنها فرزندان مستقیم را برمی‌گرداند، بنابراین برای دسترسی به متن داخل کسرها، اسکریپت‌ها، رادیکال‌ها و دیگر ساختارهای تو در تو، آن را به‌صورت بازگشتی صدا بزنید. عنصر جاری و فرزندانش را بررسی کنید تا عنصر شروع را زمانی که [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) است، شامل کنید.
 
-این مثال فرض می‌کند که فایل `input.pptx` شامل معادله‌ای مانند `z = xᵢ / ∛y` است، که کسر دارای زیرنویس در صورت و رادیکال در مخرج دارد. پردازش تنها عناصر سطح‑بالای بلوک متن را از دست می‌دهد. مثال، بخش‌های ریاضی در فریم‌های متنی اسلاید را پیدا می‌کند، بلوک‌های آن‌ها را از طریق [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) دریافت می‌کند و با استفاده از [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) اندازه قلم را به ۲۸ پوینت برای هر عنصر متنی از طریق متد [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) تنظیم می‌کند.
+این مثال فرض می‌کند که `input.pptx` شامل معادله‌ای مانند `z = xᵢ / ∛y` است، که یک کسر شامل زیرنویس در صورت و رادیکال در مخرج دارد. پردازش فقط عناصر سطح بالای بلوک متن داخل کسر را از دست می‌دهد. مثال بخش‌های ریاضی را در فریم‌های متنی اسلاید پیدا می‌کند، بلوک‌های آنها را از طریق [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) دسترسی می‌یابد و با استفاده از [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) اندازهٔ قلم را به ۲۸ نقطه برای هر عنصر متنی از طریق متد [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) تنظیم می‌کند.
 
 ```php
 use aspose\slides\Presentation;
@@ -553,7 +575,7 @@ try {
 }
 ```
 
-ارائهٔ ذخیره‌شده شامل قالب‌بندی متن به‌روز شده در هر سطح از هر معادله پردازش‌شده است، در حالی که محتوای متن و ساختار ریاضی آن حفظ می‌شود.
+ارائهٔ ذخیره‌شده شامل قالب‌بندی متن به‌روزرسانی‌شده در هر سطح از هر معادلهٔ پردازش‌شده است، در حالی که محتویات متن و ساختار ریاضی را حفظ می‌کند.
 
 ## **مرجع سریع**
 
@@ -562,28 +584,28 @@ try {
 | ایجاد متن ریاضی | [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) |
 | ترکیب عناصر | [join](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | ایجاد کسرها | [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| اضافه کردن بالا‌نویس یا زیرنویس | [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| اضافه کردن توابع | [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| اضافه کردن رادیکال‌ها | [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| اضافه کردن حدود | [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| اضافه کردن اسکریپت‌های سمت چپ | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| اضافه کردن مجموع‌ها و انتگرال‌ها | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| اضافه کردن ماتریس‌ها | [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) |
-| اضافه کردن آرایه‌های معادله | [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| اضافه کردن جداکننده‌ها | [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| اضافه کردن نوارها و حاشیه‌ها | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| افزودن بالانویس یا زیرنویس | [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| افزودن توابع | [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| افزودن رادیکال‌ها | [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| افزودن حدها | [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| افزودن اسکریپت‌های سمت چپ | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| افزودن جمع‌ها و انتگرال‌ها | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| افزودن ماتریس‌ها | [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) |
+| افزودن آرایه‌های معادله | [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| افزودن جداکننده‌ها | [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| افزودن نوارها و حاشیه‌ها | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | گروه‌بندی عبارات | [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 
-## **FAQ**
+## **سؤال‌های متداول**
 
 **آیا می‌توانم یک معادلهٔ موجود در PowerPoint را ویرایش کنم؟**
 
-بله. ارائه را باز کنید، شکل حاوی یک [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) را پیدا کنید، [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) را فراخوانی کنید و بلوک‌های ریاضی در آن پاراگراف را به‌روزرسانی کنید.
+بله. ارائه را باز کنید، شکلی که شامل یک [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) است پیدا کنید، [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) را فراخوانی کنید و بلوک‌های ریاضی آن پاراگراف را به‌روزرسانی کنید.
 
-**آیا معادلات به‌عنوان ریاضیات قابل ویرایش PowerPoint ذخیره می‌شوند؟**
+**آیا معادلات به‌صورت ریاضی ویرایش‌پذیر PowerPoint ذخیره می‌شوند؟**
 
-بله. هنگام ذخیره به PPTX، Aspose.Slides معادله را به‌عنوان محتوای ریاضی Office قابل ویرایش می‌نویسد.
+بله. هنگام ذخیره به PPTX، Aspose.Slides معادله را به‌عنوان محتویات ریاضی ویرایش‌پذیر Office می‌نویسد.
 
 **آیا می‌توانم معادلات را به LaTeX صادر کنم؟**
 
-بله. [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) معادله را از [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) دریافت کنید و [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) را برای خروجی مستقیم فراخوانی کنید. برای مثال کامل، به [صادرات معادلات ریاضی از ارائه‌ها در PHP از طریق Java](/slides/fa/php-java/exporting-math-equations/#export-math-equations-to-latex) مراجعه کنید.
+بله. [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) معادله را از [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) دریافت کنید و با فراخوانی [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) آن را مستقیماً صادر کنید. برای یک مثال کامل، به [Export Math Equations from Presentations in PHP via Java](/slides/fa/php-java/exporting-math-equations/#export-math-equations-to-latex) مراجعه کنید.

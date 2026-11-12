@@ -1,5 +1,5 @@
 ---
-title: PowerPoint Sunumlarına C++ ile Matematik Denklemleri Ekle
+title: C++ ile PowerPoint Sunumlarına Matematik Denklemleri Ekleme
 linktitle: PowerPoint Matematik Denklemleri
 type: docs
 weight: 80
@@ -17,35 +17,35 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile PowerPoint PPT ve PPTX dosyalarına matematik denklemleri ekleyin ve düzenleyin; OMML desteği, biçimlendirme kontrolleri ve anlaşılır C++ kod örnekleri sunar."
+description: "Aspose.Slides for C++ ile PowerPoint PPT ve PPTX dosyalarına matematik denklemleri ekleyin ve düzenleyin; OMML'yi destekler, biçimlendirme kontrolleri sağlar ve net C++ kod örnekleri sunar."
 ---
 ## **Genel Bakış**
 
-PowerPoint, denklemleri Office Math Markup Language (OMML) olarak depolar. Aspose.Slides for C++ ile aynı tür matematik içeriğini programlı olarak oluşturabilirsiniz: kesirler, kökler, işlevler, limitler, N‑ary operatörler, matrisler, diziler ve biçimlendirilmiş matematik blokları.
+PowerPoint, denklemleri Office Math Markup Language (OMML) olarak saklar. Aspose.Slides for C++ ile aynı türde matematik içeriğini programlı olarak oluşturabilirsiniz: kesirler, kökler, fonksiyonlar, limitler, N-ary operatörler, matrisler, diziler ve biçimlendirilmiş matematik blokları.
 
-PowerPoint'te, kullanıcılar genellikle denklemleri **Ekle > Denklem** menüsünden ekler:
+PowerPoint'te kullanıcılar genellikle denklemleri **Ekle > Denklem** menüsünden ekler:
 
-![PowerPoint Ekle sekmesinde Denklem komutu seçili](powerpoint-math-equations_1.png)
+![PowerPoint Ekle sekmesi, Denklem komutu seçili](powerpoint-math-equations_1.png)
 
-Sonuç, slaytta düzenlenebilir matematik metnidir:
+Sonuç, slaytta düzenlenebilir bir matematik metnidir:
 
 ![Düzenlenebilir bir matematik denklemi içeren bir PowerPoint slaytı](powerpoint-math-equations_2.png)
 
 Aspose.Slides, bu matematik metnini üç ana nesne aracılığıyla oluşturur:
 
-- Matematik şekli, [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/) ile oluşturulan, denklemi içeren şekildir.
+- Bir matematik şekli, [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/) ile oluşturulur ve denklemi içerir.
 - [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) şekil metin çerçevesi içinde matematik içeriğini depolar.
 - [MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/) bir veya daha fazla [MathBlock](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathblock/) nesnesi içerir.
 
-Aşağıdaki çoğu örnek, kodu kısa ve okunabilir tutmak için [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) ve [IMathElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/) üzerindeki akıcı yöntemleri kullanır.
+Aşağıdaki çoğu örnek, kodu kısa ve okunabilir tutmak için [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) ve [IMathElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/)’den gelen akıcı metodları kullanır.
 
-MathML dışa aktarma senaryoları için, [C++ ile Sunumlardan Matematik Denklemlerini Dışa Aktar](/slides/tr/cpp/exporting-math-equations/) bölümüne bakın.
+MathML dışa aktarma senaryoları için, [C++ Sunumlarından Matematik Denklemlerini Dışa Aktar](/slides/tr/cpp/exporting-math-equations/) bölümüne bakın.
 
 ## **Denklem Oluşturma**
 
 Bu örnek, bir matematik şekli oluşturmak için [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) kullanır ve Pisagor teoremini ekler:
 
-![c kare eşittir a kare artı b kare](powerpoint-math-equations_3.png)
+![c² = a² + b² denklemi](powerpoint-math-equations_3.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -86,14 +86,14 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-[AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) zaten bir matematik paragrafı içeren bir şekil oluşturur. İlk [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) erişin, [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/) çağırın ve ona matematik blokları veya matematik öğeleri ekleyin.
+[AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) zaten bir matematik paragrafı içeren bir şekil oluşturur. İlk [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) öğesine erişin, [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/) metodunu çağırın ve ona matematik blokları ya da matematik öğeleri ekleyin.
 {{% /alert %}}
 
 ## **Kesir Ekleme**
 
-[Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) kesir oluşturmak için kullanılır. [MathFractionTypes](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/) ile bir kesir stili seçebilirsiniz.
+[Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) kullanarak bir kesir oluşturun. [MathFractionTypes](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/) ile bir kesir stili seçebilirsiniz.
 
-![x'e bölünmüş bir eğik kesir](powerpoint-math-equations_4.png)
+![x'e bölünmüş bir kesiri gösteren eğik bir matematik kesiri](powerpoint-math-equations_4.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -129,7 +129,7 @@ presentation->Save(u"fraction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Yığılmış bir kesir için, [MathFractionTypes::Bar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/) kullanın:
+Üst üste bir kesir için, [MathFractionTypes::Bar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/) kullanın:
 
 ```cpp
 #include <DOM/MathText/MathFractionTypes.h>
@@ -141,9 +141,9 @@ auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"
 
 ## **Kök Ekleme**
 
-[Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) karekök, küpkök veya başka bir kök oluşturmak için kullanılır. Mevcut öğe temel olur, argüman ise derecesi olur.
+[Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) bir karekök, küpkök ya da başka bir kök oluşturmak için kullanın. Mevcut öğe taban olur, argüman ise derecesi olur.
 
-![Kök işaretinin altında x bulunan n'inci dereceden kök ifadesi](powerpoint-math-equations_5.png)
+![Kök işaretinin altında x bulunan n'inci dereceli kök ifadesi](powerpoint-math-equations_5.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -180,9 +180,9 @@ presentation->Dispose();
 
 ## **Fonksiyon ve Limit Ekleme**
 
-Fonksiyonlar için `sin(x)`, `log(x)` gibi veya özel fonksiyon adları için [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) veya [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) kullanın. Limitler için, `lim` ifadesini bir [MathLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) içine koyun veya [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/) kullanın.
+[AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) veya [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) `sin(x)`, `log(x)` gibi fonksiyonlar ya da özel fonksiyon adları için kullanın. Limitler için `lim` ifadesini bir [MathLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) içine koyun veya [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/) kullanın.
 
-![x'in ∞'ye yaklaşırken limit değeri](powerpoint-math-equations_8.png)
+![x'in sonsuza yaklaşırken limiti](powerpoint-math-equations_8.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -219,7 +219,7 @@ presentation->Save(u"functions-and-limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Özel bir fonksiyon adı için, fonksiyon adını mevcut öğe yapın ve argümanıyla birlikte [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) çağırın:
+Özel bir fonksiyon adı için, fonksiyon adını mevcut öğe yapın ve [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) metodunu argümanıyla birlikte çağırın:
 
 ```cpp
 #include <DOM/MathText/MathematicalText.h>
@@ -230,7 +230,7 @@ auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x +
 
 ## **N-ary Operatörler ve İntegraller Ekleme**
 
-[Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/) toplama, birleşim, kesişim ve diğer büyük operatörler için kullanılır. İntegraller için [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) kullanın. Her iki yöntem de alt ve üst limitleri ayarlamanıza izin verir.
+[Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/) toplama, birleşim, kesişim ve diğer büyük operatörler için kullanın. İntegraller için [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) kullanın. Her iki yöntem de alt ve üst limitleri ayarlamanıza olanak tanır.
 
 ![Alt ve üst limitli bir toplam](powerpoint-math-equations_7.png)
 
@@ -272,7 +272,7 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-N‑ary operatörler, isteğe bağlı limitli büyük operatörler içindir. `+`, `-` ve `=` gibi basit operatörler genellikle [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) olarak eklenir ve ifadeye birleştirilir.
+N-ary operatörler, isteğe bağlı limitleri olabilen büyük operatörler içindir. `+`, `-` ve `=` gibi basit operatörler genellikle [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) olarak eklenir ve ifadeye birleştirilir.
 
 Bir integral için, [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) kullanın:
 
@@ -291,9 +291,9 @@ auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
 
 ## **Matris Ekleme**
 
-[MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) satır ve sütunlar için kullanılır. Matrisler varsayılan olarak köşeli parantez içermez; parantez, köşeli parantez veya süslü parantez gerektiğinde matrisi bunlarla çevreleyin.
+[MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) satır ve sütunlar için kullanın. Matrisler varsayılan olarak parantez içermez, bu yüzden parantez, köşeli parantez ya da süslü parantez gerektiğinde matrisi kapsayın.
 
-![Bir boş hücresi olan iki satırlı bir matematik matrisi](powerpoint-math-equations_10.png)
+![Bir boş hücreli iki satırlı matematik matrisi](powerpoint-math-equations_10.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -337,7 +337,7 @@ presentation->Dispose();
 
 ## **Denklem Dizileri Ekleme**
 
-[ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) hizalanmış denklemlere veya dikey bir ifade yığınına ihtiyaç duyduğunuzda kullanın.
+Yatay hizalanmış denklemler ya da dikey bir ifade yığını gerektiğinde [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) kullanın.
 
 ![x'in y'nin üzerinde olduğu dikey bir matematik dizisi](powerpoint-math-equations_11.png)
 
@@ -375,7 +375,7 @@ presentation->Save(u"equation-array.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Trigonometri Fonksiyonları Ekleme**
+## **Trigonometrik Fonksiyonlar Ekleme**
 
 Argüman mevcut öğe olduğunda ve fonksiyon adı bilindiğinde [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) kullanın.
 
@@ -415,11 +415,11 @@ presentation->Save(u"trigonometric-function.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Alt ve Üst Simge Ekleme**
+## **Alt ve Üst İndeks Ekleme**
 
-Alt ve üst indeks yardımcılarını indeksler ve üsler için kullanın. İndeksler temelinin sol tarafında görünmeliyse, [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) kullanın.
+İndeksler ve üsler için alt ve üst indeks yardımcılarını kullanın. İndekslerin tabanın sol tarafında görünmesi gerektiğinde [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) kullanın.
 
-![Sol tarafında alt simge 1 ve üst simge n bulunan büyük Y](powerpoint-math-equations_9.png)
+![Sol tarafında 1 alt indeks ve n üst indeksli büyük Y](powerpoint-math-equations_9.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -456,9 +456,9 @@ presentation->Dispose();
 
 ## **Sınırlayıcılar Ekleme**
 
-[Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) bir ifadeyi sınırlayıcıların içine koymak için kullanılır. Birden fazla öğe içeren sınırlayıcı ifadeler için bir ayırıcı karakter de ayarlayabilirsiniz.
+Bir ifadeyi sınırlayıcıların içine koymak için [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) kullanın. Birden fazla öğe içeren sınırlayıcı ifadeler için ayırıcı karakter de ayarlayabilirsiniz.
 
-![x, y ve z'yi dikey çubuklarla ayıran bir sınırlayıcı ifadesi](powerpoint-math-equations_13.png)
+![x, y ve z'nin dikey çubuklarla ayrıldığı bir sınırlayıcı ifade](powerpoint-math-equations_13.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -495,11 +495,11 @@ presentation->Save(u"delimiters.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Boyut ve Hizalama Sınırlayıcıları**
+### **Sınırlayıcıların Boyutu ve Hizalanması**
 
-Parantezlerin yüksek bir operanda uyum sağlaması için `[set_GrowToMatchOperandHeight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_growtomatchoperandheight/)` metoduna `true` gönderin; normal boyutta kalması için `false` gönderin. `[set_DelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_delimitershape/)` iki `[MathDelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathdelimitershape/)` değerinden birini alır. `Centered` parantezleri matematik ekseninin ortasına (eşittir işaretinin ortasından) yerleştirir. `Match` ise içerik ile hizalar. Her iki ayar yalnızca sınırlayıcılara etki eder; içteki ifade aynı kalır.
+Parantezlerin uzun bir işlenen etrafında büyümesi için [set_GrowToMatchOperandHeight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_growtomatchoperandheight/) metoduna `true`, normal boyutta kalması için `false` gönderin. [set_DelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_delimitershape/) iki [MathDelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathdelimitershape/) değerinden birini alır. `Centered`, parantezleri eşittir işaretinin ortasından geçen matematik eksenine ortalar. `Match`, onları kapsanan içerikle hizalar. Her iki ayar sadece sınırlayıcıları etkiler. İçteki ifade aynı kalır.
 
-Örnek, `x` üssüne bir kesir koyar ve böylece ifade taban çizgisinin üzerinde daha uzun uzanır. Dört denklem de aynı parantez ve yazı tipi ayarlarını kullanır.
+Örnek, `x`'in üs kısmına bir kesir yerleştirir, böylece ifade alt çizgiden daha yukarı uzanır. Dört denklemenin tamamı aynı parantez ve yazı tipi ayarlarını kullanır.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -550,28 +550,32 @@ presentation->Save(u"delimiter-sizing.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-PowerPoint'te satırları karşılaştırarak büyüme etkisini görebilirsiniz. Üst satırda parantezler üst üste eklenir ve iki şekil de aynı görünür. Alt satırda büyüme kapalıdır; sol taraftaki daha küçük parantez (`Centered`) eşittir işaretiyle hizalanırken, sağ taraftaki (`Match`) ifadeyi daha yüksek bir konumda sarar.
+PowerPoint'te, satırları karşılaştırarak büyüme etkisini görebilirsiniz. Üst satırda, parantezler üssü kapsayacak şekilde büyür ve her iki şekil için de aynı görünür. Alt satırda, büyüme kapalıdır. Sol taraftaki daha küçük parantez (`Centered`) eşittir işaretiyle hizalanırken, sağ taraftaki (`Match`) ifadeyi daha yukarıda tutar.
 
-![PowerPoint'te sınırlayıcı büyümesinin üstte etkin, altta devre dışı olduğu ve solda Centered, sağda Match olduğu dört denklem](delimiter-sizing.png)
+![Sınırlayıcı büyümesi üstte aktif, altta kapalı, solda Centered ve sağda Match olan dört denklem](delimiter-sizing.png)
 
-## **Kenar Kutusu Ekleme**
+## **Kenarlık Kutusu Ekleme**
 
-Denklemin kendisinin çerçevelenmesi gerektiğinde [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) kullanın.
+Bir kesire [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) çağırarak tüm ifadeyi çerçeveleyin. Dönen [IMathBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/) varsayılan olarak dört tarafı gösterir. Tek tek kenarları kaldırmak için [set_HideTop](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidetop/), [set_HideBottom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidebottom/), [set_HideLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideleft/) ve [set_HideRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideright/) kullanın.
 
-![Kare eşittir b kare artı c kare gösteren kutulu bir denklem](powerpoint-math-equations_12.png)
+Örnek, aynı kesirin altı kopyasını bir slayta yerleştirir. İptalini göstermek için dört kenarı gizleyin ve yükselen diyagonal (↗) için [set_StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughbottomlefttotopright/) ayarlayın veya düşen diyagonal (↘) için [set_StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughtoplefttobottomright/) ayarlayın. Ayrıca görünür kenarların herhangi bir kombinasyonu ile [set_StrikethroughHorizontal](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughhorizontal/) ya da [set_StrikethroughVertical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughvertical/) kullanabilirsiniz.
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IParagraph.h>
+#include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBorderBox.h>
+#include <DOM/MathText/IMathFraction.h>
 #include <DOM/MathText/IMathParagraph.h>
-#include <DOM/MathText/IMathSuperscriptElement.h>
 #include <DOM/MathText/MathBlock.h>
 #include <DOM/MathText/MathPortion.h>
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
 #include <Export/SaveFormat.h>
 
 using namespace Aspose::Slides;
@@ -579,31 +583,50 @@ using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
 
 auto presentation = System::MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(540, 220, SlideSizeScaleType::DoNotScale);
 auto slide = presentation->get_Slide(0);
 
-auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 700.0f, 100.0f);
-auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
-auto mathParagraph = mathPortion->get_MathParagraph();
+auto addFraction = [slide](float x, float y, bool hideBorder = false)
+{
+    auto fraction = System::MakeObject<MathematicalText>(u"x+1")->Divide(u"y+2");
+    auto box = fraction->ToBorderBox();
+    box->set_HideTop(hideBorder);
+    box->set_HideBottom(hideBorder);
+    box->set_HideLeft(hideBorder);
+    box->set_HideRight(hideBorder);
 
-auto boxedEquation = System::MakeObject<MathematicalText>(u"a")
-        - >SetSuperscript(u"2")
-        - >Join(u"=")
-        - >Join(System::MakeObject<MathematicalText>(u"b")->SetSuperscript(u"2"))
-        - >Join(u"+")
-        - >Join(System::MakeObject<MathematicalText>(u"c")->SetSuperscript(u"2"))
-        - >ToBorderBox();
+    auto shape = slide->get_Shapes()->AddMathShape(x, y, 160, 90);
+    auto portion = System::ExplicitCast<MathPortion>(shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+    portion->get_PortionFormat()->set_FontHeight(28);
+    auto mathBlock = System::MakeObject<MathBlock>(box);
+    portion->get_MathParagraph()->Add(mathBlock);
+    return box;
+};
 
-mathParagraph->Add(System::MakeObject<MathBlock>(boxedEquation));
+addFraction(10, 10);
+
+auto partial = addFraction(190, 10);
+partial->set_HideTop(true);
+partial->set_HideRight(true);
+
+addFraction(370, 10, true)->set_StrikethroughBottomLeftToTopRight(true);
+addFraction(10, 120, true)->set_StrikethroughTopLeftToBottomRight(true);
+addFraction(190, 120, true)->set_StrikethroughHorizontal(true);
+addFraction(370, 120)->set_StrikethroughVertical(true);
 
 presentation->Save(u"border-box.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+![Tam kenarlık, alt ve sol kenarlar, yükselen diyagonal ile üst satır; düşen diyagonal, yatay ve dikey çapraz ile tam kenarlık içeren alt satır](border-box-fractions.png)
+
+Bu kesirde, yatay çizgi kesir çubuğunun üzerine biner. Dikey çizgi hem sayıyı hem de paydayı keser, çevresindeki kenarlık görünür kalır. Bu çizgiler bütün ifadeyi süsler. Normal metin üzeri çizme bir metin çalışmasındaki karakterlere uygulanır. PowerPoint'te sunumu yeniden açtıktan sonra, pay ve payda bağımsız olarak düzenlenebilir.
+
 ## **Terimleri Gruplama**
 
-[Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) bir ifadeye üstüne veya altına bir gruplayıcı karakter eklemek için kullanılır. Gruplanmış terimleri etiketlemek için bir limit ekleyin.
+[Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) bir ifadeyi üstüne ya da altına bir gruplama karakteri yerleştirin. Gruplanmış terimleri etiketlemek için bir limit ekleyin.
 
-![x + y ifadesi altında herhangi bir metin etiketiyle gruplanmış](powerpoint-math-equations_15.png)
+![x + y ifadesi, altında herhangi bir metin etiketiyle gruplanmış](powerpoint-math-equations_15.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -641,11 +664,11 @@ presentation->Save(u"grouped-terms.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Matematik Öğeleri Biçimlendirme**
+## **Matematik Öğelerini Biçimlendirme**
 
-Biçimlendirme yardımcılarını yalnızca formülü netleştirdiğinde kullanın. Örneğin, [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/) bir matematik öğesinin üstüne bir çubuk koyar.
+Biçimlendirme yardımcılarını yalnızca formülü netleştirdiği yerlerde kullanın. Örneğin, [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/) bir matematik öğesinin üstüne çubuk ekler.
 
-![Üst çizgiyle ABC matematik ifadesi](powerpoint-math-equations_14.png)
+![Üstü çizili ABC matematik ifadesi](powerpoint-math-equations_14.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -679,11 +702,11 @@ presentation->Save(u"overbar.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Mevcut Bir Denklemede Metni Biçimlendirme**
+### **Mevcut Bir Denklemde Metin Biçimlendirme**
 
-Mevcut bir denklemdeki metni biçimlendirmek için her matematik bloğunun öğe ağacını dolaşın. `[IMathElement::GetChildren](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/getchildren/)` yalnızca doğrudan çocukları döndürür; kesirler, üst/alt simgeler, kökler ve diğer iç içe yapılar içindeki metne ulaşmak için yöntemle tekrar çağırın. Mevcut öğeyi ve çocuklarını kontrol edin; öğe bir [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) ise başlangıç öğesini de dahil edin.
+Mevcut bir denklemin tüm metnini biçimlendirmek için her matematik bloğunun öğe ağacını dolaşın. [IMathElement::GetChildren](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/getchildren/) sadece doğrudan çocukları döndürür, bu yüzden kesirlerin, üst/alt indekslerin, köklerin ve diğer iç içe yapılar içindeki metne ulaşmak için özyinelemeli olarak çağırın. Başlangıç öğesi bir [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) olduğunda da dahil etmek için mevcut öğeyi ve onun çocuklarını kontrol edin.
 
-Bu örnek, bir sunumun `z = xᵢ / ∛y` gibi bir denklemi içerdiğini varsayar; kesir sayıcısında alt simge, paydasında kök bulunur. Yalnızca bloğun üst‑seviye öğelerini işlemek kesir içindeki metni kaçırır. Örnek, slayt metin çerçevelerindeki matematik bölümlerini bulur, bloklarına `[IMathPortion::get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/get_mathparagraph/)` üzerinden erişir ve `[set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/)` ile yazı tipi yüksekliğini 28 puana ayarlar; biçimlendirmeye her metin öğesinin `[get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/get_format/)` yöntemi üzerinden ulaşılır.
+Bu örnek, bir sunumun `z = xᵢ / ∛y` gibi bir denklemi içerdiğini varsayar; burada payda bir kesir, payda ise bir kök içerir. Yalnızca bloğun üst düzey öğelerini işlemek, kesirin içindeki metni kaçırır. Örnek, slayt metin çerçevelerindeki matematik bölümlerini bulur, bloklarına [IMathPortion::get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/get_mathparagraph/) ile erişir ve [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) ile yazı tipi yüksekliğini 28 puana ayarlar; biçimlendirme her metin öğesinin [get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/get_format/) metodu aracılığıyla yapılır.
 
 ```cpp
 #include <functional>
@@ -750,37 +773,37 @@ presentation->Save(u"formatted-equations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Kaydedilen sunum, işlenen her denklemdeki tüm seviyelerde güncellenmiş metin biçimlendirmesini içerir; metin içeriği ve matematik yapısı korunur.
+Kaydedilen sunum, işlenen her denklemin tüm seviyelerinde güncellenmiş metin biçimlendirmesini içerir ve metin içeriğini ve matematiksel yapıyı korur.
 
-## **Hızlı Başvuru**
+## **Hızlı Referans**
 
 | Görev | Ana API |
 | --- | --- |
-| Matematik metni oluştur | [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) |
-| Öğeleri birleştir | [IMathElement.Join](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/join/) |
-| Kesirler oluştur | [IMathElement.Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) |
-| Üst simge veya alt simge ekle | [SetSuperscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
-| Fonksiyonlar ekle | [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
-| Kökler ekle | [IMathElement.Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) |
-| Limitler ekle | [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| Sol taraflı üst/alt simgeler ekle | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| Toplamlar ve integraller ekle | [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) |
-| Matrisler ekle | [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) |
-| Denklem dizileri ekle | [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
-| Sınırlayıcılar ekle | [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) |
-| Çizgiler ve kenarlar ekle | [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
-| Terimleri grupla | [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) |
+| Matematik metni oluşturma | [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) |
+| Öğeleri birleştirme | [IMathElement.Join](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/join/) |
+| Kesir oluşturma | [IMathElement.Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) |
+| Üst indeks veya alt indeks ekleme | [SetSuperscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
+| Fonksiyon ekleme | [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
+| Kök ekleme | [IMathElement.Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) |
+| Limit ekleme | [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| Sol taraflı üst/alt indeks ekleme | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Toplam ve integral ekleme | [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) |
+| Matris ekleme | [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) |
+| Denklem dizileri ekleme | [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
+| Sınırlayıcı ekleme | [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) |
+| Çubuk ve kenarlık ekleme | [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
+| Terimleri gruplama | [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) |
 
 ## **SSS**
 
 **Mevcut bir PowerPoint denklemini düzenleyebilir miyim?**
 
-Evet. Sunumu açın, bir [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) içeren şekli bulun, [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/) çağırın ve o paragraftaki matematik bloklarını güncelleyin.
+Evet. Sunumu açın, bir [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) içeren şekli bulun, [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/) metodunu çağırın ve o paragraftaki matematik bloklarını güncelleyin.
 
-**Denklemler düzenlenebilir PowerPoint matematiği olarak kaydediliyor mu?**
+**Denklikler düzenlenebilir PowerPoint matematiği olarak kaydediliyor mu?**
 
 Evet. PPTX olarak kaydettiğinizde, Aspose.Slides denklemi düzenlenebilir Office matematik içeriği olarak yazar.
 
-**Denklemleri LaTeX'e dışa aktarabilir miyim?**
+**Denklikleri LaTeX'e dışa aktarabilir miyim?**
 
-Evet. Denklemin [IMathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/) nesnesini, [IMathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/) üzerinden alın ve doğrudan dışa aktarmak için [IMathParagraph::ToLatex](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) çağırın. Tam bir örnek için, [C++ ile Sunumlardan Matematik Denklemlerini Dışa Aktar](/slides/tr/cpp/exporting-math-equations/#export-math-equations-to-latex) bölümüne bakın.
+Evet. Denklemin [IMathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/) öğesini [IMathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/) üzerinden alın ve doğrudan dışa aktarmak için [IMathParagraph::ToLatex](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) metodunu çağırın. Tam bir örnek için, [C++ Sunumlarından Matematik Denklemlerini Dışa Aktar](/slides/tr/cpp/exporting-math-equations/#export-math-equations-to-latex) bölümüne bakın.

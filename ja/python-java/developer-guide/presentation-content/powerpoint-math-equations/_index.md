@@ -1,50 +1,49 @@
 ---
 title: PythonでPowerPointプレゼンテーションに数式を追加
-linktitle: PowerPoint数式
+linktitle: PowerPoint 数式
 type: docs
 weight: 80
 url: /ja/python-java/powerpoint-math-equations/
 keywords:
 - 数式
-- 数式記号
+- 数学記号
 - 数式
 - 数式テキスト
-- 数式の追加
-- 数式記号の追加
-- 数式の追加
-- 数式テキストの追加
+- 数式を追加
+- 記号を追加
+- 数式を追加
+- テキストを追加
 - PowerPoint
 - プレゼンテーション
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java を使用して、PowerPoint の PPT および PPTX に数式を挿入・編集できます。OMML、書式制御、そして分かりやすい Python コードサンプルをサポートしています。"
+description: "Aspose.Slides for Python via Java を使用して PowerPoint の PPT および PPTX に数式を挿入・編集でき、OMML、書式設定コントロール、分かりやすい Python コードサンプルをサポートしています。"
 ---
 ## **概要**
 
-PowerPoint は数式を Office Math Markup Language (OMML) として保存します。Aspose.Slides for Python via Java を使用すると、同様の数式コンテンツをプログラムで作成できます: 分数、根号、関数、リミット、N 進演算子、行列、配列、そして書式設定された数式ブロック。
+PowerPoint は式を Office Math Markup Language (OMML) として保存します。Aspose.Slides for Python via Java を使用すると、同様の数式コンテンツをプログラムで作成できます：分数、根号、関数、極限、N 進演算子、行列、配列、そして書式設定された数式ブロック。
 
-PowerPoint では、通常 **挿入 > 数式** から数式を追加します:
+PowerPoint では、ユーザーは通常 **挿入 > 数式** から式を追加します:
 
-![PowerPoint の「挿入」タブで「数式」コマンドが選択されている状態](powerpoint-math-equations_1.png)
+![PowerPoint の挿入タブで数式コマンドが選択されている状態](powerpoint-math-equations_1.png)
 
-結果としてスライド上に編集可能な数式テキストが表示されます:
+結果として、スライド上に編集可能な数式テキストが表示されます:
 
-![編集可能な数式が含まれる PowerPoint スライド](powerpoint-math-equations_2.png)
+![編集可能な数式を含む PowerPoint スライド](powerpoint-math-equations_2.png)
 
 Aspose.Slides は、次の 3 つの主要オブジェクトを使用してその数式テキストを構築します:
+- 数式シェイプは、[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape)で作成され、式を含むシェイプです。
+- [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) はシェイプのテキストフレーム内に数式コンテンツを格納します。
+- [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) は 1 つ以上の [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) オブジェクトを含みます。
 
-- 数式シェイプは、[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) で作成され、数式を含むシェイプです。
-- [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) は、シェイプのテキストフレーム内に数式コンテンツを格納します。
-- [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) は、1 つまたは複数の [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) オブジェクトを含みます。
+以下のほとんどの例では、コードを簡潔で読みやすく保つために [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) と [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) のフルエントメソッドを使用しています。
 
-以下のほとんどの例では、コードを短く読みやすく保つために [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) と [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) の流暢なメソッドを使用します。
-
-MathML エクスポートのシナリオについては、[Python でプレゼンテーションから数式をエクスポートする](/slides/ja/python-java/exporting-math-equations/) を参照してください。
+Python でのプレゼンテーションから数式をエクスポート[(/slides/python-java/exporting-math-equations/)](/slides/ja/python-java/exporting-math-equations/).
 
 ## **数式の作成**
 
-この例では、[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) を使用して数式シェイプを作成し、ピタゴラスの定理を追加します:
+この例では [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) を使用して数式シェイプを作成し、ピタゴラスの定理を追加します:
 
 ![c² = a² + b² の式](powerpoint-math-equations_3.png)
 
@@ -76,14 +75,14 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) は、既に数式段落を含むシェイプを作成します。最初の [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) にアクセスし、[getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) を呼び出して、数式ブロックや数式要素を追加します。
+[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) は、既に数式段落を含むシェイプを作成します。最初の [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) にアクセスし、[getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) を呼び出して、数式ブロックまたは数式要素を追加します。
 {{% /alert %}}
 
 ## **分数の追加**
 
-[divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) を使用して分数を作成します。[MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/) で分数のスタイルを選択できます。
+分数を作成するには [divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) を使用します。[MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/) で分数のスタイルを選択できます。
 
-![1 ÷ x を示す斜めの数式分数](powerpoint-math-equations_4.png)
+![1÷x を示す斜めの分数](powerpoint-math-equations_4.png)
 
 ```python
 import jpype
@@ -111,7 +110,7 @@ finally:
     presentation.dispose()
 ```
 
-スタックされた分数には、[MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar) を使用します。
+スタックされた分数には、[MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar) を使用します:
 
 ```python
 import jpype
@@ -127,9 +126,9 @@ stacked_fraction = MathematicalText("x + 1").divide("y - 1", MathFractionTypes.B
 
 ## **根号の追加**
 
-[radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) を使用して平方根、立方根、またはその他の根号を作成します。現在の要素が基底となり、引数が次数になります。
+[radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) を使用して平方根、立方根、その他の根号を作成します。現在の要素が底になり、引数が指数（根の次数）になります。
 
-![根号記号の下に x がある n 次根](powerpoint-math-equations_5.png)
+![根号記号の下に x がある n 次根の式](powerpoint-math-equations_5.png)
 
 ```python
 import jpype
@@ -157,11 +156,11 @@ finally:
     presentation.dispose()
 ```
 
-## **関数とリミットの追加**
+## **関数と極限の追加**
 
-[asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) または [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) を使用して、`sin(x)`、`log(x)`、またはカスタム関数名などの関数を表します。リミットの場合は、`lim` を [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) に入れるか、[setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit) を使用します。
+[asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) または [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) を使用して `sin(x)`, `log(x)` などの関数やカスタム関数名を作成します。極限の場合は、`lim` を [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) に入れるか、[setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit) を使用します。
 
-![x が無限大に近づくときのリミット](powerpoint-math-equations_8.png)
+![x が無限大に近づくときの極限](powerpoint-math-equations_8.png)
 
 ```python
 import jpype
@@ -189,7 +188,7 @@ finally:
     presentation.dispose()
 ```
 
-カスタム関数名の場合、関数名を現在の要素にし、その引数で [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) を呼び出します。
+カスタム関数名の場合、関数名を現在の要素にし、引数とともに [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) を呼び出します:
 
 ```python
 import jpype
@@ -205,9 +204,9 @@ custom_function = MathematicalText("f").function("x + 1")
 
 ## **N 進演算子と積分の追加**
 
-[nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) を使用して総和、和集合、交差、およびその他の大きな演算子を表します。[integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) を使用して積分を表します。両方のメソッドで下限と上限を設定できます。
+総和、和集合、積集合、その他の大きな演算子には [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) を使用します。積分には [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) を使用します。両方のメソッドで下限と上限を設定できます。
 
-![下限と上限がある総和](powerpoint-math-equations_7.png)
+![下限と上限を持つ総和](powerpoint-math-equations_7.png)
 
 ```python
 import jpype
@@ -238,7 +237,7 @@ finally:
     presentation.dispose()
 ```
 
-N 進演算子は、オプションのリミットを持つ大きな演算子向けです。`+`、`-`、`=` のような単純な演算子は通常、[MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) として追加され、式に結合されます。
+N 進演算子は、オプションの限界を持つ大きな演算子用です。`+`, `-`, `=` などの単純な演算子は通常 [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) として追加し、式に結合します。
 
 積分の場合は、[integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) を使用します:
 
@@ -260,7 +259,7 @@ integral = integral_base.integral(MathIntegralTypes.Simple, "0", "1")
 
 行と列には [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) を使用します。行列はデフォルトで括弧を含まないため、丸括弧、角括弧、波括弧が必要な場合は行列を囲んでください。
 
-![空セルが1つある2行の数式行列](powerpoint-math-equations_10.png)
+![1 つの空セルを含む 2 行の数式行列](powerpoint-math-equations_10.png)
 
 ```python
 import jpype
@@ -298,11 +297,11 @@ finally:
     presentation.dispose()
 ```
 
-## **方程式配列の追加**
+## **数式配列の追加**
 
-整列した方程式や縦に積み重ねた式が必要な場合は、[toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) を使用します。
+整列した数式や縦に積み重ねた式が必要な場合は [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) を使用します。
 
-![x が上、y が下にある縦方向の数式配列](powerpoint-math-equations_11.png)
+![x が上、y が下の縦方向の数式配列](powerpoint-math-equations_11.png)
 
 ```python
 import jpype
@@ -364,9 +363,9 @@ finally:
 
 ## **下付き文字と上付き文字の追加**
 
-インデックスや指数には下付き文字と上付き文字のヘルパーを使用します。インデックスを基底の左側に表示する必要がある場合は、[setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) を使用します。
+添字や指数には下付き文字・上付き文字ヘルパーを使用します。添字を基底の左側に表示する必要がある場合は、[setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) を使用します。
 
-![左側に下付き文字 1、上付き文字 n が付いた大文字 Y](powerpoint-math-equations_9.png)
+![左側に下付き文字 1、上付き文字 n を持つ大文字 Y](powerpoint-math-equations_9.png)
 
 ```python
 import jpype
@@ -394,11 +393,11 @@ finally:
     presentation.dispose()
 ```
 
-## **デリミタの追加**
+## **区切り記号の追加**
 
-式をデリミタで囲むには [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) を使用します。複数の要素を含むデリミタ式の場合、区切り文字を設定することもできます。
+式を区切り記号で囲むには [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) を使用します。複数の要素を含む区切り式の場合、区切り文字を設定することもできます。
 
-![x、y、z が縦棒で区切られたデリミタ式](powerpoint-math-equations_13.png)
+![x, y, z を縦棒で区切った区切り式](powerpoint-math-equations_13.png)
 
 ```python
 import jpype
@@ -427,13 +426,11 @@ finally:
     presentation.dispose()
 ```
 
-### **サイズと配置のデリミタ**
+### **区切り記号のサイズと位置合わせ**
 
-`True` を [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) に渡すと、縦長のオペランドに合わせて括弧が拡大します。`False` を渡すと通常サイズのままです。
+`True` を [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) に渡すと、括弧は高いオペランドに合わせて拡大します。`False` を渡すと通常サイズのままです。[setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) を使用し、2 つの [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/) のいずれかを指定します。`Centered` は等号の中央を通る数式軸上に括弧を中央揃えにします。`Match` は囲まれた内容に合わせて位置合わせします。これらの設定は区切り記号だけに影響し、内部の式はそのままです。
 
-[setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) を、2 つの [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/) 値のいずれかと共に使用します。`Centered` は括弧を数式軸の中央に配置し、等号の真ん中を通ります。`Match` は囲む内容に合わせて配置します。両設定はデリミタにのみ影響し、内部の式は変更されません。
-
-この例では、`x` の指数に分数を配置するため、式はベースラインの上方により遠く伸びます。4 つの数式はすべて同じ括弧とフォント設定を使用しています。
+この例では、`x` の指数に分数を配置し、式がベースラインの上側により遠く伸びるようにします。4 つの式はすべて同じ括弧とフォント設定を使用しています。
 
 ```python
 import jpype
@@ -466,15 +463,15 @@ finally:
     presentation.dispose()
 ```
 
-PowerPoint で、行を比較すると拡大の効果がわかります。上段では、括弧が指数を囲むように拡大し、両方のシェイプで同じように見えます。下段では拡大が無効です。左側の小さい括弧（`Centered`）は等号に合わせ、右側（`Match`）は式の上部に高く配置されます。
+PowerPoint で、行を比較して成長の効果を確認してください。上段では、括弧が指数を囲むように拡大し、両方の形状で同じように見えます。下段では拡大が無効です。左側の小さい括弧（`Centered`）は等号に合わせ、右側（`Match`）は式の上側に位置します。
 
-![上段はデリミタ拡大が有効、下段は無効、左側は Centered、右側は Match の 4 つの式](delimiter-sizing.png)
+![区切り記号の拡大が上段で有効、下段で無効、左側は Centered、右側は Match の 4 つの式](delimiter-sizing.png)
 
 ## **枠付きボックスの追加**
 
-数式自体に枠を付ける場合は、[toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) を使用します。
+分数に対して [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) を呼び出すと、式全体を枠で囲みます。返される [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) はデフォルトで四辺すべてを表示します。[setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop)、[setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom)、[setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft)、[setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) を使用して個別の辺を非表示にできます。
 
-![a² = b² + c² を示す枠付き数式](powerpoint-math-equations_12.png)
+この例では、同じ分数を 6 個スライドに配置します。取り消し線を示すため、すべての辺を非表示にし、上昇対角線 (↗) 用に `True` を [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) に、下降対角線 (↘) 用に [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) に渡します。また、[setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) や [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) を使用して、表示する辺の組み合わせで線を引くこともできます。
 
 ```python
 import jpype
@@ -483,32 +480,53 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import MathBlock, MathematicalText, Presentation, SaveFormat
+from asposeslides.api import MathBlock, MathematicalText, Presentation, SaveFormat, SlideSizeScaleType
 
 presentation = Presentation()
 try:
+    presentation.getSlideSize().setSize(540, 220, SlideSizeScaleType.DoNotScale)
     slide = presentation.getSlides().get_Item(0)
 
-    math_shape = slide.getShapes().addMathShape(20, 20, 700, 100)
-    math_paragraph = math_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getMathParagraph()
+    def add_fraction(x, y, hide_border):
+        fraction = MathematicalText("x+1").divide("y+2")
+        box = fraction.toBorderBox()
+        box.setHideTop(hide_border)
+        box.setHideBottom(hide_border)
+        box.setHideLeft(hide_border)
+        box.setHideRight(hide_border)
 
-    b_squared = MathematicalText("b").setSuperscript("2")
-    c_squared = MathematicalText("c").setSuperscript("2")
-    boxed_equation = MathematicalText("a").setSuperscript("2").join("=").join(b_squared).join("+").join(c_squared).toBorderBox()
+        shape = slide.getShapes().addMathShape(x, y, 160, 90)
+        portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+        portion.getPortionFormat().setFontHeight(28)
+        math_block = MathBlock(box)
+        portion.getMathParagraph().add(math_block)
+        return box
 
-    math_block = MathBlock(boxed_equation)
-    math_paragraph.add(math_block)
+    add_fraction(10, 10, False)
+
+    partial = add_fraction(190, 10, False)
+    partial.setHideTop(True)
+    partial.setHideRight(True)
+
+    add_fraction(370, 10, True).setStrikethroughBottomLeftToTopRight(True)
+    add_fraction(10, 120, True).setStrikethroughTopLeftToBottomRight(True)
+    add_fraction(190, 120, True).setStrikethroughHorizontal(True)
+    add_fraction(370, 120, False).setStrikethroughVertical(True)
 
     presentation.save("border-box.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+![PowerPoint の 6 つの編集可能な分数。上段：全枠、下側と左側、上昇対角線。下段：下降対角線、水平線、垂直線（全枠あり）](border-box-fractions.png)
+
+この分数では、水平線が分数バーと重なります。垂直線は分子と分母の両方を横切り、周囲の枠は表示されたままです。これらの線は式全体を装飾します。通常のテキストの取り消し線はテキストランの文字に適用されます。PowerPoint でプレゼンテーションを再度開いても、分子と分母はそれぞれ独立して編集できます。
+
 ## **項のグループ化**
 
-[group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) を使用して、式の上または下にグループ文字を配置します。リミットを追加してグループ化された項にラベルを付けます。
+[group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) を使用して、式の上または下にグループ化文字を配置します。限界を追加してグループ化した項にラベルを付けます。
 
-![x + y の式が下に「任意のテキスト」ラベル付きでグループ化されたもの](powerpoint-math-equations_15.png)
+![式 x + y が下に任意のテキストラベルでグループ化された様子](powerpoint-math-equations_15.png)
 
 ```python
 import jpype
@@ -538,7 +556,7 @@ finally:
 
 ## **数式要素の書式設定**
 
-書式設定ヘルパーは、式を明確にする必要がある場合にのみ使用してください。例えば、[overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) は数式要素の上にバーを付けます。
+書式設定ヘルパーは、式を明確にする場合にのみ使用してください。例として、[overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) は数式要素の上にバーを配置します。
 
 ![上にバーが付いた数式 ABC](powerpoint-math-equations_14.png)
 
@@ -568,11 +586,11 @@ finally:
     presentation.dispose()
 ```
 
-### **既存の数式内のテキストの書式設定**
+### **既存の数式内テキストの書式設定**
 
-既存の数式全体のテキストを書式設定するには、各数式ブロックの要素ツリーを走査します。[MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) は直接の子要素だけを返すため、分数、スクリプト、根号、その他の入れ子構造内のテキストに到達するよう再帰的に呼び出します。現在の要素とその子要素の両方を確認し、開始要素が [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) の場合も含めます。
+既存の式全体のテキストを書式設定するには、各数式ブロックの要素ツリーを走査します。[MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) は直接の子要素のみを返すため、再帰的に呼び出して分数、スクリプト、根号、その他の入れ子構造内のテキストに到達します。開始要素が [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) の場合、現在の要素とその子要素の両方をチェックしてください。
 
-この例では、`input.pptx` が `z = xᵢ / ∛y` のような数式を含むと想定しています。分子に下付き文字、分母に根号を含む分数です。ブロックのトップレベル要素だけを処理すると、分数内部のテキストが見逃されます。例では、スライドのテキストフレーム内の数式部分を見つけ、[MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) を介してブロックにアクセスし、[setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) を使用して各テキスト要素の [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) メソッドでフォントサイズを 28 ポイントに設定します。
+この例では、`input.pptx` に `z = xᵢ / ∛y` のような式が含まれていると想定します。分子に下付き文字、分母に根号を含む分数です。ブロックの最上位要素だけを処理すると、分数内部のテキストが見落とされます。この例では、スライドのテキストフレーム内の数式部分を見つけ、[MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) を介してブロックにアクセスし、各テキスト要素の [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) メソッドを通じて [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) でフォントサイズを 28 ポイントに設定します。
 
 ```python
 import jpype
@@ -613,7 +631,7 @@ finally:
     presentation.dispose()
 ```
 
-保存されたプレゼンテーションは、処理された各数式のすべてのレベルで更新されたテキスト書式設定を保持しつつ、テキスト内容と数式構造を保持しています。
+保存されたプレゼンテーションは、処理された各式のすべてのレベルで更新されたテキスト書式設定を保持しつつ、テキスト内容と数式構造をそのまま保ちます。
 
 ## **クイックリファレンス**
 
@@ -625,25 +643,25 @@ finally:
 | 上付き文字または下付き文字の追加 | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
 | 関数の追加 | [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function), [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) |
 | 根号の追加 | [MathElementBase.radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) |
-| リミットの追加 | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
+| 極限の追加 | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
 | 左側スクリプトの追加 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
 | 総和と積分の追加 | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
 | 行列の追加 | [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) |
-| 方程式配列の追加 | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
-| デリミタの追加 | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
+| 数式配列の追加 | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
+| 区切り記号の追加 | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
 | バーと枠の追加 | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
 | 項のグループ化 | [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) |
 
 ## **よくある質問**
 
-**既存の PowerPoint 数式を編集できますか？**
+**既存の PowerPoint の数式を編集できますか？**
 
 はい。プレゼンテーションを開き、[MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) を含むシェイプを見つけ、[getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) を呼び出して、その段落内の数式ブロックを更新します。
 
-**数式は編集可能な PowerPoint 数式として保存されますか？**
+**数式は編集可能な PowerPoint の数式として保存されますか？**
 
-はい。PPTX に保存すると、Aspose.Slides は数式を編集可能な Office 数式コンテンツとして書き込みます。
+はい。PPTX で保存すると、Aspose.Slides は式を編集可能な Office 数式コンテンツとして書き込みます。
 
 **数式を LaTeX にエクスポートできますか？**
 
-はい。式の [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) を其の [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) から取得し、[MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) を呼び出して直接エクスポートします。完全な例については、[Python でプレゼンテーションから数式をエクスポートする](/slides/ja/python-java/exporting-math-equations/#export-math-equations-to-latex) を参照してください。
+はい。式の [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) から [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) を取得し、[MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) を呼び出して直接エクスポートします。完全な例については、[Python でのプレゼンテーションから数式を LaTeX にエクスポート](/slides/ja/python-java/exporting-math-equations/#export-math-equations-to-latex) を参照してください。

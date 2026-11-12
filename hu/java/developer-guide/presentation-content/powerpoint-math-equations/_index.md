@@ -1,51 +1,51 @@
 ---
-title: Matematikai egyenletek hozzáadása PowerPoint prezentációkhoz Java-ban
-linktitle: PowerPoint matematikai egyenletek
+title: "Matematikai egyenletek hozzáadása PowerPoint prezentációkhoz Java-ban"
+linktitle: "PowerPoint matematikai egyenletek"
 type: docs
 weight: 80
 url: /hu/java/powerpoint-math-equations/
 keywords:
-- matematikai egyenlet
-- matematikai szimbólum
-- matematikai képlet
-- matematikai szöveg
-- matematikai egyenlet hozzáadása
-- matematikai szimbólum hozzáadása
-- matematikai képlet hozzáadása
-- matematikai szöveg hozzáadása
-- PowerPoint
-- prezentáció
-- Java
-- Aspose.Slides
-description: "Matematikai egyenletek beszúrása és szerkesztése PowerPoint PPT és PPTX fájlokban az Aspose.Slides for Java segítségével, OMML támogatással, formázási vezérlőkkel és érthető Java kódmintákkal."
+- "matematikai egyenlet"
+- "matematikai szimbólum"
+- "matematikai képlet"
+- "matematikai szöveg"
+- "matematikai egyenlet hozzáadása"
+- "matematikai szimbólum hozzáadása"
+- "matematikai képlet hozzáadása"
+- "matematikai szöveg hozzáadása"
+- "PowerPoint"
+- "prezentáció"
+- "Java"
+- "Aspose.Slides"
+description: "Matematikai egyenletek beszúrása és szerkesztése PowerPoint PPT és PPTX fájlokban az Aspose.Slides for Java segítségével, OMML támogatással, formázási vezérlőkkel és átlátható Java kódrészletekkel."
 ---
 ## **Áttekintés**
 
-A PowerPoint az egyenleteket Office Math Markup Language (OMML) formátumban tárolja. Az Aspose.Slides for Java-val programozottan létrehozhatja ugyanazt a típusú matematikai tartalmat: törtöket, gyököket, függvényeket, határokat, N-árnyalatos operátorokat, mátrixokat, tömböket és formázott matematikai blokkokat.
+A PowerPoint egyenleteket az Office Math Markup Language (OMML) formátumban tárolja. Az Aspose.Slides for Java segítségével programozottan hozhat létre ugyanolyan matematikai tartalmakat: törtek, gyökök, függvények, határok, N-ári operátorok, mátrixok, tömbök és formázott matematikai blokkok.
 
-A PowerPointban a felhasználók általában a **Insert > Equation** menüből adnak hozzá egyenleteket:
+A PowerPointban a felhasználók általában az **Insert > Equation** menüpontból adnak hozzá egyenleteket:
 
-![PowerPoint Beszúrás lap a Képlet parancs kiválasztott állapottal](powerpoint-math-equations_1.png)
+![PowerPoint Beszúrás lap, ahol a Képlet parancs ki van választva](powerpoint-math-equations_1.png)
 
-Az eredmény szerkeszthető matematikai szöveg a dián:
+Az eredmény egy szerkeszthető matematikai szöveg a dián:
 
-![Egy PowerPoint dia, amely szerkeszthető matematikai egyenletet tartalmaz](powerpoint-math-equations_2.png)
+![PowerPoint dia szerkeszthető matematikai egyenlettel](powerpoint-math-equations_2.png)
 
-Az Aspose.Slides a matematikai szöveget három fő objektumon keresztül építi fel:
+Az Aspose.Slides három fő objektumon keresztül építi fel ezt a matematikai szöveget:
 
-- Egy matematikai alakzat, amelyet az [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) hoz létre, az az alakzat, amely az egyenletet tartalmazza.
-- [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) tárolja a matematikai tartalmat az alakzat szövegdobozában.
-- [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/) egy vagy több [MathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/mathblock/) objektumot tartalmaz.
+- A matematikai alakzat, amelyet a [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) hoz létre, az az alakzat, amely az egyenletet tartalmazza.
+- A [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) tárolja a matematikai tartalmat az alakzat szövegkeretében.
+- A [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/) egy vagy több [MathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/mathblock/) objektumot tartalmaz.
 
 Az alábbi legtöbb példa a [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) és az [IMathElement](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/) folyékony metódusait használja, hogy a kód rövid és olvasható legyen.
 
-MathML exportálási esetekhez lásd a [Matematikai Egyenletek Exportálása Prezentációkból Java-ban](/slides/hu/java/exporting-math-equations/).
+MathML export esetén lásd a [Matematikai egyenletek exportálása prezentációkból Java-ban](/slides/hu/java/exporting-math-equations/).
 
 ## **Egyenlet létrehozása**
 
-Ez a példa az [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) használatával hoz létre egy matematikai alakzatot, és hozzáadja a Pitagorasz tételt:
+Ez a példa a [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) használja egy matematikai alakzat létrehozásához, és hozzáadja a Pitagorasz-tételt:
 
-![c négyzet egyenlő a négyzet plusz b négyzet](powerpoint-math-equations_3.png)
+![A c² = a² + b² egyenlet](powerpoint-math-equations_3.png)
 
 ```java
 import com.aspose.slides.*;
@@ -74,14 +74,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) olyan alakzatot hoz létre, amely már tartalmaz egy matematikai bekezdést. Hozzáfér az első [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/), meghívja a [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), és hozzáadja a matematikai blokkokat vagy elemeket.
+[addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) egy olyan alakzatot hoz létre, amely már tartalmaz egy matematikai bekezdést. Hozzáfér az első [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/), meghívja a [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), és hozzáadja a matematikai blokkokat vagy elemeket.
 {{% /alert %}}
 
 ## **Törtek hozzáadása**
 
-A [divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) segítségével hozhat létre egy törtet. A törttípus kiválasztható a [MathFractionTypes](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/) használatával.
+A [divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) használatával hozhat létre törtket. A törttípus kiválasztható a [MathFractionTypes](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/) segítségével.
 
-![Egy ferde matematikai tört, amely az 1/x arányt mutatja](powerpoint-math-equations_4.png)
+![Ferde matematikai törtk, amely az 1/x-et mutatja](powerpoint-math-equations_4.png)
 
 ```java
 import com.aspose.slides.*;
@@ -105,7 +105,7 @@ try {
 }
 ```
 
-Összeállított tört esetén használja a [MathFractionTypes.Bar](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/#Bar)-t:
+A rétegelt törtkhez használja a [MathFractionTypes.Bar](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/#Bar):
 
 ```java
 import com.aspose.slides.*;
@@ -115,9 +115,9 @@ IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", Ma
 
 ## **Gyökök hozzáadása**
 
-A [radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) segítségével hozhat létre négyzetgyököt, köbgyököt vagy más gyököt. Az aktuális elem lesz az alap, az argumentum pedig a kitevő.
+A [radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) használatával hozhat létre négyzetgyököt, köbgyököt vagy más gyököt. Az aktuális elem lesz az alap, a argumentum pedig a gyök fokszáma.
 
-![Egy n-dik gyök kifejezés, ahol az x a gyökjel alá van helyezve](powerpoint-math-equations_5.png)
+![n-dik gyök kifejezés, ahol az x a gyökjel alatt áll](powerpoint-math-equations_5.png)
 
 ```java
 import com.aspose.slides.*;
@@ -143,9 +143,9 @@ try {
 
 ## **Függvények és határok hozzáadása**
 
-Használja a [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) vagy a [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) függvényeket olyan függvényekhez, mint a `sin(x)`, `log(x)`, vagy egyedi függvénynevek. Határok esetén helyezze a `lim`-et egy [MathLimit](https://reference.aspose.com/slides/java/com.aspose.slides/mathlimit/) objektumba, vagy használja a [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-).
+A [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) vagy a [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) használatával adhat meg függvényeket, mint például `sin(x)`, `log(x)`, vagy egyedi függvényneveket. Határok esetén helyezze a `lim`-et egy [MathLimit](https://reference.aspose.com/slides/java/com.aspose.slides/mathlimit/) elembe, vagy használja a [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-).
 
-![x határa, amikor x a végtelenhez tart](powerpoint-math-equations_8.png)
+![x határa, amikor x a végtelen felé tart](powerpoint-math-equations_8.png)
 
 ```java
 import com.aspose.slides.*;
@@ -170,7 +170,7 @@ try {
 }
 ```
 
-Egy egyedi függvénynév esetén tegye a függvénynevet az aktuális elemé, és hívja a [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-)‑t az argumentummal:
+Egyedi függvénynév esetén tegye a függvénynevet az aktuális elemként, és hívja meg a [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) a megfelelő argumentummal:
 
 ```java
 import com.aspose.slides.*;
@@ -178,11 +178,11 @@ import com.aspose.slides.*;
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **N-árnyalatos operátorok és integrálok hozzáadása**
+## **N-ári operátorok és integrálok hozzáadása**
 
-A [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) használatával hozzáadhat összegeket, uniókat, metszeteket és más nagy operátorokat. Az [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) integrálokhoz. Mindkét metódus lehetővé teszi alsó és felső határok beállítását.
+Az [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) használható összegek, uniók, metszetek és egyéb nagy operátorok esetén. Az [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) integrálokhoz. Mindkét módszer lehetővé teszi a alsó és felső határ beállítását.
 
-![Egy összegzés alsó és felső határokkal](powerpoint-math-equations_7.png)
+![Összegzés alsó és felső határokkal](powerpoint-math-equations_7.png)
 
 ```java
 import com.aspose.slides.*;
@@ -209,9 +209,9 @@ try {
 }
 ```
 
-Az N-árnyalatos operátorok nagy operátorok opcionális határokkal. Az egyszerű operátorok, mint a `+`, `-`, és `=`, általában [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/)‑ként kerülnek hozzáadásra, és egyesülnek a kifejezésben.
+Az N-ári operátorok nagy operátorok opcionális határokkal. Az egyszerű operátorok, mint a `+`, `-`, és `=` általában [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/)‑ként kerülnek hozzáadásra, és egyesülnek a kifejezéssel.
 
-Integrálhoz használja az [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)-t:
+Integrál esetén használja a [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-):
 
 ```java
 import com.aspose.slides.*;
@@ -222,9 +222,9 @@ IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0"
 
 ## **Mátrixok hozzáadása**
 
-A [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) használata sorok és oszlopok létrehozásához. Alapértelmezés szerint a mátrixok nem tartalmaznak zárójeleket, ezért ha zárójelekre, szögletes vagy kapcsos zárókra van szükség, körül kell venni a mátrixot.
+A [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) sorokhoz és oszlopokhoz használható. Alapértelmezésben a mátrixok nem tartalmaznak zárójeleket, ezért zárja be a mátrixot, ha zárójelekre, szögletes vagy kapcsos zárójelekre van szükség.
 
-![Egy kétsoros matematikai mátrix, egy üres cellával](powerpoint-math-equations_10.png)
+![Két soros matematikai mátrix, egy üres cellával](powerpoint-math-equations_10.png)
 
 ```java
 import com.aspose.slides.*;
@@ -254,9 +254,9 @@ try {
 
 ## **Egyenlet tömbök hozzáadása**
 
-Használja a [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--)‑t, ha igazított egyenletekre vagy egy függőleges kifejezéstömbre van szükség.
+A [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) használata javasolt, ha igazított egyenletekre vagy függőlegesen egymásra rakott kifejezésekre van szükség.
 
-![Egy függőleges matematikai tömb, ahol az x a y fölött van](powerpoint-math-equations_11.png)
+![Függőleges matematikai tömb, ahol az x a y fölött helyezkedik el](powerpoint-math-equations_11.png)
 
 ```java
 import com.aspose.slides.*;
@@ -283,9 +283,9 @@ try {
 
 ## **Trigonometrikus függvények hozzáadása**
 
-Használja az [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-)‑t, amikor az argumentum az aktuális elem, és a függvény neve ismert.
+Használja a [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-)‑t, ha az argumentum az aktuális elem, és a függvény neve ismert.
 
-![A trigonometrikus cos függvény 2x-re alkalmazva](powerpoint-math-equations_6.png)
+![A cos trigonometrikus függvény 2x-re alkalmazva](powerpoint-math-equations_6.png)
 
 ```java
 import com.aspose.slides.*;
@@ -311,9 +311,9 @@ try {
 
 ## **Alsó- és felső indexek hozzáadása**
 
-Használja az alsó- és felső index segédfüggvényeket indexek és hatványok számára. Ha az indexnek a bázis bal oldalán kell megjelennie, használja a [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-).
+Az indexek és hatványok hozzáadásához használja az alsó- és felsőindex segédfüggvényeket. Ha az indexnek a bázis bal oldalán kell megjelennie, használja a [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-).
 
-![Egy nagy Y baloldali alsó indexel 1 és felső indexel n](powerpoint-math-equations_9.png)
+![Nagy Y betű baloldali alsóindexe 1 és felsőindexe n](powerpoint-math-equations_9.png)
 
 ```java
 import com.aspose.slides.*;
@@ -337,11 +337,11 @@ try {
 }
 ```
 
-## **Elválasztók hozzáadása**
+## **Határolók hozzáadása**
 
-Használja az [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-)‑t, hogy egy kifejezést elválasztók közé helyezzen. Egy elválasztó karaktert is beállíthat olyan kifejezésekhez, amelyek több elemet tartalmaznak.
+A [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) segítségével helyezhet el egy kifejezést határolók közé. Több elemet tartalmazó határolók esetén beállíthat elválasztó karaktert is.
 
-![Egy elválasztó kifejezés, amely x, y és z tartalmaz, függőleges vonalakkal elválasztva](powerpoint-math-equations_13.png)
+![Határoló kifejezés, amely x, y és z‑öt függőleges vonalakkal választ el](powerpoint-math-equations_13.png)
 
 ```java
 import com.aspose.slides.*;
@@ -368,11 +368,11 @@ try {
 }
 ```
 
-### **Méret és Igazítás az Elválasztóknál**
+### **Határolók mérete és igazítása**
 
-Adja át a `true` értéket a [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) metódusnak, hogy a zárójelek nőjenek egy magas operandus körül, vagy a `false` értéket adja meg, hogy a normál méretük maradjon. Használja a [setDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-)‑t az egyik két [MathDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/mathdelimitershape/) értékkel. A `Centered` középre helyezi a zárójeleket a matematikai tengelyen, amely az egyenlőségjel közepén halad. A `Match` a tartalomhoz igazítja őket. Mindkét beállítás csak az elválasztókat érinti. A kifejezés belül változatlan marad.
+A `true` érték átadása a [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) metódusnak lehetővé teszi, hogy a zárójelek egy magas operandus körül nőjenek, a `false` pedig a normál méretet tartja. Használja a [setDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) metódust a két [MathDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/mathdelimitershape/) érték egyikével. A `Centered` a zárójeleket a matematikai tengelyre középre helyezi, amely az egyenlőségjel közepén halad. A `Match` a tartalomhoz igazítja őket. Mindkét beállítás csak a határolókra hat, a kifejezés belseje változatlan.
 
-A példa a `x` kitevőjébe helyez egy törtet, így a kifejezés a baseline‑tól magasabbra nyúlik, mint alatta. A négy egyenlet ugyanazt a zárójelet és betűkészlet-beállítást használja.
+A példában egy törtet helyeznek az `x` kitevőjébe, így a kifejezés a vonal felett magasabb, mint alatta. A négy egyenlet ugyanazokat a zárójeleket és betűtípus-beállításokat használja.
 
 ```java
 import com.aspose.slides.*;
@@ -401,36 +401,52 @@ try {
 }
 ```
 
-PowerPointban hasonlítsa össze a sorokat, hogy lássa a növekedés hatását. A felső sorban a zárójelek nőnek, hogy befoglalják a kitevőt, mindkét alakzat esetén hasonlóan néznek ki. Az alsó sorban a növekedés ki van kapcsolva. A baloldali kisebb zárójelek (`Centered`) az egyenlőségjelhez igazodnak, míg a jobboldali (`Match`) magasabban helyezkednek el a kifejezés körül.
+PowerPointban hasonlítsa össze a sorokat a növekedés hatásának megfigyeléséhez. A felső sorban a zárójelek növekednek, hogy befoglalják a kitevőt, és mindkét alakzat esetén hasonlóan néznek ki. Az alsó sorban a növekedés ki van kapcsolva. A baloldali kisebb zárójelek (`Centered`) az egyenlőségjellel igazodnak, míg a jobboldali (`Match`) magasabban helyezkednek el a kifejezés körül.
 
-![Négy egyenlet PowerPointban, ahol a zárójelek növekedése be van kapcsolva felül és ki van kapcsolva alul, a baloldalon Centered, a jobboldalon Match](delimiter-sizing.png)
+![Négy egyenlet PowerPointban, a határoló növekedéssel engedélyezve felül és letiltva alul, bal oldalon Centered, jobb oldalon Match](delimiter-sizing.png)
 
-## **Keretes doboz hozzáadása**
+## **Határoló keret hozzáadása**
 
-Használja a [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--)‑t, ha maga az egyenlet keretbe kell kerüljön.
+A [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) meghívásával egy tört köré keret kerül. A visszaadott [IMathBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/) alapértelmezésben mind a négy oldalt megjeleníti. Az egyes oldalak eltávolításához használja a [setHideTop](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), és [setHideRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideRight-boolean-) metódusokat.
 
-![Egy keretezett egyenlet, amely a a² = b² + c² képletet mutatja](powerpoint-math-equations_12.png)
+A példában ugyanazt a törtet hat példányban helyezik egy diára. A törlés megjelenítéséhez elrejtik a négy oldalt, és a [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) metódust `true`‑val hívják egy emelkedő átló (↗) létrehozásához, vagy a [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) metódust egy süllyedő átló (↘) esetén. Használható a [setStrikethroughHorizontal](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) vagy a [setStrikethroughVertical](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) is, bármely látható oldal kombinációjával.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
+    presentation.getSlideSize().setSize(540, 220, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
-    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
-            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
+    class FractionBuilder {
+        IMathBorderBox addFraction(float x, float y, boolean hideBorder) {
+            IMathFraction fraction = new MathematicalText("x+1").divide("y+2");
+            IMathBorderBox box = fraction.toBorderBox();
+            box.setHideTop(hideBorder);
+            box.setHideBottom(hideBorder);
+            box.setHideLeft(hideBorder);
+            box.setHideRight(hideBorder);
 
-    IMathBorderBox boxedEquation = new MathematicalText("a")
-            .setSuperscript("2")
-            .join("=")
-            .join(new MathematicalText("b").setSuperscript("2"))
-            .join("+")
-            .join(new MathematicalText("c").setSuperscript("2"))
-            .toBorderBox();
+            IAutoShape shape = slide.getShapes().addMathShape(x, y, 160, 90);
+            MathPortion portion = (MathPortion) shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+            portion.getPortionFormat().setFontHeight(28);
+            portion.getMathParagraph().add(new MathBlock(box));
+            return box;
+        }
+    }
 
-    mathParagraph.add(new MathBlock(boxedEquation));
+    FractionBuilder builder = new FractionBuilder();
+    builder.addFraction(10, 10, false);
+
+    IMathBorderBox partial = builder.addFraction(190, 10, false);
+    partial.setHideTop(true);
+    partial.setHideRight(true);
+
+    builder.addFraction(370, 10, true).setStrikethroughBottomLeftToTopRight(true);
+    builder.addFraction(10, 120, true).setStrikethroughTopLeftToBottomRight(true);
+    builder.addFraction(190, 120, true).setStrikethroughHorizontal(true);
+    builder.addFraction(370, 120, false).setStrikethroughVertical(true);
 
     presentation.save("border-box.pptx", SaveFormat.Pptx);
 } finally {
@@ -438,11 +454,15 @@ try {
 }
 ```
 
+![Hat szerkeszthető tört a PowerPointban. Felső sor: teljes keret, alsó és bal oldal, emelkedő átló. Alsó sor: süllyedő átló, vízszintes áthúzás, függőleges áthúzás teljes kerettel](border-box-fractions.png)
+
+Ezen tört esetén a vízszintes áthúzás átfedi a törtvonalat. A függőleges áthúzás mind a számlálót, mind a nevezőt átszeli, miközben a környező keret látható marad. Ezek a vonalak a teljes kifejezést díszítik. A szokásos szöveg áthúzás a szövegszakasz karaktereire vonatkozik. A prezentáció PowerPointban történő újbóli megnyitása után továbbra is szerkesztheti a számlálót és a nevezőt külön-külön.
+
 ## **Tagok csoportosítása**
 
-Használja a [group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-)‑t, hogy egy csoportosító karaktert helyezzen egy kifejezés fölé vagy alá. Hozzon létre egy határt a csoportosított tagok címkézéséhez.
+Használja a [group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-)‑t, hogy egy csoportosító karaktert helyezzen egy kifejezés fölé vagy alá. Adjon hozzá egy határt a csoportosított tagok feliratozásához.
 
-![A x + y kifejezés csoportosítva, alul a 'bármilyen szöveg' címkével](powerpoint-math-equations_15.png)
+![Az x + y kifejezés csoportosítva a 'valamennyi szöveg' felirattal alatta](powerpoint-math-equations_15.png)
 
 ```java
 import com.aspose.slides.*;
@@ -469,9 +489,9 @@ try {
 
 ## **Matematikai elemek formázása**
 
-A formázó segédfüggvényeket csak akkor használja, ahol tisztábbá teszik a képletet. Például az [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--) egy vonalat helyez egy matematikai elem fölé.
+Használja a formázási segédfüggvényeket csak ott, ahol a képletet tisztábbá teszik. Például a [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--) egy vonalat helyez a matematikai elem fölé.
 
-![Egy ABC matematikai kifejezés, amelynek felett vonal van](powerpoint-math-equations_14.png)
+![ABC matematikai kifejezés felül egy vonallal](powerpoint-math-equations_14.png)
 
 ```java
 import com.aspose.slides.*;
@@ -496,9 +516,9 @@ try {
 
 ### **Szöveg formázása meglévő egyenletben**
 
-A szöveg formázásához egy meglévő egyenletben járja be minden matematikai blokk elemes fáját. Az [IMathElement.getChildren](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#getChildren--) csak a közvetlen gyerekeket adja vissza, ezért rekurzívan kell hívni, hogy elérje a törtök, indexek, gyökök és egyéb beágyazott struktúrák belsejében lévő szöveget. Ellenőrizze az aktuális elemet és annak gyerekeit is, hogy a kezdőelemet is belevegye, ha az [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) típusú.
+A szöveg formázásához egy meglévő egyenletben bejárja az egyes matematikai blokk elemeinek fáját. Az [IMathElement.getChildren](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#getChildren--) csak a közvetlen gyermekeket adja vissza, ezért rekurzívan kell hívni, hogy elérje a szöveget a törtekben, a szkriptekben, a gyökökben és más beágyazott struktúrákban. Vizsgálja meg az aktuális elemet és annak gyermekeit is, hogy a [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) elemet is beleértse, ha az a kiinduló elem.
 
-Ez a példa feltételezi, hogy a `input.pptx` egy olyan egyenletet tartalmaz, mint például `z = xᵢ / ∛y`, egy törtet, amelynek számlálójában alsó index, nevezőjében pedig gyök van. Ha csak a blokk felső szintű elemeit dolgozza fel, a törtben lévő szöveget kihagyja. A példa megtalálja a matematikai részeket a diák szövegdobozában, eléri a blokkokat az [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) segítségével, és a [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-)‑et használja, hogy minden szövegelemen keresztül a betűméretet 28 pontra állítsa a [getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/#getFormat--) metódus segítségével.
+Ez a példa feltételezi, hogy az `input.pptx` olyan egyenletet tartalmaz, mint például `z = xᵢ / ∛y`, amelyben a tört számlálója alindexet, a nevezője pedig egy gyököt tartalmaz. Ha csak a blokkok felső szintű elemeivel dolgozna, a törtben lévő szöveget kihagyná. A példa megtalálja a matematikai részeket a diák szövegkereteiben, eléri a blokkokat az [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) segítségével, és a [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) metódussal 28 pontot állít be minden szövegelem [getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/#getFormat--) metódusán keresztül.
 
 ```java
 import com.aspose.slides.*;
@@ -549,37 +569,37 @@ try {
 }
 ```
 
-Az elmentett prezentáció tartalmazza a frissített szövegformázást minden szintjén minden feldolgozott egyenletnek, miközben megőrzi a szövegtartalmat és a matematikai struktúrát.
+A mentett prezentáció minden szintjén frissített szövegformázást tartalmaz a feldolgozott egyenletekben, miközben megőrzi a szövegtartalmat és a matematikai struktúrát.
 
-## **Gyors hivatkozás**
+## **Gyorsreferencia**
 
-| Feladat | Fő API |
+| Task | Main API |
 | --- | --- |
-| Matematikai szöveg létrehozása | [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) |
-| Elemek kombinálása | [IMathElement.join](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
-| Törtek létrehozása | [IMathElement.divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
-| Felső- vagy alsó index hozzáadása | [setSuperscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
-| Függvények hozzáadása | [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
-| Gyökök hozzáadása | [IMathElement.radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
-| Határok hozzáadása | [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
-| Baloldali indexek hozzáadása | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
-| Összegzések és integrálok hozzáadása | [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
-| Mátrixok hozzáadása | [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) |
-| Egyenlet tömbök hozzáadása | [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) |
-| Elválasztók hozzáadása | [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) |
-| Vonalak és keretek hozzáadása | [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) |
-| Tagok csoportosítása | [group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) |
+| Create math text | [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) |
+| Combine elements | [IMathElement.join](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
+| Create fractions | [IMathElement.divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
+| Add superscript or subscript | [setSuperscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
+| Add functions | [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
+| Add radicals | [IMathElement.radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
+| Add limits | [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
+| Add left-side scripts | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| Add summations and integrals | [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| Add matrices | [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) |
+| Add equation arrays | [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) |
+| Add delimiters | [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) |
+| Add bars and borders | [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) |
+| Group terms | [group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) |
 
 ## **GYIK**
 
-**Szerkeszthetek egy meglévő PowerPoint egyenletet?**
+**Szerkeszthetek meglévő PowerPoint egyenletet?**
 
-Igen. Nyissa meg a prezentációt, keresse meg azt az alakzatot, amely egy [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) tartalmaz, hívja meg a [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), és frissítse a bekezdésben lévő matematikai blokkokat.
+Igen. Nyissa meg a prezentációt, keresse meg azt az alakzatot, amely egy [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/)‑t tartalmaz, hívja meg a [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) metódust, és frissítse a bekezdésben lévő matematikai blokkokat.
 
-**Az egyenletek szerkeszthető PowerPoint matematikaként vannak mentve?**
+**Az egyenletek szerkeszthető PowerPoint matematikaként kerülnek mentésre?**
 
-Igen. PPTX-re mentéskor az Aspose.Slides az egyenletet szerkeszthető Office matematikai tartalomként írja.
+Igen. PPTX formátumba mentéskor az Aspose.Slides az egyenletet szerkeszthető Office matematikai tartalomként írja.
 
-**Exportálhatok egyenleteket LaTeX-be?**
+**Exportálhatok egyenleteket LaTeX‑be?**
 
-Igen. Szerezze meg az egyenlet [IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/) objektumát az [IMathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/)‑ból, és hívja meg az [IMathParagraph.toLatex](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#toLatex--)‑t a közvetlen exportáláshoz. Teljes példaért lásd a [Matematikai Egyenletek Exportálása Prezentációkból Java-ban](/slides/hu/java/exporting-math-equations/#export-math-equations-to-latex).
+Igen. A [IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/)‑t a [IMathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/)‑ból kérheti le, majd a [IMathParagraph.toLatex](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#toLatex--) metódussal közvetlenül exportálja. A teljes példáért lásd a [Matematikai egyenletek exportálása prezentációkból Java‑ban](/slides/hu/java/exporting-math-equations/#export-math-equations-to-latex).

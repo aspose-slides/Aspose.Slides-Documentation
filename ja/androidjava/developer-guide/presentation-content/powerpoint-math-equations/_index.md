@@ -6,47 +6,47 @@ weight: 80
 url: /ja/androidjava/powerpoint-math-equations/
 keywords:
 - 数式
-- 数記号
+- 数学記号
 - 数式
 - 数式テキスト
 - 数式を追加
-- 記号を追加
-- 式を追加
-- テキストを追加
+- 数学記号を追加
+- 数式を追加
+- 数式テキストを追加
 - PowerPoint
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android を使用して PowerPoint PPT および PPTX に数式を挿入・編集でき、OMML、書式設定コントロール、明確な Java コードサンプルをサポートします。"
+description: "Aspose.Slides for Android を使用して PowerPoint の PPT および PPTX に数式を挿入・編集でき、OMML のサポート、書式設定コントロール、わかりやすい Java コードサンプルを提供します。"
 ---
 ## **概要**
 
-PowerPoint は数式を Office Math Markup Language (OMML) として保存します。Aspose.Slides for Android via Java を使用すると、同様の数式コンテンツをプログラムで作成できます: 分数、根号、関数、極限、N 進演算子、行列、配列、および書式設定された数式ブロック。
+PowerPoint は方程式を Office Math Markup Language (OMML) として保存します。Aspose.Slides for Android via Java を使用すると、分数、根号、関数、極限、N 項演算子、行列、配列、書式設定された数式ブロックなど、同様の数式コンテンツをプログラムで作成できます。
 
-PowerPoint では、ユーザーは通常 **Insert > Equation** から数式を追加します:
+PowerPoint では、通常 **挿入 > 数式** から方程式を追加します。
 
-![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
+![PowerPoint の挿入タブで数式コマンドが選択されている状態](powerpoint-math-equations_1.png)
 
-結果はスライド上の編集可能な数式テキストです:
+結果はスライド上の編集可能な数式テキストになります。
 
-![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
+![編集可能な数式が含まれる PowerPoint スライド](powerpoint-math-equations_2.png)
 
-Aspose.Slides はその数式テキストを 3 つの主要オブジェクトを使って構築します:
+Aspose.Slides はこの数式テキストを 3 つの主要オブジェクトで構築します。
 
-- 数式シェイプは、[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) で作成され、数式を含むシェイプです。
-- [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) はシェイプのテキストフレーム内に数式コンテンツを格納します。
-- [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) は 1 つ以上の [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/) オブジェクトを含みます。
+- [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) で作成された数式シェイプは、方程式を含むシェイプです。
+- [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) はシェイプのテキスト フレーム内に数式コンテンツを格納します。
+- [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) は 1 個以上の [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/) オブジェクトを保持します。
 
-以下のほとんどの例は、[MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) と [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) のフルエントメソッドを使用して、コードを簡潔で読みやすくしています。
+以下の例のほとんどは [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) と [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) のフルエント メソッドを使用して、コードを簡潔かつ読みやすくしています。
 
-MathML エクスポートのシナリオについては、[Android のプレゼンテーションから数式をエクスポートする](/slides/ja/androidjava/exporting-math-equations/) を参照してください。
+MathML エクスポートのシナリオについては、[Export Math Equations from Presentations on Android](/slides/ja/androidjava/exporting-math-equations/) を参照してください。
 
-## **数式の作成**
+## **方程式の作成**
 
-この例は、[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) を使用して数式シェイプを作成し、ピタゴラスの定理を追加します:
+この例は [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) を使用して数式シェイプを作成し、ピタゴラスの定理を追加します。
 
-![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
+![c² = a² + b² の方程式](powerpoint-math-equations_3.png)
 
 ```java
 import com.aspose.slides.*;
@@ -74,15 +74,15 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) は、すでに数式段落を含むシェイプを作成します。最初の [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) にアクセスし、[getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) を呼び出して、数式ブロックまたは数式要素を追加します。
+{{% alert color="info" title="注" %}}
+[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) は既に数式段落を含むシェイプを生成します。最初の [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) にアクセスし、[getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) を呼び出して、数式ブロックまたは数式要素を追加します。
 {{% /alert %}}
 
 ## **分数の追加**
 
-`[divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-)` を使用して分数を作成します。分数スタイルは [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/) で選択できます。
+[divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) を使用して分数を作成します。[MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/) で分数のスタイルを選択できます。
 
-![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
+![1 ÷ x を示す斜め分数](powerpoint-math-equations_4.png)
 
 ```java
 import com.aspose.slides.*;
@@ -106,7 +106,7 @@ try {
 }
 ```
 
-スタックされた分数の場合は、[MathFractionTypes.Bar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/#Bar) を使用します：
+積み上げ分数の場合は、[MathFractionTypes.Bar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/#Bar) を使用します。
 
 ```java
 import com.aspose.slides.*;
@@ -116,9 +116,9 @@ IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", Ma
 
 ## **根号の追加**
 
-`[radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-)` を使用して平方根、立方根、その他の根号を作成します。現在の要素が基底となり、引数が根の次数になります。
+[radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) を使用して平方根、立方根、その他の根号を作成します。現在の要素が底になり、引数が指数になります。
 
-![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
+![x が根号記号の下にある n 次根の式](powerpoint-math-equations_5.png)
 
 ```java
 import com.aspose.slides.*;
@@ -144,9 +144,9 @@ try {
 
 ## **関数と極限の追加**
 
-`[asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-)` または `[function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-)` を使用して、`sin(x)`、`log(x)` などの関数やカスタム関数名を作成します。極限の場合は、`lim` を [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) に入れるか、[setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-) を使用します。
+[asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) または [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) を使用して `sin(x)`、`log(x)` などの関数やカスタム関数名を作成します。極限の場合は、[MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) に `lim` を入れるか、[setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-) を使用します。
 
-![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
+![x が ∞ に近づく極限](powerpoint-math-equations_8.png)
 
 ```java
 import com.aspose.slides.*;
@@ -171,7 +171,7 @@ try {
 }
 ```
 
-カスタム関数名の場合、関数名を現在の要素にし、引数と共に `[function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-)` を呼び出します：
+カスタム関数名を使用する場合は、関数名を現在の要素に設定し、[function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) に引数を渡します。
 
 ```java
 import com.aspose.slides.*;
@@ -179,11 +179,11 @@ import com.aspose.slides.*;
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **N 進演算子と積分の追加**
+## **N項演算子と積分の追加**
 
-`[nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)` を使用して総和、和集合、交差、その他の大きな演算子を作成します。`[integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)` は積分に使用します。どちらのメソッドも下限と上限を設定できます。
+[nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) を使用して総和、和集合、交差集合などの大きな演算子を作成します。[integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) を使用して積分を作成します。両方のメソッドで下限と上限を設定できます。
 
-![A summation with lower and upper limits](powerpoint-math-equations_7.png)
+![下限と上限を持つ総和記号](powerpoint-math-equations_7.png)
 
 ```java
 import com.aspose.slides.*;
@@ -210,9 +210,9 @@ try {
 }
 ```
 
-N 進演算子はオプションの上下限を持つ大きな演算子用です。`+`、`-`、`=` のような単純な演算子は通常、[MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) として追加され、式に結合されます。
+N項演算子はオプションの上下限を持つ大きな演算子向けです。`+`、`-`、`=` などの単純な演算子は通常 [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) で追加し、式に結合します。
 
-積分には `[integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)` を使用します：
+積分の場合は、[integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) を使用します。
 
 ```java
 import com.aspose.slides.*;
@@ -223,9 +223,9 @@ IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0"
 
 ## **行列の追加**
 
-`[MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/)` を使用して行と列を定義します。行列はデフォルトで括弧を含まないため、丸括弧、角括弧、または波括弧が必要な場合は行列を囲んでください。
+[MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) を使用して行と列を定義します。行列はデフォルトで括弧を含まないため、丸括弧、角括弧、波括弧が必要な場合は自分で囲んでください。
 
-![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
+![空セルを含む 2 行の行列](powerpoint-math-equations_10.png)
 
 ```java
 import com.aspose.slides.*;
@@ -253,11 +253,11 @@ try {
 }
 ```
 
-## **方程式配列の追加**
+## **配列方程式の追加**
 
-整列された方程式や縦にスタックされた式が必要な場合は、[toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--) を使用します。
+[toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--) を使用すると、整列された方程式や縦に積み重ねた式を作成できます。
 
-![A vertical math array with x above y](powerpoint-math-equations_11.png)
+![x の上に y が並んだ縦方向の数式配列](powerpoint-math-equations_11.png)
 
 ```java
 import com.aspose.slides.*;
@@ -284,9 +284,9 @@ try {
 
 ## **三角関数の追加**
 
-引数が現在の要素で関数名が分かっている場合は、[asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) を使用します。
+引数が現在の要素で関数名が既知の場合は、[asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) を使用します。
 
-![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
+![cos が 2x に適用された三角関数](powerpoint-math-equations_6.png)
 
 ```java
 import com.aspose.slides.*;
@@ -312,9 +312,9 @@ try {
 
 ## **下付き文字と上付き文字の追加**
 
-インデックスや指数には下付き文字と上付き文字のヘルパーを使用します。インデックスを基底の左側に表示する必要がある場合は、[setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) を使用します。
+添字や指数のために下付き・上付きヘルパーを使用します。左側に添字・上付き文字を付ける必要がある場合は、[setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) を使用します。
 
-![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
+![左側に添字 1 と上付き n を持つ大文字 Y](powerpoint-math-equations_9.png)
 
 ```java
 import com.aspose.slides.*;
@@ -338,11 +338,11 @@ try {
 }
 ```
 
-## **デリミタの追加**
+## **区切り記号の追加**
 
-式をデリミタで囲むには、[enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) を使用します。複数の要素を含むデリミタ式には区切り文字を設定することもできます。
+[enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) を使用して式を区切り記号で囲みます。複数要素を含む区切り式では区切り文字も設定できます。
 
-![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
+![x、y、z が縦棒で区切られた区切り式](powerpoint-math-equations_13.png)
 
 ```java
 import com.aspose.slides.*;
@@ -369,11 +369,11 @@ try {
 }
 ```
 
-### **デリミタのサイズと位置合わせ**
+### **区切り記号のサイズと位置合わせ**
 
-`[setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-)` に `true` を渡すと、縦に長いオペランドに合わせて括弧が拡大します。`false` を渡すと通常サイズのままです。`[setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-)` は2つの [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/) のいずれかの値で使用します。`Centered` は等号の中央を通る数式軸上で括弧を中央揃えにし、`Match` は囲まれた内容に合わせて位置合わせします。これらの設定はデリミタだけに影響し、内部の式は変わりません。
+`true` を [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) に渡すと、縦に長い被演算子に合わせて括弧が伸長します。`false` を渡すと通常サイズのままです。[setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) と [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/) のいずれかを使用します。`Centered` は括弧を数式軸（＝ 記号の中央）に合わせ、`Match` は囲む内容に合わせて配置します。これらの設定は区切り記号だけに影響し、内部の式自体は変更されません。
 
-この例では、分数を `x` の指数に配置し、式がベースラインの上方により伸びるようにしています。4 つの式すべてが同じ括弧とフォント設定を使用しています。
+この例では、`x` の指数に分数を配置し、式がベースラインより上に伸びるようにしています。4 つの方程式すべてが同じ括弧とフォント設定を使用しています。
 
 ```java
 import com.aspose.slides.*;
@@ -402,36 +402,52 @@ try {
 }
 ```
 
-PowerPoint で、成長効果を見るために行を比較してください。上段では、括弧が指数を囲むように拡大し、両方のシェイプで同じように見えます。下段では、拡大が無効です。左側の小さい括弧（`Centered`）は等号に合わせ、右側（`Match`）は式の周りで高く位置します。
+PowerPoint で行を比較すると、成長が有効な上段では括弧が指数を囲んで同じ形になります。下段では成長がオフになり、左側の小さな括弧（`Centered`）は等号に合わせ、右側の括弧（`Match`）は式の上側に配置されます。
 
-![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
+![4 つの方程式：上段は括弧が伸長、下段は伸長なし。左は Centered、右は Match](delimiter-sizing.png)
 
 ## **枠付きボックスの追加**
 
-式自体を枠で囲む場合は、[toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) を使用します。
+分数に対して [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) を呼び出すと、式全体を枠で囲むことができます。返される [IMathBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/) は既定で 4 辺すべてが表示されます。[setHideTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideTop-boolean-)、[setHideBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideBottom-boolean-)、[setHideLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideLeft-boolean-)、[setHideRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideRight-boolean-) を使用して個別の辺を非表示にできます。
 
-![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
+この例では同じ分数を 6 つスライドに配置しています。取り消し線を示すために 4 辺すべてを非表示にし、上から右下への上昇対角線 (↗) には [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) に `true` を、下から右上への下降対角線 (↘) には [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) に `true` を渡します。また、任意の可視辺の組み合わせで [setStrikethroughHorizontal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) や [setStrikethroughVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) も使用できます。
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
+    presentation.getSlideSize().setSize(540, 220, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape mathShape = slide.getShapes().addMathShape(20, 20, 700, 100);
-    IMathParagraph mathParagraph = ((MathPortion) mathShape.getTextFrame().getParagraphs()
-            .get_Item(0).getPortions().get_Item(0)).getMathParagraph();
+    class FractionBuilder {
+        IMathBorderBox addFraction(float x, float y, boolean hideBorder) {
+            IMathFraction fraction = new MathematicalText("x+1").divide("y+2");
+            IMathBorderBox box = fraction.toBorderBox();
+            box.setHideTop(hideBorder);
+            box.setHideBottom(hideBorder);
+            box.setHideLeft(hideBorder);
+            box.setHideRight(hideBorder);
 
-    IMathBorderBox boxedEquation = new MathematicalText("a")
-            .setSuperscript("2")
-            .join("=")
-            .join(new MathematicalText("b").setSuperscript("2"))
-            .join("+")
-            .join(new MathematicalText("c").setSuperscript("2"))
-            .toBorderBox();
+            IAutoShape shape = slide.getShapes().addMathShape(x, y, 160, 90);
+            MathPortion portion = (MathPortion) shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+            portion.getPortionFormat().setFontHeight(28);
+            portion.getMathParagraph().add(new MathBlock(box));
+            return box;
+        }
+    }
 
-    mathParagraph.add(new MathBlock(boxedEquation));
+    FractionBuilder builder = new FractionBuilder();
+    builder.addFraction(10, 10, false);
+
+    IMathBorderBox partial = builder.addFraction(190, 10, false);
+    partial.setHideTop(true);
+    partial.setHideRight(true);
+
+    builder.addFraction(370, 10, true).setStrikethroughBottomLeftToTopRight(true);
+    builder.addFraction(10, 120, true).setStrikethroughTopLeftToBottomRight(true);
+    builder.addFraction(190, 120, true).setStrikethroughHorizontal(true);
+    builder.addFraction(370, 120, false).setStrikethroughVertical(true);
 
     presentation.save("border-box.pptx", SaveFormat.Pptx);
 } finally {
@@ -439,11 +455,15 @@ try {
 }
 ```
 
+![PowerPoint の 6 つの編集可能な分数。上段：全枠、下部と左側、上昇対角線。下段：下降対角線、水平打ち消し、垂直打ち消し＋全枠](border-box-fractions.png)
+
+この分数では、水平打ち消しが分数バーと重なります。垂直打ち消しは分子と分母の両方を横切り、周囲の枠は残ります。これらの線は式全体を装飾します。通常のテキスト打ち消しはテキスト ラン内の文字に適用されます。PowerPoint でプレゼンテーションを再度開いても、分子と分母は個別に編集可能です。
+
 ## **項のグループ化**
 
-式の上下にグループ化文字を配置するには、[group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) を使用します。グループ化された項にラベルを付けるには、リミットを追加します。
+[group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) を使用して、式の上または下にグルーピング文字を配置します。ラベルとして限界を追加できます。
 
-![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
+![x と y が下に「任意のテキスト」ラベル付きでグループ化された式](powerpoint-math-equations_15.png)
 
 ```java
 import com.aspose.slides.*;
@@ -470,9 +490,9 @@ try {
 
 ## **数式要素の書式設定**
 
-書式設定ヘルパーは、式を明確にする場合にのみ使用してください。例として、[overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) は数式要素の上にバーを配置します。
+式の可読性を高める場合にのみ書式ヘルパーを使用してください。例として、[overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) は数式要素の上にバーを付けます。
 
-![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
+![上にバーが付いた数式 ABC](powerpoint-math-equations_14.png)
 
 ```java
 import com.aspose.slides.*;
@@ -495,11 +515,11 @@ try {
 }
 ```
 
-### **既存の数式内のテキストの書式設定**
+### **既存の方程式内テキストの書式設定**
 
-既存の数式全体のテキストの書式を設定するには、各数式ブロックの要素ツリーをたどります。[IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) は直接の子要素のみを返すため、再帰的に呼び出して分数、添字・上付き文字、根号、その他の入れ子構造内のテキストに到達します。現在の要素とその子要素の両方を確認し、開始要素が [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) の場合も含めます。
+既存の方程式全体のテキストを書式設定するには、各数式ブロックの要素ツリーを走査します。[IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) は直接の子要素だけを返すため、分数、添字・上付き文字、根号、その他の入れ子構造内のテキストに到達するには再帰的に呼び出します。開始要素が [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) の場合も含めてチェックします。
 
-この例では、`input.pptx` に `z = xᵢ / ∛y` のような数式が含まれていると想定しています。この数式は、分子に下付き文字、分母に根号を持つ分数を含みます。ブロックの最上位要素だけを処理すると、分数内部のテキストが見逃されます。この例はスライドのテキストフレーム内の数式部分を見つけ、[IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) を介してブロックにアクセスし、各テキスト要素の [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--) メソッドを通じて [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) を使用し、フォントサイズを 28 ポイントに設定します。
+この例は `input.pptx` に `z = xᵢ / ∛y` のような方程式が含まれていると想定し、分子に下付き文字、分母に根号を持つ分数を対象としています。ブロックのトップレベル要素だけを処理すると、分数内部のテキストが見逃されます。例ではスライドのテキスト フレーム内の数式部分を見つけ、[IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) でブロックにアクセスし、[setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) を使用して各テキスト要素の [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--) メソッド経由でフォントサイズを 28pt に設定します。
 
 ```java
 import com.aspose.slides.*;
@@ -550,37 +570,37 @@ try {
 }
 ```
 
-保存されたプレゼンテーションは、処理された各数式のすべてのレベルで更新されたテキスト書式を保持しつつ、テキスト内容と数式構造を保持します。
+保存されたプレゼンテーションには、各方程式のすべてのレベルで更新されたテキスト書式が保持され、テキスト コンテンツと数式構造はそのままです。
 
 ## **クイック リファレンス**
 
-| タスク | 主要 API |
+| タスク | 主な API |
 | --- | --- |
 | 数式テキストの作成 | [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) |
 | 要素の結合 | [IMathElement.join](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | 分数の作成 | [IMathElement.divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| 上付き文字または下付き文字の追加 | [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| 上付き・下付き文字の追加 | [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | 関数の追加 | [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | 根号の追加 | [IMathElement.radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | 極限の追加 | [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| 左側添字の追加 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| 左側スクリプトの追加 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | 総和と積分の追加 | [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | 行列の追加 | [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) |
-| 方程式配列の追加 | [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| デリミタの追加 | [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| 配列方程式の追加 | [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| 区切り記号の追加 | [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | バーと枠の追加 | [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | 項のグループ化 | [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 
-## **よくある質問**
+## **FAQ**
 
-**既存の PowerPoint の数式を編集できますか？**
+**既存の PowerPoint 方程式を編集できますか？**
 
-はい。プレゼンテーションを開き、[MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) を含むシェイプを見つけ、[getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) を呼び出し、その段落内の数式ブロックを更新します。
+はい。プレゼンテーションを開き、[MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) を含むシェイプを見つけ、[getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) を呼び出して、その段落内の数式ブロックを更新します。
 
-**数式は編集可能な PowerPoint の数式として保存されますか？**
+**方程式は編集可能な PowerPoint 数式として保存されますか？**
 
-はい。PPTX として保存すると、Aspose.Slides は数式を編集可能な Office 数式コンテンツとして書き込みます。
+はい。PPTX として保存すると、Aspose.Slides は方程式を編集可能な Office 数式コンテンツとして記録します。
 
-**数式を LaTeX にエクスポートできますか？**
+**方程式を LaTeX にエクスポートできますか？**
 
-はい。式の [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) をその [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/) から取得し、[IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) を呼び出して直接エクスポートします。完全な例については、[Android via Java のプレゼンテーションから数式をエクスポートする](/slides/ja/androidjava/exporting-math-equations/#export-math-equations-to-latex) を参照してください。
+はい。対象の [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) を [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/) から取得し、[IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) を呼び出して直接エクスポートできます。完全なサンプルは [Export Math Equations from Presentations in Android via Java](/slides/ja/androidjava/exporting-math-equations/#export-math-equations-to-latex) を参照してください。
