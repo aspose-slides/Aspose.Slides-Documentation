@@ -45,7 +45,7 @@ For MathML export scenarios, see [Export Math Equations from Presentations in Py
 
 ## **Create an Equation**
 
-This example creates a math shape and adds the Pythagorean theorem:
+This example uses [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) to create a math shape and adds the Pythagorean theorem:
 
 ![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
@@ -78,7 +78,7 @@ finally:
 
 {{% alert color="info" title="Note" %}}
 
-[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) creates a shape that already contains a math paragraph. Access the first [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), get its [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/), and add math blocks or math elements to it.
+[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) creates a shape that already contains a math paragraph. Access the first [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), call [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), and add math blocks or math elements to it.
 
 {{% /alert %}}
 
@@ -192,7 +192,7 @@ finally:
     presentation.dispose()
 ```
 
-For a custom function name, make the function name the current element:
+For a custom function name, make the function name the current element and call [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) with its argument:
 
 ```python
 import jpype
@@ -430,6 +430,47 @@ finally:
     presentation.dispose()
 ```
 
+### **Size and Align Delimiters**
+
+Pass `True` to [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) to let the parentheses grow around a tall operand, or pass `False` to keep them at their normal size. Use [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) with one of two [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/) values. `Centered` centers the parentheses on the math axis, which runs through the middle of the equals sign. `Match` aligns them with the enclosed content. Both settings affect only the delimiters. The expression inside stays the same.
+
+The example places a fraction in the exponent of `x` so the expression extends farther above the baseline than below it. All four equations use the same parentheses and font settings.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import MathDelimiterShape, MathematicalText, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    for row, grow in enumerate((True, False)):
+        for column, shape in enumerate((MathDelimiterShape.Centered, MathDelimiterShape.Match)):
+            fraction = MathematicalText("a + b").divide("c + d")
+            power = MathematicalText("x").setSuperscript(fraction)
+            delimiter = power.enclose("(", ")")
+            delimiter.setGrowToMatchOperandHeight(grow)
+            delimiter.setDelimiterShape(shape)
+
+            math_shape = slide.getShapes().addMathShape(20 + 330 * column, 20 + 120 * row, 300, 100)
+            portion = math_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+            portion.getPortionFormat().setFontHeight(32)
+            equation = MathematicalText("y = ").join(delimiter)
+            portion.getMathParagraph().add(equation)
+
+    presentation.save("delimiter-sizing.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+In PowerPoint, compare the rows to see the effect of growth. In the top row, the parentheses grow to enclose the exponent and look alike for both shapes. In the bottom row, growth is off. The smaller parentheses on the left (`Centered`) align with the equals sign, while those on the right (`Match`) sit higher around the expression.
+
+![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
+
 ## **Add a Border Box**
 
 Use [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) when the equation itself should be framed.
@@ -598,7 +639,7 @@ The saved presentation contains the updated text formatting at every level of ea
 
 **Can I edit an existing PowerPoint equation?**
 
-Yes. Open the presentation, find the shape that contains a [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), get its [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/), and update the math blocks in that paragraph.
+Yes. Open the presentation, find the shape that contains a [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), call [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), and update the math blocks in that paragraph.
 
 **Are equations saved as editable PowerPoint math?**
 
