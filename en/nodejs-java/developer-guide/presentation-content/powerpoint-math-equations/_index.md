@@ -45,7 +45,7 @@ For MathML export scenarios, see [Export Math Equations from Presentations in No
 
 ## **Create an Equation**
 
-This example creates a math shape and adds the Pythagorean theorem:
+This example uses [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) to create a math shape and adds the Pythagorean theorem:
 
 ![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
@@ -78,13 +78,13 @@ try {
 
 {{% alert color="info" title="Note" %}}
 
-`addMathShape` creates a shape that already contains a math paragraph. Access the first `MathPortion`, get its `MathParagraph`, and add math blocks or math elements to it.
+[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) creates a shape that already contains a math paragraph. Access the first [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), call [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), and add math blocks or math elements to it.
 
 {{% /alert %}}
 
 ## **Add Fractions**
 
-Use [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) to create a fraction. You can choose a fraction style with [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/).
+Use [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#divide) to create a fraction. You can choose a fraction style with [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/).
 
 ![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
@@ -111,7 +111,7 @@ try {
 }
 ```
 
-For a stacked fraction, use `MathFractionTypes.Bar`:
+For a stacked fraction, use [MathFractionTypes.Bar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/#Bar):
 
 ```javascript
 var aspose = aspose || {};
@@ -122,7 +122,7 @@ let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1"
 
 ## **Add Radicals**
 
-Use [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) to create a square root, cube root, or other root. The current element becomes the base, and the argument becomes the degree.
+Use [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical) to create a square root, cube root, or other root. The current element becomes the base, and the argument becomes the degree.
 
 ![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
@@ -151,7 +151,7 @@ try {
 
 ## **Add Functions and Limits**
 
-Use [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) or [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) for functions such as `sin(x)`, `log(x)`, or custom function names. For limits, put `lim` in a [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/) or use [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/).
+Use [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) or [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) for functions such as `sin(x)`, `log(x)`, or custom function names. For limits, put `lim` in a [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/) or use [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit).
 
 ![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
@@ -179,7 +179,7 @@ try {
 }
 ```
 
-For a custom function name, make the function name the current element:
+For a custom function name, make the function name the current element and call [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) with its argument:
 
 ```javascript
 var aspose = aspose || {};
@@ -190,7 +190,7 @@ let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
 
 ## **Add N-ary Operators and Integrals**
 
-Use [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) for summations, unions, intersections, and other large operators. Use [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) for integrals. Both methods let you set lower and upper limits.
+Use [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) for summations, unions, intersections, and other large operators. Use [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) for integrals. Both methods let you set lower and upper limits.
 
 ![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
@@ -220,9 +220,9 @@ try {
 }
 ```
 
-N-ary operators are for large operators with optional limits. Simple operators such as `+`, `-`, and `=` are usually added as `MathematicalText` and joined into the expression.
+N-ary operators are for large operators with optional limits. Simple operators such as `+`, `-`, and `=` are usually added as [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) and joined into the expression.
 
-For an integral, use `integral`:
+For an integral, use [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral):
 
 ```javascript
 var aspose = aspose || {};
@@ -267,7 +267,7 @@ try {
 
 ## **Add Equation Arrays**
 
-Use [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) when you need aligned equations or a vertical stack of expressions.
+Use [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toMathArray) when you need aligned equations or a vertical stack of expressions.
 
 ![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
@@ -297,7 +297,7 @@ try {
 
 ## **Add Trigonometric Functions**
 
-Use [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) when the argument is the current element and the function name is known.
+Use [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) when the argument is the current element and the function name is known.
 
 ![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
@@ -326,7 +326,7 @@ try {
 
 ## **Add Subscripts and Superscripts**
 
-Use the subscript and superscript helpers for indexes and powers. When the indexes must appear on the left side of the base, use [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/).
+Use the subscript and superscript helpers for indexes and powers. When the indexes must appear on the left side of the base, use [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
 ![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
@@ -355,7 +355,7 @@ try {
 
 ## **Add Delimiters**
 
-Use [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.
+Use [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose) to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.
 
 ![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
@@ -386,9 +386,47 @@ try {
 }
 ```
 
+### **Size and Align Delimiters**
+
+Pass `true` to [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) to let the parentheses grow around a tall operand, or pass `false` to keep them at their normal size. Use [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape) with one of two [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/) values. `Centered` centers the parentheses on the math axis, which runs through the middle of the equals sign. `Match` aligns them with the enclosed content. Both settings affect only the delimiters. The expression inside stays the same.
+
+The example places a fraction in the exponent of `x` so the expression extends farther above the baseline than below it. All four equations use the same parentheses and font settings.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    for (let row = 0; row < 2; row++) {
+        for (let column = 0; column < 2; column++) {
+            const fraction = new slides.MathematicalText("a + b").divide("c + d");
+            const power = new slides.MathematicalText("x").setSuperscript(fraction);
+            const delimiter = power.enclose(java.newChar('('), java.newChar(')'));
+            delimiter.setGrowToMatchOperandHeight(row === 0);
+            delimiter.setDelimiterShape(column === 0 ? slides.MathDelimiterShape.Centered : slides.MathDelimiterShape.Match);
+
+            const mathShape = slide.getShapes().addMathShape(20 + 330 * column, 20 + 120 * row, 300, 100);
+            const portion = mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+            portion.getPortionFormat().setFontHeight(32);
+            const equation = new slides.MathematicalText("y = ").join(delimiter);
+            portion.getMathParagraph().add(equation);
+        }
+    }
+    presentation.save("delimiter-sizing.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+In PowerPoint, compare the rows to see the effect of growth. In the top row, the parentheses grow to enclose the exponent and look alike for both shapes. In the bottom row, growth is off. The smaller parentheses on the left (`Centered`) align with the equals sign, while those on the right (`Match`) sit higher around the expression.
+
+![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
+
 ## **Add a Border Box**
 
-Use [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) when the equation itself should be framed.
+Use [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox) when the equation itself should be framed.
 
 ![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
 
@@ -422,7 +460,7 @@ try {
 
 ## **Group Terms**
 
-Use [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) to place a grouping character above or below an expression. Add a limit to label the grouped terms.
+Use [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group) to place a grouping character above or below an expression. Add a limit to label the grouped terms.
 
 ![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
@@ -453,7 +491,7 @@ try {
 
 ## **Format Math Elements**
 
-Use formatting helpers only where they clarify the formula. For example, [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) places a bar above a math element.
+Use formatting helpers only where they clarify the formula. For example, [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) places a bar above a math element.
 
 ![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
@@ -562,7 +600,7 @@ The saved presentation contains the updated text formatting at every level of ea
 
 **Can I edit an existing PowerPoint equation?**
 
-Yes. Open the presentation, find the shape that contains a `MathPortion`, get its `MathParagraph`, and update the math blocks in that paragraph.
+Yes. Open the presentation, find the shape that contains a [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), call [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), and update the math blocks in that paragraph.
 
 **Are equations saved as editable PowerPoint math?**
 

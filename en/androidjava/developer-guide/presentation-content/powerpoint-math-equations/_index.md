@@ -45,7 +45,7 @@ For MathML export scenarios, see [Export Math Equations from Presentations on An
 
 ## **Create an Equation**
 
-This example creates a math shape and adds the Pythagorean theorem:
+This example uses [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) to create a math shape and adds the Pythagorean theorem:
 
 ![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
@@ -77,13 +77,13 @@ try {
 
 {{% alert color="info" title="Note" %}}
 
-`addMathShape` creates a shape that already contains a math paragraph. Access the first `MathPortion`, get its `MathParagraph`, and add math blocks or math elements to it.
+[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) creates a shape that already contains a math paragraph. Access the first [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/), call [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), and add math blocks or math elements to it.
 
 {{% /alert %}}
 
 ## **Add Fractions**
 
-Use `divide` to create a fraction. You can choose a fraction style with [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/).
+Use [divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) to create a fraction. You can choose a fraction style with [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/).
 
 ![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
@@ -109,7 +109,7 @@ try {
 }
 ```
 
-For a stacked fraction, use `MathFractionTypes.Bar`:
+For a stacked fraction, use [MathFractionTypes.Bar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/#Bar):
 
 ```java
 import com.aspose.slides.*;
@@ -119,7 +119,7 @@ IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", Ma
 
 ## **Add Radicals**
 
-Use `radical` to create a square root, cube root, or other root. The current element becomes the base, and the argument becomes the degree.
+Use [radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) to create a square root, cube root, or other root. The current element becomes the base, and the argument becomes the degree.
 
 ![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
@@ -147,7 +147,7 @@ try {
 
 ## **Add Functions and Limits**
 
-Use `asArgumentOfFunction` or `function` for functions such as `sin(x)`, `log(x)`, or custom function names. For limits, put `lim` in a [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) or use `setLowerLimit`.
+Use [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) or [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) for functions such as `sin(x)`, `log(x)`, or custom function names. For limits, put `lim` in a [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) or use [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-).
 
 ![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
@@ -174,7 +174,7 @@ try {
 }
 ```
 
-For a custom function name, make the function name the current element:
+For a custom function name, make the function name the current element and call [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) with its argument:
 
 ```java
 import com.aspose.slides.*;
@@ -184,7 +184,7 @@ IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 
 ## **Add N-ary Operators and Integrals**
 
-Use `nary` for summations, unions, intersections, and other large operators. Use `integral` for integrals. Both methods let you set lower and upper limits.
+Use [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) for summations, unions, intersections, and other large operators. Use [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) for integrals. Both methods let you set lower and upper limits.
 
 ![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
@@ -213,9 +213,9 @@ try {
 }
 ```
 
-N-ary operators are for large operators with optional limits. Simple operators such as `+`, `-`, and `=` are usually added as `MathematicalText` and joined into the expression.
+N-ary operators are for large operators with optional limits. Simple operators such as `+`, `-`, and `=` are usually added as [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) and joined into the expression.
 
-For an integral, use `integral`:
+For an integral, use [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-):
 
 ```java
 import com.aspose.slides.*;
@@ -258,7 +258,7 @@ try {
 
 ## **Add Equation Arrays**
 
-Use `toMathArray` when you need aligned equations or a vertical stack of expressions.
+Use [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--) when you need aligned equations or a vertical stack of expressions.
 
 ![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
@@ -287,7 +287,7 @@ try {
 
 ## **Add Trigonometric Functions**
 
-Use `asArgumentOfFunction` when the argument is the current element and the function name is known.
+Use [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) when the argument is the current element and the function name is known.
 
 ![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
@@ -315,7 +315,7 @@ try {
 
 ## **Add Subscripts and Superscripts**
 
-Use the subscript and superscript helpers for indexes and powers. When the indexes must appear on the left side of the base, use `setSubSuperscriptOnTheLeft`.
+Use the subscript and superscript helpers for indexes and powers. When the indexes must appear on the left side of the base, use [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-).
 
 ![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
@@ -343,7 +343,7 @@ try {
 
 ## **Add Delimiters**
 
-Use `enclose` to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.
+Use [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.
 
 ![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
@@ -372,9 +372,46 @@ try {
 }
 ```
 
+### **Size and Align Delimiters**
+
+Pass `true` to [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) to let the parentheses grow around a tall operand, or pass `false` to keep them at their normal size. Use [setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) with one of two [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/) values. `Centered` centers the parentheses on the math axis, which runs through the middle of the equals sign. `Match` aligns them with the enclosed content. Both settings affect only the delimiters. The expression inside stays the same.
+
+The example places a fraction in the exponent of `x` so the expression extends farther above the baseline than below it. All four equations use the same parentheses and font settings.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    for (int row = 0; row < 2; row++) {
+        for (int column = 0; column < 2; column++) {
+            IMathFraction fraction = new MathematicalText("a + b").divide("c + d");
+            IMathSuperscriptElement power = new MathematicalText("x").setSuperscript(fraction);
+            IMathDelimiter delimiter = power.enclose('(', ')');
+            delimiter.setGrowToMatchOperandHeight(row == 0);
+            delimiter.setDelimiterShape(column == 0 ? MathDelimiterShape.Centered : MathDelimiterShape.Match);
+
+            IAutoShape mathShape = slide.getShapes().addMathShape(20 + 330 * column, 20 + 120 * row, 300, 100);
+            MathPortion portion = (MathPortion) mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+            portion.getPortionFormat().setFontHeight(32);
+            IMathBlock equation = new MathematicalText("y = ").join(delimiter);
+            portion.getMathParagraph().add(equation);
+        }
+    }
+    presentation.save("delimiter-sizing.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+In PowerPoint, compare the rows to see the effect of growth. In the top row, the parentheses grow to enclose the exponent and look alike for both shapes. In the bottom row, growth is off. The smaller parentheses on the left (`Centered`) align with the equals sign, while those on the right (`Match`) sit higher around the expression.
+
+![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
+
 ## **Add a Border Box**
 
-Use `toBorderBox` when the equation itself should be framed.
+Use [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) when the equation itself should be framed.
 
 ![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
 
@@ -407,7 +444,7 @@ try {
 
 ## **Group Terms**
 
-Use `group` to place a grouping character above or below an expression. Add a limit to label the grouped terms.
+Use [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) to place a grouping character above or below an expression. Add a limit to label the grouped terms.
 
 ![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
@@ -436,7 +473,7 @@ try {
 
 ## **Format Math Elements**
 
-Use formatting helpers only where they clarify the formula. For example, `overbar` places a bar above a math element.
+Use formatting helpers only where they clarify the formula. For example, [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) places a bar above a math element.
 
 ![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
@@ -541,7 +578,7 @@ The saved presentation contains the updated text formatting at every level of ea
 
 **Can I edit an existing PowerPoint equation?**
 
-Yes. Open the presentation, find the shape that contains a `MathPortion`, get its `MathParagraph`, and update the math blocks in that paragraph.
+Yes. Open the presentation, find the shape that contains a [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/), call [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), and update the math blocks in that paragraph.
 
 **Are equations saved as editable PowerPoint math?**
 

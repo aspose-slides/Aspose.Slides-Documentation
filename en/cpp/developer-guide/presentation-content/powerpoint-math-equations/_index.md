@@ -44,7 +44,7 @@ For MathML export scenarios, see [Export Math Equations from Presentations in C+
 
 ## **Create an Equation**
 
-This example creates a math shape and adds the Pythagorean theorem:
+This example uses [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) to create a math shape and adds the Pythagorean theorem:
 
 ![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
@@ -88,13 +88,13 @@ presentation->Dispose();
 
 {{% alert color="info" title="Note" %}}
 
-`AddMathShape` creates a shape that already contains a math paragraph. Access the first `MathPortion`, get its `MathParagraph`, and add math blocks or math elements to it.
+[AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) creates a shape that already contains a math paragraph. Access the first [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/), call [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/), and add math blocks or math elements to it.
 
 {{% /alert %}}
 
 ## **Add Fractions**
 
-Use `Divide` to create a fraction. You can choose a fraction style with [MathFractionTypes](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/).
+Use [Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) to create a fraction. You can choose a fraction style with [MathFractionTypes](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/).
 
 ![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
@@ -132,7 +132,7 @@ presentation->Save(u"fraction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-For a stacked fraction, use `MathFractionTypes::Bar`:
+For a stacked fraction, use [MathFractionTypes::Bar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/):
 
 ```cpp
 #include <DOM/MathText/MathFractionTypes.h>
@@ -144,7 +144,7 @@ auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"
 
 ## **Add Radicals**
 
-Use `Radical` to create a square root, cube root, or other root. The current element becomes the base, and the argument becomes the degree.
+Use [Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) to create a square root, cube root, or other root. The current element becomes the base, and the argument becomes the degree.
 
 ![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
@@ -183,7 +183,7 @@ presentation->Dispose();
 
 ## **Add Functions and Limits**
 
-Use `AsArgumentOfFunction` or `Function` for functions such as `sin(x)`, `log(x)`, or custom function names. For limits, put `lim` in a [MathLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) or use `SetLowerLimit`.
+Use [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) or [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) for functions such as `sin(x)`, `log(x)`, or custom function names. For limits, put `lim` in a [MathLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) or use [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/).
 
 ![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
@@ -222,7 +222,7 @@ presentation->Save(u"functions-and-limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-For a custom function name, make the function name the current element:
+For a custom function name, make the function name the current element and call [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) with its argument:
 
 ```cpp
 #include <DOM/MathText/MathematicalText.h>
@@ -233,7 +233,7 @@ auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x +
 
 ## **Add N-ary Operators and Integrals**
 
-Use `Nary` for summations, unions, intersections, and other large operators. Use `Integral` for integrals. Both methods let you set lower and upper limits.
+Use [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/) for summations, unions, intersections, and other large operators. Use [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) for integrals. Both methods let you set lower and upper limits.
 
 ![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
@@ -275,9 +275,9 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-N-ary operators are for large operators with optional limits. Simple operators such as `+`, `-`, and `=` are usually added as `MathematicalText` and joined into the expression.
+N-ary operators are for large operators with optional limits. Simple operators such as `+`, `-`, and `=` are usually added as [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) and joined into the expression.
 
-For an integral, use `Integral`:
+For an integral, use [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/):
 
 ```cpp
 #include <DOM/MathText/IMathBlock.h>
@@ -340,7 +340,7 @@ presentation->Dispose();
 
 ## **Add Equation Arrays**
 
-Use `ToMathArray` when you need aligned equations or a vertical stack of expressions.
+Use [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) when you need aligned equations or a vertical stack of expressions.
 
 ![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
@@ -380,7 +380,7 @@ presentation->Dispose();
 
 ## **Add Trigonometric Functions**
 
-Use `AsArgumentOfFunction` when the argument is the current element and the function name is known.
+Use [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) when the argument is the current element and the function name is known.
 
 ![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
@@ -420,7 +420,7 @@ presentation->Dispose();
 
 ## **Add Subscripts and Superscripts**
 
-Use the subscript and superscript helpers for indexes and powers. When the indexes must appear on the left side of the base, use `SetSubSuperscriptOnTheLeft`.
+Use the subscript and superscript helpers for indexes and powers. When the indexes must appear on the left side of the base, use [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
 
 ![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
@@ -459,7 +459,7 @@ presentation->Dispose();
 
 ## **Add Delimiters**
 
-Use `Enclose` to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.
+Use [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.
 
 ![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
@@ -498,9 +498,68 @@ presentation->Save(u"delimiters.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+### **Size and Align Delimiters**
+
+Pass `true` to [set_GrowToMatchOperandHeight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_growtomatchoperandheight/) to let the parentheses grow around a tall operand, or `false` to keep them at their normal size. [set_DelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_delimitershape/) takes one of two [MathDelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathdelimitershape/) values. `Centered` centers the parentheses on the math axis, which runs through the middle of the equals sign. `Match` aligns them with the enclosed content. Both settings affect only the delimiters. The expression inside stays the same.
+
+The example places a fraction in the exponent of `x` so the expression extends farther above the baseline than below it. All four equations use the same parentheses and font settings.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathDelimiter.h>
+#include <DOM/MathText/IMathFraction.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathDelimiterShape.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto addExpression = [slide](float left, float top, bool grow, MathDelimiterShape shape)
+{
+    auto fraction = System::MakeObject<MathematicalText>(u"a + b")->Divide(u"c + d");
+    auto power = System::MakeObject<MathematicalText>(u"x")->SetSuperscript(fraction);
+    auto delimiter = power->Enclose(u'(', u')');
+    delimiter->set_GrowToMatchOperandHeight(grow);
+    delimiter->set_DelimiterShape(shape);
+
+    auto mathShape = slide->get_Shapes()->AddMathShape(left, top, 300, 100);
+    auto portion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+    portion->get_PortionFormat()->set_FontHeight(32);
+    auto equation = System::MakeObject<MathematicalText>(u"y = ")->Join(delimiter);
+    portion->get_MathParagraph()->Add(equation);
+};
+
+addExpression(20, 20, true, MathDelimiterShape::Centered);
+addExpression(350, 20, true, MathDelimiterShape::Match);
+addExpression(20, 140, false, MathDelimiterShape::Centered);
+addExpression(350, 140, false, MathDelimiterShape::Match);
+
+presentation->Save(u"delimiter-sizing.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+In PowerPoint, compare the rows to see the effect of growth. In the top row, the parentheses grow to enclose the exponent and look alike for both shapes. In the bottom row, growth is off. The smaller parentheses on the left (`Centered`) align with the equals sign, while those on the right (`Match`) sit higher around the expression.
+
+![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
+
 ## **Add a Border Box**
 
-Use `ToBorderBox` when the equation itself should be framed.
+Use [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) when the equation itself should be framed.
 
 ![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
 
@@ -545,7 +604,7 @@ presentation->Dispose();
 
 ## **Group Terms**
 
-Use `Group` to place a grouping character above or below an expression. Add a limit to label the grouped terms.
+Use [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) to place a grouping character above or below an expression. Add a limit to label the grouped terms.
 
 ![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
@@ -587,7 +646,7 @@ presentation->Dispose();
 
 ## **Format Math Elements**
 
-Use formatting helpers only where they clarify the formula. For example, `Overbar` places a bar above a math element.
+Use formatting helpers only where they clarify the formula. For example, [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/) places a bar above a math element.
 
 ![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
@@ -719,7 +778,7 @@ The saved presentation contains the updated text formatting at every level of ea
 
 **Can I edit an existing PowerPoint equation?**
 
-Yes. Open the presentation, find the shape that contains a `MathPortion`, get its `MathParagraph`, and update the math blocks in that paragraph.
+Yes. Open the presentation, find the shape that contains a [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/), call [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/), and update the math blocks in that paragraph.
 
 **Are equations saved as editable PowerPoint math?**
 
