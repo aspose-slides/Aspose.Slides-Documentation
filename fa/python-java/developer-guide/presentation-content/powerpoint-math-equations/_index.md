@@ -18,35 +18,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "در PowerPoint (PPT و PPTX) معادلات ریاضی را با Aspose.Slides برای Python از طریق Java درج و ویرایش کنید؛ با پشتیبانی از OMML، کنترل‌های قالب‌بندی، و نمونه‌های واضح کد Python."
+description: "درج و ویرایش معادلات ریاضی در فایل‌های PPT و PPTX PowerPoint با Aspose.Slides برای Python via Java، با پشتیبانی از OMML، کنترل‌های قالب‌بندی، و نمونه‌های کد واضح Python."
 ---
-## **نمای کلی**
+## **مرور کلی**
 
-PowerPoint معادلات را به صورت Office Math Markup Language (OMML) ذخیره می‌کند. با Aspose.Slides برای Python از طریق Java، می‌توانید همان نوع محتوای ریاضی را به‌صورت برنامه‌نویسی ایجاد کنید: کسرها، رادیکال‌ها، توابع، حدود، عملگرهای N-ary، ماتریس‌ها، آرایه‌ها و بلوک‌های ریاضی قالب‌بندی‌شده.
+PowerPoint معادلات را به صورت Office Math Markup Language (OMML) ذخیره می‌کند. با Aspose.Slides برای Python via Java می‌توانید همان نوع محتویات ریاضی را به‌صورت برنامه‌نویسی ایجاد کنید: کسرها، رادیکال‌ها، توابع، حدها، عملگرهای N-ary، ماتریس‌ها، آرایه‌ها و بلوک‌های ریاضی قالب‌بندی‌شده.
 
 در PowerPoint، کاربران معمولاً معادلات را از **Insert > Equation** اضافه می‌کنند:
 
 ![زبانه Insert در PowerPoint با فرمان Equation انتخاب شده](powerpoint-math-equations_1.png)
 
-نتیجه متن ریاضی قابل ویرایش بر روی اسلاید است:
+نتیجه یک متن ریاضی قابل ویرایش بر روی اسلاید است:
 
-![یک اسلاید PowerPoint شامل یک معادله ریاضی قابل ویرایش](powerpoint-math-equations_2.png)
+![یک اسلاید PowerPoint شامل معادله ریاضی قابل ویرایش](powerpoint-math-equations_2.png)
 
-Aspose.Slides متن ریاضی را از طریق سه شیء اصلی می‌سازد:
+Aspose.Slides این متن ریاضی را از طریق سه شیء اصلی می‌سازد:
 
-- یک شکل ریاضی، که با [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) ایجاد می‌شود، شکلی است که معادله را در خود دارد.
-- [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) محتویات ریاضی را در داخل چهارچوب متن شکل ذخیره می‌کند.
-- [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) حاوی یک یا چند شیء [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) است.
+- یک شکل ریاضی، که با [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) ایجاد می‌شود، شکلی است که معادله را در بر دارد.
+- [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) محتویات ریاضی را داخل چارچوب متن شکل ذخیره می‌کند.
+- [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) شامل یک یا چند شیء [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) است.
 
-اکثراً مثال‌های زیر از [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) و متدهای fluent در [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) برای کوتاه و خوانا نگه داشتن کد استفاده می‌کنند.
+اکثر مثال‌های زیر از [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) و متدهای زنجیره‌ای [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) برای کوتاه و خوانا نگه داشتن کد استفاده می‌کنند.
 
-برای صادرات MathML، به [Export Math Equations from Presentations in Python](/slides/fa/python-java/exporting-math-equations/) مراجعه کنید.
+برای سناریوهای استخراج MathML، ببینید [Export Math Equations from Presentations in Python](/slides/fa/python-java/exporting-math-equations/).
 
 ## **ایجاد یک معادله**
 
-این مثال از [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) برای ایجاد یک شکل ریاضی استفاده می‌کند و قضیه فیثاغورث را اضافه می‌کند:
+این مثال از [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) برای ایجاد یک شکل ریاضی استفاده می‌کند و قضیه فیثاغورس را اضافه می‌نماید:
 
-![معادله c مربع مساوی a مربع به علاوه b مربع](powerpoint-math-equations_3.png)
+![معادله c² = a² + b²](powerpoint-math-equations_3.png)
 
 ```python
 import jpype
@@ -76,14 +76,16 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) یک شکل را ایجاد می‌کند که قبلاً شامل یک پاراگراف ریاضی است. اولین [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) را دسترسی پیدا کنید، [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) را فراخوانی کنید و بلوک‌های ریاضی یا عناصر ریاضی را به آن اضافه کنید.
+
+[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) یک شکل را ایجاد می‌کند که از پیش یک پاراگراف ریاضی را شامل می‌شود. اولین [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) را دسترسی پیدا کنید، [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) را فراخوانی کنید و بلوک‌ها یا عناصر ریاضی را به آن اضافه کنید.
+
 {{% /alert %}}
 
-## **اضافه کردن کسرها**
+## **افزودن کسرها**
 
 از [divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) برای ایجاد یک کسر استفاده کنید. می‌توانید سبک کسر را با [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/) انتخاب کنید.
 
-![یک کسر کج که یک تقسیم بر x است](powerpoint-math-equations_4.png)
+![یک کسر شیب‌دار که یک تقسیم بر x را نشان می‌دهد](powerpoint-math-equations_4.png)
 
 ```python
 import jpype
@@ -111,7 +113,7 @@ finally:
     presentation.dispose()
 ```
 
-برای یک کسر عمودی، از [MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar) استفاده کنید:
+برای یک کسر پشته‌شده، از [MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar) استفاده کنید:
 
 ```python
 import jpype
@@ -125,9 +127,9 @@ from asposeslides.api import MathFractionTypes, MathematicalText
 stacked_fraction = MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar)
 ```
 
-## **اضافه کردن رادیکال‌ها**
+## **افزودن رادیکال‌ها**
 
-از [radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) برای ایجاد ریشه دوم، ریشه سوم یا سایر ریشه‌ها استفاده کنید. عنصر جاری به پایه تبدیل می‌شود و آرگومان به درجه ریشه.
+از [radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) برای ایجاد رادیکال درجه دوم، سوم یا دیگر درجات استفاده کنید. عنصر فعلی پایه می‌شود و آرگومان درجه رادیکال را تعیین می‌کند.
 
 ![یک عبارت رادیکال nام با x زیر علامت رادیکال](powerpoint-math-equations_5.png)
 
@@ -157,11 +159,11 @@ finally:
     presentation.dispose()
 ```
 
-## **اضافه کردن توابع و حدود**
+## **افزودن توابع و حدها**
 
-از [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) یا [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) برای توابعی مانند `sin(x)`، `log(x)` یا نام‌های تابع سفارشی استفاده کنید. برای حدود، `lim` را در یک [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) قرار دهید یا از [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit) استفاده کنید.
+از [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) یا [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) برای توابعی مانند `sin(x)`، `log(x)` یا نام‌های سفارشی توابع استفاده کنید. برای حدها، `lim` را داخل یک [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) قرار دهید یا از [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit) استفاده کنید.
 
-![حد x به‌هنگامیکه x به بی‌نهایت میل می‌کند](powerpoint-math-equations_8.png)
+![حد x وقتی x به بی‌نهایت نزدیک می‌شود](powerpoint-math-equations_8.png)
 
 ```python
 import jpype
@@ -189,7 +191,7 @@ finally:
     presentation.dispose()
 ```
 
-برای نام تابع سفارشی، نام تابع را به‌عنوان عنصر جاری قرار دهید و با آرگومان آن، [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) را فراخوانی کنید:
+برای یک نام تابع سفارشی، نام تابع را عنصر فعلی بنامید و [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) را با آرگومان آن فراخوانی کنید:
 
 ```python
 import jpype
@@ -203,11 +205,11 @@ from asposeslides.api import MathematicalText
 custom_function = MathematicalText("f").function("x + 1")
 ```
 
-## **اضافه کردن عملگرهای N-ary و انتگرال‌ها**
+## **افزودن عملگرهای N-ary و انتگرال‌ها**
 
-از [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) برای جمع‌ها، اجتماع‌ها، تقاطع‌ها و سایر عملگرهای بزرگ استفاده کنید. از [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) برای انتگرال‌ها استفاده کنید. هر دو متد به شما امکان تنظیم حدود پایین و بالا را می‌دهند.
+از [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) برای جمع‌ها، اتحادیه‌ها، تقاطع‌ها و سایر عملگرهای بزرگ استفاده کنید. برای انتگرال‌ها، از [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) استفاده کنید. هر دو متد اجازه تنظیم حدهای پایین و بالا را می‌دهند.
 
-![یک جمع با حدود پایین و بالا](powerpoint-math-equations_7.png)
+![یک جمع با حدهای پایین و بالا](powerpoint-math-equations_7.png)
 
 ```python
 import jpype
@@ -238,7 +240,7 @@ finally:
     presentation.dispose()
 ```
 
-عملگرهای N-ary برای عملگرهای بزرگ با حدود اختیاری هستند. عملگرهای ساده مثل `+`، `-` و `=` معمولاً به‌عنوان [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) اضافه شده و به عبارت متصل می‌شوند.
+عملگرهای N-ary برای عملگرهای بزرگ با حدهای اختیاری هستند. عملگرهای ساده مانند `+`، `-` و `=` معمولاً به‌صورت [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) اضافه شده و به عبارت متصل می‌شوند.
 
 برای یک انتگرال، از [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) استفاده کنید:
 
@@ -256,9 +258,9 @@ integral_base = MathematicalText("x").join(differential)
 integral = integral_base.integral(MathIntegralTypes.Simple, "0", "1")
 ```
 
-## **اضافه کردن ماتریس‌ها**
+## **افزودن ماتریس‌ها**
 
-از [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) برای ردیف‌ها و ستون‌ها استفاده کنید. به‌طور پیش‌فرض ماتریس‌ها پرانتز ندارند، بنابراین هنگام نیاز به پرانتز، کروشه یا آکولاد، ماتریس را محصور کنید.
+از [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) برای ردیف‌ها و ستون‌ها استفاده کنید. ماتریس‌ها به‌صورت پیش‌فرض پرانتز یا براکت ندارند، بنابراین هنگام نیاز به پرانتز، براکت یا آکولاد، ماتریس را درون این علامت‌ها بپیچید.
 
 ![یک ماتریس ریاضی دو ردیفی با یک سلول خالی](powerpoint-math-equations_10.png)
 
@@ -267,7 +269,7 @@ import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpime.startJVM()
 
 from asposeslides.api import MathBlock, MathMatrix, MathematicalText, Presentation, SaveFormat
 
@@ -298,11 +300,11 @@ finally:
     presentation.dispose()
 ```
 
-## **اضافه کردن آرایه‌های معادله**
+## **افزودن آرایه‌های معادله**
 
-از [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) وقتی به معادلات تراز شده یا یک پشته عمودی از عبارات نیاز دارید استفاده کنید.
+از [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) زمانی که به معادلات هم‌راستا یا یک پشته عمودی از عبارات نیاز دارید، استفاده کنید.
 
-![یک آرایه عمودی ریاضی با x بالای y](powerpoint-math-equations_11.png)
+![یک آرایه ریاضی عمودی با x بالای y](powerpoint-math-equations_11.png)
 
 ```python
 import jpype
@@ -330,11 +332,125 @@ finally:
     presentation.dispose()
 ```
 
-## **اضافه کردن توابع مثلثاتی**
+### **هم‌راسته‌سازی آرایه با عناصر اطراف**
 
-از [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) وقتی آرگومان عنصر جاری است و نام تابع معلوم است استفاده کنید.
+[setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) چینش عمودی آرایه را نسبت به عناصر ریاضی اطراف آن کنترل می‌کند. مثال زیر چینش را برای سطر اول، مرکز آرایه و سطر آخر مقایسه می‌کند.
 
-![تابع مثلثاتی cos اعمال‌شده بر 2x](powerpoint-math-equations_6.png)
+مثال زیر سه آرایه یکسان ایجاد می‌کند، هر کدام با سه ردیف و عناصری همسایه `A=` و `=B`. تمام متن‌های ریاضی از فونت Cambria Math با اندازه ۲۴ پوینت استفاده می‌کنند. فقط چینش آرایه تغییر می‌کند.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, MathArray, MathBlock, MathJustification, MathematicalText, MathVerticalAlignment, Presentation, SaveFormat, ShapeType, SlideSizeScaleType, TextAnchorType
+from java.awt import Color
+
+def create_text(value):
+    text = MathematicalText(value)
+    text.getFormat().setFontHeight(24)
+    text.getFormat().setLatinFont(FontData("Cambria Math"))
+    return text
+
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(780, 200, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+    
+    alignments = (("Top", MathVerticalAlignment.Top), ("Center", MathVerticalAlignment.Center), ("Bottom", MathVerticalAlignment.Bottom))
+    for index, (name, alignment) in enumerate(alignments):
+        x = 20 + index * 260
+        label = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, 10, 240, 30)
+        label.getFillFormat().setFillType(FillType.NoFill)
+        label.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        label.getTextFrame().setText(name)
+        label_format = label.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat()
+        label_format.setFontHeight(16)
+        label_format.getFillFormat().setFillType(FillType.Solid)
+        label_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+        math_shape = slide.getShapes().addMathShape(x, 60, 240, 130)
+        math_shape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Top)
+        paragraph = math_shape.getTextFrame().getParagraphs().get_Item(0)
+        math_paragraph = paragraph.getPortions().get_Item(0).getMathParagraph()
+        math_paragraph.setJustification(MathJustification.LeftJustified)
+
+        equation_array = MathArray(create_text("x+y=3"))
+        equation_array.getArguments().add(create_text("x-y=1"))
+        equation_array.getArguments().add(create_text("x=2"))
+        equation_array.setBaseJustification(alignment)
+        equation = MathBlock(create_text("A=")).join(equation_array).join(create_text("=B"))
+        math_paragraph.add(equation)
+
+    presentation.save("equation-array-alignment.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+مقایسه زیر ارائه ذخیره‌شده در PowerPoint را نشان می‌دهد. به موقعیت `A=` و `=B` در کنار هر آرایه توجه کنید.
+
+![آرایه‌های معادله در PowerPoint با چینش بالا، مرکز و پایین و عناصر همسایه یکسان](equation-array-alignment.png)
+
+### **پیکربندی فاصله ردیف‌ها**
+
+[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) قانون فاصله‌گذاری برای ردیف‌های داخل آرایه را انتخاب می‌کند. [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) مقدار عددی برای یک قانون واضح فراهم می‌کند و توسط قوانین پیش‌تنظیم نادیده گرفته می‌شود.
+
+برای فاصله دقیق، مقدار بر حسب پوینت اندازه‌گیری می‌شود. برای فاصله نسبی، بر حسب نیم‌خط محاسبه می‌شود: مقدار `3` در مثال برابر با ۱٫۵ خط است. هنگام تعیین مقدار واضح هر دو خصوصیت را تنظیم کنید؛ تغییر فقط مقدار عددی، قانون فاصله‌گذاری را انتخاب نمی‌کند.
+
+مثال زیر پنج ارائه با معادلات، چینش و تنظیمات فونت یکسان ذخیره می‌کند. سه ارائه اول از پیش‌تنظیم‌ها استفاده می‌کنند؛ دو ارائه آخر مقادیر واضح را نشان می‌دهند.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FontData, MathArray, MathBlock, MathJustification, MathematicalText, MathRowSpacingRule, MathVerticalAlignment, Presentation, SaveFormat
+
+def create_text(value):
+    text = MathematicalText(value)
+    text.getFormat().setFontHeight(24)
+    text.getFormat().setLatinFont(FontData("Cambria Math"))
+    return text
+
+
+settings = (("SingleLineGap", MathRowSpacingRule.SingleLineGap, 0), ("OneAndAHalfLineGap", MathRowSpacingRule.OneAndAHalfLineGap, 0), ("TwoLineGap", MathRowSpacingRule.TwoLineGap, 0), ("Exactly", MathRowSpacingRule.Exactly, 20), ("Multiple", MathRowSpacingRule.Multiple, 3))
+for name, rule, spacing in settings:
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
+        math_shape = slide.getShapes().addMathShape(20, 20, 600, 300)
+        paragraph = math_shape.getTextFrame().getParagraphs().get_Item(0)
+        paragraph.getParagraphFormat().setSpaceBefore(0)
+        paragraph.getParagraphFormat().setSpaceAfter(0)
+        math_paragraph = paragraph.getPortions().get_Item(0).getMathParagraph()
+        math_paragraph.setJustification(MathJustification.LeftJustified)
+
+        equation_array = MathArray(create_text("x+y=3"))
+        equation_array.getArguments().add(create_text("x-y=1"))
+        equation_array.getArguments().add(create_text("x=2"))
+        equation_array.setBaseJustification(MathVerticalAlignment.Center)
+        equation_array.setRowSpacingRule(rule)
+        equation_array.setRowSpacing(spacing)
+        equation = MathBlock(create_text("A=")).join(equation_array).join(create_text("=B"))
+        math_paragraph.add(equation)
+
+        presentation.save(f"equation-array-{name}.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+```
+
+فاصله ردیف‌های آرایه جدا از فاصله پاراگراف است. [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) و [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) فضای اطراف پاراگراف حاوی آرایه را اضافه می‌کنند، نه بین ردیف‌های آرایه. به‌ همین ترتیب، [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) پاراگراف ریاضی را به صورت افقی موقعیت می‌دهد؛ تنظیم عمودی آرایه را جایگزین نمی‌کند.
+
+## **افزودن توابع مثلثاتی**
+
+از [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) وقتی آرگومان عنصر فعلی است و نام تابع شناخته‌شده می‌باشد، استفاده کنید.
+
+![تابع مثلثاتی cos اعمال شده بر ۲x](powerpoint-math-equations_6.png)
 
 ```python
 import jpype
@@ -362,11 +478,11 @@ finally:
     presentation.dispose()
 ```
 
-## **اضافه کردن زیرنویس و بالانویس**
+## **افزودن زیرنویس‌ها و بالانویس‌ها**
 
-از ابزارهای زیرنویس و بالانویس برای شاخص‌ها و توان‌ها استفاده کنید. وقتی شاخص‌ها باید در سمت چپ پایه ظاهر شوند، از [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) استفاده کنید.
+از کمک‌کننده‌های زیرنویس و بالانویس برای اندیس‌ها و توان‌ها استفاده کنید. وقتی اندیس‌ها باید در سمت چپ پایه ظاهر شوند، از [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) استفاده کنید.
 
-![یک حرف Y بزرگ با زیرنویس 1 در سمت چپ و بالانویس n](powerpoint-math-equations_9.png)
+![حرف بزرگ Y با زیرنویس ۱ در سمت چپ و بالانویس n](powerpoint-math-equations_9.png)
 
 ```python
 import jpype
@@ -394,11 +510,11 @@ finally:
     presentation.dispose()
 ```
 
-## **اضافه کردن جداکننده‌ها**
+## **افزودن جداسازها**
 
-از [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) برای قرار دادن یک عبارت داخل جداکننده‌ها استفاده کنید. همچنین می‌توانید یک کاراکتر جداکننده برای عبارات جداکننده که شامل چند عنصر هستند تنظیم کنید.
+از [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) برای قرار دادن یک عبارت داخل جداسازها استفاده کنید. می‌توانید برای عبارات جداساز حاوی چند عنصر، کاراکتر جداکننده تنظیم کنید.
 
-![عبارت جداکننده شامل x، y و z جدا شده با خطوط عمودی](powerpoint-math-equations_13.png)
+![عبارت جداساز شامل x، y و z که با خطوط عمودی جدا شده‌اند](powerpoint-math-equations_13.png)
 
 ```python
 import jpype
@@ -427,11 +543,11 @@ finally:
     presentation.dispose()
 ```
 
-### **اندازه و ترازبندی جداکننده‌ها**
+### **اندازه و چینش جداسازها**
 
-با ارسال `True` به [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) اجازه دهید پرانتزها حول یک عملوند بلند بزرگ شوند، یا با ارسال `False` آن‌ها را به اندازه عادی نگه دارید. از [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) همراه با یکی از دو مقدار [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/) استفاده کنید. `Centered` پرانتزها را در محور ریاضی (که از وسط علامت مساوی می‌گذرد) مرکزی می‌کند. `Match` آن‌ها را با محتوای داخل هم‌ترازبندی می‌کند. هر دو تنظیم فقط بر روی جداکننده‌ها اثر می‌گذارند. عبارت داخل همان‌طور باقی می‌ماند.
+به [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) مقدار `True` بدهید تا پرانتزها برای عملوند بلند بزرگ شوند، یا مقدار `False` بدهید تا اندازه عادی باقی بمانند. از [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) همراه یکی از دو مقدار [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/) استفاده کنید. `Centered` پرانتزها را روی محور ریاضی که از وسط علامت مساوی عبور می‌کند، مرکز می‌کند. `Match` آنها را با محتوای داخل هم‌تراز می‌کند. هر دو تنظیم فقط بر جداسازها اثر می‌گذارند؛ عبارت داخل دست‌نخورده می‌ماند.
 
-در این مثال یک کسر در توان `x` قرار داده می‌شود به‌طوری که عبارت بالاتر از خط پایه بیشتر از زیر آن گسترش یابد. تمام چهار معادله از یک نوع پرانتز و تنظیمات قلم استفاده می‌کنند.
+مثال یک کسر را در توان `x` قرار می‌دهد تا عبارت بالاتر از خط پایه بیشتر از زیرین آن باشد. چهار معادله از یک نوع پرانتز و تنظیمات فونت استفاده می‌کنند.
 
 ```python
 import jpype
@@ -464,15 +580,15 @@ finally:
     presentation.dispose()
 ```
 
-در PowerPoint، سطرها را مقایسه کنید تا اثر رشد را ببینید. در سطر بالا، پرانتزها برای محصور کردن توان رشد می‌کنند و برای هر دو شکل یکسان به‌نظر می‌رسند. در سطر پایین، رشد خاموش است. پرانتزهای کوچکتر در سمت چپ (`Centered`) با علامت مساوی ترازبندی می‌شوند، در حالی که آن‌های سمت راست (`Match`) بالاتر از عبارت قرار می‌گیرند.
+در PowerPoint، ردیف‌ها را مقایسه کنید تا اثر رشد را ببینید. در ردیف بالا، پرانتزها برای محصور کردن توان بزرگ می‌شوند و برای هر دو شکل یکسان به نظر می‌آیند. در ردیف پایین، رشد غیرفعال است. پرانتزهای کوچک‌تر در سمت چپ (`Centered`) با علامت مساوی هم‌سطح هستند، در حالی که آنهای سمت راست (`Match`) بالاتر نسبت به عبارت قرار گرفته‌اند.
 
-![چهار معادله در PowerPoint با رشد جداکننده فعال در بالا و غیرفعال در پایین، و Centered در چپ و Match در راست](delimiter-sizing.png)
+![چهار معادله در PowerPoint با رشد جداسازهای فعال در بالا و غیرفعال در پایین، و `Centered` در چپ و `Match` در راست](delimiter-sizing.png)
 
-## **اضافه کردن جعبه حاشیه‌دار**
+## **افزودن جعبه حاشیه‌ای**
 
-روی یک کسر [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) را صدا بزنید تا کل عبارت را در یک قاب بپیچید. [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) برگردانده شده به‌طور پیش‌فرض چهار طرف را نشان می‌دهد. از [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop)، [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom)، [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft) و [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) برای حذف طرف‌های جداگانه استفاده کنید.
+روی یک کسر، [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) را فراخوانی کنید تا کل عبارت در یک جعبه حاشیه‌ای قاب‌بندی شود. [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) بازگشتی به‌صورت پیش‌فرض چهار طرف را نشان می‌دهد. از [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop)، [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom)، [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft) و [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) برای حذف طرف‌های جداگانه استفاده کنید.
 
-در این مثال شش کپی از همان کسر بر روی یک اسلاید قرار داده می‌شود. برای نشان دادن حذف، تمام چهار طرف را مخفی کنید و `True` را به [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) برای قطر صعودی (↗) یا به [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) برای قطر نزولی (↘) پاس بدهید. همچنین می‌توانید از [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) یا [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) با ترکیب دلخواهی از طرف‌های قابل مشاهده استفاده کنید.
+مثال شش نسخه از همان کسر را روی یک اسلاید قرار می‌دهد. برای نشان دادن حذف، چهار طرف را مخفی کنید و به [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) مقدار `True` بدهید تا خط قطری صعودی (↗) یا به [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) برای خط قطری نزولی (↘) بدهید. همچنین می‌توانید از [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) یا [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) به همراه ترکیبی از طرف‌های قابل مشاهده استفاده کنید.
 
 ```python
 import jpype
@@ -519,15 +635,15 @@ finally:
     presentation.dispose()
 ```
 
-![شش کسر قابل ویرایش در PowerPoint. سطر بالا: حاشیه کامل، طرف‌های پایین و چپ، قطر صعودی. سطر پایین: قطر نزولی، خط افقی، خط عمودی با حاشیه کامل](border-box-fractions.png)
+![شش کسر ویرایش‌پذیر در PowerPoint. ردیف بالا: حاشیه کامل، طرف‌های پایین و چپ، خط قطری صعودی. ردیف پایین: خط قطری نزولی، خط افقی، خط عمودی با حاشیه کامل.](border-box-fractions.png)
 
-در این کسر، خط افقی بر روی خط کسر می‌پوشد. خط عمودی هر دو صورت و مخرج را عبور می‌دهد در حالی که حاشیه اطراف قابل مشاهده باقی می‌ماند. این خطوط کل عبارت را تزئین می‌کنند. خط‌خوردهٔ متن عادی تنها برای کاراکترهای یک اجرای متنی اعمال می‌شود. پس از باز شدن دوباره ارائه در PowerPoint، همچنان می‌توانید صورت و مخرج را به‌صورت جداگانه ویرایش کنید.
+در این کسر، خط افقی بر روی خط کسر قرار می‌گیرد. خط عمودی هر دو صورت و مخرج را می‌قطع کند در حالی که حاشیه اطراف قابل مشاهده باقی می‌ماند. این خطوط کل عبارت را تزئین می‌کنند. خط میانه‌ی معمولی فقط بر روی کاراکترهای متن اعمال می‌شود. پس از باز کردن مجدد ارائه در PowerPoint، همچنان می‌توانید صورت و مخرج را به‌صورت مستقل ویرایش کنید.
 
 ## **گروه‌بندی عبارات**
 
-از [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) برای قرار دادن یک کاراکتر گروه‌بندی بالا یا پایین یک عبارت استفاده کنید. برای برچسب‌گذاری عبارات گروه‌بندی شده یک حد اضافه کنید.
+از [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) برای قرار دادن یک نویسه گروه‌بندی بالا یا پایین یک عبارت استفاده کنید. برای برچسب‌گذاری عبارات گروه‌بندی‌شده یک حد اضافه کنید.
 
-![عبارت x به‌علاوه y گروه‌بندی‌شده با برچسب متن دلخواه زیر آن](powerpoint-math-equations_15.png)
+![عبارت x + y که با برچسب متنی زیر آن گروه‌بندی شده است](powerpoint-math-equations_15.png)
 
 ```python
 import jpype
@@ -557,9 +673,9 @@ finally:
 
 ## **قالب‌بندی عناصر ریاضی**
 
-از ابزارهای قالب‌بندی تنها در جایی که فرمول را واضح می‌کنند استفاده کنید. برای مثال، [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) یک خط بالای عنصر ریاضی قرار می‌دهد.
+از کمک‌کننده‌های قالب‌بندی فقط در مواقعی که فرمول را واضح می‌کنند، استفاده کنید. برای مثال، [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) نوار بالای یک عنصر ریاضی می‌گذارد.
 
-![یک عبارت ریاضی ABC با خط بالای آن](powerpoint-math-equations_14.png)
+![عبارت ریاضی ABC با یک نوار بالای آن](powerpoint-math-equations_14.png)
 
 ```python
 import jpype
@@ -589,9 +705,9 @@ finally:
 
 ### **قالب‌بندی متن در یک معادله موجود**
 
-برای قالب‌بندی متن در تمام یک معادله موجود، درخت عنصر هر بلوک ریاضی را پیمایش کنید. [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) فقط فرزندان مستقیم را برمی‌گرداند، بنابراین برای دسترسی به متن داخل کسرها، اسکریپت‌ها، رادیکال‌ها و سایر ساختارهای تو در تو، به‌صورت بازگشتی فراخوانی کنید. عنصر جاری و فرزندان آن را بررسی کنید تا عنصر شروع شامل شود وقتی که [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) است.
+برای قالب‌بندی متن در سراسر یک معادله موجود، درخت عنصر هر بلوک ریاضی را پیمایش کنید. [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) تنها فرزندهای مستقیم را برمی‌گرداند، بنابراین برای دسترسی به متن داخل کسرها، اسکریپت‌ها، رادیکال‌ها و ساختارهای تو در تو دیگر، باید به‌صورت بازگشتی فراخوانی شود. عنصر فعلی و فرزندان آن را بررسی کنید تا زمانی که عنصر [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) باشد، شامل شود.
 
-این مثال فرض می‌کند که `input.pptx` شامل معادله‌ای مانند `z = xᵢ / ∛y` است، که شامل کسر با زیرنویس در صورت و رادیکال در مخرج می‌باشد. پردازش تنها عناصر سطح‌بالای بلوک متن داخل کسر را از دست می‌دهد. این مثال بخش‌های ریاضی را در چهارچوب‌های متن اسلاید پیدا می‌کند، بلوک‌هایشان را از طریق [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) دسترسی می‌دهد و با استفاده از [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) اندازه قلم را به ۲۸ پوینت برای هر عنصر متنی از طریق متد [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) تنظیم می‌کند.
+این مثال فرض می‌کند `input.pptx` شامل معادله‌ای مانند `z = xᵢ / ∛y` باشد که یک کسر با زیرنویس در صورت و رادیکال در مخرج دارد. پردازش تنها عناصر سطح بالای بلوک، متن داخل کسر را از دست می‌دهد. مثال قسمت‌های ریاضی موجود در چارچوب‌های متن اسلاید را پیدا می‌کند، بلوک‌ها را از طریق [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) دسترسی می‌گیرد و از [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) برای تنظیم اندازه قلم به ۲۸ پوینت در هر عنصر متنی با استفاده از متد [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) استفاده می‌کند.
 
 ```python
 import jpype
@@ -632,7 +748,7 @@ finally:
     presentation.dispose()
 ```
 
-ارائهٔ ذخیره‌شده شامل قالب‌بندی متنی به‌روز شده در هر سطح از هر معادلهٔ پردازش‌شده است، در حالی که محتویات متن و ساختار ریاضی آن حفظ می‌شود.
+ارائه ذخیره‌شده متن قالب‌بندی‌شده به‌روز شده را در هر سطح از هر معادله پردازش‌شده شامل می‌شود، در حالی که محتوا و ساختار ریاضی آن حفظ می‌شود.
 
 ## **مرجع سریع**
 
@@ -641,28 +757,28 @@ finally:
 | ایجاد متن ریاضی | [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) |
 | ترکیب عناصر | [MathElementBase.join](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#join) |
 | ایجاد کسرها | [MathElementBase.divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) |
-| اضافه کردن بالانویس یا زیرنویس | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
-| اضافه کردن توابع | [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function), [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) |
-| اضافه کردن رادیکال‌ها | [MathElementBase.radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) |
-| اضافه کردن حدود | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
-| اضافه کردن اسکریپت‌های سمت چپ | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
-| اضافه کردن جمع‌ها و انتگرال‌ها | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
-| اضافه کردن ماتریس‌ها | [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) |
-| اضافه کردن آرایه‌های معادله | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
-| اضافه کردن جداکننده‌ها | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
-| اضافه کردن خط‌افقی و حاشیه‌ها | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
+| افزودن بالانویس یا زیرنویس | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
+| افزودن توابع | [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function), [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) |
+| افزودن رادیکال‌ها | [MathElementBase.radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) |
+| افزودن حدها | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
+| افزودن اسکریپت‌های سمت‌چپ | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
+| افزودن جمع‌ها و انتگرال‌ها | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
+| افزودن ماتریس‌ها | [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) |
+| افزودن آرایه‌های معادله | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
+| افزودن جداسازها | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
+| افزودن نوارها و حاشیه‌ها | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
 | گروه‌بندی عبارات | [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) |
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**آیا می‌توانم یک معادله PowerPoint موجود را ویرایش کنم؟**
+**آیا می‌توانم معادلهٔ موجود در PowerPoint را ویرایش کنم؟**
 
-بله. ارائه را باز کنید، شکلی که شامل یک [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) است پیدا کنید، [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) را فراخوانی کنید و بلوک‌های ریاضی آن پاراگراف را به‌روزرسانی کنید.
+بله. ارائه را باز کنید، شکلی که شامل یک [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) است را پیدا کنید، [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) را فراخوانی کنید و بلوک‌های ریاضی آن پاراگراف را به‌روزرسانی کنید.
 
-**آیا معادلات به‌عنوان ریاضیات قابل ویرایش PowerPoint ذخیره می‌شوند؟**
+**آیا معادلات به‌صورت ریاضی قابل ویرایش PowerPoint ذخیره می‌شوند؟**
 
-بله. هنگام ذخیره به PPTX، Aspose.Slides معادله را به‌عنوان محتوای ریاضی قابل ویرایش Office می‌نویسد.
+بله. هنگام ذخیره به قالب PPTX، Aspose.Slides معادله را به‌عنوان محتوای Office Math قابل ویرایش می‌نویسد.
 
 **آیا می‌توانم معادلات را به LaTeX صادر کنم؟**
 
-بله. [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) معادله را از [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) دریافت کنید و با فراخوانی [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) آن را مستقیماً صادر کنید. برای یک مثال کامل، به [Export Math Equations from Presentations in Python](/slides/fa/python-java/exporting-math-equations/#export-math-equations-to-latex) مراجعه کنید.
+بله. [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) معادله را از [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) به‌دست آورید و [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) را برای استخراج مستقیم فراخوانی کنید. برای یک مثال کامل، ببینید [Export Math Equations from Presentations in Python](/slides/fa/python-java/exporting-math-equations/#export-math-equations-to-latex).
