@@ -1,5 +1,5 @@
 ---
-title: Tambahkan Persamaan Matematika ke Presentasi PowerPoint dalam Python
+title: Menambahkan Persamaan Matematika ke Presentasi PowerPoint dalam Python
 linktitle: Persamaan Matematika PowerPoint
 type: docs
 weight: 80
@@ -9,42 +9,42 @@ keywords:
 - simbol matematika
 - rumus matematika
 - teks matematika
-- menambahkan persamaan matematika
-- menambahkan simbol matematika
-- menambahkan rumus matematika
-- menambahkan teks matematika
+- menambah persamaan matematika
+- menambah simbol matematika
+- menambah rumus matematika
+- menambah teks matematika
 - PowerPoint
 - presentasi
 - Python
 - Java
 - Aspose.Slides
-description: "Menyisipkan dan mengedit persamaan matematika di PowerPoint PPT dan PPTX dengan Aspose.Slides untuk Python via Java, mendukung OMML, kontrol pemformatan, dan contoh kode Python yang jelas."
+description: "Menyisipkan dan mengedit persamaan matematika dalam PowerPoint PPT dan PPTX dengan Aspose.Slides untuk Python via Java, mendukung OMML, kontrol pemformatan, dan contoh kode Python yang jelas."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides untuk Python melalui Java, Anda dapat membuat konten matematika yang sama secara terprogram: pecahan, akar, fungsi, limit, operator N-ary, matriks, array, dan blok matematika yang diformat.
+PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides untuk Python via Java, Anda dapat membuat konten matematika yang sama secara programatis: pecahan, radikal, fungsi, limit, operator N-ary, matriks, array, dan blok matematika berformat.
 
-Di PowerPoint, pengguna biasanya menambahkan persamaan melalui **Insert > Equation**:
+Di PowerPoint, pengguna biasanya menambahkan persamaan dari **Sisipkan > Persamaan**:
 
-![Tab Insert PowerPoint dengan perintah Equation dipilih](powerpoint-math-equations_1.png)
+![Tab Sisipkan PowerPoint dengan perintah Persamaan dipilih](powerpoint-math-equations_1.png)
 
-Hasilnya adalah teks matematika yang dapat diedit di slide:
+Hasilnya adalah teks matematika yang dapat diedit pada slide:
 
 ![Slide PowerPoint yang berisi persamaan matematika yang dapat diedit](powerpoint-math-equations_2.png)
 
-Aspose.Slides membangun teks matematika itu melalui tiga objek utama:
+Aspose.Slides membangun teks matematika tersebut melalui tiga objek utama:
 
-- Sebuah bentuk matematika, dibuat dengan [addMathShape](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/#addMathShape), adalah bentuk yang berisi persamaan.
-- [MathPortion](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathportion/) menyimpan konten matematika di dalam frame teks bentuk.
-- [MathParagraph](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathparagraph/) berisi satu atau lebih objek [MathBlock](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathblock/).
+- Sebuah shape matematika, dibuat dengan [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape), adalah shape yang berisi persamaan.
+- [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) menyimpan konten matematika di dalam bingkai teks shape.
+- [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) berisi satu atau lebih objek [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/).
 
-Sebagian besar contoh di bawah ini menggunakan [MathematicalText](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathematicaltext/) dan metode fluens dari [MathElementBase](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/) untuk menjaga kode tetap singkat dan mudah dibaca.
+Sebagian besar contoh di bawah menggunakan [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) dan metode fluent dari [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) untuk menjaga kode tetap singkat dan mudah dibaca.
 
-Untuk skenario ekspor MathML, lihat [Export Math Equations from Presentations in Python](/slides/id/python-java/exporting-math-equations/).
+Untuk skenario ekspor MathML, lihat [Ekspor Persamaan Matematika dari Presentasi dalam Python](/slides/id/python-java/exporting-math-equations/).
 
 ## **Buat Persamaan**
 
-Contoh ini membuat bentuk matematika dan menambahkan teorema Pythagoras:
+Contoh ini menggunakan [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) untuk membuat shape matematika dan menambahkan teorema Pythagoras:
 
 ![Persamaan c kuadrat sama dengan a kuadrat ditambah b kuadrat](powerpoint-math-equations_3.png)
 
@@ -76,12 +76,12 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/#addMathShape) membuat sebuah bentuk yang sudah berisi paragraf matematika. Akses [MathPortion](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathportion/) pertama, dapatkan [MathParagraph](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathparagraph/)‑nya, dan tambahkan blok matematika atau elemen matematika ke dalamnya.
+[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) membuat shape yang sudah berisi paragraf matematika. Akses [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) pertama, panggil [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), dan tambahkan blok matematika atau elemen matematika ke dalamnya.
 {{% /alert %}}
 
-## **Tambahkan Pecahan**
+## **Tambah Pecahan**
 
-Gunakan [divide](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#divide) untuk membuat sebuah pecahan. Anda dapat memilih gaya pecahan dengan [MathFractionTypes](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathfractiontypes/).
+Gunakan [divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) untuk membuat pecahan. Anda dapat memilih gaya pecahan dengan [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/).
 
 ![Pecahan matematika miring yang menunjukkan satu dibagi x](powerpoint-math-equations_4.png)
 
@@ -111,7 +111,7 @@ finally:
     presentation.dispose()
 ```
 
-Untuk pecahan bertumpuk, gunakan [MathFractionTypes.Bar](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathfractiontypes/#Bar):
+Untuk pecahan bertumpuk, gunakan [MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar):
 
 ```python
 import jpype
@@ -125,11 +125,11 @@ from asposeslides.api import MathFractionTypes, MathematicalText
 stacked_fraction = MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar)
 ```
 
-## **Tambahkan Akar**
+## **Tambah Radikal**
 
-Gunakan [radical](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#radical) untuk membuat akar kuadrat, akar kubik, atau akar lainnya. Elemen saat ini menjadi basis, dan argumen menjadi derajatnya.
+Gunakan [radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) untuk membuat akar kuadrat, akar kubik, atau akar lainnya. Elemen saat ini menjadi basis, dan argumen menjadi derajat.
 
-![Ekspresi akar n dengan x di bawah simbol akar](powerpoint-math-equations_5.png)
+![Ekspresi radikal akar ke-n dengan x di bawah tanda radikal](powerpoint-math-equations_5.png)
 
 ```python
 import jpype
@@ -157,11 +157,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Tambahkan Fungsi dan Batas**
+## **Tambah Fungsi dan Limit**
 
-Gunakan [asArgumentOfFunction](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) atau [function](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#function) untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi khusus. Untuk batas, letakkan `lim` dalam sebuah [MathLimit](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathlimit/) atau gunakan [setLowerLimit](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#setLowerLimit).
+Gunakan [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) atau [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi khusus. Untuk limit, letakkan `lim` dalam [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) atau gunakan [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit).
 
-![Batas x ketika x mendekati tak hingga](powerpoint-math-equations_8.png)
+![Limit x saat x mendekati tak terhingga](powerpoint-math-equations_8.png)
 
 ```python
 import jpype
@@ -189,7 +189,7 @@ finally:
     presentation.dispose()
 ```
 
-Untuk nama fungsi khusus, jadikan nama fungsi sebagai elemen saat ini:
+Untuk nama fungsi khusus, jadikan nama fungsi sebagai elemen saat ini dan panggil [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) dengan argumennya:
 
 ```python
 import jpype
@@ -203,9 +203,9 @@ from asposeslides.api import MathematicalText
 custom_function = MathematicalText("f").function("x + 1")
 ```
 
-## **Tambahkan Operator N-ary dan Integral**
+## **Tambah Operator N-ary dan Integral**
 
-Gunakan [nary](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#nary) untuk penjumlahan, union, interseksi, dan operator besar lainnya. Gunakan [integral](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#integral) untuk integral. Kedua metode memungkinkan Anda mengatur batas bawah dan atas.
+Gunakan [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) untuk penjumlahan, union, irisan, dan operator besar lainnya. Gunakan [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) untuk integral. Kedua metode memungkinkan Anda mengatur batas bawah dan atas.
 
 ![Penjumlahan dengan batas bawah dan atas](powerpoint-math-equations_7.png)
 
@@ -238,9 +238,9 @@ finally:
     presentation.dispose()
 ```
 
-Operator N-ary digunakan untuk operator besar dengan batas opsional. Operator sederhana seperti `+`, `-`, dan `=` biasanya ditambahkan sebagai [MathematicalText](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathematicaltext/) dan digabungkan ke dalam ekspresi.
+Operator N-ary untuk operator besar dengan batas opsional. Operator sederhana seperti `+`, `-`, dan `=` biasanya ditambahkan sebagai [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) dan digabungkan ke dalam ekspresi.
 
-Untuk sebuah integral, gunakan [integral](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#integral):
+Untuk integral, gunakan [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral):
 
 ```python
 import jpype
@@ -256,9 +256,9 @@ integral_base = MathematicalText("x").join(differential)
 integral = integral_base.integral(MathIntegralTypes.Simple, "0", "1")
 ```
 
-## **Tambahkan Matriks**
+## **Tambah Matriks**
 
-Gunakan [MathMatrix](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathmatrix/) untuk baris dan kolom. Matriks tidak menyertakan kurung secara default, jadi beri kurung, siku, atau kurawal di sekitar matriks bila diperlukan.
+Gunakan [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) untuk baris dan kolom. Matriks tidak menyertakan kurung secara default, jadi balut matriks ketika Anda membutuhkan tanda kurung, siku, atau kurawal.
 
 ![Matriks matematika dua baris dengan satu sel kosong](powerpoint-math-equations_10.png)
 
@@ -298,9 +298,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Tambahkan Array Persamaan**
+## **Tambah Array Persamaan**
 
-Gunakan [toMathArray](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#toMathArray) ketika Anda memerlukan persamaan yang disejajarkan atau tumpukan vertikal ekspresi.
+Gunakan [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) ketika Anda membutuhkan persamaan ter-align atau tumpukan vertikal ekspresi.
 
 ![Array matematika vertikal dengan x di atas y](powerpoint-math-equations_11.png)
 
@@ -330,11 +330,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Tambahkan Fungsi Trigonometri**
+## **Tambah Fungsi Trigonometri**
 
-Gunakan [asArgumentOfFunction](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) ketika argumen adalah elemen saat ini dan nama fungsi sudah diketahui.
+Gunakan [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) ketika argumen adalah elemen saat ini dan nama fungsi sudah diketahui.
 
-![Fungsi trigonometri cos diterapkan pada 2x](powerpoint-math-equations_6.png)
+![Fungsi trigonometri cos yang diterapkan pada 2x](powerpoint-math-equations_6.png)
 
 ```python
 import jpype
@@ -362,9 +362,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Tambahkan Subskrip dan Superskrip**
+## **Tambah Subskrip dan Superskrip**
 
-Gunakan pembantu subskrip dan superskrip untuk indeks dan pangkat. Ketika indeks harus muncul di sisi kiri basis, gunakan [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
+Gunakan pembantu subskrip dan superskrip untuk indeks dan pangkat. Ketika indeks harus muncul di sisi kiri basis, gunakan [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
 ![Huruf Y kapital dengan subskrip sisi kiri 1 dan superskrip n](powerpoint-math-equations_9.png)
 
@@ -394,11 +394,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Tambahkan Pembatas**
+## **Tambah Pembatas**
 
-Gunakan [enclose](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#enclose) untuk menempatkan sebuah ekspresi di dalam pembatas. Anda juga dapat mengatur karakter pemisah untuk ekspresi pembatas yang berisi beberapa elemen.
+Gunakan [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) untuk menempatkan ekspresi di dalam pembatas. Anda juga dapat mengatur karakter pemisah untuk ekspresi pembatas yang berisi beberapa elemen.
 
-![Ekspresi pembatas yang berisi x, y, dan z dipisahkan oleh garis vertikal](powerpoint-math-equations_13.png)
+![Ekspresi pembatas yang berisi x, y, dan z dipisahkan oleh batang vertikal](powerpoint-math-equations_13.png)
 
 ```python
 import jpype
@@ -427,9 +427,50 @@ finally:
     presentation.dispose()
 ```
 
-## **Tambahkan Kotak Batas**
+### **Ukuran dan Penyelarasan Pembatas**
 
-Gunakan [toBorderBox](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#toBorderBox) ketika persamaan itu sendiri harus dibingkai.
+Berikan `True` ke [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) untuk membiarkan tanda kurung tumbuh mengelilingi operand tinggi, atau berikan `False` untuk mempertahankannya pada ukuran normal. Gunakan [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) dengan salah satu dari dua nilai [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/). `Centered` menengahkan tanda kurung pada sumbu matematika, yang melintasi tengah tanda sama dengan. `Match` menyelaraskannya dengan konten yang dibungkus. Kedua pengaturan hanya memengaruhi pembatas. Ekspresi di dalamnya tetap sama.
+
+Contoh menempatkan pecahan di eksponen `x` sehingga ekspresi memanjang lebih tinggi di atas garis dasar dibandingkan di bawahnya. Semua empat persamaan menggunakan tanda kurung dan pengaturan font yang sama.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import MathDelimiterShape, MathematicalText, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    for row, grow in enumerate((True, False)):
+        for column, shape in enumerate((MathDelimiterShape.Centered, MathDelimiterShape.Match)):
+            fraction = MathematicalText("a + b").divide("c + d")
+            power = MathematicalText("x").setSuperscript(fraction)
+            delimiter = power.enclose("(", ")")
+            delimiter.setGrowToMatchOperandHeight(grow)
+            delimiter.setDelimiterShape(shape)
+
+            math_shape = slide.getShapes().addMathShape(20 + 330 * column, 20 + 120 * row, 300, 100)
+            portion = math_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+            portion.getPortionFormat().setFontHeight(32)
+            equation = MathematicalText("y = ").join(delimiter)
+            portion.getMathParagraph().add(equation)
+
+    presentation.save("delimiter-sizing.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Di PowerPoint, bandingkan baris untuk melihat efek pertumbuhan. Pada baris atas, tanda kurung tumbuh untuk membungkus eksponen dan terlihat sama untuk kedua shape. Pada baris bawah, pertumbuhan dimatikan. Tanda kurung yang lebih kecil di kiri (`Centered`) sejajar dengan tanda sama dengan, sementara yang di kanan (`Match`) berada lebih tinggi di sekitar ekspresi.
+
+![Empat persamaan di PowerPoint dengan pertumbuhan pembatas diaktifkan di atas dan dinonaktifkan di bawah, serta Centered di kiri dan Match di kanan](delimiter-sizing.png)
+
+## **Tambah Kotak Bingkai**
+
+Gunakan [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) ketika persamaan itu sendiri harus dibingkai.
 
 ![Persamaan dalam kotak yang menunjukkan a kuadrat sama dengan b kuadrat ditambah c kuadrat](powerpoint-math-equations_12.png)
 
@@ -463,9 +504,9 @@ finally:
 
 ## **Kelompokkan Istilah**
 
-Gunakan [group](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#group) untuk menempatkan karakter pengelompokan di atas atau di bawah sebuah ekspresi. Tambahkan batas untuk memberi label pada istilah yang dikelompokkan.
+Gunakan [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) untuk menempatkan karakter pengelompokan di atas atau di bawah sebuah ekspresi. Tambahkan batas untuk memberi label pada istilah yang dikelompokkan.
 
-![Ekspresi x plus y dikelompokkan dengan label teks apa saja di bawahnya](powerpoint-math-equations_15.png)
+![Ekspresi x ditambah y dikelompokkan dengan label teks apa saja di bawahnya](powerpoint-math-equations_15.png)
 
 ```python
 import jpype
@@ -495,7 +536,7 @@ finally:
 
 ## **Format Elemen Matematika**
 
-Gunakan pembantu pemformatan hanya ketika mereka memperjelas formula. Misalnya, [overbar](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#overbar) menempatkan sebuah bar di atas elemen matematika.
+Gunakan pembantu pemformatan hanya saat mereka memperjelas rumus. Misalnya, [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) menempatkan bar di atas elemen matematika.
 
 ![Ekspresi matematika ABC dengan overbar](powerpoint-math-equations_14.png)
 
@@ -525,35 +566,82 @@ finally:
     presentation.dispose()
 ```
 
+### **Format Teks dalam Persamaan yang Ada**
+
+Untuk memformat teks di seluruh persamaan yang ada, telusuri setiap pohon elemen blok matematika. [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) mengembalikan hanya anak langsung, sehingga panggil secara rekursif untuk mencapai teks di dalam pecahan, skrip, radikal, dan struktur bersarang lainnya. Periksa elemen saat ini serta anak‑anaknya untuk menyertakan elemen awal ketika itu adalah [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/).
+
+Contoh ini mengasumsikan bahwa `input.pptx` berisi persamaan seperti `z = xᵢ / ∛y`, dengan pecahan yang berisi subskrip di pembilangnya dan radikal di penyebutnya. Memproses hanya elemen tingkat atas blok akan melewatkan teks di dalam pecahan. Contoh menemukan bagian matematika dalam bingkai teks slide, mengakses bloknya melalui [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), dan menggunakan [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) untuk mengatur ukuran font menjadi 28 poin melalui metode [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) tiap elemen teks.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AutoShape, MathematicalText, MathPortion, Presentation, SaveFormat
+
+
+def format_math_text(element):
+    if isinstance(element, MathematicalText):
+        element.getFormat().setFontHeight(28)
+
+    for child in element.getChildren():
+        format_math_text(child)
+
+
+presentation = Presentation("input.pptx")
+try:
+    for slide in presentation.getSlides():
+        for shape in slide.getShapes():
+            if not isinstance(shape, AutoShape):
+                continue
+
+            if shape.getTextFrame() is None:
+                continue
+
+            for paragraph in shape.getTextFrame().getParagraphs():
+                for portion in paragraph.getPortions():
+                    if isinstance(portion, MathPortion):
+                        for block in portion.getMathParagraph():
+                            format_math_text(block)
+
+    presentation.save("formatted-equations.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Presentasi yang disimpan berisi pemformatan teks yang diperbarui di setiap level masing‑masing persamaan yang diproses, sambil mempertahankan konten teks dan struktur matematika.
+
 ## **Referensi Cepat**
 
 | Tugas | API Utama |
 | --- | --- |
-| Buat teks matematika | [MathematicalText](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathematicaltext/) |
-| Gabungkan elemen | [MathElementBase.join](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#join) |
-| Buat pecahan | [MathElementBase.divide](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#divide) |
-| Tambahkan superskrip atau subskrip | [setSuperscript](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#setSubscript) |
-| Tambahkan fungsi | [function](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#function), [asArgumentOfFunction](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) |
-| Tambahkan akar | [MathElementBase.radical](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#radical) |
-| Tambahkan batas | [setLowerLimit](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
-| Tambahkan skrip sisi kiri | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
-| Tambahkan penjumlahan dan integral | [nary](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#integral) |
-| Tambahkan matriks | [MathMatrix](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathmatrix/) |
-| Tambahkan array persamaan | [toMathArray](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#toMathArray) |
-| Tambahkan pembatas | [enclose](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#enclose) |
-| Tambahkan bar dan border | [overbar](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#toBorderBox) |
-| Kelompokkan istilah | [group](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathelementbase/#group) |
+| Create math text | [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) |
+| Combine elements | [MathElementBase.join](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#join) |
+| Create fractions | [MathElementBase.divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) |
+| Add superscript or subscript | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
+| Add functions | [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function), [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) |
+| Add radicals | [MathElementBase.radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) |
+| Add limits | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
+| Add left-side scripts | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
+| Add summations and integrals | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
+| Add matrices | [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) |
+| Add equation arrays | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
+| Add delimiters | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
+| Add bars and borders | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
+| Group terms | [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) |
 
 ## **FAQ**
 
-**Apakah saya dapat menyunting persamaan PowerPoint yang sudah ada?**
+**Bisakah saya mengedit persamaan PowerPoint yang ada?**
 
-Ya. Buka presentasi, temukan bentuk yang berisi [MathPortion](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathportion/), dapatkan [MathParagraph](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathparagraph/)-nya, dan perbarui blok matematika dalam paragraf tersebut.
+Ya. Buka presentasi, temukan shape yang berisi [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), panggil [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), dan perbarui blok matematika dalam paragraf tersebut.
 
-**Apakah persamaan disimpan sebagai matematika PowerPoint yang dapat disunting?**
+**Apakah persamaan disimpan sebagai matematika PowerPoint yang dapat diedit?**
 
-Ya. Saat Anda menyimpan ke PPTX, Aspose.Slides menulis persamaan sebagai konten Office Math yang dapat disunting.
+Ya. Ketika Anda menyimpan ke PPTX, Aspose.Slides menulis persamaan sebagai konten Office Math yang dapat diedit.
 
-**Apakah saya dapat mengekspor persamaan ke LaTeX?**
+**Bisakah saya mengekspor persamaan ke LaTeX?**
 
-Ya. Dapatkan [MathParagraph](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathparagraph/) persamaan dari [MathPortion](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathportion/)-nya, lalu panggil [MathParagraph.toLatex](https://reference.aspose.com/slides/id/python-java/aspose.slides/mathparagraph/#toLatex) untuk mengekspornya langsung. Untuk contoh lengkap, lihat [Export Math Equations from Presentations in Python](/slides/id/python-java/exporting-math-equations/#export-math-equations-to-latex).
+Ya. Dapatkan [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) persamaan dari [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/)nya, lalu panggil [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) untuk mengekspornya secara langsung. Untuk contoh lengkap, lihat [Ekspor Persamaan Matematika dari Presentasi dalam Python](/slides/id/python-java/exporting-math-equations/#export-math-equations-to-latex).

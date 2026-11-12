@@ -6,11 +6,11 @@ weight: 80
 url: /hi/nodejs-java/powerpoint-math-equations/
 keywords:
 - गणितीय समीकरण
-- गणितीय चिन्ह
+- गणितीय चिह्न
 - गणितीय सूत्र
 - गणितीय पाठ
 - गणितीय समीकरण जोड़ें
-- गणितीय चिन्ह जोड़ें
+- गणितीय चिह्न जोड़ें
 - गणितीय सूत्र जोड़ें
 - गणितीय पाठ जोड़ें
 - PowerPoint
@@ -18,37 +18,40 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java के साथ PowerPoint PPT और PPTX में गणितीय समीकरण डालें और संपादित करें, OMML का समर्थन, स्वरूपण नियंत्रण, और स्पष्ट JavaScript कोड उदाहरण प्रदान करता है।"
+description: "Aspose.Slides for Node.js via Java के साथ PowerPoint PPT और PPTX में गणितीय समीकरण सम्मिलित और संपादित करें, OMML समर्थन, स्वरूपण नियंत्रण, और स्पष्ट JavaScript कोड नमूने प्रदान करते हुए."
 ---
 ## **अवलोकन**
 
-PowerPoint समीकरणों को Office Math Markup Language (OMML) के रूप में संग्रहीत करता है। Aspose.Slides for Node.js via Java के साथ, आप प्रोग्रामेटिक रूप से वही प्रकार की गणितीय सामग्री बना सकते हैं: भिन्न, मूल, फ़ंक्शन, सीमा, N-ary ऑपरेटर, मैट्रिक्स, एरे, और स्वरूपित गणित ब्लॉक्स।
+PowerPoint समीकरणों को Office Math Markup Language (OMML) के रूप में संग्रहीत करता है। Aspose.Slides for Node.js via Java के साथ, आप प्रोग्रामेटिक रूप से समान प्रकार की गणितीय सामग्री बना सकते हैं: भिन्न, मूल, फ़ंक्शन, सीमाएँ, N-ary ऑपरेटर, मैट्रिक्स, ऐरे, और स्वरूपित गणित ब्लॉक।
 
 PowerPoint में, उपयोगकर्ता सामान्यतः **Insert > Equation** से समीकरण जोड़ते हैं:
 
 ![PowerPoint Insert टैब जिसमें Equation कमांड चयनित है](powerpoint-math-equations_1.png)
 
-परिणाम स्लाइड पर संपादन योग्य गणितीय पाठ होता है:
+परिणाम स्लाइड पर संपादन योग्य गणितीय टेक्स्ट होता है:
 
 ![एक PowerPoint स्लाइड जिसमें संपादन योग्य गणितीय समीकरण है](powerpoint-math-equations_2.png)
 
-Aspose.Slides इस गणितीय पाठ को तीन मुख्य ऑब्जेक्ट्स के माध्यम से बनाता है:
+Aspose.Slides यह गणितीय टेक्स्ट तीन मुख्य ऑब्जेक्ट्स के माध्यम से बनाता है:
 
-- एक गणितीय शैप, जिसे [addMathShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shapecollection/#addMathShape) से बनाया जाता है, वह शैप है जिसमें समीकरण होता है।
-- [MathPortion](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathportion/) शैप के टेक्स्ट फ्रेम के अंदर गणितीय सामग्री संग्रहीत करता है।
-- [MathParagraph](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathparagraph/) एक या अधिक [MathBlock](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathblock/) ऑब्जेक्ट्स शामिल करता है।
+- एक गणितीय आकार, जिसे [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) से बनाया जाता है, वह आकार है जिसमें समीकरण होता है।
+- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) आकार के टेक्स्ट फ्रेम के भीतर गणितीय सामग्री को संग्रहीत करता है।
+- [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) में एक या अधिक [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/) ऑब्जेक्ट होते हैं।
 
-नीचे के अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathematicaltext/) और [MathElementBase](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/) की फ़्लुएंट मेथड्स का उपयोग करते हैं ताकि कोड छोटा और पढ़ने योग्य रहे।
+नीचे के अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) और [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) की फ्लुएंट विधियों का उपयोग करते हैं ताकि कोड छोटा और पढ़ने योग्य रहे।
 
-MathML निर्यात परिदृश्यों के लिए, देखें [Export Math Equations from Presentations in Node.js via Java](/slides/hi/nodejs-java/exporting-math-equations/)।
+MathML निर्यात परिदृश्यों के लिए, देखें [Node.js via Java में प्रस्तुतियों से गणितीय समीकरण निर्यात](/slides/hi/nodejs-java/exporting-math-equations/)।
 
-## **एक समीकरण बनाएं**
+## **समीकरण बनाएं**
 
-यह उदाहरण एक गणितीय शैप बनाता है और पाइथागोरस सिद्धांत जोड़ता है:
+यह उदाहरण [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) का उपयोग करके एक गणितीय आकार बनाता है और पाइथागोरस प्रमेय जोड़ता है:
 
-![समीकरण c वर्ग बराबर a वर्ग प्लस b वर्ग](powerpoint-math-equations_3.png)
+![c वर्ग बराबर a वर्ग प्लस b वर्ग वाला समीकरण](powerpoint-math-equations_3.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -72,17 +75,20 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-`addMathShape` एक शैप बनाता है जो पहले से ही एक गणित पैराग्राफ शामिल करता है। पहले `MathPortion` को एक्सेस करें, उसका `MathParagraph` प्राप्त करें, और उसमें गणित ब्लॉक्स या गणितीय तत्व जोड़ें।
+{{% alert color="info" title="Note" %}}
+[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) एक आकार बनाता है जिसमें पहले से ही एक गणितीय पैराग्राफ शामिल होता है। पहले [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) तक पहुँचें, [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) को कॉल करें, और उस पर गणितीय ब्लॉक या तत्व जोड़ें।
 {{% /alert %}}
 
 ## **भिन्न जोड़ें**
 
-`[`divide`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` का उपयोग करके आप एक भिन्न बना सकते हैं। आप [MathFractionTypes](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathfractiontypes/) के साथ भिन्न शैली चुन सकते हैं।
+[divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#divide) का उपयोग करके एक भिन्न बनाएं। आप [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/) के साथ भिन्न शैली चुन सकते हैं।
 
-![एक तिरछा गणितीय भिन्न जिसमें एक को x से विभाजित किया गया है](powerpoint-math-equations_4.png)
+![एक तिरछा गणितीय भिन्न जिसमें एक को x से विभाजित दर्शाया गया है](powerpoint-math-equations_4.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -102,19 +108,25 @@ try {
 }
 ```
 
-स्टैक्ड (ऊपर-नीचे) भिन्न के लिए, `MathFractionTypes.Bar` का उपयोग करें:
+स्टैक्ड भिन्न के लिए, [MathFractionTypes.Bar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/#Bar) का उपयोग करें:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1", aspose.slides.MathFractionTypes.Bar);
 ```
 
 ## **मूल जोड़ें**
 
-`[`radical`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` का उपयोग करके आप वर्गमूल, घनमूल, या अन्य मूल बना सकते हैं। वर्तमान तत्व आधार बन जाता है, और आर्ग्युमेंट डिग्री बनता है।
+[radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical) का उपयोग करके वर्गमूल, घनमूल या अन्य मूल बनाएं। वर्तमान तत्व आधार बन जाता है, और तर्क डिग्री बन जाता है।
 
-![एक nवीं मूल अभिव्यक्ति जिसमें x मूल चिह्न के नीचे है](powerpoint-math-equations_5.png)
+![एक n-थ मूल अभिव्यक्ति जहाँ x मूल चिह्न के नीचे है](powerpoint-math-equations_5.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -136,11 +148,14 @@ try {
 
 ## **फ़ंक्शन और सीमाएँ जोड़ें**
 
-`[`asArgumentOfFunction`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` या `[`function`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` का उपयोग `sin(x)`, `log(x)` या कस्टम फ़ंक्शन नामों जैसे फ़ंक्शन के लिए करें। सीमाओं के लिए, `lim` को एक [MathLimit](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathlimit/) में रखें या `[`setLowerLimit`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` का उपयोग करें।
+[asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) या [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) का उपयोग करके `sin(x)`, `log(x)` या कस्टम फ़ंक्शन नामों के लिए फ़ंक्शन बनाएं। सीमाओं के लिए, `lim` को एक [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/) में रखें या [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit) का उपयोग करें।
 
-![x की सीमा जब x अनंत की ओर जाता है](powerpoint-math-equations_8.png)
+![x की सीमा जब x अनंत की ओर बढ़ता है](powerpoint-math-equations_8.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -161,19 +176,25 @@ try {
 }
 ```
 
-कस्टम फ़ंक्शन नाम के लिए, फ़ंक्शन नाम को वर्तमान तत्व बनाएं:
+कस्टम फ़ंक्शन नाम के लिए, फ़ंक्शन नाम को वर्तमान तत्व बनाएं और उसके तर्क के साथ [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) को कॉल करें:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
 ```
 
-## **N-ary ऑपरेटर्स और इंटीग्रल जोड़ें**
+## **N-ary ऑपरेटर और इंटीग्रल जोड़ें**
 
-`[`nary`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` का उपयोग जोड़, संघ, प्रतिच्छेद और अन्य बड़े ऑपरेटर्स के लिए करें। इंटीग्रल के लिए `[`integral`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` का उपयोग करें। दोनों मेथड्स आपको निम्न और ऊपरी सीमाएँ सेट करने देते हैं।
+[nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) का उपयोग करके योग, संघ, इंटरसेक्शन और अन्य बड़े ऑपरेटर बनाएं। इंटीग्रल के लिए [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) का उपयोग करें। दोनों विधियों से आप निचली और ऊपरी सीमाएँ सेट कर सकते हैं।
 
-![नीचे और ऊपर सीमाओं वाला समेकन](powerpoint-math-equations_7.png)
+![नीचे और ऊपर सीमाओं के साथ एक योग](powerpoint-math-equations_7.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -196,22 +217,28 @@ try {
 }
 ```
 
-N-ary ऑपरेटर्स बड़े ऑपरेटर्स के लिए होते हैं जिनमें वैकल्पिक सीमाएँ हो सकती हैं। सरल ऑपरेटर्स जैसे `+`, `-`, और `=` आमतौर पर `MathematicalText` के रूप में जोड़े जाते हैं और अभिव्यक्ति में सम्मिलित होते हैं।
+N-ary ऑपरेटर बड़े ऑपरेटर होते हैं जिनमें वैकल्पिक सीमाएँ हो सकती हैं। आसान ऑपरेटर जैसे `+`, `-` और `=` आम तौर पर [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) से बनाए जाते हैं और अभिव्यक्ति में जोड़े जाते हैं।
 
-इंटीग्रल के लिए, `integral` का उपयोग करें:
+इंटीग्रल के लिए, [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) का उपयोग करें:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let integralBase = new aspose.slides.MathematicalText("x").join(new aspose.slides.MathematicalText("dx").toBox());
 let integral = integralBase.integral(aspose.slides.MathIntegralTypes.Simple, "0", "1");
 ```
 
 ## **मैट्रिक्स जोड़ें**
 
-पंक्तियों और स्तंभों के लिए [MathMatrix](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathmatrix/) का उपयोग करें। मैट्रिक्स में डिफ़ॉल्ट रूप से कोष्ठक नहीं होते, इसलिए जब आपको कोष्ठक, ब्रैकेट या कर्ली ब्रैकेट चाहिए, तो मैट्रिक्स को इनके भीतर रखें।
+[MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) का उपयोग करके पंक्तियों और स्तंभों को परिभाषित करें। मैट्रिक्स डिफ़ॉल्ट रूप से कोष्ठक शामिल नहीं करते, इसलिए जब आपको कोष्ठक, ब्रेस या ब्रेसेस की आवश्यकता हो तो उसे स्वयं घेरें।
 
 ![एक दो-पंक्तियों वाला गणितीय मैट्रिक्स जिसमें एक खाली सेल है](powerpoint-math-equations_10.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -237,11 +264,14 @@ try {
 
 ## **समीकरण एरे जोड़ें**
 
-जब आपको संरेखित समीकरण या अभिव्यक्तियों की लंबवत स्टैक चाहिए, तो `[`toMathArray`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` का उपयोग करें।
+जब आपको संरेखित समीकरण या अभिव्यक्तियों की ऊर्ध्वाधर श्रृंखला चाहिए, तो [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toMathArray) का उपयोग करें।
 
-![एक लंबवत गणितीय एरे जिसमें x y के ऊपर है](powerpoint-math-equations_11.png)
+![एक ऊर्ध्वाधर गणित एरे जिसमें x y के ऊपर है](powerpoint-math-equations_11.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -262,13 +292,16 @@ try {
 }
 ```
 
-## **त्रिकोणमितीय फंक्शन जोड़ें**
+## **त्रिकोणमितीय फ़ंक्शन जोड़ें**
 
-जब आर्ग्युमेंट वर्तमान तत्व हो और फ़ंक्शन नाम ज्ञात हो, तो `[`asArgumentOfFunction`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` का उपयोग करें।
+जब तर्क वर्तमान तत्व हो और फ़ंक्शन नाम ज्ञात हो, तो [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) का उपयोग करें।
 
-![त्रिकोणमितीय फ़ंक्शन cos को 2x पर लागू किया गया](powerpoint-math-equations_6.png)
+![त्रिकोणमितीय फ़ंक्शन cos 2x पर लागू किया गया](powerpoint-math-equations_6.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -290,11 +323,14 @@ try {
 
 ## **सबस्क्रिप्ट और सुपरस्क्रिप्ट जोड़ें**
 
-इंडेक्स और पावर के लिए सबस्क्रिप्ट और सुपरस्क्रिप्ट हेल्पर्स का उपयोग करें। जब इंडेक्स बेस के बाएँ पक्ष पर दिखना आवश्यक हो, तो `[`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` का उपयोग करें।
+सूचक और घात के लिए सबस्क्रिप्ट और सुपरस्क्रिप्ट हेल्पर का उपयोग करें। जब सूचक आधार के बाएँ ओर दिखाई देने चाहिए, तो [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) का उपयोग करें।
 
-![एक बड़े Y के बाएँ पक्ष पर सबस्क्रिप्ट 1 और सुपरस्क्रिप्ट n](powerpoint-math-equations_9.png)
+![एक बड़ा Y जिसमें बाएँ ओर सबस्क्रिप्ट 1 और सुपरस्क्रिप्ट n है](powerpoint-math-equations_9.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -314,13 +350,17 @@ try {
 }
 ```
 
-## **डिलिमिटर जोड़ें**
+## **डिलिमीटर जोड़ें**
 
-`[`enclose`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` का उपयोग करके आप अभिव्यक्ति को डिलिमिटर के भीतर रख सकते हैं। आप कई तत्वों वाली डिलिमिटर अभिव्यक्तियों के लिए एक विभाजक अक्षर भी सेट कर सकते हैं।
+एक अभिव्यक्ति को डिलिमीटर के भीतर रखने के लिए [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose) का उपयोग करें। कई तत्वों वाली डिलिमीटर अभिव्यक्तियों के लिए आप एक विभाजक वर्ण भी सेट कर सकते हैं।
 
-![एक डिलिमिटर अभिव्यक्ति जिसमें x, y, और z को ऊर्ध्वाधर बार द्वारा विभाजित किया गया है](powerpoint-math-equations_13.png)
+![एक डिलिमीटर अभिव्यक्ति जिसमें x, y, और z को वर्टिकल बार द्वारा अलग किया गया है](powerpoint-math-equations_13.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -343,13 +383,54 @@ try {
 }
 ```
 
-## **बॉर्डर बॉक्स जोड़ें**
+### **डिलिमीटर का आकार और संरेखण**
 
-जब समीकरण स्वयं को फ्रेम किया जाना चाहिए, तब `[`toBorderBox`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` का उपयोग करें।
+डिलिमीटर को ऊँचे ऑपरेन्ड के चारों ओर बढ़ने देने के लिए `[setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight)` को `true` पास करें, या सामान्य आकार बनाए रखने के लिए `false` पास करें। `[setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape)` को दो में से किसी एक `[MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/)` मान के साथ प्रयोग करें। `Centered` डिलिमीटर को गणितीय अक्ष पर केंद्रित करता है, जबकि `Match` को सम्मिलित सामग्री के अनुसार संरेखित करता है। ये सेटिंग केवल डिलिमीटर को प्रभावित करती हैं; अभिव्यक्ति स्वयं वही रहती है।
 
-![एक बॉक्स वाला समीकरण जहाँ a वर्ग बराबर b वर्ग प्लस c वर्ग दिखाया गया है](powerpoint-math-equations_12.png)
+उदाहरण में `x` के घात में एक भिन्न रखा गया है ताकि अभिव्यक्ति बेसलाइन के ऊपर नीचे से अधिक विस्तृत हो। सभी चार समीकरण समान कोष्ठक और फ़ॉन्ट सेटिंग्स का उपयोग करते हैं।
 
 ```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    for (let row = 0; row < 2; row++) {
+        for (let column = 0; column < 2; column++) {
+            const fraction = new slides.MathematicalText("a + b").divide("c + d");
+            const power = new slides.MathematicalText("x").setSuperscript(fraction);
+            const delimiter = power.enclose(java.newChar('('), java.newChar(')'));
+            delimiter.setGrowToMatchOperandHeight(row === 0);
+            delimiter.setDelimiterShape(column === 0 ? slides.MathDelimiterShape.Centered : slides.MathDelimiterShape.Match);
+
+            const mathShape = slide.getShapes().addMathShape(20 + 330 * column, 20 + 120 * row, 300, 100);
+            const portion = mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+            portion.getPortionFormat().setFontHeight(32);
+            const equation = new slides.MathematicalText("y = ").join(delimiter);
+            portion.getMathParagraph().add(equation);
+        }
+    }
+    presentation.save("delimiter-sizing.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+PowerPoint में पंक्तियों की तुलना करें ताकि वृद्धि का प्रभाव देखा जा सके। ऊपर की पंक्ति में कोष्ठक घात को घेरने के लिए बढ़ते हैं और दोनों आकार समान दिखते हैं। नीचे की पंक्ति में वृद्धि बंद है। बाएँ (`Centered`) छोटे कोष्ठक बराबर चिह्न के साथ संरेखित होते हैं, जबकि दाएँ (`Match`) अभिव्यक्ति के चारों ओर अधिक ऊँचे होते हैं।
+
+![PowerPoint में चार समीकरण जहाँ डिलिमीटर वृद्धि ऊपर सक्रिय और नीचे निष्क्रिय है, बाएँ Centered और दाएँ Match के साथ](delimiter-sizing.png)
+
+## **एक बॉर्डर बॉक्स जोड़ें**
+
+जब स्वयं समीकरण को फ्रेम में दिखाना हो, तो [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox) का उपयोग करें।
+
+![एक बॉक्स वाला समीकरण जिसमें a वर्ग बराबर b वर्ग प्लस c वर्ग दिखाया गया है](powerpoint-math-equations_12.png)
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -374,13 +455,17 @@ try {
 }
 ```
 
-## **टर्म को समूह बनाएं**
+## **टर्म समूहित करें**
 
-एक अभिव्यक्ति के ऊपर या नीचे ग्रुपिंग कैरेक्टर रखने के लिए `[`group`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` का उपयोग करें। समूहित टर्म को लेबल करने के लिए सीमा जोड़ें।
+एक अभिव्यक्ति के ऊपर या नीचे समूहित करने वाला चिन्ह रखने के लिए [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group) का उपयोग करें। समूहित टर्म को लेबल करने के लिए एक सीमा जोड़ें।
 
-![अभिव्यक्ति x प्लस y को नीचे किसी भी टेक्स्ट लेबल के साथ समूहित किया गया है](powerpoint-math-equations_15.png)
+![व्यंजक x प्लस y को समूहित करके नीचे लेबल कोई भी पाठ दिखाया गया](powerpoint-math-equations_15.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -401,13 +486,16 @@ try {
 }
 ```
 
-## **गणितीय तत्वों का स्वरूपित करें**
+## **गणितीय तत्वों को स्वरूपित करें**
 
-फ़ॉर्मेटिंग हेल्पर्स का उपयोग केवल तब ही करें जब वे सूत्र को स्पष्ट करें। उदाहरण के लिए, `[`overbar`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/)` गणितीय तत्व के ऊपर एक बार रखता है।
+फ़ॉर्मेटिंग हेल्पर केवल तभी उपयोग करें जब वे सूत्र को स्पष्ट करें। उदाहरण के लिए, [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) एक गणितीय तत्व के ऊपर बार रखता है।
 
-![एक गणितीय अभिव्यक्ति ABC जिसमें ऊपर बार है](powerpoint-math-equations_14.png)
+![एक गणितीय अभिव्यक्ति ABC जिसमें ऊपर एक बार है](powerpoint-math-equations_14.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -426,35 +514,94 @@ try {
 }
 ```
 
-## **त्वरित संदर्भ**
+### **मौजूदा समीकरण में टेक्स्ट स्वरूपित करें**
 
+एक मौजूदा समीकरण के पूरे टेक्स्ट को स्वरूपित करने के लिए प्रत्येक गणितीय ब्लॉक के तत्व वृक्ष को पार करें। `[MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren)` केवल तत्काल बच्चों को लौटाता है, इसलिए भिन्नों, स्क्रिप्टों, मूलों और अन्य नेस्टेड संरचनाओं के भीतर के टेक्स्ट तक पहुँचने के लिए इसे पुनरावर्ती रूप से कॉल करें। वर्तमान तत्व के साथ-साथ उसके बच्चों को भी जांचें ताकि जब वह `[MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/)` हो तो प्रारंभिक तत्व को शामिल किया जा सके।
+
+यह उदाहरण मानता है कि `input.pptx` में `z = xᵢ / ∛y` जैसा समीकरण है, जिसमें भिन्न के अंश में सबस्क्रिप्ट और हर में मूल है। केवल ब्लॉक के शीर्ष‑स्तर तत्वों को प्रोसेस करने से भिन्न के अंदर का टेक्स्ट चूक जाएगा। उदाहरण स्लाइड टेक्स्ट फ्रेम में गणितीय भाग ढूँढता है, उनके ब्लॉकों को `[MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph)` से प्राप्त करता है, और प्रत्येक टेक्स्ट तत्व के `[getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat)` मेथड के माध्यम से `[setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight)` का उपयोग करके फ़ॉन्ट आकार 28 पॉइंट सेट करता है।
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function formatMathText(element) {
+    if (java.instanceOf(element, "com.aspose.slides.MathematicalText")) {
+        element.getFormat().setFontHeight(28);
+    }
+
+    let children = element.getChildren();
+    for (let i = 0; i < children.length; i++) {
+        formatMathText(children[i]);
+    }
+}
+
+let presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        let slide = presentation.getSlides().get_Item(i);
+        for (let j = 0; j < slide.getShapes().size(); j++) {
+            let shape = slide.getShapes().get_Item(j);
+            if (!java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                continue;
+            }
+
+            let textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let k = 0; k < textFrame.getParagraphs().getCount(); k++) {
+                let paragraph = textFrame.getParagraphs().get_Item(k);
+                for (let l = 0; l < paragraph.getPortions().getCount(); l++) {
+                    let portion = paragraph.getPortions().get_Item(l);
+                    if (java.instanceOf(portion, "com.aspose.slides.IMathPortion")) {
+                        let mathParagraph = portion.getMathParagraph();
+                        for (let m = 0; m < mathParagraph.getCount(); m++) {
+                            formatMathText(mathParagraph.get_Item(m));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    presentation.save("formatted-equations.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+सहेजे गए प्रस्तुति में प्रत्येक प्रोसेस किए गए समीकरण के सभी स्तरों पर अद्यतन टेक्स्ट फ़ॉर्मेटिंग होगी, जबकि टेक्स्ट सामग्री और गणितीय संरचना बरकरार रहेगी।
+
+## **त्वरित संदर्भ**
 | कार्य | मुख्य API |
 | --- | --- |
-| गणितीय पाठ बनाएं | [MathematicalText](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathematicaltext/) |
-| तत्वों को संयोजित करें | [join](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/) |
-| भिन्न बनाएं | [divide](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/) |
-| सुपरस्क्रिप्ट या सबस्क्रिप्ट जोड़ें | [setSuperscript](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/) |
-| फ़ंक्शन जोड़ें | [function](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/) |
-| मूल जोड़ें | [radical](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/) |
-| सीमाएँ जोड़ें | [setLowerLimit](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/) |
-| बाएँ-स्तर के स्क्रिप्ट जोड़ें | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/) |
-| समेकन और इंटीग्रल जोड़ें | [nary](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/) |
-| मैट्रिक्स जोड़ें | [MathMatrix](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathmatrix/) |
-| समीकरण एरे जोड़ें | [toMathArray](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/) |
-| डिलिमिटर जोड़ें | [enclose](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/) |
-| बार और बॉर्डर जोड़ें | [overbar](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/) |
-| टर्म को समूह बनाएं | [group](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathelementbase/) |
+| गणितीय टेक्स्ट बनाएं | [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) |
+| तत्वों को मिलाएं | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| भिन्न बनाएं | [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| सुपरस्क्रिप्ट या सबस्क्रिप्ट जोड़ें | [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| फ़ंक्शन जोड़ें | [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| मूल जोड़ें | [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| सीमाएँ जोड़ें | [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| बाएँ‑तरफ़ स्क्रिप्ट जोड़ें | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| समेटन और इंटीग्रल जोड़ें | [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| मैट्रिक्स जोड़ें | [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) |
+| समीकरण एरे जोड़ें | [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| डिलिमीटर जोड़ें | [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| बार और बॉर्डर जोड़ें | [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| टर्म समूहित करें | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
 **क्या मैं मौजूदा PowerPoint समीकरण को संपादित कर सकता हूँ?**
 
-हाँ। प्रस्तुति खोलें, वह शैप खोजें जिसमें `MathPortion` हो, उसका `MathParagraph` प्राप्त करें, और उस पैराग्राफ में गणित ब्लॉक्स को अपडेट करें।
+हाँ। प्रस्तुति खोलें, उस आकार को खोजें जिसमें एक [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) हो, [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) को कॉल करें, और उस पैराग्राफ में गणितीय ब्लॉक को अपडेट करें।
 
 **क्या समीकरण संपादन योग्य PowerPoint गणित के रूप में सहेजे जाते हैं?**
 
-हाँ। जब आप PPTX में सहेजते हैं, Aspose.Slides समीकरण को संपादन योग्य Office गणित सामग्री के रूप में लिखता है।
+हाँ। जब आप PPTX के रूप में सहेजते हैं, तो Aspose.Slides समीकरण को संपादन योग्य Office गणित सामग्री के रूप में लिखता है।
 
 **क्या मैं समीकरणों को LaTeX में निर्यात कर सकता हूँ?**
 
-हाँ। उसके [MathPortion](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathportion/) से समीकरण का [MathParagraph](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathparagraph/) प्राप्त करें, और सीधे निर्यात करने के लिए [MathParagraph.toLatex](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/mathparagraph/#toLatex--) को कॉल करें। पूर्ण उदाहरण के लिए, देखें [Export Math Equations from Presentations in Node.js via Java](/slides/hi/nodejs-java/exporting-math-equations/#export-math-equations-to-latex).
+हाँ। समीकरण के [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) को उसके [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) से प्राप्त करें, और सीधे निर्यात करने के लिए [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex) को कॉल करें। पूर्ण उदाहरण के लिए देखें [Node.js via Java में प्रस्तुतियों से गणितीय समीकरण निर्यात](/slides/hi/nodejs-java/exporting-math-equations/#export-math-equations-to-latex)।

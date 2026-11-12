@@ -1,53 +1,70 @@
 ---
-title: Mathegleichungen zu PowerPoint-Präsentationen in C++ hinzufügen
-linktitle: PowerPoint Mathegleichungen
+title: Mathematische Gleichungen zu PowerPoint-Präsentationen in C++ hinzufügen
+linktitle: PowerPoint mathematische Gleichungen
 type: docs
 weight: 80
 url: /de/cpp/powerpoint-math-equations/
 keywords:
-- Mathegleichung
-- Mathezeichen
-- Matheformel
-- Mathetext
-- Mathegleichung hinzufügen
-- Mathezeichen hinzufügen
-- Matheformel hinzufügen
-- Mathetext hinzufügen
+- mathematische Gleichung
+- mathematisches Symbol
+- mathematische Formel
+- mathematischer Text
+- mathematische Gleichung hinzufügen
+- mathematisches Symbol hinzufügen
+- mathematische Formel hinzufügen
+- mathematischen Text hinzufügen
 - PowerPoint
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Mathegleichungen in PowerPoint PPT und PPTX mit Aspose.Slides für C++ einfügen und bearbeiten, unterstützt OMML, Formatierungsoptionen und klare C++-Codebeispiele."
+description: "Mathematische Gleichungen in PowerPoint PPT und PPTX mit Aspose.Slides für C++ einfügen und bearbeiten, unterstützt OMML, Formatierungsoptionen und klare C++-Codebeispiele."
 ---
 ## **Übersicht**
 
-PowerPoint speichert Gleichungen als Office Math Markup Language (OMML). Mit Aspose.Slides für C++ können Sie dieselben mathematischen Inhalte programmgesteuert erstellen: Brüche, Radikale, Funktionen, Grenzwerte, N‑äre Operatoren, Matrizen, Arrays und formatierte mathematische Blöcke.
+PowerPoint speichert Formeln als Office Math Markup Language (OMML). Mit Aspose.Slides für C++ können Sie denselben mathematischen Inhalt programmgesteuert erstellen: Brüche, Wurzeln, Funktionen, Grenzen, N‑äre Operatoren, Matrizen, Arrays und formatierte Mathematikblöcke.
 
-In PowerPoint fügen Benutzer normalerweise Gleichungen über **Einfügen > Gleichung** hinzu:
+In PowerPoint fügen Benutzer normalerweise Formeln über **Einfügen > Gleichung** hinzu:
 
-![PowerPoint Registerkarte Einfügen mit dem ausgewählten Befehl Gleichung](powerpoint-math-equations_1.png)
+![PowerPoint‑Registerkarte Einfügen mit dem ausgewählten Befehl Gleichung](powerpoint-math-equations_1.png)
 
 Das Ergebnis ist editierbarer mathematischer Text auf der Folie:
 
-![Eine PowerPoint‑Folie, die eine editierbare mathematische Gleichung enthält](powerpoint-math-equations_2.png)
+![Eine PowerPoint‑Folie mit einer editierbaren mathematischen Gleichung](powerpoint-math-equations_2.png)
 
-Aspose.Slides erstellt diesen mathematischen Text über drei Hauptobjekte:
+Aspose.Slides erzeugt diesen mathematischen Text über drei Hauptobjekte:
 
-- Ein mathematisches Shape, erstellt mit [AddMathShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/shapecollection/), ist das Shape, das die Gleichung enthält.
-- [MathPortion](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/mathportion/) speichert mathematischen Inhalt im Textfeld des Shapes.
-- [MathParagraph](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/mathparagraph/) enthält ein oder mehrere [MathBlock](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/mathblock/)‑Objekte.
+- Eine mathematische Form, erstellt mit [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/), ist die Form, die die Gleichung enthält.
+- [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) speichert mathematischen Inhalt im Textfeld der Form.
+- [MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/) enthält ein oder mehrere [MathBlock](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathblock/)‑Objekte.
 
-Die meisten Beispiele unten verwenden [MathematicalText](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/mathematicaltext/) und die Fluent‑Methoden von [IMathElement](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/) , um den Code kurz und lesbar zu halten.
+Die meisten nachfolgenden Beispiele verwenden [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) und die fluente Methoden von [IMathElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/), um den Code kurz und lesbar zu halten.
 
 Für MathML‑Export‑Szenarien siehe [Export Math Equations from Presentations in C++](/slides/de/cpp/exporting-math-equations/).
 
-## **Eine Gleichung erstellen**
+## **Gleichung erstellen**
 
-Dieses Beispiel erstellt ein mathematisches Shape und fügt den Satz des Pythagoras hinzu:
+Dieses Beispiel verwendet [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/), um eine mathematische Form zu erstellen und fügt den Satz des Pythagoras hinzu:
 
 ![Die Gleichung c² = a² + b²](powerpoint-math-equations_3.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -68,17 +85,34 @@ presentation->Save(u"pythagorean-theorem.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
-`AddMathShape` erstellt ein Shape, das bereits einen mathematischen Absatz enthält. Greifen Sie auf das erste `MathPortion` zu, erhalten Sie dessen `MathParagraph` und fügen Sie dem math‑Block oder den mathematischen Elementen hinzu.
+{{% alert color="info" title="Note" %}}
+[AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) erstellt eine Form, die bereits einen mathematischen Absatz enthält. Greifen Sie auf das erste [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) zu, rufen Sie [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/), auf und fügen Sie mathematische Blöcke oder mathematische Elemente hinzu.
 {{% /alert %}}
 
 ## **Brüche hinzufügen**
 
-Verwenden Sie `Divide`, um einen Bruch zu erstellen. Sie können einen Bruchstil mit [MathFractionTypes](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/mathfractiontypes/) wählen.
+Verwenden Sie [Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/), um einen Bruch zu erzeugen. Sie können einen Bruchstil mit [MathFractionTypes](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/) auswählen.
 
-![Ein schräger Bruch, der 1 durch x zeigt](powerpoint-math-equations_4.png)
+![Ein schräger mathematischer Bruch, der eins durch x darstellt](powerpoint-math-equations_4.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathFractionTypes.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -95,19 +129,39 @@ presentation->Save(u"fraction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Für einen gestapelten Bruch verwenden Sie `MathFractionTypes::Bar`:
+Für einen gestapelten Bruch verwenden Sie [MathFractionTypes::Bar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/):
 
 ```cpp
+#include <DOM/MathText/MathFractionTypes.h>
+#include <DOM/MathText/MathematicalText.h>
+using namespace Aspose::Slides::MathText;
+
 auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"y - 1", MathFractionTypes::Bar);
 ```
 
-## **Radikale hinzufügen**
+## **Wurzeln hinzufügen**
 
-Verwenden Sie `Radical`, um eine Quadratwurzel, Kubikwurzel oder andere Wurzel zu erzeugen. Das aktuelle Element wird zur Basis, und das Argument wird zum Exponenten.
+Verwenden Sie [Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/), um eine Quadratwurzel, Kubikwurzel oder andere Wurzel zu erzeugen. Das aktuelle Element wird zur Basis, das Argument zur Wurzel­gradzahl.
 
 ![Ein n‑te Wurzel‑Ausdruck mit x unter dem Wurzelzeichen](powerpoint-math-equations_5.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -124,13 +178,30 @@ presentation->Save(u"radical.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Funktionen und Grenzwerte hinzufügen**
+## **Funktionen und Grenzen hinzufügen**
 
-Verwenden Sie `AsArgumentOfFunction` oder `Function` für Funktionen wie `sin(x)`, `log(x)` oder benutzerdefinierte Funktionsnamen. Für Grenzwerte setzen Sie `lim` in ein [MathLimit](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/mathlimit/) oder verwenden `SetLowerLimit`.
+Verwenden Sie [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) oder [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) für Funktionen wie `sin(x)`, `log(x)` oder benutzerdefinierte Funktionsnamen. Für Grenzen setzen Sie `lim` in ein [MathLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) oder verwenden Sie [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/).
 
 ![Der Grenzwert von x, wenn x gegen unendlich geht](powerpoint-math-equations_8.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathLimit.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -148,19 +219,40 @@ presentation->Save(u"functions-and-limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Für einen benutzerdefinierten Funktionsnamen machen Sie den Funktionsnamen zum aktuellen Element:
+Für einen benutzerdefinierten Funktionsnamen machen Sie den Funktionsnamen zum aktuellen Element und rufen [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) mit seinem Argument auf:
 
 ```cpp
+#include <DOM/MathText/MathematicalText.h>
+using namespace Aspose::Slides::MathText;
+
 auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x + 1");
 ```
 
 ## **N‑äre Operatoren und Integrale hinzufügen**
 
-Verwenden Sie `Nary` für Summen, Vereinigungen, Schnittmengen und andere großformatige Operatoren. Verwenden Sie `Integral` für Integrale. Beide Methoden ermöglichen das Festlegen von unteren und oberen Grenzen.
+Verwenden Sie [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/) für Summen, Vereinigungen, Schnittmengen und andere große Operatoren. Verwenden Sie [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) für Integrale. Beide Methoden ermöglichen das Festlegen von Unter‑ und Obergrenzen.
 
-![Eine Summation mit unteren und oberen Grenzen](powerpoint-math-equations_7.png)
+![Eine Summe mit unteren und oberen Grenzen](powerpoint-math-equations_7.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathNaryOperatorTypes.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -180,22 +272,49 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-N‑äre Operatoren sind für großformatige Operatoren mit optionalen Grenzen. Einfache Operatoren wie `+`, `-` und `=` werden normalerweise als `MathematicalText` hinzugefügt und in den Ausdruck eingebettet.
+N‑äre Operatoren dienen großen Operatoren mit optionalen Grenzen. Einfache Operatoren wie `+`, `-` und `=` werden gewöhnlich als [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) hinzugefügt und in den Ausdruck eingefügt.
 
-Für ein Integral verwenden Sie `Integral`:
+Für ein Integral verwenden Sie [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/):
 
 ```cpp
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathBox.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/MathIntegralTypes.h>
+#include <DOM/MathText/MathematicalText.h>
+
+using namespace Aspose::Slides::MathText;
+
 auto integralBase = System::MakeObject<MathematicalText>(u"x")->Join(System::MakeObject<MathematicalText>(u"dx")->ToBox());
 auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
 ```
 
 ## **Matrizen hinzufügen**
 
-Verwenden Sie [MathMatrix](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/mathmatrix/), um Zeilen und Spalten zu erzeugen. Matrizen enthalten standardmäßig keine Klammern, sodass Sie die Matrix einschließen müssen, wenn Sie runde Klammern, eckige Klammern oder geschweifte Klammern benötigen.
+Verwenden Sie [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) für Zeilen und Spalten. Matrizen enthalten standardmäßig keine Klammern, daher schließen Sie die Matrix ein, wenn Sie runde Klammern, eckige Klammern oder geschweifte Klammern benötigen.
 
 ![Eine zweizeilige mathematische Matrix mit einer leeren Zelle](powerpoint-math-equations_10.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathMatrix.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -216,13 +335,29 @@ presentation->Save(u"matrix.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Gleichungs‑Arrays hinzufügen**
+## **Gleichungsarrays hinzufügen**
 
-Verwenden Sie `ToMathArray`, wenn Sie ausgerichtete Gleichungen oder einen vertikalen Stapel von Ausdrücken benötigen.
+Verwenden Sie [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/), wenn Sie ausgerichtete Gleichungen oder einen vertikalen Stapel von Ausdrücken benötigen.
 
 ![Ein vertikales mathematisches Array mit x über y](powerpoint-math-equations_11.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -242,11 +377,28 @@ presentation->Dispose();
 
 ## **Trigonometrische Funktionen hinzufügen**
 
-Verwenden Sie `AsArgumentOfFunction`, wenn das Argument das aktuelle Element ist und der Funktionsname bekannt ist.
+Verwenden Sie [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/), wenn das Argument das aktuelle Element ist und der Funktionsname bekannt ist.
 
 ![Die trigonometrische Funktion cos angewendet auf 2x](powerpoint-math-equations_6.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathFunctionsOfOneArgument.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -265,11 +417,27 @@ presentation->Dispose();
 
 ## **Tief- und Hochstellungen hinzufügen**
 
-Verwenden Sie die Helfer für Tief- und Hochstellungen für Indizes und Potenzen. Wenn die Indizes auf der linken Seite der Basis erscheinen sollen, verwenden Sie `SetSubSuperscriptOnTheLeft`.
+Verwenden Sie die Hilfsfunktionen für Tief‑ und Hochstellungen für Indizes und Potenzen. Wenn die Indizes auf der linken Seite der Basis erscheinen müssen, verwenden Sie [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
 
-![Ein großes Y mit linksseitigem Index 1 und Hochstellung n](powerpoint-math-equations_9.png)
+![Ein großes Y mit linkem Tiefstellungs‑1 und Hochstellungs‑n](powerpoint-math-equations_9.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -286,13 +454,29 @@ presentation->Save(u"subscript-superscript.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Begrenzungszeichen hinzufügen**
+## **Begrenzer hinzufügen**
 
-Verwenden Sie `Enclose`, um einen Ausdruck in Begrenzungszeichen zu setzen. Sie können auch ein Trennzeichen für Begrenzungszeichen‑Ausdrücke festlegen, die mehrere Elemente enthalten.
+Verwenden Sie [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/), um einen Ausdruck in Begrenzungszeichen zu setzen. Sie können außerdem ein Trennzeichen für Ausdrucks‑Begrenzungszeichen festlegen, die mehrere Elemente enthalten.
 
 ![Ein Begrenzungszeichen‑Ausdruck, der x, y und z enthält, getrennt durch senkrechte Striche](powerpoint-math-equations_13.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -311,13 +495,89 @@ presentation->Save(u"delimiters.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Eine Rahmenbox hinzufügen**
+### **Größe und Ausrichtung von Begrenzungszeichen**
 
-Verwenden Sie `ToBorderBox`, wenn die Gleichung selbst eingerahmt werden soll.
+Übergeben Sie `true` an [set_GrowToMatchOperandHeight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_growtomatchoperandheight/), damit die Klammern um einen hohen Operanden wachsen, bzw. `false`, um ihre normale Größe beizubehalten. [set_DelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_delimitershape/) akzeptiert einen von zwei [MathDelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathdelimitershape/)‑Werten. `Centered` zentriert die Klammern auf der mathematischen Achse, die durch die Mitte des Gleichheitszeichens verläuft. `Match` richtet sie an dem eingeschlossenen Inhalt aus. Beide Einstellungen wirken nur auf die Begrenzungszeichen. Der innere Ausdruck bleibt unverändert.
 
-![Eine eingeklammerte Gleichung, die a² = b² + c² zeigt](powerpoint-math-equations_12.png)
+Das Beispiel setzt einen Bruch in den Exponenten von `x`, sodass der Ausdruck weiter über die Grundlinie hinaus reicht als darunter. Alle vier Gleichungen verwenden dieselben Klammern und Schriftarteinstellungen.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathDelimiter.h>
+#include <DOM/MathText/IMathFraction.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathDelimiterShape.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto addExpression = [slide](float left, float top, bool grow, MathDelimiterShape shape)
+{
+    auto fraction = System::MakeObject<MathematicalText>(u"a + b")->Divide(u"c + d");
+    auto power = System::MakeObject<MathematicalText>(u"x")->SetSuperscript(fraction);
+    auto delimiter = power->Enclose(u'(', u')');
+    delimiter->set_GrowToMatchOperandHeight(grow);
+    delimiter->set_DelimiterShape(shape);
+
+    auto mathShape = slide->get_Shapes()->AddMathShape(left, top, 300, 100);
+    auto portion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+    portion->get_PortionFormat()->set_FontHeight(32);
+    auto equation = System::MakeObject<MathematicalText>(u"y = ")->Join(delimiter);
+    portion->get_MathParagraph()->Add(equation);
+};
+
+addExpression(20, 20, true, MathDelimiterShape::Centered);
+addExpression(350, 20, true, MathDelimiterShape::Match);
+addExpression(20, 140, false, MathDelimiterShape::Centered);
+addExpression(350, 140, false, MathDelimiterShape::Match);
+
+presentation->Save(u"delimiter-sizing.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+In PowerPoint vergleichen Sie die Zeilen, um den Effekt des Wachstums zu sehen. In der oberen Zeile wachsen die Klammern, um den Exponenten zu umschließen, und sehen bei beiden Formen gleich aus. In der unteren Zeile ist das Wachstum deaktiviert. Die kleineren Klammern links (`Centered`) richten sich nach dem Gleichheitszeichen aus, während die rechts (`Match`) höher um den Ausdruck herum sitzen.
+
+![Vier Gleichungen in PowerPoint mit aktiviertem Begrenzungszeichen‑Wachstum oben und deaktiviert unten, sowie Centered links und Match rechts](delimiter-sizing.png)
+
+## **Rahmenbox hinzufügen**
+
+Verwenden Sie [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/), wenn die Gleichung selbst eingerahmt werden soll.
+
+![Eine eingekastete Gleichung, die a² = b² + c² zeigt](powerpoint-math-equations_12.png)
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -341,11 +601,29 @@ presentation->Dispose();
 
 ## **Terme gruppieren**
 
-Verwenden Sie `Group`, um ein Gruppierungszeichen über oder unter einem Ausdruck zu platzieren. Fügen Sie eine Grenze hinzu, um die gruppierten Terme zu beschriften.
+Verwenden Sie [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/), um ein Gruppierungszeichen über oder unter einem Ausdruck zu platzieren. Fügen Sie eine Grenze hinzu, um die gruppierten Terme zu beschriften.
 
 ![Der Ausdruck x + y, gruppiert mit der Beschriftung irgendein Text darunter](powerpoint-math-equations_15.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathGroupingCharacter.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathTopBotPositions.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -365,11 +643,27 @@ presentation->Dispose();
 
 ## **Mathematische Elemente formatieren**
 
-Verwenden Sie Formatierungs‑Hilfsmittel nur dort, wo sie die Formel verdeutlichen. Zum Beispiel setzt `Overbar` einen Strich über ein mathematisches Element.
+Verwenden Sie Formatierungs‑Hilfsfunktionen nur dort, wo sie die Formel verdeutlichen. Zum Beispiel setzt [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/) einen Balken über ein mathematisches Element.
 
 ![Ein mathematischer Ausdruck ABC mit einem Überstrich](powerpoint-math-equations_14.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -385,35 +679,108 @@ presentation->Save(u"overbar.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+### **Text in einer bestehenden Gleichung formatieren**
+
+Um Text in einer bestehenden Gleichung zu formatieren, durchlaufen Sie den Elementbaum jedes mathematischen Blocks. [IMathElement::GetChildren](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/getchildren/) gibt nur die unmittelbaren Kinder zurück, daher rufen Sie sie rekursiv auf, um Text in Brüchen, Skripten, Wurzeln und anderen verschachtelten Strukturen zu erreichen. Prüfen Sie das aktuelle Element sowie dessen Kinder, um das Ausgangselement einzubeziehen, wenn es sich um [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) handelt.
+
+Dieses Beispiel geht davon aus, dass eine Präsentation eine Gleichung wie `z = xᵢ / ∛y` enthält, wobei ein Bruch im Zähler einen Tiefstellung und ein Radikal im Nenner hat. Das Verarbeiten nur der obersten Elemente des Blocks würde den Text im Bruch übersehen. Das Beispiel findet mathematische Abschnitte in Folientextfeldern, greift über [IMathPortion::get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/get_mathparagraph/) auf deren Blöcke zu und setzt die Schriftgröße mit [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) auf 28 Punkt, wobei die Formatierung über die [get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/get_format/)‑Methode jedes Textelements erfolgt.
+
+```cpp
+#include <functional>
+#include <system/array.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
+std::function<void(System::SharedPtr<IMathElement>)> formatMathText;
+formatMathText = [&formatMathText](System::SharedPtr<IMathElement> element)
+{
+    auto text = System::DynamicCast<MathematicalText>(element);
+    if (text != nullptr)
+        text->get_Format()->set_FontHeight(28.0f);
+
+    for (auto child : element->GetChildren())
+        formatMathText(child);
+};
+
+auto presentation = System::MakeObject<Presentation>(u"input.pptx");
+
+for (auto slide : presentation->get_Slides())
+{
+    for (auto shape : slide->get_Shapes())
+    {
+        auto autoShape = System::DynamicCast<IAutoShape>(shape);
+        if (autoShape == nullptr || autoShape->get_TextFrame() == nullptr)
+            continue;
+
+        for (auto paragraph : autoShape->get_TextFrame()->get_Paragraphs())
+        {
+            for (auto portion : paragraph->get_Portions())
+            {
+                auto mathPortion = System::DynamicCast<IMathPortion>(portion);
+                if (mathPortion != nullptr)
+                {
+                    for (auto block : mathPortion->get_MathParagraph())
+                        formatMathText(block);
+                }
+            }
+        }
+    }
+}
+
+presentation->Save(u"formatted-equations.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Die gespeicherte Präsentation enthält die aktualisierte Textformatierung auf jeder Ebene jeder verarbeiteten Gleichung, während ihr Textinhalt und die mathematische Struktur erhalten bleiben.
+
 ## **Kurzreferenz**
 
 | Aufgabe | Haupt‑API |
 | --- | --- |
-| Mathematischen Text erstellen | [MathematicalText](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/mathematicaltext/) |
-| Elemente kombinieren | [IMathElement.Join](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/join/) |
-| Brüche erstellen | [IMathElement.Divide](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/divide/) |
-| Hoch- oder Tiefstellung hinzufügen | [SetSuperscript](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
-| Funktionen hinzufügen | [Function](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
-| Radikale hinzufügen | [IMathElement.Radical](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/radical/) |
-| Grenzwerte hinzufügen | [SetLowerLimit](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| Linksseitige Skripte hinzufügen | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| Summen und Integrale hinzufügen | [Nary](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/integral/) |
-| Matrizen hinzufügen | [MathMatrix](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/mathmatrix/) |
-| Gleichungs‑Arrays hinzufügen | [ToMathArray](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
-| Begrenzungszeichen hinzufügen | [Enclose](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/enclose/) |
-| Striche und Rahmen hinzufügen | [Overbar](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
-| Terme gruppieren | [Group](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathelement/group/) |
+| Mathematik‑Text erstellen | [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) |
+| Elemente kombinieren | [IMathElement.Join](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/join/) |
+| Brüche erstellen | [IMathElement.Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) |
+| Hoch- bzw. Tiefstellung hinzufügen | [SetSuperscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
+| Funktionen hinzufügen | [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
+| Wurzeln hinzufügen | [IMathElement.Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) |
+| Grenzen hinzufügen | [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| Skripte auf der linken Seite hinzufügen | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Summen und Integrale hinzufügen | [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) |
+| Matrizen hinzufügen | [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) |
+| Gleichungsarrays hinzufügen | [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
+| Begrenzungszeichen hinzufügen | [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) |
+| Balken und Rahmen hinzufügen | [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
+| Terme gruppieren | [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) |
 
 ## **FAQ**
 
-**Kann ich eine vorhandene PowerPoint‑Gleichung bearbeiten?**
+**Kann ich eine bestehende PowerPoint‑Gleichung bearbeiten?**
 
-Ja. Öffnen Sie die Präsentation, finden Sie das Shape, das ein `MathPortion` enthält, holen Sie dessen `MathParagraph` und aktualisieren Sie die mathematischen Blöcke in diesem Absatz.
+Ja. Öffnen Sie die Präsentation, finden Sie die Form, die einen [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) enthält, rufen Sie [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/) auf und aktualisieren Sie die mathematischen Blöcke in diesem Absatz.
 
-**Werden Gleichungen als editierbare PowerPoint‑Mathematik gespeichert?**
+**Werden Gleichungen als editierbare PowerPoint‑Math gespeichert?**
 
-Ja. Beim Speichern als PPTX schreibt Aspose.Slides die Gleichung als editierbaren Office‑Mathe‑Inhalt.
+Ja. Wenn Sie zu PPTX speichern, schreibt Aspose.Slides die Gleichung als editierbaren Office‑Math‑Inhalt.
 
 **Kann ich Gleichungen nach LaTeX exportieren?**
 
-Ja. Holen Sie sich das [IMathParagraph](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathparagraph/) der Gleichung über ihr [IMathPortion](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathportion/), und rufen Sie [IMathParagraph::ToLatex](https://reference.aspose.com/slides/de/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) auf, um es direkt zu exportieren. Für ein vollständiges Beispiel siehe [Export Math Equations from Presentations in C++](/slides/de/cpp/exporting-math-equations/#export-math-equations-to-latex).
+Ja. Holen Sie das [IMathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/) einer [IMathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/), und rufen Sie [IMathParagraph::ToLatex](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) auf, um es direkt zu exportieren. Für ein vollständiges Beispiel siehe [Export Math Equations from Presentations in C++](/slides/de/cpp/exporting-math-equations/#export-math-equations-to-latex).

@@ -1,6 +1,6 @@
 ---
-title: Přidat matematické rovnice do prezentací PowerPoint v Javě
-linktitle: Matematické rovnice PowerPoint
+title: Přidání matematických rovnic do prezentací PowerPoint v Javě
+linktitle: Matematické rovnice v PowerPointu
 type: docs
 weight: 80
 url: /cs/java/powerpoint-math-equations/
@@ -17,37 +17,39 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Vkládejte a upravujte matematické rovnice v PowerPoint PPT a PPTX pomocí Aspose.Slides pro Java, s podporou OMML, ovládacích prvků formátování a přehledných ukázek kódu v Javě."
+description: "Vkládejte a upravujte matematické rovnice v PowerPoint PPT a PPTX pomocí Aspose.Slides pro Java, s podporou OMML, ovládacích prvků formátování a přehledných ukázek kódu v Java."
 ---
 ## **Přehled**
 
-PowerPoint ukládá rovnice jako Office Math Markup Language (OMML). S Aspose.Slides for Java můžete programově vytvářet stejný typ matematického obsahu: zlomky, odmocniny, funkce, limity, N‑ární operátory, matice, pole a formátované matematické bloky.
+PowerPoint ukládá rovnice jako Office Math Markup Language (OMML). S Aspose.Slides pro Java můžete programově vytvářet stejný typ matematického obsahu: zlomky, odmocniny, funkce, limity, N-ární operátory, matice, pole a formátované matematické bloky.
 
-V PowerPointu uživatelé normálně přidávají rovnice pomocí **Insert > Equation**:
+V PowerPointu uživatelé obvykle přidávají rovnice z **Insert > Equation**:
 
-![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
+![Karta Vložit v PowerPointu s vybraným příkazem Rovnice](powerpoint-math-equations_1.png)
 
 Výsledek je editovatelný matematický text na snímku:
 
-![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
+![Snímek PowerPointu obsahující editovatelnou matematickou rovnici](powerpoint-math-equations_2.png)
 
 Aspose.Slides vytváří tento matematický text pomocí tří hlavních objektů:
 
-- Matematický tvar, vytvořený pomocí [addMathShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-), je tvar, který obsahuje rovnici.
-- [MathPortion](https://reference.aspose.com/slides/cs/java/com.aspose.slides/mathportion/) ukládá matematický obsah uvnitř textového rámce tvaru.
-- [MathParagraph](https://reference.aspose.com/slides/cs/java/com.aspose.slides/mathparagraph/) obsahuje jeden nebo více objektů [MathBlock](https://reference.aspose.com/slides/cs/java/com.aspose.slides/mathblock/).
+- Matematický tvar, vytvořený pomocí [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-), je tvar, který obsahuje rovnici.
+- [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) ukládá matematický obsah do textového rámce tvaru.
+- [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/) obsahuje jeden nebo více objektů [MathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/mathblock/).
 
-Většina níže uvedených příkladů používá [MathematicalText](https://reference.aspose.com/slides/cs/java/com.aspose.slides/mathematicaltext/) a řetězení metod z [IMathElement](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/) pro stručný a čitelný kód.
+Většina příkladů níže používá [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) a řetězené metody z [IMathElement](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/) , aby byl kód stručný a čitelný.
 
-Pro scénáře exportu MathML viz [Export Math Equations from Presentations in Java](/slides/cs/java/exporting-math-equations/).
+Pro scénáře exportu MathML viz [Export rovnic Math z prezentací v Java](/slides/cs/java/exporting-math-equations/).
 
-## **Vytvořit rovnici**
+## **Vytvoření rovnice**
 
-Tento příklad vytvoří matematický tvar a přidá Pythagorovu větu:
+Tento příklad používá [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) , aby vytvořil matematický tvar a přidal Pythagorovu větu:
 
-![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
+![Rovnice c na druhou rovná se a na druhou plus b na druhou](powerpoint-math-equations_3.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -71,17 +73,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-`addMathShape` vytvoří tvar, který již obsahuje matematický odstavec. Přistupte k prvnímu `MathPortion`, získejte jeho `MathParagraph` a přidejte matematické bloky nebo matematické prvky.
+{{% alert color="info" title="Poznámka" %}}
+[addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) vytváří tvar, který již obsahuje matematický odstavec. Získejte první [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/), zavolejte [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), a přidejte matematické bloky nebo matematické elementy.
 {{% /alert %}}
 
-## **Přidat zlomky**
+## **Přidání zlomků**
 
-Použijte `divide` pro vytvoření zlomku. Styl zlomku můžete zvolit pomocí [MathFractionTypes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/mathfractiontypes/).
+Použijte [divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) , abyste vytvořili zlomek. Můžete zvolit styl zlomku pomocí [MathFractionTypes](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/).
 
-![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
+![Šikmý matematický zlomek ukazující 1 děleno x](powerpoint-math-equations_4.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -101,19 +105,23 @@ try {
 }
 ```
 
-Pro zlomek se čarou použijte `MathFractionTypes.Bar`:
+Pro svislý (stacked) zlomek použijte [MathFractionTypes.Bar](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/#Bar):
 
 ```java
+import com.aspose.slides.*;
+
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Přidat odmocniny**
+## **Přidání odmocnin**
 
-Použijte `radical` pro vytvoření druhé odmocniny, třetí odmocniny nebo jiné odmocniny. Aktuální prvek se stane základnou a argument určuje stupeň.
+Použijte [radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) , abyste vytvořili druhou odmocninu, třetí odmocninu nebo jiný kořen. Aktuální element se stane základnou a argument se stane exponentem.
 
-![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
+![Výraz n-té odmocniny s x pod znakem odmocniny](powerpoint-math-equations_5.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -133,13 +141,15 @@ try {
 }
 ```
 
-## **Přidat funkce a limity**
+## **Přidání funkcí a limit**
 
-Použijte `asArgumentOfFunction` nebo `function` pro funkce jako `sin(x)`, `log(x)` nebo vlastní názvy funkcí. Pro limity umístěte `lim` do [MathLimit](https://reference.aspose.com/slides/cs/java/com.aspose.slides/mathlimit/) nebo použijte `setLowerLimit`.
+Použijte [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) nebo [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) pro funkce jako `sin(x)`, `log(x)` nebo vlastní názvy funkcí. Pro limity vložte `lim` do [MathLimit](https://reference.aspose.com/slides/java/com.aspose.slides/mathlimit/) nebo použijte [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-).
 
-![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
+![Limit x, když x směřuje k nekonečnu](powerpoint-math-equations_8.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -160,19 +170,23 @@ try {
 }
 ```
 
-Pro vlastní název funkce udělejte název funkce aktuálním prvkem:
+Pro vlastní název funkce udělejte název funkce aktuálním elementem a zavolejte [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) s jeho argumentem:
 
 ```java
+import com.aspose.slides.*;
+
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **Přidat N‑ární operátory a integrály**
+## **Přidání N-árních operátorů a integrálů**
 
-Použijte `nary` pro součty, sjednocení, průniky a další velké operátory. Použijte `integral` pro integrály. Obě metody umožňují nastavit dolní a horní limity.
+Použijte [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) pro součty, sjednocení, průniku a další velké operátory. Použijte [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) pro integrály. Obě metody umožňují nastavit dolní a horní limity.
 
-![A summation with lower and upper limits](powerpoint-math-equations_7.png)
+![Součet s dolní a horní limitou](powerpoint-math-equations_7.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -195,22 +209,26 @@ try {
 }
 ```
 
-N‑ární operátory jsou určeny pro velké operátory s volitelnými limity. Jednoduché operátory jako `+`, `-` a `=` se obvykle přidávají jako `MathematicalText` a spojují do výrazu.
+N-ární operátory jsou pro velké operátory s volitelnými limity. Jednoduché operátory jako `+`, `-` a `=` jsou obvykle přidávány jako [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) a spojeny do výrazu.
 
-Pro integrál použijte `integral`:
+Pro integrál použijte [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-):
 
 ```java
+import com.aspose.slides.*;
+
 IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("dx").toBox());
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Přidat matice**
+## **Přidání matic**
 
-Použijte [MathMatrix](https://reference.aspose.com/slides/cs/java/com.aspose.slides/mathmatrix/) pro řádky a sloupce. Matice ve výchozím nastavení neobsahují závorky, takže je obalte, pokud potřebujete závorky, hranaté závorky nebo složené závorky.
+Použijte [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) pro řádky a sloupce. Matice ve výchozím nastavení neobsahují závorky, takže obalte matici, pokud potřebujete kulaté, hranaté nebo složené závorky.
 
-![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
+![Matematická matice se dvěma řádky a jednou prázdnou buňkou](powerpoint-math-equations_10.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -234,13 +252,15 @@ try {
 }
 ```
 
-## **Přidat pole rovnic**
+## **Přidání polí rovnic**
 
-Použijte `toMathArray`, když potřebujete zarovnané rovnice nebo vertikální zásobník výrazů.
+Použijte [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) , když potřebujete zarovnané rovnice nebo vertikální zásobník výrazů.
 
-![A vertical math array with x above y](powerpoint-math-equations_11.png)
+![Vertikální matematické pole s x nad y](powerpoint-math-equations_11.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -261,13 +281,15 @@ try {
 }
 ```
 
-## **Přidat trigonometrické funkce**
+## **Přidání trigonometrických funkcí**
 
-Použijte `asArgumentOfFunction`, když je argumentem aktuální prvek a název funkce je známý.
+Použijte [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) , když je argument aktuální element a název funkce je znám.
 
-![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
+![Trigonometrická funkce cos aplikovaná na 2x](powerpoint-math-equations_6.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -287,13 +309,15 @@ try {
 }
 ```
 
-## **Přidat dolní a horní indexy**
+## **Přidání dolních a horních indexů**
 
-Použijte pomocníky pro dolní a horní index pro indexy a mocniny. Když musí být indexy vlevo od základu, použijte `setSubSuperscriptOnTheLeft`.
+Použijte pomocníky pro dolní a horní indexy... Když musí indexy být na levé straně základny, použijte [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-).
 
-![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
+![Velké Y s levým dolním indexem 1 a horním indexem n](powerpoint-math-equations_9.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -313,13 +337,15 @@ try {
 }
 ```
 
-## **Přidat ohraničovače**
+## **Přidání oddělovačů**
 
-Použijte `enclose` pro vložení výrazu dovnitř ohraničovačů. Můžete také nastavit znak oddělovače pro výrazy obsahující několik prvků.
+Použijte [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) , aby se výraz umístil do oddělovačů. Můžete také nastavit znak oddělovače pro výrazy s více elementy.
 
-![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
+![Výraz v oddělovačích obsahující x, y a z oddělené svislými čarami](powerpoint-math-equations_13.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -342,13 +368,52 @@ try {
 }
 ```
 
-## **Přidat rámeček**
+### **Velikost a zarovnání oddělovačů**
 
-Použijte `toBorderBox`, když má být rovnice sama o sobě ohraničena.
+Předajte `true` metodě [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-), aby se závorky rozšířily kolem vysokého operandu, nebo předajte `false`, aby zůstaly v normální velikosti. Použijte [setDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) s jednou ze dvou hodnot [MathDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/mathdelimitershape/). `Centered` vycentruje závorky na matematické ose, která prochází středem rovná se. `Match` je zarovná s obsahem uvnitř. Obě nastavení ovlivňují pouze oddělovače. Výraz uvnitř zůstává stejný.
 
-![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
+Příklad umisťuje zlomek do exponentu `x`, takže výraz sahá výš nad základní čáru než pod ní. Všechny čtyři rovnice používají stejné závorky a nastavení písma.
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    for (int row = 0; row < 2; row++) {
+        for (int column = 0; column < 2; column++) {
+            IMathFraction fraction = new MathematicalText("a + b").divide("c + d");
+            IMathSuperscriptElement power = new MathematicalText("x").setSuperscript(fraction);
+            IMathDelimiter delimiter = power.enclose('(', ')');
+            delimiter.setGrowToMatchOperandHeight(row == 0);
+            delimiter.setDelimiterShape(column == 0 ? MathDelimiterShape.Centered : MathDelimiterShape.Match);
+
+            IAutoShape mathShape = slide.getShapes().addMathShape(20 + 330 * column, 20 + 120 * row, 300, 100);
+            MathPortion portion = (MathPortion) mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+            portion.getPortionFormat().setFontHeight(32);
+            IMathBlock equation = new MathematicalText("y = ").join(delimiter);
+            portion.getMathParagraph().add(equation);
+        }
+    }
+    presentation.save("delimiter-sizing.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+V PowerPointu porovnejte řádky, abyste viděli efekt růstu. V horním řádku se závorky rozšíří, aby obklopily exponent a vypadají stejně pro oba tvary. Ve spodním řádku je růst vypnutý. Menší závorky vlevo (`Centered`) jsou zarovnány s rovnítkem, zatímco ty vpravo (`Match`) jsou výše kolem výrazu.
+
+![Čtyři rovnice v PowerPointu s povoleným růstem oddělovačů nahoře a vypnutým dole, a Centered vlevo a Match vpravo](delimiter-sizing.png)
+
+## **Přidání ohraničeného rámečku**
+
+Použijte [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) , když má být rovnice sama ohraničena.
+
+![Rovnice v rámečku ukazující a na druhou rovná se b na druhou plus c na druhou](powerpoint-math-equations_12.png)
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -373,13 +438,15 @@ try {
 }
 ```
 
-## **Seskupit termíny**
+## **Seskupení termínů**
 
-Použijte `group` pro umístění znaku seskupení nad nebo pod výraz. Přidejte limitu pro označení seskupených termínů.
+Použijte [group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) , abyste umístili seskupovací znak nad nebo pod výraz. Přidejte limitu pro popisek seskupených termínů.
 
-![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
+![Výraz x plus y seskupený s popiskem libovolný text pod ním](powerpoint-math-equations_15.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -400,13 +467,15 @@ try {
 }
 ```
 
-## **Formátovat matematické prvky**
+## **Formátování matematických elementů**
 
-Používejte formátovací pomocníky jen tam, kde zvyšují srozumitelnost vzorce. Například `overbar` umístí čáru nad matematický prvek.
+Používejte pomocníky formátování jen tam, kde objasňují vzorec. Například [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--) umístí čáru nad matematický element.
 
-![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
+![Matematický výraz ABC s čarou nad ním](powerpoint-math-equations_14.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -425,35 +494,92 @@ try {
 }
 ```
 
-## **Rychlý referenční přehled**
+### **Formátování textu v existující rovnici**
+
+Pro formátování textu v celé existující rovnici projděte strom elementů každého matematického bloku. [IMathElement.getChildren](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#getChildren--) vrací pouze přímé potomky, proto jej volejte rekurzivně, abyste dosáhli textu uvnitř zlomků, skriptů, odmocnin a dalších vnořených struktur. Zkontrolujte aktuální element i jeho potomky, aby byl zahrnut počáteční element, pokud je [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/).
+
+Tento příklad předpokládá, že `input.pptx` obsahuje rovnici jako `z = xᵢ / ∛y`, kde zlomek má dolní index v čitateli a odmocninu ve jmenovateli. Zpracování jen elementů nejvyšší úrovně bloku by přehlédlo text uvnitř zlomku. Příklad najde matematické části v textových rámcích snímků, získá jejich bloky pomocí [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), a použije [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) , aby nastavilo velikost písma na 28 bodů u každého textového elementu pomocí metody [getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/#getFormat--) .
+
+```java
+import com.aspose.slides.*;
+
+class MathTextFormatter {
+    void formatMathText(IMathElement element) {
+        if (element instanceof MathematicalText) {
+            MathematicalText text = (MathematicalText) element;
+            text.getFormat().setFontHeight(28);
+        }
+
+        for (IMathElement child : element.getChildren()) {
+            formatMathText(child);
+        }
+    }
+}
+
+MathTextFormatter formatter = new MathTextFormatter();
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    if (portion instanceof IMathPortion) {
+                        IMathPortion mathPortion = (IMathPortion) portion;
+                        for (IMathBlock block : mathPortion.getMathParagraph()) {
+                            formatter.formatMathText(block);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    presentation.save("formatted-equations.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Uložená prezentace obsahuje aktualizované formátování textu na každé úrovni každé zpracované rovnice, přičemž zachovává její textový obsah a matematickou strukturu.
+
+## **Rychlá referenční karta**
 
 | Úkol | Hlavní API |
 | --- | --- |
-| Vytvořit matematický text | [MathematicalText](https://reference.aspose.com/slides/cs/java/com.aspose.slides/mathematicaltext/) |
-| Kombinovat prvky | [IMathElement.join](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
-| Vytvořit zlomky | [IMathElement.divide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
-| Přidat horní nebo dolní index | [setSuperscript](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-),[setSubscript](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
-| Přidat funkce | [function](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-),[asArgumentOfFunction](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
-| Přidat odmocniny | [IMathElement.radical](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
-| Přidat limity | [setLowerLimit](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-),[setUpperLimit](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
-| Přidat levostranné indexy | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
-| Přidat součty a integrály | [nary](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-),[integral](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
-| Přidat matice | [MathMatrix](https://reference.aspose.com/slides/cs/java/com.aspose.slides/mathmatrix/) |
-| Přidat pole rovnic | [toMathArray](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#toMathArray--) |
-| Přidat ohraničovače | [enclose](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#enclose-char-char-) |
-| Přidat čáry a rámečky | [overbar](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#overbar--),[toBorderBox](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#toBorderBox--) |
-| Seskupit termíny | [group](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathelement/#group-char-int-int-) |
+| Vytvořit matematický text | [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) |
+| Kombinovat elementy | [IMathElement.join](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
+| Vytvořit zlomky | [IMathElement.divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
+| Přidat horní nebo dolní index | [setSuperscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
+| Přidat funkce | [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
+| Přidat odmocniny | [IMathElement.radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
+| Přidat limity | [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
+| Přidat skripty na levé straně | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| Přidat součty a integrály | [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| Přidat matice | [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) |
+| Přidat pole rovnic | [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) |
+| Přidat oddělovače | [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) |
+| Přidat čáry a rámečky | [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) |
+| Seskupit termíny | [group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) |
 
 ## **Často kladené otázky**
 
 **Mohu upravit existující rovnici v PowerPointu?**
 
-Ano. Otevřete prezentaci, najděte tvar, který obsahuje `MathPortion`, získejte jeho `MathParagraph` a aktualizujte matematické bloky v tomto odstavci.
+Ano. Otevřete prezentaci, najděte tvar, který obsahuje [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/), zavolejte [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), a aktualizujte matematické bloky v tom odstavci.
 
 **Ukládají se rovnice jako editovatelná matematika v PowerPointu?**
 
-Ano. Při uložení do PPTX Aspose.Slides zapíše rovnici jako editovatelný obsah Office Math.
+Ano. Při uložení do PPTX Aspose.Slides zapíše rovnici jako editovatelný Office matematický obsah.
 
 **Mohu exportovat rovnice do LaTeXu?**
 
-Ano. Získejte [IMathParagraph](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathparagraph/) z jeho [IMathPortion](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathportion/) a zavolejte [IMathParagraph.toLatex](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imathparagraph/#toLatex--) pro přímý export. Kompletní příklad najdete v [Export Math Equations from Presentations in Java](/slides/cs/java/exporting-math-equations/#export-math-equations-to-latex).
+Ano. Získejte [IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/) rovnice z jejího [IMathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/), a zavolejte [IMathParagraph.toLatex](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#toLatex--) , abyste jej exportovali přímo. Pro kompletní příklad viz [Export rovnic Math z prezentací v Java](/slides/cs/java/exporting-math-equations/#export-math-equations-to-latex).

@@ -7,45 +7,45 @@ url: /id/php-java/powerpoint-math-equations/
 keywords:
 - persamaan matematika
 - simbol matematika
-- rumus matematika
+- formula matematika
 - teks matematika
-- menambahkan persamaan matematika
-- menambahkan simbol matematika
-- menambahkan rumus matematika
-- menambahkan teks matematika
+- tambahkan persamaan matematika
+- tambahkan simbol matematika
+- tambahkan formula matematika
+- tambahkan teks matematika
 - PowerPoint
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Menyisipkan dan mengedit persamaan matematika di PowerPoint PPT dan PPTX dengan Aspose.Slides untuk PHP via Java, mendukung OMML, kontrol pemformatan, dan contoh kode PHP yang jelas."
+description: "Menyisipkan dan mengedit persamaan matematika di PowerPoint PPT dan PPTX dengan Aspose.Slides untuk PHP via Java, mendukung OMML, kontrol pemformatan, serta contoh kode PHP yang jelas."
 ---
 ## **Gambaran Umum**
 
-PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides untuk PHP via Java, Anda dapat membuat konten matematika yang sama secara programatis: pecahan, radikal, fungsi, batas, operator N-ary, matriks, array, dan blok matematika yang diformat.
+PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides untuk PHP via Java, Anda dapat membuat konten matematika yang sama secara programatis: pecahan, radikal, fungsi, limit, operator N-ary, matriks, array, dan blok matematika yang diformat.
 
-In PowerPoint, pengguna biasanya menambahkan persamaan dari **Insert > Equation**:
+Di PowerPoint, pengguna biasanya menambahkan persamaan melalui **Insert > Equation**:
 
 ![Tab Insert PowerPoint dengan perintah Equation dipilih](powerpoint-math-equations_1.png)
 
-Hasilnya adalah teks matematika yang dapat diedit di slide:
+Hasilnya adalah teks matematika yang dapat diedit pada slide:
 
 ![Sebuah slide PowerPoint yang berisi persamaan matematika yang dapat diedit](powerpoint-math-equations_2.png)
 
 Aspose.Slides membangun teks matematika tersebut melalui tiga objek utama:
 
-- Sebuah bentuk matematika, dibuat dengan [addMathShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/#addMathShape), adalah bentuk yang berisi persamaan.
-- [MathPortion](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathportion/) menyimpan konten matematika di dalam bingkai teks bentuk.
-- [MathParagraph](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathparagraph/) berisi satu atau lebih objek [MathBlock](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathblock/).
+- Sebuah bentuk matematika, dibuat dengan [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape), adalah bentuk yang berisi persamaan.
+- [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) menyimpan konten matematika di dalam bingkai teks bentuk.
+- [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) berisi satu atau beberapa objek [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/).
 
-Sebagian besar contoh di bawah menggunakan [MathematicalText](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathematicaltext/) dan metode fluent dari [MathElementBase](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) untuk menjaga kode tetap singkat dan mudah dibaca.
+Sebagian besar contoh di bawah menggunakan [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) dan metode fluently dari [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) untuk menjaga kode tetap singkat dan mudah dibaca.
 
 Untuk skenario ekspor MathML, lihat [Ekspor Persamaan Matematika dari Presentasi dalam PHP via Java](/slides/id/php-java/exporting-math-equations/).
 
 ## **Buat Persamaan**
 
-Contoh ini membuat bentuk matematika dan menambahkan teorema Pythagoras:
+Contoh ini menggunakan [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) untuk membuat bentuk matematika dan menambahkan teorema Pythagoras:
 
-![Persamaan c kuadrat sama dengan a kuadrat ditambah b kuadrat](powerpoint-math-equations_3.png)
+![Persamaan c kuadrat sama dengan a kuadrat plus b kuadrat](powerpoint-math-equations_3.png)
 
 ```php
 $presentation = new Presentation();
@@ -73,13 +73,13 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-`addMathShape` membuat sebuah bentuk yang sudah berisi paragraf matematika. Akses `MathPortion` pertama, dapatkan `MathParagraph`-nya, dan tambahkan blok matematika atau elemen matematika ke dalamnya.
+{{% alert color="info" title="Note" %}}
+[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) membuat sebuah bentuk yang sudah berisi paragraf matematika. Akses [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) pertama, panggil [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), dan tambahkan blok matematika atau elemen matematika ke dalamnya.
 {{% /alert %}}
 
 ## **Tambahkan Pecahan**
 
-Gunakan [`divide`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) untuk membuat pecahan. Anda dapat memilih gaya pecahan dengan [MathFractionTypes](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathfractiontypes/).
+Gunakan [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#divide) untuk membuat sebuah pecahan. Anda dapat memilih gaya pecahan dengan [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/).
 
 ![Sebuah pecahan matematika miring yang menunjukkan satu dibagi x](powerpoint-math-equations_4.png)
 
@@ -105,7 +105,7 @@ try {
 }
 ```
 
-Untuk pecahan bertumpuk, gunakan `MathFractionTypes::Bar`:
+Untuk pecahan bertumpuk, gunakan [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar):
 
 ```php
 $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFractionTypes::Bar);
@@ -113,7 +113,7 @@ $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFraction
 
 ## **Tambahkan Radikal**
 
-Gunakan [`radical`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) untuk membuat akar kuadrat, akar kubik, atau akar lainnya. Elemen saat ini menjadi basis, dan argumen menjadi pangkat.
+Gunakan [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) untuk membuat akar kuadrat, akar kubik, atau akar lainnya. Elemen saat ini menjadi basis, dan argumen menjadi derajatnya.
 
 ![Ekspresi radikal akar ke-n dengan x di bawah tanda radikal](powerpoint-math-equations_5.png)
 
@@ -139,11 +139,11 @@ try {
 }
 ```
 
-## **Tambahkan Fungsi dan Batas**
+## **Tambahkan Fungsi dan Limit**
 
-Gunakan [`asArgumentOfFunction`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) atau [`function`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi khusus. Untuk batas, letakkan `lim` dalam [MathLimit](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathlimit/) atau gunakan [`setLowerLimit`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/).
+Gunakan [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) atau [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi khusus. Untuk limit, letakkan `lim` dalam [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) atau gunakan [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit).
 
-![Batas x saat x mendekati tak terhingga](powerpoint-math-equations_8.png)
+![Limit x ketika x mendekati tak terhingga](powerpoint-math-equations_8.png)
 
 ```php
 $presentation = new Presentation();
@@ -168,7 +168,7 @@ try {
 }
 ```
 
-Untuk nama fungsi khusus, jadikan nama fungsi sebagai elemen saat ini:
+Untuk nama fungsi khusus, jadikan nama fungsi sebagai elemen saat ini dan panggil [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) dengan argumennya:
 
 ```php
 $customFunction = (new MathematicalText("f"))->function("x + 1");
@@ -176,9 +176,9 @@ $customFunction = (new MathematicalText("f"))->function("x + 1");
 
 ## **Tambahkan Operator N-ary dan Integral**
 
-Gunakan [`nary`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) untuk penjumlahan, union, irisan, dan operator besar lainnya. Gunakan [`integral`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) untuk integral. Kedua metode memungkinkan Anda mengatur batas bawah dan atas.
+Gunakan [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) untuk penjumlahan, unifikasi, irisan, dan operator besar lainnya. Gunakan [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) untuk integral. Kedua metode memungkinkan Anda mengatur limit bawah dan atas.
 
-![Sebuah penjumlahan dengan batas bawah dan atas](powerpoint-math-equations_7.png)
+![Sebuah penjumlahan dengan limit bawah dan atas](powerpoint-math-equations_7.png)
 
 ```php
 $presentation = new Presentation();
@@ -205,9 +205,9 @@ try {
 }
 ```
 
-Operator N-ary untuk operator besar dengan batas opsional. Operator sederhana seperti `+`, `-`, dan `=` biasanya ditambahkan sebagai `MathematicalText` dan digabungkan ke dalam ekspresi.
+Operator N-ary digunakan untuk operator besar dengan limit opsional. Operator sederhana seperti `+`, `-`, dan `=` biasanya ditambahkan sebagai [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) dan digabungkan ke dalam ekspresi.
 
-Untuk integral, gunakan `integral`:
+Untuk integral, gunakan [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral):
 
 ```php
 $integralBase = (new MathematicalText("x"))->join((new MathematicalText("dx"))->toBox());
@@ -216,7 +216,7 @@ $integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
 
 ## **Tambahkan Matriks**
 
-Gunakan [MathMatrix](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathmatrix/) untuk baris dan kolom. Matriks secara default tidak menyertakan kurung, jadi balut matriks dengan tanda kurung, siku, atau kurawal bila diperlukan.
+Gunakan [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) untuk baris dan kolom. Matriks secara default tidak menyertakan kurung, jadi bungkus matriks dengan tanda kurung, kurung siku, atau kurung kurawal bila diperlukan.
 
 ![Matriks matematika dua baris dengan satu sel kosong](powerpoint-math-equations_10.png)
 
@@ -248,7 +248,7 @@ try {
 
 ## **Tambahkan Array Persamaan**
 
-Gunakan [`toMathArray`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) ketika Anda membutuhkan persamaan yang disejajarkan atau tumpukan vertikal ekspresi.
+Gunakan [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray) ketika Anda membutuhkan persamaan yang rata atau susunan vertikal ekspresi.
 
 ![Array matematika vertikal dengan x di atas y](powerpoint-math-equations_11.png)
 
@@ -277,7 +277,7 @@ try {
 
 ## **Tambahkan Fungsi Trigonometri**
 
-Gunakan [`asArgumentOfFunction`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) ketika argumen adalah elemen saat ini dan nama fungsi diketahui.
+Gunakan [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) ketika argumen adalah elemen saat ini dan nama fungsi sudah diketahui.
 
 ![Fungsi trigonometri cos diterapkan pada 2x](powerpoint-math-equations_6.png)
 
@@ -305,9 +305,9 @@ try {
 
 ## **Tambahkan Subskrip dan Superskrip**
 
-Gunakan pembantu subskrip dan superskrip untuk indeks dan pangkat. Ketika indeks harus muncul di sisi kiri basis, gunakan [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/).
+Gunakan pembantu subskrip dan superskrip untuk indeks dan pangkat. Ketika indeks harus muncul di sisi kiri basis, gunakan [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
-![Huruf Y kapital dengan subskrip 1 di sisi kiri dan superskrip n](powerpoint-math-equations_9.png)
+![Huruf Y kapital dengan subskrip sisi kiri 1 dan superskrip n](powerpoint-math-equations_9.png)
 
 ```php
 $presentation = new Presentation();
@@ -333,9 +333,9 @@ try {
 
 ## **Tambahkan Pembatas**
 
-Gunakan [`enclose`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) untuk menempatkan ekspresi di dalam pembatas. Anda juga dapat mengatur karakter pemisah untuk ekspresi pembatas yang berisi beberapa elemen.
+Gunakan [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) untuk menempatkan ekspresi di dalam pembatas. Anda juga dapat menentukan karakter pemisah untuk ekspresi pembatas yang berisi beberapa elemen.
 
-![Ekspresi pembatas yang berisi x, y, dan z dipisahkan oleh batang vertikal](powerpoint-math-equations_13.png)
+![Ekspresi pembatas yang berisi x, y, dan z dipisahkan oleh bilah vertikal](powerpoint-math-equations_13.png)
 
 ```php
 $presentation = new Presentation();
@@ -362,11 +362,53 @@ try {
 }
 ```
 
+### **Ukuran dan Penjajaran Pembatas**
+
+Berikan `true` ke [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) agar tanda kurung memperbesar sekitar operand yang tinggi, atau berikan `false` untuk mempertahankan ukuran normalnya. Gunakan [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) dengan salah satu dari dua nilai [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/). `Centered` menempatkan tanda kurung di tengah sumbu matematika, yang melintasi tengah tanda sama dengan. `Match` menyelaraskan mereka dengan konten yang dibungkus. Kedua pengaturan hanya memengaruhi pembatas. Ekspresi di dalam tetap sama.
+
+Contoh menempatkan pecahan di eksponen `x` sehingga ekspresi menjulur lebih tinggi di atas garis dasar dibandingkan di bawahnya. Semua empat persamaan menggunakan tanda kurung dan pengaturan font yang sama.
+
+```php
+use aspose\slides\MathDelimiterShape;
+use aspose\slides\MathematicalText;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $opening = new Java("java.lang.Character", "(");
+    $closing = new Java("java.lang.Character", ")");
+    for ($row = 0; $row < 2; $row++) {
+        for ($column = 0; $column < 2; $column++) {
+            $fraction = (new MathematicalText("a + b"))->divide("c + d");
+            $power = (new MathematicalText("x"))->setSuperscript($fraction);
+            $delimiter = $power->enclose($opening, $closing);
+            $delimiter->setGrowToMatchOperandHeight($row === 0);
+            $delimiter->setDelimiterShape($column === 0 ? MathDelimiterShape::Centered : MathDelimiterShape::Match);
+
+            $mathShape = $slide->getShapes()->addMathShape(20 + 330 * $column, 20 + 120 * $row, 300, 100);
+            $portion = $mathShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+            $portion->getPortionFormat()->setFontHeight(32);
+            $equation = (new MathematicalText("y = "))->join($delimiter);
+            $portion->getMathParagraph()->add($equation);
+        }
+    }
+    $presentation->save("delimiter-sizing.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Di PowerPoint, bandingkan baris untuk melihat efek pertumbuhan. Pada baris atas, tanda kurung memperbesar untuk membungkus eksponen dan tampak serupa pada kedua bentuk. Pada baris bawah, pertumbuhan dimatikan. Tanda kurung yang lebih kecil di kiri (`Centered`) sejajar dengan tanda sama dengan, sedangkan yang di kanan (`Match`) berada lebih tinggi di sekitar ekspresi.
+
+![Empat persamaan di PowerPoint dengan pertumbuhan pembatas diaktifkan di atas dan dinonaktifkan di bawah, serta Centered di kiri dan Match di kanan](delimiter-sizing.png)
+
 ## **Tambahkan Kotak Bingkai**
 
-Gunakan [`toBorderBox`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) ketika persamaan itu sendiri harus dibingkai.
+Gunakan [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) ketika persamaan itu sendiri harus dibingkai.
 
-![Persamaan dalam kotak yang menunjukkan a kuadrat sama dengan b kuadrat ditambah c kuadrat](powerpoint-math-equations_12.png)
+![Persamaan dalam kotak yang menunjukkan a kuadrat sama dengan b kuadrat plus c kuadrat](powerpoint-math-equations_12.png)
 
 ```php
 $presentation = new Presentation();
@@ -397,7 +439,7 @@ try {
 
 ## **Kelompokkan Istilah**
 
-Gunakan [`group`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) untuk menempatkan karakter pengelompokan di atas atau di bawah sebuah ekspresi. Tambahkan batas untuk memberi label pada istilah yang dikelompokkan.
+Gunakan [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) untuk menempatkan karakter pengelompokan di atas atau di bawah sebuah ekspresi. Tambahkan limit untuk memberi label pada istilah yang dikelompokkan.
 
 ![Ekspresi x plus y dikelompokkan dengan label teks apa saja di bawahnya](powerpoint-math-equations_15.png)
 
@@ -426,7 +468,7 @@ try {
 
 ## **Format Elemen Matematika**
 
-Gunakan pembantu pemformatan hanya bila mereka memperjelas formula. Misalnya, [`overbar`](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) menempatkan garis di atas elemen matematika.
+Gunakan pembantu format hanya ketika mereka memperjelas rumus. Misalnya, [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) menempatkan garis di atas elemen matematika.
 
 ![Ekspresi matematika ABC dengan overbar](powerpoint-math-equations_14.png)
 
@@ -451,35 +493,97 @@ try {
 }
 ```
 
+### **Format Teks dalam Persamaan yang Ada**
+
+Untuk memformat teks di seluruh persamaan yang ada, telusuri pohon elemen setiap blok matematika. [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) mengembalikan hanya anak langsung, sehingga panggil secara rekursif untuk mencapai teks di dalam pecahan, skrip, radikal, dan struktur bersarang lainnya. Periksa elemen saat ini serta anak‑anaknya untuk menyertakan elemen awal ketika itu adalah [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/).
+
+Contoh ini mengasumsikan bahwa `input.pptx` berisi persamaan seperti `z = xᵢ / ∛y`, dengan pecahan yang memiliki subskrip di pembilang dan radikal di penyebut. Memproses hanya elemen tingkat atas blok akan melewatkan teks di dalam pecahan. Contoh menemukan bagian matematika dalam bingkai teks slide, mengakses bloknya melalui [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), dan menggunakan [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) untuk mengatur ukuran font menjadi 28 poin melalui metode [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) setiap elemen teks.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+function formatMathText($element, $mathematicalTextClass) {
+    if (java_instanceof($element, $mathematicalTextClass)) {
+        $element->getFormat()->setFontHeight(28);
+    }
+
+    foreach ($element->getChildren() as $child) {
+        formatMathText($child, $mathematicalTextClass);
+    }
+}
+
+$mathematicalTextClass = new JavaClass("com.aspose.slides.MathematicalText");
+$autoShapeClass = new JavaClass("com.aspose.slides.IAutoShape");
+$mathPortionClass = new JavaClass("com.aspose.slides.IMathPortion");
+
+$presentation = new Presentation("input.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        for ($shapeIndex = 0; $shapeIndex < java_values($slide->getShapes()->size()); $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, $autoShapeClass)) {
+                continue;
+            }
+
+            $textFrame = $shape->getTextFrame();
+            if (java_is_null($textFrame)) {
+                continue;
+            }
+
+            for ($paragraphIndex = 0; $paragraphIndex < java_values($textFrame->getParagraphs()->getCount()); $paragraphIndex++) {
+                $paragraph = $textFrame->getParagraphs()->get_Item($paragraphIndex);
+                for ($portionIndex = 0; $portionIndex < java_values($paragraph->getPortions()->getCount()); $portionIndex++) {
+                    $portion = $paragraph->getPortions()->get_Item($portionIndex);
+                    if (java_instanceof($portion, $mathPortionClass)) {
+                        for ($blockIndex = 0; $blockIndex < java_values($portion->getMathParagraph()->getCount()); $blockIndex++) {
+                            $block = $portion->getMathParagraph()->get_Item($blockIndex);
+                            formatMathText($block, $mathematicalTextClass);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    $presentation->save("formatted-equations.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Presentasi yang disimpan berisi pemformatan teks yang diperbarui pada setiap level masing‑masing persamaan yang diproses, sambil mempertahankan konten teks dan struktur matematika.
+
 ## **Referensi Cepat**
 
 | Tugas | API Utama |
 | --- | --- |
-| Buat teks matematika | [MathematicalText](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathematicaltext/) |
-| Gabungkan elemen | [join](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) |
-| Buat pecahan | [divide](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) |
-| Tambah superskrip atau subskrip | [setSuperscript](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) |
-| Tambah fungsi | [function](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) |
-| Tambah radikal | [radical](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) |
-| Tambah batas | [setLowerLimit](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) |
-| Tambah skrip sisi kiri | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) |
-| Tambah penjumlahan dan integral | [nary](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) |
-| Tambah matriks | [MathMatrix](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathmatrix/) |
-| Tambah array persamaan | [toMathArray](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) |
-| Tambah pembatas | [enclose](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) |
-| Tambah bar dan bingkai | [overbar](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) |
-| Kelompokkan istilah | [group](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathelementbase/) |
+| Buat teks matematika | [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) |
+| Gabungkan elemen | [join](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Buat pecahan | [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Tambahkan superskrip atau subskrip | [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Tambahkan fungsi | [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Tambahkan radikal | [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Tambahkan limit | [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Tambahkan skrip sisi kiri | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Tambahkan penjumlahan dan integral | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Tambahkan matriks | [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) |
+| Tambahkan array persamaan | [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Tambahkan pembatas | [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Tambahkan bar dan bingkai | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Kelompokkan istilah | [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 
 ## **FAQ**
 
-**Apakah saya dapat mengedit persamaan PowerPoint yang ada?**
+**Bisakah saya mengedit persamaan PowerPoint yang ada?**
 
-Ya. Buka presentasi, temukan bentuk yang berisi `MathPortion`, dapatkan `MathParagraph`-nya, dan perbarui blok matematika di paragraf tersebut.
+Ya. Buka presentasi, temukan bentuk yang berisi [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), panggil [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), dan perbarui blok matematika dalam paragraf tersebut.
 
 **Apakah persamaan disimpan sebagai matematika PowerPoint yang dapat diedit?**
 
 Ya. Saat Anda menyimpan ke PPTX, Aspose.Slides menulis persamaan sebagai konten Office math yang dapat diedit.
 
-**Apakah saya dapat mengekspor persamaan ke LaTeX?**
+**Bisakah saya mengekspor persamaan ke LaTeX?**
 
-Ya. Dapatkan [MathParagraph](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathparagraph/) persamaan dari [MathPortion](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathportion/), dan panggil [MathParagraph::toLatex](https://reference.aspose.com/slides/id/php-java/aspose.slides/mathparagraph/#toLatex) untuk mengekspornya langsung. Untuk contoh lengkap, lihat [Ekspor Persamaan Matematika dari Presentasi dalam PHP via Java](/slides/id/php-java/exporting-math-equations/#export-math-equations-to-latex).
+Ya. Dapatkan [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) persamaan dari [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), dan panggil [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) untuk mengekspornya secara langsung. Untuk contoh lengkap, lihat [Ekspor Persamaan Matematika dari Presentasi dalam PHP via Java](/slides/id/php-java/exporting-math-equations/#export-math-equations-to-latex).
