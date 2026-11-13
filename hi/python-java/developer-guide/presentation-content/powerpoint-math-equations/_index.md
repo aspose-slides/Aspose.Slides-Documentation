@@ -18,33 +18,33 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java का उपयोग करके PowerPoint PPT और PPTX में गणितीय समीकरण डालें और संपादित करें, OMML का समर्थन, स्वरूपण नियंत्रण, और स्पष्ट Python कोड नमूने प्रदान करता है।"
+description: "Aspose.Slides for Python via Java का उपयोग करके PowerPoint PPT और PPTX में गणितीय समीकरण सम्मिलित और संपादित करें, OMML का समर्थन, स्वरूपण नियंत्रण, और स्पष्ट Python कोड नमूने प्रदान करता है।"
 ---
 ## **अवलोकन**
 
-PowerPoint समीकरणों को Office Math Markup Language (OMML) के रूप में संग्रहीत करता है। Aspose.Slides for Python via Java के साथ, आप प्रोग्रामेटिक रूप से समान प्रकार की गणितीय सामग्री बना सकते हैं: भिन्न, मूल, फ़ंक्शन, सीमा, N-ary ऑपरेटर, मैट्रिस, एरे और स्वरूपित गणित ब्लॉक्स।
+PowerPoint समीकरणों को Office Math Markup Language (OMML) के रूप में संग्रहीत करता है। Aspose.Slides for Python via Java के साथ, आप प्रोग्रामेटिक रूप से समान प्रकार की गणितीय सामग्री बना सकते हैं: भिन्न, मूल, फ़ंक्शन, सीमा, N-ary ऑपरेटर, मैट्रिक्स, एरे और स्वरूपित गणित ब्लॉक्स।
 
-PowerPoint में, उपयोगकर्ता सामान्यतः समीकरण **Insert > Equation** से जोड़ते हैं:
+PowerPoint में, उपयोगकर्ता सामान्यतः **Insert > Equation** से समीकरण जोड़ते हैं:
 
 ![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
 
-परिणाम स्लाइड पर संपादन योग्य गणितीय पाठ है:
+परिणाम स्लाइड पर संपादन योग्य गणितीय पाठ होता है:
 
 ![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
 
-Aspose.Slides उस गणितीय पाठ को तीन मुख्य ऑब्जेक्ट्स के माध्यम से बनाता है:
+Aspose.Slides उस गणितीय पाठ को तीन मुख्य वस्तुओं के माध्यम से बनाता है:
 
-- एक गणितीय आकार, जो [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) से बनाया गया है, वह आकार है जिसमें समीकरण रहता है।
+- गणितीय आकार, जिसे [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) से बनाया जाता है, वह आकार है जो समीकरण को रखता है।
 - [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) आकार के टेक्स्ट फ्रेम के भीतर गणितीय सामग्री संग्रहीत करता है।
-- [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) एक या अधिक [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) ऑब्जेक्ट्स को रखता है।
+- [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) एक या अधिक [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) वस्तुओं को सम्मिलित करता है।
 
-नीचे के अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) और [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) की फ़्लुएंट मेथड्स का उपयोग करते हैं ताकि कोड छोटा और पढ़ने योग्य रहे।
+नीचे के अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) और [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) की प्रवाहशील विधियों का उपयोग करते हैं ताकि कोड छोटा और पढ़ने योग्य रहे।
 
-MathML निर्यात परिदृश्यों के लिए देखें [Python में प्रस्तुतियों से गणितीय समीकरण निर्यात](/slides/hi/python-java/exporting-math-equations/)।
+MathML निर्यात परिदृश्यों के लिए, देखें [Export Math Equations from Presentations in Python](/slides/hi/python-java/exporting-math-equations/)।
 
 ## **समीकरण बनाएं**
 
-यह उदाहरण [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) का उपयोग करके एक गणितीय आकार बनाता है और पाइथागोरस प्रमेय जोड़ता है:
+यह उदाहरण [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) का उपयोग करके एक गणितीय आकार बनाता है और पायथागोरस प्रमेय जोड़ता है:
 
 ![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
@@ -76,12 +76,12 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) एक ऐसा आकार बनाता है जिसमें पहले से ही एक गणितीय पैराग्राफ शामिल होता है। पहला [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) एक्सेस करें, [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) को कॉल करें, और उसमें गणितीय ब्लॉक्स या तत्व जोड़ें।
+[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) एक आकार बनाता है जिसमें पहले से ही एक गणितीय अनुच्छेद होता है। पहले [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) तक पहुँचें, [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) को कॉल करें, और उसमें गणितीय ब्लॉक या गणितीय तत्व जोड़ें।
 {{% /alert %}}
 
 ## **भिन्न जोड़ें**
 
-भिन्न बनाने के लिए [divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) का उपयोग करें। आप [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/) के साथ एक भिन्न शैली चुन सकते हैं।
+[divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) का उपयोग करके एक भिन्न बनाएँ। आप [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/) के साथ भिन्न शैली चुन सकते हैं।
 
 ![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
@@ -111,7 +111,7 @@ finally:
     presentation.dispose()
 ```
 
-स्टैक्ड भिन्न के लिए, [MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar) का उपयोग करें:
+एक स्तरीय भिन्न के लिए, [MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar) का उपयोग करें:
 
 ```python
 import jpype
@@ -125,9 +125,9 @@ from asposeslides.api import MathFractionTypes, MathematicalText
 stacked_fraction = MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar)
 ```
 
-## **मूल जोड़ें**
+## **वर्गमूल जोड़ें**
 
-एक वर्गमूल, घनमूल या अन्य मूल बनाने के लिए [radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) का उपयोग करें। वर्तमान तत्व आधार बन जाता है, और तर्क डिग्री बन जाता है।
+[radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) का उपयोग करके वर्गमूल, घनमूल या अन्य मूल बनाएँ। वर्तमान तत्व आधार बन जाता है, और तर्क डिग्री बन जाता है।
 
 ![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
@@ -157,9 +157,9 @@ finally:
     presentation.dispose()
 ```
 
-## **फ़ंक्शन और सीमाएं जोड़ें**
+## **फ़ंक्शन और सीमा जोड़ें**
 
-`sin(x)`, `log(x)` या कस्टम फ़ंक्शन नामों जैसे फ़ंक्शन के लिए [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) या [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) का उपयोग करें। सीमाओं के लिए, `lim` को एक [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) में रखें या [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit) का उपयोग करें।
+[asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) या [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) का उपयोग फ़ंक्शन जैसे `sin(x)`, `log(x)` या कस्टम फ़ंक्शन नामों के लिए करें। सीमाओं के लिए, `lim` को एक [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) में रखें या [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit) का उपयोग करें।
 
 ![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
@@ -203,9 +203,9 @@ from asposeslides.api import MathematicalText
 custom_function = MathematicalText("f").function("x + 1")
 ```
 
-## **N-ary ऑपरेटर और इंटीग्रल जोड़ें**
+## **N-ary ऑपरेटर और समाकल जोड़ें**
 
-समिश्रण, संघ, प्रतिच्छेद और अन्य बड़े ऑपरेटरों के लिए [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) का उपयोग करें। इंटीग्रल के लिए [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) का उपयोग करें। दोनों मेथड नीचे और ऊपर की सीमाएं सेट करने की अनुमति देते हैं।
+[nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) का उपयोग योग, संघ, छेदन और अन्य बड़े ऑपरेटरों के लिए करें। समाकलों के लिए, [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) का उपयोग करें। दोनों विधियों से आप निचली और ऊपरी सीमाएँ सेट कर सकते हैं।
 
 ![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
@@ -238,9 +238,9 @@ finally:
     presentation.dispose()
 ```
 
-N-ary ऑपरेटर बड़े ऑपरेटरों के लिए होते हैं जिनमें वैकल्पिक सीमाएं हो सकती हैं। सरल ऑपरेटर जैसे `+`, `-`, `=` सामान्यतः [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) के रूप में जोड़े जाते हैं और अभिव्यक्ति में सम्मिलित होते हैं।
+N-ary ऑपरेटर बड़े ऑपरेटरों के लिए होते हैं जिनमें वैकल्पिक सीमाएँ हो सकती हैं। सामान्य ऑपरेटर जैसे `+`, `-`, और `=` आमतौर पर [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) के रूप में जोड़ते हैं और अभिव्यक्ति में सम्मिलित होते हैं।
 
-इंटीग्रल के लिए, [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) का उपयोग करें:
+समाकल के लिए, [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) का उपयोग करें:
 
 ```python
 import jpype
@@ -256,9 +256,9 @@ integral_base = MathematicalText("x").join(differential)
 integral = integral_base.integral(MathIntegralTypes.Simple, "0", "1")
 ```
 
-## **मैट्रिस जोड़ें**
+## **मैट्रिक्स जोड़ें**
 
-पंक्तियों और स्तंभों के लिए [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) का उपयोग करें। मैट्रिस में डिफ़ॉल्ट रूप से कोष्ठक नहीं होते, इसलिए जब आपको कोष्ठक, ब्रेस या कर्ली ब्रैकेट की आवश्यकता हो तो मैट्रिस को घेरें।
+[MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) का उपयोग पंक्तियों और स्तंभों के लिए करें। डिफ़ॉल्ट रूप से मैट्रिक्स में कोष्ठक नहीं होते, इसलिए जब आपको कोष्ठक, वर्ग कोष्ठक या कर्ली ब्रैकेट की आवश्यकता हो तो मैट्रिक्स को इनके भीतर रखें।
 
 ![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
@@ -300,7 +300,7 @@ finally:
 
 ## **समीकरण एरे जोड़ें**
 
-जब आपको संरेखित समीकरण या ऊर्ध्वाधर अभिव्यक्तियों का स्टैक चाहिए, तो [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) का उपयोग करें।
+जब आपको संरेखित समीकरण या अभिव्यक्तियों का ऊर्ध्वाधर स्टैक चाहिए, तो [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) का उपयोग करें।
 
 ![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
@@ -330,11 +330,11 @@ finally:
     presentation.dispose()
 ```
 
-### **एरे को आसपास के तत्वों के साथ संरेखित करें**
+### **परिधीय तत्वों के साथ एरे को संरेखित करें**
 
-[setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) एरे की वर्टिकल संरेखण को उसके बगल के गणितीय तत्वों के सापेक्ष नियंत्रित करता है। नीचे का उदाहरण पहली पंक्ति, एरे के केंद्र और अंतिम पंक्ति के साथ संरेखण की तुलना करता है।
+[setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) एरे की ऊर्ध्वाधर संरेखण को उसके बगल के गणितीय तत्वों के सापेक्ष नियंत्रित करता है। नीचे का उदाहरण पहली पंक्ति, एरे के केंद्र, और अंतिम पंक्ति के साथ संरेखण की तुलना करता है।
 
-निम्नलिखित उदाहरण तीन समान एरे बनाता है, प्रत्येक में तीन पंक्तियां और पड़ोसी तत्व `A=` तथा `=B` हैं। सभी गणितीय पाठ Cambria Math पर 24 पॉइंट का है। केवल एरे का संरेखण बदलता है।
+निम्न उदाहरण तीन समान एरे बनाता है, प्रत्येक में तीन पंक्तियाँ और आस-पास के तत्व `A=` और `=B` होते हैं। सभी गणितीय पाठ Cambria Math 24 पॉइंट में उपयोग करता है। केवल एरे संरेखण बदलता है।
 
 ```python
 import jpype
@@ -388,17 +388,17 @@ finally:
     presentation.dispose()
 ```
 
-निम्न तुलना में PowerPoint में सहेजी गई प्रस्तुति दिखायी गई है। प्रत्येक एरे के बगल में `A=` और `=B` की स्थिति देखें।
+निम्न तुलना PowerPoint में सुरक्षित प्रस्तुति को दिखाती है। प्रत्येक एरे के बगल में `A=` और `=B` की स्थिति पर ध्यान दें।
 
 ![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
 
 ### **पंक्ति अंतराल कॉन्फ़िगर करें**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) एरे के भीतर पंक्तियों के लिए अंतराल नियम चुनता है। [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) स्पष्ट अंतराल नियम के लिए संख्यात्मक मान देता है और प्रीसेट नियमों द्वारा अनदेखा किया जाता है।
+[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) एरे में पंक्तियों के लिए अंतराल नियम चुनता है। [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) स्पष्ट अंतराल नियम के लिए संख्यात्मक मान प्रदान करता है और प्रीसेट नियमों द्वारा अनदेखा किया जाता है।
 
-सटीक अंतराल के लिए, मान पॉइंट में मापा जाता है। आनुपातिक अंतराल के लिए, यह आधी-लाइन में मापा जाता है: उदाहरण में मान `3` 1.5 लाइनों का प्रतिनिधित्व करता है। स्पष्ट मान निर्दिष्ट करते समय दोनों गुणों को सेट करें; केवल संख्यात्मक मान बदलने से अंतराल नियम नहीं चुना जाता।
+सटीक अंतराल के लिए, मान पॉइंट में मापा जाता है। अनुपातिक अंतराल के लिए, इसे आधी लाइनों में मापा जाता है: उदाहरण में मान `3` 1.5 लाइनों को दर्शाता है। स्पष्ट मान निर्दिष्ट करते समय दोनों गुणधर्म सेट करें; केवल संख्यात्मक मान बदलने से अंतराल नियम नहीं चुना जाता।
 
-नीचे का उदाहरण समान समीकरण, संरेखण और फ़ॉन्ट सेटिंग वाले पाँच प्रस्तुतियों को सहेजता है। पहली तीन प्रीसेट का उपयोग करती हैं; अंतिम दो स्पष्ट मान दिखाती हैं।
+नीचे का उदाहरण पाँच प्रस्तुतियों को समान समीकरण, संरेखण और फ़ॉन्ट सेटिंग्स के साथ सहेजता है। पहले तीन प्रीसेट का उपयोग करते हैं; अंतिम दो स्पष्ट मान दिखाते हैं।
 
 ```python
 import jpype
@@ -442,7 +442,7 @@ for name, rule, spacing in settings:
         presentation.dispose()
 ```
 
-एरे पंक्ति अंतराल पैराग्राफ अंतराल से अलग होता है। [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) और [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) कंटेनिंग पैराग्राफ के चारों ओर जगह जोड़ते हैं, एरे पंक्तियों के बीच नहीं। इसी प्रकार, [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) पूरे गणितीय पैराग्राफ को क्षैतिज रूप से स्थित करता है; यह एरे की वर्टिकल संरेखण सेटिंग को बदलता नहीं है।
+एरे पंक्ति अंतराल पैराग्राफ अंतराल से अलग होता है। [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) और [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) कंटेनिंग पैराग्राफ के आसपास स्थान जोड़ते हैं, न कि एरे पंक्तियों के बीच। इसी तरह, [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) पूरे गणितीय पैराग्राफ को क्षैतिज रूप से स्थित करता है; यह एरे की ऊर्ध्विक संरेखण सेटिंग को बदलता नहीं है।
 
 ## **त्रिकोणमितीय फ़ंक्शन जोड़ें**
 
@@ -476,9 +476,9 @@ finally:
     presentation.dispose()
 ```
 
-## **सबस्क्रिप्ट और सुपरस्क्रिप्ट जोड़ें**
+## **सबस्क्रिप्ट और सुपरस्रिप्ट जोड़ें**
 
-सूचकांक और घातांकों के लिए सबस्क्रिप्ट और सुपरस्क्रिप्ट हेल्पर का उपयोग करें। जब सूचकांक बेस के बाएँ पक्ष में दिखना चाहिए, तो [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) का उपयोग करें।
+इंडेक्स और घात के लिए सबस्क्रिप्ट और सुपरस्रिप्ट सहायक का उपयोग करें। जब इंडेक्स बेस के बाएँ पक्ष पर चाहिए, तो [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) का उपयोग करें।
 
 ![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
@@ -510,7 +510,7 @@ finally:
 
 ## **डिलिमिटर जोड़ें**
 
-एक अभिव्यक्ति को डिलिमिटर के भीतर रखने के लिए [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) का उपयोग करें। आप कई तत्वों वाले डिलिमिटर अभिव्यक्तियों के लिए एक विभाजक कैरेक्टर भी सेट कर सकते हैं।
+[enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) का उपयोग करके अभिव्यक्ति को डिलिमिटर के भीतर रखें। आप कई तत्वों वाली डिलिमिटर अभिव्यक्तियों के लिए विभाजक अक्षर भी सेट कर सकते हैं।
 
 ![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
@@ -543,9 +543,9 @@ finally:
 
 ### **डिलिमिटर का आकार और संरेखण**
 
-[setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) को `True` पास करके कोष्ठक को लंबे ऑपरेण्ड के आसपास बढ़ने दें, या `False` पास करके उन्हें सामान्य आकार पर रखें। दो [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/) मानों में से एक के साथ [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) का उपयोग करें। `Centered` कोष्ठकों को गणितीय अक्ष पर केंद्रित करता है, जो बराबर चिह्न के मध्य से गुजरता है। `Match` उन्हें संलग्न सामग्री के साथ संरेखित करता है। दोनों सेटिंग केवल डिलिमिटर को प्रभावित करती हैं। अंदर की अभिव्यक्ति समान रहती है।
+ऊँचे ऑपरेण्ड के चारों ओर कोष्ठक को विस्तारित करने के लिए [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) में `True` पास करें, या सामान्य आकार रखने के लिए `False` पास करें। दो में से एक [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/) मान के साथ [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) का उपयोग करें। `Centered` कोष्ठक को गणितीय अक्ष पर केंद्रित करता है, जो बराबर संकेत के मध्य से चलता है। `Match` उन्हें संलग्न सामग्री के साथ मिलान करता है। दोनों सेटिंग्स केवल डिलिमिटर को प्रभावित करती हैं। अंदर की अभिव्यक्ति वही रहती है।
 
-उदाहरण में `x` के घातांक में एक भिन्न रखा गया है ताकि अभिव्यक्ति बेसलाइन के ऊपर अधिक विस्तारित हो। सभी चार समीकरण एक ही कोष्ठकों और फ़ॉन्ट सेटिंग्स का उपयोग करते हैं।
+उदाहरण `x` के घात में एक भिन्न रखता है ताकि अभिव्यक्ति बेसलाइन के ऊपर नीचे की तुलना में अधिक विस्तारित हो। सभी चार समीकरण एक ही कोष्ठक और फ़ॉन्ट सेटिंग्स का उपयोग करते हैं।
 
 ```python
 import jpype
@@ -578,15 +578,15 @@ finally:
     presentation.dispose()
 ```
 
-PowerPoint में, प्रभाव को देखने के लिए पंक्तियों की तुलना करें। शीर्ष पंक्ति में, कोष्ठक घातांक को घेरने के लिए बढ़ते हैं और दोनों आकार समान दिखते हैं। निचली पंक्ति में, वृद्धि बंद है। बाएँ तरफ छोटे कोष्ठक (`Centered`) बराबर चिह्न के साथ संरेखित होते हैं, जबकि दाएँ (`Match`) अभिव्यक्ति के ऊपर अधिक स्थित होते हैं।
+PowerPoint में, पंक्तियों की तुलना करके वृद्धि प्रभाव देखें। शीर्ष पंक्ति में, कोष्ठक घातांक को सम्मिलित करने के लिए बढ़ते हैं और दोनों आकार समान दिखते हैं। नीचे की पंक्तियों में, वृद्धि बंद है। बाएँ की छोटी कोष्ठक (`Centered`) बराबर संकेत के साथ संरेखित हैं, जबकि दाएँ की (`Match`) अभिव्यक्ति के चारों ओर ऊँची बैठी हैं।
 
 ![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
 
-## **बॉर्डर बॉक्स जोड़ें**
+## **एक बॉर्डर बॉक्स जोड़ें**
 
-एक भिन्न पर [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) कॉल करके संपूर्ण अभिव्यक्ति को फ़्रेम में रखें। लौटाया गया [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) डिफ़ॉल्ट रूप से सभी चार किनारे दिखाता है। व्यक्तिगत किनारे हटाने के लिए [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft), और [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) का उपयोग करें।
+भिन्न पर [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) को कॉल करके पूरी अभिव्यक्ति को फ्रेम करें। लौटाया गया [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) डिफ़ॉल्ट रूप से सभी चार पक्ष दिखाता है। व्यक्तिगत पक्ष हटाने के लिए [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft), और [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) का उपयोग करें।
 
-उदाहरण में एक ही भिन्न के छह प्रतियां एक स्लाइड पर रखी गई हैं। रद्दीकरण दिखाने के लिए सभी चार पक्ष छिपाएँ और `True` को [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) को पास करें ताकि एक ऊपर की ओर विकर्ण (↗) बने, या [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) को पास करके नीचे की ओर विकर्ण (↘) बनाएं। आप किसी भी संयोजन के साथ दृश्यमान पक्षों के साथ [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) या [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) का भी उपयोग कर सकते हैं।
+उदाहरण एक स्लाइड पर समान भिन्न के छह प्रतिलिपि रखता है। रद्द करने के लिये, सभी चार पक्ष छिपाएँ और [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) को `True` पास करें ताकि एक ऊपर की तरफ तिरछी रेखा (↗) बन सके या [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) को नीचे की तरफ तिरछी रेखा (↘) के लिये उपयोग करें। आप [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) या [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) को किसी भी संयोजन के साथ उपयोग कर सकते हैं जहाँ दृश्य पक्ष हों।
 
 ```python
 import jpype
@@ -635,11 +635,96 @@ finally:
 
 ![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border.](border-box-fractions.png)
 
-इस भिन्न पर, क्षैतिज स्ट्राइक भिन्न रेखा को ओवरलैप करता है। लंबवत स्ट्राइक अंश और हर दोनों को काटता है जबकि आस-पास का बॉर्डर दिखाई देता रहता है। ये रेखाएँ संपूर्ण अभिव्यक्ति को सजाती हैं। सामान्य स्ट्राइकथ्रू केवल टेक्स्ट रन के अक्षरों पर लागू होता है। PowerPoint में प्रस्तुति को पुनः खोलने के बाद भी आप अंश और हर को स्वतंत्र रूप से संपादित कर सकते हैं।
+इस भिन्न पर, क्षैतिज स्ट्राइक फ्रैक्शन बार को कवर करता है। लंबवत स्ट्राइक न्यूमेरेटर और डिनॉमिनेटर दोनों को काटता है जबकि चारों ओर का बॉर्डर दृश्यमान रहता है। ये रेखाएँ पूरी अभिव्यक्ति को सजाती हैं। सामान्य टेक्स्ट स्ट्राइकथ्रू केवल टेक्स्ट रन के अक्षर पर लागू होता है। PowerPoint में प्रस्तुति को पुनः खोलने के बाद, आप अभी भी न्यूमेरेटर और डिनॉमिनेटर को स्वतंत्र रूप से संपादित कर सकते हैं।
 
-## **टर्म को समूहित करें**
+## **फ़ैंटम तत्वों के साथ दृश्यता और लेआउट नियंत्रित करें**
 
-[group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) का उपयोग करके अभिव्यक्ति के ऊपर या नीचे एक समूहिंग कैरेक्टर रखें। समूहित टर्म्स को लेबल करने के लिए सीमा जोड़ें।
+[MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) में अभिव्यक्ति को लपेटें ताकि उसकी दृश्यता और समीकरण में योगदानित स्थान को स्वतंत्र रूप से नियंत्रित किया जा सके। [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) विधियाँ निम्नलिखित को नियंत्रित करती हैं:
+
+| विधि | प्रभाव |
+| --- | --- |
+| [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) | अभिव्यक्ति को छिपाने के लिये `False` पास करें। इसके आयाम लेआउट में अभी भी योगदान देते हैं जब तक नीचे की संबंधित विधियाँ `True` न प्राप्त करें। |
+| [setZeroWidth](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroWidth) | अभिव्यक्ति की क्षैतिज चौड़ाई को शून्य मानें, जिससे पड़ोसी तत्व करीब आ सकें। |
+| [setZeroAsc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroAsc) | इसके आरोहण (बेसलाइन के ऊपर की ऊँचाई) को शून्य मानें। इससे पड़ोसी तत्वों के ऊपर आरक्षित स्थान कम हो सकता है। |
+| [setZeroDesc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroDesc) | इसके अवरोहण (बेसलाइन के नीचे की गहराई) को शून्य मानें। इससे अभिव्यक्ति के नीचे का फ्रैक्शन बार या अन्य सामग्री पड़ोसियों के निकट आ सकती है। |
+
+बेसलाइन वह संदर्भ रेखा है जिस पर सामान्य गणितीय अक्षर स्थित होते हैं। सामग्री को छिपाना उसके आयामों को नहीं हटाता, और आयाम को शून्य मानना अभिव्यक्ति को नहीं हटाता। अंतर्निहित अभिव्यत्ति [getBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#getBase) के माध्यम से उपलब्ध रहती है। उसे फिर से दिखाने के लिये [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) में `True` पास करें; आयाम सेटिंग्स अपरिवर्तित रहती हैं।
+
+निम्न उदाहरण पाँच समानांतर विविधताएँ बनाता है: एक दृश्यमान भिन्न, एक छिपा भिन्न जो स्थान आरक्षित करता है, और तीन छिपे भिन्न जहाँ एक आयाम शून्य माना गया है। प्रत्येक विविधता समान परिधीय अभिव्यक्ति और Cambria Math 24 पॉइंट का उपयोग करती है। सभी समीकरण आकार समान शीर्ष स्थिति रखते हैं, जो ग्रे गाइड द्वारा चिह्नित है। बाहरी भिन्न के न्यूमेरेटर में फ़ैंटम रखने से ऊर्ध्विक लेआउट परिवर्तन देखना आसान हो जाता है।
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, MathBlock, MathFraction, MathematicalText, MathPhantom, Presentation, SaveFormat, ShapeType, SlideSizeScaleType, TextAnchorType
+from java.awt import Color
+
+
+def create_text(value):
+    text = MathematicalText(value)
+    text.getFormat().setFontHeight(24)
+    text.getFormat().setLatinFont(FontData("Cambria Math"))
+    return text
+
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(1000, 180, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    labels = ("Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc")
+
+    guide = slide.getShapes().addAutoShape(ShapeType.Line, 10, 60, 980, 0)
+    guide.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.LIGHT_GRAY)
+
+    for index, name in enumerate(labels):
+        left = 10 + index * 200
+        
+        label = slide.getShapes().addAutoShape(ShapeType.Rectangle, left, 10, 190, 30)
+        label.getFillFormat().setFillType(FillType.NoFill)
+        label.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        label.getTextFrame().setText(name)
+        label_format = label.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat()
+        label_format.setFontHeight(14)
+        label_format.getFillFormat().setFillType(FillType.Solid)
+        label_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+        fraction_numerator = create_text("a+b")
+        fraction_denominator = create_text("c+d")
+        fraction = MathFraction(fraction_numerator, fraction_denominator)
+        phantom = MathPhantom(fraction)
+        phantom.setShow(index == 0)
+        phantom.setZeroWidth(index == 2)
+        phantom.setZeroAsc(index == 3)
+        phantom.setZeroDesc(index == 4)
+
+        left_text = create_text("x+")
+        right_text = create_text("+y")
+        numerator = MathBlock(left_text).join(phantom).join(right_text)
+        denominator = create_text("z")
+        equation = MathFraction(numerator, denominator)
+
+        shape = slide.getShapes().addMathShape(left, 60, 190, 100)
+        shape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Top)
+        math_portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+        math_paragraph = math_portion.getMathParagraph()
+        math_block = MathBlock(equation)
+        math_paragraph.add(math_block)
+
+    presentation.save("math-phantom.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![Five equations in PowerPoint comparing a visible fraction, a hidden fraction that reserves space, and hidden fractions with ZeroWidth, ZeroAsc, or ZeroDesc enabled](math-phantom.png)
+
+## **शब्दों को समूहित करें**
+
+एक अभिव्यक्ति के ऊपर या नीचे समूहिंग अक्षर रखने के लिये [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) का उपयोग करें। समूहित शब्दों को लेबल करने के लिये एक सीमा जोड़ें।
 
 ![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
@@ -669,9 +754,9 @@ finally:
     presentation.dispose()
 ```
 
-## **गणितीय तत्वों का स्वरूपण करें**
+## **गणितीय तत्वों का स्वरूप**
 
-केवल जहाँ फॉर्मूला स्पष्ट हो, स्वरूपण हेल्पर का उपयोग करें। उदाहरण के लिए, [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) एक गणितीय तत्व के ऊपर बार रखता है।
+फ़ॉर्मेटिंग सहायक का उपयोग केवल तब करें जब वे सूत्र को स्पष्ट करते हों। उदाहरण के लिये, [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) एक गणितीय तत्व के ऊपर बार रखता है।
 
 ![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
@@ -701,11 +786,11 @@ finally:
     presentation.dispose()
 ```
 
-### **मौजूदा समीकरण में पाठ का स्वरूपण करें**
+### **मौजूद समीकरण में पाठ का स्वरूप**
 
-एक मौजूदा समीकरण में पूरे पाठ को स्वरूपित करने के लिए, प्रत्येक गणितीय ब्लॉक के तत्व वृक्ष को ट्रावर्स करें। [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) केवल तत्काल बच्चों को लौटाता है, इसलिए फ्रैक्शन, स्क्रिप्ट, रेडिकल और अन्य नेस्टेड संरचनाओं के भीतर के पाठ तक पहुँचने के लिए इसे पुनरावर्ती रूप से कॉल करें। वर्तमान तत्व और उसके बच्चों दोनों को जांचें ताकि जब वह [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) हो तो प्रारंभिक तत्व भी शामिल हो।
+मौजूद समीकरण में पूरे पाठ को स्वरूपित करने के लिये, प्रत्येक गणित ब्लॉक के तत्व ट्री को पार करें। [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) केवल सीधे बच्चे लौटाता है, इसलिए इसे पुनरावृत्त रूप से कॉल करके भिन्न, स्क्रिप्ट, मूल और अन्य नेस्टेड संरचनाओं के भीतर के पाठ तक पहुँचें। जब प्रारंभिक तत्व [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) हो तो वर्तमान तत्व और उसके बच्चों दोनों को जाँचें।
 
-यह उदाहरण मानता है कि `input.pptx` में `z = xᵢ / ∛y` जैसा समीकरण है, जिसमें अंश में सबस्क्रिप्ट और हर में रेडिकल है। केवल ब्लॉक के शीर्ष‑स्तर तत्वों को प्रोसेस करने से फ्रैक्शन के भीतर के पाठ को मिस किया जाएगा। उदाहरण स्लाइड टेक्स्ट फ्रेम्स में गणितीय पोर्शन खोजता है, उनके ब्लॉकों को [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) के माध्यम से एक्सेस करता है, और प्रत्येक टेक्स्ट तत्व के [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) मेथड पर [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) को कॉल करके फ़ॉन्ट आकार 28 पॉइंट सेट करता है।
+यह उदाहरण मानता है कि `input.pptx` में `z = xᵢ / ∛y` जैसा समीकरण है, जिसमें न्यूमेरेटर में सबस्क्रिप्ट और डिनॉमिनेटर में मूल वाला भिन्न है। केवल ब्लॉक के शीर्ष स्तर के तत्वों को संसाधित करने से भिन्न के अंदर का पाठ छूट जाएगा। उदाहरण स्लाइड टेक्स्ट फ्रेम में गणितीय भाग ढूँढ़ता है, उनके ब्लॉकों को [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) के माध्यम से पहुँचता है, और प्रत्येक टेक्स्ट तत्व के [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) विधि के माध्यम से [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) को 28 पॉइंट करने के लिये कॉल करता है।
 
 ```python
 import jpype
@@ -746,7 +831,7 @@ finally:
     presentation.dispose()
 ```
 
-सहेजा गया प्रस्तुतीकरण प्रत्येक प्रोसेस किए गए समीकरण के प्रत्येक स्तर पर अपडेटेड टेक्स्ट स्वरूपण रखता है, जबकि उसके टेक्स्ट कंटेंट और गणितीय संरचना को बरकरार रखता है।
+सहेजा गया प्रस्तुतीकरण प्रत्येक संसाधित समीकरण के हर स्तर पर अद्यतन पाठ स्वरूप रखता है, जबकि उसके पाठ सामग्री और गणितीय संरचना को संरक्षित रखता है।
 
 ## **त्वरित संदर्भ**
 
@@ -755,28 +840,28 @@ finally:
 | गणितीय पाठ बनाएं | [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) |
 | तत्वों को मिलाएं | [MathElementBase.join](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#join) |
 | भिन्न बनाएं | [MathElementBase.divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) |
-| सुपरस्क्रिप्ट या सबस्क्रिप्ट जोड़ें | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
+| सुपरस्रिप्ट या सबस्क्रिप्ट जोड़ें | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
 | फ़ंक्शन जोड़ें | [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function), [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) |
 | मूल जोड़ें | [MathElementBase.radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) |
-| सीमाएं जोड़ें | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
-| बाएँ‑पक्ष स्क्रिप्ट जोड़ें | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
-| समिश्रण और इंटीग्रल जोड़ें | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
-| मैट्रिस जोड़ें | [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) |
+| सीमाएँ जोड़ें | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
+| बाएँ‑साइड स्क्रिप्ट जोड़ें | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
+| योग और समाकल जोड़ें | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
+| मैट्रिक्स जोड़ें | [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) |
 | समीकरण एरे जोड़ें | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
 | डिलिमिटर जोड़ें | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
 | बार और बॉर्डर जोड़ें | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
-| टर्म समूहित करें | [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) |
+| शब्दों को समूहित करें | [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) |
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
 **क्या मैं मौजूदा PowerPoint समीकरण को संपादित कर सकता हूँ?**
 
-हाँ। प्रस्तुति खोलें, उस आकार को खोजें जिसमें एक [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) हो, [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) को कॉल करें, और उस पैराग्राफ में गणितीय ब्लॉक्स को अपडेट करें।
+हाँ। प्रस्तुतीकरण खोलें, वह आकार खोजें जिसमें एक [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) मौजूद है, [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) को कॉल करें, और उस पैराग्राफ में गणितीय ब्लॉकों को अपडेट करें।
 
-**क्या समीकरणों को संपादन योग्य PowerPoint गणित के रूप में सहेजा जाता है?**
+**क्या समीकरण संपादन योग्य PowerPoint गणित के रूप में सहेजे जाते हैं?**
 
-हाँ। जब आप PPTX में सहेजते हैं, Aspose.Slides समीकरण को संपादन योग्य Office गणित सामग्री के रूप में लिखता है।
+हाँ। जब आप PPTX के रूप में सहेजते हैं, तो Aspose.Slides समीकरण को संपादन योग्य Office गणित सामग्री के रूप में लिखता है।
 
 **क्या मैं समीकरणों को LaTeX में निर्यात कर सकता हूँ?**
 
-हाँ। समीकरण के [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) को उसके [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) से प्राप्त करें, और सीधे निर्यात करने के लिए [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) को कॉल करें। पूरी उदाहरण के लिए देखें [Python में प्रस्तुतियों से गणितीय समीकरण निर्यात](/slides/hi/python-java/exporting-math-equations/#export-math-equations-to-latex)।
+हाँ। समीकरण के [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) को उसके [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) से प्राप्त करें, और इसे सीधे निर्यात करने के लिये [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) को कॉल करें। पूर्ण उदाहरण के लिये, देखें [Export Math Equations from Presentations in Python](/slides/hi/python-java/exporting-math-equations/#export-math-equations-to-latex)।

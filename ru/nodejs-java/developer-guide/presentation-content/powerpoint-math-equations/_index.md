@@ -18,35 +18,35 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Вставляйте и редактируйте математические уравнения в PowerPoint PPT и PPTX с помощью Aspose.Slides for Node.js via Java, поддерживая OMML, элементы управления форматированием и понятные примеры кода на JavaScript."
+description: "Вставляйте и редактируйте математические уравнения в PowerPoint PPT и PPTX с помощью Aspose.Slides для Node.js через Java, поддерживая OMML, элементы управления форматированием и понятные примеры кода на JavaScript."
 ---
 ## **Обзор**
 
-PowerPoint хранит уравнения в виде Office Math Markup Language (OMML). С помощью Aspose.Slides for Node.js via Java вы можете программно создавать такой же тип математического содержимого: дроби, радикалы, функции, пределы, n‑арные операторы, матрицы, массивы и форматированные математические блоки.
+PowerPoint сохраняет уравнения в виде Office Math Markup Language (OMML). С помощью Aspose.Slides для Node.js через Java вы можете программно создавать тот же тип математического контента: дроби, радикалы, функции, пределы, N‑арные операторы, матрицы, массивы и отформатированные математические блоки.
 
-В PowerPoint пользователи обычно добавляют уравнения через **Insert > Equation**:
+В PowerPoint пользователи обычно добавляют уравнения через **Вставка > Уравнение**:
 
-![Вкладка Insert в PowerPoint с выделенной командой Equation](powerpoint-math-equations_1.png)
+![Вкладка Вставка PowerPoint с выбранной командой Уравнение](powerpoint-math-equations_1.png)
 
-В результате на слайде появляется редактируемый математический текст:
+Результат — редактируемый математический текст на слайде:
 
 ![Слайд PowerPoint, содержащий редактируемое математическое уравнение](powerpoint-math-equations_2.png)
 
-Aspose.Slides формирует этот математический текст с помощью трех основных объектов:
+Aspose.Slides строит этот математический текст через три основных объекта:
 
 - Математическая фигура, созданная с помощью [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape), является фигурой, содержащей уравнение.
-- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) сохраняет математическое содержимое внутри текстового фрейма фигуры.
+- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) хранит математическое содержимое внутри текстового фрейма фигуры.
 - [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) содержит один или несколько объектов [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/).
 
-Большинство примеров ниже используют [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) и «потоковые» методы из [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) для сокращения и упрощения кода.
+Большинство примеров ниже используют [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) и цепочечные методы из [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), чтобы код был коротким и читаемым.
 
-Для сценариев экспорта MathML смотрите [Export Math Equations from Presentations in Node.js via Java](/slides/ru/nodejs-java/exporting-math-equations/).
+Для сценариев экспорта MathML см. [Экспорт уравнений Math из презентаций в Node.js через Java](/slides/ru/nodejs-java/exporting-math-equations/).
 
 ## **Создать уравнение**
 
 Этот пример использует [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) для создания математической фигуры и добавляет теорему Пифагора:
 
-![Уравнение c² = a² + b²](powerpoint-math-equations_3.png)
+![Уравнение c в квадрате равно a в квадрате плюс b в квадрате](powerpoint-math-equations_3.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -76,14 +76,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) создаёт фигуру, уже содержащую математический абзац. Получите первый [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), вызовите [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) и добавьте в него математические блоки или элементы.
+[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) создает фигуру, которая уже содержит математический абзац. Получите первый [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), вызовите [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), и добавьте к нему математические блоки или элементы.
 {{% /alert %}}
 
 ## **Добавить дроби**
 
 Используйте [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#divide) для создания дроби. Вы можете выбрать стиль дроби с помощью [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/).
 
-![Скосленная математическая дробь, показывающая 1 делённое на x](powerpoint-math-equations_4.png)
+![Наклоненная математическая дробь, показывающая один, делённый на x](powerpoint-math-equations_4.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -108,7 +108,7 @@ try {
 }
 ```
 
-Для «stacked» дроби используйте [MathFractionTypes.Bar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/#Bar):
+Для дроби со штрихом используйте [MathFractionTypes.Bar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/#Bar):
 
 ```javascript
 var aspose = aspose || {};
@@ -119,9 +119,9 @@ let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1"
 
 ## **Добавить радикалы**
 
-Используйте [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical) для создания квадратного, кубического или другого корня. Текущий элемент становится основанием, а аргумент — степенью.
+Используйте [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical) для создания квадратного корня, кубического корня или другого корня. Текущий элемент становится основанием, а аргумент — степенью.
 
-![n‑й корень с x под радикальным знаком](powerpoint-math-equations_5.png)
+![Выражение n‑го корня с x под радикальным знаком](powerpoint-math-equations_5.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -148,9 +148,9 @@ try {
 
 ## **Добавить функции и пределы**
 
-Используйте [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) или [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) для функций, таких как `sin(x)`, `log(x)` или пользовательских названий. Для пределов поместите `lim` в [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/) или используйте [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit).
+Используйте [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) или [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) для функций, таких как `sin(x)`, `log(x)` или пользовательских имён функций. Для пределов поместите `lim` в [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/) или используйте [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit).
 
-![Предел x, когда x стремится к бесконечности](powerpoint-math-equations_8.png)
+![Предел x при стремлении x к бесконечности](powerpoint-math-equations_8.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -176,7 +176,7 @@ try {
 }
 ```
 
-Для пользовательского имени функции сделайте его текущим элементом и вызовите [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) с аргументом:
+Для пользовательского имени функции сделайте имя функции текущим элементом и вызовите [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) с его аргументом:
 
 ```javascript
 var aspose = aspose || {};
@@ -185,11 +185,11 @@ aspose.slides = require("aspose.slides.via.java");
 let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
 ```
 
-## **Добавить n‑арные операторы и интегралы**
+## **Добавить N‑арные операторы и интегралы**
 
-Используйте [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) для сумм, объединений, пересечений и других больших операторов. Для интегралов используйте [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral). Оба метода позволяют задавать нижние и верхние пределы.
+Используйте [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) для сумм, объединений, пересечений и других крупных операторов. Используйте [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) для интегралов. Оба метода позволяют задавать нижние и верхние пределы.
 
-![Сумма с нижним и верхним пределами](powerpoint-math-equations_7.png)
+![Суммирование с нижними и верхними пределами](powerpoint-math-equations_7.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -217,7 +217,7 @@ try {
 }
 ```
 
-n‑арные операторы предназначены для больших операторов с возможными пределами. Простые операторы, такие как `+`, `-` и `=`, обычно добавляются как [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) и объединяются в выражение.
+N‑арные операторы — это крупные операторы с необязательными пределами. Простые операторы, такие как `+`, `-` и `=`, обычно добавляются как [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) и соединяются в выражение.
 
 Для интеграла используйте [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral):
 
@@ -231,9 +231,9 @@ let integral = integralBase.integral(aspose.slides.MathIntegralTypes.Simple, "0"
 
 ## **Добавить матрицы**
 
-Используйте [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) для строк и столбцов. По умолчанию матрицы не включают скобки, поэтому окружайте матрицу, когда нужны круглые, квадратные или фигурные скобки.
+Используйте [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) для строк и столбцов. По умолчанию матрицы не включают скобки, поэтому заключайте матрицу в круглые скобки, квадратные скобки или фигурные скобки при необходимости.
 
-![Матрица из двух строк с одной пустой ячейкой](powerpoint-math-equations_10.png)
+![Математическая матрица из двух строк с одной пустой ячейкой](powerpoint-math-equations_10.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -264,9 +264,9 @@ try {
 
 ## **Добавить массивы уравнений**
 
-Используйте [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toMathArray), когда нужны выровненные уравнения или вертикальная стековая компоновка выражений.
+Используйте [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toMathArray), когда нужны выровненные уравнения или вертикальная стопка выражений.
 
-![Вертикальный массив с x над y](powerpoint-math-equations_11.png)
+![Вертикальный массив уравнений с x над y](powerpoint-math-equations_11.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -294,9 +294,9 @@ try {
 
 ### **Выровнять массив с окружающими элементами**
 
-[setBaseJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setBaseJustification) управляет вертикальным выравниванием массива относительно соседних математических элементов. Ниже приводится сравнение выравнивания первой строки, центра массива и последней строки.
+[setBaseJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setBaseJustification) управляет вертикальным выравниванием массива относительно соседних математических элементов. Пример ниже сравнивает выравнивание по первой строке, по центру массива и по последней строке.
 
-В следующем примере создаются три одинаковых массива, каждый из трёх строк, и соседние элементы `A=` и `=B`. Весь математический текст использует Cambria Math 24 pt. Меняется только выравнивание массива.
+Следующий пример создаёт три идентичных массива, каждый из трёх строк и с соседними элементами `A=` и `=B`. Всё математическое оформление использует Cambria Math размером 24 pt. Меняется только выравнивание массива.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -349,17 +349,17 @@ try {
 }
 ```
 
-Сравнение показано в сохранённой презентации PowerPoint. Обратите внимание на положение `A=` и `=B` рядом с каждым массивом.
+Следующее сравнение показывает сохранённую презентацию в PowerPoint. Обратите внимание на положение `A=` и `=B` рядом с каждым массивом.
 
-![Массивы уравнений в PowerPoint с верхним, центральным и нижним выравниванием и одинаковыми соседними элементами](equation-array-alignment.png)
+![Массивы уравнений в PowerPoint с выравниванием По‑верхнему, По‑центру и По‑нижнему и одинаковыми соседними элементами](equation-array-alignment.png)
 
 ### **Настроить интервал строк**
 
 [setRowSpacingRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacingRule) выбирает правило интервала для строк внутри массива. [setRowSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacing) задаёт числовое значение для явного правила и игнорируется предустановленными правилами.
 
-Для точного интервала значение измеряется в пунктах. Для пропорционального интервала измеряется в полуполосах: значение `3` в примере задаёт 1,5 линии. Устанавливайте оба свойства, задавая явное значение; изменение только числового значения не выбирает правило интервала.
+Для точного интервала значение измеряется в пунктах. Для пропорционального интервала измеряется в полулиниях: значение `3` в примере означает 1,5 линии. Устанавливайте оба свойства при указании явного значения; изменение только числового значения не выбирает правило интервала.
 
-В примере ниже сохраняются пять презентаций с одинаковыми уравнениями, выравниванием и настройками шрифта. Первые три используют предустановки; последние два показывают явные значения.
+Пример ниже сохраняет пять презентаций с одинаковыми уравнениями, выравниванием и настройками шрифта. Первые три используют предустановки; последние два — явные значения.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -406,7 +406,7 @@ for (let i = 0; i < rules.length; i++) {
 }
 ```
 
-Интервал строк массива отдельный от интервала абзаца. [setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) и [setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter) добавляют пространство вокруг содержащего абзаца, а не между строками массива. Аналогично, [MathParagraph.setJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#setJustification) позиционирует весь математический абзац горизонтально; он не заменяет настройку вертикального выравнивания массива.
+Интервал строк массива отделён от интервала абзацев. [setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) и [setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter) добавляют пространство вокруг содержащего абзаца, а не между строками массива. Аналогично, [MathParagraph.setJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#setJustification) позиционирует весь математический абзац по горизонтали; он не заменяет настройку вертикального выравнивания массива.
 
 ## **Добавить тригонометрические функции**
 
@@ -437,11 +437,11 @@ try {
 }
 ```
 
-## **Добавить нижние и верхние индексы**
+## **Добавить индексы и степень**
 
-Используйте вспомогательные функции нижнего и верхнего индекса для индексов и степеней. Когда индексы должны располагаться слева от основания, используйте [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
+Используйте вспомогательные функции для нижних и верхних индексов. Когда индексы должны располагаться слева от основания, используйте [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
-![Буква Y с левым нижним индексом 1 и верхним индексом n](powerpoint-math-equations_9.png)
+![Заглавная Y с левым индексом 1 и верхним индексом n](powerpoint-math-equations_9.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -468,9 +468,9 @@ try {
 
 ## **Добавить разделители**
 
-Используйте [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose), чтобы поместить выражение внутрь разделителей. Вы также можете задать символ-разделитель для выражений, содержащих несколько элементов.
+Используйте [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose), чтобы поместить выражение в разделители. Также можно задать символ‑разделитель для выражений, содержащих несколько элементов.
 
-![Выражение с разделителями, содержащими x, y и z, разделённые вертикальными чертами](powerpoint-math-equations_13.png)
+![Выражение с разделителями, содержащие x, y и z, разделённые вертикальными чертами](powerpoint-math-equations_13.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -501,9 +501,9 @@ try {
 
 ### **Размер и выравнивание разделителей**
 
-Передайте `true` в [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight), чтобы скобки увеличивались вокруг высокого операнда, или `false`, чтобы оставить их обычного размера. Используйте [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape) с одним из двух значений [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/). `Centered` центрирует скобки по оси математики, проходящей через середину знака равенства. `Match` выравнивает их по содержимому. Оба параметра влияют только на разделители; внутреннее выражение остаётся прежним.
+Передайте `true` в [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight), чтобы скобки увеличивались вокруг высокого операнда, или `false`, чтобы оставить их обычного размера. Используйте [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape) с одним из двух значений [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/). `Centered` центрирует скобки на математической оси, проходящей через середину знака равенства. `Match` выравнивает их по содержимому. Оба параметра влияют только на разделители; внутреннее выражение остаётся прежним.
 
-В примере дробь помещена в показатель степени `x`, поэтому выражение поднимается выше базовой линии, чем опускается ниже. Все четыре уравнения используют одинаковые скобки и настройки шрифта.
+Пример помещает дробь в показатель степени `x`, поэтому выражение выступает выше базовой линии, чем ниже её. Все четыре уравнения используют одинаковые скобки и настройки шрифта.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -533,15 +533,15 @@ try {
 }
 ```
 
-В PowerPoint сравните строки, чтобы увидеть эффект роста. В верхней строке скобки увеличиваются, охватывая показатель, и выглядят одинаково для обеих форм. В нижней строке рост отключён. Маленькие скобки слева (`Centered`) выравниваются по знаку равенства, а права (`Match`) размещаются выше вокруг выражения.
+В PowerPoint сравните строки, чтобы увидеть эффект роста. В верхней строке скобки растут, охватывая показатель, и выглядят одинаково для обеих форм. В нижней строке рост отключён. Маленькие скобки слева (`Centered`) выравниваются по знаку равенства, а справа (`Match`) располагаются выше вокруг выражения.
 
-![Четыре уравнения в PowerPoint с включённым и отключённым ростом разделителей, слева — Centered, справа — Match](delimiter-sizing.png)
+![Четыре уравнения в PowerPoint с включённым ростом разделителей сверху и отключённым снизу, а также Centered слева и Match справа](delimiter-sizing.png)
 
 ## **Добавить рамку**
 
-Вызовите [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox) у дроби, чтобы обрамить всё выражение. Возвращаемый [MathBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/) отображает все четыре стороны по умолчанию. Используйте [setHideTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideLeft) и [setHideRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideRight), чтобы скрыть отдельные стороны.
+Вызовите [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox) для дроби, чтобы обрамить всё выражение. Возвращаемый [MathBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/) по умолчанию показывает все четыре стороны. Используйте [setHideTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideLeft) и [setHideRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideRight), чтобы убрать отдельные стороны.
 
-В примере размещено шесть копий одной и той же дроби на одном слайде. Чтобы показать отмену, скройте все четыре стороны и передайте `true` в [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) для восходящей диагонали (↗) или в [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) для нисходящей диагонали (↘). Вы также можете использовать [setStrikethroughHorizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) или [setStrikethroughVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughVertical) в комбинации с любыми видимыми сторонами.
+Пример размещает шесть копий одной и той же дроби на одном слайде. Чтобы показать аннулирование, скройте все четыре стороны и передайте `true` в [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) для восходящей диагонали (↗) или в [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) для нисходящей диагонали (↘). Можно также использовать [setStrikethroughHorizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) или [setStrikethroughVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughVertical) с любой комбинацией видимых сторон.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -584,15 +584,96 @@ try {
 }
 ```
 
-![Шесть редактируемых дробей в PowerPoint. Верхняя строка: полная рамка, нижняя и левая стороны, восходящая диагональ. Нижняя строка: нисходящая диагональ, горизонтальный штрих, вертикальный штрих с полной рамкой.](border-box-fractions.png)
+![Шесть редактируемых дробей в PowerPoint. Верхняя строка: полная граница, нижняя и левая стороны, восходящая диагональ. Нижняя строка: нисходящая диагональ, горизонтальная черта, вертикальная черта с полной границей](border-box-fractions.png)
 
-На этой дроби горизонтальный штрих перекрывает черту дроби. Вертикальный штрих проходит через числитель и знаменатель, в то время как окружающая рамка остаётся видимой. Эти линии украшают всё выражение. Обычное зачёркивание текста применяется к символам в текстовом блоке. После повторного открытия презентации в PowerPoint вы всё ещё можете независимо редактировать числитель и знаменатель.
+На этой дроби горизонтальная черта перекрывает черту дроби. Вертикальная черта проходит через числитель и знаменатель, в то время как окружающая рамка остаётся видимой. Эти линии декорируют всё выражение. Обычное зачёркивание текста применяется к символам в текстовом фрагменте. После повторного открытия презентации в PowerPoint вы всё ещё можете независимо редактировать числитель и знаменатель.
+
+## **Управление видимостью и расположением с помощью phantom‑элементов**
+
+Обёрните выражение в [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/), чтобы независимо управлять его видимостью и пространством, которое оно занимает в уравнении. Методы [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) управляют следующими:
+
+| Метод | Эффект |
+| --- | --- |
+| [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) | Передайте `false`, чтобы скрыть выражение. Его размеры всё равно учитываются в макете, если нижеуказанные методы не получат `true`. |
+| [setZeroWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroWidth) | Рассматривать горизонтальную ширину выражения как ноль, позволяя соседним элементам приблизиться друг к другу. |
+| [setZeroAsc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroAsc) | Рассматривать его подъём (высоту над базовой линией) как ноль. Это может уменьшить пространство сверху у соседних элементов. |
+| [setZeroDesc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroDesc) | Рассматривать его спуск (глубину ниже базовой линии) как ноль. Это может переместить черту дроби или другое содержимое ниже выражения ближе к соседям. |
+
+Базовая линия — это справочная линия, на которой располагаются обычные математические символы. Сокрытие содержимого не удаляет его размеры, а задание нулевого размера не удаляет выражение. Исходное выражение остаётся доступным через [getBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#getBase). Передайте `true` в [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow), чтобы снова отобразить его; настройки размеров остаются без изменений.
+
+Пример ниже создаёт пять вариантов рядом: видимая дробь, скрытая дробь, сохраняющая пространство, и три скрытые дроби, у которых одна из размеров считается нулём. Каждый вариант использует одинаковое окружающее выражение и Cambria Math размером 24 pt. Все фигурные уравнения имеют одинаковую верхнюю позицию, отмеченную серой направляющей. Помещение phantom‑элемента в числитель внешней дроби делает изменения вертикального расположения более заметными.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function createText(value) {
+    const text = new slides.MathematicalText(value);
+    text.getFormat().setFontHeight(24);
+    text.getFormat().setLatinFont(new slides.FontData("Cambria Math"));
+    return text;
+}
+
+const presentation = new slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(1000, 180, slides.SlideSizeScaleType.DoNotScale);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const labels = [ "Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc" ];
+
+    const guide = slide.getShapes().addAutoShape(slides.ShapeType.Line, 10, 60, 980, 0);
+    guide.getLineFormat().getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+    guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
+
+    for (let i = 0; i < labels.length; i++) {
+        const left = 10 + i * 200;
+
+        const label = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, left, 10, 190, 30);
+        label.getFillFormat().setFillType(java.newByte(slides.FillType.NoFill));
+        label.getLineFormat().getFillFormat().setFillType(java.newByte(slides.FillType.NoFill));
+        label.getTextFrame().setText(labels[i]);
+
+        const labelFormat = label.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        labelFormat.setFontHeight(14);
+        labelFormat.getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+        labelFormat.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+
+        const fractionNumerator = createText("a+b");
+        const fractionDenominator = createText("c+d");
+        const fraction = new slides.MathFraction(fractionNumerator, fractionDenominator);
+        const phantom = new slides.MathPhantom(fraction);
+        phantom.setShow(i === 0);
+        phantom.setZeroWidth(i === 2);
+        phantom.setZeroAsc(i === 3);
+        phantom.setZeroDesc(i === 4);
+
+        const leftText = createText("x+");
+        const rightText = createText("+y");
+        const numerator = new slides.MathBlock(leftText).join(phantom).join(rightText);
+        const denominator = createText("z");
+        const equation = new slides.MathFraction(numerator, denominator);
+
+        const shape = slide.getShapes().addMathShape(left, 60, 190, 100);
+        shape.getTextFrame().getTextFrameFormat().setAnchoringType(java.newByte(slides.TextAnchorType.Top));
+
+        const mathPortion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+        const mathParagraph = mathPortion.getMathParagraph();
+        mathParagraph.add(new slides.MathBlock(equation));
+    }
+
+    presentation.save("math-phantom.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Пять уравнений в PowerPoint, сравнивающих видимую дробь, скрытую дробь, сохраняющую пространство, и скрытые дроби с включёнными ZeroWidth, ZeroAsc или ZeroDesc](math-phantom.png)
 
 ## **Группировать термы**
 
-Используйте [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group), чтобы разместить символ группировки над или под выражением. Добавьте предел, чтобы пометить сгруппированные термы.
+Используйте [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group), чтобы разместить группирующий символ над или под выражением. Добавьте предел, чтобы пометить сгруппированные члены.
 
-![Выражение x + y, сгруппированное с подписью любой текст снизу](powerpoint-math-equations_15.png)
+![Выражение x плюс y, сгруппированное с меткой любой текст под ним](powerpoint-math-equations_15.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -621,7 +702,7 @@ try {
 
 ## **Форматировать математические элементы**
 
-Используйте вспомогательные функции форматирования только там, где они проясняют формулу. Например, [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) помещает черту над математическим элементом.
+Используйте вспомогательные функции форматирования только там, где они проясняют формулу. Например, [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) располагает черту над математическим элементом.
 
 ![Математическое выражение ABC с надчеркиванием](powerpoint-math-equations_14.png)
 
@@ -649,9 +730,9 @@ try {
 
 ### **Форматировать текст в существующем уравнении**
 
-Чтобы отформатировать текст во всём существующем уравнении, пройдитесь по дереву элементов каждого математического блока. [MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren) возвращает только непосредственных детей, поэтому вызывайте его рекурсивно, чтобы достичь текста внутри дробей, скриптов, радикалов и других вложенных структур. Проверяйте текущий элемент и его детей, чтобы включить начальный элемент, если это [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/).
+Чтобы отформатировать текст во всём существующем уравнении, пройдите по дереву элементов каждого математического блока. [MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren) возвращает только непосредственных детей, поэтому вызывайте его рекурсивно, чтобы добраться до текста внутри дробей, скриптов, радикалов и других вложенных структур. Проверяйте текущий элемент и его детей, чтобы включить начальный элемент, если он является [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/).
 
-В этом примере предполагается, что `input.pptx` содержит уравнение вида `z = xᵢ / ∛y`, где в числителе дроби есть нижний индекс, а в знаменателе — радикал. Обработка только верхнего уровня элементов блока пропустила бы текст внутри дроби. Пример ищет математические части в текстовых фреймах слайдов, получает их блоки через [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) и использует [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight), чтобы установить размер шрифта 28 pt через метод [getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat) каждого текстового элемента.
+Этот пример предполагает, что `input.pptx` содержит уравнение, например `z = xᵢ / ∛y`, где в дроби числитель имеет нижний индекс, а знаменатель — радикал. Обработка только элементов верхнего уровня блока пропустит текст внутри дроби. Пример ищет математические части в текстовых фреймах слайдов, получает их блоки через [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) и использует [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight), чтобы задать размер шрифта 28 pt каждому текстовому элементу через его метод [getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat).
 
 ```javascript
 var aspose = aspose || {};
@@ -705,7 +786,7 @@ try {
 }
 ```
 
-Сохранённая презентация содержит обновлённое форматирование текста на всех уровнях каждого обработанного уравнения, сохраняя его текстовое содержимое и математическую структуру.
+Сохранённая презентация содержит обновлённое форматирование текста на каждом уровне каждой обработанной формулы, при этом сохраняет её текстовое содержание и математическую структуру.
 
 ## **Быстрая справка**
 
@@ -714,7 +795,7 @@ try {
 | Создать математический текст | [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) |
 | Объединить элементы | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Создать дроби | [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Добавить верхний или нижний индекс | [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Добавить надстрочный или нижний индекс | [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Добавить функции | [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Добавить радикалы | [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Добавить пределы | [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
@@ -723,12 +804,12 @@ try {
 | Добавить матрицы | [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) |
 | Добавить массивы уравнений | [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Добавить разделители | [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Добавить штрихи и рамки | [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Добавить черты и границы | [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | Группировать термы | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Могу ли я отредактировать существующее уравнение PowerPoint?**
+**Могу ли я редактировать существующее уравнение PowerPoint?**
 
 Да. Откройте презентацию, найдите фигуру, содержащую [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), вызовите [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) и обновите математические блоки в этом абзаце.
 
@@ -738,4 +819,4 @@ try {
 
 **Могу ли я экспортировать уравнения в LaTeX?**
 
-Да. Получите [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) уравнения из его [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), затем вызовите [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex) для прямого экспорта. Полный пример см. в [Export Math Equations from Presentations in Node.js via Java](/slides/ru/nodejs-java/exporting-math-equations/#export-math-equations-to-latex).
+Да. Получите [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) уравнения из его [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), затем вызовите [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex) для прямого экспорта. Для полного примера см. [Экспорт уравнений Math из презентаций в Node.js через Java](/slides/ru/nodejs-java/exporting-math-equations/#export-math-equations-to-latex).

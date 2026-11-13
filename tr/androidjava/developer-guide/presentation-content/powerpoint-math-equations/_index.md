@@ -18,33 +18,33 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android ile PowerPoint PPT ve PPTX dosyalarına matematik denklemleri ekleyin ve düzenleyin, OMML desteği, biçimlendirme kontrolleri ve açık Java kod örnekleri sunar."
+description: "Aspose.Slides for Android ile PowerPoint PPT ve PPTX dosyalarına matematik denklemleri ekleyin ve düzenleyin; OMML desteği, biçimlendirme kontrolleri ve net Java kod örnekleri sunar."
 ---
 ## **Genel Bakış**
 
-PowerPoint, denklemleri Office Math Markup Language (OMML) olarak depolar. Aspose.Slides for Android via Java ile aynı türde matematik içeriğini programlı olarak oluşturabilirsiniz: kesirler, kökler, fonksiyonlar, limitler, N-ary operatörler, matrisler, diziler ve biçimlendirilmiş matematik blokları.
+PowerPoint denklemleri Office Math Markup Language (OMML) olarak depolar. Aspose.Slides for Android via Java ile aynı türde matematik içeriğini programlı olarak oluşturabilirsiniz: kesirler, köklüler, fonksiyonlar, limitler, N-ary operatörler, matrisler, diziler ve biçimlendirilmiş matematik blokları.
 
-PowerPoint'te kullanıcılar genellikle denklemleri **Ekle > Denklem** menüsünden ekler:
+PowerPoint'te kullanıcılar genellikle **Insert > Equation** menüsünden denklem ekler:
 
 ![PowerPoint Ekle sekmesi, Denklem komutu seçili](powerpoint-math-equations_1.png)
 
-Sonuç, slaytta düzenlenebilir bir matematik metnidir:
+Sonuç, slaytta düzenlenebilir matematik metni olur:
 
 ![Düzenlenebilir bir matematik denklemi içeren bir PowerPoint slaytı](powerpoint-math-equations_2.png)
 
 Aspose.Slides bu matematik metnini üç ana nesne aracılığıyla oluşturur:
 
-- Bir matematik şekli, [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) ile oluşturulur ve denklemi içerir.
+- Bir matematik şekli, [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) ile oluşturulur, denklemi içeren şekildir.
 - [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) şekil metin çerçevesi içinde matematik içeriğini depolar.
 - [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) bir veya daha fazla [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/) nesnesi içerir.
 
-Aşağıdaki çoğu örnek, kodun kısa ve okunabilir kalmasını sağlamak için [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) ve [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) üzerindeki akıcı yöntemleri kullanır.
+Aşağıdaki çoğu örnek, kodu kısa ve okunabilir tutmak için [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) ve [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) üzerinden gelen akıcı metodları kullanır.
 
-MathML dışa aktarma senaryoları için, [Android'da Sunumlardan Matematik Denklemlerini Dışa Aktarma](/slides/tr/androidjava/exporting-math-equations/) bölümüne bakın.
+MathML dışa aktarım senaryoları için [Export Math Equations from Presentations on Android](/slides/tr/androidjava/exporting-math-equations/) bölümüne bakın.
 
 ## **Denklem Oluşturma**
 
-Bu örnek, bir matematik şekli oluşturmak için [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) kullanır ve Pisagor teoremini ekler:
+Bu örnek, [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) kullanarak bir matematik şekli oluşturur ve Pisagor teoremini ekler:
 
 ![c kare eşittir a kare artı b kare denklemi](powerpoint-math-equations_3.png)
 
@@ -74,15 +74,15 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) zaten bir matematik paragrafı içeren bir şekil oluşturur. İlk [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) alın, [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) çağırın ve ona matematik blokları ya da matematik öğeleri ekleyin.
+{{% alert color="info" title="Not" %}}
+[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) zaten bir matematik paragrafı içeren bir şekil oluşturur. İlk [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) erişin, [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) çağırın ve ona matematik blokları ya da matematik öğeleri ekleyin.
 {{% /alert %}}
 
 ## **Kesir Ekleme**
 
-Kesir oluşturmak için [divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) kullanın. Kesir stilini [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/) ile seçebilirsiniz.
+Kesir oluşturmak için [divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) kullanın. Bir kesir stili seçmek için [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/) kullanabilirsiniz.
 
-![Bir bölü x kesirini gösteren eğik bir matematik kesiri](powerpoint-math-equations_4.png)
+![Bir bölü x gösteren çarpıtılmış bir kesir](powerpoint-math-equations_4.png)
 
 ```java
 import com.aspose.slides.*;
@@ -106,7 +106,7 @@ try {
 }
 ```
 
-Yığılmış bir kesir için [MathFractionTypes.Bar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/#Bar) kullanın:
+Yığılı bir kesir için [MathFractionTypes.Bar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/#Bar) kullanın:
 
 ```java
 import com.aspose.slides.*;
@@ -114,11 +114,11 @@ import com.aspose.slides.*;
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Kök Ekleme**
+## **Köklü İfadeler Ekle**
 
-Karesel kök, kübik kök veya diğer kökleri oluşturmak için [radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) kullanın. Mevcut öğe taban olur, argüman ise derecedir.
+Kök, küp kök veya başka bir kök oluşturmak için [radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) kullanın. Mevcut öğe taban olur, argüman derece olur.
 
-![x'in kök işareti altında olduğu n'inci kök ifadesi](powerpoint-math-equations_5.png)
+![Kök işareti altında x bulunan n‑inci kök ifadesi](powerpoint-math-equations_5.png)
 
 ```java
 import com.aspose.slides.*;
@@ -142,11 +142,11 @@ try {
 }
 ```
 
-## **Fonksiyon ve Limit Ekleme**
+## **Fonksiyonlar ve Limitler Ekle**
 
-`sin(x)`, `log(x)` gibi fonksiyonlar için ya da özel fonksiyon adları için [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) ya da [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) kullanın. Limitler için `lim` ifadesini bir [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) içine koyun veya [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-) kullanın.
+`sin(x)`, `log(x)` gibi fonksiyonlar veya özel fonksiyon adları için [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) ya da [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) kullanın. Limitler için `lim` öğesini bir [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) içine koyun ya da [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-) kullanın.
 
-![x'in sonsuza yaklaşırken limiti](powerpoint-math-equations_8.png)
+![x’in sınırsızlığa yaklaştığı limit](powerpoint-math-equations_8.png)
 
 ```java
 import com.aspose.slides.*;
@@ -171,7 +171,7 @@ try {
 }
 ```
 
-Özel bir fonksiyon adı için, fonksiyon adını mevcut öğe yapın ve argümanıyla birlikte [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) çağırın:
+Özel bir fonksiyon adı için, fonksiyon adını mevcut öğe yapın ve [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) ile argümanını çağırın:
 
 ```java
 import com.aspose.slides.*;
@@ -179,7 +179,7 @@ import com.aspose.slides.*;
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **N-ary Operatörler ve İntegraller Ekleme**
+## **N-ary Operatörler ve İntegraller Ekle**
 
 Toplamalar, birleşimler, kesişimler ve diğer büyük operatörler için [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) kullanın. İntegraller için [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) kullanın. Her iki yöntem de alt ve üst limitleri ayarlamanıza izin verir.
 
@@ -210,9 +210,9 @@ try {
 }
 ```
 
-N-ary operatörler, isteğe bağlı limitli büyük operatörler içindir. `+`, `-` ve `=` gibi basit operatörler genellikle [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) olarak eklenir ve ifadeye birleştirilir.
+N‑ary operatörler, isteğe bağlı limitleri olan büyük operatörler içindir. `+`, `-`, `=` gibi basit operatörler genellikle [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) ile eklenir ve ifadeye katılır.
 
-İntegral için, [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) kullanın:
+İntegral için [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) kullanın:
 
 ```java
 import com.aspose.slides.*;
@@ -223,9 +223,9 @@ IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0"
 
 ## **Matris Ekleme**
 
-Satır ve sütunlar için [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) kullanın. Matrisler varsayılan olarak köşeli parantez içermez; parantez, köşeli parantez veya süslü parantez ihtiyacınız olduğunda matrisi bu işaretlerle sarın.
+Satırlar ve sütunlar için [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) kullanın. Matrisler varsayılan olarak köşeli parantez içermez; parantez, köşeli parantez veya süslü parantez gerektiğinde matrisi bunlarla sarın.
 
-![Bir boş hücresi olan iki satırlı matematik matrisi](powerpoint-math-equations_10.png)
+![Bir boş hücresi olan iki satırlı bir matematik matrisi](powerpoint-math-equations_10.png)
 
 ```java
 import com.aspose.slides.*;
@@ -253,11 +253,11 @@ try {
 }
 ```
 
-## **Denklem Dizileri Ekleme**
+## **Denklem Dizileri Ekle**
 
-Hizalanmış denklemlere ya da dikey bir ifadeler dizisine ihtiyaç duyduğunuzda [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--) kullanın.
+Hizalanmış denklemlere ya da dikey bir ifadeler yığınına ihtiyaç duyduğunuzda [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--) kullanın.
 
-![x'in y'nin üstünde olduğu dikey bir matematik dizisi](powerpoint-math-equations_11.png)
+![x üstünde y bulunan dikey bir matematik dizisi](powerpoint-math-equations_11.png)
 
 ```java
 import com.aspose.slides.*;
@@ -282,11 +282,11 @@ try {
 }
 ```
 
-### **Diziyi Çevreleyen Öğelerle Hizalama**
+### **Diziyi Çevredeki Öğelerle Hizalama**
 
-[setBaseJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setBaseJustification-int-) bir dizinin, yanındaki matematik öğelerine göre dikey hizalamasını kontrol eder. Aşağıdaki örnek, ilk satır, dizinin ortası ve son satır hizalamasını karşılaştırır.
+[setBaseJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setBaseJustification-int-) bir dizinin, yanındaki matematik öğelerine göre dikey hizalamasını kontrol eder. Aşağıdaki örnek, ilk satır, dizi ortası ve son satır hizalamalarını karşılaştırır.
 
-Aşağıdaki örnek, aynı üç satır ve yanındaki `A=` ve `=B` öğeleriyle üç aynı dizi oluşturur. Tüm matematik metni Cambria Math 24 puntoyla biçimlendirilmiştir. Yalnızca dizi hizalaması değişir.
+Aşağıdaki örnek, üç aynı diziyi, her biri üç satır ve komşu öğeler `A=` ve `=B` ile oluşturur. Tüm matematik metni Cambria Math 24 punto kullanır. Yalnızca dizi hizalaması değişir.
 
 ```java
 import com.aspose.slides.*;
@@ -342,17 +342,17 @@ try {
 }
 ```
 
-Aşağıdaki karşılaştırma, PowerPoint’te kaydedilen sunumu gösterir. Her dizinin yanında `A=` ve `=B` konumuna dikkat edin.
+Aşağıdaki karşılaştırma, kaydedilen sunumu PowerPoint’te gösterir. `A=` ve `=B` konumlarına dikkat edin.
 
-![Üst, Orta ve Alt hizalama ve aynı komşu öğelerle PowerPoint'teki denklem dizileri](equation-array-alignment.png)
+![PowerPoint’te Üst, Orta ve Alt hizalamalı denklem dizileri ve aynı komşu öğeler](equation-array-alignment.png)
 
 ### **Satır Aralığını Yapılandırma**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacingRule-int-) dizideki satırların aralık kuralını seçer. [setRowSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacing-long-) belirli bir aralık kuralı için sayısal bir değer sağlar ve önceden tanımlı kurallar tarafından göz ardı edilir.
+[setRowSpacingRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacingRule-int-) dizi içindeki satırların aralık kuralını seçer. [setRowSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacing-long-) açık bir aralık kuralı için sayısal bir değer sağlar ve önceden ayarlanmış kurallar tarafından göz ardı edilir.
 
-Tam aralık için değer puan cinsindendir. Orantılı aralık için değer yarım satır olarak ölçülür: örnekte `3` değeri 1,5 satır demektir. Açık bir değer belirtirken her iki özelliği de ayarlayın; yalnızca sayısal değeri değiştirmek bir aralık kuralı seçmez.
+Tam aralık için değer puan cinsindendir. Oranlı aralık için yarım satır cinsindendir: örnekte `3` değeri 1,5 satır anlamına gelir. Açık bir değer belirtirken iki özelliği de ayarlayın; yalnızca sayısal değeri değiştirmek bir kural seçmez.
 
-Aşağıdaki örnek aynı denklemler, hizalama ve yazı tipi ayarlarıyla beş sunum kaydeder. İlk üçü ön ayarları, son ikisi ise açık değerleri gösterir.
+Aşağıdaki örnek, aynı denklemler, hizalama ve yazı tipi ayarlarıyla beş sunum kaydeder. İlk üçü ön ayarları kullanır; son ikisi açık değerleri gösterir.
 
 ```java
 import com.aspose.slides.*;
@@ -401,13 +401,13 @@ for (int i = 0; i < rules.length; i++) {
 }
 ```
 
-Dizi satır aralığı, paragraf aralığından ayrıdır. [setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) ve [setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) içeren paragrafın etrafına boşluk ekler, dizi satırları arasına değil. Benzer şekilde, [IMathParagraph.setJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#setJustification-int-) tüm matematik paragrafını yatay olarak konumlandırır; dizinin dikey hizalama ayarını değiştirmez.
+Dizi satır aralığı paragraf aralığından ayrıdır. [setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) ve [setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) içeren paragrafın etrafına boşluk ekler, dizi satırları arasına değil. Benzer şekilde, [IMathParagraph.setJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#setJustification-int-) bütün matematik paragrafını yatay olarak konumlandırır; dizi dikey hizalama ayarını değiştirmez.
 
-## **Trigonometrik Fonksiyonlar Ekleme**
+## **Trigonometrik Fonksiyonlar Ekle**
 
-Argüman mevcut öğe ve fonksiyon adı biliniyorsa [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) kullanın.
+Argüman mevcut öğe olduğunda ve fonksiyon adı bilindiğinde [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) kullanın.
 
-![2x'e uygulanan cos trigonometrik fonksiyonu](powerpoint-math-equations_6.png)
+![cos fonksiyonunun 2x üzerine uygulanması](powerpoint-math-equations_6.png)
 
 ```java
 import com.aspose.slides.*;
@@ -431,11 +431,11 @@ try {
 }
 ```
 
-## **Alt ve Üst Indeks Ekleme**
+## **Alt Simge ve Üst Simge Ekle**
 
-İndeksler ve üsler için alt ve üst indeks yardımcılarını kullanın. İndeksler tabanın sol tarafında görünmeliyse [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) kullanın.
+İndeksler ve üsler için alt simge ve üst simge yardımcılarını kullanın. İndekslerin tabanın sol tarafında görünmesi gerektiğinde [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) kullanın.
 
-![Sol tarafında alt indeks 1 ve üst indeks n olan büyük Y](powerpoint-math-equations_9.png)
+![Sol tarafında alt simge 1 ve üst simge n bulunan büyük Y harfi](powerpoint-math-equations_9.png)
 
 ```java
 import com.aspose.slides.*;
@@ -459,11 +459,11 @@ try {
 }
 ```
 
-## **Sınırlayıcılar Ekleme**
+## **Sınırlayıcılar Ekle**
 
-Bir ifadeyi sınırlayıcıların içine koymak için [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) kullanın. Birden fazla öğe içeren sınırlayıcı ifadeler için ayırıcı karakter de belirleyebilirsiniz.
+Bir ifadeyi sınırlayıcıların içine koymak için [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) kullanın. Birden fazla öğe içeren sınırlayıcı ifadeler için ayırıcı karakter de ayarlayabilirsiniz.
 
-![x, y ve z'nin dikey çubuklarla ayrıldığı bir sınırlayıcı ifadesi](powerpoint-math-equations_13.png)
+![x, y ve z’yi dikey çubuklarla ayıran bir sınırlayıcı ifadesi](powerpoint-math-equations_13.png)
 
 ```java
 import com.aspose.slides.*;
@@ -490,11 +490,11 @@ try {
 }
 ```
 
-### **Sınırlayıcıların Boyutu ve Hizalaması**
+### **Sınırlayıcıları Boyutlandırma ve Hizalama**
 
-Parantezlerin uzun bir operanda göre büyümesi için [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) parametresine `true` geçirin; normal boyutta kalmasını istiyorsanız `false` geçirin. [setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) ile iki [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/) değerinden birini seçin. `Centered` parantezleri matematik ekseninin ortasına (eşittir işaretinin ortasından) hizalar. `Match` ise içeriğe göre hizalar. Her iki ayar yalnızca sınırlayıcıları etkiler; içteki ifade aynı kalır.
+Parantezin uzun bir terimin etrafını kaplaması için [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-)’a `true` gönderin; normal boyutta kalması için `false` gönderin. [setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) ile iki [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/) değerinden birini seçin. `Centered` parantezleri matematik ekseninin ortasına, `Match` ise içeriğe göre hizalar. Her iki ayar sadece sınırlayıcılara etki eder; içteki ifade aynı kalır.
 
-Örnek, `x`'in üst üste bir kesiri gösteren ifadeyi üs konumuna koyar; böylece ifade tabandan daha çok yukarı uzanır. Tüm dört denklem aynı parantez ve yazı tipi ayarlarını kullanır.
+Örnek, `x` üstüne bir kesir koyar, böylece ifade alt çizgiden daha çok yukarı çıkar. Dört denklem aynı parantez ve yazı tipi ayarlarını kullanır.
 
 ```java
 import com.aspose.slides.*;
@@ -523,15 +523,15 @@ try {
 }
 ```
 
-PowerPoint’te satırları karşılaştırarak büyüme etkisini görebilirsiniz. Üst satırda, parantezler üssü kapsayacak şekilde büyür ve iki şekil de benzer görünür. Alt satırda büyüme kapalıdır; sol taraftaki daha küçük parantez (`Centered`) eşittir işaretiyle hizalanırken, sağdaki (`Match`) ifadeyi daha yüksek bir konumda tutar.
+PowerPoint’te satırları karşılaştırarak büyüme etkisini görün. Üst satırda, parantezler üstteki kesiri kapsayacak şekilde büyür ve iki şekil de benzer görünür. Alt satırda büyüme kapalıdır; sol tarafındaki daha küçük parantez (`Centered`) eşittir işaretiyle hizalanırken, sağdaki (`Match`) ifade etrafında daha yüksek konumlanır.
 
-![Üst, Orta ve Alt hizalama ve aynı komşu öğelerle PowerPoint'teki denklem dizileri](delimiter-sizing.png)
+![Üstte büyüme açık, altta kapalı ve sol tarafta Centered, sağ tarafta Match olan dört denklem](delimiter-sizing.png)
 
-## **Kenar Kutusu Ekleme**
+## **Kenarlıklı Kutu Ekle**
 
-Bir kesiri tüm ifadeyi çerçevelemek için [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) çağırın. Döndürülen [IMathBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/) varsayılan olarak dört kenarı da gösterir. Tek tek kenarları kaldırmak için [setHideTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), ve [setHideRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideRight-boolean-) kullanın.
+Bir kesir üzerinde [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) çağırarak tüm ifadeyi çerçeveleyin. Döndürülen [IMathBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/) varsayılan olarak dört kenarı gösterir. Tek tek kenarları kaldırmak için [setHideTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideLeft-boolean-) ve [setHideRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideRight-boolean-) kullanın.
 
-Örnek aynı kesirin altı kopyasını bir slayta yerleştirir. İptal göstermek için dört kenarı da gizleyin ve artan çapraz (↗) için [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-), azalan çapraz (↘) için [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) çağırın. Ayrıca, görünür kenarlar ile herhangi bir kombinasyon için [setStrikethroughHorizontal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) veya [setStrikethroughVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) kullanabilirsiniz.
+Örnek aynı kesirin altı kopyasını bir slayta koyar. İptal göstermek için dört kenarı da gizleyin ve yükselen diyagonal (`↗`) için [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-), düşen diyagonal (`↘`) için [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) uygulayın. Ayrıca herhangi bir görünen kenar kombinasyonu ile [setStrikethroughHorizontal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) veya [setStrikethroughVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) kullanılabilir.
 
 ```java
 import com.aspose.slides.*;
@@ -576,15 +576,99 @@ try {
 }
 ```
 
-![Üst satır: tam kenar, alt ve sol kenarlar, artan çapraz. Alt satır: azalan çapraz, yatay çizgi, dikey çizgi ve tam kenar.](border-box-fractions.png)
+![PowerPoint’te altı düzenlenebilir kesir. Üst satır: tam kenar, alt ve sol kenarlar, yükselen diyagonal. Alt satır: düşen diyagonal, yatay kesik, dikey kesik ve tam kenar.](border-box-fractions.png)
 
-Bu kesirde, yatay çizgi kesir çubuğu ile örtüşür. Dikey çizgi hem payı hem de paydayı keserken çevre kenarı görünür kalır. Bu çizgiler bütün ifadeyi süsler. Normal metin üzeri çizgisi yalnızca metin akışındaki karakterlere uygulanır. Sunumu PowerPoint’te tekrar açtıktan sonra pay ve payda bağımsız olarak düzenlenebilir.
+Bu kesirde, yatay kesik kesir çubuğu ile çakışır. Dikey kesik hem payı hem de paydayı keserken çevre kenar görünür kalır. Bu çizgiler tüm ifadeyi süsler. Normal metin üzerindeki üst çizgi karakterlerde uygulanır. PowerPoint’te sunumu yeniden açtığınızda pay ve payda bağımsız olarak hâlen düzenlenebilir.
+
+## **Phantom Öğelerle Görünürlük ve Düzeni Kontrol Et**
+
+Bir ifadeyi [MathPhantom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathphantom/) içinde sararak görünürlüğünü ve denkleme katkıda bulunduğu boşluğu bağımsız olarak kontrol edebilirsiniz. [IMathPhantom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/) metodları şunları yönetir:
+
+| Method | Effect |
+| --- | --- |
+| [setShow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setShow-boolean-) | `false` göndererek ifadeyi gizleyin. Boyutları yerleşmeye katkıda bulunur; aşağıdaki ilgili metodlara `true` verilmediği sürece. |
+| [setZeroWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroWidth-boolean-) | İfadenin yatay genişliğini sıfır olarak kabul eder, komşu öğelerin daha yakın gelmesini sağlar. |
+| [setZeroAsc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroAsc-boolean-) | Yukarı doğru yükselişini (baseline’ın üstündeki yükseklik) sıfır kabul eder; bu, komşu öğelerin üzerindeki boşluğu azaltabilir. |
+| [setZeroDesc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | Aşağı doğru inişini (baseline’ın altındaki derinlik) sıfır kabul eder; bu, bir kesir çubuğu veya diğer içeriğin alttaki kısmını komşulara yaklaştırabilir. |
+
+Baseline, sıradan matematik harflerinin oturduğu referans çizgisidir. İçeriği gizlemek boyutlarını kaldırmaz; bir boyutu sıfır olarak ayarlamak ifadeyi silmez. Alt ifadeye [getBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#getBase--) ile hâlâ erişilebilir. Tekrar göstermek için [setShow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setShow-boolean-)‘a `true` gönderin; boyut ayarları değişmeden kalır.
+
+Aşağıdaki örnek beş yan yana varyant oluşturur: görünür bir kesir, alan ayıran gizli bir kesir ve bir boyutu sıfır kabul edilen üç gizli kesir. Her varyant aynı çevre ifadeyi ve Cambria Math 24 puntoyu kullanır. Tüm denklem şekilleri aynı üst konuma sahiptir; gri kılavuzla işaretlenmiştir. Phantom’u dış kesirin payına koymak, dikey düzen değişikliklerini görmeyi kolaylaştırır.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+class MathTextFactory {
+    MathematicalText createText(String value) {
+        MathematicalText text = new MathematicalText(value);
+        text.getFormat().setFontHeight(24);
+        text.getFormat().setLatinFont(new FontData("Cambria Math"));
+        return text;
+    }
+}
+
+MathTextFactory factory = new MathTextFactory();
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(1000, 180, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    String[] labels = { "Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc" };
+
+    IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Line, 10, 60, 980, 0);
+    guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.LTGRAY);
+
+    for (int i = 0; i < labels.length; i++) {
+        int left = 10 + i * 200;
+
+        IAutoShape label = slide.getShapes().addAutoShape(ShapeType.Rectangle, left, 10, 190, 30);
+        label.getFillFormat().setFillType(FillType.NoFill);
+        label.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        label.getTextFrame().setText(labels[i]);
+
+        IPortionFormat labelFormat = label.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        labelFormat.setFontHeight(14);
+        labelFormat.getFillFormat().setFillType(FillType.Solid);
+        labelFormat.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+        MathematicalText fractionNumerator = factory.createText("a+b");
+        MathematicalText fractionDenominator = factory.createText("c+d");
+        MathFraction fraction = new MathFraction(fractionNumerator, fractionDenominator);
+        MathPhantom phantom = new MathPhantom(fraction);
+        phantom.setShow(i == 0);
+        phantom.setZeroWidth(i == 2);
+        phantom.setZeroAsc(i == 3);
+        phantom.setZeroDesc(i == 4);
+
+        MathematicalText leftText = factory.createText("x+");
+        MathematicalText rightText = factory.createText("+y");
+        IMathBlock numerator = new MathBlock(leftText).join(phantom).join(rightText);
+        MathematicalText denominator = factory.createText("z");
+        MathFraction equation = new MathFraction(numerator, denominator);
+
+        IAutoShape shape = slide.getShapes().addMathShape(left, 60, 190, 100);
+        shape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Top);
+
+        IMathPortion mathPortion = (IMathPortion) shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+        IMathParagraph mathParagraph = mathPortion.getMathParagraph();
+        mathParagraph.add(new MathBlock(equation));
+    }
+
+    presentation.save("math-phantom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![PowerPoint’te bir görünür kesir, alan ayıran gizli kesir ve ZeroWidth, ZeroAsc veya ZeroDesc etkinleştirilmiş gizli kesirleri karşılaştıran beş denklem](math-phantom.png)
 
 ## **Terimleri Gruplama**
 
-[group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) kullanarak bir ifadeyi üstüne ya da altına bir gruplama karakteri ekleyin. Gruplanmış terimleri etiketlemek için bir limit ekleyin.
+Bir ifadeyi yukarıya ya da aşağıya bir grup karakteri yerleştirmek için [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) kullanın. Gruplanan terimleri etiketlemek için bir limit ekleyin.
 
-![x + y ifadesi, altına herhangi bir metin etiketi ile gruplanmış](powerpoint-math-equations_15.png)
+![x artı y ifadesi, altında herhangi bir metin etiketiyle gruplanmış](powerpoint-math-equations_15.png)
 
 ```java
 import com.aspose.slides.*;
@@ -609,9 +693,9 @@ try {
 }
 ```
 
-## **Matematik Öğelerini Biçimlendirme**
+## **Matematik Öğelerini Biçimlendir**
 
-Yalnızca formülü netleştirdiği durumlarda biçimlendirme yardımcılarını kullanın. Örneğin, [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) bir matematik öğesinin üzerine bir çubuk ekler.
+Yalnızca formülü netleştirdiği durumlarda biçimlendirme yardımcılarını kullanın. Örneğin, [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) bir matematik öğesinin üzerine bir çubuk koyar.
 
 ![Üst çubuğu olan ABC matematik ifadesi](powerpoint-math-equations_14.png)
 
@@ -636,11 +720,11 @@ try {
 }
 ```
 
-### **Mevcut Bir Denklemde Metin Biçimlendirme**
+### **Mevcut Bir Denklemde Metni Biçimlendir**
 
-Mevcut bir denklemin metnini bütüncül biçimlendirmek için, her matematik bloğunun öğe ağacını dolaşın. [IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) yalnızca doğrudan çocukları döndürür; bu yüzden kesirler, üst/alt indeksler, kökler ve diğer iç içe yapıların içindeki metne ulaşmak için yinelemeli olarak çağırın. Başlangıç öğesinin kendisi de [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) ise onu da dahil edin.
+Mevcut bir denklemdeki metni biçimlendirmek için her bir matematik bloğunun öğe ağacını dolaşın. [IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) yalnızca doğrudan çocukları döndürür; bu yüzden kesirler, üst/alt simgeler, kökler ve diğer iç içe yapıların içindeki metne ulaşmak için yinelemeli olarak çağırın. Başlangıç öğesini ve çocuklarını kontrol edin; öğe [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) olduğunda da dahil edin.
 
-Bu örnek, `input.pptx` dosyasının `z = xᵢ / ∛y` gibi bir denklem içerdiğini varsayar; bu denklemde payda içinde bir kök, pay içinde alt indeksli bir kesir bulunur. Yalnızca bloğun üst‑seviye öğelerini işlemek, kesir içindeki metni kaçırır. Örnek, slayt metin çerçevelerindeki matematik bölümlerini bulur, bloklarına [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) ile erişir ve her metin öğesinin [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--) yöntemiyle [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) çağırarak yazı tipi boyutunu 28 puana ayarlar.
+Bu örnek, `input.pptx` içinde `z = xᵢ / ∛y` gibi bir denklem olduğunu varsayar; bu denklem, payda içinde bir alt simge ve payda içinde bir kök içerir. Sadece bloğun üst‑seviye öğelerini işlemek, kesir içindeki metni kaçırır. Örnek, slayt metin çerçevelerindeki matematik bölümlerini bulur, bunların bloklarına [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) ile erişir ve her metin öğesinin [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--) metodunu kullanarak [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) ile yazı tipini 28 puana ayarlar.
 
 ```java
 import com.aspose.slides.*;
@@ -691,21 +775,21 @@ try {
 }
 ```
 
-Kaydedilen sunum, işlenen her denklemdeki tüm seviyelerde güncellenmiş metin biçimlendirmesini içerir; metin içeriği ve matematik yapısı korunur.
+Kaydedilen sunum, işlenen her denklemdeki her seviyede güncellenmiş metin biçimlendirmesini içerir; metin içeriği ve matematik yapısı korunur.
 
-## **Hızlı Başvuru**
+## **Hızlı Referans**
 
-| Görev | Ana API |
+| Task | Main API |
 | --- | --- |
 | Matematik metni oluşturma | [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) |
 | Öğeleri birleştirme | [IMathElement.join](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Kesir oluşturma | [IMathElement.divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Üst indeksi veya alt indeksi ekleme | [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Üst simge veya alt simge ekleme | [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Fonksiyon ekleme | [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Kök ekleme | [IMathElement.radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Köklü ifade ekleme | [IMathElement.radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Limit ekleme | [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Sol taraflı betikler ekleme | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Toplamalar ve integraller ekleme | [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Sol‑taraflı üst/alt simge ekleme | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Toplam ve integral ekleme | [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Matris ekleme | [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) |
 | Denklem dizileri ekleme | [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Sınırlayıcı ekleme | [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
@@ -714,14 +798,14 @@ Kaydedilen sunum, işlenen her denklemdeki tüm seviyelerde güncellenmiş metin
 
 ## **SSS**
 
-**Mevcut bir PowerPoint denklemini düzenleyebilir miyim?**
+**Mevcut bir PowerPoint denkleminde düzenleme yapabilir miyim?**
 
 Evet. Sunumu açın, bir [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) içeren şekli bulun, [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) çağırın ve o paragraftaki matematik bloklarını güncelleyin.
 
-**Denklikler düzenlenebilir PowerPoint matematiği olarak kaydediliyor mu?**
+**Denklemler düzenlenebilir PowerPoint matematiği olarak kaydediliyor mu?**
 
 Evet. PPTX olarak kaydettiğinizde, Aspose.Slides denklemi düzenlenebilir Office matematik içeriği olarak yazar.
 
-**Denklikleri LaTeX’e dışa aktarabilir miyim?**
+**Denklemleri LaTeX’e dışa aktarabilir miyim?**
 
-Evet. Denklemin [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) nesnesini, onun [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/) üzerinden alın ve doğrudan dışa aktarmak için [IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) çağırın. Tam örnek için, [Android'da Java ile Sunumlardan Matematik Denklemlerini Dışa Aktarma](/slides/tr/androidjava/exporting-math-equations/#export-math-equations-to-latex) bölümüne bakın.
+Evet. Denklemin [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) öğesini, [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/) üzerinden alın ve doğrudan dışa aktarmak için [IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) metodunu çağırın. Tam bir örnek için [Export Math Equations from Presentations in Android via Java](/slides/tr/androidjava/exporting-math-equations/#export-math-equations-to-latex) bölümüne bakın.

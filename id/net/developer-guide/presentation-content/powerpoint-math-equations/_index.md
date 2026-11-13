@@ -1,5 +1,5 @@
 ---
-title: Tambahkan Persamaan Matematika ke Presentasi PowerPoint di .NET
+title: Menambahkan Persamaan Matematika ke Presentasi PowerPoint di .NET
 linktitle: Persamaan Matematika PowerPoint
 type: docs
 weight: 80
@@ -18,35 +18,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Masukkan dan edit persamaan matematika dalam PowerPoint PPT dan PPTX dengan Aspose.Slides untuk .NET, mendukung OMML, kontrol pemformatan, dan contoh kode C# yang jelas."
+description: "Masukkan dan edit persamaan matematika di PowerPoint PPT dan PPTX dengan Aspose.Slides untuk .NET, mendukung OMML, kontrol pemformatan, dan contoh kode C# yang jelas."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides untuk .NET, Anda dapat membuat jenis konten matematika yang sama secara terprogram: pecahan, radikal, fungsi, limit, operator N-ary, matriks, array, dan blok matematika terformat.
+PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides for .NET, Anda dapat membuat konten matematika yang sama secara programatik: pecahan, radikal, fungsi, limit, operator N-ary, matriks, array, dan blok matematika yang diformat.
 
 Di PowerPoint, pengguna biasanya menambahkan persamaan melalui **Insert > Equation**:
 
-![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
+![Tab Insert PowerPoint dengan perintah Equation dipilih](powerpoint-math-equations_1.png)
 
 Hasilnya adalah teks matematika yang dapat diedit pada slide:
 
-![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
+![Sebuah slide PowerPoint yang berisi persamaan matematika yang dapat diedit](powerpoint-math-equations_2.png)
 
 Aspose.Slides membangun teks matematika tersebut melalui tiga objek utama:
 
-- Sebuah shape matematika, dibuat dengan [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/), adalah shape yang berisi persamaan.
-- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) menyimpan konten matematika di dalam bingkai teks shape.
+- Sebuah shape matematika, yang dibuat dengan [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/), adalah shape yang berisi persamaan.
+- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) menyimpan konten matematika di dalam frame teks shape.
 - [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) berisi satu atau beberapa objek [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/).
 
 Sebagian besar contoh di bawah ini menggunakan [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) dan metode fluent dari [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) untuk menjaga kode tetap singkat dan mudah dibaca.
 
-Untuk skenario ekspor MathML, lihat [Ekspor Persamaan Matematika dari Presentasi di .NET](/slides/id/net/exporting-math-equations/).
+Untuk skenario ekspor MathML, lihat [Export Math Equations from Presentations in .NET](/slides/id/net/exporting-math-equations/).
 
 ## **Buat Persamaan**
 
 Contoh ini menggunakan [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) untuk membuat shape matematika dan menambahkan teorema Pythagoras:
 
-![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
+![Persamaan c kuadrat sama dengan a kuadrat ditambah b kuadrat](powerpoint-math-equations_3.png)
 
 ```csharp
 using Aspose.Slides;
@@ -72,14 +72,16 @@ presentation.Save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="info" title="Catatan" %}}
-[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) membuat shape yang sudah berisi paragraf matematika. Akses [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) pertama, dapatkan [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/), dan tambahkan blok matematika atau elemen matematika ke dalamnya.
+
+[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) membuat shape yang sudah berisi paragraf matematika. Akses [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) pertama, dapatkan [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/)-nya, dan tambahkan blok atau elemen matematika ke dalamnya.
+
 {{% /alert %}}
 
 ## **Tambahkan Pecahan**
 
 Gunakan [Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) untuk membuat pecahan. Anda dapat memilih gaya pecahan dengan [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/).
 
-![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
+![Sebuah pecahan miring yang menunjukkan satu dibagi x](powerpoint-math-equations_4.png)
 
 ```csharp
 using Aspose.Slides;
@@ -112,7 +114,7 @@ var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFraction
 
 Gunakan [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) untuk membuat akar kuadrat, akar kubik, atau akar lainnya. Elemen saat ini menjadi basis, dan argumen menjadi pangkat.
 
-![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
+![Ekspresi radikal akar ke‑n dengan x di bawah tanda radikal](powerpoint-math-equations_5.png)
 
 ```csharp
 using Aspose.Slides;
@@ -135,9 +137,9 @@ presentation.Save("radical.pptx", SaveFormat.Pptx);
 
 ## **Tambahkan Fungsi dan Limit**
 
-Gunakan [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) atau [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi kustom. Untuk limit, letakkan `lim` dalam [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) atau gunakan [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).
+Gunakan [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) atau [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi khusus. Untuk limit, letakkan `lim` di dalam [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) atau gunakan [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).
 
-![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
+![Limit x ketika x mendekati tak terhingga](powerpoint-math-equations_8.png)
 
 ```csharp
 using Aspose.Slides;
@@ -159,7 +161,7 @@ mathParagraph.Add(new MathBlock(limit));
 presentation.Save("functions-and-limits.pptx", SaveFormat.Pptx);
 ```
 
-Untuk nama fungsi kustom, jadikan nama fungsi sebagai elemen saat ini dan panggil [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) dengan argumennya:
+Untuk nama fungsi khusus, jadikan nama fungsi sebagai elemen saat ini dan panggil [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) dengan argumennya:
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -167,11 +169,11 @@ using Aspose.Slides.MathText;
 var customFunction = new MathematicalText("f").Function("x + 1");
 ```
 
-## **Tambahkan Operator N-ary dan Integral**
+## **Tambahkan Operator N‑ary dan Integral**
 
-Gunakan [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) untuk penjumlahan, union, irisan, dan operator besar lainnya. Gunakan [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) untuk integral. Kedua metode memungkinkan Anda menentukan limit bawah dan atas.
+Gunakan [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) untuk penjumlahan, union, irisan, dan operator besar lainnya. Gunakan [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) untuk integral. Kedua metode memungkinkan Anda mengatur limit bawah dan atas.
 
-![A summation with lower and upper limits](powerpoint-math-equations_7.png)
+![Sebuah penjumlahan dengan limit bawah dan atas](powerpoint-math-equations_7.png)
 
 ```csharp
 using Aspose.Slides;
@@ -195,7 +197,7 @@ mathParagraph.Add(new MathBlock(summation));
 presentation.Save("nary-operators.pptx", SaveFormat.Pptx);
 ```
 
-Operator N-ary digunakan untuk operator besar dengan batas opsional. Operator sederhana seperti `+`, `-`, dan `=` biasanya ditambahkan sebagai [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) dan digabungkan ke dalam ekspresi.
+Operator N‑ary digunakan untuk operator besar dengan limit opsional. Operator sederhana seperti `+`, `-`, dan `=` biasanya ditambahkan sebagai [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) dan digabungkan ke dalam ekspresi.
 
 Untuk integral, gunakan [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/):
 
@@ -208,9 +210,9 @@ var integral = integralBase.Integral(MathIntegralTypes.Simple, "0", "1");
 
 ## **Tambahkan Matriks**
 
-Gunakan [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) untuk baris dan kolom. Matriks tidak menyertakan kurung secara default, sehingga balut matriks dengan tanda kurung, siku, atau kurawal bila diperlukan.
+Gunakan [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) untuk baris dan kolom. Matriks tidak menyertakan tanda kurung secara default, jadi balut matriks ketika Anda membutuhkan tanda kurung, kurung siku, atau kurung kurawal.
 
-![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
+![Matriks matematika dua baris dengan satu sel kosong](powerpoint-math-equations_10.png)
 
 ```csharp
 using Aspose.Slides;
@@ -239,7 +241,7 @@ presentation.Save("matrix.pptx", SaveFormat.Pptx);
 
 Gunakan [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) ketika Anda membutuhkan persamaan yang rata atau tumpukan vertikal ekspresi.
 
-![A vertical math array with x above y](powerpoint-math-equations_11.png)
+![Array matematika vertikal dengan x di atas y](powerpoint-math-equations_11.png)
 
 ```csharp
 using Aspose.Slides;
@@ -265,7 +267,7 @@ presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 
 [IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) mengontrol perataan vertikal sebuah array relatif terhadap elemen matematika di sampingnya. Contoh di bawah membandingkan perataan dengan baris pertama, tengah array, dan baris terakhir.
 
-Contoh berikut membuat tiga array identik, masing-masing dengan tiga baris dan elemen tetangga `A=` dan `=B`. Semua teks matematika menggunakan Cambria Math ukuran 24 poin. Hanya perataan array yang berubah.
+Contoh berikut membuat tiga array identik, masing‑masing tiga baris dengan elemen tetangga `A=` dan `=B`. Semua teks matematika menggunakan Cambria Math berukuran 24 poin. Hanya perataan array yang berubah.
 
 ```csharp
 using Aspose.Slides;
@@ -312,17 +314,17 @@ MathematicalText CreateText(string value)
 }
 ```
 
-Perbandingan berikut menunjukkan presentasi yang disimpan di PowerPoint. Perhatikan posisi `A=` dan `=B` di sebelah setiap array.
+Perbandingan berikut menampilkan presentasi yang disimpan di PowerPoint. Perhatikan posisi `A=` dan `=B` di samping setiap array.
 
-![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
+![Array persamaan di PowerPoint dengan perataan Atas, Tengah, dan Bawah serta elemen tetangga yang identik](equation-array-alignment.png)
 
-### **Konfigurasikan Jarak Baris**
+### **Konfigurasi Jarak Baris**
 
-[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) memilih aturan jarak untuk baris dalam array. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) memberikan nilai numerik untuk aturan jarak eksplisit dan diabaikan oleh aturan preset.
+[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) memilih aturan jarak untuk baris dalam array. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) menyediakan nilai numerik untuk aturan jarak eksplisit dan diabaikan oleh aturan bawaan.
 
-Untuk jarak tepat, nilai diukur dalam poin. Untuk jarak proporsional, diukur dalam setengah baris: nilai `3` dalam contoh menunjukkan 1,5 baris. Atur kedua properti saat menentukan nilai eksplisit; mengubah nilai numerik saja tidak memilih aturan jarak.
+Untuk jarak tepat, nilai diukur dalam poin. Untuk jarak proporsional, diukur dalam setengah baris: nilai `3` pada contoh berarti 1,5 baris. Atur kedua properti ketika menentukan nilai eksplisit; mengubah nilai numerik saja tidak memilih aturan jarak.
 
-Contoh di bawah menyimpan lima presentasi dengan persamaan, perataan, dan pengaturan font yang sama. Tiga pertama menggunakan preset; dua terakhir memperlihatkan nilai eksplisit.
+Contoh di bawah menyimpan lima presentasi dengan persamaan, perataan, dan pengaturan font yang sama. Tiga pertama menggunakan preset; dua terakhir menunjukkan nilai eksplisit.
 
 ```csharp
 using Aspose.Slides;
@@ -372,13 +374,13 @@ MathematicalText CreateText(string value)
 }
 ```
 
-Jarak baris array terpisah dari jarak paragraf. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) dan [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) menambah ruang di sekitar paragraf yang berisi, bukan antar baris array. Demikian pula, [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) memposisikan seluruh paragraf matematika secara horizontal; tidak menggantikan pengaturan perataan vertikal array.
+Jarak baris array terpisah dari jarak paragraf. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) dan [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) menambah ruang di sekitar paragraf yang memuatnya, bukan di antara baris array. Demikian pula, [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) memposisikan seluruh paragraf matematika secara horizontal; ia tidak menggantikan pengaturan perataan vertikal array.
 
 ## **Tambahkan Fungsi Trigonometri**
 
 Gunakan [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) ketika argumen adalah elemen saat ini dan nama fungsi sudah diketahui.
 
-![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
+![Fungsi trigonometri cos diterapkan pada 2x](powerpoint-math-equations_6.png)
 
 ```csharp
 using Aspose.Slides;
@@ -403,7 +405,7 @@ presentation.Save("trigonometric-function.pptx", SaveFormat.Pptx);
 
 Gunakan pembantu subskrip dan superskrip untuk indeks dan pangkat. Ketika indeks harus muncul di sisi kiri basis, gunakan [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
 
-![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
+![Huruf Y kapital dengan subskrip kiri 1 dan superskrip n](powerpoint-math-equations_9.png)
 
 ```csharp
 using Aspose.Slides;
@@ -428,7 +430,7 @@ presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 
 Gunakan [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) untuk menempatkan ekspresi di dalam pembatas. Anda juga dapat mengatur karakter pemisah untuk ekspresi pembatas yang berisi beberapa elemen.
 
-![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
+![Ekspresi pembatas yang berisi x, y, dan z dipisahkan oleh garis vertikal](powerpoint-math-equations_13.png)
 
 ```csharp
 using Aspose.Slides;
@@ -452,11 +454,11 @@ mathParagraph.Add(new MathBlock(delimiter));
 presentation.Save("delimiters.pptx", SaveFormat.Pptx);
 ```
 
-### **Ukuran dan Penjajaran Pembatas**
+### **Ukuran dan Perataan Pembatas**
 
-Atur [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) menjadi `true` agar tanda kurung memperbesar di sekitar operand tinggi, atau menjadi `false` untuk mempertahankan ukuran normal. [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) menerima salah satu dari dua nilai [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/). `Centered` menengahkan tanda kurung pada sumbu matematika, yang melintasi tengah tanda sama dengan. `Match` menyelaraskan mereka dengan konten yang dibungkus. Kedua pengaturan hanya memengaruhi pembatas. Ekspresi di dalamnya tetap sama.
+Setel [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) ke `true` agar tanda kurung menyesuaikan tinggi operand tinggi, atau ke `false` agar tetap pada ukuran normal. [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) mengambil salah satu dari dua nilai [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/). `Centered` memusatkan tanda kurung pada sumbu matematika, yang melewati tengah tanda sama dengan. `Match` menyesuaikannya dengan konten yang dibungkus. Kedua pengaturan memengaruhi hanya pembatas. Ekspresi di dalamnya tetap sama.
 
-Contoh menempatkan pecahan di pangkat `x` sehingga ekspresi memperluas lebih jauh di atas garis dasar dibandingkan di bawahnya. Semua empat persamaan menggunakan tanda kurung dan pengaturan font yang sama.
+Contoh menempatkan pecahan di pangkat `x` sehingga ekspresi menjulur lebih tinggi di atas garis dasar dibandingkan di bawahnya. Keempat persamaan menggunakan tanda kurung dan pengaturan font yang sama.
 
 ```csharp
 using Aspose.Slides;
@@ -489,15 +491,15 @@ AddExpression(350, 140, false, MathDelimiterShape.Match);
 presentation.Save("delimiter-sizing.pptx", SaveFormat.Pptx);
 ```
 
-Di PowerPoint, bandingkan baris-baris untuk melihat efek pertumbuhan. Pada baris atas, tanda kurung memperbesar untuk membungkus eksponmen dan terlihat serupa untuk kedua bentuk. Pada baris bawah, pertumbuhan dimatikan. Tanda kurung lebih kecil di kiri (`Centered`) sejajar dengan tanda sama dengan, sementara yang di kanan (`Match`) berada lebih tinggi di sekitar ekspresi.
+Di PowerPoint, bandingkan baris untuk melihat efek pertumbuhan. Pada baris atas, tanda kurung tumbuh untuk membungkus pangkat dan tampak serupa untuk kedua bentuk. Pada baris bawah, pertumbuhan dimatikan. Tanda kurung yang lebih kecil di kiri (`Centered`) sejajar dengan tanda sama dengan, sementara yang di kanan (`Match`) berada lebih tinggi di sekitar ekspresi.
 
-![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
+![Empat persamaan di PowerPoint dengan pertumbuhan pembatas diaktifkan di atas dan dinonaktifkan di bawah, serta Centered di kiri dan Match di kanan](delimiter-sizing.png)
 
 ## **Tambahkan Kotak Garis Batas**
 
 Panggil [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) pada sebuah pecahan untuk membingkai seluruh ekspresi. [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) yang dikembalikan menampilkan keempat sisi secara default. Gunakan [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/), dan [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) untuk menghapus sisi tertentu.
 
-Contoh menempatkan enam salinan pecahan yang sama pada satu slide. Untuk menunjukkan pembatalan, sembunyikan keempat sisi dan atur [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) untuk diagonal naik (↗) atau [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) untuk diagonal turun (↘). Anda juga dapat menggunakan [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) atau [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) dengan kombinasi sisi yang terlihat apa pun.
+Contoh menempatkan enam salinan pecahan yang sama pada satu slide. Untuk menunjukkan pembatalan, sembunyikan keempat sisi dan atur [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) untuk diagonal naik (↗) atau [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) untuk diagonal turun (↘). Anda juga dapat menggunakan [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) atau [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) dengan kombinasi sisi yang terlihat mana saja.
 
 ```csharp
 using Aspose.Slides;
@@ -535,15 +537,89 @@ AddFraction(370, 120).StrikethroughVertical = true;
 presentation.Save("border-box.pptx", SaveFormat.Pptx);
 ```
 
-![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border.](border-box-fractions.png)
+![Enam pecahan yang dapat diedit di PowerPoint. Baris atas: batas penuh, sisi bawah dan kiri, diagonal naik. Baris bawah: diagonal turun, goresan horizontal, goresan vertikal dengan batas penuh.](border-box-fractions.png)
 
-Pada pecahan ini, garis horizontal menimpa batang pecahan. Garis vertikal melintasi pembilang dan penyebut sekaligus border di sekitarnya tetap terlihat. Garis-garis ini menghias seluruh ekspresi. Coretan teks biasa diterapkan pada karakter dalam run teks. Setelah membuka kembali presentasi di PowerPoint, Anda masih dapat mengedit pembilang dan penyebut secara terpisah.
+Pada pecahan ini, goresan horizontal menutupi garis pecahan. Goresan vertikal melintasi pembilang dan penyebut sementara batas di sekelilingnya tetap terlihat. Garis‑garis ini menghias seluruh ekspresi. Goresan teks biasa hanya berlaku pada karakter dalam satu run teks. Setelah membuka kembali presentasi di PowerPoint, Anda masih dapat mengedit pembilang dan penyebut secara terpisah.
+
+## **Kendalikan Visibilitas dan Tata Letak dengan Elemen Phantom**
+
+Balut sebuah ekspresi dengan [MathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathphantom/) untuk mengendalikan visibilitasnya serta ruang yang disumbangkannya ke persamaan secara independen. Properti [IMathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/) mengatur hal‑hal berikut:
+
+| Properti | Efek |
+| --- | --- |
+| [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) | Atur ke `false` untuk menyembunyikan ekspresi. Dimensinya tetap berkontribusi pada tata letak kecuali properti terkait di bawah diatur ke `true`. |
+| [ZeroWidth](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerowidth/) | Anggap lebar horizontal ekspresi sebagai nol, sehingga elemen tetangga dapat bergerak lebih dekat. |
+| [ZeroAsc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zeroasc/) | Anggap kenaikan (ascent) ekspresi, tinggi di atas garis dasar, sebagai nol. Ini dapat mengurangi ruang yang disisihkan di atas elemen tetangga. |
+| [ZeroDesc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerodesc/) | Anggap penurunan (descent) ekspresi, kedalaman di bawah garis dasar, sebagai nol. Ini dapat memindahkan batang pecahan atau konten lain di bawah ekspresi lebih dekat ke tetangganya. |
+
+Garis dasar adalah garis referensi tempat huruf matematika biasa berada. Menyembunyikan konten tidak menghapus dimensinya, dan memperlakukan dimensi sebagai nol tidak menghapus ekspresi. Ekspresi yang mendasarinya tetap dapat diakses melalui [Base](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/base/). Atur [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) kembali ke `true` untuk menampilkannya lagi; pengaturan dimensi tetap tidak berubah.
+
+Contoh di bawah membuat lima varian berdampingan: sebuah pecahan yang terlihat, pecahan tersembunyi yang tetap menyisihkan ruang, dan tiga pecahan tersembunyi dengan satu dimensi diperlakukan sebagai nol. Setiap varian menggunakan ekspresi sekitar yang sama dan Cambria Math berukuran 24 poin. Semua shape persamaan memiliki posisi atas yang sama, ditandai oleh panduan abu‑abu. Menempatkan phantom di pembilang pecahan luar memudahkan melihat perubahan tata letak vertikal.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(1000, 180, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var labels = new[] { "Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc" };
+
+var guide = slide.Shapes.AddAutoShape(ShapeType.Line, 10, 60, 980, 0);
+guide.LineFormat.FillFormat.FillType = FillType.Solid;
+guide.LineFormat.FillFormat.SolidFillColor.Color = System.Drawing.Color.LightGray;
+
+for (var i = 0; i < labels.Length; i++)
+{
+    var left = 10 + i * 200;
+    
+    var label = slide.Shapes.AddAutoShape(ShapeType.Rectangle, left, 10, 190, 30);
+    label.FillFormat.FillType = FillType.NoFill;
+    label.LineFormat.FillFormat.FillType = FillType.NoFill;
+    label.TextFrame.Text = labels[i];
+
+    var labelFormat = label.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+    labelFormat.FontHeight = 14;
+    labelFormat.FillFormat.FillType = FillType.Solid;
+    labelFormat.FillFormat.SolidFillColor.Color = System.Drawing.Color.Black;
+
+    var fraction = new MathFraction(CreateText("a+b"), CreateText("c+d"));
+    var phantom = new MathPhantom(fraction);
+    phantom.Show = i == 0;
+    phantom.ZeroWidth = i == 2;
+    phantom.ZeroAsc = i == 3;
+    phantom.ZeroDesc = i == 4;
+
+    var numerator = new MathBlock(CreateText("x+")).Join(phantom).Join(CreateText("+y"));
+    var equation = new MathFraction(numerator, CreateText("z"));
+
+    var shape = slide.Shapes.AddMathShape(left, 60, 190, 100);
+    shape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Top;
+
+    var mathParagraph = ((IMathPortion)shape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+    mathParagraph.Add(new MathBlock(equation));
+}
+
+presentation.Save("math-phantom.pptx", SaveFormat.Pptx);
+
+MathematicalText CreateText(string value)
+{
+    var text = new MathematicalText(value);
+    text.Format.FontHeight = 24;
+    text.Format.LatinFont = new FontData("Cambria Math");
+    return text;
+}
+```
+
+![Lima persamaan di PowerPoint yang membandingkan pecahan terlihat, pecahan tersembunyi yang menyisihkan ruang, serta pecahan tersembunyi dengan ZeroWidth, ZeroAsc, atau ZeroDesc diaktifkan](math-phantom.png)
 
 ## **Kelompokkan Istilah**
 
-Gunakan [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) untuk menempatkan karakter pengelompokan di atas atau di bawah ekspresi. Tambahkan limit untuk memberi label pada istilah yang dikelompokkan.
+Gunakan [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) untuk menempatkan karakter pengelompokkan di atas atau di bawah sebuah ekspresi. Tambahkan limit untuk memberi label pada istilah yang dikelompokkan.
 
-![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
+![Ekspresi x plus y dikelompokkan dengan label teks apa pun di bawahnya](powerpoint-math-equations_15.png)
 
 ```csharp
 using Aspose.Slides;
@@ -567,9 +643,9 @@ presentation.Save("grouped-terms.pptx", SaveFormat.Pptx);
 
 ## **Format Elemen Matematika**
 
-Gunakan pembantu pemformatan hanya bila mereka memperjelas rumus. Misalnya, [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) menempatkan bar di atas elemen matematika.
+Gunakan pembantu format hanya bila mereka memperjelas rumus. Misalnya, [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) menempatkan sebuah garis di atas elemen matematika.
 
-![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
+![Ekspresi matematika ABC dengan overbar](powerpoint-math-equations_14.png)
 
 ```csharp
 using Aspose.Slides;
@@ -589,11 +665,11 @@ mathParagraph.Add(new MathBlock(overbar));
 presentation.Save("overbar.pptx", SaveFormat.Pptx);
 ```
 
-### **Format Teks dalam Persamaan yang Ada**
+### **Format Teks dalam Persamaan yang Sudah Ada**
 
-Untuk memformat teks di seluruh persamaan yang ada, telusuri pohon elemen setiap blok matematika. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) mengembalikan hanya anak langsung, sehingga panggil secara rekursif untuk mencapai teks di dalam pecahan, skrip, radikal, dan struktur bersarang lainnya. Periksa elemen saat ini serta anak‑anaknya untuk menyertakan elemen awal ketika itu adalah [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/).
+Untuk memformat teks di seluruh persamaan yang ada, telusuri pohon elemen setiap blok matematika. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) mengembalikan hanya anak‑anak langsung, jadi panggil secara rekursif untuk mencapai teks di dalam pecahan, skrip, radikal, dan struktur bersarang lainnya. Periksa elemen saat ini serta anak‑anaknya untuk menyertakan elemen awal ketika ia adalah [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/).
 
-Contoh ini mengasumsikan bahwa sebuah presentasi berisi persamaan seperti `z = xᵢ / ∛y`, dengan pecahan yang memiliki subskrip di pembilang dan radikal di penyebut. Memproses hanya elemen tingkat atas blok akan melewatkan teks di dalam pecahan. Contoh menemukan bagian matematika dalam bingkai teks slide, mengakses bloknya melalui [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/), dan mengatur [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) menjadi 28 poin melalui properti [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) setiap elemen teks.
+Contoh ini mengasumsikan bahwa presentasi berisi persamaan seperti `z = xᵢ / ∛y`, dengan pecahan yang memiliki subskrip di pembilang dan radikal di penyebut. Memproses hanya elemen tingkat atas blok akan melewatkan teks di dalam pecahan. Contoh menemukan bagian matematika dalam frame teks slide, mengakses blok‑nya melalui [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/), dan mengatur [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) menjadi 28 poin melalui properti [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) tiap elemen teks.
 
 ```csharp
 using Aspose.Slides;
@@ -635,37 +711,37 @@ void FormatMathText(IMathElement element)
 }
 ```
 
-Presentasi yang disimpan berisi pemformatan teks yang diperbarui pada setiap tingkat setiap persamaan yang diproses, sambil mempertahankan konten teks dan struktur matematikanya.
+Presentasi yang disimpan berisi pemformatan teks yang diperbarui pada setiap tingkatan masing‑masing persamaan yang diproses, sambil mempertahankan konten teks dan struktur matematika.
 
 ## **Referensi Cepat**
 
 | Tugas | API Utama |
 | --- | --- |
-| Buat teks matematika | [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) |
+| Membuat teks matematika | [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) |
 | Menggabungkan elemen | [IMathElement.Join](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/join/) |
-| Buat pecahan | [IMathElement.Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) |
-| Tambahkan superskrip atau subskrip | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
-| Tambahkan fungsi | [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
-| Tambahkan radikal | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
-| Tambahkan limit | [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| Tambahkan skrip sisi kiri | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| Tambahkan penjumlahan dan integral | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
-| Tambahkan matriks | [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) |
-| Tambahkan array persamaan | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
-| Tambahkan pembatas | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
-| Tambahkan bar dan batas | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
-| Kelompokkan istilah | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
+| Membuat pecahan | [IMathElement.Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) |
+| Menambahkan superskrip atau subskrip | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
+| Menambahkan fungsi | [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
+| Menambahkan radikal | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
+| Menambahkan limit | [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| Menambahkan skrip sisi kiri | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Menambahkan penjumlahan dan integral | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
+| Menambahkan matriks | [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) |
+| Menambahkan array persamaan | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
+| Menambahkan pembatas | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
+| Menambahkan bar dan border | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
+| Mengelompokkan istilah | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **FAQ**
 
-**Apakah saya dapat mengedit persamaan PowerPoint yang ada?**
+**Apakah saya dapat mengedit persamaan PowerPoint yang sudah ada?**
 
-Ya. Buka presentasi, temukan shape yang berisi [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), dapatkan [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/), dan perbarui blok matematika dalam paragraf tersebut.
+Ya. Buka presentasi, temukan shape yang berisi [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), dapatkan [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/)-nya, dan perbarui blok‑blok matematika di dalam paragraf tersebut.
 
 **Apakah persamaan disimpan sebagai matematika PowerPoint yang dapat diedit?**
 
-Ya. Saat Anda menyimpan ke PPTX, Aspose.Slides menulis persamaan sebagai konten Office math yang dapat diedit.
+Ya. Saat menyimpan ke PPTX, Aspose.Slides menulis persamaan sebagai konten Office Math yang dapat diedit.
 
 **Apakah saya dapat mengekspor persamaan ke LaTeX?**
 
-Ya. Dapatkan [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) persamaan dari [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), dan panggil [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) untuk mengekspornya secara langsung. Untuk contoh lengkap, lihat [Ekspor Persamaan Matematika dari Presentasi di .NET](/slides/id/net/exporting-math-equations/#export-math-equations-to-latex).
+Ya. Dapatkan [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) persamaan dari [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/)-nya, kemudian panggil [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) untuk mengekspornya secara langsung. Untuk contoh lengkap, lihat [Export Math Equations from Presentations in .NET](/slides/id/net/exporting-math-equations/#export-math-equations-to-latex).

@@ -1,6 +1,6 @@
 ---
 title: Lägg till matematiska ekvationer i PowerPoint-presentationer i Python
-linktitle: PowerPoint matematiska ekvationer
+linktitle: PowerPoint Matematiska Ekvationer
 type: docs
 weight: 80
 url: /sv/python-java/powerpoint-math-equations/
@@ -18,35 +18,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Infoga och redigera matematiska ekvationer i PowerPoint PPT och PPTX med Aspose.Slides för Python via Java, med stöd för OMML, formateringskontroller och tydliga Python‑kodexempel."
+description: "Infoga och redigera matematiska ekvationer i PowerPoint PPT och PPTX med Aspose.Slides för Python via Java, med stöd för OMML, formateringskontroller och tydliga Python-kodexempel."
 ---
 ## **Översikt**
 
-PowerPoint lagrar ekvationer som Office Math Markup Language (OMML). Med Aspose.Slides för Python via Java kan du programatiskt skapa samma typ av matematiskt innehåll: bråk, rötter, funktioner, gränsvärden, N-ära operatorer, matriser, arrayer och formaterade matematiska block.
+PowerPoint lagrar ekvationer som Office Math Markup Language (OMML). Med Aspose.Slides för Python via Java kan du programatiskt skapa samma typ av matematiskt innehåll: bråktal, radikaler, funktioner, gränsvärden, N‑ära operatorer, matriser, arrayer och formaterade matematiska block.
 
-I PowerPoint lägger användare normalt till ekvationer från **Infoga > Ekvation**:
+I PowerPoint lägger användare normalt till ekvationer via **Infoga > Ekvation**:
 
-![PowerPoint-fliken Infoga med kommandot Ekvation valt](powerpoint-math-equations_1.png)
+![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
 
-Resultatet är redigerbar matematiktext på bilden:
+Resultatet är redigerbar matematisk text på bilden:
 
-![En PowerPoint-bild som innehåller en redigerbar matematisk ekvation](powerpoint-math-equations_2.png)
+![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
 
 Aspose.Slides bygger den matematiska texten genom tre huvudobjekt:
 
-- En matematikform, skapad med [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape), är formen som innehåller ekvationen.
-- [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) lagrar matematiskt innehåll i formens textramar.
-- [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) innehåller ett eller flera [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/)‑objekt.
+- En math‑form, skapad med [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape), är formen som innehåller ekvationen.
+- [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) lagrar matematiskt innehåll i formens textram.
+- [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) innehåller ett eller flera [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/)-objekt.
 
 De flesta exempel nedan använder [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) och de flödande metoderna från [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) för att hålla koden kort och läsbar.
 
-För MathML‑exportscenarier, se [Exportera matematiska ekvationer från presentationer i Python](/slides/sv/python-java/exporting-math-equations/).
+För MathML‑exportscenarier, se [Export Math Equations from Presentations in Python](/slides/sv/python-java/exporting-math-equations/).
 
 ## **Skapa en ekvation**
 
-Detta exempel använder [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) för att skapa en matematikform och lägger till Pythagoras sats:
+Detta exempel använder [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) för att skapa en math‑form och lägger till Pythagoras sats:
 
-![Ekvationen c² = a² + b²](powerpoint-math-equations_3.png)
+![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
 ```python
 import jpype
@@ -76,21 +76,21 @@ finally:
 ```
 
 {{% alert color="info" title="Obs" %}}
-[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) skapar en form som redan innehåller ett matematikparagraf. Åtkomst till den första [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), anropa [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), och lägg till matematiska block eller matematiska element i den.
+[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) skapar en form som redan innehåller ett matematiskt stycke. Åtkomst till den första [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), anropa [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), och lägg till matematiska block eller matematiska element i den.
 {{% /alert %}}
 
 ## **Lägg till bråk**
 
-Använd [divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) för att skapa ett bråk. Du kan välja en bråkstil med [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/).
+Använd [divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) för att skapa ett bråk. Du kan välja en bråktalsstil med [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/).
 
-![Ett snett matematiskt bråk som visar ett delat med x](powerpoint-math-equations_4.png)
+![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpapi.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import MathBlock, MathFractionTypes, MathematicalText, Presentation, SaveFormat
 
@@ -125,11 +125,11 @@ from asposeslides.api import MathFractionTypes, MathematicalText
 stacked_fraction = MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar)
 ```
 
-## **Lägg till rötter**
+## **Lägg till radikaler**
 
 Använd [radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) för att skapa en kvadratrot, kubrot eller annan rot. Det aktuella elementet blir basen och argumentet blir graden.
 
-![Ett n‑te rotuttryck med x under rottecknet](powerpoint-math-equations_5.png)
+![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
 ```python
 import jpype
@@ -161,7 +161,7 @@ finally:
 
 Använd [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) eller [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) för funktioner såsom `sin(x)`, `log(x)` eller egna funktionsnamn. För gränsvärden, placera `lim` i ett [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) eller använd [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit).
 
-![Gränsvärdet för x när x närmar sig oändligheten](powerpoint-math-equations_8.png)
+![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
 ```python
 import jpype
@@ -189,7 +189,7 @@ finally:
     presentation.dispose()
 ```
 
-För ett anpassat funktionsnamn, gör funktionsnamnet till det aktuella elementet och anropa [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) med dess argument:
+För ett eget funktionsnamn, gör funktionsnamnet till det aktuella elementet och anropa [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) med dess argument:
 
 ```python
 import jpype
@@ -207,7 +207,7 @@ custom_function = MathematicalText("f").function("x + 1")
 
 Använd [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) för summor, unioner, snitt och andra stora operatorer. Använd [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) för integraler. Båda metoderna låter dig ange lägre och övre gränser.
 
-![En summa med lägre och övre gränser](powerpoint-math-equations_7.png)
+![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
 ```python
 import jpype
@@ -238,7 +238,7 @@ finally:
     presentation.dispose()
 ```
 
-N‑ära operatorer är för stora operatorer med valfria gränser. Enkla operatorer som `+`, `-` och `=` läggs vanligtvis till som [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) och förenas i uttrycket.
+N‑ära operatorer är för stora operatorer med valfria gränser. Enkla operatorer såsom `+`, `-` och `=` läggs normalt till som [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) och förenas i uttrycket.
 
 För en integral, använd [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral):
 
@@ -258,9 +258,9 @@ integral = integral_base.integral(MathIntegralTypes.Simple, "0", "1")
 
 ## **Lägg till matriser**
 
-Använd [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) för rader och kolumner. Matriser innehåller inte klamrar som standard, så omge matrisen när du behöver parenteser, hakparenteser eller måsvingar.
+Använd [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) för rader och kolumner. Matriser innehåller som standard inga klamrar, så omge matrisen när du behöver parenteser, hakparenteser eller måsvingar.
 
-![En två‑radig matematisk matris med en tom cell](powerpoint-math-equations_10.png)
+![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
 ```python
 import jpype
@@ -302,7 +302,7 @@ finally:
 
 Använd [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) när du behöver justerade ekvationer eller en vertikal stapel av uttryck.
 
-![En vertikal matematisk array med x över y](powerpoint-math-equations_11.png)
+![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
 ```python
 import jpype
@@ -332,9 +332,9 @@ finally:
 
 ### **Justera en array med omgivande element**
 
-[setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) styr den vertikala justeringen av en array i förhållande till de matematiska elementen bredvid den. Exemplet nedan jämför justering med den första raden, mitten av arrayen och den sista raden.
+[setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) styr den vertikala justeringen av en array i förhållande till de matematiska elementen bredvid den. Exemplet nedan jämför justering med den första raden, arrayens centre och sista raden.
 
-Följande exempel skapar tre identiska arrayer, var och en med tre rader och de intilliggande elementen `A=` och `=B`. All matematisk text använder Cambria Math i 24 punkter. Endast arrayens justering ändras.
+Följande exempel skapar tre identiska arrayer, var och en med tre rader samt de närliggande elementen `A=` och `=B`. All matematisk text använder Cambria Math i 24 punkter. Endast arrayens justering förändras.
 
 ```python
 import jpype
@@ -388,17 +388,17 @@ finally:
     presentation.dispose()
 ```
 
-Följande jämförelse visar den sparade presentationen i PowerPoint. Observera placeringen av `A=` och `=B` bredvid varje array.
+Följande jämförelse visar den sparade presentationen i PowerPoint. Lägg märke till placeringen av `A=` och `=B` bredvid varje array.
 
-![Ekvationsarrayer i PowerPoint med överst, centrerad och nederst justering samt identiska intilliggande element](equation-array-alignment.png)
+![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
 
-### **Konfigurera radavstånd**
+### **Konfigurera radsavstånd**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) väljer avståndsregeln för rader inom arrayen. [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) tillhandahåller ett numeriskt värde för en explicit avståndsregel och ignoreras av förinställda regler.
+[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) väljer avståndsregeln för rader inom arrayen. [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) ger ett numeriskt värde för en explicit avståndsregel och ignoreras av förinställda regler.
 
-För exakt avstånd mäts värdet i punkter. För proportionellt avstånd mäts det i halvlånga: värdet `3` i exemplet motsvarar 1,5 rader. Ställ in båda egenskaperna när du specificerar ett explicit värde; att bara ändra det numeriska värdet väljer inte en avståndsregel.
+För exakt avstånd mäts värdet i punkter. För proportionellt avstånd mäts det i halvlänkar: värdet `3` i exemplet betyder 1,5 linjer. Sätt båda egenskaperna när du anger ett explicit värde; att bara ändra det numeriska värdet väljer inte en avståndsregel.
 
-Exemplet nedan sparar fem presentationer med samma ekvationer, justering och teckensnittinställningar. De första tre använder förinställningar; de två sista visar explicita värden.
+Exemplet nedan sparar fem presentationer med samma ekvationer, justering och teckensnitt. De första tre använder förinställningar; de två sista visar explicita värden.
 
 ```python
 import jpype
@@ -442,13 +442,13 @@ for name, rule, spacing in settings:
         presentation.dispose()
 ```
 
-Radavståndet i en array är separat från styckeavståndet. [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) och [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) lägger till utrymme runt det omgivande stycket, inte mellan arrayrader. På samma sätt positionerar [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) hela matematikstycket horisontellt; det ersätter inte arrayens vertikala justeringsinställning.
+Arrayens radavstånd är separat från styckeavstånd. [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) och [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) lägger till utrymme runt det omgivande stycket, inte mellan arrayens rader. På samma sätt positionerar [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) hela matematika stycket horisontellt; det ersätter inte arrayens vertikala justeringsinställning.
 
 ## **Lägg till trigonometriska funktioner**
 
 Använd [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) när argumentet är det aktuella elementet och funktionsnamnet är känt.
 
-![Den trigonometriska funktionen cos tillämpad på 2x](powerpoint-math-equations_6.png)
+![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
 ```python
 import jpype
@@ -476,11 +476,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Lägg till nedsänkta och upphöjda**
+## **Lägg till index och exponenter**
 
-Använd hjälpfunktionerna för nedsänkta och upphöjda för index och potenser. När indexen måste visas på vänster sida om basen, använd [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
+Använd hjälparna för index och exponenter för index och potenser. När indexen måste visas på vänster sida av basen, använd [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
-![En versal Y med nedsänkt 1 på vänster sida och upphöjd n](powerpoint-math-equations_9.png)
+![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
 ```python
 import jpype
@@ -510,9 +510,9 @@ finally:
 
 ## **Lägg till avgränsare**
 
-Använd [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) för att placera ett uttryck inom avgränsare. Du kan också ange ett avgränsartecken för avgränsare som innehåller flera element.
+Använd [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) för att placera ett uttryck inom avgränsare. Du kan också ange ett skiljetecken för avgränsare som innehåller flera element.
 
-![Ett avgränsninguttryck som innehåller x, y och z åtskilda av vertikala streck](powerpoint-math-equations_13.png)
+![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
 ```python
 import jpype
@@ -543,9 +543,9 @@ finally:
 
 ### **Storlek och justering av avgränsare**
 
-Skicka `True` till [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) för att låta parenteserna växa runt en hög operand, eller skicka `False` för att behålla deras normala storlek. Använd [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) med ett av två [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/)‑värden. `Centered` centrerar parenteserna på matematikaxeln, som går genom mitten av lika‑tecknet. `Match` justerar dem efter det inneslutna innehållet. Båda inställningarna påverkar endast avgränsarna. Uttrycket inuti förblir detsamma.
+Skicka `True` till [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) för att låta parenteserna växa runt en hög operand, eller skicka `False` för att behålla normal storlek. Använd [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) med ett av två [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/)-värden. `Centered` centrerar parenteserna på den matematiska axeln, som går genom mitten av lika‑tecknet. `Match` justerar dem efter det inneslutna innehållet. Båda inställningarna påverkar bara avgränsarna. Uttrycket inuti förblir oförändrat.
 
-Exemplet placerar ett bråk i exponenten för `x` så att uttrycket sträcker sig längre ovanför baslinjen än under den. Alla fyra ekvationer använder samma parenteser och teckensnittinställningar.
+Exemplet placerar ett bråk i exponenten för `x` så att uttrycket sträcker sig längre över baslinjen än under den. Alla fyra ekvationer använder samma parenteser och teckensnitt.
 
 ```python
 import jpype
@@ -578,15 +578,15 @@ finally:
     presentation.dispose()
 ```
 
-I PowerPoint, jämför raderna för att se effekten av tillväxt. I den övre raden växer parenteserna för att omfatta exponenten och ser lika ut för båda formerna. I den nedre raden är tillväxt avstängd. De mindre parenteserna till vänster (`Centered`) justeras med lika‑tecknet, medan de till höger (`Match`) sitter högre kring uttrycket.
+I PowerPoint, jämför raderna för att se effekten av tillväxt. I den översta raden växer parenteserna för att omsluta exponenten och ser lika ut för båda formerna. I den nedersta raden är växande avstängt. De mindre parenteserna till vänster (`Centered`) linjerar med lika‑tecknet, medan de till höger (`Match`) sitter högre runt uttrycket.
 
-![Fyra ekvationer i PowerPoint med avgränsartillväxt aktiverad ovanför och inaktiverad nedanför, samt Centered till vänster och Match till höger](delimiter-sizing.png)
+![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
 
 ## **Lägg till en kantlåda**
 
-Anropa [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) på ett bråk för att rama in hela uttrycket. Den returnerade [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) visar alla fyra sidor som standard. Använd [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft) och [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) för att ta bort enskilda sidor.
+Anropa [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) på ett bråk för att rama in hela uttrycket. Den returnerade [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) visar som standard alla fyra sidor. Använd [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft) och [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) för att ta bort enskilda sidor.
 
-Exemplet placerar sex kopior av samma bråk på en bild. För att visa strikethrough, dölj alla fyra sidor och skicka `True` till [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) för en stigande diagonal (↗) eller [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) för en fallande diagonal (↘). Du kan också använda [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) eller [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) med valfri kombination av synliga sidor.
+Exemplet placerar sex kopior av samma bråk på en bild. För att visa annullering, dölj alla fyra sidor och skicka `True` till [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) för en stigande diagonal (↗) eller [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) för en fallande diagonal (↘). Du kan också använda [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) eller [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) med valfri kombination av synliga sidor.
 
 ```python
 import jpype
@@ -633,15 +633,100 @@ finally:
     presentation.dispose()
 ```
 
-![Sex redigerbara bråk i PowerPoint. Översta raden: full kant, botten- och vänstersidor, stigande diagonal. Nedre raden: fallande diagonal, horisontell streckning, vertikal streckning med full kant.](border-box-fractions.png)
+![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border.](border-box-fractions.png)
 
-På detta bråk överlappar den horisontella streckningen bråkstrecket. Den vertikala streckningen korsar både täljaren och nämnaren medan den omgivande kanten förblir synlig. Dessa linjer dekorerar hela uttrycket. Vanlig strikethrough för text gäller tecken i ett textrun. Efter att ha öppnat presentationen igen i PowerPoint kan du fortfarande redigera täljaren och nämnaren separat.
+På detta bråk överlappar den horisontella strecket bråkstrecket. Det vertikala strecket korsar både täljare och nämnare medan den omgivande ramen förblir synlig. Dessa linjer dekorerar hela uttrycket. Vanlig textgenomstrykning gäller tecken i ett textrun. Efter att presentationen har öppnats på nytt i PowerPoint kan du fortfarande redigera täljare och nämnare var för sig.
+
+## **Styr synlighet och layout med phantom‑element**
+
+Bunta in ett uttryck i [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) för att kontrollera dess synlighet och det utrymme det bidrar med till en ekvation oberoende. Metoderna i [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) styr följande:
+
+| Metod | Effekt |
+| --- | --- |
+| [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) | Skicka `False` för att dölja uttrycket. Dess dimensioner bidrar fortfarande till layouten om inte motsvarande metoder nedan får `True`. |
+| [setZeroWidth](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroWidth) | Behandla uttryckets horisontella bredd som noll, så att intilliggande element kan komma närmare varandra. |
+| [setZeroAsc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroAsc) | Behandla dess uppstigning, höjden över baslinjen, som noll. Detta kan minska utrymmet som reserveras ovanför intilliggande element. |
+| [setZeroDesc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroDesc) | Behandla dess nedstigning, djupet under baslinjen, som noll. Detta kan föra ett bråkstreck eller annat innehåll under uttrycket närmare sina grannar. |
+
+Baslinjen är den referenslinje där vanliga matematiska bokstäver vilar. Att dölja innehåll tar inte bort dess dimensioner, och att behandla en dimension som noll tar inte bort uttrycket. Det underliggande uttrycket finns fortfarande tillgängligt via [getBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#getBase). Skicka `True` till [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) för att visa det igen; dimensioninställningarna förblir oförändrade.
+
+Exemplet nedan skapar fem sid‑om‑sid‑varianter: ett synligt bråk, ett dolt bråk som reserverar utrymme och tre dolda bråk där en dimension behandlas som noll. Varje variant använder samma omgivande uttryck och Cambria Math i 24 punkter. Alla ekvationsformer har samma topposition, markerad av den grå guiden. Att placera phantom i täljaren på ett yttre bråk gör de vertikala layout‑förändringarna enklare att upptäcka.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, MathBlock, MathFraction, MathematicalText, MathPhantom, Presentation, SaveFormat, ShapeType, SlideSizeScaleType, TextAnchorType
+from java.awt import Color
+
+
+def create_text(value):
+    text = MathematicalText(value)
+    text.getFormat().setFontHeight(24)
+    text.getFormat().setLatinFont(FontData("Cambria Math"))
+    return text
+
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(1000, 180, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    labels = ("Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc")
+
+    guide = slide.getShapes().addAutoShape(ShapeType.Line, 10, 60, 980, 0)
+    guide.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.LIGHT_GRAY)
+
+    for index, name in enumerate(labels):
+        left = 10 + index * 200
+        
+        label = slide.getShapes().addAutoShape(ShapeType.Rectangle, left, 10, 190, 30)
+        label.getFillFormat().setFillType(FillType.NoFill)
+        label.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        label.getTextFrame().setText(name)
+        label_format = label.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat()
+        label_format.setFontHeight(14)
+        label_format.getFillFormat().setFillType(FillType.Solid)
+        label_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+        fraction_numerator = create_text("a+b")
+        fraction_denominator = create_text("c+d")
+        fraction = MathFraction(fraction_numerator, fraction_denominator)
+        phantom = MathPhantom(fraction)
+        phantom.setShow(index == 0)
+        phantom.setZeroWidth(index == 2)
+        phantom.setZeroAsc(index == 3)
+        phantom.setZeroDesc(index == 4)
+
+        left_text = create_text("x+")
+        right_text = create_text("+y")
+        numerator = MathBlock(left_text).join(phantom).join(right_text)
+        denominator = create_text("z")
+        equation = MathFraction(numerator, denominator)
+
+        shape = slide.getShapes().addMathShape(left, 60, 190, 100)
+        shape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Top)
+        math_portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+        math_paragraph = math_portion.getMathParagraph()
+        math_block = MathBlock(equation)
+        math_paragraph.add(math_block)
+
+    presentation.save("math-phantom.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![Five equations in PowerPoint comparing a visible fraction, a hidden fraction that reserves space, and hidden fractions with ZeroWidth, ZeroAsc, or ZeroDesc enabled](math-phantom.png)
 
 ## **Gruppera termer**
 
-Använd [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) för att placera ett grupperingstecken ovanför eller nedanför ett uttryck. Lägg till en gräns för att märka de grupperade termerna.
+Använd [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) för att placera ett grupperings­tecken över eller under ett uttryck. Lägg till en gräns för att märka de grupperade termerna.
 
-![Uttrycket x plus y grupperat med etiketten någon text nedanför](powerpoint-math-equations_15.png)
+![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
 ```python
 import jpype
@@ -671,9 +756,9 @@ finally:
 
 ## **Formatera matematiska element**
 
-Använd formateringshjälpen bara där de förtydligar formeln. Till exempel placerar [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) ett streck ovanför ett matematiskt element.
+Använd formateringshjälpare endast där de klargör formeln. Till exempel placerar [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) en stapel över ett matematiskt element.
 
-![Ett matematiskt uttryck ABC med ett överstreck](powerpoint-math-equations_14.png)
+![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
 ```python
 import jpype
@@ -703,9 +788,9 @@ finally:
 
 ### **Formatera text i en befintlig ekvation**
 
-För att formatera text i hela en befintlig ekvation, traversera varje matematikblocks elementträd. [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) returnerar endast de omedelbara barnen, så anropa den rekursivt för att nå text i bråk, skript, rötter och andra nästlade strukturer. Kontrollera det aktuella elementet samt dess barn för att inkludera startelementet när det är [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/).
+För att formatera text i hela en befintlig ekvation, gå igenom varje math‑blocks elementträd. [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) returnerar bara de omedelbara barnen, så anropa den rekursivt för att nå text i bråk, skript, radikaler och andra nästlade strukturer. Kontrollera både det aktuella elementet och dess barn för att även inkludera start‑elementet när det är ett [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/).
 
-Detta exempel förutsätter att `input.pptx` innehåller en ekvation såsom `z = xᵢ / ∛y`, med ett bråk som innehåller ett nedsänkt i täljaren och en rot i nämnaren. Att bara bearbeta blockets element på toppnivå skulle missa texten i bråket. Exemplet hittar matematiska delar i bildens textramar, får åtkomst till deras block via [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), och använder [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) för att sätta teckenstorleken till 28 punkter för varje textelements [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat)‑metod.
+Detta exempel förutsätter att `input.pptx` innehåller en ekvation såsom `z = xᵢ / ∛y`, med ett bråk som har ett index i täljaren och en radikal i nämnaren. Att bara bearbeta blockets element på toppnivå skulle missa texten i bråket. Exemplet hittar matematiska portioner i bilders textram, får åtkomst till deras block via [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), och använder [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) för att sätta teckenstorleken till 28 punkter för varje textelements [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat)-metod.
 
 ```python
 import jpype
@@ -746,37 +831,37 @@ finally:
     presentation.dispose()
 ```
 
-Den sparade presentationen innehåller den uppdaterade textformateringen på varje nivå av varje bearbetad ekvation, samtidigt som dess textinnehåll och matematiska struktur bevaras.
+Den sparade presentationen innehåller den uppdaterade textformateringen på alla nivåer i varje bearbetad ekvation, samtidigt som dess textinnehåll och matematiska struktur bevaras.
 
 ## **Snabbreferens**
 
 | Uppgift | Huvud‑API |
 | --- | --- |
-| Skapa matematiktext | [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) |
+| Skapa matematiskt text | [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) |
 | Kombinera element | [MathElementBase.join](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#join) |
 | Skapa bråk | [MathElementBase.divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) |
-| Lägg till upphöjning eller nedsänkning | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
+| Lägg till exponent eller index | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
 | Lägg till funktioner | [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function), [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) |
-| Lägg till rötter | [MathElementBase.radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) |
+| Lägg till radikaler | [MathElementBase.radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) |
 | Lägg till gränsvärden | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
-| Lägg till skript på vänster sida | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
-| Lägg till summor och integraler | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
+| Lägg till vänstersidiga skript | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
+| Lägg till summationer och integraler | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
 | Lägg till matriser | [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) |
 | Lägg till ekvationsarrayer | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
 | Lägg till avgränsare | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
-| Lägg till streck och ramar | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
+| Lägg till staplar och ramar | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
 | Gruppera termer | [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) |
 
 ## **Vanliga frågor**
 
 **Kan jag redigera en befintlig PowerPoint‑ekvation?**
 
-Ja. Öppna presentationen, hitta formen som innehåller en [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), anropa [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), och uppdatera matematikblocken i det stycket.
+Ja. Öppna presentationen, hitta formen som innehåller en [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), anropa [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) och uppdatera de matematiska blocken i det stycket.
 
 **Sparas ekvationer som redigerbar PowerPoint‑matematik?**
 
-Ja. När du sparar till PPTX skriver Aspose.Slides ekvationen som redigerbart Office‑matematikinnehåll.
+Ja. När du sparar till PPTX skriver Aspose.Slides ekvationen som redigerbart Office‑math‑innehåll.
 
 **Kan jag exportera ekvationer till LaTeX?**
 
-Ja. Hämta ekvationens [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) från dess [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), och anropa [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) för att exportera den direkt. För ett komplett exempel, se [Exportera matematiska ekvationer från presentationer i Python](/slides/sv/python-java/exporting-math-equations/#export-math-equations-to-latex).
+Ja. Hämta ekvationens [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) från dess [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), och anropa [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) för att exportera den direkt. För ett komplett exempel, se [Export Math Equations from Presentations in Python](/slides/sv/python-java/exporting-math-equations/#export-math-equations-to-latex).

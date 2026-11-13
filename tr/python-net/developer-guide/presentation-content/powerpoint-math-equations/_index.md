@@ -1,5 +1,5 @@
 ---
-title: Python ile PowerPoint Sunumlarına Matematik Denklemleri Ekleme
+title: PowerPoint Sunumlarına Python ile Matematik Denklemleri Ekle
 linktitle: PowerPoint Matematik Denklemleri
 type: docs
 weight: 80
@@ -17,35 +17,35 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Python için .NET aracılığıyla Aspose.Slides kullanarak PowerPoint PPT ve PPTX dosyalarına matematik denklemleri ekleyin ve düzenleyin, OMML desteği, biçimlendirme kontrolleri ve net Python kod örnekleri sağlar."
+description: "Aspose.Slides for Python via .NET ile PowerPoint PPT ve PPTX dosyalarına matematik denklemleri ekleyin ve düzenleyin, OMML desteği, biçimlendirme kontrolleri ve açık Python kod örnekleri sunar."
 ---
 ## **Genel Bakış**
 
-PowerPoint, denklemleri Office Math Markup Language (OMML) olarak depolar. Aspose.Slides for Python via .NET ile aynı türde matematik içeriğini programlı olarak oluşturabilirsiniz: kesirler, kökler, fonksiyonlar, limitler, N-ary operatörler, matrisler, diziler ve biçimlendirilmiş matematik blokları.
+PowerPoint, denklemleri Office Math Markup Language (OMML) biçiminde depolar. Aspose.Slides for Python via .NET ile aynı türde matematik içeriğini programlı olarak oluşturabilirsiniz: kesirler, kökler, fonksiyonlar, limitler, N-ary operatörler, matrisler, diziler ve biçimlendirilmiş matematik blokları.
 
-PowerPoint'te, kullanıcılar genellikle denklemleri **Insert > Equation** menüsünden ekler:
+PowerPoint’te kullanıcılar genellikle **Ekle > Denklem** menüsünden denklemler eklerler:
 
-![PowerPoint Ekle sekmesi, Denklemler komutu seçili](powerpoint-math-equations_1.png)
+![PowerPoint Ekle sekmesinde Denklem komutu seçili](powerpoint-math-equations_1.png)
 
-Sonuç, slaytta düzenlenebilir matematik metni olur:
+Sonuç, slaytta düzenlenebilir bir matematik metnidir:
 
 ![Düzenlenebilir bir matematik denklemi içeren bir PowerPoint slaytı](powerpoint-math-equations_2.png)
 
 Aspose.Slides bu matematik metnini üç ana nesne aracılığıyla oluşturur:
 
-- Bir matematik şekli, [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) ile oluşturulur ve denklemi içerir.
-- [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) şekil metin çerçevesi içinde matematik içeriğini depolar.
+- [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) ile oluşturulan bir matematik şekli, denklemi içeren şekildir.
+- [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) şeklin metin çerçevesi içinde matematik içeriğini depolar.
 - [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) bir veya daha fazla [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) nesnesi içerir.
 
-Aşağıdaki çoğu örnek, kodu kısa ve okunabilir tutmak için [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) ve [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) tarafından sağlanan akıcı yöntemleri kullanır.
+Aşağıdaki çoğu örnek, kodu kısa ve okunabilir tutmak için [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) ve [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)’in akıcı metodlarını kullanır.
 
 MathML dışa aktarma senaryoları için, [Export Math Equations from Presentations in Python via .NET](/slides/tr/python-net/exporting-math-equations/) bölümüne bakın.
 
 ## **Denklem Oluşturma**
 
-Bu örnek, bir matematik şekli oluşturmak için [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) kullanır ve Pisagor teoremini ekler:
+Bu örnek, bir matematik şekli oluşturmak için [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) metodunu kullanır ve Pisagor teoremini ekler:
 
-![c² = a² + b² denklemi](powerpoint-math-equations_3.png)
+![c kare eşittir a kare artı b kare denklemi](powerpoint-math-equations_3.png)
 
 ```py
 import aspose.slides as slides
@@ -72,14 +72,14 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="info" title="Note" %}}
-[add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) zaten bir matematik paragrafı içeren bir şekil oluşturur. İlk [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) erişin, onun [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/) alın ve ona matematik blokları veya matematik öğeleri ekleyin.
+[add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) zaten bir matematik paragrafı içeren bir şekil oluşturur. İlk [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) öğesine erişin, onun [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/) ögesini alın ve ona matematik blokları ya da matematik öğeleri ekleyin.
 {{% /alert %}}
 
-## **Kesir Ekleme**
+## **Kesirler Ekleme**
 
-[divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/) kullanarak bir kesir oluşturun. [MathFractionTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/) ile bir kesir stili seçebilirsiniz.
+Kesir oluşturmak için [divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/) metodunu kullanın. Kesir stilini [MathFractionTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/) ile seçebilirsiniz.
 
-![x'e bölünen bir kesiri gösteren eğik bir matematik kesiri](powerpoint-math-equations_4.png)
+![x’e bölünen bir kesri gösteren eğik bir matematik kesri](powerpoint-math-equations_4.png)
 
 ```py
 import aspose.slides as slides
@@ -98,7 +98,7 @@ with slides.Presentation() as presentation:
     presentation.save("fraction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Yığılmış bir kesir için, [MathFractionTypes.BAR](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/) kullanın:
+Yığılmış bir kesir için [MathFractionTypes.BAR](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/) kullanın:
 
 ```py
 import aspose.slides.mathtext as math
@@ -106,11 +106,11 @@ import aspose.slides.mathtext as math
 stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFractionTypes.BAR)
 ```
 
-## **Kök Ekleme**
+## **Kökler Ekleme**
 
-[radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/) kullanarak karekök, küpkök veya başka bir kök oluşturun. Mevcut öğe temel olur, argüman ise derecesi olur.
+[Kök (radical)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/) metodunu kullanarak karekök, küpkök veya diğer kökleri oluşturabilirsiniz. Geçerli öğe taban (base) olur ve argüman derece (degree) olarak belirlenir.
 
-![kök işareti altında x bulunan n'inci kök ifadesi](powerpoint-math-equations_5.png)
+![x altında kök işareti bulunan n’inci kök ifadesi](powerpoint-math-equations_5.png)
 
 ```py
 import aspose.slides as slides
@@ -131,9 +131,9 @@ with slides.Presentation() as presentation:
 
 ## **Fonksiyonlar ve Limitler Ekleme**
 
-[as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) veya [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) kullanarak `sin(x)`, `log(x)` gibi fonksiyonları veya özel fonksiyon adlarını ekleyin. Limitler için, `lim` ifadesini bir [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) içine yerleştirin veya [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/) kullanın.
+[as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) ya da [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) metodlarını `sin(x)`, `log(x)` gibi fonksiyonlar veya özel fonksiyon adları için kullanın. Limitler için `lim` ifadesini bir [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) içine koyun veya [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/) metodunu kullanın.
 
-![x'in sonsuza yaklaşırken limiti](powerpoint-math-equations_8.png)
+![x’in sonsuza yaklaşırken limit ifadesi](powerpoint-math-equations_8.png)
 
 ```py
 import aspose.slides as slides
@@ -156,7 +156,7 @@ with slides.Presentation() as presentation:
     presentation.save("functions-and-limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Özel bir fonksiyon adı için, fonksiyon adını mevcut öğe yapın ve argümanıyla birlikte [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) çağırın:
+Özel bir fonksiyon adı için, fonksiyon adını geçerli öğe yapın ve argümanıyla birlikte [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) metodunu çağırın:
 
 ```py
 import aspose.slides.mathtext as math
@@ -166,9 +166,9 @@ custom_function = math.MathematicalText("f").function("x + 1")
 
 ## **N-ary Operatörler ve İntegraller Ekleme**
 
-[nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/) toplama, birleşim, kesişim ve diğer büyük operatörler için kullanın. İntegraller için [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) kullanın. Her iki yöntem de alt ve üst limitleri ayarlamanıza izin verir.
+Toplamlamalar, birleşimler, kesişimler ve diğer büyük operatörler için [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/) metodunu kullanın. İntegraller için [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) metodunu kullanın. Her iki metod da alt ve üst limitleri ayarlamanıza izin verir.
 
-![Alt ve üst limitleri olan bir toplama](powerpoint-math-equations_7.png)
+![Alt ve üst limitli bir toplam](powerpoint-math-equations_7.png)
 
 ```py
 import aspose.slides as slides
@@ -193,9 +193,9 @@ with slides.Presentation() as presentation:
     presentation.save("nary-operators.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-N-ary operatörler, isteğe bağlı limitleri olan büyük operatörler içindir. `+`, `-` ve `=` gibi basit operatörler genellikle [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) olarak eklenir ve ifadeye birleştirilir.
+N-ary operatörler, isteğe bağlı limitleri olan büyük operatörler içindir. `+`, `-`, `=` gibi basit operatörler genellikle [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) kullanılarak eklenir ve ifadeye birleştirilir.
 
-Bir integral için, [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) kullanın:
+Bir integral için, [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) metodunu kullanın:
 
 ```py
 import aspose.slides.mathtext as math
@@ -204,11 +204,11 @@ integral_base = math.MathematicalText("x").join(math.MathematicalText("dx").to_b
 integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 ```
 
-## **Matris Ekleme**
+## **Matrisler Ekleme**
 
-Satır ve sütunlar için [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) kullanın. Matrisler varsayılan olarak köşeli parantez içermez, bu yüzden parantez, köşeli parantez veya süslü parantez gerektiğinde matrisi sarın.
+Satır ve sütunlar için [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) kullanın. Matrisler varsayılan olarak köşeli parantez içermez; parantez, köşeli parantez veya süslü parantez gerektiğinde matrisi bu şekilde sardığınızdan emin olun.
 
-![Bir boş hücreli iki satırlı bir matematik matrisi](powerpoint-math-equations_10.png)
+![Bir boş hücre içeren iki satırlı bir matematik matrisi](powerpoint-math-equations_10.png)
 
 ```py
 import aspose.slides as slides
@@ -222,21 +222,21 @@ with slides.Presentation() as presentation:
 
     matrix = math.MathMatrix(2, 3)
 
-    # Bir matrisin kendi başına köşeli parantezi yoktur, bu yüzden parantez içinde sarın.
+    # Bir matrisin kendi parantezleri yoktur, bu nedenle parantez içinde kapsayın.
     math_paragraph.add(math.MathBlock(matrix.enclose("(", ")")))
 
     presentation.save("matrix.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="warning" title="Warning" %}}
-`MathMatrix` satır ve sütun ızgarasını oluşturur, aralarındaki boşlukları ayarlar ve sütunları hizalar, ancak Aspose.Slides for Python via .NET bireysel bir matris hücresi için bir erişimci sağlamaz. Kod içinde oluşturulan bir matris bu yüzden boş hücreler içerir; mevcut bir sunumdan gelen bir matrisin hücreleri `get_children` ile okunabilir. Satırları koddan doldurmanız gerektiğinde bir denklem dizisi kullanın.
+`MathMatrix` satır ve sütun ızgarasını oluşturur, aralarındaki boşlukları ayarlar ve sütunları hizalar, fakat Aspose.Slides for Python via .NET tek bir matris hücresi için bir erişimci (accessor) sağlamaz. Kod içinde oluşturulan bir matris bu nedenle boş hücreler içerir; mevcut bir sunumdan gelen matrisin hücreleri `get_children` ile okunabilir. Satırları kodla doldurmanız gerektiğinde bir denklem dizisi (equation array) kullanın.
 {{% /alert %}}
 
 ## **Denklem Dizileri Ekleme**
 
-[to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) gerektiğinde hizalanmış denklemler veya dikey bir ifade yığını için kullanın.
+Hizalanmış denklemler veya dikey bir ifadeler yığını gerektiğinde [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) metodunu kullanın.
 
-![x'in y'nin üzerinde olduğu dikey bir matematik dizisi](powerpoint-math-equations_11.png)
+![x üstünde y bulunan dikey bir matematik dizisi](powerpoint-math-equations_11.png)
 
 ```py
 import aspose.slides as slides
@@ -259,11 +259,11 @@ with slides.Presentation() as presentation:
     presentation.save("equation-array.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Çevreleyen Elemanlarla Diziyi Hizalama**
+### **Diziyi Çevreleyen Öğelerle Hizalama**
 
-[IMathArray.base_justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imatharray/base_justification/) bir dizinin yanındaki matematiksel öğelere göre dikey hizalamasını kontrol eder. Aşağıdaki örnek, ilk satır, dizi ortası ve son satır hizalamalarını karşılaştırır.
+[IMathArray.base_justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imatharray/base_justification/) bir dizinin yanındaki matematik öğelerine göre dikey hizalamasını kontrol eder. Aşağıdaki örnek, ilk satır, dizinin merkezi ve son satır hizalamalarını karşılaştırır.
 
-Aşağıdaki örnek, `A=` ve `=B` komşu öğeleriyle üç satırlı üç aynı diziyi oluşturur. Tüm matematik metni 24 punto Cambria Math kullanır. Sadece dizi hizalaması değişir.
+Aşağıdaki örnek, her biri üç satır ve komşu öğeler `A=` ve `=B` içeren üç aynı diziyi oluşturur. Tüm matematik metni Cambria Math 24 punto olarak ayarlanmıştır. Sadece dizi hizalaması değişir.
 
 ```py
 import aspose.slides as slides
@@ -309,17 +309,17 @@ with slides.Presentation() as presentation:
     presentation.save("equation-array-alignment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Aşağıdaki karşılaştırma, PowerPoint'te kaydedilen sunumu gösterir. `A=` ve `=B` öğelerinin her dizi yanındaki konumuna dikkat edin.
+Aşağıdaki karşılaştırma, kaydedilen sunumu PowerPoint’te gösterir. `A=` ve `=B` öğelerinin her dizi yanındaki konumuna dikkat edin.
 
-![PowerPoint'te Üst, Orta ve Alt hizalama ve aynı komşu öğelerle denklem dizileri](equation-array-alignment.png)
+![PowerPoint’te Üst, Orta ve Alt hizalama ile aynı komşu öğelere sahip denklem dizileri](equation-array-alignment.png)
 
 ### **Satır Aralığını Yapılandırma**
 
-[row_spacing_rule](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imatharray/row_spacing_rule/) dizi içindeki satırlar için boşluk kuralını seçer. [row_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imatharray/row_spacing/) belirli bir boşluk kuralı için sayısal bir değer sağlar ve ön ayarlı kurallar tarafından yok sayılır.
+[row_spacing_rule](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imatharray/row_spacing_rule/) dizi içindeki satırlar için aralık kuralını seçer. [row_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imatharray/row_spacing/) kesin bir aralık kuralı için sayısal değer sağlar ve önceden ayarlanmış kurallar tarafından göz ardı edilir.
 
-Tam boşluk için değer puan cinsinden ölçülür. Orantısal boşluk için yarım satır cinsinden ölçülür: örnekteki `3` değeri 1.5 satır anlamına gelir. Belirli bir değer belirtirken her iki özelliği de ayarlayın; sadece sayısal değeri değiştirmek bir boşluk kuralı seçmez.
+Kesin aralık için değer puan (point) cinsindendir. Oransal aralık için değer yarım satır cinsindendir: örnekte `3` değeri 1,5 satır anlamına gelir. Kesin bir değer belirtirken her iki özelliği de ayarlayın; sadece sayısal değeri değiştirmek aralık kuralını seçmez.
 
-Aşağıdaki örnek, aynı denklemler, hizalama ve yazı tipi ayarlarıyla beş sunum kaydeder. İlk üçü ön ayarları, son ikisi belirli değerleri gösterir.
+Aşağıdaki örnek, aynı denklemler, hizalama ve yazı tipi ayarlarıyla beş sunum kaydeder. İlk üçü ön ayarları kullanır; son ikisi kesin değerleri gösterir.
 
 ```py
 import aspose.slides as slides
@@ -364,13 +364,13 @@ for rule, spacing in settings:
         presentation.save(file_name, slides.export.SaveFormat.PPTX)
 ```
 
-Dizi satır boşluğu paragraf boşluğundan ayrıktır. [space_before](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraphformat/space_before/) ve [space_after](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraphformat/space_after/) içeren paragrafın çevresine boşluk ekler, dizi satırları arasında değil. Benzer şekilde, [IMathParagraph.justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathparagraph/justification/) bütün matematik paragrafını yatay konumlandırır; dizi dikey hizalama ayarını değiştirmez.
+Dizi satır aralığı, paragraf aralığından ayrıktır. [space_before](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraphformat/space_before/) ve [space_after](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraphformat/space_after/) kapsayan paragrafın etrafına boşluk ekler, dizi satırları arasına değil. Benzer şekilde, [IMathParagraph.justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathparagraph/justification/) tüm matematik paragrafını yatay olarak konumlandırır; dizi dikey hizalama ayarını değiştirmez.
 
 ## **Trigonometrik Fonksiyonlar Ekleme**
 
-Argüman mevcut öğe olduğunda ve fonksiyon adı bilindiğinde, [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) kullanın.
+Argüman geçerli öğe olduğunda ve fonksiyon adı bilindiğinde [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) metodunu kullanın.
 
-![2x'e uygulanan trigonometrik fonksiyon cos](powerpoint-math-equations_6.png)
+![2x’e uygulanmış cos trigonometrik fonksiyonu](powerpoint-math-equations_6.png)
 
 ```py
 import aspose.slides as slides
@@ -391,11 +391,11 @@ with slides.Presentation() as presentation:
     presentation.save("trigonometric-function.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Alt Simge ve Üst Simge Ekleme**
+## **Alt ve Üst Simge (Subscript/Superscript) Ekleme**
 
-İndeksler ve üsler için alt simge ve üst simge yardımcılarını kullanın. İndekslerin temel öğenin sol tarafında görünmesi gerektiğinde [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) kullanın.
+İndeksler ve üsler için alt ve üst simge yardımcılarını kullanın. İndekslerin temel öğenin sol tarafında görünmesi gerektiğinde [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) metodunu kullanın.
 
-![Sol tarafta alt simge 1 ve üst simge n olan büyük Y](powerpoint-math-equations_9.png)
+![Sol taraflı alt simge 1 ve üst simge n ile büyük Y harfi](powerpoint-math-equations_9.png)
 
 ```py
 import aspose.slides as slides
@@ -414,11 +414,11 @@ with slides.Presentation() as presentation:
     presentation.save("subscript-superscript.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ayraçlar Ekleme**
+## **Sınırlayıcılar (Delimiters) Ekleme**
 
-Bir ifadeyi ayraçların içine koymak için [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/) kullanın. Birden fazla öğe içeren ayraç ifadeleri için bir ayırıcı karakter de ayarlayabilirsiniz.
+Bir ifadeyi sınırlayıcılar içine koymak için [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/) metodunu kullanın. Birkaç öğe içeren sınırlayıcı ifadeler için bir ayırıcı karakter de ayarlayabilirsiniz.
 
-![x, y ve z'nin dikey çubuklarla ayrıldığı bir ayraç ifadesi](powerpoint-math-equations_13.png)
+![x, y ve z’nin dikey çubuklarla ayrıldığı bir sınırlayıcı ifadesi](powerpoint-math-equations_13.png)
 
 ```py
 import aspose.slides as slides
@@ -443,11 +443,11 @@ with slides.Presentation() as presentation:
     presentation.save("delimiters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Ayraçların Boyutunu ve Hizalanmasını Ayarlama**
+### **Sınırlayıcıları Boyutlandırma ve Hizalama**
 
-[grow_to_match_operand_height](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/grow_to_match_operand_height/) değerini `True` yaparak yüksek bir operanda göre parantezlerin büyümesini sağlayın, `False` yaparak normal boyutlarını koruyun. [delimiter_shape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/delimiter_shape/) iki [MathDelimiterShape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimitershape/) değerinden birini alır. `CENTERED` parantezleri matematik ekseninde ortalar; bu eksen eşittir işaretinin ortasından geçer. `MATCH` ise içeriğe göre hizalar. Her iki ayar sadece ayraçları etkiler; içteki ifade aynı kalır.
+Parantezlerin uzun bir operand etrafında büyümesini sağlamak için [grow_to_match_operand_height](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/grow_to_match_operand_height/) özelliğini `True` yapın; normal boyutta kalmasını istiyorsanız `False` yapın. [delimiter_shape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/delimiter_shape/) iki [MathDelimiterShape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimitershape/) değerinden birini alır. `CENTERED` parantezleri matematik ekseninde (eşittir işaretinin ortasından geçen) ortalar; `MATCH` ise içeriğe göre hizalar. Her iki ayar da yalnızca sınırlayıcıları etkiler; içteki ifade aynı kalır.
 
-Örnek, `x`'in üstüne bir kesir koyarak ifadenin tabandan daha yukarı uzanmasını gösterir. Dört denklem de aynı parantez ve yazı tipi ayarlarını kullanır.
+Örnek, `x` üssüne bir kesir koyar, böylece ifade tabandan yukarıda daha uzun uzanır. Dört eşit denklem aynı parantez ve yazı tipi ayarlarını kullanır.
 
 ```python
 import aspose.slides as slides
@@ -478,15 +478,15 @@ with slides.Presentation() as presentation:
     presentation.save("delimiter-sizing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-PowerPoint'te, büyümenin etkisini görmek için satırları karşılaştırın. Üst satırda, parantezler üst ifadeyi kapsayacak şekilde büyür ve iki şekil de benzer görünür. Alt satırda büyüme kapalıdır. Sol taraftaki daha küçük parantez (`CENTERED`) eşittir işaretiyle hizalanırken, sağ taraftaki (`MATCH`) ifadeyi daha yukarıda tutar.
+PowerPoint’te satırları karşılaştırarak büyümenin etkisini görebilirsiniz. Üst satırda parantezler üssü kapsayacak şekilde büyür ve iki şekil de benzer görünür. Alt satırda büyüme kapalıdır; soldaki daha küçük parantez (`CENTERED`) eşittir işaretiyle hizalanırken, sağdaki (`MATCH`) ifadeyi daha yukarıda tutar.
 
-![PowerPoint'te Üstte büyüme etkin, altta devre dışı, solda Centered, sağda Match olan dört denklem](delimiter-sizing.png)
+![Parantez büyümesi açık/kapalı ve CENTERED/MATCH ayarlarıyla dört denklem](delimiter-sizing.png)
 
-## **Sınır Kutusu Ekleme**
+## **Kenar Kutusu (Border Box) Ekleme**
 
-Bir kesir üzerinde [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) çağırarak tüm ifadeyi çerçeveleyin. Dönen [IMathBorderBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/) varsayılan olarak dört kenarı da gösterir. Tek tek kenarları kaldırmak için [hide_top](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_top/), [hide_bottom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_bottom/), [hide_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_left/) ve [hide_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_right/) kullanın.
+Bir kesire [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) uygulayarak bütün ifadeyi çerçeveleyin. Döndürülen [IMathBorderBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/) varsayılan olarak dört kenarı da gösterir. Tek tek kenarları kaldırmak için [hide_top](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_top/), [hide_bottom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_bottom/), [hide_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_left/), [hide_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_right/) metodlarını kullanın.
 
-Örnek, aynı kesirin altı kopyasını bir slaytta gösterir. İptal göstermek için dört kenarı da gizleyin ve yükselen bir diyagonal (↗) için [strikethrough_bottom_left_to_top_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_bottom_left_to_top_right/) ya da düşen bir diyagonal (↘) için [strikethrough_top_left_to_bottom_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_top_left_to_bottom_right/) ayarlayın. Ayrıca herhangi bir görünür kenar kombinasyonu ile [strikethrough_horizontal](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_horizontal/) ya da [strikethrough_vertical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_vertical/) kullanabilirsiniz.
+Örnek aynı kesirin altı kopyasını bir slaytta gösterir. İptal göstergesi için dört kenarı da gizleyin ve artan çapraz (↗) için [strikethrough_bottom_left_to_top_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_bottom_left_to_top_right/), azalan çapraz (↘) için [strikethrough_top_left_to_bottom_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_top_left_to_bottom_right/) metodunu ayarlayın. Ayrıca görünen kenarlarla herhangi bir kombinasyonda [strikethrough_horizontal](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_horizontal/) ya da [strikethrough_vertical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_vertical/) kullanabilirsiniz.
 
 ```py
 import aspose.slides as slides
@@ -523,15 +523,87 @@ with slides.Presentation() as presentation:
     presentation.save("border-box.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Üst satır: tam kenar, alt ve sol kenarlar, yükselen diyagonal. Alt satır: düşen diyagonal, yatay çizgi, dikey çizgi ve tam kenar ile altı düzenlenebilir kesir](border-box-fractions.png)
+![Üst satır: tam kenar, alt ve sol kenarlar, artan çapraz. Alt satır: azalan çapraz, yatay kesik, dikey kesik ve tam kenar](border-box-fractions.png)
 
-Bu kesirde, yatay çizgi kesir çubuğunun üzerine binmektedir. Dikey çizgi hem payı hem de paydayı keserken çevredeki kenar görünür kalır. Bu çizgiler tüm ifadeyi süsler. Normal metin üzeri çizgisi yalnızca bir metin koşulundaki karakterlere uygulanır. PowerPoint'te sunumu yeniden açtıktan sonra payı ve paydayı bağımsız olarak düzenlemeye devam edebilirsiniz.
+Bu kesirde, yatay kesik kesir çubuğunun üzerine denk gelir. Dikey kesik hem payı hem de paydayı keserken çevre kenarı görünür kalır. Bu çizgiler bütün ifadeyi süsler. Normal metin üzeri çizgisi yalnızca bir metin çalışmasının karakterlerine uygulanır. Sunumu PowerPoint’te yeniden açtıktan sonra pay ve payda hâlâ bağımsız olarak düzenlenebilir.
 
-## **Terimleri Gruplama**
+## **Phantom Öğelerle Görünürlük ve Yerleşim Kontrolü**
 
-[group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/) kullanarak bir ifadenin üstüne veya altına bir gruplanma karakteri yerleştirin. Gruplanmış terimleri etiketlemek için bir limit ekleyin.
+Bir ifadeyi [MathPhantom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/) içinde sararak, görünürlüğünü ve denkleme katkıda bulunduğu boşluğu bağımsız olarak kontrol edebilirsiniz. [IMathPhantom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/) özellikleri şunları denetler:
 
-![x + y ifadesi, altına herhangi bir metin etiketiyle gruplanmış](powerpoint-math-equations_15.png)
+| Özellik | Etki |
+| --- | --- |
+| [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/show/) | `False` olarak ayarlandığında ifade gizlenir. Boyutları, aşağıdaki ilgili özellikler `True` olduğunda dışarıdan hariç tutulmaz. |
+| [zero_width](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/zero_width/) | İfadenin yatay genişliğini sıfır kabul eder, böylece komşu öğeler daha yakın yerleştirilebilir. |
+| [zero_asc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/zero_asc/) | Üst boşluk (baseline üzerindeki yükseklik) sıfır kabul edilir. Bu, komşu öğelerin üstünde ayrılan alanı azaltabilir. |
+| [zero_desc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/zero_desc/) | Alt boşluk (baseline altındaki derinlik) sıfır kabul edilir. Bu, bir kesir çubuğu ya da diğer içeriklerin ifadeyi aşağıdaki öğelere yaklaştırmasını sağlar. |
+
+Baseline, normal matematik harflerinin oturduğu referans çizgisidir. İçeriği gizlemek boyutlarını kaldırmaz, bir boyutu sıfır yapmak ifadeyi silmez. Altındaki ifade [base](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/base/) üzerinden hâlâ erişilebilir. Tekrar göstermek için [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/show/) özelliğini `True` yapın; boyut ayarları değişmeden kalır.
+
+Aşağıdaki örnek beş yan yana varyant oluşturur: görülebilir bir kesir, alan ayıran gizli bir kesir ve bir boyutu sıfır olarak ayarlanmış üç gizli kesir. Her varyant aynı çevre ifadesini ve Cambria Math 24 puntoyu kullanır. Tüm denklem şekilleri aynı üst konuma sahiptir; gri kılavuz bunu gösterir. Phantom öğesini dış kesirin paydasına koymak, dikey yerleşim değişikliklerini daha net görmenizi sağlar.
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+
+def create_text(value):
+    text = math.MathematicalText(value)
+    text.format.font_height = 24
+    text.format.latin_font = slides.FontData("Cambria Math")
+    return text
+
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(1000, 180, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+    labels = ["Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc"]
+
+    guide = slide.shapes.add_auto_shape(slides.ShapeType.LINE, 10, 60, 980, 0)
+    guide.line_format.fill_format.fill_type = slides.FillType.SOLID
+    guide.line_format.fill_format.solid_fill_color.color = slides.Color.light_gray
+
+    for i, label_text in enumerate(labels):
+        left = 10 + i * 200
+        label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, left, 10, 190, 30)
+        label.fill_format.fill_type = slides.FillType.NO_FILL
+        label.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+        label.text_frame.text = label_text
+        label_format = label.text_frame.paragraphs[0].portions[0].portion_format
+        label_format.font_height = 14
+        label_format.fill_format.fill_type = slides.FillType.SOLID
+        label_format.fill_format.solid_fill_color.color = slides.Color.black
+
+        fraction_numerator = create_text("a+b")
+        fraction_denominator = create_text("c+d")
+        fraction = math.MathFraction(fraction_numerator, fraction_denominator)
+        phantom = math.MathPhantom(fraction)
+        phantom.show = i == 0
+        phantom.zero_width = i == 2
+        phantom.zero_asc = i == 3
+        phantom.zero_desc = i == 4
+
+        left_text = create_text("x+")
+        right_text = create_text("+y")
+        numerator = math.MathBlock(left_text).join(phantom).join(right_text)
+        denominator = create_text("z")
+        equation = math.MathFraction(numerator, denominator)
+
+        shape = slide.shapes.add_math_shape(left, 60, 190, 100)
+        shape.text_frame.text_frame_format.anchoring_type = slides.TextAnchorType.TOP
+        math_paragraph = shape.text_frame.paragraphs[0].portions[0].math_paragraph
+        math_paragraph.add(math.MathBlock(equation))
+
+    presentation.save("math-phantom.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![Görünür kesir, alan ayıran gizli kesir ve ZeroWidth, ZeroAsc, ZeroDesc etkinleştirilmiş gizli kesirleri karşılaştıran beş denklem](math-phantom.png)
+
+## **Terim Gruplama**
+
+[Group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/) metodunu kullanarak bir ifadeyi üstünde ya da altında bir grup karakteri ile sarın. Gruplanan terimleri etiketlemek için bir limit ekleyin.
+
+![x + y ifadesi, altında “any text” etiketi ile gruplanmış](powerpoint-math-equations_15.png)
 
 ```py
 import aspose.slides as slides
@@ -556,9 +628,9 @@ with slides.Presentation() as presentation:
 
 ## **Matematik Öğelerini Biçimlendirme**
 
-Biçimlendirme yardımcılarını yalnızca formülü netleştirdiği durumlarda kullanın. Örneğin, [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/) bir matematik öğesinin üzerine bir çubuk yerleştirir.
+Yalnızca formülü netleştiren durumlarda biçimlendirme yardımcılarını kullanın. Örneğin, [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/) bir matematik öğesinin üzerine bir çubuk ekler.
 
-![Üstünde bir çubuk bulunan ABC matematik ifadesi](powerpoint-math-equations_14.png)
+![Üzerinde üst çizgi olan ABC matematik ifadesi](powerpoint-math-equations_14.png)
 
 ```py
 import aspose.slides as slides
@@ -577,11 +649,11 @@ with slides.Presentation() as presentation:
     presentation.save("overbar.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Mevcut Bir Denklemde Metni Biçimlendirme**
+### **Mevcut Bir Denklemi Metin Biçimlendirme**
 
-Mevcut bir denklemdeki metni bütün olarak biçimlendirmek için her matematik bloğunun öğe ağacını dolaşın. [IMathElement.get_children](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/get_children/) yalnızca doğrudan çocukları döndürür; bu yüzden kesirler, üst/alt simgeler, kökler ve diğer iç içe yapıların içindeki metne ulaşmak için yeniden çağırın. Şu anda işlenen öğeyi ve onun çocuklarını kontrol edin; böylece başlangıç öğesi bir [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) olduğunda da dahil edilir.
+Mevcut bir denklemi metin boyunca biçimlendirmek için, her matematik bloğunun öğe ağacını dolaşın. [IMathElement.get_children](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/get_children/) yalnızca doğrudan alt öğeleri döndürür; bu yüzden kesirler, alt/üst simgeler, kökler ve diğer iç içe yapılar içindeki metne ulaşmak için yinelemeli olarak çağırın. Başlangıç öğesinin yanı sıra alt öğelerini de kontrol edin; böylece [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) olduğunda da dahil edilir.
 
-Bu örnek, `input.pptx` dosyasının `z = xᵢ / ∛y` gibi bir denklem içerdiğini varsayar; burada kesirin payında bir alt simge ve paydasında bir kök bulunur. Sadece bloğun üst düzey öğelerini işlemek kesirin içindeki metni atlayacaktır. Örnek, slayt metin çerçevelerindeki matematik bölümlerini bulur, bunların bloklarına [MathPortion.math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/) üzerinden ulaşır ve her metin öğesinin [format](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/format/) özelliği aracılığıyla [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) değerini 28 puana ayarlar.
+Bu örnek, `input.pptx` dosyasının `z = xᵢ / ∛y` gibi bir denklem içerdiğini varsayar; bu denklemin paydasında bir alt simge, pay kısmında bir kök bulunur. Yalnızca bloğun üst düzey öğelerini işlemek, kesir içindeki metni kaçırır. Örnek, slayt metin çerçevelerindeki matematik bölümlerini bulur, bunların bloklarına [MathPortion.math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/) aracılığıyla erişir ve her metin öğesinin [format](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/format/) özelliği üzerinden [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) değerini 28 puana ayarlar.
 
 ```py
 import aspose.slides as slides
@@ -611,37 +683,37 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("formatted-equations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kaydedilen sunum, işlenen her denklemin her seviyesinde güncellenmiş metin biçimlendirmesini içerir; aynı zamanda metin içeriği ve matematiksel yapıyı korur.
+Kaydedilen sunum, işlenen her denklemin her seviyesinde güncellenmiş metin biçimlendirmesini içerir; metin içeriği ve matematiksel yapı korunur.
 
 ## **Hızlı Başvuru**
 
 | Görev | Ana API |
 | --- | --- |
 | Matematik metni oluşturma | [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) |
-| Ögeleri birleştirme | [IMathElement.join](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/join/) |
+| Öğeleri birleştirme | [IMathElement.join](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/join/) |
 | Kesir oluşturma | [IMathElement.divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/) |
-| Üst simge ya da alt simge ekleme | [set_superscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
+| Üst/Alt simge ekleme | [set_superscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
 | Fonksiyon ekleme | [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/), [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) |
 | Kök ekleme | [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/) |
 | Limit ekleme | [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/), [set_upper_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/) |
 | Sol taraflı alt/üst simge ekleme | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
-| Toplamalar ve integraller ekleme | [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/), [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) |
+| Toplam ve integral ekleme | [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/), [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) |
 | Matris ekleme | [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) |
-| Denklem dizileri ekleme | [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
-| Ayraç ekleme | [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/) |
-| Çizgiler ve kenarlıklar ekleme | [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
-| Terimleri gruplama | [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/) |
+| Denklem dizisi ekleme | [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
+| Sınırlayıcı ekleme | [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/) |
+| Çizgi ve kenarlık ekleme | [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
+| Terim gruplama | [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **SSS**
 
 **Mevcut bir PowerPoint denklemini düzenleyebilir miyim?**
 
-Evet. Sunumu açın, bir [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) içeren şekli bulun, onun [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/) alın ve o paragraftaki matematik bloklarını güncelleyin.
+Evet. Sunumu açın, bir [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) içeren şekli bulun, onun [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/) öğesini alın ve o paragraftaki matematik bloklarını güncelleyin.
 
-**Denklermeler düzenlenebilir PowerPoint matematiği olarak kaydediliyor mu?**
+**Denklikler düzenlenebilir PowerPoint matematiği olarak kaydediliyor mu?**
 
-Evet. PPTX olarak kaydettiğinizde, Aspose.Slides denklemi düzenlenebilir Office matematik içeriği olarak yazar.
+Evet. PPTX olarak kaydedildiğinde, Aspose.Slides denklemi düzenlenebilir Office matematik içeriği olarak yazar.
 
-**Denklermeleri LaTeX'e dışa aktarabilir miyim?**
+**Denklikleri LaTeX’e dışa aktarabilir miyim?**
 
-Evet. Denklemin [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) öğesini [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) üzerinden alın ve doğrudan dışa aktarmak için [MathParagraph.to_latex](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) çağırın. Tam bir örnek için, [Export Math Equations from Presentations in Python via .NET](/slides/tr/python-net/exporting-math-equations/#export-math-equations-to-latex) bölümüne bakın.
+Evet. Denklemin [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) öğesini, [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) üzerinden alın ve doğrudan dışa aktarmak için [MathParagraph.to_latex](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) metodunu çağırın. Tam bir örnek için, [Export Math Equations from Presentations in Python via .NET](/slides/tr/python-net/exporting-math-equations/#export-math-equations-to-latex) bölümüne bakın.

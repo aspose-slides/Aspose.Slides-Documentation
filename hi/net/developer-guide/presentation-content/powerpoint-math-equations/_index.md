@@ -1,16 +1,16 @@
 ---
-title: PowerPoint प्रस्तुतियों में .NET के साथ गणितीय समीकरण जोड़ें
+title: .NET में PowerPoint प्रस्तुतियों में गणितीय समीकरण जोड़ें
 linktitle: PowerPoint गणितीय समीकरण
 type: docs
 weight: 80
 url: /hi/net/powerpoint-math-equations/
 keywords:
 - गणितीय समीकरण
-- गणितीय प्रतीक
+- गणितीय चिह्न
 - गणितीय सूत्र
 - गणितीय पाठ
 - गणितीय समीकरण जोड़ें
-- गणितीय प्रतीक जोड़ें
+- गणितीय चिह्न जोड़ें
 - गणितीय सूत्र जोड़ें
 - गणितीय पाठ जोड़ें
 - PowerPoint
@@ -18,35 +18,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET के साथ PowerPoint PPT और PPTX में गणितीय समीकरण सम्मिलित और संपादित करें, OMML का समर्थन, स्वरूपण नियंत्रण, और स्पष्ट C# कोड उदाहरण प्रदान करता है।"
+description: "Aspose.Slides for .NET के साथ PowerPoint PPT और PPTX में गणितीय समीकरण सम्मिलित और संपादित करें, OMML का समर्थन, स्वरूपण नियंत्रण, और स्पष्ट C# कोड नमूने प्रदान करता है।"
 ---
-## **परिचय**
+## **सारांश**
 
-PowerPoint समीकरणों को Office Math Markup Language (OMML) के रूप में संग्रहित करता है। Aspose.Slides for .NET के साथ, आप प्रोग्रामेटिक रूप से वही प्रकार की गणितीय सामग्री बना सकते हैं: भिन्न, मूल, फ़ंक्शन, सीमा, N-ary ऑपरेटर्स, मैट्रिसेज़, एरे, और स्वरूपित गणित ब्लॉक्स।
+PowerPoint समीकरणों को Office Math Markup Language (OMML) के रूप में संग्रहीत करता है। Aspose.Slides for .NET के साथ, आप प्रोग्रामेटिक रूप से समान प्रकार की गणितीय सामग्री बना सकते हैं: भिन्न, मूल, फ़ंक्शन, सीमाएं, N-ary ऑपरेटर, मैट्रिसेज़, ऐरेज़, और स्वरूपित गणितीय ब्लॉक्स।
 
 PowerPoint में, उपयोगकर्ता सामान्यतः **Insert > Equation** से समीकरण जोड़ते हैं:
 
-![PowerPoint Insert टैब जिसमें Equation कमांड चयनित है](powerpoint-math-equations_1.png)
+![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
 
-परिणाम स्लाइड पर संपादन योग्य गणितीय टेक्स्ट होता है:
+परिणाम स्लाइड पर संपादन योग्य गणितीय पाठ होता है:
 
-![एक PowerPoint स्लाइड जिसमें संपादन योग्य गणितीय समीकरण है](powerpoint-math-equations_2.png)
+![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
 
-Aspose.Slides इस गणितीय टेक्स्ट को तीन मुख्य ऑब्जेक्ट्स के माध्यम से बनाता है:
+Aspose.Slides इस गणितीय पाठ को तीन मुख्य ऑब्जेक्ट्स के माध्यम से बनाता है:
 
-- एक गणितीय आकार, जो [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) के साथ बनाया गया है, वह आकार है जिसमें समीकरण होता है।
-- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) आकार के टेक्स्ट फ़्रेम के अंदर गणितीय सामग्री संग्रहीत करता है।
+- एक गणितीय आकार, जिसे [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) से बनाया जाता है, वह आकार है जो समीकरण को समाहित करता है।
+- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) आकार के टेक्स्ट फ्रेम के अंदर गणितीय सामग्री को संग्रहीत करता है।
 - [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) में एक या अधिक [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/) ऑब्जेक्ट होते हैं।
 
-नीचे के अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) और [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) से फ्लुएंट मेथड्स का उपयोग करते हैं ताकि कोड छोटा और पढ़ने योग्य रहे।
+नीचे अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) और [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) की fluent मेथड्स का उपयोग करके कोड को छोटा और पठनीय रखें।
 
-MathML निर्यात परिदृश्यों के लिए, देखें [प्रस्तुतीकरणों से .NET में गणितीय समीकरण निर्यात करें](/slides/hi/net/exporting-math-equations/)।
+MathML निर्यात परिदृश्यों के लिए, देखें [Export Math Equations from Presentations in .NET](/slides/hi/net/exporting-math-equations/)।
 
-## **समीकरण बनाना**
+## **एक समीकरण बनाना**
 
 यह उदाहरण [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) का उपयोग करके एक गणितीय आकार बनाता है और पायथागोरस प्रमेय जोड़ता है:
 
-![समीकरण c² = a² + b²](powerpoint-math-equations_3.png)
+![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
 ```csharp
 using Aspose.Slides;
@@ -72,14 +72,16 @@ presentation.Save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="info" title="Note" %}}
-[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) एक आकार बनाता है जिसमें पहले से ही एक गणितीय पैराग्राफ होता है। पहले [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) तक पहुंचें, उसका [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/) प्राप्त करें, और उसमें गणितीय ब्लॉक या तत्व जोड़ें।
+
+[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) एक आकार बनाता है जिसमें पहले से ही एक गणितीय पैराग्राफ होता है। पहले [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) तक पहुंचें, उसका [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/) प्राप्त करें, और उसमें गणितीय ब्लॉक्स या तत्व जोड़ें।
+
 {{% /alert %}}
 
-## **भिन्न जोड़ना**
+## **भिन्न जोड़ें**
 
-[Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) का उपयोग करके एक भिन्न बनाएं। आप [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/) के साथ भिन्न शैली चुन सकते हैं।
+[Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) का उपयोग करके एक भिन्न बनाया जाता है। आप [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/) के साथ भिन्न शैली चुन सकते हैं।
 
-![एक तिरछा गणितीय भिन्न जिसमें 1 को x से विभाजित दिखाया गया है](powerpoint-math-equations_4.png)
+![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
 ```csharp
 using Aspose.Slides;
@@ -100,7 +102,7 @@ mathParagraph.Add(new MathBlock(fraction));
 presentation.Save("fraction.pptx", SaveFormat.Pptx);
 ```
 
-स्टैक्ड भिन्न के लिए, [MathFractionTypes.Bar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/) का उपयोग करें:
+स्टैक्ड भिन्न के लिए, [MathFractionTypes.Bar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/) उपयोग करें:
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -108,11 +110,11 @@ using Aspose.Slides.MathText;
 var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **मूल जोड़ना**
+## **मूल जोड़ें**
 
-[Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) का उपयोग करके वर्गमूल, घनमूल, या अन्य मूल बनाएं। वर्तमान तत्व आधार बन जाता है, और आर्ग्युमेंट डिग्री बन जाता है।
+[Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) का उपयोग करके वर्ग मूल, घन मूल या अन्य मूल बनाएँ। वर्तमान तत्व आधार बन जाता है, और तर्क डिग्री बन जाता है।
 
-![एक n-वीं मूल अभिव्यक्ति जिसमें x मूल संकेत के नीचे है](powerpoint-math-equations_5.png)
+![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
 ```csharp
 using Aspose.Slides;
@@ -133,11 +135,11 @@ mathParagraph.Add(new MathBlock(radical));
 presentation.Save("radical.pptx", SaveFormat.Pptx);
 ```
 
-## **फ़ंक्शन और सीमाएँ जोड़ना**
+## **फ़ंक्शन और सीमाएं जोड़ें**
 
-[AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) या [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) का उपयोग करके `sin(x)`, `log(x)` जैसे फ़ंक्शन या कस्टम फ़ंक्शन नाम बनाएं। सीमाओं के लिए, `lim` को एक [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) में रखें या [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/) का उपयोग करें।
+फ़ंक्शन जैसे `sin(x)`, `log(x)` या कस्टम फ़ंक्शन नामों के लिए [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) या [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) का उपयोग करें। सीमाओं के लिए, `lim` को एक [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) में रखें या [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/) का उपयोग करें।
 
-![x का सीमा जब x अनंत की ओर जाता है](powerpoint-math-equations_8.png)
+![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
 ```csharp
 using Aspose.Slides;
@@ -159,7 +161,7 @@ mathParagraph.Add(new MathBlock(limit));
 presentation.Save("functions-and-limits.pptx", SaveFormat.Pptx);
 ```
 
-कस्टम फ़ंक्शन नाम के लिए, वर्तमान तत्व को फ़ंक्शन नाम बनाएं और उसके आर्ग्युमेंट के साथ [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) को कॉल करें:
+कस्टम फ़ंक्शन नाम के लिए, फ़ंक्शन नाम को वर्तमान तत्व बनाएं और उसके तर्क के साथ [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) को कॉल करें:
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -167,11 +169,11 @@ using Aspose.Slides.MathText;
 var customFunction = new MathematicalText("f").Function("x + 1");
 ```
 
-## **N-ary ऑपरेटर्स और इंटीग्रल्स जोड़ना**
+## **N-ary ऑपरेटर और इंटेग्रल जोड़ें**
 
-[ Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) का उपयोग करके समाकलन, संघ, प्रतिच्छेद और अन्य बड़े ऑपरेटर्स बनाएं। इंटीग्रल्स के लिए [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) का उपयोग करें। दोनों मेथड्स आपको निचली और ऊपरी सीमाएँ सेट करने की अनुमति देते हैं।
+[ Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) का उपयोग करके योग, यूनियन, इंटरसेक्शन और अन्य बड़े ऑपरेटर बनाएं। इंटेग्रल के लिए [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) उपयोग करें। दोनों विधियां निचली और ऊपरी सीमाएं निर्धारित करती हैं।
 
-![निचली और ऊपरी सीमाओं के साथ समाकलन](powerpoint-math-equations_7.png)
+![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
 ```csharp
 using Aspose.Slides;
@@ -195,9 +197,9 @@ mathParagraph.Add(new MathBlock(summation));
 presentation.Save("nary-operators.pptx", SaveFormat.Pptx);
 ```
 
-N-ary ऑपरेटर्स बड़े ऑपरेटर्स के लिए होते हैं जिनमें वैकल्पिक सीमाएँ हो सकती हैं। साधारण ऑपरेटर्स जैसे `+`, `-`, और `=` आमतौर पर [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) के माध्यम से जोड़े जाते हैं और अभिव्यक्ति में सम्मिलित होते हैं।
+N-ary ऑपरेटर बड़े ऑपरेटर होते हैं जिनमें वैकल्पिक सीमाएं हो सकती हैं। सरल ऑपरेटर जैसे `+`, `-`, `=` आमतौर पर [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) के रूप में जोड़े जाते हैं और अभिव्यक्ति में सम्मिलित होते हैं।
 
-इंटीग्रल के लिए, [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) का उपयोग करें:
+इंटेग्रल के लिए, [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) का उपयोग करें:
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -206,11 +208,11 @@ var integralBase = new MathematicalText("x").Join(new MathematicalText("dx").ToB
 var integral = integralBase.Integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **मैट्रिसेज़ जोड़ना**
+## **मैट्रिक्स जोड़ें**
 
-[MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) का उपयोग करके पंक्तियों और स्तंभों को परिभाषित करें। मैट्रिसेज़ में डिफ़ॉल्ट रूप से कोष्ठक नहीं होते, इसलिए जब आपको कोष्ठक, ब्रैकेट या कर्ली ब्रैकेट चाहिए तो मैट्रिक्स को इनके भीतर रखें।
+पंक्तियों और स्तंभों के लिए [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) का उपयोग करें। मैट्रिक्स में डिफ़ॉल्ट रूप से कोष्ठक नहीं होते, इसलिए आवश्यकता पड़ने पर कोष्ठक, ब्रैकेट या कर्ली ब्रैकेट से घेरें।
 
-![एक दो-पंक्तियों वाला गणितीय मैट्रिक्स जिसमें एक खाली कोशिका है](powerpoint-math-equations_10.png)
+![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
 ```csharp
 using Aspose.Slides;
@@ -235,11 +237,11 @@ mathParagraph.Add(new MathBlock(matrix));
 presentation.Save("matrix.pptx", SaveFormat.Pptx);
 ```
 
-## **समीकरण एरेज़ जोड़ना**
+## **समीकरण ऐरे जोड़ें**
 
-जब आपको संरेखित समीकरण या व्यवस्थित अभिव्यक्तियों की लंबवत स्टैक चाहिए, तो [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) का उपयोग करें।
+समरूप समीकरण या व्यवस्थित अभिव्यक्तियों की लम्बवत स्टैक के लिए [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) का उपयोग करें।
 
-![एक लंबवत गणितीय एरे जहाँ x y के ऊपर है](powerpoint-math-equations_11.png)
+![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
 ```csharp
 using Aspose.Slides;
@@ -261,11 +263,11 @@ mathParagraph.Add(new MathBlock(equationArray));
 presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 ```
 
-### **आस-पास के तत्वों के साथ एरे को संरेखित करना**
+### **ऐरे को आस-पास के तत्वों के साथ संरेखित करें**
 
-[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) एरे को उसके बगल में मौजूद गणितीय तत्वों के सापेक्ष लंबवत संरेखण को नियंत्रित करता है। नीचे दिया गया उदाहरण पहली पंक्ति, एरे के केंद्र, और आखिरी पंक्ति के साथ संरेखण की तुलना करता है।
+[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) ऐरे की ऊर्ध्वाधर संरेखण को उसके बगल के गणितीय तत्वों के सापेक्ष नियंत्रित करता है। नीचे दिया गया उदाहरण पहली पंक्ति, ऐरे के केंद्र, और अंतिम पंक्ति के साथ संरेखण की तुलना करता है।
 
-निम्न उदाहरण तीन समान एरे बनाता है, प्रत्येक में तीन पंक्तियाँ और निकटवर्ती तत्व `A=` और `=B` होते हैं। सभी गणितीय टेक्स्ट Cambria Math फ़ॉन्ट 24 पॉइंट पर है। केवल एरे का संरेखण बदलता है।
+निम्न उदाहरण तीन समान ऐरे बनाता है, प्रत्येक में तीन पंक्तियां और पड़ोसी तत्व `A=` और `=B` हैं। सभी गणितीय पाठ Cambria Math में 24 पॉइंट आकार के हैं। केवल ऐरे संरेखण बदलता है।
 
 ```csharp
 using Aspose.Slides;
@@ -312,17 +314,17 @@ MathematicalText CreateText(string value)
 }
 ```
 
-निम्न तुलना PowerPoint में संग्रहीत प्रस्तुति को दिखाती है। प्रत्येक एरे के बगल में `A=` और `=B` की स्थिति ध्यान दें।
+नीचे का तुलना PowerPoint में सहेजे गए प्रस्तुति को दिखाता है। प्रत्येक ऐरे के बगल में `A=` और `=B` की स्थिति देखें।
 
-![PowerPoint में समीकरण एरेज़ के साथ शीर्ष, मध्य, और निचला संरेखण और समान आस-पास के तत्व](equation-array-alignment.png)
+![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
 
-### **पंक्ति अंतराल कॉन्फ़िगर करना**
+### **पंक्ति अंतराल कॉन्फ़िगर करें**
 
-[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) एरे के भीतर पंक्तियों के लिए अंतराल नियम चुनता है। [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) स्पष्ट अंतराल मान प्रदान करता है और पूर्वनिर्धारित नियमों द्वारा अनदेखा किया जाता है।
+[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) ऐरे के भीतर पंक्तियों के लिए अंतराल नियम चुनता है। [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) एक संख्यात्मक मान प्रदान करता है जब स्पष्ट अंतराल नियम निर्दिष्ट किया जाता है और प्रीसेट नियमों को अनदेखा करता है।
 
-सटीक अंतराल के लिए मान पॉइंट में मापा जाता है। अनुपातिक अंतराल के लिए यह आधी-लाइन में मापा जाता है: उदाहरण में मान `3` का अर्थ 1.5 लाइनों का अंतराल है। स्पष्ट मान निर्दिष्ट करते समय दोनों गुणधर्म सेट करें; केवल संख्यात्मक मान बदलने से कोई अंतराल नियम नहीं चुना जाता।
+सटीक अंतराल के लिए मान पॉइंट में मापा जाता है। अनुपातिक अंतराल के लिए यह आधी पंक्तियों में मापा जाता है: उदाहरण में `3` का अर्थ 1.5 पंक्तियां है। स्पष्ट मान निर्दिष्ट करते समय दोनों गुणों को सेट करें; केवल संख्यात्मक मान बदलने से अंतराल नियम नहीं बदलेगा।
 
-नीचे का उदाहरण वही समीकरण, संरेखण और फ़ॉन्ट सेटिंग्स के साथ पाँच प्रस्तुतियां सहेजता है। पहली तीन प्रीसेट उपयोग करती हैं; अंतिम दो स्पष्ट मान दिखाती हैं।
+नीचे का उदाहरण एक ही समीकरण, संरेखण, और फ़ॉन्ट सेटिंग के साथ पाँच प्रस्तुति सहेजता है। पहली तीन प्रीसेट उपयोग करती हैं; अंतिम दो स्पष्ट मान दिखाती हैं।
 
 ```csharp
 using Aspose.Slides;
@@ -372,13 +374,13 @@ MathematicalText CreateText(string value)
 }
 ```
 
-एरे पंक्ति अंतराल पैराग्राफ अंतराल से अलग होता है। [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) और [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) पैराग्राफ के चारों ओर स्पेस जोड़ते हैं, न कि एरे पंक्तियों के बीच। इसी प्रकार, [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) पूरे गणितीय पैराग्राफ को क्षैतिज रूप से स्थिति देता है; यह एरे की लंबवत संरेखण सेटिंग को प्रतिस्थापित नहीं करता।
+ऐरे पंक्ति अंतराल पैराग्राफ अंतराल से अलग है। [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) और [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) कंटेनिंग पैराग्राफ के चारों ओर स्थान जोड़ते हैं, न कि ऐरे पंक्तियों के बीच। इसी प्रकार, [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) पूरे गणितीय पैराग्राफ को क्षैतिज रूप से स्थित करता है; यह ऐरे की ऊर्ध्वाधर संरेखण सेटिंग को बदलता नहीं है।
 
-## **त्रिकोणमितीय फ़ंक्शन जोड़ना**
+## **त्रिकोणमितीय फ़ंक्शन जोड़ें**
 
-जब आर्ग्युमेंट वर्तमान तत्व है और फ़ंक्शन नाम ज्ञात है, तो [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) का उपयोग करें।
+जब तर्क वर्तमान तत्व है और फ़ंक्शन नाम ज्ञात है, तो [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) का उपयोग करें।
 
-![त्रिकोणमितीय फ़ंक्शन cos को 2x पर लागू किया गया](powerpoint-math-equations_6.png)
+![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
 ```csharp
 using Aspose.Slides;
@@ -399,11 +401,11 @@ mathParagraph.Add(new MathBlock(cosine));
 presentation.Save("trigonometric-function.pptx", SaveFormat.Pptx);
 ```
 
-## **सबसक्रिप्ट और सुपरसक्रिप्ट जोड़ना**
+## **सबस्क्रिप्ट और सुपरसक्रिप्ट जोड़ें**
 
-इंडेक्स और घात के लिए सबसक्रिप्ट और सुपरसक्रिप्ट हेल्पर्स का उपयोग करें। जब इंडेक्स को आधार के बाएँ पक्ष पर दिखाना हो, तो [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) का उपयोग करें।
+इंडेक्स और घातांक के लिए सबस्क्रिप्ट और सुपरसक्रिप्ट हेल्पर्स का उपयोग करें। जब इंडेक्स बेस के बाएं पक्ष पर दिखना चाहिए, तो [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) उपयोग करें।
 
-![एक बड़े अक्षर Y के बाएँ-साइड पर सबसक्रिप्ट 1 और सुपरसक्रिप्ट n](powerpoint-math-equations_9.png)
+![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
 ```csharp
 using Aspose.Slides;
@@ -424,11 +426,11 @@ mathParagraph.Add(new MathBlock(scripts));
 presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 ```
 
-## **डिलिमीटर जोड़ना**
+## **डिलिमीटर जोड़ें**
 
-एक अभिव्यक्ति को डिलिमीटर के भीतर रखने के लिए [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) का उपयोग करें। कई तत्वों वाली डिलिमीटर अभिव्यक्तियों के लिए आप विभाजक अक्षर भी सेट कर सकते हैं।
+एक अभिव्यक्ति को डिलिमीटर के भीतर रखने के लिए [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) का उपयोग करें। कई तत्वों वाले डिलिमीटर अभिव्यक्तियों के लिए आप एक विभाजक अक्षर भी सेट कर सकते हैं।
 
-![एक डिलिमीटर अभिव्यक्ति जिसमें x, y, और z को लंबवत बार द्वारा अलग किया गया है](powerpoint-math-equations_13.png)
+![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
 ```csharp
 using Aspose.Slides;
@@ -454,9 +456,9 @@ presentation.Save("delimiters.pptx", SaveFormat.Pptx);
 
 ### **डिलिमीटर का आकार और संरेखण**
 
-[GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) को `true` पर सेट करने से पैरेंथेसिस लंबी ऑपरेण्ड के आसपास बढ़ते हैं, या `false` पर सामान्य आकार पर रहते हैं। [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) दो में से एक [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/) मान लेता है। `Centered` पैरेंथेसिस को गणितीय अक्ष पर केंद्रित करता है, जो बराबर चिन्ह के मध्य से गुजरता है। `Match` उन्हें समाहित सामग्री के साथ गठित करता है। दोनों सेटिंग्स केवल डिलिमीटर को प्रभावित करती हैं; अंदर की अभिव्यक्ति वही रहती है।
+[GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) को `true` पर सेट करें ताकि लंबे ऑपरेन्ड के चारों तरफ कोष्ठक बढ़ें, या `false` पर सेट करके उनका सामान्य आकार बनाए रखें। [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) दो [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/) मानों में से एक लेता है। `Centered` कोष्ठकों को गणितीय अक्ष पर केंद्रित करता है, जबकि `Match` उन्हें समाहित सामग्री के साथ संरेखित करता है। दोनों सेटिंग केवल डिलिमीटर को प्रभावित करती हैं; भीतर की अभिव्यक्ति वही रहती है।
 
-उदाहरण में एक भिन्न को `x` के एक्सपोनेंट में रखा गया है जिससे अभिव्यक्ति बेसलाइन से ऊपर अधिक विस्तारित होती है। सभी चार समीकरण समान पैरेंथेसिस और फ़ॉन्ट सेटिंग्स का उपयोग करते हैं।
+उदाहरण में `x` के घातांक में एक भिन्न रखा गया है जिससे अभिव्यक्ति बेसलाइन के ऊपर अधिक विस्तार करती है। सभी चार समीकरण समान कोष्ठक और फ़ॉन्ट सेटिंग का उपयोग करते हैं।
 
 ```csharp
 using Aspose.Slides;
@@ -489,15 +491,15 @@ AddExpression(350, 140, false, MathDelimiterShape.Match);
 presentation.Save("delimiter-sizing.pptx", SaveFormat.Pptx);
 ```
 
-PowerPoint में, प्रभाव देखने के लिए पंक्तियों की तुलना करें। शीर्ष पंक्ति में पैरेंथेसिस एक्सपोनेंट को कवर करने के लिए बढ़ते हैं और दोनों आकार समान दिखते हैं। निचली पंक्ति में वृद्धि बंद है। बाएँ की छोटी पैरेंथेसिस (`Centered`) बराबर चिन्ह के साथ संरेखित होती है, जबकि दाएँ की (`Match`) अभिव्यक्ति के ऊपर अधिक स्थित होती है।
+PowerPoint में पंक्तियों की तुलना करके वृद्धि प्रभाव देखें। शीर्ष पंक्ति में कोष्ठक घातांक को घेरने के लिए बढ़ते हैं और दोनों आकार एक जैसे दिखते हैं। नीचे की पंक्ति में वृद्धि बंद है। बाएँ (`Centered`) छोटे कोष्ठक बराबर संकेत के साथ संरेखित होते हैं, जबकि दाएँ (`Match`) अभिव्यक्ति के चारों ओर उच्च होते हैं।
 
-![PowerPoint में चार समीकरण जिनमें डिलिमीटर वृद्धि ऊपर सक्षम और नीचे अक्षम है, और बाएँ `Centered` तथा दाएँ `Match` है](delimiter-sizing.png)
+![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
 
-## **बॉर्डर बॉक्स जोड़ना**
+## **एक बॉर्डर बॉक्स जोड़ें**
 
-एक भिन्न पर [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) को कॉल करके पूरे अभिव्यक्ति को फ्रेम करें। लौटाया गया [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) डिफ़ॉल्ट रूप से चारों ओर दिखाता है। व्यक्तिगत पक्षों को हटाने के लिए [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/), और [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) का उपयोग करें।
+एक भिन्‍न को फ्रेम करने के लिए भिन्‍न पर [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) कॉल करें। डिफ़ॉल्ट रूप से लौटाया गया [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) सभी चार पक्ष दिखाता है। व्यक्तिगत पक्ष हटाने के लिए [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/), और [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) का उपयोग करें।
 
-उदाहरण में एक ही स्लाइड पर समान भिन्न की छह प्रतियां रखी गई हैं। रद्दीकरण दिखाने के लिए सभी चार पक्ष छिपाएँ और [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) का उपयोग करके ऊपर की ओर तिरछी रेखा (↗) बनाएं या नीचे की ओर तिरछी रेखा (↘) के लिए [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) का उपयोग करें। आप किसी भी संयोजन में दृश्य पक्षों के साथ [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) या [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) का भी उपयोग कर सकते हैं।
+उदाहरण में एक ही भिन्‍न के छह संस्करण एक स्लाइड पर रखे गए हैं। रद्दीकरण दिखाने के लिए सभी चार पक्ष छिपाएँ और [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) को ऊपर‑से‑दाएँ तिरछी रेखा (↗) के लिए, अथवा [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) को नीचे‑से‑दाएँ (↘) के लिए सेट करें। आप किसी भी संयोजन में [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) या [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) का भी उपयोग कर सकते हैं।
 
 ```csharp
 using Aspose.Slides;
@@ -535,15 +537,89 @@ AddFraction(370, 120).StrikethroughVertical = true;
 presentation.Save("border-box.pptx", SaveFormat.Pptx);
 ```
 
-![PowerPoint में छह संपादन योग्य भिन्न। शीर्ष पंक्ति: पूर्ण बॉर्डर, निचला और बायाँ पक्ष, ऊपर की ओर तिरछी रेखा। निचली पंक्ति: नीचे की ओर तिरछी रेखा, क्षैतिज स्ट्राइक, पूर्ण बॉर्डर के साथ ऊर्ध्वाधर स्ट्राइक।](border-box-fractions.png)
+![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border.](border-box-fractions.png)
 
-इस भिन्न में, क्षैतिज स्ट्राइक भिन्न रेखा के ऊपर ओवरलैप करता है। ऊर्ध्वाधर स्ट्राइक अंश और हर दोनों को काटता है जबकि बाउंडर दृश्य रहता है। ये रेखाएं पूरी अभिव्यक्ति को सजाते हैं। सामान्य टेक्स्ट स्ट्राइकथ्रू केवल टेक्स्ट रन के अक्षरों पर लागू होता है। PowerPoint में प्रस्तुति पुनः खोलने के बाद भी आप अंश और हर को स्वतंत्र रूप से संपादित कर सकते हैं।
+इस भिन्‍न में, क्षैतिज स्ट्राइक भिन्‍न रेखा को ओवरले करता है। ऊर्ध्वाधर स्ट्राइक अंश और हर दोनों को पार करता है जबकि बाहरी बॉर्डर दृश्यमान रहता है। ये रेखाएँ पूरी अभिव्यक्ति को सजाते हैं। सामान्य टेक्स्ट स्ट्राइक‑थ्रू केवल टेक्स्ट रन के अक्षरों पर लागू होता है। PowerPoint में प्रस्तुति को फिर से खोलने के बाद भी आप अंश और हर को स्वतंत्र रूप से संपादित कर सकते हैं।
 
-## **टर्म्स को ग्रुप करना**
+## **Phantom तत्वों के साथ दृश्यता और लेआउट नियंत्रित करें**
 
-[Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) का उपयोग करके अभिव्यक्ति के ऊपर या नीचे एक ग्रुपिंग कैरेक्टर रखें। ग्रुपेड टर्म्स को लेबल करने के लिए सीमा जोड़ें।
+किसी अभिव्यक्ति को [MathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathphantom/) से रैप करके उसकी दृश्यता और समीकरण में योगदान वाले स्थान को स्वतंत्र रूप से नियंत्रित किया जा सकता है। [IMathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/) के गुण निम्नलिखित को नियंत्रित करते हैं:
 
-![एक अभिव्यक्ति x + y को लेबल any text के साथ नीचे समूहित किया गया है](powerpoint-math-equations_15.png)
+| Property | Effect |
+| --- | --- |
+| [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) | `false` पर सेट करने से अभिव्यक्ति छिप जाती है। उसके आयाम लेआउट में तब भी योगदान देते हैं जब तक नीचे की संबंधित गुण `true` न हों। |
+| [ZeroWidth](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerowidth/) | अभिव्यक्ति की क्षैतिज चौड़ाई को शून्य के रूप में माना जाता है, जिससे पड़ोसी तत्व करीब आ सकते हैं। |
+| [ZeroAsc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zeroasc/) | उसका ऊपरी भाग (बेसलाइन के ऊपर की ऊँचाई) शून्य माना जाता है, जिससे ऊपर के स्थान में कमी आती है। |
+| [ZeroDesc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerodesc/) | उसका निचला भाग (बेसलाइन के नीचे की गहराई) शून्य माना जाता है, जिससे भिन्‍न रेखा या अन्य सामग्री निचे के साथ पास आ जाती है। |
+
+बेसलाइन वह संदर्भ रेखा है जिस पर सामान्य गणितीय अक्षर स्थित होते हैं। सामग्री को छिपाने से उसके आयाम नहीं हटते, और आयाम को शून्य मानने से अभिव्यक्ति नहीं हटती। अभिव्यक्ति मूल रूप से [Base](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/base/) के माध्यम से उपलब्ध रहती है। फिर से दिखाने के लिए [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) को `true` पर सेट करें; आयाम सेटिंग्स अपरिवर्तित रहती हैं।
+
+नीचे का उदाहरण पाँच साइड‑बाय‑साइड वैरिएंट बनाता है: एक दृश्यमान भिन्‍न, एक छिपा हुआ भिन्‍न जो जगह रखता है, और तीन छिपे हुए भिन्‍न जिनमें एक आयाम शून्य किया गया है। प्रत्येक वैरिएंट समान घेराव वाली अभिव्यक्ति और Cambria Math में 24 पॉइंट आकार का उपयोग करता है। सभी समीकरण आकार समान शीर्ष स्थिति पर है, जो ग्रे गाइड द्वारा चिह्नित है। बाहरी भिन्‍न के अंश में phantom रखने से ऊर्ध्वाधर लेआउट बदलाव आसानी से दिखते हैं।
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(1000, 180, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var labels = new[] { "Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc" };
+
+var guide = slide.Shapes.AddAutoShape(ShapeType.Line, 10, 60, 980, 0);
+guide.LineFormat.FillFormat.FillType = FillType.Solid;
+guide.LineFormat.FillFormat.SolidFillColor.Color = System.Drawing.Color.LightGray;
+
+for (var i = 0; i < labels.Length; i++)
+{
+    var left = 10 + i * 200;
+    
+    var label = slide.Shapes.AddAutoShape(ShapeType.Rectangle, left, 10, 190, 30);
+    label.FillFormat.FillType = FillType.NoFill;
+    label.LineFormat.FillFormat.FillType = FillType.NoFill;
+    label.TextFrame.Text = labels[i];
+
+    var labelFormat = label.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+    labelFormat.FontHeight = 14;
+    labelFormat.FillFormat.FillType = FillType.Solid;
+    labelFormat.FillFormat.SolidFillColor.Color = System.Drawing.Color.Black;
+
+    var fraction = new MathFraction(CreateText("a+b"), CreateText("c+d"));
+    var phantom = new MathPhantom(fraction);
+    phantom.Show = i == 0;
+    phantom.ZeroWidth = i == 2;
+    phantom.ZeroAsc = i == 3;
+    phantom.ZeroDesc = i == 4;
+
+    var numerator = new MathBlock(CreateText("x+")).Join(phantom).Join(CreateText("+y"));
+    var equation = new MathFraction(numerator, CreateText("z"));
+
+    var shape = slide.Shapes.AddMathShape(left, 60, 190, 100);
+    shape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Top;
+
+    var mathParagraph = ((IMathPortion)shape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+    mathParagraph.Add(new MathBlock(equation));
+}
+
+presentation.Save("math-phantom.pptx", SaveFormat.Pptx);
+
+MathematicalText CreateText(string value)
+{
+    var text = new MathematicalText(value);
+    text.Format.FontHeight = 24;
+    text.Format.LatinFont = new FontData("Cambria Math");
+    return text;
+}
+```
+
+![Five equations in PowerPoint comparing a visible fraction, a hidden fraction that reserves space, and hidden fractions with ZeroWidth, ZeroAsc, or ZeroDesc enabled](math-phantom.png)
+
+## **ग्रुप टर्म्स**
+
+[Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) का उपयोग करके अभिव्यक्ति के ऊपर या नीचे एक ग्रुपिंग कैरैक्टर रखें। समूहित शब्दों को लेबल करने के लिए एक सीमा जोड़ें।
+
+![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
 ```csharp
 using Aspose.Slides;
@@ -565,11 +641,11 @@ mathParagraph.Add(new MathBlock(grouped));
 presentation.Save("grouped-terms.pptx", SaveFormat.Pptx);
 ```
 
-## **गणितीय तत्वों का फ़ॉर्मेट**
+## **गणितीय तत्वों को स्वरूपित करें**
 
-केवल तभी फ़ॉर्मेटिंग हेल्पर्स का प्रयोग करें जब वे सूत्र को स्पष्ट बनाते हों। उदाहरण के लिए, [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) एक गणितीय तत्व के ऊपर बार रखता है।
+केवल तभी स्वरूपण हेल्पर्स का उपयोग करें जब वे सूत्र को स्पष्ट करें। उदाहरण के लिए, [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) गणितीय तत्व के ऊपर बार रखता है।
 
-![एक गणितीय अभिव्यक्ति ABC के ऊपर ओवरबार](powerpoint-math-equations_14.png)
+![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
 ```csharp
 using Aspose.Slides;
@@ -589,11 +665,11 @@ mathParagraph.Add(new MathBlock(overbar));
 presentation.Save("overbar.pptx", SaveFormat.Pptx);
 ```
 
-### **मौजूदा समीकरण में टेक्स्ट का फ़ॉर्मेट**
+### **मौजूदा समीकरण में पाठ स्वरूपित करें**
 
-मौजूदा समीकरण में पूरे टेक्स्ट को फ़ॉर्मेट करने के लिए, प्रत्येक गणितीय ब्लॉक के एलिमेंट ट्री को ट्रवर्स करें। [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) केवल तत्काल चाइल्ड्स लौटाता है, इसलिए फ़्रैक्शन, स्क्रिप्ट, रेडिकल और अन्य नेस्टेड स्ट्रक्चर के भीतर टेक्स्ट तक पहुंचने के लिए इसे पुनरावर्ती रूप से कॉल करें। वर्तमान तत्व और उसके बच्चों दोनों की जाँच करें ताकि शुरुआती तत्व को भी शामिल किया जा सके जब वह [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) हो।
+किसी मौजूदा समीकरण में सभी पाठ को स्वरूपित करने के लिए प्रत्येक गणितीय ब्लॉक के तत्व पेड़ को पार करें। [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) केवल प्रत्यक्ष बच्चों को लौटाता है, इसलिए इसे पुनरावर्ती रूप से कॉल करके भिन्‍न, स्क्रिप्ट, मूल और अन्य नेस्टेड संरचनाओं के भीतर पाठ तक पहुंचें। वर्तमान तत्व और उसके बच्चे दोनों को जांचें, खासकर जब वह [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) हो।
 
-यह उदाहरण मानता है कि प्रस्तुति में एक समीकरण है जैसे `z = xᵢ / ∛y`, जिसमें अंश में सबसक्रिप्ट और हर में रेडिकल है। केवल ब्लॉक के टॉप-लेवल तत्वों को प्रोसेस करने से फ्रैक्शन के भीतर का टेक्स्ट छूट जाएगा। यह उदाहरण स्लाइड टेक्स्ट फ्रेम में गणितीय हिस्सों को खोजता है, उनके ब्लॉकों को [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/) के माध्यम से एक्सेस करता है, और प्रत्येक टेक्स्ट तत्व के [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) प्रॉपर्टी के माध्यम से [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) को 28 पॉइंट सेट करता है।
+यह उदाहरण मानता है कि प्रस्तुति में `z = xᵢ / ∛y` जैसा समीकरण है, जिसमें अंश में अंश के अंश में सबस्क्रिप्ट और हर में मूल शामिल है। केवल ब्लॉक के शीर्ष‑स्तर के तत्वों को प्रोसेस करने से भिन्‍न के अंदर का पाठ छूट जाएगा। उदाहरण स्लाइड टेक्स्ट फ्रेम में गणितीय भाग खोजता है, उनके ब्लॉक्स को [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/) से प्राप्त करता है, और प्रत्येक पाठ तत्व के [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) गुण के माध्यम से [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) को 28 पॉइंट सेट करता है।
 
 ```csharp
 using Aspose.Slides;
@@ -635,37 +711,37 @@ void FormatMathText(IMathElement element)
 }
 ```
 
-सहेजी गई प्रस्तुति प्रत्येक प्रोसेस किए गए समीकरण के हर स्तर पर अपडेटेड टेक्स्ट फ़ॉर्मेट रखती है, जबकि टेक्स्ट कंटेंट और गणितीय संरचना को संरक्षित रखती है।
+सहेजी गई प्रस्तुति प्रत्येक प्रोसेस किए गए समीकरण के हर स्तर पर अद्यतन पाठ स्वरूपण को रखती है, जबकि उसके पाठ सामग्री और गणितीय संरचना को अपरिवर्तित रखती है।
 
 ## **त्वरित संदर्भ**
 
-| कार्य | मुख्य API |
+| Task | Main API |
 | --- | --- |
-| गणितीय टेक्स्ट बनाना | [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) |
-| तत्वों को मिलाना | [IMathElement.Join](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/join/) |
-| भिन्न बनाना | [IMathElement.Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) |
-| सुपरसक्रिप्ट या सबसक्रिप्ट जोड़ना | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
-| फ़ंक्शन जोड़ना | [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
-| मूल जोड़ना | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
-| सीमा जोड़ना | [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| बाएँ‑साइड स्क्रिप्ट जोड़ना | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| समाकलन और समाकल जोड़ना | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
-| मैट्रिसेज़ जोड़ना | [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) |
-| समीकरण एरेज़ जोड़ना | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
-| डिलिमीटर जोड़ना | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
-| बार और बॉर्डर जोड़ना | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
-| टर्म्स को ग्रुप करना | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
+| गणितीय पाठ बनाएं | [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) |
+| तत्व जोड़ें | [IMathElement.Join](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/join/) |
+| भिन्‍न बनाएं | [IMathElement.Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) |
+| सुपरसक्रिप्ट या सबस्क्रिप्ट जोड़ें | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
+| फ़ंक्शन जोड़ें | [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
+| मूल जोड़ें | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
+| सीमाएं जोड़ें | [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| बाएँ‑साइड स्क्रिप्ट जोड़ें | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| योग और इंटेग्रल जोड़ें | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
+| मैट्रिसेज़ जोड़ें | [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) |
+| समीकरण ऐरे जोड़ें | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
+| डिलिमीटर जोड़ें | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
+| बार और बॉर्डर जोड़ें | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
+| टर्म समूहित करें | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **FAQ**
 
 **क्या मैं मौजूदा PowerPoint समीकरण को संपादित कर सकता हूँ?**
 
-हां। प्रस्तुति खोलें, उस आकार को खोजें जिसमें एक [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) हो, उसका [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/) प्राप्त करें, और उस पैराग्राफ में गणितीय ब्लॉकों को अपडेट करें।
+हां। प्रस्तुति खोलें, उस आकार को खोजें जिसमें एक [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) हो, उसका [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/) प्राप्त करें, और उस पैराग्राफ में गणितीय ब्लॉक्स को अपडेट करें।
 
-**क्या समीकरणों को संपादन योग्य PowerPoint गणित के रूप में सहेजा जाता है?**
+**क्या समीकरण संपादन योग्य PowerPoint गणित के रूप में सहेजे जाते हैं?**
 
-हां। जब आप PPTX में सहेजते हैं, तो Aspose.Slides समीकरण को संपादन योग्य Office गणित सामग्री के रूप में लिखता है।
+हां। जब आप PPTX के रूप में सहेजते हैं, Aspose.Slides समीकरण को संपादन योग्य Office गणित सामग्री के रूप में लिखता है।
 
 **क्या मैं समीकरणों को LaTeX में निर्यात कर सकता हूँ?**
 
-हां। समीकरण के [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) को उसके [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) से प्राप्त करें, और सीधे निर्यात करने के लिए [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) को कॉल करें। एक पूर्ण उदाहरण के लिए देखें [प्रस्तुतीकरणों से .NET में गणितीय समीकरण निर्यात करें](/slides/hi/net/exporting-math-equations/#export-math-equations-to-latex)।
+हां। समीकरण के [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) को उसके [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) से प्राप्त करें, और [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) को कॉल करके सीधे निर्यात करें। पूर्ण उदाहरण के लिए देखें [Export Math Equations from Presentations in .NET](/slides/hi/net/exporting-math-equations/#export-math-equations-to-latex)।

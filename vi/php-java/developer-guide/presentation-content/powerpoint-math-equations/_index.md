@@ -1,6 +1,6 @@
 ---
-title: Thêm Phương Trình Toán Học vào Bản Trình Chiếu PowerPoint trong PHP
-linktitle: Phương Trình Toán Học PowerPoint
+title: Thêm Phương trình Toán học vào Bản trình chiếu PowerPoint trong PHP
+linktitle: Phương trình Toán học PowerPoint
 type: docs
 weight: 80
 url: /vi/php-java/powerpoint-math-equations/
@@ -17,19 +17,19 @@ keywords:
 - bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Chèn và chỉnh sửa các phương trình toán học trong PowerPoint PPT và PPTX với Aspose.Slides cho PHP qua Java, hỗ trợ OMML, các điều khiển định dạng, và các mẫu mã PHP rõ ràng."
+description: "Chèn và chỉnh sửa các phương trình toán học trong PowerPoint PPT và PPTX với Aspose.Slides cho PHP qua Java, hỗ trợ OMML, kiểm soát định dạng, và các mẫu mã PHP rõ ràng."
 ---
 ## **Tổng quan**
 
-PowerPoint lưu trữ các phương trình dưới dạng Office Math Markup Language (OMML). Với Aspose.Slides cho PHP qua Java, bạn có thể tạo cùng loại nội dung toán học một cách lập trình: phân số, căn bậc, hàm, giới hạn, toán tử N-ary, ma trận, mảng và các khối toán học được định dạng.
+PowerPoint lưu các phương trình dưới dạng Office Math Markup Language (OMML). Với Aspose.Slides cho PHP qua Java, bạn có thể tạo cùng loại nội dung toán học một cách lập trình: các phân số, căn bậc, hàm, giới hạn, toán tử N-ary, ma trận, mảng và các khối toán học được định dạng.
 
-Trong PowerPoint, người dùng thường thêm phương trình từ **Insert > Equation**:
+Trong PowerPoint, người dùng thường chèn phương trình từ **Insert > Equation**:
 
-![Tab Insert của PowerPoint với lệnh Equation được chọn](powerpoint-math-equations_1.png)
+![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
 
 Kết quả là văn bản toán học có thể chỉnh sửa trên slide:
 
-![Một slide PowerPoint chứa một phương trình toán học có thể chỉnh sửa](powerpoint-math-equations_2.png)
+![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
 
 Aspose.Slides xây dựng văn bản toán học đó thông qua ba đối tượng chính:
 
@@ -37,15 +37,15 @@ Aspose.Slides xây dựng văn bản toán học đó thông qua ba đối tư�
 - [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) lưu trữ nội dung toán học bên trong khung văn bản của hình dạng.
 - [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) chứa một hoặc nhiều đối tượng [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/).
 
-Hầu hết các ví dụ bên dưới sử dụng [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) và các phương thức fluent từ [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) để giữ cho mã ngắn gọn và dễ đọc.
+Hầu hết các ví dụ dưới đây sử dụng [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) và các phương thức fluent từ [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) để giữ mã ngắn gọn và dễ đọc.
 
-Đối với các kịch bản xuất MathML, xem [Xuất các phương trình toán học từ bản trình chiếu trong PHP qua Java](/slides/vi/php-java/exporting-math-equations/).
+Đối với các kịch bản xuất MathML, xem [Xuất các phương trình Toán học từ Bản trình chiếu trong PHP qua Java](/slides/vi/php-java/exporting-math-equations/).
 
 ## **Tạo một Phương trình**
 
 Ví dụ này sử dụng [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) để tạo một hình dạng toán học và thêm định lý Pythagoras:
 
-![Phương trình c bình phương bằng a bình phương cộng b bình phương](powerpoint-math-equations_3.png)
+![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
 ```php
 $presentation = new Presentation();
@@ -74,14 +74,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) tạo một hình dạng đã chứa sẵn một đoạn toán học. Truy cập vào [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) đầu tiên, gọi [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), và thêm các khối toán hoặc các phần tử toán học vào nó.
+[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) tạo một hình dạng đã chứa sẵn một đoạn toán học. Truy cập [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) đầu tiên, gọi [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), và thêm các khối toán học hoặc các phần tử toán học vào nó.
 {{% /alert %}}
 
 ## **Thêm Phân Số**
 
 Sử dụng [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#divide) để tạo một phân số. Bạn có thể chọn kiểu phân số bằng [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/).
 
-![Một phân số toán học nghiêng hiển thị một chia cho x](powerpoint-math-equations_4.png)
+![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
 ```php
 $presentation = new Presentation();
@@ -105,7 +105,7 @@ try {
 }
 ```
 
-Đối với phân số chồng, sử dụng [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar):
+Đối với phân số dạng chồng, sử dụng [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar):
 
 ```php
 $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFractionTypes::Bar);
@@ -113,9 +113,9 @@ $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFraction
 
 ## **Thêm Căn Bậc**
 
-Sử dụng [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) để tạo căn bậc hai, căn bậc ba hoặc các căn khác. Phần tử hiện tại sẽ trở thành cơ sở, và đối số sẽ trở thành bậc.
+Sử dụng [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) để tạo căn bậc hai, căn bậc ba hoặc các căn khác. Phần tử hiện tại trở thành cơ sở, và đối số trở thành bậc.
 
-![Một biểu thức căn bậc n với x dưới dấu căn](powerpoint-math-equations_5.png)
+![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
 ```php
 $presentation = new Presentation();
@@ -143,7 +143,7 @@ try {
 
 Sử dụng [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) hoặc [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) cho các hàm như `sin(x)`, `log(x)`, hoặc tên hàm tùy chỉnh. Đối với giới hạn, đặt `lim` trong một [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) hoặc sử dụng [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit).
 
-![Giới hạn của x khi x tiến tới vô cùng](powerpoint-math-equations_8.png)
+![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
 ```php
 $presentation = new Presentation();
@@ -174,11 +174,11 @@ try {
 $customFunction = (new MathematicalText("f"))->function("x + 1");
 ```
 
-## **Thêm Toán Tử N-ary và Tích Phân**
+## **Thêm Toán tử N-ary và Tích Phân**
 
-Sử dụng [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) cho các phép cộng, hợp, giao và các toán tử lớn khác. Sử dụng [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) cho các tích phân. Cả hai phương pháp cho phép bạn đặt giới hạn dưới và trên.
+Sử dụng [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) cho tổng, hợp, giao và các toán tử lớn khác. Sử dụng [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) cho tích phân. Cả hai phương thức đều cho phép đặt giới hạn dưới và trên.
 
-![Một phép cộng với giới hạn dưới và trên](powerpoint-math-equations_7.png)
+![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
 ```php
 $presentation = new Presentation();
@@ -205,9 +205,9 @@ try {
 }
 ```
 
-Toán tử N-ary dùng cho các toán tử lớn có tùy chọn giới hạn. Các toán tử đơn giản như `+`, `-`, và `=` thường được thêm dưới dạng [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) và kết hợp vào biểu thức.
+Toán tử N-ary dùng cho các toán tử lớn có tùy chọn giới hạn. Các toán tử đơn như `+`, `-`, và `=` thường được thêm bằng [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) và ghép vào biểu thức.
 
-Đối với một tích phân, sử dụng [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral):
+Đối với tích phân, sử dụng [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral):
 
 ```php
 $integralBase = (new MathematicalText("x"))->join((new MathematicalText("dx"))->toBox());
@@ -216,9 +216,9 @@ $integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
 
 ## **Thêm Ma Trận**
 
-Sử dụng [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) cho các hàng và cột. Ma trận không bao gồm ngoặc theo mặc định, vì vậy hãy bao quanh ma trận khi bạn cần dấu ngoặc tròn, ngoặc vuông hoặc ngoặc nhọn.
+Sử dụng [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) cho các hàng và cột. Ma trận không bao gồm ngoặc theo mặc định, vì vậy hãy bao quanh ma trận khi cần dấu ngoặc tròn, ngoặc vuông hoặc ngoặc nhọn.
 
-![Một ma trận toán học hai hàng với một ô trống](powerpoint-math-equations_10.png)
+![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
 ```php
 $presentation = new Presentation();
@@ -250,7 +250,7 @@ try {
 
 Sử dụng [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray) khi bạn cần các phương trình căn chỉnh hoặc một chồng dọc các biểu thức.
 
-![Một mảng toán học dọc với x phía trên y](powerpoint-math-equations_11.png)
+![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
 ```php
 $presentation = new Presentation();
@@ -277,9 +277,9 @@ try {
 
 ### **Căn chỉnh Mảng với Các Phần Tử Xung Quanh**
 
-[setBaseJustification](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setBaseJustification) kiểm soát căn chỉnh dọc của một mảng so với các phần tử toán học bên cạnh. Ví dụ dưới đây so sánh căn chỉnh với hàng đầu tiên, trung tâm của mảng và hàng cuối cùng.
+[setBaseJustification](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setBaseJustification) điều khiển căn chỉnh dọc của một mảng so với các phần tử toán học bên cạnh nó. Ví dụ dưới đây so sánh căn chỉnh với hàng đầu tiên, trung tâm của mảng và hàng cuối cùng.
 
-Ví dụ sau tạo ba mảng giống hệt nhau, mỗi mảng có ba hàng và các phần tử lân cận `A=` và `=B`. Toàn bộ văn bản toán học sử dụng Cambria Math kích thước 24 điểm. Chỉ căn chỉnh mảng được thay đổi.
+Ví dụ sau tạo ba mảng giống hệt nhau, mỗi mảng có ba hàng và các phần tử lân cận `A=` và `=B`. Toàn bộ văn bản toán học sử dụng Cambria Math với kích thước 24 điểm. Chỉ có việc căn chỉnh mảng được thay đổi.
 
 ```php
 use aspose\slides\FillType;
@@ -343,17 +343,17 @@ try {
 }
 ```
 
-So sánh sau này hiển thị bản trình chiếu đã lưu trong PowerPoint. Lưu ý vị trí của `A=` và `=B` bên cạnh mỗi mảng.
+So sánh dưới đây hiển thị bản trình chiếu đã lưu trong PowerPoint. Lưu ý vị trí của `A=` và `=B` bên cạnh mỗi mảng.
 
-![Các mảng phương trình trong PowerPoint với căn chỉnh Trên, Trung và Dưới và các phần tử lân cận giống nhau](equation-array-alignment.png)
+![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
 
-### **Cấu hình Khoảng Cách Hàng**
+### **Cấu hình Khoảng cách Hàng**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacingRule) chọn quy tắc khoảng cách cho các hàng trong mảng. [setRowSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacing) cung cấp giá trị số cho một quy tắc khoảng cách cụ thể và bị bỏ qua bởi các quy tắc mặc định.
+[setRowSpacingRule](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacingRule) chọn quy tắc khoảng cách cho các hàng trong mảng. [setRowSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacing) cung cấp giá trị số cho một quy tắc khoảng cách cụ thể và sẽ bị bỏ qua bởi các quy tắc mặc định.
 
-Đối với khoảng cách chính xác, giá trị được đo bằng điểm. Đối với khoảng cách tỷ lệ, nó được đo bằng nửa dòng: giá trị `3` trong ví dụ tương đương 1.5 dòng. Đặt cả hai thuộc tính khi chỉ định giá trị cụ thể; chỉ thay đổi giá trị số mà không thay đổi quy tắc khoảng cách sẽ không có hiệu lực.
+Đối với khoảng cách chính xác, giá trị được đo bằng điểm. Đối với khoảng cách tỷ lệ, nó được đo bằng nửa dòng: giá trị `3` trong ví dụ tương đương 1.5 dòng. Thiết lập cả hai thuộc tính khi chỉ định một giá trị cụ thể; chỉ thay đổi giá trị số không chọn quy tắc khoảng cách.
 
-Ví dụ dưới đây lưu năm bản trình chiếu với cùng các phương trình, căn chỉnh và cài đặt phông chữ. Ba bản đầu tiên sử dụng các thiết lập sẵn; hai bản cuối cùng hiển thị các giá trị cụ thể.
+Ví dụ dưới đây lưu năm bản trình chiếu với cùng các phương trình, căn chỉnh và cài đặt phông chữ. Ba bản đầu tiên sử dụng các cài đặt trước; hai bản cuối cùng cho giá trị cụ thể.
 
 ```php
 use aspose\slides\FontData;
@@ -411,13 +411,13 @@ foreach ($settings as $name => [$rule, $spacing]) {
 }
 ```
 
-Khoảng cách hàng của mảng riêng biệt với khoảng cách đoạn. [setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) và [setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter) thêm khoảng cách quanh đoạn chứa, không phải giữa các hàng của mảng. Tương tự, [MathParagraph::setJustification](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#setJustification) định vị toàn bộ đoạn toán học theo chiều ngang; nó không thay thế thiết lập căn chỉnh dọc của mảng.
+Khoảng cách hàng trong mảng riêng biệt với khoảng cách đoạn. [setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) và [setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter) thêm khoảng cách quanh đoạn chứa, không phải giữa các hàng của mảng. Tương tự, [MathParagraph::setJustification](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#setJustification) định vị toàn bộ đoạn toán học theo chiều ngang; nó không thay thế cài đặt căn chỉnh dọc của mảng.
 
 ## **Thêm Hàm Lượng Giác**
 
 Sử dụng [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) khi đối số là phần tử hiện tại và tên hàm đã biết.
 
-![Hàm lượng giác cos được áp dụng cho 2x](powerpoint-math-equations_6.png)
+![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
 ```php
 $presentation = new Presentation();
@@ -441,11 +441,11 @@ try {
 }
 ```
 
-## **Thêm Chỉ Số và Lũy Thừa**
+## **Thêm Chỉ Số Dưới và Chỉ Số Trên**
 
-Sử dụng các trợ giúp chỉ số và lũy thừa cho chỉ mục và mũ. Khi các chỉ số phải xuất hiện phía bên trái của cơ sở, sử dụng [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
+Sử dụng các trợ giúp chỉ số dưới và chỉ số trên cho các chỉ mục và lũy thừa. Khi các chỉ mục cần xuất hiện phía trái của cơ sở, sử dụng [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
-![Một chữ Y in hoa với chỉ số dưới bên trái 1 và lũy thừa n](powerpoint-math-equations_9.png)
+![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
 ```php
 $presentation = new Presentation();
@@ -471,9 +471,9 @@ try {
 
 ## **Thêm Dấu Phân Cách**
 
-Sử dụng [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) để đặt một biểu thức bên trong dấu phân cách. Bạn cũng có thể đặt ký tự phân tách cho các biểu thức dấu phân cách chứa nhiều phần tử.
+Sử dụng [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) để đặt một biểu thức bên trong dấu phân cách. Bạn cũng có thể đặt ký tự ngăn cách cho các biểu thức dấu phân cách chứa nhiều phần tử.
 
-![Một biểu thức dấu phân cách chứa x, y và z được ngăn cách bằng các dấu gạch đứng](powerpoint-math-equations_13.png)
+![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
 ```php
 $presentation = new Presentation();
@@ -500,11 +500,11 @@ try {
 }
 ```
 
-### **Kích Thước và Căn Chỉnh Dấu Phân Cách**
+### **Kích thước và Căn chỉnh Dấu Phân Cách**
 
-Gửi `true` tới [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) để cho phép dấu ngoặc tăng kích thước quanh một toán hạng cao, hoặc gửi `false` để giữ kích thước bình thường. Sử dụng [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) với một trong hai giá trị [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/). `Centered` đặt dấu ngoặc ở trung tâm trục toán học, trục này chạy qua giữa dấu bằng. `Match` căn chúng với nội dung được bao quanh. Cả hai cài đặt chỉ ảnh hưởng đến dấu phân cách. Biểu thức bên trong giữ nguyên.
+Chuyển `true` cho [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) để cho dấu ngoặc mở rộng quanh một toán hạng cao, hoặc chuyển `false` để giữ kích thước bình thường. Sử dụng [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) với một trong hai giá trị của [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/). `Centered` căn giữa dấu ngoặc trên trục toán học, trục này đi qua giữa dấu bằng. `Match` căn chúng với nội dung được bao quanh. Cả hai cài đặt chỉ ảnh hưởng tới dấu phân cách. Biểu thức bên trong vẫn giữ nguyên.
 
-Ví dụ đặt một phân số trong lũy thừa của `x` để biểu thức mở rộng lên trên đường cơ sở hơn so với phía dưới. Bốn phương trình đều sử dụng cùng dấu ngoặc và cài đặt phông chữ.
+Ví dụ đặt một phân số trong chỉ số mũ của `x` để biểu thức mở rộng lên trên đường cơ sở hơn so với dưới. Bốn phương trình đều sử dụng cùng dấu ngoặc và cài đặt phông chữ.
 
 ```php
 use aspose\slides\MathDelimiterShape;
@@ -538,15 +538,15 @@ try {
 }
 ```
 
-Trong PowerPoint, so sánh các hàng để thấy hiệu ứng tăng kích thước. Ở hàng trên, dấu ngoặc tăng để bao quanh lũy thừa và trông giống nhau cho cả hai kiểu. Ở hàng dưới, tính năng tăng được tắt. Dấu ngoặc nhỏ hơn bên trái (`Centered`) căn với dấu bằng, trong khi dấu ngoặc bên phải (`Match`) nằm cao hơn quanh biểu thức.
+Trong PowerPoint, so sánh các hàng để thấy hiệu ứng mở rộng. Ở hàng trên, dấu ngoặc mở rộng để bao quanh chỉ số mũ và trông giống nhau cho cả hai hình. Ở hàng dưới, tính năng mở rộng bị tắt. Dấu ngoặc nhỏ hơn bên trái (`Centered`) căn với dấu bằng, trong khi dấu ngoặc bên phải (`Match`) nằm cao hơn quanh biểu thức.
 
-![Bốn phương trình trong PowerPoint với tăng dấu phân cách bật ở trên và tắt ở dưới, và Centered ở bên trái, Match ở bên phải](delimiter-sizing.png)
+![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
 
-## **Thêm Khung Viền**
+## **Thêm Hộp Viền**
 
-Gọi [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) trên một phân số để tạo khung cho toàn bộ biểu thức. [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) trả về hiển thị bốn phía mặc định. Sử dụng [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft), và [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight) để loại bỏ các phía riêng lẻ.
+Gọi [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) trên một phân số để khung toàn bộ biểu thức. [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) trả về hiển thị cả bốn phía theo mặc định. Sử dụng [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft), và [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight) để loại bỏ các phía riêng lẻ.
 
-Ví dụ đặt sáu bản sao của cùng một phân số trên một slide. Để hiển thị việc hủy bỏ, ẩn cả bốn phía và gửi `true` tới [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) cho đường chéo lên (↗) hoặc [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) cho đường chéo xuống (↘). Bạn cũng có thể dùng [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) hoặc [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical) với bất kỳ kết hợp nào của các phía hiển thị.
+Ví dụ đặt sáu bản sao của cùng một phân số trên một slide. Để hiển thị việc hủy, ẩn bốn phía và chuyển `true` cho [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) để tạo đường chéo lên (↗) hoặc [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) để tạo đường chéo xuống (↘). Bạn cũng có thể sử dụng [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) hoặc [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical) với bất kỳ kết hợp nào của các phía hiển thị.
 
 ```php
 use aspose\slides\MathBlock;
@@ -593,15 +593,106 @@ try {
 }
 ```
 
-![Sáu phân số có thể chỉnh sửa trong PowerPoint. Hàng trên: viền đầy đủ, phía dưới và bên trái, đường chéo lên. Hàng dưới: đường chéo xuống, gạch ngang, gạch dọc với viền đầy đủ.](border-box-fractions.png)
+![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border.](border-box-fractions.png)
 
-Trong phân số này, gạch ngang chồng lên thanh phân số. Gạch dọc cắt cả tử và mẫu trong khi viền xung quanh vẫn hiển thị. Các đường này trang trí toàn bộ biểu thức. Gạch ngang thông thường áp dụng cho các ký tự trong một đoạn văn bản. Sau khi mở lại bản trình chiếu trong PowerPoint, bạn vẫn có thể chỉnh sửa tử và mẫu một cách độc lập.
+Trong phân số này, đường gạch ngang chồng lên thanh phân số. Đường gạch dọc cắt cả tử và mẫu trong khi viền xung quanh vẫn hiển thị. Những đường này trang trí toàn bộ biểu thức. Gạch ngang thông thường chỉ áp dụng cho ký tự trong một đoạn văn bản. Sau khi mở lại bản trình chiếu trong PowerPoint, bạn vẫn có thể chỉnh sửa tử và mẫu riêng biệt.
+
+## **Kiểm soát Độ hiển thị và Bố cục với Phần tử Ảo (Phantom)**
+
+Bao bọc một biểu thức bằng [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) để kiểm soát độ hiển thị và không gian mà nó đóng góp vào một phương trình một cách độc lập. Các phương thức của [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) kiểm soát các mục sau:
+
+| Phương thức | Hiệu quả |
+| --- | --- |
+| [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) | Chuyển `false` để ẩn biểu thức. Kích thước của nó vẫn đóng góp vào bố cục trừ khi các phương thức tương ứng bên dưới nhận `true`. |
+| [setZeroWidth](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroWidth) | Xem chiều rộng ngang của biểu thức như bằng 0, cho phép các phần tử lân cận di chuyển gần nhau hơn. |
+| [setZeroAsc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroAsc) | Xem phần lên trên của nó, chiều cao phía trên đường cơ sở, như bằng 0. Điều này có thể giảm không gian dự trữ phía trên các phần tử lân cận. |
+| [setZeroDesc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroDesc) | Xem phần hạ xuống, độ sâu dưới đường cơ sở, như bằng 0. Điều này có thể đưa thanh phân số hoặc nội dung khác dưới biểu thức gần hơn với các phần tử bên cạnh. |
+
+Đường cơ sở là đường tham chiếu mà các ký tự toán học thông thường nằm trên đó. Ẩn nội dung không loại bỏ kích thước của nó, và xem một kích thước là 0 không xóa bỏ biểu thức. Biểu thức gốc vẫn có sẵn thông qua [getBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#getBase). Chuyển `true` cho [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) để hiển thị lại; các cài đặt kích thước vẫn giữ nguyên.
+
+Ví dụ dưới đây tạo năm biến thể đặt cạnh nhau: một phân số hiển thị, một phân số ẩn nhưng vẫn giữ không gian, và ba phân số ẩn với một kích thước được xem là 0. Mỗi biến thể sử dụng cùng một biểu thức xung quanh và Cambria Math với kích thước 24 điểm. Tất cả các hình dạng phương trình có cùng vị trí trên cùng, được đánh dấu bằng hướng dẫn màu xám. Đặt phantom trong tử của một phân số bên ngoài giúp việc thay đổi bố cục dọc dễ nhìn hơn.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\MathBlock;
+use aspose\slides\MathFraction;
+use aspose\slides\MathPhantom;
+use aspose\slides\MathematicalText;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+use aspose\slides\TextAnchorType;
+
+$createText = static function (string $value) {
+    $text = new MathematicalText($value);
+    $text->getFormat()->setFontHeight(24);
+    $text->getFormat()->setLatinFont(new FontData("Cambria Math"));
+    return $text;
+};
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(1000, 180, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $labels = ["Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc"];
+
+    $guide = $slide->getShapes()->addAutoShape(ShapeType::Line, 10, 60, 980, 0);
+    $guide->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $guide->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+
+    foreach ($labels as $i => $labelText) {
+        $left = 10 + $i * 200;
+
+        $label = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $left, 10, 190, 30);
+        $label->getFillFormat()->setFillType(FillType::NoFill);
+        $label->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+        $label->getTextFrame()->setText($labelText);
+
+        $labelFormat = $label->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
+        $labelFormat->setFontHeight(14);
+        $labelFormat->getFillFormat()->setFillType(FillType::Solid);
+        $labelFormat->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+
+        $fractionNumerator = $createText("a+b");
+        $fractionDenominator = $createText("c+d");
+        $fraction = new MathFraction($fractionNumerator, $fractionDenominator);
+        $phantom = new MathPhantom($fraction);
+        $phantom->setShow($i === 0);
+        $phantom->setZeroWidth($i === 2);
+        $phantom->setZeroAsc($i === 3);
+        $phantom->setZeroDesc($i === 4);
+
+        $leftText = $createText("x+");
+        $rightText = $createText("+y");
+        $numerator = (new MathBlock($leftText))->join($phantom)->join($rightText);
+        $denominator = $createText("z");
+        $equation = new MathFraction($numerator, $denominator);
+
+        $shape = $slide->getShapes()->addMathShape($left, 60, 190, 100);
+        $shape->getTextFrame()->getTextFrameFormat()->setAnchoringType(TextAnchorType::Top);
+
+        $mathPortion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+        $mathParagraph = $mathPortion->getMathParagraph();
+        $mathBlock = new MathBlock($equation);
+        $mathParagraph->add($mathBlock);
+    }
+
+    $presentation->save("math-phantom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+![Five equations in PowerPoint comparing a visible fraction, a hidden fraction that reserves space, and hidden fractions with ZeroWidth, ZeroAsc, or ZeroDesc enabled](math-phantom.png)
 
 ## **Nhóm Các Thuật Ngữ**
 
-Sử dụng [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) để đặt ký tự nhóm ở trên hoặc dưới một biểu thức. Thêm một giới hạn để dán nhãn cho các thuật ngữ đã nhóm.
+Sử dụng [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) để đặt một ký tự nhóm phía trên hoặc dưới một biểu thức. Thêm một giới hạn để nhãn cho các thuật ngữ đã nhóm.
 
-![Biểu thức x cộng y được nhóm với nhãn bất kỳ văn bản nào bên dưới](powerpoint-math-equations_15.png)
+![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
 ```php
 $presentation = new Presentation();
@@ -626,11 +717,11 @@ try {
 }
 ```
 
-## **Định Dạng Các Thành Phần Toán Học**
+## **Định dạng Các Phần Tử Toán học**
 
-Chỉ sử dụng các trợ giúp định dạng khi chúng làm rõ công thức. Ví dụ, [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) đặt một thanh phía trên một thành phần toán học.
+Sử dụng các trợ giúp định dạng chỉ khi chúng làm rõ công thức. Ví dụ, [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) đặt một thanh phía trên một phần tử toán học.
 
-![Một biểu thức toán học ABC với một thanh trên](powerpoint-math-equations_14.png)
+![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
 ```php
 $presentation = new Presentation();
@@ -653,11 +744,11 @@ try {
 }
 ```
 
-### **Định Dạng Văn Bản Trong Một Phương Trình Đã Tồn Tại**
+### **Định dạng Văn bản trong Một Phương trình Hiện có**
 
-Để định dạng văn bản trong toàn bộ một phương trình hiện có, duyệt cây phần tử của mỗi khối toán. [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) chỉ trả về các phần tử con trực tiếp, vì vậy gọi đệ quy để truy cập văn bản bên trong phân số, chỉ số, căn bậc và các cấu trúc lồng nhau khác. Kiểm tra phần tử hiện tại cũng như các phần tử con của nó để bao gồm phần tử bắt đầu khi nó là [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/).
+Để định dạng văn bản trong toàn bộ một phương trình hiện có, duyệt qua cây phần tử của từng khối toán học. [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) chỉ trả về các con trực tiếp, vì vậy hãy gọi nó đệ quy để tới văn bản bên trong phân số, chỉ số, căn bậc và các cấu trúc lồng nhau khác. Kiểm tra phần tử hiện tại cũng như các con của nó để bao gồm phần tử bắt đầu khi nó là [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/).
 
-Ví dụ này giả định rằng `input.pptx` chứa một phương trình như `z = xᵢ / ∛y`, với một phân số có chỉ số dưới ở tử và một căn bậc trong mẫu. Việc xử lý chỉ các phần tử cấp cao của khối sẽ bỏ lỡ văn bản bên trong phân số. Ví dụ tìm các phần toán trong khung văn bản slide, truy cập các khối của chúng qua [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), và sử dụng [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) để đặt kích thước phông chữ thành 28 điểm cho mỗi phần tử văn bản thông qua phương thức [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat).
+Ví dụ này giả định rằng `input.pptx` chứa một phương trình như `z = xᵢ / ∛y`, với một phân số có chỉ số dưới trong tử và một căn bậc trong mẫu. Xử lý chỉ các phần tử cấp cao nhất của khối sẽ bỏ qua văn bản bên trong phân số. Ví dụ tìm các phần toán học trong khung văn bản của slide, truy cập khối qua [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), và sử dụng [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) để đặt kích thước phông chữ thành 28 điểm thông qua phương thức [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) của mỗi phần tử văn bản.
 
 ```php
 use aspose\slides\Presentation;
@@ -713,37 +804,37 @@ try {
 }
 ```
 
-Bản trình chiếu đã lưu chứa định dạng văn bản đã cập nhật ở mọi cấp độ của mỗi phương trình đã xử lý, đồng thời bảo tồn nội dung văn bản và cấu trúc toán học.
+Bản trình chiếu đã lưu chứa định dạng văn bản đã cập nhật ở mọi cấp độ của mỗi phương trình đã xử lý, đồng thời giữ nguyên nội dung văn bản và cấu trúc toán học.
 
-## **Tham Khảo Nhanh**
+## **Tham chiếu Nhanh**
 
 | Nhiệm vụ | API chính |
 | --- | --- |
-| [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) |  |
-| [join](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |  |
-| [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |  |
-| [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |  |
-| [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |  |
-| [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |  |
-| [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |  |
-| [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |  |
-| [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |  |
-| [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) |  |
-| [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |  |
-| [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |  |
-| [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |  |
-| [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |  |
+| Tạo văn bản toán học | [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) |
+| Kết hợp các phần tử | [join](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Tạo phân số | [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Thêm chỉ số trên hoặc chỉ số dưới | [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Thêm hàm | [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Thêm căn bậc | [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Thêm giới hạn | [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Thêm chỉ số bên trái | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Thêm tổng và tích phân | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Thêm ma trận | [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) |
+| Thêm mảng phương trình | [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Thêm dấu phân cách | [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Thêm thanh và viền | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Nhóm các thuật ngữ | [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 
-## **Câu Hỏi Thường Gặp**
+## **Câu hỏi thường gặp**
 
-**Bạn có thể chỉnh sửa một phương trình PowerPoint hiện có không?**
+**Tôi có thể chỉnh sửa một phương trình PowerPoint hiện có không?**
 
-Có. Mở bản trình chiếu, tìm hình dạng chứa một [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), gọi [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), và cập nhật các khối toán trong đoạn đó.
+Có. Mở bản trình chiếu, tìm hình dạng chứa một [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), gọi [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), và cập nhật các khối toán học trong đoạn đó.
 
 **Các phương trình có được lưu dưới dạng toán học PowerPoint có thể chỉnh sửa không?**
 
-Có. Khi bạn lưu thành PPTX, Aspose.Slides ghi phương trình dưới dạng nội dung Office Math có thể chỉnh sửa.
+Có. Khi lưu dưới dạng PPTX, Aspose.Slides ghi phương trình dưới dạng nội dung Office math có thể chỉnh sửa.
 
-**Bạn có thể xuất các phương trình sang LaTeX không?**
+**Tôi có thể xuất các phương trình sang LaTeX không?**
 
-Có. Lấy [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) của phương trình từ [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), và gọi [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) để xuất trực tiếp. Đối với một ví dụ đầy đủ, xem [Export Math Equations from Presentations in PHP via Java](/slides/vi/php-java/exporting-math-equations/#export-math-equations-to-latex).
+Có. Lấy [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) của phương trình từ [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), và gọi [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) để xuất trực tiếp. Đối với một ví dụ hoàn chỉnh, xem [Xuất các phương trình Toán học từ Bản trình chiếu trong PHP qua Java](/slides/vi/php-java/exporting-math-equations/#export-math-equations-to-latex).

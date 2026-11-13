@@ -1,5 +1,5 @@
 ---
-title: Προσθήκη Μαθηματικών Εξισώσεων σε Παρουσιάσεις PowerPoint στο Android
+title: Προσθήκη Μαθηματικών Εξισώσεων σε Παρουσιάσεις PowerPoint σε Android
 linktitle: Μαθηματικές Εξισώσεις PowerPoint
 type: docs
 weight: 80
@@ -18,35 +18,35 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Εισαγωγή και επεξεργασία μαθηματικών εξισώσεων σε PowerPoint PPT και PPTX με το Aspose.Slides για Android, με υποστήριξη OMML, ελέγχων μορφοποίησης, και σαφείς παραδείγματα κώδικα Java."
+description: "Εισαγωγή και επεξεργασία μαθηματικών εξισώσεων σε PowerPoint PPT και PPTX με το Aspose.Slides για Android, με υποστήριξη OMML, ελέγχους μορφοποίησης και σαφή παραδείγματα κώδικα Java."
 ---
 ## **Επισκόπηση**
 
-Το PowerPoint αποθηκεύει τις εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides for Android μέσω Java, μπορείτε να δημιουργήσετε το ίδιο είδος μαθηματικού περιεχομένου προγραμματιστικά: κλάσματα, ρίζες, συναρτήσεις, όρια, N‑ary τελεστές, πίνακες, πίνακες (arrays) και μορφοποιημένα μαθηματικά μπλοκ.
+Το PowerPoint αποθηκεύει εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides for Android μέσω Java, μπορείτε να δημιουργήσετε το ίδιο είδος μαθηματικού περιεχομένου προγραμματιστικά: κλασματικά, ριζικά, συναρτήσεις, όρια, N‑ary τελεστές, πίνακες, ακολουθίες, και μορφοποιημένα μαθηματικά μπλοκ.
 
 Στο PowerPoint, οι χρήστες συνήθως προσθέτουν εξισώσεις από **Insert > Equation**:
 
-![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
+![Καρτέλα Insert του PowerPoint με την εντολή Equation επιλεγμένη](powerpoint-math-equations_1.png)
 
 Το αποτέλεσμα είναι επεξεργάσιμο μαθηματικό κείμενο στη διαφάνεια:
 
-![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
+![Διαφάνεια PowerPoint που περιέχει μια επεξεργάσιμη μαθηματική εξίσωση](powerpoint-math-equations_2.png)
 
 Το Aspose.Slides δημιουργεί αυτό το μαθηματικό κείμενο μέσω τριών κύριων αντικειμένων:
 
-- Ένα μαθηματικό σχήμα, που δημιουργείται με [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/), είναι το σχήμα που περιέχει την εξίσωση.
+- Ένα μαθηματικό σχήμα, δημιουργημένο με [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/), είναι το σχήμα που περιέχει την εξίσωση.
 - [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) αποθηκεύει το μαθηματικό περιεχόμενο μέσα στο πλαίσιο κειμένου του σχήματος.
 - [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) περιέχει ένα ή περισσότερα αντικείμενα [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/).
 
-Οι περισσότερες παραδείγματα παρακάτω χρησιμοποιούν το [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) και τις αλυσιδωτές μεθόδους από το [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) για να διατηρήσουν τον κώδικα σύντομο και ευανάγνωστο.
+Τα περισσότερα παραδείγματα παρακάτω χρησιμοποιούν το [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) και τις αλυσιδωτές μεθόδους από το [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) για να διατηρήσουν τον κώδικα σύντομο και ευανάγνωστο.
 
-Για σενάρια εξαγωγής MathML, δείτε [Export Math Equations from Presentations on Android](/slides/el/androidjava/exporting-math-equations/).
+Για σενάρια εξαγωγής MathML, δείτε [Εξαγωγή Μαθηματικών Εξισώσεων από Παρουσιάσεις σε Android](/slides/el/androidjava/exporting-math-equations/).
 
-## **Δημιουργία εξίσωσης**
+## **Δημιουργία Εξίσωσης**
 
-Αυτό το παράδειγμα χρησιμοποιεί το [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) για να δημιουργήσει ένα μαθηματικό σχήμα και προσθέτει το πυθαγόρειο θεώρημα:
+Αυτό το παράδειγμα χρησιμοποιεί το [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) για να δημιουργήσει ένα μαθηματικό σχήμα και προσθέτει το Πυθαγόρειο θεώρημα:
 
-![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
+![Η εξίσωση c στο τετράγωνο ίσον a στο τετράγωνο συν b στο τετράγωνο](powerpoint-math-equations_3.png)
 
 ```java
 import com.aspose.slides.*;
@@ -75,14 +75,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) δημιουργεί ένα σχήμα που περιλαμβάνει ήδη μια μαθηματική παράγραφο. Πρόσβαση στην πρώτη [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/), κλήση του [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), και προσθήκη μαθηματικών μπλοκ ή μαθηματικών στοιχείων σε αυτήν.
+[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) δημιουργεί ένα σχήμα που περιέχει ήδη μια μαθηματική παράγραφο. Πρόσβαση στο πρώτο [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/), κλήση του [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), και προσθήκη μαθηματικών μπλοκ ή μαθηματικών στοιχείων σε αυτό.
 {{% /alert %}}
 
-## **Προσθήκη κλασμάτων**
+## **Προσθήκη Κλασμάτων**
 
-Χρησιμοποιήστε το [divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) για να δημιουργήσετε ένα κλάσμα. Μπορείτε να επιλέξετε ένα στυλ κλαστών με το [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/).
+Χρησιμοποιήστε το [divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) για να δημιουργήσετε ένα κλάσμα. Μπορείτε να επιλέξετε στυλ κλάσματος με το [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/).
 
-![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
+![Ένα σκιασμένο μαθηματικό κλάσμα που δείχνει το 1 διαιρεμένο με x](powerpoint-math-equations_4.png)
 
 ```java
 import com.aspose.slides.*;
@@ -106,7 +106,7 @@ try {
 }
 ```
 
-Για ένα στοίβαγμα κλαστών, χρησιμοποιήστε το [MathFractionTypes.Bar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/#Bar):
+Για ένα στοίβαγμα κλάσματος, χρησιμοποιήστε [MathFractionTypes.Bar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/#Bar):
 
 ```java
 import com.aspose.slides.*;
@@ -114,11 +114,11 @@ import com.aspose.slides.*;
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Προσθήκη ριζών**
+## **Προσθήκη Ριζών**
 
-Χρησιμοποιήστε το [radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) για να δημιουργήσετε τετραγωνική ρίζα, κυβική ρίζα ή άλλη ρίζα. Το τρέχον στοιχείο γίνεται η βάση, και το όρισμα γίνεται ο βαθμός.
+Χρησιμοποιήστε το [radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) για να δημιουργήσετε τετραγωνική ρίζα, κυβική ρίζα ή άλλη ρίζα. Το τρέχον στοιχείο γίνεται η βάση, και το όρισμα γίνεται ο εκθέτης.
 
-![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
+![Μια n‑οστή ρίζα με το x κάτω από το σύμβολο ρίζας](powerpoint-math-equations_5.png)
 
 ```java
 import com.aspose.slides.*;
@@ -142,11 +142,11 @@ try {
 }
 ```
 
-## **Προσθήκη συναρτήσεων και ορίων**
+## **Προσθήκη Συναρτήσεων και Ορίων**
 
-Χρησιμοποιήστε το [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) ή το [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) για συναρτήσεις όπως `sin(x)`, `log(x)`, ή προσαρμοσμένα ονόματα συναρτήσεων. Για όρια, τοποθετήστε το `lim` σε ένα [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) ή χρησιμοποιήστε το [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-).
+Χρησιμοποιήστε το [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) ή το [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) για συναρτήσεις όπως `sin(x)`, `log(x)`, ή προσαρμοσμένα ονόματα συναρτήσεων. Για όρια, τοποθετήστε `lim` σε ένα [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) ή χρησιμοποιήστε το [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-).
 
-![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
+![Το όριο του x καθώς το x πλησιάζει το άπειρο](powerpoint-math-equations_8.png)
 
 ```java
 import com.aspose.slides.*;
@@ -179,11 +179,11 @@ import com.aspose.slides.*;
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **Προσθήκη N‑ary τελεστών και ολοκληρωμάτων**
+## **Προσθήκη N‑ary Τελεστών και Ολοκληρωμάτων**
 
-Χρησιμοποιήστε το [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) για αθροίσεις, ενώσεις, τέμνοι και άλλους μεγάλους τελεστές. Χρησιμοποιήστε το [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) για ολοκληρώματα. Και οι δύο μέθοδοι επιτρέπουν ορισμό κατώτερου και ανώτερου ορίου.
+Χρησιμοποιήστε το [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) για αθροίσεις, ενώσεις, τομείς και άλλους μεγάλους τελεστές. Χρησιμοποιήστε το [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) για ολοκληρώματα. Και οι δύο μέθοδοι σας επιτρέπουν να ορίσετε τα κάτω και πάνω όρια.
 
-![A summation with lower and upper limits](powerpoint-math-equations_7.png)
+![Μια άθροιση με κάτω και πάνω όρια](powerpoint-math-equations_7.png)
 
 ```java
 import com.aspose.slides.*;
@@ -210,7 +210,7 @@ try {
 }
 ```
 
-Οι N‑ary τελεστές προορίζονται για μεγάλους τελεστές με προαιρετικά όρια. Απλοί τελεστές όπως `+`, `-` και `=` συνήθως προστίθενται ως [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) και ενσωματώνονται στην έκφραση.
+N‑ary τελεστές είναι για μεγάλους τελεστές με προαιρετικά όρια. Απλοί τελεστές όπως `+`, `-` και `=` προστίθενται συνήθως ως [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) και ενώνουν στο λήμμα.
 
 Για ένα ολοκλήρωμα, χρησιμοποιήστε το [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-):
 
@@ -221,11 +221,11 @@ IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("d
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Προσθήκη πινάκων**
+## **Προσθήκη Πίνακων**
 
-Χρησιμοποιήστε το [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) για σειρές και στήλες. Οι πίνακες δεν περιλαμβάνουν αγκύλες από προεπιλογή, επομένως τυλίξτε τον πίνακα όταν χρειάζεστε παρενθέσεις, αγκύλες ή άγκιστρα.
+Χρησιμοποιήστε το [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) για γραμμές και στήλες. Οι πίνακες δεν περιλαμβάνουν αγκύλες καθ' εξοχήν, επομένως περιβάλλετε τον πίνακα όταν χρειάζονται παρενθέσεις, αγκύλες ή {}.
 
-![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
+![Ένας μαθηματικός πίνακας με δύο γραμμές και ένα κενό κελί](powerpoint-math-equations_10.png)
 
 ```java
 import com.aspose.slides.*;
@@ -253,11 +253,11 @@ try {
 }
 ```
 
-## **Προσθήκη πινάκων εξισώσεων**
+## **Προσθήκη Διετάξεων Εξισώσεων**
 
-Χρησιμοποιήστε το [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--) όταν χρειάζεστε ευθυγραμμισμένες εξισώσεις ή κάθετη στοίβα εκφράσεων.
+Χρησιμοποιήστε το [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--) όταν χρειάζεστε ευθυγραμμισμένες εξισώσεις ή μια κάθετη στοίβα εκφράσεων.
 
-![A vertical math array with x above y](powerpoint-math-equations_11.png)
+![Μια κάθετη μαθηματική ακολουθία με x πάνω από y](powerpoint-math-equations_11.png)
 
 ```java
 import com.aspose.slides.*;
@@ -282,11 +282,11 @@ try {
 }
 ```
 
-### **Στοίχιση πίνακα με τα γύρω στοιχεία**
+### **Στοίχιση Ακολουθίας με Περιβάλλοντα Στοιχεία**
 
-[setBaseJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setBaseJustification-int-) ελέγχει την κατακόρυφη στοίχιση ενός πίνακα σε σχέση με τα μαθηματικά στοιχεία δίπλα του. Το παρακάτω παράδειγμα συγκρίνει τη στοίχιση με την πρώτη σειρά, το κέντρο του πίνακα και την τελευταία σειρά.
+[setBaseJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setBaseJustification-int-) ελέγχει την κάθετη στοίχιση μιας ακολουθίας σχετικά με τα μαθηματικά στοιχεία δίπλα της. Το παρακάτω παράδειγμα συγκρίνει την στοίχιση με την πρώτη γραμμή, το κέντρο της ακολουθίας και την τελευταία γραμμή.
 
-Το παρακάτω παράδειγμα δημιουργεί τρεις ίδιους πίνακες, καθένας με τρεις σειρές και τα γειτονικά στοιχεία `A=` και `=B`. Όλο το μαθηματικό κείμενο χρησιμοποιεί την γραμματοσειρά Cambria Math σε μέγεθος 24 σημεία. Μόνο η στοίχιση του πίνακα αλλάζει.
+Το ακόλουθο παράδειγμα δημιουργεί τρεις ισοδύναμες ακολουθίες, η καθεμία με τρεις γραμμές και τα γειτονικά στοιχεία `A=` και `=B`. Όλο το μαθηματικό κείμενο χρησιμοποιεί Cambria Math στα 24 σημεία. Μόνο η στοίχιση της ακολουθίας αλλάζει.
 
 ```java
 import com.aspose.slides.*;
@@ -342,17 +342,17 @@ try {
 }
 ```
 
-Η παρακάτω σύγκριση δείχνει την αποθηκευμένη παρουσίαση στο PowerPoint. Παρατηρήστε τη θέση των `A=` και `=B` δίπλα σε κάθε πίνακα.
+Η παρακάτω σύγκριση δείχνει την αποθηκευμένη παρουσίαση στο PowerPoint. Παρατηρήστε τη θέση του `A=` και `=B` δίπλα σε κάθε ακολουθία.
 
-![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
+![Ακολουθίες εξισώσεων στο PowerPoint με στοίχιση Κορυφή, Κέντρο και Κάτω και ταυτόσημα γειτονικά στοιχεία](equation-array-alignment.png)
 
-### **Ρυθμιση απόστασης γραμμών**
+### **Διαμόρφωση Απόστασης Γραμμών**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacingRule-int-) επιλέγει τον κανόνα απόστασης για τις σειρές μέσα στον πίνακα. [setRowSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacing-long-) παρέχει αριθμητική τιμή για έναν ρητό κανόνα απόστασης και παραβλέπεται από τους προεπιλεγμένους κανόνες.
+[setRowSpacingRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacingRule-int-) επιλέγει τον κανόνα απόστασης για τις γραμμές μέσα στην ακολουθία. [setRowSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacing-long-) παρέχει αριθμητική τιμή για έναν ρητό κανόνα απόστασης και αγνοείται από τους προκαθορισμένους κανόνες.
 
-Για ακριβή απόσταση, η τιμή μετράται σε σημεία. Για αναλογική απόσταση, μετράται σε μισές γραμμές: η τιμή `3` στο παράδειγμα αντιστοιχεί σε 1,5 γραμμές. Ορίστε και τις δύο ιδιότητες όταν δηλώνετε ρητή τιμή· η αλλαγή μόνο της αριθμητικής τιμής δεν επιλέγει κανόνα απόστασης.
+Για ακριβή απόσταση, η τιμή μετράται σε points. Για αναλογική απόσταση, μετράται σε μισές γραμμές: η τιμή `3` στο παράδειγμα σημαίνει 1.5 γραμμές. Θέστε και τις δύο ιδιότητες όταν ορίζετε ρητή τιμή· η αλλαγή μόνο της αριθμητικής τιμής δεν επιλέγει κανόνα απόστασης.
 
-Το παρακάτω παράδειγμα αποθηκεύει πέντε παρουσιάσεις με τις ίδιες εξισώσεις, στοίχιση και ρυθμίσεις γραμματοσειράς. Τα πρώτα τρία χρησιμοποιούν προεπιλογές· τα δύο τελευταία δείχνουν ρητές τιμές.
+Το παράδειγμα παρακάτω αποθηκεύει πέντε παρουσιάσεις με τις ίδιες εξισώσεις, στοίχιση και ρυθμίσεις γραμματοσειράς. Οι πρώτες τρεις χρησιμοποιούν προεπιλογές· οι τελευταίες δύο δείχνουν ρητές τιμές.
 
 ```java
 import com.aspose.slides.*;
@@ -401,13 +401,13 @@ for (int i = 0; i < rules.length; i++) {
 }
 ```
 
-Η απόσταση γραμμών του πίνακα είναι ξεχωριστή από την απόσταση παραγράφων. Τα [setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) και [setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) προσθέτουν διάστημα γύρω από την περιβάλλουσα παράγραφο, όχι μεταξύ των σειρών του πίνακα. Ομοίως, το [IMathParagraph.setJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#setJustification-int-) τοποθετεί ολόκληρη τη μαθηματική παράγραφο οριζόντια· δεν αντικαθιστά τη ρύθμιση κατακόρυφης στοίχισης του πίνακα.
+Η απόσταση γραμμών στην ακολουθία είναι ξεχωριστή από την απόσταση παραγράφου. [setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) και [setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) προσθέτουν χώρο γύρω από την περιέχουσα παράγραφο, όχι μεταξύ των γραμμών της ακολουθίας. Αντίστοιχα, [IMathParagraph.setJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#setJustification-int-) τοποθετεί ολόκληρη τη μαθηματική παράγραφο οριζόντια· δεν αντικαθιστά τη ρύθμιση κάθετης στοίχισης της ακολουθίας.
 
-## **Προσθήκη τριγωνομετρικών συναρτήσεων**
+## **Προσθήκη Τριγωνομετρικών Συναρτήσεων**
 
 Χρησιμοποιήστε το [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) όταν το όρισμα είναι το τρέχον στοιχείο και το όνομα της συνάρτησης είναι γνωστό.
 
-![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
+![Η τριγωνομετρική συνάρτηση cos εφαρμόζεται στο 2x](powerpoint-math-equations_6.png)
 
 ```java
 import com.aspose.slides.*;
@@ -431,11 +431,11 @@ try {
 }
 ```
 
-## **Προσθήκη δείκτη και εκθέτη**
+## **Προσθήκη Δεικτών και Εκθέσεων**
 
-Χρησιμοποιήστε τις βοηθητικές μεθόδους δείκτη και εκθέτη για δείκτες και δυνάμεις. Όταν οι δείκτες πρέπει να εμφανιστούν στην αριστερή πλευρά της βάσης, χρησιμοποιήστε το [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-).
+Χρησιμοποιήστε τους βοηθούς δείκτη και εκθέτη για δείκτες και δυνάμεις. Όταν οι δείκτες πρέπει να εμφανιστούν στην αριστερή πλευρά της βάσης, χρησιμοποιήστε το [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-).
 
-![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
+![Ένα κεφαλαίο Y με δείκτη 1 αριστερά και εκθέτη n](powerpoint-math-equations_9.png)
 
 ```java
 import com.aspose.slides.*;
@@ -459,11 +459,11 @@ try {
 }
 ```
 
-## **Προσθήκη οριοθετών**
+## **Προσθήκη Οριοθέτησεων**
 
-Χρησιμοποιήστε το [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) για να τοποθετήσετε μια έκφραση μέσα σε οριοθέτες. Μπορείτε επίσης να ορίσετε χαρακτήρα διαχωριστικού για εκφράσεις οριοθετών που περιέχουν πολλά στοιχεία.
+Χρησιμοποιήστε το [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) για να τοποθετήσετε μια έκφραση μέσα σε οριοθέτες. Μπορείτε επίσης να θέσετε χαρακτήρα διαχωριστή για εκφράσεις οριοθέτησης που περιέχουν πολλά στοιχεία.
 
-![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
+![Μια έκφραση οριοθέτησης που περιέχει x, y και z χωρισμένα με κάθετες γραμμές](powerpoint-math-equations_13.png)
 
 ```java
 import com.aspose.slides.*;
@@ -490,11 +490,11 @@ try {
 }
 ```
 
-### **Μέγεθος και στοίχιση οριοθετών**
+### **Μέγεθος και Στοίχιση Οριοθέτησεων**
 
-Περάστε `true` στο [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) ώστε οι παρενθέσεις να μεγαλώνουν γύρω από ένα υψηλό όπλο, ή `false` για να διατηρηθούν στο κανονικό τους μέγεθος. Χρησιμοποιήστε το [setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) με μία από τις δύο τιμές του [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/). Η επιλογή `Centered` κεντράρει τις παρενθέσεις ως προς τον μαθηματικό άξονα, ο οποίος περνάει από το μέσο του συμβόλου `=`. Η επιλογή `Match` τις ευθυγραμμίζει με το περιεχόμενο που περιβάλλει. Και οι δύο ρυθμίσεις επηρεάζουν μόνο τους οριοθέτες· η εσωτερική έκφραση παραμένει η ίδια.
+Περάστε `true` στο [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) για να επιτρέψετε στις παρενθέσεις να μεγαλώσουν γύρω από ένα ψηλό τελεστή, ή περάστε `false` για να διατηρηθούν στο κανονικό τους μέγεθος. Χρησιμοποιήστε το [setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) με μία από τις δύο τιμές του [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/). `Centered` κεντράρει τις παρενθέσεις στον άξονα των μαθηματικών, που περνά από το κέντρο του συμβόλου ισότητας. `Match` τις ευθυγραμμίζει με το περιεχόμενο που περιβάλλουν. Και οι δύο ρυθμίσεις επηρεάζουν μόνο τους οριοθέτες. Η έκφραση μέσα παραμένει η ίδια.
 
-Το παράδειγμα τοποθετεί ένα κλάσμα στον εκθέτη του `x` ώστε η έκφραση να εκτείνεται περισσότερο πάνω από τη βάση παρά κάτω από αυτήν. Όλες οι τέσσερις εξισώσεις χρησιμοποιούν τις ίδιες παρενθέσεις και ρυθμίσεις γραμματοσειράς.
+Το παράδειγμα τοποθετεί ένα κλάσμα στον εκθέτη του `x` ώστε η έκφραση να εκτείνεται πιο πάνω από τη γραμμή βάσης απ’ ό,τι κάτω από αυτήν. Οι τέσσερις εξισώσεις χρησιμοποιούν τις ίδιες παρενθέσεις και ρυθμίσεις γραμματοσειράς.
 
 ```java
 import com.aspose.slides.*;
@@ -523,15 +523,15 @@ try {
 }
 ```
 
-Στο PowerPoint, συγκρίνετε τις σειρές για να δείτε το αποτέλεσμα της ανάπτυξης. Στην πρώτη σειρά, οι παρενθέσεις μεγαλώνουν για να περιβάλουν τον εκθέτη και φαίνονται όμοιες και για τις δύο μορφές. Στη δεύτερη σειρά, η ανάπτυξη είναι απενεργοποιημένη. Οι μικρότερες παρενθέσεις στα αριστερά (`Centered`) ευθυγραμμίζονται με το σύμβολο `=`, ενώ αυτές στα δεξιά (`Match`) τοποθετούνται ψηλότερα γύρω από την έκφραση.
+Στο PowerPoint, συγκρίνετε τις γραμμές για να δείτε την επίδραση της ανάπτυξης. Στην πάνω γραμμή, οι παρενθέσεις μεγαλώνουν ώστε να περιβάλουν το εκθέτη και φαίνονται όμοιες και για τις δύο μορφές. Στην κάτω γραμμή, η ανάπτυξη είναι απενεργοποιημένη. Οι μικρότερες παρενθέσεις στα αριστερά (`Centered`) ευθυγραμμίζονται με το σύμβολο ισότητας, ενώ αυτές στα δεξιά (`Match`) βρίσκονται πιο ψηλά γύρω από την έκφραση.
 
-![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
+![Τέσσερις εξισώσεις στο PowerPoint με ενεργοποιημένη ανάπτυξη οριοθέτησης από πάνω και απενεργοποιημένη από κάτω, και Centered στα αριστερά και Match στα δεξιά](delimiter-sizing.png)
 
-## **Προσθήκη πλαισίου περιγράμματος**
+## **Προσθήκη Περιγράμματος**
 
-Καλέστε το [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) σε ένα κλάσμα για να περιγράψετε ολόκληρη την έκφραση. Το επιστρεφόμενο [IMathBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/) εμφανίζει όλες τις τέσσερις πλευρές από προεπιλογή. Χρησιμοποιήστε τα [setHideTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), και [setHideRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideRight-boolean-) για να αφαιρέσετε μεμονωμένες πλευρές.
+Καλέστε το [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) σε ένα κλάσμα για να περικλείσετε όλη την έκφραση. Το επιστρεφόμενο [IMathBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/) εμφανίζει τις τέσσερις πλευρές από προεπιλογή. Χρησιμοποιήστε τα [setHideTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), και [setHideRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideRight-boolean-) για να αφαιρέσετε επιμέρους πλευρές.
 
-Το παράδειγμα τοποθετεί έξι αντίγραφα του ίδιου κλασίου σε μία διαφάνεια. Για να δείξετε ακύρωση, κρύψτε όλες τις πλευρές και περάστε `true` στο [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) για διαγώνιο ανόδου (↗) ή στο [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) για διαγώνιο καθόδου (↘). Μπορείτε επίσης να χρησιμοποιήσετε το [setStrikethroughHorizontal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) ή το [setStrikethroughVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) με οποιονδήποτε συνδυασμό ορατών πλευρών.
+Το παράδειγμα τοποθετεί έξι αντίγραφα του ίδιου κλάσματος σε μία διαφάνεια. Για να δείξετε ακύρωση, κρύψτε όλες τις τέσσερις πλευρές και περάστε `true` στο [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) για μια ανερχόμενη διαγώνιο (↗) ή στο [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) για μια κατιούσα διαγώνιο (↘). Μπορείτε επίσης να χρησιμοποιήσετε τα [setStrikethroughHorizontal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) ή [setStrikethroughVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) με οποιονδήποτε συνδυασμό ορατών πλευρών.
 
 ```java
 import com.aspose.slides.*;
@@ -576,15 +576,99 @@ try {
 }
 ```
 
-![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border.](border-box-fractions.png)
+![Έξι επεξεργάσιμα κλάσματα στο PowerPoint. Άνω σειρά: πλήρες περίγραμμα, κάτω και αριστερή πλευρά, ανιόν διαγώνιο. Κάτω σειρά: καθοδικό διαγώνιο, οριζόντιο, κάθετο με πλήρες περίγραμμα](border-box-fractions.png)
 
-Σε αυτό το κλάσμα, η οριζόντια διαγώνιος γραμμή επικαλύπτεται με τη γραμμή του κλάσματος. Η κατακόρυφη διαγώνιος διασχίζει τόσο τον αριθμητή όσο και τον παρονομαστή, ενώ το περιβάλλον πλαίσιο παραμένει ορατό. Αυτές οι γραμμές διακοσμούν ολόκληρη την έκφραση. Η κανονική διαγράψιμο κείμενο εφαρμόζεται σε χαρακτήρες ενός τμήματος κειμένου. Αφού ξανανοίξετε την παρουσίαση στο PowerPoint, μπορείτε ακόμα να επεξεργαστείτε τον αριθμητή και τον παρονομαστή ανεξάρτητα.
+Σε αυτό το κλάσμα, η οριζόντια γραμμή διακριτού περάσματος επικαλύπτει τη μπάρα του κλάσματος. Η κάθετη γραμμή διασχίζει τόσο τον αριθμητή όσο και τον παρονομαστή ενώ το περιβάλλον περίγραμμα παραμένει ορατό. Αυτές οι γραμμές διακοσμούν όλη την έκφραση. Η συνηθισμένη διαγραφή κειμένου εφαρμόζεται σε χαρακτήρες μέσα σε τμήμα κειμένου. Αφού ανοίξετε ξανά την παρουσίαση στο PowerPoint, μπορείτε ακόμη να επεξεργαστείτε ανεξάρτητα τον αριθμητή και τον παρονομαστή.
 
-## **Ομαδοποίηση όρων**
+## **Έλεγχος Ορατότητας και Διάταξης με Phantom Στοιχεία**
 
-Χρησιμοποιήστε το [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) για να τοποθετήσετε ένα χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε ένα όριο για να επισημάνετε τους ομαδοποιημένους όρους.
+Τυλίξτε μια έκφραση με το [MathPhantom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathphantom/) για να ελέγξετε την ορατότητά της και το χώρο που συμβάλλει σε μια εξίσωση ανεξάρτητα. Οι μέθοδοι του [IMathPhantom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/) ελέγχουν τα παρακάτω:
 
-![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
+| Μέθοδος | Αποτέλεσμα |
+| --- | --- |
+| [setShow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setShow-boolean-) | Προσαρμόστε `false` για να κρύψετε την έκφραση. Οι διαστάσεις της εξακολουθούν να συμβάλλουν στη διάταξη εκτός αν οι αντίστοιχες μέθοδοι παρακάτω λάβουν `true`. |
+| [setZeroWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroWidth-boolean-) | Αντιμετωπίζει το οριζόντιο πλάτος της έκφρασης ως μηδέν, επιτρέποντας στα γειτονικά στοιχεία να πλησιάσουν περισσότερο. |
+| [setZeroAsc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroAsc-boolean-) | Αντιμετωπίζει το άύση φθίνουσα (ascent), το ύψος πάνω από τη γραμμή βάσης, ως μηδέν. Αυτό μπορεί να μειώσει τον χώρο που διατίθεται πάνω από τα γειτονικά στοιχεία. |
+| [setZeroDesc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | Αντιμετωπίζει τη φθίνουσα (descent), το βάθος κάτω από τη γραμμή βάσης, ως μηδέν. Αυτό μπορεί να φέρει πιο κοντά τη μπάρα κλάσματος ή άλλο περιεχόμενο κάτω από την έκφραση στα γειτονικά στοιχεία. |
+
+Η γραμμή βάσης είναι η γραμμή αναφοράς πάνω στην οποία κοιτάζονται τα συνηθισμένα μαθηματικά γράμματα. Η απόκρυψη περιεχομένου δεν αφαιρεί τις διαστάσεις του, και η αντιμετώπιση μιας διάστασης ως μηδενική δεν διαγράφει την έκφραση. Η υποκείμενη έκφραση παραμένει διαθέσιμη μέσω του [getBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#getBase--). Περάστε `true` στο [setShow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setShow-boolean-) για να την εμφανίσετε ξανά· οι ρυθμίσεις διάστασης παραμένουν αμετάβλητες.
+
+Το παράδειγμα παρακάτω δημιουργεί πέντε παραλλαγές δίπλα-δίπλα: ένα ορατό κλάσμα, ένα κρυμμένο κλάσμα που διατηρεί χώρο, και τρία κρυμμένα κλάσματα με μία διάσταση αντιμετωπισμένη ως μηδέν. Κάθε παραλλαγή χρησιμοποιεί την ίδια περιβάλλουσα έκφραση και Cambria Math στα 24 σημεία. Όλες οι μορφές εξίσωσης έχουν την ίδια ανώτερη θέση, σημειωμένη με τον γκρι οδηγό. Η τοποθέτηση του phantom στον αριθμητή ενός εξωτερικού κλάσματος κάνει τις κάθετες αλλαγές διάταξης πιο εύκολες στην παρατήρηση.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+class MathTextFactory {
+    MathematicalText createText(String value) {
+        MathematicalText text = new MathematicalText(value);
+        text.getFormat().setFontHeight(24);
+        text.getFormat().setLatinFont(new FontData("Cambria Math"));
+        return text;
+    }
+}
+
+MathTextFactory factory = new MathTextFactory();
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(1000, 180, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    String[] labels = { "Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc" };
+
+    IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Line, 10, 60, 980, 0);
+    guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.LTGRAY);
+
+    for (int i = 0; i < labels.length; i++) {
+        int left = 10 + i * 200;
+
+        IAutoShape label = slide.getShapes().addAutoShape(ShapeType.Rectangle, left, 10, 190, 30);
+        label.getFillFormat().setFillType(FillType.NoFill);
+        label.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        label.getTextFrame().setText(labels[i]);
+
+        IPortionFormat labelFormat = label.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        labelFormat.setFontHeight(14);
+        labelFormat.getFillFormat().setFillType(FillType.Solid);
+        labelFormat.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+        MathematicalText fractionNumerator = factory.createText("a+b");
+        MathematicalText fractionDenominator = factory.createText("c+d");
+        MathFraction fraction = new MathFraction(fractionNumerator, fractionDenominator);
+        MathPhantom phantom = new MathPhantom(fraction);
+        phantom.setShow(i == 0);
+        phantom.setZeroWidth(i == 2);
+        phantom.setZeroAsc(i == 3);
+        phantom.setZeroDesc(i == 4);
+
+        MathematicalText leftText = factory.createText("x+");
+        MathematicalText rightText = factory.createText("+y");
+        IMathBlock numerator = new MathBlock(leftText).join(phantom).join(rightText);
+        MathematicalText denominator = factory.createText("z");
+        MathFraction equation = new MathFraction(numerator, denominator);
+
+        IAutoShape shape = slide.getShapes().addMathShape(left, 60, 190, 100);
+        shape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Top);
+
+        IMathPortion mathPortion = (IMathPortion) shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+        IMathParagraph mathParagraph = mathPortion.getMathParagraph();
+        mathParagraph.add(new MathBlock(equation));
+    }
+
+    presentation.save("math-phantom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Πέντε εξισώσεις στο PowerPoint που συγκρίνουν ένα ορατό κλάσμα, ένα κρυμμένο κλάσμα που διατηρεί χώρο, και κρυμμένα κλάσματα με ZeroWidth, ZeroAsc ή ZeroDesc ενεργοποιημένα](math-phantom.png)
+
+## **Ομαδοποίηση Όρων**
+
+Χρησιμοποιήστε το [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) για να τοποθετήσετε έναν χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε όριο για να ετικετοποιήσετε τους ομαδοποιημένους όρους.
+
+![Η έκφραση x συν y ομαδοποιημένη με την ετικέτα οποιοδήποτε κείμενο κάτω από αυτήν](powerpoint-math-equations_15.png)
 
 ```java
 import com.aspose.slides.*;
@@ -609,11 +693,11 @@ try {
 }
 ```
 
-## **Μορφοποίηση μαθηματικών στοιχείων**
+## **Μορφοποίηση Μαθηματικών Στοιχείων**
 
-Χρησιμοποιήστε τους βοηθούς μορφοποίησης μόνο όπου διευκρινίζουν τον τύπο. Για παράδειγμα, το [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) τοποθετεί μια γραμμή πάνω από ένα μαθηματικό στοιχείο.
+Χρησιμοποιήστε βοηθητικά εργαλεία μορφοποίησης μόνο όπου διευκρινίζουν τον τύπο. Για παράδειγμα, το [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) τοποθετεί μια γραμμή πάνω από ένα μαθηματικό στοιχείο.
 
-![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
+![Μια μαθηματική έκφραση ABC με μια γραμμή πάνω](powerpoint-math-equations_14.png)
 
 ```java
 import com.aspose.slides.*;
@@ -636,11 +720,11 @@ try {
 }
 ```
 
-### **Μορφοποίηση κειμένου σε υπάρχουσα εξίσωση**
+### **Μορφοποίηση Κειμένου σε Υπάρχουσα Εξίσωση**
 
-Για να μορφοποιήσετε κείμενο σε όλη μια υπάρχουσα εξίσωση, διασχίστε το δέντρο στοιχείων κάθε μαθηματικού μπλοκ. Το [IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) επιστρέφει μόνο τα άμεσα παιδιά, οπότε καλέστε το αναδρομικά για να φτάσετε στο κείμενο μέσα σε κλάσματα, εκθέτες, ρίζες και άλλες ένθετες δομές. Ελέγξτε το τρέχον στοιχείο καθώς και τα παιδιά του ώστε να συμπεριλάβετε το αρχικό στοιχείο όταν είναι [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/).
+Για να μορφοποιήσετε κείμενο σε όλη μια υπάρχουσα εξίσωση, περάστε κάθε δέντρο στοιχείων του μαθηματικού μπλοκ. Το [IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) επιστρέφει μόνο τα άμεσα παιδιά, επομένως καλέστε το επαναληπτικά για να φτάσετε σε κείμενο μέσα σε κλάσματα, δεικτικούς, ριζικά και άλλες ένθετες δομές. Ελέγξτε το τρέχον στοιχείο καθώς και τα παιδιά του ώστε να συμπεριλάβετε το αρχικό στοιχείο όταν είναι [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/).
 
-Αυτό το παράδειγμα υποθέτει ότι το `input.pptx` περιέχει μια εξίσωση όπως `z = xᵢ / ∛y`, με κλάσμα που περιέχει δείκτη στον αριθμητή και ρίζα στον παρονομαστή. Η επεξεργασία μόνο των στοιχείων πρώτου επιπέδου του μπλοκ θα χάσει το κείμενο μέσα στο κλάσμα. Το παράδειγμα βρίσκει μαθηματικές περιοχές σε πλαίσια κειμένου διαφανειών, προσπελαύνει τα μπλοκ τους μέσω του [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), και χρησιμοποιεί το [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) για να ορίσει το μέγεθος γραμματοσειράς σε 28 σημεία σε κάθε στοιχείο κειμένου μέσω της μεθόδου [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--).
+Αυτό το παράδειγμα υποθέτει ότι το `input.pptx` περιέχει μια εξίσωση όπως `z = xᵢ / ∛y`, με ένα κλάσμα που περιέχει δείκτη στον αριθμητή και ρίζα στον παρονομαστή. Η επεξεργασία μόνο των στοιχείων επιπέδου κορυφής του μπλοκ θα χάσει το κείμενο μέσα στο κλάσμα. Το παράδειγμα εντοπίζει μαθηματικές περιοχές στα πλαίσια κειμένου των διαφανειών, προσπελαύνει τα μπλοκ τους μέσω του [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), και χρησιμοποιεί το [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) για να ορίσει το μέγεθος γραμματοσειράς στα 28 σημεία μέσω της μεθόδου [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--) του κάθε στοιχείου κειμένου.
 
 ```java
 import com.aspose.slides.*;
@@ -691,37 +775,37 @@ try {
 }
 ```
 
-Η αποθηκευμένη παρουσίαση περιέχει την ενημερωμένη μορφοποίηση κειμένου σε κάθε επίπεδο κάθε επεξεργασμένης εξίσωσης, διατηρώντας ταυτόχρονα το περιεχόμενο κειμένου και τη μαθηματική δομή.
+Η αποθηκευμένη παρουσίαση περιέχει την ενημερωμένη μορφοποίηση κειμένου σε κάθε επίπεδο κάθε επεξεργασμένης εξίσωσης, διατηρώντας το περιεχόμενο κειμένου και τη μαθηματική δομή.
 
-## **Γρήγορη αναφορά**
+## **Γρήγορη Αναφορά**
 
 | Εργασία | Κύριο API |
 | --- | --- |
 | Δημιουργία μαθηματικού κειμένου | [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) |
 | Συνδυασμός στοιχείων | [IMathElement.join](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Δημιουργία κλαστών | [IMathElement.divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Προσθήκη εκθέτη ή δείκτη | [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Δημιουργία κλασμάτων | [IMathElement.divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Προσθήκη εκθέτης ή δείκτη | [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Προσθήκη συναρτήσεων | [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Προσθήκη ριζών | [IMathElement.radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Προσθήκη ορίων | [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Προσθήκη αριστερών δεικτών | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Προσθήκη δεικτών αριστερά | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Προσθήκη αθροίσεων και ολοκληρωμάτων | [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Προσθήκη πινάκων | [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) |
-| Προσθήκη πινάκων εξισώσεων | [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Προσθήκη οριοθετών | [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Προσθήκη γραμμών και πλαισίων | [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Προσθήκη ακολουθιών εξισώσεων | [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Προσθήκη οριοθετήσεων | [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Προσθήκη γραμμών και περιγραμμάτων | [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Ομαδοποίηση όρων | [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
 **Μπορώ να επεξεργαστώ μια υπάρχουσα εξίσωση PowerPoint;**
 
 Ναι. Ανοίξτε την παρουσίαση, βρείτε το σχήμα που περιέχει ένα [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/), καλέστε το [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), και ενημερώστε τα μαθηματικά μπλοκ σε αυτήν την παράγραφο.
 
-**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμο μαθηματικό περιεχόμενο PowerPoint;**
+**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμο μαθηματικό PowerPoint;**
 
-Ναι. Όταν αποθηκεύετε σε PPTX, το Aspose.Slides γράφει την εξίσωση ως επεξεργάσιμο Office math περιεχόμενο.
+Ναι. Όταν αποθηκεύετε σε PPTX, το Aspose.Slides γράφει την εξίσωση ως επεξεργάσιμο περιεχόμενο Office math.
 
 **Μπορώ να εξάγω εξισώσεις σε LaTeX;**
 
-Ναι. Πάρτε το [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) της εξίσωσης από το [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/), και καλέστε το [IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) για να το εξάγετε απευθείας. Για πλήρες παράδειγμα, δείτε [Export Math Equations from Presentations in Android via Java](/slides/el/androidjava/exporting-math-equations/#export-math-equations-to-latex).
+Ναι. Λάβετε το [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) της εξίσωσης από το [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/), και καλέστε το [IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) για να το εξάγετε άμεσα. Για πλήρες παράδειγμα, δείτε [Εξαγωγή Μαθηματικών Εξισώσεων από Παρουσιάσεις σε Android μέσω Java](/slides/el/androidjava/exporting-math-equations/#export-math-equations-to-latex).

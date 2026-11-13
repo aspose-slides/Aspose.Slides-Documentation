@@ -1,6 +1,6 @@
 ---
-title: Προσθήκη μαθηματικών εξισώσεων σε παρουσιάσεις PowerPoint σε C++
-linktitle: Μαθηματικές Εξισώσεις PowerPoint
+title: "Προσθήκη μαθηματικών εξισώσεων σε παρουσιάσεις PowerPoint σε C++"
+linktitle: "Μαθηματικές εξισώσεις PowerPoint"
 type: docs
 weight: 80
 url: /el/cpp/powerpoint-math-equations/
@@ -21,7 +21,7 @@ description: "Εισαγωγή και επεξεργασία μαθηματικ�
 ---
 ## **Επισκόπηση**
 
-Το PowerPoint αποθηκεύει εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides για C++, μπορείτε να δημιουργήσετε το ίδιο είδος μαθηματικού περιεχομένου προγραμματιστικά: κλάσματα, ριζικά, συναρτήσεις, όρια, N-ary τελεστές, πίνακες, σειρές και μορφοποιημένα μαθηματικά μπλοκ.
+Το PowerPoint αποθηκεύει εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides για C++, μπορείτε να δημιουργήσετε το ίδιο είδος μαθηματικού περιεχομένου προγραμματιστικά: κλάσματα, ριζικά, συναρτήσεις, όρια, N‑αριους τελεστές, πίνακες, σύνολα και μορφοποιημένα μαθηματικά μπλοκ.
 
 Στο PowerPoint, οι χρήστες συνήθως προσθέτουν εξισώσεις από **Insert > Equation**:
 
@@ -29,23 +29,23 @@ description: "Εισαγωγή και επεξεργασία μαθηματικ�
 
 Το αποτέλεσμα είναι επεξεργάσιμο μαθηματικό κείμενο στη διαφάνεια:
 
-![Διαφάνεια PowerPoint που περιέχει επεξεργάσιμη εξίσωση](powerpoint-math-equations_2.png)
+![Μία διαφάνεια PowerPoint που περιέχει μια επεξεργάσιμη μαθηματική εξίσωση](powerpoint-math-equations_2.png)
 
-Το Aspose.Slides δημιουργεί αυτό το μαθηματικό κείμενο μέσω τριών κύριων αντικειμένων:
+Το Aspose.Slides δημιουργεί αυτό το μαθηματικό κείμενο μέσω τριών βασικών αντικειμένων:
 
-- Ένα μαθηματικό σχήμα, δημιουργημένο με [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/), είναι το σχήμα που περιέχει την εξίσωση.
-- [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) αποθηκεύει το μαθηματικό περιεχόμενο μέσα στο πλαίσιο κειμένου του σχήματος.
+- Ένα μαθηματικό σχήμα, που δημιουργείται με [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/), είναι το σχήμα που περιέχει την εξίσωση.
+- [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) αποθηκεύει μαθηματικό περιεχόμενο μέσα στο πλαίσιο κειμένου του σχήματος.
 - [MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/) περιέχει ένα ή περισσότερα αντικείμενα [MathBlock](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathblock/).
 
-Τα περισσότερα παραδείγματα παρακάτω χρησιμοποιούν το [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) και τις αλυσιδωτές μεθόδους από το [IMathElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/) για να διατηρήσουν τον κώδικα σύντομο και ευανάγνωστο.
+Οι περισσότερα παραδείγματα παρακάτω χρησιμοποιούν το [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) και τις αλυσιδωτές μεθόδους από το [IMathElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/) για να διατηρήσουν τον κώδικα σύντομο και ευανάγνωστο.
 
-Για σενάρια εξαγωγής MathML, δείτε [Export Math Equations from Presentations in C++](/slides/el/cpp/exporting-math-equations/).
+Για σενάρια εξαγωγής MathML, δείτε [Εξαγωγή μαθηματικών εξισώσεων από παρουσιάσεις σε C++](/slides/el/cpp/exporting-math-equations/).
 
 ## **Δημιουργία Εξίσωσης**
 
-Αυτό το παράδειγμα χρησιμοποιεί το [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) για να δημιουργήσει ένα μαθηματικό σχήμα και προσθέτει το Πυθαγόρειο θεώρημα:
+Αυτό το παράδειγμα χρησιμοποιεί το [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) για να δημιουργήσει ένα μαθηματικό σχήμα και προσθέτει το πυθαγόρειο θεώρημα:
 
-![Η εξίσωση c στο τετράγωνο ισούται με a στο τετράγωνο συν b στο τετράγωνο](powerpoint-math-equations_3.png)
+![Η εξίσωση c² = a² + b²](powerpoint-math-equations_3.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -86,14 +86,14 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-[AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) δημιουργεί ένα σχήμα που ήδη περιέχει μια μαθηματική παράγραφο. Προσπελάστε το πρώτο [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/), καλέστε το [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/), και προσθέστε μαθηματικά μπλοκ ή μαθηματικά στοιχεία σε αυτό.
+[AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) δημιουργεί ένα σχήμα που περιέχει ήδη μια μαθηματική παράγραφο. Πρόσβαση στην πρώτη [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/), καλέστε το [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/), και προσθέστε μαθηματικά μπλοκ ή μαθηματικά στοιχεία σε αυτήν.
 {{% /alert %}}
 
-## **Προσθήκη Κλασμάτων**
+## **Πρόσθεση Κλασμάτων**
 
 Χρησιμοποιήστε το [Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) για να δημιουργήσετε ένα κλάσμα. Μπορείτε να επιλέξετε στυλ κλάσματος με το [MathFractionTypes](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/).
 
-![Κλάσμα μαθηματικό που δείχνει ένα διαιρεμένο με x](powerpoint-math-equations_4.png)
+![Ένα λοξά μαθηματικό κλάσμα που δείχνει το 1 διαιρεμένο με x](powerpoint-math-equations_4.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -129,7 +129,7 @@ presentation->Save(u"fraction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Για ένα στοιβαγμένο κλάσμα, χρησιμοποιήστε το [MathFractionTypes::Bar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/):
+Για ένα στοίβαγμα κλάσματος, χρησιμοποιήστε το [MathFractionTypes::Bar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/):
 
 ```cpp
 #include <DOM/MathText/MathFractionTypes.h>
@@ -141,9 +141,9 @@ auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"
 
 ## **Προσθήκη Ριζών**
 
-Χρησιμοποιήστε το [Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) για να δημιουργήσετε μια τετραγωνική ρίζα, κυβική ρίζα ή άλλη ρίζα. Το τρέχον στοιχείο γίνεται η βάση, και το όρισμα γίνεται ο εκθέτης.
+Χρησιμοποιήστε το [Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) για να δημιουργήσετε τετραγωνική ρίζα, κυβική ρίζα ή άλλη ρίζα. Το τρέχον στοιχείο γίνεται η βάση και το όρισμα γίνεται ο βαθμός.
 
-![Μια n-οστή ρίζα με x κάτω από το σύμβολο ρίζας](powerpoint-math-equations_5.png)
+![Μια έκφραση n‑ης ρίζας με x κάτω από το σύμβολο ρίζας](powerpoint-math-equations_5.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -180,9 +180,9 @@ presentation->Dispose();
 
 ## **Προσθήκη Συναρτήσεων και Ορίων**
 
-Χρησιμοποιήστε το [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) ή το [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) για συναρτήσεις όπως `sin(x)`, `log(x)`, ή προσαρμοσμένα ονόματα συναρτήσεων. Για όρια, τοποθετήστε το `lim` σε ένα [MathLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) ή χρησιμοποιήστε το [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/).
+Χρησιμοποιήστε το [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) ή το [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) για συναρτήσεις όπως `sin(x)`, `log(x)`, ή προσαρμοσμένα ονόματα συναρτήσεων. Για όρια, τοποθετήστε `lim` σε ένα [MathLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) ή χρησιμοποιήστε το [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/).
 
-![Το όριο του x καθώς το x πλησιάζει το άπειρο](powerpoint-math-equations_8.png)
+![Το όριο του x καθώς το x τείνει στο άπειρο](powerpoint-math-equations_8.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -219,7 +219,7 @@ presentation->Save(u"functions-and-limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Για ένα προσαρμοσμένο όνομα συνάρτησης, κάντε το όνομα της συνάρτησης το τρέχον στοιχείο και καλέστε το [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) με το όρισμά του:
+Για προσαρμοσμένο όνομα συνάρτησης, κάντε το όνομα της συνάρτησης το τρέχον στοιχείο και καλέστε το [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) με το όρισμά του:
 
 ```cpp
 #include <DOM/MathText/MathematicalText.h>
@@ -228,11 +228,11 @@ using namespace Aspose::Slides::MathText;
 auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x + 1");
 ```
 
-## **Προσθήκη N-ary Τελεστών και Ολοκληρωμάτων**
+## **Προσθήκη N‑αρίων Τελεστών και Ολοκληρωμάτων**
 
-Χρησιμοποιήστε το [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/) για αθροίσεις, ενώσεις, τομές και άλλους μεγάλους τελεστές. Χρησιμοποιήστε το [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) για ολοκληρώματα. Και οι δύο μέθοδοι σάς επιτρέπουν να ορίσετε κάτω και πάνω όρια.
+Χρησιμοποιήστε το [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/) για αθροίσεις, ενώσεις, τομές και άλλους μεγάλους τελεστές. Χρησιμοποιήστε το [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) για ολοκληρώματα. Και οι δύο μέθοδοι σας επιτρέπουν να ορίσετε τα κάτω και άνω όρια.
 
-![Μία αθροίση με κάτω και πάνω όρια](powerpoint-math-equations_7.png)
+![Μια αθροιστική έκφραση με κάτω και άνω όρια](powerpoint-math-equations_7.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -272,7 +272,7 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Οι N-ary τελεστές προορίζονται για μεγάλους τελεστές με προαιρετικά όρια. Οι απλοί τελεστές όπως `+`, `-` και `=` συνήθως προστίθενται ως [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) και ενώνται στην έκφραση.
+Οι N‑αρίοι τελεστές προορίζονται για μεγάλους τελεστές με προαιρετικά όρια. Απλοί τελεστές όπως `+`, `-`, και `=` συνήθως προστίθενται ως [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) και συνδυάζονται στην έκφραση.
 
 Για ένα ολοκλήρωμα, χρησιμοποιήστε το [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/):
 
@@ -289,9 +289,9 @@ auto integralBase = System::MakeObject<MathematicalText>(u"x")->Join(System::Mak
 auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
 ```
 
-## **Προσθήκη Πινακων**
+## **Προσθήκη Πινάκων**
 
-Χρησιμοποιήστε το [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) για γραμμές και στήλες. Οι πίνακες δεν περιλαμβάνουν αγκύλες από προεπιλογή, οπότε τυλίξτε τον πίνακα όταν χρειάζεστε παρενθέσεις, αγκύλες ή άγκιστρα.
+Χρησιμοποιήστε το [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) για γραμμές και στήλες. Οι πίνακες δεν περιλαμβάνουν αγκύλες εξ ορισμού, έτσι τυλίξτε τον πίνακα όταν χρειάζεστε παρενθέσεις, αγκύλες ή άγκιστρα.
 
 ![Ένας μαθηματικός πίνακας δύο γραμμών με ένα κενό κελί](powerpoint-math-equations_10.png)
 
@@ -335,11 +335,11 @@ presentation->Save(u"matrix.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Προσθήκη Συλλογών Εξισώσεων**
+## **Προσθήκη Πίνακες Εξισώσεων**
 
-Χρησιμοποιήστε το [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) όταν χρειάζεστε ευθυγραμμισμένες εξισώσεις ή κατακόρυφο σύνολο εκφράσεων.
+Χρησιμοποιήστε το [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) όταν χρειάζεστε ευθυγραμμισμένες εξισώσεις ή κάθετο στοίβαγμα εκφράσεων.
 
-![Μια κατακόρυφη μαθηματική σειρά με x πάνω από y](powerpoint-math-equations_11.png)
+![Μία κάθετη μαθηματική ακολουθία με x πάνω από y](powerpoint-math-equations_11.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -375,11 +375,11 @@ presentation->Save(u"equation-array.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Στοίχιση Σειράς με Παράπλευρα Στοιχεία**
+### **Στοίχιση Πίνακα με Γειτονικά Στοιχεία**
 
-[IMathArray::set_BaseJustification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_basejustification/) ελέγχει την κάθετη στοίχιση μιας σειράς σε σχέση με τα μαθηματικά στοιχεία δίπλα της. Το παρακάτω παράδειγμα συγκρίνει την ευθυγράμμιση με την πρώτη γραμμή, το κέντρο της σειράς και την τελευταία γραμμή.
+[IMathArray::set_BaseJustification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_basejustification/) ελέγχει την κάθετη στοίχιση ενός πίνακα σε σχέση με τα μαθηματικά στοιχεία δίπλα του. Το παράδειγμα παρακάτω συγκρίνει τη στοίχιση με την πρώτη γραμμή, το κέντρο του πίνακα και την τελευταία γραμμή.
 
-Το παρακάτω παράδειγμα δημιουργεί τρεις ίδιες σειρές, η κάθε μία με τρεις γραμμές και τα γειτονικά στοιχεία `A=` και `=B`. Όλο το μαθηματικό κείμενο χρησιμοποιεί Cambria Math σε μέγεθος 24 points. Μόνο η στοίχιση της σειράς αλλάζει.
+Το παρακάτω παράδειγμα δημιουργεί τρεις ίδιους πίνακες, ο καθένας με τρεις γραμμές και τα γειτονικά στοιχεία `A=` και `=B`. Όλο το μαθηματικό κείμενο χρησιμοποιεί Cambria Math σε 24 points. Μόνο η στοίχιση του πίνακα αλλάζει.
 
 ```cpp
 #include <system/array.h>
@@ -464,17 +464,17 @@ presentation->Save(u"equation-array-alignment.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Η παρακάτω σύγκριση δείχνει την αποθηκευμένη παρουσίαση στο PowerPoint. Παρατηρήστε τη θέση των `A=` και `=B` δίπλα σε κάθε σειρά.
+Η παρακάτω σύγκριση δείχνει την αποθηκευμένη παρουσίαση στο PowerPoint. Παρατηρήστε τη θέση των `A=` και `=B` δίπλα σε κάθε πίνακα.
 
-![Σειρές εξισώσεων στο PowerPoint με Στοίχιση Πάνω, Κεντρική και Κάτω και ίδιους γειτονικούς όρους](equation-array-alignment.png)
+![Πίνακες εξίσωσης στο PowerPoint με στοίχιση Πάνω, Κέντρο και Κάτω και ίδια γειτονικά στοιχεία](equation-array-alignment.png)
 
-### **Διαμόρφωση Απόστασης Γραμμών**
+### **Ρύθμιση Απόστασης Γραμμών**
 
-[set_RowSpacingRule](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacingrule/) επιλέγει τον κανόνα διάστιχου για τις γραμμές μέσα στη σειρά. [set_RowSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacing/) παρέχει μια αριθμητική τιμή για έναν ρητό κανόνα διάστιχου και αγνοείται από τους προκαθορισμένους κανόνες.
+[set_RowSpacingRule](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacingrule/) επιλέγει τον κανόνα απόστασης για τις γραμμές μέσα στον πίνακα. [set_RowSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacing/) παρέχει αριθμητική τιμή για έναν ρητό κανόνα απόστασης και αγνοείται από τους προεπιλεγμένους κανόνες.
 
-Για ακριβή διάστιχο, η τιμή μετριέται σε points. Για αναλογικό διάστιχο, μετριέται σε μισές γραμμές: η τιμή `3` στο παράδειγμα καθορίζει 1,5 γραμμές. Καλείτε και τους δύο setters όταν ορίζετε μια ρητή τιμή· η αλλαγή μόνο της αριθμητικής τιμής δεν επιλέγει κανόνα διάστιχου.
+Για ακριβή απόσταση, η τιμή μετράται σε points. Για αναλογική απόσταση, μετράται σε μισές γραμμές: η τιμή `3` στο παράδειγμα δηλώνει 1,5 γραμμές. Καλέστε και τους δύο setters όταν ορίζετε μια ρητή τιμή· η αλλαγή μόνο της αριθμητικής τιμής δεν επιλέγει κανόνα απόστασης.
 
-Το παρακάτω παράδειγμα αποθηκεύει πέντε παρουσιάσεις με τις ίδιες εξισώσεις, στοίχιση και ρυθμίσεις γραμματοσειράς. Οι πρώτες τρεις χρησιμοποιούν προκαθορισμένα σενάρια· οι τελευταίες δύο δείχνουν ρητές τιμές.
+Το παρακάτω παράδειγμα αποθηκεύει πέντε παρουσιάσεις με τις ίδιες εξισώσεις, στοίχιση και ρυθμίσεις γραμματοσειράς. Οι πρώτες τρεις χρησιμοποιούν προεπιλογές· οι τελευταίες δύο δείχνουν ρητές τιμές.
 
 ```cpp
 #include <system/array.h>
@@ -556,13 +556,13 @@ for (const auto& setting : settings)
 }
 ```
 
-Η απόσταση γραμμών της σειράς είναι ξεχωριστή από την απόσταση παραγράφου. Τα [set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) και [set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/) προσθέτουν κενό γύρω από την περιέχουσα παράγραφο, όχι μεταξύ των γραμμών της σειράς. Κατά παρόμοιο τρόπο, το [IMathParagraph::set_Justification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/set_justification/) τοποθετεί οριζόντια ολόκληρη τη μαθηματική παράγραφο· δεν αντικαθιστά τη ρύθμιση κάθετης στοίχισης της σειράς.
+Η απόσταση γραμμών του πίνακα είναι ξεχωριστή από την απόσταση παραγράφου. Τα [set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) και [set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/) προσθέτουν διάστημα γύρω από την περιβάλλουσα παράγραφο, όχι μεταξύ των γραμμών του πίνακα. Ομοίως, το [IMathParagraph::set_Justification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/set_justification/) τοποθετεί οριζόντια ολόκληρη τη μαθηματική παράγραφο· δεν αντικαθιστά τη ρύθμιση κάθετης στοίχισης του πίνακα.
 
 ## **Προσθήκη Τριγωνομετρικών Συναρτήσεων**
 
 Χρησιμοποιήστε το [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) όταν το όρισμα είναι το τρέχον στοιχείο και το όνομα της συνάρτησης είναι γνωστό.
 
-![Η τριγωνομετρική συνάρτηση cos εφαρμοσμένη στο 2x](powerpoint-math-equations_6.png)
+![Η τριγωνομετρική συνάρτηση cos εφαρμόζεται στο 2x](powerpoint-math-equations_6.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -598,9 +598,9 @@ presentation->Save(u"trigonometric-function.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Προσθήκη Δεικτών και Εκθετών**
+## **Προσθήκη Δεικτών και Εκθέτες**
 
-Χρησιμοποιήστε τα βοηθητικά εργαλεία για δείκτες και εκθέτες για δείκτες και δυνάμεις. Όταν οι δείκτες πρέπει να εμφανίζονται στα αριστερά της βάσης, χρησιμοποιήστε το [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
+Χρησιμοποιήστε τις βοηθητικές λειτουργίες δείκτη και εκθέτη για δείκτες και δυνάμεις. Όταν οι δείκτες πρέπει να εμφανιστούν στην αριστερή πλευρά της βάσης, χρησιμοποιήστε το [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
 
 ![Ένα κεφαλαίο Y με αριστερό δείκτη 1 και εκθέτη n](powerpoint-math-equations_9.png)
 
@@ -637,11 +637,11 @@ presentation->Save(u"subscript-superscript.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Προσθήκη Διαχωριστών**
+## **Προσθήκη Οριοθετητών**
 
-Χρησιμοποιήστε το [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) για να τοποθετήσετε μια έκφραση μέσα σε διαχωριστές. Μπορείτε επίσης να ορίσετε χαρακτήρα διαχωριστή για εκφράσεις διαχωριστών που περιέχουν πολλά στοιχεία.
+Χρησιμοποιήστε το [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) για να βάλετε μια έκφραση μέσα σε οριοθέτες. Μπορείτε επίσης να ορίσετε χαρακτήρα διαχωρισμού για εκφράσεις οριοθέτη που περιέχουν πολλά στοιχεία.
 
-![Μια έκφραση διαχωριστή που περιέχει x, y και z χωρισμένα με κάθετες γραμμές](powerpoint-math-equations_13.png)
+![Μια έκφραση οριοθέτη που περιέχει x, y και z χωρισμένα με κατακόρυφα κάθετα](powerpoint-math-equations_13.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -678,11 +678,11 @@ presentation->Save(u"delimiters.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Μέγεθος και Στοίχιση Διαχωριστών**
+### **Μέγεθος και Στοίχιση Οριοθετών**
 
-Περνάτε `true` στο [set_GrowToMatchOperandHeight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_growtomatchoperandheight/) για να επιτρέψετε στις παρενθέσεις να μεγαλώσουν γύρω από ένα ψηλό τελεστή, ή `false` για να διατηρηθούν στο κανονικό τους μέγεθος. Το [set_DelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_delimitershape/) δέχεται μία από τις δύο τιμές του [MathDelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathdelimitershape/). Το `Centered` κεντράρει τις παρενθέσεις στον μαθηματικό άξονα, που διέρχεται από το κέντρο του συμβόλου ίσον. Το `Match` τις ευθυγραμμίζει με το περιεχόμενο που περικλείεται. Και οι δύο ρυθμίσεις επηρεάζουν μόνο τις διαχωριστές. Η εσωτερική έκφραση παραμένει η ίδια.
+Προωθήστε `true` στο [set_GrowToMatchOperandHeight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_growtomatchoperandheight/) ώστε οι αγκύλες να μεγαλώσουν γύρω από ένα ψηλό όργανο, ή `false` για να διατηρηθούν στο κανονικό τους μέγεθος. Το [set_DelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_delimitershape/) δέχεται μία από τις δύο τιμές του [MathDelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathdelimitershape/). Το `Centered` κεντράρει τις αγκύλες στον μαθηματικό άξονα, που περνάει από το μέσο του συμβόλου ίσον. Το `Match` τις ευθυγραμμίζει με το περιεχόμενο που περικλείει. Και οι δύο ρυθμίσεις επηρεάζουν μόνο τους οριοθέτες. Η εσωτερική έκφραση παραμένει η ίδια.
 
-Το παράδειγμα τοποθετεί ένα κλάσμα στον εκθέτη του `x` ώστε η έκφραση να εκτείνεται περισσότερο πάνω από τη βασική γραμμή απ' ό,τι κάτω από αυτή. Και οι τέσσερις εξισώσεις χρησιμοποιούν τις ίδιες παρενθέσεις και ρυθμίσεις γραμματοσειράς.
+Το παράδειγμα τοποθετεί ένα κλάσμα στον εκθέτη του `x` ώστε η έκφραση να επεκταθεί περισσότερο πάνω από τη βασική γραμμή από ό,τι κάτω από αυτήν. Όλες οι τέσσερις εξισώσεις χρησιμοποιούν τις ίδιες αγκύλες και ρυθμίσεις γραμματοσειράς.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -733,15 +733,15 @@ presentation->Save(u"delimiter-sizing.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Στο PowerPoint, συγκρίνετε τις γραμμές για να δείτε την επίδραση της ανάπτυξης. Στην κορυφαία γραμμή, οι παρενθέσεις μεγαλώνουν ώστε να περικλείσουν τον εκθέτη και φαίνονται όμοιες και για τις δύο μορφές. Στην κάτω γραμμή, η ανάπτυξη είναι ανενεργή. Οι μικρότερες παρενθέσεις στα αριστερά (`Centered`) ευθυγραμμίζονται με το σύμβολο ίσον, ενώ αυτές στα δεξιά (`Match`) είναι υψηλότερες γύρω από την έκφραση.
+Στο PowerPoint, συγκρίνετε τις γραμμές για να δείτε το αποτέλεσμα της μεγέθυνσης. Στην κορυφαία γραμμή, οι αγκύλες μεγαλώνουν για να αγκαλιάσουν τον εκθέτη και φαίνονται παρόμοιες για beide σχήματα. Στη κάτω γραμμή, η μεγέθυνση είναι απενεργοποιημένη. Οι μικρότερες αγκύλες στα αριστερά (`Centered`) ευθυγραμμίζονται με το σύμβολο ίσον, ενώ αυτές στα δεξιά (`Match`) βρίσκονται πιο ψηλά γύρω από την έκφραση.
 
-![Τέσσερις εξισώσεις στο PowerPoint με ενεργή και ανενεργή ανάπτυξη διαχωριστών, και Centered αριστερά και Match δεξιά](delimiter-sizing.png)
+![Τέσσερις εξισώσεις στο PowerPoint με ενεργοποιημένη τη μεγέθυνση των οριοθετών επάνω και απενεργοποιημένη κάτω, και `Centered` στα αριστερά και `Match` στα δεξιά](delimiter-sizing.png)
 
-## **Προσθήκη Πλαισίου Περιγράμματος**
+## **Προσθήκη Πλαίσιου Περιγράμματος**
 
-Καλέστε το [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) σε ένα κλάσμα για να πλαισιώσετε ολόκληρη την έκφραση. Το επιστρεφόμενο [IMathBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/) εμφανίζει όλες τις τέσσερις πλευρές από προεπιλογή. Χρησιμοποιήστε τα [set_HideTop](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidetop/), [set_HideBottom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidebottom/), [set_HideLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideleft/), και [set_HideRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideright/) για να αφαιρέσετε μεμονωμένες πλευρές.
+Καλέστε το [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) σε ένα κλάσμα για να πλαισιώσετε ολόκληρη την έκφραση. Το επιστρεφόμενο [IMathBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/) εμφανίζει όλες τις τέσσερις πλευρές εξ ορισμού. Χρησιμοποιήστε τα [set_HideTop](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidetop/), [set_HideBottom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidebottom/), [set_HideLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideleft/), και [set_HideRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideright/) για να αφαιρέσετε μεμονωμένες πλευρές.
 
-Το παράδειγμα τοποθετεί έξι αντίτυπα του ίδιου κλάσματος σε μία διαφάνεια. Για να δείξετε ακύρωση, κρύψτε όλες τις τέσσερις πλευρές και ορίστε το [set_StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughbottomlefttotopright/) για μια ανυψωτική διαγώνιο (↗) ή το [set_StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughtoplefttobottomright/) για μια κατιούσα διαγώνιο (↘). Μπορείτε επίσης να χρησιμοποιήσετε τα [set_StrikethroughHorizontal](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughhorizontal/) ή [set_StrikethroughVertical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughvertical/) με οποιονδήποτε συνδυασμό ορατών πλευρών.
+Το παράδειγμα τοποθετεί έξι αντίγραφα του ίδιου κλάσματος σε μία διαφάνεια. Για να δείξετε διαγραφή, κρύψτε όλες τις τέσσερις πλευρές και ορίστε το [set_StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughbottomlefttotopright/) για μια ανερχόμενη διαγώνιο (↗) ή το [set_StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughtoplefttobottomright/) για μια φθίνουσα διαγώνιο (↘). Μπορείτε επίσης να χρησιμοποιήσετε το [set_StrikethroughHorizontal](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughhorizontal/) ή το [set_StrikethroughVertical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughvertical/) με οποιονδήποτε συνδυασμό ορατών πλευρών.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -801,15 +801,127 @@ presentation->Save(u"border-box.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Έξι επεξεργάσιμα κλάσματα στο PowerPoint. Πάνω σειρά: πλήρες πλαίσιο, κάτω και αριστερές πλευρές, ανυψωτική διαγώνιο. Κάτω σειρά: κατιούσα διαγώνιο, οριζόντια γραμμή, κατακόρυφη γραμμή με πλήρες πλαίσιο](border-box-fractions.png)
+![Έξι επεξεργάσιμα κλάσματα στο PowerPoint. Πρώτη γραμμή: πλήρες περιθώριο, κάτω και αριστερές πλευρές, ανερχόμενη διαγώνιο. Δεύτερη γραμμή: φθίνουσα διαγώνιο, οριζόντια διαγραφή, κάθετη διαγραφή με πλήρες περιθώριο](border-box-fractions.png)
 
-Σε αυτό το κλάσμα, η οριζόντια γραμμή διαστέλλεται πάνω από τη μπάρα του κλάσματος. Η κατακόρυφη γραμμή διασχίζει τόσο το αριθμητή όσο και τον παρονομαστή ενώ το περιβάλλον πλαίσιο παραμένει ορατό. Αυτές οι γραμμές διακοσμούν ολόκληρη την έκφραση. Η συνηθισμένη διακριτή γραμμή κειμένου εφαρμόζεται σε χαρακτήρες σε ένα τμήμα κειμένου. Μετά το άνοιγμα ξανά της παρουσίασης στο PowerPoint, μπορείτε ακόμη να επεξεργαστείτε ανεξάρτητα τον αριθμητή και τον παρονομαστή.
+Σε αυτό το κλάσμα, η οριζόντια διαγραφή επικαλύπτει τη γραμμή του κλάσματος. Η κάθετη διαγραφή διασχίζει τόσο τον αριθμητή όσο και τον παρονομαστή ενώ το περιβάλλον περίγραμμα παραμένει ορατό. Αυτές οι γραμμές διακοσμούν όλη την έκφραση. Η κοινή διαγραφή κειμένου εφαρμόζεται σε χαρακτήρες σε μια σειρά κειμένου. Αφού ξανανοίξετε την παρουσίαση στο PowerPoint, μπορείτε ακόμα να επεξεργαστείτε ανεξάρτητα τον αριθμητή και τον παρονομαστή.
+
+## **Έλεγχος Ορατότητας και Διάταξης με Φανταστικά Στοιχεία**
+
+Τυλίξτε μια έκφραση στο [MathPhantom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathphantom/) για να ελέγξετε την ορατότητα της και τον χώρο που προσφέρει σε μια εξίσωση ανεξάρτητα. Οι μέθοδοι ρυθμίσεων του [IMathPhantom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/) ελέγχουν τα παρακάτω:
+
+| Μέθοδος | Επίδραση |
+| --- | --- |
+| [set_Show](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_show/) | Περάστε `false` για να κρύψετε την έκφραση. Οι διαστάσεις της εξακολουθούν να συμβάλλουν στη διάταξη εκτός εάν οι αντίστοιχες ρυθμίσεις παρακάτω είναι `true`. |
+| [set_ZeroWidth](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_zerowidth/) | Θεωρήστε το οριζόντιο μήκος της έκφρασης ως μηδέν, επιτρέποντας στα γειτονικά στοιχεία να πλησιάσουν πιο κοντά. |
+| [set_ZeroAsc](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_zeroasc/) | Θεωρήστε την άνοδο, το ύψος πάνω από τη βάση, ως μηδέν. Αυτό μπορεί να μειώσει το χώρο που κρατιέται πάνω από τα γειτονικά στοιχεία. |
+| [set_ZeroDesc](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_zerodesc/) | Θεωρήστε την κατάβαση, το βάθος κάτω από τη βάση, ως μηδέν. Αυτό μπορεί να φέρει τη γραμμή κλάσματος ή άλλο περιεχόμενο κάτω από την έκφραση πιο κοντά στους γείτονες. |
+
+Η γραμμή βάσης είναι η αναφορά γραμμή στην οποία καθε είτε μαθηματικά γράμματα κάθονται. Η απόκρυψη περιεχομένου δεν αφαιρεί τις διαστάσεις του, και η αντιμετώπιση μιας διάστασης ως μηδέν δεν διαγράφει την έκφραση. Η υποκείμενη έκφραση παραμένει διαθέσιμη μέσω του [get_Base](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/get_base/). Περάστε `true` στο [set_Show](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_show/) για να την εμφανίσετε ξανά· οι ρυθμίσεις διάστασης παραμένουν αμετάβλητες.
+
+Το παρακάτω παράδειγμα δημιουργεί πέντε παραλλαγές δίπλα-δίπλα: ένα ορατό κλάσμα, ένα κρυφό κλάσμα που διατηρεί χώρο, και τρία κρυφά κλάσματα με μία διάσταση να θεωρείται μηδέν. Κάθε παραλλαγή χρησιμοποιεί την ίδια περιβάλλουσα έκφραση και Cambria Math στα 24 points. Όλα τα σχήματα εξίσωσης έχουν την ίδια επάνω θέση, σημειωμένη από τον γκρι οδηγό. Η τοποθέτηση του φανταστικού στο αριθμητή ενός εξωτερικού κλάσματος καθιστά τις κατακόρυφες αλλαγές διάταξης πιο εύκολα ορατές.
+
+```cpp
+#include <array>
+#include <drawing/color.h>
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathFraction.h>
+#include <DOM/MathText/MathPhantom.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/TextAnchorType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
+auto createText = [](System::String value)
+{
+    auto text = System::MakeObject<MathematicalText>(value);
+    text->get_Format()->set_FontHeight(24);
+    auto font = System::MakeObject<FontData>(u"Cambria Math");
+    text->get_Format()->set_LatinFont(font);
+    return text;
+};
+
+auto presentation = System::MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(1000, 180, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+std::array<System::String, 5> labels = {u"Visible", u"Hidden: reserves space", u"Hidden: ZeroWidth", u"Hidden: ZeroAsc", u"Hidden: ZeroDesc"};
+
+auto guide = slide->get_Shapes()->AddAutoShape(ShapeType::Line, 10, 60, 980, 0);
+guide->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+guide->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_LightGray());
+
+for (auto i = 0; i < labels.size(); i++)
+{
+    auto left = 10 + i * 200;
+
+    auto label = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, left, 10, 190, 30);
+    label->get_FillFormat()->set_FillType(FillType::NoFill);
+    label->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+    label->get_TextFrame()->set_Text(labels[i]);
+
+    auto labelFormat = label->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat();
+    labelFormat->set_FontHeight(14);
+    labelFormat->get_FillFormat()->set_FillType(FillType::Solid);
+    labelFormat->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
+
+    auto fractionNumerator = createText(u"a+b");
+    auto fractionDenominator = createText(u"c+d");
+    auto fraction = System::MakeObject<MathFraction>(fractionNumerator, fractionDenominator);
+    auto phantom = System::MakeObject<MathPhantom>(fraction);
+    phantom->set_Show(i == 0);
+    phantom->set_ZeroWidth(i == 2);
+    phantom->set_ZeroAsc(i == 3);
+    phantom->set_ZeroDesc(i == 4);
+
+    auto leadingText = createText(u"x+");
+    auto trailingText = createText(u"+y");
+    auto numeratorBlock = System::MakeObject<MathBlock>(leadingText);
+    auto numerator = numeratorBlock->Join(phantom)->Join(trailingText);
+    auto denominator = createText(u"z");
+    auto equation = System::MakeObject<MathFraction>(numerator, denominator);
+
+    auto shape = slide->get_Shapes()->AddMathShape(left, 60, 190, 100);
+    shape->get_TextFrame()->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Top);
+
+    auto mathPortion = System::ExplicitCast<MathPortion>(shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+    auto mathParagraph = mathPortion->get_MathParagraph();
+    auto mathBlock = System::MakeObject<MathBlock>(equation);
+    mathParagraph->Add(mathBlock);
+}
+
+presentation->Save(u"math-phantom.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+![Πέντε εξισώσεις στο PowerPoint που συγκρίνουν ένα ορατό κλάσμα, ένα κρυφό κλάσμα που κρατά χώρο, και κρυφά κλάσματα με ενεργοποιημένα ZeroWidth, ZeroAsc ή ZeroDesc](math-phantom.png)
 
 ## **Ομαδοποίηση Όρων**
 
-Χρησιμοποιήστε το [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) για να τοποθετήσετε έναν χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε ένα όριο για να απαριθμήσετε τους ομαδοποιημένους όρους.
+Χρησιμοποιήστε το [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) για να τοποθετήσετε ένα χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε ένα όριο για να επισημάνετε τους ομαδοποιημένους όρους.
 
-![Η έκφραση x συν y ομαδοποιημένη με την ετικέτα οποιοδήποτε κείμενο κάτω από αυτή](powerpoint-math-equations_15.png)
+![Η έκφραση x + y ομαδοποιημένη με την ετικέτα οποιοδήποτε κείμενο κάτω από αυτήν](powerpoint-math-equations_15.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -849,9 +961,9 @@ presentation->Dispose();
 
 ## **Μορφοποίηση Μαθηματικών Στοιχείων**
 
-Χρησιμοποιήστε βοηθητικά εργαλεία μορφοποίησης μόνο όπου διευκρινίζουν τον τύπο. Για παράδειγμα, το [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/) τοποθετεί μια μπάρα πάνω από ένα μαθηματικό στοιχείο.
+Χρησιμοποιήστε βοηθητικά εργαλεία μορφοποίησης μόνο όπου διευκρινίζουν τον τύπο. Για παράδειγμα, το [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/) τοποθετεί μια γραμμή πάνω από ένα μαθηματικό στοιχείο.
 
-![Μαθηματική έκφραση ABC με μπάρα από πάνω](powerpoint-math-equations_14.png)
+![Μια μαθηματική έκφραση ABC με μια γραμμή επάνω](powerpoint-math-equations_14.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -887,9 +999,9 @@ presentation->Dispose();
 
 ### **Μορφοποίηση Κειμένου σε Υπάρχουσα Εξίσωση**
 
-Για να μορφοποιήσετε το κείμενο σε όλη μια υπάρχουσα εξίσωση, διασχίστε το δέντρο στοιχείων κάθε μαθηματικού μπλοκ. Το [IMathElement::GetChildren](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/getchildren/) επιστρέφει μόνο τα άμεσα παιδιά, επομένως καλέστε το αναδρομικά για να φτάσετε σε κείμενο μέσα σε κλάσματα, δείκτες, ριζάδες και άλλες ένθετες δομές. Ελέγξτε το τρέχον στοιχείο καθώς και τα παιδιά του για να συμπεριλάβετε το αρχικό στοιχείο όταν είναι [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/).
+Για να μορφοποιήσετε κείμενο σε όλη μια υπάρχουσα εξίσωση, περιηγηθείτε στο δέντρο στοιχείων κάθε μαθηματικού μπλοκ. Το [IMathElement::GetChildren](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/getchildren/) επιστρέφει μόνο τα άμεσα παιδιά, οπότε καλέστε το αναδρομικά για να φτάσετε σε κείμενο μέσα σε κλάσματα, εκθέτες, ριζικούς και άλλες ένθετες δομές. Ελέγξτε το τρέχον στοιχείο καθώς και τα παιδιά του ώστε να συμπεριλάβετε το αρχικό στοιχείο όταν είναι [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/).
 
-Αυτό το παράδειγμα υποθέτει ότι μια παρουσίαση περιέχει μια εξίσωση όπως `z = xᵢ / ∛y`, με ένα κλάσμα που περιέχει δείκτη στον αριθμητή και ρίζα στον παρονομαστή. Η επεξεργασία μόνο των στοιχείων ανώτερου επιπέδου του μπλοκ θα χάσει το κείμενο μέσα στο κλάσμα. Το παράδειγμα εντοπίζει μαθηματικά τμήματα σε πλαίσια κειμένου διαφανειών, προσπελαύνει τα μπλοκ τους μέσω του [IMathPortion::get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/get_mathparagraph/) και ορίζει το ύψος γραμματοσειράς στα 28 points με το [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/), προσπελαύνοντας τη μορφοποίηση μέσω της μεθόδου [get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/get_format/) κάθε στοιχείου κειμένου.
+Αυτό το παράδειγμα υποθέτει ότι μια παρουσίαση περιέχει μια εξίσωση όπως `z = xᵢ / ∛y`, με ένα κλάσμα που περιέχει δείκτη στον αριθμητή του και ριζικό στο παρονομαστή του. Η επεξεργασία μόνο των στοιχείων της ανώτερης επιπέδου του μπλοκ θα χάσει το κείμενο μέσα στο κλάσμα. Το παράδειγμα βρίσκει μαθηματικές περιοχές στα πλαίσια κειμένου των διαφανειών, προσπελάζει τα μπλοκ τους μέσω του [IMathPortion::get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/get_mathparagraph/), και θέτει το ύψος γραμματοσειράς στα 28 points με το [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/), προσπελαύνοντας τη μορφοποίηση μέσω της μεθόδου [get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/get_format/).
 
 ```cpp
 #include <functional>
@@ -956,14 +1068,14 @@ presentation->Save(u"formatted-equations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Η αποθηκευμένη παρουσίαση περιέχει την ενημερωμένη μορφοποίηση κειμένου σε κάθε επίπεδο κάθε επεξεργασμένης εξίσωσης, διατηρώντας το περιεχόμενο του κειμένου και τη μαθηματική της δομή.
+Η αποθηκευμένη παρουσίαση περιέχει την ενημερωμένη μορφοποίηση κειμένου σε κάθε επίπεδο κάθε επεξεργασμένης εξίσωσης, διατηρώντας το περιεχόμενο κειμένου και τη μαθηματική δομή.
 
 ## **Γρήγορη Αναφορά**
 
 | Εργασία | Κύριο API |
 | --- | --- |
 | Δημιουργία μαθηματικού κειμένου | [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) |
-| Συνδυασμός στοιχείων | [IMathElement.Join](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/join/) |
+| Συνένωση στοιχείων | [IMathElement.Join](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/join/) |
 | Δημιουργία κλασμάτων | [IMathElement.Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) |
 | Προσθήκη εκθέτη ή δείκτη | [SetSuperscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
 | Προσθήκη συναρτήσεων | [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
@@ -972,21 +1084,21 @@ presentation->Dispose();
 | Προσθήκη δεικτών αριστερά | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
 | Προσθήκη αθροίσεων και ολοκληρωμάτων | [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) |
 | Προσθήκη πινάκων | [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) |
-| Προσθήκη συλλογών εξισώσεων | [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
-| Προσθήκη διαχωριστών | [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) |
-| Προσθήκη μπαρών και πλαισίων | [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
+| Προσθήκη πινάκων εξισώσεων | [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
+| Προσθήκη οριοθετών | [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) |
+| Προσθήκη γραμμών και περιγραμμάτων | [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
 | Ομαδοποίηση όρων | [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) |
 
 ## **Συχνές Ερωτήσεις**
 
 **Μπορώ να επεξεργαστώ μια υπάρχουσα εξίσωση PowerPoint;**
 
-Ναι. Ανοίξτε την παρουσίαση, βρείτε το σχήμα που περιέχει ένα [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/), καλέστε το [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/) και ενημερώστε τα μαθηματικά μπλοκ σε αυτήν την παράγραφο.
+Ναι. Ανοίξτε την παρουσίαση, βρείτε το σχήμα που περιέχει μια [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/), καλέστε το [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/), και ενημερώστε τα μαθηματικά μπλοκ σε αυτήν την παράγραφο.
 
-**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμο μαθηματικό περιεχόμενο PowerPoint;**
+**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμο μαθηματικό PowerPoint;**
 
-Ναι. Όταν αποθηκεύετε σε PPTX, το Aspose.Slides γράφει την εξίσωση ως επεξεργάσιμο περιεχόμενο Office math.
+Ναι. Όταν αποθηκεύετε σε PPTX, το Aspose.Slides γράφει την εξίσωση ως επεξεργάσιμο Office math περιεχόμενο.
 
 **Μπορώ να εξάγω εξισώσεις σε LaTeX;**
 
-Ναι. Λάβετε το [IMathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/) της εξίσωσης από το [IMathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/) της, και καλέστε το [IMathParagraph::ToLatex](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) για να το εξάγετε απευθείας. Για ένα πλήρες παράδειγμα, δείτε [Export Math Equations from Presentations in C++](/slides/el/cpp/exporting-math-equations/#export-math-equations-to-latex).
+Ναι. Αποκτήστε το [IMathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/) από το [IMathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/), και καλέστε το [IMathParagraph::ToLatex](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) για να το εξάγετε άμεσα. Για ένα πλήρες παράδειγμα, δείτε [Export Math Equations from Presentations in C++](/slides/el/cpp/exporting-math-equations/#export-math-equations-to-latex).
