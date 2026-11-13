@@ -1,5 +1,5 @@
 ---
-title: เพิ่มสมการคณิตศาสตร์ในงานนำเสนอ PowerPoint ด้วย Python
+title: เพิ่มสมการคณิตศาสตร์ลงในงานนำเสนอ PowerPoint ด้วย Python
 linktitle: สมการคณิตศาสตร์ PowerPoint
 type: docs
 weight: 80
@@ -18,33 +18,33 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "แทรกและแก้ไขสมการคณิตศาสตร์ในไฟล์ PowerPoint PPT และ PPTX ด้วย Aspose.Slides สำหรับ Python ผ่าน Java รองรับ OMML, ควบคุมการจัดรูปแบบ, และตัวอย่างโค้ด Python ที่ชัดเจน."
+description: "แทรกและแก้ไขสมการคณิตศาสตร์ในไฟล์ PowerPoint PPT และ PPTX ด้วย Aspose.Slides สำหรับ Python ผ่าน Java รองรับ OMML การควบคุมการจัดรูปแบบ และตัวอย่างโค้ด Python ที่ชัดเจน"
 ---
 ## **ภาพรวม**
 
-PowerPoint จัดเก็บสมการเป็น Office Math Markup Language (OMML) โดยใช้ Aspose.Slides for Python via Java คุณสามารถสร้างเนื้อหาคณิตศาสตร์ประเภทเดียวกันโดยใช้โปรแกรมได้ เช่น เศษส่วน รากฟังก์ชัน ขอบเขต ตัวดำเนินการ N-ary เมทริกซ์ อาร์เรย์ และบล็อกคณิตศาสตร์ที่จัดรูปแบบ
+PowerPoint จัดเก็บสมการเป็น Office Math Markup Language (OMML) ด้วย Aspose.Slides for Python via Java คุณสามารถสร้างเนื้อหาคณิตศาสตร์ประเภทเดียวกันได้โดยอัตโนมัติ: เศษส่วน, ราก, ฟังก์ชัน, ขีดจำกัด, ตัวดำเนินการ N-ary, เมทริกซ์, อาร์เรย์, และบล็อกคณิตศาสตร์ที่จัดรูปแบบ
 
-ใน PowerPoint ผู้ใช้มักเพิ่มสมการจาก **Insert > Equation**:
+ใน PowerPoint ผู้ใช้มักเพิ่มสมการโดยไปที่ **Insert > Equation**:
 
-![แถบ Insert ของ PowerPoint ที่เลือกคำสั่ง Equation](powerpoint-math-equations_1.png)
+![แท็บ Insert ของ PowerPoint ที่เลือกคำสั่ง Equation](powerpoint-math-equations_1.png)
 
 ผลลัพธ์คือข้อความคณิตศาสตร์ที่สามารถแก้ไขได้บนสไลด์:
 
-![สไลด์ PowerPoint ที่มีสมการคณิตศาสตร์ที่สามารถแก้ไขได้](powerpoint-math-equations_2.png)
+![สไลด์ PowerPoint ที่มีสมการคณิตศาสตร์ที่แก้ไขได้](powerpoint-math-equations_2.png)
 
-Aspose.Slides สร้างข้อความคณิตศาสตร์นั้นโดยใช้วัตถุหลักสามประเภท:
+Aspose.Slides สร้างข้อความคณิตศาสตร์ผ่านสามอ็อบเจกต์หลัก:
 
-- รูปร่างคณิตศาสตร์ที่สร้างโดยใช้ [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape), เป็นรูปร่างที่บรรจุสมการ.
-- [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) เก็บเนื้อหาคณิตศาสตร์ภายในกรอบข้อความของรูปร่าง.
-- [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) ประกอบด้วยหนึ่งหรือหลายวัตถุ [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/).
+- รูปร่างคณิตศาสตร์ที่สร้างด้วย [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) เป็นรูปร่างที่บรรจุสมการ
+- [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) เก็บเนื้อหาคณิตศาสตร์ภายในกรอบข้อความของรูปร่าง
+- [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) มีหนึ่งหรือหลายอ็อบเจกต์ [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/)
 
-ตัวอย่างส่วนใหญ่ด้านล่างใช้ [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) และเมธอดแบบ fluent จาก [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) เพื่อทำให้โค้ดสั้นและอ่านง่าย.
+ตัวอย่างส่วนใหญ่ด้านล่างใช้ [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) และเมธอดแบบ fluent จาก [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) เพื่อให้โค้ดสั้นและอ่านง่าย
 
-สำหรับสถานการณ์ส่งออก MathML, ดูที่ [ส่งออกสมการคณิตศาสตร์จากงานนำเสนอใน Python](/slides/th/python-java/exporting-math-equations/).
+สำหรับสถานการณ์การส่งออก MathML ดูที่ [Export Math Equations from Presentations in Python](/slides/th/python-java/exporting-math-equations/)
 
 ## **สร้างสมการ**
 
-ตัวอย่างนี้ใช้ [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) เพื่อสร้างรูปร่างคณิตศาสตร์และเพิ่มทฤษฎีพีทากอรัส:
+ตัวอย่างนี้ใช้ [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) เพื่อสร้างรูปร่างคณิตศาสตร์และเพิ่มทฤษฎีพีทาโกรัส:
 
 ![สมการ c กำลังสองเท่ากับ a กำลังสองบวก b กำลังสอง](powerpoint-math-equations_3.png)
 
@@ -76,14 +76,14 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) สร้างรูปร่างที่มี Math paragraph อยู่แล้ว เข้าถึง [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) แรก, เรียก [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), และเพิ่มบล็อกคณิตศาสตร์หรือองค์ประกอบคณิตศาสตร์เข้าไป
+[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) สร้างรูปร่างที่มี MathParagraph อยู่แล้ว เข้าถึง [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) แรก, เรียก [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), แล้วเพิ่ม MathBlock หรือ MathElement เข้าไป
 {{% /alert %}}
 
 ## **เพิ่มเศษส่วน**
 
-ใช้ [divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) เพื่อสร้างเศษส่วน คุณสามารถเลือกสไตล์ของเศษส่วนได้ด้วย [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/).
+ใช้ [divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) เพื่อสร้างเศษส่วน คุณสามารถเลือกสไตล์ของเศษส่วนด้วย [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/)
 
-![เศษส่วนคณิตศาสตร์เอียงที่แสดง 1 หาร x](powerpoint-math-equations_4.png)
+![เศษส่วนคณิตศาสตร์ที่เอียงแสดง 1 หารด้วย x](powerpoint-math-equations_4.png)
 
 ```python
 import jpype
@@ -111,7 +111,7 @@ finally:
     presentation.dispose()
 ```
 
-สำหรับเศษส่วนแบบ stacked ให้ใช้ [MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar):
+สำหรับเศษส่วนแบบซ้อนกัน ให้ใช้ [MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar):
 
 ```python
 import jpype
@@ -127,9 +127,9 @@ stacked_fraction = MathematicalText("x + 1").divide("y - 1", MathFractionTypes.B
 
 ## **เพิ่มราก**
 
-ใช้ [radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) เพื่อสร้างรากที่สอง รากที่สาม หรือรากอื่น ๆ ส่วนประกอบปัจจุบันจะเป็นฐาน และอาร์กิวเมนต์จะเป็นดีกรี.
+ใช้ [radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) เพื่อสร้างรากที่สอง, รากที่สามหรือรากอื่น ๆ ส่วนประกอบปัจจุบันจะเป็นฐานและอากูเมนต์จะเป็นลำดับของราก
 
-![นิพจน์ราก n-th ที่มี x อยู่ใต้สัญลักษณ์ราก](powerpoint-math-equations_5.png)
+![นิพจน์รากที่ n มี x อยู่ใต้สัญลักษณ์ราก](powerpoint-math-equations_5.png)
 
 ```python
 import jpype
@@ -157,11 +157,11 @@ finally:
     presentation.dispose()
 ```
 
-## **เพิ่มฟังก์ชันและขอบเขต**
+## **เพิ่มฟังก์ชันและขีดจำกัด**
 
-ใช้ [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) หรือ [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) สำหรับฟังก์ชันเช่น `sin(x)`, `log(x)` หรือชื่อฟังก์ชันที่กำหนดเอง สำหรับขอบเขต ให้ใส่ `lim` ใน [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) หรือใช้ [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit).
+ใช้ [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) หรือ [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) สำหรับฟังก์ชันเช่น `sin(x)`, `log(x)`, หรือชื่อฟังก์ชันที่กำหนดเอง สำหรับขีดจำกัด ใส่ `lim` ลงใน [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) หรือใช้ [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit)
 
-![ขอบเขตของ x เมื่อ x เข้าใกล้อนันต์](powerpoint-math-equations_8.png)
+![ขีดจำกัดของ x เมื่อ x เข้าใกล้อนันต์](powerpoint-math-equations_8.png)
 
 ```python
 import jpype
@@ -189,7 +189,7 @@ finally:
     presentation.dispose()
 ```
 
-สำหรับชื่อฟังก์ชันที่กำหนดเอง ให้ทำให้ชื่อฟังก์ชันเป็นส่วนประกอบปัจจุบันแล้วเรียก [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) พร้อมอาร์กิวเมินท์ของมัน:
+สำหรับชื่อฟังก์ชันที่กำหนดเอง ให้ตั้งชื่อฟังก์ชันเป็นส่วนประกอบปัจจุบันและเรียก [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) พร้อมอากูเมนต์ของมัน:
 
 ```python
 import jpype
@@ -203,11 +203,11 @@ from asposeslides.api import MathematicalText
 custom_function = MathematicalText("f").function("x + 1")
 ```
 
-## **เพิ่มตัวดำเนินการ N-ary และอินทิกรัล**
+## **เพิ่มตัวดำเนินการ N-ary และอินทิเกรัล**
 
-ใช้ [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) สำหรับผลบวก, ยูเนียน, อินเตอร์เซคชันและตัวดำเนินการขนาดใหญ่อื่น ๆ ใช้ [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) สำหรับอินทิกรัล ทั้งสองเมธอดให้คุณตั้งค่าขอบล่างและบน.
+ใช้ [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) สำหรับการบวกผลรวม, ยูเนียน, อินเตอร์เซกชัน และตัวดำเนินการขนาดใหญ่อื่น ๆ ใช้ [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) สำหรับอินทิเกรัล ทั้งสองเมธอดให้คุณตั้งค่าขีดจำกัดล่างและบน
 
-![ผลบวกที่มีขอบเขตล่างและบน](powerpoint-math-equations_7.png)
+![การบวกผลรวมที่มีขีดจำกัดล่างและบน](powerpoint-math-equations_7.png)
 
 ```python
 import jpype
@@ -238,9 +238,9 @@ finally:
     presentation.dispose()
 ```
 
-ตัวดำเนินการ N-ary ใช้สำหรับตัวดำเนินการขนาดใหญ่ที่มีขอบเขตเป็นตัวเลือก ตัวดำเนินการแบบง่ายเช่น `+`, `-`, และ `=` มักเพิ่มเป็น [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) และรวมเข้าในนิพจน์.
+ตัวดำเนินการ N-ary ใช้สำหรับตัวดำเนินการขนาดใหญ่ที่มีขีดจำกัดเป็นตัวเลือก ตัวดำเนินการง่ายเช่น `+`, `-`, และ `=` มักเพิ่มเป็น [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) และรวมเข้ากับนิพจน์
 
-สำหรับอินทิกรัล, ให้ใช้ [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral):
+สำหรับอินทิเกรัล ให้ใช้ [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral):
 
 ```python
 import jpype
@@ -258,9 +258,9 @@ integral = integral_base.integral(MathIntegralTypes.Simple, "0", "1")
 
 ## **เพิ่มเมทริกซ์**
 
-ใช้ [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) สำหรับแถวและคอลัมน์ เมทริกซ์โดยปริยายจะไม่มีวงเล็บ ดังนั้นให้ล้อมเมทริกซ์เมื่อคุณต้องการวงเล็บ, วงกต หรือปีกกา.
+ใช้ [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) สำหรับแถวและคอลัมน์ เมทริกซ์โดยปกติจะไม่มีวงเล็บ จึงควรล้อมเมทริกซ์ด้วยวงเล็บ, วงสี่เหลี่ยมหรือโค้งเมื่อจำเป็น
 
-![เมทริกซ์คณิตศาสตร์สองแถวที่มีเซลล์ว่างหนึ่งช่อง](powerpoint-math-equations_10.png)
+![เมทริกซ์คณิตศาสตร์สองแถวที่มีช่องว่างหนึ่งช่อง](powerpoint-math-equations_10.png)
 
 ```python
 import jpype
@@ -298,11 +298,11 @@ finally:
     presentation.dispose()
 ```
 
-## **เพิ่มอาร์เรย์สมการ**
+## **เพิ่มอาเรย์สมการ**
 
-ใช้ [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) เมื่อคุณต้องการสมการที่จัดแนวหรือสแตกแนวตั้งของนิพจน์.
+ใช้ [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) เมื่อคุณต้องการสมการที่จัดแนวหรือสแตกแนวตั้งของนิพจน์
 
-![อาร์เรย์คณิตศาสตร์แนวตั้งที่มี x อยู่เหนือ y](powerpoint-math-equations_11.png)
+![อาเรย์คณิตศาสตร์แนวตั้งที่มี x อยู่เหนือ y](powerpoint-math-equations_11.png)
 
 ```python
 import jpype
@@ -330,11 +330,11 @@ finally:
     presentation.dispose()
 ```
 
-### **จัดแนวอาร์เรย์กับองค์ประกอบโดยรอบ**
+### **จัดแนวอาเรย์กับองค์ประกอบโดยรอบ**
 
-[setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) ควบคุมการจัดแนวแนวตั้งของอาร์เรย์เทียบกับองค์ประกอบคณิตศาสตร์ที่อยู่ข้างๆ ตัวอย่างด้านล่างเปรียบเทียบการจัดแนวกับแถวแรก, กึ่งกลางของอาร์เรย์, และแถวสุดท้าย.
+[setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) ควบคุมการจัดแนวแนวตั้งของอาเรย์สัมพันธ์กับองค์ประกอบคณิตศาสตร์ข้างเคียง ตัวอย่างด้านล่างเปรียบเทียบการจัดแนวกับแถวแรก, ศูนย์กลางของอาเรย์, และแถวสุดท้าย
 
-ตัวอย่างต่อไปนี้สร้างอาร์เรย์ที่เหมือนกันสามชุด, แต่ละชุดมีสามแถวและองค์ประกอบข้างเคียง `A=` และ `=B`. ข้อความคณิตศาสตร์ทั้งหมดใช้ฟอนท์ Cambria Math ขนาด 24 pt. มีเพียงการจัดแนวอาร์เรย์ที่เปลี่ยนแปลง.
+ตัวอย่างต่อไปนี้สร้างอาเรย์ที่เหมือนกันสามชุด แต่ละชุดมีสามแถวและองค์ประกอบข้างเคียง `A=` และ `=B` ข้อความคณิตศาสตร์ทั้งหมดใช้ฟอนต์ Cambria Math ขนาด 24 จุด มีเพียงการจัดแนวอาเรย์ที่แตกต่างกัน
 
 ```python
 import jpype
@@ -388,17 +388,17 @@ finally:
     presentation.dispose()
 ```
 
-การเปรียบเทียบต่อไปนี้แสดงการบันทึกงานนำเสนอใน PowerPoint. สังเกตตำแหน่งของ `A=` และ `=B` ข้างแต่ละอาร์เรย์.
+ตัวอย่างเปรียบเทียบแสดงงานนำเสนอที่บันทึกใน PowerPoint ให้สังเกตตำแหน่งของ `A=` และ `=B` ข้างอาเรย์แต่ละอัน
 
-![อาร์เรย์สมการใน PowerPoint ที่มีการจัดแนวบน กลาง และล่าง พร้อมองค์ประกอบข้างเคียงที่เหมือนกัน](equation-array-alignment.png)
+![อาเรย์สมการใน PowerPoint ที่มีการจัดแนวบน, กลาง, และล่าง พร้อมองค์ประกอบข้างเคียงที่เหมือนกัน](equation-array-alignment.png)
 
-### **กำหนดระยะห่างแถว**
+### **ตั้งค่าการเว้นระยะแถว**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) เลือกกฎการเว้นระยะสำหรับแถวภายในอาร์เรย์. [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) ให้ค่าตัวเลขสำหรับกฎการเว้นระยะแบบเจาะจงและจะถูกละเลยเมื่อใช้กฎที่กำหนดไว้ล่วงหน้า.
+[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) เลือกกฎการเว้นระยะสำหรับแถวภายในอาเรย์ [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) ใส่ค่าตัวเลขสำหรับกฎการเว้นระยะแบบเจาะจงและจะถูกละเว้นโดยกฎที่กำหนดไว้ล่วงหน้า
 
-สำหรับการเว้นระยะแบบเจาะจง, ค่าจะวัดเป็นจุด. สำหรับการเว้นระยะเชิงสัดส่วน, จะวัดเป็นครึ่งบรรทัด: ค่า `3` ในตัวอย่างหมายถึง 1.5 บรรทัด. ตั้งค่าทั้งสองคุณสมบัติโดยพร้อมกันเมื่อระบุค่าที่เจาะจง; การเปลี่ยนค่าเชิงตัวเลขเพียงอย่างเดียวจะไม่เลือกกฎการเว้นระยะ.
+สำหรับการเว้นระยะที่แม่นยำ ค่าจะวัดเป็นจุด สำหรับการเว้นระยะเชิงสัดส่วน จะวัดเป็นครึ่งบรรทัด: ค่า `3` ในตัวอย่างหมายถึง 1.5 บรรทัด ตั้งค่าทั้งสองคุณสมบัติเมื่อต้องการกำหนดค่าที่เจาะจง; การเปลี่ยนค่าแบบตัวเลขอย่างเดียวจะไม่เลือกกฎการเว้นระยะ
 
-ตัวอย่างด้านล่างบันทึกงานนำเสนอห้าฉบับที่มีสมการ, การจัดแนวและการตั้งค่าฟอนท์เดียวกัน. สามฉบับแรกใช้ค่าที่กำหนดไว้ล่วงหน้า; สองฉบับสุดท้ายแสดงค่าที่เจาะจง.
+ตัวอย่างด้านล่างบันทึกงานนำเสนอห้าชุดที่มีสมการเดียวกัน, การจัดแนวเดียวกัน, และการตั้งค่าฟอนต์ แถวแรกสามชุดใช้ค่าที่กำหนดล่วงหน้า; สองชุดสุดท้ายแสดงค่าที่เจาะจง
 
 ```python
 import jpype
@@ -442,11 +442,11 @@ for name, rule, spacing in settings:
         presentation.dispose()
 ```
 
-ระยะห่างของแถวในอาร์เรย์แยกจากระยะห่างของย่อหน้าต่าง ๆ. [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) และ [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) เพิ่มระยะห่างรอบย่อหน้าที่บรรจุ, ไม่ได้อยู่ระหว่างแถวของอาร์เรย์. เช่นเดียวกับนั้น, [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) วางตำแหน่งของย่อหน้าคณิตศาสตร์ทั้งหมดในแนวนอน; มันไม่ได้แทนที่การตั้งค่าการจัดแนวแนวตั้งของอาร์เรย์.
+การเว้นระยะแถวของอาเรย์แยกจากการเว้นระยะของย่อหน้า [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) และ [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) เพิ่มระยะรอบย่อหน้าที่บรรจุอาเรย์ ไม่ได้เพิ่มระยะระหว่างแถวของอาเรย์เช่นกัน [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) จัดตำแหน่งย่อหน้าคณิตศาสตร์ทั้งหมดในแนวนอน; ไม่ได้แทนที่การตั้งค่าการจัดแนวแนวตั้งของอาเรย์
 
 ## **เพิ่มฟังก์ชันตรีโกณมิติ**
 
-ใช้ [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) เมื่ออาร์กิวเมนต์เป็นส่วนประกอบปัจจุบันและทราบชื่อฟังก์ชัน.
+ใช้ [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) เมื่ออากูเมนต์เป็นส่วนประกอบปัจจุบันและชื่อฟังก์ชันเป็นที่ทราบ
 
 ![ฟังก์ชันตรีโกณมิติ cos ที่ใช้กับ 2x](powerpoint-math-equations_6.png)
 
@@ -476,11 +476,11 @@ finally:
     presentation.dispose()
 ```
 
-## **เพิ่มตัวห้อยและยกกำลัง**
+## **เพิ่มตัวห้อยบนและตัวห้อยล่าง**
 
-ใช้ตัวช่วยการห้อยและยกกำลังสำหรับดัชนีและกำลัง. เมื่อดัชนีต้องแสดงทางด้านซ้ายของฐาน, ให้ใช้ [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
+ใช้ตัวช่วยสำหรับตัวห้อยบนและห้อยล่างสำหรับดัชนีและกำลัง เมื่อดัชนีต้องแสดงทางด้านซ้ายของฐาน ให้ใช้ [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft)
 
-![ตัวอักษร Y ตัวพิมพ์ใหญ่ที่มีตัวห้อยด้านซ้าย 1 และตัวยกกำลัง n](powerpoint-math-equations_9.png)
+![ตัว Y ตัวพิมพ์ใหญ่ที่มีตัวห้อยล่าง 1 ฝั่งซ้ายและตัวห้อยบน n](powerpoint-math-equations_9.png)
 
 ```python
 import jpype
@@ -508,11 +508,11 @@ finally:
     presentation.dispose()
 ```
 
-## **เพิ่มตัวจำกัด**
+## **เพิ่มตัวคั่น**
 
-ใช้ [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) เพื่อใส่นิพจน์ในตัวจำกัด. คุณยังสามารถตั้งค่าตัวอักษรคั่นสำหรับนิพจน์ตัวจำกัดที่มีหลายองค์ประกอบได้.
+ใช้ [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) เพื่อใส่นิพจน์ภายในตัวคั่น คุณยังสามารถกำหนดอักขระคั่นสำหรับนิพจน์ที่มีหลายองค์ประกอบได้
 
-![นิพจน์ตัวจำกัดที่มี x, y และ z แยกด้วยเส้นตั้ง](powerpoint-math-equations_13.png)
+![นิพจน์ตัวคั่นที่มี x, y, และ z คั่นด้วยเส้นแนวตั้ง](powerpoint-math-equations_13.png)
 
 ```python
 import jpype
@@ -541,11 +541,11 @@ finally:
     presentation.dispose()
 ```
 
-### **ขนาดและการจัดแนวตัวจำกัด**
+### **ขนาดและการจัดแนวตัวคั่น**
 
-ส่ง `True` ไปยัง [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) เพื่อให้วงเล็บขยายรอบออปอแรนด์สูง, หรือส่ง `False` เพื่อให้คงขนาดปกติ. ใช้ [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) กับหนึ่งในสองค่า [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/). `Centered` จัดกลางวงเล็บบนแกนคณิตศาสตร์ ซึ่งวิ่งผ่านกลางเครื่องหมายเท่ากับ. `Match` จัดให้ตรงกับเนื้อหาที่อยู่ภายใน. ทั้งสองการตั้งค่าส่งผลต่อเฉพาะตัวจำกัด. นิพจน์ภายในคงเดิม.
+ส่ง `True` ไปที่ [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) เพื่อให้วงเล็บขยายรอบอ็อพเดรนด์ที่สูง หรือส่ง `False` เพื่อคงขนาดเดิม ใช้ [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) กับค่าใดค่าหนึ่งของ [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/) `Centered` จัดตำแหน่งวงเล็บให้ศูนย์กลางบนแกนคณิตศาสตร์ที่ผ่านตัวเครื่องหมายเท่ากัน `Match` จัดตำแหน่งให้ตรงกับเนื้อหาที่ล้อมรอบ ทั้งสองการตั้งค่ามีผลต่อเฉพาะตัวคั่นเท่านั้น เนื้อหาภายในคงเดิม
 
-ตัวอย่างวางเศษส่วนในดีกรีของ `x` ทำให้นิพจน์ยื่นเหนือเส้นฐานมากกว่าต่ำ. ทั้งสี่สมการใช้วงเล็บและการตั้งค่าฟอนท์เดียวกัน.
+ตัวอย่างใส่เศษส่วนในส่วนยกกำลังของ `x` ทำให้ส่วนขยายเหนือเส้นฐานมากกว่าใต้ ตัวอย่างสี่สมการใช้วงเล็บและการตั้งค่าฟอนต์เดียวกัน
 
 ```python
 import jpype
@@ -578,15 +578,15 @@ finally:
     presentation.dispose()
 ```
 
-ใน PowerPoint, เปรียบเทียบแถวเพื่อดูผลของการขยาย. ในแถวบน, วงเล็บขยายเพื่อห่อดีกรีและดูเหมือนกันสำหรับทั้งสองรูป. ในแถวล่าง, การขยายถูกปิด. วงเล็บเล็กด้านซ้าย (`Centered`) จัดกับเครื่องหมายเท่ากับ, ขณะที่ด้านขวา (`Match`) ยกสูงกว่าเหนือศูนย์ของนิพจน์.
+ใน PowerPoint ให้เปรียบเทียบแถวเพื่อดูผลของการขยาย แถวบนวงเล็บจะขยายเพื่อครอบส่วนยกกำลังและดูเหมือนกันสำหรับทั้งสองรูปแบบ แถวล่างการขยายปิดไว้ วงเล็บเล็กด้านซ้าย (`Centered`) จัดตำแหน่งกับเครื่องหมายเท่า ส่วนขวา (`Match`) ยกสูงกว่ารอบนิพจน์
 
-![สี่สมการใน PowerPoint ที่เปิดการเติบโตของตัวจำกัดด้านบนและปิดด้านล่าง, พร้อม Centered ทางซ้ายและ Match ทางขวา](delimiter-sizing.png)
+![สี่สมการใน PowerPoint ที่เปิดใช้งานการขยายตัวคั่นด้านบนและปิดด้านล่าง, Centered อยู่ซ้ายและ Match อยู่ขวา](delimiter-sizing.png)
 
-## **เพิ่มกรอบขอบ**
+## **เพิ่มกล่องขอบ**
 
-เรียก [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) บนเศษส่วนเพื่อกำหนดกรอบให้กับนิพจน์ทั้งหมด. [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) ที่คืนค่าแสดงสี่ด้านโดยปริยาย. ใช้ [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft) และ [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) เพื่อซ่อนด้านแต่ละด้าน.
+เรียก [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) บนเศษส่วนเพื่อทำกรอบรอบนิพจน์ทั้งหมด [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) ที่คืนค่ามีสี่ด้านตามค่าเริ่มต้น ใช้ [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft) และ [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) เพื่อลบด้านแต่ละด้าน
 
-ตัวอย่างวางเศษส่วนเดียวกันหกสำเนาบนสไลด์หนึ่ง. เพื่อแสดงการยกเลิก, ซ่อนสี่ด้านทั้งหมดและส่ง `True` ไปยัง [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) สำหรับเส้นทแยงขึ้น (↗) หรือ [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) สำหรับเส้นทแยงลง (↘). คุณยังสามารถใช้ [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) หรือ [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) ร่วมกับการแสดงด้านที่ต้องการได้.
+ตัวอย่างวางสำเนาเศษส่วนเดียวกันหกชุดบนสไลด์เดียว เพื่อแสดงการตัด ให้ซ่อนสี่ด้านทั้งหมดและส่ง `True` ไปที่ [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) เพื่อให้เส้นทแยงขึ้น (↗) หรือ [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) เพื่อให้เส้นทแยงลง (↘) คุณยังสามารถใช้ [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) หรือ [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) กับการผสมใดก็ได้ของด้านที่มองเห็น
 
 ```python
 import jpype
@@ -633,15 +633,98 @@ finally:
     presentation.dispose()
 ```
 
-![หกเศษส่วนที่สามารถแก้ไขได้ใน PowerPoint. แถวบน: กรอบเต็ม, ด้านล่างและด้านซ้าย, เส้นทแยงขึ้น. แถวล่าง: เส้นทแยงลง, เส้นขีดแนวนอน, เส้นขีดแนวตั้งพร้อมกรอบเต็ม](border-box-fractions.png)
+![หกเศษส่วนที่แก้ไขได้ใน PowerPoint. แถวบน: กรอบเต็ม, ด้านล่างและซ้าย, เส้นทแยงขึ้น. แถวล่าง: เส้นทแยงลง, เครื่องหมายขีดแนวนอน, เครื่องหมายขีดแนวดิ่งกับกรอบเต็ม](border-box-fractions.png)
 
-บนเศษส่วนนี้, เส้นขีดแนวนอนทับบาร์ของเศษส่วน. เส้นขีดแนวตั้งตัดส่วนบนและส่วนล่างพร้อมกรอบโดยรอบยังคงมองเห็นได้. เส้นเหล่านี้ตกแต่งนิพจน์ทั้งหมด. การขีดเส้นลายมาตรฐานใช้กับอักขระในรันข้อความ. หลังจากเปิดงานนำเสนอใน PowerPoint อีกครั้ง, คุณยังคงแก้ไขส่วนบนและส่วนล่างได้อย่างอิสระ.
+บนเศษส่วนนี้ เส้นขีดแนวนอนทับแถบเศษส่วน เส้นขีดแนวดิ่งข้ามตัวเศษและตัวส่วนในขณะที่กรอบรอบข้างยังคงมองเห็นได้ เส้นเหล่านี้ทำหน้าที่ประดับนิพจน์ทั้งหมด ขีดเส้นกลางของข้อความธรรมดาจะกระทำต่ออักขระในรันข้อความ หลังจากเปิดงานนำเสนอใหม่ใน PowerPoint ยังคงสามารถแก้ไขตัวเศษและตัวส่วนแยกกันได้
 
-## **จัดกลุ่มเงื่อนไข**
+## **ควบคุมการมองเห็นและการจัดวางด้วยองค์ประกอบ Phantom**
 
-ใช้ [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) เพื่อวางอักขระจัดกลุ่มเหนือหรือใต้นิพจน์. เพิ่มขอบเขตเพื่อทำป้ายกำกับให้กับกลุ่มเงื่อนไข.
+ใส่นิพจน์ใน [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) เพื่อควบคุมการมองเห็นและพื้นที่ที่มันมีส่วนร่วมในสมการอย่างอิสระ วิธีของ [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) ควบคุมดังต่อไปนี้
 
-![นิพจน์ x + y ที่จัดกลุ่มพร้อมป้ายกำกับข้อความใดก็ได้ด้านล่าง](powerpoint-math-equations_15.png)
+| วิธีการ | ผล |
+| --- | --- |
+| [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) | ส่ง `False` เพื่อซ่อนนิพจน์ มิติของมันยังคงมีส่วนร่วมในการจัดวาง เว้นแต่เมธอดที่เกี่ยวข้องด้านล่างจะรับค่า `True` |
+| [setZeroWidth](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroWidth) | ปฏิบัติกับความกว้างแนวนอนของนิพจน์เป็นศูนย์ ทำให้ส่วนประกอบข้างเคียงย้ายเข้าหากันได้ |
+| [setZeroAsc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroAsc) | ปฏิบัติกับการขึ้นของมัน (ความสูงเหนือเส้นฐาน) เป็นศูนย์ สามารถลดพื้นที่ที่จองไว้เหนือส่วนประกอบข้างเคียง |
+| [setZeroDesc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroDesc) | ปฏิบัติกับการลงของมัน (ความลึกใต้เส้นฐาน) เป็นศูนย์ สามารถย้ายแถบเศษส่วนหรือเนื้อหาอื่น ๆ ใต้นิพจน์ให้เข้าใกล้ส่วนประกอบข้างเคียงมากขึ้น |
+
+เส้นฐานคือเส้นอ้างอิงที่อักขระคณิตศาสตร์ปกติวางอยู่ การซ่อนเนื้อหาไม่ได้ลบมิติของมันออก และการตั้งมิติเป็นศูนย์ไม่ได้ลบนิพจน์ออก นิพจน์พื้นฐานยังคงเข้าถึงได้ผ่าน [getBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#getBase) ส่ง `True` ไปที่ [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) เพื่อแสดงอีกครั้ง; การตั้งค่ามิติก็ยังคงเดิม
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, MathBlock, MathFraction, MathematicalText, MathPhantom, Presentation, SaveFormat, ShapeType, SlideSizeScaleType, TextAnchorType
+from java.awt import Color
+
+
+def create_text(value):
+    text = MathematicalText(value)
+    text.getFormat().setFontHeight(24)
+    text.getFormat().setLatinFont(FontData("Cambria Math"))
+    return text
+
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(1000, 180, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    labels = ("Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc")
+
+    guide = slide.getShapes().addAutoShape(ShapeType.Line, 10, 60, 980, 0)
+    guide.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.LIGHT_GRAY)
+
+    for index, name in enumerate(labels):
+        left = 10 + index * 200
+        
+        label = slide.getShapes().addAutoShape(ShapeType.Rectangle, left, 10, 190, 30)
+        label.getFillFormat().setFillType(FillType.NoFill)
+        label.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        label.getTextFrame().setText(name)
+        label_format = label.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat()
+        label_format.setFontHeight(14)
+        label_format.getFillFormat().setFillType(FillType.Solid)
+        label_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+        fraction_numerator = create_text("a+b")
+        fraction_denominator = create_text("c+d")
+        fraction = MathFraction(fraction_numerator, fraction_denominator)
+        phantom = MathPhantom(fraction)
+        phantom.setShow(index == 0)
+        phantom.setZeroWidth(index == 2)
+        phantom.setZeroAsc(index == 3)
+        phantom.setZeroDesc(index == 4)
+
+        left_text = create_text("x+")
+        right_text = create_text("+y")
+        numerator = MathBlock(left_text).join(phantom).join(right_text)
+        denominator = create_text("z")
+        equation = MathFraction(numerator, denominator)
+
+        shape = slide.getShapes().addMathShape(left, 60, 190, 100)
+        shape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Top)
+        math_portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+        math_paragraph = math_portion.getMathParagraph()
+        math_block = MathBlock(equation)
+        math_paragraph.add(math_block)
+
+    presentation.save("math-phantom.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![ห้าสมการใน PowerPoint ที่เปรียบเทียบเศษส่วนที่มองเห็น, เศษส่วนที่ซ่อนแต่จองพื้นที่, และเศษส่วนที่ซ่อนพร้อม ZeroWidth, ZeroAsc หรือ ZeroDesc](math-phantom.png)
+
+## **จัดกลุ่มเทอม**
+
+ใช้ [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) เพื่อวางอักขระจัดกลุ่มเหนือหรือใต้นิพจน์ เพิ่มขีดจำกัดเพื่อระบุเทอมที่จัดกลุ่ม
+
+![นิพจน์ x + y ที่จัดกลุ่มพร้อมป้ายข้อความใด ๆ ด้านล่าง](powerpoint-math-equations_15.png)
 
 ```python
 import jpype
@@ -671,9 +754,9 @@ finally:
 
 ## **จัดรูปแบบองค์ประกอบคณิตศาสตร์**
 
-ใช้ตัวช่วยการจัดรูปแบบเฉพาะที่ทำให้สูตรชัดเจน. ตัวอย่างเช่น, [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) จะวางแถบเหนือองค์ประกอบคณิตศาสตร์.
+ใช้ตัวช่วยจัดรูปแบบเฉพาะที่จำเป็นเพื่อทำให้สูตรชัดเจน ตัวอย่างเช่น [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) ใส่เส้นขีดเหนือองค์ประกอบคณิตศาสตร์
 
-![นิพจน์คณิตศาสตร์ ABC ที่มีแถบเหนือ](powerpoint-math-equations_14.png)
+![นิพจน์คณิตศาสตร์ ABC ที่มีเส้นขีดเหนือ](powerpoint-math-equations_14.png)
 
 ```python
 import jpype
@@ -703,9 +786,9 @@ finally:
 
 ### **จัดรูปแบบข้อความในสมการที่มีอยู่**
 
-เพื่อจัดรูปแบบข้อความทั้งหมดในสมการที่มีอยู่, ให้เดินทางผ่านโครงสร้างต้นไม้ของแต่ละบล็อกคณิตศาสตร์. [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) คืนค่าตัวลูกโดยตรงเท่านั้น, ดังนั้นให้เรียกแบบเรียกซ้ำเพื่อเข้าถึงข้อความภายในเศษส่วน, สคริปต์, รากและโครงสร้างซ้อนอื่น ๆ. ตรวจสอบส่วนประกอบปัจจุบันและลูกของมันเพื่อรวมส่วนประกอบเริ่มต้นเมื่อเป็น [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/).
+เพื่อจัดรูปแบบข้อความในสมการที่มีอยู่ ให้เดินทางผ่านต้นไม้ขององค์ประกอบแต่ละ MathBlock [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) คืนค่าเฉพาะลูกโดยตรง ดังนั้นต้องเรียกแบบเรียกซ้ำเพื่อไปถึงข้อความภายในเศษส่วน, สคริปต์, รากและโครงสร้างซ้อนอื่น ๆ ตรวจสอบส่วนประกอบปัจจุบันและลูกของมันเพื่อรวมส่วนประกอบเริ่มต้นเมื่อเป็น [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/)
 
-ตัวอย่างนี้สมมติว่า `input.pptx` มีสมการเช่น `z = xᵢ / ∛y`, ที่มีเศษส่วนที่มีตัวห้อยในส่วนบนและรากในส่วนล่าง. การประมวลผลเฉพาะส่วนประกอบระดับบนของบล็อกจะพลาดข้อความภายในเศษส่วน. ตัวอย่างนี้ค้นหา MathPortion ในกรอบข้อความสไลด์, เข้าถึงบล็อกผ่าน [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), และใช้ [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) เพื่อตั้งค่าขนาดฟอนท์เป็น 28 pt ผ่านเมธอด [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) ของแต่ละองค์ประกอบข้อความ.
+ตัวอย่างนี้สมมติว่า `input.pptx` มีสมการเช่น `z = xᵢ / ∛y` โดยมีเศษส่วนที่มีตัวห้อยล่างในตัวเศษและรากในตัวส่วน การประมวลผลเฉพาะองค์ประกอบระดับบนสุดของบล็อกจะพลาดข้อความในเศษส่วน ตัวอย่างค้นหาส่วนคณิตศาสตร์ในเฟรมข้อความสไลด์, เข้าถึงบล็อกผ่าน [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) และใช้ [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) ตั้งขนาดฟอนต์เป็น 28 จุดผ่านเมธอด [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) ของแต่ละองค์ประกอบข้อความ
 
 ```python
 import jpype
@@ -746,37 +829,37 @@ finally:
     presentation.dispose()
 ```
 
-งานนำเสนอที่บันทึกไว้จะมีการจัดรูปแบบข้อความที่อัพเดตในทุกระดับของแต่ละสมการที่ประมวลผล, พร้อมคงเนื้อหาและโครงสร้างคณิตศาสตร์ไว้.
+งานนำเสนอที่บันทึกจะมีการจัดรูปแบบข้อความที่อัปเดตในทุกระดับของแต่ละสมการที่ประมวลผล โดยคงไว้ซึ่งเนื้อหาและโครงสร้างคณิตศาสตร์
 
-## **อ้างอิงด่วน**
+## **อ้างอิงอย่างรวดเร็ว**
 
 | งาน | API หลัก |
 | --- | --- |
 | สร้างข้อความคณิตศาสตร์ | [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) |
 | รวมองค์ประกอบ | [MathElementBase.join](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#join) |
 | สร้างเศษส่วน | [MathElementBase.divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) |
-| เพิ่มตัวยกกำลังหรือห้อย | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
+| เพิ่มตัวห้อยบนหรือห้อยล่าง | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
 | เพิ่มฟังก์ชัน | [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function), [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) |
 | เพิ่มราก | [MathElementBase.radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) |
-| เพิ่มขอบเขต | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
+| เพิ่มขีดจำกัด | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
 | เพิ่มสคริปต์ด้านซ้าย | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
-| เพิ่มผลบวกและอินทิกรัล | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
+| เพิ่มการบวกผลรวมและอินทิเกรัล | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
 | เพิ่มเมทริกซ์ | [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) |
-| เพิ่มอาร์เรย์สมการ | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
-| เพิ่มตัวจำกัด | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
-| เพิ่มแถบและกรอบ | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
-| จัดกลุ่มเงื่อนไข | [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) |
+| เพิ่มอาเรย์สมการ | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
+| เพิ่มตัวคั่น | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
+| เพิ่มเส้นขีดและขอบ | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
+| จัดกลุ่มเทอม | [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) |
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันสามารถแก้ไขสมการ PowerPoint ที่มีอยู่ได้หรือไม่?**
+**Can I edit an existing PowerPoint equation?**
 
-ใช่. เปิดงานนำเสนอ, ค้นหารูปร่างที่มี [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), เรียก [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), แล้วอัปเดตบล็อกคณิตศาสตร์ในย่อหน้านั้น.
+Yes. Open the presentation, find the shape that contains a [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), call [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), and update the math blocks in that paragraph.
 
-**สมการถูกบันทึกเป็นคณิตศาสตร์ PowerPoint ที่แก้ไขได้หรือไม่?**
+**Are equations saved as editable PowerPoint math?**
 
-ใช่. เมื่อบันทึกเป็น PPTX, Aspose.Slides จะเขียนสมการเป็นเนื้อหา Office Math ที่แก้ไขได้.
+Yes. When you save to PPTX, Aspose.Slides writes the equation as editable Office math content.
 
-**ฉันสามารถส่งออกสมการเป็น LaTeX ได้หรือไม่?**
+**Can I export equations to LaTeX?**
 
-ใช่. เรียก [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) จาก [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) ของมัน, แล้วใช้ [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) เพื่อส่งออกโดยตรง. ตัวอย่างเต็มดูที่ [ส่งออกสมการคณิตศาสตร์จากงานนำเสนอใน Python](/slides/th/python-java/exporting-math-equations/#export-math-equations-to-latex).
+Yes. Get the equation's [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) from its [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), and call [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) to export it directly. For a complete example, see [Export Math Equations from Presentations in Python](/slides/th/python-java/exporting-math-equations/#export-math-equations-to-latex).

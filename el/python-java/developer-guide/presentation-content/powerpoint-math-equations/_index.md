@@ -1,6 +1,6 @@
 ---
 title: Προσθήκη μαθηματικών εξισώσεων σε παρουσιάσεις PowerPoint με Python
-linktitle: Μαθηματικές εξισώσεις PowerPoint
+linktitle: PowerPoint Μαθηματικές Εξισώσεις
 type: docs
 weight: 80
 url: /el/python-java/powerpoint-math-equations/
@@ -18,11 +18,11 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Εισαγωγή και επεξεργασία μαθηματικών εξισώσεων σε PowerPoint PPT και PPTX με Aspose.Slides για Python μέσω Java, με υποστήριξη OMML, ελέγχων μορφοποίησης και σαφείς παραδείγματα κώδικα Python."
+description: "Εισαγωγή και επεξεργασία μαθηματικών εξισώσεων σε PowerPoint PPT και PPTX με Aspose.Slides για Python μέσω Java, με υποστήριξη OMML, ελέγχους μορφοποίησης, και σαφή παραδείγματα κώδικα Python."
 ---
 ## **Επισκόπηση**
 
-Το PowerPoint αποθηκεύει τις εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides για Python μέσω Java, μπορείτε να δημιουργήσετε το ίδιο είδος μαθηματικού περιεχομένου προγραμματιστικά: κλάσματα, ριζικές, συναρτήσεις, όρια, N-ary τελεστές, πίνακες, ακολουθίες και μορφοποιημένα μαθηματικά μπλοκ.
+Το PowerPoint αποθηκεύει εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides για Python μέσω Java, μπορείτε να δημιουργήσετε το ίδιο είδος μαθηματικού περιεχομένου προγραμματιστικά: κλάσματα, ρίζες, συναρτήσεις, όρια, τελεστές N‑ary, πίνακες, arrays και μορφοποιημένα μαθηματικά μπλοκ.
 
 Στο PowerPoint, οι χρήστες συνήθως προσθέτουν εξισώσεις από **Insert > Equation**:
 
@@ -30,23 +30,23 @@ description: "Εισαγωγή και επεξεργασία μαθηματικ�
 
 Το αποτέλεσμα είναι επεξεργάσιμο μαθηματικό κείμενο στη διαφάνεια:
 
-![Διαφάνεια PowerPoint που περιέχει επεξεργάσιμη μαθηματική εξίσωση](powerpoint-math-equations_2.png)
+![Διαφάνεια PowerPoint που περιέχει μια επεξεργάσιμη μαθηματική εξίσωση](powerpoint-math-equations_2.png)
 
 Aspose.Slides δημιουργεί αυτό το μαθηματικό κείμενο μέσω τριών κύριων αντικειμένων:
 
-- Ένα μαθηματικό σχήμα, που δημιουργείται με [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape), είναι το σχήμα που περιέχει την εξίσωση.
-- Το [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) αποθηκεύει το μαθηματικό περιεχόμενο μέσα στο πλαίσιο κειμένου του σχήματος.
-- Το [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) περιέχει ένα ή περισσότερα αντικείμενα [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/).
+- Ένα σχήμα μαθηματικού, που δημιουργείται με [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape), είναι το σχήμα που περιέχει την εξίσωση.
+- [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) αποθηκεύει το μαθηματικό περιεχόμενο μέσα στο πλαίσιο κειμένου του σχήματος.
+- [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) περιέχει ένα ή περισσότερα αντικείμενα [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) .
 
-Τα περισσότερα παραδείγματα παρακάτω χρησιμοποιούν το [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) και τις αλυσίδες μεθόδους από το [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) για να κρατήσουν τον κώδικα σύντομο και αναγνώσιμο.
+Τα περισσότερα παραδείγματα παρακάτω χρησιμοποιούν το [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) και τις αλύσιμες μεθόδους από το [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) για να κρατούν τον κώδικα σύντομο και ευανάγνωστο.
 
-Για σενάρια εξαγωγής MathML, δείτε [Εξαγωγή μαθηματικών εξισώσεων από παρουσιάσεις σε Python](/slides/el/python-java/exporting-math-equations/).
+Για σενάρια εξαγωγής MathML, δείτε [Export Math Equations from Presentations in Python](/slides/el/python-java/exporting-math-equations/).
 
 ## **Δημιουργία εξίσωσης**
 
-Αυτό το παράδειγμα χρησιμοποιεί το [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) για να δημιουργήσει ένα μαθηματικό σχήμα και προσθέτει το θεώρημα του Πυθαγόρα:
+Αυτό το παράδειγμα χρησιμοποιεί το [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) για να δημιουργήσει ένα σχήμα μαθηματικού και προσθέτει το θεώρημα του Πυθαγόρα:
 
-![Η εξίσωση c στο τετράγωνο ισούται με a στο τετράγωνο συν b στο τετράγωνο](powerpoint-math-equations_3.png)
+![Η εξίσωση c στο τετράγωνο ίσον a στο τετράγωνο συν b στο τετράγωνο](powerpoint-math-equations_3.png)
 
 ```python
 import jpype
@@ -76,14 +76,14 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) δημιουργεί ένα σχήμα που ήδη περιέχει μια μαθηματική παράγραφο. Πρόσβαση στο πρώτο [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), κλήση του [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), και προσθήκη μαθηματικών μπλοκ ή μαθηματικών στοιχείων σε αυτό.
+[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) δημιουργεί ένα σχήμα που ήδη περιλαμβάνει μια μαθηματική παράγραφο. Προσπελάστε το πρώτο [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), καλέστε [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) και προσθέστε μαθηματικά μπλοκ ή μαθηματικά στοιχεία σε αυτήν.
 {{% /alert %}}
 
 ## **Προσθήκη κλασμάτων**
 
 Χρησιμοποιήστε το [divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) για να δημιουργήσετε ένα κλάσμα. Μπορείτε να επιλέξετε στυλ κλάσματος με το [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/).
 
-![Ένα λοξό μαθηματικό κλάσμα που δείχνει το 1 διαιρεμένο με x](powerpoint-math-equations_4.png)
+![Ένα κλίσμένο μαθηματικό κλάσμα που δείχνει ένα διαιρεμένο με x](powerpoint-math-equations_4.png)
 
 ```python
 import jpype
@@ -111,7 +111,7 @@ finally:
     presentation.dispose()
 ```
 
-Για ένα στοιβασμένο κλάσμα, χρησιμοποιήστε το [MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar):
+Για ένα στοίβακτο κλάσμα, χρησιμοποιήστε το [MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar):
 
 ```python
 import jpype
@@ -127,9 +127,9 @@ stacked_fraction = MathematicalText("x + 1").divide("y - 1", MathFractionTypes.B
 
 ## **Προσθήκη ριζών**
 
-Χρησιμοποιήστε το [radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) για να δημιουργήσετε τετραγωνική ρίζα, κυβική ρίζα ή άλλη ρίζα. Το τρέχον στοιχείο γίνεται η βάση, και το όρισμα γίνεται ο δείκτης.
+Χρησιμοποιήστε το [radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) για να δημιουργήσετε τετραγωνική ρίζα, κυβική ρίζα ή άλλη ρίζα. Το τρέχον στοιχείο γίνεται η βάση, και το όρισμα γίνεται ο εκθέτης.
 
-![Μια ριζική έκφραση n-ού βαθμού με x κάτω από το σύμβολο ρίζας](powerpoint-math-equations_5.png)
+![Μια έκφραση ριζικού n‑ου βαθμού με x κάτω από το σύμβολο ριζικού](powerpoint-math-equations_5.png)
 
 ```python
 import jpype
@@ -159,7 +159,7 @@ finally:
 
 ## **Προσθήκη συναρτήσεων και ορίων**
 
-Χρησιμοποιήστε το [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) ή το [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) για συναρτήσεις όπως `sin(x)`, `log(x)`, ή προσαρμοσμένα ονόματα συναρτήσεων. Για όρια, τοποθετήστε το `lim` σε ένα [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) ή χρησιμοποιήστε το [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit).
+Χρησιμοποιήστε το [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) ή το [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) για συναρτήσεις όπως `sin(x)`, `log(x)` ή προσαρμοσμένα ονόματα συναρτήσεων. Για όρια, τοποθετήστε το `lim` σε ένα [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) ή χρησιμοποιήστε το [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit).
 
 ![Το όριο του x καθώς το x τείνει στο άπειρο](powerpoint-math-equations_8.png)
 
@@ -203,11 +203,11 @@ from asposeslides.api import MathematicalText
 custom_function = MathematicalText("f").function("x + 1")
 ```
 
-## **Προσθήκη N-ary τελεστών και ολοκληρωμάτων**
+## **Προσθήκη N‑ary τελεστών και ολοκληρωμάτων**
 
-Χρησιμοποιήστε το [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) για αθροίσεις, ενώσεις, τομές και άλλους μεγάλους τελεστές. Χρησιμοποιήστε το [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) για ολοκληρώματα. Και οι δύο μέθοδοι σας επιτρέπουν να ορίσετε τα κάτω και άνω όρια.
+Χρησιμοποιήστε το [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) για αθροίσεις, ενώσεις, τομές και άλλους μεγάλους τελεστές. Χρησιμοποιήστε το [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) για ολοκληρώματα. Και οι δύο μέθοδοι επιτρέπουν τον καθορισμό κάτω και άνω ορίων.
 
-![Μια αθροιστική παράσταση με κάτω και άνω όρια](powerpoint-math-equations_7.png)
+![Μια άθροιση με κάτω και πάνω όρια](powerpoint-math-equations_7.png)
 
 ```python
 import jpype
@@ -238,9 +238,9 @@ finally:
     presentation.dispose()
 ```
 
-Οι N-ary τελεστές προορίζονται για μεγάλους τελεστές με προαιρετικά όρια. Απλοί τελεστές όπως `+`, `-` και `=` προστίθενται συνήθως ως [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) και ενσωματώνονται στην έκφραση.
+Οι N‑ary τελεστές προορίζονται για μεγάλους τελεστές με προαιρετικά όρια. Απλοί τελεστές όπως `+`, `-` και `=` προστίθενται συνήθως ως [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) και συνδέονται στην έκφραση.
 
-Για ολοκλήρωση, χρησιμοποιήστε το [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral):
+Για ολοκλήρωμα, χρησιμοποιήστε το [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral):
 
 ```python
 import jpype
@@ -258,7 +258,7 @@ integral = integral_base.integral(MathIntegralTypes.Simple, "0", "1")
 
 ## **Προσθήκη πινάκων**
 
-Χρησιμοποιήστε το [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) για γραμμές και στήλες. Οι πίνακες δεν περιλαμβάνουν αγκύλες από προεπιλογή, επομένως εναποτύπωση του πίνακα όταν χρειάζεστε παρενθέσεις, αγκύλες ή άγκιστρα.
+Χρησιμοποιήστε το [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) για γραμμές και στήλες. Οι πίνακες δεν περιλαμβάνουν αγκύλες από προεπιλογή, γι’ αυτό τυλίξτε τον πίνακα όταν χρειάζεστε παρενθέσεις, αγκύλες ή άγκιστρα.
 
 ![Μαθηματικός πίνακας δύο γραμμών με ένα κενό κελί](powerpoint-math-equations_10.png)
 
@@ -298,11 +298,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Προσθήκη πινάκων εξισώσεων**
+## **Προσθήκη διατάξεων εξισώσεων**
 
-Χρησιμοποιήστε το [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) όταν χρειάζεστε ευθυγραμμισμένες εξισώσεις ή κατακόρυφο στοίβασμα εκφράσεων.
+Χρησιμοποιήστε το [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) όταν χρειάζεστε ευθυγραμμισμένες εξισώσεις ή κατακόρυφο στέλεχος εκφράσεων.
 
-![Κατακόρυφη μαθηματική ακολουθία με x πάνω από y](powerpoint-math-equations_11.png)
+![Κατακόρυφος μαθηματικός πίνακας με x επάνω από y](powerpoint-math-equations_11.png)
 
 ```python
 import jpype
@@ -330,11 +330,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Στοίχιση ακολουθίας με τα γύρω στοιχεία**
+### **Στοίχιση πίνακα με γειτονικά στοιχεία**
 
-Το [setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) ελέγχει την κατακόρυφη στοίχιση μιας ακολουθίας σε σχέση με τα μαθηματικά στοιχεία δίπλα της. Το παρακάτω παράδειγμα συγκρίνει τη στοίχιση με την πρώτη σειρά, το κέντρο της ακολουθίας και την τελευταία σειρά.
+[setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) ελέγχει τη κάθετη στοίχιση ενός πίνακα σε σχέση με τα μαθηματικά στοιχεία δίπλα του. Το παρακάτω παράδειγμα συγκρίνει τη στοίχιση με την πρώτη γραμμή, το κέντρο του πίνακα και την τελευταία γραμμή.
 
-Το ακόλουθο παράδειγμα δημιουργεί τρεις ταυτόστυλες ακολουθίες, η κάθε μία με τρεις σειρές και τα γειτονικά στοιχεία `A=` και `=B`. Όλο το μαθηματικό κείμενο χρησιμοποιεί Cambria Math σε 24 σημεία. Μόνο η στοίχιση της ακολουθίας αλλάζει.
+Το ακόλουθο παράδειγμα δημιουργεί τρία ίδια σύνολα, το καθένα με τρεις γραμμές και τα γειτονικά στοιχεία `A=` και `=B`. Όλο το μαθηματικό κείμενο χρησιμοποιεί Cambria Math σε μέγεθος 24 σημεία. Μόνο η στοίχιση του πίνακα διαφοροποιείται.
 
 ```python
 import jpype
@@ -388,17 +388,17 @@ finally:
     presentation.dispose()
 ```
 
-Η παρακάτω σύγκριση δείχνει την αποθηκευμένη παρουσίαση στο PowerPoint. Προσέξτε τη θέση των `A=` και `=B` δίπλα σε κάθε ακολουθία.
+Η παρακάτω σύγκριση δείχνει την αποθηκευμένη παρουσίαση στο PowerPoint. Παρατηρήστε τη θέση του `A=` και `=B` δίπλα σε κάθε πίνακα.
 
-![Ακολουθίες εξισώσεων στο PowerPoint με στοίχιση Πάνω, Κέντρο και Κάτω και ταυτόσημα γειτονικά στοιχεία](equation-array-alignment.png)
+![Διατάξεις εξισώσεων στο PowerPoint με στοίχιση Επάνω, Κέντρο και Κάτω και τα ίδια γειτονικά στοιχεία](equation-array-alignment.png)
 
-### **Ρύθμιση απόστασης γραμμών**
+### **Διαμόρφωση απόστασης γραμμών**
 
-Το [setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) επιλέγει τον κανόνα απόστασης για τις γραμμές μέσα στην ακολουθία. Το [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) παρέχει μια αριθμητική τιμή για έναν σαφή κανόνα απόστασης και αγνοείται από τους προεπιλεγμένους κανόνες.
+[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) επιλέγει τον κανόνα απόστασης για τις γραμμές μέσα στον πίνακα. [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) παρέχει αριθμητική τιμή για έναν ρητό κανόνα απόστασης και αγνοείται από τους προεπιλεγμένους κανόνες.
 
-Για ακριβή απόσταση, η τιμή μετράται σε σημεία. Για αναλογική απόσταση, μετράται σε μισές γραμμές: η τιμή `3` στο παράδειγμα αντιστοιχεί σε 1,5 γραμμές. Ορίστε και τις δύο ιδιότητες όταν καθορίζετε μια σαφή τιμή· η αλλαγή μόνο της αριθμητικής τιμής δεν επιλέγει κανόνα απόστασης.
+Για ακριβή απόσταση, η τιμή μετράται σε σημεία. Για αναλογική απόσταση, μετράται σε μισές γραμμές: η τιμή `3` στο παράδειγμα υποδηλώνει 1,5 γραμμές. Ορίστε και τις δύο ιδιότητες όταν καθορίζετε ρητή τιμή· η αλλαγή μόνο της αριθμητικής τιμής δεν επιλέγει κανόνα απόστασης.
 
-Το παρακάτω παράδειγμα αποθηκεύει πέντε παρουσιάσεις με τις ίδιες εξισώσεις, στοίχιση και ρυθμίσεις γραμματοσειράς. Οι πρώτες τρεις χρησιμοποιούν προεπιλογές· οι τελευταίες δύο εμφανίζουν σαφείς τιμές.
+Το παρακάτω παράδειγμα αποθηκεύει πέντε παρουσιάσεις με τις ίδιες εξισώσεις, στοίχιση και ρυθμίσεις γραμματοσειράς. Οι πρώτες τρεις χρησιμοποιούν προεπιλογές· οι τελευταίες δύο δείχνουν ρητές τιμές.
 
 ```python
 import jpype
@@ -442,13 +442,13 @@ for name, rule, spacing in settings:
         presentation.dispose()
 ```
 
-Η απόσταση των γραμμών της ακολουθίας είναι ξεχωριστή από την απόσταση των παραγράφων. Τα [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) και [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) προσθέτουν χώρο γύρω από την περιβάλλουσα παράγραφο, όχι μεταξύ των γραμμών της ακολουθίας. Ομοίως, το [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) τοποθετεί ολόκληρη τη μαθηματική παράγραφο οριζόντια· δεν αντικαθιστά τη ρύθμιση κάθετης στοίχισης της ακολουθίας.
+Η απόσταση γραμμών του πίνακα είναι ξεχωριστή από την απόσταση παραγράφου. Τα [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) και [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) προσθέτουν χώρο γύρω από την περιβάλλουσα παράγραφο, όχι μεταξύ των γραμμών του πίνακα. Ομοίως, το [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) τοποθετεί ολόκληρη τη μαθηματική παράγραφο οριζόντια· δεν αντικαθιστά τη ρύθμιση κάθετης στοίχισης του πίνακα.
 
 ## **Προσθήκη τριγωνομετρικών συναρτήσεων**
 
 Χρησιμοποιήστε το [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) όταν το όρισμα είναι το τρέχον στοιχείο και το όνομα της συνάρτησης είναι γνωστό.
 
-![Η τριγωνομετρική συνάρτηση cos εφαρμόζεται στο 2x](powerpoint-math-equations_6.png)
+![Η τριγωνομετρική συνάρτηση cos εφαρμόζεται σε 2x](powerpoint-math-equations_6.png)
 
 ```python
 import jpype
@@ -476,11 +476,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Προσθήκη δεικτών και εκθέσεων**
+## **Προσθήκη δεικτών και εκθέτων**
 
-Χρησιμοποιήστε τις βοηθητικές λειτουργίες δεικτών και εκθέσεων για δείκτες και δυνάμεις. Όταν οι δείκτες πρέπει να εμφανίζονται στην αριστερή πλευρά της βάσης, χρησιμοποιήστε το [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
+Χρησιμοποιήστε τα βοηθητικά εργαλεία δείκτη και εκθέτη για δείκτες και δυνάμεις. Όταν οι δείκτες πρέπει να εμφανιστούν στην αριστερή πλευρά της βάσης, χρησιμοποιήστε το [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
-![Ένα κεφαλαίο Y με δείκτη 1 στα αριστερά και εκθέτη n](powerpoint-math-equations_9.png)
+![Κεφαλαίο Y με αριστερό δείκτη 1 και εκθέτη n](powerpoint-math-equations_9.png)
 
 ```python
 import jpype
@@ -508,11 +508,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Προσθήκη οριοθετητών**
+## **Προσθήκη οριοθετών**
 
-Χρησιμοποιήστε το [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) για να τοποθετήσετε μια έκφραση μέσα σε οριοθετητές. Μπορείτε επίσης να ορίσετε χαρακτήρα διαχωριστικού για εκφράσεις οριοθετητών που περιέχουν πολλά στοιχεία.
+Χρησιμοποιήστε το [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) για να τοποθετήσετε μια έκφραση μέσα σε οριοθέτες. Μπορείτε επίσης να ορίσετε χαρακτήρα διαχωριστή για εκφράσεις οριοθέτη που περιέχουν πολλά στοιχεία.
 
-![Μια έκφραση οριοθετητή που περιέχει x, y και z χωρισμένα με κατακόρυφες γραμμές](powerpoint-math-equations_13.png)
+![Μια έκφραση οριοθέτη που περιέχει x, y και z χωρισμένα με κατακόρυφες γραμμές](powerpoint-math-equations_13.png)
 
 ```python
 import jpype
@@ -541,11 +541,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Μέγεθος και στοίχιση οριοθετητών**
+### **Μέγεθος και Στοίχιση Οριοθετών**
 
-Περάστε `True` στο [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) για να επιτρέψετε στις παρενθέσεις να μεγαλώσουν γύρω από ένα ψηλό τελεστή, ή περάστε `False` για να τις κρατήσετε στο κανονικό τους μέγεθος. Χρησιμοποιήστε το [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) με μία από τις δύο τιμές του [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/). Η `Centered` κεντράρει τις παρενθέσεις στον άξονα των μαθηματικών, που περνά από το μέσο του συμβόλου ίσου. Η `Match` τις ευθυγραμμίζει με το περιεχόμενο που περικλείεται. Και οι δύο ρυθμίσεις επηρεάζουν μόνο τους οριοθετητές. Η έκφραση μέσα παραμένει η ίδια.
+Περάστε `True` στο [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) για να επιτρέψετε στις παρενθέσεις να μεγαλώσουν γύρω από ένα ψηλό τελεστή, ή περάστε `False` για να διατηρηθούν στο κανονικό τους μέγεθος. Χρησιμοποιήστε το [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) με μία από τις δύο τιμές του [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/). Το `Centered` κεντράρει τις παρενθέσεις στον άξονα των μαθηματικών, ο οποίος διέρχεται από το μέσο του συμβόλου `=`. Το `Match` ευθυγραμμίζει τις παρενθέσεις με το περιεχόμενο που ενσωματώνεται. Και οι δύο ρυθμίσεις επηρεάζουν μόνο τους οριοθέτες. Η εσωτερική έκφραση παραμένει η ίδια.
 
-Το παράδειγμα τοποθετεί ένα κλάσμα σε εκθέτη του `x` ώστε η έκφραση να εκτείνεται περισσότερο πάνω από τη γραμμή βάσης απ' ό,τι κάτω. Όλες οι τέσσερις εξισώσεις χρησιμοποιούν τις ίδιες παρενθέσεις και ρυθμίσεις γραμματοσειράς.
+Το παράδειγμα τοποθετεί ένα κλάσμα στον εκθέτη του `x` ώστε η έκφραση να εκτείνεται περισσότερο πάνω από τη βασική γραμμή από ό,τι κάτω από αυτήν. Όλες οι τέσσερις εξισώσεις χρησιμοποιούν τις ίδιες παρενθέσεις και ρυθμίσεις γραμματοσειράς.
 
 ```python
 import jpype
@@ -578,15 +578,15 @@ finally:
     presentation.dispose()
 ```
 
-Στο PowerPoint, συγκρίνετε τις σειρές για να δείτε το αποτέλεσμα της ανάπτυξης. Στην πάνω σειρά, οι παρενθέσεις μεγαλώνουν για να περικλείσουν τον εκθέτη και φαίνονται ομοιόμορφα για beide σχήματα. Στην κάτω σειρά, η ανάπτυξη είναι απενεργοποιημένη. Οι μικρότερες παρενθέσεις στα αριστερά (`Centered`) ευθυγραμμίζονται με το σύμβολο ίσου, ενώ αυτές στα δεξιά (`Match`) τοποθετούνται υψηλότερα γύρω από την έκφραση.
+Στο PowerPoint, συγκρίνετε τις γραμμές για να δείτε το αποτέλεσμα της ανάπτυξης. Στην πρώτη γραμμή, οι παρενθέσεις μεγαλώνουν για να περικλείσουν τον εκθέτη και φαίνονται παρόμοιες και για τα δύο σχήματα. Στη δεύτερη γραμμή, η ανάπτυξη είναι απενεργοποιημένη. Οι μικρότερες παρενθέσεις στα αριστερά (`Centered`) ευθυγραμμίζονται με το σύμβολο `=`, ενώ αυτές στα δεξιά (`Match`) βρίσκονται ψηλότερα γύρω από την έκφραση.
 
-![Τέσσερις εξισώσεις στο PowerPoint με ενεργοποιημένη τη μεγέθυνση των οριοθετητών πάνω και απενεργοποιημένη κάτω, και `Centered` στα αριστερά και `Match` στα δεξιά](delimiter-sizing.png)
+![Τέσσερις εξισώσεις στο PowerPoint με ανάπτυξη οριοθέτη ενεργοποιημένη προς τα πάνω και απενεργοποιημένη προς τα κάτω, και Centered στα αριστερά και Match στα δεξιά](delimiter-sizing.png)
 
 ## **Προσθήκη πλαισίου περιγράμματος**
 
-Καλέστε το [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) σε ένα κλάσμα για να περικλείσετε ολόκληρη την έκφραση. Το επιστρεφόμενο [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) εμφανίζει όλες τις τέσσερις πλευρές εξ ορισμού. Χρησιμοποιήστε τα [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft) και [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) για να αφαιρέσετε μεμονωμένες πλευρές.
+Καλέστε το [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) σε ένα κλάσμα για να πλαισιώσετε ολόκληρη την έκφραση. Η επιστρεφόμενη [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) εμφανίζει όλες τις τέσσερις πλευρές από προεπιλογή. Χρησιμοποιήστε τα [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft) και [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) για να αφαιρέσετε μεμονωμένες πλευρές.
 
-Το παράδειγμα τοποθετεί έξι αντίγραφα του ίδιου κλάσματος σε μία διαφάνεια. Για να δείξετε ακύρωση, κρύψτε όλες τις τέσσερις πλευρές και περάστε `True` στο [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) για διαγώνιο ανόδου (↗) ή στο [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) για διαγώνιο καθόδου (↘). Μπορείτε επίσης να χρησιμοποιήσετε τα [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) ή [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) με οποιονδήποτε συνδυασμό ορατών πλευρών.
+Το παράδειγμα τοποθετεί έξι αντίγραφα του ίδιου κλάσματος σε μία διαφάνεια. Για να δείξετε την ακύρωση, κρύψτε όλες τις τέσσερις πλευρές και περάστε `True` στο [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) για μια ανιούσα διαγώνιο (↗) ή στο [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) για μια καθοδική διαγώνιο (↘). Μπορείτε επίσης να χρησιμοποιήσετε το [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) ή το [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) με οποιονδήποτε συνδυασμό ορατών πλευρών.
 
 ```python
 import jpype
@@ -633,13 +633,98 @@ finally:
     presentation.dispose()
 ```
 
-![Έξι επεξεργάσιμα κλάσματα στο PowerPoint. Πάνω σειρά: πλήρες περίγραμμα, κάτω και αριστερές πλευρές, διαγώνιο ανόδου. Κάτω σειρά: διαγώνιο καθόδου, οριζόντια διαγραφή, κάθετο γραμμή με πλήρες περίγραμμα](border-box-fractions.png)
+![Έξι επεξεργάσιμα κλάσματα στο PowerPoint. Πρώτη γραμμή: πλήρες περίγραμμα, κάτω και αριστερές πλευρές, ανερχόμενη διαγώνιο. Δεύτερη γραμμή: καθοδική διαγώνιο, οριζόντια σήμανση, κάθετη σήμανση με πλήρες περίγραμμα](border-box-fractions.png)
 
-Σε αυτό το κλάσμα, η οριζόντια διαγραφή επικαλύπτει τη γραμμή του κλάσματος. Η κάθετη διαγραφή διασχίζει τόσο τον αριθμητή όσο και τον παρονομαστή ενώ το περίγραμμα παραμένει ορατό. Αυτές οι γραμμές διακοσμούν ολόκληρη την έκφραση. Η συνηθισμένη διαγραφή κειμένου εφαρμόζεται σε χαρακτήρες σε μια σειρά κειμένου. Αφού ανοίξετε ξανά την παρουσίαση στο PowerPoint, μπορείτε ακόμη να επεξεργαστείτε τον αριθμητή και τον παρονομαστή ανεξάρτητα.
+Σε αυτό το κλάσμα, η οριζόντια σήμανση επικαλύπτει τη μπάρα του κλάσματος. Η κάθετη σήμανση διασχίζει τόσο τον αριθμητή όσο και τον παρονομαστή ενώ το περίγραμμα παραμένει ορατό. Αυτές οι γραμμές διακοσμούν ολόκληρη την έκφραση. Η τυπική διασταυρώση κειμένου εφαρμόζεται σε χαρακτήρες μιας σειράς κειμένου. Αφού ανοίξετε ξανά την παρουσίαση στο PowerPoint, μπορείτε ακόμη να επεξεργαστείτε ανεξάρτητα τον αριθμητή και τον παρονομαστή.
+
+## **Έλεγχος ορατότητας και διάταξης με στοιχεία Phantom**
+
+Τυλίξτε μια έκφραση μέσα σε [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) για να ελέγξετε την ορατότητά της και τον χώρο που συμβάλλει σε μια εξίσωση ανεξάρτητα. Οι μέθοδοι του [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) ελέγχουν τα εξής:
+
+| Μέθοδος | Αποτέλεσμα |
+| --- | --- |
+| [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) | Περάστε `False` για να κρύψετε την έκφραση. Οι διαστάσεις της εξακολουθούν να συμβάλλουν στη διάταξη, εκτός εάν οι αντίστοιχες μέθοδοι παρακάτω λάβουν `True`. |
+| [setZeroWidth](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroWidth) | Θεωρεί το οριζόντιο πλάτος της έκφρασης ως μηδέν, επιτρέποντας στα γειτονικά στοιχεία να πλησιάσουν πιο κοντά. |
+| [setZeroAsc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroAsc) | Θεωρεί την άνοδο της έκφρασης (το ύψος πάνω από τη βασική γραμμή) ως μηδέν. Αυτό μπορεί να μειώσει το χώρο που διατηρείται πάνω από τα γειτονικά στοιχεία. |
+| [setZeroDesc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroDesc) | Θεωρεί την κάθοδο της έκφρασης (το βάθος κάτω από τη βασική γραμμή) ως μηδέν. Αυτό μπορεί να φέρει πιο κοντά τη μπάρα ενός κλάσματος ή άλλο περιεχόμενο κάτω από την έκφραση προς τα γειτονικά στοιχεία. |
+
+Η βασική γραμμή είναι η αναφορά στην οποία τοποθετούνται τα κανονικά μαθηματικά γράμματα. Η απόκρυψη περιεχομένου δεν αφαιρεί τις διαστάσεις του, και η μεταχείριση μιας διάστασης ως μηδέν δεν διαγράφει την έκφραση. Η υποκείμενη έκφραση παραμένει διαθέσιμη μέσω του [getBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#getBase). Περάστε `True` στο [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) για να την εμφανίσετε ξανά· οι ρυθμίσεις διάστασης παραμένουν αμετάβλητες.
+
+Το παρακάτω παράδειγμα δημιουργεί πέντε παραλλαγές πλάι-πλάι: ένα ορατό κλάσμα, ένα κρυφό κλάσμα που διατηρεί χώρο, και τρία κρυφά κλάσματα με μία διάσταση να θεωρείται μηδέν. Κάθε παραλλαγή χρησιμοποιεί την ίδια περιβάλλουσα έκφραση και Cambria Math σε 24 σημεία. Όλα τα σχήματα εξίσωσης έχουν την ίδια θέση κορυφής, σημειωμένη από τον γκρι οδηγό. Η τοποθέτηση του phantom στον αριθμητή ενός εξωτερικού κλάσματος διευκολύνει την παρατήρηση των κατακόρυφων αλλαγών διάταξης.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, MathBlock, MathFraction, MathematicalText, MathPhantom, Presentation, SaveFormat, ShapeType, SlideSizeScaleType, TextAnchorType
+from java.awt import Color
+
+
+def create_text(value):
+    text = MathematicalText(value)
+    text.getFormat().setFontHeight(24)
+    text.getFormat().setLatinFont(FontData("Cambria Math"))
+    return text
+
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(1000, 180, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    labels = ("Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc")
+
+    guide = slide.getShapes().addAutoShape(ShapeType.Line, 10, 60, 980, 0)
+    guide.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.LIGHT_GRAY)
+
+    for index, name in enumerate(labels):
+        left = 10 + index * 200
+        
+        label = slide.getShapes().addAutoShape(ShapeType.Rectangle, left, 10, 190, 30)
+        label.getFillFormat().setFillType(FillType.NoFill)
+        label.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        label.getTextFrame().setText(name)
+        label_format = label.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat()
+        label_format.setFontHeight(14)
+        label_format.getFillFormat().setFillType(FillType.Solid)
+        label_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+        fraction_numerator = create_text("a+b")
+        fraction_denominator = create_text("c+d")
+        fraction = MathFraction(fraction_numerator, fraction_denominator)
+        phantom = MathPhantom(fraction)
+        phantom.setShow(index == 0)
+        phantom.setZeroWidth(index == 2)
+        phantom.setZeroAsc(index == 3)
+        phantom.setZeroDesc(index == 4)
+
+        left_text = create_text("x+")
+        right_text = create_text("+y")
+        numerator = MathBlock(left_text).join(phantom).join(right_text)
+        denominator = create_text("z")
+        equation = MathFraction(numerator, denominator)
+
+        shape = slide.getShapes().addMathShape(left, 60, 190, 100)
+        shape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Top)
+        math_portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+        math_paragraph = math_portion.getMathParagraph()
+        math_block = MathBlock(equation)
+        math_paragraph.add(math_block)
+
+    presentation.save("math-phantom.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![Πέντε εξισώσεις στο PowerPoint που συγκρίνουν ένα ορατό κλάσμα, ένα κρυφό κλάσμα που διατηρεί χώρο, και κρυφά κλάσματα με ZeroWidth, ZeroAsc ή ZeroDesc ενεργοποιημένα](math-phantom.png)
 
 ## **Ομαδοποίηση όρων**
 
-Χρησιμοποιήστε το [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) για να τοποθετήσετε έναν χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε ένα όριο για να επισημάνετε τους ομαδοποιημένους όρους.
+Χρησιμοποιήστε το [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) για να τοποθετήσετε έναν χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε ένα όριο για να ετικετοθετήσετε τους ομαδοποιημένους όρους.
 
 ![Η έκφραση x συν y ομαδοποιημένη με την ετικέτα οποιοδήποτε κείμενο κάτω από αυτήν](powerpoint-math-equations_15.png)
 
@@ -671,9 +756,9 @@ finally:
 
 ## **Μορφοποίηση μαθηματικών στοιχείων**
 
-Χρησιμοποιήστε βοηθητικά εργαλεία μορφοποίησης μόνο όπου διευκρινίζουν τον τύπο. Για παράδειγμα, το [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) τοποθετεί μια γραμμή πάνω από ένα μαθηματικό στοιχείο.
+Χρησιμοποιήστε βοηθητικά εργαλεία μορφοποίησης μόνο όπου διευκρινίζουν τον τύπο. Για παράδειγμα, το [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) τοποθετεί μια μπάρα πάνω από ένα μαθηματικό στοιχείο.
 
-![Μαθηματική έκφραση ABC με υπεργράμμη](powerpoint-math-equations_14.png)
+![Μαθηματική έκφραση ABC με πάνω μπάρα](powerpoint-math-equations_14.png)
 
 ```python
 import jpype
@@ -703,9 +788,9 @@ finally:
 
 ### **Μορφοποίηση κειμένου σε υπάρχουσα εξίσωση**
 
-Για να μορφοποιήσετε κείμενο σε ολόκληρη μια υπάρχουσα εξίσωση, διασχίστε το δέντρο στοιχείων κάθε μαθηματικού μπλοκ. Το [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) επιστρέφει μόνο τα άμεσα παιδιά, επομένως καλέστε το επαναληπτικά για να φτάσετε στο κείμενο μέσα σε κλάσματα, εκθέτες, ρίζες και άλλες ενσωματωμένες δομές. Ελέγξτε το τρέχον στοιχείο καθώς και τα παιδιά του ώστε να συμπεριλάβετε το αρχικό στοιχείο όταν είναι [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/).
+Για να μορφοποιήσετε κείμενο σε όλη μια υπάρχουσα εξίσωση, διασχίστε το δέντρο στοιχείων κάθε μαθηματικού μπλόκ. Το [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) επιστρέφει μόνο τα άμεσα παιδιά, έτσι καλέστε το αναδρομικά για να φτάσετε σε κείμενο μέσα σε κλάσματα, δείκτες, ρίζες και άλλες ένθετες δομές. Ελέγξτε τόσο το τρέχον στοιχείο όσο και τα παιδιά του ώστε να συμπεριλάβετε το αρχικό στοιχείο όταν είναι [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/).
 
-Αυτό το παράδειγμα υποθέτει ότι το `input.pptx` περιέχει μια εξίσωση όπως `z = xᵢ / ∛y`, με ένα κλάσμα που περιλαμβάνει υποδείκτη στον αριθμητή και ριζική στο παρονομαστή. Η επεξεργασία μόνο των στοιχείων επιπέδου‑κορυφής του μπλοκ θα χάσει το κείμενο μέσα στο κλάσμα. Το παράδειγμα βρίσκει μαθηματικά τμήματα σε πλαίσια κειμένου διαφανειών, έχει πρόσβαση στα μπλοκ τους μέσω του [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), και χρησιμοποιεί το [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) για να ορίσει το μέγεθος γραμματοσειράς στα 28 σημεία μέσω της μεθόδου [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) κάθε στοιχείου κειμένου.
+Αυτό το παράδειγμα υποθέτει ότι το `input.pptx` περιέχει μια εξίσωση όπως `z = xᵢ / ∛y`, με κλάσμα που περιέχει δείκτη στον αριθμητή και ρίζα στον παρονομαστή. Η επεξεργασία μόνο των στοιχείων του άνω‑επιπέδου του μπλοκ θα χάσει το κείμενο μέσα στο κλάσμα. Το παράδειγμα εντοπίζει μαθηματικά τμήματα σε πλαίσια κειμένου διαφανειών, έχει πρόσβαση στα μπλοκ τους μέσω του [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) και χρησιμοποιεί το [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) για να ορίσει το μέγεθος γραμματοσειράς σε 28 σημεία μέσω της μεθόδου [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) κάθε στοιχείου κειμένου.
 
 ```python
 import jpype
@@ -746,11 +831,11 @@ finally:
     presentation.dispose()
 ```
 
-Η αποθηκευμένη παρουσίαση περιέχει τη σχετική μορφοποίηση κειμένου σε κάθε επίπεδο της κάθε επεξεργασμένης εξίσωσης, διατηρώντας το περιεχόμενο κειμένου και τη μαθηματική δομή.
+Η αποθηκευμένη παρουσίαση περιέχει την ενημερωμένη μορφοποίηση κειμένου σε κάθε επίπεδο κάθε επεξεργασμένης εξίσωσης, διατηρώντας το περιεχόμενο κειμένου και τη μαθηματική δομή.
 
-## **Σύντομη αναφορά**
+## **Σύντομη Αναφορά**
 
-| Εργασία | Κύριο API |
+| Καθήκον | Main API |
 | --- | --- |
 | Δημιουργία μαθηματικού κειμένου | [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) |
 | Συνδυασμός στοιχείων | [MathElementBase.join](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#join) |
@@ -762,21 +847,21 @@ finally:
 | Προσθήκη δεικτών αριστερά | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
 | Προσθήκη αθροίσεων και ολοκληρωμάτων | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
 | Προσθήκη πινάκων | [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) |
-| Προσθήκη ακολουθιών εξισώσεων | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
-| Προσθήκη οριοθετητών | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
-| Προσθήκη γραμμών και περιγραμμάτων | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
+| Προσθήκη πινάκων εξισώσεων | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
+| Προσθήκη οριοθετών | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
+| Προσθήκη ράβδων και περιγραμμάτων | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
 | Ομαδοποίηση όρων | [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) |
 
 ## **Συχνές ερωτήσεις**
 
 **Μπορώ να επεξεργαστώ μια υπάρχουσα εξίσωση PowerPoint;**
 
-Ναι. Ανοίξτε την παρουσίαση, εντοπίστε το σχήμα που περιέχει ένα [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), καλέστε το [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), και ενημερώστε τα μαθηματικά μπλοκ σε αυτήν την παράγραφο.
+Ναι. Ανοίξτε την παρουσίαση, βρείτε το σχήμα που περιέχει ένα [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), καλέστε το [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) και ενημερώστε τα μαθηματικά μπλοκ σε εκείνη την παράγραφο.
 
-**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμο μαθηματικό περιεχόμενο PowerPoint;**
+**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμο μαθηματικό PowerPoint;**
 
 Ναι. Όταν αποθηκεύετε σε PPTX, το Aspose.Slides γράφει την εξίσωση ως επεξεργάσιμο περιεχόμενο Office math.
 
 **Μπορώ να εξάγω τις εξισώσεις σε LaTeX;**
 
-Ναι. Αποκτήστε το [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) της εξίσωσης από το [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), και καλέστε το [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) για άμεση εξαγωγή. Για ένα πλήρες παράδειγμα, δείτε [Export Math Equations from Presentations in Python](/slides/el/python-java/exporting-math-equations/#export-math-equations-to-latex).
+Ναι. Λάβετε το [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) της [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), και καλέστε το [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) για να το εξάγετε απευθείας. Για πλήρες παράδειγμα, δείτε [Export Math Equations from Presentations in Python](/slides/el/python-java/exporting-math-equations/#export-math-equations-to-latex).

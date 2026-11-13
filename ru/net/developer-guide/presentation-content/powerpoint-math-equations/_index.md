@@ -1,5 +1,5 @@
 ---
-title: Добавить математические уравнения в презентации PowerPoint в .NET
+title: Добавление математических уравнений в презентации PowerPoint в .NET
 linktitle: Математические уравнения PowerPoint
 type: docs
 weight: 80
@@ -18,35 +18,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Вставляйте и редактируйте математические уравнения в PowerPoint PPT и PPTX с помощью Aspose.Slides for .NET, поддерживая OMML, элементы управления форматированием и понятные примеры кода C#."
+description: "Вставка и редактирование математических уравнений в PowerPoint PPT и PPTX с помощью Aspose.Slides для .NET, поддержка OMML, элементов форматирования и понятных примеров кода на C#."
 ---
 ## **Обзор**
 
-PowerPoint хранит уравнения в формате Office Math Markup Language (OMML). С помощью Aspose.Slides for .NET вы можете программно создавать тот же тип математического контента: дроби, радикалы, функции, пределы, N-ary операторы, матрицы, массивы и форматированные математические блоки.
+PowerPoint хранит уравнения в формате Office Math Markup Language (OMML). С помощью Aspose.Slides для .NET вы можете программно создавать такой же математический контент: дроби, радикалы, функции, пределы, N-арные операторы, матрицы, массивы и отформатированные блоки формул.
 
 В PowerPoint пользователи обычно добавляют уравнения через **Insert > Equation**:
 
-![Вкладка Insert в PowerPoint с выбранной командой Equation](powerpoint-math-equations_1.png)
+![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
 
-Результатом является редактируемый математический текст на слайде:
+В результате появляется редактируемый математический текст на слайде:
 
-![Слайд PowerPoint, содержащий редактируемое математическое уравнение](powerpoint-math-equations_2.png)
+![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
 
 Aspose.Slides создает этот математический текст с помощью трех основных объектов:
 
-- Математическая фигура, созданная с помощью [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/), это фигура, содержащая уравнение.
-- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) хранит математическое содержимое внутри текстового фрейма фигуры.
-- [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) содержит один или более объектов [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/).
+- Математическая фигура, создаваемая с помощью [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/), представляет собой форму, содержащую уравнение.
+- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) хранит математическое содержимое внутри текстового кадра фигуры.
+- [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) содержит один или несколько объектов [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/).
 
-Большинство примеров ниже используют [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) и плавные методы из [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) для краткости и читаемости кода.
+Большинство примеров ниже используют [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) и цепочечные методы из [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) , чтобы код был коротким и читаемым.
 
-Для сценариев экспорта в MathML см. [Export Math Equations from Presentations in .NET](/slides/ru/net/exporting-math-equations/).
+Для сценариев экспорта MathML см. [Export Math Equations from Presentations in .NET](/slides/ru/net/exporting-math-equations/).
 
-## **Создать уравнение**
+## **Создание уравнения**
 
-Этот пример использует [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) для создания математической фигуры и добавляет теорему Пифагора:
+В этом примере используется [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) , чтобы создать математическую фигуру и добавить теорию Пифагора:
 
-![Уравнение c в квадрате равно a в квадрате плюс b в квадрате](powerpoint-math-equations_3.png)
+![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
 ```csharp
 using Aspose.Slides;
@@ -72,14 +72,14 @@ presentation.Save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="info" title="Note" %}}
-[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) создает фигуру, которая уже содержит математический абзац. Получите первый [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), его [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/), и добавьте в него математические блоки или элементы.
+[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) создает фигуру, уже содержащую математический абзац. Получите первый [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), затем его [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/), и добавьте в него математические блоки или элементы.
 {{% /alert %}}
 
-## **Добавить дроби**
+## **Добавление дробей**
 
-Используйте [Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) для создания дроби. Вы можете выбрать стиль дроби с помощью [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/).
+Для создания дроби используйте [Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) . Вы можете выбрать стиль дроби с помощью [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/) .
 
-![Наклоненная математическая дробь, показывающая один, делённый на x](powerpoint-math-equations_4.png)
+![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
 ```csharp
 using Aspose.Slides;
@@ -100,7 +100,7 @@ mathParagraph.Add(new MathBlock(fraction));
 presentation.Save("fraction.pptx", SaveFormat.Pptx);
 ```
 
-Для сложенной (stacked) дроби используйте [MathFractionTypes.Bar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/):
+Для дроби со столбиком используйте [MathFractionTypes.Bar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/) :
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -108,11 +108,11 @@ using Aspose.Slides.MathText;
 var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Добавить радикалы**
+## **Добавление радикалов**
 
-Используйте [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) для создания квадратного корня, кубического корня или другого корня. Текущий элемент становится основанием, а аргумент — степенью.
+Для создания квадратного, кубического или другого корня используйте [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) . Текущий элемент становится основанием, а аргумент — показателем.
 
-![n-ый корень с x под радикальной чертой](powerpoint-math-equations_5.png)
+![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
 ```csharp
 using Aspose.Slides;
@@ -133,11 +133,11 @@ mathParagraph.Add(new MathBlock(radical));
 presentation.Save("radical.pptx", SaveFormat.Pptx);
 ```
 
-## **Добавить функции и пределы**
+## **Добавление функций и пределов**
 
-Используйте [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) или [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) для функций, таких как `sin(x)`, `log(x)` или пользовательские имена функций. Для пределов поместите `lim` в [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) или используйте [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).
+Для функций, таких как `sin(x)`, `log(x)`, или пользовательских имен функций, используйте [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) или [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) . Для пределов поместите `lim` в [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) или используйте [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/) .
 
-![Предел x при x стремящемся к бесконечности](powerpoint-math-equations_8.png)
+![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
 ```csharp
 using Aspose.Slides;
@@ -167,11 +167,11 @@ using Aspose.Slides.MathText;
 var customFunction = new MathematicalText("f").Function("x + 1");
 ```
 
-## **Добавить N-арные операторы и интегралы**
+## **Добавление N-арных операторов и интегралов**
 
-Используйте [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) для суммирования, объединений, пересечений и других больших операторов. Используйте [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) для интегралов. Оба метода позволяют задавать нижние и верхние пределы.
+Для сумм, объединений, пересечений и других больших операторов используйте [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) . Для интегралов — [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) . Оба метода позволяют задавать нижний и верхний пределы.
 
-![Суммирование с нижними и верхними пределами](powerpoint-math-equations_7.png)
+![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
 ```csharp
 using Aspose.Slides;
@@ -195,9 +195,9 @@ mathParagraph.Add(new MathBlock(summation));
 presentation.Save("nary-operators.pptx", SaveFormat.Pptx);
 ```
 
-N-ary операторы предназначены для больших операторов с необязательными пределами. Простые операторы, такие как `+`, `-` и `=`, обычно добавляются как [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) и объединяются в выражение.
+N-арные операторы предназначены для больших операторов с необязательными пределами. Простые операторы, такие как `+`, `-` и `=`, обычно добавляются как [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) и объединяются в выражении.
 
-Для интеграла используйте [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/):
+Для интеграла используйте [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) :
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -206,11 +206,11 @@ var integralBase = new MathematicalText("x").Join(new MathematicalText("dx").ToB
 var integral = integralBase.Integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Добавить матрицы**
+## **Добавление матриц**
 
-Используйте [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) для строк и столбцов. По умолчанию матрицы не включают скобки, поэтому обрамляйте матрицу, когда нужны круглые, квадратные или фигурные скобки.
+Для строк и столбцов используйте [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) . По умолчанию у матриц нет скобок, поэтому обрамляйте матрицу, когда требуются круглые, квадратные скобки или фигурные скобки.
 
-![Математическая матрица из двух строк с одной пустой ячейкой](powerpoint-math-equations_10.png)
+![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
 ```csharp
 using Aspose.Slides;
@@ -235,11 +235,11 @@ mathParagraph.Add(new MathBlock(matrix));
 presentation.Save("matrix.pptx", SaveFormat.Pptx);
 ```
 
-## **Добавить массивы уравнений**
+## **Добавление массивов уравнений**
 
-Используйте [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) когда нужны выровненные уравнения или вертикальный стек выражений.
+Когда нужны выравненные уравнения или вертикальный стек выражений, используйте [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) .
 
-![Вертикальный массив уравнений с x над y](powerpoint-math-equations_11.png)
+![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
 ```csharp
 using Aspose.Slides;
@@ -261,11 +261,11 @@ mathParagraph.Add(new MathBlock(equationArray));
 presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 ```
 
-### **Выровнять массив с окружающими элементами**
+### **Выравнивание массива с окружающими элементами**
 
-[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) управляет вертикальным выравниванием массива относительно соседних математических элементов. Пример ниже сравнивает выравнивание по первой строке, по центру массива и по последней строке.
+[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) управляет вертикальным выравниванием массива относительно соседних математических элементов. Пример ниже сравнивает выравнивание по первой строке, центру массива и последней строке.
 
-Следующий пример создает три одинаковых массива, каждый из трёх строк, с соседними элементами `A=` и `=B`. Весь математический текст использует шрифт Cambria Math 24 пункта. Меняется только выравнивание массива.
+В следующем примере создаются три одинаковых массива, каждый с тремя строками и соседними элементами `A=` и `=B`. Весь математический текст использует Cambria Math размером 24 пункта. Изменяется только выравнивание массива.
 
 ```csharp
 using Aspose.Slides;
@@ -312,15 +312,15 @@ MathematicalText CreateText(string value)
 }
 ```
 
-Сравнение ниже показывает сохранённую презентацию в PowerPoint. Обратите внимание на положение `A=` и `=B` рядом с каждым массивом.
+Ниже показано сравнение сохранённой презентации в PowerPoint. Обратите внимание на позицию `A=` и `=B` рядом с каждым массивом.
 
-![Массивы уравнений в PowerPoint с выравниванием по верхнему, центральному и нижнему краю и одинаковыми соседними элементами](equation-array-alignment.png)
+![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
 
-### **Настроить расстояние между строками**
+### **Настройка интервала строк**
 
-[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) выбирает правило отступа для строк внутри массива. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) задаёт численное значение для явного правила отступа и игнорируется предустановленными правилами.
+[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) выбирает правило интервала для строк внутри массива. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) задаёт числовое значение для явного правила интервала и игнорируется предустановленными правилами.
 
-Для точного отступа значение измеряется в пунктах. Для пропорционального отступа измеряется в половинах строк: значение `3` в примере соответствует 1,5 строки. Устанавливайте оба свойства, когда задаёте явное значение; изменение только численного значения не выбирает правило отступа.
+Для точного интервала значение измеряется в пунктах. Для пропорционального интервала измеряется в половинных строках: значение `3` в примере соответствует 1,5 строкам. При указании явного значения задавайте оба свойства; изменение только числового значения не выбирает правило интервала.
 
 Пример ниже сохраняет пять презентаций с одинаковыми уравнениями, выравниванием и настройками шрифта. Первые три используют предустановки; последние два показывают явные значения.
 
@@ -372,13 +372,13 @@ MathematicalText CreateText(string value)
 }
 ```
 
-Отступы строк массива отделены от отступов абзаца. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) и [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) добавляют пространство вокруг содержащего абзаца, а не между строками массива. Аналогично, [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) позиционирует весь математический абзац по горизонтали; он не заменяет настройку вертикального выравнивания массива.
+Интервал строк массива отделён от интервала абзаца. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) и [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) добавляют пространство вокруг содержащего абзаца, а не между строками массива. Аналогично, [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) позиционирует весь математический абзац по горизонтали; он не заменяет настройку вертикального выравнивания массива.
 
-## **Добавить тригонометрические функции**
+## **Добавление тригонометрических функций**
 
-Используйте [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) когда аргумент является текущим элементом и имя функции известно.
+Используйте [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) , когда аргумент является текущим элементом, а имя функции известно.
 
-![Тригонометрическая функция cos, применённая к 2x](powerpoint-math-equations_6.png)
+![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
 ```csharp
 using Aspose.Slides;
@@ -399,11 +399,11 @@ mathParagraph.Add(new MathBlock(cosine));
 presentation.Save("trigonometric-function.pptx", SaveFormat.Pptx);
 ```
 
-## **Добавить индексы и степени**
+## **Добавление нижних и верхних индексов**
 
-Используйте вспомогательные функции индексов и степеней для индексов и показателей. Когда индексы должны располагаться слева от основания, используйте [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
+Используйте вспомогательные функции для нижних и верхних индексов. Когда индексы должны располагаться слева от основания, используйте [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) .
 
-![Заглавная Y с левым индексом 1 и степенью n](powerpoint-math-equations_9.png)
+![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
 ```csharp
 using Aspose.Slides;
@@ -424,11 +424,11 @@ mathParagraph.Add(new MathBlock(scripts));
 presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 ```
 
-## **Добавить ограничители**
+## **Добавление разделителей**
 
-Используйте [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) чтобы поместить выражение внутри ограничителей. Вы также можете задать символ-разделитель для выражений с несколькими элементами.
+Для помещения выражения в разделители используйте [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) . Также можно задать символ-разделитель для выражений с несколькими элементами.
 
-![Выражение с ограничителями, содержащие x, y и z, разделённые вертикальными чертами](powerpoint-math-equations_13.png)
+![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
 ```csharp
 using Aspose.Slides;
@@ -452,11 +452,11 @@ mathParagraph.Add(new MathBlock(delimiter));
 presentation.Save("delimiters.pptx", SaveFormat.Pptx);
 ```
 
-### **Размер и выравнивание ограничителей**
+### **Размер и выравнивание разделителей**
 
-Установите [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) в `true`, чтобы скобки увеличивались вокруг высокого операнда, или в `false`, чтобы оставить их обычного размера. [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) принимает одно из двух значений [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/). `Centered` центрирует скобки по математической оси, проходящей через середину знака `=`. `Match` выравнивает их по содержимому. Оба параметра влияют только на ограничители. Выражение внутри остаётся неизменным.
+Установите [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) в `true`, чтобы скобки расширялись вокруг высокого операнда, или в `false`, чтобы оставить их обычного размера. [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) принимает одно из двух значений [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/) . `Centered` центрирует скобки по математической оси, проходящей через середину знака равенства. `Match` выравнивает их по вложенному содержимому. Оба параметра влияют только на скобки. Внутреннее выражение остаётся без изменений.
 
-Пример помещает дробь в степень `x`, поэтому выражение вытягивается выше базовой линии, чем ниже её. Все четыре уравнения используют одинаковые скобки и настройки шрифта.
+В примере дробь помещена в степень `x`, поэтому выражение выше базовой линии больше, чем ниже её. Все четыре уравнения используют одинаковые скобки и настройки шрифта.
 
 ```csharp
 using Aspose.Slides;
@@ -489,15 +489,15 @@ AddExpression(350, 140, false, MathDelimiterShape.Match);
 presentation.Save("delimiter-sizing.pptx", SaveFormat.Pptx);
 ```
 
-В PowerPoint сравните строки, чтобы увидеть эффект роста. В верхней строке скобки растут, охватывая степень, и выглядят одинаково для обеих форм. В нижней строке рост выключен. Меньшие скобки слева (`Centered`) выравниваются с знаком `=`, а справа (`Match`) находятся выше вокруг выражения.
+В PowerPoint сравните строки, чтобы увидеть эффект роста. В верхней строке скобки расширяются, охватывая степень, и выглядят одинаково для обеих фигур. В нижней строке рост отключён. Меньшие скобки слева (`Centered`) выравниваются со знаком равенства, а справа (`Match`) располагаются выше вокруг выражения.
 
-![Четыре уравнения в PowerPoint с включённым ростом ограничителей сверху и выключенным снизу, при этом `Centered` слева и `Match` справа](delimiter-sizing.png)
+![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
 
-## **Добавить рамку**
+## **Добавление рамки**
 
-Вызовите [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) для дроби, чтобы обрамить всё выражение. Возвращаемый [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) по умолчанию показывает все четыре стороны. Используйте [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/) и [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) для удаления отдельных сторон.
+Вызовите [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) для дроби, чтобы обрамить всё выражение. Возвращаемый [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) по умолчанию отображает все четыре стороны. Используйте [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/), и [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) , чтобы скрыть отдельные стороны.
 
-Пример размещает шесть копий одной и той же дроби на одном слайде. Чтобы показать отмену, скройте все четыре стороны и задайте [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) для восходящей диагонали (↗) или [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) для нисходящей диагонали (↘). Вы также можете использовать [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) или [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) в любой комбинации видимых сторон.
+В примере размещаются шесть копий одной и той же дроби на одном слайде. Чтобы показать отмену, скройте все четыре стороны и задайте [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) для восходящей диагонали (↗) или [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) для нисходящей диагонали (↘). Также можно использовать [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) или [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) в сочетании с видимыми сторонами.
 
 ```csharp
 using Aspose.Slides;
@@ -535,15 +535,89 @@ AddFraction(370, 120).StrikethroughVertical = true;
 presentation.Save("border-box.pptx", SaveFormat.Pptx);
 ```
 
-![Шесть редактируемых дробей в PowerPoint. Верхняя строка: полная рамка, нижняя и левая стороны, восходящая диагональ. Нижняя строка: нисходящая диагональ, горизонтальная черта, вертикальная черта с полной рамкой.](border-box-fractions.png)
+![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border.](border-box-fractions.png)
 
-В этой дроби горизонтальная черта перекрывает черту дроби. Вертикальная черта пересекает и числитель, и знаменатель, в то время как окружающая рамка остаётся видимой. Эти линии украшают всё выражение. Обычное зачеркивание текста применяется к символам в текстовом фрагменте. После повторного открытия презентации в PowerPoint вы всё ещё можете независимо редактировать числитель и знаменатель.
+В этой дроби горизонтальная черта пересекает черту дроби. Вертикальная черта проходит через числитель и знаменатель, при этом окружающая рамка остаётся видимой. Эти линии оформляют всё выражение. Простой зачеркивающий формат применяется к символам в текстовом фрагменте. После повторного открытия презентации в PowerPoint вы всё ещё можете редактировать числитель и знаменатель независимо.
 
-## **Группировать члены**
+## **Управление видимостью и макетом с помощью Phantom‑элементов**
 
-Используйте [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) чтобы разместить символ группировки над или под выражением. Добавьте предел, чтобы пометить сгруппированные члены.
+Оберните выражение в [MathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathphantom/) , чтобы управлять его видимостью и пространством, которое оно вносит в уравнение, независимо. Свойства [IMathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/) контролируют следующее:
 
-![Выражение x плюс y, сгруппированное с подписью любой текст снизу](powerpoint-math-equations_15.png)
+| Свойство | Описание |
+| --- | --- |
+| [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) | Установите `false`, чтобы скрыть выражение. Его размеры всё равно учитываются в макете, если ниже не установлены соответствующие свойства в `true`. |
+| [ZeroWidth](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerowidth/) | Рассматривать горизонтальную ширину выражения как ноль, позволяя соседним элементам приблизиться друг к другу. |
+| [ZeroAsc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zeroasc/) | Рассматривать подъем (высоту над базовой линией) как ноль. Это может уменьшить пространство, зарезервированное над соседними элементами. |
+| [ZeroDesc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerodesc/) | Рассматривать снижение (глубину ниже базовой линии) как ноль. Это может приблизить черту дроби или другое содержимое под выражением к его соседям. |
+
+Базовая линия — это опорная линия, на которой располагаются обычные математические символы. Скрытие содержимого не удаляет его размеры, а рассмотрение размера как нуля не удаляет выражение. Исходное выражение остаётся доступным через [Base](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/base/) . Установите [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) обратно в `true`, чтобы отобразить его снова; настройки размеров остаются прежними.
+
+В примере ниже создаются пять вариантов рядом: видимая дробь, скрытая дробь, сохраняющая место, и три скрытые дроби, у которых один размер рассматривается как ноль. Каждый вариант использует одинаковое окружное выражение и Cambria Math размером 24 пункта. Все фигуры уравнений находятся на одинаковой высоте, отмеченной серой направляющей. Размещение phantom‑элемента в числителе внешней дроби облегчает визуальное восприятие изменений вертикального макета.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(1000, 180, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var labels = new[] { "Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc" };
+
+var guide = slide.Shapes.AddAutoShape(ShapeType.Line, 10, 60, 980, 0);
+guide.LineFormat.FillFormat.FillType = FillType.Solid;
+guide.LineFormat.FillFormat.SolidFillColor.Color = System.Drawing.Color.LightGray;
+
+for (var i = 0; i < labels.Length; i++)
+{
+    var left = 10 + i * 200;
+    
+    var label = slide.Shapes.AddAutoShape(ShapeType.Rectangle, left, 10, 190, 30);
+    label.FillFormat.FillType = FillType.NoFill;
+    label.LineFormat.FillFormat.FillType = FillType.NoFill;
+    label.TextFrame.Text = labels[i];
+
+    var labelFormat = label.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+    labelFormat.FontHeight = 14;
+    labelFormat.FillFormat.FillType = FillType.Solid;
+    labelFormat.FillFormat.SolidFillColor.Color = System.Drawing.Color.Black;
+
+    var fraction = new MathFraction(CreateText("a+b"), CreateText("c+d"));
+    var phantom = new MathPhantom(fraction);
+    phantom.Show = i == 0;
+    phantom.ZeroWidth = i == 2;
+    phantom.ZeroAsc = i == 3;
+    phantom.ZeroDesc = i == 4;
+
+    var numerator = new MathBlock(CreateText("x+")).Join(phantom).Join(CreateText("+y"));
+    var equation = new MathFraction(numerator, CreateText("z"));
+
+    var shape = slide.Shapes.AddMathShape(left, 60, 190, 100);
+    shape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Top;
+
+    var mathParagraph = ((IMathPortion)shape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+    mathParagraph.Add(new MathBlock(equation));
+}
+
+presentation.Save("math-phantom.pptx", SaveFormat.Pptx);
+
+MathematicalText CreateText(string value)
+{
+    var text = new MathematicalText(value);
+    text.Format.FontHeight = 24;
+    text.Format.LatinFont = new FontData("Cambria Math");
+    return text;
+}
+```
+
+![Five equations in PowerPoint comparing a visible fraction, a hidden fraction that reserves space, and hidden fractions with ZeroWidth, ZeroAsc, or ZeroDesc enabled](math-phantom.png)
+
+## **Группировка членов**
+
+Чтобы разместить символ группировки над или под выражением, используйте [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) . Добавьте предел, чтобы отметить сгруппированные члены.
+
+![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
 ```csharp
 using Aspose.Slides;
@@ -565,11 +639,11 @@ mathParagraph.Add(new MathBlock(grouped));
 presentation.Save("grouped-terms.pptx", SaveFormat.Pptx);
 ```
 
-## **Форматировать математические элементы**
+## **Форматирование математических элементов**
 
 Используйте вспомогательные функции форматирования только там, где они проясняют формулу. Например, [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) помещает черту над математическим элементом.
 
-![Математическое выражение ABC с надчеркиванием](powerpoint-math-equations_14.png)
+![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
 ```csharp
 using Aspose.Slides;
@@ -589,11 +663,11 @@ mathParagraph.Add(new MathBlock(overbar));
 presentation.Save("overbar.pptx", SaveFormat.Pptx);
 ```
 
-### **Форматировать текст в существующем уравнении**
+### **Форматирование текста в существующем уравнении**
 
-Чтобы отформатировать текст по всему существующему уравнению, обойдите дерево элементов каждого математического блока. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) возвращает только непосредственных детей, поэтому вызывайте его рекурсивно, чтобы попасть к тексту внутри дробей, скриптов, радикалов и других вложенных структур. Проверяйте текущий элемент и его детей, чтобы включить начальный элемент, когда он является [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/).
+Чтобы форматировать текст по всему существующему уравнению, пройдитесь по дереву элементов каждого математического блока. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) возвращает только непосредственных потомков, поэтому вызывайте его рекурсивно, чтобы добраться до текста внутри дробей, скриптов, радикалов и других вложенных структур. Проверьте текущий элемент и его потомков, чтобы включить начальный элемент, если он представляет собой [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) .
 
-Этот пример предполагает, что презентация содержит уравнение, например `z = xᵢ / ∛y`, где дробь содержит нижний индекс в числителе и радикал в знаменателе. Обработка только элементов верхнего уровня блока пропустит текст внутри дроби. Пример ищет математические части в текстовых фреймах слайдов, получает их блоки через [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/), и задаёт [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) 28 пунктов каждому текстовому элементу через его свойство [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/).
+В этом примере предполагается, что презентация содержит уравнение, например `z = xᵢ / ∛y` , где дробь имеет нижний индекс в числителе и радикал в знаменателе. Обработка только элементов верхнего уровня блока приведёт к пропуску текста внутри дроби. Пример ищет математические части в текстовых кадрах слайдов, получает их блоки через [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/) , и задаёт [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) 28 пунктов для каждого текстового элемента через свойство [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) .
 
 ```csharp
 using Aspose.Slides;
@@ -635,37 +709,37 @@ void FormatMathText(IMathElement element)
 }
 ```
 
-Сохранённая презентация содержит обновлённое форматирование текста на каждом уровне каждой обработанной формулы, сохраняя её текстовое содержимое и математическую структуру.
+Сохранённая презентация содержит обновлённое форматирование текста на каждом уровне каждого обработанного уравнения, при этом сохраняет его текстовое содержание и математическую структуру.
 
 ## **Быстрая справка**
 
-| Task | Main API |
+| Задача | Основной API |
 | --- | --- |
-| Create math text | [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) |
-| Combine elements | [IMathElement.Join](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/join/) |
-| Create fractions | [IMathElement.Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) |
-| Add superscript or subscript | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
-| Add functions | [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
-| Add radicals | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
-| Add limits | [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| Add left-side scripts | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| Add summations and integrals | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
-| Add matrices | [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) |
-| Add equation arrays | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
-| Add delimiters | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
-| Add bars and borders | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
-| Group terms | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
+| Создание математического текста | [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) |
+| Объединение элементов | [IMathElement.Join](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/join/) |
+| Создание дробей | [IMathElement.Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) |
+| Добавление верхнего или нижнего индекса | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
+| Добавление функций | [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
+| Добавление радикалов | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
+| Добавление пределов | [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| Добавление скриптов слева | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Добавление сумм и интегралов | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
+| Добавление матриц | [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) |
+| Добавление массивов уравнений | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
+| Добавление разделителей | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
+| Добавление штрихов и рамок | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
+| Группировка членов | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **FAQ**
 
-**Можно ли отредактировать существующее уравнение PowerPoint?**
+**Могу ли я отредактировать существующее уравнение PowerPoint?**
 
-Да. Откройте презентацию, найдите фигуру, содержащую [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), получите её [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/), и обновите математические блоки в этом абзаце.
+Да. Откройте презентацию, найдите фигуру, содержащую [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), получьте её [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/), и обновите математические блоки в этом абзаце.
 
-**Сохраняются ли уравнения как редактируемая математическая часть PowerPoint?**
+**Сохраняются ли уравнения как редактируемая математика PowerPoint?**
 
-Да. При сохранении в формате PPTX Aspose.Slides записывает уравнение как редактируемое Office‑math содержимое.
+Да. При сохранении в PPTX Aspose.Slides записывает уравнение как редактируемое содержимое Office Math.
 
-**Можно ли экспортировать уравнения в LaTeX?**
+**Могу ли я экспортировать уравнения в LaTeX?**
 
-Да. Получите [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) уравнения из его [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), и вызовите [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) для непосредственного экспорта. Для полного примера см. [Export Math Equations from Presentations in .NET](/slides/ru/net/exporting-math-equations/#export-math-equations-to-latex).
+Да. Получите [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) уравнения из его [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), и вызовите [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) , чтобы экспортировать его напрямую. Полный пример см. в [Export Math Equations from Presentations in .NET](/slides/ru/net/exporting-math-equations/#export-math-equations-to-latex).

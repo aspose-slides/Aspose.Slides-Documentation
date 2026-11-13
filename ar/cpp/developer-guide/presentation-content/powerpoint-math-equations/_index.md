@@ -1,5 +1,5 @@
 ---
-title: إضافة معادلات رياضية إلى عروض PowerPoint في C++
+title: إضافة معادلات رياضية إلى عروض PowerPoint التقديمية في C++
 linktitle: معادلات رياضية PowerPoint
 type: docs
 weight: 80
@@ -17,35 +17,35 @@ keywords:
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "إدراج وتحرير المعادلات الرياضية في PowerPoint PPT و PPTX باستخدام Aspose.Slides للـ C++، مع دعم OMML، أدوات التحكم في التنسيق، وعينات شفرة C++ واضحة."
+description: "إدراج وتعديل المعادلات الرياضية في ملفات PowerPoint PPT و PPTX باستخدام Aspose.Slides للغة C++، مع دعم OMML، أدوات تنسيق، وأمثلة شفرة C++ واضحة."
 ---
 ## **نظرة عامة**
 
-يخزن PowerPoint المعادلات باستخدام لغة ترميز الرياضيات المكتبية (OMML). باستخدام Aspose.Slides for C++، يمكنك إنشاء نفس نوع محتوى الرياضيات برمجيًا: الكسور، الجذور، الدوال، الحدود، عوامل N-ary، المصفوفات، المصفوفات المتعددة، وكتل الرياضيات المنسقة.
+يخزن PowerPoint المعادلات بصيغة Office Math Markup Language (OMML). باستخدام Aspose.Slides للغة C++، يمكنك إنشاء نفس نوع محتوى الرياضيات برمجيًا: الكسور، الجذور، الدوال، الحدود، العمليات N-ary، المصفوفات، المصفوفات، وكتل الرياضيات المنسقة.
 
-في PowerPoint، يضيف المستخدمون عادةً المعادلات من **إدراج > معادلة**:
+في PowerPoint، عادةً ما يضيف المستخدمون المعادلات من **إدراج > معادلة**:
 
 ![علامة تبويب إدراج في PowerPoint مع تحديد أمر المعادلة](powerpoint-math-equations_1.png)
 
-النتيجة هي نص رياضي قابل للتحرير على الشريحة:
+النتيجة هي نص رياضي قابل للتعديل على الشريحة:
 
-![شريحة PowerPoint تحتوي على معادلة رياضية قابلة للتحرير](powerpoint-math-equations_2.png)
+![شريحة PowerPoint تحتوي على معادلة رياضية قابلة للتعديل](powerpoint-math-equations_2.png)
 
-يُنشئ Aspose.Slides ذلك النص الرياضي من خلال ثلاثة كائنات رئيسية:
+يقوم Aspose.Slides بإنشاء ذلك النص الرياضي من خلال ثلاثة كائنات رئيسية:
 
-- شكل رياضي، يُنشأ باستخدام [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/)، هو الشكل الذي يحتوي على المعادلة.
-- [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) يخزن محتوى الرياضيات داخل إطار نص الشكل.
-- [MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/) يحتوي على كائن واحد أو أكثر من [MathBlock](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathblock/) .
+- شكل رياضي، يتم إنشاؤه باستخدام [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/)، وهو الشكل الذي يحتوي على المعادلة.
+- يخزن [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) محتوى الرياضيات داخل إطار النص الخاص بالشكل.
+- يحتوي [MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/) على كائن واحد أو أكثر من كائنات [MathBlock](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathblock/).
 
-أغلب الأمثلة أدناه تستخدم [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) والطُرُق المتسلسلة من [IMathElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/) للحفاظ على الاختصار والقراءة سهلة للكود.
+تستخدم معظم الأمثلة أدناه [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) والطرق المتسلسلة من [IMathElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/) للحفاظ على اختصار وقابلية قراءة الكود.
 
-للحالات التي تتطلب تصدير MathML، راجع [Export Math Equations from Presentations in C++](/slides/ar/cpp/exporting-math-equations/).
+لحالات تصدير MathML، راجع [تصدير المعادلات الرياضية من العروض التقديمية في C++](/slides/ar/cpp/exporting-math-equations/).
 
 ## **إنشاء معادلة**
 
-يستخدم هذا المثال [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) لإنشاء شکل رياضي ويضيف مبرهنة فيثاغورس:
+يستخدم هذا المثال [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) لإنشاء شكل رياضي ويضيف مبرهنة فيثاغورس:
 
-![المعادلة c² = a² + b²](powerpoint-math-equations_3.png)
+![المعادلة c مربع يساوي a مربع زائد b مربع](powerpoint-math-equations_3.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -86,14 +86,14 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-[AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) ينشئ شكلًا يحتوي بالفعل على فقرة رياضية. احصل على أول [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/)، استدعِ [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/)، وأضف كتل رياضية أو عناصر رياضية إليه.
+[AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) ينشئ شكلًا يحتوي مسبقًا على فقرة رياضية. قم بالوصول إلى أول [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/)، استدعِ [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/)، وأضف كتلًا رياضية أو عناصر رياضية إليه.
 {{% /alert %}}
 
-## **إضافة كسور**
+## **إضافة الكسور**
 
-استخدم [Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) لإنشاء كسر. يمكنك اختيار نمط الكسر باستخدام [MathFractionTypes](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/).
+استخدم [Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) لإنشاء كسر. يمكنك اختيار نمط للكسر باستخدام [MathFractionTypes](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/).
 
-![كسر رياضي مائل يُظهر واحد مقسومًا على x](powerpoint-math-equations_4.png)
+![كسر رياضي مائل يُظهر 1 مقسومًا على x](powerpoint-math-equations_4.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -129,7 +129,7 @@ presentation->Save(u"fraction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-لإنشاء كسر مكدس، استخدم [MathFractionTypes::Bar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/):
+للكسر المكدس، استخدم [MathFractionTypes::Bar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/):
 
 ```cpp
 #include <DOM/MathText/MathFractionTypes.h>
@@ -139,11 +139,11 @@ using namespace Aspose::Slides::MathText;
 auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"y - 1", MathFractionTypes::Bar);
 ```
 
-## **إضافة جذور**
+## **إضافة الجذور**
 
-استخدم [Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) لإنشاء جذر تربيعي، جذر مكعب، أو جذور أخرى. العنصر الحالي يصبح القاعدة، والوسيط يصبح الدرجة.
+استخدم [Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) لإنشاء جذر تربيعي أو جذر مكعب أو جذر آخر. يصبح العنصر الحالي القاعدة، ويصبح الوسيط الدرجة.
 
-![تعبير جذر من الدرجة n مع x تحت علامة الجذر](powerpoint-math-equations_5.png)
+![تعبير جذري من الدرجة n مع x تحت علامة الجذر](powerpoint-math-equations_5.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -178,9 +178,9 @@ presentation->Save(u"radical.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **إضافة دوال وحدود**
+## **إضافة الدوال والحدود**
 
-استخدم [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) أو [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) للدوال مثل `sin(x)`, `log(x)`, أو أسماء دوال مخصصة. للحدود، ضع `lim` في [MathLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) أو استخدم [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/).
+استخدم [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) أو [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) للدوال مثل `sin(x)`، `log(x)`، أو أسماء دوال مخصصة. للحدود، ضع `lim` داخل [MathLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) أو استخدم [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/).
 
 ![حد x عندما يقترب x من اللانهاية](powerpoint-math-equations_8.png)
 
@@ -219,7 +219,7 @@ presentation->Save(u"functions-and-limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-لإنشاء اسم دالة مخصص، اجعل اسم الدالة هو العنصر الحالي واستدعِ [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) مع وسيطه:
+لإسم دالة مخصص، اجعل اسم الدالة هو العنصر الحالي واستدعِ [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) مع وسيطه:
 
 ```cpp
 #include <DOM/MathText/MathematicalText.h>
@@ -228,9 +228,9 @@ using namespace Aspose::Slides::MathText;
 auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x + 1");
 ```
 
-## **إضافة عوامل N-ary وتكاملات**
+## **إضافة عوامل N-ary والتكاملات**
 
-استخدم [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/) للجمع، الاتحاد، التقاطع، وغيرها من العوامل الكبيرة. استخدم [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) للتكاملات. كلا الطريقتين يتيحان ضبط الحدود السفلية والعلوية.
+استخدم [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/) للجمعيات، الاتحادات، التقاطعات وغيرها من العوامل الكبيرة. استخدم [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) للتكاملات. كلا الطريقتين يسمحان بتحديد الحدود السفلية والعلوية.
 
 ![جمع مع حدود سفلية وعليا](powerpoint-math-equations_7.png)
 
@@ -272,7 +272,7 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-العوامل N-ary تُستخدم للعوامل الكبيرة مع حدود اختيارية. العوامل البسيطة مثل `+`, `-`, و `=` عادةً تُضاف كـ [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) وتدمج في التعبير.
+عوامل N-ary هي للعمليات الكبيرة التي قد تحتوي على حدود اختيارية. عادةً ما تُضاف العوامل البسيطة مثل `+`، `-`، و `=` كـ [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) وتدمج في التعبير.
 
 للتكامل، استخدم [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/):
 
@@ -289,11 +289,11 @@ auto integralBase = System::MakeObject<MathematicalText>(u"x")->Join(System::Mak
 auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
 ```
 
-## **إضافة مصفوفات**
+## **إضافة المصفوفات**
 
-استخدم [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) للصفوف والأعمدة. المصفوفات لا تتضمن أقواسًا بشكل افتراضي، لذا قم بتغليف المصفوة عندما تحتاج إلى أقواس مستديرة أو مربعة أو معقوفة.
+استخدم [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) للصفوف والأعمدة. لا تشمل المصفوفات الأقواس بشكلٍ افتراضي، لذا احيط بالمصفوة عندما تحتاج إلى أقواس مستديرة أو مربعة أو معقوفة.
 
-![مصفوفة رياضية ذات صفين مع خلية واحدة فارغة](powerpoint-math-equations_10.png)
+![مصفوفة رياضية ذات صفين وخلية واحدة فارغة](powerpoint-math-equations_10.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -335,11 +335,11 @@ presentation->Save(u"matrix.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **إضافة مصفوفات معادلات**
+## **إضافة مصفوفات المعادلات**
 
-استخدم [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) عندما تحتاج إلى معادلات محاذاة أو مجموعة رأسية من العبارات.
+استخدم [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) عندما تحتاج إلى معادلات مُحاذاة أو مجموعة رأسية من التعبيرات.
 
-![مصفوفة رياضية رأسية مع x فوق y](powerpoint-math-equations_11.png)
+![مصفوفة رياضية عمودية مع x فوق y](powerpoint-math-equations_11.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -377,9 +377,9 @@ presentation->Dispose();
 
 ### **محاذاة مصفوفة مع العناصر المجاورة**
 
-[IMathArray::set_BaseJustification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_basejustification/) يتحكم في محاذاة المصفوفة رأسياً بالنسبة للعناصر الرياضية المجاورة لها. المثال أدناه يقارن المحاذاة مع الصف الأول، مركز المصفوفة، والصف الأخير.
+[IMathArray::set_BaseJustification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_basejustification/) يتحكم في محاذاة المصفوفة عموديًا بالنسبة للعناصر الرياضية المجاورة لها. المثال أدناه يقارن المحاذاة مع الصف الأول، مركز المصفوفة، والصف الأخير.
 
-المثال التالي ينشئ ثلاث مصفوفات متطابقة، كل واحدة بثلاث صفوف والعناصر المجاورة `A=` و `=B`. كل النص الرياضي يستخدم Cambria Math بحجم 24 نقطة. فقط محاذاة المصفوفة تتغير.
+المثال التالي ينشئ ثلاث مصفوفات متطابقة، كل واحدة بثلاث صفوف وعناصر الجوار `A=` و `=B`. يستخدم كل النص الرياضي Cambria Math بحجم 24 نقطة. فقط محاذاة المصفوفة تتغير.
 
 ```cpp
 #include <system/array.h>
@@ -464,17 +464,17 @@ presentation->Save(u"equation-array-alignment.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-المقارنة التالية تُظهر العرض المحفوظ في PowerPoint. لاحظ موضع `A=` و `=B` بجانب كل مصفوفة.
+المقارنة التالية تُظهر العرض المُحفظ في PowerPoint. لاحظ موضع `A=` و `=B` بجوار كل مصفوفة.
 
-![مصفوفات معادلات في PowerPoint مع محاذاة أعلى، وسط، وأسفل وعناصر مجاورة متطابقة](equation-array-alignment.png)
+![مصفوفات المعادلات في PowerPoint مع محاذاة أعلى، وسط، وأسفل وعناصر مجاورة متطابقة](equation-array-alignment.png)
 
 ### **تهيئة تباعد الصفوف**
 
-[set_RowSpacingRule](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacingrule/) يحدد قاعدة التباعد للصفوف داخل المصفوفة. [set_RowSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacing/) يزود قيمة عددية لقاعدة تباعد صريحة ويتم تجاهلها من قبل القواعد المحددة مسبقًا.
+[set_RowSpacingRule](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacingrule/) يختار قاعدة التباعد للصفوف داخل المصفوفة. [set_RowSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacing/) يقدم قيمة عددية لقاعدة تباعد صريحة ويتم تجاهلها إذا كانت القواعد المسبقة مُفعلة.
 
-للتباعد الدقيق، تُقاس القيمة بالنقاط. للتباعد النسبي، تُقاس بنصف السطور: القيمة `3` في المثال تمثل 1.5 سطر. استدعِ الطريقتين عند تحديد قيمة صريحة؛ تغيير القيمة العددية وحدها لا يحدد قاعدة التباعد.
+للتباعد الدقيق، تُقاس القيمة بالنقاط. للتباعد النسبي، تُقاس بنصف الأسطر: القيمة `3` في المثال تعني 1.5 سطر. استدعِ كلا الدالتين عند تحديد قيمة صريحة؛ تغيير القيمة العددية وحدها لا يختار قاعدة التباعد.
 
-المثال أدناه يحفظ خمس عروض بنفس المعادلات، المحاذاة، وإعدادات الخط. الثلاثة الأولى تستخدم الإعدادات المسبقة؛ الأخيرة تظهر قيمًا صريحة.
+المثال أدناه يحفظ خمس عروض تقديمية بنفس المعادلات، المحاذاة، وإعدادات الخط. الثلاثة الأولى تستخدم الإعدادات المسبقة؛ الأخيرة تظهر قيمًا صريحة.
 
 ```cpp
 #include <system/array.h>
@@ -556,13 +556,13 @@ for (const auto& setting : settings)
 }
 ```
 
-تباعد صفوف المصفوفة منفصل عن تباعد الفقرات. [set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) و [set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/) يضيفان مساحة حول الفقرة المحتوية، وليس بين صفوف المصفوفة. بالمثل، [IMathParagraph::set_Justification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/set_justification/) يضع الفقرة الرياضية بالكامل أفقياً؛ ولا يستبدل إعداد المحاذاة الرأسية للمصفوفة.
+تباعد صفوف المصفوفة منفصل عن تباعد الفقرات. [set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) و [set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/) يضيفان مساحة حول الفقرة المحتوية، وليس بين صفوف المصفوفة. بالمثل، [IMathParagraph::set_Justification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/set_justification/) يحدد موضع الفقرة الرياضية بالكامل أفقيًا؛ ولا يستبدل إعداد المحاذاة العمودية للمصفوفة.
 
-## **إضافة دوال المثلثات**
+## **إضافة الدوال المثلثية**
 
-استخدم [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) عندما يكون الوسيط هو العنصر الحالي ويكون اسم الدالة معروفًا.
+استخدم [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) عندما يكون الوسيط هو العنصر الحالي ويُعرف اسم الدالة.
 
-![دالة المثلثية cos مطبقة على 2x](powerpoint-math-equations_6.png)
+![الدالة المثلثية cos مطبقة على 2x](powerpoint-math-equations_6.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -598,9 +598,9 @@ presentation->Save(u"trigonometric-function.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **إضافة مؤشرات وأسفلية وعليا**
+## **إضافة المؤشرات السُفليَة والعلوية**
 
-استخدم أدوات المؤشرات والسُطر العلوي للمؤشرات والقوى. عندما يجب أن تظهر المؤشرات على الجانب الأيسر من القاعدة، استخدم [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
+استخدم مساعدي المؤشر السُفلي والعلوي للفهارس والأسس. عندما يجب أن تظهر الفهارس على الجانب الأيسر من القاعدة، استخدم [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
 
 ![حرف Y كبير مع مؤشر سفلي 1 ومؤشر علوي n على الجانب الأيسر](powerpoint-math-equations_9.png)
 
@@ -637,9 +637,9 @@ presentation->Save(u"subscript-superscript.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **إضافة محددات**
+## **إضافة المحددات**
 
-استخدم [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) لوضع تعبير داخل محددات. يمكنك أيضًا تعيين حرف فاصل لتعبيرات المحدد التي تحتوي على عدة عناصر.
+استخدم [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) لوضع تعبير داخل محددات. يمكنك أيضًا تعيين حرف فاصل لتعبيرات محددات تحتوي على عدة عناصر.
 
 ![تعبير محدد يحتوي على x و y و z مفصولة بأعمدة رأسية](powerpoint-math-equations_13.png)
 
@@ -678,11 +678,11 @@ presentation->Save(u"delimiters.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **حجم وتناسق المحددات**
+### **حجم ومحاذاة المحددات**
 
-مرّر `true` إلى [set_GrowToMatchOperandHeight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_growtomatchoperandheight/) لتسمح للأقواس بالنمو حول معامل طويل، أو `false` للحفاظ على حجمها الطبيعي. [set_DelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_delimitershape/) يأخذ إحدى قيمتي [MathDelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathdelimitershape/). `Centered` يضمن أن تكون الأقواس في مركز محور الرياضيات، الذي يمر عبر منتصف علامة المساواة. `Match` يطابقها مع المحتوى المُحاط. كلا الإعدادين يؤثران فقط على المحددات. يبقى التعبير الداخلي كما هو.
+مرّر `true` إلى [set_GrowToMatchOperandHeight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_growtomatchoperandheight/) للسماح للأقواس بالنمو حول عامل طويل، أو `false` لإبقائها بالحجم الطبيعي. [set_DelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_delimitershape/) يأخذ واحدة من قيمتي [MathDelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathdelimitershape/) اثنتين. `Centered` يُوسّط الأقواس على محور الرياضيات، الذي يمر عبر وسط علامة المساواة. `Match` يطابقها مع المحتوى المحاط. كلا الإعدادين يؤثران فقط على المحددات. يبقى التعبير الداخلي كما هو.
 
-المثال يضع كسرًا في الأس `x` بحيث يمتد التعبير أعلى من الخط الأساسي أكثر من أسفله. كل المعادلات الأربع تستخدم نفس الأقواس وإعدادات الخط.
+المثال يضع كسرًا في أس `x` بحيث يمتد التعبير أعلى خط القاعدة أكثر من أسفله. جميع المعادلات الأربعة تستخدم نفس الأقواس وإعدادات الخط.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -733,15 +733,15 @@ presentation->Save(u"delimiter-sizing.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-في PowerPoint، قارن الصفوف لترى تأثير النمو. في الصف العلوي، تنمو الأقواس لتغلف الأس وتبدو متشابهة لكلا الشكلين. في الصف السفلي، يكون النمو معطلًا. الأقواس الأصغر على اليسار (`Centered`) تتماشى مع علامة المساواة، بينما الأقواس على اليمين (`Match`) تكون أعلى حول التعبير.
+في PowerPoint، قارن الصفوف لرؤية تأثير النمو. في الصف العلوي، تنمو الأقواس لتضمّن الأس وتبدو متشابهة لكلا الشكلين. في الصف السفلي، يكون النمو مغلقًا. الأقواس الصغيرة على اليسار (`Centered`) تُطابق علامة المساواة، بينما الأقواس على اليمين (`Match`) تقع أعلى حول التعبير.
 
-![أربع معادلات في PowerPoint مع تمكين نمو المحددات في الأعلى وتعطيلها في الأسفل، و`Centered` على اليسار و`Match` على اليمين](delimiter-sizing.png)
+![أربع معادلات في PowerPoint مع تمكين نمو المحددات أعلى وتعطيله أسفل، و`Centered` على اليسار و`Match` على اليمين](delimiter-sizing.png)
 
-## **إضافة إطار حد**
+## **إضافة صندوق حد**
 
-استدعِ [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) على كسر لتحيط التعبير بالكامل. [IMathBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/) المُرجع يُظهر جميع الجوانب الأربعة بشكل افتراضي. استخدم [set_HideTop](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidetop/)، [set_HideBottom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidebottom/)، [set_HideLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideleft/)، و [set_HideRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideright/) لإزالة الجوانب الفردية.
+استدعِ [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) على كسر لتأطير التعبير بأكمله. يعرض [IMathBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/) المُرجع جميع الجوانب الأربعة بشكل افتراضي. استخدم [set_HideTop](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidetop/)، [set_HideBottom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidebottom/)، [set_HideLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideleft/)، و [set_HideRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideright/) لإزالة الجوانب الفردية.
 
-المثال يضع ست نسخ من نفس الكسر على شريحة واحدة. لإظهار الإلغاء، أخفِ جميع الجوانب الأربعة واضبط [set_StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughbottomlefttotopright/) للحصول على قُطْر صاعد (↗) أو [set_StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughtoplefttobottomright/) لقُطْر هابط (↘). يمكنك أيضًا استخدام [set_StrikethroughHorizontal](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughhorizontal/) أو [set_StrikethroughVertical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughvertical/) مع أي مجموعة من الجوانب الظاهرة.
+المثال يضع ست نسخ من نفس الكسر على شريحة واحدة. لإظهار الإلغاء، أخفِ جميع الجوانب الأربعة واضبط [set_StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughbottomlefttotopright/) لخط مائل صاعد (↗) أو [set_StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughtoplefttobottomright/) لخط مائل هابط (↘). يمكنك أيضًا استخدام [set_StrikethroughHorizontal](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughhorizontal/) أو [set_StrikethroughVertical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughvertical/) مع أي تركيبة من الجوانب الظاهرة.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -801,15 +801,128 @@ presentation->Save(u"border-box.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![ستة كسور قابلة للتحرير في PowerPoint. الصف العلوي: حد كامل، الجانبين السفلي واليسار، قطر صاعد. الصف السفلي: قطر هابط، شطب أفقي، شطب عمودي مع حد كامل](border-box-fractions.png)
+![ستة كسور قابلة للتعديل في PowerPoint. الصف العلوي: حد كامل، الجانب السفلي واليسار، وخط مائل صاعد. الصف السفلي: خط مائل هابط، خط أفقي، خط عمودي مع حد كامل](border-box-fractions.png)
 
-في هذا الكسر، يتقاطع الشطب الأفقي مع شريط الكسر. الشطب العمودي يقطع البسط والمقام مع بقاء الحد الخارجي مرئيًا. هذه الخطوط تُزيّن التعبير كله. شطب النص العادي يُطبّق على الأحرف داخل مقطع النص. بعد إعادة فتح العرض في PowerPoint، يمكنك ما زلت تحرير البسط والمقام بشكل مستقل.
+في هذا الكسر، يلتقي الخط الأفقي مع شريط الكسر. الخط العمودي يقطع كلًا من البسط والمقام بينما يبقى الحد المحيط مرئيًا. هذه الخطوط تزيّن التعبير بالكامل. يُطبق الخط عبر النص العادي على الأحرف داخل مقطع نصي. بعد إعادة فتح العرض في PowerPoint، لا يزال بإمكانك تعديل البسط والمقام بشكل مستقل.
+
+## **التحكم في الرؤية والتنسيق باستخدام عناصر Phantom**
+
+غلف تعبيرًا داخل [MathPhantom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathphantom/) للتحكم في رؤيته والمسافة التي يضيفها إلى المعادلة بشكل مستقل. طرق الضبط في [IMathPhantom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/) تتحكم فيما يلي:
+
+| الطريقة | التأثير |
+| --- | --- |
+| [set_Show](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_show/) | مرّر `false` لإخفاء التعبير. لا تزال أبعاده تُساهم في التخطيط ما لم تكن الإعدادات المقابلة أدناه `true`. |
+| [set_ZeroWidth](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_zerowidth/) | اعتبر عرض التعبير الأفقي صفرًا، مما يسمح للعناصر المجاورة بالتحرك أقرب معًا. |
+| [set_ZeroAsc](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_zeroasc/) | اعتبر ارتفاع صعوده، أي الارتفاع فوق خط القاعدة، صفرًا. يمكن أن يقلل ذلك من المسافة المحجوزة فوق العناصر المجاورة. |
+| [set_ZeroDesc](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_zerodesc/) | اعتبر انخفاضه، أي العمق أسفل خط القاعدة، صفرًا. يمكن أن يقرّب شريط الكسر أو محتوى آخر أسفل التعبير من جيرانه. |
+
+خط القاعدة هو الخط المرجعي الذي تجلس عليه الحروف الرياضية العادية. إخفاء المحتوى لا يزيل أبعاده، ومعاملة بعد ما كصفر لا تحذف التعبير. يبقى التعبير الأساسي متاحًا عبر [get_Base](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/get_base/). مرّر `true` إلى [set_Show](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_show/) لعرضه مرة أخرى؛ تبقى إعدادات الأبعاد دون تغيير.
+
+المثال أدناه ينشئ خمسة متغيرات متجاورة: كسر مرئي، كسر مخفي يحجز مساحة، وثلاثة كسور مخفية يتم فيها معالجة بعد واحد كصفر. كل متغير يستخدم نفس التعبير المحيط وCambria Math بحجم 24 نقطة. جميع أشكال المعادلة لها نفس الموضع العلوي، معلمًا بدليل رمادي. وضع العنصر Phantom في بسط كسر خارجي يجعل تغييرات التخطيط العمودي أسهل رؤية.
+
+```cpp
+#include <array>
+#include <drawing/color.h>
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathFraction.h>
+#include <DOM/MathText/MathPhantom.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/TextAnchorType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
+auto createText = [](System::String value)
+{
+    auto text = System::MakeObject<MathematicalText>(value);
+    text->get_Format()->set_FontHeight(24);
+    auto font = System::MakeObject<FontData>(u"Cambria Math");
+    text->get_Format()->set_LatinFont(font);
+    return text;
+};
+
+auto presentation = System::MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(1000, 180, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+std::array<System::String, 5> labels = {u"Visible", u"Hidden: reserves space", u"Hidden: ZeroWidth", u"Hidden: ZeroAsc", u"Hidden: ZeroDesc"};
+
+auto guide = slide->get_Shapes()->AddAutoShape(ShapeType::Line, 10, 60, 980, 0);
+guide->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+guide->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_LightGray());
+
+for (auto i = 0; i < labels.size(); i++)
+{
+    auto left = 10 + i * 200;
+
+    auto label = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, left, 10, 190, 30);
+    label->get_FillFormat()->set_FillType(FillType::NoFill);
+    label->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+    label->get_TextFrame()->set_Text(labels[i]);
+
+    auto labelFormat = label->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat();
+    labelFormat->set_FontHeight(14);
+    labelFormat->get_FillFormat()->set_FillType(FillType::Solid);
+    labelFormat->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
+
+    auto fractionNumerator = createText(u"a+b");
+    auto fractionDenominator = createText(u"c+d");
+    auto fraction = System::MakeObject<MathFraction>(fractionNumerator, fractionDenominator);
+    auto phantom = System::MakeObject<MathPhantom>(fraction);
+    phantom->set_Show(i == 0);
+    phantom->set_ZeroWidth(i == 2);
+    phantom->set_ZeroAsc(i == 3);
+    phantom->set_ZeroDesc(i == 4);
+
+    auto leadingText = createText(u"x+");
+    auto trailingText = createText(u"+y");
+    auto numeratorBlock = System::MakeObject<MathBlock>(leadingText);
+    auto numerator = numeratorBlock->Join(phantom)->Join(trailingText);
+    auto denominator = createText(u"z");
+    auto equation = System::MakeObject<MathFraction>(numerator, denominator);
+
+    auto shape = slide->get_Shapes()->AddMathShape(left, 60, 190, 100);
+    shape->get_TextFrame()->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Top);
+
+    auto mathPortion = System::ExplicitCast<MathPortion>(shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+    auto mathParagraph = mathPortion->get_MathParagraph();
+    auto mathBlock = System::MakeObject<MathBlock>(equation);
+    mathParagraph->Add(mathBlock);
+}
+
+presentation->Save(u"math-phantom.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+
+```
+
+![خمس معادلات في PowerPoint تقارن كسرًا مرئيًا، كسرًا مخفيًا يحجز مساحة، وكسرًا مخفيًا مع تمكين ZeroWidth أو ZeroAsc أو ZeroDesc](math-phantom.png)
 
 ## **تجميع المصطلحات**
 
 استخدم [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) لوضع حرف تجميع فوق أو تحت تعبير. أضف حدًا لتسمية المصطلحات المجمعة.
 
-![التعبير x زائد y مجمع مع تسمية أي نص أدناه](powerpoint-math-equations_15.png)
+![التعبير x زائد y مُجمّع مع التسمية أي نص تحته](powerpoint-math-equations_15.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -849,7 +962,7 @@ presentation->Dispose();
 
 ## **تنسيق عناصر الرياضيات**
 
-استخدم أدوات التنسيق فقط حيث توضح الصيغة. على سبيل المثال، [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/) يضع شريطًا فوق عنصر رياضي.
+استخدم مساعدي التنسيق فقط حيث يُوضحون الصيغة. على سبيل المثال، [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/) يضع شريطًا فوق عنصر رياضي.
 
 ![تعبير رياضي ABC مع شريط فوقه](powerpoint-math-equations_14.png)
 
@@ -887,9 +1000,9 @@ presentation->Dispose();
 
 ### **تنسيق النص في معادلة موجودة**
 
-لتنسيق النص في جميع أنحاء معادلة موجودة، تجول في شجرة عناصر كل كتلة رياضية. [IMathElement::GetChildren](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/getchildren/) يُعيد فقط الأطفال المباشرين، لذا استدعِه بشكل متكرر للوصول إلى النص داخل الكسور، الأسس، الجذور، والهياكل المتداخلة الأخرى. تحقق من العنصر الحالي وكذلك أطفاله لتضمين العنصر البداية عندما يكون [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/).
+لتنسيق النص عبر معادلة موجودة، استعرض شجرة عناصر كل كتلة رياضية. [IMathElement::GetChildren](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/getchildren/) تُعيد الأطفال المباشرين فقط، لذا استدعها بشكلٍ متكرر للوصول إلى النص داخل الكسور، السكريبتات، الجذور، والهياكل المتداخلة الأخرى. افحص العنصر الحالي بالإضافة إلى أطفاله لتشمل العنصر الابتدائي عندما يكون [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/).
 
-يفترض هذا المثال أن العرض يحتوي على معادلة مثل `z = xᵢ / ∛y`، مع كسر يحتوي على مؤشر سفلي في البسط وجذر في المقام. معالجة العناصر العليا فقط من الكتلة ستفوت النص داخل الكسر. المثال يحدد الأقسام الرياضية في إطارات نص الشرائح، يصل إلى كتلها عبر [IMathPortion::get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/get_mathparagraph/)، ويضبط ارتفاع الخط إلى 28 نقطة باستخدام [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/)، مع الوصول إلى التنسيق عبر طريقة [get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/get_format/) لكل عنصر نص.
+يفترض هذا المثال أن العرض يحتوي على معادلة مثل `z = xᵢ / ∛y`، حيث يحتوي كسر على مؤشر سفلي في البسط وجذر في المقام. معالجة العناصر العليا للكتلة فقط سيتجاوز النص داخل الكسر. يبحث المثال عن أجزاء رياضية في أطر نص الشرائح، يصل إلى كتلها عبر [IMathPortion::get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/get_mathparagraph/)، ويضبط ارتفاع الخط إلى 28 نقطة باستخدام [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/)، مع الوصول إلى التنسيق عبر طريقة [get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/get_format/) لكل عنصر نصي.
 
 ```cpp
 #include <functional>
@@ -956,37 +1069,37 @@ presentation->Save(u"formatted-equations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-العرض المحفوظ يحتوي على تنسيق النص المحدث في كل مستوى من كل معادلة تم معالجتها، مع الحفاظ على محتوى النص والبنية الرياضية.
+العرض المحفوظ يحتوي على تنسيق النص المحدث في كل مستوى من كل معادلة معالجة، مع الحفاظ على محتوى النص والبنية الرياضية.
 
 ## **مرجع سريع**
 
-| المهمة | API الرئيسي |
+| المهمة | الواجهة الأساسية |
 | --- | --- |
 | إنشاء نص رياضي | [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) |
 | دمج العناصر | [IMathElement.Join](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/join/) |
 | إنشاء كسور | [IMathElement.Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) |
-| إضافة أس فوق أو أس تحت | [SetSuperscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
-| إضافة دوال | [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
-| إضافة جذور | [IMathElement.Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) |
-| إضافة حدود | [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| إضافة أسفل أو فوق النص | [SetSuperscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
+| إضافة الدوال | [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
+| إضافة الجذور | [IMathElement.Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) |
+| إضافة الحدود | [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
 | إضافة سكريبتات على الجانب الأيسر | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| إضافة جمع وتكامل | [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) |
-| إضافة مصفوفات | [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) |
-| إضافة مصفوفات معادلات | [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
-| إضافة محددات | [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) |
-| إضافة أشرطة وحدود | [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
+| إضافة الجمعيات والتكاملات | [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) |
+| إضافة المصفوفات | [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) |
+| إضافة مصفوفات المعادلات | [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
+| إضافة المحددات | [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) |
+| إضافة الأشرطة والحدود | [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
 | تجميع المصطلحات | [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) |
 
-## **الأسئلة المتكررة**
+## **FAQ**
 
-**هل يمكنني تحرير معادلة PowerPoint موجودة؟**
+**هل يمكنني تعديل معادلة PowerPoint موجودة؟**
 
 نعم. افتح العرض، ابحث عن الشكل الذي يحتوي على [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/)، استدعِ [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/)، وقم بتحديث كتل الرياضيات في تلك الفقرة.
 
-**هل تُحفظ المعادلات كرياضيات PowerPoint قابلة للتحرير؟**
+**هل تُحفظ المعادلات كرياضيات PowerPoint قابلة للتعديل؟**
 
-نعم. عند حفظ العرض كـ PPTX، يكتب Aspose.Slides المعادلة كـ Office Math قابل للتحرير.
+نعم. عند الحفظ إلى PPTX، يكتب Aspose.Slides المعادلة ك محتوى Office رياضي قابل للتعديل.
 
 **هل يمكنني تصدير المعادلات إلى LaTeX؟**
 
-نعم. احصل على [IMathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/) الخاص بالمعادلة من [IMathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/)، واستدعِ [IMathParagraph::ToLatex](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) لتصديره مباشرة. للحصول على مثال كامل، راجع [Export Math Equations from Presentations in C++](/slides/ar/cpp/exporting-math-equations/#export-math-equations-to-latex).
+نعم. احصل على [IMathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/) الخاص بالمعادلة من [IMathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/)، واستدعِ [IMathParagraph::ToLatex](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) لتصديرها مباشرة. للحصول على مثال كامل، راجع [تصدير المعادلات الرياضية من العروض التقديمية في C++](/slides/ar/cpp/exporting-math-equations/#export-math-equations-to-latex).
