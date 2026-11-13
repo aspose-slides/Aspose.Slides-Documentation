@@ -532,6 +532,79 @@ with slides.Presentation() as presentation:
 
 On this fraction, the horizontal strike overlaps the fraction bar. The vertical strike crosses both the numerator and the denominator while the surrounding border stays visible. These lines decorate the whole expression. Ordinary text strikethrough applies to characters in a text run. After reopening the presentation in PowerPoint, you can still edit the numerator and denominator independently.
 
+## **Control Visibility and Layout with Phantom Elements**
+
+Wrap an expression in [MathPhantom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/) to control its visibility and the space it contributes to an equation independently. The [IMathPhantom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/) properties control the following:
+
+| Property | Effect |
+| --- | --- |
+| [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/show/) | Set to `False` to hide the expression. Its dimensions still contribute to layout unless the corresponding properties below are `True`. |
+| [zero_width](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/zero_width/) | Treat the expression's horizontal width as zero, allowing neighboring elements to move closer together. |
+| [zero_asc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/zero_asc/) | Treat its ascent, the height above the baseline, as zero. This can reduce the space reserved above neighboring elements. |
+| [zero_desc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/zero_desc/) | Treat its descent, the depth below the baseline, as zero. This can move a fraction bar or other content below the expression closer to its neighbors. |
+
+The baseline is the reference line on which ordinary mathematical letters sit. Hiding content does not remove its dimensions, and treating a dimension as zero does not delete the expression. The underlying expression remains available through [base](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/base/). Set [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/show/) back to `True` to display it again; the dimension settings remain unchanged.
+
+The example below creates five side-by-side variants: a visible fraction, a hidden fraction that reserves space, and three hidden fractions with one dimension treated as zero. Each variant uses the same surrounding expression and Cambria Math at 24 points. All equation shapes have the same top position, marked by the gray guide. Placing the phantom in the numerator of an outer fraction makes the vertical layout changes easier to see.
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+
+def create_text(value):
+    text = math.MathematicalText(value)
+    text.format.font_height = 24
+    text.format.latin_font = slides.FontData("Cambria Math")
+    return text
+
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(1000, 180, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+    labels = ["Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc"]
+
+    guide = slide.shapes.add_auto_shape(slides.ShapeType.LINE, 10, 60, 980, 0)
+    guide.line_format.fill_format.fill_type = slides.FillType.SOLID
+    guide.line_format.fill_format.solid_fill_color.color = slides.Color.light_gray
+
+    for i, label_text in enumerate(labels):
+        left = 10 + i * 200
+        label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, left, 10, 190, 30)
+        label.fill_format.fill_type = slides.FillType.NO_FILL
+        label.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+        label.text_frame.text = label_text
+        label_format = label.text_frame.paragraphs[0].portions[0].portion_format
+        label_format.font_height = 14
+        label_format.fill_format.fill_type = slides.FillType.SOLID
+        label_format.fill_format.solid_fill_color.color = slides.Color.black
+
+        fraction_numerator = create_text("a+b")
+        fraction_denominator = create_text("c+d")
+        fraction = math.MathFraction(fraction_numerator, fraction_denominator)
+        phantom = math.MathPhantom(fraction)
+        phantom.show = i == 0
+        phantom.zero_width = i == 2
+        phantom.zero_asc = i == 3
+        phantom.zero_desc = i == 4
+
+        left_text = create_text("x+")
+        right_text = create_text("+y")
+        numerator = math.MathBlock(left_text).join(phantom).join(right_text)
+        denominator = create_text("z")
+        equation = math.MathFraction(numerator, denominator)
+
+        shape = slide.shapes.add_math_shape(left, 60, 190, 100)
+        shape.text_frame.text_frame_format.anchoring_type = slides.TextAnchorType.TOP
+        math_paragraph = shape.text_frame.paragraphs[0].portions[0].math_paragraph
+        math_paragraph.add(math.MathBlock(equation))
+
+    presentation.save("math-phantom.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![Five equations in PowerPoint comparing a visible fraction, a hidden fraction that reserves space, and hidden fractions with ZeroWidth, ZeroAsc, or ZeroDesc enabled](math-phantom.png)
+
+
 ## **Group Terms**
 
 Use [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/) to place a grouping character above or below an expression. Add a limit to label the grouped terms.
