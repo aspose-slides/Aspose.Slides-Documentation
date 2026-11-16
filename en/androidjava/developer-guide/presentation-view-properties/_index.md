@@ -4,7 +4,7 @@ linktitle: View Properties
 type: docs
 weight: 80
 url: /androidjava/presentation-view-properties/
-keywords: 
+keywords:
 - view properties
 - normal view
 - outline content
@@ -21,92 +21,60 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Discover Aspose.Slides for Android via Java view properties to customize formats PPT, PPTX, and ODP slides—adjust layouts, zoom levels, and display settings."
+description: "Use Aspose.Slides for Android via Java to configure the normal view layout, slide and notes zoom, grid spacing, and comment visibility in PowerPoint presentations."
 ---
 
 ## **Introduction**
 
-The normal view consists of three content regions: the slide itself, a side content region, and a bottom content region. Properties pertaining to the positioning of the different content regions. This information allows the application to save its view state to the file, so that when reopened the view is in the same state as when the presentation was last saved.
-
-Method [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) has been added to provide access to normal view properties of presentation. 
-
-[INormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewRestoredProperties) interfaces and its descendants, [SplitterBarStateType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SplitterBarStateType) enum have been added.
-
-
-<!-- visual-explanation:presentation-view-properties:start -->
-[![A conceptual editor separates a side panel, slide region and bottom region with labelled vertical and horizontal splitters.](visual-presentation-view-properties-40ae1765a743.svg)](visual-presentation-view-properties-40ae1765a743.svg)
-
-*Normal View stores the side, slide and bottom-region arrangement. VerticalBarState and HorizontalBarState control their splitters; restored sizing applies in the restored state. These are editor settings, not slide shapes. The consuming application determines how it displays the saved preferences.*
-<!-- visual-explanation:presentation-view-properties:end -->
+In PowerPoint's normal view, the slide appears between a side pane for thumbnails or an outline and a notes pane below. Aspose.Slides for Android via Java exposes the presentation's saved editing preferences through [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--). These include the pane layout, zoom levels, grid spacing, and comment visibility.
 
 ## **About INormalViewProperties**
 
-Represents normal view properties.
+Use [getNormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getNormalViewProperties--) to access the [INormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/) interface. [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) controls whether icons appear beside slide titles in the outline. [setSnapVerticalSplitter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setSnapVerticalSplitter-boolean-) lets the side pane snap to its minimized state when the user narrows it. [setPreferSingleView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setPreferSingleView-boolean-) indicates a preference for displaying one pane in the full window.
 
-Methods [getShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) and [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) specifies whether the application should show icons if displaying outline content in any of the content regions of normal view mode.
-
-Methods [getSnapVerticalSplitter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) and [setSnapVerticalSplitter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) specifies whether the vertical splitter should snap to a minimized state when the side region is sufficiently small.
-
-Property [getPreferSingleView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) and [setPreferSingleView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) specifies whether the user prefers to see a full-window single-content region over the standard normal view with three content regions. If enabled, the application may choose to display one of the content regions in the entire window.
-
-Methods [getVerticalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) and [getHorizontalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) specify the state that the horizontal or vertical splitter bar should be shown in. A horizontal splitter bar separates the slide from the content region below the slide, vertical splitter bar separates the slide from the side content region. Possible values are: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) and [SplitterBarStateType.Restored](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
-
-Methods [getRestoredLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) and [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) specify the sizing of the top or side slide region of the normal view, when [SplitterBarStateType.Restored](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SplitterBarStateType#Restored) value applied for [getVerticalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) and [getHorizontalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) accordingly.
+[setVerticalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setVerticalBarState-int-) controls the divider between the side pane and the slide. [setHorizontalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setHorizontalBarState-int-) controls the divider above the notes pane. Both accept a [SplitterBarStateType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/splitterbarstatetype/) value of `Minimized`, `Maximized`, or `Restored`.
 
 ## **About Restoring INormalViewProperties**
 
-Specifies the sizing of the slide region (width when a child of [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--), height when a child of [getRestoredLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) of the normal view, when the region is of a variable restored size (neither minimized nor maximized). 
+When a divider is restored, [getRestoredLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredLeft--) supplies the saved size of the side pane and [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredTop--) supplies the saved size of the upper slide area. Both expose [INormalViewRestoredProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/). Its [setDimensionSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/#setDimensionSize-float-) method accepts a percentage from 0 to 100, and [setAutoAdjust](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/#setAutoAdjust-boolean-) controls whether the editor adjusts the size when the window is resized.
 
-Method [getDimensionSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) specifies the size of the slide region (width when a child of restoredTop, height when a child of restoredLeft).
-
-Method [getAutoAdjust](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) specifies whether the size of the side content region should compensate for the new size when resizing the window containing the view within the application
-
-An example is given below shows how can you access [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) properties for a presentation.
+This example updates an existing presentation. It restores the horizontal divider, sets the size returned by [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredTop--) to 80% with automatic adjustment enabled, and maximizes the vertical divider. It also calls [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) to display icons in outline view.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
-    // Restore the view properties of the presentation
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    INormalViewProperties normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Set the Default Zoom Value**
 
-{{% alert color="info" %}} 
+[getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getSlideViewProperties--) and [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getNotesViewProperties--) store independent zoom settings for the editor. These settings do not affect slide dimensions, slide-show playback, or image export resolution.
 
-Aspose.Slides for Android via Java now supports setting the default zoom value for presentation such that when the presentation is opened, zoom is set already. This could be done by setting the [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) of a presentation. [getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) as well as [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) could be set programmatically. In this topic, we will see with an example how to set the [View Properties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) in Aspose.Slides.
-
-{{% /alert %}} 
-
-In order to set the view properties. Please follow the steps below:
-
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class.
-1. Set [View Properties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
-   In the example given below, we have set the zoom value for slide view as well as notes view.
+This example opens an existing presentation and calls [setVariableScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommonslideviewproperties/#setVariableScale-boolean-) to fit the slide to the editing window. For the notes page, it disables automatic scaling and calls [setScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommonslideviewproperties/#setScale-int-) to set a fixed 80% zoom.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation presentation = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    // Setting the view properties of the presentation
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Zoom value in percentages for slide view
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Zoom value in percentages for notes view 
+    IViewProperties viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
+    presentation.save("zoom.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -114,77 +82,67 @@ try {
 
 ## **Set the Grid Spacing**
 
-Use [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) to access presentation-wide view settings. The [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) and [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) methods read or change the interval of the underlying editing grid. This setting applies to the entire presentation, not to an individual slide. Grid spacing is specified in points, where 72 points equal one inch. Use a positive value, as required by the API documentation.
-
-The following example opens an existing `demo.pptx`, prints its current grid spacing, sets a quarter-inch interval, and saves the result.
+[setGridSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) sets the distance between editing grid lines throughout the presentation. It takes a positive value in points, with 72 points per inch. This example prints the current spacing in an existing presentation and saves a quarter-inch grid by setting the interval to 18 points.
 
 ```java
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("demo.pptx");
 try {
-    float gridSpacing = presentation.getViewProperties().getGridSpacing();
-    System.out.println("Current grid spacing: " + gridSpacing + " points");
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
 
-    presentation.getViewProperties().setGridSpacing(18f);
+    viewProperties.setGridSpacing(18f);
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-The grid is different from [drawing guides](/slides/androidjava/drawing-guides/). Grid spacing controls a regular interval, while drawing guides are individually positioned horizontal or vertical alignment lines. Adding, moving, or clearing drawing guides does not change the grid spacing.
-
-Both the grid and drawing guides are editing aids. They are not rendered as slide content in PDF, images, SVG, or a slide show. Storing the grid spacing does not guarantee that an editor will display the grid: its visibility also depends on the viewer or editor's preferences.
+The grid repeats at a fixed interval. [Drawing guides](/slides/androidjava/drawing-guides/) mark individual horizontal or vertical positions. Both are editing aids and appear only in editors that display them. Slide shows and exports to PDF, images, or SVG omit them.
 
 ## **Show or Hide Comments When Opening a Presentation**
 
-Use [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) to access presentation-wide view settings. Use [IViewProperties.getShowComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getShowComments--) and [IViewProperties.setShowComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) to read or change the stored preference for whether comments should be shown when the presentation opens in PowerPoint or another compatible editor.
-
-This setting only controls the stored view preference. It does not add, remove, edit, or resolve comments. Hiding comments preserves their content, authors, positions, replies, and statuses. See [Presentation Comments](/slides/androidjava/presentation-comments/) for operations that change the comments themselves.
-
-The following example requires an existing `comments.pptx` containing comments. It prints the current visibility setting, requests that comments be hidden, and saves a new PPTX without removing any comments. It also uses [IViewProperties.setLastView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) with [ViewType.SlideView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewtype/#SlideView) to configure the initial editing view alongside comment visibility.
+[setShowComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) stores a preference that compatible editors use when opening the presentation. For an existing presentation with comments, this example prints the current setting and saves a copy with comments hidden. It also calls [setLastView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) with [ViewType.SlideView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewtype/#SlideView) so the copy opens in slide view.
 
 ```java
-import com.aspose.slides.NullableBool;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ViewType;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("comments.pptx");
 try {
-    byte showComments = presentation.getViewProperties().getShowComments();
-    System.out.println("Current comment visibility: " + showComments);
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current comment visibility: " + viewProperties.getShowComments());
 
-    presentation.getViewProperties().setShowComments(NullableBool.False);
-    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    viewProperties.setShowComments(NullableBool.False);
+    viewProperties.setLastView(ViewType.SlideView);
+
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-This setting does not determine whether comments are included in PDF, HTML, image, notes, or handout exports. Configure the relevant export-specific options separately.
+Hiding comments preserves their text, authors, positions, replies, and statuses. To change the comments themselves, see [Presentation Comments](/slides/androidjava/presentation-comments/). Export settings control whether comments appear in PDF, HTML, images, notes, or handouts.
 
 ## **FAQ**
 
-**Why is the grid not visible after I reopen the presentation?**
+**Why is the grid hidden when I reopen the presentation?**
 
-The file stores the grid spacing, but the editor controls whether the grid is displayed. Check the editor's grid visibility settings.
+The presentation stores the grid interval. To see the grid, enable grid visibility in the editor.
 
 **Does clearing drawing guides change the grid spacing?**
 
-No. Drawing guides and grid spacing are independent settings. Clearing guides leaves the stored grid interval unchanged.
+No. Adding, moving, or clearing a guide leaves the grid interval unchanged.
 
-**Can I set different view settings for different sections of a presentation?**
+**Can different sections of a presentation have different view settings?**
 
-[View settings](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) are defined at the presentation level ([Normal View](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewproperties/#getSlideViewProperties--)), not per section, so a single set of parameters applies to the entire document when it opens.
+No. [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) applies to the entire presentation.
 
-**Can I predefine different view states for different users?**
+**Can I save different view settings for different users?**
 
-No. The settings are stored in the file and are shared. Viewer applications may honor user preferences, but the file itself contains one set of view properties.
+The file stores one set of view properties for everyone. An editor may also apply a user's local preferences.
 
-**Can I prepare a template with predefined View Properties so new presentations open the same way?**
+**Can I save view settings in a template?**
 
-Yes. Because [view properties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) are stored at the presentation level, you can embed them in a template and create new documents from it with the same initial view configuration.
+Yes. Presentations created from the template inherit its saved view settings.
