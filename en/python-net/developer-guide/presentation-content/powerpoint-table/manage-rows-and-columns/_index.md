@@ -257,6 +257,54 @@ with slides.Presentation() as presentation:
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Apply Row or Column Banding**
+
+Set [horizontal_banding](https://reference.aspose.com/slides/python-net/aspose.slides/table/horizontal_banding/) to alternate row fills or [vertical_banding](https://reference.aspose.com/slides/python-net/aspose.slides/table/vertical_banding/) to alternate column fills. The table style supplies the band colors. To keep a particular cell the same color in every configuration, set its [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/fill_format/) to a solid fill.
+
+The example saves three versions of the same table. Only the two banding flags change between saves.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    column_widths = [100] * 4
+    row_heights = [50] * 4
+    
+    table = slide.shapes.add_table(40, 40, column_widths, row_heights)
+    table.style_preset = slides.TableStylePreset.MEDIUM_STYLE_2_ACCENT_1
+    table.first_row = False
+    table.first_col = False
+    table.last_row = False
+    table.last_col = False
+
+    for row in range(len(row_heights)):
+        for column in range(len(column_widths)):
+            table.rows[row][column].text_frame.text = f"{row + 1},{column + 1}"
+
+    fill = table.rows[1][1].cell_format.fill_format
+    fill.fill_type = slides.FillType.SOLID
+    fill.solid_fill_color.color = "#FFA500"
+
+    table.horizontal_banding = True
+    table.vertical_banding = False
+    presentation.save("rows.pptx", slides.export.SaveFormat.PPTX)
+
+    table.horizontal_banding = False
+    table.vertical_banding = True
+    presentation.save("columns.pptx", slides.export.SaveFormat.PPTX)
+
+    table.vertical_banding = False
+    presentation.save("off.pptx", slides.export.SaveFormat.PPTX)
+```
+
+In PowerPoint, cell `2,2` stays orange in all three versions. Its neighbors alternate in color by row or by column and share a single fill when both flags are off.
+
+| Row banding | Column banding | Both off |
+| --- | --- | --- |
+| ![Alternating row fills with cell 2,2 in orange.](row-banding.png) | ![Alternating column fills with cell 2,2 in orange.](column-banding.png) | ![Uniform fill except for the orange cell.](banding-off.png) |
+
 ## **FAQ**
 
 **Can I apply PowerPoint themes/styles to a table that's already created?**
@@ -269,4 +317,4 @@ No, Aspose.Slides tables don't have built-in sorting or filters. Sort your data 
 
 **Can I have banded (striped) columns while keeping custom colors on specific cells?**
 
-Yes. Turn on banded columns, then override specific cells with local formatting; cell-level formatting takes precedence over the table style.
+Yes. Enable banded columns and apply a local fill to the cells you want to highlight. See [Apply Row or Column Banding](#apply-row-or-column-banding).

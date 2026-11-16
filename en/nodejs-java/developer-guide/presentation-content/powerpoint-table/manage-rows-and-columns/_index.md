@@ -34,7 +34,7 @@ This article explains these operations with JavaScript examples. It also shows h
 
 ## **Control Row Height**
 
-Use [Row.setMinimalHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/row/#setMinimalHeight-double-) to set a row's minimum height in points. It is a lower bound, not a fixed height. [Row.getHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/row/#getHeight--) returns the actual height. Access the row through [Table.getRows](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#getRows--).
+Use [Row.setMinimalHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/row/#setMinimalHeight) to set a row's minimum height in points. It is a lower bound, not a fixed height. [Row.getHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/row/#getHeight) returns the actual height. Access the row through [Table.getRows](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#getRows).
 
 The example loads [row-height-input.pptx](row-height-input.pptx), which has a table as the first shape on the first slide. Its first row starts at 70 points. The cells use 18-point Arial text, wrapping, and 6-point top and bottom margins; the longer text in the second column wraps onto multiple lines. The example increases the minimum to 100 points, then decreases it to 20 points, prints the actual height after each change, and saves both results.
 
@@ -65,8 +65,8 @@ With the supplied presentation, increasing the minimum adds space to the row. De
 Several factors affect the actual height:
 
 - **Text and font size:** longer text, explicit line breaks, or a larger font can require more vertical space.
-- **Wrapping and column width:** with wrapping enabled, reducing the column width with [Column.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/column/#setWidth-double-) can produce more lines. A wider column can reduce the space required vertically.
-- **Cell margins:** [Cell.setMarginTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setMarginTop-double-) and [Cell.setMarginBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setMarginBottom-double-) add vertical space. [Cell.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setMarginLeft-double-) and [Cell.setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setMarginRight-double-) reduce the width available for text and can cause additional wrapping.
+- **Wrapping and column width:** with wrapping enabled, reducing the column width with [Column.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/column/#setWidth) can produce more lines. A wider column can reduce the space required vertically.
+- **Cell margins:** [Cell.setMarginTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setMarginTop) and [Cell.setMarginBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setMarginBottom) add vertical space. [Cell.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setMarginLeft) and [Cell.setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setMarginRight) reduce the width available for text and can cause additional wrapping.
 
 For this table without merged cells, the cell that needs the most vertical space determines the content-driven lower limit for the entire row. To make the row shorter, you may also need to shorten the text, reduce the font size or margins, or widen a column.
 
@@ -78,7 +78,7 @@ The images below show the same table at the same scale. In the illustrated resul
 
 ## **Set the First Row as a Header**
 
-Use the [setFirstRow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setFirstRow-boolean-) method to mark the first row for header formatting. Its appearance depends on the table style applied to the table.
+Use the [setFirstRow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setFirstRow) method to mark the first row for header formatting. Its appearance depends on the table style applied to the table.
 
 1. Load the presentation with the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the first slide.
@@ -111,7 +111,7 @@ Clone rows or columns to reuse their content and formatting. You can append a co
 1. Load the presentation with the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the first slide.
 3. Define the column widths and row heights.
-4. Add a table with the [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addTable-float-float-double---double---) method.
+4. Add a table with the [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addTable) method.
 5. Clone the required rows.
 6. Clone the required columns.
 7. Save the modified presentation.
@@ -154,7 +154,7 @@ Remove rows or columns that are no longer needed in a table. Removing an item sh
 1. Create a presentation with the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the first slide.
 3. Define the column widths and row heights.
-4. Add a table with the [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addTable-float-float-double---double---) method.
+4. Add a table with the [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addTable) method.
 5. Remove the second row and second column.
 6. Save the modified presentation.
 
@@ -187,9 +187,9 @@ Apply text formatting to an entire row to keep its cells consistent. You can set
 
 1. Load the presentation with the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the table on the first slide.
-3. Use [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) for the first row.
-4. Use [setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) and [setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-) for the first row.
-5. Use [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) for the second row.
+3. Use [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) for the first row.
+4. Use [setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment) and [setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight) for the first row.
+5. Use [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType) for the second row.
 6. Save the modified presentation.
 
 The example requires `table.pptx` with a table as the first shape on the first slide and at least two rows. It applies 25-point text, right alignment, and a 20-point right paragraph margin to the first row, then sets vertical text in the second row.
@@ -229,9 +229,9 @@ Apply text formatting to an entire column to keep its cells consistent. You can 
 
 1. Load the presentation with the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the table on the first slide.
-3. Use [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) for the first column.
-4. Use [setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) and [setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-) for the first column.
-5. Use [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) for the second column.
+3. Use [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) for the first column.
+4. Use [setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment) and [setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight) for the first column.
+5. Use [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType) for the second column.
 6. Save the modified presentation.
 
 The example requires `table.pptx` with a table as the first shape on the first slide and at least two columns. It applies 25-point text, right alignment, and a 20-point right paragraph margin to the first column, then sets vertical text in the second column.
@@ -267,7 +267,7 @@ try {
 
 ## **Get Table Style Properties**
 
-Use the [getStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#getStylePreset--) method to retrieve the preset applied to a table and reuse it on another table. This identifies the preset rather than individual cell formatting overrides.
+Use the [getStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#getStylePreset) method to retrieve the preset applied to a table and reuse it on another table. This identifies the preset rather than individual cell formatting overrides.
 
 The example creates a table, applies [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tablestylepreset/#DarkStyle1), and reads the preset back. It prints the integer value corresponding to `DarkStyle1` and saves the table in `table.pptx`.
 
@@ -293,6 +293,62 @@ try {
 }
 ```
 
+## **Apply Row or Column Banding**
+
+Use [setHorizontalBanding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setHorizontalBanding) to alternate row fills or [setVerticalBanding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setVerticalBanding) to alternate column fills. The table style supplies the band colors. To keep a particular cell the same color in every configuration, use [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/#getFillFormat) to apply a solid fill.
+
+The example saves three versions of the same table. Only the two banding flags change between saves.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [100, 100, 100, 100]);
+    const rowHeights = java.newArray("double", [50, 50, 50, 50]);
+
+    const table = slide.getShapes().addTable(40, 40, columnWidths, rowHeights);
+    table.setStylePreset(slides.TableStylePreset.MediumStyle2Accent1);
+    table.setFirstRow(false);
+    table.setFirstCol(false);
+    table.setLastRow(false);
+    table.setLastCol(false);
+
+    for (let row = 0; row < rowHeights.length; row++) {
+        for (let column = 0; column < columnWidths.length; column++) {
+            table.get_Item(column, row).getTextFrame().setText((row + 1) + "," + (column + 1));
+        }
+    }
+
+    const fill = table.get_Item(1, 1).getCellFormat().getFillFormat();
+    fill.setFillType(java.newByte(slides.FillType.Solid));
+    const orange = java.newInstanceSync("java.awt.Color", 255, 165, 0);
+    fill.getSolidFillColor().setColor(orange);
+
+    table.setHorizontalBanding(true);
+    table.setVerticalBanding(false);
+    presentation.save("rows.pptx", slides.SaveFormat.Pptx);
+
+    table.setHorizontalBanding(false);
+    table.setVerticalBanding(true);
+    presentation.save("columns.pptx", slides.SaveFormat.Pptx);
+
+    table.setVerticalBanding(false);
+    presentation.save("off.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+In PowerPoint, cell `2,2` stays orange in all three versions. Its neighbors alternate in color by row or by column and share a single fill when both flags are off.
+
+| Row banding | Column banding | Both off |
+| --- | --- | --- |
+| ![Alternating row fills with cell 2,2 in orange.](row-banding.png) | ![Alternating column fills with cell 2,2 in orange.](column-banding.png) | ![Uniform fill except for the orange cell.](banding-off.png) |
+
 ## **FAQ**
 
 **Can I apply PowerPoint themes/styles to a table that's already created?**
@@ -305,4 +361,4 @@ No, Aspose.Slides tables don't have built-in sorting or filters. Sort your data 
 
 **Can I have banded (striped) columns while keeping custom colors on specific cells?**
 
-Yes. Turn on banded columns, then override specific cells with local formatting; cell-level formatting takes precedence over the table style.
+Yes. Enable banded columns and apply a local fill to the cells you want to highlight. See [Apply Row or Column Banding](#apply-row-or-column-banding).

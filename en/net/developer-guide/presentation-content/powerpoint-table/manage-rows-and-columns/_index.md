@@ -258,6 +258,60 @@ Console.WriteLine(table.StylePreset);
 presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
+## **Apply Row or Column Banding**
+
+Set [HorizontalBanding](https://reference.aspose.com/slides/net/aspose.slides/itable/horizontalbanding/) to alternate row fills or [VerticalBanding](https://reference.aspose.com/slides/net/aspose.slides/itable/verticalbanding/) to alternate column fills. The table style supplies the band colors. To keep a particular cell the same color in every configuration, set its [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/icellformat/fillformat/) to a solid fill.
+
+The example saves three versions of the same table. Only the two banding flags change between saves.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var widths = new double[] { 100, 100, 100, 100 };
+var heights = new double[] { 50, 50, 50, 50 };
+
+var table = slide.Shapes.AddTable(40, 40, widths, heights);
+table.StylePreset = TableStylePreset.MediumStyle2Accent1;
+table.FirstRow = false;
+table.FirstCol = false;
+table.LastRow = false;
+table.LastCol = false;
+
+for (int row = 0; row < heights.Length; row++)
+{
+    for (int column = 0; column < widths.Length; column++)
+    {
+        table[column, row].TextFrame.Text = $"{row + 1},{column + 1}";
+    }
+}
+
+var fill = table[1, 1].CellFormat.FillFormat;
+fill.FillType = FillType.Solid;
+fill.SolidFillColor.Color = Color.Orange;
+
+table.HorizontalBanding = true;
+table.VerticalBanding = false;
+presentation.Save("rows.pptx", SaveFormat.Pptx);
+
+table.HorizontalBanding = false;
+table.VerticalBanding = true;
+presentation.Save("columns.pptx", SaveFormat.Pptx);
+
+table.VerticalBanding = false;
+presentation.Save("off.pptx", SaveFormat.Pptx);
+```
+
+In PowerPoint, cell `2,2` stays orange in all three versions. Its neighbors alternate in color by row or by column and share a single fill when both flags are off.
+
+| Row banding | Column banding | Both off |
+| --- | --- | --- |
+| ![Alternating row fills with cell 2,2 in orange.](row-banding.png) | ![Alternating column fills with cell 2,2 in orange.](column-banding.png) | ![Uniform fill except for the orange cell.](banding-off.png) |
+
 ## **FAQ**
 
 **Can I apply PowerPoint themes/styles to a table that's already created?**
@@ -270,4 +324,4 @@ No, Aspose.Slides tables don't have built-in sorting or filters. Sort your data 
 
 **Can I have banded (striped) columns while keeping custom colors on specific cells?**
 
-Yes. Turn on banded columns, then override specific cells with local formatting; cell-level formatting takes precedence over the table style.
+Yes. Enable banded columns and apply a local fill to the cells you want to highlight. See [Apply Row or Column Banding](#apply-row-or-column-banding).
